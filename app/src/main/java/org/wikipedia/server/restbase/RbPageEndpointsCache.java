@@ -3,6 +3,7 @@ package org.wikipedia.server.restbase;
 import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.settings.Prefs;
 
 import com.google.gson.GsonBuilder;
 
@@ -37,7 +38,7 @@ public final class RbPageEndpointsCache {
         final String domain = site.getApiDomain();
         final WikipediaApp app = WikipediaApp.getInstance();
         RestAdapter restAdapter = new RestAdapter.Builder()
-                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setLogLevel(Prefs.getRetrofitLogLevel())
 
                 .setClient(new OkClient(OkHttpConnectionFactory.createClient(app)))
 

@@ -8,6 +8,8 @@
     <string name="preferences_developer_misc_heading">Miscellaneous</string>
     <string name="preferences_developer_onboarding_heading">Onboarding</string>
     <string name="preferences_developer_feature_testing_heading">A/B feature testing</string>
+    <string name="preferences_developer_logging_heading">Logging</string>
+    <string name="preferences_developer_retrofit_log_level">Retrofit Log Level (restart required)</string>
     <string name="preferences_developer_crash_key">crash</string>
     <string name="preferences_developer_crash_title">Crash</string>
     <string name="preferences_developer_crash_summary">Tap here to crash the app</string>

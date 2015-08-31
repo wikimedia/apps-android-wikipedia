@@ -39,6 +39,17 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/preferences_developer_logging_heading">
+
+        <ListPreference
+            android:key="@string/preference_key_retrofit_log_level"
+            android:title="@string/preferences_developer_retrofit_log_level"
+            android:entries="@array/preference_values_retrofit_log"
+            android:entryValues="@array/preference_values_retrofit_log"
+            android:summary="%s" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
 
         <!--suppress AndroidUnknownAttribute -->

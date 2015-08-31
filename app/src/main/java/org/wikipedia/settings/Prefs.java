@@ -1,14 +1,16 @@
 package org.wikipedia.settings;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.data.GsonMarshaller;
 import org.wikipedia.data.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
+
+import retrofit.RestAdapter;
+
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.util.Collections;
 import java.util.List;
@@ -230,6 +232,26 @@ public final class Prefs {
 
     public static boolean forceRestbaseUsage() {
         return getBoolean(R.string.preference_key_use_restbase, false);
+    }
+
+    public static RestAdapter.LogLevel getRetrofitLogLevel() {
+        String prefValue = getString(R.string.preference_key_retrofit_log_level, null);
+        if (prefValue == null) {
+            return RestAdapter.LogLevel.NONE;
+        }
+        switch (prefValue) {
+            case "BASIC":
+                return RestAdapter.LogLevel.BASIC;
+            case "HEADERS":
+                return RestAdapter.LogLevel.HEADERS;
+            case "HEADERS_AND_ARGS":
+                return RestAdapter.LogLevel.HEADERS_AND_ARGS;
+            case "FULL":
+                return RestAdapter.LogLevel.FULL;
+            case "NONE":
+            default:
+                return RestAdapter.LogLevel.NONE;
+        }
     }
 
     public static long getLastRunTime(@NonNull String task) {

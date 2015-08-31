@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="preference_values_retrofit_log">
+        <item>NONE</item>
+        <item>BASIC</item>
+        <item>HEADERS</item>
+        <item>HEADERS_AND_ARGS</item>
+        <item>FULL</item>
+    </string-array>
+</resources>
