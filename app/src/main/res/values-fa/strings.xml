@@ -42,6 +42,7 @@
   <string name="menu_page_font_and_theme">تغییر فونت و پوسته</string>
   <string name="menu_long_press_open_page" fuzzy="true">باز کردن پیوند</string>
   <string name="menu_long_press_open_in_new_tab">باز کردن در برگهٔ جدید</string>
+  <string name="menu_long_press_copy_page">کپی نشانی پیوند</string>
   <string name="nav_item_nearby">در نزدیکی</string>
   <string name="menu_update_nearby">به‌روزرسانی درنزدیکی</string>
   <string name="nearby_empty_title">صفحه‌ای در نزدیکی یافت نشد!</string>
@@ -96,7 +97,7 @@
   <string name="login_error_wrong_password">گذرواژهٔ نادرست</string>
   <string name="login_error_wrong_username">نام کاربری نادرست</string>
   <string name="login_error_illegal">نام کاربری نادرست</string>
-  <string name="login_success_toast" fuzzy="true">ورود موفق!</string>
+  <string name="login_success_toast">ورود با موفقیت!</string>
   <string name="login_error_blocked">این کاربر بسته شده است</string>
   <string name="login_error_throttled">تلاش برای ورود به سامانه بیش از حد بوده‌است. برای چند دقیقه صبر می‌کنید.</string>
   <string name="login_error_unknown">ورود ناموفق :(</string>
@@ -283,4 +284,6 @@
   <string name="error_unknown">خطای ناشناخته رخ داده است.</string>
   <string name="format_error_server_message">پیام: \"%s\"</string>
   <string name="format_error_server_code">کد: \"%s\"</string>
+  <string name="address_copied">نشانی در حافظه موقت ذخیره شد</string>
+  <string name="button_continue_to_article">ادامه برای مقاله</string>
 </resources>

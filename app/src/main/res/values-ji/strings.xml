@@ -111,6 +111,7 @@
   <string name="create_account_username_exists_error">באניצער־נאמען שוין אין באניץ</string>
   <string name="create_account_ip_throttle_error">צופיל קאנטעס געשאפן פון דעם IP־אדרעס. פרובירט נאכאמאל שפעטער.</string>
   <string name="create_account_open_proxy_error">דער דאזיגער IP־אדרעס איז געווארן בלאקירט פון שאפן קאנטעס.</string>
+  <string name="create_account_noname_error">דעם באניצער־נאמען איר האט באזארגט איז אומגילטיגן. זײַט אזוי גוט באזארגן אן אנדער באניצער־נאמען.</string>
   <string name="create_account_invalid_email_error">דעם ע־פאסט אדרעס וואס איר האט פארזארגט איז אומגילטיק.</string>
   <string name="create_account_password_too_short_error">דאס פאסווארט איר האט אײַנגעגעבן איז תו קורץ.</string>
   <string name="create_account_blocked_anon_error">איר קענט נישט שאפן א קאנטע ווײל אייער IP־אדרעס איז בלאקירט.</string>
@@ -162,13 +163,17 @@
   <string name="edit_next">נעקסט</string>
   <string name="edit_done">אויפֿהיטן</string>
   <string name="edit_preview">פֿאראויסשטעלונג</string>
+  <string name="edit_summary_tag_typo">פארראכטן טיפן־פעלער</string>
   <string name="edit_summary_tag_grammar">פארראכטן גראמאטיק</string>
   <string name="edit_summary_tag_links">צוגעלייגט לינקען</string>
   <string name="edit_summary_tag_other">אנדער</string>
+  <string name="edit_summary_tag_other_hint">אנדערע וועגן איר האט פארבעסערט דעם בלאט</string>
   <string name="find_next">זוכן נעקסטע</string>
   <string name="find_previous">זוכן פריערדיקע</string>
   <string name="saved_pages_update_all_error_retry">פרובירן ווידער</string>
+  <string name="saved_pages_refresh_pages_complete">דערהיינטיקונג פֿארטיק</string>
   <string name="menu_page_saved">בלאט אויפגעהיטן</string>
+  <string name="menu_refresh_saved_page">אקטואליזירן בלאט</string>
   <string name="dialog_page_issues">בלאט־פֿראגעס</string>
   <string name="button_page_issues">בלאט־פֿראגעס</string>
   <string name="text_size_select">פֿאנט גרייס</string>
@@ -199,7 +204,10 @@
   <string name="share_normal_button">טיילן אלס טעקסט</string>
   <string name="snippet_share_preview_image_desc">פארויסקוקן בילד</string>
   <string name="cc_logo">קריעטיוו־קאמאנס ליצענץ</string>
+  <string name="gallery_fair_use_license">געהעריגער באניץ</string>
   <string name="gallery_uploader_unknown">ארויפלאדיר אומבאקאנט</string>
   <string name="edit_save_unknown_error">נישט געווען מעגלעך אויפצוהיטן אייער רעדאקטירונג: %s</string>
+  <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
+  <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="format_error_server_code">קאד: \"%s\"</string>
 </resources>
