@@ -57,7 +57,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 10
         targetSdkVersion 22
-        versionCode 109
+        versionCode 110
         testApplicationId 'org.wikipedia.test'
     }
 
