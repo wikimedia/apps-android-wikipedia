@@ -330,7 +330,7 @@ transformer.register( "hideIPA", function( content ) {
 
 transformer.register( "section", function( content ) {
 	if ( window.isNightMode ) {
-		night.invertElement ( content );
+		night.setImageBackgroundsForDarkMode( content );
 	}
 	return content;
 } );
