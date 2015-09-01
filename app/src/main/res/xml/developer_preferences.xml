@@ -18,8 +18,8 @@
         <!--android:title="@string/preference_key_exp_html_page_load" />-->
 
         <CheckBoxPreference
-            android:key="@string/preference_key_exp_json_page_load"
-            android:title="@string/preference_key_exp_json_page_load" />
+            android:key="@string/preference_key_use_restbase"
+            android:title="@string/preference_key_use_restbase" />
 
     </PreferenceCategory>
 

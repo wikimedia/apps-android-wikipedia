@@ -1,6 +1,7 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.server.restbase;
 
 import org.wikipedia.server.BasePageLeadTest;
+import org.wikipedia.server.mwapi.MwPageLead;
 import org.wikipedia.test.TestRunner;
 
 import org.junit.Before;
@@ -15,35 +16,25 @@ import com.google.gson.GsonBuilder;
  * Note the ApiService uses formatversion=2 for requests which return booleans in the responses.
  */
 @RunWith(TestRunner.class)
-public class MwPageLeadTest extends BasePageLeadTest {
-
+public class RbPageLeadTest extends BasePageLeadTest {
     private Gson gson;
 
     @Before
     public void setUp() throws Exception {
         gson = new GsonBuilder()
-                .registerTypeAdapter(MwPageLead.Protection.class, new MwPageLead.Protection.Deserializer())
+                .registerTypeAdapter(RbPageLead.Protection.class, new RbPageLead.Protection.Deserializer())
                 .create();
-    }
-
-    private String wrapInMobileview(String json) {
-        return "{\"mobileview\":" + json + "}";
     }
 
     @Test
     public void testEnglishMainPage() throws Exception {
-        MwPageLead pageLead
-                = gson.fromJson(wrapInMobileview(getEnglishMainPageJson()), MwPageLead.class);
-        MwPageLead.Mobileview props = pageLead.getMobileview();
+        RbPageLead props = gson.fromJson(getEnglishMainPageJson(), RbPageLead.class);
         verifyEnglishMainPage(props);
     }
 
     @Test
     public void testUnprotectedDisambiguationPage() throws Exception {
-        MwPageLead pageLead
-                = gson.fromJson(wrapInMobileview(getUnprotectedDisambiguationPageJson()),
-                MwPageLead.class);
-        MwPageLead.Mobileview props = pageLead.getMobileview();
+        RbPageLead props = gson.fromJson(getUnprotectedDisambiguationPageJson(), RbPageLead.class);
         verifyUnprotectedDisambiguationPage(props);
     }
 
@@ -53,10 +44,7 @@ public class MwPageLeadTest extends BasePageLeadTest {
      */
     @Test
     public void testProtectedButNoEditProtectionPage() throws Exception {
-        MwPageLead pageLead
-                = gson.fromJson(wrapInMobileview(getProtectedButNoEditProtectionPageJson()),
-                MwPageLead.class);
-        MwPageLead.Mobileview props = pageLead.getMobileview();
+        RbPageLead props = gson.fromJson(getProtectedButNoEditProtectionPageJson(), RbPageLead.class);
         verifyProtectedNoEditProtectionPage(props);
     }
 

@@ -149,7 +149,11 @@ public class Page {
 
     /** For new RESTBase API */
     public void augmentRemainingSections(List<Section> remainingSections) {
-        for (int i = 1; i < remainingSections.size(); i++) {
+        for (int i = 1; i <= remainingSections.size(); i++) {
+            // TODO: make sure that the ids match (later when we use Parsoid then we can request
+            // the same revision as in the lead section, so it should match).
+            // Just not sure what we should do in case the id's don't match.
+            // Oh well, more motivation for us to use Parsoid.
             sections.get(i).setContent(remainingSections.get(i - 1).getContent());
         }
     }

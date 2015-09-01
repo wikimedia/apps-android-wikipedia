@@ -6,6 +6,8 @@ import org.wikipedia.server.PageRemaining;
 
 import com.google.gson.annotations.Expose;
 
+import android.support.annotation.Nullable;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -13,7 +15,7 @@ import java.util.List;
  * Gson POJO for loading remaining page content.
  */
 public class MwPageRemaining implements PageRemaining {
-    @Expose private Mobileview mobileview;
+    @Expose @Nullable private Mobileview mobileview;
 
     @Override
     public void mergeInto(Page page) {
@@ -36,6 +38,7 @@ public class MwPageRemaining implements PageRemaining {
         @Expose
         private List<Section> sections;
 
+        @Nullable
         public List<Section> getSections() {
             return sections;
         }

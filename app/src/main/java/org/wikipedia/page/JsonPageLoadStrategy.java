@@ -659,7 +659,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         if (pageLead.hasError()) {
             ServiceError error = pageLead.getError();
             if (error != null) {
-                ApiException apiException = new ApiException(error.getCode(), error.getInfo());
+                ApiException apiException = new ApiException(error.getTitle(), error.getDetails());
                 commonSectionFetchOnCatch(apiException, startSequenceNum);
             } else {
                 ApiException apiException

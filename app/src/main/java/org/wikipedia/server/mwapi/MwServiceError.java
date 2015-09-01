@@ -12,11 +12,11 @@ public class MwServiceError implements ServiceError {
     @Expose private String info;
     @Expose private String docref;
 
-    public String getCode() {
+    public String getTitle() {
         return code;
     }
 
-    public String getInfo() {
+    public String getDetails() {
         return info;
     }
 

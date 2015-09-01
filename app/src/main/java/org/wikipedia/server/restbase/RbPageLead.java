@@ -1,4 +1,5 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.server.restbase;
+
 import org.wikipedia.Utils;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
@@ -14,10 +15,9 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -25,18 +25,32 @@ import java.util.List;
 /**
  * Gson POJO for loading the first stage of page content.
  */
-public class MwPageLead implements PageLead {
-    @Expose private MwServiceError error;
-    @Expose private Mobileview mobileview;
+public class RbPageLead implements PageLead, PageLeadProperties {
+    @Expose private RbServiceError error;
+    @Expose private int id;
+    @Expose private long revision;
+    @Expose @Nullable private String lastmodified;
+    @Expose @Nullable private String displaytitle;
+    @Expose @Nullable private String redirected;
+    @Expose @Nullable private String normalizedtitle;
+    @Expose private int languagecount;
+    @Expose private boolean editable;
+    @Expose private boolean mainpage;
+    @Expose private boolean disambiguation;
+    @Expose @Nullable private String description;
+    @Expose @Nullable private Image image;
+    @Expose @Nullable private Protection protection;
+    @Expose @Nullable private List<Section> sections;
+
+    private transient int leadImageThumbWidth;
 
     @Override
     public boolean hasError() {
-        // if mobileview is not set something went terribly wrong
-        return error != null || mobileview == null;
+        return error != null;
     }
 
     @Nullable
-    public MwServiceError getError() {
+    public RbServiceError getError() {
         return error;
     }
 
@@ -49,132 +63,109 @@ public class MwPageLead implements PageLead {
 
     /** Note: before using this check that #getMobileview != null */
     @Override
-    public Page toPage(@NonNull PageTitle title) {
+    public Page toPage(PageTitle title) {
         return new Page(adjustPageTitle(title),
-                mobileview.getSections(),
-                mobileview.toPageProperties());
+                getSections(),
+                toPageProperties());
     }
 
-    private PageTitle adjustPageTitle(@NonNull PageTitle title) {
-        if (mobileview.getRedirected() != null) {
+    /* package */ PageTitle adjustPageTitle(PageTitle title) {
+        if (redirected != null) {
             // Handle redirects properly.
-            title = new PageTitle(mobileview.getRedirected(), title.getSite(),
-                    title.getThumbUrl());
-        } else if (mobileview.getNormalizedTitle() != null) {
+            title = new PageTitle(redirected, title.getSite(), title.getThumbUrl());
+        } else if (normalizedtitle != null) {
             // We care about the normalized title only if we were not redirected
-            title = new PageTitle(mobileview.getNormalizedTitle(), title.getSite(),
-                    title.getThumbUrl());
+            title = new PageTitle(normalizedtitle, title.getSite(), title.getThumbUrl());
         }
         return title;
     }
 
     public String getLeadSectionContent() {
-        if (mobileview != null) {
-            return mobileview.getSections().get(0).getContent();
+        if (sections != null) {
+            return getSections().get(0).getContent();
         } else {
             return "";
         }
     }
 
-    @VisibleForTesting
-    public Mobileview getMobileview() {
-        return mobileview;
+
+
+    /** Converter */
+    public PageProperties toPageProperties() {
+        return new PageProperties(this);
     }
 
+    public int getId() {
+        return id;
+    }
 
-    /**
-     * Almost everything is in this inner class.
-     */
-    public static class Mobileview implements PageLeadProperties {
-        @Expose private int id;
-        @Expose private long revision;
-        @Expose @Nullable private String lastmodified;
-        @Expose @Nullable private String displaytitle;
-        @Expose @Nullable private String redirected;
-        @Expose @Nullable private String normalizedtitle;
-        @Expose private int languagecount;
-        @Expose private boolean editable;
-        @Expose private boolean mainpage;
-        @Expose private boolean disambiguation;
-        @Expose @Nullable private String description;
-        @Expose @Nullable private Image image;
-        @Expose @Nullable private Thumb thumb;
-        @Expose @Nullable private Protection protection;
-        @Expose @Nullable private List<Section> sections;
+    public long getRevision() {
+        return revision;
+    }
 
-        /** Converter */
-        public PageProperties toPageProperties() {
-            return new PageProperties(this);
-        }
+    @Nullable
+    public String getLastModified() {
+        return lastmodified;
+    }
 
-        public int getId() {
-            return id;
-        }
+    public int getLanguageCount() {
+        return languagecount;
+    }
 
-        public long getRevision() {
-            return revision;
-        }
+    @Nullable
+    public String getDisplayTitle() {
+        return displaytitle;
+    }
 
-        @Nullable
-        public String getLastModified() {
-            return lastmodified;
-        }
+    @Nullable
+    public String getRedirected() {
+        return redirected;
+    }
 
-        public int getLanguageCount() {
-            return languagecount;
-        }
+    @Nullable
+    public String getNormalizedTitle() {
+        return normalizedtitle;
+    }
 
-        @Nullable
-        public String getDisplayTitle() {
-            return displaytitle;
-        }
+    @Nullable
+    public String getDescription() {
+        return Utils.capitalizeFirstChar(description);
+    }
 
-        @Nullable
-        public String getRedirected() {
-            return redirected;
-        }
+    @Nullable
+    public String getLeadImageUrl() {
+        return image != null ? image.getUrl(leadImageThumbWidth) : null;
+    }
 
-        @Nullable
-        public String getNormalizedTitle() {
-            return normalizedtitle;
-        }
+    @Nullable
+    public String getLeadImageName() {
+        return image != null ? image.getFile() : null;
+    }
 
-        @Nullable
-        public String getDescription() {
-            return Utils.capitalizeFirstChar(description);
-        }
+    @Nullable
+    public String getFirstAllowedEditorRole() {
+        return protection != null ? protection.getFirstAllowedEditorRole() : null;
+    }
 
-        @Nullable
-        public String getLeadImageUrl() {
-            return thumb != null ? thumb.getUrl() : null;
-        }
+    public boolean isEditable() {
+        return editable;
+    }
 
-        @Nullable
-        public String getLeadImageName() {
-            return image != null ? image.getFile() : null;
-        }
+    public boolean isMainPage() {
+        return mainpage;
+    }
 
-        @Nullable
-        public String getFirstAllowedEditorRole() {
-            return protection != null ? protection.getFirstAllowedEditorRole() : null;
-        }
+    public boolean isDisambiguation() {
+        return disambiguation;
+    }
 
-        public boolean isEditable() {
-            return editable;
-        }
+    @Nullable
+    public List<Section> getSections() {
+        return sections;
+    }
 
-        public boolean isMainPage() {
-            return mainpage;
-        }
-
-        public boolean isDisambiguation() {
-            return disambiguation;
-        }
-
-        @Nullable
-        public List<Section> getSections() {
-            return sections;
-        }
+    public void setLeadImageThumbWidth(int leadImageThumbWidth) {
+        this.leadImageThumbWidth = leadImageThumbWidth;
     }
 
 
@@ -183,20 +174,42 @@ public class MwPageLead implements PageLead {
      */
     public static class Image {
         @Expose private String file;
+        @Expose private ThumbUrls urls;
 
         public String getFile() {
             return file;
         }
+
+        @Nullable
+        public String getUrl(int leadImageThumbWidth) {
+            return urls != null ? urls.get(leadImageThumbWidth) : null;
+        }
     }
 
-    /**
-     * For the lead image URL
-     */
-    public static class Thumb {
-        @Expose private String url;
 
-        public String getUrl() {
-            return url;
+    /**
+     * For the lead image URLs
+     */
+    public static class ThumbUrls {
+        private static final int SMALL = 640;
+        private static final int MEDIUM = 800;
+        private static final int LARGE = 1024;
+        @Expose @SerializedName("640") private String small;
+        @Expose @SerializedName("800") private String medium;
+        @Expose @SerializedName("1024") private String large;
+
+        @Nullable
+        public String get(int leadImageThumbWidth) {
+            switch (leadImageThumbWidth) {
+                case SMALL:
+                    return small;
+                case MEDIUM:
+                    return medium;
+                case LARGE:
+                    return large;
+                default:
+                    return null;
+            }
         }
     }
 

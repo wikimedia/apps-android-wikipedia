@@ -1,4 +1,4 @@
-package org.wikipedia.server.mwapi;
+package org.wikipedia.server.restbase;
 
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
@@ -12,27 +12,29 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.http.GET;
+import retrofit.http.Path;
 import retrofit.http.Query;
 
 /**
- * Retrofit web service client for MediaWiki PHP API.
+ * Retrofit web service client for RESTBase Nodejs API.
  */
-public class MwPageService implements PageService {
-    private final MwPageEndpoints webService;
+public class RbPageService implements PageService {
+    private final RbPageEndpoints webService;
     private WikipediaZeroHandler responseHeaderHandler;
 
-    public MwPageService(final Site site) {
+    public RbPageService(final Site site) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        webService = MwPageEndpointsCache.INSTANCE.getMwPageEndpoints(site);
+        webService = RbPageEndpointsCache.INSTANCE.getRbPageEndpoints(site);
     }
 
     @Override
-    public void pageLead(String title, int leadImageThumbWidth, boolean noImages,
+    public void pageLead(String title, final int leadImageThumbWidth, boolean noImages,
                          final PageLead.Callback cb) {
-        webService.pageLead(title, leadImageThumbWidth, optional(noImages), new Callback<MwPageLead>() {
+        webService.pageLead(title, optional(noImages), new Callback<RbPageLead>() {
             @Override
-            public void success(MwPageLead pageLead, Response response) {
+            public void success(RbPageLead pageLead, Response response) {
                 responseHeaderHandler.onHeaderCheck(response);
+                pageLead.setLeadImageThumbWidth(leadImageThumbWidth);
                 cb.success(pageLead, response);
             }
 
@@ -45,9 +47,9 @@ public class MwPageService implements PageService {
 
     @Override
     public void pageRemaining(String title, boolean noImages, final PageRemaining.Callback cb) {
-        webService.pageRemaining(title, optional(noImages), new Callback<MwPageRemaining>() {
+        webService.pageRemaining(title, optional(noImages), new Callback<RbPageRemaining>() {
             @Override
-            public void success(MwPageRemaining pageRemaining, Response response) {
+            public void success(RbPageRemaining pageRemaining, Response response) {
                 cb.success(pageRemaining, response);
             }
 
@@ -60,9 +62,9 @@ public class MwPageService implements PageService {
 
     @Override
     public void pageCombo(String title, boolean noImages, final PageCombo.Callback cb) {
-        webService.pageCombo(title, optional(noImages), new Callback<MwPageCombo>() {
+        webService.pageCombo(title, optional(noImages), new Callback<RbPageCombo>() {
             @Override
-            public void success(MwPageCombo pageCombo, Response response) {
+            public void success(RbPageCombo pageCombo, Response response) {
                 cb.success(pageCombo, response);
             }
 
@@ -88,35 +90,28 @@ public class MwPageService implements PageService {
     /**
      * Retrofit endpoints for MW API endpoints.
      */
-    interface MwPageEndpoints {
+    interface RbPageEndpoints {
         /**
          * Gets the lead section and initial metadata of a given title.
          *
          * @param title the page title with prefix if necessary
-         * @param leadImageThumbWidth one of the bucket widths for the lead image
          * @param noImages add the noimages flag to the request if true
-         * @param cb a Retrofit callback which provides the populated MwPageLead object in #success
+         * @param cb a Retrofit callback which provides the populated RbPageLead object in #success
          */
-        @GET("/w/api.php?action=mobileview&format=json&formatversion=2&prop="
-                + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
-                + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
-                + "&onlyrequestedsections=1&sections=0&sectionprop=toclevel%7Cline%7Canchor"
-                + "&noheadings=true")
-        void pageLead(@Query("page") String title, @Query("thumbsize") int leadImageThumbWidth,
-                      @Query("noimages") Boolean noImages, Callback<MwPageLead> cb);
+        @GET("/api/rest_v1/page/mobile-html-sections-lead/{title}")
+        void pageLead(@Path("title") String title, @Query("noimages") Boolean noImages,
+                      Callback<RbPageLead> cb);
 
         /**
          * Gets the remaining sections of a given title.
          *
          * @param title the page title to be used including prefix
          * @param noImages add the noimages flag to the request if true
-         * @param cb a Retrofit callback which provides the populated MwPageRemaining object in #success
+         * @param cb a Retrofit callback which provides the populated RbPageRemaining object in #success
          */
-        @GET("/w/api.php?action=mobileview&format=json&prop="
-                + "text%7Csections&onlyrequestedsections=1&sections=1-"
-                + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
-        void pageRemaining(@Query("page") String title, @Query("noimages") Boolean noImages,
-                           Callback<MwPageRemaining> cb);
+        @GET("/api/rest_v1/page/mobile-html-sections-remaining/{title}")
+        void pageRemaining(@Path("title") String title, @Query("noimages") Boolean noImages,
+                           Callback<RbPageRemaining> cb);
 
         /**
          * Gets all page content of a given title -- for refreshing a saved page
@@ -124,14 +119,10 @@ public class MwPageService implements PageService {
          *
          * @param title the page title to be used including prefix
          * @param noImages add the noimages flag to the request if true
-         * @param cb a Retrofit callback which provides the populated MwPageCombo object in #success
+         * @param cb a Retrofit callback which provides the populated RbPageCombo object in #success
          */
-        @GET("/w/api.php?action=mobileview&format=json&formatversion=2&prop="
-                + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
-                + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
-                + "&onlyrequestedsections=1&sections=all&sectionprop=toclevel%7Cline%7Canchor"
-                + "&noheadings=true")
-        void pageCombo(@Query("page") String title, @Query("noimages") Boolean noImages,
-                       Callback<MwPageCombo> cb);
+        @GET("/api/rest_v1/page/mobile-html-sections/{title}")
+        void pageCombo(@Path("title") String title, @Query("noimages") Boolean noImages,
+                       Callback<RbPageCombo> cb);
     }
 }

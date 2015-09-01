@@ -2,6 +2,7 @@ package org.wikipedia.server;
 
 import org.wikipedia.Site;
 import org.wikipedia.server.mwapi.MwPageService;
+import org.wikipedia.server.restbase.RbPageService;
 import org.wikipedia.settings.Prefs;
 
 /**
@@ -11,9 +12,8 @@ import org.wikipedia.settings.Prefs;
  */
 public final class PageServiceFactory {
     public static PageService create(Site site) {
-        if (Prefs.isExperimentalJsonPageLoadEnabled()) {
-            // Currently the same. TODO: add new RESTBase service client
-            return new MwPageService(site);
+        if (Prefs.forceRestbaseUsage()) {
+            return new RbPageService(site);
         } else {
             return new MwPageService(site);
         }
