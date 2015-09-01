@@ -67,7 +67,7 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
+                android:layoutDirection="ltr"
                 android:text="@string/contributors_list"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textIsSelectable="true"
@@ -113,7 +113,7 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
+                android:layoutDirection="ltr"
                 android:text="@string/libraries_list"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textIsSelectable="true"
