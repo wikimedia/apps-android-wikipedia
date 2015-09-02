@@ -5,7 +5,6 @@ import sh
 from glob import glob
 
 DENSITIES = {
-    "ldpi": 0.75,
     "mdpi": 1,
     "hdpi": 1.5,
     "xhdpi": 2,
