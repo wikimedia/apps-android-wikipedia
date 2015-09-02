@@ -17,13 +17,12 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Tests to make sure that the string resources don't cause any issues. Mainly the goal is to test all tranlsations,
- * but even the default strings are tested.
+ * Tests to make sure that the string resources don't cause any issues. Mainly the goal is to test
+ * all translations, but even the default strings are tested.
  *
  * Picked a random Activity but has to be from the app.
  *
  * TODO: check content_license_html is valid HTML
- * TODO: check for missing translations
  */
 public class TranslationTests extends ActivityInstrumentationTestCase2<PageActivity> {
     private static final String TAG = "TrTest";
@@ -46,18 +45,21 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
 
     public void testAllTranslations() throws Exception {
         setLocale(Locale.ROOT.toString());
-        List<Res> tagRes = new ResourceCollector("<", "&lt;").collectParameterResources();
-        List<Res> noTagRes = new ResourceCollector("<", "&lt;").not().collectParameterResources();
-        List<Res> stringParamRes = new ResourceCollector("%s").collectParameterResources();
-        List<Res> twoStringParamRes = new ResourceCollector("%2$s").collectParameterResources();
-        List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources();
-        List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources();
+        String defaultLang = Locale.getDefault().getLanguage();
+        List<Res> tagRes = new ResourceCollector("<", "&lt;").collectParameterResources(defaultLang);
+        List<Res> noTagRes = new ResourceCollector("<", "&lt;").not().collectParameterResources(defaultLang);
+        List<Res> stringParamRes = new ResourceCollector("%s").collectParameterResources(defaultLang);
+        // TODO: remove the following line as part of T110243.
+        stringParamRes.remove(new Res(R.string.snackbar_saved_page_format, "snackbar_saved_page_format"));
+        List<Res> twoStringParamRes = new ResourceCollector("%2$s").collectParameterResources(defaultLang);
+        List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources(defaultLang);
+        List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources(defaultLang);
 
         AssetManager assetManager = getInstrumentation().getTargetContext().getResources().getAssets();
         for (String lang : assetManager.getLocales()) {
             Log.i(TAG, "----locale=" + (lang.equals("") ? "DEFAULT" : lang));
             setLocale(lang);
-//            checkAllStrings(); // might take too long
+            checkAllStrings(lang);
 
             // commented out during the transition from 1 param to 0
 //            checkTranslationHasNoParameter(R.string.saved_pages_search_empty_message);
@@ -80,11 +82,6 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
 
                 // string parameters
                 for (Res res : stringParamRes) {
-                    if (res.id == R.string.editing_error_spamblacklist
-                        && (lang.startsWith("ak") || lang.startsWith("el"))) {
-                        // taking forever to get those fixed :(
-                        continue;
-                    }
                     checkTranslationHasParameter(res, "%s", "[stringParam]", null);
                 }
 
@@ -122,8 +119,8 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         getInstrumentation().callActivityOnRestart(activity);
     }
 
-    private void checkAllStrings() {
-        new ResourceCollector().collectParameterResources();
+    private void checkAllStrings(String lang) {
+        new ResourceCollector().collectParameterResources(lang);
     }
 
     private String buildLogString(int i, String name) {
@@ -210,7 +207,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
             return this;
         }
 
-        private List<Res> collectParameterResources() {
+        private List<Res> collectParameterResources(String lang) {
             final List<Res> resources = new ArrayList<>();
             final R.string stringResources = new R.string();
             final Class<R.string> c = R.string.class;
@@ -228,11 +225,14 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                 }
                 try {
                     String value = getInstrumentation().getTargetContext().getResources().getString(resourceId);
-                    if (name.startsWith("abc_") || name.startsWith("preference_")) {
+                    if (name.startsWith("abc_")
+                    ||  name.startsWith("preference_")
+                    // TODO: remove the following line as part of T91971.
+                    || name.equals("app_store_description")) {
                         continue; // don't care about appcompat string; and preference string resources don't get translated
                     }
 
-                    assertParameterFormats(name, value);
+                    assertParameterFormats(lang, name, value);
 
                     // Find parameter
                     boolean found = findParameter(value);
@@ -253,7 +253,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
          * If it has a parameter it should be one of POSSIBLE_PARAMS.
          * If not then flag this so we can improve the tests.
          */
-        private void assertParameterFormats(String name, String value) {
+        private void assertParameterFormats(String lang, String name, String value) {
             if (value.startsWith("Last updated")) {
                 System.out.println();
             }
@@ -272,7 +272,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                     }
                 }
                 if (!ok) {
-                    fail("Unexpected format in " +  name + ": '" + value + "'. Update tests!");
+                    fail("Unexpected format in " +  name + " (" + lang + "): '" + value + "'. Update tests!");
                 }
             }
         }
@@ -302,6 +302,34 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         public Res(int id, String name) {
             this.id = id;
             this.name = name;
+        }
+
+        // TODO: remove equals() and hashCode() as part of T110243.
+        // Autogenerated
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+
+            Res res = (Res) o;
+
+            if (id != res.id) {
+                return false;
+            }
+            return !(name != null ? !name.equals(res.name) : res.name != null);
+
+        }
+
+        // Autogenerated
+        @Override
+        public int hashCode() {
+            int result = id;
+            result = 31 * result + (name != null ? name.hashCode() : 0);
+            return result;
         }
     }
 }
