@@ -319,8 +319,10 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
+
+        // Only enable and show the buttons in the options menu if there are saved pages in the list
+        boolean enabled = savedPagesList.getCount() > 0;
         for (int id : Arrays.asList(R.id.menu_clear_all_saved_pages, R.id.menu_refresh_all_saved_pages)) {
-            boolean enabled = savedPagesList.getCount() > 0;
             menu.findItem(id).setEnabled(enabled).setVisible(enabled);
         }
     }
