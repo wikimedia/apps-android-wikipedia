@@ -12,6 +12,8 @@ import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 
+import java.util.Locale;
+
 /**
  * It's good to cache the Retrofit web service since it's a memory intensive object.
  * Keep the same instance around as long as we're dealing with the same domain.
@@ -50,7 +52,8 @@ public final class RbPageEndpointsCache {
                     }
                 })
 
-                .setEndpoint(WikipediaApp.getInstance().getNetworkProtocol() + "://" + domain)
+                .setEndpoint(String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(),
+                        WikipediaApp.getInstance().getNetworkProtocol(), domain))
 
                         // following is only needed for the hacky PageLead.Protection deserialization
                         // remove once our service handles this better (see T111131)

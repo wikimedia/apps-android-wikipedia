@@ -254,6 +254,10 @@ public final class Prefs {
         }
     }
 
+    public static String getRestbaseUriFormat() {
+        return getString(R.string.preference_key_restbase_uri_format, "%1$s://%2$s/api/rest_v1");
+    }
+
     public static long getLastRunTime(@NonNull String task) {
         return getLong(getLastRunTimeKey(task), 0);
     }
