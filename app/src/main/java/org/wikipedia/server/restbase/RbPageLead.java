@@ -46,7 +46,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     @Override
     public boolean hasError() {
-        return error != null;
+        return error != null || sections == null;
     }
 
     @Nullable
@@ -82,7 +82,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     public String getLeadSectionContent() {
         if (sections != null) {
-            return getSections().get(0).getContent();
+            return sections.get(0).getContent();
         } else {
             return "";
         }

@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.server.PageLeadProperties;
+import org.wikipedia.util.StringUtil;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -41,18 +42,20 @@ public class PageProperties implements Parcelable {
     public PageProperties(PageLeadProperties core) {
         pageId = core.getId();
         revisionId = core.getRevision();
-        displayTitleText = core.getDisplayTitle();
+        displayTitleText = StringUtil.emptyIfNull(core.getDisplayTitle());
         editProtectionStatus = core.getFirstAllowedEditorRole();
         languageCount = core.getLanguageCount();
         leadImageUrl = core.getLeadImageUrl();
         leadImageName = core.getLeadImageName();
         lastModified = new Date();
         String lastModifiedText = core.getLastModified();
-        try {
-            lastModified.setTime(WikipediaApp.getInstance().getSimpleDateFormat()
-                    .parse(lastModifiedText).getTime());
-        } catch (ParseException e) {
-            Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
+        if (lastModifiedText != null) {
+            try {
+                lastModified.setTime(WikipediaApp.getInstance().getSimpleDateFormat()
+                        .parse(lastModifiedText).getTime());
+            } catch (ParseException e) {
+                Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
+            }
         }
         // assume formatversion=2 is used so we get real booleans from the API
         canEdit = core.isEditable();

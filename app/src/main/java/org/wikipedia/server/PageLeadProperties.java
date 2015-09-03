@@ -2,6 +2,7 @@ package org.wikipedia.server;
 
 import org.wikipedia.page.Section;
 
+import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
 import java.util.List;
@@ -15,22 +16,30 @@ public interface PageLeadProperties {
 
     long getRevision();
 
+    @Nullable
     String getLastModified();
 
     int getLanguageCount();
 
+    @Nullable
     String getDisplayTitle();
 
+    @Nullable
     String getRedirected();
 
+    @Nullable
     String getNormalizedTitle();
 
+    @Nullable
     String getDescription();
 
+    @Nullable
     String getLeadImageUrl();
 
+    @Nullable
     String getLeadImageName();
 
+    @Nullable
     String getFirstAllowedEditorRole();
 
     boolean isEditable();
@@ -40,5 +49,6 @@ public interface PageLeadProperties {
     boolean isDisambiguation();
 
     @VisibleForTesting
+    @Nullable
     List<Section> getSections();
 }
