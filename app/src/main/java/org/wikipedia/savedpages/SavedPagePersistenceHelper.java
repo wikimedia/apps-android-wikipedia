@@ -2,6 +2,7 @@ package org.wikipedia.savedpages;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
 
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
@@ -74,12 +75,12 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
     }
 
     @Override
-    protected String getPrimaryKeySelection(SavedPage obj, String[] selectionArgs) {
+    public String getPrimaryKeySelection(@NonNull SavedPage obj, @NonNull String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getUnfilteredPrimaryKeySelectionArgs(SavedPage obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull SavedPage obj) {
         return new String[] {
                 obj.getTitle().getSite().getDomain(),
                 obj.getTitle().getNamespace(),
