@@ -68,7 +68,6 @@ public class FindInPageActionProvider extends ActionProvider {
         searchView.setIconified(false);
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         searchView.setSubmitButtonEnabled(false);
         // remove focus line from search plate
         View searchEditPlate = searchView
@@ -80,7 +79,6 @@ public class FindInPageActionProvider extends ActionProvider {
     private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String s) {
-            parentActivity.getCurPageFragment().closeFindInPage();
             return false;
         }
 
