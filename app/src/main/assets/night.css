@@ -9,10 +9,7 @@ a {
 }
 a.external {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAGJJREFUKFN1jdENgCAMBYmJn47Bak7DZrhTpc/XIm34OAjXA4qIgHI/dSBbLGTcOKjBryFlinGmjDQGiOF0MQkxI3v5wq6L38qR7SnsAx8ul37igPjAd+o5Oz2MRA+xY4ZSXuaW6wYouOLpAAAAAElFTkSuQmCC);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/styles/../images/external-link-ltr.png?2015-04-18T18:11:40Z)!ie;
-}
-img {
-  background: #fff;
+  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/images/external-link-ltr.png?36384)!ie;
 }
 .stable .content table.infobox {
   background: #000;

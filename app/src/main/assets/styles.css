@@ -71,6 +71,9 @@ th,
 td {
   font-size: 100%;
 }
+caption {
+  font-weight: bold;
+}
 button {
   border: none;
   background-color: transparent;
@@ -88,7 +91,25 @@ ul {
 }
 table {
   border-collapse: collapse;
-}/* use -webkit prefix for older android browsers eg. nexus 1 */
+}/*
+A file for css that corrects known rendering issues on known Wikimedia wikis.
+
+the following definitions exist to deal with certain inline styles
+present in wikitext.
+This file should not need to exist
+It will become redundant when the following RFC is resolved:
+https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
+
+FIXME: Review all of these hacks to see if they still apply.
+*/
+/* use -webkit prefix for older android browsers eg. nexus 1 */
+/* Plainlinks - this can be used to switch
+ * off special external link styling */
+/* force portals to use a one column layout on mobile */
+/* bug 34878: Set an optimal width for a column.
+ * Makes sure that on small screens column-count is only honored if column-width hint is not violated.
+ * https://developer.mozilla.org/en-US/docs/CSS/column-width
+ */
 html {
   -webkit-text-size-adjust: none;
   font-size: 100%;
@@ -115,8 +136,6 @@ body {
 .nomobile {
   display: none !important;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
 .content .thumb {
   margin: .6em 0;
   /* bug 20030 */
@@ -148,8 +167,6 @@ body {
 .content .thumbborder {
   border: 1px solid #CCC;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
 .content img {
   vertical-align: middle;
 }
@@ -176,8 +193,6 @@ body {
 .content div.magnify {
   display: none;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
 ul.gallery {
   list-style: none;
   max-width: 100%;
@@ -202,8 +217,6 @@ ul.gallery .gallerybox .gallerytext {
   word-wrap: break-word;
   font-size: .8em;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
 #section_0 {
   line-height: 1.3;
 }
@@ -239,8 +252,6 @@ h3 {
 h4 {
   font-weight: bold;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
 blockquote {
   font-family: "Linux Libertine", Georgia, Times, serif;
   font-size: 1.1em;
@@ -264,8 +275,6 @@ blockquote:after {
   right: 0;
   bottom: 0;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
 .content ol ol,
 .content ol ul,
 .content ul ol,
@@ -303,10 +312,6 @@ ul.hlist li {
   display: inline-block;
   margin-right: 8px;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
-/* Plainlinks - this can be used to switch
- * off special external link styling */
 a {
   text-decoration: none;
   color: #002bb8;
@@ -327,12 +332,12 @@ a.new:hover {
 }
 a.external {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVElEQVR42n3PgQkAIAhEUXdqJ3dqJ3e6IoTPUSQcgj4EQ5IlUiLE0Jil3PECXhcHGBhZ8kg4hwxAu3MZeCGeyFnAXp4hqNQPnt7QL0nADpD6wHccLvnAKksq8iiaAAAAAElFTkSuQmCC);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?2015-06-09T16:26:40Z)!ie;
+  background-image: url(http://127.0.0.1:8080/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf)!ie;
   background-image: -webkit-linear-gradient(transparent,transparent), url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%3E%3Cdefs%3E%3Cmarker%20orient%3D%22auto%22%20overflow%3D%22visible%22%3E%3Cpath%20d%3D%22M-.958-4.259c-1.134%200-2.056.922-2.056%202.056%200%20.394.143.736.336%201.049l-.07.056c-.373-.513-.954-.867-1.636-.867-1.134%200-2.056.922-2.056%202.056s.922%202.056%202.056%202.056c.596%200%201.121-.265%201.496-.671-.075.213-.126.433-.126.671%200%201.134.922%202.056%202.056%202.056s2.056-.922%202.056-2.056c0-.476-.189-.896-.462-1.245.813.158%201.627.477%202.224%201.399-.443-.443-.727-1.248-.727-2.336l-.378-.028.35-.014c0-1.087.27-1.893.713-2.336-.575.889-1.354%201.216-2.14%201.385.243-.337.42-.728.42-1.175%200-1.134-.922-2.056-2.056-2.056z%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%22NaN%22%2F%3E%3C%2Fmarker%3E%3Cmarker%20orient%3D%22auto%22%20overflow%3D%22visible%22%3E%3Cpath%20d%3D%22M0-2.828l-2.828%202.828%202.828%202.828%202.828-2.828-2.828-2.828z%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%22NaN%22%2F%3E%3C%2Fmarker%3E%3Cmarker%20orient%3D%22auto%22%20overflow%3D%22visible%22%3E%3Cpath%20d%3D%22M10%200l4-4-14%204%2014%204-4-4z%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%22NaN%22%2F%3E%3C%2Fmarker%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22%23fff%22%20stroke%3D%22%2306c%22%20d%3D%22M.5%203.518h5.982v5.982h-5.982z%22%2F%3E%3Cpath%20d%3D%22M4.755-.16h5.234v5.39l-1.571%201.544-1.31-1.31-2.725%202.725-2.688-2.688%202.808-2.808-1.31-1.31z%22%20fill%3D%22%2306f%22%2F%3E%3Cpath%20d%3D%22M8.984.845l.022%204.884-1.817-1.817-2.881%202.881-1.227-1.227%202.881-2.881-1.85-1.851z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E);
-  background-image: -webkit-linear-gradient(transparent,transparent), url(http://127.0.0.1:8080/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.svg?2015-06-09T16:26:40Z)!ie;
+  background-image: -webkit-linear-gradient(transparent,transparent), url(http://127.0.0.1:8080/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.svg?19955)!ie;
   background-image: linear-gradient(transparent,transparent), url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%3E%3Cdefs%3E%3Cmarker%20orient%3D%22auto%22%20overflow%3D%22visible%22%3E%3Cpath%20d%3D%22M-.958-4.259c-1.134%200-2.056.922-2.056%202.056%200%20.394.143.736.336%201.049l-.07.056c-.373-.513-.954-.867-1.636-.867-1.134%200-2.056.922-2.056%202.056s.922%202.056%202.056%202.056c.596%200%201.121-.265%201.496-.671-.075.213-.126.433-.126.671%200%201.134.922%202.056%202.056%202.056s2.056-.922%202.056-2.056c0-.476-.189-.896-.462-1.245.813.158%201.627.477%202.224%201.399-.443-.443-.727-1.248-.727-2.336l-.378-.028.35-.014c0-1.087.27-1.893.713-2.336-.575.889-1.354%201.216-2.14%201.385.243-.337.42-.728.42-1.175%200-1.134-.922-2.056-2.056-2.056z%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%22NaN%22%2F%3E%3C%2Fmarker%3E%3Cmarker%20orient%3D%22auto%22%20overflow%3D%22visible%22%3E%3Cpath%20d%3D%22M0-2.828l-2.828%202.828%202.828%202.828%202.828-2.828-2.828-2.828z%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%22NaN%22%2F%3E%3C%2Fmarker%3E%3Cmarker%20orient%3D%22auto%22%20overflow%3D%22visible%22%3E%3Cpath%20d%3D%22M10%200l4-4-14%204%2014%204-4-4z%22%20fill-rule%3D%22evenodd%22%20stroke%3D%22%23000%22%20stroke-width%3D%22NaN%22%2F%3E%3C%2Fmarker%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22%23fff%22%20stroke%3D%22%2306c%22%20d%3D%22M.5%203.518h5.982v5.982h-5.982z%22%2F%3E%3Cpath%20d%3D%22M4.755-.16h5.234v5.39l-1.571%201.544-1.31-1.31-2.725%202.725-2.688-2.688%202.808-2.808-1.31-1.31z%22%20fill%3D%22%2306f%22%2F%3E%3Cpath%20d%3D%22M8.984.845l.022%204.884-1.817-1.817-2.881%202.881-1.227-1.227%202.881-2.881-1.85-1.851z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E);
-  background-image: linear-gradient(transparent,transparent), url(http://127.0.0.1:8080/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.svg?2015-06-09T16:26:40Z)!ie;
-  background-image: -o-linear-gradient(transparent,transparent), url(http://127.0.0.1:8080/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?2015-06-09T16:26:40Z);
+  background-image: linear-gradient(transparent,transparent), url(http://127.0.0.1:8080/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.svg?19955)!ie;
+  background-image: -o-linear-gradient(transparent,transparent), url(http://127.0.0.1:8080/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf);
   background-repeat: no-repeat;
   background-position: center right;
   padding-right: 13px;
@@ -347,8 +352,6 @@ a.external {
   background: none !important;
   padding: 0 !important;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
 .content p {
   margin: .5em 0 1em 0;
 }
@@ -383,8 +386,6 @@ sup {
   font-size: 0.75em;
   line-height: 1;
 }
-
-/* use -webkit prefix for older android browsers eg. nexus 1 */
 .content table {
   margin: 1em 0;
   /* following 4 rules are needed for scrolling */
@@ -400,33 +401,19 @@ sup {
   text-align: left;
 }
 .content table.wikitable {
-  border: 1px solid #EEE;
+  border: 1px solid #CCC;
 }
 .content table.wikitable > tr > th,
-.content table.wikitable > tr > th,
+.content table.wikitable > tr > td,
 .content table.wikitable > * > tr > th,
 .content table.wikitable > * > tr > td {
-  border: 1px solid #EEE;
+  border: 1px solid #CCC;
   padding: .2em;
 }
-
-/*
-A file for css that corrects known rendering issues on known Wikimedia wikis.
-
-the following definitions exist to deal with certain inline styles
-present in wikitext.
-This file should not need to exist
-It will become redundant when the following RFC is resolved:
-https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
-
-FIXME: Review all of these hacks to see if they still apply.
-*/
-/* use -webkit prefix for older android browsers eg. nexus 1 */
-/* force portals to use a one column layout on mobile */
-/* bug 34878: Set an optimal width for a column.
- * Makes sure that on small screens column-count is only honored if column-width hint is not violated.
- * https://developer.mozilla.org/en-US/docs/CSS/column-width
- */
+.content table.wikitable > tr > th,
+.content table.wikitable > * > tr > th {
+  background-color: #EEE;
+}
 .content .sistersitebox,
 .content .tmbox,
 .content .ambox,
@@ -534,7 +521,7 @@ a.edit_section_button {
   width: 32px;
   border: 8px solid transparent;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAMAAAC5zwKfAAAANlBMVEUAAAD///9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW9sbW+FiFraAAAAEXRSTlMAABAgMEBQYHCAkKCwwNDg8InUWv0AAAGfSURBVHhe7djBjsIgFIXhOwjFeltK3/9lJ4J6SG5dHGgyyaRn1dUXlb8slJ+T9//AC7zACxRiLu37EqXsDPCW9ue2cBLo8/7a/RQwFK9OTwDj3k6Hwbk6Mb/EeRDUojyaHzKMgG4pRmy/ehoAXcklT3h+buoGffU8vDJlQJtfuuG5busEY/Xc28N4EPkp7EHwUaODjSkLIr8Iu/VIELkE2Bj9psDzSBuLQoLIxX1sLEfhQHirQ9rwvLAgcoHdejx4b3IJ8PDOcCBysfklJzToipc9Piu2OKFA5LL5o/xUhAZ9Qi7W40Dkspj8as48OGXkYj0ORH73w/yC8OCMXA5y5sE2lwgPh86Bbi3h+i8506Brc3kYjwb9VkL7lh8N+jaXxXg0GBGayW8WCoSXq+dNzjyIXGx+UXhQm1yCyZkHA8JAfvBosF6h21RvU3vb86B+4lCTcxf4rkTV3PZ9IAiTcxcYvnm94P3Qi9IN6rHXDybL5SAD4IHnZQAMxtu8jIA4E+Q8BKr1xkCcybrOcwhOBsE3JOT+4G+WC7zAC7zAXxMIT+qGYJfyAAAAAElFTkSuQmCC);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/styles/../images/edit.png?2015-04-18T18:11:40Z)!ie;
+  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/images/edit.png?dd026)!ie;
   background-repeat: no-repeat;
   background-size: 32px 32px;
   float: right;
@@ -580,7 +567,7 @@ a.edit_section_button.android:active:before {
 }
 .page-protected a.edit_section_button {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAMAAAC5zwKfAAAAXVBMVEUAAAD////Pz89sbW/Pz89sbW/Pz89sbW/Pz89sbW/Pz89sbW/Pz89sbW/Pz89sbW/Pz8/Pz8/Pz89sbW/Pz89sbW/Pz8/Pz89sbW/Pz89sbW/Pz89sbW/Pz89sbW+fZUWwAAAAHXRSTlMAABAQICAwMEBAUFBgYHBwgJCgoLDAwNDQ4ODw8PGFG8cAAAHOSURBVHhe7dTLcoMwDAVQxVCXJAoByiPUEf//mcW0Gh5KFrbojrtidUYM9wKnnfOP4AEe4AGCT3JvmuHR3BOAXcDrc/jN87wLeBvmnCUIATnZEUyeC/A7UYHWjeDdQ48PSL68eNOA6GgEH9Nh3m9GsFGASOTB6S7wufrHeLCkGfycwLMKrGgBwm8UoKknD/cCTffn7QSmk+cup51A6ybP+hsGmUCQvd7CTiCST2dAB0pPAcr6VQY0oPRgCqpB005eydvTglxnPlYLWvZ4ezqQ65zxsVrwwvPg7SlBJJ4HH6sDc64ze0qwWnroSAHKeSDRDL6JBGX9eB4FKUH2Sj5WC9p+PQ8lyA1BPnYVZ4NBnOssvS4NvhBp4dl+45nAV+Yv2q3nwakMBICyztnWAwgEzcpDWgchABR1Fp5DCAXTlVdtPAuBINevEB5/pQBQ1rneeAZCQaTVPERdQsGMVn97UZdgMJ89UeccIsDaA7V55SHEgD0vDtCJukSAKQM5kvBiwAtxRF3iwPKtFwm2TIi6RIJvvGgwe+UhxIO55ByCAqylZ0ED9luvt6ABU1kXUIHLWru2LVoDOrAk6tu6KLKMJSVohaMAtTnA4BzgAf4Asb6U9nmPcP4AAAAASUVORK5CYII=);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/styles/../images/edit-locked.png?2015-04-18T18:11:40Z)!ie;
+  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/images/edit-locked.png?2ded5)!ie;
 }
 #mainpage a.edit_section_button {
   display: none;
@@ -667,14 +654,14 @@ table.infobox caption {
 .app_table_collapsed_open {
   border-radius: 2px;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4zjOaXUAAAAoZJREFUaEPtmE1uE0EQhceEn1NwFEtwALL0CSzbe2+9QQgJAoKI8BeF8I8ImCQCIRCSxVk4QNhkxwZ4z+qOespvPNMzYxCiS/ricVVX1evpnukkWbJkyZIlS5Ys2f9ss9lsTr/fPz8ajV4Mh8Nv4Dv4OhgMLvr43wKaLkDLF3BEbdRIrT4+/wGhlxA8Br8MPxG74gf/adD7OjUYTeSYmjkmw5d18CMILoBZ37DFVw0E3lFaAqh5nROYBs5CUPC2arQCOuh1T2kQTLNer3cGF4cmIOFdEQ3bhOIfqt6CQ2qfJ7pJHJgBEt4dNgqatgXF76iegn1qZt5JgclkchqBd2ZgEdts6HOb0u12T+E52xV9FFNq9bm5Qm4Sb01CEY/YOMyvgxP/VNRfAOPehOJJrhjhAA5UBQRPmkwC+WvoxbNH1c6B7fUan2u2Ru6LhwNdgixmeA4WCpfBHPDK1SiD42SPBYeHCS5RFbQUNlC4rboX5BfiVqiwtnR6mIiVeBkWXMKe3Z+KmOcMvZ+VbVHpDGEBFOM2kU0MuTeExb2u901OEZWeL+m0xLwpwIF/R4c48ZUOTPTarfpykE4FC2JJH6uGgvfgrM/lNfjgYktBjx3kVD5jpLMItxJVD5yP4/H4HOG1iRURfUBKZwkxR/4n8Nn4JLgxD1jb9CpFOivQQdNtK6IuuCG1f7+Szop0eNeUoEi2RO3KSGcEXIn7RlAMm6JmFNIZC1birhC3FOTcUrVikc46YB+X/Ql4AsbeVDXqIJ11gbhNK1awoXLrIp1N4NYQoucgdk3lNEE6m8ItIsRfVWObIp1tANEbXjwmtLL/LUlnW3DLYAKXVawtkiVLlixZsn/Ysuw35enU+iMlJaQAAAAASUVORK5CYII=);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/styles/../images/table_expand.png?2015-04-18T18:11:40Z)!ie;
+  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/images/table_expand.png?1f7f0)!ie;
 }
 .app_table_collapse_close {
   border-radius: 2px 2px 0px 0px;
 }
 .app_table_collapse_icon {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABh0RVh0U29mdHdhcmUAcGFpbnQubmV0IDQuMC4zjOaXUAAAAoBJREFUaEPtmE1uE0EQhW3Mzyk4iiU4AFn6BJbtvbfeIIQEAUEUCEnE/58ImCQCIRCSxVk4AGyyYwN5L+qOxuXXM90zthCiS/ricXV11avunhkrrWzZsmXLlu2fttlstjJGo9GN4XB4VY0tC+lcBhC+Dv6QwWBwTcUsA+lsCgTf9uI92I3rKrYp0tkECL1jxXt4pNScJkhnXSByw4oWrKu5dZHOOuDYbAqxEh4xlaMO0pkKjsZ9JbQMHjWVKxXpTKANMQ+suAQ2RM4kpDOSNlZxW4hK5Z7IHY10RsCV3zVCaoN7Yos5TY0opLOCNgo+VEIEn8EX45NwN5nb1KpEOkN0u90zKPRYCRB8Go/HFwivzViIXdRJakI6FRSPlX8iiio+gPN+Lq/BRzdWCncXc6KbkE6LW/lnqqDgoNfrnbM56MPYoYmVcJdZ0+ZQSGcRJkLSF7ZIgOlkMjmr8hDXxL6ZE+JpTBPS6UGSDrb0lUkcYq9MvIcxiH1n5kpQ+3lVE9JJkKADXhcTlsC4jsqjcE3sFeYHwXF6ic9gbunkBHT/ppioBB6vaPEezgGNF2jBwdVB129NghBR5zQE5nfcCqvcc7gFXWhi7kvK+QSPmoj3MEfsE44La++z0wsn/r2dFCD5hVOGayL2BTn3pDv54x5vByZQgq2s/bulgpSfKPv+XZP0gkGBTVN02bCJHVVbcEjtvJGmZkCCxHdFwVXAJraUBsGUDayBXwXnAjift0ShlcLdVloKUPOaD76CL0eFQc9vjK3sfzpVoPZNajCayBE1M+Y0uN/vX3TP5O/gJ/iGoMt+/G8BTZeg5Sv4QW3USK1+PFu2bNmyZcuW7f+1VusYzYvU+uNoBCAAAAAASUVORK5CYII=);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/styles/../images/table_collapse.png?2015-04-18T18:11:40Z)!ie;
+  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/images/table_collapse.png?d3e42)!ie;
 }
 .app_span_collapse_text {
   color: #808080;
@@ -697,7 +684,7 @@ table.infobox caption {
   display: inline-block;
   margin-bottom: -3px;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAgCAYAAABHA7voAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAABBRJREFUWEfdWflPFkEM5U9HQUGj0WiMmnhrRBMVUeOt4fQG8cALBU8OEUEURK7aN06Xbr/Z/Wb59hd5yYtZ253Zt+203Y+6je0kpHVEp4mI6tajOGEiMGRMePkN0YHesK0M3hrixygRem1GvsDd94gWl4mWV4jufyba2h32WytPPXMP4bDCe2QxhDwfWZ+RL/DxqHNKMP2baMfdsG9RbmBmPXwWYt1lD0a2QAhZWHJOCYaniBo6wv5FWVRcEcgejGyBN945hxSO9ad9dt8n2lRQMNK8VnHVbpe9GNkCR386hwS4blD2zZ1EE7NEIzNEB/vS9+YRZ9oCgucX/YXBWt6F7MUIC9zFxQWFRePaYNqn9aU3MOD7gItQc1fax/Iwv4gYLAdeQgwkM2Q/Rlhg2ytnTAABEK19Pv/wRo/ZBaJtPWmfEMd++Rs81hKhapC9GGGBvSPOmACpqO04ezbCne/TPkhhfa3ZxtFHynfwPXYdAaIhzIO2R0fQRqd/LG2/9NobPPCQ6Jlih7gxFnD9LVFjlSLUMewXKQFRAlEVf/5xxgSoqNqnz0R4nNNO28+98AYGInUopwgdf+IdFfCgS9yiwCKIEtjEhWLJOwrODKR9Pkx7g0c/DwTa/pQjrjE9H24nONc6xWKQ5y/FSdZnVApEobA4rvofWsU3PpMa7Zxmeg3bYh5+SduFUzwZlYmoCGKCsTj8eNWOSeb7nDd43FQpjBdg7Rioxa55+vm/9EfVRpac5dS+yOf7PBch2Fr5Gi/HvrAsRAkMRVBPMBAwaQTcNgJGzAOhKmu7UA8OIWJexb+2tQB5qSr3MyoFolnb0o23qX0+mSr7yAh4Ys7g4GTaboXh2okJnNMLpifHnFm5l1EpcBOXeDRtjatmink27g0eaCvajnQD8KJ6Pub3RKEVfZSz5grvm9Un8yBrMCoFgtWKBPqbBubL7WqKgaD3/OVxgluAvs+ykf1a+Jtw3wNek88izmov7zVgXqBGzREEbZnHQK3t+x9WbmSjXO18gd0f/M2RiBEHyPqMsECkhoaL0J1VOx4e45sGSj56qF6nGvdw5Ow3ZxmQ9RlhgfsQIWdfBUq59rFpirRey9f+DA8BZUPWZoQFIkK2FQzxmdI+W/jDdYZHOhQB/F7TFFFIQoxNuyKQtRlhgWCXOR94Dpw97YPG3PI0/X9FOWcqdhmQtRnZAnE+7Ew68DXsWwtjIlg0yrI2I1sg+GrCOSVAOuqxrVbiKAybwb0MyPqMfIH4wVe/PXzj7TVpWgullaBg4RMNvTMW+rlshGV9Rr5AEFML7sdvLkXbQCwreiaPbFKRMTo2cwHDkH+Es8e2Jwu9DsMJzBW5kzc6WWMhqUYZqktm6o8vVSP5n9FpcgLr6+vXLYmo7i97FXYYGMQFoAAAAABJRU5ErkJggg==);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/styles/../images/ipa.png?2015-04-18T18:11:40Z)!ie;
+  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/images/ipa.png?736e4)!ie;
   background-size: 28px 16px;
   height: 16px;
   width: 28px;

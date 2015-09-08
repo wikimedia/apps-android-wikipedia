@@ -15,7 +15,7 @@ function ancestorContainsClass( element, className ) {
     var contains = false;
     var curNode = element;
     while (curNode) {
-        if ((typeof curNode.classList !== "undefined")) {
+        if (typeof curNode.classList !== "undefined") {
             if (curNode.classList.contains(className)) {
                 contains = true;
                 break;
@@ -24,6 +24,21 @@ function ancestorContainsClass( element, className ) {
         curNode = curNode.parentNode;
     }
     return contains;
+}
+
+function ancestorHasStyleProperty( element, styleProperty ) {
+    var hasStyleProperty = false;
+    var curNode = element;
+    while (curNode) {
+        if (typeof curNode.classList !== "undefined") {
+            if (curNode.style[styleProperty]) {
+                hasStyleProperty = true;
+                break;
+            }
+        }
+        curNode = curNode.parentNode;
+    }
+    return hasStyleProperty;
 }
 
 function getDictionaryFromSrcset(srcset) {
@@ -96,6 +111,7 @@ function maybeAddImageOverflowXContainer() {
 module.exports = {
     hasAncestor: hasAncestor,
     ancestorContainsClass: ancestorContainsClass,
+    ancestorHasStyleProperty: ancestorHasStyleProperty,
     getDictionaryFromSrcset: getDictionaryFromSrcset,
     firstDivAncestor: firstDivAncestor,
     isNestedInTable: isNestedInTable,
