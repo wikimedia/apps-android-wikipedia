@@ -460,7 +460,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).appendChild( content );
 
     transformer.transform( "moveFirstGoodParagraphUp" );
-    transformer.transform( "invertNightModeElements", content );
+    transformer.transform( "addDarkModeStyles", content );
     transformer.transform( "hideRedLinks", content );
     transformer.transform( "setNonGbDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
@@ -536,7 +536,7 @@ function elementsForSection( section ) {
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    transformer.transform( "invertNightModeElements", content );
+    transformer.transform( "addDarkModeStyles", content );
     transformer.transform( "hideRedLinks", content );
     transformer.transform( "setNonGbDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
@@ -655,6 +655,15 @@ module.exports = new Transformer();
 
 },{}],13:[function(require,module,exports){
 var transformer = require("../transformer");
+var night = require("../night");
+
+transformer.register( "addDarkModeStyles", function( content ) {
+	if ( window.isNightMode ) {
+		night.setImageBackgroundsForDarkMode ( content );
+	}
+} );
+},{"../night":8,"../transformer":12}],14:[function(require,module,exports){
+var transformer = require("../transformer");
 var utilities = require("../utilities");
 
 function shouldAddImageOverflowXContainer(image) {
@@ -693,7 +702,7 @@ transformer.register( "addImageOverflowXContainers", function( content ) {
         images[i].addEventListener('load', maybeAddImageOverflowXContainer, false);
     }
 } );
-},{"../transformer":12,"../utilities":24}],14:[function(require,module,exports){
+},{"../transformer":12,"../utilities":24}],15:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "anchorPopUpMediaTransforms", function( content ) {
@@ -725,7 +734,7 @@ transformer.register( "anchorPopUpMediaTransforms", function( content ) {
         containerLink.appendChild(imgTags[0]);
 	}
 } );
-},{"../transformer":12}],15:[function(require,module,exports){
+},{"../transformer":12}],16:[function(require,module,exports){
 var transformer = require("../transformer");
 
 /*
@@ -864,7 +873,7 @@ transformer.register( "hideTables", function( content ) {
         bottomDiv.onclick = tableCollapseClickHandler;
     }
 } );
-},{"../transformer":12}],16:[function(require,module,exports){
+},{"../transformer":12}],17:[function(require,module,exports){
 var transformer = require("../transformer");
 var bridge = require("../bridge");
 
@@ -913,7 +922,7 @@ transformer.register( "hideIPA", function( content ) {
         containerSpan.onclick = ipaClickHandler;
     }
 } );
-},{"../bridge":2,"../transformer":12}],17:[function(require,module,exports){
+},{"../bridge":2,"../transformer":12}],18:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "hideRedLinks", function( content ) {
@@ -926,7 +935,7 @@ transformer.register( "hideRedLinks", function( content ) {
 		redLink.parentNode.replaceChild( replacementSpan, redLink );
 	}
 } );
-},{"../transformer":12}],18:[function(require,module,exports){
+},{"../transformer":12}],19:[function(require,module,exports){
 var transformer = require("../transformer");
 var collapseTables = require("./collapseTables");
 
@@ -972,16 +981,7 @@ transformer.register( "hideRefs", function( content ) {
         bottomDiv.onclick = collapseTables.tableCollapseClickHandler;
     }
 } );
-},{"../transformer":12,"./collapseTables":15}],19:[function(require,module,exports){
-var transformer = require("../transformer");
-var night = require("../night");
-
-transformer.register( "invertNightModeElements", function( content ) {
-	if ( window.isNightMode ) {
-		night.setImageBackgroundsForDarkMode ( content );
-	}
-} );
-},{"../night":8,"../transformer":12}],20:[function(require,module,exports){
+},{"../transformer":12,"./collapseTables":16}],20:[function(require,module,exports){
 var transformer = require("../transformer");
 
 // Takes a block of text, and removes any text within parentheses, but only
