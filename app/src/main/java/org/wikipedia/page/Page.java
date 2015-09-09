@@ -12,10 +12,6 @@ import java.util.List;
  * Represents a particular page along with its full contents.
  */
 public class Page {
-    /**
-     * The props to send to api=mobileview to get all the data required for filling up Page object
-     */
-    public static final String API_REQUEST_PROPS = "lastmodified|normalizedtitle|displaytitle|protection|editable";
     private final PageTitle title;
     private final List<Section> sections;
     private final PageProperties pageProperties;
