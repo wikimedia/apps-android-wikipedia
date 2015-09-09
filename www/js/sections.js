@@ -90,7 +90,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     document.getElementById( "content" ).appendChild( content );
 
     transformer.transform( "moveFirstGoodParagraphUp" );
-    transformer.transform( "invertNightModeElements", content );
+    transformer.transform( "addDarkModeStyles", content );
     transformer.transform( "hideRedLinks", content );
     transformer.transform( "setNonGbDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
@@ -166,7 +166,7 @@ function elementsForSection( section ) {
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    transformer.transform( "invertNightModeElements", content );
+    transformer.transform( "addDarkModeStyles", content );
     transformer.transform( "hideRedLinks", content );
     transformer.transform( "setNonGbDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
