@@ -285,5 +285,5 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="format_error_server_message">Thông báo: \"%s\"</string>
   <string name="format_error_server_code">Mã: \"%s\"</string>
   <string name="address_copied">Đã chép địa chỉ vào bảng tạm.</string>
-  <string name="button_continue_to_article" fuzzy="true">Đi tiếp đến trang</string>
+  <string name="button_continue_to_article">Đi tiếp đến bài</string>
 </resources>

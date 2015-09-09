@@ -28,7 +28,7 @@
   <string name="dialog_title_clear_saved_pages">¿Borrar todas las páginas guardadas?</string>
   <string name="snackbar_saving_page">Guardando página…</string>
   <string name="snackbar_saved_page_format">\"%s\" guardada para leer sin conexión</string>
-  <string name="snackbar_saved_page_missing_images">No se pueden guardar todas las imágenes</string>
+  <string name="snackbar_saved_page_missing_images">No se puedieron guardar todas las imágenes</string>
   <string name="snackbar_refresh_saved_page">Actualizando la página guardada…</string>
   <string name="delete_selected_saved_pages">Borrar</string>
   <string name="snackbar_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>

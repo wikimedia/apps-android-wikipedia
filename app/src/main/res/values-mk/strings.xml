@@ -285,5 +285,5 @@
   <string name="format_error_server_message">Порака: „%s“</string>
   <string name="format_error_server_code">Код: „%s“</string>
   <string name="address_copied">Адресата е ставена во меѓускладот</string>
-  <string name="button_continue_to_article" fuzzy="true">Продолжи кон страницата</string>
+  <string name="button_continue_to_article">Продолжи кон статијата</string>
 </resources>

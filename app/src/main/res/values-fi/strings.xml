@@ -27,7 +27,7 @@
   <string name="share_via">Jaa palvelulla</string>
   <string name="dialog_title_clear_saved_pages">Tyhjennetäänkö kaikki tallennetut sivut?</string>
   <string name="snackbar_saving_page">Tallennetaan sivua…</string>
-  <string name="snackbar_saved_page_format">\"%s\" tallennettiin offline-lukemista varten</string>
+  <string name="snackbar_saved_page_format">”%s” tallennettiin offline-lukemista varten</string>
   <string name="snackbar_saved_page_missing_images">Joidenkin kuvien tallennus ei onnistunut</string>
   <string name="snackbar_refresh_saved_page">Päivitetään tallennettua sivua..</string>
   <string name="delete_selected_saved_pages">Poista</string>

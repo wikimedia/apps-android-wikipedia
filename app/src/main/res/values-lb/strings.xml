@@ -256,5 +256,6 @@
   <string name="error_unknown">En onbekannte Feeler ass geschitt.</string>
   <string name="format_error_server_message">Message: \"%s\"</string>
   <string name="format_error_server_code">Code: \"%s\"</string>
+  <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="button_continue_to_article">Virun op den Artikel</string>
 </resources>

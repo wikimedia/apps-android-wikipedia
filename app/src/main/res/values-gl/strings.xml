@@ -285,5 +285,5 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_message">Mensaxe: \"%s\"</string>
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">O enderezo copiouse no portapapeis.</string>
-  <string name="button_continue_to_article" fuzzy="true">Continuar á páxina</string>
+  <string name="button_continue_to_article">Continuar ó artigo</string>
 </resources>

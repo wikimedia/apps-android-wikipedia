@@ -42,6 +42,7 @@
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_long_press_open_page">開く</string>
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
+  <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="menu_update_nearby">付近のスポットを更新</string>
   <string name="nearby_empty_title">付近のスポットについてのページがありません!</string>
@@ -285,4 +286,6 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="error_unknown">不明なエラーが発生しました。</string>
   <string name="format_error_server_message">メッセージ: \"%s\"</string>
   <string name="format_error_server_code">コード: \"%s\"</string>
+  <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
+  <string name="button_continue_to_article">続きを表示する</string>
 </resources>

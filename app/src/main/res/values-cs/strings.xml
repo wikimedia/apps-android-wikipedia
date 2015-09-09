@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Co jste dělali, když došlo k pádu?</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="nav_item_history">Historie</string>
-  <string name="error_network_error" fuzzy="true">Není k dispozici připojení k Internetu :(</string>
+  <string name="error_network_error">Připojení k Internetu nemohlo být navázáno.</string>
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
   <string name="generic_page_error">Při vyřizování Vaší žádosti se vyskytl problém.</string>
   <string name="status_code_unavailable">Kód pro status serveru není k dispozici.</string>
@@ -36,7 +36,7 @@
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="menu_page_other_languages">Číst v jiných jazycích</string>
   <string name="menu_page_save">Uložit stránku</string>
-  <string name="menu_page_share" fuzzy="true">Sdílet</string>
+  <string name="menu_page_share">Sdílet odkaz</string>
   <string name="menu_page_find_in_page">Najít na stránce</string>
   <string name="menu_page_font_and_theme">Změnit písmo a vzhled</string>
   <string name="nav_item_nearby">Poblíž</string>

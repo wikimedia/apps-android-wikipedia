@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Petra e oac\'h oc\'h ober pa oa chomet sac\'het ?</string>
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="nav_item_history">Istor</string>
-  <string name="error_network_error" fuzzy="true">N\'eus kevreadenn ebet ouzh ar rouedad :(</string>
+  <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad :(</string>
   <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
   <string name="generic_page_error">Ur gudenn zo beet pa\'z eo bet war-dro ho koulenn.</string>
   <string name="status_code_unavailable">Ne c\'haller ket kaout kod stad ar servijer.</string>
@@ -27,7 +27,7 @@
   <string name="share_via">Rannañ dre</string>
   <string name="dialog_title_clear_saved_pages">Diverkañ an holl bajennoù enrollet ?</string>
   <string name="snackbar_saving_page">Oc\'h enrollañ ar bajenn…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Pajenn enrollet</string>
+  <string name="snackbar_saved_page_format">\"%s\" zo bet enrollet evit un lenn ezlinenn</string>
   <string name="snackbar_saved_page_missing_images">N\'eus ket bet gallet enrollañ an holl skeudennoù</string>
   <string name="snackbar_refresh_saved_page">O freskaat ar bajenn enrollet…</string>
   <string name="delete_selected_saved_pages">Dilemel</string>
@@ -37,11 +37,12 @@
   <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
   <string name="menu_page_other_languages">Lenn e yezhoù all</string>
   <string name="menu_page_save">Enrollañ ar bajenn</string>
-  <string name="menu_page_share" fuzzy="true">Rannañ</string>
+  <string name="menu_page_share">Rannañ al liamm</string>
   <string name="menu_page_find_in_page">Klask er bajenn</string>
   <string name="menu_page_font_and_theme">Font ha tem</string>
-  <string name="menu_long_press_open_page" fuzzy="true">Digeriñ al liamm</string>
+  <string name="menu_long_press_open_page">Digeriñ</string>
   <string name="menu_long_press_open_in_new_tab">Digeriñ en un ivinell nevez</string>
+  <string name="menu_long_press_copy_page">Eilañ chomlec\'h al liamm</string>
   <string name="nav_item_nearby">Tostik</string>
   <string name="menu_update_nearby">Hizivaat an elfennoù nes</string>
   <string name="nearby_empty_title">Pajenn dost ebet amañ !</string>
@@ -272,5 +273,15 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="edit_save_unknown_error">Ne c\'haller ket enrollañ ho kemmadur : %s</string>
   <string name="menu_new_tab">Ivinell nevez</string>
   <string name="button_close_tab">Serriñ an ivinell</string>
+  <string name="tool_tip_select_text">Klikit ha dalc\'hit da bouezañ ne vern pelec\'h en destenn evit dreistlinennañ anezhi abalamour da gopiañ ha da rannañ anezhi.</string>
+  <string name="tool_tip_share">Goude bezañ dreistlinennet ur fed dedennus, klaskit rannañ anezhañ war o rouedadoù gwellañ-deuet !</string>
   <string name="page_view_in_browser">Gwelet ar bajenn er merdeer</string>
+  <string name="tool_tip_toc_button">Gwelet taolenn an danvezioù forzh pegoulz dre bouezañ war an bouton-se, pe riklañ eus gwrimenn zehoù ar skramm.</string>
+  <string name="error_server_response">Ne c\'hall ket ar servijer respont d\'ar goulenn.</string>
+  <string name="error_response_malformed">N\'eo ket furmadet mat ar respont d\'ar servijer.</string>
+  <string name="error_unknown">Ur fazi dianav zo c\'hoarvezet</string>
+  <string name="format_error_server_message">Kemennad : %s</string>
+  <string name="format_error_server_code">Kod : \"%s\"</string>
+  <string name="address_copied">Chomlec\'h eilet er golver</string>
+  <string name="button_continue_to_article">Kenderc\'hel war-zu ar pennad</string>
 </resources>

@@ -29,7 +29,7 @@
   <string name="snackbar_saving_page">Zapisywanie strony…</string>
   <string name="snackbar_saved_page_format">\"%s\" został zapisany do czytania w trybie offline</string>
   <string name="snackbar_saved_page_missing_images">Nie można zapisać wszystkich obrazów</string>
-  <string name="snackbar_refresh_saved_page">Odświeżanie zapisanych stron…</string>
+  <string name="snackbar_refresh_saved_page">Odświeżanie zapisanej strony…</string>
   <string name="delete_selected_saved_pages">Usuń</string>
   <string name="snackbar_saved_page_deleted">Usunięto zapisane strony</string>
   <string name="saved_pages_search_list_hint">Wyszukiwanie zapisanych stron</string>
