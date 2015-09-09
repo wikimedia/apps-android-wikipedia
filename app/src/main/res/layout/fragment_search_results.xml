@@ -37,11 +37,7 @@
         <ListView
                 android:id="@+id/search_results_list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="8dp"
-                android:layout_marginEnd="8dp"
-                android:dividerHeight="0dp"
-                />
+                android:layout_height="match_parent" />
         <TextView
             android:id="@+id/search_results_empty"
             android:layout_width="wrap_content"

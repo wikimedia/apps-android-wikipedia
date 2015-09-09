@@ -74,6 +74,11 @@
         <item name="android:textColorHint">@color/search_text_hint</item>
     </style>
 
+    <style name="ListView" parent="@style/Widget.AppCompat.ListView">
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+    </style>
+
     <style name="RtlAwareTextView" parent="@android:style/Widget.TextView">
         <item name="android:textDirection">anyRtl</item>
         <item name="android:textAlignment">viewStart</item>

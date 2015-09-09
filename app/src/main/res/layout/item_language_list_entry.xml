@@ -5,11 +5,10 @@
               android:layout_height="wrap_content"
               android:orientation="vertical"
               android:gravity="center_vertical"
-              android:paddingLeft="16dp"
-              android:paddingRight="16dp"
-              android:paddingTop="8dp"
-              android:paddingBottom="8dp"
-              >
+              android:paddingTop="@dimen/list_item_vertical_padding"
+              android:paddingRight="@dimen/list_item_horizontal_padding"
+              android:paddingBottom="@dimen/list_item_vertical_padding"
+              android:paddingLeft="@dimen/list_item_horizontal_padding">
     <TextView
             android:id="@+id/localized_language_name"
             android:layout_width="wrap_content"

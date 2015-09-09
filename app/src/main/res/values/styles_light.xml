@@ -40,6 +40,9 @@
         <item name="link_preview_text_color">@color/link_preview_text_light</item>
         <item name="nav_background_color">@color/nav_background_light</item>
         <item name="nav_item_color">@color/nav_item_selector_light</item>
+
+        <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
+        <item name="android:listViewStyle">@style/ListView</item>
     </style>
 
 </resources>

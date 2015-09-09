@@ -235,10 +235,10 @@ public class BottomContentHandler implements BottomContentInterface,
         // calculate the height of the listview, based on the number of items inside it.
         ListAdapter adapter = readMoreList.getAdapter();
         if (adapter != null && adapter.getCount() > 0) {
+            View item = View.inflate(readMoreList.getContext(), R.layout.item_page_list_entry, null);
+            item.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             ViewGroup.LayoutParams params = readMoreList.getLayoutParams();
-            final int itemHeight = (int)activity.getResources().getDimension(R.dimen.defaultListItemSize);
-            params.height = adapter.getCount() * itemHeight
-                            + (readMoreList.getDividerHeight() * (adapter.getCount() - 1));
+            params.height = adapter.getCount() * item.getMeasuredHeight();
             readMoreList.setLayoutParams(params);
         }
 

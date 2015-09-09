@@ -8,11 +8,14 @@
 
     <dimen name="corner_radius_smaller">2dp</dimen>
 
+    <dimen name="list_item_vertical_padding">15dp</dimen>
+    <dimen name="list_item_horizontal_padding">16dp</dimen>
+
     <!-- Default font size for WebView text based on system settings -->
     <dimen name="textSize">16sp</dimen>
 
     <!-- Default height of list items -->
-    <dimen name="defaultListItemSize">72dp</dimen>
+    <dimen name="defaultListItemSize">56dp</dimen>
 
     <!-- Default height of tab item images, which governs the size of tabs themselves -->
     <dimen name="tabImageSize">48dp</dimen>

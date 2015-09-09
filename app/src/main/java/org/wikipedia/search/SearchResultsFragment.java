@@ -94,7 +94,7 @@ public class SearchResultsFragment extends Fragment {
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle item = (PageTitle) searchResultsList.getAdapter().getItem(position);
+                PageTitle item = (PageTitle) getAdapter().getItem(position);
                 searchFragment.navigateToTitle(item, false);
             }
         });
@@ -365,7 +365,12 @@ public class SearchResultsFragment extends Fragment {
         lastFullTextResults = null;
 
         totalResults.clear();
-        ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetChanged();
+
+        getAdapter().notifyDataSetChanged();
+    }
+
+    private BaseAdapter getAdapter() {
+        return (BaseAdapter) searchResultsList.getAdapter();
     }
 
     // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.
@@ -394,7 +399,7 @@ public class SearchResultsFragment extends Fragment {
             searchResultsList.setVisibility(View.VISIBLE);
         }
 
-        ((BaseAdapter)searchResultsList.getAdapter()).notifyDataSetChanged();
+        getAdapter().notifyDataSetChanged();
     }
 
     private class LongPressHandler extends PageActivityLongPressHandler
@@ -405,7 +410,7 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public PageTitle getTitleForListPosition(int position) {
-            return (PageTitle) searchResultsList.getAdapter().getItem(position);
+            return (PageTitle) getAdapter().getItem(position);
         }
 
         @Override

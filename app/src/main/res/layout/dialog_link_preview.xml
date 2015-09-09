@@ -78,7 +78,7 @@
             <org.wikipedia.page.gallery.GalleryThumbnailScrollView
                 android:id="@+id/link_preview_thumbnail_gallery"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="@dimen/linkPreviewImageSize"
                 android:layout_marginTop="12dp"
                 android:background="?attr/link_preview_background_color"
                 android:visibility="gone"/>
@@ -87,14 +87,13 @@
                 android:id="@+id/link_preview_go_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:padding="4dp"
+                android:layout_margin="16dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
                 android:textColor="?attr/link_color"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:text="@string/button_continue_to_article"/>
+                android:textSize="@dimen/abc_text_size_menu_material"
+                android:text="@string/button_continue_to_article" />
 
         </LinearLayout>
 

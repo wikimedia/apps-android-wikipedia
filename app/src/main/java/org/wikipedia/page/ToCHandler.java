@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -57,7 +58,7 @@ public class ToCHandler {
         this.slidingPane = slidingPane;
 
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
-        ((LinearLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, Utils.getContentTopOffsetPx(activity), 0, 0);
+        ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, Utils.getContentTopOffsetPx(activity), 0, 0);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
 
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {

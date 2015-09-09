@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingBottom="16dp"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
-    android:paddingTop="16dp">
+    android:paddingTop="@dimen/list_item_vertical_padding"
+    android:paddingRight="@dimen/list_item_horizontal_padding"
+    android:paddingBottom="@dimen/list_item_vertical_padding"
+    android:paddingLeft="@dimen/list_item_horizontal_padding">
 
     <ImageView
         android:id="@+id/issue_icon"

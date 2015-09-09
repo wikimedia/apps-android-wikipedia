@@ -5,10 +5,15 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
+              android:paddingTop="@dimen/list_item_vertical_padding"
+              android:paddingRight="@dimen/list_item_horizontal_padding"
+              android:paddingBottom="@dimen/list_item_vertical_padding"
+              android:paddingLeft="@dimen/list_item_horizontal_padding"
               android:background="@drawable/selectable_item_background">
-    <View android:layout_width="0dp" android:layout_height="match_parent"
-          android:id="@+id/page_toc_filler"
-          />
+
+    <View android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:id="@+id/page_toc_filler" />
 
     <TextView
             android:id="@+id/page_toc_item_text"
@@ -20,9 +25,6 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            tools:text="Sample Table of Contents entry"
-            />
+            tools:text="Sample Table of Contents entry" />
 
 </LinearLayout>

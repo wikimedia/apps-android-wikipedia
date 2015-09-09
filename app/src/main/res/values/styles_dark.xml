@@ -40,6 +40,9 @@
         <item name="link_preview_text_color">@color/link_preview_text_dark</item>
         <item name="nav_background_color">@color/nav_background_dark</item>
         <item name="nav_item_color">@color/nav_item_selector_dark</item>
+
+        <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
+        <item name="android:listViewStyle">@style/ListView</item>
     </style>
 
     <style name="NoTitleDark" parent="@style/Theme.Dark">

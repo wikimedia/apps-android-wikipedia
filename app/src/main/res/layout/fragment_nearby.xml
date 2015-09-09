@@ -37,10 +37,7 @@
         <ListView
             android:id="@+id/nearby_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:dividerHeight="0dp"
-            android:divider="@null"
-            />
+            android:layout_height="match_parent" />
         <View
             android:layout_width="match_parent"
             android:layout_height="6dp"

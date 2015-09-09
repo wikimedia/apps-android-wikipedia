@@ -27,6 +27,5 @@
     <ListView android:id="@+id/preference_languages_list"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:choiceMode="singleChoice"
-               />
+              android:choiceMode="singleChoice" />
 </LinearLayout>

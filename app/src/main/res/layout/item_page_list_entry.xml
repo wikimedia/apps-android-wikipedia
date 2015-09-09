@@ -5,14 +5,22 @@
     android:id="@+id/page_list_item_container"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/list_item_vertical_padding"
+    android:paddingRight="@dimen/list_item_horizontal_padding"
+    android:paddingBottom="@dimen/list_item_vertical_padding"
+    android:paddingLeft="@dimen/list_item_horizontal_padding"
+    android:gravity="top">
 
+    <!-- TODO: this probably shouldn't be part of an item cell since it has to do with a collection
+               of cells and nothing to do with an individual. This manifests visually when the cell
+               is interacted with and the additional spacing is exposed. -->
     <TextView
         android:id="@+id/page_list_header_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:gravity="center_vertical"
-        android:padding="8dp"
         android:visibility="gone"
         tools:visibility="visible"
         tools:text="Header text"
@@ -21,7 +29,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/defaultListItemSize"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="top">
 
         <ImageView
             android:id="@+id/page_list_item_image"
@@ -36,22 +45,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:layout_marginBottom="6dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/page_list_item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-6.5dp"
                 style="@style/RtlAwareTextView"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:ellipsize="middle"
                 android:maxLines="2"
-                tools:text="Sample title"
-                />
+                tools:text="Sample title" />
 
             <TextView
                 android:id="@+id/page_list_item_description"
