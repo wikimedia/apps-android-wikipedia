@@ -9,7 +9,7 @@
   <string name="acra_report_dialog_comment">Mida tegid kokkujooksmishetkel?</string>
   <string name="search_hint">Otsi Vikipeediast</string>
   <string name="nav_item_history">Ajalugu</string>
-  <string name="error_network_error" fuzzy="true">Ei õnnestunud pääseda võrku :(</string>
+  <string name="error_network_error">Võrku ühendamine ebaõnnestus.</string>
   <string name="search_network_error">Võrgu viga. Puuduta ekraani, et uuesti proovida!</string>
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
@@ -23,14 +23,14 @@
   <string name="share_via">Vali jagamisviis:</string>
   <string name="dialog_title_clear_saved_pages">Tühjenda kõik salvestatud leheküljed?</string>
   <string name="snackbar_saving_page">Lehe salvestamine…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Leht edukalt salvestatud!</string>
+  <string name="snackbar_saved_page_format">\"%s\" salvestatud võrguühenduseta lugemiseks.</string>
   <string name="snackbar_saved_page_missing_images">Kõiki pilte ei olnud võimalik salvestada!</string>
   <string name="snackbar_refresh_saved_page">Salvestatud lehe uuendamine…</string>
   <string name="delete_selected_saved_pages">Kustuta</string>
   <string name="snackbar_saved_page_deleted">Salvestatud leht/lehed kustutatud</string>
   <string name="menu_page_other_languages">Loe teistes keeltes</string>
   <string name="menu_page_save">Salvesta lehekülg</string>
-  <string name="menu_page_share" fuzzy="true">Jaga</string>
+  <string name="menu_page_share">Jaga linki</string>
   <string name="menu_page_find_in_page">Otsi lehelt</string>
   <string name="last_updated_text">Viimati uuendatud %s</string>
   <string name="content_license_html">Sisu on kasutatav vastavalt litsentsile &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, kui ei ole märgitud teisiti.</string>
@@ -63,7 +63,7 @@
   <string name="login_in_progress_dialog_message">Sisselogimine…</string>
   <string name="login_error_wrong_password">Vale parool</string>
   <string name="login_error_wrong_username">Vale kasutajanimi</string>
-  <string name="login_success_toast" fuzzy="true">Sisselogimine õnnestus</string>
+  <string name="login_success_toast">Sisselogimine õnnestus</string>
   <string name="login_error_blocked">See kasutaja on blokeeritud</string>
   <string name="login_error_throttled">Liiga palju sisselogimiskatseid. Oota mõni minut ja proovi uuesti.</string>
   <string name="login_error_unknown">Sisselogimine ebaõnnestus :(</string>
@@ -72,8 +72,8 @@
   <string name="preference_summary_logout">Logi oma Vikipeedia kontolt välja</string>
   <string name="preference_summary_notloggedin">Sisse logimata</string>
   <string name="toast_logout_complete">Välja logitud</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Salvestatud leheküljed puuduvad</string>
-  <string name="history_empty_message" fuzzy="true">Sinu ajalugu on tühi.</string>
+  <string name="saved_pages_empty_message">Lehekülgede salvestamine on hea. Siis saad neid lugeda ka ilma võrguühenduseta.</string>
+  <string name="history_empty_message">Kustutasid nähtavasti kõik sissekanded. Järgmine kord, kui mõnd lehekülge külastad, saad siitkaudu leheküljele naasta.</string>
   <string name="create_account_username_hint">Kasutajanimi</string>
   <string name="create_account_password_hint">Parool</string>
   <string name="login_create_account_link">Kas sul pole veel kontot? Ühine Vikipeediaga</string>
@@ -115,8 +115,8 @@
   <string name="preference_title_eventlogging_opt_in">Saada kasutusaruanded</string>
   <string name="preference_summary_eventlogging_opt_in">Luba Wikimedial koguda teavet selle kohta, kuidas rakendust kasutad, et seda paremaks muuta.</string>
   <string name="editing_error_spamblacklist">Lingid tõkestatud domeenidele (%s) tuvastatud. Palun eemalda need ja proovi uuesti.</string>
-  <string name="history_search_list_hint" fuzzy="true">Otsi</string>
-  <string name="history_search_empty_message" fuzzy="true">Otsisõnale \'%s\' vastavaid lehekülgi ei leitud</string>
+  <string name="history_search_list_hint">Otsi ajaloost</string>
+  <string name="history_search_empty_message">Sinu otsingule ei vasta ükski lehekülg.</string>
   <string name="error_can_not_process_link">Seda linki ei saa kuvada</string>
   <string name="page_protected_autoconfirmed">See lehekülg on poolkaitstud.</string>
   <string name="page_protected_sysop">See lehekülg on täielikult kaitstud.</string>
