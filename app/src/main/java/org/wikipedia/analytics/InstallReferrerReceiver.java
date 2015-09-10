@@ -31,15 +31,24 @@ public final class InstallReferrerReceiver extends BroadcastReceiver {
             return;
         }
 
-        // build a proper dummy URI with the referrer appended to it, so that we can parse it.
-        Uri uri = Uri.parse("/?" + referrerStr);
-
-        // initialize the funnel with a dummy Site, since this is happening outside of
-        // any kind of browsing or site interactions.
-        InstallReferrerFunnel funnel = new InstallReferrerFunnel(WikipediaApp.getInstance());
-        // and send the event!
-        funnel.logInstall(uri.getQueryParameter(InstallReferrerFunnel.PARAM_REFERRER_URL),
-                          uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_ID),
-                          uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_INSTALL_ID));
+        String refUrl = null;
+        String refCampaignId = null;
+        String refCampaignInstallId = null;
+        try {
+            // build a proper dummy URI with the referrer appended to it, so that we can parse it.
+            Uri uri = Uri.parse("/?" + referrerStr);
+            refUrl = uri.getQueryParameter(InstallReferrerFunnel.PARAM_REFERRER_URL);
+            refCampaignId = uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_ID);
+            refCampaignInstallId = uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_INSTALL_ID);
+        } catch (UnsupportedOperationException e) {
+            // Can be thrown by getQueryParameter() if the referrer is malformed.
+            // Don't worry about it.
+        }
+        // log the event only if at least one of the parameters is nonempty
+        if (!TextUtils.isEmpty(refUrl) || !TextUtils.isEmpty(refCampaignId)
+                || !TextUtils.isEmpty(refCampaignInstallId)) {
+            InstallReferrerFunnel funnel = new InstallReferrerFunnel(WikipediaApp.getInstance());
+            funnel.logInstall(refUrl, refCampaignId, refCampaignInstallId);
+        }
     }
 }
