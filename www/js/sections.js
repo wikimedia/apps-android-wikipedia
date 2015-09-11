@@ -95,7 +95,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     transformer.transform( "setNonGbDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
     transformer.transform( "anchorPopUpMediaTransforms", content );
-    transformer.transform( "hideTables", content );
     transformer.transform( "hideIPA", content );
 
     if (!window.isMainPage) {
@@ -171,10 +170,10 @@ function elementsForSection( section ) {
     transformer.transform( "setNonGbDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
     transformer.transform( "anchorPopUpMediaTransforms", content );
-    transformer.transform( "hideTables", content );
     transformer.transform( "hideIPA", content );
     transformer.transform( "hideRefs", content );
     if (!window.isMainPage) {
+        transformer.transform( "hideTables", content );
         transformer.transform( "addImageOverflowXContainers", content );
         transformer.transform( "widenImages", content );
     }
