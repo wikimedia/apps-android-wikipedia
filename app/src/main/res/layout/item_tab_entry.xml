@@ -20,7 +20,7 @@
             android:layout_gravity="center_vertical"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_pageimage_placeholder"
-            android:background="@android:color/transparent"
+            android:background="@android:color/white"
             android:contentDescription="@null"
             />
 
