@@ -597,12 +597,16 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
         if (pageProps != null && pageProps.getEditProtectionStatus() != null) {
             String message;
-            if (pageProps.getEditProtectionStatus().equals("sysop")) {
-                message = getString(R.string.page_protected_sysop);
-            } else if (pageProps.getEditProtectionStatus().equals("autoconfirmed")) {
-                message = getString(R.string.page_protected_autoconfirmed);
-            } else {
-                message = getString(R.string.page_protected_other, pageProps.getEditProtectionStatus());
+            switch (pageProps.getEditProtectionStatus()) {
+                case "sysop":
+                    message = getString(R.string.page_protected_sysop);
+                    break;
+                case "autoconfirmed":
+                    message = getString(R.string.page_protected_autoconfirmed);
+                    break;
+                default:
+                    message = getString(R.string.page_protected_other, pageProps.getEditProtectionStatus());
+                    break;
             }
             FeedbackUtil.showMessage(this, message);
         }
