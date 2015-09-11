@@ -13,7 +13,7 @@
 
     <string name="search_hint">Search Wikipedia</string>
     <string name="nav_item_history">History</string>
-    <string name="error_network_error">The network connection could not be established.</string>
+    <string name="error_network_error">Cannot connect to the internet.</string>
     <string name="search_network_error">Network error. Tap to try again.</string>
     <string name="generic_page_error">There was a problem handling your request.</string>
     <string name="status_code_unavailable">Server status code unavailable.</string>
