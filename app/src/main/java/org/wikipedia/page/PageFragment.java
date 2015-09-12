@@ -733,6 +733,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 findInPageActionMode = mode;
                 MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
                 MenuItemCompat.setActionProvider(menuItem, findInPageActionProvider);
+                setToCButtonFadedIn(false);
                 return true;
             }
 
@@ -752,6 +753,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 findInPageActionMode = null;
                 webView.clearMatches();
                 pageActivity.showToolbar();
+                setToCButtonFadedIn(true);
                 Utils.hideSoftKeyboard(pageActivity);
             }
         });
