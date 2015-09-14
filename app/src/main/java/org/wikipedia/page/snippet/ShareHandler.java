@@ -77,7 +77,9 @@ public class ShareHandler {
                 String purpose = messagePayload.optString("purpose", "");
                 String text = messagePayload.optString("text", "");
                 if (purpose.equals("share")) {
-                    createFunnel();
+                    if (funnel == null) {
+                        createFunnel();
+                    }
                     shareSnippet(text);
                     funnel.logShareTap(text);
                 }
