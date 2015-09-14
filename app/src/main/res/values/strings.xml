@@ -13,7 +13,7 @@
 
     <string name="search_hint">Search Wikipedia</string>
     <string name="nav_item_history">History</string>
-    <string name="error_network_error">Cannot connect to the internet.</string>
+    <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="search_network_error">Network error. Tap to try again.</string>
     <string name="generic_page_error">There was a problem handling your request.</string>
     <string name="status_code_unavailable">Server status code unavailable.</string>
@@ -262,7 +262,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="alpha_update_notification_text">Tap to download</string>
     <string name="dialog_close_description">Close</string>
     <string name="preference_title_show_images">Show images</string>
-    <string name="preference_summary_show_images">Enable or disable loading of images in pages. Uncheck this setting if your internet connection is slow, or if your data plan is limited.</string>
+    <string name="preference_summary_show_images">Enable or disable loading of images in pages. Uncheck this setting if your Internet connection is slow, or if your data plan is limited.</string>
     <string name="read_more_section">Read more</string>
     <string name="read_next_section">Read next</string>
     <string name="menu_gallery_visit_page">Go to file page</string>
