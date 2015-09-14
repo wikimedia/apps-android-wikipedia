@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">クラッシュした際に何をしていましたか?</string>
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="nav_item_history">履歴</string>
-  <string name="error_network_error">ネットワーク接続が確立できませんでした。</string>
+  <string name="error_network_error" fuzzy="true">ネットワーク接続が確立できませんでした。</string>
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
   <string name="generic_page_error">リクエストの処理中に問題が発生しました。</string>
   <string name="status_code_unavailable">サーバーステータスコードが使用できません。</string>

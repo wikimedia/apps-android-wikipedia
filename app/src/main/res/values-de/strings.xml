@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Was hast du gemacht, als der Absturz passiert ist?</string>
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="nav_item_history">Verlauf</string>
-  <string name="error_network_error">Die Netzwerkverbindung konnte nicht hergestellt werden.</string>
+  <string name="error_network_error" fuzzy="true">Die Netzwerkverbindung konnte nicht hergestellt werden.</string>
   <string name="search_network_error">Netzwerkfehler. Tippen zum erneuten Versuchen.</string>
   <string name="generic_page_error">Es gab ein Problem beim Bearbeiten deiner Anfrage.</string>
   <string name="status_code_unavailable">Der Statuscode des Servers ist nicht verfügbar.</string>

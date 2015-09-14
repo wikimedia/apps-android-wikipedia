@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">క్రాష్ అయినప్పుడు మీరేం చేస్తున్నారు?</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="nav_item_history">చరిత్ర</string>
-  <string name="error_network_error">ఇంటర్నెట్ తో అనుసందానం ఏర్పరచలేకపోయాము.</string>
+  <string name="error_network_error" fuzzy="true">ఇంటర్నెట్ తో అనుసందానం ఏర్పరచలేకపోయాము.</string>
   <string name="search_network_error">నెట్‌వర్క్ లోపం. మళ్ళీ ప్రయత్నించడానికి తట్టండి.</string>
   <string name="generic_page_error">మీ అభ్యర్ధనని ప్రక్రియంచటంలో ఏదో సమస్య వచ్చింది.</string>
   <string name="status_code_unavailable">సర్వర్ స్టేటస్ కోడ్ అందుబాటులో లేదు.</string>

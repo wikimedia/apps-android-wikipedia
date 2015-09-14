@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Apa yang Anda lakukan ketika terjadi kesalahan?</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="error_network_error">Sambungan jaringan tidak dapat ditentukan.</string>
+  <string name="error_network_error" fuzzy="true">Sambungan jaringan tidak dapat ditentukan.</string>
   <string name="search_network_error">Kesalahan jaringan. Ketuk untuk mencoba lagi.</string>
   <string name="generic_page_error">Terjadi masalah saat menangani permintaan Anda.</string>
   <string name="status_code_unavailable">Kode status peladen tidak tersedia.</string>

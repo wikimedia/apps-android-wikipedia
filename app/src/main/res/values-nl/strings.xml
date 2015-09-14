@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Wat was u aan het doen toen de crash optrad?</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="nav_item_history">Geschiedenis</string>
-  <string name="error_network_error">Er is geen netwerkverbinding.</string>
+  <string name="error_network_error" fuzzy="true">Er is geen netwerkverbinding.</string>
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
   <string name="generic_page_error">Er is een probleem opgetreden tijdens het afhandelen van uw verzoek.</string>
   <string name="status_code_unavailable">Serverstatuscode niet beschikbaar.</string>

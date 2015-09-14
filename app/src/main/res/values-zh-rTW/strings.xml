@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">發生錯誤時你在做什麼？</string>
   <string name="search_hint">在維基百科內搜尋</string>
   <string name="nav_item_history">歷史</string>
-  <string name="error_network_error">無法建立網路連線。</string>
+  <string name="error_network_error" fuzzy="true">無法建立網路連線。</string>
   <string name="search_network_error">網路錯誤。輕觸重試。</string>
   <string name="generic_page_error">在處理您的請求時出現問題。</string>
   <string name="status_code_unavailable">無法使用伺服器狀態碼</string>

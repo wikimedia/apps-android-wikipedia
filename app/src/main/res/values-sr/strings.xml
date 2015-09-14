@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Шта сте ви радили кад је дошло до пада?</string>
   <string name="search_hint">Претрага Википедије</string>
   <string name="nav_item_history">Историја</string>
-  <string name="error_network_error">Није могуће успоставити мрежну везу.</string>
+  <string name="error_network_error" fuzzy="true">Није могуће успоставити мрежну везу.</string>
   <string name="search_network_error">Мрежна грешка. Тапните да пробате поново.</string>
   <string name="generic_page_error">Дошло је до проблема при обради вашег захтева.</string>
   <string name="page_error_retry">Пробај опет</string>

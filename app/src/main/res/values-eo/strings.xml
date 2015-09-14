@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Kion vi faris kiam okazis la kolapso?</string>
   <string name="search_hint">Serĉu en Vikipedio</string>
   <string name="nav_item_history">Historio</string>
-  <string name="error_network_error">Ne estas ret-aliro</string>
+  <string name="error_network_error" fuzzy="true">Ne estas ret-aliro</string>
   <string name="search_network_error">Reta eraro. Tuŝu por reprovi.</string>
   <string name="generic_page_error">Dum traktado de via peto okazis eraro.</string>
   <string name="status_code_unavailable">Kodo de servila stato estas nedisponebla.</string>

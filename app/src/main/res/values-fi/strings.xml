@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Mitä olit tekemässä kaatumishetkellä?</string>
   <string name="search_hint">Wikipedia-haku</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Verkkoyhteyden muodostaminen epäonnistui.</string>
+  <string name="error_network_error" fuzzy="true">Verkkoyhteyden muodostaminen epäonnistui.</string>
   <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
   <string name="generic_page_error">Pyyntöäsi käsiteltäessä ilmeni ongelma.</string>
   <string name="status_code_unavailable">Palvelimen tilakoodi ei ole saatavilla.</string>

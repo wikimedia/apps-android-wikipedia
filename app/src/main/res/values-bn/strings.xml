@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">অ্যাপটি অকার্যকর হওয়ার সময় আপনি কি করছিলেন?</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="nav_item_history">ইতিহাস</string>
-  <string name="error_network_error">নেটওয়ার্ক সংযোগ স্থাপন করা যায়নি।</string>
+  <string name="error_network_error" fuzzy="true">নেটওয়ার্ক সংযোগ স্থাপন করা যায়নি।</string>
   <string name="search_network_error">নেটওয়ার্ক ত্রুটি। পুনরায় চেষ্টা করুন।</string>
   <string name="generic_page_error">আপনার অনুরোধ পরিচালনার সময় একটি ত্রুটি ঘটেছে।</string>
   <string name="status_code_unavailable">সার্ভারের অবস্থা কোড অনুপলব্ধ।</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Wat hutt Dir gemaach wéi de Crash geschitt ass?</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="nav_item_history">Versiounen</string>
-  <string name="error_network_error">DVerbindung mam Reseau konnt net opgebaut ginn.</string>
+  <string name="error_network_error" fuzzy="true">DVerbindung mam Reseau konnt net opgebaut ginn.</string>
   <string name="search_network_error">Feeler vum Reseau. Tippt fir nach eng Kéier ze probéieren.</string>
   <string name="generic_page_error">Et gouf e Problem beim Verschaffe vun Ärer Ufro.</string>
   <string name="status_code_unavailable">Statuscode vum Server net disponibel.</string>

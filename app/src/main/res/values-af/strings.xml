@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Wat was u besig om te doen toe die breek plaasgevind het?</string>
   <string name="search_hint">Soek in Wikipedia</string>
   <string name="nav_item_history">Geskiedenis</string>
-  <string name="error_network_error">Daar is geen netwerkverbinding nie.</string>
+  <string name="error_network_error" fuzzy="true">Daar is geen netwerkverbinding nie.</string>
   <string name="search_network_error">Netwerkfout. Kliek om weer te probeer.</string>
   <string name="generic_page_error">Daar was \'n probleem met die hantering van u versoek.</string>
   <string name="status_code_unavailable">Bediener statuskode onbeskikbaar.</string>

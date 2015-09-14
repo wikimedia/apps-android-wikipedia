@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Што правевте кога се случи урнувањето?</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="nav_item_history">Историја</string>
-  <string name="error_network_error">Не можам да се поврзам со мрежата.</string>
+  <string name="error_network_error" fuzzy="true">Не можам да се поврзам со мрежата.</string>
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
   <string name="generic_page_error">Се јави проблем при работа со вашето барање.</string>
   <string name="status_code_unavailable">Кодот за статусот на опслужувачот е недостапен.</string>

@@ -9,7 +9,7 @@
   <string name="acra_report_dialog_comment">Mida tegid kokkujooksmishetkel?</string>
   <string name="search_hint">Otsi Vikipeediast</string>
   <string name="nav_item_history">Ajalugu</string>
-  <string name="error_network_error">Võrku ühendamine ebaõnnestus.</string>
+  <string name="error_network_error" fuzzy="true">Võrku ühendamine ebaõnnestus.</string>
   <string name="search_network_error">Võrgu viga. Puuduta ekraani, et uuesti proovida!</string>
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
