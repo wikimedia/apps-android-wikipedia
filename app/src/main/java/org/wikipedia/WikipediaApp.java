@@ -32,7 +32,6 @@ import org.wikipedia.history.HistoryEntryPersister;
 import org.wikipedia.interlanguage.AcceptLanguageUtil;
 import org.wikipedia.interlanguage.AppLanguageState;
 import org.wikipedia.login.UserInfoStorage;
-import org.wikipedia.migration.PerformMigrationsTask;
 import org.wikipedia.networking.MccMncStateHandler;
 import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
@@ -211,8 +210,6 @@ public class WikipediaApp extends Application {
 
         zeroHandler = new WikipediaZeroHandler(this);
         pageCache = new PageCache(this);
-
-        new PerformMigrationsTask().execute();
     }
 
     public Bus getBus() {
