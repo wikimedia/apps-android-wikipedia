@@ -16,21 +16,9 @@ import java.util.concurrent.TimeUnit;
  */
 @LargeTest
 public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<PageActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = (int) TimeUnit.SECONDS.toMillis(30);
+    private static final int TASK_COMPLETION_TIMEOUT = (int) TimeUnit.SECONDS.toMillis(60);
     private static final int NUM_RUNS = 1; //50;
-    private PageActivity activity;
-    private CountDownLatch completionLatch;
-    private PageFragment fragment;
-    private String title;
-    private MeasurementController measurement = new MeasurementController();
-
-    private PageLoadCallbacks callback = new PageLoadCallbacks() {
-        @Override
-        public void onLoadComplete() {
-            measurement.stop(title);
-            completionLatch.countDown();
-        }
-    };
+    private final MeasurementController measurement = new MeasurementController();
 
     public PageLoadPerformanceTests() {
         super(PageActivity.class);
@@ -39,7 +27,9 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        activity = getActivity();
+
+        // Launch Activity.
+        getActivity();
     }
 
     public void testLoadPages() throws Throwable {
@@ -51,24 +41,36 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
     }
 
     private void loadPageMultipleTimes(String title) throws Throwable {
-        this.title = title;
         for (int i = 0; i < NUM_RUNS; i++) {
-            loadPageUi();
+            loadPageUi(title);
         }
     }
 
-    private void loadPageUi() throws Throwable {
-        completionLatch = new CountDownLatch(1);
+    private void loadPageUi(final String title) throws Throwable {
+        final CountDownLatch latch = new CountDownLatch(1);
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                fragment = (PageFragment) activity.getTopFragment();
-                fragment.setPageLoadCallbacks(callback);
+                getFragment().setPageLoadCallbacks(newCallbacks(title, latch));
 
                 measurement.start(title);
-                PageLoadTests.loadPage(fragment, title);
+                PageLoadTests.loadPage(getFragment(), title);
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        assertTrue(latch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+    }
+
+    private PageLoadCallbacks newCallbacks(final String title, final CountDownLatch latch) {
+        return new PageLoadCallbacks() {
+            @Override
+            public void onLoadComplete() {
+                measurement.stop(title);
+                latch.countDown();
+            }
+        };
+    }
+
+    private PageFragment getFragment() {
+        return (PageFragment) getActivity().getTopFragment();
     }
 }
