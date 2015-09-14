@@ -179,9 +179,11 @@ public final class ShareUtils {
             return null;
         }
 
-        Intent bestIntent = intents.remove(0);
-        return Intent.createChooser(bestIntent, chooserTitle)
-                .putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
+        Intent intent = Intent.createChooser(ApiUtil.hasHoneyComb() ? intents.remove(0) : targetIntent, chooserTitle);
+        if (ApiUtil.hasHoneyComb()) {
+            intent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
+        }
+        return intent;
     }
 
     public static List<Intent> queryIntents(@NonNull Context context,
