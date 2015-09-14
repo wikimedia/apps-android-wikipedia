@@ -126,6 +126,16 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         }
     }
 
+    @Override
+    public void dismiss() {
+        // Since we call dismiss() from some AsyncTasks, make sure that this fragment
+        // is actually active, since calling dismiss() after onSaveInstanceState() produces
+        // an exception.
+        if (isResumed()) {
+            super.dismiss();
+        }
+    }
+
     public void setDialogPeekHeight(int height) {
         dialogPeekHeight = height;
     }
