@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.testlib;
 
 import java.util.concurrent.CountDownLatch;
 

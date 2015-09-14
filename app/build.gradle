@@ -61,6 +61,15 @@ android {
         testApplicationId 'org.wikipedia.test'
     }
 
+    sourceSets {
+        test {
+            java.srcDirs += 'src/testlib/java'
+        }
+        androidTest {
+            java.srcDirs += 'src/testlib/java'
+        }
+    }
+
     signingConfigs {
         prod {
             setSigningConfigKey(prod, PROD_PROPS)

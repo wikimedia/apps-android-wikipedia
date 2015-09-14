@@ -4,19 +4,16 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageLoadCallbacks;
 import org.wikipedia.page.PageLoadTests;
+import org.wikipedia.testlib.TestLatch;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
-
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Test performance of page loading. Update the NUM_RUNS for better statistical significance.
  */
 @LargeTest
 public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<PageActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = (int) TimeUnit.SECONDS.toMillis(60);
     private static final int NUM_RUNS = 1; //50;
     private final MeasurementController measurement = new MeasurementController();
 
@@ -47,7 +44,7 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
     }
 
     private void loadPageUi(final String title) throws Throwable {
-        final CountDownLatch latch = new CountDownLatch(1);
+        final TestLatch latch = new TestLatch();
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
@@ -57,10 +54,10 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
                 PageLoadTests.loadPage(getFragment(), title);
             }
         });
-        assertTrue(latch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
     }
 
-    private PageLoadCallbacks newCallbacks(final String title, final CountDownLatch latch) {
+    private PageLoadCallbacks newCallbacks(final String title, final TestLatch latch) {
         return new PageLoadCallbacks() {
             @Override
             public void onLoadComplete() {
