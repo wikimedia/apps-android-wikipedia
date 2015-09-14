@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Què féieu quan ha fallat?</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error">No es pot establir una connexió de xarxa</string>
+  <string name="error_network_error" fuzzy="true">No es pot establir una connexió de xarxa</string>
   <string name="search_network_error">Error de xarxa. Toqueu la pantalla per a tornar-ho a provar.</string>
   <string name="generic_page_error">S\'ha produït un problema gestionant la sol·licitud.</string>
   <string name="status_code_unavailable">El codi d\'estat del servidor no és disponible</string>

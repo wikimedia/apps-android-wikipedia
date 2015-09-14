@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">તમારા શું કરવાથી આ ક્ષતિ આવી ?</string>
   <string name="search_hint">વિકિપીડિયામાં શોધો</string>
   <string name="nav_item_history">ઇતિહાસ</string>
-  <string name="error_network_error">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>
+  <string name="error_network_error" fuzzy="true">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>
   <string name="search_network_error">નેટવર્ક ક્ષતિ. ફરી પ્રયત્ન કરવા ટૅપ કરો.</string>
   <string name="generic_page_error">તમારી વિનંતી સાથે કામ પાડવામાં કોઈ સમસ્યા છે.</string>
   <string name="status_code_unavailable">સર્વર સ્થિતિ કોડ ઉપલબ્ધ નથી.</string>

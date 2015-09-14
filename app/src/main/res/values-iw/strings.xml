@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">מה עשית בזמן הקריסה?</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="error_network_error">לא הצלחנו ליצור חיבור רשת.</string>
+  <string name="error_network_error" fuzzy="true">לא הצלחנו ליצור חיבור רשת.</string>
   <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
   <string name="generic_page_error">הייתה בעיה בטיפול בבקשה שלך.</string>
   <string name="status_code_unavailable">קוד המצב מהשרת אינו זמין.</string>

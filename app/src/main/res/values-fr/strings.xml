@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Que faisiez-vous lorsque le plantage s’est produit ?</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
   <string name="nav_item_history">Historique</string>
-  <string name="error_network_error">La connexion au réseau n\'a pas pu être établie.</string>
+  <string name="error_network_error" fuzzy="true">La connexion au réseau n\'a pas pu être établie.</string>
   <string name="search_network_error">Erreur de réseau. Appuyez pour réessayer.</string>
   <string name="generic_page_error">Il y a eu un problème lors du traitement de votre demande.</string>
   <string name="status_code_unavailable">Code d’état du serveur non disponible.</string>

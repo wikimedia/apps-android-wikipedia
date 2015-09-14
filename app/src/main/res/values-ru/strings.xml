@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Что вы делали, когда произошёл сбой?</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="nav_item_history">История</string>
-  <string name="error_network_error">Сетевое подключение не может быть установлено.</string>
+  <string name="error_network_error" fuzzy="true">Сетевое подключение не может быть установлено.</string>
   <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
   <string name="generic_page_error">При обработке вашего запроса возникла проблема.</string>
   <string name="status_code_unavailable">Код статуса сервера недоступен.</string>

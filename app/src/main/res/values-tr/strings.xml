@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Kilitlenme olduğu zaman ne yapıyordunuz?</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="nav_item_history">Geçmiş</string>
-  <string name="error_network_error">Ağ bağlantısı kurulamadı.</string>
+  <string name="error_network_error" fuzzy="true">Ağ bağlantısı kurulamadı.</string>
   <string name="search_network_error">Ağ hatası. Tekrar denemek için dokunun.</string>
   <string name="generic_page_error">Talebiniz gerçekleştirilirken bir sorun çıktı.</string>
   <string name="status_code_unavailable">Sunucu durum kodu kullanılamıyor.</string>
@@ -28,7 +28,7 @@
   <string name="dialog_title_clear_saved_pages">Tüm kaydedilen sayfalar silinsin mi?</string>
   <string name="snackbar_saving_page">Sayfa kaydediliyor…</string>
   <string name="snackbar_saved_page_format" fuzzy="true">Sayfa başarıyla kaydedildi</string>
-  <string name="snackbar_saved_page_missing_images">Görüntülerin tamamı kaydedilemedi</string>
+  <string name="snackbar_saved_page_missing_images">Görsellerin tamamı kaydedilemedi</string>
   <string name="snackbar_refresh_saved_page">Kaydedilmiş sayfa yenileniyor…</string>
   <string name="delete_selected_saved_pages">Sil</string>
   <string name="snackbar_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
@@ -38,8 +38,8 @@
   <string name="menu_page_other_languages">Başka dilde oku</string>
   <string name="menu_page_save">Sayfayı kaydet</string>
   <string name="menu_page_share" fuzzy="true">Paylaş</string>
-  <string name="menu_page_find_in_page">Bu sayfada bul</string>
-  <string name="menu_page_font_and_theme">Yazı tipi ve tema değiştir</string>
+  <string name="menu_page_find_in_page">Sayfada bul</string>
+  <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_long_press_open_page" fuzzy="true">Bağlantıyı aç</string>
   <string name="menu_long_press_open_in_new_tab">Yeni sekmede aç</string>
   <string name="nav_item_nearby">Yakınındakiler</string>

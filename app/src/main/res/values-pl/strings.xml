@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Co robiłeś, gdy zdarzyła się awaria?</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Nie można nawiązać połączenia z siecią.</string>
+  <string name="error_network_error" fuzzy="true">Nie można nawiązać połączenia z siecią.</string>
   <string name="search_network_error">Błąd sieci. Kliknij, aby spróbować ponownie.</string>
   <string name="generic_page_error">Podczas przetwarzania twojego żądania wystąpił problem.</string>
   <string name="status_code_unavailable">Kod statusu serwera nie jest dostępny.</string>

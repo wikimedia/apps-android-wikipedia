@@ -27,7 +27,7 @@
   <string name="share_via">다음을 통해 공유</string>
   <string name="dialog_title_clear_saved_pages">모든 저장된 문서를 지울까요?</string>
   <string name="snackbar_saving_page">문서를 저장하는 중…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">문서를 성공적으로 저장했습니다</string>
+  <string name="snackbar_saved_page_format">\"%s\" 문서가 오프라인용으로 저장되었습니다.</string>
   <string name="snackbar_saved_page_missing_images">모든 그림을 저장할 수 없습니다</string>
   <string name="snackbar_refresh_saved_page">저장된 문서를 새로 고치는 중…</string>
   <string name="delete_selected_saved_pages">삭제</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ত্ৰুটি হোৱাৰ সময়ত আপুনি কি কৰি আছিল?</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="nav_item_history">ইতিহাস</string>
-  <string name="error_network_error">নে\'টৱৰ্কৰ সংযোগ স্থাপন কৰিব পৰা নগ\'ল।</string>
+  <string name="error_network_error" fuzzy="true">নে\'টৱৰ্কৰ সংযোগ স্থাপন কৰিব পৰা নগ\'ল।</string>
   <string name="search_network_error">নে\'টৱৰ্ক ত্ৰুটি। পুনৰ চেষ্টা কৰক।</string>
   <string name="generic_page_error">আপোনাৰ অনুৰোধ গ্ৰহণত এটা সমস্যা হৈছে।</string>
   <string name="status_code_unavailable">চাৰ্ভাৰৰ অৱস্থা সংকেত অনুপলব্ধ।</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Vad gjorde du när kraschen inträffade?</string>
   <string name="search_hint">Sök på Wikipedia</string>
   <string name="nav_item_history">Historik</string>
-  <string name="error_network_error">Nätverksanslutningen kunde inte upprättas.</string>
+  <string name="error_network_error" fuzzy="true">Nätverksanslutningen kunde inte upprättas.</string>
   <string name="search_network_error">Nätverksfel. Tryck för att försöka igen.</string>
   <string name="generic_page_error">Ett problem uppstod när din begäran skulle behandlas.</string>
   <string name="status_code_unavailable">Serverns statuskod är otillgänglig.</string>

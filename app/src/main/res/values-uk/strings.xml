@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Що ви робили, коли трапився збій?</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="nav_item_history">Історія</string>
-  <string name="error_network_error">Не вдалося встановити підключення до мережі.</string>
+  <string name="error_network_error" fuzzy="true">Не вдалося встановити підключення до мережі.</string>
   <string name="search_network_error">Помилка мережі. Натисніть, щоб спробувати знову.</string>
   <string name="generic_page_error">Виникла проблема обробки Вашого запиту.</string>
   <string name="status_code_unavailable">Код статусу сервера  недоступний.</string>

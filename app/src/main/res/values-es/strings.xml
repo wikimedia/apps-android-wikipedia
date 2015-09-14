@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">¿Qué hacías cuando ocurrió el fallo?</string>
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error">No se pudo establecer la conexión con la red.</string>
+  <string name="error_network_error" fuzzy="true">No se pudo establecer la conexión con la red.</string>
   <string name="search_network_error">Error en la red. Toca para volver a intentarlo.</string>
   <string name="generic_page_error">Hubo un problema de manejo de Tu solicitud.</string>
   <string name="status_code_unavailable">El código de estado del servidor no está disponible.</string>
