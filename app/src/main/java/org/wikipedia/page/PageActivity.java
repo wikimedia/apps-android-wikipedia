@@ -358,6 +358,7 @@ public class PageActivity extends ThemedActionBarActivity {
             if (isCabOpen()) {
                 currentActionMode.finish();
             }
+            updateNavDrawerSelection(getTopFragment());
             navDrawerHelper.getFunnel().logOpen();
         }
 
@@ -1007,8 +1008,6 @@ public class PageActivity extends ThemedActionBarActivity {
     private void handleSettingsActivityResult(int resultCode) {
         if (languageChanged(resultCode)) {
             loadNewLanguageMainPage();
-        } else if (logoutSelected(resultCode)) {
-            logout();
         }
     }
 
@@ -1038,10 +1037,6 @@ public class PageActivity extends ThemedActionBarActivity {
         return resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
     }
 
-    private boolean logoutSelected(int resultCode) {
-        return resultCode == SettingsActivity.ACTIVITY_RESULT_LOGOUT;
-    }
-
     /**
      * Reload the main page in the new language, after delaying for one second in order to:
      * (1) Make sure that onStart in PageActivity gets called, thus registering the activity for the bus.
@@ -1068,13 +1063,5 @@ public class PageActivity extends ThemedActionBarActivity {
                 new ComponentName(this, WidgetProviderFeaturedPage.class));
         widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         sendBroadcast(widgetIntent);
-    }
-
-    private void logout() {
-        app.getEditTokenStorage().clearAllTokens();
-        app.getCookieManager().clearAllCookies();
-        app.getUserInfoStorage().clearUser();
-        FeedbackUtil.showMessage(this, R.string.toast_logout_complete);
-        navDrawerHelper.setupDynamicNavDrawerItems();
     }
 }
