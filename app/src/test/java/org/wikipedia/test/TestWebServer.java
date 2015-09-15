@@ -3,6 +3,8 @@ package org.wikipedia.test;
 import com.squareup.okhttp.mockwebserver.MockResponse;
 import com.squareup.okhttp.mockwebserver.MockWebServer;
 
+import org.wikipedia.testlib.TestConstants;
+
 import java.io.IOException;
 import java.net.URL;
 
