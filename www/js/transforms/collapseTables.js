@@ -37,10 +37,7 @@ function getTableHeader( element ) {
     return thArray;
 }
 
-/*
-OnClick handler function for expanding/collapsing tables and infoboxes.
-*/
-function tableCollapseClickHandler() {
+function handleTableCollapseOrExpandClick() {
     var container = this.parentNode;
     var divCollapsed = container.children[0];
     var tableFull = container.children[1];
@@ -132,7 +129,11 @@ transformer.register( "hideTables", function( content ) {
         bottomDiv.style.display = 'none';
 
         //assign click handler to the collapsed divs
-        collapsedDiv.onclick = tableCollapseClickHandler;
-        bottomDiv.onclick = tableCollapseClickHandler;
+        collapsedDiv.onclick = handleTableCollapseOrExpandClick;
+        bottomDiv.onclick = handleTableCollapseOrExpandClick;
     }
 } );
+
+module.exports = {
+    handleTableCollapseOrExpandClick: handleTableCollapseOrExpandClick
+};
