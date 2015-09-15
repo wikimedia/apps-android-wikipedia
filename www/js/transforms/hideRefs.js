@@ -39,7 +39,7 @@ transformer.register( "hideRefs", function( content ) {
         bottomDiv.style.display = 'none';
 
         //assign click handler to the collapsed divs
-        collapsedDiv.onclick = collapseTables.tableCollapseClickHandler;
-        bottomDiv.onclick = collapseTables.tableCollapseClickHandler;
+        collapsedDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
+        bottomDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
     }
 } );
