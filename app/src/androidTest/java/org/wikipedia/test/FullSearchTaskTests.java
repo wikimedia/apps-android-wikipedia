@@ -17,8 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
     private static final int BATCH_SIZE = 12;
-    private static final Site SITE = new Site("test.wikipedia.org");
-    private static final Site EN_SITE = new Site("en.wikipedia.org");
+    private static final Site SITE = new Site("en.wikipedia.org");
 
     public FullSearchTaskTests() {
         super(TestDummyActivity.class);
@@ -32,7 +31,7 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
             @Override
             public void run() {
                 final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
-                new FullSearchArticlesTask(app.getAPIForSite(EN_SITE), EN_SITE, "test", BATCH_SIZE, null, false) {
+                new FullSearchArticlesTask(app.getAPIForSite(SITE), SITE, "test", BATCH_SIZE, null, false) {
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
