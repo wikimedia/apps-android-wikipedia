@@ -334,5 +334,9 @@ public final class Prefs {
         return getKey(R.string.preference_key_edittoken_for_wiki_format, wiki);
     }
 
+    public static boolean isLinkPreviewEnabled() {
+        return getBoolean(R.string.preference_key_show_link_previews, true);
+    }
+
     private Prefs() { }
 }
