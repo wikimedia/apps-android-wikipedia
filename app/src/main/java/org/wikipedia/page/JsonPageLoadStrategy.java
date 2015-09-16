@@ -274,8 +274,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 // kick off the lead image layout
                 leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                     @Override
-                    public void onLayoutComplete() {
-                        if (!fragment.isAdded()) {
+                    public void onLayoutComplete(int sequence) {
+                        if (!fragment.isAdded() || sequence != currentSequenceNum) {
                             return;
                         }
                         searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
@@ -284,7 +284,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                         displayLeadSection();
                         displayNonLeadSectionForUnsavedPage(1);
                     }
-                });
+                }, currentSequenceNum);
                 break;
             default:
                 // This should never happen
@@ -423,8 +423,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 // kick off the lead image layout
                 leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                     @Override
-                    public void onLayoutComplete() {
-                        if (!fragment.isAdded()) {
+                    public void onLayoutComplete(int sequence) {
+                        if (!fragment.isAdded() || sequence != currentSequenceNum) {
                             return;
                         }
                         searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
@@ -435,7 +435,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
                         setState(STATE_COMPLETE_FETCH);
                     }
-                });
+                }, currentSequenceNum);
             }
 
             @Override
@@ -636,7 +636,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         if (!fragment.isAdded() || startSequenceNum != currentSequenceNum) {
             return;
         }
-
         if (pageLead.hasError()) {
             ServiceError error = pageLead.getError();
             if (error != null) {
@@ -659,7 +658,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // kick off the lead image layout
         leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
             @Override
-            public void onLayoutComplete() {
+            public void onLayoutComplete(int sequence) {
+                if (sequence != currentSequenceNum) {
+                    return;
+                }
                 searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
                 // when the lead image is laid out, display the lead section in the webview,
                 // and start loading the rest of the sections.
@@ -667,7 +669,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 setState(STATE_INITIAL_FETCH);
                 performActionForState(state);
             }
-        });
+        }, currentSequenceNum);
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
         final HistoryEntry curEntry = model.getCurEntry();

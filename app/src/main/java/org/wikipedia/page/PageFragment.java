@@ -505,11 +505,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!pageLoadStrategy.isLoading()) {
             leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                 @Override
-                public void onLayoutComplete() {
-                    // when it's finished laying out, make sure the toolbar is shown appropriately.
+                public void onLayoutComplete(int sequence) {
+                    // (We don't care about the sequence number here, since it doesn't affect
+                    // page loading)
+                    // When it's finished laying out, make sure the toolbar is shown appropriately.
                     searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
                 }
-            });
+            }, 0);
         }
     }
 
