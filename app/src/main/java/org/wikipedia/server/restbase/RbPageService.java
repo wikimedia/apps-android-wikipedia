@@ -77,7 +77,7 @@ public class RbPageService implements PageService {
 
     /**
      * Optional boolean Retrofit parameter.
-     * We don't want to send the query parameter at all when it's false since the presence of the
+     * We don't want to send the query parameter at all when it's false since the presence of the parameter
      * alone is enough to trigger the truthy behavior.
      */
     private Boolean optional(boolean param) {

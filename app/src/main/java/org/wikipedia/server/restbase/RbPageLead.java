@@ -33,6 +33,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Expose @Nullable private String displaytitle;
     @Expose @Nullable private String redirected;
     @Expose @Nullable private String normalizedtitle;
+    @Expose @Nullable private String extract;
     @Expose private int languagecount;
     @Expose private boolean editable;
     @Expose private boolean mainpage;
@@ -88,8 +89,6 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         }
     }
 
-
-
     /** Converter */
     public PageProperties toPageProperties() {
         return new PageProperties(this);
@@ -106,6 +105,11 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Nullable
     public String getLastModified() {
         return lastmodified;
+    }
+
+    @Nullable
+    public String getExtract() {
+        return extract;
     }
 
     public int getLanguageCount() {
@@ -129,7 +133,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     @Nullable
     public String getDescription() {
-        return Utils.capitalizeFirstChar(description);
+        return description != null ? Utils.capitalizeFirstChar(description) : null;
     }
 
     @Nullable
