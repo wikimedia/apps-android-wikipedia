@@ -415,7 +415,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (referenceDialog != null && referenceDialog.isShowing()) {
             referenceDialog.dismiss();
         }
-        if (!TextUtils.isEmpty(title.getNamespace()) || (!app.isProdRelease() && app.getLinkPreviewVersion() == 0)) {
+        if (!TextUtils.isEmpty(title.getNamespace())) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             getPageActivity().displayNewPage(title, historyEntry);
             new LinkPreviewFunnel(app).logNavigate();

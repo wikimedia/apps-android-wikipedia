@@ -123,18 +123,6 @@ public final class Prefs {
         remove(getEditTokenForWikiKey(wiki));
     }
 
-    public static int getLinkPreviewVersion() {
-        return getInt(R.string.preference_key_link_preview_version, 0);
-    }
-
-    public static void setLinkPreviewVersion(int version) {
-        setInt(R.string.preference_key_link_preview_version, version);
-    }
-
-    public static boolean hasLinkPreviewVersion() {
-        return contains(R.string.preference_key_link_preview_version);
-    }
-
     public static void removeLoginUsername() {
         remove(R.string.preference_key_login_username);
     }
