@@ -121,7 +121,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      */
     private boolean saveOnComplete = false;
 
-    private ViewGroup imagesContainer;
+    private ViewGroup leadSectionContainer;
     private LeadImagesHandler leadImagesHandler;
     private SearchBarHideHandler searchBarHideHandler;
     private ObservableWebView webView;
@@ -324,7 +324,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             int getDialogHeight() {
                 // could have scrolled up a bit but the page info links must still be visible else they couldn't have been clicked
-                return webView.getHeight() + webView.getScrollY() - imagesContainer.getHeight();
+                return webView.getHeight() + webView.getScrollY() - leadSectionContainer.getHeight();
             }
         };
 
@@ -350,9 +350,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         tocHandler = new ToCHandler(getPageActivity(), tocDrawer, bridge);
 
-        imagesContainer = (ViewGroup) getView().findViewById(R.id.page_images_container);
-        leadImagesHandler = new LeadImagesHandler(getActivity(), this, bridge, webView,
-                                                  imagesContainer);
+        leadSectionContainer = (ViewGroup) getView().findViewById(R.id.page_image_container);
+        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, leadSectionContainer);
         searchBarHideHandler = getPageActivity().getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
