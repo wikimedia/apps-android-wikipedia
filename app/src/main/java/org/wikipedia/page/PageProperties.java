@@ -2,6 +2,7 @@ package org.wikipedia.page;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONArray;
@@ -26,6 +27,7 @@ public class PageProperties implements Parcelable {
     private final int languageCount;
     private final boolean isMainPage;
     private final boolean isDisambiguationPage;
+    /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
     private final String leadImageUrl;
     private final String leadImageName;
 
@@ -142,6 +144,11 @@ public class PageProperties implements Parcelable {
         return isDisambiguationPage;
     }
 
+    /**
+     * @return Nullable URL with no scheme. For example, foo.bar.com/ instead of
+     *         http://foo.bar.com/.
+     */
+    @Nullable
     public String getLeadImageUrl() {
         return leadImageUrl;
     }

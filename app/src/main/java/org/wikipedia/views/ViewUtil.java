@@ -1,8 +1,11 @@
 package org.wikipedia.views;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
@@ -50,6 +53,16 @@ public final class ViewUtil {
     public static void setBottomPaddingDp(View view, int padding) {
         view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(),
                 (int) (padding * view.getContext().getResources().getDisplayMetrics().density));
+    }
+
+    @Nullable public static <T extends View> T findView(@NonNull View view, @IdRes int id) {
+        //noinspection unchecked
+        return (T) view.findViewById(id);
+    }
+
+    @Nullable public static <T extends View> T findView(@NonNull Activity activity, @IdRes int id) {
+        //noinspection unchecked
+        return (T) activity.findViewById(id);
     }
 
     private ViewUtil() { }

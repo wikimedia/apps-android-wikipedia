@@ -1,11 +1,16 @@
 package org.wikipedia.page.leadimages;
 
-import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DimenRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -15,7 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,6 +30,7 @@ import com.squareup.picasso.Target;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Utils;
@@ -40,12 +45,9 @@ import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
-public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListener, ImageViewWithFace.OnImageLoadListener {
-    private final Context context;
-    private final PageFragment parentFragment;
-    private final CommunicationBridge bridge;
-    private final WebView webView;
+import static org.wikipedia.views.ViewUtil.findView;
 
+public class LeadImagesHandler {
     /**
      * Minimum screen height for enabling lead images. If the screen is smaller than
      * this height, lead images will not be displayed, and will be substituted with just
@@ -87,103 +89,59 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      */
     private static final int DISABLED_OFFSET_DP = 88;
 
+    public interface OnLeadImageLayoutListener {
+        void onLayoutComplete(int sequence);
+    }
+
+    @NonNull private final PageFragment parentFragment;
+    @NonNull private final ViewGroup imageContainer;
+    @NonNull private final CommunicationBridge bridge;
+    @NonNull private final ObservableWebView webView;
+
     /**
      * Whether lead images are enabled, overall.  They will be disabled automatically
      * if the screen height is less than a defined constant (above), or if the current article
      * doesn't have a lead image associated with it.
      */
-    private boolean leadImagesEnabled = false;
-    public boolean isLeadImageEnabled() {
-        return leadImagesEnabled;
-    }
+    private boolean leadImagesEnabled;
 
-    private final ViewGroup imageContainer;
     private ImageView imagePlaceholder;
-    private ImageViewWithFace image1;
+    private ImageViewWithFace image;
     private View pageTitleContainer;
     private TextView pageTitleText;
     private TextView pageDescriptionText;
     private Drawable pageTitleGradient;
 
     private int displayHeightDp;
-    private int imageBaseYOffset = 0;
-    private float faceYOffsetNormalized = 0f;
+    private int imageBaseYOffset;
+    private float faceYOffsetNormalized;
     private float displayDensity;
+    @NonNull private final WebViewScrollListener webViewScrollListener = new WebViewScrollListener();
 
-    public interface OnLeadImageLayoutListener {
-        void onLayoutComplete(int sequence);
-    }
-
-    public LeadImagesHandler(final Context context, final PageFragment parentFragment,
-                             CommunicationBridge bridge, ObservableWebView webview,
-                             ViewGroup hidingView) {
-        this.context = context;
+    public LeadImagesHandler(@NonNull final PageFragment parentFragment,
+                             @NonNull CommunicationBridge bridge,
+                             @NonNull ObservableWebView webView,
+                             @NonNull ViewGroup hidingView) {
         this.parentFragment = parentFragment;
         this.imageContainer = hidingView;
         this.bridge = bridge;
-        this.webView = webview;
+        this.webView = webView;
 
-        imagePlaceholder = (ImageView)imageContainer.findViewById(R.id.page_image_placeholder);
-        image1 = (ImageViewWithFace)imageContainer.findViewById(R.id.page_image_1);
-        pageTitleContainer = imageContainer.findViewById(R.id.page_title_container);
-        pageTitleText = (TextView)imageContainer.findViewById(R.id.page_title_text);
-        pageDescriptionText = (TextView)imageContainer.findViewById(R.id.page_description_text);
+        findViewsById(imageContainer);
 
-        pageTitleGradient = GradientUtil.getCubicGradient(
-                parentFragment.getResources().getColor(R.color.lead_gradient_start), Gravity.BOTTOM);
+        pageTitleGradient = GradientUtil.getCubicGradient(getColor(R.color.lead_gradient_start), Gravity.BOTTOM);
 
         initDisplayDimensions();
 
-        webview.addOnScrollChangeListener(this);
-
-        webview.addOnClickListener(new ObservableWebView.OnClickListener() {
-            @Override
-            public boolean onClick(float x, float y) {
-                // if the click event is within the area of the lead image, then the user
-                // must have wanted to click on the lead image!
-                if (leadImagesEnabled && y < imageContainer.getHeight() - webView.getScrollY()) {
-                    String imageName = parentFragment.getPage().getPageProperties()
-                                                     .getLeadImageName();
-                    if (imageName != null) {
-                        PageTitle imageTitle = new PageTitle("File:" + imageName,
-                                                             parentFragment.getTitle()
-                                                                           .getSite());
-                        GalleryActivity.showGallery(parentFragment.getActivity(),
-                                parentFragment.getTitleOriginal(), imageTitle,
-                                GalleryFunnel.SOURCE_LEAD_IMAGE);
-                    }
-                    return true;
-                }
-                return false;
-            }
-        });
+        initWebView();
 
         // hide ourselves by default
         hide();
 
-        imagePlaceholder.setImageResource(Utils.getThemedAttributeId(parentFragment.getActivity(),
+        imagePlaceholder.setImageResource(Utils.getThemedAttributeId(getActivity(),
                 R.attr.lead_image_drawable));
-        image1.setOnImageLoadListener(this);
-    }
 
-    @Override
-    public void onScrollChanged(int oldScrollY, int scrollY) {
-        LinearLayout.LayoutParams contParams = (LinearLayout.LayoutParams) imageContainer
-                .getLayoutParams();
-        LinearLayout.LayoutParams imgParams = (LinearLayout.LayoutParams) image1.getLayoutParams();
-        if (scrollY > imageContainer.getHeight()) {
-            if (contParams.topMargin != -imageContainer.getHeight()) {
-                contParams.topMargin = -imageContainer.getHeight();
-                imgParams.topMargin = 0;
-                imageContainer.setLayoutParams(contParams);
-                image1.setLayoutParams(imgParams);
-            }
-        } else {
-            contParams.topMargin = -scrollY;
-            imgParams.topMargin = imageBaseYOffset + scrollY / 2; //parallax, baby
-            imageContainer.setLayoutParams(contParams);
-            image1.setLayoutParams(imgParams);
-        }
+        image.setOnImageLoadListener(new ImageLoadListener());
     }
 
     /**
@@ -194,27 +152,24 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         imageContainer.setVisibility(View.INVISIBLE);
     }
 
+    @Nullable
     public Bitmap getLeadImageBitmap() {
-        return leadImagesEnabled ? getBitmapFromView(image1) : null;
+        return leadImagesEnabled ? getBitmapFromView(image) : null;
+    }
+
+    public boolean isLeadImageEnabled() {
+        return leadImagesEnabled;
     }
 
     // ideas from:
     // http://stackoverflow.com/questions/2801116/converting-a-view-to-bitmap-without-displaying-it-in-android
     // View has to be already displayed
-    private static Bitmap getBitmapFromView(ImageView view) {
+    private Bitmap getBitmapFromView(ImageView view) {
         // Define a bitmap with the same size as the view
         Bitmap returnedBitmap
                 = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
         // Bind a canvas to it
         Canvas canvas = new Canvas(returnedBitmap);
-//        // Get the view's background
-//        Drawable bgDrawable = view.getBackground();
-//        if (bgDrawable != null)
-//            // has background drawable, then draw it on the canvas
-//            bgDrawable.draw(canvas);
-//        else
-//            // does not have background drawable, then draw white background on the canvas
-//            canvas.drawColor(Color.WHITE);
         view.draw(canvas);
         return returnedBitmap;
     }
@@ -224,89 +179,12 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * A value of 0.0 represents the top of the image, and 1.0 represents the bottom.
      * The "focus position" is currently defined by automatic face detection, but may be
      * defined by other factors in the future.
+     *
      * @return Normalized vertical focus position.
      */
     public float getLeadImageFocusY() {
         return faceYOffsetNormalized;
     }
-
-    @Override
-    public void onImageLoaded(Bitmap bitmap, final PointF faceLocation) {
-        final int bmpHeight = bitmap.getHeight();
-        final float aspect = (float)bitmap.getHeight() / (float)bitmap.getWidth();
-        imageContainer.post(new Runnable() {
-            @Override
-            public void run() {
-                if (!parentFragment.isAdded()) {
-                    return;
-                }
-                int newWidth = image1.getWidth();
-                int newHeight = (int)(newWidth * aspect);
-
-                // give our image an offset based on the location of the face,
-                // relative to the image container
-                float scale = (float)newHeight / (float)bmpHeight;
-                if (faceLocation.y > 0.0f) {
-                    int faceY = (int)(faceLocation.y * scale);
-                    // if we have a face, then offset to the face location
-                    imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));
-                    // Adjust the face position by a slight amount.
-                    // The face recognizer gives the location of the *eyes*, whereas we actually
-                    // want to center on the *nose*...
-                    final int faceBoost = 24;
-                    imageBaseYOffset -= (faceBoost * displayDensity);
-                    faceYOffsetNormalized = faceLocation.y / bmpHeight;
-                } else {
-                    // No face, so we'll just chop the top 25% off rather than centering
-                    final float oneQuarter = 0.25f;
-                    imageBaseYOffset = -(int)((newHeight - imagePlaceholder.getHeight()) * oneQuarter);
-                    faceYOffsetNormalized = oneQuarter;
-                }
-                // is the offset too far to the top?
-                if (imageBaseYOffset > 0) {
-                    imageBaseYOffset = 0;
-                }
-                // is the offset too far to the bottom?
-                if (imageBaseYOffset < imagePlaceholder.getHeight() - newHeight) {
-                    imageBaseYOffset = imagePlaceholder.getHeight() - newHeight;
-                }
-
-                // resize our image to have the same proportions as the acquired bitmap
-                if (newHeight < imagePlaceholder.getHeight()) {
-                    // if the height of the image is less than the container, then just
-                    // make it the same height as the placeholder.
-                    image1.setLayoutParams(
-                            new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                                                          imagePlaceholder.getHeight()));
-                    imageBaseYOffset = 0;
-                } else {
-                    image1.setLayoutParams(
-                            new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                                                          newHeight));
-                }
-
-                // and force a refresh of its position within the container view.
-                onScrollChanged(webView.getScrollY(), webView.getScrollY());
-
-                // fade in the new image!
-                ViewAnimations.crossFade(imagePlaceholder, image1);
-
-                if (WikipediaApp.getInstance().getReleaseType() != WikipediaApp.RELEASE_PROD) {
-                    // and perform a subtle Ken Burns animation...
-                    Animation anim = AnimationUtils.loadAnimation(parentFragment.getActivity(),
-                                                                  R.anim.lead_image_zoom);
-                    anim.setFillAfter(true);
-                    image1.startAnimation(anim);
-                }
-            }
-        });
-    }
-
-    @Override
-    public void onImageFailed() {
-        // just keep showing the placeholder image...
-    }
-
 
     /**
      * Triggers a chain of events that will lay out the lead image, page title, and other
@@ -323,7 +201,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * - Fire a callback to the provided Listener indicating that the rest of the WebView content
      * can now be loaded.
      * - Fetch and display the WikiData description for this page, if available.
-     *
+     * <p/>
      * Realistically, the whole process will happen very quickly, and almost unnoticeably to the
      * user. But it still needs to be asynchronous because we're dynamically laying out views, and
      * because the padding "event" that we send to the WebView must come before any other content
@@ -332,7 +210,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * @param listener Listener that will receive an event when the layout is completed.
      */
     public void beginLayout(OnLeadImageLayoutListener listener, int sequence) {
-        String thumbUrl = parentFragment.getPage().getPageProperties().getLeadImageUrl();
+        String thumbUrl = getLeadImageUrl();
         initDisplayDimensions();
 
         if (!WikipediaApp.getInstance().isImageDownloadEnabled() || displayHeightDp < MIN_SCREEN_HEIGHT_DP) {
@@ -350,19 +228,19 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
                 // also, if the image is not a JPG (i.e. it's a PNG or SVG) and might have
                 // transparency, give it a white background.
                 if (!thumbUrl.endsWith(".jpg")) {
-                    image1.setBackgroundColor(Color.WHITE);
+                    image.setBackgroundColor(Color.WHITE);
                 }
             }
         }
 
         // set the page title text, and honor any HTML formatting in the title
-        pageTitleText.setText(Html.fromHtml(parentFragment.getPage().getDisplayTitle()));
+        pageTitleText.setText(Html.fromHtml(getPage().getDisplayTitle()));
         // hide the description text...
         pageDescriptionText.setVisibility(View.INVISIBLE);
 
         // kick off the (asynchronous) laying out of the page title text
-        layoutPageTitle((int) (context.getResources().getDimension(R.dimen.titleTextSize)
-                               / displayDensity), listener, sequence);
+        layoutPageTitle((int) (getDimension(R.dimen.titleTextSize)
+                / displayDensity), listener, sequence);
     }
 
     /**
@@ -371,11 +249,12 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * is too long. Since it's assumed that the overall lead image view is hidden at this stage,
      * this process will be invisible to the user, and will not appear jarring. Once the optimal
      * font size is reached, the next step in the layout process is triggered.
+     *
      * @param fontSizeSp Font size to be tested.
-     * @param listener Listener that will receive an event when the layout is completed.
+     * @param listener   Listener that will receive an event when the layout is completed.
      */
     private void layoutPageTitle(final int fontSizeSp, final OnLeadImageLayoutListener listener, final int sequence) {
-        if (!parentFragment.isAdded()) {
+        if (!isFragmentAdded()) {
             return;
         }
         // remove padding from the title container while measuring
@@ -397,7 +276,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             pageTitleText.post(new Runnable() {
                 @Override
                 public void run() {
-                    if (!parentFragment.isAdded()) {
+                    if (!isFragmentAdded()) {
                         return;
                     }
                     if (((int) (pageTitleText.getHeight() / displayDensity) > TITLE_MAX_HEIGHT_DP)
@@ -420,23 +299,18 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
      * The final step in the layout process:
      * Apply sizing and styling to our page title and lead image views, based on how large our
      * page title ended up, and whether we should display the lead image.
+     *
      * @param listener Listener that will receive an event when the layout is completed.
      */
     private void layoutViews(OnLeadImageLayoutListener listener, int sequence) {
-        if (!parentFragment.isAdded()) {
+        if (!isFragmentAdded()) {
             return;
         }
-        boolean isMainPage = parentFragment.getPage().isMainPage();
         int titleContainerHeight;
 
-        if (isMainPage) {
-            titleContainerHeight = (int)(Utils.getActionBarSize(parentFragment.getActivity()) / displayDensity);
-            // hide everything
-            image1.setVisibility(View.GONE);
-            image1.setImageDrawable(null);
-            imagePlaceholder.setVisibility(View.GONE);
-            pageTitleText.setVisibility(View.GONE);
-            pageDescriptionText.setVisibility(View.GONE);
+        if (isMainPage()) {
+            titleContainerHeight = (int) (Utils.getActionBarSize(getActivity()) / displayDensity);
+            hideLeadSection();
         } else if (!leadImagesEnabled) {
             // ok, we're not going to show lead images, so we need to make some
             // adjustments to our layout:
@@ -446,25 +320,23 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     (int) ((titleContainerHeight) * displayDensity)));
             // reset the background on the lead image, in case we previously set it to white.
-            image1.setBackgroundColor(Color.TRANSPARENT);
+            image.setBackgroundColor(Color.TRANSPARENT);
             // hide the lead image
-            image1.setVisibility(View.GONE);
-            image1.setImageDrawable(null);
+            image.setVisibility(View.GONE);
+            image.setImageDrawable(null);
             imagePlaceholder.setVisibility(View.GONE);
             pageTitleText.setVisibility(View.INVISIBLE);
             pageDescriptionText.setVisibility(View.INVISIBLE);
             // set the color of the title
-            pageTitleText.setTextColor(context.getResources()
-                    .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(),
-                            R.attr.lead_disabled_text_color)));
+            pageTitleText.setTextColor(getColor(Utils.getThemedAttributeId(getActivity(),
+                    R.attr.lead_disabled_text_color)));
             // remove bottom padding from the description
             ViewUtil.setBottomPaddingDp(pageDescriptionText, 0);
             // and give it no drop shadow
             pageTitleText.setShadowLayer(0, 0, 0, 0);
             // do the same for the description...
-            pageDescriptionText.setTextColor(context.getResources()
-                    .getColor(Utils.getThemedAttributeId(parentFragment.getActivity(),
-                                                         R.attr.lead_disabled_text_color)));
+            pageDescriptionText.setTextColor(getColor(Utils.getThemedAttributeId(getActivity(),
+                    R.attr.lead_disabled_text_color)));
             pageDescriptionText.setShadowLayer(0, 0, 0, 0);
             // remove any background from the title container
             pageTitleContainer.setBackgroundColor(Color.TRANSPARENT);
@@ -478,70 +350,75 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
             imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     (int) (titleContainerHeight * displayDensity)));
             // prepare the lead image to be populated
-            image1.setVisibility(View.INVISIBLE);
+            image.setVisibility(View.INVISIBLE);
             imagePlaceholder.setVisibility(View.VISIBLE);
             pageTitleText.setVisibility(View.INVISIBLE);
             pageDescriptionText.setVisibility(View.INVISIBLE);
             // set the color of the title
-            pageTitleText.setTextColor(context.getResources().getColor(R.color.lead_text_color));
+            pageTitleText.setTextColor(getColor(R.color.lead_text_color));
             // give default padding to the description
             final int bottomPadding = 16;
             ViewUtil.setBottomPaddingDp(pageDescriptionText, bottomPadding);
             // and give it a nice drop shadow!
-            pageTitleText.setShadowLayer(2, 1, 1, context.getResources().getColor(R.color.lead_text_shadow));
+            pageTitleText.setShadowLayer(2, 1, 1, getColor(R.color.lead_text_shadow));
             // do the same for the description...
-            pageDescriptionText.setTextColor(context.getResources().getColor(R.color.lead_text_color));
-            pageDescriptionText.setShadowLayer(2, 1, 1, context.getResources().getColor(R.color.lead_text_shadow));
+            pageDescriptionText.setTextColor(getColor(R.color.lead_text_color));
+            pageDescriptionText.setShadowLayer(2, 1, 1, getColor(R.color.lead_text_shadow));
             // set the title container background to be a gradient
             ViewUtil.setBackgroundDrawable(pageTitleContainer, pageTitleGradient);
             // set the correct padding on the container
             pageTitleContainer.setPadding(0, (int) (TITLE_GRADIENT_HEIGHT_DP * displayDensity), 0, 0);
         }
+
         if (ApiUtil.hasHoneyComb()) {
             // for API >10, decrease line spacing and boost bottom padding to account for it.
             // (in API 10, decreased line spacing cuts off the bottom of the text)
             final float lineSpacing = 0.8f;
             pageTitleText.setLineSpacing(0, lineSpacing);
+        }
 
-        }
-        // pad the webview contents, to account for the lead image view height that we've
-        // ended up with
-        JSONObject payload = new JSONObject();
-        try {
-            final int paddingExtra = 8;
-            payload.put("paddingTop", titleContainerHeight + paddingExtra);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setPaddingTop", payload);
+        final int paddingExtra = 8;
+        setWebViewPaddingTop(titleContainerHeight + paddingExtra);
 
         // and start fetching the lead image, if we have one
-        String thumbUrl = parentFragment.getPage().getPageProperties().getLeadImageUrl();
-        if (!isMainPage && thumbUrl != null && leadImagesEnabled) {
-            thumbUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + thumbUrl;
-            Picasso.with(parentFragment.getActivity())
-                    .load(thumbUrl)
-                    .noFade()
-                    .into((Target)image1);
-        }
+        loadLeadImage();
 
         // tell our listener that it's ok to start loading the rest of the WebView content
         listener.onLayoutComplete(sequence);
 
-        // trigger a scroll event so that the visibility of the lead image component is updated.
-        onScrollChanged(webView.getScrollY(), webView.getScrollY());
+        forceRefreshWebView();
 
-        if (!isMainPage) {
+        if (!isMainPage()) {
             // make everything visible!
             imageContainer.setVisibility(View.VISIBLE);
             // kick off loading of the WikiData description
-            layoutWikiDataDescription(parentFragment.getTitle().getDescription());
+            layoutWikiDataDescription(getTitle().getDescription());
         }
+    }
+
+    // TODO: try to get DRY with hide() or consider renaming.
+    private void hideLeadSection() {
+        image.setVisibility(View.GONE);
+        image.setImageDrawable(null);
+        imagePlaceholder.setVisibility(View.GONE);
+        pageTitleText.setVisibility(View.GONE);
+        pageDescriptionText.setVisibility(View.GONE);
+    }
+
+    private void setWebViewPaddingTop(int padding) {
+        JSONObject payload = new JSONObject();
+        try {
+            payload.put("paddingTop", padding);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        bridge.sendMessage("setPaddingTop", payload);
     }
 
     /**
      * Final step in the WikiData description process: lay out the description, and animate it
      * into place, along with the page title.
+     *
      * @param description WikiData description to be shown.
      */
     private void layoutWikiDataDescription(@Nullable final String description) {
@@ -551,7 +428,7 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         pageDescriptionText.post(new Runnable() {
             @Override
             public void run() {
-                if (!parentFragment.isAdded()) {
+                if (!isFragmentAdded()) {
                     return;
                 }
                 // only show the description if it's two lines or less, and nonempty,
@@ -584,8 +461,207 @@ public class LeadImagesHandler implements ObservableWebView.OnScrollChangeListen
         displayDensity = DimenUtil.getDensityScalar();
 
         int displayHeightPx = DimenUtil.getDisplayHeight(
-                parentFragment.getActivity().getWindowManager().getDefaultDisplay());
+                getActivity().getWindowManager().getDefaultDisplay());
 
         displayHeightDp = (int) (displayHeightPx / displayDensity);
+    }
+
+    private void loadLeadImage() {
+        loadLeadImage(getLeadImageUrl());
+    }
+
+    /**
+     * @param url Nullable URL with no scheme. For example, foo.bar.com/ instead of
+     *            http://foo.bar.com/.
+     */
+    private void loadLeadImage(@Nullable String url) {
+        if (!isMainPage() && !TextUtils.isEmpty(url) && leadImagesEnabled) {
+            String fullUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + url;
+            Picasso.with(getActivity())
+                   .load(fullUrl)
+                   .noFade()
+                   .into((Target) image);
+        }
+    }
+
+    /**
+     * @return Nullable URL with no scheme. For example, foo.bar.com/ instead of
+     * http://foo.bar.com/.
+     */
+    @Nullable
+    private String getLeadImageUrl() {
+        return getPage().getPageProperties().getLeadImageUrl();
+    }
+
+    private void startKenBurnsAnimation() {
+        // TODO: will this ever see prod?
+        if (WikipediaApp.getInstance().getReleaseType() != WikipediaApp.RELEASE_PROD) {
+            Animation anim = AnimationUtils.loadAnimation(getActivity(),
+                    R.anim.lead_image_zoom);
+            anim.setFillAfter(true);
+            image.startAnimation(anim);
+        }
+    }
+
+    private void findViewsById(View root) {
+        imagePlaceholder = findView(root, R.id.page_image_placeholder);
+        image = findView(root, R.id.page_image);
+        pageTitleContainer = findView(root, R.id.page_title_container);
+        pageTitleText = findView(root, R.id.page_title_text);
+        pageDescriptionText = findView(root, R.id.page_description_text);
+    }
+
+    private void forceRefreshWebView() {
+        webViewScrollListener.onScrollChanged(webView.getScrollY(), webView.getScrollY());
+    }
+
+    private void initWebView() {
+        webView.addOnScrollChangeListener(webViewScrollListener);
+
+        webView.addOnClickListener(new ObservableWebView.OnClickListener() {
+            @Override
+            public boolean onClick(float x, float y) {
+                // if the click event is within the area of the lead image, then the user
+                // must have wanted to click on the lead image!
+                if (leadImagesEnabled && y < (imageContainer.getHeight() - webView.getScrollY())) {
+                    String imageName = getPage().getPageProperties().getLeadImageName();
+                    if (imageName != null) {
+                        PageTitle imageTitle = new PageTitle("File:" + imageName,
+                                getTitle().getSite());
+                        GalleryActivity.showGallery(getActivity(),
+                                parentFragment.getTitleOriginal(), imageTitle,
+                                GalleryFunnel.SOURCE_LEAD_IMAGE);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    private boolean isMainPage() {
+        return getPage().isMainPage();
+    }
+
+    private PageTitle getTitle() {
+        return parentFragment.getTitle();
+    }
+
+    private Page getPage() {
+        return parentFragment.getPage();
+    }
+
+    private boolean isFragmentAdded() {
+        return parentFragment.isAdded();
+    }
+
+
+    private float getDimension(@DimenRes int id) {
+        return getResources().getDimension(id);
+    }
+
+    @ColorInt
+    private int getColor(@ColorRes int id) {
+        return getResources().getColor(id);
+    }
+
+    private Resources getResources() {
+        return getActivity().getResources();
+    }
+
+    private FragmentActivity getActivity() {
+        return parentFragment.getActivity();
+    }
+
+    private class WebViewScrollListener implements ObservableWebView.OnScrollChangeListener {
+        @Override
+        public void onScrollChanged(int oldScrollY, int scrollY) {
+            LinearLayout.LayoutParams contParams = (LinearLayout.LayoutParams) imageContainer
+                    .getLayoutParams();
+            LinearLayout.LayoutParams imgParams = (LinearLayout.LayoutParams) image.getLayoutParams();
+            if (scrollY > imageContainer.getHeight()) {
+                if (contParams.topMargin != -imageContainer.getHeight()) {
+                    contParams.topMargin = -imageContainer.getHeight();
+                    imgParams.topMargin = 0;
+                    imageContainer.setLayoutParams(contParams);
+                    image.setLayoutParams(imgParams);
+                }
+            } else {
+                contParams.topMargin = -scrollY;
+                imgParams.topMargin = imageBaseYOffset + scrollY / 2; //parallax, baby
+                imageContainer.setLayoutParams(contParams);
+                image.setLayoutParams(imgParams);
+            }
+        }
+    }
+
+    private class ImageLoadListener implements ImageViewWithFace.OnImageLoadListener {
+        @Override
+        public void onImageLoaded(Bitmap bitmap, final PointF faceLocation) {
+            final int bmpHeight = bitmap.getHeight();
+            final float aspect = (float) bitmap.getHeight() / (float) bitmap.getWidth();
+            imageContainer.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (!isFragmentAdded()) {
+                        return;
+                    }
+                    int newWidth = image.getWidth();
+                    int newHeight = (int) (newWidth * aspect);
+
+                    // give our image an offset based on the location of the face,
+                    // relative to the image container
+                    float scale = (float) newHeight / (float) bmpHeight;
+                    if (faceLocation.y > 0.0f) {
+                        int faceY = (int) (faceLocation.y * scale);
+                        // if we have a face, then offset to the face location
+                        imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));
+                        // Adjust the face position by a slight amount.
+                        // The face recognizer gives the location of the *eyes*, whereas we actually
+                        // want to center on the *nose*...
+                        final int faceBoost = 24;
+                        imageBaseYOffset -= (faceBoost * displayDensity);
+                        faceYOffsetNormalized = faceLocation.y / bmpHeight;
+                    } else {
+                        // No face, so we'll just chop the top 25% off rather than centering
+                        final float oneQuarter = 0.25f;
+                        imageBaseYOffset = -(int) ((newHeight - imagePlaceholder.getHeight()) * oneQuarter);
+                        faceYOffsetNormalized = oneQuarter;
+                    }
+
+                    // is the offset too far to the top?
+                    imageBaseYOffset = Math.min(0, imageBaseYOffset);
+
+                    // is the offset too far to the bottom?
+                    imageBaseYOffset = Math.max(imageBaseYOffset, imagePlaceholder.getHeight() - newHeight);
+
+                    // resize our image to have the same proportions as the acquired bitmap
+                    if (newHeight < imagePlaceholder.getHeight()) {
+                        // if the height of the image is less than the container, then just
+                        // make it the same height as the placeholder.
+                        image.setLayoutParams(
+                                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                                        imagePlaceholder.getHeight()));
+                        imageBaseYOffset = 0;
+                    } else {
+                        image.setLayoutParams(
+                                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                                        newHeight));
+                    }
+
+                    forceRefreshWebView();
+
+                    // fade in the new image!
+                    ViewAnimations.crossFade(imagePlaceholder, image);
+
+                    startKenBurnsAnimation();
+                }
+            });
+        }
+
+        @Override
+        public void onImageFailed() {
+            // just keep showing the placeholder image...
+        }
     }
 }

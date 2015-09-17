@@ -33,6 +33,10 @@ public interface PageLeadProperties {
     @Nullable
     String getDescription();
 
+    /**
+     * @return Nullable URL with no scheme. For example, foo.bar.com/ instead of
+     *         http://foo.bar.com/.
+     */
     @Nullable
     String getLeadImageUrl();
 
