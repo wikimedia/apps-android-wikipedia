@@ -2,8 +2,8 @@ package org.wikipedia.page.leadimages;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -130,6 +130,7 @@ public class LeadImagesHandler {
         findViewsById(imageContainer);
 
         pageTitleGradient = GradientUtil.getCubicGradient(getColor(R.color.lead_gradient_start), Gravity.BOTTOM);
+        pageTitleText.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL));
 
         initDisplayDimensions();
 
@@ -152,26 +153,12 @@ public class LeadImagesHandler {
         imageContainer.setVisibility(View.INVISIBLE);
     }
 
-    @Nullable
-    public Bitmap getLeadImageBitmap() {
-        return leadImagesEnabled ? getBitmapFromView(image) : null;
+    @Nullable public Bitmap getLeadImageBitmap() {
+        return image.getImageBitmap();
     }
 
     public boolean isLeadImageEnabled() {
         return leadImagesEnabled;
-    }
-
-    // ideas from:
-    // http://stackoverflow.com/questions/2801116/converting-a-view-to-bitmap-without-displaying-it-in-android
-    // View has to be already displayed
-    private Bitmap getBitmapFromView(ImageView view) {
-        // Define a bitmap with the same size as the view
-        Bitmap returnedBitmap
-                = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-        // Bind a canvas to it
-        Canvas canvas = new Canvas(returnedBitmap);
-        view.draw(canvas);
-        return returnedBitmap;
     }
 
     /**
@@ -225,6 +212,8 @@ public class LeadImagesHandler {
                 // mathematical diagrams or animations that won't look good as a lead image.
                 // TODO: retrieve the MIME type of the lead image, instead of relying on file name.
                 leadImagesEnabled = !thumbUrl.endsWith(".gif");
+
+                // TODO: what's the harm in always setting the background to white unconditionally.
                 // also, if the image is not a JPG (i.e. it's a PNG or SVG) and might have
                 // transparency, give it a white background.
                 if (!thumbUrl.endsWith(".jpg")) {
@@ -306,6 +295,7 @@ public class LeadImagesHandler {
         if (!isFragmentAdded()) {
             return;
         }
+
         int titleContainerHeight;
 
         if (isMainPage()) {
@@ -466,6 +456,57 @@ public class LeadImagesHandler {
         displayHeightDp = (int) (displayHeightPx / displayDensity);
     }
 
+    private void detectFace(int bmpHeight, float aspect, @Nullable PointF faceLocation) {
+        int newWidth = image.getWidth();
+        int newHeight = (int) (newWidth * aspect);
+
+        // give our image an offset based on the location of the face,
+        // relative to the image container
+        float scale = (float) newHeight / (float) bmpHeight;
+        if (faceLocation != null) {
+            int faceY = (int) (faceLocation.y * scale);
+            // if we have a face, then offset to the face location
+            imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));
+            // Adjust the face position by a slight amount.
+            // The face recognizer gives the location of the *eyes*, whereas we actually
+            // want to center on the *nose*...
+            imageBaseYOffset += getDimension(R.dimen.face_detection_nose_y_offset);
+            faceYOffsetNormalized = faceLocation.y / bmpHeight;
+        } else {
+            // No face, so we'll just chop the top 25% off rather than centering
+            final float oneQuarter = 0.25f;
+            imageBaseYOffset = -(int) ((newHeight - imagePlaceholder.getHeight()) * oneQuarter);
+            faceYOffsetNormalized = oneQuarter;
+        }
+
+        // is the offset too far to the top?
+        imageBaseYOffset = Math.min(0, imageBaseYOffset);
+
+        // is the offset too far to the bottom?
+        imageBaseYOffset = Math.max(imageBaseYOffset, imagePlaceholder.getHeight() - newHeight);
+
+        // resize our image to have the same proportions as the acquired bitmap
+        if (newHeight < imagePlaceholder.getHeight()) {
+            // if the height of the image is less than the container, then just
+            // make it the same height as the placeholder.
+            setImageLayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, imagePlaceholder.getHeight());
+            imageBaseYOffset = 0;
+        } else {
+            setImageLayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, newHeight);
+        }
+
+        forceRefreshWebView();
+
+        // fade in the new image!
+        ViewAnimations.crossFade(imagePlaceholder, image);
+
+        startKenBurnsAnimation();
+    }
+
+    private void setImageLayoutParams(int width, int height) {
+        image.setLayoutParams(new LinearLayout.LayoutParams(width, height));
+    }
+
     private void loadLeadImage() {
         loadLeadImage(getLeadImageUrl());
     }
@@ -555,7 +596,6 @@ public class LeadImagesHandler {
         return parentFragment.isAdded();
     }
 
-
     private float getDimension(@DimenRes int id) {
         return getResources().getDimension(id);
     }
@@ -597,64 +637,15 @@ public class LeadImagesHandler {
 
     private class ImageLoadListener implements ImageViewWithFace.OnImageLoadListener {
         @Override
-        public void onImageLoaded(Bitmap bitmap, final PointF faceLocation) {
+        public void onImageLoaded(Bitmap bitmap, @Nullable final PointF faceLocation) {
             final int bmpHeight = bitmap.getHeight();
             final float aspect = (float) bitmap.getHeight() / (float) bitmap.getWidth();
             imageContainer.post(new Runnable() {
                 @Override
                 public void run() {
-                    if (!isFragmentAdded()) {
-                        return;
+                    if (isFragmentAdded()) {
+                        detectFace(bmpHeight, aspect, faceLocation);
                     }
-                    int newWidth = image.getWidth();
-                    int newHeight = (int) (newWidth * aspect);
-
-                    // give our image an offset based on the location of the face,
-                    // relative to the image container
-                    float scale = (float) newHeight / (float) bmpHeight;
-                    if (faceLocation.y > 0.0f) {
-                        int faceY = (int) (faceLocation.y * scale);
-                        // if we have a face, then offset to the face location
-                        imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));
-                        // Adjust the face position by a slight amount.
-                        // The face recognizer gives the location of the *eyes*, whereas we actually
-                        // want to center on the *nose*...
-                        final int faceBoost = 24;
-                        imageBaseYOffset -= (faceBoost * displayDensity);
-                        faceYOffsetNormalized = faceLocation.y / bmpHeight;
-                    } else {
-                        // No face, so we'll just chop the top 25% off rather than centering
-                        final float oneQuarter = 0.25f;
-                        imageBaseYOffset = -(int) ((newHeight - imagePlaceholder.getHeight()) * oneQuarter);
-                        faceYOffsetNormalized = oneQuarter;
-                    }
-
-                    // is the offset too far to the top?
-                    imageBaseYOffset = Math.min(0, imageBaseYOffset);
-
-                    // is the offset too far to the bottom?
-                    imageBaseYOffset = Math.max(imageBaseYOffset, imagePlaceholder.getHeight() - newHeight);
-
-                    // resize our image to have the same proportions as the acquired bitmap
-                    if (newHeight < imagePlaceholder.getHeight()) {
-                        // if the height of the image is less than the container, then just
-                        // make it the same height as the placeholder.
-                        image.setLayoutParams(
-                                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                                        imagePlaceholder.getHeight()));
-                        imageBaseYOffset = 0;
-                    } else {
-                        image.setLayoutParams(
-                                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                                        newHeight));
-                    }
-
-                    forceRefreshWebView();
-
-                    // fade in the new image!
-                    ViewAnimations.crossFade(imagePlaceholder, image);
-
-                    startKenBurnsAnimation();
                 }
             });
         }
