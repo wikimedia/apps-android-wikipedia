@@ -12,8 +12,6 @@ import org.wikipedia.history.SaveHistoryTask;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
-import org.wikipedia.server.PageService;
-import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.ServiceError;
@@ -22,6 +20,7 @@ import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.PageLoadUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
@@ -34,7 +33,6 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
@@ -616,8 +614,11 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
-        getApiService().pageLead(model.getTitle().getPrefixedText(), calculateLeadImageWidth(),
-                !app.isImageDownloadEnabled(), new PageLead.Callback() {
+        PageLoadUtil.getApiService(model.getTitle().getSite()).pageLead(
+                model.getTitle().getPrefixedText(),
+                PageLoadUtil.calculateLeadImageWidth(),
+                !app.isImageDownloadEnabled(),
+                new PageLead.Callback() {
                     @Override
                     public void success(PageLead pageLead, Response response) {
                         Log.v(TAG, response.getUrl());
@@ -699,14 +700,11 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }).execute();
     }
 
-    private int calculateLeadImageWidth() {
-        Resources res = app.getResources();
-        return (int) (res.getDimension(R.dimen.leadImageWidth) / res.getDisplayMetrics().density);
-    }
-
     private void loadRemainingSections(final int startSequenceNum) {
-        getApiService().pageRemaining(model.getTitle().getPrefixedText(),
-                !app.isImageDownloadEnabled(), new PageRemaining.Callback() {
+        PageLoadUtil.getApiService(model.getTitle().getSite()).pageRemaining(
+                model.getTitle().getPrefixedText(),
+                !app.isImageDownloadEnabled(),
+                new PageRemaining.Callback() {
                     @Override
                     public void success(PageRemaining pageRemaining, Response response) {
                         Log.v(TAG, response.getUrl());
@@ -740,10 +738,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             return;
         }
         fragment.commonSectionFetchOnCatch(caught);
-    }
-
-    private PageService getApiService() {
-        return PageServiceFactory.create(model.getTitle().getSite());
     }
 
     /**

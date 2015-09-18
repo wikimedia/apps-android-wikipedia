@@ -141,7 +141,7 @@ public class MwPageLead implements PageLead {
 
         @Nullable
         public String getDescription() {
-            return Utils.capitalizeFirstChar(description);
+            return description != null ? Utils.capitalizeFirstChar(description) : null;
         }
 
         @Nullable
