@@ -9,6 +9,8 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;
 
+import org.wikipedia.WikipediaApp;
+
 public final class DimenUtil {
     public static float dpToPx(float dp) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getDisplayMetrics());
@@ -30,6 +32,10 @@ public final class DimenUtil {
         return getDisplayMetrics().density;
     }
 
+    public static float getFloat(@DimenRes int id) {
+        return getValue(id).getFloat();
+    }
+
     /** @return Dimension in dp. */
     public static float getDimension(@DimenRes int id) {
         return TypedValue.complexToFloat(getValue(id).data);
@@ -46,7 +52,7 @@ public final class DimenUtil {
     }
 
     private static Resources getResources() {
-        return Resources.getSystem();
+        return WikipediaApp.getInstance().getResources();
     }
 
     /**

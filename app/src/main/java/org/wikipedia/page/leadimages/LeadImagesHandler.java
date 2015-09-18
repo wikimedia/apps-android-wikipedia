@@ -12,7 +12,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
 import android.util.TypedValue;
 import android.graphics.PointF;
 import android.view.Gravity;
@@ -39,9 +43,12 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.util.ApiUtil;
+import org.wikipedia.richtext.LeadingSpan;
+import org.wikipedia.richtext.ParagraphSpan;
+import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
@@ -60,11 +67,6 @@ public class LeadImagesHandler {
      * total screen height.
      */
     private static final float IMAGES_CONTAINER_RATIO = 0.5f;
-
-    /**
-     * The height, in dp, that the gradient will extend above the page title.
-     */
-    private static final int TITLE_GRADIENT_HEIGHT_DP = 64;
 
     /**
      * Maximum height of the page title text. If the text overflows this size, then the
@@ -107,9 +109,7 @@ public class LeadImagesHandler {
 
     private ImageView imagePlaceholder;
     private ImageViewWithFace image;
-    private View pageTitleContainer;
     private TextView pageTitleText;
-    private TextView pageDescriptionText;
     private Drawable pageTitleGradient;
 
     private int displayHeightDp;
@@ -127,7 +127,9 @@ public class LeadImagesHandler {
         this.bridge = bridge;
         this.webView = webView;
 
-        findViewsById(imageContainer);
+        imagePlaceholder = findView(imageContainer, R.id.page_image_placeholder);
+        image = findView(imageContainer, R.id.page_image);
+        pageTitleText = findView(imageContainer, R.id.page_title_text);
 
         pageTitleGradient = GradientUtil.getCubicGradient(getColor(R.color.lead_gradient_start), Gravity.BOTTOM);
         pageTitleText.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL));
@@ -224,8 +226,6 @@ public class LeadImagesHandler {
 
         // set the page title text, and honor any HTML formatting in the title
         pageTitleText.setText(Html.fromHtml(getPage().getDisplayTitle()));
-        // hide the description text...
-        pageDescriptionText.setVisibility(View.INVISIBLE);
 
         // kick off the (asynchronous) laying out of the page title text
         layoutPageTitle((int) (getDimension(R.dimen.titleTextSize)
@@ -246,8 +246,6 @@ public class LeadImagesHandler {
         if (!isFragmentAdded()) {
             return;
         }
-        // remove padding from the title container while measuring
-        pageTitleContainer.setPadding(0, 0, 0, 0);
         // set the font size of the title
         pageTitleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
         // if we're still not being shown (if the fragment is still being created),
@@ -305,7 +303,7 @@ public class LeadImagesHandler {
             // ok, we're not going to show lead images, so we need to make some
             // adjustments to our layout:
             // make the WebView padding be just the height of the title text, plus a fixed offset
-            titleContainerHeight = (int) ((pageTitleContainer.getHeight() / displayDensity))
+            titleContainerHeight = (int) ((pageTitleText.getHeight() / displayDensity))
                     + DISABLED_OFFSET_DP;
             imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                     (int) ((titleContainerHeight) * displayDensity)));
@@ -316,22 +314,12 @@ public class LeadImagesHandler {
             image.setImageDrawable(null);
             imagePlaceholder.setVisibility(View.GONE);
             pageTitleText.setVisibility(View.INVISIBLE);
-            pageDescriptionText.setVisibility(View.INVISIBLE);
             // set the color of the title
             pageTitleText.setTextColor(getColor(Utils.getThemedAttributeId(getActivity(),
                     R.attr.lead_disabled_text_color)));
-            // remove bottom padding from the description
-            ViewUtil.setBottomPaddingDp(pageDescriptionText, 0);
             // and give it no drop shadow
             pageTitleText.setShadowLayer(0, 0, 0, 0);
-            // do the same for the description...
-            pageDescriptionText.setTextColor(getColor(Utils.getThemedAttributeId(getActivity(),
-                    R.attr.lead_disabled_text_color)));
-            pageDescriptionText.setShadowLayer(0, 0, 0, 0);
-            // remove any background from the title container
-            pageTitleContainer.setBackgroundColor(Color.TRANSPARENT);
-            // set the correct to padding on the container
-            pageTitleContainer.setPadding(0, 0, 0, 0);
+            pageTitleText.setBackgroundColor(Color.TRANSPARENT);
         } else {
             // we're going to show the lead image, so make some adjustments to the
             // layout, in case we were previously not showing it:
@@ -343,28 +331,12 @@ public class LeadImagesHandler {
             image.setVisibility(View.INVISIBLE);
             imagePlaceholder.setVisibility(View.VISIBLE);
             pageTitleText.setVisibility(View.INVISIBLE);
-            pageDescriptionText.setVisibility(View.INVISIBLE);
             // set the color of the title
             pageTitleText.setTextColor(getColor(R.color.lead_text_color));
-            // give default padding to the description
-            final int bottomPadding = 16;
-            ViewUtil.setBottomPaddingDp(pageDescriptionText, bottomPadding);
             // and give it a nice drop shadow!
             pageTitleText.setShadowLayer(2, 1, 1, getColor(R.color.lead_text_shadow));
-            // do the same for the description...
-            pageDescriptionText.setTextColor(getColor(R.color.lead_text_color));
-            pageDescriptionText.setShadowLayer(2, 1, 1, getColor(R.color.lead_text_shadow));
             // set the title container background to be a gradient
-            ViewUtil.setBackgroundDrawable(pageTitleContainer, pageTitleGradient);
-            // set the correct padding on the container
-            pageTitleContainer.setPadding(0, (int) (TITLE_GRADIENT_HEIGHT_DP * displayDensity), 0, 0);
-        }
-
-        if (ApiUtil.hasHoneyComb()) {
-            // for API >10, decrease line spacing and boost bottom padding to account for it.
-            // (in API 10, decreased line spacing cuts off the bottom of the text)
-            final float lineSpacing = 0.8f;
-            pageTitleText.setLineSpacing(0, lineSpacing);
+            ViewUtil.setBackgroundDrawable(pageTitleText, pageTitleGradient);
         }
 
         final int paddingExtra = 8;
@@ -392,7 +364,6 @@ public class LeadImagesHandler {
         image.setImageDrawable(null);
         imagePlaceholder.setVisibility(View.GONE);
         pageTitleText.setVisibility(View.GONE);
-        pageDescriptionText.setVisibility(View.GONE);
     }
 
     private void setWebViewPaddingTop(int padding) {
@@ -412,35 +383,22 @@ public class LeadImagesHandler {
      * @param description WikiData description to be shown.
      */
     private void layoutWikiDataDescription(@Nullable final String description) {
-        // set the text of the description...
-        pageDescriptionText.setText(description);
-        // and wait for it to lay out, so that we know the height of the description text.
-        pageDescriptionText.post(new Runnable() {
-            @Override
-            public void run() {
-                if (!isFragmentAdded()) {
-                    return;
-                }
-                // only show the description if it's two lines or less, and nonempty,
-                // and adjust title padding based on whether the description is shown
-                int bottomPadding = 0;
-                if (TextUtils.isEmpty(description) || pageDescriptionText.getLineCount() > 2) {
-                    final int blankPadding = 16;
-                    bottomPadding += blankPadding;
-                    pageDescriptionText.setVisibility(View.GONE);
-                } else {
-                    pageDescriptionText.setVisibility(View.VISIBLE);
-                }
-                if (ApiUtil.hasHoneyComb() && !ApiUtil.hasLollipop()) {
-                    // boost the title padding a bit more, because these API versions don't
-                    // automatically apply correct padding when line spacing is decreased.
-                    final int extraPadding = 10;
-                    bottomPadding += extraPadding;
-                }
-                ViewUtil.setBottomPaddingDp(pageTitleText, bottomPadding);
-                pageTitleText.setVisibility(View.VISIBLE);
+        if (!TextUtils.isEmpty(description)) {
+            CharSequence title = pageTitleText.getText();
+            int titleLineCount = pageTitleText.getLineCount();
+
+            SpannableStringBuilder builder = new SpannableStringBuilder(title);
+            builder.append("\n");
+            builder.append(subtitleSpannable(description, getDimensionPixelSize(R.dimen.descriptionTextSize)));
+            pageTitleText.setText(builder);
+
+            // Only show the description if it's two lines or less.
+            if ((pageTitleText.getLineCount() - titleLineCount) > 2) {
+                // Restore title.
+                pageTitleText.setText(title);
             }
-        });
+        }
+        pageTitleText.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -507,6 +465,19 @@ public class LeadImagesHandler {
         image.setLayoutParams(new LinearLayout.LayoutParams(width, height));
     }
 
+    private SpannableString subtitleSpannable(@Nullable CharSequence str, int sizePx) {
+        final float leadingScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_leading_scalar);
+        final float paragraphScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_paragraph_scalar);
+        CharSequence nonnullStr = StringUtil.emptyIfNull(str);
+        return RichTextUtil.setSpans(new SpannableString(nonnullStr),
+                                     0,
+                                     nonnullStr.length(),
+                                     Spannable.SPAN_INCLUSIVE_INCLUSIVE,
+                                     new AbsoluteSizeSpan(sizePx, false),
+                                     new LeadingSpan(leadingScalar),
+                                     new ParagraphSpan(paragraphScalar));
+    }
+
     private void loadLeadImage() {
         loadLeadImage(getLeadImageUrl());
     }
@@ -542,14 +513,6 @@ public class LeadImagesHandler {
             anim.setFillAfter(true);
             image.startAnimation(anim);
         }
-    }
-
-    private void findViewsById(View root) {
-        imagePlaceholder = findView(root, R.id.page_image_placeholder);
-        image = findView(root, R.id.page_image);
-        pageTitleContainer = findView(root, R.id.page_title_container);
-        pageTitleText = findView(root, R.id.page_title_text);
-        pageDescriptionText = findView(root, R.id.page_description_text);
     }
 
     private void forceRefreshWebView() {
@@ -598,6 +561,10 @@ public class LeadImagesHandler {
 
     private float getDimension(@DimenRes int id) {
         return getResources().getDimension(id);
+    }
+
+    private int getDimensionPixelSize(@DimenRes int id) {
+        return getResources().getDimensionPixelSize(id);
     }
 
     @ColorInt

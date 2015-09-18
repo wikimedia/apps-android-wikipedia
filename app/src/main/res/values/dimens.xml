@@ -59,4 +59,8 @@
     <dimen name="nav_drawer_header_height">150dp</dimen>
 
     <dimen name="shadow_thickness">3dp</dimen>
+
+    <item name="lead_title_leading_scalar" format="float" type="dimen">.9</item>
+    <item name="lead_subtitle_leading_scalar" format="float" type="dimen">1.35</item>
+    <item name="lead_subtitle_paragraph_scalar" format="float" type="dimen">1.15</item>
 </resources>
