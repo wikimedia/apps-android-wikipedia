@@ -10,10 +10,10 @@
   <string name="acra_report_dialog_comment">מה עשית בזמן הקריסה?</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="error_network_error" fuzzy="true">לא הצלחנו ליצור חיבור רשת.</string>
-  <string name="search_network_error">שגיאת רשת. יש ללחוץ כדי לנסות שוב.</string>
+  <string name="error_network_error" fuzzy="true">לא ניתן להתחבר לאינטרנט.</string>
+  <string name="search_network_error">שגיאת רשת. נא להקיש כדי לנסות שוב.</string>
   <string name="generic_page_error">הייתה בעיה בטיפול בבקשה שלך.</string>
-  <string name="status_code_unavailable">קוד המצב מהשרת אינו זמין.</string>
+  <string name="status_code_unavailable">קוד מצב השרת אינו זמין.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
   <string name="menu_clear_all_saved_pages">ניקוי כל הדפים השמורים</string>
@@ -24,22 +24,22 @@
   <string name="menu_update_all_saved_pages">עדכון הדפים השמורים</string>
   <string name="menu_update_selected_saved_pages">עדכון הדפים השמורים</string>
   <string name="dialog_prompt_refresh_all_saved_pages">לעדכן את כל הדפים השמורים?</string>
-  <string name="share_via">שיתוף דרך</string>
+  <string name="share_via">שיתוף באמצעות</string>
   <string name="dialog_title_clear_saved_pages">לנקות את כל הדפים השמורים?</string>
-  <string name="snackbar_saving_page">שמירת דף…</string>
-  <string name="snackbar_saved_page_format">הדף \"%s\" נשמר בהצלחה</string>
+  <string name="snackbar_saving_page">מתבצעת שמירת דף…</string>
+  <string name="snackbar_saved_page_format">הדף \"%s\" נשמר לטובת קריאה לא מקוונת</string>
   <string name="snackbar_saved_page_missing_images">לא היה אפשר לשמור את כל התמונות</string>
   <string name="snackbar_refresh_saved_page">רענון הדף השמור…</string>
   <string name="delete_selected_saved_pages">מחיקה</string>
   <string name="snackbar_saved_page_deleted">הדפים השמורים נמחקו</string>
-  <string name="saved_pages_search_list_hint">חיפוש דפים שמורים</string>
+  <string name="saved_pages_search_list_hint">חיפוש בדפים השמורים</string>
   <string name="saved_pages_search_empty_message">לא נמצאו דפים התואמים לשאילתה שלך.</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
-  <string name="menu_page_other_languages">לקרוא בשפות אחרות</string>
+  <string name="menu_page_other_languages">קריאה בשפות אחרות</string>
   <string name="menu_page_save">שמירת דף</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_page_find_in_page">חיפוש בדף</string>
-  <string name="menu_page_font_and_theme">לשנות גופן ועיצוב</string>
+  <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_long_press_open_page">פתיחה</string>
   <string name="menu_long_press_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
   <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
@@ -53,12 +53,12 @@
   <string name="nearby_distance_in_miles">%.2f מיל</string>
   <string name="nearby_no_network">אין חיבור לרשת</string>
   <string name="nearby_server_error">לא הייתה אפשרות לאתר רשימת מקומות בסביבה.</string>
-  <string name="nearby_dialog_goto_settings">עדכוני מיקום לא הופעלו במכשיר שלך. האם לעבור להגדרות המכשיר שלך כדי להפעיל כדי להפעיל עדכוני מיקום?</string>
+  <string name="nearby_dialog_goto_settings">עדכוני מיקום לא מופעלים במכשיר שלך. האם לעבור להגדרות המכשיר שלך כדי להפעיל כדי להפעיל עדכוני מיקום?</string>
   <string name="nearby_set_metric">להציג מטר/ק\"מ</string>
   <string name="nearby_set_imperial">להציג רגל/מיל</string>
-  <string name="nearby_view_on_map">להציג מקום על מפה</string>
+  <string name="nearby_view_on_map">הצגת מקום על מפה</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
-  <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם נאמר אחרת</string>
+  <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
   <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="preference_title_language">שפת הוויקיפדיה</string>
@@ -102,7 +102,7 @@
   <string name="login_error_throttled">יותר מדי ניסיונות כניסה. נא לחכות מספר דקות ולנסות שוב.</string>
   <string name="login_error_unknown">הכניסה נכשלה :(</string>
   <string name="login_error_no_network">אין חיבור רשת</string>
-  <string name="preference_title_logout">יציאה</string>
+  <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="preference_summary_logout">יציאה מהחשבון שלך בוויקיפדיה</string>
   <string name="preference_summary_notloggedin">לא נכנסת לחשבון.</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
@@ -127,38 +127,38 @@
   <string name="create_account_open_proxy_error">כתובת ה־IP נחסמה מיצירת חשבונות.</string>
   <string name="create_account_noname_error">שם המשתמש שסיפקת אינו חוקי. נא לספק שם משתמש אחר.</string>
   <string name="create_account_invalid_email_error">כתובת הדוא\"ל שסיפקת אינה חוקית.</string>
-  <string name="create_account_password_too_short_error">הסיסמה שסיפקת קצרה מדי.</string>
+  <string name="create_account_password_too_short_error">הססמה שסיפקת קצרה מדי.</string>
   <string name="create_account_blocked_anon_error">אין באפשרותך ליצור חשבון משום שכתובת ה־IP שלך חסומה.</string>
   <string name="create_account_blocked_error">אין באפשרותך ליצור חשבון משום שהחשבון שלך חסום.</string>
-  <string name="create_account_password_name_match_error">שם המשתמש והסיסמה שלך חייבים להיות שונים זה מזו.</string>
+  <string name="create_account_password_name_match_error">שם המשתמש והססמה שלך חייבים להיות שונים זה מזו.</string>
   <string name="create_account_generic_error">לא היה ניתן ליצור חשבון</string>
   <string name="create_account_no_network">אין קישור לרשת</string>
   <string name="create_account_next">הבא</string>
   <string name="create_account_button">יצירת חשבון</string>
   <string name="preferences_general_heading">כללי</string>
-  <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
+  <string name="wikipedia_app_faq">שו\"ת יישומון ויקיפדיה</string>
   <string name="zero_charged_verbiage">מצב ויקיפדיה אפס כבוי</string>
-  <string name="zero_charged_verbiage_extended">טעינת ערכים אחרים יכול לגרור חיובים על נתונים.</string>
+  <string name="zero_charged_verbiage_extended">טעינת ערכים אחרים עשוי לגרור חיובים על תקשורת נתונים.</string>
   <string name="zero_search_hint">חיפוש בוויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving">להזהיר בעת עזיבת ויקיפדיה אפס</string>
-  <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על נתונים ביישום ויקיפדיה במסגרת ויקיפדיה אפס, הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מוויקיפדיה ושייתכן שיחולו חיובים.</string>
+  <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על תקשורת נתונים ביישומון ויקיפדיה במסגרת שותפות \"ויקיפדיה אפס\", הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מיישומון ויקיפדיה ושייתכן שיחולו חיובים.</string>
   <string name="zero_webpage_title">שו\"ת ויקיפדיה אפס</string>
   <string name="zero_wikipedia_zero_heading">ויקיפדיה אפס</string>
-  <string name="zero_interstitial_title">אנחנו יוצאים מוויקיפדיה אפס</string>
-  <string name="zero_interstitial_leave_app">ייתכן שיחולו חיובים על נתונים. להמשיך לאתר חיצוני?</string>
+  <string name="zero_interstitial_title">יציאה מוויקיפדיה אפס</string>
+  <string name="zero_interstitial_leave_app">ייתכן שיחולו חיובים על תקשורת נתונים. להמשיך לאתר חיצוני?</string>
   <string name="zero_interstitial_continue">לעזוב</string>
   <string name="zero_interstitial_cancel">להישאר כאן</string>
   <string name="zero_learn_more">חיובים על נתונים מזוכים ביישום ויקיפדיה זה.</string>
   <string name="zero_learn_more_learn_more">מידע נוסף</string>
   <string name="zero_learn_more_dismiss">סגירה</string>
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
-  <string name="send_feedback">שליחת משוב על היישום</string>
+  <string name="send_feedback">שליחת משוב על היישומון</string>
   <string name="nav_item_random">אקראי</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="user_contribs_more_action">לטעון עוד</string>
   <string name="activity_my_contributions_title">התרומות שלי</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
-  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לשפר את היישום</string>
+  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישומון כדי לשפר את היישומון</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
   <string name="history_search_list_hint">חיפוש בהיסטוריה</string>
   <string name="history_search_empty_message">לא נמצאו דפים התואמים לשאילתה שלך.</string>
@@ -170,7 +170,7 @@
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="more_item_preferences">עוד</string>
   <string name="more_activity_title">עוד</string>
-  <string name="about_description">אודות יישום ויקיפדיה</string>
+  <string name="about_description">אודות יישומון ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
@@ -185,11 +185,11 @@
   <string name="user_blocked_from_editing_title">חסוּם</string>
   <string name="user_logged_in_blocked_from_editing">חשבון המשתמש שלך נחסם מעריכת הוויקי הזה.</string>
   <string name="user_anon_blocked_from_editing">כתובת ה־IP שלך נחסמה מעריכה.</string>
-  <string name="edit_how_page_improved">איך שיפרת את הדף הזה?</string>
+  <string name="edit_how_page_improved">איך שיפרת את הדף?</string>
   <string name="edit_next">הבא</string>
   <string name="edit_done">שמירה</string>
   <string name="edit_preview">תצוגה מקדימה</string>
-  <string name="edit_summary_tag_typo">תיקנתי טעות הקלדה</string>
+  <string name="edit_summary_tag_typo">תיקון טעות הקלדה</string>
   <string name="edit_summary_tag_grammar">תיקנתי דקדוק</string>
   <string name="edit_summary_tag_links">הוספתי קישורים</string>
   <string name="edit_summary_tag_other">אחר</string>
@@ -249,7 +249,7 @@
   <string name="alpha_update_notification_text">נא להקיש להורדה</string>
   <string name="dialog_close_description">סגירה</string>
   <string name="preference_title_show_images">להציג תמונות</string>
-  <string name="preference_summary_show_images">הפעלה או כיבוי של טעינת תמונות בדפים. אפשר לכבות את ההגדרה הזאת אם חיבור האינטרנט שלך אטי או אם ספק התקשורת מגביל את צריכת הנתונים בקו שלך.</string>
+  <string name="preference_summary_show_images" fuzzy="true">הפעלה או כיבוי של טעינת תמונות בדפים. אפשר לכבות את ההגדרה הזאת אם חיבור האינטרנט שלך אטי או אם ספק התקשורת מגביל את צריכת הנתונים בקו שלך.</string>
   <string name="read_more_section">מידע נוסף</string>
   <string name="read_next_section">לקרוא את הבא</string>
   <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>

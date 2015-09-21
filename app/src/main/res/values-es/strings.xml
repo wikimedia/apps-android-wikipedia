@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">¿Qué hacías cuando ocurrió el fallo?</string>
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error" fuzzy="true">No se pudo establecer la conexión con la red.</string>
+  <string name="error_network_error" fuzzy="true">No se pudo conectar a Internet.</string>
   <string name="search_network_error">Error en la red. Toca para volver a intentarlo.</string>
   <string name="generic_page_error">Hubo un problema de manejo de Tu solicitud.</string>
   <string name="status_code_unavailable">El código de estado del servidor no está disponible.</string>
@@ -249,7 +249,7 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="alpha_update_notification_text">Pulsa para descargar</string>
   <string name="dialog_close_description">Cerrar</string>
   <string name="preference_title_show_images">Mostrar imágenes</string>
-  <string name="preference_summary_show_images">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de Internet es lenta, o si tu plan de datos es limitado.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de Internet es lenta, o si tu plan de datos es limitado.</string>
   <string name="read_more_section">Leer más</string>
   <string name="read_next_section">Leer el siguiente</string>
   <string name="menu_gallery_visit_page">Ir a la página del archivo</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Co robiłeś, gdy zdarzyła się awaria?</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error" fuzzy="true">Nie można nawiązać połączenia z siecią.</string>
+  <string name="error_network_error" fuzzy="true">Nie można nawiązać połączenia z Internetem.</string>
   <string name="search_network_error">Błąd sieci. Kliknij, aby spróbować ponownie.</string>
   <string name="generic_page_error">Podczas przetwarzania twojego żądania wystąpił problem.</string>
   <string name="status_code_unavailable">Kod statusu serwera nie jest dostępny.</string>
@@ -238,7 +238,7 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
   <string name="dialog_close_description">Zamknij</string>
   <string name="preference_title_show_images">Pokaż obrazki</string>
-  <string name="preference_summary_show_images">Włącz lub wyłącz pobieranie obrazków na stronach. To pole wyboru należy selekcjonować, jeśli masz wolne połączenie z Internetem lub ruch na twoim planie telefonicznym jest ograniczony.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Włącz lub wyłącz pobieranie obrazków na stronach. To pole wyboru należy selekcjonować, jeśli masz wolne połączenie z Internetem lub ruch na twoim planie telefonicznym jest ograniczony.</string>
   <string name="read_more_section">Czytaj więcej</string>
   <string name="read_next_section">Czytaj dalej</string>
   <string name="menu_gallery_visit_page">Przejdź do strony pliku</string>

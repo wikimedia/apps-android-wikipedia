@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Что вы делали, когда произошёл сбой?</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="nav_item_history">История</string>
-  <string name="error_network_error" fuzzy="true">Сетевое подключение не может быть установлено.</string>
+  <string name="error_network_error" fuzzy="true">Не удаётся подключиться к интернету.</string>
   <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
   <string name="generic_page_error">При обработке вашего запроса возникла проблема.</string>
   <string name="status_code_unavailable">Код статуса сервера недоступен.</string>
@@ -250,7 +250,7 @@
   <string name="alpha_update_notification_text">Нажмите чтобы скачать</string>
   <string name="dialog_close_description">Закрыть</string>
   <string name="preference_title_show_images">Показывать изображения</string>
-  <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
   <string name="read_more_section">Читать подробнее</string>
   <string name="read_next_section">Читать далее</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>

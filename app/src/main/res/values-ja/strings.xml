@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">クラッシュした際に何をしていましたか?</string>
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="nav_item_history">履歴</string>
-  <string name="error_network_error" fuzzy="true">ネットワーク接続が確立できませんでした。</string>
+  <string name="error_network_error" fuzzy="true">インターネット接続が、できませんでした。</string>
   <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
   <string name="generic_page_error">リクエストの処理中に問題が発生しました。</string>
   <string name="status_code_unavailable">サーバーステータスコードが使用できません。</string>
@@ -250,7 +250,7 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>
   <string name="preference_title_show_images">画像を表示</string>
-  <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にします。
+  <string name="preference_summary_show_images" fuzzy="true">ページ内の画像読み込みを有効/無効にします。
 インターネット接続が遅い時や、データ契約に限度があるときには、このチェックを外してください。</string>
   <string name="read_more_section">続きを読む</string>
   <string name="read_next_section">次を読む</string>

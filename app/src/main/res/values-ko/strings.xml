@@ -245,7 +245,7 @@
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
   <string name="dialog_close_description">닫기</string>
   <string name="preference_title_show_images">그림 보이기</string>
-  <string name="preference_summary_show_images">문서에서 그림을 불러오는 것을 활성화하거나 비활성화합니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정을 선택 해제하세요.</string>
+  <string name="preference_summary_show_images" fuzzy="true">문서에서 그림을 불러오는 것을 활성화하거나 비활성화합니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정을 선택 해제하세요.</string>
   <string name="read_more_section">더 읽어보기</string>
   <string name="read_next_section">다음 읽기</string>
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>

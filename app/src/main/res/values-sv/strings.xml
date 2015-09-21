@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Vad gjorde du när kraschen inträffade?</string>
   <string name="search_hint">Sök på Wikipedia</string>
   <string name="nav_item_history">Historik</string>
-  <string name="error_network_error" fuzzy="true">Nätverksanslutningen kunde inte upprättas.</string>
+  <string name="error_network_error" fuzzy="true">Kan inte ansluta till Internet.</string>
   <string name="search_network_error">Nätverksfel. Tryck för att försöka igen.</string>
   <string name="generic_page_error">Ett problem uppstod när din begäran skulle behandlas.</string>
   <string name="status_code_unavailable">Serverns statuskod är otillgänglig.</string>
@@ -249,7 +249,7 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>
   <string name="dialog_close_description">Stäng</string>
   <string name="preference_title_show_images">Visa bilder</string>
-  <string name="preference_summary_show_images">Aktivera eller inaktivera inläsning av bilder på sidor. Avmarkera denna inställning om din Internetanslutning är långsam eller om ditt dataabonnemang är begränsat.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Aktivera eller inaktivera inläsning av bilder på sidor. Avmarkera denna inställning om din Internetanslutning är långsam eller om ditt dataabonnemang är begränsat.</string>
   <string name="read_more_section">Läs mer</string>
   <string name="read_next_section">Läs nästa</string>
   <string name="menu_gallery_visit_page">Gå till filsida</string>

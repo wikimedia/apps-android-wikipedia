@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">崩溃发生时您进行了什么操作？</string>
   <string name="search_hint">搜索维基百科</string>
   <string name="nav_item_history">历史</string>
-  <string name="error_network_error" fuzzy="true">无法建立网络连接。</string>
+  <string name="error_network_error" fuzzy="true">无法连接至互联网。</string>
   <string name="search_network_error">网络出错。点按这里重试。</string>
   <string name="generic_page_error">处理您的请求时出错。</string>
   <string name="status_code_unavailable">服务器状态代码不可用。</string>
@@ -249,7 +249,7 @@
   <string name="alpha_update_notification_text">点按下载</string>
   <string name="dialog_close_description">关闭</string>
   <string name="preference_title_show_images">显示图像</string>
-  <string name="preference_summary_show_images">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
+  <string name="preference_summary_show_images" fuzzy="true">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
   <string name="read_more_section">阅读更多</string>
   <string name="read_next_section">阅读下篇</string>
   <string name="menu_gallery_visit_page">前往文件页面</string>

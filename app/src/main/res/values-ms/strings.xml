@@ -246,7 +246,7 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Ketik untuk muat turun</string>
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Paparkan imej</string>
-  <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
   <string name="read_more_section">Selanjutnya</string>
   <string name="read_next_section">Baca seterusnya</string>
   <string name="menu_gallery_visit_page">Pergi ke laman fail</string>

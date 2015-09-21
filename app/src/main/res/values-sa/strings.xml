@@ -223,7 +223,7 @@
   <string name="alpha_update_notification_text">अवारोपयितुं नुद्यताम्</string>
   <string name="dialog_close_description">पिदधातु</string>
   <string name="preference_title_show_images">चित्राणि दृश्यन्ताम्</string>
-  <string name="preference_summary_show_images">पृष्ठे विद्यमानानां चित्राणाम् अवारोपणं सक्रियम् उत निष्क्रियं क्रियताम् । भवतां/भवत्याः अन्तर्जालसम्पर्कः शिथिलः अस्ति उत डेटा-योजना मर्यादिता अस्ति चेत्, अभिविन्यासे एषः विकल्पः अङ्क्यताम् ।</string>
+  <string name="preference_summary_show_images" fuzzy="true">पृष्ठे विद्यमानानां चित्राणाम् अवारोपणं सक्रियम् उत निष्क्रियं क्रियताम् । भवतां/भवत्याः अन्तर्जालसम्पर्कः शिथिलः अस्ति उत डेटा-योजना मर्यादिता अस्ति चेत्, अभिविन्यासे एषः विकल्पः अङ्क्यताम् ।</string>
   <string name="read_more_section">अधिकं पठ्यताम्</string>
   <string name="read_next_section">अग्रिमं पठतु</string>
   <string name="menu_gallery_visit_page">सञ्चिकां पश्यतु</string>

@@ -249,7 +249,7 @@
   <string name="alpha_update_notification_text">تپ برای دانلود</string>
   <string name="dialog_close_description">بستن</string>
   <string name="preference_title_show_images">نمایش تصویرها</string>
-  <string name="preference_summary_show_images">فعال کردن یا غیرفعال کردن بارگیری تصویرها در صفحات. اگر سرعت اینترنت شما پائین است یا محدودیت حجمی دانلود داده دارید، تنظیمات را غیرفعال کنید.</string>
+  <string name="preference_summary_show_images" fuzzy="true">فعال کردن یا غیرفعال کردن بارگیری تصویرها در صفحات. اگر سرعت اینترنت شما پائین است یا محدودیت حجمی دانلود داده دارید، تنظیمات را غیرفعال کنید.</string>
   <string name="read_more_section">بیشتر بخوانید</string>
   <string name="read_next_section">بعدی را بخوان</string>
   <string name="menu_gallery_visit_page">رفتن به صفحه پرونده</string>

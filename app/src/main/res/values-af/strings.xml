@@ -247,7 +247,7 @@ Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Kliek om af te laai</string>
   <string name="dialog_close_description">Sluit</string>
   <string name="preference_title_show_images">Vertoon beelde</string>
-  <string name="preference_summary_show_images">Skakel die laai van beelde in bladsye aan of af. Ontmerk hierdie instelling indien u internet konneksie statig is, of u dataplan beperk is.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Skakel die laai van beelde in bladsye aan of af. Ontmerk hierdie instelling indien u internet konneksie statig is, of u dataplan beperk is.</string>
   <string name="read_more_section">Lees meer</string>
   <string name="read_next_section">Lees volgende</string>
   <string name="menu_gallery_visit_page">Gaan na lêer blad</string>

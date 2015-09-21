@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Que faisiez-vous lorsque le plantage s’est produit ?</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
   <string name="nav_item_history">Historique</string>
-  <string name="error_network_error" fuzzy="true">La connexion au réseau n\'a pas pu être établie.</string>
+  <string name="error_network_error" fuzzy="true">Impossible de se connecter à Internet.</string>
   <string name="search_network_error">Erreur de réseau. Appuyez pour réessayer.</string>
   <string name="generic_page_error">Il y a eu un problème lors du traitement de votre demande.</string>
   <string name="status_code_unavailable">Code d’état du serveur non disponible.</string>
@@ -249,7 +249,7 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="alpha_update_notification_text">Touchez pour télécharger</string>
   <string name="dialog_close_description">Fermer</string>
   <string name="preference_title_show_images">Voir les images</string>
-  <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à internet est lente, ou si votre volume de données est limité.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à internet est lente, ou si votre volume de données est limité.</string>
   <string name="read_more_section">En savoir plus</string>
   <string name="read_next_section">Lire le suivant</string>
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>

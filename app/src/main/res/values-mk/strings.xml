@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Што правевте кога се случи урнувањето?</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="nav_item_history">Историја</string>
-  <string name="error_network_error" fuzzy="true">Не можам да се поврзам со мрежата.</string>
+  <string name="error_network_error" fuzzy="true">Не можам да се поврзам со семрежјето.</string>
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
   <string name="generic_page_error">Се јави проблем при работа со вашето барање.</string>
   <string name="status_code_unavailable">Кодот за статусот на опслужувачот е недостапен.</string>
@@ -249,7 +249,7 @@
   <string name="alpha_update_notification_text">Допрете за да ја симнете</string>
   <string name="dialog_close_description">Затвори</string>
   <string name="preference_title_show_images">Прикажувај слики</string>
-  <string name="preference_summary_show_images">Овозможи или оневозможи вчитување на слики во страниците. Отштиклирајте ја поставкава ако сегашната семрежна врска ви е бавна, или пак ако имате ограничен податочен пакет.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Овозможи или оневозможи вчитување на слики во страниците. Отштиклирајте ја поставкава ако сегашната семрежна врска ви е бавна, или пак ако имате ограничен податочен пакет.</string>
   <string name="read_more_section">Прочитајте повеќе</string>
   <string name="read_next_section">Прочитај следно</string>
   <string name="menu_gallery_visit_page">Оди на податотечната страница</string>

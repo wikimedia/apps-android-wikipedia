@@ -249,7 +249,7 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Toque para descargar</string>
   <string name="dialog_close_description">Pechar</string>
   <string name="preference_title_show_images">Mostrar as imaxes</string>
-  <string name="preference_summary_show_images">Activar ou desactivar a carga de imaxes nas páxinas. Desmarque esta opción se a súa conexión á internet é lenta ou se o seu plan de datos é limitado.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Activar ou desactivar a carga de imaxes nas páxinas. Desmarque esta opción se a súa conexión á internet é lenta ou se o seu plan de datos é limitado.</string>
   <string name="read_more_section">Ler máis</string>
   <string name="read_next_section">Ler o seguinte</string>
   <string name="menu_gallery_visit_page">Ir á páxina do ficheiro</string>

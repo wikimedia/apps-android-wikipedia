@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Hva gjorde du da kræsjet skjedde?</string>
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="nav_item_history">Logg</string>
-  <string name="error_network_error" fuzzy="true">Nettverksforbindelse kunne ikke opprettes.</string>
+  <string name="error_network_error" fuzzy="true">Kan ikke koble til internett</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
   <string name="generic_page_error">Et problem oppstod under behandlingen av din forespørsel.</string>
   <string name="status_code_unavailable">Tjenerens statuskode er utilgjengelig.</string>
@@ -248,7 +248,7 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Trykk for å laste ned</string>
   <string name="dialog_close_description">Lukk</string>
   <string name="preference_title_show_images">Vis bilder</string>
-  <string name="preference_summary_show_images">Slå av eller på lasting av bilder på sidene. Fjern merkingen her om du har en treg internettforbindelse, eller ikke vil bruke så mye data.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Slå av eller på lasting av bilder på sidene. Fjern merkingen her om du har en treg internettforbindelse, eller ikke vil bruke så mye data.</string>
   <string name="read_more_section">Les mer</string>
   <string name="read_next_section">Les neste</string>
   <string name="menu_gallery_visit_page">Gå til filsiden</string>

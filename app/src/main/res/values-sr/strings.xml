@@ -176,7 +176,7 @@
   <string name="text_size_select">Величина фонта</string>
   <string name="color_theme_select">Тема</string>
   <string name="color_theme_light">Светло</string>
-  <string name="color_theme_dark">Тамно.</string>
+  <string name="color_theme_dark">Тамно</string>
   <string name="page_similar_titles">Сличне странице</string>
   <string name="search_did_you_mean">Да ли сте мислили „%s“?</string>
   <string name="search_recent_header">Скорашње претраге:</string>
@@ -198,10 +198,11 @@
   <string name="err_cannot_save_file">Не могу да сачувам датотеку</string>
   <string name="share_snippet_button">Подели као слику</string>
   <string name="share_normal_button">Подели као текст</string>
+  <string name="cc_logo">Creative Commons лиценца</string>
   <string name="gallery_fair_use_license">Поштена употреба</string>
   <string name="menu_new_tab">Нови језичак</string>
   <string name="button_close_tab">Затвори језичак</string>
-  <string name="page_view_in_browser">Види страницу у веб прегледачу</string>
+  <string name="page_view_in_browser">Види страницу у веб-прегледачу</string>
   <string name="format_error_server_message">Порука: „%s“</string>
   <string name="format_error_server_code">Код: „%s“</string>
 </resources>

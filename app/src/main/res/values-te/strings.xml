@@ -230,7 +230,7 @@
   <string name="alpha_update_notification_text">దింపుకోవడానికి తాకండి</string>
   <string name="dialog_close_description">మూయు</string>
   <string name="preference_title_show_images">బొమ్మలు చూపించు</string>
-  <string name="preference_summary_show_images">పేజిలలో చిత్రాన్ని లోడ్ చేయండి లేదా చేయవద్దు. మీ డేటా కనెక్షన్ మెల్లగా కానీ పరిమితంగా కానీ ఉంటే ఈ అమర్పుని ఎంచుకోవద్దు.</string>
+  <string name="preference_summary_show_images" fuzzy="true">పేజిలలో చిత్రాన్ని లోడ్ చేయండి లేదా చేయవద్దు. మీ డేటా కనెక్షన్ మెల్లగా కానీ పరిమితంగా కానీ ఉంటే ఈ అమర్పుని ఎంచుకోవద్దు.</string>
   <string name="read_more_section">మరింత చదువు</string>
   <string name="read_next_section">తదుపరి చదవండి</string>
   <string name="menu_gallery_visit_page">దస్త్ర పేజీకి వెళ్ళు</string>

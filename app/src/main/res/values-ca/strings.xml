@@ -245,7 +245,7 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Tocar per descarregar</string>
   <string name="dialog_close_description">Tancar</string>
   <string name="preference_title_show_images">Mostrar imatges</string>
-  <string name="preference_summary_show_images">Activar o desactivar la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o unes dades limitades.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Activar o desactivar la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o unes dades limitades.</string>
   <string name="read_more_section">Llegir més</string>
   <string name="read_next_section">Llegeix el següent</string>
   <string name="menu_gallery_visit_page">Vés a la pàgina del fitxer</string>

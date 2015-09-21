@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Що ви робили, коли трапився збій?</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="nav_item_history">Історія</string>
-  <string name="error_network_error" fuzzy="true">Не вдалося встановити підключення до мережі.</string>
+  <string name="error_network_error" fuzzy="true">Не вдається підключитися до інтернету.</string>
   <string name="search_network_error">Помилка мережі. Натисніть, щоб спробувати знову.</string>
   <string name="generic_page_error">Виникла проблема обробки Вашого запиту.</string>
   <string name="status_code_unavailable">Код статусу сервера  недоступний.</string>
@@ -259,7 +259,7 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Натисніть, щоб завантажити</string>
   <string name="dialog_close_description">Закрити</string>
   <string name="preference_title_show_images">Показати зображення</string>
-  <string name="preference_summary_show_images">Включити або відключити завантаження зображень в сторінках. Вимкніть цю опцію, якщо ваше інтернет з\'єднання повільне, або якщо ваш тарифний план обмежений.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Включити або відключити завантаження зображень в сторінках. Вимкніть цю опцію, якщо ваше інтернет з\'єднання повільне, або якщо ваш тарифний план обмежений.</string>
   <string name="read_more_section">Читати більше</string>
   <string name="read_next_section">Читати далі</string>
   <string name="menu_gallery_visit_page">Перейти на сторінку файлу</string>

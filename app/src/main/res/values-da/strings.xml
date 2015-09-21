@@ -249,7 +249,7 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="alpha_update_notification_text">Tryk for at hente ned</string>
   <string name="dialog_close_description">Luk</string>
   <string name="preference_title_show_images">Vis billeder</string>
-  <string name="preference_summary_show_images">Aktivere eller deaktivere indlæsning af billeder på sider. Fravælg denne indstilling, hvis din internetforbindelse er langsom, eller hvis dine dataplan er begrænset.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Aktivere eller deaktivere indlæsning af billeder på sider. Fravælg denne indstilling, hvis din internetforbindelse er langsom, eller hvis dine dataplan er begrænset.</string>
   <string name="read_more_section">Læs mere</string>
   <string name="read_next_section">Læs efterfølgende</string>
   <string name="menu_gallery_visit_page">Gå til filside</string>

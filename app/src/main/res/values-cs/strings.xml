@@ -221,7 +221,7 @@ Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu,
   <string name="alpha_update_notification_text">Klepnutím ji stáhnete</string>
   <string name="dialog_close_description">Zavřít</string>
   <string name="preference_title_show_images">Zobrazovat obrázky</string>
-  <string name="preference_summary_show_images">Povolit nebo zakázat nahrávání obrázků na jednotlivých stránkách. Máte-li pomalé připojení k internetu nebo omezený datový limit, odškrtněte toto nastavení.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Povolit nebo zakázat nahrávání obrázků na jednotlivých stránkách. Máte-li pomalé připojení k internetu nebo omezený datový limit, odškrtněte toto nastavení.</string>
   <string name="read_more_section">Číst dál</string>
   <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
   <string name="gallery_error_draw_failed">Nepodařilo se vykreslit obrázek.</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Was hast du gemacht, als der Absturz passiert ist?</string>
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="nav_item_history">Verlauf</string>
-  <string name="error_network_error" fuzzy="true">Die Netzwerkverbindung konnte nicht hergestellt werden.</string>
+  <string name="error_network_error" fuzzy="true">Kann nicht mit dem Internet verbinden.</string>
   <string name="search_network_error">Netzwerkfehler. Tippen zum erneuten Versuchen.</string>
   <string name="generic_page_error">Es gab ein Problem beim Bearbeiten deiner Anfrage.</string>
   <string name="status_code_unavailable">Der Statuscode des Servers ist nicht verfügbar.</string>
@@ -249,7 +249,7 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="alpha_update_notification_text">Zum Herunterladen tippen</string>
   <string name="dialog_close_description">Schließen</string>
   <string name="preference_title_show_images">Bilder anzeigen</string>
-  <string name="preference_summary_show_images">Aktiviere oder deaktiviere das Laden von Bildern in Seiten. Entmarkiere diese Einstellung, falls deine Internetverbindung langsam oder dein Datenvolumen beschränkt ist.</string>
+  <string name="preference_summary_show_images" fuzzy="true">Aktiviere oder deaktiviere das Laden von Bildern in Seiten. Entmarkiere diese Einstellung, falls deine Internetverbindung langsam oder dein Datenvolumen beschränkt ist.</string>
   <string name="read_more_section">Mehr lesen</string>
   <string name="read_next_section">Nächsten Artikel lesen</string>
   <string name="menu_gallery_visit_page">Gehe zur Dateiseite</string>
