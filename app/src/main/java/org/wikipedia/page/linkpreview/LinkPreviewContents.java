@@ -1,7 +1,6 @@
 package org.wikipedia.page.linkpreview;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.page.PageTitle;
@@ -45,13 +44,6 @@ public class LinkPreviewContents {
         extract = pageLead.getExtract();
         title.setThumbUrl(pageLead.getLeadImageUrl());
         title.setDescription(pageLead.getDescription());
-    }
-
-    private LinkPreviewContents(@NonNull PageTitle title, @Nullable String extract, @Nullable String thumbUrl, @Nullable String description) {
-        this.title = title;
-        this.extract = extract;
-        this.title.setThumbUrl(thumbUrl);
-        this.title.setDescription(description);
     }
 
     /**
