@@ -99,7 +99,7 @@
     <string name="title_captcha">Enter CAPTCHA</string>
     <string name="edit_section_captcha_reload">Tap CAPTCHA to reload</string>
     <string name="edit_saved_page_refresh">This saved page may be out of date, and must be refreshed for editing to be enabled. Would you like to refresh the page?</string>
-    <string name="nav_item_login">Log in</string>
+    <string name="nav_item_login">Log in to Wikipedia</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
     <string name="login_password_show_check">Display password</string>

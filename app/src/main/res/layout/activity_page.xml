@@ -171,11 +171,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/nav_background"
+        android:background="?attr/nav_background_color"
         app:menu="@menu/menu_nav_drawer"
-        app:itemBackground="@drawable/nav_item_background"
-        app:itemTextColor="@color/nav_text"
-        app:itemIconTint="@color/nav_text"
+        app:itemTextColor="?attr/nav_item_color"
+        app:itemIconTint="?attr/nav_item_color"
         app:headerLayout="@layout/inflate_header_nav_drawer"/>
 
 </org.wikipedia.views.WikiDrawerLayout>

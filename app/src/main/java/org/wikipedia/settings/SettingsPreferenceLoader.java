@@ -65,20 +65,6 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
             }
         });
 
-        Preference logoutPref = findPreference(R.string.preference_key_logout);
-        if (!WikipediaApp.getInstance().getUserInfoStorage().isLoggedIn()) {
-            logoutPref.setEnabled(false);
-            logoutPref.setSummary(getString(R.string.preference_summary_notloggedin));
-        }
-        logoutPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                activity.setResult(SettingsActivity.ACTIVITY_RESULT_LOGOUT);
-                activity.finish();
-                return true;
-            }
-        });
-
         if (!BuildConfig.APPLICATION_ID.equals("org.wikipedia")) {
             overridePackageName();
         }

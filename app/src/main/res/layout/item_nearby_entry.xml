@@ -63,7 +63,7 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:background="@drawable/button_shape_gray_highlight"
-            android:textColor="@color/nav_text"
+            android:textColor="@android:color/white"
             tools:text="4.2 km"
             />
     </LinearLayout>

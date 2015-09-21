@@ -18,10 +18,6 @@
             android:title="@string/preference_title_show_images"
             android:summary="@string/preference_summary_show_images"
             />
-        <org.wikipedia.settings.PreferenceMultiLine
-                android:key="@string/preference_key_logout"
-                android:title="@string/preference_title_logout"
-                android:summary="@string/preference_summary_logout"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/zero_wikipedia_zero_heading">
         <org.wikipedia.settings.CheckBoxPreferenceMultiLine
