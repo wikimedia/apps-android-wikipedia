@@ -65,6 +65,7 @@ public class MwPageLead implements PageLead {
             title = new PageTitle(mobileview.getNormalizedTitle(), title.getSite(),
                     title.getThumbUrl());
         }
+        title.setDescription(mobileview.getDescription());
         return title;
     }
 

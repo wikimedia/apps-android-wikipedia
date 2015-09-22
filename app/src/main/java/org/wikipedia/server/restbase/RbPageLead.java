@@ -78,6 +78,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
             // We care about the normalized title only if we were not redirected
             title = new PageTitle(normalizedtitle, title.getSite(), title.getThumbUrl());
         }
+        title.setDescription(description);
         return title;
     }
 

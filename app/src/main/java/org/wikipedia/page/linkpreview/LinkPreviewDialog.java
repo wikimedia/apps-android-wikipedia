@@ -162,7 +162,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             getDialog().dismiss();
         }
         if (onNavigateListener != null) {
-            onNavigateListener.onNavigate(contents.getTitle());
+            onNavigateListener.onNavigate(pageTitle);
         }
     }
 
