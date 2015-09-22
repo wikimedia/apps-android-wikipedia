@@ -210,6 +210,9 @@ public class PageActivity extends ThemedActionBarActivity {
         updateProgressBar(false, true, 0);
 
         drawerLayout = (WikiDrawerLayout) findViewById(R.id.drawer_layout);
+        if (!ApiUtil.hasLollipop()) {
+            drawerLayout.setDrawerShadow(R.drawable.nav_drawer_shadow, GravityCompat.START);
+        }
         navDrawer = (NavigationView) findViewById(R.id.navdrawer);
         navMenu = navDrawer.getMenu();
         navDrawerHelper = new NavDrawerHelper(this);
