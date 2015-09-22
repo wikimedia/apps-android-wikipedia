@@ -34,7 +34,7 @@ def getDate() {
 }
 
 def computeVersionName(label) {
-    return "2.0.${android.defaultConfig.versionCode}-${label}-${date}"
+    return "2.1.${android.defaultConfig.versionCode}-${label}-${date}"
 }
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_7
@@ -55,9 +55,9 @@ android {
     }
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdkVersion 10
+        minSdkVersion 15
         targetSdkVersion 22
-        versionCode 111
+        versionCode 131
         testApplicationId 'org.wikipedia.test'
     }
 
