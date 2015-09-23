@@ -56,4 +56,7 @@
 
     <dimen name="face_detection_nose_y_offset">-24dp</dimen>
 
+    <dimen name="nav_drawer_header_height">150dp</dimen>
+
+    <dimen name="shadow_thickness">3dp</dimen>
 </resources>

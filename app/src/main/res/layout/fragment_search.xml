@@ -6,8 +6,7 @@
     android:id="@+id/search_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/search_background_color"
-    android:paddingTop="?attr/actionBarSize">
+    android:background="?attr/search_background_color">
 
     <fragment
         android:id="@+id/fragment_search_results"

@@ -57,6 +57,7 @@ public class ToCHandler {
         this.slidingPane = slidingPane;
 
         this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
+        ((LinearLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, Utils.getContentTopOffsetPx(activity), 0, 0);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
 
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
@@ -133,7 +134,6 @@ public class ToCHandler {
         try {
             payload.put("anchor", sectionAnchor);
         } catch (JSONException e) {
-            // This won't happen
             throw new RuntimeException(e);
         }
         bridge.sendMessage("scrollToSection", payload);

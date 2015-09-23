@@ -52,7 +52,7 @@
     <View
         android:id="@+id/tab_item_bottom_gradient"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="@dimen/shadow_thickness"
         android:layout_gravity="bottom"
         android:background="?attr/tab_shadow_drawable"/>
 </FrameLayout>

@@ -1,25 +1,26 @@
 package org.wikipedia.search;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.support.annotation.ColorInt;
+import android.view.Gravity;
 import android.view.View;
 
-import com.nineoldandroids.animation.ArgbEvaluator;
 import com.nineoldandroids.view.ViewHelper;
 
 import org.wikipedia.R;
 import org.wikipedia.ViewAnimations;
-import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.ArgbEvaluatorCompat;
+import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ViewUtil;
 
 public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeListener, ObservableWebView.OnUpOrCancelMotionEventListener, ObservableWebView.OnDownMotionEventListener {
     private static final int HUMAN_SCROLL_THRESHOLD = 200;
     private static final int FULL_OPACITY = 255;
-    private final Activity parentActivity;
     private final View quickReturnView;
     private final float displayDensity;
     private final int toolbarColor;
-    private final ArgbEvaluator colorEvaluator;
+    private final ArgbEvaluatorCompat colorEvaluator;
 
     private ObservableWebView webview;
     private boolean fadeEnabled = false;
@@ -27,18 +28,20 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
     private View toolbarBackground;
     private View toolbarGradient;
     private View toolbarShadow;
+    private View statusBar;
 
     public SearchBarHideHandler(Activity activity, View quickReturnView) {
-        this.parentActivity = activity;
         this.quickReturnView =  quickReturnView;
         this.displayDensity = quickReturnView.getResources().getDisplayMetrics().density;
 
         toolbarBackground = quickReturnView.findViewById(R.id.main_toolbar);
         toolbarShadow = quickReturnView.findViewById(R.id.main_toolbar_shadow);
-        toolbarGradient = quickReturnView.findViewById(R.id.main_toolbar_gradient);
+        toolbarGradient = quickReturnView;
+        initToolbarGradient();
 
-        colorEvaluator = new ArgbEvaluator();
+        colorEvaluator = new ArgbEvaluatorCompat();
         toolbarColor = activity.getResources().getColor(R.color.actionbar_background);
+        statusBar = quickReturnView.findViewById(R.id.empty_status_bar);
     }
 
     /**
@@ -86,21 +89,13 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
 
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY) {
-        final int fadeHeight = 256;
-        int opacity = FULL_OPACITY;
-        if (fadeEnabled && !forceNoFade) {
-            opacity = scrollY * FULL_OPACITY / (int) (fadeHeight * displayDensity);
-        }
-        opacity = Math.max(0, opacity);
-        opacity = Math.min(FULL_OPACITY, opacity);
+        int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.getBackground().setAlpha(opacity);
         toolbarShadow.getBackground().setAlpha(opacity);
         toolbarGradient.getBackground().setAlpha(FULL_OPACITY - opacity);
-        if (ApiUtil.hasLollipop()) {
-            parentActivity.getWindow().setStatusBarColor(
-                    (int) colorEvaluator
-                            .evaluate((float) opacity / FULL_OPACITY, Color.BLACK, toolbarColor));
-        }
+
+        int color = calculateScrollStatusBarColorTween(opacity);
+        statusBar.setBackgroundColor(color);
         if (scrollY <= webview.getHeight()) {
             // For the first screenful, ensure it always exists.
             ViewAnimations.ensureTranslationY(quickReturnView, 0);
@@ -146,5 +141,29 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
     @Override
     public void onDownMotionEvent() {
         // Don't do anything for now
+    }
+
+    private void initToolbarGradient() {
+        @ColorInt int baseColor = toolbarGradient.getResources().getColor(R.color.lead_gradient_start);
+        ViewUtil.setBackgroundDrawable(toolbarGradient,
+                GradientUtil.getCubicGradient(baseColor, Gravity.TOP));
+    }
+
+    /** @return Alpha value between 0 and 0xff. */
+    private int calculateScrollOpacity(int scrollY) {
+        final int fadeHeight = 256;
+        int opacity = FULL_OPACITY;
+        if (fadeEnabled && !forceNoFade) {
+            opacity = scrollY * FULL_OPACITY / (int) (fadeHeight * displayDensity);
+        }
+        opacity = Math.max(0, opacity);
+        opacity = Math.min(FULL_OPACITY, opacity);
+        return opacity;
+    }
+
+    @ColorInt private int calculateScrollStatusBarColorTween(int opacity) {
+        final int alphaMask = 0xff000000;
+        return (int) colorEvaluator.evaluate((float) opacity / FULL_OPACITY,
+                toolbarColor & ~alphaMask, toolbarColor);
     }
 }

@@ -54,7 +54,7 @@ function handleTableCollapseOrExpandClick() {
         divBottom.style.display = 'none';
         //if they clicked the bottom div, then scroll back up to the top of the table.
         if (this === divBottom) {
-            window.scrollTo( 0, container.offsetTop - 48 );
+            window.scrollTo( 0, container.offsetTop - transformer.getDecorOffset() );
         }
     } else {
         tableFull.style.display = 'block';

@@ -235,7 +235,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         refreshView = (SwipeRefreshLayoutWithScroll) rootView
                 .findViewById(R.id.page_refresh_container);
-        int swipeOffset = Utils.getActionBarSize(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
+        int swipeOffset = Utils.getContentTopOffsetPx(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
         refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
         // if we want to give it a custom color:
         //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
@@ -271,6 +271,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();
+        sendDecorOffsetMessage();
 
         linkHandler = new LinkHandler(getActivity(), bridge) {
             @Override
@@ -499,6 +500,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        sendDecorOffsetMessage();
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageLoadStrategy.isLoading()) {
@@ -1100,6 +1102,16 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (tabList.isEmpty()) {
             tabList.add(new Tab());
         }
+    }
+
+    private void sendDecorOffsetMessage() {
+        JSONObject payload = new JSONObject();
+        try {
+            payload.put("offset", Utils.getContentTopOffset(getActivity()));
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        bridge.sendMessage("setDecorOffset", payload);
     }
 
     // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.

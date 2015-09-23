@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/nav_drawer_header_height"
+    android:orientation="vertical"
     android:background="@color/blue_progressive">
+
+    <org.wikipedia.views.StatusBarBlankView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <ImageView
         android:layout_width="72dp"
         android:layout_height="72dp"
@@ -41,4 +48,4 @@
             android:contentDescription="@null" />
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

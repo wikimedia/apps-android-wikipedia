@@ -122,6 +122,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
+        rootView.setPadding(0, Utils.getContentTopOffsetPx(getActivity()), 0, 0);
 
         nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);

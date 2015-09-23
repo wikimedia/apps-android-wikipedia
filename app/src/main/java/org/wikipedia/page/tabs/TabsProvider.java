@@ -201,20 +201,20 @@ public class TabsProvider {
         final float proportionHorz = 0.15f;
         final float proportionVert = 0.4f;
         final int heightOffset = 16;
-        int toolbarHeight = Utils.getActionBarSize(parentActivity);
+        int contentOffset = Utils.getContentTopOffsetPx(parentActivity);
         int maxHeight = (int) (pageContentView.getHeight() * proportionVert
                                + pageContentView.getHeight() * proportionHorz
-                               - toolbarHeight - heightOffset * displayDensity);
+                               - contentOffset - heightOffset * displayDensity);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, maxHeight);
         float margin = pageContentView.getWidth() * proportionHorz / 2f;
         if (ApiUtil.hasHoneyComb()) {
             params.leftMargin = (int) margin;
             params.rightMargin = (int) margin;
-            params.topMargin = toolbarHeight;
+            params.topMargin = contentOffset;
         } else {
             // for 2.3, use padding instead of margin, for some reason.
-            tabListView.setPadding((int) margin, toolbarHeight, (int) margin, 0);
-            params.height += toolbarHeight;
+            tabListView.setPadding((int) margin, contentOffset, (int) margin, 0);
+            params.height += contentOffset;
             params.leftMargin = 0;
             params.rightMargin = 0;
             params.topMargin = 0;

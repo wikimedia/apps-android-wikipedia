@@ -21,7 +21,9 @@
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#ff808080</color>
     <color name="page_info_heading">#555555</color>
-    <color name="actionbar_background">#ff303030</color>
+    <color name="window_background">#ff303030</color>
+    <!-- TODO: replace this color when changing the toolbar color. -->
+    <color name="actionbar_background">@color/window_background</color>
     <color name="actionbar_highlight">#ff808080</color>
     <color name="search_bar">#ff404040</color>
     <color name="search_text_hint">#ff808080</color>
@@ -31,7 +33,7 @@
     actionbar_background). This is because we'll be setting its opacity programmatically
     which, in certain API versions, seems to apply globally (i.e. other components that use
     the same color value get the same transparency). -->
-    <color name="main_toolbar_background">#ff313131</color>
+    <color name="main_toolbar_background">@color/actionbar_background</color>
 
     <color name="link_light">#ff347BFF</color>
     <color name="button_light">#ff777777</color>

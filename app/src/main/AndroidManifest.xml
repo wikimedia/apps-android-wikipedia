@@ -44,7 +44,7 @@
         <!-- Don't delete the meta-data field above -->
 
         <activity android:name=".page.PageActivity"
-                  android:theme="@style/NoTitle"
+                  android:theme="@style/PageTheme"
                   android:windowSoftInputMode="stateHidden"
                   android:configChanges="orientation|screenSize"
                   android:launchMode="singleTask">

@@ -299,7 +299,7 @@ public class LeadImagesHandler {
         int titleContainerHeight;
 
         if (isMainPage()) {
-            titleContainerHeight = (int) (Utils.getActionBarSize(getActivity()) / displayDensity);
+            titleContainerHeight = (int) (Utils.getContentTopOffsetPx(getActivity()) / displayDensity);
             hideLeadSection();
         } else if (!leadImagesEnabled) {
             // ok, we're not going to show lead images, so we need to make some

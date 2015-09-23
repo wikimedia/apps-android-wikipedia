@@ -3,8 +3,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="?attr/window_background_color"
-              android:paddingTop="?attr/actionBarSize">
+              android:background="?attr/window_background_color">
     <LinearLayout
             android:id="@+id/history_empty_container"
             android:orientation="vertical"

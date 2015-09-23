@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Build;
+import android.support.annotation.DimenRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;
@@ -29,8 +30,23 @@ public final class DimenUtil {
         return getDisplayMetrics().density;
     }
 
+    /** @return Dimension in dp. */
+    public static float getDimension(@DimenRes int id) {
+        return TypedValue.complexToFloat(getValue(id).data);
+    }
+
+    private static TypedValue getValue(@DimenRes int id) {
+        TypedValue typedValue = new TypedValue();
+        getResources().getValue(id, typedValue, true);
+        return typedValue;
+    }
+
     private static DisplayMetrics getDisplayMetrics() {
-        return Resources.getSystem().getDisplayMetrics();
+        return getResources().getDisplayMetrics();
+    }
+
+    private static Resources getResources() {
+        return Resources.getSystem();
     }
 
     /**

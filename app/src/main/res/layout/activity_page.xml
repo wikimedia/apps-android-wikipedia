@@ -16,8 +16,7 @@
         <FrameLayout
             android:id="@+id/content_fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </FrameLayout>
+            android:layout_height="match_parent" />
 
         <!-- The tabs container -->
         <FrameLayout
@@ -43,129 +42,123 @@
             android:layout_height="match_parent"
             android:id="@+id/search_fragment"
             android:name="org.wikipedia.search.SearchArticlesFragment"
-            tools:layout="@layout/fragment_search"/>
+            tools:layout="@layout/fragment_search" />
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/main_toolbar_container"
             android:layout_width="match_parent"
-            android:layout_height="80dp">
-            <LinearLayout
-                android:id="@+id/main_toolbar_gradient"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <org.wikipedia.views.StatusBarBlankView
+                android:id="@+id/empty_status_bar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-            </LinearLayout>
-            <LinearLayout
+                android:layout_height="wrap_content" />
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <FrameLayout
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.Toolbar
+                    android:theme="@style/AppTheme.ToolbarTheme"
+                    android:id="@+id/main_toolbar"
+                    android:background="@color/main_toolbar_background"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <android.support.v7.widget.Toolbar
-                        android:theme="@style/AppTheme.ToolbarTheme"
-                        android:id="@+id/main_toolbar"
-                        android:background="@color/main_toolbar_background"
+                    android:layout_height="?attr/actionBarSize">
+                    <FrameLayout
+                        android:id="@+id/main_toolbar_inner_container"
                         android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize">
-                        <FrameLayout
-                            android:id="@+id/main_toolbar_inner_container"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/main_search_bar_text"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <TextView
-                                android:id="@+id/main_search_bar_text"
-                                android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:paddingLeft="6dp"
+                            android:paddingRight="6dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/search_hint"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/searchTextSize"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:shadowColor="@color/lead_text_shadow"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2"
+                            android:layout_gravity="center_vertical"
+                            android:drawableStart="@drawable/ic_search"
+                            android:drawableLeft="@drawable/ic_search"
+                            android:drawablePadding="6dp"/>
+                        <LinearLayout
+                            android:id="@+id/search_bar_enabled"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            style="@style/AppTheme.SearchViewStyle"
+                            android:visibility="gone">
+                            <org.wikipedia.views.CabSearchView
+                                android:id="@+id/main_search_view"
+                                android:layout_width="0dp"
                                 android:layout_height="36dp"
-                                android:layout_marginLeft="4dp"
-                                android:layout_marginRight="4dp"
-                                android:paddingLeft="6dp"
-                                android:paddingRight="6dp"
-                                android:gravity="center_vertical"
-                                android:text="@string/search_hint"
-                                android:textColor="@android:color/white"
-                                android:textSize="@dimen/searchTextSize"
-                                android:singleLine="true"
-                                android:ellipsize="end"
-                                android:background="?attr/selectableItemBackgroundBorderless"
-                                android:shadowColor="@color/lead_text_shadow"
-                                android:shadowDx="1"
-                                android:shadowDy="1"
-                                android:shadowRadius="2"
+                                android:layout_weight="1"
                                 android:layout_gravity="center_vertical"
-                                android:drawableStart="@drawable/ic_search"
-                                android:drawableLeft="@drawable/ic_search"
-                                android:drawablePadding="6dp"/>
-                            <LinearLayout
-                                android:id="@+id/search_bar_enabled"
-                                android:layout_width="match_parent"
-                                android:layout_height="36dp"
-                                android:orientation="horizontal"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginLeft="4dp"
-                                android:layout_marginRight="4dp"
-                                style="@style/AppTheme.SearchViewStyle"
-                                android:visibility="gone">
-                                <org.wikipedia.views.CabSearchView
-                                    android:id="@+id/main_search_view"
-                                    android:layout_width="0dp"
-                                    android:layout_height="36dp"
-                                    android:layout_weight="1"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginLeft="8dp"
-                                    android:layout_marginRight="8dp"
-                                    android:layout_marginStart="8dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:textSize="16sp"
-                                    android:focusable="true"
-                                    android:inputType="text"
-                                    android:imeOptions="actionGo|flagNoExtractUi"
-                                    app:cabEnabled="false" />
-                                <FrameLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingTop="2dp"
-                                    android:paddingBottom="2dp"
-                                    android:paddingLeft="9dp"
-                                    android:paddingRight="9dp"
-                                    android:layout_marginRight="8dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:id="@+id/search_lang_button_container"
-                                    android:background="?attr/actionBarItemBackground"
-                                    android:clickable="true">
-                                    <TextView
-                                        android:id="@+id/search_lang_button"
-                                        android:layout_width="30dp"
-                                        android:layout_height="30dp"
-                                        android:gravity="center"
-                                        android:clickable="false"
-                                        android:focusable="false"
-                                        android:background="@drawable/lang_button_shape"
-                                        style="@style/AppTheme.ActionModeStyle"
-                                        android:textColor="@android:color/white" />
-                                </FrameLayout>
-                            </LinearLayout>
-                        </FrameLayout>
-                    </android.support.v7.widget.Toolbar>
-                    <ProgressBar
-                        android:id="@+id/main_progressbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-7.5dp"
-                        android:layout_gravity="top"
-                        style="?android:attr/progressBarStyleHorizontal"/>
-                </FrameLayout>
-                <View
-                    android:id="@+id/main_toolbar_shadow"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:textSize="16sp"
+                                android:focusable="true"
+                                android:inputType="text"
+                                android:imeOptions="actionGo|flagNoExtractUi"
+                                app:cabEnabled="false" />
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="2dp"
+                                android:paddingBottom="2dp"
+                                android:paddingLeft="9dp"
+                                android:paddingRight="9dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:id="@+id/search_lang_button_container"
+                                android:background="?attr/actionBarItemBackground"
+                                android:clickable="true">
+                                <TextView
+                                    android:id="@+id/search_lang_button"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:gravity="center"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:background="@drawable/lang_button_shape"
+                                    style="@style/AppTheme.ActionModeStyle"
+                                    android:textColor="@android:color/white" />
+                            </FrameLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </android.support.v7.widget.Toolbar>
+                <ProgressBar
+                    android:id="@+id/main_progressbar"
                     android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/toolbar_bottom_shadow"
-                    />
-            </LinearLayout>
-        </FrameLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-7.5dp"
+                    android:layout_gravity="top"
+                    style="?android:attr/progressBarStyleHorizontal" />
+            </FrameLayout>
+            <View
+                android:id="@+id/main_toolbar_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/shadow_thickness"
+                android:background="@drawable/toolbar_bottom_shadow"
+                />
+        </LinearLayout>
+
     </FrameLayout>
 
-    <!-- The navigation drawer -->
+    <!-- Override fitsSystemWindows for API 19. -->
     <android.support.design.widget.NavigationView
         android:id="@+id/navdrawer"
         android:layout_width="wrap_content"
@@ -175,6 +168,7 @@
         app:menu="@menu/menu_nav_drawer"
         app:itemTextColor="?attr/nav_item_color"
         app:itemIconTint="?attr/nav_item_color"
-        app:headerLayout="@layout/inflate_header_nav_drawer"/>
+        app:headerLayout="@layout/inflate_header_nav_drawer"
+        android:fitsSystemWindows="false" />
 
 </org.wikipedia.views.WikiDrawerLayout>

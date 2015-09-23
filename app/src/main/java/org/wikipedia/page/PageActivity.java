@@ -28,9 +28,7 @@ import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.zero.WikipediaZeroHandler;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
@@ -67,7 +65,6 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -243,10 +240,6 @@ public class PageActivity extends ThemedActionBarActivity {
         getSupportActionBar().setTitle("");
 
         searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
-
-        // create a gradient for the toolbar
-        ViewUtil.setBackgroundDrawable(findViewById(R.id.main_toolbar_gradient), GradientUtil
-                .getCubicGradient(getResources().getColor(R.color.lead_gradient_start), Gravity.TOP));
 
         // TODO: remove this when we drop support for API 10
         boolean themeChanged = false;

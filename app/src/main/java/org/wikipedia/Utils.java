@@ -10,6 +10,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Looper;
+import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
@@ -30,6 +31,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.interlanguage.LanguageUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ShareUtils;
 
 import java.io.BufferedReader;
@@ -536,20 +538,58 @@ public final class Utils {
         return tv.resourceId;
     }
 
+    public static int getContentTopOffsetPx(Context context) {
+        return DimenUtil.roundedDpToPx(getContentTopOffset(context));
+    }
+
+    public static float getContentTopOffset(Context context) {
+        return getToolbarHeight(context) + getTranslucentStatusBarHeight(context);
+    }
+
+    public static int getTranslucentStatusBarHeightPx(Context context) {
+        return DimenUtil.roundedDpToPx(getTranslucentStatusBarHeight(context));
+    }
+
+    /** @return Height of status bar if translucency is enabled, zero otherwise. */
+    public static float getTranslucentStatusBarHeight(Context context) {
+        return isStatusBarTranslucent() ? getStatusBarHeight(context) : 0;
+    }
+
+    private static int getStatusBarHeightPx(Context context) {
+        return DimenUtil.roundedDpToPx(getStatusBarHeight(context));
+    }
+
+    private static float getStatusBarHeight(Context context) {
+        int id = getStatusBarId(context);
+        return id > 0 ? DimenUtil.getDimension(id) : 0;
+    }
+
+    private static float getToolbarHeight(Context context) {
+        return DimenUtil.roundedPxToDp(getToolbarHeightPx(context));
+    }
+
     /**
-     * Returns the height of the ActionBar in the current activity. The system controls the
-     * height of the ActionBar, which may be slightly different depending on screen orientation,
-     * and device version.
+     * Returns the height of the toolbar in the current activity. The system controls the height of
+     * the toolbar, which may be slightly different depending on screen orientation, and device
+     * version.
      * @param context Context used for retrieving the height attribute.
-     * @return Height of the ActionBar.
+     * @return Height of the toolbar.
      */
-    public static int getActionBarSize(Context context) {
+    private static int getToolbarHeightPx(Context context) {
         final TypedArray styledAttributes = context.getTheme().obtainStyledAttributes(new int[] {
                 android.support.v7.appcompat.R.attr.actionBarSize
         });
-        int size = (int)styledAttributes.getDimension(0, 0);
+        int size = styledAttributes.getDimensionPixelSize(0, 0);
         styledAttributes.recycle();
         return size;
+    }
+
+    private static boolean isStatusBarTranslucent() {
+        return ApiUtil.hasKitKat();
+    }
+
+    @DimenRes private static int getStatusBarId(Context context) {
+        return context.getResources().getIdentifier("status_bar_height", "dimen", "android");
     }
 
     /**

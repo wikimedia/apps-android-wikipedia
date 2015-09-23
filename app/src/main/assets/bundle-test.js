@@ -60,6 +60,7 @@ module.exports = {
 };
 },{"./bridge":1}],3:[function(require,module,exports){
 var bridge = require( "./bridge" );
+var transformer = require("./transformer");
 
 bridge.registerListener( "requestImagesList", function( payload ) {
     var imageURLs = [];
@@ -107,7 +108,41 @@ bridge.registerListener( "setPageProtected", function( payload ) {
     }
 } );
 
-},{"./bridge":1}],4:[function(require,module,exports){
+bridge.registerListener( "setDecorOffset", function( payload ) {
+    transformer.setDecorOffset(payload.offset);
+} );
+},{"./bridge":1,"./transformer":4}],4:[function(require,module,exports){
+function Transformer() {
+}
+
+var transforms = {};
+var decorOffset = 0; // The height of the toolbar and, when translucent, status bar in CSS pixels.
+
+Transformer.prototype.register = function( transform, fun ) {
+    if ( transform in transforms ) {
+        transforms[transform].push( fun );
+    } else {
+        transforms[transform] = [ fun ];
+    }
+};
+
+Transformer.prototype.transform = function( transform, element ) {
+    var functions = transforms[transform];
+    for ( var i = 0; i < functions.length; i++ ) {
+        element = functions[i](element);
+    }
+};
+
+Transformer.prototype.getDecorOffset = function() {
+    return decorOffset;
+};
+
+Transformer.prototype.setDecorOffset = function(offset) {
+    decorOffset = offset;
+};
+
+module.exports = new Transformer();
+},{}],5:[function(require,module,exports){
 /**
  * MIT LICENSCE
  * From: https://github.com/remy/polyfills
@@ -184,16 +219,16 @@ defineElementGetter(Element.prototype, 'classList', function () {
 
 })();
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var bridge = require("../js/bridge");
 bridge.registerListener( "injectScript", function( payload ) {
     require(payload.src);
 });
-},{"../js/bridge":1}],6:[function(require,module,exports){
+},{"../js/bridge":1}],7:[function(require,module,exports){
 var bridge = require("../js/bridge");
 console.log("Something!");
 bridge.registerListener( "ping", function( payload ) {
     bridge.sendMessage( "pong", payload );
 });
 
-},{"../js/bridge":1}]},{},[2,3,1,5,6,4])
+},{"../js/bridge":1}]},{},[2,3,1,6,7,5])

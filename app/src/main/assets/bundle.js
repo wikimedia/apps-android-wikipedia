@@ -239,6 +239,7 @@ module.exports = {
 };
 },{"./bridge":2}],7:[function(require,module,exports){
 var bridge = require( "./bridge" );
+var transformer = require("./transformer");
 
 bridge.registerListener( "requestImagesList", function( payload ) {
     var imageURLs = [];
@@ -286,7 +287,10 @@ bridge.registerListener( "setPageProtected", function( payload ) {
     }
 } );
 
-},{"./bridge":2}],8:[function(require,module,exports){
+bridge.registerListener( "setDecorOffset", function( payload ) {
+    transformer.setDecorOffset(payload.offset);
+} );
+},{"./bridge":2,"./transformer":12}],8:[function(require,module,exports){
 var bridge = require("./bridge");
 var loader = require("./loader");
 var utilities = require("./utilities");
@@ -620,7 +624,7 @@ function scrollToSection( anchor ) {
         window.scrollTo( 0, 0 );
     } else {
         var el = document.getElementById( anchor );
-        var scrollY = el.offsetTop - 48;
+        var scrollY = el.offsetTop - transformer.getDecorOffset();
         window.scrollTo( 0, scrollY );
     }
 }
@@ -662,6 +666,7 @@ function Transformer() {
 }
 
 var transforms = {};
+var decorOffset = 0; // The height of the toolbar and, when translucent, status bar in CSS pixels.
 
 Transformer.prototype.register = function( transform, fun ) {
     if ( transform in transforms ) {
@@ -678,8 +683,15 @@ Transformer.prototype.transform = function( transform, element ) {
     }
 };
 
-module.exports = new Transformer();
+Transformer.prototype.getDecorOffset = function() {
+    return decorOffset;
+};
 
+Transformer.prototype.setDecorOffset = function(offset) {
+    decorOffset = offset;
+};
+
+module.exports = new Transformer();
 },{}],13:[function(require,module,exports){
 var transformer = require("../transformer");
 var night = require("../night");
@@ -818,7 +830,7 @@ function handleTableCollapseOrExpandClick() {
         divBottom.style.display = 'none';
         //if they clicked the bottom div, then scroll back up to the top of the table.
         if (this === divBottom) {
-            window.scrollTo( 0, container.offsetTop - 48 );
+            window.scrollTo( 0, container.offsetTop - transformer.getDecorOffset() );
         }
     } else {
         tableFull.style.display = 'block';

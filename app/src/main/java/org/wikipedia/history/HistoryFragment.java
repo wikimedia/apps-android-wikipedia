@@ -28,6 +28,7 @@ import com.squareup.picasso.Picasso;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
@@ -62,6 +63,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
+        rootView.setPadding(0, Utils.getContentTopOffsetPx(getActivity()), 0, 0);
 
         historyEntryList = (ListView) rootView.findViewById(R.id.history_entry_list);
         historyEmptyContainer = rootView.findViewById(R.id.history_empty_container);

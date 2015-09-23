@@ -100,6 +100,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         View parentLayout = inflater.inflate(R.layout.fragment_search, container, false);
 
         searchContainerView = parentLayout.findViewById(R.id.search_container);
+        searchContainerView.setPadding(0, Utils.getContentTopOffsetPx(getActivity()), 0, 0);
         searchContainerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,4 +1,5 @@
 var bridge = require( "./bridge" );
+var transformer = require("./transformer");
 
 bridge.registerListener( "requestImagesList", function( payload ) {
     var imageURLs = [];
@@ -44,4 +45,8 @@ bridge.registerListener( "setPageProtected", function( payload ) {
     else if (el.classList.contains("no-editing") && !payload.noedit) {
         el.classList.remove("no-editing");
     }
+} );
+
+bridge.registerListener( "setDecorOffset", function( payload ) {
+    transformer.setDecorOffset(payload.offset);
 } );

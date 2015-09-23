@@ -222,7 +222,7 @@ function scrollToSection( anchor ) {
         window.scrollTo( 0, 0 );
     } else {
         var el = document.getElementById( anchor );
-        var scrollY = el.offsetTop - 48;
+        var scrollY = el.offsetTop - transformer.getDecorOffset();
         window.scrollTo( 0, scrollY );
     }
 }
