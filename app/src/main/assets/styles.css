@@ -1040,7 +1040,6 @@ th .sortkey {
   margin-right: auto;
 }
 @media (orientation: portrait) {
-  /* Tablet override */
   .wideImageOverride {
     width: 100% !important;
     max-width: 100% !important;
@@ -1051,6 +1050,13 @@ th .sortkey {
   .wideImageOverride {
     width: 60% !important;
     max-width: 60% !important;
+    height: auto !important;
+  }
+}
+@media (orientation: portrait) and (min-device-width: 768px) and (-webkit-min-device-pixel-ratio: 3) {
+  .wideImageOverride {
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
   }
 }
