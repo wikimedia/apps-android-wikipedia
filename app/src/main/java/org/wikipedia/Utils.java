@@ -86,7 +86,7 @@ public final class Utils {
      * @param orig original string
      * @return same string as orig, except the first letter is capitalized
      */
-    public static String capitalizeFirstChar(String orig) {
+    public static String capitalizeFirstChar(@NonNull String orig) {
         return orig.substring(0, 1).toUpperCase() + orig.substring(1);
     }
 

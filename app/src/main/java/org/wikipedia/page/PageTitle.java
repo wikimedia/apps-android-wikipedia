@@ -2,6 +2,7 @@ package org.wikipedia.page;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -128,12 +129,13 @@ public class PageTitle implements Parcelable {
         this.thumbUrl = thumbUrl;
     }
 
+    @Nullable
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(@Nullable String description) {
+        this.description = description != null ? Utils.capitalizeFirstChar(description) : null;
     }
 
     public String getDisplayText() {

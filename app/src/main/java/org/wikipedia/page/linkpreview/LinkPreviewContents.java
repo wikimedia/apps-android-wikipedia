@@ -7,7 +7,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Utils;
 import org.wikipedia.server.restbase.RbPageLead;
 
 import java.text.BreakIterator;
@@ -35,7 +34,7 @@ public class LinkPreviewContents {
             title.setThumbUrl(json.getJSONObject("thumbnail").optString("source"));
         }
         if (json.has("terms") && json.getJSONObject("terms").has("description")) {
-            title.setDescription(Utils.capitalizeFirstChar(json.getJSONObject("terms").getJSONArray("description").optString(0)));
+            title.setDescription(json.getJSONObject("terms").getJSONArray("description").optString(0));
         }
     }
 
