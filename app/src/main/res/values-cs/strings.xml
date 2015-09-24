@@ -141,8 +141,6 @@
   <string name="send_feedback">Poslat názor na aplikaci</string>
   <string name="nav_item_random">Náhodně</string>
   <string name="create_account_account_created_toast">Účet založen!</string>
-  <string name="user_contribs_more_action">Načíst další</string>
-  <string name="activity_my_contributions_title">Mé příspěvky</string>
   <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
   <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>

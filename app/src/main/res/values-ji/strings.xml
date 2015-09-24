@@ -136,8 +136,6 @@
   <string name="send_feedback">שיקן אפ־פידבעק</string>
   <string name="nav_item_random">צופֿעליג</string>
   <string name="create_account_account_created_toast">קאָנטע באַשאַפֿן!</string>
-  <string name="user_contribs_more_action">לאדן נאך</string>
-  <string name="activity_my_contributions_title">מײַנע בײַשטײַערונגען</string>
   <string name="preference_title_eventlogging_opt_in">שיקן ניצונג־באריכטן</string>
   <string name="preference_summary_eventlogging_opt_in">דערלויבן וויקימעדיע צו זאמלען אינפארמאציע וויאזוי איר ניצט דעם אפ כדי צו פארבעסערן דעם אפ</string>
   <string name="history_search_list_hint">זוכן היסטאריע</string>

@@ -135,8 +135,6 @@
   <string name="send_feedback">შეაფასეთ აპლიკაცია</string>
   <string name="nav_item_random">შემთხვევითი</string>
   <string name="create_account_account_created_toast">ანგარიში შექმნილია!</string>
-  <string name="user_contribs_more_action">ჩამოტვირთე მეტი</string>
-  <string name="activity_my_contributions_title">ჩემი წვლილი</string>
   <string name="preference_title_eventlogging_opt_in">გამოყენების ანგარიშის გაგზავნა</string>
   <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
   <string name="history_search_list_hint" fuzzy="true">ძიება</string>

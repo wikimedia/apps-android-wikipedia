@@ -153,8 +153,6 @@
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
   <string name="nav_item_random">অজানা পাতা</string>
   <string name="create_account_account_created_toast">অ্যাকাউন্ট তৈরি করা হয়েছে!</string>
-  <string name="user_contribs_more_action">আরও লোড করুন</string>
-  <string name="activity_my_contributions_title">আমার অবদান</string>
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
   <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>

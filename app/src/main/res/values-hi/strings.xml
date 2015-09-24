@@ -137,7 +137,6 @@
   <string name="zero_learn_more_dismiss">हटायें</string>
   <string name="nav_item_random">यादृच्छिक</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
-  <string name="activity_my_contributions_title">मेरा योगदान</string>
   <string name="history_search_list_hint" fuzzy="true">खोजें</string>
   <string name="history_search_empty_message">खोज परिणाम में कोई पृष्ठ नहीं मिले।</string>
   <string name="error_can_not_process_link">यह लिंक दिखाया नहीं जा सका</string>

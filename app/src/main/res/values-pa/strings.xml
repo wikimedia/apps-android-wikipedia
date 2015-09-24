@@ -147,8 +147,6 @@
   <string name="send_feedback">ਐਪ ਬਾਬਤ ਜਾਣਕਾਰੀ ਵਾਪਸ ਘੱਲੋ</string>
   <string name="nav_item_random">ਰਲ਼ਵਾਂ</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
-  <string name="user_contribs_more_action">ਹੋਰ ਲਿਆਉ</string>
-  <string name="activity_my_contributions_title">ਮੇਰੇ ਯੋਗਦਾਨ</string>
   <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
   <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
   <string name="history_search_list_hint">ਅਤੀਤ ਖੋਜੋ</string>

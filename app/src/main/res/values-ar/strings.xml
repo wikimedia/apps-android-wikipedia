@@ -154,8 +154,6 @@
   <string name="send_feedback">إرسال الملاحظات على التطبيق</string>
   <string name="nav_item_random">عشوائي</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>
-  <string name="user_contribs_more_action">تحميل المزيد</string>
-  <string name="activity_my_contributions_title">مساهماتي</string>
   <string name="preference_title_eventlogging_opt_in">إرسال تقارير الاستخدام</string>
   <string name="preference_summary_eventlogging_opt_in">السماح لويكيميديا بجمع المعلومات حول كيفية استخدام التطبيق لتحسينه</string>
   <string name="editing_error_spamblacklist">تم اكتشاف روابط لنطاقات ممنوعة:  (%s). الرجاء إزالة هذه النطاقات والمحاولة مرةً أخرى.</string>

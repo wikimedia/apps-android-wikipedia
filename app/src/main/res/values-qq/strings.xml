@@ -223,10 +223,6 @@ See also:
 Shown in left navigation. Tapping it produces a random page.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
 * {{msg-mw|Accountcreatedtext|message}}</string>
-  <string name="user_contribs_more_action">Text shown as a button at the end of lists that let the user load more items.
-{{Identical|Load more}}</string>
-  <string name="activity_my_contributions_title">Title for screen showing list of edits by current user.
-{{Identical|Contribution}}</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>

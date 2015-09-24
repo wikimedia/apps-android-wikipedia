@@ -155,8 +155,6 @@
   <string name="send_feedback">שליחת משוב על היישומון</string>
   <string name="nav_item_random">אקראי</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
-  <string name="user_contribs_more_action">לטעון עוד</string>
-  <string name="activity_my_contributions_title">התרומות שלי</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישומון כדי לשפר את היישומון</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>

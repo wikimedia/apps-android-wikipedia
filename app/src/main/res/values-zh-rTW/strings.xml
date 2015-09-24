@@ -155,8 +155,6 @@
   <string name="send_feedback">傳送應用程式意見回饋</string>
   <string name="nav_item_random">隨機</string>
   <string name="create_account_account_created_toast">已建立帳號！</string>
-  <string name="user_contribs_more_action">讀取更多</string>
-  <string name="activity_my_contributions_title">我的貢獻</string>
   <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
   <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="editing_error_spamblacklist">檢測到來自被封鎖網域 (%s) 的連結。請刪除它們並再試一次。</string>

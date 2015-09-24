@@ -122,8 +122,6 @@
   <string name="send_feedback">Mandar un comentari sus l’aplicacion</string>
   <string name="nav_item_random">Aleatòri</string>
   <string name="create_account_account_created_toast">Compte creat !</string>
-  <string name="user_contribs_more_action">Ne saber mai</string>
-  <string name="activity_my_contributions_title">Mas contribucions</string>
   <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
   <string name="history_search_list_hint" fuzzy="true">Recercar</string>
   <string name="error_can_not_process_link">Impossible d’afichar aqueste ligam</string>

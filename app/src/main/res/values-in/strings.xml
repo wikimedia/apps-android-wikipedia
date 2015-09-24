@@ -155,8 +155,6 @@
   <string name="send_feedback">Kirim umpan balik aplikasi</string>
   <string name="nav_item_random">Sembarang</string>
   <string name="create_account_account_created_toast">Akun dibuat!</string>
-  <string name="user_contribs_more_action">Baca lebih lanjut</string>
-  <string name="activity_my_contributions_title">Kontribusiku</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>

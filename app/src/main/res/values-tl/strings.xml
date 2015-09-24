@@ -154,8 +154,6 @@
   <string name="send_feedback">Magpadala ng tugon sa app</string>
   <string name="nav_item_random">Aleatoryo (Random)</string>
   <string name="create_account_account_created_toast">Nalikha ang akawnt!</string>
-  <string name="user_contribs_more_action">Magkarga pa</string>
-  <string name="activity_my_contributions_title">Mga ambag ko</string>
   <string name="preference_title_eventlogging_opt_in">Magpadala ng mga ulat sa paggamit</string>
   <string name="preference_summary_eventlogging_opt_in">Pahintulutan ang Wikipedia na mangumpuni ng impormasyon tungkol sa kung paano mo ginagamit ang aplikasyon upang maipabuti pa ang aplikasyon</string>
   <string name="editing_error_spamblacklist">May natagpuang mga dominyong nakaharang (%s).  Mangyari po lamang na tanggalin ito at subukan muli.</string>

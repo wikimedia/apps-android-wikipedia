@@ -155,8 +155,6 @@
   <string name="send_feedback">Испрати мислење за извршникот</string>
   <string name="nav_item_random">Случајна</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
-  <string name="user_contribs_more_action">Вчитај уште</string>
-  <string name="activity_my_contributions_title">Мои придонеси</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите извршникот, за да може да го подобри</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>

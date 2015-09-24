@@ -47,13 +47,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
 
 /**
  * Contains utility methods that Java doesn't have because we can't make code look too good, can we?
@@ -462,38 +458,6 @@ public final class Utils {
         } finally {
             reader.close();
         }
-    }
-
-    /**
-     * Format for formatting/parsing dates to/from the ISO 8601 standard
-     */
-    private static final String ISO8601_FORMAT_STRING = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-
-    /**
-     * Parse a date formatted in ISO8601 format.
-     *
-     * @param dateString Date String to parse
-     * @return Parsed Date object.
-     * @throws ParseException
-     */
-    public static Date parseISO8601(String dateString) throws ParseException {
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING, Locale.ROOT);
-        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-        date.setTime(sdf.parse(dateString).getTime());
-        return date;
-    }
-
-    /**
-     * Format a date to an ISO8601 formatted string.
-     *
-     * @param date Date to format.
-     * @return The given date formatted in ISO8601 format.
-     */
-    public static String formatISO8601(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat(ISO8601_FORMAT_STRING, Locale.ROOT);
-        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return sdf.format(date);
     }
 
     /**

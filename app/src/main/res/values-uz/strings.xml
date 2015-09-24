@@ -131,8 +131,6 @@ Oldindan yoqimli ...</string>
   <string name="send_feedback">Dastur haqida fikr bildirish</string>
   <string name="nav_item_random">Tasodifiy</string>
   <string name="create_account_account_created_toast">Hisob yozuvi yaratildi!</string>
-  <string name="user_contribs_more_action">Yana yuklash</string>
-  <string name="activity_my_contributions_title">Hissam</string>
   <string name="preference_title_eventlogging_opt_in">Foydalanish haqida hisobotni joʻnatish</string>
   <string name="history_search_list_hint">Tarihida qidiruv</string>
   <string name="error_can_not_process_link">Havolani ochib bo\'lmadi</string>

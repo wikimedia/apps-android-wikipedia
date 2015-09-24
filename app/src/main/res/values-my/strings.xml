@@ -115,8 +115,6 @@
   <string name="zero_learn_more_learn_more">ဆက်ဖတ်ပါ</string>
   <string name="nav_item_random">ကျပန်း</string>
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>
-  <string name="user_contribs_more_action">ပို၍ ပြပါ</string>
-  <string name="activity_my_contributions_title">ကျွန်ုပ်၏ ပံ့ပိုးထားမှုများ</string>
   <string name="history_search_list_hint" fuzzy="true">ရှာ​ဖွေ​ရန်​</string>
   <string name="history_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိပါ။</string>
   <string name="about_description">ဝီကီပီဒီးယားအက်ပ် အကြောင်း</string>

@@ -110,8 +110,6 @@
   <string name="send_feedback">Saada tagasisidet rakenduse kohta</string>
   <string name="nav_item_random">Juhuslik</string>
   <string name="create_account_account_created_toast">Konto loodud!</string>
-  <string name="user_contribs_more_action">Laadi veel</string>
-  <string name="activity_my_contributions_title">Kaastööd</string>
   <string name="preference_title_eventlogging_opt_in">Saada kasutusaruanded</string>
   <string name="preference_summary_eventlogging_opt_in">Luba Wikimedial koguda teavet selle kohta, kuidas rakendust kasutad, et seda paremaks muuta.</string>
   <string name="editing_error_spamblacklist">Lingid tõkestatud domeenidele (%s) tuvastatud. Palun eemalda need ja proovi uuesti.</string>

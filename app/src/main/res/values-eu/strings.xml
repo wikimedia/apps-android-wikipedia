@@ -138,8 +138,6 @@
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
   <string name="nav_item_random">Ausazkoa</string>
   <string name="create_account_account_created_toast">Kontua sortua!</string>
-  <string name="user_contribs_more_action">Gehiago kargatu</string>
-  <string name="activity_my_contributions_title">Nire Ekarpenak</string>
   <string name="preference_title_eventlogging_opt_in">Erabilera txostenak bidali</string>
   <string name="history_search_list_hint">Bilatu historia</string>
   <string name="history_search_empty_message">Zure kontsultarekin bat egiten duen orririk ez da aurkitu.</string>

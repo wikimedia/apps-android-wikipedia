@@ -155,8 +155,6 @@
   <string name="send_feedback">Envoyer un avis sur l’application</string>
   <string name="nav_item_random">Aléatoire</string>
   <string name="create_account_account_created_toast">Compte créé !</string>
-  <string name="user_contribs_more_action">En savoir plus</string>
-  <string name="activity_my_contributions_title">Mes contributions</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="editing_error_spamblacklist">Liens vers des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>

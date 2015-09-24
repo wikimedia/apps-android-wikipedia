@@ -155,8 +155,6 @@
   <string name="send_feedback">Trimiteți o părere despre aplicație</string>
   <string name="nav_item_random">Aleatoriu</string>
   <string name="create_account_account_created_toast">Cont creat!</string>
-  <string name="user_contribs_more_action">Încarcă mai multe</string>
-  <string name="activity_my_contributions_title">Contribuțiile mele</string>
   <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
   <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>

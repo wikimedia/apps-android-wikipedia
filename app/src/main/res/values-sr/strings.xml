@@ -134,8 +134,6 @@
   <string name="send_feedback">Пошаљи повратне информације</string>
   <string name="nav_item_random">Насумице</string>
   <string name="create_account_account_created_toast">Ваш налог је отворен!</string>
-  <string name="user_contribs_more_action">Учитај још</string>
-  <string name="activity_my_contributions_title">Моји доприноси</string>
   <string name="preference_title_eventlogging_opt_in">Пошаљи корисничке извештаје</string>
   <string name="history_search_list_hint">Претражи историју</string>
   <string name="page_protected_autoconfirmed">Ова страница је полузаштићена.</string>

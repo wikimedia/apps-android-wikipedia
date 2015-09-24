@@ -167,8 +167,6 @@
     <string name="send_feedback">Send app feedback</string>
     <string name="nav_item_random">Random</string>
     <string name="create_account_account_created_toast">Account created!</string>
-    <string name="user_contribs_more_action">Load more</string>
-    <string name="activity_my_contributions_title">My Contributions</string>
     <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
     <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
