@@ -555,10 +555,6 @@ public final class Utils {
         return isStatusBarTranslucent() ? getStatusBarHeight(context) : 0;
     }
 
-    private static int getStatusBarHeightPx(Context context) {
-        return DimenUtil.roundedDpToPx(getStatusBarHeight(context));
-    }
-
     private static float getStatusBarHeight(Context context) {
         int id = getStatusBarId(context);
         return id > 0 ? DimenUtil.getDimension(id) : 0;
