@@ -57,7 +57,7 @@
   <string name="menu_show_toc">Tabloya naverokê</string>
   <string name="search_no_results_found">Tu encam nehatin dîtin</string>
   <string name="title_captcha">CAPTCHAyê binivîse</string>
-  <string name="nav_item_login">Têkeve</string>
+  <string name="nav_item_login" fuzzy="true">Têkeve</string>
   <string name="login_username_hint">Navê bikarhêner</string>
   <string name="login_password_hint">Şîfre</string>
   <string name="menu_login">Têkeve</string>

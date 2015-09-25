@@ -87,7 +87,7 @@
   <string name="title_captcha">输入验证码</string>
   <string name="edit_section_captcha_reload">点按验证码重新加载</string>
   <string name="edit_saved_page_refresh">该保存的页面可能已经过时，必须刷新后才可以编辑。您要刷新该页面吗？</string>
-  <string name="nav_item_login">登录</string>
+  <string name="nav_item_login" fuzzy="true">登录</string>
   <string name="login_username_hint">用户名</string>
   <string name="login_password_hint">密码</string>
   <string name="login_password_show_check">显示密码</string>

@@ -6,10 +6,14 @@
   <string name="yes">Taip</string>
   <string name="no">Ne</string>
   <string name="acra_report_dialog_title">Vikipedija užlūžo :(</string>
+  <string name="acra_report_dialog_text">Atsiųskite mums avarijos ataskaitą</string>
+  <string name="acra_report_dialog_comment">Ką jūs darote, kai nutinka avarija?</string>
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="nav_item_history">Istorija</string>
-  <string name="error_network_error" fuzzy="true">Nėra tinklo ryšio :(</string>
+  <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="search_network_error">Tinklo klaida. Bakstelėkite bandyti dar kartą.</string>
+  <string name="generic_page_error">Buvo problema, apdorojant jūsų prašymą.</string>
+  <string name="status_code_unavailable">Serverio statuso kodas negalimas.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="menu_clear_all_history">Valyti istoriją</string>
   <string name="menu_clear_all_saved_pages">Valyti įrašytus puslapius</string>
@@ -23,17 +27,22 @@
   <string name="share_via">Dalintis per</string>
   <string name="dialog_title_clear_saved_pages">Valyti visus įrašytus puslapius?</string>
   <string name="snackbar_saving_page">Puslapis įrašomas…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Puslapis sėkmingai įrašytas</string>
+  <string name="snackbar_saved_page_format">\"%s\" išsaugotas skaityti neprisijungus</string>
   <string name="snackbar_saved_page_missing_images">Nepavyko įrašyti visų paveikslėlių</string>
   <string name="snackbar_refresh_saved_page">Atnaujinamas įrašytas puslapis…</string>
   <string name="delete_selected_saved_pages">Naikinti</string>
   <string name="snackbar_saved_page_deleted">Įrašyti puslapiai panaikinti</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Paieška</string>
+  <string name="saved_pages_search_list_hint">Ieškoti išsaugotus puslapius</string>
   <string name="saved_pages_search_empty_message">Nerasta puslapių, atitinkančių Jūsų užklausą.</string>
+  <string name="menu_page_show_tabs">Rodyti skirtukus</string>
   <string name="menu_page_other_languages">Skaityti kitomis kalbomis</string>
   <string name="menu_page_save">Įrašyti puslapį</string>
-  <string name="menu_page_share" fuzzy="true">Dalintis</string>
+  <string name="menu_page_share">Pasidalinkite nuoroda</string>
   <string name="menu_page_find_in_page">Rasti puslapyje</string>
+  <string name="menu_page_font_and_theme">Šriftas ir temos</string>
+  <string name="menu_long_press_open_page">Atidaryti</string>
+  <string name="menu_long_press_open_in_new_tab">Atidaryti naujame skirtuke</string>
+  <string name="menu_long_press_copy_page">Kopijuoti nuorodos adresą</string>
   <string name="nav_item_nearby">Šalia</string>
   <string name="menu_update_nearby">Atnaujinti tai, kas šalia</string>
   <string name="nearby_empty_title">Nėra puslapių šalia!</string>
@@ -47,10 +56,13 @@
   <string name="nearby_dialog_goto_settings">Vietos naujinimai nėra įjungti Jūsų įrenginyje. Ar norėtumėte eiti į savo įrenginio nustatymus įjungti vietos naujinimus?</string>
   <string name="nearby_set_metric">Rodyti metrus/kilometrus</string>
   <string name="nearby_set_imperial">Rodyti pėdas/mylias</string>
+  <string name="nearby_view_on_map">Peržiūrėti vietą žemėlapyje</string>
   <string name="last_updated_text">Paskutinį kartą atnaujinta %1$s</string>
   <string name="content_license_html">Turinys prieinamas pagal &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, jei nenurodyta kitaip</string>
   <string name="preference_title_language">Vikipedijos kalba</string>
   <string name="preference_languages_filter_hint">Ieškoti</string>
+  <string name="preference_system_language_toggle">Naudoti sistemos kalbą</string>
+  <string name="preference_system_language_summary">Sistemos kalba</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
   <string name="langlinks_error_retry">Bandyti dar kartą</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
@@ -67,8 +79,10 @@
   <string name="dialog_message_leaving_edit_stay">Likti</string>
   <string name="menu_show_toc">Turinys</string>
   <string name="search_no_results_found">Rezultatų nerasta</string>
+  <string name="edit_section_captcha_hint">Pakartoti žodžius iš viršaus</string>
   <string name="title_captcha">Įveskite saugos kodą</string>
-  <string name="nav_item_login">Prisijungti</string>
+  <string name="edit_section_captcha_reload">Bakstelėkite CAPTCHA, kad atnaujinti</string>
+  <string name="nav_item_login" fuzzy="true">Prisijungti</string>
   <string name="login_username_hint">Naudotojo vardas</string>
   <string name="login_password_hint">Slaptažodis</string>
   <string name="login_password_show_check">Rodyti slaptažodį</string>
@@ -77,17 +91,26 @@
   <string name="login_in_progress_dialog_message">Jūs jungiatės…</string>
   <string name="login_error_wrong_password">Neteisingas slaptažodis</string>
   <string name="login_error_wrong_username">Neteisingas naudotojo vardas</string>
-  <string name="login_success_toast" fuzzy="true">Sėkmingai prisijungėte!</string>
+  <string name="login_error_illegal">Negalimas naudotojo vardas</string>
+  <string name="login_success_toast">Sėkmingai prisijungėte!</string>
+  <string name="login_error_blocked">Šis vartotojas buvo užblokuotas</string>
+  <string name="login_error_throttled">Per daug prisijungimo bandymų. Palaukite kelias minutes ir bandykite dar kartą.</string>
   <string name="login_error_unknown">Prisijungti nepavyko :(</string>
   <string name="login_error_no_network">Nėra tinklo ryšio</string>
   <string name="preference_title_logout">Atsijungti</string>
+  <string name="preference_summary_logout">Atsijungti iš Vikipedijos paskyros</string>
+  <string name="preference_summary_notloggedin">Neprisijungta.</string>
+  <string name="toast_logout_complete">Atsijungėte</string>
+  <string name="saved_pages_empty_title">Čia nėra įrašytų puslapių!</string>
   <string name="saved_pages_empty_message">Įrašyti puslapiai yra nuostabūs. Galvokite apie juos, kaip apie žymeklius, kuriuos galite skaityti net tada, kai esate neprisijungę prie žiniatinklio.</string>
+  <string name="history_empty_title">Naujausių puslapių nėra!</string>
   <string name="history_empty_message">Tikriausiai viską panaikinote. Kitą kartą, kai eisite į kurį nors puslapį, iš čia galėsite į jį sugrįžti.</string>
   <string name="delete_selected_history">Naikinti</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Naudotojo vardas</string>
   <string name="create_account_password_hint">Slaptažodis</string>
   <string name="login_create_account_link">Neturite paskyros? Prisijunkite prie Vikipedijos</string>
+  <string name="create_account_login_link">Jau turite paskyrą? Prisijunkite</string>
   <string name="create_account_activity_title">Kurti paskyrą</string>
   <string name="dialog_create_account_checking_progress">Tikrinama</string>
   <string name="create_account_email_hint">El. paštas (neprivaloma)</string>
@@ -108,6 +131,9 @@
   <string name="create_account_next">Kitas</string>
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="preferences_general_heading">Bendras</string>
+  <string name="wikipedia_app_faq">\"Wikipedia\" App DUK</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero yra išjungtas</string>
+  <string name="zero_search_hint">Ieškoti Wikipedia Zero</string>
   <string name="zero_webpage_title">Vikipedija Zero DUK</string>
   <string name="zero_wikipedia_zero_heading">Vikipedija Zero</string>
   <string name="zero_interstitial_continue">Išeiti</string>
@@ -118,9 +144,13 @@
   <string name="nav_item_random">Atsitiktinis</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
-  <string name="history_search_list_hint" fuzzy="true">Paieška</string>
+  <string name="history_search_list_hint">Paieškos istorija</string>
+  <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>
+  <string name="page_protected_sysop">Šis puslapis buvo visiškai apsaugotas.</string>
+  <string name="page_protected_can_not_edit_title">Šis puslapis apsaugotas</string>
   <string name="more_item_preferences">Daugiau</string>
   <string name="more_activity_title">Daugiau</string>
+  <string name="about_description">Apie Vikipedijos programėlę</string>
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
   <string name="about_libraries_heading">naudotos bibliotekos</string>
@@ -134,6 +164,11 @@
   <string name="edit_next">Kitas</string>
   <string name="edit_done">Įrašyti</string>
   <string name="edit_preview">Peržiūra</string>
+  <string name="edit_summary_tag_typo">Pataisyta klaida</string>
+  <string name="edit_summary_tag_grammar">Pataisyta gramatika</string>
+  <string name="edit_summary_tag_links">Pridėtos nuorodos</string>
+  <string name="edit_summary_tag_other">Kita</string>
+  <string name="edit_summary_tag_other_hint">Kiti būdai, kaip galite pagerinti puslapį</string>
   <string name="find_next">Rasti kitą</string>
   <string name="find_previous">Rasti ankstesnį</string>
   <string name="error_network_error_try_again">Nepavyko pasiekti tinklo, prašome bandyti dar kartą.</string>
@@ -143,15 +178,50 @@
   <string name="saved_pages_refresh_pages_complete">Naujinimas baigtas</string>
   <string name="menu_page_saved">Puslapis įrašytas</string>
   <string name="menu_refresh_saved_page">Naujinti puslapį</string>
+  <string name="dialog_page_issues">Puslapio klausimai</string>
+  <string name="button_page_issues">Puslapio klausimai</string>
   <string name="text_size_select">Šrifto dydis</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Šviesi</string>
   <string name="color_theme_dark">Tamsi</string>
   <string name="page_similar_titles">Panašūs puslapiai</string>
+  <string name="search_did_you_mean">Ar turėjote omenyje \"%s\"?</string>
+  <string name="search_recent_header">Naujausios paieškos:</string>
+  <string name="button_clear_all_recent_searches">Išvalyti naujausias paieškas</string>
+  <string name="table_infobox">Trumpi faktai</string>
   <string name="table_other">Daugiau informacijos</string>
   <string name="table_close">Uždaryti</string>
+  <string name="widget_title_featured_page">Dienos straipsnis:</string>
+  <string name="widget_name_search">Vikipedijos paieška</string>
+  <string name="alpha_update_notification_title">Naujasis alpha atnaujinimas</string>
   <string name="alpha_update_notification_text">Spustelėkite norėdami parsisiųsti</string>
   <string name="dialog_close_description">Uždaryti</string>
+  <string name="preference_title_show_images">Rodyti paveikslėlius</string>
+  <string name="read_more_section">Skaityti daugiau</string>
   <string name="read_next_section">Skaityti sekantį</string>
+  <string name="menu_gallery_visit_page">Eikite į failo puslapį</string>
+  <string name="gallery_error_draw_failed">Negalima pavaizduoti paveikslėlio</string>
+  <string name="license_title">Licencijos tekstas %s bibliotekai</string>
+  <string name="gallery_menu_share">Dalintis</string>
+  <string name="gallery_share_error">Negalima pasidalinti vaizdu: %s</string>
+  <string name="gallery_menu_save">Išsaugoti prietaise</string>
+  <string name="gallery_save_success">Vaizdas išsaugotas sėkmingai.</string>
+  <string name="gallery_error_video_failed">Negalima paleisti filmuko.</string>
+  <string name="err_cannot_save_file">Negalima įrašyti failų</string>
+  <string name="expand_refs">Bakstelėkite plėsti</string>
+  <string name="share_snippet_button">Dalintis kaip vaizdu</string>
+  <string name="share_normal_button">Dalintis kaip tekstu</string>
+  <string name="snippet_share_preview_image_desc">Peržiūrėti paveikslėlį</string>
+  <string name="cc_logo">Creative Commons licencija</string>
+  <string name="captcha_image">Captcha nuotrauka</string>
+  <string name="gallery_fair_use_license">Sąžiningas naudojimasis</string>
   <string name="gallery_uploader_unknown">Talpintojas nežinomas</string>
+  <string name="menu_new_tab">Naujas skirtukas</string>
+  <string name="button_close_tab">Uždaryti skirtuką</string>
+  <string name="page_view_in_browser">Peržiūra naršyklėje</string>
+  <string name="error_unknown">Įvyko nežinoma klaida.</string>
+  <string name="format_error_server_message">Pranešimas: \"%s\"</string>
+  <string name="format_error_server_code">Kodas: \"%s\"</string>
+  <string name="address_copied">Adresas kopijuotas į mainų sritį.</string>
+  <string name="button_continue_to_article">Grįžti į straipsnį</string>
 </resources>

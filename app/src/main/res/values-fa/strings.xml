@@ -87,7 +87,7 @@
   <string name="title_captcha">کپچا را وارد کنید</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
   <string name="edit_saved_page_refresh">با توجه به تغییرهای احتمالی، برای ویرایش این صفحه باید آن را دوباره بارگذاری نمایید. آیا مایل به بارگذاری مجدد هستید؟</string>
-  <string name="nav_item_login">ورود به سامانه</string>
+  <string name="nav_item_login" fuzzy="true">ورود به سامانه</string>
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">گذرواژه</string>
   <string name="login_password_show_check">نمایش گذرواژه</string>

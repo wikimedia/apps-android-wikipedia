@@ -27,7 +27,7 @@
   <string name="share_via">Compartilhar via…</string>
   <string name="dialog_title_clear_saved_pages">Limpar todas as páginas salvas?</string>
   <string name="snackbar_saving_page">Salvando página…</string>
-  <string name="snackbar_saved_page_format">\"%s\" salvo para leitura offline</string>
+  <string name="snackbar_saved_page_format">\"%s\" foi salvo para leitura offline</string>
   <string name="snackbar_saved_page_missing_images">Não foi possível salvar todas as imagens</string>
   <string name="snackbar_refresh_saved_page">Atualizando páginas salvas…</string>
   <string name="delete_selected_saved_pages">Apagar</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Digite a CAPTCHA</string>
   <string name="edit_section_captcha_reload">Clique no CAPTCHA para recarregar</string>
   <string name="edit_saved_page_refresh">Esta página salva pode estar desatualizada, e deve ser recarregada para ativar a sua edição. Gostaria de recarregar a página?</string>
-  <string name="nav_item_login">Entrar</string>
+  <string name="nav_item_login" fuzzy="true">Entrar</string>
   <string name="login_username_hint">Nome de usuário</string>
   <string name="login_password_hint">Senha</string>
   <string name="login_password_show_check">Mostrar senha</string>
@@ -97,7 +97,7 @@
   <string name="login_error_wrong_password">Senha incorreta.</string>
   <string name="login_error_wrong_username">Nome de usuário incorreto</string>
   <string name="login_error_illegal">Nome de usuário inválido</string>
-  <string name="login_success_toast">Logado com sucesso!</string>
+  <string name="login_success_toast">Autenticação bem sucedida!</string>
   <string name="login_error_blocked">Este usuário foi bloqueado</string>
   <string name="login_error_throttled">Muitas tentativas de iniciar a sessão. Aguarde alguns minutos e tente novamente.</string>
   <string name="login_error_unknown">Login falhou :(</string>
@@ -278,10 +278,10 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="page_view_in_browser">Ver no navegador</string>
   <string name="tool_tip_toc_button">Consulte a tabela de conteúdos a qualquer momento ao tocar neste botão ou deslizando com o dedo a partir do canto superior direito da tela.</string>
   <string name="error_server_response">O servidor não conseguiu concluir o pedido.</string>
-  <string name="error_response_malformed">Resposta do servidor não foi formatado corretamente.</string>
+  <string name="error_response_malformed">A resposta do servidor não foi formatada corretamente.</string>
   <string name="error_unknown">Ocorreu um erro desconhecido.</string>
   <string name="format_error_server_message">Mensagem: \"%s\"</string>
   <string name="format_error_server_code">Código: \"%s\"</string>
-  <string name="address_copied">Endereço copiado para área de transferência.</string>
-  <string name="button_continue_to_article">Continue a artigo</string>
+  <string name="address_copied">Endereço copiado para a área de transferência.</string>
+  <string name="button_continue_to_article">Continuar para o artigo</string>
 </resources>

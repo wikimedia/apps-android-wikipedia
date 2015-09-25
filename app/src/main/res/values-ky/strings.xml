@@ -74,7 +74,7 @@
   <string name="title_captcha">CAPTCHA\'ны териңиз</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'ны жаңылоо үчүн, аны басып коюңуз</string>
   <string name="edit_saved_page_refresh">Бул сакталган барак эскирген болушу мүмкүн жана оңдоо мүмкүнчүлүгү үчүн жаңыланышы абзел. Сиз баракты жаңылоону каалайсызбы?</string>
-  <string name="nav_item_login">Кирүү</string>
+  <string name="nav_item_login" fuzzy="true">Кирүү</string>
   <string name="login_username_hint">Колдонуучу аты</string>
   <string name="login_password_hint">Сырсөз</string>
   <string name="login_password_show_check">Сырсөздү көрсөтүү</string>

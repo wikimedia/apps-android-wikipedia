@@ -43,7 +43,7 @@
   <string name="dialog_message_edit_failed_cancel">Цаоьшу</string>
   <string name="menu_show_toc">Чулацам</string>
   <string name="title_captcha">Язъе капча</string>
-  <string name="nav_item_login">ЧугӀо</string>
+  <string name="nav_item_login" fuzzy="true">ЧугӀо</string>
   <string name="login_username_hint">Декъашхочун цӀе</string>
   <string name="login_password_hint">Пароль</string>
   <string name="login_password_show_check">Гайта пароль</string>

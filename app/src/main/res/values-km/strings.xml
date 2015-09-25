@@ -78,7 +78,7 @@
   <string name="edit_section_captcha_hint">សរសេរតាមពាក្យខាងលើ</string>
   <string name="title_captcha">វាយបញ្ចូល CAPTCHA</string>
   <string name="edit_section_captcha_reload">ចុច CAPTCHA ដើម្បីផ្ទុកឡើងវិញ</string>
-  <string name="nav_item_login">កត់ឈ្មោះចូល</string>
+  <string name="nav_item_login" fuzzy="true">កត់ឈ្មោះចូល</string>
   <string name="login_username_hint">អត្តនាម</string>
   <string name="login_password_hint">ពាក្យ​សម្ងាត់</string>
   <string name="login_password_show_check">បង្ហាញ​ពាក្យ​សម្ងាត់</string>

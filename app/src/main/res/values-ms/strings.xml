@@ -86,7 +86,7 @@
   <string name="title_captcha">Taipkan captcha</string>
   <string name="edit_section_captcha_reload">Ketik CAPTCHA untuk muat semula</string>
   <string name="edit_saved_page_refresh">Laman tersimpan ini mungkin sudah ketinggalan dan mesti dimuatkan semula untuk dapat disunting. Inginkah anda memuatkan semula laman ini?</string>
-  <string name="nav_item_login">Log masuk</string>
+  <string name="nav_item_login" fuzzy="true">Log masuk</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata laluan</string>
   <string name="login_password_show_check">Paparkan kata laluan</string>

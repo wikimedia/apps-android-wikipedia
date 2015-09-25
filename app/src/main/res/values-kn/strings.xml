@@ -74,7 +74,7 @@
   <string name="search_no_results_found">ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ</string>
   <string name="edit_section_captcha_hint">ಮೇಲಿನ ಪದಗಳನ್ನು ಪುನರಾವರ್ತಿಸಿ</string>
   <string name="title_captcha">CAPTCHA ನಮೂದಿಸಿ</string>
-  <string name="nav_item_login">ಲಾಗ್ ಇನ್</string>
+  <string name="nav_item_login" fuzzy="true">ಲಾಗ್ ಇನ್</string>
   <string name="login_username_hint">ಬಳಕೆದಾರ ಹೆಸರು</string>
   <string name="login_password_hint">ಪ್ರವೇಶಪದ</string>
   <string name="login_password_show_check">ಪ್ರದೇಶಪದವನ್ನು ಪ್ರದರ್ಶಿಸು</string>

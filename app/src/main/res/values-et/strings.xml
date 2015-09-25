@@ -54,7 +54,7 @@
   <string name="title_captcha">Sisesta robotilõksu (CAPTCHA) kuvatud tekst!</string>
   <string name="edit_section_captcha_reload">Puuduta robotilõksu (CAPTCHA) selle uuesti laadimiseks!</string>
   <string name="edit_saved_page_refresh">See salvestatud lehekülg võib olla aegunud ja et seda saaks muuta, tuleb lehekülge uuendada. Kas soovid lehekülge uuendada?</string>
-  <string name="nav_item_login">Logi sisse</string>
+  <string name="nav_item_login" fuzzy="true">Logi sisse</string>
   <string name="login_username_hint">Kasutajanimi</string>
   <string name="login_password_hint">Parool</string>
   <string name="login_password_show_check">Kuva parool</string>

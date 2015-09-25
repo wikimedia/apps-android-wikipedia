@@ -84,7 +84,7 @@
   <string name="title_captcha">กรอก CAPTCHA</string>
   <string name="edit_section_captcha_reload">แตะ CAPTCHA เพื่อโหลดใหม่</string>
   <string name="edit_saved_page_refresh">หน้าที่บันทึกไว้นี้อาจล้าสมัย และต้องรีเฟรชหากเปิดใช้งานการแก้ไข คุณต้องการรีเฟรชหน้าหรือไม่</string>
-  <string name="nav_item_login">ล็อกอิน</string>
+  <string name="nav_item_login" fuzzy="true">ล็อกอิน</string>
   <string name="login_username_hint">ชื่อผู้ใช้</string>
   <string name="login_password_hint">รหัสผ่าน</string>
   <string name="login_password_show_check">แสดงรหัสผ่าน</string>

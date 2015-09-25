@@ -40,7 +40,7 @@
   <string name="menu_show_toc">Gabatee Qabiyyee</string>
   <string name="search_no_results_found">Homtuu hin argamane</string>
   <string name="title_captcha">Kaapchaa galchi</string>
-  <string name="nav_item_login">Seeni</string>
+  <string name="nav_item_login" fuzzy="true">Seeni</string>
   <string name="login_username_hint">Maqaa fayyadamaa</string>
   <string name="login_password_hint">Iggitaa</string>
   <string name="login_password_show_check">Iggitaa agarsiisi</string>

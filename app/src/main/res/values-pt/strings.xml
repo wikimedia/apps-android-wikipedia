@@ -87,7 +87,7 @@
   <string name="title_captcha">Inserir CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para recarregar</string>
   <string name="edit_saved_page_refresh">Esta página guardada pode estar desatualizada, e deve ser recarregada para ativar a sua edição. Gostaria de recarregar a página?</string>
-  <string name="nav_item_login">Entrar</string>
+  <string name="nav_item_login" fuzzy="true">Entrar</string>
   <string name="login_username_hint">Nome de utilizador(a)</string>
   <string name="login_password_hint">Palavra-passe</string>
   <string name="login_password_show_check">Mostrar palavra-passe</string>

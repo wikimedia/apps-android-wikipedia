@@ -72,7 +72,7 @@
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
   <string name="title_captcha">CAPTCHA ဖြည့်ပါ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ကိုထိပြီးအသစ်ထပ်ယူပါ</string>
-  <string name="nav_item_login">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
+  <string name="nav_item_login" fuzzy="true">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
   <string name="login_username_hint">အသုံးပြုသူအမည်</string>
   <string name="login_password_hint">စကားဝှက်</string>
   <string name="login_password_show_check">စကားဝှက်ကို ပြပါ။</string>

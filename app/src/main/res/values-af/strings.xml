@@ -87,7 +87,7 @@
   <string name="title_captcha">Voer CAPTCHA in</string>
   <string name="edit_section_captcha_reload">Kliek CAPTCHA om te herlaai</string>
   <string name="edit_saved_page_refresh">Hierdie gestoorde bladsy mag uit datum wees, en moet herlaai word om wysiging moontlik te maak. Wil u hierdie blad herlaai?</string>
-  <string name="nav_item_login">Meld aan</string>
+  <string name="nav_item_login" fuzzy="true">Meld aan</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wagwoord</string>
   <string name="login_password_show_check">Vertoon wagwoord</string>

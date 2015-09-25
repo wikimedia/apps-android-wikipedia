@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Čo ste robili keď došlo k zlyhaniu?</string>
   <string name="search_hint">Hľadať</string>
   <string name="nav_item_history">História</string>
-  <string name="error_network_error" fuzzy="true">Nie ste pripojení na sieť :(</string>
+  <string name="error_network_error">Nie ste pripojení na sieť.</string>
   <string name="search_network_error">Problém so sieťou. Ťuknutím to skúste znova.</string>
   <string name="generic_page_error">Pri spracovaní vašej žiadosti sa vyskytol problém.</string>
   <string name="status_code_unavailable">Status kód servera je nedostupný.</string>
@@ -27,7 +27,7 @@
   <string name="share_via">Zdieľať cez</string>
   <string name="dialog_title_clear_saved_pages">Vymazať všetky uložené stránky?</string>
   <string name="snackbar_saving_page">Ukladám stránku…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Stránka bola úspešne uložená</string>
+  <string name="snackbar_saved_page_format">Stránka \"%s\" bola úspešne uložená</string>
   <string name="snackbar_saved_page_missing_images">Nepodarilo sa uložiť všetky obrázky</string>
   <string name="snackbar_refresh_saved_page">Aktualizujem uloženú stránku…</string>
   <string name="delete_selected_saved_pages">Zmazať</string>
@@ -37,11 +37,12 @@
   <string name="menu_page_show_tabs">Zobraziť karty</string>
   <string name="menu_page_other_languages">V iných jazykoch</string>
   <string name="menu_page_save">Uložiť stránku</string>
-  <string name="menu_page_share" fuzzy="true">Zdieľať</string>
+  <string name="menu_page_share">Zdieľať</string>
   <string name="menu_page_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_font_and_theme">Zmeniť písmo a vzhľad</string>
-  <string name="menu_long_press_open_page" fuzzy="true">Otvoriť odkaz</string>
+  <string name="menu_long_press_open_page">Otvoriť</string>
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
+  <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
   <string name="nav_item_nearby">V okolí</string>
   <string name="menu_update_nearby">Aktualizovať okolie</string>
   <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>
@@ -86,7 +87,7 @@
   <string name="title_captcha">Zadajte text</string>
   <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>
   <string name="edit_saved_page_refresh">Táto uložená stránka môže byť zastaralá a pre umožnenie úprav je potrebnú ju aktualizovať. Chcete stránku aktualizovať?</string>
-  <string name="nav_item_login">Prihlásiť sa</string>
+  <string name="nav_item_login" fuzzy="true">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="login_password_show_check">Zobraziť heslo</string>
@@ -238,7 +239,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="alpha_update_notification_text">Ťuknutím ju stiahnete.</string>
   <string name="dialog_close_description">Zatvoriť</string>
   <string name="preference_title_show_images">Zobraziť obrázky</string>
-  <string name="preference_summary_show_images" fuzzy="true">Zapni alebo vypni načítavanie obrázkov na stránkach. Odškrtni toto nastavenie, ak je internetové pripojenie pomalé alebo máš obmedzený dátový transfer.</string>
+  <string name="preference_summary_show_images">Zapnite alebo vypnite načítavanie obrázkov na stránkach. Zaškrtnite toto nastavenie, ak je internetové pripojenie pomalé alebo máte obmedzený dátový program.</string>
   <string name="read_more_section">Prečítajte si viac</string>
   <string name="read_next_section">Čítať ďalej</string>
   <string name="menu_gallery_visit_page">Prejdite na stránku súboru</string>
@@ -264,4 +265,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="edit_save_unknown_error">Nedá sa uložiť vaša úprava: %s</string>
   <string name="menu_new_tab">Nová karta</string>
   <string name="button_close_tab">Zavrieť kartu</string>
+  <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
+  <string name="error_unknown">Vyskytla sa neznáma chyba.</string>
+  <string name="button_continue_to_article">Pokračovať na článok</string>
 </resources>

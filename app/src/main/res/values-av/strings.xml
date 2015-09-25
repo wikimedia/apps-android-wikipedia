@@ -52,7 +52,7 @@
   <string name="menu_show_toc">Жаниб бугеб жо</string>
   <string name="search_no_results_found">Щибниги жо батичӀо</string>
   <string name="edit_section_captcha_hint">ТӀа ругел рагӀаби такрар гьаре</string>
-  <string name="nav_item_login">Жаниве лъугьине</string>
+  <string name="nav_item_login" fuzzy="true">Жаниве лъугьине</string>
   <string name="login_username_hint">ХӀалтӀизабулчиясул цӀар</string>
   <string name="login_password_hint">Пароль</string>
   <string name="login_password_show_check">Пароль бихьизабизе</string>

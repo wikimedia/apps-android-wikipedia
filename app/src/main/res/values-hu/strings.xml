@@ -83,7 +83,7 @@
   <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
   <string name="edit_section_captcha_reload">Érintsd meg a CAPTCHA-t az újratöltéshez</string>
-  <string name="nav_item_login">Bejelentkezés</string>
+  <string name="nav_item_login" fuzzy="true">Bejelentkezés</string>
   <string name="login_username_hint">Felhasználónév</string>
   <string name="login_password_hint">Jelszó</string>
   <string name="login_password_show_check">Jelszó megjelenítése</string>

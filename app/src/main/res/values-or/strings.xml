@@ -69,7 +69,7 @@
   <string name="edit_section_captcha_hint">ଉପର ଶବ୍ଦ ଦେଖି ଆଉଥରେ ଭରନ୍ତୁ</string>
   <string name="title_captcha">CAPTCHA ଭରନ୍ତୁ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ଆଉଥରେ ଭରିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ</string>
-  <string name="nav_item_login">ଲଗ ଇନ</string>
+  <string name="nav_item_login" fuzzy="true">ଲଗ ଇନ</string>
   <string name="login_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="login_password_hint">ପାସୱାର୍ଡ଼</string>
   <string name="login_password_show_check">ପାସୱାର୍ଡ଼ ଦେଖାନ୍ତୁ</string>

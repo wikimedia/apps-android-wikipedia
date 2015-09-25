@@ -71,7 +71,7 @@
   <string name="edit_section_captcha_hint">ওপৰত দিয়া শব্দবোৰ পুনৰ লিখক</string>
   <string name="title_captcha">কেপ্‌চা লিখক</string>
   <string name="edit_section_captcha_reload">CAPTCHA-ত ক্লিক কৰি ৰিল\'ড কৰক</string>
-  <string name="nav_item_login">প্ৰৱেশ</string>
+  <string name="nav_item_login" fuzzy="true">প্ৰৱেশ</string>
   <string name="login_username_hint">সদস্যনাম</string>
   <string name="login_password_hint">গুপ্তশব্দ</string>
   <string name="login_password_show_check">গুপ্তশব্দ দেখুৱাওক</string>

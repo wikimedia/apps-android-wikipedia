@@ -77,7 +77,7 @@
   <string name="title_captcha">CAPTCHAவை உள்ளிடவும்</string>
   <string name="edit_section_captcha_reload">மறுஏற்றம் செய்ய கேப்ட்சாவை தட்டவும்</string>
   <string name="edit_saved_page_refresh">இந்த சேமிக்கப்பட்ட பக்கம் காலாவதியாகி இருக்கலாம், அதனால் தொகுத்தலை இயக்க புதிப்பிக்கப்பட வேண்டும். பக்கத்தைப் புதிப்பிக்க விரும்புகிறீர்களா?</string>
-  <string name="nav_item_login">புகுபதிகை</string>
+  <string name="nav_item_login" fuzzy="true">புகுபதிகை</string>
   <string name="login_username_hint">பயனர் பெயர்</string>
   <string name="login_password_hint">கடவுச்சொல்</string>
   <string name="login_password_show_check">கடவுச்சொல்லை காட்டு</string>

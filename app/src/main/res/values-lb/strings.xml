@@ -85,7 +85,7 @@
   <string name="title_captcha">Captcha aginn</string>
   <string name="edit_section_captcha_reload">CAPTCHA antippe fir nei ze lueden</string>
   <string name="edit_saved_page_refresh">Dës gespäichert Säit kënnt vereelst sinn a muss aktualiséiert ginn ier d\'Änneren aktivéiert ka ginn. Wëllt Dir d\'Säit aktualiséieren?</string>
-  <string name="nav_item_login">Aloggen</string>
+  <string name="nav_item_login" fuzzy="true">Aloggen</string>
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
   <string name="login_password_show_check">Passwuert weisen</string>

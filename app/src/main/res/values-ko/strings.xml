@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">충돌이 일어났을 때 무엇을 하고 있었나요?</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="nav_item_history">방문 기록</string>
-  <string name="error_network_error" fuzzy="true">네트워크 연결이 없습니다 :(</string>
+  <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="search_network_error">네트워크 오류입니다. 다시 시도하려면 누르세요.</string>
   <string name="generic_page_error">요청을 처리하는 동안 오류가 생겼습니다.</string>
   <string name="status_code_unavailable">서버 상태 코드를 사용할 수 없습니다.</string>
@@ -37,10 +37,10 @@
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">다른 언어로 읽기</string>
   <string name="menu_page_save">문서 저장</string>
-  <string name="menu_page_share" fuzzy="true">공유</string>
+  <string name="menu_page_share">링크 공유</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
-  <string name="menu_long_press_open_page" fuzzy="true">링크 열기</string>
+  <string name="menu_long_press_open_page">열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
@@ -86,7 +86,7 @@
   <string name="title_captcha">캡차를 입력하세요</string>
   <string name="edit_section_captcha_reload">새로 고치려면 캡차를 누르세요</string>
   <string name="edit_saved_page_refresh">이 저장된 문서는 오래되었을 수 있고, 편집을 활성화하려면 새로 고쳐야 합니다. 문서를 새로 고치겠습니까?</string>
-  <string name="nav_item_login">로그인</string>
+  <string name="nav_item_login" fuzzy="true">로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
   <string name="login_password_show_check">비밀번호 보이기</string>

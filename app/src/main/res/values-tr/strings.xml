@@ -87,7 +87,7 @@
   <string name="title_captcha">Captcha\'yı gir</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'yı yenilemek için üzerine dokunun</string>
   <string name="edit_saved_page_refresh">Kaydedilen bu sayfa güncel olmayabilir ve düzenleme yapılabilmesi için yenilenmesi gereklidir. Sayfayı yenilemek ister misiniz?</string>
-  <string name="nav_item_login">Oturum aç</string>
+  <string name="nav_item_login" fuzzy="true">Oturum aç</string>
   <string name="login_username_hint">Kullanıcı adı</string>
   <string name="login_password_hint">Parola</string>
   <string name="login_password_show_check">Parolayı görüntüle</string>

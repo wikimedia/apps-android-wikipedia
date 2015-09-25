@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Wat was u aan het doen toen de crash optrad?</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="nav_item_history">Geschiedenis</string>
-  <string name="error_network_error" fuzzy="true">Er is geen verbinding met het internet.</string>
+  <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
   <string name="generic_page_error">Er is een probleem opgetreden tijdens het afhandelen van uw verzoek.</string>
   <string name="status_code_unavailable">Serverstatuscode niet beschikbaar.</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Voer CAPTCHA in</string>
   <string name="edit_section_captcha_reload">Klik om opnieuw te laden</string>
   <string name="edit_saved_page_refresh">Deze opgeslagen pagina is mogelijk verouderd, en moet vernieuwd worden voordat bewerken mogelijk is. Wilt u de pagina vernieuwen?</string>
-  <string name="nav_item_login">Aanmelden</string>
+  <string name="nav_item_login">Aanmelden bij Wikipedia</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wachtwoord</string>
   <string name="login_password_show_check">Wachtwoord weergeven</string>
@@ -247,7 +247,7 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="alpha_update_notification_text">Tik om te downloaden</string>
   <string name="dialog_close_description">Sluiten</string>
   <string name="preference_title_show_images">Afbeeldingen weergeven</string>
-  <string name="preference_summary_show_images" fuzzy="true">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
+  <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
   <string name="read_more_section">Meer lezen</string>
   <string name="read_next_section">Verder lezen</string>
   <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>

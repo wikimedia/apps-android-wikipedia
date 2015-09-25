@@ -87,7 +87,7 @@
   <string name="title_captcha">Masukkan CAPTCHA</string>
   <string name="edit_section_captcha_reload">Ketuk CAPTCHA untuk memuat ulang</string>
   <string name="edit_saved_page_refresh">Halaman tersimpan ini mungkin kedaluwarsa, dan harus disegarkan untuk penyuntingan harus diaktifkan. Apakah Anda ingin memperbarui halaman?</string>
-  <string name="nav_item_login">Masuk log</string>
+  <string name="nav_item_login" fuzzy="true">Masuk log</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="login_password_show_check">Tampilkan kata sandi</string>

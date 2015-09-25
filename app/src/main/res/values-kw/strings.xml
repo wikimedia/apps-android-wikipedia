@@ -78,7 +78,7 @@
   <string name="title_captcha">Entrewgh an CAPTCHA</string>
   <string name="edit_section_captcha_reload">Gweskewgh an CAPTCHA rag y dhaskarga</string>
   <string name="edit_saved_page_refresh">An folen withys ma a alsa bos re goth, ha res yw hy daskarga rag diallosegi chanjya. Eus hwans dhywgh daskarga an folen?</string>
-  <string name="nav_item_login">Omgelmi</string>
+  <string name="nav_item_login" fuzzy="true">Omgelmi</string>
   <string name="login_username_hint">Hanow devnydhyer</string>
   <string name="login_password_hint">Ger tremena</string>
   <string name="login_password_show_check">Diskwedhes an ger tremena</string>

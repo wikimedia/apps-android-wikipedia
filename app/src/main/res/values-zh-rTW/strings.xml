@@ -87,7 +87,7 @@
   <string name="title_captcha">輸入驗證碼</string>
   <string name="edit_section_captcha_reload">輕觸驗証碼以重新整理</string>
   <string name="edit_saved_page_refresh">此儲存的頁面可能是過時的，必須進行重新整理以開啟編輯。您想重新整理頁面嗎？</string>
-  <string name="nav_item_login">登入</string>
+  <string name="nav_item_login" fuzzy="true">登入</string>
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="login_password_show_check">顯示密碼</string>

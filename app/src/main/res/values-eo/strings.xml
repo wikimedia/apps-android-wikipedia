@@ -83,7 +83,7 @@
   <string name="title_captcha">Enigu CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tuŝu la CAPTCHA-n por reprovi</string>
   <string name="edit_saved_page_refresh">Ĉi tiu konservita paĝo eble estas ne ĝisdatigita, kaj ĝisdatigendas por ebligi la modifadon. Ĉu vi volas ĝisdatigi ĝin nun?</string>
-  <string name="nav_item_login">Ensaluti</string>
+  <string name="nav_item_login" fuzzy="true">Ensaluti</string>
   <string name="login_username_hint">Uzantnomo</string>
   <string name="login_password_hint">Pasvorto</string>
   <string name="login_password_show_check">Montri pasvorton</string>

@@ -65,7 +65,7 @@
   <string name="search_no_results_found">Hakuna matokeo</string>
   <string name="title_captcha">Ingiza CAPTCHA</string>
   <string name="edit_section_captcha_reload">Guza CAPTCHA kupakia tena</string>
-  <string name="nav_item_login">Ingia</string>
+  <string name="nav_item_login" fuzzy="true">Ingia</string>
   <string name="login_username_hint">Jina la mtumiaji</string>
   <string name="login_password_hint">Neno la siri</string>
   <string name="login_password_show_check">Onyesha neno la siri</string>

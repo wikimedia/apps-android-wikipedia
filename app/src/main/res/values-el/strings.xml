@@ -86,7 +86,7 @@
   <string name="title_captcha">Εισάγετε CAPTCHA</string>
   <string name="edit_section_captcha_reload">Πατήστε το CAPTCHA για επαναφόρτωση</string>
   <string name="edit_saved_page_refresh">Αυτή η αποθηκευμένη σελίδα μπορεί να είναι ανενημέρωτη, και πρέπει να ανανεωθεί για να ενεργοποιηθεί η επεξεργασία. Θα θέλατε να ανανεώσετε τη σελίδα;</string>
-  <string name="nav_item_login">Σύνδεση</string>
+  <string name="nav_item_login" fuzzy="true">Σύνδεση</string>
   <string name="login_username_hint">Όνομα χρήστη</string>
   <string name="login_password_hint">Κωδικός</string>
   <string name="login_password_show_check">Εμφάνιση κωδικού πρόσβασης</string>

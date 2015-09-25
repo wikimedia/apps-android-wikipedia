@@ -87,7 +87,7 @@
   <string name="title_captcha">Внесете го одговорот на сликичката</string>
   <string name="edit_section_captcha_reload">Допрете за да ја превчитате сликичката</string>
   <string name="edit_saved_page_refresh">Зачуваната страница може да е застарена и мора да се превчита за да се овозможи уредувањето. Дали сакате да ја превчитате?</string>
-  <string name="nav_item_login">Најавете се</string>
+  <string name="nav_item_login" fuzzy="true">Најавете се</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
   <string name="login_password_show_check">Прикажи лозинка</string>

@@ -87,7 +87,7 @@
   <string name="title_captcha">Introduïu el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toqueu el CAPTCHA per tornar a carregar</string>
   <string name="edit_saved_page_refresh">La pàgina desada podria no estar al dia i cal actualitzar-la per permetre\'n la modificació. Voleu fer-ho ara?</string>
-  <string name="nav_item_login">Inici de sessió</string>
+  <string name="nav_item_login" fuzzy="true">Inici de sessió</string>
   <string name="login_username_hint">Nom d\'usuari</string>
   <string name="login_password_hint">Contrasenya</string>
   <string name="login_password_show_check">Mostrar contrasenya</string>
