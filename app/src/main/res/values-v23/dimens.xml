@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="lead_title_leading_scalar" format="float" type="dimen">.95</item>
+    <item name="lead_subtitle_leading_scalar" format="float" type="dimen">1.1</item>
+    <item name="lead_subtitle_paragraph_scalar" format="float" type="dimen">1.15</item>
+</resources>

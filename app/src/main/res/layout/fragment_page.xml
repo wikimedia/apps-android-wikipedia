@@ -18,167 +18,153 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.design.widget.CoordinatorLayout
-                android:id="@+id/page_contents_container"
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/page_contents_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <org.wikipedia.views.ObservableWebView
+                android:id="@+id/page_web_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                />
 
-                <org.wikipedia.views.ObservableWebView
-                    android:id="@+id/page_web_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-
-                <!-- dummy LinearLayout container for 2.3 support.
-                Remove when we drop support for 2.3. -->
-                <LinearLayout
+            <!-- dummy LinearLayout container for 2.3 support.
+            Remove when we drop support for 2.3. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <FrameLayout
+                    android:id="@+id/page_image_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <FrameLayout
-                        android:id="@+id/page_image_container"
+                    <!-- dummy LinearLayout container for 2.3 support.
+                    Remove when we drop support for 2.3. -->
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <!-- dummy LinearLayout container for 2.3 support.
-                        Remove when we drop support for 2.3. -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <org.wikipedia.page.leadimages.ImageViewWithFace
-                                android:id="@+id/page_image"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerCrop"
-                                android:visibility="invisible"/>
-                        </LinearLayout>
-                        <ImageView
-                            android:id="@+id/page_image_placeholder"
+                        android:layout_height="match_parent">
+                        <org.wikipedia.page.leadimages.ImageViewWithFace
+                            android:id="@+id/page_image"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
-                            android:contentDescription="@null"/>
-                        <LinearLayout
-                            android:id="@+id/page_title_container"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_gravity="bottom">
-                            <TextView
-                                android:id="@+id/page_title_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                style="@style/RtlAwareTextView"
-                                android:paddingTop="16dp"
-                                android:paddingRight="@dimen/activity_horizontal_margin"
-                                android:paddingLeft="@dimen/activity_horizontal_margin"/>
-                            <TextView
-                                android:id="@+id/page_description_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                style="@style/RtlAwareTextView"
-                                android:layout_gravity="bottom"
-                                android:visibility="invisible"
-                                android:textSize="@dimen/descriptionTextSize"
-                                android:paddingBottom="16dp"
-                                android:paddingRight="@dimen/activity_horizontal_margin"
-                                android:paddingLeft="@dimen/activity_horizontal_margin"/>
-                        </LinearLayout>
-                    </FrameLayout>
+                            android:visibility="invisible"/>
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/page_image_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@null"/>
+
+                    <org.wikipedia.views.AppTextView
+                        android:id="@+id/page_title_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        style="@style/RtlAwareTextView"
+                        android:paddingTop="32dp"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        android:paddingBottom="16dp"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom_content_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-400dp"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/read_more_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        android:paddingBottom="16dp"
+                        android:fontFamily="serif"
+                        android:textSize="24sp"
+                        android:text="@string/read_more_section"/>
+                    <ListView
+                        android:id="@+id/read_more_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"/>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/bottom_content_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="-400dp"
-                    android:layout_gravity="bottom"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:paddingBottom="16dp"
+                    android:background="?attr/subtle_gray_color">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:background="@drawable/toolbar_bottom_shadow"/>
 
-                    <LinearLayout
-                        android:id="@+id/read_more_container"
+                    <TextView
+                        android:id="@+id/page_external_link"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceLarge"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            android:paddingBottom="16dp"
-                            android:fontFamily="serif"
-                            android:textSize="24sp"
-                            android:text="@string/read_more_section"/>
-                        <ListView
-                            android:id="@+id/read_more_list"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"/>
-                    </LinearLayout>
-
-                    <LinearLayout
+                        android:paddingTop="8dp"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        style="?android:textAppearanceSmall"
+                        android:text="@string/page_view_in_browser"
+                        android:textColor="?attr/link_color"
+                        android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/page_last_updated_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="8dp"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        style="?android:textAppearanceSmall"
+                        android:textIsSelectable="true"
+                        android:textColorLink="?attr/link_color"/>
+                    <TextView
+                        android:id="@+id/page_license_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:paddingBottom="16dp"
-                        android:background="?attr/subtle_gray_color">
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="8dp"
-                            android:background="@drawable/toolbar_bottom_shadow"/>
-
-                        <TextView
-                            android:id="@+id/page_external_link"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="8dp"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            style="?android:textAppearanceSmall"
-                            android:text="@string/page_view_in_browser"
-                            android:textColor="?attr/link_color"
-                            android:gravity="center"/>
-                        <TextView
-                            android:id="@+id/page_last_updated_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:paddingTop="8dp"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            style="?android:textAppearanceSmall"
-                            android:textIsSelectable="true"
-                            android:textColorLink="?attr/link_color"/>
-                        <TextView
-                            android:id="@+id/page_license_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="8dp"
-                            android:paddingLeft="@dimen/activity_horizontal_margin"
-                            android:paddingRight="@dimen/activity_horizontal_margin"
-                            style="?android:textAppearanceSmall"
-                            android:textIsSelectable="true"
-                            android:textColorLink="?attr/link_color"
-                            android:gravity="center"/>
-                    </LinearLayout>
+                        android:paddingTop="8dp"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin"
+                        style="?android:textAppearanceSmall"
+                        android:textIsSelectable="true"
+                        android:textColorLink="?attr/link_color"
+                        android:gravity="center"/>
                 </LinearLayout>
+            </LinearLayout>
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/floating_toc_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/FloatingActionButton"
-                    android:layout_gravity="bottom|end"
-                    android:src="@drawable/ic_toc"
-                    android:contentDescription="@string/menu_show_toc"
-                    app:fabSize="mini"
-                    app:elevation="4sp"
-                    app:borderWidth="0dp"
-                    app:backgroundTint="?attr/toc_button_color"
-                    app:layout_anchor="@id/bottom_content_container"
-                    app:layout_anchorGravity="bottom|right|end" />
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floating_toc_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/FloatingActionButton"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/ic_toc"
+                android:contentDescription="@string/menu_show_toc"
+                app:fabSize="mini"
+                app:elevation="4sp"
+                app:borderWidth="0dp"
+                app:backgroundTint="?attr/toc_button_color"
+                app:layout_anchor="@id/bottom_content_container"
+                app:layout_anchorGravity="bottom|right|end" />
 
-            </android.support.design.widget.CoordinatorLayout>
+        </android.support.design.widget.CoordinatorLayout>
 
         </org.wikipedia.views.SwipeRefreshLayoutWithScroll>
 
