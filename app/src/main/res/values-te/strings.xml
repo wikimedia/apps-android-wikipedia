@@ -88,7 +88,7 @@
   <string name="title_captcha">కాప్చాని నమొదు చెయ్యండి</string>
   <string name="edit_section_captcha_reload">మళ్లీ లోడ్ చేయడానికి కాప్చాని నొక్కండి</string>
   <string name="edit_saved_page_refresh">ఈ భద్రపరచబడిన పేజి గడువు ముగిసి ఉండవచ్చు, సవరణ ప్రారంభం చెయ్యడానికి రిఫ్రెష్ చేయాలి. మీరు పేజీ రిఫ్రెష్ చేయాలని అనుకుంటున్నారా ?</string>
-  <string name="nav_item_login">లాగినవండి</string>
+  <string name="nav_item_login" fuzzy="true">లాగినవండి</string>
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="login_password_show_check">సంకేతపదాన్ని చూపించు</string>

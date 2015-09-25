@@ -71,7 +71,7 @@
   <string name="search_no_results_found">Natija topilmadi</string>
   <string name="edit_section_captcha_hint">Tepadagi so\'zlarni takrorlang</string>
   <string name="title_captcha">CAPTCHAni kiriting</string>
-  <string name="nav_item_login">Kirish</string>
+  <string name="nav_item_login" fuzzy="true">Kirish</string>
   <string name="login_username_hint">Foydalanuvchi ismi</string>
   <string name="login_password_hint">Maxfiy soʻz</string>
   <string name="login_password_show_check">Maxfiy so\'zni ko\'rsatish</string>

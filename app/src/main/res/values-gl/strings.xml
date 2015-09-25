@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Que estaba facendo cando ocorreu o fallo?</string>
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error" fuzzy="true">Non é posible establecer ningunha conexión de rede.</string>
+  <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="search_network_error">Erro na rede. Toque para intentalo de novo.</string>
   <string name="generic_page_error">Houbo un problema ao xestionar a súa petición.</string>
   <string name="status_code_unavailable">O código de estado do servidor non está dispoñible.</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Introducir o captcha</string>
   <string name="edit_section_captcha_reload">Toque o CAPTCHA para recargalo</string>
   <string name="edit_saved_page_refresh">Esta páxina gardada pode estar obsoleta; cómpre actualizala para habilitar a edición. Quere actualizar a páxina?</string>
-  <string name="nav_item_login">Acceder ao sistema</string>
+  <string name="nav_item_login" fuzzy="true">Acceder ao sistema</string>
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
   <string name="login_password_show_check">Mostrar o contrasinal</string>

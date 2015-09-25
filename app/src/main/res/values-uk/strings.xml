@@ -87,7 +87,7 @@
   <string name="title_captcha">Введіть символи із малюнку</string>
   <string name="edit_section_captcha_reload">Натисніть малюнок для оновлення</string>
   <string name="edit_saved_page_refresh">Ця збережена сторінка може бути застарілою і повинна бути оновленою для ввімкнення можливості редагування. Чи бажаєте Ви оновити цю сторінку?</string>
-  <string name="nav_item_login">Увійти</string>
+  <string name="nav_item_login" fuzzy="true">Увійти</string>
   <string name="login_username_hint">Ім\'я користувача</string>
   <string name="login_password_hint">Пароль</string>
   <string name="login_password_show_check">Показати пароль</string>

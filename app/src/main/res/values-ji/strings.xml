@@ -76,7 +76,7 @@
   <string name="search_no_results_found">נישט געטראפן קיין רעזולטאטן</string>
   <string name="edit_section_captcha_hint">איבערחזרן ווערטער פון אויבן</string>
   <string name="title_captcha">אײַנגעבן קאפטשא</string>
-  <string name="nav_item_login">אַרײַנלאָגירן</string>
+  <string name="nav_item_login" fuzzy="true">אַרײַנלאָגירן</string>
   <string name="login_username_hint">באַניצער נאָמען</string>
   <string name="login_password_hint">פאַסווארט</string>
   <string name="login_password_show_check">ווײַזן פאסווארט</string>

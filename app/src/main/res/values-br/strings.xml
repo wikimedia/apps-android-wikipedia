@@ -87,7 +87,7 @@
   <string name="title_captcha">Ebarzhiñ ar c\'haptcha</string>
   <string name="edit_section_captcha_reload">Bizskrivañ ar c\'haptcha evit pellgargañ</string>
   <string name="edit_saved_page_refresh">Dispredet e c\'hall bezañ ar bajenn-mañ. Ret eo freskaat anezhi evit gweredekaat ar c\'hemm-mañ. Ha c\'hoant ho peus da freskaat ar bajenn ?</string>
-  <string name="nav_item_login">Kevreañ</string>
+  <string name="nav_item_login" fuzzy="true">Kevreañ</string>
   <string name="login_username_hint">Anv implijer</string>
   <string name="login_password_hint">Ger-tremen</string>
   <string name="login_password_show_check">Diskwel ar ger-tremen</string>

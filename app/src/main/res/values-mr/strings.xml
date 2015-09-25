@@ -60,7 +60,7 @@
   <string name="dialog_message_leaving_edit_leave">सोडा</string>
   <string name="menu_show_toc">अनुक्रमणिका</string>
   <string name="search_no_results_found">परिणाम सापडले नाही</string>
-  <string name="nav_item_login">सनोंद-प्रवेश करा</string>
+  <string name="nav_item_login" fuzzy="true">सनोंद-प्रवेश करा</string>
   <string name="login_username_hint">सदस्यनाव</string>
   <string name="login_password_hint">परवलीचा शब्द</string>
   <string name="login_password_show_check">पासवर्ड दाखवा</string>

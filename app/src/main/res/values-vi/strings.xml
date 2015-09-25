@@ -87,7 +87,7 @@
   <string name="title_captcha">Nhập CAPTCHA</string>
   <string name="edit_section_captcha_reload">Chạm vào CAPTCHA để tải lại</string>
   <string name="edit_saved_page_refresh">Trang đã lưu này có thể lỗi thời nên cần làm mới trước khi sửa đổi. Bạn có muốn làm mới trang này?</string>
-  <string name="nav_item_login">Đăng nhập</string>
+  <string name="nav_item_login" fuzzy="true">Đăng nhập</string>
   <string name="login_username_hint">Tên người dùng</string>
   <string name="login_password_hint">Mật khẩu</string>
   <string name="login_password_show_check">Hiển thị mật khẩu</string>

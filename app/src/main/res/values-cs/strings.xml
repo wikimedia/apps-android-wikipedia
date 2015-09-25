@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Co jste dělali, když došlo k pádu?</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="nav_item_history">Historie</string>
-  <string name="error_network_error" fuzzy="true">Připojení k Internetu nemohlo být navázáno.</string>
+  <string name="error_network_error">Nelze se připojit k Internetu.</string>
   <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
   <string name="generic_page_error">Při vyřizování Vaší žádosti se vyskytl problém.</string>
   <string name="status_code_unavailable">Kód pro status serveru není k dispozici.</string>
@@ -76,7 +76,7 @@
   <string name="title_captcha">Zadejte captcha</string>
   <string name="edit_section_captcha_reload">Klepnutím načtete captcha znovu</string>
   <string name="edit_saved_page_refresh">Tato uložená stránka může být zastaralá a pro umožnění editace je potřeba ji aktualizovat. Chcete stránku aktualizovat?</string>
-  <string name="nav_item_login">Přihlásit se</string>
+  <string name="nav_item_login" fuzzy="true">Přihlásit se</string>
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="login_password_show_check">Zobrazovat heslo</string>

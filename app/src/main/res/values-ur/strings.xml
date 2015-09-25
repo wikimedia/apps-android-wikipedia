@@ -80,7 +80,7 @@
   <string name="edit_section_captcha_hint">اوپر والے الفاظ دہرائیں</string>
   <string name="title_captcha">کیپچا درج کریں</string>
   <string name="edit_section_captcha_reload">نئے کیپچا کے لیے طق کریں</string>
-  <string name="nav_item_login">داخل ہوجائیے</string>
+  <string name="nav_item_login" fuzzy="true">داخل ہوجائیے</string>
   <string name="login_username_hint">صارف کا نام</string>
   <string name="login_password_hint">کلمۂ شناخت</string>
   <string name="login_password_show_check">ظاہری کملہ شناخت</string>

@@ -86,7 +86,7 @@
   <string name="title_captcha">ক্যাপচা লিখুন</string>
   <string name="edit_section_captcha_reload">CAPTCHA-তে ক্লিক করে রিলোড করুন</string>
   <string name="edit_saved_page_refresh">এই পাতাটি হালনাগাদ নয়, এবং সম্পাদনা করার জন্য পাতাটি রিফ্রেশ করা প্রয়োজন। আপনি কি এখনই রিফ্রেশ করতে চান?</string>
-  <string name="nav_item_login">প্রবেশ</string>
+  <string name="nav_item_login" fuzzy="true">প্রবেশ</string>
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">পাসওয়ার্ড</string>
   <string name="login_password_show_check">পাসওয়ার্ড দেখাও</string>

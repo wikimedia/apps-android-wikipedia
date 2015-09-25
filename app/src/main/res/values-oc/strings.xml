@@ -69,7 +69,7 @@
   <string name="search_no_results_found">Cap de resultat pas trobat</string>
   <string name="title_captcha">Entrar lo captcha</string>
   <string name="edit_section_captcha_reload">Picar lo captcha per recargar</string>
-  <string name="nav_item_login">Connexion</string>
+  <string name="nav_item_login" fuzzy="true">Connexion</string>
   <string name="login_username_hint">Nom d\'utilizaire</string>
   <string name="login_password_hint">Senhal</string>
   <string name="login_password_show_check">Afichar lo senhal</string>

@@ -86,7 +86,7 @@
   <string name="title_captcha">Fyll inn CAPTCHA</string>
   <string name="edit_section_captcha_reload">Trykk på CAPTCHA for å laste inn på nytt</string>
   <string name="edit_saved_page_refresh">Denne lagrede siden kan være utdatert, og må gjenoppfriskes for å kunne redigeres. Vil du gjenoppfriske siden?</string>
-  <string name="nav_item_login">Logg inn</string>
+  <string name="nav_item_login" fuzzy="true">Logg inn</string>
   <string name="login_username_hint">Brukernavn</string>
   <string name="login_password_hint">Passord</string>
   <string name="login_password_show_check">Vis passord</string>

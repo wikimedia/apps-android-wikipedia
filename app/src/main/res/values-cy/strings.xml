@@ -73,7 +73,7 @@
   <string name="edit_section_captcha_hint">Ailadrodd geiriau oddi uchod</string>
   <string name="title_captcha">Teipiwch y captcha</string>
   <string name="edit_section_captcha_reload">Tapiwch captcha i ail-lwytho</string>
-  <string name="nav_item_login">Mewngofnodi</string>
+  <string name="nav_item_login" fuzzy="true">Mewngofnodi</string>
   <string name="login_username_hint">Enw defnyddiwr</string>
   <string name="login_password_hint">Cyfrinair</string>
   <string name="login_password_show_check">Dangoser y cyfrinair</string>

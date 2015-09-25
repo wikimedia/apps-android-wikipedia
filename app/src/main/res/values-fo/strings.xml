@@ -63,7 +63,7 @@
   <string name="title_captcha">Skriva hetta captcha</string>
   <string name="edit_section_captcha_reload">Trýst á CAPTCHA fyri at dagføra</string>
   <string name="edit_saved_page_refresh">Henda síðan kann vera ikki-dagførd, og hevur tørv á at blíva uppfríska fyri at rætting kann gerast virki. Ynskir tú at uppfríska síðuna?</string>
-  <string name="nav_item_login">Rita inn</string>
+  <string name="nav_item_login" fuzzy="true">Rita inn</string>
   <string name="login_username_hint">Brúkaranavn</string>
   <string name="login_password_hint">Loyniorð</string>
   <string name="login_password_show_check">Vís loyniorð</string>

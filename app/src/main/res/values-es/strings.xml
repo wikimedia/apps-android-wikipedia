@@ -87,7 +87,7 @@
   <string name="title_captcha">Escribe el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca el CAPTCHA para recargar</string>
   <string name="edit_saved_page_refresh">Está página guardada puede estar obsoleta, y debe ser actualizada para habilitar la edición. ¿Quieres actualizar la página?</string>
-  <string name="nav_item_login">Acceder</string>
+  <string name="nav_item_login" fuzzy="true">Acceder</string>
   <string name="login_username_hint">Nombre de usuario</string>
   <string name="login_password_hint">Contraseña</string>
   <string name="login_password_show_check">Mostrar la contraseña</string>

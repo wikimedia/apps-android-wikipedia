@@ -87,7 +87,7 @@
   <string name="title_captcha">Ange captcha</string>
   <string name="edit_section_captcha_reload">Tryck på captcha för att uppdatera</string>
   <string name="edit_saved_page_refresh">Denna sparade sida kan vara för gammal, och måste laddas om för att kunna redigeras. Vill du ladda om sidan?</string>
-  <string name="nav_item_login">Logga in</string>
+  <string name="nav_item_login" fuzzy="true">Logga in</string>
   <string name="login_username_hint">Användarnamn</string>
   <string name="login_password_hint">Lösenord</string>
   <string name="login_password_show_check">Visa lösenord</string>

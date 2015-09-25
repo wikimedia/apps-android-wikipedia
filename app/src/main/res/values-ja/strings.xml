@@ -87,7 +87,7 @@
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップするとCAPTCHAを再読み込みします</string>
   <string name="edit_saved_page_refresh">この保存されたページは期限切れかもしれません。編集するには更新する必要があります。ページを更新しますか?</string>
-  <string name="nav_item_login">ログイン</string>
+  <string name="nav_item_login" fuzzy="true">ログイン</string>
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
   <string name="login_password_show_check">パスワードを表示</string>

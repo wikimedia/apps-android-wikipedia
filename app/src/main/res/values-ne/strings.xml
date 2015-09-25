@@ -57,7 +57,7 @@
   <string name="dialog_message_leaving_edit_stay">बस्ने</string>
   <string name="menu_show_toc">विषय सूची</string>
   <string name="search_no_results_found">कुनै पनि नतिजाहरू भेटिएन</string>
-  <string name="nav_item_login">प्रवेश</string>
+  <string name="nav_item_login" fuzzy="true">प्रवेश</string>
   <string name="login_username_hint">प्रयोगकर्ता नाम</string>
   <string name="login_password_hint">पासवर्ड</string>
   <string name="login_password_show_check">पासवर्ड देखाउने</string>

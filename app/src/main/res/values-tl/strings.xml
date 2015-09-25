@@ -86,7 +86,7 @@
   <string name="title_captcha">Pakipasok ang CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tapikin ang CAPTCHA upang kargahin muli</string>
   <string name="edit_saved_page_refresh">Maaaring nalipasan na ng panahon ang naitalang pahinang ito, at kailangan panariwaing muli (refresh) upang mapagana ang pag-edit. Nais mo bang i-refresh ang pahina?</string>
-  <string name="nav_item_login">Lumagda (login)</string>
+  <string name="nav_item_login" fuzzy="true">Lumagda (login)</string>
   <string name="login_username_hint">Pangalan ng tagagamit</string>
   <string name="login_password_hint">Hudyat (password)</string>
   <string name="login_password_show_check">Ipakita ang hudyat (password)</string>

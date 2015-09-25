@@ -87,7 +87,7 @@
   <string name="title_captcha">Wpisz CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dotknij, aby przeładować CAPTCHA</string>
   <string name="edit_saved_page_refresh">Zapisana strona może być nieaktualna i musi zostać odświeżona, any umożliwić edycję. Czy chcesz odświeżyć stronę?</string>
-  <string name="nav_item_login">Zaloguj się</string>
+  <string name="nav_item_login" fuzzy="true">Zaloguj się</string>
   <string name="login_username_hint">Nazwa użytkownika</string>
   <string name="login_password_hint">Hasło</string>
   <string name="login_password_show_check">Wyświetl hasło</string>
@@ -236,7 +236,7 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
   <string name="dialog_close_description">Zamknij</string>
   <string name="preference_title_show_images">Pokaż obrazki</string>
-  <string name="preference_summary_show_images" fuzzy="true">Włącz lub wyłącz pobieranie obrazków na stronach. To pole wyboru należy selekcjonować, jeśli masz wolne połączenie z Internetem lub ruch na twoim planie telefonicznym jest ograniczony.</string>
+  <string name="preference_summary_show_images">Włącz lub wyłącz pobieranie obrazków na stronach. Odznacz to pole wyboru, jeśli masz wolne połączenie internetowe lub  ograniczony limit transferu danych.</string>
   <string name="read_more_section">Czytaj więcej</string>
   <string name="read_next_section">Czytaj dalej</string>
   <string name="menu_gallery_visit_page">Przejdź do strony pliku</string>

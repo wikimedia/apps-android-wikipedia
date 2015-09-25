@@ -79,7 +79,7 @@
   <string name="title_captcha">ਕੈਪਚਾ ਭਰੋ</string>
   <string name="edit_section_captcha_reload">ਮੁੜ ਲਿਆਉਣ ਵਾਸਤੇ ਕੈਪਚਾ ਟਕੋਰੋ</string>
   <string name="edit_saved_page_refresh">ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਸਾਂਭਿਆ ਹੋਇਆ ਇਹ ਸਫ਼ਾ ਪੁਰਾਣਾ ਪੈ ਗਿਆ ਹੋ ਅਤੇ ਸੁਧਾਈ ਚਾਲੂ ਕਰਨ ਵਾਸਤੇ ਇਹਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰਨਾ ਪਵੇਗਾ। ਕੀ ਤੁਸੀਂ ਇਸ ਸਫ਼ੇ ਨੂੰ ਤਾਜ਼ਾ ਕਰਨਾ ਲੋਚਦੇ ਹੋ?</string>
-  <string name="nav_item_login">ਦਾਖ਼ਲਾ</string>
+  <string name="nav_item_login" fuzzy="true">ਦਾਖ਼ਲਾ</string>
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="login_password_show_check">ਪਛਾਣ-ਸ਼ਬਦ ਵਿਖਾਉ</string>

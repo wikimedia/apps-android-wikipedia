@@ -65,7 +65,7 @@
   <string name="edit_section_captcha_hint">Irrepeti l-kliem minn hawn fuq</string>
   <string name="title_captcha">Daħħal il-CAPTCHA</string>
   <string name="edit_section_captcha_reload">Agħfas fuq il-CAPTCHA għal waħda ġdida</string>
-  <string name="nav_item_login">Idħol</string>
+  <string name="nav_item_login" fuzzy="true">Idħol</string>
   <string name="login_username_hint">Isem l-utent</string>
   <string name="login_password_hint">Password</string>
   <string name="login_password_show_check">Uri l-password</string>

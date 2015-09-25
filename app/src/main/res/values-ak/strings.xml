@@ -53,7 +53,7 @@
   <string name="title_captcha">Kyerɛw CAPTCHA</string>
   <string name="edit_section_captcha_reload">Mia CAPTCHA no so na ɛnsesa</string>
   <string name="edit_saved_page_refresh">Saa krataa yi, ɛte sɛ nea atwam, ma enti ɛsɛ sɛ wosan bue bio. Wopɛ sɛ wobue bio anaa?</string>
-  <string name="nav_item_login">Kɔ mu</string>
+  <string name="nav_item_login" fuzzy="true">Kɔ mu</string>
   <string name="login_username_hint">Username</string>
   <string name="login_password_hint">Password</string>
   <string name="login_password_show_check">Fa password no kyerɛ</string>

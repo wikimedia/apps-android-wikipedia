@@ -57,7 +57,7 @@
   <string name="menu_show_toc">පටුන</string>
   <string name="search_no_results_found">ප්‍රතිඑල හමු නොවුණි</string>
   <string name="edit_section_captcha_reload">නැවත පෙන්වීමට CAPTCHA මත තට්ටු කරන්න.</string>
-  <string name="nav_item_login">පිවිසෙන්න</string>
+  <string name="nav_item_login" fuzzy="true">පිවිසෙන්න</string>
   <string name="login_username_hint">පරිශීලක නාමය</string>
   <string name="login_password_hint">මුරපදය</string>
   <string name="login_password_show_check">මුරපදය පෙන්වන්න</string>

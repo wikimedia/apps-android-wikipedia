@@ -84,7 +84,7 @@
   <string name="title_captcha">संभेपूस्वसाट्यूप (CAPTCHA) लिख्यताम्</string>
   <string name="edit_section_captcha_reload">संभेपूस्वसाट्यूप (CAPTCHA) परिवर्तयितुं नुद्यताम्</string>
   <string name="edit_saved_page_refresh">संरक्षितमिदं पृष्ठं कदाचित् अप्रचलितम् अभवत् । सम्पादनाय एतत् पृष्ठं प्रचलनयोग्यं करणीयम् । किं भवान्/भवती पृष्ठमिदं नवीकर्तुम् इच्छति ?</string>
-  <string name="nav_item_login">प्रविश्यताम्</string>
+  <string name="nav_item_login" fuzzy="true">प्रविश्यताम्</string>
   <string name="login_username_hint">योजकनाम</string>
   <string name="login_password_hint">कूटशब्दः</string>
   <string name="login_password_show_check">कूटशब्दः दृश्यताम्</string>

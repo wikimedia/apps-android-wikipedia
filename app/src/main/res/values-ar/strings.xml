@@ -86,7 +86,7 @@
   <string name="title_captcha">أدخل كلمة التحقق</string>
   <string name="edit_section_captcha_reload">انقر على كلمة التحقق لإعادة التحميل</string>
   <string name="edit_saved_page_refresh">قد تكون هذه الصفحة المحفوظة غير محدثة، ويجب تحديثها لتتمكن من تعديلها. هل تود تحديثها؟</string>
-  <string name="nav_item_login">تسجيل الدخول</string>
+  <string name="nav_item_login" fuzzy="true">تسجيل الدخول</string>
   <string name="login_username_hint">اسم المستخدم</string>
   <string name="login_password_hint">كلمة السر</string>
   <string name="login_password_show_check">عرض كلمة السر</string>

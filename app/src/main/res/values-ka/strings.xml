@@ -76,7 +76,7 @@
   <string name="edit_section_captcha_hint">გაიმეორეთ ზემოთ მოცემული სიტყვები</string>
   <string name="title_captcha">შეიყვანეთ CAPTCHA</string>
   <string name="edit_section_captcha_reload">დააჭირეთ CAPTCHA-ს გადასატვირთად</string>
-  <string name="nav_item_login">შესვლა</string>
+  <string name="nav_item_login" fuzzy="true">შესვლა</string>
   <string name="login_username_hint">მომხმარებლის სახელი</string>
   <string name="login_password_hint">პაროლი</string>
   <string name="login_password_show_check">აჩვენე პაროლი</string>

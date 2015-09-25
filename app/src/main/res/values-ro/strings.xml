@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Ce făceați când a survenit blocarea?</string>
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="nav_item_history">Istoric</string>
-  <string name="error_network_error" fuzzy="true">Nu se poate stabili conexiunea la rețea.</string>
+  <string name="error_network_error">Imposibil de conectat la internet.</string>
   <string name="search_network_error">Eroare de rețea. Atingeți pentru a reîncerca.</string>
   <string name="generic_page_error">A apărut o problemă la procesarea cererii dumneavoastră.</string>
   <string name="status_code_unavailable">Codul stării serverului nu este disponibil.</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Introducere captcha</string>
   <string name="edit_section_captcha_reload">Atingeți captcha pentru a reîncărca</string>
   <string name="edit_saved_page_refresh">Această pagină salvată ar putea fi neactualizată și trebuie reîncărcată pentru a activa modificarea sa. Doriți să reîncărcați pagina?</string>
-  <string name="nav_item_login">Autentificare</string>
+  <string name="nav_item_login" fuzzy="true">Autentificare</string>
   <string name="login_username_hint">Nume de utilizator</string>
   <string name="login_password_hint">Parolă</string>
   <string name="login_password_show_check">Arată parola</string>

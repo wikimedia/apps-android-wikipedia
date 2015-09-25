@@ -17,7 +17,7 @@
   <string name="page_error_retry">Saiatu berriro</string>
   <string name="menu_clear_all_history">Historia garbitu</string>
   <string name="menu_clear_all_saved_pages">Garbitu gordetako orrialdeak</string>
-  <string name="page_does_not_exist_error">Orrialdea ez da existitzen.</string>
+  <string name="page_does_not_exist_error">Orri hori ez da existitzen.</string>
   <string name="nav_item_today">Gaur</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia?</string>
   <string name="nav_item_saved_pages">Gordetako orrialdeak</string>
@@ -82,7 +82,7 @@
   <string name="edit_section_captcha_hint">Goiko hitzak errepikatu</string>
   <string name="title_captcha">Sartu CAPTCHA</string>
   <string name="edit_section_captcha_reload">CAPTCHA sakatu eguneratu</string>
-  <string name="nav_item_login">Saioa hasi</string>
+  <string name="nav_item_login" fuzzy="true">Saioa hasi</string>
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
   <string name="login_password_show_check">Pasahitza erakutsi</string>

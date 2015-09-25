@@ -77,7 +77,7 @@
   <string name="title_captcha">कॅप्चा डालें</string>
   <string name="edit_section_captcha_reload">कॅप्चा को पुनः लाने के लिए यहाँ दबायें</string>
   <string name="edit_saved_page_refresh">यह संरक्षित पृष्ठ बहुत पुराना हो सकता है और सम्पादन आरम्भ करने के लिए पुनः ताज़ा करना चाहिए। क्या आप पृष्ठ को ताज़ा करना चाहेंगे?</string>
-  <string name="nav_item_login">लॉग-इन</string>
+  <string name="nav_item_login" fuzzy="true">लॉग-इन</string>
   <string name="login_username_hint">सदस्य नाम</string>
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
   <string name="login_password_show_check">पासवर्ड को प्रदर्शित करें।</string>

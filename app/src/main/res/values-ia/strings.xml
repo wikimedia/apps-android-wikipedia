@@ -85,7 +85,7 @@
   <string name="edit_section_captcha_message">Pro adjutar a proteger del spam automatic, per favor insere le parolas que compare infra</string>
   <string name="edit_section_captcha_hint">Ripete le parolas ex le alto</string>
   <string name="title_captcha">Inserer le captcha</string>
-  <string name="nav_item_login">Aperir session</string>
+  <string name="nav_item_login" fuzzy="true">Aperir session</string>
   <string name="login_username_hint">Nomine del usator</string>
   <string name="login_password_hint">Contrasigno</string>
   <string name="login_password_show_check">Monstrar le contrasigno</string>

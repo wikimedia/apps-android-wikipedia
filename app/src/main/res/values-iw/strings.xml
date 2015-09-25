@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">מה עשית בזמן הקריסה?</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="error_network_error" fuzzy="true">לא ניתן להתחבר לאינטרנט.</string>
+  <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="search_network_error">שגיאת רשת. נא להקיש כדי לנסות שוב.</string>
   <string name="generic_page_error">הייתה בעיה בטיפול בבקשה שלך.</string>
   <string name="status_code_unavailable">קוד מצב השרת אינו זמין.</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">נא להזין קוד אימות אנוש</string>
   <string name="edit_section_captcha_reload">יש ללחוץ על תמונת האימות לשם רענון</string>
   <string name="edit_saved_page_refresh">ייתכן שהדף השמור הזה אינו עדכני וצריך לרענן אותו כדי לאפשר עריכה. האם לרענן את הדף?</string>
-  <string name="nav_item_login">כניסה לחשבון</string>
+  <string name="nav_item_login">כניסה לחשבון בוויקיפדיה</string>
   <string name="login_username_hint">שם משתמש</string>
   <string name="login_password_hint">ססמה</string>
   <string name="login_password_show_check">להציג את הססמה</string>
@@ -247,7 +247,7 @@
   <string name="alpha_update_notification_text">נא להקיש להורדה</string>
   <string name="dialog_close_description">סגירה</string>
   <string name="preference_title_show_images">להציג תמונות</string>
-  <string name="preference_summary_show_images" fuzzy="true">הפעלה או כיבוי של טעינת תמונות בדפים. אפשר לכבות את ההגדרה הזאת אם חיבור האינטרנט שלך אטי או אם ספק התקשורת מגביל את צריכת הנתונים בקו שלך.</string>
+  <string name="preference_summary_show_images">הפעלה או כיבוי של טעינת תמונות בדפים. אפשר לכבות את ההגדרה הזאת אם חיבור האינטרנט שלך אטי או אם ספק התקשורת מגביל את צריכת הנתונים בקו שלך.</string>
   <string name="read_more_section">מידע נוסף</string>
   <string name="read_next_section">לקרוא את הבא</string>
   <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>

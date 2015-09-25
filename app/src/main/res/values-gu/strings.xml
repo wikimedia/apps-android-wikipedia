@@ -74,7 +74,7 @@
   <string name="edit_section_captcha_hint">ઉપરના શબ્દોનું પુનરાવર્તન કરો</string>
   <string name="title_captcha">કૅપ્ચા દાખલ કરો</string>
   <string name="edit_section_captcha_reload">કૅપ્ચા ફરી લોડ કરવા અહીં દબાવો</string>
-  <string name="nav_item_login">પ્રવેશ કરો</string>
+  <string name="nav_item_login" fuzzy="true">પ્રવેશ કરો</string>
   <string name="login_username_hint">સભ્યનામ</string>
   <string name="login_password_hint">પાસવર્ડ</string>
   <string name="login_password_show_check">પાસવર્ડ દર્શાવો</string>
