@@ -154,8 +154,6 @@
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
   <string name="nav_item_random">Rawak</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
-  <string name="user_contribs_more_action">Muatkan yang selanjutnya</string>
-  <string name="activity_my_contributions_title">Sumbangan Saya</string>
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>

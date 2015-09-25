@@ -155,8 +155,6 @@
   <string name="send_feedback">Send feedback</string>
   <string name="nav_item_random">Tilfældig</string>
   <string name="create_account_account_created_toast">Konto oprettet!</string>
-  <string name="user_contribs_more_action">Indlæs mere</string>
-  <string name="activity_my_contributions_title">Mine bidrag</string>
   <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>

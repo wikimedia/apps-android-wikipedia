@@ -151,8 +151,6 @@
   <string name="send_feedback">अनुप्रयोगप्रतिक्रियां प्रेषयतु</string>
   <string name="nav_item_random">यादृच्छिकम्</string>
   <string name="create_account_account_created_toast">सदस्यता प्राप्ता !</string>
-  <string name="user_contribs_more_action">अधिकम् अवारोप्यताम्</string>
-  <string name="activity_my_contributions_title">योगदानानि</string>
   <string name="preference_title_eventlogging_opt_in">उपयोगस्य वृत्तान्तं प्रेषयतु</string>
   <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगे आवश्यकपरिवर्तनं कर्तुं भवान्/भवती विकिपीडिया-अनुप्रयोगस्य कथम् उपयोगं करोति इत्यस्य सूचनां क्रोडीकर्तुं विकिपीडिया-जालाय अनुमतिं ददातु ।</string>
   <string name="editing_error_spamblacklist">(%s) इत्येतानि स्थगितानि जालस्थानि प्राप्तानि । कृपया तानि अपाकृत्य पुनः प्रयत्यताम् ।</string>

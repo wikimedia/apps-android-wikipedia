@@ -155,8 +155,6 @@
   <string name="send_feedback">Enviar comentarios sobre a aplicación</string>
   <string name="nav_item_random">Ao chou</string>
   <string name="create_account_account_created_toast">Conta creada!</string>
-  <string name="user_contribs_more_action">Cargar máis</string>
-  <string name="activity_my_contributions_title">As miñas contribucións</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>

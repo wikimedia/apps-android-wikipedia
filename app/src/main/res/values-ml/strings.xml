@@ -133,8 +133,6 @@
   <string name="send_feedback">ആപിനെക്കുറിച്ചുള്ള അഭിപ്രായം അറിയിക്കുക</string>
   <string name="nav_item_random">ക്രമരഹിതം</string>
   <string name="create_account_account_created_toast">അംഗത്വം സൃഷ്ടിച്ചിരിക്കുന്നു!</string>
-  <string name="user_contribs_more_action">കൂടുതൽ എടുക്കുക</string>
-  <string name="activity_my_contributions_title">എന്റെ സം‌ഭാവനകൾ</string>
   <string name="preference_title_eventlogging_opt_in">ഉപയോഗ വിവരങ്ങൾ അയയ്ക്കുക</string>
   <string name="preference_summary_eventlogging_opt_in">താങ്കൾ എങ്ങനെയാണ് ആപ് ഉപയോഗിച്ചതെന്ന വിവരങ്ങൾ ശേഖരിച്ച് ആപ് കൂടുതൽ മെച്ചപ്പെട്ടതാക്കാൻ വിക്കിമീഡിയയെ അനുവദിക്കുക</string>
   <string name="editing_error_spamblacklist">തടയപ്പെട്ട ഡൊമൈനുകളിലോട്ടുള്ള കണ്ണികൾ (%s) കണ്ടെത്താനായി. ദയവായി അവ ഒഴിവാക്കി വീണ്ടും ശ്രമിക്കുക.</string>

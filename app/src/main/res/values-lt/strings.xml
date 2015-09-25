@@ -117,7 +117,6 @@
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>
   <string name="nav_item_random">Atsitiktinis</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
-  <string name="user_contribs_more_action">Įkelti daugiau</string>
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
   <string name="history_search_list_hint" fuzzy="true">Paieška</string>
   <string name="more_item_preferences">Daugiau</string>

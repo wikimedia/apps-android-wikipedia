@@ -155,8 +155,6 @@
   <string name="send_feedback">Надіслати відгук про програму</string>
   <string name="nav_item_random">Випадково</string>
   <string name="create_account_account_created_toast">Створено обліковий запис!</string>
-  <string name="user_contribs_more_action">Завантажити більше</string>
-  <string name="activity_my_contributions_title">Мій внесок</string>
   <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як Ви використовуєте додаток, щоб зробити його кращим</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>

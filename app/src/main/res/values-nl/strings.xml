@@ -155,8 +155,6 @@
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="nav_item_random">Willekeurig</string>
   <string name="create_account_account_created_toast">Gebruiker aangemaakt</string>
-  <string name="user_contribs_more_action">Meer laden</string>
-  <string name="activity_my_contributions_title">Uw bijdragen</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>

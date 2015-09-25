@@ -155,8 +155,6 @@
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
   <string name="nav_item_random">Dargouezhek</string>
   <string name="create_account_account_created_toast">Kont krouet !</string>
-  <string name="user_contribs_more_action">Lenn muioc\'h</string>
-  <string name="activity_my_contributions_title">Ma degasadennoù</string>
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>

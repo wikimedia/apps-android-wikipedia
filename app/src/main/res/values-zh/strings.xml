@@ -155,8 +155,6 @@
   <string name="send_feedback">发送应用程序反馈</string>
   <string name="nav_item_random">随机</string>
   <string name="create_account_account_created_toast">账户已创建！</string>
-  <string name="user_contribs_more_action">载入更多</string>
-  <string name="activity_my_contributions_title">我的贡献</string>
   <string name="preference_title_eventlogging_opt_in">发送使用情况报告</string>
   <string name="preference_summary_eventlogging_opt_in">允许维基媒体基金会收集关于您使用该应用的信息，以改进该应用</string>
   <string name="editing_error_spamblacklist">检测到受封禁域名（%s）的链接。请移除它们并重试。</string>

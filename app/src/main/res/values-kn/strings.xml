@@ -129,8 +129,6 @@
   <string name="zero_learn_more_dismiss">ತೆಗೆದುಹಾಕು</string>
   <string name="nav_item_random">ಹೀಗೇ ಒಂದು ಪುಟ</string>
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
-  <string name="user_contribs_more_action">ಇನ್ನೂ ತೋರಿಸಿ</string>
-  <string name="activity_my_contributions_title">ನನ್ನ ಕಾಣಿಕೆಗಳು</string>
   <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
   <string name="history_search_list_hint">ಇತಿಹಾಸ  ಹುಡುಕಿ</string>
   <string name="more_item_preferences">ಹೆಚ್ಚು</string>

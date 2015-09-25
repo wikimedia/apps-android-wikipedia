@@ -77,7 +77,6 @@
   <string name="zero_learn_more_dismiss">Didi</string>
   <string name="edit_preview_fetching_dialog_message">Durargii fidaa jira...</string>
   <string name="create_account_account_created_toast">Eenyummeessi uummame!</string>
-  <string name="activity_my_contributions_title">Gumaacha kiyya</string>
   <string name="preference_title_eventlogging_opt_in">Gabaasa fayyadamaa ergi</string>
   <string name="history_search_list_hint" fuzzy="true">Barbaadi</string>
   <string name="error_can_not_process_link">Geessituu kana agarsiisuu hindandeenye</string>

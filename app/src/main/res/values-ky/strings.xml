@@ -139,8 +139,6 @@
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="nav_item_random">Тушкелди</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
-  <string name="user_contribs_more_action">Көбүрөөк жүктөө</string>
-  <string name="activity_my_contributions_title">Салымдарым</string>
   <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
   <string name="preference_summary_eventlogging_opt_in">Уикимедиага сиз бул тиркемени кантип колдонуп жаткандыгыңыз тууралуу маалыматтарды чогултууга уруксат бериңиз. Бул, аны жакшыртууга мүмкүндүк берет.</string>
   <string name="editing_error_spamblacklist">Бөгөттөлгөн домендерге (%s) шилтемелер табылды. Сураныч, аларды өчүрүп, кайра аракет кылып көрүңүз.</string>

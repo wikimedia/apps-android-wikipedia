@@ -109,8 +109,6 @@
   <string name="send_feedback">Ma yɛn nyansahyɛ</string>
   <string name="nav_item_random">Randɔm</string>
   <string name="create_account_account_created_toast">Woabue wo account!</string>
-  <string name="user_contribs_more_action">Fa pii bra</string>
-  <string name="activity_my_contributions_title">Mensakrae</string>
   <string name="preference_summary_eventlogging_opt_in">Ma Wikimedia kwan ma ɔnfa wo adwinade yi ho nsɛm nyɛ nhwehwɛmu sɛnea ebetu mpɔn</string>
   <string name="editing_error_spamblacklist" fuzzy="true">Yi links ahorow a yɛmpɛ no fi mu, na san yɛ bio (%s). Please remove them and try again.</string>
   <string name="history_search_list_hint" fuzzy="true">Hwehwɛ</string>

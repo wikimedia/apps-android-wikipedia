@@ -112,8 +112,6 @@
   <string name="send_feedback">Toa maoni ya programu timizi</string>
   <string name="nav_item_random">Bahatisha</string>
   <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
-  <string name="user_contribs_more_action">Pakia zaidi</string>
-  <string name="activity_my_contributions_title">Michango Yangu</string>
   <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
   <string name="history_search_list_hint" fuzzy="true">Tafuta</string>
   <string name="error_can_not_process_link">Haingeonyesha kiungo hiki</string>

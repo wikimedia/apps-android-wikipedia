@@ -143,8 +143,6 @@
   <string name="send_feedback">Danvon dasliv a\'n towlennik</string>
   <string name="nav_item_random">Chonsus</string>
   <string name="create_account_account_created_toast">Akont gwrys!</string>
-  <string name="user_contribs_more_action">Karga moy</string>
-  <string name="activity_my_contributions_title">Ow hevrohow</string>
   <string name="preference_title_eventlogging_opt_in">Danvon derivadow devnydh</string>
   <string name="preference_summary_eventlogging_opt_in">Alowa Wikimedia dhe guntel kedhlow a-dro dhe\'n fordh may tevnydhyowgh an app rag y wellhe</string>
   <string name="editing_error_spamblacklist">Kevrennow dhe drigvaow lettyes (%s) helerghys. Gwrewgh aga dilea hag assaya arta.</string>

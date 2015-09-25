@@ -155,8 +155,6 @@
   <string name="send_feedback">فرستادن بازخورد برنامه</string>
   <string name="nav_item_random">تصادفی</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
-  <string name="user_contribs_more_action">بارگیری بیشتر</string>
-  <string name="activity_my_contributions_title">مشارکت‌های من</string>
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>

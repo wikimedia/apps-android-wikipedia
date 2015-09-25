@@ -155,8 +155,6 @@
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
   <string name="nav_item_random">Rastgele</string>
   <string name="create_account_account_created_toast">Hesap yaratıldı!</string>
-  <string name="user_contribs_more_action">Daha fazla yükle</string>
-  <string name="activity_my_contributions_title">Katkılarım</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>

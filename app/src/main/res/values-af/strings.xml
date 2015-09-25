@@ -155,8 +155,6 @@
   <string name="send_feedback">Stuur toep terugvoer</string>
   <string name="nav_item_random">Willekeurig</string>
   <string name="create_account_account_created_toast">Gebruiker geskep!</string>
-  <string name="user_contribs_more_action">Laai meer</string>
-  <string name="activity_my_contributions_title">My Bydraes</string>
   <string name="preference_title_eventlogging_opt_in">Stuur gebruiksverslae</string>
   <string name="preference_summary_eventlogging_opt_in">Laat Wikimedia toe om inligting in te samel oor hoe u die toep gebruik om sodoende die toep te verbeter</string>
   <string name="editing_error_spamblacklist">Skakels na geblokkeerder domeins (%s) gevind. Verwyder dit en probeer weer.</string>

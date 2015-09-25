@@ -155,8 +155,6 @@
   <string name="send_feedback">App-Rückmeldung senden</string>
   <string name="nav_item_random">Zufällig</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
-  <string name="user_contribs_more_action">Mehr laden</string>
-  <string name="activity_my_contributions_title">Meine Beiträge</string>
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>

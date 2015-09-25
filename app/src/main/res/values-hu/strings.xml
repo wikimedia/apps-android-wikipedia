@@ -146,8 +146,6 @@
   <string name="send_feedback">Alkalmazás visszajelzés küldése</string>
   <string name="nav_item_random">Véletlen lap</string>
   <string name="create_account_account_created_toast">Felhasználói fiók létrehozva!</string>
-  <string name="user_contribs_more_action">További betöltése</string>
-  <string name="activity_my_contributions_title">Közreműködéseim</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="history_search_list_hint" fuzzy="true">Keresés</string>
   <string name="history_search_empty_message">Nem található a kérésnek megfelelő lap.</string>

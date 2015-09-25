@@ -110,8 +110,6 @@
   <string name="send_feedback">एप्प प्रतिक्रिया पठाउनुहोस्</string>
   <string name="nav_item_random">अनियमित</string>
   <string name="create_account_account_created_toast">खाता खोलियो !</string>
-  <string name="user_contribs_more_action">थप चालु गर्ने</string>
-  <string name="activity_my_contributions_title">मेरा योगदानहरू</string>
   <string name="preference_title_eventlogging_opt_in">उपयोग प्रतिवेदन पठाउनुहोस् ।</string>
   <string name="history_search_list_hint" fuzzy="true">खोज्ने</string>
   <string name="page_protected_autoconfirmed">यो पृष्ठ अर्ध सुरक्षित गरिएको छ</string>

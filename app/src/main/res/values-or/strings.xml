@@ -119,8 +119,6 @@
   <string name="edit_preview_fetching_dialog_message">ଦେଖଣା ଆହରଣ କରୁଛି</string>
   <string name="nav_item_random">ଯାହିତାହି</string>
   <string name="create_account_account_created_toast">ଖାତାଟି ଖୋଲିଗଲା!</string>
-  <string name="user_contribs_more_action">ଅଧିକ ଆହରଣ କରନ୍ତୁ</string>
-  <string name="activity_my_contributions_title">ମୋ ଅବଦାନ</string>
   <string name="preference_title_eventlogging_opt_in">ବ୍ୟବହାର ବିବରଣୀ ପଠାନ୍ତୁ</string>
   <string name="preference_summary_eventlogging_opt_in">ଏହି ଆପ୍ଲିକେସନଟିକୁ ଆହୁରି ଉନ୍ନତ କରିବା ପାଇଁ ଉଇକିମିଡ଼ିଆକୁ ସହଯୋଗ କରନ୍ତୁ</string>
   <string name="editing_error_spamblacklist" fuzzy="true">ଆପଣ ଅଟକାଯାଇଥିବା ଡୋମେନମାନଙ୍କରୁ (%s) ଲିଙ୍କ ଦେଇଛନ୍ତି । ଦୟାକରି ତାହା କାଢ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>

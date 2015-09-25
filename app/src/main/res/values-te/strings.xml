@@ -158,8 +158,6 @@
   <string name="send_feedback">అనువర్తనం గురించి ఫిర్యాదులు/సలహాలు పంపించండి</string>
   <string name="nav_item_random">యాదృచ్చికం</string>
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
-  <string name="user_contribs_more_action">మరిన్ని చూపించు</string>
-  <string name="activity_my_contributions_title">నా మార్పులూచేర్పులు</string>
   <string name="preference_title_eventlogging_opt_in">వాడుక నివేదికని పంపండి</string>
   <string name="preference_summary_eventlogging_opt_in">ఈ అనువర్తనం మెరుగుపరచుటకు, మీరు ఈ అనువర్తనం ఎలా వాడుతున్నారో అన్న సమాచారం సేకరించటానికి వికీపీడియాకి అనుమతి ఇవ్వండి</string>
   <string name="editing_error_spamblacklist">ఆమోదంకాని డోమైన్లకి (%s) లింక్లు కొనుగోనబడ్డాయి. దయచేసి వాటిని తొలగించి మళ్ళి ప్రయత్నించండి.</string>

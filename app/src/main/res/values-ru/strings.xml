@@ -155,8 +155,6 @@
   <string name="send_feedback">Отправить отзыв о приложении</string>
   <string name="nav_item_random">Случайная</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
-  <string name="user_contribs_more_action">Загрузить ещё</string>
-  <string name="activity_my_contributions_title">Мой Вклад</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>

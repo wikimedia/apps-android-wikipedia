@@ -147,8 +147,6 @@
   <string name="send_feedback">Sendu informon pri ĉi tiu aplikaĵo</string>
   <string name="nav_item_random">Hazarda paĝo</string>
   <string name="create_account_account_created_toast">Konto kreita</string>
-  <string name="user_contribs_more_action">Ŝarĝi pli</string>
-  <string name="activity_my_contributions_title">Miaj kontribuoj</string>
   <string name="preference_title_eventlogging_opt_in">Sendi uzantan raporton</string>
   <string name="preference_summary_eventlogging_opt_in">Permesi al Vikipedio kolekti informon pri kiel vi uzas la aplikaĵon por helpi ĝin plibonigi</string>
   <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>

@@ -127,8 +127,6 @@
   <string name="send_feedback">Anfon adborth am yr ap</string>
   <string name="nav_item_random">Ar hap</string>
   <string name="create_account_account_created_toast">Wedi creu cyfrif!</string>
-  <string name="user_contribs_more_action">Llwytho mwy</string>
-  <string name="activity_my_contributions_title">Fy Nghyfraniadau</string>
   <string name="about_activity_title">Amdanom</string>
   <string name="edit_abandon_confirm">Mae\'r dudalen wedi cael ei newid. Ydych chi\'n siwr eich bod chi am ymadael heb roi eich newidiadau ar gadw?</string>
   <string name="user_blocked_from_editing_title">Wedi ei flocio</string>

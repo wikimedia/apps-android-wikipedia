@@ -155,8 +155,6 @@
   <string name="send_feedback">フィードバックを送る</string>
   <string name="nav_item_random">おまかせ表示</string>
   <string name="create_account_account_created_toast">アカウントを作成しました</string>
-  <string name="user_contribs_more_action">続きを読み込む</string>
-  <string name="activity_my_contributions_title">投稿記録</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>

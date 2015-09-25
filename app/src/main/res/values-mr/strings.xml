@@ -111,8 +111,6 @@
   <string name="send_feedback">प्रतिक्रिया पाठवा</string>
   <string name="nav_item_random">अविशिष्ट</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>
-  <string name="user_contribs_more_action">अधिक प्रभारण करा</string>
-  <string name="activity_my_contributions_title">माझे योगदान</string>
   <string name="history_search_list_hint" fuzzy="true">शोधा</string>
   <string name="error_can_not_process_link">ही दुवा दाखवु शकत नाही</string>
   <string name="page_protected_can_not_edit">तुम्हाला हे पान संपादन करण्याची परवानगी नाही</string>

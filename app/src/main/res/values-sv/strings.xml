@@ -155,8 +155,6 @@
   <string name="send_feedback">Skicka återkoppling om appen</string>
   <string name="nav_item_random">Slumpartikel</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
-  <string name="user_contribs_more_action">Läs in fler</string>
-  <string name="activity_my_contributions_title">Mina bidrag</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
