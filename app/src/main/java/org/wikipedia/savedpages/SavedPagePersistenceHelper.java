@@ -2,8 +2,10 @@ package org.wikipedia.savedpages;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.data.PersistenceHelper;
@@ -43,6 +45,27 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
         contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
         contentValues.put(COL_TIMESTAMP, obj.getTimestamp().getTime());
         return contentValues;
+    }
+
+    public boolean savedPageExists(WikipediaApp app, PageTitle title) {
+        Cursor c = null;
+        boolean exists = false;
+        try {
+            SavedPage savedPage = new SavedPage(title);
+            String[] args = getPrimaryKeySelectionArgs(savedPage);
+            String selection = getPrimaryKeySelection(savedPage, args);
+            c = app.getPersister(SavedPage.class).select(selection, args, "");
+            if (c.getCount() > 0) {
+                exists = true;
+            }
+        } catch (SQLiteException e) {
+            // page title doesn't exist in database... no problem if it fails.
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+        }
+        return exists;
     }
 
     @Override

@@ -25,7 +25,7 @@ import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
-import org.wikipedia.savedpages.SavedPageCheckCallbacks;
+import org.wikipedia.savedpages.SavedPageCheckTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
@@ -81,9 +81,6 @@ import javax.net.ssl.SSLException;
 // TODO: USE ACRA.getErrorReporter().handleSilentException() if we move to automated crash reporting?
 
 public class PageFragment extends Fragment implements BackPressedHandler {
-    // make sure this number is unique among other fragments that use a loader
-    private static final int LOADER_ID = 103;
-
     public static final int TOC_ACTION_SHOW = 0;
     public static final int TOC_ACTION_HIDE = 1;
     public static final int TOC_ACTION_TOGGLE = 2;
@@ -138,7 +135,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ActionMode findInPageActionMode;
     private ShareHandler shareHandler;
     private TabsProvider tabsProvider;
-    private SavedPageCheckCallbacks savedPageCheckCallbacks;
 
     private WikipediaApp app;
 
@@ -199,7 +195,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void setSavedPageCheckComplete(boolean complete) {
         savedPageCheckComplete = complete;
-
         if (!isAdded()) {
             return;
         }
@@ -260,8 +255,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
         updateFontSize();
-
-        savedPageCheckCallbacks = new SavedPageCheckCallbacks(this, app);
 
         // Explicitly set background color of the WebView (independently of CSS, because
         // the background may be shown momentarily while the WebView loads content,
@@ -1060,7 +1053,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private void checkIfPageIsSaved() {
         if (getActivity() != null && getTitle() != null) {
-            getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, savedPageCheckCallbacks);
+            new SavedPageCheckTask(getTitle(), app) {
+                @Override
+                public void onFinish(Boolean exists) {
+                    setPageSaved(exists);
+                    setSavedPageCheckComplete(true);
+                }
+            }.execute();
         }
     }
 
