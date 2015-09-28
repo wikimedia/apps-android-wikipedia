@@ -402,7 +402,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void handleInternalLink(PageTitle title) {
-        if (!isAdded()) {
+        if (!isResumed()) {
             return;
         }
         // if it's a Special page, launch it in an external browser, since mobileview
