@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">بالقرب من هنا</string>
   <string name="menu_update_nearby">تحديث</string>
   <string name="nearby_empty_title">لا يوجد صفحات بالقرب من هنا!</string>
-  <string name="nearby_empty_message">عندما تنتقل إلى مكانٍ جديدٍ، حدّث هذه الصفحة لمعرفة المزيد عن الأماكن التي بقربك.</string>
+  <string name="nearby_empty_message" fuzzy="true">عندما تنتقل إلى مكانٍ جديدٍ، حدّث هذه الصفحة لمعرفة المزيد عن الأماكن التي بقربك.</string>
   <string name="nearby_distance_in_meters">%d م</string>
   <string name="nearby_distance_in_kilometers">%.2f كم</string>
   <string name="nearby_distance_in_feet">%d قدم</string>

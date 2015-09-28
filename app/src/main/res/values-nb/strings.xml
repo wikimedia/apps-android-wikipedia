@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">I nærheten</string>
   <string name="menu_update_nearby">Oppdater «i nærheten»</string>
   <string name="nearby_empty_title">Ingen sider i nærheten!</string>
-  <string name="nearby_empty_message">Når du forflytter deg til en ny plassering, prøv å gjenoppfriske denne siden for å finne ut hva som befinner seg rundt deg.</string>
+  <string name="nearby_empty_message" fuzzy="true">Når du forflytter deg til en ny plassering, prøv å gjenoppfriske denne siden for å finne ut hva som befinner seg rundt deg.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

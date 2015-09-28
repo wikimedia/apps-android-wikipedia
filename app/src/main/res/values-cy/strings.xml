@@ -39,7 +39,7 @@
   <string name="nav_item_nearby">Gerllaw</string>
   <string name="menu_update_nearby">Diweddarwch y tudalenau sydd gerllaw</string>
   <string name="nearby_empty_title">Nid oes tudalennau cyfagos yma!</string>
-  <string name="nearby_empty_message">Pan fyddwch yn symud i leoliad newydd, ceisiwch adnewyddu\'r dudalen hon i ddysgu mwy am yr hyn sydd o\'ch cwmpas.</string>
+  <string name="nearby_empty_message" fuzzy="true">Pan fyddwch yn symud i leoliad newydd, ceisiwch adnewyddu\'r dudalen hon i ddysgu mwy am yr hyn sydd o\'ch cwmpas.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d tr</string>

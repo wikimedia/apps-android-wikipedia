@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
   <string name="nearby_empty_title">Sem páginas nas redondezas</string>
-  <string name="nearby_empty_message">Quando estiver num novo local, experimente atualizar esta página para saber mais sobre o que o rodeia.</string>
+  <string name="nearby_empty_message" fuzzy="true">Quando estiver num novo local, experimente atualizar esta página para saber mais sobre o que o rodeia.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Inserir CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toque no CAPTCHA para recarregar</string>
   <string name="edit_saved_page_refresh">Esta página guardada pode estar desatualizada, e deve ser recarregada para ativar a sua edição. Gostaria de recarregar a página?</string>
-  <string name="nav_item_login" fuzzy="true">Entrar</string>
+  <string name="nav_item_login">Iniciar sessão na Wikipédia</string>
   <string name="login_username_hint">Nome de utilizador(a)</string>
   <string name="login_password_hint">Palavra-passe</string>
   <string name="login_password_show_check">Mostrar palavra-passe</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Zer egiten ari zinen hutsegitea gertatu zenean?</string>
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error" fuzzy="true">Ezin izan da sarearekin konektatu :(</string>
+  <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="search_network_error">Errorea. Saiatu berriro.</string>
   <string name="generic_page_error">Arazo bat egon da zure eskaera kudeatzean.</string>
   <string name="status_code_unavailable">Zerbitzariaren egoera-kodea ez dago eskuragarri.</string>
@@ -27,7 +27,7 @@
   <string name="share_via">Partekatu honela</string>
   <string name="dialog_title_clear_saved_pages">Gordetako orrialde guztiak garbitu?</string>
   <string name="snackbar_saving_page">Orrialdea gordetzen…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Orria ondo gordea</string>
+  <string name="snackbar_saved_page_format">\"%s\" gordea lineaz kanpoko irakurketarako</string>
   <string name="snackbar_saved_page_missing_images">Ezin izan dira irudi guztiak gorde</string>
   <string name="snackbar_refresh_saved_page">Gordetako orria eguneratzen...</string>
   <string name="delete_selected_saved_pages">Ezabatu</string>
@@ -82,7 +82,7 @@
   <string name="edit_section_captcha_hint">Goiko hitzak errepikatu</string>
   <string name="title_captcha">Sartu CAPTCHA</string>
   <string name="edit_section_captcha_reload">CAPTCHA sakatu eguneratu</string>
-  <string name="nav_item_login" fuzzy="true">Saioa hasi</string>
+  <string name="nav_item_login">Saioa hasi Wikipedian</string>
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
   <string name="login_password_show_check">Pasahitza erakutsi</string>

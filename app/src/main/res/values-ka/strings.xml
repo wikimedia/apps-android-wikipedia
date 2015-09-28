@@ -39,7 +39,7 @@
   <string name="nav_item_nearby">სიახლოვეს</string>
   <string name="menu_update_nearby">განაახლე ახლომდებარე</string>
   <string name="nearby_empty_title">ახლომდებარე გვერდები ვერ მოიძებნა!</string>
-  <string name="nearby_empty_message">როდესაც შეიცვლი ადგილმდებარეობას, გადატვირთე ეს გვერდი, რათა გაიგო თუ რა ხდება ახალ გარემოში.</string>
+  <string name="nearby_empty_message" fuzzy="true">როდესაც შეიცვლი ადგილმდებარეობას, გადატვირთე ეს გვერდი, რათა გაიგო თუ რა ხდება ახალ გარემოში.</string>
   <string name="nearby_distance_in_meters">%d მ</string>
   <string name="nearby_distance_in_kilometers">%.2f კმ</string>
   <string name="nearby_distance_in_feet">%d ფტ</string>

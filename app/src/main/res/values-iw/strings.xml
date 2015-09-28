@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">בסביבה</string>
   <string name="menu_update_nearby">עדכון בסביבה</string>
   <string name="nearby_empty_title">אין דפים על דברים כאן בסביבה!</string>
-  <string name="nearby_empty_message">אחרי מעבר למקום אחר יש לנסות לרענן את הדף הזה כדי ללמוד עוד על דברים בסביבתך.</string>
+  <string name="nearby_empty_message" fuzzy="true">אחרי מעבר למקום אחר יש לנסות לרענן את הדף הזה כדי ללמוד עוד על דברים בסביבתך.</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_distance_in_feet">%d רגל</string>

@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Yakınındakiler</string>
   <string name="menu_update_nearby">Yakınındakileri güncelle</string>
   <string name="nearby_empty_title">Yakınında sayfa yok!</string>
-  <string name="nearby_empty_message">Yeni bir konuma geçtiğinizde etrafınızdakiler hakkında bilgi almak için bu sayfayı yenilemeyi deneyin.</string>
+  <string name="nearby_empty_message" fuzzy="true">Yeni bir konuma geçtiğinizde etrafınızdakiler hakkında bilgi almak için bu sayfayı yenilemeyi deneyin.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d fit</string>

@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">സമീപസ്ഥം</string>
   <string name="menu_update_nearby">സമീപസ്ഥമുള്ളവ പുതുക്കുക</string>
   <string name="nearby_empty_title">സമീപസ്ഥ കാര്യങ്ങളെക്കുറിച്ച് താളുകളൊന്നുമില്ല!</string>
-  <string name="nearby_empty_message">പുതിയ സ്ഥലത്തേക്ക് താങ്കൾ പോവുകയാണെങ്കിൽ, താങ്കളുടെ അടുത്തുള്ള കാര്യങ്ങൾ എന്തൊക്കെയാണെന്ന് പഠിക്കാൻ താൾ പുതുക്കുക.</string>
+  <string name="nearby_empty_message" fuzzy="true">പുതിയ സ്ഥലത്തേക്ക് താങ്കൾ പോവുകയാണെങ്കിൽ, താങ്കളുടെ അടുത്തുള്ള കാര്യങ്ങൾ എന്തൊക്കെയാണെന്ന് പഠിക്കാൻ താൾ പുതുക്കുക.</string>
   <string name="nearby_distance_in_meters">%d മീ</string>
   <string name="nearby_distance_in_kilometers">%.2f കി.മീ.</string>
   <string name="nearby_distance_in_feet">%d അടി</string>

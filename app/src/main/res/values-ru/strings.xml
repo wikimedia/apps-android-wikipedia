@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Поблизости</string>
   <string name="menu_update_nearby">Обновление мест поблизости</string>
   <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
-  <string name="nearby_empty_message">После перемещения в новое место попробуйте обновить эту страницу, чтобы узнать больше о том, что можно найти вокруг вас.</string>
+  <string name="nearby_empty_message" fuzzy="true">После перемещения в новое место попробуйте обновить эту страницу, чтобы узнать больше о том, что можно найти вокруг вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d футов</string>

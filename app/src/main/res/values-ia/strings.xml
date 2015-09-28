@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">A proximitate</string>
   <string name="menu_update_nearby">Actualisar a proximitate</string>
   <string name="nearby_empty_title">Sin paginas a proximitate ci!</string>
-  <string name="nearby_empty_message">Quando tu te displacia a un nove position, proba a actualisar iste pagina pro saper plus sur lo que es circa te</string>
+  <string name="nearby_empty_message" fuzzy="true">Quando tu te displacia a un nove position, proba a actualisar iste pagina pro saper plus sur lo que es circa te</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

@@ -40,7 +40,7 @@
   <string name="nav_item_nearby">Yn ogas</string>
   <string name="menu_update_nearby">Nowedhi an re ogas</string>
   <string name="nearby_empty_title">Nyns eus folennow ogas omma!</string>
-  <string name="nearby_empty_message">Pan wayewgh dhe dyller nowydh, assayewgh daskarga an folen ma rag dyski moy a-dro dhe\'n pyth usi a-dro dhywgh.</string>
+  <string name="nearby_empty_message" fuzzy="true">Pan wayewgh dhe dyller nowydh, assayewgh daskarga an folen ma rag dyski moy a-dro dhe\'n pyth usi a-dro dhywgh.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

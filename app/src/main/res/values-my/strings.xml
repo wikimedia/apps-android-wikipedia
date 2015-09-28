@@ -38,7 +38,7 @@
   <string name="nav_item_nearby">အနီးအနား</string>
   <string name="menu_update_nearby">အနီးအနားအား အသစ်ရယူ</string>
   <string name="nearby_empty_title">အနီးအနားတွင် စာမျက်နှာများမရှိ!</string>
-  <string name="nearby_empty_message">တည်နေရာအသစ်သို့ ရောက်သွားတိုင်း ယခုစာမျက်နှာကို အသစ်ပြန်ဆွဲကြည့်ပြီး ပတ်ဝန်းကျင် အကြောင်း စူးစမ်းပါ</string>
+  <string name="nearby_empty_message" fuzzy="true">တည်နေရာအသစ်သို့ ရောက်သွားတိုင်း ယခုစာမျက်နှာကို အသစ်ပြန်ဆွဲကြည့်ပြီး ပတ်ဝန်းကျင် အကြောင်း စူးစမ်းပါ</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

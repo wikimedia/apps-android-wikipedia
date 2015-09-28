@@ -42,7 +42,7 @@
   <string name="nav_item_nearby">Ĉirkaŭe</string>
   <string name="menu_update_nearby">Ĝisdatigi ĉirkaŭaĵojn</string>
   <string name="nearby_empty_title">Neniu paĝo ĉirkaŭ ĉi tie!</string>
-  <string name="nearby_empty_message">Kiam vi movu al nova loko, provu reŝarĝi ĉi tiun paĝon por lerni pli pri kio estas ĉirkaŭ vi.</string>
+  <string name="nearby_empty_message" fuzzy="true">Kiam vi movu al nova loko, provu reŝarĝi ĉi tiun paĝon por lerni pli pri kio estas ĉirkaŭ vi.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d futoj</string>

@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Tostik</string>
   <string name="menu_update_nearby">Hizivaat an elfennoù nes</string>
   <string name="nearby_empty_title">Pajenn dost ebet amañ !</string>
-  <string name="nearby_empty_message">Pa vezit o tilec\'hiañ war-zu ul lec\'hiadur nevez, klaskit freskaat ar bajenn-mañ evit gouzout hiroc\'h diwar-benn ar pezh zo tro-dro deoc\'h.</string>
+  <string name="nearby_empty_message" fuzzy="true">Pa vezit o tilec\'hiañ war-zu ul lec\'hiadur nevez, klaskit freskaat ar bajenn-mañ evit gouzout hiroc\'h diwar-benn ar pezh zo tro-dro deoc\'h.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="menu_update_nearby">Aggiorna nelle vicinanze</string>
   <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>
-  <string name="nearby_empty_message">Quando ti sposti in una nuova posizione, prova ad aggiornare questa pagina per saperne di più su ciò che c\'è vicino a te.</string>
+  <string name="nearby_empty_message" fuzzy="true">Quando ti sposti in una nuova posizione, prova ad aggiornare questa pagina per saperne di più su ciò che c\'è vicino a te.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

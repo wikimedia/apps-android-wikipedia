@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">發生錯誤時你在做什麼？</string>
   <string name="search_hint">在維基百科內搜尋</string>
   <string name="nav_item_history">歷史</string>
-  <string name="error_network_error" fuzzy="true">無法與網際網路連線。</string>
+  <string name="error_network_error">無法與網際網路連線。</string>
   <string name="search_network_error">網路錯誤。輕觸重試。</string>
   <string name="generic_page_error">在處理您的請求時出現問題。</string>
   <string name="status_code_unavailable">無法使用伺服器狀態碼</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">附近</string>
   <string name="menu_update_nearby">更新附近</string>
   <string name="nearby_empty_title">此處附近無頁面！</string>
-  <string name="nearby_empty_message">當您到一個新地點時，請嘗試重新整理此頁面以瞭解您周圍的更多事物。</string>
+  <string name="nearby_empty_message" fuzzy="true">當您到一個新地點時，請嘗試重新整理此頁面以瞭解您周圍的更多事物。</string>
   <string name="nearby_distance_in_meters">%d 公尺</string>
   <string name="nearby_distance_in_kilometers">%.2f 公里</string>
   <string name="nearby_distance_in_feet">%d 呎</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">輸入驗證碼</string>
   <string name="edit_section_captcha_reload">輕觸驗証碼以重新整理</string>
   <string name="edit_saved_page_refresh">此儲存的頁面可能是過時的，必須進行重新整理以開啟編輯。您想重新整理頁面嗎？</string>
-  <string name="nav_item_login" fuzzy="true">登入</string>
+  <string name="nav_item_login">登入至維基百科</string>
   <string name="login_username_hint">使用者名稱</string>
   <string name="login_password_hint">密碼</string>
   <string name="login_password_show_check">顯示密碼</string>
@@ -247,7 +247,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">輕觸下載</string>
   <string name="dialog_close_description">關閉</string>
   <string name="preference_title_show_images">顯示圖片</string>
-  <string name="preference_summary_show_images" fuzzy="true">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的資料流量計劃受限制，則取消選擇本設定。</string>
+  <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的資料流量計劃受限制，則取消選擇本設定。</string>
   <string name="read_more_section">閱讀更多</string>
   <string name="read_next_section">閱讀下一篇</string>
   <string name="menu_gallery_visit_page">前往檔案頁面</string>

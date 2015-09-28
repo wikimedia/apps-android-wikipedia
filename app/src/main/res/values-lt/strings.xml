@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Šalia</string>
   <string name="menu_update_nearby">Atnaujinti tai, kas šalia</string>
   <string name="nearby_empty_title">Nėra puslapių šalia!</string>
-  <string name="nearby_empty_message">Kai persikeliate į naują vietą, pabandykite atnaujinti šį puslapį, kad sužinotumėte daugiau apie tai, kas yra aplink Jus.</string>
+  <string name="nearby_empty_message" fuzzy="true">Kai persikeliate į naują vietą, pabandykite atnaujinti šį puslapį, kad sužinotumėte daugiau apie tai, kas yra aplink Jus.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pėdų</string>
@@ -82,7 +82,7 @@
   <string name="edit_section_captcha_hint">Pakartoti žodžius iš viršaus</string>
   <string name="title_captcha">Įveskite saugos kodą</string>
   <string name="edit_section_captcha_reload">Bakstelėkite CAPTCHA, kad atnaujinti</string>
-  <string name="nav_item_login" fuzzy="true">Prisijungti</string>
+  <string name="nav_item_login">Prisijunkite prie Vikipedijos</string>
   <string name="login_username_hint">Naudotojo vardas</string>
   <string name="login_password_hint">Slaptažodis</string>
   <string name="login_password_show_check">Rodyti slaptažodį</string>

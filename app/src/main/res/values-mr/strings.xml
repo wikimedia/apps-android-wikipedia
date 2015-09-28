@@ -36,7 +36,7 @@
   <string name="nav_item_nearby">जवळपास</string>
   <string name="menu_update_nearby">जवळपास अद्ययावत</string>
   <string name="nearby_empty_title">जवळपासची पाने नाहीत!</string>
-  <string name="nearby_empty_message">जेव्हा तुम्ही नवीन ठिकाणी जाल, तेव्हा हे परत अद्ययावत करुन तुमच्या जवळपास काय आहे ते शोधा.</string>
+  <string name="nearby_empty_message" fuzzy="true">जेव्हा तुम्ही नवीन ठिकाणी जाल, तेव्हा हे परत अद्ययावत करुन तुमच्या जवळपास काय आहे ते शोधा.</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_distance_in_feet">%d फिट</string>

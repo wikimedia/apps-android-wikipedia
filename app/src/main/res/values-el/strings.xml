@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">Κοντινά</string>
   <string name="menu_update_nearby">Ενημέρωση κοντινών</string>
   <string name="nearby_empty_title">Δεν υπάρχουν κοντινές σελίδες εδώ!</string>
-  <string name="nearby_empty_message">Όταν μετακινείστε σε μια νέα θέση, δοκιμάστε να ανανεώσετε αυτή τη σελίδα για να μάθετε περισσότερα σχετικά με το τι είναι γύρω σας.</string>
+  <string name="nearby_empty_message" fuzzy="true">Όταν μετακινείστε σε μια νέα θέση, δοκιμάστε να ανανεώσετε αυτή τη σελίδα για να μάθετε περισσότερα σχετικά με το τι είναι γύρω σας.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f χιλιόμετρα</string>
   <string name="nearby_distance_in_feet">%d ft</string>

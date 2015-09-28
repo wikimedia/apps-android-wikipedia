@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Lân cận</string>
   <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
   <string name="nearby_empty_title">Không có trang nào gần đây!</string>
-  <string name="nearby_empty_message">Khi nào bạn di chuyển đến một vị trí mới, hãy thử làm mới trang này để tìm hiểu về những gì nằm chung quanh bạn.</string>
+  <string name="nearby_empty_message" fuzzy="true">Khi nào bạn di chuyển đến một vị trí mới, hãy thử làm mới trang này để tìm hiểu về những gì nằm chung quanh bạn.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d foot</string>

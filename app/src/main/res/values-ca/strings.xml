@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">A prop</string>
   <string name="menu_update_nearby">Actualitzar els elements que són a prop</string>
   <string name="nearby_empty_title">Cap pàgina propera des d\'aquí!</string>
-  <string name="nearby_empty_message">Quan us mogueu a una ubicació nova, proveu de refrescar la pàgina per saber què hi ha al voltant.</string>
+  <string name="nearby_empty_message" fuzzy="true">Quan us mogueu a una ubicació nova, proveu de refrescar la pàgina per saber què hi ha al voltant.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d peus</string>

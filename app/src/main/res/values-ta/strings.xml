@@ -41,7 +41,7 @@
   <string name="nav_item_nearby">அருகில்</string>
   <string name="menu_update_nearby">அருகிலுள்ளவற்றை புதுப்பி</string>
   <string name="nearby_empty_title">அருகாமையில் பக்கங்கள் ஏதுமில்லை.</string>
-  <string name="nearby_empty_message">புதிய இடத்திற்குச் செல்லும் போது, அருகிலுள்ளவற்றைப் பற்றி அறிந்துகொள்ள இப்பக்கத்தினைப் புதுப்பிக்கவும்.</string>
+  <string name="nearby_empty_message" fuzzy="true">புதிய இடத்திற்குச் செல்லும் போது, அருகிலுள்ளவற்றைப் பற்றி அறிந்துகொள்ள இப்பக்கத்தினைப் புதுப்பிக்கவும்.</string>
   <string name="nearby_distance_in_meters">%d மீ</string>
   <string name="nearby_distance_in_kilometers">%.2f கி. மீ.</string>
   <string name="nearby_distance_in_feet">%d அடி</string>

@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">దగ్గరలో</string>
   <string name="menu_update_nearby">\"దగ్గరలో\" సమాచారం తాజాపరచు</string>
   <string name="nearby_empty_title">దగ్గరలో ఏ పేజీలు లేవు!</string>
-  <string name="nearby_empty_message">మీరు కొత్త ప్రదేశానికి వెళ్తే, మీ చుట్టూ ఉన్న విషయాల గురించి మరింత తెలుసుకోవటానికి ఈ పేజీని తాజాపరిచండి.</string>
+  <string name="nearby_empty_message" fuzzy="true">మీరు కొత్త ప్రదేశానికి వెళ్తే, మీ చుట్టూ ఉన్న విషయాల గురించి మరింత తెలుసుకోవటానికి ఈ పేజీని తాజాపరిచండి.</string>
   <string name="nearby_distance_in_meters">%d మీటర్లు</string>
   <string name="nearby_distance_in_kilometers">%.2f కిలోమీటర్లు</string>
   <string name="nearby_distance_in_feet">%d అడుగులు</string>

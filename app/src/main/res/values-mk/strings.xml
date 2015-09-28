@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Што правевте кога се случи урнувањето?</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="nav_item_history">Историја</string>
-  <string name="error_network_error" fuzzy="true">Не можам да се поврзам со семрежјето.</string>
+  <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
   <string name="generic_page_error">Се јави проблем при работа со вашето барање.</string>
   <string name="status_code_unavailable">Кодот за статусот на опслужувачот е недостапен.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Во близина</string>
   <string name="menu_update_nearby">Поднови „во близина“</string>
   <string name="nearby_empty_title">Тука нема страници во близина!</string>
-  <string name="nearby_empty_message">Кога ќе ќе отидете на друго место, превчитајте ја страницата за да дознаете што сè има околу вас.</string>
+  <string name="nearby_empty_message" fuzzy="true">Кога ќе ќе отидете на друго место, превчитајте ја страницата за да дознаете што сè има околу вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d стапки</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Внесете го одговорот на сликичката</string>
   <string name="edit_section_captcha_reload">Допрете за да ја превчитате сликичката</string>
   <string name="edit_saved_page_refresh">Зачуваната страница може да е застарена и мора да се превчита за да се овозможи уредувањето. Дали сакате да ја превчитате?</string>
-  <string name="nav_item_login" fuzzy="true">Најавете се</string>
+  <string name="nav_item_login">Најава на Википедија</string>
   <string name="login_username_hint">Корисничко име</string>
   <string name="login_password_hint">Лозинка</string>
   <string name="login_password_show_check">Прикажи лозинка</string>
@@ -247,7 +247,7 @@
   <string name="alpha_update_notification_text">Допрете за да ја симнете</string>
   <string name="dialog_close_description">Затвори</string>
   <string name="preference_title_show_images">Прикажувај слики</string>
-  <string name="preference_summary_show_images" fuzzy="true">Овозможи или оневозможи вчитување на слики во страниците. Отштиклирајте ја поставкава ако сегашната семрежна врска ви е бавна, или пак ако имате ограничен податочен пакет.</string>
+  <string name="preference_summary_show_images">Овозможи или оневозможи вчитување на слики во страниците. Отштиклирајте ја поставкава ако сегашната семрежна врска ви е бавна, или пак ако имате ограничен податочен пакет.</string>
   <string name="read_more_section">Прочитајте повеќе</string>
   <string name="read_next_section">Прочитај следно</string>
   <string name="menu_gallery_visit_page">Оди на податотечната страница</string>

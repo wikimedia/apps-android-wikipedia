@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">Kalapit</string>
   <string name="menu_update_nearby">I-update ang kalapit</string>
   <string name="nearby_empty_title">Walang kalapit na pahina rito!</string>
-  <string name="nearby_empty_message">Kapag pumunta ka sa bagong lokasyon, subukang i-refresh ang pahinang ito upang malaman pa ang kung ano pa ang nakapalibot sa iyo.</string>
+  <string name="nearby_empty_message" fuzzy="true">Kapag pumunta ka sa bagong lokasyon, subukang i-refresh ang pahinang ito upang malaman pa ang kung ano pa ang nakapalibot sa iyo.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

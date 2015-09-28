@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">¿Qué hacías cuando ocurrió el fallo?</string>
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="nav_item_history">Historial</string>
-  <string name="error_network_error" fuzzy="true">No se pudo conectar a Internet.</string>
+  <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="search_network_error">Error en la red. Toca para volver a intentarlo.</string>
   <string name="generic_page_error">Hubo un problema de manejo de Tu solicitud.</string>
   <string name="status_code_unavailable">El código de estado del servidor no está disponible.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Cercanos</string>
   <string name="menu_update_nearby">Actualizar cercanos</string>
   <string name="nearby_empty_title">¡No hay páginas cercanas aquí!</string>
-  <string name="nearby_empty_message">Cuando te muevas a una nueva ubicación prueba actualizar esta página para aprender más sobre lo que te rodea.</string>
+  <string name="nearby_empty_message" fuzzy="true">Cuando te muevas a una nueva ubicación prueba actualizar esta página para aprender más sobre lo que te rodea.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pies</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Escribe el CAPTCHA</string>
   <string name="edit_section_captcha_reload">Toca el CAPTCHA para recargar</string>
   <string name="edit_saved_page_refresh">Está página guardada puede estar obsoleta, y debe ser actualizada para habilitar la edición. ¿Quieres actualizar la página?</string>
-  <string name="nav_item_login" fuzzy="true">Acceder</string>
+  <string name="nav_item_login">Acceder a Wikipedia</string>
   <string name="login_username_hint">Nombre de usuario</string>
   <string name="login_password_hint">Contraseña</string>
   <string name="login_password_show_check">Mostrar la contraseña</string>
@@ -247,7 +247,7 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="alpha_update_notification_text">Pulsa para descargar</string>
   <string name="dialog_close_description">Cerrar</string>
   <string name="preference_title_show_images">Mostrar imágenes</string>
-  <string name="preference_summary_show_images" fuzzy="true">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de Internet es lenta, o si tu plan de datos es limitado.</string>
+  <string name="preference_summary_show_images">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de Internet es lenta, o si tu plan de datos es limitado.</string>
   <string name="read_more_section">Leer más</string>
   <string name="read_next_section">Leer el siguiente</string>
   <string name="menu_gallery_visit_page">Ir a la página del archivo</string>

@@ -42,7 +42,7 @@
   <string name="nav_item_nearby">ใกล้เคียง</string>
   <string name="menu_update_nearby">อัปเดตหน้าที่ใกล้เคียง</string>
   <string name="nearby_empty_title">ไม่มีหน้าที่ใกล้เคียงกับที่นี่</string>
-  <string name="nearby_empty_message">เมื่อคุณย้ายไปอยู่ตำแหน่งใหม่ ลองรีเฟรชหน้านี้เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับสิ่งที่อยู่รอบตัวคุณ</string>
+  <string name="nearby_empty_message" fuzzy="true">เมื่อคุณย้ายไปอยู่ตำแหน่งใหม่ ลองรีเฟรชหน้านี้เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับสิ่งที่อยู่รอบตัวคุณ</string>
   <string name="nearby_distance_in_meters">%d เมตร</string>
   <string name="nearby_distance_in_kilometers">%.2f กิโลเมตร</string>
   <string name="nearby_distance_in_feet">%d ฟุต</string>

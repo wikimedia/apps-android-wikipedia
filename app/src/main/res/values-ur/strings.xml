@@ -40,7 +40,7 @@
   <string name="nav_item_nearby">قریبی</string>
   <string name="menu_update_nearby">تجدید قریبی</string>
   <string name="nearby_empty_title">کوئی قریبی صفحہ نہیں ہے!</string>
-  <string name="nearby_empty_message">جب آپ کسی دوسری جگہ پر جائیں، تب یہ صفحہ ریفریش کریں اور جانیئے آپ کے اردگرد قریب کیا ہے.</string>
+  <string name="nearby_empty_message" fuzzy="true">جب آپ کسی دوسری جگہ پر جائیں، تب یہ صفحہ ریفریش کریں اور جانیئے آپ کے اردگرد قریب کیا ہے.</string>
   <string name="nearby_distance_in_meters">%d میٹر</string>
   <string name="nearby_distance_in_kilometers">%.2f کلومیٹر</string>
   <string name="nearby_distance_in_feet">%d فٹ</string>

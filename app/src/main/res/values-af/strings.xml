@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Naby</string>
   <string name="menu_update_nearby">Opdateer naby</string>
   <string name="nearby_empty_title">Geen nabye bladsye hier!</string>
-  <string name="nearby_empty_message">Wanneer u na \'n nuwe omgewing skuif, probeer dan hierdie bladsy herlaai om meer inligting te verkry oor wat rondom u is.</string>
+  <string name="nearby_empty_message" fuzzy="true">Wanneer u na \'n nuwe omgewing skuif, probeer dan hierdie bladsy herlaai om meer inligting te verkry oor wat rondom u is.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>

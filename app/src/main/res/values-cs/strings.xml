@@ -27,37 +27,48 @@
   <string name="share_via">Sdílet přes</string>
   <string name="dialog_title_clear_saved_pages">Vymazat všechny uložené stránky?</string>
   <string name="snackbar_saving_page">Ukládání stránky…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Stránka úspěšně uložena</string>
+  <string name="snackbar_saved_page_format">Stránka „%s“ byla uložena ke čtení offline</string>
   <string name="snackbar_saved_page_missing_images">Nepodařilo se uložit všechny obrázky</string>
   <string name="snackbar_refresh_saved_page">Aktualizace uložené stránky…</string>
   <string name="delete_selected_saved_pages">Vymazat</string>
   <string name="snackbar_saved_page_deleted">Uložené stránky vymazány</string>
   <string name="saved_pages_search_list_hint">Hledat uložené stránky</string>
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
+  <string name="menu_page_show_tabs">Ukázat záložky</string>
   <string name="menu_page_other_languages">Číst v jiných jazycích</string>
   <string name="menu_page_save">Uložit stránku</string>
   <string name="menu_page_share">Sdílet odkaz</string>
   <string name="menu_page_find_in_page">Najít na stránce</string>
   <string name="menu_page_font_and_theme">Změnit písmo a vzhled</string>
+  <string name="menu_long_press_open_page">Otevřít</string>
+  <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
+  <string name="menu_long_press_copy_page">Zkopírovat adresu odkazu</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="menu_update_nearby">Aktualizovat „poblíž“</string>
   <string name="nearby_empty_title">Žádné stránky poblíž!</string>
-  <string name="nearby_empty_message">Když se přesunete na nové místo, zkuste obnovit tuto stránku a dozvíte se více o tom, co je kolem vás.</string>
+  <string name="nearby_empty_message" fuzzy="true">Když se přesunete na nové místo, zkuste obnovit tuto stránku a dozvíte se více o tom, co je kolem vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="nearby_no_network">Bez připojení k síti</string>
   <string name="nearby_server_error">Nepodařilo se získat seznam blízkých míst.</string>
+  <string name="nearby_dialog_goto_settings">Informace o poloze nejsou ve vašem zařízení povoleny. Chcete přejít do nastavení svého zařízení a povolit údaje o poloze?</string>
   <string name="nearby_set_metric">Zobraz metry/km</string>
   <string name="nearby_set_imperial">Zobraz stopy/míle</string>
+  <string name="nearby_view_on_map">Zobrazit místo na mapě</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
+  <string name="edit_save_action_license_logged_in">Uložením souhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Uložením souhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budou přiřazeny IP adrese vašeho zařízení. Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
   <string name="preference_languages_filter_hint">Hledat</string>
+  <string name="preference_system_language_toggle">Použít systémový jazyk</string>
+  <string name="preference_system_language_summary">Jazyk systému</string>
   <string name="langlinks_filter_hint">Hledat</string>
   <string name="langlinks_error_retry">Zkusit znovu</string>
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích</string>
+  <string name="langlinks_no_match">Nenalezeny žádné jazyky odpovídající vašemu dotazu.</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>
   <string name="menu_save_changes">Uložit změny</string>
   <string name="edit_section_error_retry">Zkusit znovu</string>
@@ -76,7 +87,7 @@
   <string name="title_captcha">Zadejte captcha</string>
   <string name="edit_section_captcha_reload">Klepnutím načtete captcha znovu</string>
   <string name="edit_saved_page_refresh">Tato uložená stránka může být zastaralá a pro umožnění editace je potřeba ji aktualizovat. Chcete stránku aktualizovat?</string>
-  <string name="nav_item_login" fuzzy="true">Přihlásit se</string>
+  <string name="nav_item_login">Přihlásit se do Wikipedie</string>
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="login_password_show_check">Zobrazovat heslo</string>
@@ -96,8 +107,9 @@
   <string name="preference_summary_notloggedin">Nepřihlášen(a).</string>
   <string name="toast_logout_complete">Odhlášeno</string>
   <string name="saved_pages_empty_title">Nejsou zde žádné uložené stránky!</string>
-  <string name="saved_pages_empty_message" fuzzy="true">Žádné uložené stránky</string>
-  <string name="history_empty_message" fuzzy="true">Vaše historie je prázdná.</string>
+  <string name="saved_pages_empty_message">Uložené stránky jsou super. Používejte je jako záložky, které si můžete číst, i když jste offline.</string>
+  <string name="history_empty_title">Nejsou zde žádné nedávné stránky!</string>
+  <string name="history_empty_message">Pravděpodobně jste je všechny smazali. Až příště navštívíte nějakou stránku, budete se k ní moct vrátit odsud.</string>
   <string name="delete_selected_history">Smazat</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
@@ -113,6 +125,7 @@
   <string name="create_account_username_exists_error">Uživatelské jméno se již používá</string>
   <string name="create_account_ip_throttle_error">Z této IP adresy bylo založeno příliš mnoho účtů. Zkuste to znovu později.</string>
   <string name="create_account_open_proxy_error">Této IP adrese bylo zablokováno vytváření účtů.</string>
+  <string name="create_account_noname_error">Zadané uživatelské jméno je neplatné. Prosím, zadejte jiné uživatelské jméno.</string>
   <string name="create_account_invalid_email_error">E-mailová adresa, kterou jste uvedli, je neplatná.</string>
   <string name="create_account_password_too_short_error">Heslo, které jste uvedli, je příliš krátké.</string>
   <string name="create_account_blocked_anon_error">Nemůžete vytvořit účet, protože je vaše IP adresa zablokována.</string>
@@ -123,6 +136,7 @@
   <string name="create_account_next">Další</string>
   <string name="create_account_button">Vytvořit účet</string>
   <string name="preferences_general_heading">Obecné</string>
+  <string name="wikipedia_app_faq">FAQ aplikace Wikipedie</string>
   <string name="zero_charged_verbiage">Wikipedia Zero je vypnuto</string>
   <string name="zero_charged_verbiage_extended">Načtením jiných článků mohou být účtovány poplatky za přenos dat.</string>
   <string name="zero_search_hint">Hledání ve Wikipedia Zero</string>
@@ -189,6 +203,10 @@
   <string name="menu_refresh_saved_page">Obnovit stránku</string>
   <string name="abusefilter_title_warn">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete uložit?</string>
   <string name="abusefilter_title_disallow">Tuto editaci nemůžete uložit. Prosím, vraťte se zpět a změnte ji.</string>
+  <string name="abusefilter_text_warn">Automatický filtr identifikoval tuto editaci jako potenciálně nekonstruktivní. Mohla obsahovat něco z:&lt;br /&gt;&lt;br /&gt;· Text pouze velkými písmeny&lt;br /&gt;· Mazání obsahu nebo spam&lt;br /&gt;· Nerelevantní externí odkazy nebo obrázky&lt;br /&gt;· Opakované znaky</string>
+  <string name="abusefilter_text_disallow">Automatický filtr identifikoval tuto editaci jako potenciálně nekonstruktivní nebo možný vandalismus.&lt;br /&gt;&lt;br /&gt;Wikipedie je encyklopedie, do které patří pouze neutrální, významný obsah.</string>
+  <string name="dialog_page_issues">Nedostatky stránky</string>
+  <string name="button_page_issues">Nedostatky stránky</string>
   <string name="text_size_select">Velikost písma</string>
   <string name="color_theme_select">Vzhled</string>
   <string name="color_theme_light">Světlý</string>
@@ -202,25 +220,36 @@
   <string name="table_infobox">Stručné informace</string>
   <string name="table_other">Více informací</string>
   <string name="table_close">Zavřít</string>
+  <string name="widget_name_featured_page">Doporučený článek na Wikipedii</string>
+  <string name="widget_title_featured_page">Dnešní doporučený článek:</string>
   <string name="widget_name_search">Vyhledávání na Wikipedii</string>
-  <string name="app_store_description" fuzzy="true">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
+  <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
 
 Funkce:
-   - Rychlost: Naše nová nativní aplikace vám umožňuje prohlížet si a editovat Wikipedii rychleji než kdy dřív.
-   - Editace: Wikipedii můžete editovat! Přihlášeni či nepřihlášeni, děkujeme za všechny vaše příspěvky.
-   - Nedávné stránky: Nabízíme historii vaší četby, takže můžete proklikávat libovolným množstvím odkazů, aniž byste se někdy ztratili.
-   - Uložené stránky: Můžete si uložit vybrané stránky ke čtení offline a číst si je i bez datového připojení.
-   - Sdílení: Sdílejte sumu lidských znalostí pomocí svých existujících aplikací sociálních sítí.
-   - Podpora jazyků: Aplikace vám umožňuje snadno přecházet mezi čtením Wikipedie v různých jazycích.
-   - Wikipedia Zero: Bezplatné datové připojení od účastnících se mobilních operátorů.
+- Úvodní obrázky: zažijte Wikipedii jako nikdy předtím díky prominentnímu, s obsahem souvisejícímu obrázku a popisku na začátku článku
+- Galerie obrázků: klepnutím na obrázek ho zobrazíte na celou obrazovku ve vysokém rozlišení s možností přejíždění vlevo/vpravo na další obrázky
+- Popisky z Wikidat: při vyhledávání obsahuje každý výsledek krátky popisek, který pomáhá třídit výsledky. Tyto popisky se zobrazují i na jiných místech aplikace jako např. Poblíž
+- Návrhy článků: sjeďte dolů na konec článku a prohlédněte si návrhy toho, co si můžete přečíst jako další
+- Uložené stránky: uložte si vybrané stránky k offline čtení a prohlížejte si je, i když nemáte datové připojení
+- Poblíž: zjistěte více o tom, co je poblíž vás, díky odkazům na články o objektech, které se nacházejí ve vašem okolí
+- Podpora jazyků: hladce přejděte na čtení Wikipedie psané v jakémkoliv jazyce
+- Obsah: přejeďte v jakémkoliv článku doleva a odkryjte obsah, který vám umožní rychle přejít na sekci článku
+- Wikipedia Zero: mobilní operátoři se zřekl datových popltaků
 
-Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, můžete forkovat! https://github.com/wikimedia/apps-android-wikipedia</string>
+Pošlete nám zpětnou vazbu o aplikaci! V menu vyberte „Více“, poté „O aplikaci Wikipedie“ a nakonec „Poslát názor na aplikaci“.
+
+Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, těšíme se na vaše příspěvky ! https://github.com/wikimedia/apps-android-wikipedia
+
+Ochrana osobních údajů: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Je dostupná nová aktualizace alfaverze</string>
   <string name="alpha_update_notification_text">Klepnutím ji stáhnete</string>
   <string name="dialog_close_description">Zavřít</string>
   <string name="preference_title_show_images">Zobrazovat obrázky</string>
-  <string name="preference_summary_show_images" fuzzy="true">Povolit nebo zakázat nahrávání obrázků na jednotlivých stránkách. Máte-li pomalé připojení k internetu nebo omezený datový limit, odškrtněte toto nastavení.</string>
+  <string name="preference_summary_show_images">Povolit nebo zakázat načítání obrázků na jednotlivých stránkách. Máte-li pomalé připojení k Internetu nebo omezený datový limit, odškrtněte toto nastavení.</string>
   <string name="read_more_section">Číst dál</string>
+  <string name="read_next_section">Číst dále</string>
   <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
   <string name="gallery_error_draw_failed">Nepodařilo se vykreslit obrázek.</string>
   <string name="license_title">Text licence ke knihovně %s</string>
@@ -230,9 +259,29 @@ Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu,
   <string name="gallery_save_error">Není možno uložit obrázek: %s</string>
   <string name="gallery_save_error_mediastore">Nepodařilo se importovat obrázek do sbírky médií</string>
   <string name="gallery_save_success">Obrázek úspěšně uložen.</string>
+  <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
+  <string name="snippet_share_intro">„%1$s“ na @Wikipedia: %2$s</string>
+  <string name="expand_refs">Klepnutím rozbalte</string>
   <string name="share_snippet_button">Sdílet jako obrázek</string>
   <string name="share_normal_button">Sdílet jako text</string>
   <string name="snippet_share_preview_image_desc">Náhled obrázku</string>
+  <string name="cc_logo">Licence Creative Commons</string>
+  <string name="captcha_image">Obrázek Captcha</string>
+  <string name="gallery_fair_use_license">Fair use</string>
+  <string name="gallery_uploader_unknown">Původce neznámý</string>
   <string name="edit_save_unknown_error">Nelze uložit vaše úpravy: %s</string>
+  <string name="menu_new_tab">Nová záložka</string>
+  <string name="button_close_tab">Zavřít záložku</string>
+  <string name="tool_tip_select_text">Stiskněte a podržte kdekoliv, čímž zvýrazníte text ke kopírování a sdílení.</string>
+  <string name="tool_tip_share">Po zvýraznění zajímavého faktu jej zkuste sdílet na své oblíbené síti!</string>
+  <string name="page_view_in_browser">Zobrazit v prohlížeči</string>
+  <string name="tool_tip_toc_button">Obsah zobrazte kdykoliv klepnutím na toto tlačítko nebo přejetím přes právý okraj obrazovky.</string>
+  <string name="error_server_response">Server nemohl dokončit žádost.</string>
+  <string name="error_response_malformed">Odpověď serveru nebyl správně zformátována.</string>
+  <string name="error_unknown">Došlo k neznámé chybě.</string>
+  <string name="format_error_server_message">Zpráva: „%s“</string>
+  <string name="format_error_server_code">Kód: „%s“</string>
+  <string name="address_copied">Adresu zkopírována do schránky.</string>
+  <string name="button_continue_to_article">Pokračovat na článek</string>
 </resources>

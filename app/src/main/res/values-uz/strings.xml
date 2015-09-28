@@ -40,7 +40,7 @@
   <string name="nav_item_nearby">Yaqin atrofda</string>
   <string name="menu_update_nearby">Yaqin atrofni yangilash</string>
   <string name="nearby_empty_title">Yaqin atrof bilan bog‘liq sahifalar topilmadi!</string>
-  <string name="nearby_empty_message">Ko‘chib o‘tganingizda atrofingiz haqida o‘rganish uchun ushbu sahifani yangilab ko‘ring.</string>
+  <string name="nearby_empty_message" fuzzy="true">Ko‘chib o‘tganingizda atrofingiz haqida o‘rganish uchun ushbu sahifani yangilab ko‘ring.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

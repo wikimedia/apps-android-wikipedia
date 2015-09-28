@@ -40,7 +40,7 @@
   <string name="nav_item_nearby">ជិតខាង</string>
   <string name="menu_update_nearby">បន្ទាន់សម័យទំព័រជិតខាង</string>
   <string name="nearby_empty_title">គ្មានទំព័រជិតខាងនៅទីនេះទេ!</string>
-  <string name="nearby_empty_message">នៅពេលដែលអ្នកប្ដូរទីតាំងទៅកន្លែងថ្មី សូមសាកល្បងផ្ទុកទំព័រនេះជាថ្មីដើម្បីរកមើលអ្វីដែលនៅជុំវិញអ្នក។</string>
+  <string name="nearby_empty_message" fuzzy="true">នៅពេលដែលអ្នកប្ដូរទីតាំងទៅកន្លែងថ្មី សូមសាកល្បងផ្ទុកទំព័រនេះជាថ្មីដើម្បីរកមើលអ្វីដែលនៅជុំវិញអ្នក។</string>
   <string name="nearby_distance_in_meters">%d ម</string>
   <string name="nearby_distance_in_kilometers">%.2f គ.ម</string>
   <string name="nearby_distance_in_feet">%d ហ្វីដ</string>

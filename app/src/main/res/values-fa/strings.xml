@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">در نزدیکی</string>
   <string name="menu_update_nearby">به‌روزرسانی درنزدیکی</string>
   <string name="nearby_empty_title">صفحه‌ای در نزدیکی یافت نشد!</string>
-  <string name="nearby_empty_message">زمانی که به مکان جدیدی می‌روید این صفحه را از نو تازه کنید تا دربارهٔ چیزهایی که اطرافتان هست اطلاع کسب کنید.</string>
+  <string name="nearby_empty_message" fuzzy="true">زمانی که به مکان جدیدی می‌روید این صفحه را از نو تازه کنید تا دربارهٔ چیزهایی که اطرافتان هست اطلاع کسب کنید.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

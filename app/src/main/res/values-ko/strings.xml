@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">근처</string>
   <string name="menu_update_nearby">근처 업데이트</string>
   <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>
-  <string name="nearby_empty_message">새 위치로 움직일 때, 주위에 무엇이 있는지 자세히 알아 보려면 이 문서를 새로 고치세요.</string>
+  <string name="nearby_empty_message" fuzzy="true">새 위치로 움직일 때, 주위에 무엇이 있는지 자세히 알아 보려면 이 문서를 새로 고치세요.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

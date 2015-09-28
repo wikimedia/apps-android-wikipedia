@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Que faisiez-vous lorsque le plantage s’est produit ?</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
   <string name="nav_item_history">Historique</string>
-  <string name="error_network_error" fuzzy="true">Impossible de se connecter à Internet.</string>
+  <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="search_network_error">Erreur de réseau. Appuyez pour réessayer.</string>
   <string name="generic_page_error">Il y a eu un problème lors du traitement de votre demande.</string>
   <string name="status_code_unavailable">Code d’état du serveur non disponible.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">À proximité</string>
   <string name="menu_update_nearby">Mise à jour des éléments à proximité</string>
   <string name="nearby_empty_title">Aucune page à proximité ici !</string>
-  <string name="nearby_empty_message">Quand vous vous déplacez vers un nouvel emplacement, essayez de rafraîchir cette page pour en savoir plus sur ce qui vous entoure.</string>
+  <string name="nearby_empty_message" fuzzy="true">Quand vous vous déplacez vers un nouvel emplacement, essayez de rafraîchir cette page pour en savoir plus sur ce qui vous entoure.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pieds</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Entrer le captcha</string>
   <string name="edit_section_captcha_reload">Taper le captcha pour recharger</string>
   <string name="edit_saved_page_refresh">Cette page enregistrée peut être obsolète et doit être rafraîchie pour activer sa modification. Voulez-vous rafraîchir la page ?</string>
-  <string name="nav_item_login" fuzzy="true">Connexion</string>
+  <string name="nav_item_login">Connexion à Wikipédia</string>
   <string name="login_username_hint">Nom d’utilisateur</string>
   <string name="login_password_hint">Mot de passe</string>
   <string name="login_password_show_check">Afficher le mot de passe</string>
@@ -247,7 +247,7 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="alpha_update_notification_text">Touchez pour télécharger</string>
   <string name="dialog_close_description">Fermer</string>
   <string name="preference_title_show_images">Voir les images</string>
-  <string name="preference_summary_show_images" fuzzy="true">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à internet est lente, ou si votre volume de données est limité.</string>
+  <string name="preference_summary_show_images">Activer ou désactiver le chargement des images dans les pages. Décochez ce paramètre si votre connexion à Internet est lente, ou si votre volume de données est limité.</string>
   <string name="read_more_section">En savoir plus</string>
   <string name="read_next_section">Lire le suivant</string>
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>

@@ -39,7 +39,7 @@
   <string name="nav_item_nearby">निकट</string>
   <string name="menu_update_nearby">\"निकट\" रिफ़्रेश करें</string>
   <string name="nearby_empty_title">कोई निकट पृष्ठ नहीं!</string>
-  <string name="nearby_empty_message">किसी नए स्थान पर जाने पर अपने आस-पास के बारे में जानने के लिए इस पृष्ठ को रिफ़्रेश करें।</string>
+  <string name="nearby_empty_message" fuzzy="true">किसी नए स्थान पर जाने पर अपने आस-पास के बारे में जानने के लिए इस पृष्ठ को रिफ़्रेश करें।</string>
   <string name="nearby_distance_in_meters">%d मी॰</string>
   <string name="nearby_distance_in_kilometers">%.2f किमी</string>
   <string name="nearby_distance_in_feet">%d फ़ुट</string>

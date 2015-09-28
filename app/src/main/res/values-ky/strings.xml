@@ -40,7 +40,7 @@
   <string name="nav_item_nearby">Жакынкы</string>
   <string name="menu_update_nearby">Жакынкы жерлерди жаңылоо</string>
   <string name="nearby_empty_title">Жакынкы жерлердеги объекттер жөнүндө барактар жок!</string>
-  <string name="nearby_empty_message">Сиз башка жерге жылгандан кийин, сиз жакта эмне бар экенин билүү үчүн бул баракты жаңылап көрүңүз.</string>
+  <string name="nearby_empty_message" fuzzy="true">Сиз башка жерге жылгандан кийин, сиз жакта эмне бар экенин билүү үчүн бул баракты жаңылап көрүңүз.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d фут</string>

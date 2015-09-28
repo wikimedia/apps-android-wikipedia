@@ -42,7 +42,7 @@
   <string name="nav_item_nearby">निकटे</string>
   <string name="menu_update_nearby">निकटवर्ति नवीक्रियताम्</string>
   <string name="nearby_empty_title">निकटवर्तिपृष्ठं न विद्यते !</string>
-  <string name="nearby_empty_message">कस्मिँश्चित् नवीने स्थाने प्राप्ते सति स्वं परितः विद्यमानस्य विषये ज्ञातुम् एतत् पृष्ठं प्रत्यवस्थापयतु ।</string>
+  <string name="nearby_empty_message" fuzzy="true">कस्मिँश्चित् नवीने स्थाने प्राप्ते सति स्वं परितः विद्यमानस्य विषये ज्ञातुम् एतत् पृष्ठं प्रत्यवस्थापयतु ।</string>
   <string name="nearby_distance_in_meters">%d मीटर्</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_distance_in_feet">%d फिट्</string>

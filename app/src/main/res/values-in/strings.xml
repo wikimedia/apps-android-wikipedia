@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Sekitar</string>
   <string name="menu_update_nearby">Perbarui sekitar</string>
   <string name="nearby_empty_title">Tidak ada halaman terdekat di sini!</string>
-  <string name="nearby_empty_message">Bila Anda pindah ke lokasi baru, coba menyegarkan halaman ini untuk mempelajari lebih lanjut tentang apa yang ada di sekitar Anda.</string>
+  <string name="nearby_empty_message" fuzzy="true">Bila Anda pindah ke lokasi baru, coba menyegarkan halaman ini untuk mempelajari lebih lanjut tentang apa yang ada di sekitar Anda.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d kaki</string>

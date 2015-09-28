@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">În apropiere</string>
   <string name="menu_update_nearby">Actualizează „În apropiere”</string>
   <string name="nearby_empty_title">Nicio pagină în apropiere aici!</string>
-  <string name="nearby_empty_message">Atunci când vă deplasați în alt loc, încercați să reîmprospătați această pagină pentru a afla mai multe despre ceea ce vă înconjoară.</string>
+  <string name="nearby_empty_message" fuzzy="true">Atunci când vă deplasați în alt loc, încercați să reîmprospătați această pagină pentru a afla mai multe despre ceea ce vă înconjoară.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d picioare</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Introducere captcha</string>
   <string name="edit_section_captcha_reload">Atingeți captcha pentru a reîncărca</string>
   <string name="edit_saved_page_refresh">Această pagină salvată ar putea fi neactualizată și trebuie reîncărcată pentru a activa modificarea sa. Doriți să reîncărcați pagina?</string>
-  <string name="nav_item_login" fuzzy="true">Autentificare</string>
+  <string name="nav_item_login">Autentificare la Wikipedia</string>
   <string name="login_username_hint">Nume de utilizator</string>
   <string name="login_password_hint">Parolă</string>
   <string name="login_password_show_check">Arată parola</string>
@@ -247,7 +247,7 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="alpha_update_notification_text">Atingeți pentru a descărca</string>
   <string name="dialog_close_description">Închide</string>
   <string name="preference_title_show_images">Afișează imaginile</string>
-  <string name="preference_summary_show_images" fuzzy="true">Activează sau dezactivează încărcarea imaginilor în pagini. Debifați această opțiune dacă aveți o conexiune la internet slabă sau dacă abonamentul dumneavoastră de date este limitat.</string>
+  <string name="preference_summary_show_images">Activează sau dezactivează încărcarea imaginilor în pagini. Debifați această opțiune dacă aveți o conexiune la internet slabă sau dacă abonamentul dumneavoastră de date este limitat.</string>
   <string name="read_more_section">Citiți mai multe</string>
   <string name="read_next_section">Următoarea lectură</string>
   <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>

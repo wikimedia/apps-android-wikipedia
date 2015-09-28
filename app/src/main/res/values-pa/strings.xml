@@ -10,8 +10,9 @@
   <string name="acra_report_dialog_comment">ਜਦੋਂ ਕਰੈਸ਼ ਹੋਇਆ ਤਾਂ ਤੁਸੀਂ ਕੀ ਕਰ ਰਹੇ ਸੀ?</string>
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
-  <string name="error_network_error" fuzzy="true">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>
+  <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>
   <string name="search_network_error">ਨੈੱਟਵਰਕ \'ਚ ਦੋਸ਼। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਵਾਸਤੇ ਟਕੋਰੋ।</string>
+  <string name="status_code_unavailable">ਸਰਵਰ ਸਥਿਤੀ ਕੋਡ ੳੁਪਲਬਧ ਨਹੀਂ ਹੈ</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="menu_clear_all_saved_pages">ਸੱਭ ਸੰਭਾਲੇ ਵਰਕੇ ਸਾਫ਼ ਕਰੋ</string>
@@ -25,22 +26,26 @@
   <string name="share_via">ਸਾਂਝੀਕਰਨ</string>
   <string name="dialog_title_clear_saved_pages">ਕੀ ਸੱਭ ਸੰਭਾਲੇ ਗਏ ਵਰਕੇ ਸਾਫ ਕਰਨੇ ਹਨ?</string>
   <string name="snackbar_saving_page">… ਵਰਕਾ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">ਵਰਕਾ ਸਫਲਤਾਪੂਰਵਕ ਸੰਭਾਲਿਆ ਗਿਆ</string>
+  <string name="snackbar_saved_page_format">\"%s\" ਅਾੱਫਲਾੲੀਨ ਪੜ੍ਹਨ ਲੲੀ ਸੰਭਾਲਿਆ ਗਿਆ ਹੈ।</string>
   <string name="snackbar_saved_page_missing_images">ਸਾਰੀਆਂ ਤਸਵੀਰਾਂ ਸੰਭਾਲੀਆਂ ਨਹੀਂ ਗਈਆਂ</string>
   <string name="snackbar_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ…</string>
   <string name="delete_selected_saved_pages">ਮਿਟਾਉ</string>
   <string name="snackbar_saved_page_deleted">ਸਾਂਭਿਆ ਵਰਕਾ(ਕੇ) ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="saved_pages_search_list_hint">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਖੋਜੋ</string>
   <string name="saved_pages_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
+  <string name="menu_page_show_tabs">ਟੈਬ ਦਿਖਾਵੋ</string>
   <string name="menu_page_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="menu_page_save">ਵਰਕਾ ਸੰਭਾਲੋ</string>
-  <string name="menu_page_share" fuzzy="true">ਸਾਂਝਾ ਕਰੋ</string>
+  <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="menu_page_find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ-ਬਨਾਵਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
+  <string name="menu_long_press_open_page">ਖੋਲ੍ਹੋ</string>
+  <string name="menu_long_press_open_in_new_tab">ਨਵੇਂ ਟੈਬ \'ਚ ਖੋਲ੍ਹੋ</string>
+  <string name="menu_long_press_copy_page">ਕੜੀ ਦਾ ਪਤਾ ੳੁਤਾਰੋ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="menu_update_nearby">ਨੇੜੇ-ਤੇੜੇ ਅੱਪਡੇਟ ਕਰੋ</string>
   <string name="nearby_empty_title">ਇੱਥੇ ਨੇੜੇ-ਤੇੜੇ ਦੇ ਕੋਈ ਸਫ਼ੇ ਨਹੀਂ!</string>
-  <string name="nearby_empty_message">ਜਦੋਂ ਤੁਸੀਂ ਕਿਸੇ ਨਵੀਂ ਥਾਂ \'ਤੇ ਜਾਂਦੇ ਹੋਂ ਤਾਂ ਆਪਣੇ ਆਲ਼ੇ-ਦੁਆਲ਼ੇ ਬਾਬਤ ਹੋਰ ਜਾਣਨ ਵਾਸਤੇ ਇਸ ਸਫ਼ੇ ਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
+  <string name="nearby_empty_message" fuzzy="true">ਜਦੋਂ ਤੁਸੀਂ ਕਿਸੇ ਨਵੀਂ ਥਾਂ \'ਤੇ ਜਾਂਦੇ ਹੋਂ ਤਾਂ ਆਪਣੇ ਆਲ਼ੇ-ਦੁਆਲ਼ੇ ਬਾਬਤ ਹੋਰ ਜਾਣਨ ਵਾਸਤੇ ਇਸ ਸਫ਼ੇ ਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
   <string name="nearby_distance_in_meters">%d ਮੀਟਰ</string>
   <string name="nearby_distance_in_kilometers">%.2f ਕਿ.ਮੀ.</string>
   <string name="nearby_distance_in_feet">%d ਫੁੱਟ</string>
@@ -71,6 +76,7 @@
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
+  <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਅਾਂ ਸੋਧਾਂ ਅਜੇ ਸਾਂਭੀਅਾਂ ਨਹੀਂ ਗੲੀਅਾਂ। ਕੀ ਤੁਸੀ ਸਫ਼ਾ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="dialog_message_leaving_edit_leave">ਰਵਾਨਾ ਹੋਵੋ</string>
   <string name="menu_show_toc">ਸਮੱਗਰੀ ਸਾਰਣੀ</string>
   <string name="search_no_results_found">ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਲੱਭਿਆ</string>
@@ -79,7 +85,7 @@
   <string name="title_captcha">ਕੈਪਚਾ ਭਰੋ</string>
   <string name="edit_section_captcha_reload">ਮੁੜ ਲਿਆਉਣ ਵਾਸਤੇ ਕੈਪਚਾ ਟਕੋਰੋ</string>
   <string name="edit_saved_page_refresh">ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਸਾਂਭਿਆ ਹੋਇਆ ਇਹ ਸਫ਼ਾ ਪੁਰਾਣਾ ਪੈ ਗਿਆ ਹੋ ਅਤੇ ਸੁਧਾਈ ਚਾਲੂ ਕਰਨ ਵਾਸਤੇ ਇਹਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰਨਾ ਪਵੇਗਾ। ਕੀ ਤੁਸੀਂ ਇਸ ਸਫ਼ੇ ਨੂੰ ਤਾਜ਼ਾ ਕਰਨਾ ਲੋਚਦੇ ਹੋ?</string>
-  <string name="nav_item_login" fuzzy="true">ਦਾਖ਼ਲਾ</string>
+  <string name="nav_item_login">ਦਾਖ਼ਲਾ</string>
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="login_password_show_check">ਪਛਾਣ-ਸ਼ਬਦ ਵਿਖਾਉ</string>
@@ -89,7 +95,7 @@
   <string name="login_error_wrong_password">ਗ਼ਲਤ ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="login_error_wrong_username">ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
   <string name="login_error_illegal">ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
-  <string name="login_success_toast" fuzzy="true">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ!</string>
+  <string name="login_success_toast">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ ਹੋੲਿਅਾ।</string>
   <string name="login_error_blocked">ਇਸ ਵਰਤੋਂਕਾਰ \'ਤੇ ਰੋਕ ਲੱਗੀ ਹੋਈ ਹੈ</string>
   <string name="login_error_throttled">ਦਾਖ਼ਲ ਹੋਣ ਦੀਆਂ ਬਾਹਲੀਆਂ ਕੋਸ਼ਿਸ਼ਾਂ। ਕੁਝ ਮਿੰਟ ਉਡੀਕੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="login_error_unknown">ਦਾਖ਼ਲਾ ਫੇਲ੍ਹ :(</string>
@@ -201,30 +207,34 @@
   <string name="color_theme_light">ਹਲਕੀ</string>
   <string name="color_theme_dark">ਗੂੜ੍ਹੀ</string>
   <string name="page_similar_titles">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ</string>
+  <string name="search_did_you_mean">ਕੀ ਤੁਹਾਡਾ ਮਤਲਬ \"%s\" ਹੈ?</string>
   <string name="search_recent_header">ਹਾਲੀਆ ਖੋਜਾਂ</string>
   <string name="button_clear_all_recent_searches">ਹਾਲੀਆ ਖੋਜਾਂ ਮਿਟਾਓ</string>
+  <string name="clear_recent_searches_confirm">ਕੀ ਤੁਸੀਂ ਖੋਜਕੀ ਅਤੀਤ ਸਾਫ਼ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="table_infobox">ਵਿਸ਼ੇਸ਼ ਤੱਥ</string>
   <string name="table_other">ਹੋਰ ਜਾਣਕਾਰੀ</string>
   <string name="table_close">ਬੰਦ ਕਰੋ</string>
   <string name="widget_name_search">ਵਿਕੀਪੀਡੀਆ ਖੋਜ</string>
-  <string name="app_store_description" fuzzy="true">ਐਂਡਰਾਇਡ ਵਾਸਤੇ ਰਸਮੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ, ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲ਼ਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰਿਓਂ ਲਿਖੀ ਗਈ ਹੈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ਼।
+  <string name="app_store_description">ਐਡ੍ਰਾਇਡ ਵਾਸਤੇ ਦਫ਼ਤਰੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰੇ \'ਤੋਂ ਲਿਖੀ ਗਈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ ਬਣਾੲੀ ਗੲੀ ਹੈ।
 
 ਗੁਣ:
-   - ਰਫ਼ਤਾਰ: ਸਾਡੀ ਨਵੀਂ, ਮੂਲ ਐਪ ਤੁਹਾਨੂੰ ਅੱਜ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਤੇਜ਼ ਤਰੀਕੇ ਨਾਲ਼ ਵਿਕੀਪੀਡੀਆ ਫਰੋਲਣ ਅਤੇ ਸੋਧਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦੀ ਹੈ।
-   - ਸੁਧਾਈ: ਤੁਸੀਂ ਵਿਕੀਪੀਡੀਆ ਸੋਧ ਸਕਦੇ ਹੋ! ਦਾਖ਼ਲ ਹੋ ਕੇ ਜਾਂ ਨਾ, ਅਸੀਂ ਤੁਹਾਡੇ ਸਾਰੇ ਯੋਗਦਾਨਾਂ ਵਾਸਤੇ ਤੁਹਾਡੇ ਧੰਨਵਾਦੀ ਹਾਂ।
-   - ਹਾਲੀਆ ਸਫ਼ੇ: We provide you with your reading history, so you can tap as many links as you like without ever getting lost.
-   - ਸਾਂਭੇ ਸਫ਼ੇ: You can save select pages for offline reading and browse them even when you don\'t have a data connection.
-   - ਸਾਂਝ: Use your existing social networking apps to share in the sum of all human knowledge.
+   - ਰਫ਼ਤਾਰ: ਸਾਡੀ ਨਵੀਂ, ਐਪ ਤੁਹਾਨੂੰ ਸਭ ਤੋਂ ਤੇਜ਼ ਤਰੀਕੇ ਨਾਲ਼ ਵਿਕੀਪੀਡੀਆ ਫਰੋਲਣ ਅਤੇ ਸੋਧਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦੀ ਹੈ।
+   - ਸੁਧਾਈ: ਤੁਸੀਂ ਵਿਕੀਪੀਡੀਆ ਸੋਧ ਸਕਦੇ ਹੋ। ਦਾਖ਼ਲ ਹੋਵੋ ਚਾਹੇ ਨਾਂ, ਅਸੀਂ ਤੁਹਾਡੇ ਸਾਰੇ ਯੋਗਦਾਨਾਂ ਵਾਸਤੇ ਤੁਹਾਡੇ ਧੰਨਵਾਦੀ ਹਾਂ।
+   -ਹਾਲੀਅਾ ਸਫੇ: ੲਿਹ ਅੈਪ ਤੁਹਾਡੇ ਦੁਅਾਰਾ ਪੜ੍ਹੇ ਗੲੇ ਸਫਿਅਾਂ ਦਾ ਅਤੀਤ ਵੀ ਸੰਭਾਲ ਕੇ ਰੱਖਦੀ ਹੈ।
+   - ਸਾਂਭੇ ਸਫ਼ੇ: ਤੁਸੀ ਸਫ਼ਿਅਾਂ ਨੂੰ ਅਾੱਫ-ਲਾੲੀਨ ਪੜ੍ਹਨ ਲੲੀ ਸੰਭਾਲ ਸਕਦੇ ਹੋ।
+   - ਸਾਂਝ: ਤੁਸੀਂ ਅੈਪ \'ਚ ਮੌਜੂਦ ਵੰਡੋ ਵਿਕਲਪ ਰਾਹੀਂ ਕਿਸੇ ਵੀ ਸਮਾਜਿਕ ਸਾੲੀਟ ਜਾਂ ਸਥਾਨ \'ਤੇ ਵਿੱਦਿਿਅਾ ਵੰਡ ਸਕਦੇ ਹੋ।
    - ਭਾਸ਼ਾਈ ਸਹਾਇਤਾ: ਇਹ ਐਪ ਤੁਹਾਨੂੰ ਬੜੀ ਸੌਖ ਨਾਲ਼ ਕਿਸੇ ਵੀ ਭਾਸ਼ਾ \'ਚ ਲਿਖੇ ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਪੜ੍ਹਣ ਜਾਣ ਲਈ ਦਿੰਦੀ ਹੈ।
    - ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ: ਹਿੱਸਾ ਲੈ ਰਹੇ ਮੋਬਾਈਲ ਚਾਲਕਾਂ ਵਾਸਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਹੈ।
 
-ਇਹਦਾ ਕੋਡ ਪੂਰੀ ਤਰ੍ਹਾਂ ਖੁੱਲ੍ਹੇ ਸਰੋਤ ਵਾਲ਼ਾ ਹੈ। ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਲ਼ ਜਾਵਾ ਅਤੇ ਐਂਡਰਾਇਡ ਐੱਸ.ਡੀ.ਕੇ. ਦਾ ਤਜਰਬਾ ਹੈ ਤਾਂ ਆ ਕੇ ਸਾਡੇ ਨਾਲ਼ ਕੰਮ ਕਰੋ! https://github.com/wikimedia/apps-android-wikipedia</string>
+ਇਹਦਾ ਕੋਡ ਪੂਰੀ ਤਰ੍ਹਾਂ ਖੁੱਲ੍ਹੇ ਸਰੋਤ ਵਾਲ਼ਾ ਹੈ। ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਲ਼ ਜਾਵਾ ਅਤੇ ਐਂਡ੍ਰਾਇਡ ਐੱਸ.ਡੀ.ਕੇ. ਦਾ ਤਜਰਬਾ ਹੈ ਤਾਂ ਸਾਡੇ ਨਾਲ ਅਾ ਕੇ ਕੰਮ ਕਰੋ! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">ਨਵਾਂ ਐਲਫ਼ਾ ਨਵੀਨੀਕਰਨ ਮੌਜੂਦ ਹੈ</string>
   <string name="alpha_update_notification_text">ਉਤਾਰਨ ਵਾਸਤੇ ਟਕੋਰੋ</string>
   <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="read_next_section">ਅੱਗੇ ਪੜ੍ਹੋ</string>
+  <string name="menu_gallery_visit_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
+  <string name="gallery_menu_save">ੳੁਪਕਰਨ \'ਚ ਸੰਭਾਲੋ</string>
 </resources>

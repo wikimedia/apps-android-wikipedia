@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">V okolí</string>
   <string name="menu_update_nearby">Aktualizovať okolie</string>
   <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>
-  <string name="nearby_empty_message">Keď sa presuniete na nové miesto, skúste obnoviť túto stránku pre zistenie ďalších informácií o tom, čo je okolo vás.</string>
+  <string name="nearby_empty_message" fuzzy="true">Keď sa presuniete na nové miesto, skúste obnoviť túto stránku pre zistenie ďalších informácií o tom, čo je okolo vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

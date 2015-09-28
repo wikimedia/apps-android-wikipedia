@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">In de buurt</string>
   <string name="menu_update_nearby">In de buurt bijwerken</string>
   <string name="nearby_empty_title">Geen pagina\'s in de buurt.</string>
-  <string name="nearby_empty_message">Wanneer u naar een nieuwe locatie verplaatst, probeer dan deze pagina te vernieuwen voor meer informatie over wat er om uw heen is.</string>
+  <string name="nearby_empty_message" fuzzy="true">Wanneer u naar een nieuwe locatie verplaatst, probeer dan deze pagina te vernieuwen voor meer informatie over wat er om uw heen is.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>

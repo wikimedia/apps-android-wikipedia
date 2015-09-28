@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">Nobäi</string>
   <string name="menu_update_nearby">Aktualisatioun vun \'nobäi\'</string>
   <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
-  <string name="nearby_empty_message">Wann Dir op eng aner Plaz gitt, da probéiert fir dës Säit z\'aktualiséiere fir méi iwwer dat gewuer ze gi wat ronderëm Iech ass.</string>
+  <string name="nearby_empty_message" fuzzy="true">Wann Dir op eng aner Plaz gitt, da probéiert fir dës Säit z\'aktualiséiere fir méi iwwer dat gewuer ze gi wat ronderëm Iech ass.</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
   <string name="nearby_distance_in_feet">%d Fouss</string>

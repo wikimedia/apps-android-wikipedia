@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Lähistöllä</string>
   <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
   <string name="nearby_empty_title">Lähistöllä olevia sivuja ei ole!</string>
-  <string name="nearby_empty_message">Kun vaihdat paikkaa, päivitä tämä sivu saadaksesi ajantasaista tietoa siitä mitä lähelläsi on.</string>
+  <string name="nearby_empty_message" fuzzy="true">Kun vaihdat paikkaa, päivitä tämä sivu saadaksesi ajantasaista tietoa siitä mitä lähelläsi on.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d jalkaa</string>
