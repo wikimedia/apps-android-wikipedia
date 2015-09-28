@@ -226,6 +226,8 @@ public class LeadImagesHandler {
 
         // set the page title text, and honor any HTML formatting in the title
         pageTitleText.setText(Html.fromHtml(getPage().getDisplayTitle()));
+        // Set the subtitle, too, so text measurements are accurate.
+        layoutWikiDataDescription(getTitle().getDescription());
 
         // kick off the (asynchronous) laying out of the page title text
         layoutPageTitle((int) (getDimension(R.dimen.titleTextSize)
@@ -353,8 +355,7 @@ public class LeadImagesHandler {
         if (!isMainPage()) {
             // make everything visible!
             imageContainer.setVisibility(View.VISIBLE);
-            // kick off loading of the WikiData description
-            layoutWikiDataDescription(getTitle().getDescription());
+            pageTitleText.setVisibility(View.VISIBLE);
         }
     }
 
@@ -398,7 +399,6 @@ public class LeadImagesHandler {
                 pageTitleText.setText(title);
             }
         }
-        pageTitleText.setVisibility(View.VISIBLE);
     }
 
     /**
