@@ -38,7 +38,7 @@
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     style="@style/RtlAwareTextView"
-                    android:textColor="?attr/link_preview_text_color"
+                    android:textColor="?attr/link_color"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:paddingBottom="4dp"
