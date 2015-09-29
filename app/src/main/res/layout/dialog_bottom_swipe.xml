@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout
+<ListView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/bottom_swipe_container_root"
+    android:id="@+id/bottom_swipe_container_list"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ListView
-        android:id="@+id/bottom_swipe_container_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:overScrollMode="never"
-        android:listSelector="@null"
-        android:divider="@null"
-        android:dividerHeight="0dp"
-        />
-</FrameLayout>
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:overScrollMode="never"
+    android:listSelector="@null"
+    android:divider="@null"
+    android:dividerHeight="0dp"
+    />

@@ -1,13 +1,16 @@
 package org.wikipedia.page.linkpreview;
 
 import org.wikipedia.R;
+import org.wikipedia.Utils;
 
 import android.app.Dialog;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,48 +25,43 @@ import java.util.List;
 /*
  A few notes about the geometry of this special dialog class:
  It works by using a ListView to allow the user to smoothly scroll the dialog contents vertically
- along the screen. The ListView contains four items, three of which are transparent spaces, and
- the fourth being the actual dialog layout. Here's a breakdown of the items:
+ along the screen. The ListView contains three items, two of which are transparent spaces, and the
+ third being the actual dialog layout. Here's a breakdown of the items:
 
- |---------------------------|
- |   dismiss trigger item    | <-- When the user scrolls to this item, the dialog is dismissed.
- |---------------------------|
- |                           |
- |    transparent space      | <-- Allows the user to scroll the dialog contents off-screen
- |                           |
- |---------------------------|    ---------------
- |                           |           ^
- |                           |           |
- |    transparent space      | <---------|------------ This space is what we tell the ListView
- |                           |           |             to scroll to when the dialog is shown,
- |                           |     screen height       so that the dialog contents are in view.
- |                           |           |
- |---------------------------|           |
- | ////////////////////////  |           |
- | [actual dialog contents]  |           |
- | ////////////////////////  |           v
- |---------------------------|    ----------------
+ |--------------------------|
+ |  0 dismiss trigger view  | <-- 1px tall. When the user scrolls this item on screen, the dialog is
+ |--------------------------|     dismissed.
+ |                          |
+ |                          | <-- Window tall. Allows the the dialog contents to be scrolled on or
+ | 1 transparent space view |     off the screen.
+ |                          |
+ |                          |
+ |--------------------------|
+ | //////////////////////// |
+ |[2 actual dialog contents]|
+ | //////////////////////// |
+ |--------------------------|
 
- The space views need to be created dynamically (instead of inflating from xml) because we
- allow the caller to specify an arbitrary "peek height" with which the dialog contents will peek
- out from the bottom, which can be shorter than the actual height of the dialog xml.
+ The dialog window, the second transparent view, the dialog contents view are resized on
+ configuration change.
  */
 public abstract class SwipeableBottomDialog extends DialogFragment {
-    private final List<View> dialogViews = new ArrayList<>();
-    private ListView dialogListView;
-    private int dialogPeekHeight;
+    private static final int DISMISS_TRIGGER_VIEW_HEIGHT_PX = 1;
+    private static final int DISMISS_TRIGGER_VIEW_POS = 0;
+    private static final int SPACE_VIEW_POS = 1;
+
+    private ListView listView;
+    private int contentPeekHeight;
+    private View spaceView;
 
     private final AbsListView.OnScrollListener onScrollListener
             = new AbsListView.OnScrollListener() {
-        @Override
-        public void onScrollStateChanged(AbsListView view, int scrollState) {
-            // don't need this
-        }
+        @Override public void onScrollStateChanged(AbsListView view, int scrollState) { }
 
         @Override
         public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
                              int totalItemCount) {
-            if (firstVisibleItem == 0) {
+            if (firstVisibleItem == DISMISS_TRIGGER_VIEW_POS) {
                 dismiss();
             }
         }
@@ -72,30 +70,18 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        int displayWidth = getDialogWidth();
-        int displayHeight = inflater.getContext().getResources().getDisplayMetrics().heightPixels;
-
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.dialog_bottom_swipe, container);
 
-        dialogViews.add(makeSpaceView(displayWidth, 1));
-        dialogViews.add(makeSpaceView(displayWidth, dialogPeekHeight));
-        dialogViews.add(makeSpaceView(displayWidth, displayHeight - dialogPeekHeight));
-        dialogViews.add(inflateDialogView(inflater, container));
+        List<View> views = new ArrayList<>();
+        views.add(makeDismissTriggerView());
+        spaceView = makeSpaceView();
+        views.add(spaceView);
+        views.add(inflateDialogView(inflater, container));
 
-        dialogListView = (ListView) rootView.findViewById(R.id.bottom_swipe_container_list);
-        dialogListView.setAdapter(new SwipeableAdapter());
-        dialogListView.setSelection(2);
-
-        // For some reason, if we call setOnScrollListener() without post()ing, the listener
-        // doesn't actually seem to get set, and has no effect. I've tried setting it in all the
-        // other initialization methods (e.g. onCreateDialog, onStart), but this is the only
-        // way that worked.
-        rootView.post(new Runnable() {
-            @Override
-            public void run() {
-                dialogListView.setOnScrollListener(onScrollListener);
-            }
-        });
+        listView = (ListView) rootView.findViewById(R.id.bottom_swipe_container_list);
+        listView.setOnScrollListener(onScrollListener);
+        listView.setAdapter(new SwipeableAdapter(views));
+        setContentPeekHeight();
 
         return rootView;
     }
@@ -111,19 +97,31 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        super.onCreateDialog(savedInstanceState);
         Dialog dialog = super.onCreateDialog(savedInstanceState);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         return dialog;
     }
-
     @Override
     public void onStart() {
         super.onStart();
-        Dialog dialog = getDialog();
-        if (dialog != null) {
-            dialog.getWindow().setLayout(getDialogWidth(), ViewGroup.LayoutParams.MATCH_PARENT);
-        }
+        setWindowLayout();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        setWindowLayout();
+        spaceView.getLayoutParams().height = dialogHeightPx();
+        listView.getLayoutParams().width = dialogWidthPx();
+
+        // Post new scroll offset after the layout has been resized.
+        listView.post(new Runnable() {
+            @Override
+            public void run() {
+                setContentPeekHeight();
+            }
+        });
     }
 
     @Override
@@ -136,16 +134,35 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         }
     }
 
-    public void setDialogPeekHeight(int height) {
-        dialogPeekHeight = height;
+    public void setContentPeekHeight(int height) {
+        contentPeekHeight = height;
+
+        // The client may call this call this code prior to onCreateView().
+        if (listView != null) {
+            listView.setSelectionFromTop(SPACE_VIEW_POS, -contentPeekHeight);
+        }
     }
 
-    private int getDialogWidth() {
-        return Math.min(getResources().getDisplayMetrics().widthPixels,
-                (int) getResources().getDimension(R.dimen.swipeableDialogMaxWidth));
+    protected void setContentPeekHeight() {
+        setContentPeekHeight(contentPeekHeight);
     }
 
-    private View makeSpaceView(int width, int height) {
+    private void setWindowLayout() {
+        // HACK: height _should_ be ViewGroup.LayoutParams.MATCH_PARENT but it doesn't work after
+        //       two orientation changes. i.e., turn the device 90 degrees and the height is
+        //       correct. Then turn it back -90 degrees, the height is incorrect.
+        getDialog().getWindow().setLayout(dialogWidthPx(), dialogHeightPx());
+    }
+
+    private View makeDismissTriggerView() {
+        return makeDummyView(ViewGroup.LayoutParams.MATCH_PARENT, DISMISS_TRIGGER_VIEW_HEIGHT_PX);
+    }
+
+    private View makeSpaceView() {
+        return makeDummyView(ViewGroup.LayoutParams.MATCH_PARENT, dialogHeightPx());
+    }
+
+    private View makeDummyView(int width, int height) {
         View view = new View(getActivity());
         view.setLayoutParams(new ListView.LayoutParams(width, height));
         view.setClickable(true);
@@ -161,15 +178,34 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         return view;
     }
 
-    private final class SwipeableAdapter extends BaseAdapter {
+    protected int dialogWidthPx() {
+        return Math.min(getDisplayMetrics().widthPixels,
+                (int) getResources().getDimension(R.dimen.swipeableDialogMaxWidth));
+    }
+
+    private int dialogHeightPx() {
+        return getDisplayMetrics().heightPixels - Utils.getStatusBarHeightPx(getActivity());
+    }
+
+    private DisplayMetrics getDisplayMetrics() {
+        return getResources().getDisplayMetrics();
+    }
+
+    private static final class SwipeableAdapter extends BaseAdapter {
+        @NonNull private final List<View> views;
+
+        public SwipeableAdapter(@NonNull List<View> views) {
+            this.views = views;
+        }
+
         @Override
         public int getCount() {
-            return dialogViews.size();
+            return views.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return dialogViews.get(position);
+            return views.get(position);
         }
 
         @Override
@@ -179,7 +215,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return dialogViews.get(position);
+            return views.get(position);
         }
     }
 }
