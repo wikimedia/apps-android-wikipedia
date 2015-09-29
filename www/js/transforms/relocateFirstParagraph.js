@@ -1,47 +1,5 @@
 var transformer = require("../transformer");
 
-// Takes a block of text, and removes any text within parentheses, but only
-// until the end of the first sentence.
-// Based on Extensions:Popups - ext.popups.renderer.article.js
-function removeParensFromText( string ) {
-    var ch;
-    var newString = '';
-    var level = 0;
-    var i = 0;
-    for( ; i < string.length; i++ ) {
-        ch = string.charAt( i );
-        if ( ch === ')' && level === 0  ) {
-            // abort if we have an imbalance of parentheses
-            return string;
-        }
-        if ( ch === '(' ) {
-            level++;
-            continue;
-        } else if ( ch === ')' ) {
-            level--;
-            continue;
-        }
-        if ( level === 0 ) {
-            // Remove leading spaces before parentheses
-            if ( ch === ' ' && (i < string.length - 1) && string.charAt( i + 1 ) === '(' ) {
-                continue;
-            }
-            newString += ch;
-            if ( ch === '.' ) {
-                // stop at the end of the first sentence
-                break;
-            }
-        }
-    }
-    // fill in the rest of the string
-    if ( i + 1 < string.length ) {
-        newString += string.substring( i + 1, string.length );
-    }
-    // if we had an imbalance of parentheses, then return the original string,
-    // instead of the transformed one.
-    return ( level === 0 ) ? newString : string;
-}
-
 // Move the first non-empty paragraph of text to the top of the section.
 // This will have the effect of shifting the infobox and/or any images at the top of the page
 // below the first paragraph, allowing the user to start reading the page right away.
@@ -82,12 +40,6 @@ transformer.register( "moveFirstGoodParagraphUp", function() {
 
         // Move the P!
         block_0.insertBefore(p.parentNode.removeChild(p), block_0.firstChild);
-
-        // Transform the first sentence of the first paragraph.
-        // (but only for non-production, and only on enwiki)
-        if ( window.isBeta && window.siteLanguage.indexOf( "en" ) > -1 ) {
-            p.innerHTML = removeParensFromText(p.innerHTML);
-        }
 
         // But only move one P!
         break;
