@@ -2,6 +2,7 @@ package org.wikipedia.editing.richtext;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
@@ -54,7 +55,6 @@ public class SyntaxHighlighter {
             }
         }));
 
-        /*
         // internal link:
         syntaxRules.add(new SyntaxRule("[[", "]]", new SyntaxRule.SyntaxRuleStyle() {
             @Override
@@ -68,7 +68,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("[", "]", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(parentActivity.getResources().getColor(R.color.syntax_highlight_extlink),
+                return new ColorSpanEx(parentActivity.getResources().getColor(Utils.getThemedAttributeId(parentActivity, R.attr.link_color)),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -106,6 +106,7 @@ public class SyntaxHighlighter {
             }
         }));
 
+        /*
         // section level 4:
         syntaxRules.add(new SyntaxRule("====", "====", new SyntaxRule.SyntaxRuleStyle() {
             @Override
