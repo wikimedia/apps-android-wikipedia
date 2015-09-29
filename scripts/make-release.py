@@ -41,7 +41,7 @@ import sys
 
 PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 GRADLEW = './gradlew'
-VERSION_START = '2.0'
+VERSION_START = '2.1'
 
 
 def p(*path_fragments):
