@@ -7,6 +7,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.views.ConfigurableListView;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +25,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -32,11 +32,13 @@ import com.appenguin.onboarding.ToolTip;
 
 import java.util.ArrayList;
 
+import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
+
 public class ToCHandler {
     private static final int MAX_LEVELS = 3;
     private static final int INDENTATION_WIDTH_DP = 16;
     private static final int READ_MORE_SECTION_ID = -1;
-    private final ListView tocList;
+    private final ConfigurableListView tocList;
     private final ProgressBar tocProgress;
     private final CommunicationBridge bridge;
     private final WikiDrawerLayout slidingPane;
@@ -57,7 +59,7 @@ public class ToCHandler {
         this.bridge = bridge;
         this.slidingPane = slidingPane;
 
-        this.tocList = (ListView) slidingPane.findViewById(R.id.page_toc_list);
+        this.tocList = (ConfigurableListView) slidingPane.findViewById(R.id.page_toc_list);
         ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, Utils.getContentTopOffsetPx(activity), 0, 0);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
 
@@ -169,7 +171,7 @@ public class ToCHandler {
             }
         });
 
-        tocList.setAdapter(new ToCAdapter(page));
+        tocList.setAdapter(new ToCAdapter(page), site.getLanguageCode());
         tocList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -219,7 +221,7 @@ public class ToCHandler {
             if (page.couldHaveReadMoreSection()) {
                 // add a fake section at the end to represent the "read more" contents at the bottom:
                 sections.add(new Section(READ_MORE_SECTION_ID, 0,
-                        parentActivity.getString(R.string.read_more_section), "", ""));
+                        getStringForArticleLanguage(page.getTitle(), R.string.read_more_section), "", ""));
             }
         }
 

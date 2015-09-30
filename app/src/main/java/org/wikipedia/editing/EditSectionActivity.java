@@ -46,6 +46,8 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.util.FeedbackUtil;
 
+import static org.wikipedia.util.L10nUtils.setConditionalTextDirection;
+
 public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
     public static final String EXTRA_TITLE = "org.wikipedia.edit_section.title";
@@ -166,7 +168,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         });
 
 
-        Utils.setTextDirection(sectionText, title.getSite().getLanguageCode());
+        setConditionalTextDirection(sectionText, title.getSite().getLanguageCode());
 
         fetchSectionText();
 

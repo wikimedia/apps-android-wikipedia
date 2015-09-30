@@ -4,9 +4,8 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
-public class AppTextView extends TextView {
+public class AppTextView extends ConfigurableTextView {
     public AppTextView(Context context) {
         this(context, null);
     }

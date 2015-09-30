@@ -22,6 +22,7 @@ import org.wikipedia.*;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.StyleBundle;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.L10nUtils;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.editing.summaries.EditSummaryTag;
@@ -172,7 +173,7 @@ public class EditPreviewFragment extends Fragment {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
             bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PREVIEW));
-            Utils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(), bridge);
+            L10nUtils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().isCurrentThemeDark()) {
                 new NightModeHandler(bridge).turnOn(false);
             }

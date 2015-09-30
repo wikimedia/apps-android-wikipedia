@@ -31,6 +31,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -38,6 +39,9 @@ import java.util.Map;
 
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+
+import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtils.setConditionalLayoutDirection;
 
 public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogInterface.OnDismissListener {
     private static final String TAG = "LinkPreviewDialog";
@@ -101,6 +105,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         rootView.findViewById(R.id.link_preview_toolbar).setOnClickListener(goToPageListener);
         TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
+        setConditionalLayoutDirection(rootView, pageTitle.getSite().getLanguageCode());
         if (!ApiUtil.hasKitKat()) {
             // for oldish devices, reset line spacing to 1, since it truncates the descenders.
             titleText.setLineSpacing(0, 1.0f);
@@ -120,7 +125,9 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             thumbnailGallery.setGalleryViewListener(galleryViewListener);
         }
 
-        rootView.findViewById(R.id.link_preview_go_button).setOnClickListener(goToPageListener);
+        Button goButton = (Button) rootView.findViewById(R.id.link_preview_go_button);
+        goButton.setOnClickListener(goToPageListener);
+        goButton.setText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
 
         final View overflowButton = rootView.findViewById(R.id.link_preview_overflow_button);
         overflowButton.setOnClickListener(new View.OnClickListener() {
