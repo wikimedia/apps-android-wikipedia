@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Википедия</string>
-  <string name="app_name_beta">Википедиа Бета хувилбар</string>
-  <string name="app_name_alpha">Википедиа Альфа хувилбар</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Википедиа Бета хувилбар</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Википедиа Альфа хувилбар</string>
   <string name="yes">Тийм</string>
   <string name="no">Үгүй</string>
   <string name="acra_report_dialog_title">Википедиа програм алдаа заалаа :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">Википедиа -аас хайх</string>
   <string name="nav_item_history">Түүх</string>
   <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>
-  <string name="search_network_error">Сүлжээний саатал. Дахин оруулна уу</string>
   <string name="page_error_retry">Дахин оролд</string>
   <string name="menu_clear_all_history">Түүх арилгах</string>
   <string name="menu_clear_all_saved_pages">Хадгалсан хуудсыг бүгдийг нь арилгах</string>
@@ -59,12 +58,9 @@
   <string name="login_error_blocked">Энэ хэрэглэгч блоклогдсон</string>
   <string name="login_error_throttled">Хэтэрхий олон удаа хандах оролдлого хийсэн байна. Хэсэг хүлээзнээд дахин оролдоно уу.</string>
   <string name="login_error_unknown">Нэвтэрч чадсангүй!</string>
-  <string name="login_error_no_network">Сүлжээ тасарсан байна</string>
   <string name="preference_title_logout">Гарах</string>
-  <string name="preference_summary_notloggedin">Нэвтрээгүй байна</string>
   <string name="toast_logout_complete">Гарлаа</string>
   <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
-  <string name="create_account_password_hint">Нууц үг</string>
   <string name="login_create_account_link">Бүртгүүлж амжаагүй юу? Википедиад нэгдээрэй</string>
   <string name="create_account_login_link">Бүртгэлтэй бол нэвтрээрэй.</string>
   <string name="create_account_activity_title">Бүртгүүлэх</string>
@@ -74,7 +70,6 @@
   <string name="create_account_email_error">Емайл хаяг буруу</string>
   <string name="create_account_username_exists_error">Энэ хэрэглэгчийн нэр бүртгэлтэй байна</string>
   <string name="create_account_generic_error">Бүртгүүлэх боломжгүй байна</string>
-  <string name="create_account_no_network">Сүлжээ тасарсан байна</string>
   <string name="create_account_next">Дараагийн</string>
   <string name="create_account_button">Бүртгүүлэх</string>
   <string name="preferences_general_heading">Ерөнхий</string>

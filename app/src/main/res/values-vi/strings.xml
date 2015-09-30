@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Có</string>
   <string name="no">Không</string>
   <string name="acra_report_dialog_title">Wikipedia đã gặp sự cố :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="nav_item_history">Lịch sử</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
-  <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
-  <string name="generic_page_error">Đã xuất hiện lỗi khi xử lý yêu cầu của bạn.</string>
-  <string name="status_code_unavailable">Mã trạng thái của server không có sẵn.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
   <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Mở trong thẻ mới</string>
   <string name="menu_long_press_copy_page">Chép địa chỉ liên kết</string>
   <string name="nav_item_nearby">Lân cận</string>
-  <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
   <string name="nearby_empty_title">Không có trang nào gần đây!</string>
   <string name="nearby_empty_message">Di chuyển đến một vị trí mới để đọc về các đề tài nằm chung quanh bạn.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d foot</string>
   <string name="nearby_distance_in_miles">%.2f dặm</string>
-  <string name="nearby_no_network">Không có kết nối mạng</string>
-  <string name="nearby_server_error">Không thể lấy danh sách địa điểm lân cận.</string>
   <string name="nearby_dialog_goto_settings">Các cập nhật vị trí không được kích hoạt trên thiết bị của bạn. Bạn có muốn mở cài đặt của thiết bị này để kích hoạt các cập nhật vị trí?</string>
   <string name="nearby_set_metric">Hiển thị mét/km</string>
   <string name="nearby_set_imperial">Hiển thị foot/dặm</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Người dùng này đã bị cấm</string>
   <string name="login_error_throttled">Đã thử đăng nhập quá nhiều lần. Hãy chờ vài phút rồi thử lại.</string>
   <string name="login_error_unknown">Thất bại khi đăng nhập :(</string>
-  <string name="login_error_no_network">Không có kết nối mạng</string>
   <string name="preference_title_logout">Đăng xuất</string>
-  <string name="preference_summary_logout">Đăng xuất khỏi tài khoản Wikipedia của bạn</string>
-  <string name="preference_summary_notloggedin">Chưa đăng nhập.</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
   <string name="saved_pages_empty_title">Không có trang lưu tại đây!</string>
   <string name="saved_pages_empty_message">Các trang đã lưu là giống như các dấu trang có thể đọc ngay cả khi ngoại tuyến.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Xóa</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Tên người dùng</string>
-  <string name="create_account_password_hint">Mật khẩu</string>
   <string name="login_create_account_link">Chưa có tài khoản? Hãy tham gia Wikipedia</string>
   <string name="create_account_login_link">Đã có tài khoản? Đăng nhập</string>
   <string name="create_account_activity_title">Mở tài khoản</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Bạn không thể mở tài khoản vì tài khoản của bạn bị cấm.</string>
   <string name="create_account_password_name_match_error">Tên người dùng và mật khẩu của bạn phải khác nhau.</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
-  <string name="create_account_no_network">Không có kết nối mạng</string>
   <string name="create_account_next">Tiếp</string>
   <string name="create_account_button">Mở Tài khoản</string>
   <string name="preferences_general_heading">Tổng quát</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Thử lại</string>
   <string name="saved_pages_update_all_error_message">Có lỗi khi cập nhật các trang đã lưu</string>
   <string name="saved_pages_progress_title">Đang làm mới các trang đã lưu</string>
-  <string name="saved_pages_refresh_pages_complete">Hoàn tất cập nhật</string>
   <string name="menu_page_saved">Đã lưu trang</string>
   <string name="menu_refresh_saved_page">Làm mới trang</string>
   <string name="abusefilter_title_warn">Sửa đổi này có vẻ không có tính xây dựng. Bạn có chắc chắn muốn lưu nó?</string>
@@ -249,14 +237,12 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="preference_title_show_images">Xem hình ảnh</string>
   <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
   <string name="read_more_section">Đọc tiếp</string>
-  <string name="read_next_section">Đọc tiếp theo</string>
   <string name="menu_gallery_visit_page">Xem trang tập tin</string>
   <string name="gallery_error_draw_failed">Không thể hiển thị hình.</string>
   <string name="license_title">Văn bản giấy phép của thư viện %s</string>
   <string name="gallery_menu_share">Chia sẻ</string>
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
   <string name="gallery_menu_save">Lưu vào thiết bị</string>
-  <string name="gallery_save_error">Không thể lưu hình: %s</string>
   <string name="gallery_save_error_mediastore">Thất bại khi nhập hình vào tập hợp phương tiện</string>
   <string name="gallery_save_success">Đã lưu hình thành công.</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
@@ -270,7 +256,6 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="captcha_image">Hình CAPTCHA</string>
   <string name="gallery_fair_use_license">Sử dụng hợp lý</string>
   <string name="gallery_uploader_unknown">Người tải lên không rõ</string>
-  <string name="edit_save_unknown_error">Không thể lưu sửa đổi của bạn: %s</string>
   <string name="menu_new_tab">Tab mới</string>
   <string name="button_close_tab">Đóng tab</string>
   <string name="tool_tip_select_text">Nhấn và giữ tại bất kỳ đâu trong nội dung văn bản để đánh dấu sao chép và chia sẻ.</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Ya</string>
   <string name="no">Ket</string>
   <string name="acra_report_dialog_title">Sac\'het eo Wikipedia :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="nav_item_history">Istor</string>
   <string name="error_network_error" fuzzy="true">N\'eus ket bet gallet kevreañ ouzh ar rouedad :(</string>
-  <string name="search_network_error">Fazi rouedad : pouezañ evit klask en-dro.</string>
-  <string name="generic_page_error">Ur gudenn zo beet pa\'z eo bet war-dro ho koulenn.</string>
-  <string name="status_code_unavailable">Ne c\'haller ket kaout kod stad ar servijer.</string>
   <string name="page_error_retry">Klask en-dro</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
   <string name="menu_clear_all_saved_pages">Diverkañ ar pajennoù enrollet</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Digeriñ en un ivinell nevez</string>
   <string name="menu_long_press_copy_page">Eilañ chomlec\'h al liamm</string>
   <string name="nav_item_nearby">Tostik</string>
-  <string name="menu_update_nearby">Hizivaat an elfennoù nes</string>
   <string name="nearby_empty_title">Pajenn dost ebet amañ !</string>
   <string name="nearby_empty_message" fuzzy="true">Pa vezit o tilec\'hiañ war-zu ul lec\'hiadur nevez, klaskit freskaat ar bajenn-mañ evit gouzout hiroc\'h diwar-benn ar pezh zo tro-dro deoc\'h.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Kevreadenn ebet ouzh ar rouedad</string>
-  <string name="nearby_server_error">Ne c\'haller ket kaout listenn al lec\'hiadurioù tostik.</string>
   <string name="nearby_dialog_goto_settings">N\'eo ket gweredekaet hizivadennoù al lec\'hiadurioù war ho termenell. C\'hoant ho peus da vont war arventennoù ho termenell evit gweredekaat hizivadennoù al lec\'hiadurioù ?</string>
   <string name="nearby_set_metric">Diskwel e m/km</string>
   <string name="nearby_set_imperial">Diskwel e troatadoù/miltirioù</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Prennet eo bet an implijer-mañ</string>
   <string name="login_error_throttled">Klasket re ho peus kevreañ. Gortozit ur pennadig ha klaskit en-dro !</string>
   <string name="login_error_unknown">C\'hwitet eo ar c\'hevreañ :(</string>
-  <string name="login_error_no_network">Kevreadenn ebet ouzh ar rouedad</string>
   <string name="preference_title_logout">Digevreañ</string>
-  <string name="preference_summary_logout">Digevreañ diouzh ho kont Wikipedia</string>
-  <string name="preference_summary_notloggedin">Digevreet.</string>
   <string name="toast_logout_complete">Digevreet</string>
   <string name="saved_pages_empty_title">N\'eus pajenn enrollet ebet amañ.</string>
   <string name="saved_pages_empty_message">Mat-tre eo enrollañ pajennoù. Gallout a rit ober ganto evel sinedoù hag a c\'hallit lenn pa vezit ezlinenn.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Diverkañ</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Anv implijer</string>
-  <string name="create_account_password_hint">Ger-tremen</string>
   <string name="login_create_account_link">N\'ho peus kont ebet ? Deuit da-gaout Wikipedia</string>
   <string name="create_account_login_link">Bet krouet ur gont c\'hoazh ? Kevreit</string>
   <string name="create_account_activity_title">Krouiñ ur gont</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Ne c\'hallit ket krouiñ un gont peogwir eo sparlet ho kont.</string>
   <string name="create_account_password_name_match_error">Disheñvel e rank hoc\'h anv implijer hag ho ger-tremen.</string>
   <string name="create_account_generic_error">N\'haller ket krouiñ ar gont</string>
-  <string name="create_account_no_network">Kevreadenn ebet ouzh ar rouedad</string>
   <string name="create_account_next">War-lerc\'h</string>
   <string name="create_account_button">Krouiñ ur gont</string>
   <string name="preferences_general_heading">Hollek</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Adklask</string>
   <string name="saved_pages_update_all_error_message">Fazi pa oad oc\'h hizivaat pajennoù enrollet</string>
   <string name="saved_pages_progress_title">O freskaat ar pajennoù enrollet…</string>
-  <string name="saved_pages_refresh_pages_complete">Echu eo an hizivaat</string>
   <string name="menu_page_saved">Pajenn enrollet</string>
   <string name="menu_refresh_saved_page">Freskaat ar bajenn</string>
   <string name="abusefilter_title_warn">War a seblant ne vo ket degaset kalz a dra gant ar c\'hemm-mañ. Ha sur oc\'h e fell deoc\'h enrollañ anezhañ ?</string>
@@ -247,14 +235,12 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="preference_title_show_images">Diskouez ar skeudennoù</string>
   <string name="preference_summary_show_images" fuzzy="true">Gweredekaat evit diweredekaat pellgargadur ar skeudennoù er pajennoù. Diaskit an arventenn-mañ m\'eo gorrek ho kevreadur Internet, pe m\'eo bevennet hoc\'h ampled roadennoù.</string>
   <string name="read_more_section">Lenn muioc\'h</string>
-  <string name="read_next_section">Lenn an hini war-lerc\'h</string>
   <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
   <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
   <string name="license_title">Testenn aotre-imoplijout evit al levraoueg %s</string>
   <string name="gallery_menu_share">Rannañ</string>
   <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>
   <string name="gallery_menu_save">Enrollañ en ardivink</string>
-  <string name="gallery_save_error">Ne c\'haller ket saveteiñ ar skeudenn : %s</string>
   <string name="gallery_save_error_mediastore">C\'hwitet eo bet enporzhiadur ar skeudenn en dastumad mediaoù</string>
   <string name="gallery_save_success">Pajenn enrollet mat.</string>
   <string name="gallery_error_video_failed">Ne c\'haller ket lenn ar video.</string>
@@ -268,7 +254,6 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="captcha_image">Skeudenn captcha</string>
   <string name="gallery_fair_use_license">Implij reizh</string>
   <string name="gallery_uploader_unknown">Pellgarger dianav</string>
-  <string name="edit_save_unknown_error">Ne c\'haller ket enrollañ ho kemmadur : %s</string>
   <string name="menu_new_tab">Ivinell nevez</string>
   <string name="button_close_tab">Serriñ an ivinell</string>
   <string name="tool_tip_select_text">Klikit ha dalc\'hit da bouezañ ne vern pelec\'h en destenn evit dreistlinennañ anezhi abalamour da gopiañ ha da rannañ anezhi.</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Википедија</string>
-  <string name="app_name_beta">Википедија Бета</string>
-  <string name="app_name_alpha">Википедија Алфа</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Википедија Бета</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Википедија Алфа</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
   <string name="acra_report_dialog_title">Википедија се урна :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
-  <string name="search_network_error">Мрежна грешка. Допрете за да се обиде повторно.</string>
-  <string name="generic_page_error">Се јави проблем при работа со вашето барање.</string>
-  <string name="status_code_unavailable">Кодот за статусот на опслужувачот е недостапен.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="menu_clear_all_saved_pages">Исчисти ги сите зачувани страници</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Отвори ново јазиче</string>
   <string name="menu_long_press_copy_page">Копирај ја адресата на врската</string>
   <string name="nav_item_nearby">Во близина</string>
-  <string name="menu_update_nearby">Поднови „во близина“</string>
   <string name="nearby_empty_title">Тука нема страници во близина!</string>
   <string name="nearby_empty_message" fuzzy="true">Кога ќе ќе отидете на друго место, превчитајте ја страницата за да дознаете што сè има околу вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d стапки</string>
   <string name="nearby_distance_in_miles">%.2f милји</string>
-  <string name="nearby_no_network">Немате врска со мрежата</string>
-  <string name="nearby_server_error">Не можам да добијам список на места во близина</string>
   <string name="nearby_dialog_goto_settings">Немате овозможено поднова на места. Дали би сакале да појдете во нагодувањата за да ја овозможите?</string>
   <string name="nearby_set_metric">Прикажувај метри/километри</string>
   <string name="nearby_set_imperial">Прикажувај стапки/милји</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Овој корисник е блокиран</string>
   <string name="login_error_throttled">Премногу обиди за најава. Почекајте неколку минути и обидете се повторно.</string>
   <string name="login_error_unknown">Најавата не успеа :(</string>
-  <string name="login_error_no_network">Немате врска со мрежата</string>
   <string name="preference_title_logout">Одјава</string>
-  <string name="preference_summary_logout">Одјавување од вашата сметка на Википедија</string>
-  <string name="preference_summary_notloggedin">Не сте најавени.</string>
   <string name="toast_logout_complete">Одјавени сте</string>
   <string name="saved_pages_empty_title">Тука нема зачувани страници!</string>
   <string name="saved_pages_empty_message">Зачуваните страници се одлична идеја. Претставете си ги како обележани (омилени) што можете да ги читате и кога не сте на линија.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Избриши</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="create_account_username_hint">Корисничко име</string>
-  <string name="create_account_password_hint">Лозинка</string>
   <string name="login_create_account_link">Немате сметка? Приклучете се на Википедија</string>
   <string name="create_account_login_link">Веќе имате сметка? Најавете се</string>
   <string name="create_account_activity_title">Направи кориничка сметка</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Не можете да направите сметка бидејќи сметката ви е забранета.</string>
   <string name="create_account_password_name_match_error">Корисничкото име и лозинката мора да се разликуваат.</string>
   <string name="create_account_generic_error">Не можам да направам корисничка сметка</string>
-  <string name="create_account_no_network">Немате врска со мрежата</string>
   <string name="create_account_next">Следно</string>
   <string name="create_account_button">Направи сметка</string>
   <string name="preferences_general_heading">Општи</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Пробај пак</string>
   <string name="saved_pages_update_all_error_message">Грешка при подновувањето на зачуваните страници</string>
   <string name="saved_pages_progress_title">Ги превчитувам зачуваните страници</string>
-  <string name="saved_pages_refresh_pages_complete">Подновата заврши</string>
   <string name="menu_page_saved">Страницата е зачувана</string>
   <string name="menu_refresh_saved_page">Превчитај ја страницата</string>
   <string name="abusefilter_title_warn">Ова уредување може да е неконструктивно. Дали сигурно сакате да го зачувате?</string>
@@ -249,14 +237,12 @@
   <string name="preference_title_show_images">Прикажувај слики</string>
   <string name="preference_summary_show_images">Овозможи или оневозможи вчитување на слики во страниците. Отштиклирајте ја поставкава ако сегашната семрежна врска ви е бавна, или пак ако имате ограничен податочен пакет.</string>
   <string name="read_more_section">Прочитајте повеќе</string>
-  <string name="read_next_section">Прочитај следно</string>
   <string name="menu_gallery_visit_page">Оди на податотечната страница</string>
   <string name="gallery_error_draw_failed">Не можев да ја исцртам сликата.</string>
   <string name="license_title">Лиценцен текст за библиотеката %s</string>
   <string name="gallery_menu_share">Сподели</string>
   <string name="gallery_share_error">Не можев да ја споделам сликата: %s</string>
   <string name="gallery_menu_save">Зачувај на уредот</string>
-  <string name="gallery_save_error">Не можев да ја зачувам сликата: %s</string>
   <string name="gallery_save_error_mediastore">Не можев да ја увезам сликата во збирката</string>
   <string name="gallery_save_success">Сликата е успешно зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
@@ -270,7 +256,6 @@
   <string name="captcha_image">Сликичка за проверка</string>
   <string name="gallery_fair_use_license">Праведна употреба</string>
   <string name="gallery_uploader_unknown">непознат подигач</string>
-  <string name="edit_save_unknown_error">Не можев да го зачувам уредувањето: %s</string>
   <string name="menu_new_tab">Ново јазиче</string>
   <string name="button_close_tab">Затвори јазиче</string>
   <string name="tool_tip_select_text">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>

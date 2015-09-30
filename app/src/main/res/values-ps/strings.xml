@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ويکيپېډيا</string>
-  <string name="app_name_beta">بيټا ويکيپېډيا</string>
-  <string name="app_name_alpha">الفا ويکيپېډيا</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">بيټا ويکيپېډيا</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">الفا ويکيپېډيا</string>
   <string name="yes">هو</string>
   <string name="no">نه</string>
   <string name="acra_report_dialog_title">ويکيپېډيا تخنيکي ټکر وکړ :(</string>
@@ -32,7 +32,6 @@
   <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
   <string name="nearby_distance_in_feet">%d گام</string>
   <string name="nearby_distance_in_miles">%.2f ميله</string>
-  <string name="nearby_no_network">د جال اړيکتيا نشته</string>
   <string name="nearby_view_on_map">په کښېدې ځای کتل</string>
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
   <string name="preference_languages_filter_hint">پلټل</string>
@@ -65,12 +64,10 @@
   <string name="login_success_toast" fuzzy="true">غونډال کې بريالی ورننوتې!</string>
   <string name="login_error_blocked">په دې کارن بنديز لگېدلی</string>
   <string name="preference_title_logout">وتل</string>
-  <string name="preference_summary_notloggedin">نه ياست ننوتي.</string>
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="delete_selected_history">ړنگول</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">کارن-نوم</string>
-  <string name="create_account_password_hint">پټنوم</string>
   <string name="login_create_account_link">گڼون نه لرې؟ ويکيپېډيا سره يوځای شه</string>
   <string name="create_account_login_link">آيا له پخوا نه يو گڼون لرې؟ ورننوځه</string>
   <string name="create_account_activity_title">يو گڼون جوړول</string>
@@ -131,7 +128,6 @@
   <string name="dialog_close_description">تړل</string>
   <string name="preference_title_show_images">انځورونه ښکاره کول</string>
   <string name="read_more_section">نور لوستل</string>
-  <string name="read_next_section">بل لوستل</string>
   <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
   <string name="license_title">د %s کتابتون لپاره د منښتليک متن</string>
   <string name="gallery_menu_share">شريکول</string>

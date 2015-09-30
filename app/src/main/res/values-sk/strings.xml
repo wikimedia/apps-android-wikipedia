@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipédia</string>
-  <string name="app_name_beta">Wikipédia Beta</string>
-  <string name="app_name_alpha">Wikipédia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipédia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipédia Alpha</string>
   <string name="yes">Áno</string>
   <string name="no">Nie</string>
   <string name="acra_report_dialog_title">Wikipédia zlyhala :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Hľadať</string>
   <string name="nav_item_history">História</string>
   <string name="error_network_error">Nie ste pripojení na sieť.</string>
-  <string name="search_network_error">Problém so sieťou. Ťuknutím to skúste znova.</string>
-  <string name="generic_page_error">Pri spracovaní vašej žiadosti sa vyskytol problém.</string>
-  <string name="status_code_unavailable">Status kód servera je nedostupný.</string>
   <string name="page_error_retry">Obnoviť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="menu_clear_all_saved_pages">Vymazať uložené stránky</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
   <string name="nav_item_nearby">V okolí</string>
-  <string name="menu_update_nearby">Aktualizovať okolie</string>
   <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>
   <string name="nearby_empty_message" fuzzy="true">Keď sa presuniete na nové miesto, skúste obnoviť túto stránku pre zistenie ďalších informácií o tom, čo je okolo vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Žiadne sieťové pripojenie</string>
-  <string name="nearby_server_error">Nepodarilo sa nájsť zoznam miest v okolí.</string>
   <string name="nearby_dialog_goto_settings">Informácie o polohe nie sú vo vašom prístroji povolené. Chceli by ste prejsť do nastavení vášho zariadenia týkajúcich sa lokalizačných služieb?</string>
   <string name="nearby_set_metric">Zobraziť metre/km</string>
   <string name="nearby_set_imperial">Zobraziť stopy/míle</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Tento používateľ bol zablokovaný</string>
   <string name="login_error_throttled">Príliš veľa pokusov o prihlásenie. Počkajte pár minút a skúste to znova.</string>
   <string name="login_error_unknown">Prihlásenie zlyhalo :(</string>
-  <string name="login_error_no_network">Žiadne sieťové pripojenie</string>
   <string name="preference_title_logout">Odhlásiť sa</string>
-  <string name="preference_summary_logout">Odhlásiť sa z používateľského účtu Wikipédie</string>
-  <string name="preference_summary_notloggedin">Nie ste prihlásený</string>
   <string name="toast_logout_complete">Ste odhlásený.</string>
   <string name="saved_pages_empty_title">Nemáte žiadne uložené stránky!</string>
   <string name="saved_pages_empty_message">Uložené stránky sú úžasné. Vyskúšajte si ich aj ako obľúbené stránky, ktoré je možné používať v offline režime.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Vymazať</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Používateľské meno</string>
-  <string name="create_account_password_hint">Heslo</string>
   <string name="login_create_account_link">Ešte nemáte účet? Pripojte sa k Wikipédii.</string>
   <string name="create_account_login_link">Už máte účet? Prihlásiť sa.</string>
   <string name="create_account_activity_title">Vytvoriť nový účet</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Nemôžete si vytvoriť účet preto, lebo váš účet je zablokovaný.</string>
   <string name="create_account_password_name_match_error">Vaše používateľské meno a heslo musia byť odlišné.</string>
   <string name="create_account_generic_error">Nepodarilo sa vytvoriť účet</string>
-  <string name="create_account_no_network">Žiadne sieťové pripojenie</string>
   <string name="create_account_next">Ďalej</string>
   <string name="create_account_button">Vytvoriť účet</string>
   <string name="preferences_general_heading">Všeobecné</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Znova</string>
   <string name="saved_pages_update_all_error_message">Chyba pri aktualizácii uložených stránok</string>
   <string name="saved_pages_progress_title">Obnovenie uložených stránok</string>
-  <string name="saved_pages_refresh_pages_complete">Aktualizácia je dokončená</string>
   <string name="menu_page_saved">Stránka uložená</string>
   <string name="menu_refresh_saved_page">Obnoviť stránku</string>
   <string name="abusefilter_title_warn">Táto editácia môže byť nekonštruktívna. Naozaj si ju prajete uložiť?</string>
@@ -241,14 +229,12 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="preference_title_show_images">Zobraziť obrázky</string>
   <string name="preference_summary_show_images">Zapnite alebo vypnite načítavanie obrázkov na stránkach. Zaškrtnite toto nastavenie, ak je internetové pripojenie pomalé alebo máte obmedzený dátový program.</string>
   <string name="read_more_section">Prečítajte si viac</string>
-  <string name="read_next_section">Čítať ďalej</string>
   <string name="menu_gallery_visit_page">Prejdite na stránku súboru</string>
   <string name="gallery_error_draw_failed">Obrázok nebolo možné nakresliť.</string>
   <string name="license_title">Text licencie pre %s knižnicu</string>
   <string name="gallery_menu_share">Zdieľať</string>
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
   <string name="gallery_menu_save">Uložiť v zariadení</string>
-  <string name="gallery_save_error">Obrázok nebolo možné uložiť: %s</string>
   <string name="gallery_save_error_mediastore">Nepodarilo sa importovať obrázok do kolekcie médií</string>
   <string name="gallery_save_success">Obrázok bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
@@ -262,7 +248,6 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="captcha_image">Captcha obrázok</string>
   <string name="gallery_fair_use_license">Férové použitie</string>
   <string name="gallery_uploader_unknown">Uploader neznámy</string>
-  <string name="edit_save_unknown_error">Nedá sa uložiť vaša úprava: %s</string>
   <string name="menu_new_tab">Nová karta</string>
   <string name="button_close_tab">Zavrieť kartu</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>

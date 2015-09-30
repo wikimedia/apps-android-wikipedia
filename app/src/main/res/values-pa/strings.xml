@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ਵਿਕੀਪੀਡੀਆ</string>
-  <string name="app_name_beta">ਵਿਕੀਪੀਡੀਆ ਬੀਟਾ</string>
-  <string name="app_name_alpha">ਵਿਕੀਪੀਡੀਆ ਅਲਫ਼ਾ</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ਵਿਕੀਪੀਡੀਆ ਬੀਟਾ</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ਵਿਕੀਪੀਡੀਆ ਅਲਫ਼ਾ</string>
   <string name="yes">ਹਾਂ</string>
   <string name="no">ਨਹੀਂ</string>
   <string name="acra_report_dialog_title">ਵਿਕੀਪੀਡੀਆ ਕਰੈਸ਼ ਹੋਇਆ :(</string>
@@ -11,8 +11,6 @@
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>
-  <string name="search_network_error">ਨੈੱਟਵਰਕ \'ਚ ਦੋਸ਼। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਵਾਸਤੇ ਟਕੋਰੋ।</string>
-  <string name="status_code_unavailable">ਸਰਵਰ ਸਥਿਤੀ ਕੋਡ ੳੁਪਲਬਧ ਨਹੀਂ ਹੈ</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="menu_clear_all_saved_pages">ਸੱਭ ਸੰਭਾਲੇ ਵਰਕੇ ਸਾਫ਼ ਕਰੋ</string>
@@ -43,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">ਨਵੇਂ ਟੈਬ \'ਚ ਖੋਲ੍ਹੋ</string>
   <string name="menu_long_press_copy_page">ਕੜੀ ਦਾ ਪਤਾ ੳੁਤਾਰੋ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
-  <string name="menu_update_nearby">ਨੇੜੇ-ਤੇੜੇ ਅੱਪਡੇਟ ਕਰੋ</string>
   <string name="nearby_empty_title">ਇੱਥੇ ਨੇੜੇ-ਤੇੜੇ ਦੇ ਕੋਈ ਸਫ਼ੇ ਨਹੀਂ!</string>
   <string name="nearby_empty_message" fuzzy="true">ਜਦੋਂ ਤੁਸੀਂ ਕਿਸੇ ਨਵੀਂ ਥਾਂ \'ਤੇ ਜਾਂਦੇ ਹੋਂ ਤਾਂ ਆਪਣੇ ਆਲ਼ੇ-ਦੁਆਲ਼ੇ ਬਾਬਤ ਹੋਰ ਜਾਣਨ ਵਾਸਤੇ ਇਸ ਸਫ਼ੇ ਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰ ਸਕਦੇ ਹੋ।</string>
   <string name="nearby_distance_in_meters">%d ਮੀਟਰ</string>
   <string name="nearby_distance_in_kilometers">%.2f ਕਿ.ਮੀ.</string>
   <string name="nearby_distance_in_feet">%d ਫੁੱਟ</string>
   <string name="nearby_distance_in_miles">%.2f ਮੀਲ</string>
-  <string name="nearby_no_network">ਕੋਈ ਨੈੱਟਵਰਕ ਜੋੜ ਨਹੀਂ ਹੈ</string>
-  <string name="nearby_server_error">ਨੇੜਲੀਆਂ ਥਾਂਵਾਂ ਦੀ ਸੂਚੀ ਨਾ ਮਿਲ ਸਕੀ।</string>
   <string name="nearby_dialog_goto_settings">ਤੁਹਾਡੇ ਜੰਤਰ ਉੱਤੇ ਟਿਕਾਣਿਆਂ ਦੇ ਨਵੀਨੀਕਰਨ ਚੱਲ ਨਹੀਂ ਰਹੇ। ਕੀ ਤੁਸੀਂ ਟਿਕਾਣਾ ਨਵੀਨੀਕਰਨਾਂ ਨੂੰ ਚਾਲੂ ਕਰਨ ਵਾਸਤੇ ਆਪਣੇ ਜੰਤਰ ਦੀਆਂ ਸੈਟਿੰਗਾਂ \'ਤੇ ਜਾਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="nearby_set_metric">ਮੀਟਰ/ਕਿ.ਮੀ. ਵਿਖਾਉ</string>
   <string name="nearby_set_imperial">ਫੁੱਟ/ਮੀਲ ਵਿਖਾਉ</string>
@@ -99,10 +94,7 @@
   <string name="login_error_blocked">ਇਸ ਵਰਤੋਂਕਾਰ \'ਤੇ ਰੋਕ ਲੱਗੀ ਹੋਈ ਹੈ</string>
   <string name="login_error_throttled">ਦਾਖ਼ਲ ਹੋਣ ਦੀਆਂ ਬਾਹਲੀਆਂ ਕੋਸ਼ਿਸ਼ਾਂ। ਕੁਝ ਮਿੰਟ ਉਡੀਕੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="login_error_unknown">ਦਾਖ਼ਲਾ ਫੇਲ੍ਹ :(</string>
-  <string name="login_error_no_network">ਕੋਈ ਨੈੱਟਵਰਕ ਜੋੜ ਨਹੀਂ</string>
   <string name="preference_title_logout">ਬਾਹਰ ਆਉ</string>
-  <string name="preference_summary_logout">ਆਪਣੇ ਵਿਕੀਪੀਡੀਆ ਖਾਤੇ ਤੋਂ ਬਾਹਰ ਆਉ</string>
-  <string name="preference_summary_notloggedin">ਦਾਖ਼ਲ ਨਹੀਂ ਹੋ।</string>
   <string name="toast_logout_complete">ਬਾਹਰ ਆਏ</string>
   <string name="saved_pages_empty_title">ਇੱਥੇ ਕੋਈ ਸਾਂਭੇ ਵਰਕੇ ਨਹੀਂ!</string>
   <string name="saved_pages_empty_message">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਡਾਢੇ ਵਧੀਆ ਹੁੰਦੇ ਹਨ। ਉਹਨਾਂ ਨੂੰ ਅਜਿਹੇ ਨਿਸ਼ਾਨੀਆ ਕਾਗਜ਼ ਸਮਝੋ ਜਿਹਨਾਂ ਨੂੰ ਤੁਸੀਂ ਲੀਹੋਂ ਲਹਿ ਕੇ ਵੀ ਪੜ੍ਹ ਸਕਦੇ ਹੋ।</string>
@@ -111,7 +103,6 @@
   <string name="delete_selected_history">ਮਿਟਾਓ</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="create_account_username_hint">ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
-  <string name="create_account_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="login_create_account_link">ਖਾਤਾ ਨਹੀਂ ਹੈ? ਵਿਕੀਪੀਡੀਆ \'ਚ ਭਰਤੀ ਹੋਵੋ</string>
   <string name="create_account_login_link">ਪਹਿਲੋਂ ਹੀ ਖਾਤਾ ਹੈ? ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="create_account_activity_title">ਕੋਈ ਖਾਤਾ ਬਣਾਉ</string>
@@ -130,7 +121,6 @@
   <string name="create_account_blocked_error">ਤੁਸੀਂ ਖਾਤਾ ਨਹੀਂ ਬਣਾ ਸਕਦੇ ਕਿਉਂਕਿ ਤੁਹਾਡੇ ਖਾਤੇ ਉੱਤੇ ਰੋਕ ਲੱਗੀ ਹੋਈ ਹੈ।</string>
   <string name="create_account_password_name_match_error">ਤੁਹਾਡਾ ਵਰਤੋਂਕਾਰ-ਨਾਂ ਅਤੇ ਪਛਾਣ-ਸ਼ਬਦ ਅੱਡੋ-ਅੱਡ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ।</string>
   <string name="create_account_generic_error">ਖਾਤਾ ਨਹੀਂ ਬਣ ਸਕਿਆ</string>
-  <string name="create_account_no_network">ਕੋਈ ਨੈੱਟਵਰਕ ਜੋੜ ਨਹੀਂ ਹੈ</string>
   <string name="create_account_next">ਅਗਲਾ</string>
   <string name="create_account_button">ਖਾਤਾ ਬਣਾਉ</string>
   <string name="preferences_general_heading">ਆਮ</string>
@@ -195,7 +185,6 @@
   <string name="saved_pages_update_all_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="saved_pages_update_all_error_message">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਨਵਿਆਉਣ ਵਿੱਚ ਦੋਸ਼</string>
   <string name="saved_pages_progress_title">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਹੇ ਹਨ</string>
-  <string name="saved_pages_refresh_pages_complete">ਨਵੀਨੀਕਰਨ ਮੁਕੰਮਲ</string>
   <string name="menu_page_saved">ਸਫ਼ਾ ਸਾਂਭਿਆ ਗਿਆ</string>
   <string name="menu_refresh_saved_page">ਸਫ਼ਾ ਮੁੜ-ਤਾਜ਼ਾ ਕਰੋ</string>
   <string name="abusefilter_title_warn">ਇਹ ਇੱਕ ਬੇਉਸਾਰੂ ਸੋਧ ਹੋ ਸਕਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਇਹਨੂੰ ਸਾਂਭਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
@@ -232,7 +221,6 @@
   <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
-  <string name="read_next_section">ਅੱਗੇ ਪੜ੍ਹੋ</string>
   <string name="menu_gallery_visit_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>

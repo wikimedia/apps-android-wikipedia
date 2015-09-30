@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Википедија</string>
-  <string name="app_name_beta">Википедија Бета</string>
-  <string name="app_name_alpha">Википедија Алфа</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Википедија Бета</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Википедија Алфа</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
   <string name="acra_report_dialog_title">Википедија је пала :(</string>
@@ -11,8 +11,6 @@
   <string name="search_hint">Претрага Википедије</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error" fuzzy="true">Није могуће успоставити мрежну везу.</string>
-  <string name="search_network_error">Мрежна грешка. Тапните да пробате поново.</string>
-  <string name="generic_page_error">Дошло је до проблема при обради вашег захтева.</string>
   <string name="page_error_retry">Пробај опет</string>
   <string name="menu_clear_all_history">Очисти историју</string>
   <string name="menu_clear_all_saved_pages">Очисти сачуване странице</string>
@@ -46,8 +44,6 @@
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Нема мрежне везе</string>
-  <string name="nearby_server_error">Нема списка места у близини.</string>
   <string name="nearby_dialog_goto_settings">Локацијска ажурирања нису укључена на вашем уређају. Да ли желите да отворите подешавања вашег уређаја и да их укључите?</string>
   <string name="nearby_set_metric">Прикажи метре/км</string>
   <string name="nearby_set_imperial">Прикажи стопе/миље</string>
@@ -91,16 +87,13 @@
   <string name="login_error_blocked">Корисник је блокиран</string>
   <string name="login_error_throttled">Превише пута сте покушали да се пријавите. Сачекајте неколико минута и покушајте поново.</string>
   <string name="login_error_unknown">Пријављивање није успело :(</string>
-  <string name="login_error_no_network">Нема мрежне везе</string>
   <string name="preference_title_logout">Одјави ме</string>
-  <string name="preference_summary_notloggedin">Нисте пријављени.</string>
   <string name="toast_logout_complete">Одјављени сте</string>
   <string name="saved_pages_empty_title">Нема сачуваних страница!</string>
   <string name="history_empty_message">Највероватније сте их све обрисали. Кад идући пут будете посетили страницу, можете јој се поново вратити овде.</string>
   <string name="delete_selected_history">Брисање</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
   <string name="create_account_username_hint">Корисничко име</string>
-  <string name="create_account_password_hint">Лозинка</string>
   <string name="login_create_account_link">Немате налог? Придружите се Википедији</string>
   <string name="create_account_login_link">Већ имате свој налог? Пријавите се</string>
   <string name="create_account_activity_title">Отворите налог</string>
@@ -119,7 +112,6 @@
   <string name="create_account_blocked_error">Не можете да отворите налог зато што је Ваш налог блокиран.</string>
   <string name="create_account_password_name_match_error">Ваше корисничко име и лозинка се морају разликовати.</string>
   <string name="create_account_generic_error">Не могу да отворим налог</string>
-  <string name="create_account_no_network">Нема мрежне везе</string>
   <string name="create_account_next">Следеће</string>
   <string name="create_account_button">Отвори налог</string>
   <string name="preferences_general_heading">Опште</string>
@@ -166,7 +158,6 @@
   <string name="saved_pages_update_all_error_retry">Покушај поново</string>
   <string name="saved_pages_update_all_error_message">Дошло је до грешке код ажурирања сачуваних страница</string>
   <string name="saved_pages_progress_title">Освежавам сачуване странице</string>
-  <string name="saved_pages_refresh_pages_complete">Ажурирање завршено</string>
   <string name="menu_page_saved">Страница сачувана</string>
   <string name="menu_refresh_saved_page">Освежи страницу</string>
   <string name="dialog_page_issues">Недостаци странице</string>
@@ -190,7 +181,6 @@
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_menu_save">Сачувај на уређај</string>
-  <string name="gallery_save_error">Не могу да сачувам слику: %s</string>
   <string name="gallery_save_success">Слика успешно сачувана.</string>
   <string name="gallery_error_video_failed">Не могу да пустим видео.</string>
   <string name="err_cannot_save_file">Не могу да сачувам датотеку</string>

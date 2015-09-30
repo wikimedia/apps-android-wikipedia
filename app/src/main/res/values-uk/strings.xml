@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Вікіпедія</string>
-  <string name="app_name_beta">Вікіпедія Бета</string>
-  <string name="app_name_alpha">Вікіпедія Альфа</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Вікіпедія Бета</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Вікіпедія Альфа</string>
   <string name="yes">Так</string>
   <string name="no">Ні</string>
   <string name="acra_report_dialog_title">Вікіпедія зазнала краху :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="nav_item_history">Історія</string>
   <string name="error_network_error" fuzzy="true">Не вдається підключитися до інтернету.</string>
-  <string name="search_network_error">Помилка мережі. Натисніть, щоб спробувати знову.</string>
-  <string name="generic_page_error">Виникла проблема обробки Вашого запиту.</string>
-  <string name="status_code_unavailable">Код статусу сервера  недоступний.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
   <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
   <string name="menu_long_press_copy_page">Копіювати адресу посилання</string>
   <string name="nav_item_nearby">Неподалік</string>
-  <string name="menu_update_nearby">Оновлення неподалік</string>
   <string name="nearby_empty_title">Тут немає суміжних сторінок!</string>
   <string name="nearby_empty_message" fuzzy="true">Коли ви переміститесь на нове місце, спробуйте оновити цю сторінку щоб взнати що навколо вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d футів</string>
   <string name="nearby_distance_in_miles">%.2f миль</string>
-  <string name="nearby_no_network">Немає з\'єднання з мережею</string>
-  <string name="nearby_server_error">Не вдалося отримати список місць неподалік.</string>
   <string name="nearby_dialog_goto_settings">Оновлення розташування не увімкнено на вашому пристрої. Ви хотіли б перейти в налаштування пристрою для увімкнення оновлення місця знаходження?</string>
   <string name="nearby_set_metric">Показувати в метрах/кілометрах</string>
   <string name="nearby_set_imperial">Показувати в футах/милях</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Цей користувач був заблокований</string>
   <string name="login_error_throttled">Забагато спроб входу. Зачекайте кілька хвилин і спробуйте ще раз?</string>
   <string name="login_error_unknown">Увійти не вдалося :(</string>
-  <string name="login_error_no_network">Немає з\'єднання з мережею</string>
   <string name="preference_title_logout">Вийти із системи</string>
-  <string name="preference_summary_logout">Вийти зі свого облікового запису Вікіпедії</string>
-  <string name="preference_summary_notloggedin">Ви не ввійшли до системи.</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
   <string name="saved_pages_empty_title">Тут немає збережених сторінок!</string>
   <string name="saved_pages_empty_message">Збережені сторінки — це круто! Користуйтесь ними як закладками, які можна читати навіть, коли Ви офлайн.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Видалити</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЕДІ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Ім\'я користувача</string>
-  <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">Немає облікового запису? Приєднайтесь до Вікіпедії</string>
   <string name="create_account_login_link">Ви вже зареєстровані? Увійдіть</string>
   <string name="create_account_activity_title">Створити обліковий запис</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Ви не можете створити обліковий запис, тому що ваш обліковий запис заблокований.</string>
   <string name="create_account_password_name_match_error">Ваше ім\'я користувача і пароль повинні відрізнятися.</string>
   <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
-  <string name="create_account_no_network">Немає з\'єднання з мережею</string>
   <string name="create_account_next">Далі</string>
   <string name="create_account_button">Створити обліковий запис</string>
   <string name="preferences_general_heading">Загальні</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Повторити</string>
   <string name="saved_pages_update_all_error_message">Помилка при оновленні збережених сторінок</string>
   <string name="saved_pages_progress_title">Перезавантаження збережених сторінок</string>
-  <string name="saved_pages_refresh_pages_complete">Оновлення завершено</string>
   <string name="menu_page_saved">Сторінку збережено</string>
   <string name="menu_refresh_saved_page">Оновити сторінку</string>
   <string name="abusefilter_title_warn">Це може редагування бути неконструктивним. Ви впевнені, що хочете його зберегти?</string>
@@ -259,14 +247,12 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Показати зображення</string>
   <string name="preference_summary_show_images" fuzzy="true">Включити або відключити завантаження зображень в сторінках. Вимкніть цю опцію, якщо ваше інтернет з\'єднання повільне, або якщо ваш тарифний план обмежений.</string>
   <string name="read_more_section">Читати більше</string>
-  <string name="read_next_section">Читати далі</string>
   <string name="menu_gallery_visit_page">Перейти на сторінку файлу</string>
   <string name="gallery_error_draw_failed">Не вдалось відтворити зображення.</string>
   <string name="license_title">Текст ліцензії для бібліотеки %s</string>
   <string name="gallery_menu_share">Поділитися</string>
   <string name="gallery_share_error">Не вдалось поділитися зображенням: %s</string>
   <string name="gallery_menu_save">Зберегти на пристрій</string>
-  <string name="gallery_save_error">Не вдалось зберегти зображення: %s</string>
   <string name="gallery_save_error_mediastore">Не вдалося імпортувати зображення до медіа-колекції</string>
   <string name="gallery_save_success">Зображення успішно збережено!</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
@@ -280,7 +266,6 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Зображення captcha</string>
   <string name="gallery_fair_use_license">Добросовісне використання</string>
   <string name="gallery_uploader_unknown">Завантаживший невідомий</string>
-  <string name="edit_save_unknown_error">Не вдалося зберегти ваше редагування: %s</string>
   <string name="menu_new_tab">Нова вкладка</string>
   <string name="button_close_tab">Закрити вкладку</string>
   <string name="tool_tip_select_text">Натисніть і утримуйте на будь-якому місці в тексті, щоб виділити його для копіювання та обміну.</string>

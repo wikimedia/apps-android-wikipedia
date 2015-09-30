@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">వికీపీడియా</string>
-  <string name="app_name_beta">వికీపీడియా బీటా</string>
-  <string name="app_name_alpha">వికీపీడియా ఆల్ఫా</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">వికీపీడియా బీటా</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">వికీపీడియా ఆల్ఫా</string>
   <string name="yes">అవును</string>
   <string name="no">కాదు</string>
   <string name="acra_report_dialog_title">వికీపీడియా పనిచేయడం మానేసింది :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="nav_item_history">చరిత్ర</string>
   <string name="error_network_error" fuzzy="true">ఇంటర్నెట్ తో అనుసందానం ఏర్పరచలేకపోయాము.</string>
-  <string name="search_network_error">నెట్‌వర్క్ లోపం. మళ్ళీ ప్రయత్నించడానికి తట్టండి.</string>
-  <string name="generic_page_error">మీ అభ్యర్ధనని ప్రక్రియంచటంలో ఏదో సమస్య వచ్చింది.</string>
-  <string name="status_code_unavailable">సర్వర్ స్టేటస్ కోడ్ అందుబాటులో లేదు.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
   <string name="menu_clear_all_saved_pages">భద్రపరిచిన పేజీలను తుడిచివేయి</string>
@@ -43,15 +40,12 @@
   <string name="menu_long_press_open_page" fuzzy="true">లంకను తెరువు</string>
   <string name="menu_long_press_open_in_new_tab">కొత్త ట్యాబులో తెరువు</string>
   <string name="nav_item_nearby">దగ్గరలో</string>
-  <string name="menu_update_nearby">\"దగ్గరలో\" సమాచారం తాజాపరచు</string>
   <string name="nearby_empty_title">దగ్గరలో ఏ పేజీలు లేవు!</string>
   <string name="nearby_empty_message" fuzzy="true">మీరు కొత్త ప్రదేశానికి వెళ్తే, మీ చుట్టూ ఉన్న విషయాల గురించి మరింత తెలుసుకోవటానికి ఈ పేజీని తాజాపరిచండి.</string>
   <string name="nearby_distance_in_meters">%d మీటర్లు</string>
   <string name="nearby_distance_in_kilometers">%.2f కిలోమీటర్లు</string>
   <string name="nearby_distance_in_feet">%d అడుగులు</string>
   <string name="nearby_distance_in_miles">%.2f మైళ్ళు</string>
-  <string name="nearby_no_network">జాలానుసంధానం లేదు</string>
-  <string name="nearby_server_error">దగ్గరలో ఉన్న ప్రదేశాల జాబితా పొందలేము.</string>
   <string name="nearby_dialog_goto_settings">ప్రదేశగుర్తింపు సేవ మీ పరికరంలో అన్ చేసి లేదు. మీ పరికర అమర్పులకి వెళ్లి ప్రదేశగుర్తింపు సేవని ఆన్ చేయాలని అనుకుంటున్నారా?</string>
   <string name="nearby_set_metric">మీటర్లు/కిలోమీటర్లుగా చూపించు</string>
   <string name="nearby_set_imperial">అడుగులు/మైళ్ళుగా చూపించు</string>
@@ -102,10 +96,7 @@
   <string name="login_error_blocked">ఈ వాడుకరిని నిరోధించారు</string>
   <string name="login_error_throttled">చాలా లాగిన్ ప్రయత్నాలు. కొన్ని నిమిషాలు వేచి ఉండి మరియు మళ్ళీ ప్రయత్నించండి.</string>
   <string name="login_error_unknown">లాగిన్ విఫలమైంది :(</string>
-  <string name="login_error_no_network">అంతర్జాల అనుసంధానం లేదు</string>
   <string name="preference_title_logout">నిష్క్రమించండి</string>
-  <string name="preference_summary_logout">మీ వికీపీడియా ఖాతా నుండి నిష్కామించండి</string>
-  <string name="preference_summary_notloggedin">లాగిన్‌ అయిలేరు</string>
   <string name="toast_logout_complete">బయటకు వచ్చేసారు</string>
   <string name="saved_pages_empty_title">భద్రపరచబడిన పేజీలు ఏమీ ఇక్కడ లేవు !</string>
   <string name="saved_pages_empty_message">భద్రపరచిన పేజీలు అందంగా, అద్భుతంగా ఉంటాయి.
@@ -116,7 +107,6 @@
   <string name="delete_selected_history">తొలగించు</string>
   <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>
   <string name="create_account_username_hint">వాడుకరి పేరు</string>
-  <string name="create_account_password_hint">సంకేతపదం</string>
   <string name="login_create_account_link">మీకు ఖాతా లేదా ? వికీపీడియాలో చేరండి</string>
   <string name="create_account_login_link">మీకు ఖాతా ఉందా ? లోపలకు రండి</string>
   <string name="create_account_activity_title">ఖాతా సృష్టించుకోండి</string>
@@ -135,7 +125,6 @@
   <string name="create_account_blocked_error">మీ ఖాతా నిరోధించబడింది కనుక ఒక ఖాతాను సృష్టించడానికి వీలు కాదు.</string>
   <string name="create_account_password_name_match_error">మీ వాడుకరి పేరు మరియు మీ భద్రతపదం రెండూ భిన్నంగా ఉండాలి.</string>
   <string name="create_account_generic_error">ఖాతాను సృష్టించలేకపోయాం</string>
-  <string name="create_account_no_network">అంతర్జాల అనుసంధానం లేదు</string>
   <string name="create_account_next">తదుపరి</string>
   <string name="create_account_button">ఖాతా సృష్టించండి</string>
   <string name="preferences_general_heading">సాధారణం</string>
@@ -199,7 +188,6 @@
   <string name="saved_pages_update_all_error_retry">పునఃప్రయత్నించండి</string>
   <string name="saved_pages_update_all_error_message">భద్రపరచబడిన పేజీలను నవీకరించటంలో సమస్య వచ్చింది.</string>
   <string name="saved_pages_progress_title">భద్రపరచబడిన పుటలను ఉపశాంతి నిచ్చేట్లు చేస్తుంది.</string>
-  <string name="saved_pages_refresh_pages_complete">పూర్తి నవీకరణం</string>
   <string name="menu_page_saved">పేజి భద్రపరచబడింది</string>
   <string name="menu_refresh_saved_page">రిఫ్రెష్ పేజీ</string>
   <string name="abusefilter_title_warn">ఇది అనిర్మాణాత్మక సవరణ అయ్యుండవచ్చు. ఖచ్చితంగా భద్రపరచాలనుకుంటున్నారా?</string>
@@ -230,14 +218,12 @@
   <string name="preference_title_show_images">బొమ్మలు చూపించు</string>
   <string name="preference_summary_show_images" fuzzy="true">పేజిలలో చిత్రాన్ని లోడ్ చేయండి లేదా చేయవద్దు. మీ డేటా కనెక్షన్ మెల్లగా కానీ పరిమితంగా కానీ ఉంటే ఈ అమర్పుని ఎంచుకోవద్దు.</string>
   <string name="read_more_section">మరింత చదువు</string>
-  <string name="read_next_section">తదుపరి చదవండి</string>
   <string name="menu_gallery_visit_page">దస్త్ర పేజీకి వెళ్ళు</string>
   <string name="gallery_error_draw_failed">బొమ్మను పొందలేకపోతున్నాము.</string>
   <string name="license_title">%s లైబ్రరీకి లైసెన్స్ వచనం</string>
   <string name="gallery_menu_share">పంచుకోండి</string>
   <string name="gallery_share_error">చిత్రాన్ని భాగ్యపరచలేకపోయాము : %s</string>
   <string name="gallery_menu_save">పరికరానికి భద్రపరుచు</string>
-  <string name="gallery_save_error">చిత్రాన్ని భద్రపరచలేకపోయాము : %s</string>
   <string name="gallery_save_error_mediastore">చిత్రాన్ని మీడియా సేకరణకి ఎగుమతి విఫలమైంది</string>
   <string name="gallery_save_success">బొమ్మ విజయవంతంగా భద్రపరచబడింది.</string>
   <string name="gallery_error_video_failed">దృశ్యకాన్ని ప్రదర్శించలేకపోతున్నాము.</string>
@@ -251,7 +237,6 @@
   <string name="captcha_image">కాప్చా బొమ్మ</string>
   <string name="gallery_fair_use_license">సముచితోపయోగం</string>
   <string name="gallery_uploader_unknown">ఎక్కించినవారెవరో తెలీదు</string>
-  <string name="edit_save_unknown_error">మీ సవరణని భద్రపరచలేకపోయాము : %s</string>
   <string name="menu_new_tab">కొత్త ట్యాబు</string>
   <string name="button_close_tab">ట్యాబును మూసివేయి</string>
   <string name="tool_tip_select_text">ఏ వచనాన్నైనా కాపీ చేయాటానికి లేదా పంచుకోవటానికి దాన్ని తాకివుంచండి.</string>

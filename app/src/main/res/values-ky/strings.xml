@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Уикипедия</string>
-  <string name="app_name_beta">Уикипедия Бета</string>
-  <string name="app_name_alpha">Уикипедия Альфа</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Уикипедия Бета</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Уикипедия Альфа</string>
   <string name="yes">Ооба</string>
   <string name="no">Жок</string>
   <string name="acra_report_dialog_title">Уикипедия бузулду :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">Уикипедиядан издөө</string>
   <string name="nav_item_history">Тарых</string>
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
-  <string name="search_network_error">Тармак катасы. Кайра аракет кылуу үчүн дагы басыңыз.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
   <string name="menu_clear_all_saved_pages">Бардык сакталган барактарды өчүрүү</string>
@@ -38,15 +37,12 @@
   <string name="menu_page_find_in_page">Бул барактан табуу</string>
   <string name="menu_page_font_and_theme">Жазуу түрүн жана жасалганы өзгөртүү</string>
   <string name="nav_item_nearby">Жакынкы</string>
-  <string name="menu_update_nearby">Жакынкы жерлерди жаңылоо</string>
   <string name="nearby_empty_title">Жакынкы жерлердеги объекттер жөнүндө барактар жок!</string>
   <string name="nearby_empty_message" fuzzy="true">Сиз башка жерге жылгандан кийин, сиз жакта эмне бар экенин билүү үчүн бул баракты жаңылап көрүңүз.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d фут</string>
   <string name="nearby_distance_in_miles">%.2f миль</string>
-  <string name="nearby_no_network">Тармактык туташуу жокко эсе</string>
-  <string name="nearby_server_error">Жакынкы жерлердин тизмесин алууга мүмкүнчүлүк болбоду.</string>
   <string name="nearby_dialog_goto_settings">Сиздин түзүлүшүңүздө жайгашкан жерди жаңылоо иштетилген эмес. Жайгашкан жерди жаңылоону иштетүү үчүн түзүлүшүңүздүн ырастоолоруна өтүүнү каалайсызбы?</string>
   <string name="nearby_set_metric">Метр/километр өлчөмүндө көрсөтүү</string>
   <string name="nearby_set_imperial">Фут/миль өлчөмүндө көрсөтүү</string>
@@ -87,10 +83,7 @@
   <string name="login_error_blocked">Бул колдонуучу бөгөттөлгөн</string>
   <string name="login_error_throttled">Кирүүгө өтө көп аракет жасадыңыз. Бир нече мүнөт күтө туруңуз жана кайрадан аракет кылып көрүңүз.</string>
   <string name="login_error_unknown">Кирүүгө мүмкүнчүлүк болбоду :(</string>
-  <string name="login_error_no_network">Тармактык туташуу жокко эсе</string>
   <string name="preference_title_logout">Чыгуу</string>
-  <string name="preference_summary_logout">Уикипедиядагы эсеп жазууңуздан чыгуу</string>
-  <string name="preference_summary_notloggedin">Сиз системге кирген жоксуз</string>
   <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
   <string name="saved_pages_empty_title">Сакталган барактар жок!</string>
   <string name="saved_pages_empty_message">Сакталган барактар — эң сонун нерселер. Алар жөнүндө сиз оффлайн болсоңуз да окуй ала турчу, сакталмалар жөнүндө ойлогондой ойлоңуз.</string>
@@ -99,7 +92,6 @@
   <string name="delete_selected_history">Өчүрүү</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Колдонуучу аты</string>
-  <string name="create_account_password_hint">Сырсөз</string>
   <string name="login_create_account_link">Катталган эмессизби? Уикипедияга кошулуңуз</string>
   <string name="create_account_login_link">Катталгансызбы? Кириңиз</string>
   <string name="create_account_activity_title">Катталуу</string>
@@ -118,7 +110,6 @@
   <string name="create_account_blocked_error">Сиз жаңы эсеп жазуусун түзө албайсыз, анткени сиздин IP-дарегиңиз бөгөттөлгөн.</string>
   <string name="create_account_password_name_match_error">Сиздин колдонуучу атыңыз жана сырсөзүңүз окшош болбошу керек.</string>
   <string name="create_account_generic_error">Эсеп жазуусун түзүү мүмкүн эмес</string>
-  <string name="create_account_no_network">Тармактык туташуу жокко эсе</string>
   <string name="create_account_next">Кийинки</string>
   <string name="create_account_button">Катталуу</string>
   <string name="preferences_general_heading">Жалпы</string>
@@ -182,7 +173,6 @@
   <string name="saved_pages_update_all_error_retry">Кайра аракет кылуу</string>
   <string name="saved_pages_update_all_error_message">Сакталган барактарды жаңылоо катасы</string>
   <string name="saved_pages_progress_title">Сакталган барактар жаңыланууда…</string>
-  <string name="saved_pages_refresh_pages_complete">Жаңылануу аяктады</string>
   <string name="menu_page_saved">Барак сакталды</string>
   <string name="menu_refresh_saved_page">Баракты жаңылоо</string>
   <string name="abusefilter_title_warn">Бул оңдоо бузуку болушу мүмкүн. Сиз аны сактооңузга ишенесизби?</string>

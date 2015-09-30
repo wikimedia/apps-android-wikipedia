@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Vikipediya</string>
-  <string name="app_name_beta">Vikipedia Beta</string>
-  <string name="app_name_alpha">Vikipediya (alfa variant)</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Vikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Vikipediya (alfa variant)</string>
   <string name="yes">Ha</string>
   <string name="no">Yoʻq</string>
   <string name="acra_report_dialog_title">Vikipedia halokatga uchradi :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">Vikipediadan izlash</string>
   <string name="nav_item_history">Tarix</string>
   <string name="error_network_error" fuzzy="true">Tarmoq aloqasi mavjud emas :(</string>
-  <string name="search_network_error">Tarmoqdagi xatolik. Yana harakat qilish uchun ushbuni bosing.</string>
   <string name="page_error_retry">Qayta urinib koʻrish</string>
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalash</string>
   <string name="menu_clear_all_saved_pages">Saqlangan sahifalarni o\'chirish</string>
@@ -38,15 +37,12 @@
   <string name="menu_page_find_in_page">Sahifadan topish</string>
   <string name="menu_page_font_and_theme">Shrift va mavzu</string>
   <string name="nav_item_nearby">Yaqin atrofda</string>
-  <string name="menu_update_nearby">Yaqin atrofni yangilash</string>
   <string name="nearby_empty_title">Yaqin atrof bilan bog‘liq sahifalar topilmadi!</string>
   <string name="nearby_empty_message" fuzzy="true">Ko‘chib o‘tganingizda atrofingiz haqida o‘rganish uchun ushbu sahifani yangilab ko‘ring.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Tarmoqqa ulanib bo\'lmadi</string>
-  <string name="nearby_server_error">Yaqin atrofdagi joylar ro\'yxatini olib bo\'lmadi.</string>
   <string name="nearby_set_metric">Metr/kilometr birligida ko\'rsatish</string>
   <string name="nearby_set_imperial">Fut/milya birligida ko\'rsatish</string>
   <string name="nearby_view_on_map">U erni xaritada ko\'rish</string>
@@ -84,17 +80,13 @@
   <string name="login_error_blocked">Bu foydalanuvchi chetlatilgan</string>
   <string name="login_error_throttled">Juda ko‘p kirish harakati bo‘lgan. Bir necha daqiqa kutib turib keyin yana harakat qiling.</string>
   <string name="login_error_unknown">Kirish amalga oshmadi :(</string>
-  <string name="login_error_no_network">Tarmoq aloqasi mavjud emas</string>
   <string name="preference_title_logout">Chiqish</string>
-  <string name="preference_summary_logout">Vikipediyadagi hisob yozuvingizdan chiqish</string>
-  <string name="preference_summary_notloggedin">Siz tizimga kirmagansiz</string>
   <string name="toast_logout_complete">Chiqildi</string>
   <string name="saved_pages_empty_title">Bu yerda saqlangan sahifalar yo‘q!</string>
   <string name="history_empty_title">Bu yerda so‘nggi sahifalar yo‘q!</string>
   <string name="delete_selected_history">O‘chirish</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Foydalanuvchi nomi</string>
-  <string name="create_account_password_hint">Maxfiy soʻz</string>
   <string name="login_create_account_link">Hisob yozuvingiz yoʻqmi? Vikipediyaga qo‘shiling</string>
   <string name="create_account_login_link">Hisob yozuvingiz bormi? Kiring</string>
   <string name="create_account_activity_title">Hisob yaratish</string>
@@ -112,7 +104,6 @@
   <string name="create_account_blocked_error">Sizning hisobingiz to‘sib qo‘yilgani uchun hisob yozuvi yarata olmaysiz.</string>
   <string name="create_account_password_name_match_error">Sizning foydalanuvchi ismingiz va maxfiy so‘zingiz har xil bo‘lishi kerak.</string>
   <string name="create_account_generic_error">Hisob yozuvini yaratib bo‘lmadi</string>
-  <string name="create_account_no_network">Tarmoq aloqasi mavjud emas</string>
   <string name="create_account_next">Keyingi</string>
   <string name="create_account_button">Hisob yaratish</string>
   <string name="preferences_general_heading">Umumiy</string>
@@ -168,7 +159,6 @@ Oldindan yoqimli ...</string>
   <string name="saved_pages_update_all_error_retry">Qayta urinib koʻrish</string>
   <string name="saved_pages_update_all_error_message">Saqlangan sahifalarni yangilashda xatolik</string>
   <string name="saved_pages_progress_title">Saqlangan sahifalarni yangilash</string>
-  <string name="saved_pages_refresh_pages_complete">Yangilab boʻlindi</string>
   <string name="menu_page_saved">Sahifa saqlandi</string>
   <string name="menu_refresh_saved_page">Sahifani yangilash</string>
   <string name="dialog_page_issues">Sahifa muammolari</string>

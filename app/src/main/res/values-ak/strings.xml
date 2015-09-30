@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-  <string name="app_name_beta">Wikipedia Beta</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
   <string name="yes">Aane</string>
   <string name="no">Daabi</string>
   <string name="acra_report_dialog_title">Wikipedia adum</string>
@@ -9,7 +9,6 @@
   <string name="search_hint">Hwehwɛ Wikipedia mu</string>
   <string name="nav_item_history">Nea atwam</string>
   <string name="error_network_error" fuzzy="true">Hwɛ sɛ wo network no yɛ adwuma a :(</string>
-  <string name="search_network_error">Network no ate kɔ. Fa wo nsa ka so bio.</string>
   <string name="page_error_retry">Yɛ bio</string>
   <string name="menu_clear_all_history">Pepa nea woayɛ atwam</string>
   <string name="menu_clear_all_saved_pages">Popa nkrataa a woakora so</string>
@@ -66,15 +65,11 @@
   <string name="login_error_blocked">Saa onipa yi nni hokwan</string>
   <string name="login_error_throttled">Woapɛ sɛ wohyɛn mu mpɛn pii. Twɛn simma kakra na san yɛ bio</string>
   <string name="login_error_unknown">Dabi! Anyɛ yiye</string>
-  <string name="login_error_no_network">Wonni internet</string>
   <string name="preference_title_logout">Pue</string>
-  <string name="preference_summary_logout">Pue fi wo Wikipedia account mu</string>
-  <string name="preference_summary_notloggedin">Wo mmaa mu yɛ</string>
   <string name="toast_logout_complete">W\'apue</string>
   <string name="saved_pages_empty_message" fuzzy="true">Wonfaa krataa biara nsie</string>
   <string name="history_empty_message" fuzzy="true">Wonni hwɛɛ wɔ wo nneɛma a atwam</string>
   <string name="create_account_username_hint">Username</string>
-  <string name="create_account_password_hint">Password</string>
   <string name="login_create_account_link">Wonni account? Bɛka Wikipedia ho</string>
   <string name="create_account_login_link">Wowɔ account deda? Kɔ mu</string>
   <string name="create_account_activity_title">Bue account</string>
@@ -87,7 +82,6 @@
   <string name="create_account_ip_throttle_error">Nnipa pii bue account wɔ IP address yi so. San yɛ bio akyire</string>
   <string name="create_account_open_proxy_error">Saa IP address nni hokwan bio sɛ ebue accounts</string>
   <string name="create_account_generic_error">Antumi anbue account no</string>
-  <string name="create_account_no_network">Wonni internet</string>
   <string name="create_account_next">Nea edi hɔ</string>
   <string name="create_account_button">Bue account</string>
   <string name="preferences_general_heading">Nneɛma pii</string>
@@ -145,7 +139,6 @@
   <string name="saved_pages_update_all_error_retry">Yɛ bio</string>
   <string name="saved_pages_update_all_error_message">Antumi anfo nsakrae no ansie</string>
   <string name="saved_pages_progress_title">Mereyɛ krataa no foforo</string>
-  <string name="saved_pages_refresh_pages_complete">Awie</string>
   <string name="app_store_description" fuzzy="true">Wikipedia Android App. Wikipedia y3 beae a wɔde y3 nhwehw3mu a nkrataa b3boro ɔpepem 32 a 3wɔ kasa 280 mu na emu ns3m dɔɔso sen biara a aboafo na atu wɔn ho ama rey3 ho adwuma wɔ wiase nyinaa. Woasiesie app yi yiye, na edi mu paa.
 
 Nne3ma a etumi y3:

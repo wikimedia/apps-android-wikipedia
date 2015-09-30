@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Viquipèdia</string>
-  <string name="app_name_beta">Viquipèdia Beta</string>
-  <string name="app_name_alpha">Viquipèdia Alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Viquipèdia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Viquipèdia Alfa</string>
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">La Viquipèdia ha fallat :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error" fuzzy="true">No es pot establir una connexió de xarxa</string>
-  <string name="search_network_error">Error de xarxa. Toqueu la pantalla per a tornar-ho a provar.</string>
-  <string name="generic_page_error">S\'ha produït un problema gestionant la sol·licitud.</string>
-  <string name="status_code_unavailable">El codi d\'estat del servidor no és disponible</string>
   <string name="page_error_retry">Tornar a provar</string>
   <string name="menu_clear_all_history">Esborra l\'historial</string>
   <string name="menu_clear_all_saved_pages">Esborra les pàgines desades</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Obre en una pestanya nova</string>
   <string name="menu_long_press_copy_page">Copia l\'adreça de l\'enllaç</string>
   <string name="nav_item_nearby">A prop</string>
-  <string name="menu_update_nearby">Actualitzar els elements que són a prop</string>
   <string name="nearby_empty_title">Cap pàgina propera des d\'aquí!</string>
   <string name="nearby_empty_message" fuzzy="true">Quan us mogueu a una ubicació nova, proveu de refrescar la pàgina per saber què hi ha al voltant.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d peus</string>
   <string name="nearby_distance_in_miles">%.2f milles</string>
-  <string name="nearby_no_network">No hi ha connexió a la xarxa</string>
-  <string name="nearby_server_error">No s\'ha pogut recuperar la llista de llocs propers.</string>
   <string name="nearby_dialog_goto_settings">Les actualitzacions d\'ubicació no estan actives al vostre dispositiu. Voleu anar a la pantalla de configuració per tal d\'habilitar-les?</string>
   <string name="nearby_set_metric">Mostrar metres/quilòmetres</string>
   <string name="nearby_set_imperial">Mostrar peus/milles</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Aquest usuari ha estat bloquejat</string>
   <string name="login_error_throttled">Massa intents. Espereu uns minuts i torneu-ho a intentar.</string>
   <string name="login_error_unknown">Ha fallat l\'inici de sessió :(</string>
-  <string name="login_error_no_network">No hi ha connexió de xarxa</string>
   <string name="preference_title_logout">Desconnectar-se</string>
-  <string name="preference_summary_logout">Finalitzar la sessió del vostre compte de Viquipèdia</string>
-  <string name="preference_summary_notloggedin">No s\'ha iniciat la sessió.</string>
   <string name="toast_logout_complete">Desconnectat</string>
   <string name="saved_pages_empty_title">Aquí no hi ha cap pàgina desada!</string>
   <string name="saved_pages_empty_message">Les pàgines desades són fantàstiques. Penseu que són talment com adreces d\'interès que podeu llegir fins i tot sense connexió.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Esborrar</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
-  <string name="create_account_password_hint">Contrasenya</string>
   <string name="login_create_account_link">No teniu un compte? Uniu-vos a la Viquipèdia</string>
   <string name="create_account_login_link">Ja teniu un compte? Inicia una sessió</string>
   <string name="create_account_activity_title">Crea un compte</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">No podeu crear un compte perquè el vostre compte està blocat.</string>
   <string name="create_account_password_name_match_error">El nom d\'usuari i la contrasenya han de ser diferents.</string>
   <string name="create_account_generic_error">No s\'ha pogut crear el compte</string>
-  <string name="create_account_no_network">No hi ha connexió de xarxa</string>
   <string name="create_account_next">Següent</string>
   <string name="create_account_button">Crea un compte</string>
   <string name="preferences_general_heading">General</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Tornar-ho a provar</string>
   <string name="saved_pages_update_all_error_message">Error en actualitzar les pàgines desades</string>
   <string name="saved_pages_progress_title">S\'estan actualitzant les pàgines desades</string>
-  <string name="saved_pages_refresh_pages_complete">Actualització completa</string>
   <string name="menu_page_saved">Pàgina desada</string>
   <string name="menu_refresh_saved_page">Actualitzar la pàgina</string>
   <string name="abusefilter_title_warn">Això podria ser una modificació no constructiva. Segur que voleu desar-la?</string>
@@ -245,14 +233,12 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Mostrar imatges</string>
   <string name="preference_summary_show_images" fuzzy="true">Activar o desactivar la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o unes dades limitades.</string>
   <string name="read_more_section">Llegir més</string>
-  <string name="read_next_section">Llegeix el següent</string>
   <string name="menu_gallery_visit_page">Vés a la pàgina del fitxer</string>
   <string name="gallery_error_draw_failed">No s\'ha pogut carregar la imatge.</string>
   <string name="license_title">Text de la llicència per la biblioteca %s</string>
   <string name="gallery_menu_share">Comparteix</string>
   <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
   <string name="gallery_menu_save">Desar al dispositiu</string>
-  <string name="gallery_save_error">No s\'ha pogut desar la imatge: %s</string>
   <string name="gallery_save_error_mediastore">No s\'ha pogut importar la imatge a la col·lecció multimèdia</string>
   <string name="gallery_save_success">La imatge s\'ha desat correctament.</string>
   <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>
@@ -266,7 +252,6 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Imatge Captcha</string>
   <string name="gallery_fair_use_license">Fair use (ús raonable)</string>
   <string name="gallery_uploader_unknown">Carregador no conegut</string>
-  <string name="edit_save_unknown_error">No s\'ha pogut desar l\'edició: %s</string>
   <string name="menu_new_tab">Pestanya nova</string>
   <string name="button_close_tab">Tanca la pestanya</string>
   <string name="tool_tip_select_text">Mantén premut qualsevol part del text per a ressaltar-lo per copiar i compartir.</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipédia</string>
-  <string name="app_name_beta">Wikipédia béta</string>
-  <string name="app_name_alpha">Wikipédia alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipédia béta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipédia alpha</string>
   <string name="yes">Igen</string>
   <string name="no">Nem</string>
   <string name="acra_report_dialog_title">A Wikipédia összeomlott :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="nav_item_history">Előzmények</string>
   <string name="error_network_error" fuzzy="true">Nincs hálózati kapcsolat :(</string>
-  <string name="search_network_error">Hálózati hiba. Koppints az újrapróbálkozáshoz.</string>
-  <string name="generic_page_error">Hiba történt a kérésed kezelése közben.</string>
-  <string name="status_code_unavailable">Szerver státusz kód nem érhető el.</string>
   <string name="page_error_retry">Újra</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="menu_clear_all_saved_pages">Elmentett lapok törlése</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
   <string name="menu_long_press_copy_page">Hivatkozás címének másolása</string>
   <string name="nav_item_nearby">Közeli</string>
-  <string name="menu_update_nearby">Közeliek frissítése</string>
   <string name="nearby_empty_title">Nincsenek közeli lapok!</string>
   <string name="nearby_empty_message" fuzzy="true">Ha új helyre mész próbáld frissíteni ezt a oldalt, így többet tudhatsz meg a körülötted lévő dolgokról.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Nincs hálózati kapcsolat</string>
-  <string name="nearby_server_error">Nem lehet a közeli helyek listáját letölteni.</string>
   <string name="nearby_set_metric">Méter/kilométer formátum használata</string>
   <string name="nearby_set_imperial">Láb/mérföld formátum használata</string>
   <string name="nearby_view_on_map">Helyek megtekintése térképen</string>
@@ -97,17 +91,13 @@
   <string name="login_error_blocked">Ez a felhasználó blokkolva van</string>
   <string name="login_error_throttled">Túl sok bejelentkezési kísérlet. Várj egy pár percet, és próbáld újra!</string>
   <string name="login_error_unknown">A bejelentkezés nem sikerült :(</string>
-  <string name="login_error_no_network">Nincs hálózati kapcsolat</string>
   <string name="preference_title_logout">Kijelentkezés</string>
-  <string name="preference_summary_logout">Kijelentkezés a Wikipédia fiókból</string>
-  <string name="preference_summary_notloggedin">Nem vagy bejelentkezve.</string>
   <string name="toast_logout_complete">Kijelentkezve</string>
   <string name="saved_pages_empty_title">Nincsenek mentett lapok!</string>
   <string name="saved_pages_empty_message">A mentett lapok csodásak. Gondolj úgy rájuk, mint a könyvjelzőkre, amelyeket akkor is tudod olvasni, ha offline vagy.</string>
   <string name="delete_selected_history">Töröl</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Felhasználónév</string>
-  <string name="create_account_password_hint">Jelszó</string>
   <string name="login_create_account_link">Nincs még fiókod? Csatlakozz a Wikipédiához!</string>
   <string name="create_account_login_link">Már van fiókod? Jelentkezz be!</string>
   <string name="create_account_activity_title">Regisztráció</string>
@@ -126,7 +116,6 @@
   <string name="create_account_blocked_error">Nem hozhatsz létre fiókot, mert a fiókod zárolva van.</string>
   <string name="create_account_password_name_match_error">A felhasználónevednek és a jelszavadnak különbözniük kell.</string>
   <string name="create_account_generic_error">Nem sikerült a fiók létrehozása</string>
-  <string name="create_account_no_network">Nincs hálózati kapcsolat</string>
   <string name="create_account_next">Következő</string>
   <string name="create_account_button">Fiók létrehozása</string>
   <string name="preferences_general_heading">Általános</string>

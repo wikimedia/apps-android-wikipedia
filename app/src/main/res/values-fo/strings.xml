@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
   <string name="yes">Ja</string>
   <string name="no">Nei</string>
   <string name="acra_report_dialog_title">Wikipedia krasjaði :(</string>
@@ -10,7 +10,6 @@
   <string name="search_hint">Leita í Wikipedia</string>
   <string name="nav_item_history">Søga</string>
   <string name="error_network_error" fuzzy="true">Tað er onki internet samband :(</string>
-  <string name="search_network_error">Netverksfeilur. Trýst fyri at royna aftur.</string>
   <string name="page_error_retry">Royn aftur</string>
   <string name="menu_clear_all_history">Rudda søguyvirlitið</string>
   <string name="menu_clear_all_saved_pages">Rudda burt goymdar síður</string>
@@ -39,7 +38,6 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f míl</string>
-  <string name="nearby_no_network">Onki internetsamband</string>
   <string name="nearby_set_metric">Vís metrar/km</string>
   <string name="last_updated_text">Seinast dagført %1$s</string>
   <string name="content_license_html">Innihaldið er tøkt undir &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; um ikki annað er viðmerkt</string>
@@ -77,17 +75,13 @@
   <string name="login_error_blocked">Hesin brúkarin er sperraður</string>
   <string name="login_error_throttled">Ov nógvar royndir at rita inn. Bíða nakrir minuttir og royn so aftur.</string>
   <string name="login_error_unknown">Innritan miseydnaðist :(</string>
-  <string name="login_error_no_network">Onki internetsamband</string>
   <string name="preference_title_logout">Rita út</string>
-  <string name="preference_summary_logout">Rita út av tínari Wikipedia-konto</string>
-  <string name="preference_summary_notloggedin">Tú ert ikki innritað(ur).</string>
   <string name="toast_logout_complete">Tú ert ritað/ur út</string>
   <string name="saved_pages_empty_message" fuzzy="true">Ongar goymdar síður</string>
   <string name="history_empty_message" fuzzy="true">Títt søguyvirlit er tómt.</string>
   <string name="delete_selected_history">Sletta</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brúkaranavn</string>
-  <string name="create_account_password_hint">Loyniorð</string>
   <string name="login_create_account_link">Hevur tú onga konto? Blív ein partur av Wikipeida</string>
   <string name="create_account_login_link">Hevur tú longu eina konto? Rita inn</string>
   <string name="create_account_activity_title">Stovna eina kontu</string>
@@ -100,7 +94,6 @@
   <string name="create_account_ip_throttle_error">Ov nógvar kontur eru stovnaðar frá hesi IP adreseeuni. Royn aftur seinni.</string>
   <string name="create_account_open_proxy_error">Henda IP adressan er blivin sperrað fyri upprættan av kontum.</string>
   <string name="create_account_generic_error">Tað bar ikki til at upprætta kontu</string>
-  <string name="create_account_no_network">Onki internetsamband</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="zero_charged_verbiage">Wikipedia Zero er sløkt</string>
   <string name="zero_search_hint">Leita í Wikipedia Zero</string>

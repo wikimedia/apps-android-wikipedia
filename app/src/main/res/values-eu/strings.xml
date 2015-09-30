@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alfa</string>
   <string name="yes">Bai</string>
   <string name="no">Ez</string>
   <string name="acra_report_dialog_title">Wikipediak huts egin du :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Bilatu Wikipedian</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
-  <string name="search_network_error">Errorea. Saiatu berriro.</string>
-  <string name="generic_page_error">Arazo bat egon da zure eskaera kudeatzean.</string>
-  <string name="status_code_unavailable">Zerbitzariaren egoera-kodea ez dago eskuragarri.</string>
   <string name="page_error_retry">Saiatu berriro</string>
   <string name="menu_clear_all_history">Historia garbitu</string>
   <string name="menu_clear_all_saved_pages">Garbitu gordetako orrialdeak</string>
@@ -44,14 +41,11 @@
   <string name="menu_long_press_open_in_new_tab">Ireki fitxa berrian</string>
   <string name="menu_long_press_copy_page">Kopiatu loturaren helbidea</string>
   <string name="nav_item_nearby">Gertukoak</string>
-  <string name="menu_update_nearby">Gaurkotu gertukoak</string>
   <string name="nearby_empty_title">Ez dauge gertuko orririk hemen!</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d oin</string>
   <string name="nearby_distance_in_miles">%.2f milia</string>
-  <string name="nearby_no_network">Ez dago sareko konexiorik</string>
-  <string name="nearby_server_error">Ezin izan da lortu inguruko tokien zerrenda.</string>
   <string name="nearby_set_metric">Erakutsi metroak/km</string>
   <string name="nearby_set_imperial">Erakutsi oinak/miliak</string>
   <string name="nearby_view_on_map">Ikusi lekua mapan</string>
@@ -96,15 +90,11 @@
   <string name="login_error_blocked">Erabiltzaile hau blokeatua izan da</string>
   <string name="login_error_throttled">Saioa hasteko saiakera gehiegi. Itxaron minutu batzuk eta saiatu berriro.</string>
   <string name="login_error_unknown">Ezin izan da saioa hasi :(</string>
-  <string name="login_error_no_network">Ez dago sareko konexiorik</string>
   <string name="preference_title_logout">Saioa itxi</string>
-  <string name="preference_summary_logout">Irten zure Wikipedia kontutik</string>
-  <string name="preference_summary_notloggedin">Saioa hasi gabe.</string>
   <string name="toast_logout_complete">Saioa itxita</string>
   <string name="delete_selected_history">Ezabatu</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>
-  <string name="create_account_password_hint">Pasahitza</string>
   <string name="login_create_account_link">Konturik ez duzu? Etorri Wikipediara</string>
   <string name="create_account_login_link">Kontua baduzu? Saioa hasi</string>
   <string name="create_account_activity_title">Kontua sortu</string>
@@ -121,7 +111,6 @@
   <string name="create_account_blocked_error">Ezin duzu kontu bat sortu zure kontua blokeatuta baitago.</string>
   <string name="create_account_password_name_match_error">Zure lankide izena eta pasahitza desberdinak behar dute izan.</string>
   <string name="create_account_generic_error">Ezin izan da kontua sortu</string>
-  <string name="create_account_no_network">Ez dago sareko konexiorik</string>
   <string name="create_account_next">Hurrengoa</string>
   <string name="create_account_button">Kontua sortu</string>
   <string name="preferences_general_heading">Orokorra</string>
@@ -169,7 +158,6 @@
   <string name="find_next">Aurkitu hurrengoa</string>
   <string name="find_previous">Aurkitu aurrekoa</string>
   <string name="saved_pages_update_all_error_retry">Saiatu berriro</string>
-  <string name="saved_pages_refresh_pages_complete">Igoera amaitua</string>
   <string name="menu_page_saved">Orrialdea gordeta</string>
   <string name="menu_refresh_saved_page">Orrialdea eguneratu</string>
   <string name="dialog_page_issues">Orriaren arazoak</string>
@@ -192,10 +180,8 @@
   <string name="dialog_close_description">Itxi</string>
   <string name="preference_title_show_images">Irudiak erakutsi</string>
   <string name="read_more_section">Irakurri gehiago</string>
-  <string name="read_next_section">Hurrengoa irakurri</string>
   <string name="gallery_menu_share">Partekatu</string>
   <string name="gallery_menu_save">Gailuan gorde</string>
-  <string name="gallery_save_error">Ezin izan da irudia gorde: %s</string>
   <string name="gallery_save_success">Irudia ondo gorde da.</string>
   <string name="gallery_error_video_failed">Ezin da bideoa ikusi.</string>
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
@@ -204,7 +190,6 @@
   <string name="snippet_share_preview_image_desc">Aurrikuspen irudia</string>
   <string name="cc_logo">Creative Commons lizentzia</string>
   <string name="captcha_image">Captcha irudia</string>
-  <string name="edit_save_unknown_error">Ezin izan da zure aldaketa gorde: %s</string>
   <string name="menu_new_tab">Fitxa berria</string>
   <string name="button_close_tab">Itxi fitxa</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>

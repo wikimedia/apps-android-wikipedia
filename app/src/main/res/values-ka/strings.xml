@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ვიკიპედია</string>
-  <string name="app_name_beta">ვიკიპედია ბეტა</string>
-  <string name="app_name_alpha">ვიკიპედია ალფა</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ვიკიპედია ბეტა</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ვიკიპედია ალფა</string>
   <string name="yes">დიახ</string>
   <string name="no">არა</string>
   <string name="acra_report_dialog_title">ვიკიპედიის შეცდომა :(</string>
@@ -10,7 +10,6 @@
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="nav_item_history">ისტორია</string>
   <string name="error_network_error" fuzzy="true">ქსელთან კავშირი არ არის :(</string>
-  <string name="search_network_error">ქსელის შეცდომა. სცადეთ ახლიდან.</string>
   <string name="page_error_retry">გამეორება</string>
   <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
   <string name="menu_clear_all_saved_pages">გაასუფთავეთ შენახული გვერდები</string>
@@ -37,15 +36,12 @@
   <string name="menu_page_find_in_page">გვერდში ძიება</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
   <string name="nav_item_nearby">სიახლოვეს</string>
-  <string name="menu_update_nearby">განაახლე ახლომდებარე</string>
   <string name="nearby_empty_title">ახლომდებარე გვერდები ვერ მოიძებნა!</string>
   <string name="nearby_empty_message" fuzzy="true">როდესაც შეიცვლი ადგილმდებარეობას, გადატვირთე ეს გვერდი, რათა გაიგო თუ რა ხდება ახალ გარემოში.</string>
   <string name="nearby_distance_in_meters">%d მ</string>
   <string name="nearby_distance_in_kilometers">%.2f კმ</string>
   <string name="nearby_distance_in_feet">%d ფტ</string>
   <string name="nearby_distance_in_miles">%.2f მი</string>
-  <string name="nearby_no_network">არ არის ინტერნეტ-კავშირი</string>
-  <string name="nearby_server_error">ახლომდებარე ადგილების სიის დადგენა ვერ მოხერხდა.</string>
   <string name="nearby_dialog_goto_settings">განახლებები მდებაორებაზე (Location updates) არაა ჩართული შენს მოწყობილობაზე. გსურთ კონფიგურაციის გვერდზე გადასვლა მდებაორებაზე განახლებების ჩასართავად?</string>
   <string name="nearby_set_metric">უჩვენე მეტრები/კმ</string>
   <string name="nearby_set_imperial">უჩვენე ფუტები/მილები</string>
@@ -89,17 +85,13 @@
   <string name="login_error_blocked">მომხმარებელი დაიბლოკა</string>
   <string name="login_error_throttled">თქვენ საკმაოდ ბევრჯერ სცადეთ შესვლა. მოიცადეთ რამდენიმე წუთი და სცადეთ ხელახლა.</string>
   <string name="login_error_unknown">შესვლა ვერ მოხერხდა :(</string>
-  <string name="login_error_no_network">არ არის ინტერნეტ-კავშირი</string>
   <string name="preference_title_logout">გასვლა</string>
-  <string name="preference_summary_logout">თქვენი ვიკიპედიის ანგარიშიდან გასვლა</string>
-  <string name="preference_summary_notloggedin">არ ხართ შესული.</string>
   <string name="toast_logout_complete">გამოსული.</string>
   <string name="saved_pages_empty_title">შენახული გვერდები არ არის!</string>
   <string name="history_empty_title">ბოლო გვერდები ვერ მოიძებნა!</string>
   <string name="delete_selected_history">წაშლა</string>
   <string name="wp_stylized">&lt;big&gt;ვ&lt;/big&gt;იკიპედი&lt;big&gt;ა&lt;/big&gt;</string>
   <string name="create_account_username_hint">მომხმარებლის სახელი</string>
-  <string name="create_account_password_hint">პაროლი</string>
   <string name="login_create_account_link">არ გაქვს ანგარიში? შეუერთდი ვიკიპედიას</string>
   <string name="create_account_login_link">უკვე გაქვთ ანგარიში? გაიარეთ ავტორიზაცია</string>
   <string name="create_account_activity_title">ანგარიშის შექმნა</string>
@@ -118,7 +110,6 @@
   <string name="create_account_blocked_error">თქვენ არ შეგიძლიათ ანგარიშის შექმნა, რადგან თქვენი IP-მისამართი დაბლოკილია.</string>
   <string name="create_account_password_name_match_error">თქვენი მომხამრებლის სახელი და პაროლი ერთმანეთისგან უნდა განსხვავდებოდეს.</string>
   <string name="create_account_generic_error">ანგარიშის შექმნა ვერ მოხერხდა</string>
-  <string name="create_account_no_network">არ არის ინტერნეტ-კავშირი</string>
   <string name="create_account_next">შემდეგი</string>
   <string name="create_account_button">ანგარიშის შექმნა</string>
   <string name="preferences_general_heading">მთავარი</string>
@@ -168,7 +159,6 @@
   <string name="saved_pages_update_all_error_retry">ხელახლა ცდა</string>
   <string name="saved_pages_update_all_error_message">შეცდომა შენახული გვერდების განახლებისას</string>
   <string name="saved_pages_progress_title">შენახული გვერდების გადატვირთვა</string>
-  <string name="saved_pages_refresh_pages_complete">განახლება დასრულებულია</string>
   <string name="menu_page_saved">გვერდი შენახულია</string>
   <string name="menu_refresh_saved_page">გვერდის გადატვირთვა</string>
   <string name="abusefilter_title_disallow">ამ ცვლილების შენახვა არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
@@ -193,13 +183,11 @@
   <string name="dialog_close_description">დახურვა</string>
   <string name="preference_title_show_images">სურათების ჩვენება</string>
   <string name="read_more_section">წაიკითხე მეტი</string>
-  <string name="read_next_section">შემდეგის წაკითხვა</string>
   <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
-  <string name="gallery_save_error">სურათის შენახვა შეუძლებელია: %s</string>
   <string name="gallery_save_error_mediastore">სურათის ან მედია-კოლექციის იმპორტი წარუმატებლად დასრულდა</string>
   <string name="gallery_save_success">სურათი წარმატებით შეინახა.</string>
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
@@ -213,5 +201,4 @@
   <string name="captcha_image">Captcha-ს სურათი</string>
   <string name="gallery_fair_use_license">კეთილსინდისიერი გამოყენება</string>
   <string name="gallery_uploader_unknown">ამტვირთველი უცნობია</string>
-  <string name="edit_save_unknown_error">თქვენი რედაქტირების შენახვა ვერ მოხერხდა: %s</string>
 </resources>

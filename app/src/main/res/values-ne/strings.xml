@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">विकिपीडिया</string>
-  <string name="app_name_beta">विकिपीडिया बिटा</string>
-  <string name="app_name_alpha">विकिपीडिया अल्फा</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">विकिपीडिया बिटा</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">विकिपीडिया अल्फा</string>
   <string name="yes">हो</string>
   <string name="no">होइन</string>
   <string name="acra_report_dialog_title">विकिपीडिया दुर्घटनाग्रस्त भयो :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">विकिपीडिया खोज्नुहोस्</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error" fuzzy="true">सञ्जालमा पुग्न सकेन :(</string>
-  <string name="search_network_error">सञ्जाल त्रुटी। फेरि कोसिस गर्न ट्याप गर्नुहोस्।</string>
   <string name="page_error_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="menu_clear_all_history">इतिहास हटाउने</string>
   <string name="menu_clear_all_saved_pages">संग्रह गरिएका पृष्ठहरू मेटाउने</string>
@@ -33,12 +32,10 @@
   <string name="menu_page_find_in_page">पृष्ठमा खोज्ने</string>
   <string name="menu_page_font_and_theme">फन्ट तथा विषयसार</string>
   <string name="nav_item_nearby">नजिकै</string>
-  <string name="menu_update_nearby">नजिकै अद्यावधिक भएको</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_distance_in_feet">%d फिट</string>
   <string name="nearby_distance_in_miles">%.2f माइल</string>
-  <string name="nearby_no_network">नेटबर्क क्नेकसन नभएको</string>
   <string name="nearby_view_on_map">नक्शामा ठाँउ देखाउनु होस्</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">खोज</string>
@@ -69,13 +66,11 @@
   <string name="login_error_illegal">अबैध प्रयोगकर्ता नाम</string>
   <string name="login_success_toast" fuzzy="true">प्रवेश सफल!</string>
   <string name="preference_title_logout">निर्गमन</string>
-  <string name="preference_summary_notloggedin">प्रवेश (लग ईन) नगरिएको</string>
   <string name="toast_logout_complete">निर्गमन भयो</string>
   <string name="saved_pages_empty_title">संग्रह गरिएका पृष्ठहरू नभएको !</string>
   <string name="history_empty_title">यहाँ भर्खरैको कुनै पृष्ठ नरहेको !</string>
   <string name="delete_selected_history">हटाउने</string>
   <string name="create_account_username_hint">प्रयोगकर्ता नाम</string>
-  <string name="create_account_password_hint">पासवर्ड</string>
   <string name="login_create_account_link">खाता छैन ? विकिपिडियामा संलग्न हुनुहोस्</string>
   <string name="create_account_login_link">के तपाईँसँग पहिले देखि नै खाता छ ? प्रवेश गर्नुहोस् ।</string>
   <string name="create_account_activity_title">खाता खोल्नुहोस्</string>
@@ -91,7 +86,6 @@
   <string name="create_account_blocked_error">तपाईंको खाता प्रतिवन्धित गरिएकोले तपाईंले खाता खोल्न सक्नु हुन्न ।</string>
   <string name="create_account_password_name_match_error">तपाईंको प्रयोगकर्ता नाम तथा तपाईंको पासवर्ड फरक हुनु पर्नेछ ।</string>
   <string name="create_account_generic_error">खाता खोल्न सकिएन</string>
-  <string name="create_account_no_network">नेटबर्क कनेक्सन नभएको</string>
   <string name="create_account_next">अर्को</string>
   <string name="create_account_button">खाता खोल्नुहोस्</string>
   <string name="preferences_general_heading">सामान्य</string>
@@ -139,7 +133,6 @@
   <string name="find_next">अर्को खोज्ने</string>
   <string name="find_previous">पछिल्लो खोज्ने</string>
   <string name="saved_pages_update_all_error_retry">पुन: प्रयास गर्ने</string>
-  <string name="saved_pages_refresh_pages_complete">अद्यावधिक सम्पन्न</string>
   <string name="menu_page_saved">पृष्ठ संग्रह गरियो</string>
   <string name="dialog_page_issues">पृष्ठका मुद्दाहरू</string>
   <string name="button_page_issues">पृष्ठका मुद्दाहरू</string>
@@ -158,11 +151,9 @@
   <string name="dialog_close_description">बन्द गर्ने</string>
   <string name="preference_title_show_images">चित्रहरू देखाउने</string>
   <string name="read_more_section">थप पढ्ने</string>
-  <string name="read_next_section">अर्को पढ्ने</string>
   <string name="menu_gallery_visit_page">फाइल पृष्ठमा जानुहोस्</string>
   <string name="gallery_menu_share">बाड्ने</string>
   <string name="gallery_menu_save">डिभाइसमा संग्रह गर्ने</string>
-  <string name="gallery_save_error">चित्र संग्रह गर्न सकिएनः %s</string>
   <string name="gallery_save_success">चित्र संग्रह सम्पन्न भयो ।</string>
   <string name="err_cannot_save_file">फाइल संग्रह भएन</string>
   <string name="share_snippet_button">चित्रको रूपमा बाड्नुहोस्</string>

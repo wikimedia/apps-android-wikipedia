@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">উইকিপিডিয়া</string>
-  <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
-  <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">উইকিপিডিয়া বেটা</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">উইকিপিডিয়া আলফা</string>
   <string name="yes">হ্যাঁ</string>
   <string name="no">না</string>
   <string name="acra_report_dialog_title">উইকিপিডিয়া কাজ করছে না :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
-  <string name="search_network_error">নেটওয়ার্ক ত্রুটি। পুনরায় চেষ্টা করুন।</string>
-  <string name="generic_page_error">আপনার অনুরোধ পরিচালনার সময় একটি ত্রুটি ঘটেছে।</string>
-  <string name="status_code_unavailable">সার্ভারের অবস্থা কোড অনুপলব্ধ।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
   <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
-  <string name="menu_update_nearby">কাছাকাছি হালনাগাদ করুন</string>
   <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>
   <string name="nearby_empty_message" fuzzy="true">যখন আপনি একটি নতুন অবস্থানে যাবেন, আপনার কাছাকাছি কি আছে জানতে এই পাতাটি পুনঃসতেজ করতে চেষ্টা করুন।</string>
   <string name="nearby_distance_in_meters">%d মি</string>
   <string name="nearby_distance_in_kilometers">%.2f কিমি</string>
   <string name="nearby_distance_in_feet">%d ফুট</string>
   <string name="nearby_distance_in_miles">%.2f মাইল</string>
-  <string name="nearby_no_network">কোন নেটওয়ার্ক সংযোগ নেই</string>
-  <string name="nearby_server_error">কাছাকাছি স্থানের তালিকা পাওয়া যায়নি।</string>
   <string name="nearby_dialog_goto_settings">অবস্থান হালনাগাদ আপনার ডিভাইসে সক্রিয় করা নেই। আপনি কি অবস্থান হালনাগাদ সক্রিয় করতে আপনার ডিভাইসের সেটিংসে যেতে চান?</string>
   <string name="nearby_set_metric">মিটার/কিমি দেখাও</string>
   <string name="nearby_set_imperial">ফুট/মাইল দেখাও</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">এই ব্যবহারকারীকে ব্লক করা হয়েছে</string>
   <string name="login_error_throttled">অনেকবার প্রবেশের চেষ্টা করা হয়েছে। কয়েক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</string>
   <string name="login_error_unknown">প্রবেশ ব্যর্থ :(</string>
-  <string name="login_error_no_network">নেটওয়ার্ক সংযোগ নেই</string>
   <string name="preference_title_logout">প্রস্থান</string>
-  <string name="preference_summary_logout">আপনার উইকিপিডিয়া অ্যাকাউন্ট থেকে প্রস্থান করুন</string>
-  <string name="preference_summary_notloggedin">প্রবেশ করা হয়নি।</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
   <string name="saved_pages_empty_title">এখানে কোন পাতা সংরক্ষিত হয়নি!</string>
   <string name="saved_pages_empty_message">সংরক্ষিত পাতা বেশ ভালো। তাদের বুকমার্ক হিসাবে চিন্তা করুন যা এমনকি আপনি অফলাইনে থাকাকালীন আপনি পড়তে পারেন।</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">অপসারণ</string>
   <string name="wp_stylized">&lt;big&gt;উ&lt;/big&gt;ইকিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">ব্যবহারকারী নাম</string>
-  <string name="create_account_password_hint">পাসওয়ার্ড</string>
   <string name="login_create_account_link">কোন অ্যাকাউন্ট নেই? উইকিপিডিয়ায় যোগ দিন</string>
   <string name="create_account_login_link">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? প্রবেশ করুন</string>
   <string name="create_account_activity_title">একটি অ্যাকাউন্ট খুলুন</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">আপনি অ্যাকাউন্ট তৈরি করতে পারবেন না কারণ আপনার অ্যাকাউন্ট অবরুদ্ধ রয়েছে।</string>
   <string name="create_account_password_name_match_error">আপনার ব্যবহারকারী নাম এবং আপনার পাসওয়ার্ড অবশ্যই ভিন্ন হতে হবে।</string>
   <string name="create_account_generic_error">অ্যাকাউন্ট তৈরী করা যাচ্ছে না</string>
-  <string name="create_account_no_network">নেটওয়ার্ক সংযোগ নেই</string>
   <string name="create_account_next">পরবর্তী</string>
   <string name="create_account_button">অ্যাকাউন্ট তৈরি করুন</string>
   <string name="preferences_general_heading">সাধারণ</string>
@@ -197,7 +186,6 @@
   <string name="saved_pages_update_all_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="saved_pages_update_all_error_message">ত্রুটি, পাতা হালনাগাদ করা যায়নি</string>
   <string name="saved_pages_progress_title">সংরক্ষিত পাতাগুলো রিফ্রেশ করা হচ্ছে</string>
-  <string name="saved_pages_refresh_pages_complete">হালনাগাদ সম্পন্ন</string>
   <string name="menu_page_saved">পাতা সংরক্ষিত</string>
   <string name="menu_refresh_saved_page">পাতা পুনঃসতেজ করুন</string>
   <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি সংরক্ষণ করতে চান?</string>
@@ -228,14 +216,12 @@
   <string name="preference_title_show_images">ছবি প্রদর্শন</string>
   <string name="preference_summary_show_images">পাতায় ছবি লোড চালু বা বন্ধ করুন। যদি আপনার ইন্টারনেট সংযোগ ধীর হয়, বা যদি আপনার ডেটা প্ল্যান সীমিত হয় তাহলে এই সেটিংস থেকে টিক চিহ্ন তুলে নিন।</string>
   <string name="read_more_section">আরও জানুন</string>
-  <string name="read_next_section">পরবর্তীটি পড়ুন</string>
   <string name="menu_gallery_visit_page">ফাইল এর পৃষ্ঠাতে যান</string>
   <string name="gallery_error_draw_failed">ছবি টে আঁকা সম্ভব হইতাছে না।</string>
   <string name="license_title">%s গ্রন্থাগারের জন্য অনুমতি পাঠ</string>
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
   <string name="gallery_menu_save">সংরক্ষন করুন</string>
-  <string name="gallery_save_error">সংরক্ষণ করা যাচ্ছে না: %s</string>
   <string name="gallery_save_error_mediastore">মিডিয়া সংগ্রহে চিত্র আমদানি করতে ব্যর্থ</string>
   <string name="gallery_save_success">ছবিটি সফলভাবে সংরক্ষণ করা হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
@@ -249,7 +235,6 @@
   <string name="captcha_image">ক্যাপচা চিত্র</string>
   <string name="gallery_fair_use_license">বৈধ ব্যবহার</string>
   <string name="gallery_uploader_unknown">আপলোডকারী অজানা</string>
-  <string name="edit_save_unknown_error">আপনার সম্পাদনা সংরক্ষণ করা যায়নি: %s</string>
   <string name="menu_new_tab">নতুন ট্যাব</string>
   <string name="button_close_tab">ট্যাব বন্ধ করুন</string>
   <string name="tool_tip_select_text">অনুলিপি তৈরি বা ভাগ করার জন্য এটি আলোকপাতের জন্য লেখার যেকোন জায়গায় চাপ দিয়ে ধরে রাখুন।</string>

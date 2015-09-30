@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">विकिपीडिया</string>
-  <string name="app_name_beta">विकिपीडिया बीटा</string>
-  <string name="app_name_alpha">विकिपीडिया ऐल्फ़ा</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">विकिपीडिया बीटा</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">विकिपीडिया ऐल्फ़ा</string>
   <string name="yes">हाँ</string>
   <string name="no">नहीं</string>
   <string name="acra_report_dialog_title">विकिपीडिया अनुप्रयोग में गड़बड़ी आ गई :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">विकिपीडिया खोज</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error" fuzzy="true">आप नेटवर्क से जुड़े हुये नहीं हैं :(</string>
-  <string name="search_network_error">संजाल मै रुकावट। पुनः प्रयास करने के लिए थपथपाहट करे।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
   <string name="menu_clear_all_saved_pages">संरक्षित पृष्ठों को हटायें</string>
@@ -37,15 +36,12 @@
   <string name="menu_page_share" fuzzy="true">साझा करें</string>
   <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="nav_item_nearby">निकट</string>
-  <string name="menu_update_nearby">\"निकट\" रिफ़्रेश करें</string>
   <string name="nearby_empty_title">कोई निकट पृष्ठ नहीं!</string>
   <string name="nearby_empty_message" fuzzy="true">किसी नए स्थान पर जाने पर अपने आस-पास के बारे में जानने के लिए इस पृष्ठ को रिफ़्रेश करें।</string>
   <string name="nearby_distance_in_meters">%d मी॰</string>
   <string name="nearby_distance_in_kilometers">%.2f किमी</string>
   <string name="nearby_distance_in_feet">%d फ़ुट</string>
   <string name="nearby_distance_in_miles">%.2f मील</string>
-  <string name="nearby_no_network">कोई नेटवर्क कनेक्शन नहीं</string>
-  <string name="nearby_server_error">निकट स्थानों की सूची नहीं पायी जा सकी।</string>
   <string name="nearby_set_metric">दिखाएँ मी/किमी</string>
   <string name="nearby_set_imperial">दिखाएँ फ़ुट/मील</string>
   <string name="nearby_view_on_map">स्थान नक़्शे पर देखें</string>
@@ -90,10 +86,7 @@
   <string name="login_error_blocked">यह सदस्य अवरोधित किया गया है।</string>
   <string name="login_error_throttled">बहुत अधिक लॉग-इन प्रयास। कुछ क्षण प्रतीक्षा के बाद पुनः प्रयास करें।</string>
   <string name="login_error_unknown">लॉग-इन असफल रहा :(</string>
-  <string name="login_error_no_network">नेटवर्क से जुड़ा हुआ नहीं है</string>
   <string name="preference_title_logout">सत्रान्त</string>
-  <string name="preference_summary_logout">आपके विकिपीडिया खाते से बाहर आ गये</string>
-  <string name="preference_summary_notloggedin">लॉग-इन नहीं</string>
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
   <string name="saved_pages_empty_title">यहाँ कोई पृष्ठ नहीं सहेजा गया।</string>
   <string name="saved_pages_empty_message">सरंक्षित पृष्ठ बहुत आश्चर्यजनक हैं। उन्हें इस तरह के पुस्तक-चिह्न समझें कि आप उन्हें तब भी पढ़ सकते हो जब आप ऑफ़लाइन हो।</string>
@@ -102,7 +95,6 @@
   <string name="delete_selected_history">हटायें</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
   <string name="create_account_username_hint">सदस्य नाम</string>
-  <string name="create_account_password_hint">कूटशब्द (पासवर्ड)</string>
   <string name="login_create_account_link">क्या अभी तक खाता नहीं है? विकिपीडिया में शामिल हों</string>
   <string name="create_account_login_link">पहले से खाता रखते हो? लॉग-इन</string>
   <string name="create_account_activity_title">खाता बनायें</string>
@@ -121,7 +113,6 @@
   <string name="create_account_blocked_error">आप खाता नहीं बना सकते क्योंकि आपका खाता प्रतिबन्धित किया गया है।</string>
   <string name="create_account_password_name_match_error">आपका सदस्य नाम और कुटशब्द भिन्न होने चाहिए।</string>
   <string name="create_account_generic_error">खाता नहीं बन सका।</string>
-  <string name="create_account_no_network">कोई नेटवर्क उपलब्ध नहीं</string>
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>
   <string name="preferences_general_heading">सामान्य</string>

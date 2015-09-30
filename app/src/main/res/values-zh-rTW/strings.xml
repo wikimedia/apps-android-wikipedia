@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">維基百科</string>
-  <string name="app_name_beta">維基百科公測版</string>
-  <string name="app_name_alpha">維基百科封測版</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">維基百科公測版</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">維基百科封測版</string>
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="acra_report_dialog_title">維基百科發生錯誤 :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">在維基百科內搜尋</string>
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無法與網際網路連線。</string>
-  <string name="search_network_error">網路錯誤。輕觸重試。</string>
-  <string name="generic_page_error">在處理您的請求時出現問題。</string>
-  <string name="status_code_unavailable">無法使用伺服器狀態碼</string>
   <string name="page_error_retry">重試</string>
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="menu_clear_all_saved_pages">清除已儲存的頁面</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">在新分頁開啟</string>
   <string name="menu_long_press_copy_page">複製連結網址</string>
   <string name="nav_item_nearby">附近</string>
-  <string name="menu_update_nearby">更新附近</string>
   <string name="nearby_empty_title">此處附近無頁面！</string>
   <string name="nearby_empty_message" fuzzy="true">當您到一個新地點時，請嘗試重新整理此頁面以瞭解您周圍的更多事物。</string>
   <string name="nearby_distance_in_meters">%d 公尺</string>
   <string name="nearby_distance_in_kilometers">%.2f 公里</string>
   <string name="nearby_distance_in_feet">%d 呎</string>
   <string name="nearby_distance_in_miles">%.2f 哩</string>
-  <string name="nearby_no_network">無網路連線</string>
-  <string name="nearby_server_error">無法取得附近地點的清單。</string>
   <string name="nearby_dialog_goto_settings">您的裝置未開啟位置更新。您想要前往您的裝置設定開啟位置更新嗎？</string>
   <string name="nearby_set_metric">顯示公尺/公里</string>
   <string name="nearby_set_imperial">顯示英尺/英里</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">此使用者已被封鎖</string>
   <string name="login_error_throttled">嘗試登入太多次，請稍後幾分鐘後再試。</string>
   <string name="login_error_unknown">登入失敗 :(</string>
-  <string name="login_error_no_network">無網路連線</string>
   <string name="preference_title_logout">登出</string>
-  <string name="preference_summary_logout">登出您的維基百科帳號</string>
-  <string name="preference_summary_notloggedin">未登入。</string>
   <string name="toast_logout_complete">已登出</string>
   <string name="saved_pages_empty_title">尚未儲存頁面！</string>
   <string name="saved_pages_empty_message">儲存頁面很棒。試想一下，你存為書籤後即使在離線時也可以閱讀。</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">刪除</string>
   <string name="wp_stylized">&lt;big&gt;維&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">使用者名稱</string>
-  <string name="create_account_password_hint">密碼</string>
   <string name="login_create_account_link">沒有帳號嗎？加入維基百科</string>
   <string name="create_account_login_link">已經擁有帳號？請登入</string>
   <string name="create_account_activity_title">建立一個帳號</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">您無法建立帳號，因為您的帳號已封鎖。</string>
   <string name="create_account_password_name_match_error">您的使用者名稱與密碼必須不同。</string>
   <string name="create_account_generic_error">無法建立帳號</string>
-  <string name="create_account_no_network">無網路連線</string>
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">建立帳號</string>
   <string name="preferences_general_heading">一般</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">重試</string>
   <string name="saved_pages_update_all_error_message">更新儲存頁面時發生錯誤</string>
   <string name="saved_pages_progress_title">重新整理已儲存的頁面</string>
-  <string name="saved_pages_refresh_pages_complete">更新完成</string>
   <string name="menu_page_saved">頁面已儲存</string>
   <string name="menu_refresh_saved_page">重新整理頁面</string>
   <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。你確定你想要儲存它？</string>
@@ -249,14 +237,12 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">顯示圖片</string>
   <string name="preference_summary_show_images">在頁面中開啟或停用圖片載入。如果您的網路連線很慢，或如果您的資料流量計劃受限制，則取消選擇本設定。</string>
   <string name="read_more_section">閱讀更多</string>
-  <string name="read_next_section">閱讀下一篇</string>
   <string name="menu_gallery_visit_page">前往檔案頁面</string>
   <string name="gallery_error_draw_failed">無法產生圖片。</string>
   <string name="license_title">%s 函式庫的授權條款</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">無法分享圖片：%s</string>
   <string name="gallery_menu_save">儲存至裝置</string>
-  <string name="gallery_save_error">無法儲存圖片：%s</string>
   <string name="gallery_save_error_mediastore">匯入圖片至媒體收藏失敗</string>
   <string name="gallery_save_success">已成功儲存圖片。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>
@@ -270,7 +256,6 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">驗證碼圖片</string>
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">未知上傳者</string>
-  <string name="edit_save_unknown_error">無法儲存您的編輯：%s</string>
   <string name="menu_new_tab">新增分頁</string>
   <string name="button_close_tab">關閉分頁</string>
   <string name="tool_tip_select_text">按住文字的任何位置不放來反白它以便於複製與分享。</string>

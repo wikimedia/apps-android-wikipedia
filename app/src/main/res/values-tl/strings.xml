@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Oo</string>
   <string name="no">Hindi</string>
   <string name="acra_report_dialog_title">May sira sa Wikipedia :\'(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Hanapin sa Wikipedia</string>
   <string name="nav_item_history">Kasaysayan</string>
   <string name="error_network_error" fuzzy="true">Walang koneksyon sa talalambatan (network) :\'(</string>
-  <string name="search_network_error">Kamalian sa kalambatan.  Mag-tap upang maisubok muli.</string>
-  <string name="generic_page_error">May nangyaring suliranin sa paghawak ng iyong hiling.</string>
-  <string name="status_code_unavailable">Kodigo ng estado ng serbidor ay wala.</string>
   <string name="page_error_retry">Subukan muli</string>
   <string name="menu_clear_all_history">Burahin ang kasaysayan</string>
   <string name="menu_clear_all_saved_pages">Burahin ang mga naitalang pahina</string>
@@ -43,15 +40,12 @@
   <string name="menu_long_press_open_page" fuzzy="true">Buksan ang kawing (link)</string>
   <string name="menu_long_press_open_in_new_tab">Buksan sa bagong talahanayan (tab)</string>
   <string name="nav_item_nearby">Kalapit</string>
-  <string name="menu_update_nearby">I-update ang kalapit</string>
   <string name="nearby_empty_title">Walang kalapit na pahina rito!</string>
   <string name="nearby_empty_message" fuzzy="true">Kapag pumunta ka sa bagong lokasyon, subukang i-refresh ang pahinang ito upang malaman pa ang kung ano pa ang nakapalibot sa iyo.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Walang koneksiyon sa kalambatan</string>
-  <string name="nearby_server_error">Hindi makuha ang talaan ng mga kalapit na lugar.</string>
   <string name="nearby_dialog_goto_settings">Ang mga update sa lokasyon ay hindi pinagana sa iyong aparato. Nais mo bang pumunta sa kaayusan ng iyong aparato upang paganahin ang mga update sa lokasyon?</string>
   <string name="nearby_set_metric">Ipakita ang metro/km</string>
   <string name="nearby_set_imperial">Ipakita ang talampakan/milya</string>
@@ -100,10 +94,7 @@
   <string name="login_error_blocked">Hinarang ang tagagamit na ito</string>
   <string name="login_error_throttled">Napakaraming tangka sa paglagda. Maghintay ng kaunting minuto at subukang muli.</string>
   <string name="login_error_unknown">Paglagda ay di-tagumpay :\'(</string>
-  <string name="login_error_no_network">Walang koneksiyon sa kalambatan</string>
   <string name="preference_title_logout">Umalis sa pagkaka-lagda</string>
-  <string name="preference_summary_logout">Umalis sa pagkaka-lagda sa iyong akawnt sa Wikipedia</string>
-  <string name="preference_summary_notloggedin">Hindi nakalagda.</string>
   <string name="toast_logout_complete">Nakaalis na sa pagkakalagda</string>
   <string name="saved_pages_empty_title">Walang naitalang mga pahina rito!</string>
   <string name="saved_pages_empty_message">Walang naitalang mga pahina</string>
@@ -112,7 +103,6 @@
   <string name="delete_selected_history">Burahin</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Pangalan ng tagagamit</string>
-  <string name="create_account_password_hint">Hudyat (password)</string>
   <string name="login_create_account_link">Walang akawnt? Sumali sa Wikipedia</string>
   <string name="create_account_login_link">Mayroon ka nang akawnt? Lumagda</string>
   <string name="create_account_activity_title">Lumikha ng akawnt</string>
@@ -131,7 +121,6 @@
   <string name="create_account_blocked_error">Hindi ka makakalikha ng akawnt dahil nakaharang ang iyong akawnt.</string>
   <string name="create_account_password_name_match_error">Magkaiba dapat ang iyong pangalan ng tagagamit at iyong hudyat.</string>
   <string name="create_account_generic_error">Hindi malikha ang akawnt.</string>
-  <string name="create_account_no_network">Walang koneksiyon sa kalambatan</string>
   <string name="create_account_next">Kasunod</string>
   <string name="create_account_button">Lumikha ng akawnt</string>
   <string name="preferences_general_heading">Pangkalahatan</string>
@@ -195,7 +184,6 @@
   <string name="saved_pages_update_all_error_retry">Subukang muli</string>
   <string name="saved_pages_update_all_error_message">May mali sa pag-update sa mga naitalang pahina</string>
   <string name="saved_pages_progress_title">Pinapanariwang-muli (refresh) ang mga naitalang pahina</string>
-  <string name="saved_pages_refresh_pages_complete">Kumpleto na ang update</string>
   <string name="menu_page_saved">Pahina ay naitala</string>
   <string name="menu_refresh_saved_page">Panariwaing muli ang pahina</string>
   <string name="abusefilter_title_warn">Maaaring hindi makakatulong na pahina ito. Tiyak ka bang nais mong itala ito?</string>
@@ -223,14 +211,12 @@
   <string name="alpha_update_notification_text">Tapikin upang i-download</string>
   <string name="dialog_close_description">Isara</string>
   <string name="preference_title_show_images">Ipakita ang mga larawan</string>
-  <string name="read_next_section">Basahin ang kasunod</string>
   <string name="menu_gallery_visit_page">Pumunta sa talakasang (file) pahina</string>
   <string name="gallery_error_draw_failed">Hindi maiguhit ang larawan.</string>
   <string name="license_title">Lisensyang teksto para sa %s na aklatan</string>
   <string name="gallery_menu_share">Ibahagi</string>
   <string name="gallery_share_error">Hindi maibahagi ang larawan: %s</string>
   <string name="gallery_menu_save">Itala (save) sa aparato</string>
-  <string name="gallery_save_error">Hindi maibahagi ang larawan: %s</string>
   <string name="gallery_save_error_mediastore">Di-tagumpay na kunin ang larawan sa koleksyong pang-media</string>
   <string name="gallery_save_success">Matagumpay na naitala ang larawan.</string>
   <string name="gallery_error_video_failed">Hindi mai-play ang video.</string>
@@ -244,7 +230,6 @@
   <string name="captcha_image">Larawang captcha</string>
   <string name="gallery_fair_use_license">Patas na paggamit</string>
   <string name="gallery_uploader_unknown">Hindi kilala ang nag-upload</string>
-  <string name="edit_save_unknown_error">Hindi maitala (save) ang iyong edit: %s</string>
   <string name="menu_new_tab">Bagong talahanayan (tab)</string>
   <string name="button_close_tab">Isara ang talahanayan (tab)</string>
 </resources>

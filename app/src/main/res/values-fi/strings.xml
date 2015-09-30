@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Kyllä</string>
   <string name="no">Ei</string>
   <string name="acra_report_dialog_title">Wikipedia kaatui :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Wikipedia-haku</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
-  <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
-  <string name="generic_page_error">Pyyntöäsi käsiteltäessä ilmeni ongelma.</string>
-  <string name="status_code_unavailable">Palvelimen tilakoodi ei ole saatavilla.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
   <string name="menu_clear_all_saved_pages">Tyhjennä tallennetut sivut</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Avaa uudessa välilehdessä</string>
   <string name="menu_long_press_copy_page">Kopioi linkin osoite</string>
   <string name="nav_item_nearby">Lähistöllä</string>
-  <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
   <string name="nearby_empty_title">Lähistöllä olevia sivuja ei ole!</string>
   <string name="nearby_empty_message">Siirry uuteen paikkaan nähdäksesi sivuja lähellä olevista paikoista</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d jalkaa</string>
   <string name="nearby_distance_in_miles">%.2f  mailia</string>
-  <string name="nearby_no_network">Ei verkkoyhteyttä</string>
-  <string name="nearby_server_error">Lähellä olevien paikkojen luetteloa ei saatu haettua.</string>
   <string name="nearby_dialog_goto_settings">Sijaintipäivitykset eivät ole käytössä laitteessasi? Haluatko ottaa sijaintipäivitykset käyttöön?</string>
   <string name="nearby_set_metric">näytä metrit/kilometrit</string>
   <string name="nearby_set_imperial">Näytä jalkoja/maileja</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Tämä käyttäjä on estetty</string>
   <string name="login_error_throttled">Liian monta kirjautusmisyritystä. Odota muutama minuutti ja yritä uudelleen.</string>
   <string name="login_error_unknown">Kirjautuminen epäonnistui :(</string>
-  <string name="login_error_no_network">Ei verkkoyhteyttä</string>
   <string name="preference_title_logout">Kirjaudu ulos</string>
-  <string name="preference_summary_logout">Kirjaudu ulos Wikipedia-tililtä</string>
-  <string name="preference_summary_notloggedin">Et ole kirjautunut sisään.</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
   <string name="saved_pages_empty_title">Ei tallennettuja sivuja täällä.</string>
   <string name="saved_pages_empty_message">Tallennetut sivut ovat melko loistavia. Ajattele niitä kirjanmerkkeinä, joita voit lukea ilman verkkoyhteyttä.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Poista</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Käyttäjätunnus</string>
-  <string name="create_account_password_hint">Salasana</string>
   <string name="login_create_account_link">Eikö sinulla ole tunnusta? Liity Wikipediaan</string>
   <string name="create_account_login_link">Onko sinulla jo tunnus? Kirjaudu sisään</string>
   <string name="create_account_activity_title">Luo uusi käyttäjätunnus</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Et voi luoda tiliä, koska tilisi on estetty.</string>
   <string name="create_account_password_name_match_error">Käyttäjänimesi ja salasanasi on oltava erilaisia.</string>
   <string name="create_account_generic_error">Tunnusta ei voitu luoda</string>
-  <string name="create_account_no_network">Ei verkkoyhteyttä</string>
   <string name="create_account_next">Seuraava</string>
   <string name="create_account_button">Luo tunnus</string>
   <string name="preferences_general_heading">Perusasetukset</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Yritä uudelleen</string>
   <string name="saved_pages_update_all_error_message">Tallennettujen sivujen päivitys epäonnistui</string>
   <string name="saved_pages_progress_title">Päivitetään tallennettuja sivuja</string>
-  <string name="saved_pages_refresh_pages_complete">Päivitys on valmis</string>
   <string name="menu_page_saved">Sivu tallennettu</string>
   <string name="menu_refresh_saved_page">Päivitä sivu</string>
   <string name="abusefilter_title_warn">Tämä saattaa olla haitallinen muokkaus. Haluatko varmasti tallentaa sen?</string>
@@ -248,14 +236,12 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Näytä kuvat</string>
   <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos Internet-yhteytesi on hidas tai jos datayhteytesi on rajoitettu.</string>
   <string name="read_more_section">Lue lisää</string>
-  <string name="read_next_section">Lue seuraava</string>
   <string name="menu_gallery_visit_page">Mene tiedostosivulle</string>
   <string name="gallery_error_draw_failed">Kuvaa ei voitu piirtää.</string>
   <string name="license_title">Kirjaston %s lisenssiteksti</string>
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
   <string name="gallery_menu_save">Tallenna laitteeseen</string>
-  <string name="gallery_save_error">Kuvaa ei voitu tallentaa: %s</string>
   <string name="gallery_save_error_mediastore">Kuvan tuonti mediakokoelmaan epäonnistui</string>
   <string name="gallery_save_success">Kuva tallennettu onnistuneesti.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
@@ -269,7 +255,6 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">CAPTCHA-kuva</string>
   <string name="gallery_fair_use_license">Fair use -lisenssi</string>
   <string name="gallery_uploader_unknown">Tuntematon tallentaja</string>
-  <string name="edit_save_unknown_error">Muokkaustasi ei voitu tallentaa: %s</string>
   <string name="menu_new_tab">Uusi välilehti</string>
   <string name="button_close_tab">Sulje välilehti</string>
   <string name="tool_tip_select_text">Paina ja pidä painettuna mitä tahansa tekstin osaa korostaaksesi sen kopioimista ja jakamista varten.</string>

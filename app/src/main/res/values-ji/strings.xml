@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">וויקיפעדיע</string>
-  <string name="app_name_beta">וויקיפעדיע בעטא</string>
-  <string name="app_name_alpha">וויקיפעדיע אלפא</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">וויקיפעדיע בעטא</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">וויקיפעדיע אלפא</string>
   <string name="yes">יא</string>
   <string name="no">ניין</string>
   <string name="acra_report_dialog_title">וויקיפעדיע איז איינגעפאלן :(</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error" fuzzy="true">די נעצווערק פארבינדונג קען מען נישט צושטעלן.</string>
-  <string name="search_network_error">נעצווערק פֿעלער. קלאַפט אן צו פרובירן נאכאַמאָל.</string>
-  <string name="generic_page_error">ס\'איז געווען א פראבלעם מיט באהאנדלען אײַער בקשה.</string>
-  <string name="status_code_unavailable">נישט פאראן סארווערס סטאטוס־קאד</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
   <string name="menu_clear_all_saved_pages">אפראמען געשפייכלערטע בלעטער</string>
@@ -42,13 +39,11 @@
   <string name="menu_long_press_open_in_new_tab">עפֿענען אין נײַעם טאב</string>
   <string name="menu_long_press_copy_page">קאפירן לינק אדרעס</string>
   <string name="nav_item_nearby">דערבײַ</string>
-  <string name="menu_update_nearby">דערהיינטיקן אין דער נאענט</string>
   <string name="nearby_empty_title">קיין בלעטער נישט דערבײ!</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_distance_in_feet">%d פיס</string>
   <string name="nearby_distance_in_miles">%.2f מייל</string>
-  <string name="nearby_no_network">קיין נעצווערק פארבינדונג</string>
   <string name="nearby_set_metric">ווייזן מעטער/ק\"מ</string>
   <string name="nearby_set_imperial">ווייזן פיס/מייל</string>
   <string name="nearby_view_on_map">ווייזן ארט אויף דער מאפע</string>
@@ -89,17 +84,13 @@
   <string name="login_success_toast">אריינלאגירט מיט הצלחה!</string>
   <string name="login_error_blocked">דער באניצער איז געווארן בלאקירט</string>
   <string name="login_error_unknown">ארײַנלאגירן אדורכגעפאלן :(</string>
-  <string name="login_error_no_network">קיין נעצווערק פארבינדונג</string>
   <string name="preference_title_logout">אַרויסלאָגירן</string>
-  <string name="preference_summary_logout">ארויסלאגירן פון אײַער וויקיפעדיע קאנטע</string>
-  <string name="preference_summary_notloggedin">נישט ארײַנלאגירט</string>
   <string name="toast_logout_complete">אַרויסלאגירט</string>
   <string name="saved_pages_empty_title">קיין אויפגעהיטענע בלעטער נישט דא!</string>
   <string name="history_empty_title">קיין לעצטיקע בלעטער נישט דא.</string>
   <string name="delete_selected_history">אויסמעקן</string>
   <string name="wp_stylized">&lt;big&gt;וו&lt;/big&gt;יקיפעדי&lt;big&gt;ע&lt;/big&gt;</string>
   <string name="create_account_username_hint">באַניצער נאָמען</string>
-  <string name="create_account_password_hint">פאַסווארט</string>
   <string name="login_create_account_link">איר האט נישט קיין קאנטע?טרעט ארײַן מיט וויקיפעדיע</string>
   <string name="create_account_login_link">איר האט שוין א קאנטע? לאגירט אריין</string>
   <string name="create_account_activity_title">שאַפֿן אַ קאנטע</string>
@@ -118,7 +109,6 @@
   <string name="create_account_blocked_error">איר קענט נישט שאפן קיין קאנטע ווייל אייער קאנטע איז בלאקירט.</string>
   <string name="create_account_password_name_match_error">אייערע באניצער־נאמען און פאסווארט דארפן זיין אנדערש איינס פון אנאנד.</string>
   <string name="create_account_generic_error">מען קען נישט באשאפֿן קאנטע</string>
-  <string name="create_account_no_network">קיין נעצווערק פארבינדונג</string>
   <string name="create_account_next">נעקסט</string>
   <string name="create_account_button">שאַפֿן אַ קאנטע</string>
   <string name="preferences_general_heading">אַלגעמיין</string>
@@ -169,7 +159,6 @@
   <string name="find_next">זוכן נעקסטע</string>
   <string name="find_previous">זוכן פריערדיקע</string>
   <string name="saved_pages_update_all_error_retry">פרובירן ווידער</string>
-  <string name="saved_pages_refresh_pages_complete">דערהיינטיקונג פֿארטיק</string>
   <string name="menu_page_saved">בלאט אויפגעהיטן</string>
   <string name="menu_refresh_saved_page">אקטואליזירן בלאט</string>
   <string name="dialog_page_issues">בלאט־פֿראגעס</string>
@@ -190,7 +179,6 @@
   <string name="dialog_close_description">פארמאכן</string>
   <string name="preference_title_show_images">ווייזן בילדער</string>
   <string name="read_more_section">לייענט ווײטער</string>
-  <string name="read_next_section">לייענט נעקסטן</string>
   <string name="menu_gallery_visit_page">גיין צו טעקע־בלאט</string>
   <string name="gallery_menu_share">טיילן</string>
   <string name="gallery_save_success">בילד דערפאלגרייך געשפייכלערט.</string>
@@ -204,7 +192,6 @@
   <string name="cc_logo">קריעטיוו־קאמאנס ליצענץ</string>
   <string name="gallery_fair_use_license">געהעריגער באניץ</string>
   <string name="gallery_uploader_unknown">ארויפלאדיר אומבאקאנט</string>
-  <string name="edit_save_unknown_error">נישט געווען מעגלעך אויפצוהיטן אייער רעדאקטירונג: %s</string>
   <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="format_error_server_code">קאד: \"%s\"</string>

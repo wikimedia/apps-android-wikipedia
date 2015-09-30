@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ဝီကီပီးဒီးယား</string>
-  <string name="app_name_beta">ဝီကီပီးဒီးယား ဘီတာ</string>
-  <string name="app_name_alpha">ဝီကီပီးဒီးယားအယ်လဖာ</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ဝီကီပီးဒီးယား ဘီတာ</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ဝီကီပီးဒီးယားအယ်လဖာ</string>
   <string name="yes">လုပ်မည်</string>
   <string name="no">မလုပ်ပါ</string>
   <string name="acra_report_dialog_title">ဝီကီပီးဒီးယား ပိတ်သွားသည် :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="error_network_error" fuzzy="true">လတ်တစ်လော အင်တာနက်ချိတ်ဆက်မှု မရှိ :(</string>
-  <string name="search_network_error">ချိတ်ဆက်မှု ပြသာနာ ရှိသည်။ ပြန်ကြိုးစားကြည့်ပါ ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
   <string name="menu_clear_all_history">မှတ်တမ်းအားရှင်းမည်</string>
   <string name="menu_clear_all_saved_pages">သိမ်းထားသော စာမျက်နှာများ အားရှင်းပါ</string>
@@ -36,15 +35,12 @@
   <string name="menu_page_save">စာမျက်နှာကိုသိမ်း</string>
   <string name="menu_page_share" fuzzy="true">မျှဝေ</string>
   <string name="nav_item_nearby">အနီးအနား</string>
-  <string name="menu_update_nearby">အနီးအနားအား အသစ်ရယူ</string>
   <string name="nearby_empty_title">အနီးအနားတွင် စာမျက်နှာများမရှိ!</string>
   <string name="nearby_empty_message" fuzzy="true">တည်နေရာအသစ်သို့ ရောက်သွားတိုင်း ယခုစာမျက်နှာကို အသစ်ပြန်ဆွဲကြည့်ပြီး ပတ်ဝန်းကျင် အကြောင်း စူးစမ်းပါ</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">အင်တာနက် ချိတ်ဆက်မှု မရှိ</string>
-  <string name="nearby_server_error">အနီးအနားတစ်ဝိုက် နေရာများအား မရယူနိုင်ပါ။</string>
   <string name="nearby_dialog_goto_settings">တည်နေရာပြ စနစ်အား သင့် device တွင်ပိတ်ထားပါသည်။ device အပြင်အဆင်သို့ သွားပြီး တည်နေရာပြစနစ် အားဖွင့်မလား ?</string>
   <string name="nearby_set_metric">meters/km ဖြင့်ပြပါ</string>
   <string name="nearby_set_imperial">fee/miles ဖြင့်ပြပါ</string>
@@ -82,12 +78,9 @@
   <string name="login_error_wrong_username">မှားယွင်းသော အသုံးပြုသူအမည်</string>
   <string name="login_success_toast" fuzzy="true">မှတ်တမ်းဖြင့် ဝင်​ခြင်း အောင်မြင်သည်။</string>
   <string name="login_error_blocked">အသုံးပြုသူကို တားမြစ်ထားသည်။</string>
-  <string name="login_error_no_network">အင်တာနက် ချိတ်ဆက်မှု မရှိ</string>
   <string name="preference_title_logout">မှတ်တမ်းဖြင့် ထွက်ရန်</string>
-  <string name="preference_summary_logout">ဝီကီပီဒီးယားအကောင့် ဝင်ထားတာ ထွက်ပါ</string>
   <string name="delete_selected_history">ဖျက်​ပါ​</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
-  <string name="create_account_password_hint">စကားဝှက်</string>
   <string name="login_create_account_link">အကောင့် မရှိဘူးလား? ဝီကီပီဒီးယားနဲ့ ချိတ်ဆက်လိုက်ပါ</string>
   <string name="create_account_activity_title">အကောင့်လုပ်ရန်</string>
   <string name="dialog_create_account_checking_progress">စိစစ်နေသည်။</string>
@@ -97,7 +90,6 @@
   <string name="create_account_email_error">အီးမေးလ်လိပ်စာ မမှန်ဘူး</string>
   <string name="create_account_username_exists_error">အသုံးပြုသူအမည်က သုံးပြီးသား</string>
   <string name="create_account_ip_throttle_error">အိုင်ပီလိပ်စာက အများကြီးအသုံးပြုနေတယ်။ ထပ်ကြိုးစားကြည့်ပါဦး</string>
-  <string name="create_account_no_network">အင်တာနက် ချိတ်ဆက်မှု မရှိ</string>
   <string name="create_account_next">ရှေ့</string>
   <string name="create_account_button">အကောင့်လုပ်ရန်</string>
   <string name="preferences_general_heading">အထွေထွေ</string>

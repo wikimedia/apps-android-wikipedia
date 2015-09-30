@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Ya</string>
   <string name="no">Tidak</string>
   <string name="acra_report_dialog_title">Terjadi kesalahan di Wikipedia :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="nav_item_history">Riwayat</string>
   <string name="error_network_error">Tidak dapat menghubungkan ke Internet.</string>
-  <string name="search_network_error">Kesalahan jaringan. Ketuk untuk mencoba lagi.</string>
-  <string name="generic_page_error">Terjadi masalah saat menangani permintaan Anda.</string>
-  <string name="status_code_unavailable">Kode status peladen tidak tersedia.</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
   <string name="menu_clear_all_saved_pages">Hapus semua halaman tersimpan</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Buka di tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamat pranala</string>
   <string name="nav_item_nearby">Sekitar</string>
-  <string name="menu_update_nearby">Perbarui sekitar</string>
   <string name="nearby_empty_title">Tidak ada halaman terdekat di sini!</string>
   <string name="nearby_empty_message">Pindahkan ke lokasi yang baru untuk melihat artikel di sekitar Anda.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d kaki</string>
   <string name="nearby_distance_in_miles">%.2f mil</string>
-  <string name="nearby_no_network">Tidak ada sambungan jaringan</string>
-  <string name="nearby_server_error">Tidak bisa mendapatkan daftar tempat terdekat.</string>
   <string name="nearby_dialog_goto_settings">Pemutakhiran lokasi tidak diaktifkan pada perangkat Anda. Apakah Anda ingin pergi ke pengaturan perangkat Anda untuk mengaktifkan pemutakhiran Lokasi?</string>
   <string name="nearby_set_metric">Tampilkan dalam meter/km</string>
   <string name="nearby_set_imperial">Tampilkan dalam kaki/mil</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Pengguna ini telah diblokir</string>
   <string name="login_error_throttled">Terlalu banyak upaya masuk log. Tunggu beberapa menit dan coba lagi.</string>
   <string name="login_error_unknown">Masuk log gagal :(</string>
-  <string name="login_error_no_network">Tidak ada sambungan jaringan</string>
   <string name="preference_title_logout">Keluar log</string>
-  <string name="preference_summary_logout">Keluar log dari akun Wikipedia</string>
-  <string name="preference_summary_notloggedin">Belum masuk log</string>
   <string name="toast_logout_complete">Telah keluar log</string>
   <string name="saved_pages_empty_title">Tidak ada halaman yang disimpan di sini!</string>
   <string name="saved_pages_empty_message">Halaman yang disimpan cukup mengagumkan. Menganggap mereka sebagai penanda yang dapat Anda baca bahkan ketika Anda sedang luring.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Hapus</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>
-  <string name="create_account_password_hint">Kata sandi</string>
   <string name="login_create_account_link">Belum punya akun? Bergabung dengan Wikipedia</string>
   <string name="create_account_login_link">Sudah memiliki akun? Masuk.</string>
   <string name="create_account_activity_title">Buat akun baru</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Anda tidak dapat membuat akun dikarenakan akun Anda diblokir.</string>
   <string name="create_account_password_name_match_error">Nama pengguna dan kata sandi harus berbeda.</string>
   <string name="create_account_generic_error">Tidak dapat membuat akun</string>
-  <string name="create_account_no_network">Tidak ada sambungan jaringan</string>
   <string name="create_account_next">Selanjutnya</string>
   <string name="create_account_button">Buat akun baru</string>
   <string name="preferences_general_heading">Umum</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Coba lagi</string>
   <string name="saved_pages_update_all_error_message">Kesalahan memperbarui halaman yang disimpan</string>
   <string name="saved_pages_progress_title">Menyegarkan halaman yang disimpan</string>
-  <string name="saved_pages_refresh_pages_complete">Pembaruan selesai</string>
   <string name="menu_page_saved">Halaman disimpan</string>
   <string name="menu_refresh_saved_page">Segarkan halaman</string>
   <string name="abusefilter_title_warn">Ini mungkin suntingan yang tidak konstruktif. Apakah Anda yakin ingin menyimpannya?</string>
@@ -249,14 +237,12 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="preference_title_show_images">Tampilkan gambar</string>
   <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan jika sambungan Internet Anda lambat, atau jika paket data Anda terbatas.</string>
   <string name="read_more_section">Baca lebih lanjut</string>
-  <string name="read_next_section">Baca selanjutnya</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
   <string name="license_title">Teks lisensi untuk pustaka %s</string>
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
-  <string name="gallery_save_error">Tidak dapat menyimpan gambar: %s</string>
   <string name="gallery_save_error_mediastore">Gagal mengimpor berkas ke koleksi media</string>
   <string name="gallery_save_success">Penyimpanan gambar berhasil.</string>
   <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>
@@ -270,7 +256,6 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Penggunaan wajar</string>
   <string name="gallery_uploader_unknown">Pengunggah tidak diketahui</string>
-  <string name="edit_save_unknown_error">Tidak dapat menyimpan suntingan Anda: %s</string>
   <string name="menu_new_tab">Tab baru</string>
   <string name="button_close_tab">Tutup tab</string>
   <string name="tool_tip_select_text">Tekan dan tahan di mana saja di teks untuk menyorotnya untuk salin dan berbagi.</string>

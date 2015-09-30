@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ويكيبيديا</string>
-  <string name="app_name_beta">ويكيبيديا بيتا</string>
-  <string name="app_name_alpha">ويكيبيديا ألفا</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ويكيبيديا بيتا</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ويكيبيديا ألفا</string>
   <string name="yes">نعم</string>
   <string name="no">لا</string>
   <string name="acra_report_dialog_title">تعطّلت ويكيبيديا :(</string>
@@ -11,8 +11,6 @@
   <string name="search_hint">البحث في ويكيبيديا</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="error_network_error" fuzzy="true">لا يوجد اتصال بالشبكة :(</string>
-  <string name="search_network_error">خطأ في الاتصال بالشبكة. اضغط لإعادة المحاولة.</string>
-  <string name="generic_page_error">هناك مشكلة في معالجة طلبك.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="menu_clear_all_history">مسح التاريخ</string>
   <string name="menu_clear_all_saved_pages">إفراغ الصفحات المحفوظة</string>
@@ -43,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">افتح في لسان جديد</string>
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
   <string name="nav_item_nearby">بالقرب من هنا</string>
-  <string name="menu_update_nearby">تحديث</string>
   <string name="nearby_empty_title">لا يوجد صفحات بالقرب من هنا!</string>
   <string name="nearby_empty_message" fuzzy="true">عندما تنتقل إلى مكانٍ جديدٍ، حدّث هذه الصفحة لمعرفة المزيد عن الأماكن التي بقربك.</string>
   <string name="nearby_distance_in_meters">%d م</string>
   <string name="nearby_distance_in_kilometers">%.2f كم</string>
   <string name="nearby_distance_in_feet">%d قدم</string>
   <string name="nearby_distance_in_miles">%.2f ميل</string>
-  <string name="nearby_no_network">لا يوجد اتصال بالشبكة</string>
-  <string name="nearby_server_error">تعذّر الحصول على قائمة بالأماكن القريبة.</string>
   <string name="nearby_dialog_goto_settings">تحديثات الأماكن ليست مفعلة في جهازك. هل تود الانتقال إلى إعدادات جهازك لتفعيلها؟</string>
   <string name="nearby_set_metric">إظهار متر/كيلو متر</string>
   <string name="nearby_set_imperial">إظهار قدم/ميل</string>
@@ -100,10 +95,7 @@
   <string name="login_error_blocked">تم منع هذا المستخدم</string>
   <string name="login_error_throttled">لقد حاولت تسجيل الدخول مرات كثيرة. انتظر لبضع دقائق وحاول مرةً أخرى.</string>
   <string name="login_error_unknown">فشل تسجيل الدخول :(</string>
-  <string name="login_error_no_network">لا يوجد اتصال بالشبكة</string>
   <string name="preference_title_logout">تسجيل الخروج</string>
-  <string name="preference_summary_logout">تسجيل الخروج من حسابك في ويكيبيديا</string>
-  <string name="preference_summary_notloggedin">لم تقم بتسجيل الدخول.</string>
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
   <string name="saved_pages_empty_title">لا صفحات  محفوظة هنا!</string>
   <string name="saved_pages_empty_message">الصفحات المحفوظة خاصيةٌ رائعةٌ جداً، فهي كالمحفوظات التي بإمكانك قراءتها حتى عندما لا تكون متصلًا بالشبكة.</string>
@@ -112,7 +104,6 @@
   <string name="delete_selected_history">حذف</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يكيبيدي&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
-  <string name="create_account_password_hint">كلمة السر</string>
   <string name="login_create_account_link">ليس لديك حساب؟ انضم إلى ويكيبيديا</string>
   <string name="create_account_login_link">لديك حساب؟ سجل دخولك</string>
   <string name="create_account_activity_title">إنشاء حساب</string>
@@ -131,7 +122,6 @@
   <string name="create_account_blocked_error">لا يمكنك إنشاء حسابٍ لأن حسابك ممنوع.</string>
   <string name="create_account_password_name_match_error">يجب أن يكون اسم المستخدم وكلمة المرور مختلفان.</string>
   <string name="create_account_generic_error">تعذّر إنشاء الحساب</string>
-  <string name="create_account_no_network">لا يوجد اتصال بالشبكة</string>
   <string name="create_account_next">التالي</string>
   <string name="create_account_button">أنشئ حسابًا</string>
   <string name="preferences_general_heading">عام</string>
@@ -195,7 +185,6 @@
   <string name="saved_pages_update_all_error_retry">إعادة المحاولة</string>
   <string name="saved_pages_update_all_error_message">حدث خطأ أثناء تحديث الصفحات المحفوظة</string>
   <string name="saved_pages_progress_title">جارٍ تحديث الصفحات المحفوظة</string>
-  <string name="saved_pages_refresh_pages_complete">اكتمل التحديث</string>
   <string name="menu_page_saved">حُفظت الصفحة</string>
   <string name="menu_refresh_saved_page">تحديث الصفحة</string>
   <string name="abusefilter_title_warn">هذا التعديل ربما لا يكون بنّاءً. هل أنت متأكد من أنك تريد حفظه؟</string>
@@ -239,14 +228,12 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="preference_title_show_images">إظهار الصور</string>
   <string name="preference_summary_show_images" fuzzy="true">تفعيل أو إلغاء تفعيل تحميل الصور في الصفحات. أزل اختيار هذا الإعداد إذا كان اتصالك بالإنترنت بطيئًا، أو إذا كانت خطة بياناتك محدودة.</string>
   <string name="read_more_section">اقرأ المزيد</string>
-  <string name="read_next_section">قراءة التالي</string>
   <string name="menu_gallery_visit_page">الذهاب إلى صفحة الملف</string>
   <string name="gallery_error_draw_failed">خطأ في إظهار الصورة.</string>
   <string name="license_title">نص الترخيص لمكتبة %s</string>
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_menu_save">الحفظ في الجهاز</string>
-  <string name="gallery_save_error">تعذّر حفظ الصورة: %s</string>
   <string name="gallery_save_success">حُفظت الصورة بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>
@@ -259,7 +246,6 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="captcha_image">صورة الكابتشا</string>
   <string name="gallery_fair_use_license">استخدام عادل</string>
   <string name="gallery_uploader_unknown">الرافع غير معروف</string>
-  <string name="edit_save_unknown_error">لم يتمكن من حفظ تعديلك: %s</string>
   <string name="menu_new_tab">لسان جديد</string>
   <string name="button_close_tab">أغلق اللسان</string>
   <string name="error_unknown">حدث خطأ غير معروف.</string>

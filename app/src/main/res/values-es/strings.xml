@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia alfa</string>
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">Wikipedia falló :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
-  <string name="search_network_error">Error en la red. Toca para volver a intentarlo.</string>
-  <string name="generic_page_error">Hubo un problema de manejo de Tu solicitud.</string>
-  <string name="status_code_unavailable">El código de estado del servidor no está disponible.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="menu_clear_all_history">Limpiar el historial</string>
   <string name="menu_clear_all_saved_pages">Borrar páginas guardadas</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
   <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
   <string name="nav_item_nearby">Cercanos</string>
-  <string name="menu_update_nearby">Actualizar cercanos</string>
   <string name="nearby_empty_title">¡No hay páginas cercanas aquí!</string>
   <string name="nearby_empty_message">Muévete a una nueva ubicación para ver páginas a tu alrededor.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pies</string>
   <string name="nearby_distance_in_miles">%.2f millas</string>
-  <string name="nearby_no_network">No hay conexión de red</string>
-  <string name="nearby_server_error">No se puede obtener la lista de lugares cercanos.</string>
   <string name="nearby_dialog_goto_settings">Las actualizaciones de ubicación están desactivadas en tu dispositivo. ¿Quieres ir a las preferencias del mismo para habilitarlas?</string>
   <string name="nearby_set_metric">Mostrar metros/km</string>
   <string name="nearby_set_imperial">Mostrar pies/millas</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Este usuario ha sido bloqueado</string>
   <string name="login_error_throttled">Demasiados intentos de inicio de sesión. Espera unos minutos y vuelve a intentarlo</string>
   <string name="login_error_unknown">Falló el acceso :(</string>
-  <string name="login_error_no_network">No hay conexión de red</string>
   <string name="preference_title_logout">Salir</string>
-  <string name="preference_summary_logout">Cerrar sesión de tu cuenta de Wikipedia</string>
-  <string name="preference_summary_notloggedin">Sesión no iniciada.</string>
   <string name="toast_logout_complete">Sesión cerrada</string>
   <string name="saved_pages_empty_title">No hay páginas guardadas aún.</string>
   <string name="saved_pages_empty_message">Las páginas guardadas son bastante impresionantes. Piensa en ellas como marcadores que se pueden leer incluso cuando estás sin conexión.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Borrar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nombre de usuario</string>
-  <string name="create_account_password_hint">Contraseña</string>
   <string name="login_create_account_link">¿No tienes una cuenta? Únete a Wikipedia</string>
   <string name="create_account_login_link">¿Ya tienes una cuenta? Accede</string>
   <string name="create_account_activity_title">Crear una cuenta</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">No puedes crear una cuenta ya que tu cuenta está bloqueada.</string>
   <string name="create_account_password_name_match_error">Tu nombre de usuario y contraseña deben ser diferentes.</string>
   <string name="create_account_generic_error">No se pudo crear la cuenta</string>
-  <string name="create_account_no_network">No hay conexión de red</string>
   <string name="create_account_next">Siguiente</string>
   <string name="create_account_button">Crear cuenta</string>
   <string name="preferences_general_heading">General</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Reintentar</string>
   <string name="saved_pages_update_all_error_message">Error al actualizar páginas guardadas</string>
   <string name="saved_pages_progress_title">Actualizando páginas guardadas</string>
-  <string name="saved_pages_refresh_pages_complete">Actualización completa</string>
   <string name="menu_page_saved">Página guardada</string>
   <string name="menu_refresh_saved_page">Recargar página</string>
   <string name="abusefilter_title_warn">Esta parece una edición no constructiva. ¿Estás seguro de que quieres guardarla?</string>
@@ -249,14 +237,12 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="preference_title_show_images">Mostrar imágenes</string>
   <string name="preference_summary_show_images">Activar o desactivar la carga de imágenes en las páginas. Desmarca esta opción si tu conexión de Internet es lenta, o si tu plan de datos es limitado.</string>
   <string name="read_more_section">Leer más</string>
-  <string name="read_next_section">Leer el siguiente</string>
   <string name="menu_gallery_visit_page">Ir a la página del archivo</string>
   <string name="gallery_error_draw_failed">No se pudo dibujar la imagen.</string>
   <string name="license_title">Texto de la licencia de la biblioteca %s</string>
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">No se pudo compartir la imagen: %s</string>
   <string name="gallery_menu_save">Guardar en dispositivo</string>
-  <string name="gallery_save_error">No se pudo guardar la imagen: %s</string>
   <string name="gallery_save_error_mediastore">No se pudo importar la imagen a la colección de medios</string>
   <string name="gallery_save_success">Imagen guardada correctamente.</string>
   <string name="gallery_error_video_failed">No se pudo reproducir el vídeo.</string>
@@ -270,7 +256,6 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="captcha_image">Código Captcha</string>
   <string name="gallery_fair_use_license">Uso legítimo</string>
   <string name="gallery_uploader_unknown">Cargador desconocido</string>
-  <string name="edit_save_unknown_error">No se pudo guardar tu edición: %s</string>
   <string name="menu_new_tab">Pestaña nueva</string>
   <string name="button_close_tab">Cerrar pestaña</string>
   <string name="tool_tip_select_text">Pulsa y mantén pulsado en cualquier parte del texto para resaltarlo, para poder copiar y compartir.</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipèdia</string>
-  <string name="app_name_beta">Wikipèdia Bèta</string>
-  <string name="app_name_alpha">Wikipèdia alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipèdia Bèta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipèdia alfa</string>
   <string name="yes">Òc</string>
   <string name="no">Non</string>
   <string name="acra_report_dialog_title">Wikipèdia a fracassat :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error" fuzzy="true">Pas de connexion a la ret :(</string>
-  <string name="search_network_error">Error de ret. Quichatz per tornar ensajar.</string>
   <string name="page_error_retry">Ensajar tornarmai</string>
   <string name="menu_clear_all_history">Voidar l\'istoric</string>
   <string name="menu_clear_all_saved_pages">Escafar las paginas enregistradas</string>
@@ -38,14 +37,11 @@
   <string name="menu_page_find_in_page">Recercar dins la pagina</string>
   <string name="menu_page_font_and_theme">Modificar la poliça e lo tèma</string>
   <string name="nav_item_nearby">A proximitat</string>
-  <string name="menu_update_nearby">Metre a jorn los elements a proximitat</string>
   <string name="nearby_empty_title">Pas cap de pagina a proximitat aicí !</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pès</string>
   <string name="nearby_distance_in_miles">%.2f millas</string>
-  <string name="nearby_no_network">Pas de connexion a la ret</string>
-  <string name="nearby_server_error">Impossible d’obténer la lista dels emplaçaments a proximitat.</string>
   <string name="nearby_set_metric">Afichar en m/km</string>
   <string name="nearby_set_imperial">Afichar en pès/miles</string>
   <string name="nearby_view_on_map">Afichar lo luòc sus la mapa</string>
@@ -81,10 +77,7 @@
   <string name="login_success_toast" fuzzy="true">Connexion capitada !</string>
   <string name="login_error_blocked">Aqueste utilizaire es estat blocat</string>
   <string name="login_error_unknown">Fracàs de la connexion :(</string>
-  <string name="login_error_no_network">Pas de connexion a la ret</string>
   <string name="preference_title_logout">Se desconnectar</string>
-  <string name="preference_summary_logout">Vos desconnectar de vòstre compte Wikipèdia</string>
-  <string name="preference_summary_notloggedin">Pas connectat.</string>
   <string name="toast_logout_complete">Desconnectat</string>
   <string name="saved_pages_empty_title">Pas cap de pagina enregistrada aicí !</string>
   <string name="saved_pages_empty_message">Las paginas enregistradas son pro impressionantas. Pensatz a elas coma a de favorits que poiretz legir quitament se sètz pas desconnectat.</string>
@@ -93,7 +86,6 @@
   <string name="delete_selected_history">Escafar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'utilizaire</string>
-  <string name="create_account_password_hint">Senhal</string>
   <string name="login_create_account_link">Avètz pas de compte ? Rejonhètz Wikipèdia</string>
   <string name="create_account_login_link">Avètz ja un compte ? Connectatz-vos</string>
   <string name="create_account_activity_title">Crear un compte</string>
@@ -104,7 +96,6 @@
   <string name="create_account_email_error">Adreça de corrièr electronic invalida</string>
   <string name="create_account_username_exists_error">Lo nom d’utilizaire es ja utilizat</string>
   <string name="create_account_generic_error">Impossible de crear lo compte</string>
-  <string name="create_account_no_network">Pas cap de connexion a la ret</string>
   <string name="create_account_next">Seguent</string>
   <string name="create_account_button">Crear un compte</string>
   <string name="preferences_general_heading">General</string>
@@ -150,7 +141,6 @@
   <string name="find_next">Recercar lo seguent</string>
   <string name="find_previous">Recercar lo precedent</string>
   <string name="saved_pages_update_all_error_retry">Ensajar tornarmai</string>
-  <string name="saved_pages_refresh_pages_complete">Mesa a jorn acabada</string>
   <string name="menu_page_saved">Pagina enregistrada</string>
   <string name="menu_refresh_saved_page">Refrescar la pagina</string>
   <string name="dialog_page_issues">Discussions sus la pagina</string>
@@ -173,14 +163,12 @@
   <string name="dialog_close_description">Tampar</string>
   <string name="preference_title_show_images">Veire los imatges</string>
   <string name="read_more_section">Ne saber mai</string>
-  <string name="read_next_section">Legir lo seguent</string>
   <string name="menu_gallery_visit_page">Anar a la pagina del fichièr</string>
   <string name="gallery_error_draw_failed">Impossible de dessenhar l’imatge.</string>
   <string name="license_title">Tèxte de la licéncia per la bibliotèca %s</string>
   <string name="gallery_menu_share">Partejar</string>
   <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
   <string name="gallery_menu_save">Enregistrar sus l’aparelh</string>
-  <string name="gallery_save_error">Impossible d’enregistrar l’imatge : %s</string>
   <string name="gallery_save_success">Imatge enregistrat corrèctament.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrar lo fichièr</string>
   <string name="snippet_share_intro">Fach interessant sus @Wikipedia %1$s : %2$s</string>
