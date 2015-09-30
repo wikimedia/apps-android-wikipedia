@@ -11,10 +11,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.FilterQueryProvider;
 import android.widget.TextView;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.ApiUtil;
 
 import java.util.Date;
 
@@ -36,12 +34,6 @@ public class EditSummaryHandler {
             }
         });
 
-        if (!ApiUtil.hasHoneyComb()
-            && WikipediaApp.getInstance().isCurrentThemeDark()) {
-            // explicitly set text hint color
-            summaryEdit.setHintTextColor(activity.getResources()
-                .getColor(Utils.getThemedAttributeId(activity, R.attr.edit_text_color)));
-        }
         EditSummaryAdapter adapter = new EditSummaryAdapter(activity, null, true);
         summaryEdit.setAdapter(adapter);
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
@@ -94,13 +86,7 @@ public class EditSummaryHandler {
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
-            View rootView = activity.getLayoutInflater().inflate(android.R.layout.simple_list_item_1, parent, false);
-            if (!ApiUtil.hasHoneyComb()) {
-                // explicitly set background color of the list item
-                rootView.setBackgroundColor(activity.getResources().getColor(
-                        Utils.getThemedAttributeId(activity, R.attr.window_background_color)));
-            }
-            return rootView;
+            return activity.getLayoutInflater().inflate(android.R.layout.simple_list_item_1, parent, false);
         }
 
         @Override

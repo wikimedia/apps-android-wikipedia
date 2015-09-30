@@ -45,7 +45,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.BadParcelableException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -64,7 +63,6 @@ import android.support.v7.view.ActionMode;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -95,8 +93,6 @@ public class PageActivity extends ThemedActionBarActivity {
     private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
     private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
-    private static final String KEY_LAST_FRAGMENT = "lastFragment";
-    private static final String KEY_LAST_FRAGMENT_ARGS = "lastFragmentArgs";
     private static final String LINK_PREVIEW_FRAGMENT_TAG = "link_preview_dialog";
 
     private Bus bus;
@@ -241,20 +237,6 @@ public class PageActivity extends ThemedActionBarActivity {
 
         searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
 
-        // TODO: remove this when we drop support for API 10
-        boolean themeChanged = false;
-        try {
-            themeChanged = getIntent().hasExtra("changeTheme");
-            // remove this extra, in case the activity is relaunched automatically
-            // e.g. during screen rotation.
-            getIntent().removeExtra("changeTheme");
-        } catch (BadParcelableException e) {
-            // this may be thrown when an app such as Facebook puts its own private Parcelable
-            // into the intent. Since we don't know about the class of the Parcelable, we can't
-            // unparcel it properly, so the hasExtra method may fail.
-            Log.w("PageActivity", "Received an unknown parcelable in intent:", e);
-        }
-
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
@@ -269,18 +251,6 @@ public class PageActivity extends ThemedActionBarActivity {
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
-        } else if (themeChanged) {
-            // we've changed themes!
-            pausedStateOfZero = getIntent().getExtras().getBoolean("pausedStateOfZero");
-            pausedMessageOfZero = getIntent().getExtras().getParcelable("pausedMessageOfZero");
-            if (getIntent().getExtras().containsKey("themeChooserShowing")) {
-                if (getIntent().getExtras().getBoolean("themeChooserShowing")) {
-                    showThemeChooser();
-                }
-            }
-            if (getIntent().getExtras().getBoolean("isSearching")) {
-                searchFragment.openSearch();
-            }
         }
         searchHintText.setText(getString(pausedStateOfZero ? R.string.zero_search_hint : R.string.search_hint));
 
@@ -289,29 +259,7 @@ public class PageActivity extends ThemedActionBarActivity {
             displayMainPageInForegroundTab();
         }
 
-        // If we're coming back from a Theme change, we'll need to "restore" our state based on
-        // what's given in our Intent (since there's no way to relaunch the Activity in a way that
-        // forces it to save its own instance state)...
-        // TODO: remove this when we drop support for API 10
-        if (themeChanged) {
-            String className = getIntent().getExtras().getString(KEY_LAST_FRAGMENT);
-            try {
-                // instantiate the last fragment that was on top of the backstack before the Activity
-                // was closed:
-                Fragment f = (Fragment) Class.forName(className).getConstructor().newInstance();
-                // if we have arguments for the fragment, even better:
-                if (getIntent().getExtras().containsKey(KEY_LAST_FRAGMENT_ARGS)) {
-                    f.setArguments(getIntent().getExtras().getBundle(KEY_LAST_FRAGMENT_ARGS));
-                }
-                // ...and put it on top:
-                pushFragment(f);
-            } catch (Exception e) {
-                //multiple various exceptions may be thrown in the above few lines, so just catch all.
-                Log.e("PageActivity", "Error while instantiating fragment.", e);
-                //don't let the user see a blank screen, so just request the main page...
-                displayMainPageInCurrentTab();
-            }
-        } else if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
@@ -779,37 +727,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         @Subscribe
         public void onChangeTheme(ThemeChangeEvent event) {
-            if (ApiUtil.hasHoneyComb()) {
-
-                // this is all that's necessary!
-                // ALL of the other code relating to changing themes is only for API 10 support!
-                PageActivity.this.recreate();
-            } else {
-                // TODO: remove this when we drop support for API 10
-                // sigh.
-                Bundle state = new Bundle();
-                Intent intent = new Intent(PageActivity.this, PageActivity.class);
-                // In order to change our theme, we need to relaunch the activity.
-                // There doesn't seem to be a way to relaunch an activity in a way that forces it to save its
-
-                // instance state (and all of its fragments' instance state)... so we need to
-                // explicitly save
-                // the state that we need, and pass it into the Intent.
-                // We'll simply save the last Fragment that was on top of the backstack, as well as its arguments.
-                Fragment curFragment = getSupportFragmentManager()
-                        .findFragmentById(R.id.content_fragment_container);
-                state.putString(KEY_LAST_FRAGMENT, curFragment.getClass().getName());
-                // if the fragment had arguments, save them too:
-                if (curFragment.getArguments() != null) {
-                    state.putBundle(KEY_LAST_FRAGMENT_ARGS, curFragment.getArguments());
-                }
-
-                saveState(state);
-                state.putBoolean("changeTheme", true);
-                finish();
-                intent.putExtras(state);
-                startActivity(intent);
-            }
+            PageActivity.this.recreate();
         }
 
         @Subscribe
@@ -953,9 +871,6 @@ public class PageActivity extends ThemedActionBarActivity {
 
     /**
      * ActionMode that is invoked when the user long-presses inside the WebView.
-     * Since API <11 doesn't provide a long-press context for the WebView anyway, and we're
-     * using clipboard features that are only supported in API 11+, we'll mark this whole
-     * method as TargetApi(11), so that the IDE doesn't get upset.
      * @param mode ActionMode under which this context is starting.
      */
     @Override

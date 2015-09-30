@@ -15,7 +15,6 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.theme.Theme;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ViewUtil;
@@ -441,10 +440,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             // if we have a target image index to jump to, then do it!
             galleryPager.setCurrentItem(initialImageIndex, false);
         }
-        if (ApiUtil.hasHoneyComb()) {
-            // Sorry 2.3, you won't get custom transforms between pages.
-            galleryPager.setPageTransformer(false, new GalleryPagerTransformer());
-        }
+        galleryPager.setPageTransformer(false, new GalleryPagerTransformer());
     }
 
     private GalleryItem getCurrentItem() {

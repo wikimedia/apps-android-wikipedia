@@ -92,7 +92,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     transformer.transform( "moveFirstGoodParagraphUp" );
     transformer.transform( "addDarkModeStyles", content );
     transformer.transform( "hideRedLinks", content );
-    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
     transformer.transform( "anchorPopUpMediaTransforms", content );
     transformer.transform( "hideIPA", content );
@@ -167,7 +167,7 @@ function elementsForSection( section ) {
     content.id = "content_block_" + section.id;
     transformer.transform( "addDarkModeStyles", content );
     transformer.transform( "hideRedLinks", content );
-    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
     transformer.transform( "anchorPopUpMediaTransforms", content );
     transformer.transform( "hideIPA", content );

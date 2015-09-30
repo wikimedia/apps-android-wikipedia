@@ -1,14 +1,11 @@
 package org.wikipedia.views;
 
-import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.ClipboardManager;
-import android.os.Build;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ClipboardUtil;
 
 public class PlainPasteEditText extends AppCompatEditText {
@@ -26,13 +23,12 @@ public class PlainPasteEditText extends AppCompatEditText {
 
     @Override
     public boolean onTextContextMenuItem(int id) {
-        if (ApiUtil.hasHoneyComb() && id == android.R.id.paste) {
+        if (id == android.R.id.paste) {
             return onTextContextMenuPaste();
         }
         return super.onTextContextMenuItem(id);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private boolean onTextContextMenuPaste() {
         // Do not allow pasting of formatted text!
         // We do this by intercepting the clipboard and temporarily replacing its
@@ -50,5 +46,4 @@ public class PlainPasteEditText extends AppCompatEditText {
         }
         return true;
     }
-
 }

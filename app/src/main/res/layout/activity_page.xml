@@ -156,7 +156,7 @@
         </LinearLayout>
     </FrameLayout>
 
-    <!-- Override fitsSystemWindows for API 19. -->
+    <!-- Override fitsSystemWindows for KitKat. -->
     <android.support.design.widget.NavigationView
         android:id="@+id/navdrawer"
         android:layout_width="wrap_content"

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
 import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,8 +19,6 @@ import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
 import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.Password;
 import com.mobsandgeeks.saripaar.annotation.Required;
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
@@ -148,20 +147,18 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             @Override
             public void onShowPasswordChecked(boolean checked) {
                 if (checked) {
-                    ViewAnimations.slideOutRight(passwordRepeatEdit, new AnimatorListenerAdapter() {
+                    ViewAnimations.slideOutRight(passwordRepeatEdit, new ViewPropertyAnimatorListenerAdapter() {
                         @Override
-                        public void onAnimationEnd(Animator animation) {
-                            super.onAnimationEnd(animation);
+                        public void onAnimationEnd(View view) {
                             // give it nonempty text, to appease NonEmptyValidator
                             passwordRepeatEdit.setText(" ");
                             passwordRepeatEdit.setVisibility(View.GONE);
                         }
                     });
                 } else {
-                    ViewAnimations.slideIn(passwordRepeatEdit, new AnimatorListenerAdapter() {
+                    ViewAnimations.slideIn(passwordRepeatEdit, new ViewPropertyAnimatorListenerAdapter() {
                         @Override
-                        public void onAnimationStart(Animator animation) {
-                            super.onAnimationStart(animation);
+                        public void onAnimationStart(View view) {
                             passwordRepeatEdit.setText("");
                             passwordRepeatEdit.setVisibility(View.VISIBLE);
                         }

@@ -1,16 +1,12 @@
 package org.wikipedia.settings;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import org.wikipedia.R;
-import org.wikipedia.util.ApiUtil;
 
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class SettingsFragment extends PreferenceLoaderFragment {
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
@@ -65,12 +61,7 @@ public class SettingsFragment extends PreferenceLoaderFragment {
         menu.findItem(R.id.developer_settings).setVisible(Prefs.isShowDeveloperSettingsEnabled());
     }
 
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void invalidateOptionsMenu() {
-        if (ApiUtil.hasIceCreamSandwich()) {
-            getFragmentManager().invalidateOptionsMenu();
-        } else {
-            getActivity().invalidateOptionsMenu();
-        }
+        getFragmentManager().invalidateOptionsMenu();
     }
 }

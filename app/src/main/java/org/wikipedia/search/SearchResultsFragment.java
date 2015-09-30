@@ -422,7 +422,7 @@ public class SearchResultsFragment extends Fragment {
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
             searchFragment.navigateToTitle(title, true);
         }
-    };
+    }
 
     private final class SearchResultAdapter extends BaseAdapter {
         private final LayoutInflater inflater;

@@ -40,12 +40,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.views.WikiErrorView;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -998,7 +996,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         });
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setToCButtonFadedIn(boolean shouldFadeIn) {
         tocButton.removeCallbacks(hideToCButtonRunnable);
         if (shouldFadeIn) {

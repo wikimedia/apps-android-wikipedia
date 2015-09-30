@@ -9,7 +9,6 @@ import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 
 import com.squareup.picasso.Picasso;
@@ -420,13 +419,7 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
     }
 
     private void addResultsToAdapter(List<NearbyPage> result) {
-        if (ApiUtil.hasHoneyComb()) {
-            adapter.addAll(result);
-        } else {
-            for (NearbyPage page : result) {
-                adapter.add(page);
-            }
-        }
+        adapter.addAll(result);
     }
 
     private void setRefreshingState(boolean newState) {

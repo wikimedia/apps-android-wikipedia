@@ -494,7 +494,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     transformer.transform( "moveFirstGoodParagraphUp" );
     transformer.transform( "addDarkModeStyles", content );
     transformer.transform( "hideRedLinks", content );
-    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
     transformer.transform( "anchorPopUpMediaTransforms", content );
     transformer.transform( "hideIPA", content );
@@ -569,7 +569,7 @@ function elementsForSection( section ) {
     content.id = "content_block_" + section.id;
     transformer.transform( "addDarkModeStyles", content );
     transformer.transform( "hideRedLinks", content );
-    transformer.transform( "setNonGbDivWidth", content );
+    transformer.transform( "setDivWidth", content );
     transformer.transform( "setMathFormulaImageMaxWidth", content );
     transformer.transform( "anchorPopUpMediaTransforms", content );
     transformer.transform( "hideIPA", content );
@@ -1089,11 +1089,7 @@ transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
 },{"../transformer":12}],22:[function(require,module,exports){
 var transformer = require("../transformer");
 
-transformer.register( "setNonGbDivWidth", function( content ) {
-    if (window.apiLevel < 11) {
-        //don't do anything for GB
-        return;
-    }
+transformer.register( "setDivWidth", function( content ) {
     var allDivs = content.querySelectorAll( 'div' );
     var contentWrapper = document.getElementById( "content" );
     var clientWidth = contentWrapper.offsetWidth;
