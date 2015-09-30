@@ -180,6 +180,8 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
         compassViews = new ArrayList<>();
+        mMarkerIconPassive = makeMarkerIcon(false);
+        mMarkerIconActive = makeMarkerIcon(true);
 
         if (!adapter.isEmpty()) {
             setupGeomagneticField();
@@ -209,8 +211,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             }
         }
 
-        mMarkerIconPassive = makeMarkerIcon(false);
-        mMarkerIconActive = makeMarkerIcon(true);
         setRefreshingState(true);
         initializeMap();
     }
