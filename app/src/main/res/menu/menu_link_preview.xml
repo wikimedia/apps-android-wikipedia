@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_link_preview_open_in_new_tab"
+        android:title="@string/menu_long_press_open_in_new_tab"
+        />
     <item android:id="@+id/menu_link_preview_save_page"
         android:title="@string/menu_link_preview_save_page"
-          />
+        />
     <item android:id="@+id/menu_link_preview_share_page"
         android:title="@string/menu_link_preview_share_page"
         />

@@ -224,6 +224,11 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
+                case R.id.menu_link_preview_open_in_new_tab:
+                    overflowMenuHandler.onOpenInNewTab(pageTitle,
+                            new HistoryEntry(pageTitle, entrySource));
+                    dismiss();
+                    return true;
                 case R.id.menu_link_preview_save_page:
                     overflowMenuHandler.onSavePage(pageTitle);
                     dismiss();
