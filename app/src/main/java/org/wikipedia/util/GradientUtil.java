@@ -13,6 +13,13 @@ public final class GradientUtil {
     private static final int GRADIENT_NUM_STOPS = 8;
     private static final int GRADIENT_POWER = 3;
 
+    public static Drawable getCubicGradient(int baseColor, int gravity) {
+        PaintDrawable drawable = new PaintDrawable();
+        drawable.setShape(new RectShape());
+        setCubicGradient(drawable, baseColor, gravity);
+        return drawable;
+    }
+
     /**
      * Create a cubic gradient by using a compound gradient composed of a series of linear
      * gradients with intermediate color values.
@@ -20,11 +27,8 @@ public final class GradientUtil {
      * @param baseColor The color from which the gradient starts (the ending color is transparent).
      * @param gravity Where the gradient should start from. Note: when making horizontal gradients,
      *                remember to use START/END, instead of LEFT/RIGHT.
-     * @return The resulting cubic gradient drawable.
      */
-    public static Drawable getCubicGradient(int baseColor, int gravity) {
-        PaintDrawable paintDrawable = new PaintDrawable();
-        paintDrawable.setShape(new RectShape());
+    public static void setCubicGradient(PaintDrawable drawable, int baseColor, int gravity) {
         final int[] stopColors = new int[GRADIENT_NUM_STOPS];
 
         int red = Color.red(baseColor);
@@ -68,15 +72,13 @@ public final class GradientUtil {
                 break;
         }
 
-        paintDrawable.setShaderFactory(new ShapeDrawable.ShaderFactory() {
+        drawable.setShaderFactory(new ShapeDrawable.ShaderFactory() {
             @Override
             public Shader resize(int width, int height) {
                 return new LinearGradient(width * x0, height * y0, width * x1, height * y1,
                                           stopColors, null, Shader.TileMode.CLAMP);
             }
         });
-
-        return paintDrawable;
     }
 
     private GradientUtil() {
