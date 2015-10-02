@@ -72,6 +72,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="36dp"
                             android:layout_marginRight="4dp"
+                            android:layout_marginEnd="4dp"
                             android:gravity="center_vertical"
                             android:text="@string/search_hint"
                             android:textColor="@android:color/white"
@@ -94,6 +95,7 @@
                             android:orientation="horizontal"
                             android:layout_gravity="center_vertical"
                             android:layout_marginRight="4dp"
+                            android:layout_marginEnd="4dp"
                             style="@style/AppTheme.SearchViewStyle"
                             android:visibility="gone">
                             <org.wikipedia.views.CabSearchView
