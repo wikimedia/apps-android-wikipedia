@@ -3,7 +3,7 @@ package org.wikipedia.server;
 import org.wikipedia.Site;
 import org.wikipedia.server.mwapi.MwPageService;
 import org.wikipedia.server.restbase.RbPageService;
-import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.RbSwitch;
 
 /**
  * This redirection exists because we want to be able to switch between the traditional
@@ -12,7 +12,7 @@ import org.wikipedia.settings.Prefs;
  */
 public final class PageServiceFactory {
     public static PageService create(Site site) {
-        if (Prefs.forceRestbaseUsage()) {
+        if (RbSwitch.INSTANCE.isRestBaseEnabled()) {
             return new RbPageService(site);
         } else {
             return new MwPageService(site);

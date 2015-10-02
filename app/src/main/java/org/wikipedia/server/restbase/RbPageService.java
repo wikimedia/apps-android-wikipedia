@@ -6,6 +6,7 @@ import org.wikipedia.server.PageCombo;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
+import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
 import retrofit.Callback;
@@ -40,6 +41,7 @@ public class RbPageService implements PageService {
 
             @Override
             public void failure(RetrofitError error) {
+                RbSwitch.INSTANCE.onRbRequestFailed(error);
                 cb.failure(error);
             }
         });
@@ -55,6 +57,7 @@ public class RbPageService implements PageService {
 
             @Override
             public void failure(RetrofitError error) {
+                RbSwitch.INSTANCE.onRbRequestFailed(error);
                 cb.failure(error);
             }
         });
@@ -70,6 +73,7 @@ public class RbPageService implements PageService {
 
             @Override
             public void failure(RetrofitError error) {
+                RbSwitch.INSTANCE.onRbRequestFailed(error);
                 cb.failure(error);
             }
         });

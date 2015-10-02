@@ -6,6 +6,7 @@ import org.wikipedia.server.PageCombo;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
+import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
 import retrofit.Callback;
@@ -48,6 +49,7 @@ public class MwPageService implements PageService {
         webService.pageRemaining(title, optional(noImages), new Callback<MwPageRemaining>() {
             @Override
             public void success(MwPageRemaining pageRemaining, Response response) {
+                RbSwitch.INSTANCE.onMwSuccess();
                 cb.success(pageRemaining, response);
             }
 
