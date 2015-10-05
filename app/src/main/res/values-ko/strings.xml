@@ -86,7 +86,7 @@
   <string name="title_captcha">캡차를 입력하세요</string>
   <string name="edit_section_captcha_reload">새로 고치려면 캡차를 누르세요</string>
   <string name="edit_saved_page_refresh">이 저장된 문서는 오래되었을 수 있고, 편집을 활성화하려면 새로 고쳐야 합니다. 문서를 새로 고치겠습니까?</string>
-  <string name="nav_item_login" fuzzy="true">로그인</string>
+  <string name="nav_item_login">위키백과에 로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
   <string name="login_password_show_check">비밀번호 보이기</string>

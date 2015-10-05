@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="menu_update_nearby">付近のスポットを更新</string>
   <string name="nearby_empty_title">付近のスポットについてのページがありません!</string>
-  <string name="nearby_empty_message" fuzzy="true">新しい場所に移動してからこのページを更新し、周囲に何があるか探してみましょう。</string>
+  <string name="nearby_empty_message">新しい場所に移動して、周囲に何があるかを探してみましょう。</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d フィート</string>

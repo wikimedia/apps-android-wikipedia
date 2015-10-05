@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Wat was u besig om te doen toe die breek plaasgevind het?</string>
   <string name="search_hint">Soek in Wikipedia</string>
   <string name="nav_item_history">Geskiedenis</string>
-  <string name="error_network_error" fuzzy="true">Daar is geen netwerkverbinding nie.</string>
+  <string name="error_network_error">Kan nie aan die internet koppel nie.</string>
   <string name="search_network_error">Netwerkfout. Kliek om weer te probeer.</string>
   <string name="generic_page_error">Daar was \'n probleem met die hantering van u versoek.</string>
   <string name="status_code_unavailable">Bediener statuskode onbeskikbaar.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Naby</string>
   <string name="menu_update_nearby">Opdateer naby</string>
   <string name="nearby_empty_title">Geen nabye bladsye hier!</string>
-  <string name="nearby_empty_message" fuzzy="true">Wanneer u na \'n nuwe omgewing skuif, probeer dan hierdie bladsy herlaai om meer inligting te verkry oor wat rondom u is.</string>
+  <string name="nearby_empty_message">Skuif na \'n nuwe ligging om bladsy naby te sien.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Voer CAPTCHA in</string>
   <string name="edit_section_captcha_reload">Kliek CAPTCHA om te herlaai</string>
   <string name="edit_saved_page_refresh">Hierdie gestoorde bladsy mag uit datum wees, en moet herlaai word om wysiging moontlik te maak. Wil u hierdie blad herlaai?</string>
-  <string name="nav_item_login" fuzzy="true">Meld aan</string>
+  <string name="nav_item_login">Meld aan by Wikipedia</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wagwoord</string>
   <string name="login_password_show_check">Vertoon wagwoord</string>
@@ -245,7 +245,7 @@ Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Kliek om af te laai</string>
   <string name="dialog_close_description">Sluit</string>
   <string name="preference_title_show_images">Vertoon beelde</string>
-  <string name="preference_summary_show_images" fuzzy="true">Skakel die laai van beelde in bladsye aan of af. Ontmerk hierdie instelling indien u internet konneksie statig is, of u dataplan beperk is.</string>
+  <string name="preference_summary_show_images">Skakel die laai van beelde in bladsye aan of af. Ontmerk hierdie instelling indien u internetverbinding statig is, of u dataplan beperk is.</string>
   <string name="read_more_section">Lees meer</string>
   <string name="read_next_section">Lees volgende</string>
   <string name="menu_gallery_visit_page">Gaan na lêer blad</string>

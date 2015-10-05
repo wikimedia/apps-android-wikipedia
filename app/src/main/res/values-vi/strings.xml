@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Bạn đang làm gì khi xảy ra sự cố?</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="nav_item_history">Lịch sử</string>
-  <string name="error_network_error" fuzzy="true">Không thể kết nối với mạng.</string>
+  <string name="error_network_error">Không thể kết nối với Internet.</string>
   <string name="search_network_error">Lỗi mạng. Chạm để thử lại.</string>
   <string name="generic_page_error">Đã xuất hiện lỗi khi xử lý yêu cầu của bạn.</string>
   <string name="status_code_unavailable">Mã trạng thái của server không có sẵn.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Lân cận</string>
   <string name="menu_update_nearby">Cập nhật danh sách lân cận</string>
   <string name="nearby_empty_title">Không có trang nào gần đây!</string>
-  <string name="nearby_empty_message" fuzzy="true">Khi nào bạn di chuyển đến một vị trí mới, hãy thử làm mới trang này để tìm hiểu về những gì nằm chung quanh bạn.</string>
+  <string name="nearby_empty_message">Di chuyển đến một vị trí mới để đọc về các đề tài nằm chung quanh bạn.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d foot</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Nhập CAPTCHA</string>
   <string name="edit_section_captcha_reload">Chạm vào CAPTCHA để tải lại</string>
   <string name="edit_saved_page_refresh">Trang đã lưu này có thể lỗi thời nên cần làm mới trước khi sửa đổi. Bạn có muốn làm mới trang này?</string>
-  <string name="nav_item_login" fuzzy="true">Đăng nhập</string>
+  <string name="nav_item_login">Đăng nhập vào Wikipedia</string>
   <string name="login_username_hint">Tên người dùng</string>
   <string name="login_password_hint">Mật khẩu</string>
   <string name="login_password_show_check">Hiển thị mật khẩu</string>
@@ -247,7 +247,7 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="alpha_update_notification_text">Chạm để tải về</string>
   <string name="dialog_close_description">Đóng</string>
   <string name="preference_title_show_images">Xem hình ảnh</string>
-  <string name="preference_summary_show_images" fuzzy="true">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
+  <string name="preference_summary_show_images">Bật/tắt việc tải các hình ảnh trong trang. Tắt hình ảnh nếu có kết nối mạng chậm hoặc dữ liệu bị hạn chế.</string>
   <string name="read_more_section">Đọc tiếp</string>
   <string name="read_next_section">Đọc tiếp theo</string>
   <string name="menu_gallery_visit_page">Xem trang tập tin</string>

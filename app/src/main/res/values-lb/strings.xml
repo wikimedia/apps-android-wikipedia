@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Wat hutt Dir gemaach wéi de Crash geschitt ass?</string>
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="nav_item_history">Versiounen</string>
-  <string name="error_network_error" fuzzy="true">Kann net mam Internet verbonn ginn.</string>
+  <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="search_network_error">Feeler vum Reseau. Tippt fir nach eng Kéier ze probéieren.</string>
   <string name="generic_page_error">Et gouf e Problem beim Verschaffe vun Ärer Ufro.</string>
   <string name="status_code_unavailable">Statuscode vum Server net disponibel.</string>
@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">Nobäi</string>
   <string name="menu_update_nearby">Aktualisatioun vun \'nobäi\'</string>
   <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
-  <string name="nearby_empty_message" fuzzy="true">Wann Dir op eng aner Plaz gitt, da probéiert fir dës Säit z\'aktualiséiere fir méi iwwer dat gewuer ze gi wat ronderëm Iech ass.</string>
+  <string name="nearby_empty_message">Gitt op eng aner Plaz fir Säite ronderëm Iech ze gesinn.</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
   <string name="nearby_distance_in_feet">%d Fouss</string>
@@ -85,7 +85,7 @@
   <string name="title_captcha">Captcha aginn</string>
   <string name="edit_section_captcha_reload">CAPTCHA antippe fir nei ze lueden</string>
   <string name="edit_saved_page_refresh">Dës gespäichert Säit kënnt vereelst sinn a muss aktualiséiert ginn ier d\'Änneren aktivéiert ka ginn. Wëllt Dir d\'Säit aktualiséieren?</string>
-  <string name="nav_item_login" fuzzy="true">Aloggen</string>
+  <string name="nav_item_login">Op Wikipedia aloggen</string>
   <string name="login_username_hint">Benotzernumm</string>
   <string name="login_password_hint">Passwuert</string>
   <string name="login_password_show_check">Passwuert weisen</string>
@@ -223,7 +223,7 @@
   <string name="alpha_update_notification_text">Tippe fir erofzelueden</string>
   <string name="dialog_close_description">Zoumaachen</string>
   <string name="preference_title_show_images">Biller weisen</string>
-  <string name="preference_summary_show_images" fuzzy="true">Luede vu Biller op Säiten an- oder ausschalten. Huelt dës Astellung ewech wann Är Internetverbindung lues ass oder wann Dir eng Limite fir den Datevolumen hutt.</string>
+  <string name="preference_summary_show_images">Luede vu Biller op Säiten an- oder ausschalten. Huelt dës Astellung ewech wann Är Internetverbindung lues ass oder wann Dir eng Limite fir den Datevolumen hutt.</string>
   <string name="read_more_section">Liest méi</string>
   <string name="read_next_section">Nächste liesen</string>
   <string name="menu_gallery_visit_page">Op d\'Säit vum Fichier goen</string>

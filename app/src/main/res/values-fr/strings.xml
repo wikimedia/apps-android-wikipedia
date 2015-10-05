@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">À proximité</string>
   <string name="menu_update_nearby">Mise à jour des éléments à proximité</string>
   <string name="nearby_empty_title">Aucune page à proximité ici !</string>
-  <string name="nearby_empty_message" fuzzy="true">Quand vous vous déplacez vers un nouvel emplacement, essayez de rafraîchir cette page pour en savoir plus sur ce qui vous entoure.</string>
+  <string name="nearby_empty_message">Déplacez-vous à un nouvel endroit pour voir les pages des alentours.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pieds</string>

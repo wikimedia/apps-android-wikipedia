@@ -44,6 +44,7 @@
   <string name="langlinks_filter_hint">සොයන්න</string>
   <string name="langlinks_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="langlinks_empty">මෙම පිටුව වෙනත් භාෂාවලින් ලබාගත නොහැක</string>
+  <string name="langlinks_no_match">ඔබේ සෙවීමට සමාන භාෂා සොයාගැනීමට නොහැක</string>
   <string name="langlinks_activity_title">වෙනත් භාෂාවන්</string>
   <string name="menu_save_changes">වෙනස්කම් සුරකින්න</string>
   <string name="edit_section_error_retry">නැවත උත්සහ කරන්න</string>
@@ -56,8 +57,10 @@
   <string name="dialog_message_leaving_edit_stay">inna</string>
   <string name="menu_show_toc">පටුන</string>
   <string name="search_no_results_found">ප්‍රතිඑල හමු නොවුණි</string>
+  <string name="edit_section_captcha_hint">කරුණාකර උඩ ඇති වචන නැවත කියන්න</string>
+  <string name="title_captcha">CAPTCHA ඇතුල් ක‍රන්න</string>
   <string name="edit_section_captcha_reload">නැවත පෙන්වීමට CAPTCHA මත තට්ටු කරන්න.</string>
-  <string name="nav_item_login" fuzzy="true">පිවිසෙන්න</string>
+  <string name="nav_item_login">පිවිසෙන්න</string>
   <string name="login_username_hint">පරිශීලක නාමය</string>
   <string name="login_password_hint">මුරපදය</string>
   <string name="login_password_show_check">මුරපදය පෙන්වන්න</string>
@@ -66,7 +69,8 @@
   <string name="login_in_progress_dialog_message">ඔබව ඇතුළු කරමින්...</string>
   <string name="login_error_wrong_password">වැරදි මුරපදය</string>
   <string name="login_error_wrong_username">වැරදි පරිශීලක නාමය</string>
-  <string name="login_success_toast" fuzzy="true">පිවිසුම සාර්ථකයි!</string>
+  <string name="login_error_illegal">පරිශීලක නාමය වළංගු නොවේ</string>
+  <string name="login_success_toast">පිවිසුම සාර්ථකයි!</string>
   <string name="login_error_blocked">මෙම පරිශීලකයාව අවහිර කර තිබේ</string>
   <string name="login_error_throttled">බොහෝ වාරයක් පූරණයවීමට උතසාහ කර ඇත.මිනිත්තු කිහිපයකින් පසු නැවත උත්සාහ කරන්න.</string>
   <string name="login_error_unknown">පිවිසීම අසාර්ථකයි :(</string>
@@ -85,13 +89,20 @@
   <string name="create_account_login_link">දැනටමත් ගිණුමක් තිබේද? පිවිසෙන්න</string>
   <string name="create_account_activity_title">ගිණුමක් තනන්න</string>
   <string name="dialog_create_account_checking_progress">තහවුරු කරමින්</string>
+  <string name="create_account_email_hint">විද්යුත් තැපෑල</string>
+  <string name="create_account_password_repeat_hint">මුරපදය යළි පිහිටුවන්න</string>
+  <string name="create_account_passwords_mismatch_error">මුරපද නොගැලපේ</string>
+  <string name="create_account_email_error">අනීතික අන්තර්ජාල ලිපිනයකි</string>
   <string name="create_account_username_exists_error">පරිශීලක නාමය දැනටමත් භාවිතයේ පවතී</string>
   <string name="create_account_ip_throttle_error">මෙම IP ලිපිනය භාවිතයෙන් බොහෝ ගිණුම් වීවෘත කර ඇත.පසුව නැවත උත්සහ කරන්න.</string>
+  <string name="create_account_generic_error">ගිණුම තැනිය නොහැක</string>
   <string name="create_account_no_network">කිසිඳු ජාල සම්බන්ධතාවයක් නොමැත</string>
   <string name="create_account_next">මීළඟ</string>
   <string name="create_account_button">ගිණුමක් තනන්න</string>
   <string name="preferences_general_heading">සාමාන්‍ය</string>
   <string name="wikipedia_app_faq">විකිපීඩියා යෙදුම නිති අසන පැන</string>
+  <string name="zero_search_hint">විකිපීඩියාව ගවේෂණය කරන්න</string>
+  <string name="zero_webpage_title">විකිපීඩියා යෙදුම නිති අසන පැන</string>
   <string name="zero_learn_more_learn_more">තවදුරටත් කියවන්න</string>
   <string name="zero_learn_more_dismiss">නිෂ්ප්‍රභ කරන්න</string>
   <string name="nav_item_random">අහඹු</string>

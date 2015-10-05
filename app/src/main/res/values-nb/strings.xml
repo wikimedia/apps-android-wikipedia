@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Hva gjorde du da kræsjet skjedde?</string>
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="nav_item_history">Logg</string>
-  <string name="error_network_error" fuzzy="true">Kan ikke koble til internett</string>
+  <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
   <string name="generic_page_error">Et problem oppstod under behandlingen av din forespørsel.</string>
   <string name="status_code_unavailable">Tjenerens statuskode er utilgjengelig.</string>
@@ -42,10 +42,11 @@
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
   <string name="menu_long_press_open_page">Åpne</string>
   <string name="menu_long_press_open_in_new_tab">Åpne i ny arkfane</string>
+  <string name="menu_long_press_copy_page">Kopier lenkeadresse</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="menu_update_nearby">Oppdater «i nærheten»</string>
   <string name="nearby_empty_title">Ingen sider i nærheten!</string>
-  <string name="nearby_empty_message" fuzzy="true">Når du forflytter deg til en ny plassering, prøv å gjenoppfriske denne siden for å finne ut hva som befinner seg rundt deg.</string>
+  <string name="nearby_empty_message">Forflytt deg til en ny plass for å se sider om hva som befinner seg rundt deg.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -86,7 +87,7 @@
   <string name="title_captcha">Fyll inn CAPTCHA</string>
   <string name="edit_section_captcha_reload">Trykk på CAPTCHA for å laste inn på nytt</string>
   <string name="edit_saved_page_refresh">Denne lagrede siden kan være utdatert, og må gjenoppfriskes for å kunne redigeres. Vil du gjenoppfriske siden?</string>
-  <string name="nav_item_login" fuzzy="true">Logg inn</string>
+  <string name="nav_item_login">Logg inn på Wikipedia</string>
   <string name="login_username_hint">Brukernavn</string>
   <string name="login_password_hint">Passord</string>
   <string name="login_password_show_check">Vis passord</string>
@@ -105,7 +106,7 @@
   <string name="preference_summary_logout">Logg ut fra Wikipedia-kontoen din</string>
   <string name="preference_summary_notloggedin">Ikke innlogget.</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="saved_pages_empty_title">Ingen lagrede sider her!</string>
+  <string name="saved_pages_empty_title">Ingen lagrede sider enda!</string>
   <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. Tenk på dem som bokmerker som du også kan lese når du er offline.</string>
   <string name="history_empty_title">Ingen besøkte sider her!</string>
   <string name="history_empty_message">Du har antakelig fjernet alle sammen. Neste gang du besøker en side så kan du finne den igjen her etterpå.</string>
@@ -135,13 +136,13 @@
   <string name="create_account_next">Neste</string>
   <string name="create_account_button">Opprett konto</string>
   <string name="preferences_general_heading">Generelt</string>
-  <string name="wikipedia_app_faq">Wikipedia-app OSS</string>
+  <string name="wikipedia_app_faq">Ofte stilte spørsmål om Wikipedia-appen</string>
   <string name="zero_charged_verbiage">Wikipedia Zero er skrudd av</string>
   <string name="zero_charged_verbiage_extended">Lasting av artikler kan føre til at datakostnader påløper.</string>
   <string name="zero_search_hint">Søk i Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varsle hvis jeg forlater Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Hvis mobiloperatøren din dekker datakostnader for Wikipedia-appen gjennom et Wikipedia Zero-samarbeid, kan denne innstillingen informere deg når du forlater Wikipedia-appen og datakostnader kan påløpe.</string>
-  <string name="zero_webpage_title">Wikipedia Zero OSS</string>
+  <string name="zero_webpage_title">Ofte stilte spørsmål om Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Forlater Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Datakostnader kan påløpe. Fortsette til eksternt nettsted?</string>
@@ -246,7 +247,7 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Trykk for å laste ned</string>
   <string name="dialog_close_description">Lukk</string>
   <string name="preference_title_show_images">Vis bilder</string>
-  <string name="preference_summary_show_images" fuzzy="true">Slå av eller på lasting av bilder på sidene. Fjern merkingen her om du har en treg internettforbindelse, eller ikke vil bruke så mye data.</string>
+  <string name="preference_summary_show_images">Skru av eller på lasting av bilder på sidene. Fjern avkryssingen om du har en treg internettforbindelse, eller ikke vil bruke så mye data.</string>
   <string name="read_more_section">Les mer</string>
   <string name="read_next_section">Les neste</string>
   <string name="menu_gallery_visit_page">Gå til filsiden</string>
@@ -281,4 +282,6 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="error_unknown">Det oppsto en ukjent feil.</string>
   <string name="format_error_server_message">Melding: «%s»</string>
   <string name="format_error_server_code">Kode: «%s»</string>
+  <string name="address_copied">Adressen har blitt kopiert til utklippstavlen.</string>
+  <string name="button_continue_to_article">Fortsett til artikkelen</string>
 </resources>

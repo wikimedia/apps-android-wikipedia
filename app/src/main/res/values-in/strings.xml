@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Apa yang Anda lakukan ketika terjadi kesalahan?</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="error_network_error" fuzzy="true">Sambungan jaringan tidak dapat ditentukan.</string>
+  <string name="error_network_error">Tidak dapat menghubungkan ke Internet.</string>
   <string name="search_network_error">Kesalahan jaringan. Ketuk untuk mencoba lagi.</string>
   <string name="generic_page_error">Terjadi masalah saat menangani permintaan Anda.</string>
   <string name="status_code_unavailable">Kode status peladen tidak tersedia.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Sekitar</string>
   <string name="menu_update_nearby">Perbarui sekitar</string>
   <string name="nearby_empty_title">Tidak ada halaman terdekat di sini!</string>
-  <string name="nearby_empty_message" fuzzy="true">Bila Anda pindah ke lokasi baru, coba menyegarkan halaman ini untuk mempelajari lebih lanjut tentang apa yang ada di sekitar Anda.</string>
+  <string name="nearby_empty_message">Pindahkan ke lokasi yang baru untuk melihat artikel di sekitar Anda.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d kaki</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Masukkan CAPTCHA</string>
   <string name="edit_section_captcha_reload">Ketuk CAPTCHA untuk memuat ulang</string>
   <string name="edit_saved_page_refresh">Halaman tersimpan ini mungkin kedaluwarsa, dan harus disegarkan untuk penyuntingan harus diaktifkan. Apakah Anda ingin memperbarui halaman?</string>
-  <string name="nav_item_login" fuzzy="true">Masuk log</string>
+  <string name="nav_item_login">Masuk log ke Wikipedia</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="login_password_show_check">Tampilkan kata sandi</string>
@@ -247,7 +247,7 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="alpha_update_notification_text">Sentuh untuk mengunduh</string>
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Tampilkan gambar</string>
-  <string name="preference_summary_show_images" fuzzy="true">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan jika koneksi internet anda lambat, atau jika plan data anda terbatas.</string>
+  <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan jika sambungan Internet Anda lambat, atau jika paket data Anda terbatas.</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="read_next_section">Baca selanjutnya</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>

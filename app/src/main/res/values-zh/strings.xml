@@ -3,8 +3,8 @@
   <string name="app_name_prod">维基百科</string>
   <string name="app_name_beta">维基百科测试版</string>
   <string name="app_name_alpha">维基百科内测版</string>
-  <string name="yes">确定</string>
-  <string name="no">取消</string>
+  <string name="yes">是</string>
+  <string name="no">否</string>
   <string name="acra_report_dialog_title">维基百科崩溃了:(</string>
   <string name="acra_report_dialog_text">给我们发送崩溃报告</string>
   <string name="acra_report_dialog_comment">崩溃发生时您进行了什么操作？</string>
@@ -18,7 +18,7 @@
   <string name="menu_clear_all_history">清除历史</string>
   <string name="menu_clear_all_saved_pages">清除保存的页面</string>
   <string name="page_does_not_exist_error">该页面不存在。</string>
-  <string name="nav_item_today">今日</string>
+  <string name="nav_item_today">今天</string>
   <string name="dialog_title_clear_history">清除浏览历史？</string>
   <string name="nav_item_saved_pages">保存的页面</string>
   <string name="menu_update_all_saved_pages">更新保存的页面</string>
@@ -43,10 +43,10 @@
   <string name="menu_long_press_open_page">打开</string>
   <string name="menu_long_press_open_in_new_tab">在新标签页打开链接</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
-  <string name="nav_item_nearby">附近</string>
-  <string name="menu_update_nearby">更新附近</string>
+  <string name="nav_item_nearby">周边</string>
+  <string name="menu_update_nearby">周边更新</string>
   <string name="nearby_empty_title">这附近没有页面！</string>
-  <string name="nearby_empty_message" fuzzy="true">当您前往新位置时，请尝试刷新该页面了解您周围的事物。</string>
+  <string name="nearby_empty_message">前往新地点，了解您的周围。</string>
   <string name="nearby_distance_in_meters">%d米</string>
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
   <string name="nearby_distance_in_feet">%d英尺</string>
@@ -137,14 +137,14 @@
   <string name="create_account_button">创建账户</string>
   <string name="preferences_general_heading">常规</string>
   <string name="wikipedia_app_faq">维基百科应用程序常见问题</string>
-  <string name="zero_charged_verbiage">维基百科免费计划已关闭</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero已关闭</string>
   <string name="zero_charged_verbiage_extended">载入其他条目可能产生数据费用。</string>
-  <string name="zero_search_hint">搜索维基百科免费计划</string>
-  <string name="zero_warn_when_leaving">离开维基百科免费计划时警告</string>
-  <string name="zero_warn_when_leaving_summary">如果您的移动运营商是维基百科免费计划的合作伙伴，并免除维基百科应用的数据费用，请选择该设置以帮助您知晓您正在离开维基百科应用并可能被收费。</string>
-  <string name="zero_webpage_title">维基百科免费计划常见问题</string>
+  <string name="zero_search_hint">搜索Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">离开Wikipedia Zero时警告</string>
+  <string name="zero_warn_when_leaving_summary">如果您的移动运营商是Wikipedia Zero的合作伙伴，并免除维基百科应用的数据费用，请选择该设置以帮助您知晓您正在离开维基百科应用并可能被收费。</string>
+  <string name="zero_webpage_title">Wikipedia Zero常见问题</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">离开维基百科免费计划</string>
+  <string name="zero_interstitial_title">离开Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">可能会收取数据费用。继续前往外部网站？</string>
   <string name="zero_interstitial_continue">离开</string>
   <string name="zero_interstitial_cancel">留在这里</string>
@@ -168,7 +168,7 @@
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
   <string name="more_item_preferences">更多</string>
   <string name="more_activity_title">更多</string>
-  <string name="about_description">关于维基百科应用程序</string>
+  <string name="about_description">关于维基百科应用</string>
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_Policy</string>
@@ -211,7 +211,7 @@
   <string name="color_theme_select">主题</string>
   <string name="color_theme_light">日间</string>
   <string name="color_theme_dark">夜间</string>
-  <string name="page_similar_titles">相似页面</string>
+  <string name="page_similar_titles">类似页面</string>
   <string name="search_did_you_mean">您的意思是“%s”吗？</string>
   <string name="search_recent_header">最近搜索：</string>
   <string name="button_clear_all_recent_searches">清除最近搜索</string>
@@ -231,12 +231,12 @@
 - 维基数据说明：当搜索时，每个搜索结果会含有有助理解结果内容的简短说明。这些说明也会在诸如附近等该应用的其他区域显示
 - 条目建议：滚动到条目的底部可以查看可供您阅读的相关条目的建议
 - 保存页面：保存特定页面以供离线阅读，即使没有网络连接也可浏览
-- 附近条目：通过获取关于您当前位置附近事物的条目的链接来了解它们
+- 周边条目：通过获取关于您当前位置附近事物的条目的链接来了解它们
 - 语言支持：无缝切换阅读各种语言撰写的维基百科
 - 目录选单：在任何条目上向左滑动可以打开目录，使您轻松跳转至条目各节
-- 维基百科零（Wikipedia Zero）：部分移动运营商减免浏览维基百科的数据费用
+- Wikipedia Zero：部分移动运营商减免浏览维基百科的数据费用
 
-请向我们发送您有关应用程序的反馈！在菜单上，点击“更多”，然后点击“关于维基百科应用程序”，之后点击“发送应用程序反馈”。
+请向我们发送您有关应用的反馈！在菜单上，点击“更多”，然后点击“关于维基百科应用”，之后点击“发送应用反馈”。
 
 代码是100%开源的。如果您拥有Java及Android SDK的开发经验，我们期待着您的贡献！https://github.com/wikimedia/apps-android-wikipedia
 
@@ -247,7 +247,7 @@
   <string name="alpha_update_notification_text">点按下载</string>
   <string name="dialog_close_description">关闭</string>
   <string name="preference_title_show_images">显示图像</string>
-  <string name="preference_summary_show_images" fuzzy="true">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
+  <string name="preference_summary_show_images">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
   <string name="read_more_section">阅读更多</string>
   <string name="read_next_section">阅读下篇</string>
   <string name="menu_gallery_visit_page">前往文件页面</string>
@@ -261,7 +261,7 @@
   <string name="gallery_save_success">图像保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
   <string name="err_cannot_save_file">无法保存文件</string>
-  <string name="snippet_share_intro">维基百科 @Wikipedia 上的“%1$s”：%2$s</string>
+  <string name="snippet_share_intro">\@Wikipedia 上的“%1$s”：%2$s</string>
   <string name="expand_refs">点按展开</string>
   <string name="share_snippet_button">以图像分享</string>
   <string name="share_normal_button">以文本分享</string>

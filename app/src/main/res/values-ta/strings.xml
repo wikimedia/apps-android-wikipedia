@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">செயலிழப்பு நடந்த போது நீங்கள் என்ன செய்து கொண்டிருந்தீர்கள்?</string>
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="nav_item_history">வரலாறு</string>
-  <string name="error_network_error" fuzzy="true">வலைய இணைப்பு இல்லை :(</string>
+  <string name="error_network_error">இணைய தொடர்பு இல்லை :(</string>
   <string name="search_network_error">வலையத் தவறு. திரும்ப முயல தட்டவும்.</string>
   <string name="generic_page_error">தங்களின் வேண்டுகோளைக் கையாளுவதில் ஒரு சிக்கல் இருந்தது.</string>
   <string name="status_code_unavailable">வழங்கியின் நிலை குறியீடு கிடைக்கவில்லை</string>

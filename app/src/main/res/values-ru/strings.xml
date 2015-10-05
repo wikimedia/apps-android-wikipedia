@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Что вы делали, когда произошёл сбой?</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="nav_item_history">История</string>
-  <string name="error_network_error" fuzzy="true">Не удаётся подключиться к интернету.</string>
+  <string name="error_network_error">Не удаётся подключиться к Интернету.</string>
   <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
   <string name="generic_page_error">При обработке вашего запроса возникла проблема.</string>
   <string name="status_code_unavailable">Код статуса сервера недоступен.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Поблизости</string>
   <string name="menu_update_nearby">Обновление мест поблизости</string>
   <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
-  <string name="nearby_empty_message" fuzzy="true">После перемещения в новое место попробуйте обновить эту страницу, чтобы узнать больше о том, что можно найти вокруг вас.</string>
+  <string name="nearby_empty_message">Переместитесь в новое место, чтобы увидеть страницы о том, что есть вокруг вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d футов</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Введите капчу</string>
   <string name="edit_section_captcha_reload">Коснитесь капчи для её обновления</string>
   <string name="edit_saved_page_refresh">Эта сохранённая страница может быть устаревшей, поэтому должна быть обновлена для возможности редактирования. Вы хотите обновить страницу?</string>
-  <string name="nav_item_login" fuzzy="true">Войти</string>
+  <string name="nav_item_login">Войти в Википедию</string>
   <string name="login_username_hint">Имя пользователя</string>
   <string name="login_password_hint">Пароль</string>
   <string name="login_password_show_check">Отобразить пароль</string>
@@ -248,7 +248,7 @@
   <string name="alpha_update_notification_text">Нажмите чтобы скачать</string>
   <string name="dialog_close_description">Закрыть</string>
   <string name="preference_title_show_images">Показывать изображения</string>
-  <string name="preference_summary_show_images" fuzzy="true">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
+  <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
   <string name="read_more_section">Читать подробнее</string>
   <string name="read_next_section">Читать далее</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>

@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Mitä olit tekemässä kaatumishetkellä?</string>
   <string name="search_hint">Wikipedia-haku</string>
   <string name="nav_item_history">Historia</string>
-  <string name="error_network_error" fuzzy="true">Internet-yhteyden muodostaminen epäonnistui.</string>
+  <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="search_network_error">Verkkovirhe. Yritä uudelleen.</string>
   <string name="generic_page_error">Pyyntöäsi käsiteltäessä ilmeni ongelma.</string>
   <string name="status_code_unavailable">Palvelimen tilakoodi ei ole saatavilla.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Lähistöllä</string>
   <string name="menu_update_nearby">Päivitä \"Lähistöllä\"</string>
   <string name="nearby_empty_title">Lähistöllä olevia sivuja ei ole!</string>
-  <string name="nearby_empty_message" fuzzy="true">Kun vaihdat paikkaa, päivitä tämä sivu saadaksesi ajantasaista tietoa siitä mitä lähelläsi on.</string>
+  <string name="nearby_empty_message">Siirry uuteen paikkaan nähdäksesi sivuja lähellä olevista paikoista</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d jalkaa</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Syötä captcha</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
   <string name="edit_saved_page_refresh">Tämä tallennettu sivu saattaa olla vanhentunut ja se tulee päivittää, jotta muokkaaminen on mahdollista. Haluatko päivittää sivun?</string>
-  <string name="nav_item_login" fuzzy="true">Kirjaudu sisään</string>
+  <string name="nav_item_login">Kirjaudu sisään Wikipediaan</string>
   <string name="login_username_hint">Käyttäjätunnus</string>
   <string name="login_password_hint">Salasana</string>
   <string name="login_password_show_check">Näytä salasana</string>
@@ -246,7 +246,7 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Napauta ladataksesi</string>
   <string name="dialog_close_description">Sulje</string>
   <string name="preference_title_show_images">Näytä kuvat</string>
-  <string name="preference_summary_show_images" fuzzy="true">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos Internet-yhteytesi on hidas tai jos datayhteytesi on rajoitettu.</string>
+  <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos Internet-yhteytesi on hidas tai jos datayhteytesi on rajoitettu.</string>
   <string name="read_more_section">Lue lisää</string>
   <string name="read_next_section">Lue seuraava</string>
   <string name="menu_gallery_visit_page">Mene tiedostosivulle</string>

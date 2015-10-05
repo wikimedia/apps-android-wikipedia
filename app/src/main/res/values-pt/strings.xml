@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">O que estava a fazer quando ocorreu o erro?</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="error_network_error" fuzzy="true">Não foi possível ligar a Internet.</string>
+  <string name="error_network_error">Não foi possível ligar à Internet.</string>
   <string name="search_network_error">Erro de rede. Toque para tentar de novo.</string>
   <string name="generic_page_error">Ocorreu um problema ao tratar do seu pedido.</string>
   <string name="status_code_unavailable">Código de estado de servidor indisponível.</string>
@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
   <string name="nearby_empty_title">Sem páginas nas redondezas</string>
-  <string name="nearby_empty_message" fuzzy="true">Quando estiver num novo local, experimente atualizar esta página para saber mais sobre o que o rodeia.</string>
+  <string name="nearby_empty_message">Experimente um novo local para ver as páginas nas redondezas.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

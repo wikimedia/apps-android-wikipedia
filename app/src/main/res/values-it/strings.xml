@@ -46,7 +46,7 @@
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="menu_update_nearby">Aggiorna nelle vicinanze</string>
   <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>
-  <string name="nearby_empty_message" fuzzy="true">Quando ti sposti in una nuova posizione, prova ad aggiornare questa pagina per saperne di più su ciò che c\'è vicino a te.</string>
+  <string name="nearby_empty_message">Spostati in una nuova posizione per vedere pagine su ciò che c\'è vicino a te.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -87,7 +87,7 @@
   <string name="title_captcha">Inserisci il captcha</string>
   <string name="edit_section_captcha_reload">Toccare il CAPTCHA per ricaricare</string>
   <string name="edit_saved_page_refresh">Questa pagina salvata potrebbe essere obsoleta, e bisogna ricaricarla per abilitarne la modifica. Vuoi ricaricare la pagina?</string>
-  <string name="nav_item_login" fuzzy="true">Entra</string>
+  <string name="nav_item_login">Accedi a Wikipedia</string>
   <string name="login_username_hint">Nome utente</string>
   <string name="login_password_hint">Password</string>
   <string name="login_password_show_check">Visualizza la password</string>

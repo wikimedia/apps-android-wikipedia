@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">Τι κάνατε όταν συνέβη το σφάλμα;</string>
   <string name="search_hint">Αναζήτηση στη Βικιπαίδεια</string>
   <string name="nav_item_history">Ιστορικό</string>
-  <string name="error_network_error" fuzzy="true">Δεν υπάρχει σύνδεση με το διαδίκτυο.</string>
+  <string name="error_network_error">Δεν υπάρχει σύνδεση με το Διαδίκτυο.</string>
   <string name="search_network_error">Σφάλμα δικτύου. Πατήστε για να προσπαθήσετε ξανά.</string>
   <string name="generic_page_error">Υπήρχε ένα πρόβλημα με το χειρισμό του αιτήματός σας.</string>
   <string name="page_error_retry">Ξαναπροσπαθήστε</string>
@@ -45,7 +45,7 @@
   <string name="nav_item_nearby">Κοντινά</string>
   <string name="menu_update_nearby">Ενημέρωση κοντινών</string>
   <string name="nearby_empty_title">Δεν υπάρχουν κοντινές σελίδες εδώ!</string>
-  <string name="nearby_empty_message" fuzzy="true">Όταν μετακινείστε σε μια νέα θέση, δοκιμάστε να ανανεώσετε αυτή τη σελίδα για να μάθετε περισσότερα σχετικά με το τι είναι γύρω σας.</string>
+  <string name="nearby_empty_message">Μετακινηθείτε σε μια νέα θέση για να δείτε σελίδες γύρω σας.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f χιλιόμετρα</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -86,7 +86,7 @@
   <string name="title_captcha">Εισάγετε CAPTCHA</string>
   <string name="edit_section_captcha_reload">Πατήστε το CAPTCHA για επαναφόρτωση</string>
   <string name="edit_saved_page_refresh">Αυτή η αποθηκευμένη σελίδα μπορεί να είναι ανενημέρωτη, και πρέπει να ανανεωθεί για να ενεργοποιηθεί η επεξεργασία. Θα θέλατε να ανανεώσετε τη σελίδα;</string>
-  <string name="nav_item_login" fuzzy="true">Σύνδεση</string>
+  <string name="nav_item_login">Σύνδεση στη Wikipedia</string>
   <string name="login_username_hint">Όνομα χρήστη</string>
   <string name="login_password_hint">Κωδικός</string>
   <string name="login_password_show_check">Εμφάνιση κωδικού πρόσβασης</string>
@@ -237,9 +237,11 @@
   <string name="alpha_update_notification_text">Πατήστε για να κατεβάσετε</string>
   <string name="dialog_close_description">Κλείσιμο</string>
   <string name="preference_title_show_images">Προβολή εικόνων</string>
-  <string name="preference_summary_show_images" fuzzy="true">Ενεργοποιήσετε ή να απενεργοποιήσετε τη φόρτωση εικόνων σε σελίδες. Απενεργοποιήστε αυτή τη ρύθμιση, εάν η σύνδεσή σας στο internet είναι αργή, ή αν το σχέδιο των δεδομένων σας (διαθέσιμα Mb) είναι περιορισμένο.</string>
+  <string name="preference_summary_show_images">Ενεργοποιήσετε ή να απενεργοποιήσετε τη φόρτωση εικόνων σε σελίδες. Απενεργοποιήστε αυτή τη ρύθμιση, εάν η σύνδεσή σας στο Διαδίκτυο είναι αργή, ή αν το σχέδιο δεδομένων σας (διαθέσιμα Mb) είναι περιορισμένο.</string>
   <string name="read_more_section">Διαβάστε περισσότερα</string>
+  <string name="read_next_section">Διαβάστε την επόμενη</string>
   <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
+  <string name="gallery_error_draw_failed">Δεν θα μπορούσε να αντλήσει από την εικόνα.</string>
   <string name="license_title">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>
   <string name="gallery_menu_share">Κοινοποίηση</string>
   <string name="gallery_menu_save">Αποθήκευση στη συσκευή</string>
