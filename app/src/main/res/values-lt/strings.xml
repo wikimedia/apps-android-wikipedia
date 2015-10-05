@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Vikipedija</string>
-  <string name="app_name_beta">Vikipedija Beta</string>
-  <string name="app_name_alpha">Vikipedija Alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Vikipedija Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Vikipedija Alfa</string>
   <string name="yes">Taip</string>
   <string name="no">Ne</string>
   <string name="acra_report_dialog_title">Vikipedija užlūžo :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="nav_item_history">Istorija</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
-  <string name="search_network_error">Tinklo klaida. Bakstelėkite bandyti dar kartą.</string>
-  <string name="generic_page_error">Buvo problema, apdorojant jūsų prašymą.</string>
-  <string name="status_code_unavailable">Serverio statuso kodas negalimas.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="menu_clear_all_history">Valyti istoriją</string>
   <string name="menu_clear_all_saved_pages">Valyti įrašytus puslapius</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Atidaryti naujame skirtuke</string>
   <string name="menu_long_press_copy_page">Kopijuoti nuorodos adresą</string>
   <string name="nav_item_nearby">Šalia</string>
-  <string name="menu_update_nearby">Atnaujinti tai, kas šalia</string>
   <string name="nearby_empty_title">Nėra puslapių šalia!</string>
   <string name="nearby_empty_message" fuzzy="true">Kai persikeliate į naują vietą, pabandykite atnaujinti šį puslapį, kad sužinotumėte daugiau apie tai, kas yra aplink Jus.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pėdų</string>
   <string name="nearby_distance_in_miles">%.2f mylios</string>
-  <string name="nearby_no_network">Nėra tinklo ryšio</string>
-  <string name="nearby_server_error">Nepavyko gauti vietų šalia sąrašo.</string>
   <string name="nearby_dialog_goto_settings">Vietos naujinimai nėra įjungti Jūsų įrenginyje. Ar norėtumėte eiti į savo įrenginio nustatymus įjungti vietos naujinimus?</string>
   <string name="nearby_set_metric">Rodyti metrus/kilometrus</string>
   <string name="nearby_set_imperial">Rodyti pėdas/mylias</string>
@@ -96,10 +90,7 @@
   <string name="login_error_blocked">Šis vartotojas buvo užblokuotas</string>
   <string name="login_error_throttled">Per daug prisijungimo bandymų. Palaukite kelias minutes ir bandykite dar kartą.</string>
   <string name="login_error_unknown">Prisijungti nepavyko :(</string>
-  <string name="login_error_no_network">Nėra tinklo ryšio</string>
   <string name="preference_title_logout">Atsijungti</string>
-  <string name="preference_summary_logout">Atsijungti iš Vikipedijos paskyros</string>
-  <string name="preference_summary_notloggedin">Neprisijungta.</string>
   <string name="toast_logout_complete">Atsijungėte</string>
   <string name="saved_pages_empty_title">Čia nėra įrašytų puslapių!</string>
   <string name="saved_pages_empty_message">Įrašyti puslapiai yra nuostabūs. Galvokite apie juos, kaip apie žymeklius, kuriuos galite skaityti net tada, kai esate neprisijungę prie žiniatinklio.</string>
@@ -108,7 +99,6 @@
   <string name="delete_selected_history">Naikinti</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Naudotojo vardas</string>
-  <string name="create_account_password_hint">Slaptažodis</string>
   <string name="login_create_account_link">Neturite paskyros? Prisijunkite prie Vikipedijos</string>
   <string name="create_account_login_link">Jau turite paskyrą? Prisijunkite</string>
   <string name="create_account_activity_title">Kurti paskyrą</string>
@@ -127,7 +117,6 @@
   <string name="create_account_blocked_error">Jūs negalite kurti paskyros, nes Jūsų paskyra yra užblokuota.</string>
   <string name="create_account_password_name_match_error">Jūsų naudotojo vardas ir slaptažodis turi būti skirtingi.</string>
   <string name="create_account_generic_error">Nepavyko sukurti paskyros</string>
-  <string name="create_account_no_network">Nėra tinklo ryšio</string>
   <string name="create_account_next">Kitas</string>
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="preferences_general_heading">Bendras</string>
@@ -175,7 +164,6 @@
   <string name="saved_pages_update_all_error_retry">Bandyti dar kartą</string>
   <string name="saved_pages_update_all_error_message">Klaida naujinant įrašytus puslapius</string>
   <string name="saved_pages_progress_title">Naujinami įrašyti puslapiai</string>
-  <string name="saved_pages_refresh_pages_complete">Naujinimas baigtas</string>
   <string name="menu_page_saved">Puslapis įrašytas</string>
   <string name="menu_refresh_saved_page">Naujinti puslapį</string>
   <string name="dialog_page_issues">Puslapio klausimai</string>
@@ -198,7 +186,6 @@
   <string name="dialog_close_description">Uždaryti</string>
   <string name="preference_title_show_images">Rodyti paveikslėlius</string>
   <string name="read_more_section">Skaityti daugiau</string>
-  <string name="read_next_section">Skaityti sekantį</string>
   <string name="menu_gallery_visit_page">Eikite į failo puslapį</string>
   <string name="gallery_error_draw_failed">Negalima pavaizduoti paveikslėlio</string>
   <string name="license_title">Licencijos tekstas %s bibliotekai</string>

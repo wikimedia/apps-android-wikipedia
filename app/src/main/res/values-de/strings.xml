@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Ja</string>
   <string name="no">Nein</string>
   <string name="acra_report_dialog_title">Wikipedia ist abgestürzt :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="nav_item_history">Verlauf</string>
   <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>
-  <string name="search_network_error">Netzwerkfehler. Tippen zum erneuten Versuchen.</string>
-  <string name="generic_page_error">Es gab ein Problem beim Bearbeiten deiner Anfrage.</string>
-  <string name="status_code_unavailable">Der Statuscode des Servers ist nicht verfügbar.</string>
   <string name="page_error_retry">Erneut versuchen</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
   <string name="menu_clear_all_saved_pages">Gespeicherte Seiten löschen</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">In neuer Registerkarte öffnen</string>
   <string name="menu_long_press_copy_page">Link-Adresse kopieren</string>
   <string name="nav_item_nearby">In der Nähe</string>
-  <string name="menu_update_nearby">„In der Nähe“ aktualisieren</string>
   <string name="nearby_empty_title">Hier gibt es keine Seiten in der Nähe!</string>
   <string name="nearby_empty_message">Gehe zu einem neuen Standort, um Seiten anzusehen, die um dich herum sind.</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
   <string name="nearby_distance_in_feet">%d Fuß</string>
   <string name="nearby_distance_in_miles">%.2f Meilen</string>
-  <string name="nearby_no_network">Keine Netzwerkverbindung</string>
-  <string name="nearby_server_error">Die Liste mit Orten in der Nähe konnte nicht abgerufen werden.</string>
   <string name="nearby_dialog_goto_settings">Standortsaktualisierungen sind auf deinem Gerät nicht aktiviert. Möchtest du zu deinen Geräteeinstellungen gehen, um Standortsaktualisierungen zu aktivieren?</string>
   <string name="nearby_set_metric">Meter/Kilometer anzeigen</string>
   <string name="nearby_set_imperial">Fuß/Meilen anzeigen</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Dieser Benutzer wurde gesperrt</string>
   <string name="login_error_throttled">Es wurden zu viele Anmeldeversuche unternommen. Warte einige Minuten und versuche es erneut.</string>
   <string name="login_error_unknown">Anmeldung fehlgeschlagen :(</string>
-  <string name="login_error_no_network">Keine Netzwerkverbindung</string>
   <string name="preference_title_logout">Abmelden</string>
-  <string name="preference_summary_logout">Von deinem Wikipedia-Benutzerkonto abmelden</string>
-  <string name="preference_summary_notloggedin">Nicht angemeldet.</string>
   <string name="toast_logout_complete">Abgemeldet</string>
   <string name="saved_pages_empty_title">Hier gibt es keine gespeicherten Seiten!</string>
   <string name="saved_pages_empty_message">Gespeicherte Seiten sind ziemlich genial. Betrachte sie als Lesezeichen, die du lesen kannst, auch wenn du offline bist.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Löschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benutzername</string>
-  <string name="create_account_password_hint">Passwort</string>
   <string name="login_create_account_link">Noch kein Benutzerkonto? Tritt der Wikipedia bei</string>
   <string name="create_account_login_link">Hast du bereits ein Benutzerkonto? Anmelden</string>
   <string name="create_account_activity_title">Ein Benutzerkonto erstellen</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Du kannst kein Benutzerkonto erstellen, da dein Benutzerkonto gesperrt ist.</string>
   <string name="create_account_password_name_match_error">Dein Benutzername und dein Passwort müssen unterschiedlich sein.</string>
   <string name="create_account_generic_error">Benutzerkonto konnte nicht erstellt werden</string>
-  <string name="create_account_no_network">Keine Netzwerkverbindung</string>
   <string name="create_account_next">Nächste</string>
   <string name="create_account_button">Benutzerkonto erstellen</string>
   <string name="preferences_general_heading">Allgemein</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Erneut versuchen</string>
   <string name="saved_pages_update_all_error_message">Fehler beim Aktualisieren der gespeicherten Seiten</string>
   <string name="saved_pages_progress_title">Aktualisiere gespeicherte Seiten</string>
-  <string name="saved_pages_refresh_pages_complete">Aktualisierung vollständig</string>
   <string name="menu_page_saved">Seite gespeichert</string>
   <string name="menu_refresh_saved_page">Seite aktualisieren</string>
   <string name="abusefilter_title_warn">Dies könnte eine unkonstruktive Bearbeitung sein. Bist du sicher, dass du sie speichern möchtest?</string>
@@ -249,14 +237,12 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="preference_title_show_images">Bilder anzeigen</string>
   <string name="preference_summary_show_images">Aktiviere oder deaktiviere das Laden von Bildern in Seiten. Entmarkiere diese Einstellung, falls deine Internetverbindung langsam oder dein Datenvolumen beschränkt ist.</string>
   <string name="read_more_section">Mehr lesen</string>
-  <string name="read_next_section">Nächsten Artikel lesen</string>
   <string name="menu_gallery_visit_page">Gehe zur Dateiseite</string>
   <string name="gallery_error_draw_failed">Das Bild konnte nicht gezeichnet werden.</string>
   <string name="license_title">Lizenztext für die Bibliothek %s</string>
   <string name="gallery_menu_share">Teilen</string>
   <string name="gallery_share_error">Bild konnte nicht geteilt werden: %s</string>
   <string name="gallery_menu_save">In Gerät speichern</string>
-  <string name="gallery_save_error">Bild konnte nicht gespeichert werden: %s</string>
   <string name="gallery_save_error_mediastore">Bild konnte nicht in die Mediensammlung importiert werden</string>
   <string name="gallery_save_success">Bild erfolgreich gespeichert.</string>
   <string name="gallery_error_video_failed">Das Video konnte nicht abgespielt werden.</string>
@@ -270,7 +256,6 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="captcha_image">Captcha-Bild</string>
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Hochlader unbekannt</string>
-  <string name="edit_save_unknown_error">Deine Bearbeitung konnte nicht gespeichert werden: %s</string>
   <string name="menu_new_tab">Neue Registerkarte</string>
   <string name="button_close_tab">Registerkarte schließen</string>
   <string name="tool_tip_select_text">Drücke und halte irgendwo im Text, um ihn hervorzuheben zum Kopieren und Teilen.</string>

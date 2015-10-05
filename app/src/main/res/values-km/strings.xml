@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">វិគីភីឌា</string>
-  <string name="app_name_beta">វិគីភីឌាបេតា</string>
-  <string name="app_name_alpha">វិគីភីឌាអាល់ហ្វា</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">វិគីភីឌាបេតា</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">វិគីភីឌាអាល់ហ្វា</string>
   <string name="yes">ព្រម</string>
   <string name="no">ទេ</string>
   <string name="acra_report_dialog_title">វិគីភីឌាគាំងហើយ :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
   <string name="nav_item_history">ប្រវត្តិ</string>
   <string name="error_network_error" fuzzy="true">គ្មានបណ្ដាញតភ្ជាប់ទេ :(</string>
-  <string name="search_network_error">បញ្ហាបណ្ដាញ។ សូមសាកល្បងចុចម្ដងទៀត។</string>
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="menu_clear_all_history">ជម្រះ​ប្រវត្តិ</string>
   <string name="menu_clear_all_saved_pages">ជម្រះទំព័រ​ដែល​បាន​រក្សា​ទុក​</string>
@@ -38,15 +37,12 @@
   <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
   <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
   <string name="nav_item_nearby">ជិតខាង</string>
-  <string name="menu_update_nearby">បន្ទាន់សម័យទំព័រជិតខាង</string>
   <string name="nearby_empty_title">គ្មានទំព័រជិតខាងនៅទីនេះទេ!</string>
   <string name="nearby_empty_message" fuzzy="true">នៅពេលដែលអ្នកប្ដូរទីតាំងទៅកន្លែងថ្មី សូមសាកល្បងផ្ទុកទំព័រនេះជាថ្មីដើម្បីរកមើលអ្វីដែលនៅជុំវិញអ្នក។</string>
   <string name="nearby_distance_in_meters">%d ម</string>
   <string name="nearby_distance_in_kilometers">%.2f គ.ម</string>
   <string name="nearby_distance_in_feet">%d ហ្វីដ</string>
   <string name="nearby_distance_in_miles">%.2f ម៉ៃល៍</string>
-  <string name="nearby_no_network">គ្មាន​បណ្ដាញតភ្ជាប់</string>
-  <string name="nearby_server_error">មិនអាចទាញយកបញ្ជីទីកន្លែងនៅជិតខាងបានទេ។</string>
   <string name="nearby_dialog_goto_settings">មិនអាចបន្ទាន់សម័យព័ត៌មានទីតាំងនៅលើឧបករណ៍របស់អ្នកទេ។ តើអ្នកចង់ទៅកាន់ទំព័រកំណត់របស់ឧបករណ៍របស់អ្នក ដើម្បីប្រើការបន្ទាន់សម័យព័ត៌មានទីតាំងទេ?</string>
   <string name="nearby_set_metric">បង្ហាញជា ម៉ែត្រ/គ.ម</string>
   <string name="nearby_set_imperial">បង្ហាញជា ហ្វីដ/ម៉ៃល៍</string>
@@ -92,10 +88,7 @@
   <string name="login_error_blocked">អ្នក​ប្រើ​ប្រាស់ម្នាក់​នេះ​ត្រូវ​បាន​រាំងខ្ទប់ហើយ។</string>
   <string name="login_error_throttled">អ្នកបានព្យាយាមកត់ឈ្មោះចូលច្រើនដងពេកហើយ។ សូមរង់ចាំប៉ុន្មាននាទីសិន មុននឹងសាកល្បងម្ដងទៀត។</string>
   <string name="login_error_unknown">កត់ឈ្មោះចូលមិនបានសម្រេច :(</string>
-  <string name="login_error_no_network">មិន​មាន​ការ​តភ្ជាប់​បណ្ដាញ</string>
   <string name="preference_title_logout">កត់ឈ្មោះចេញ</string>
-  <string name="preference_summary_logout">កត់ឈ្មោះចេញពីគណនីវិគីភីឌារបស់អ្នក</string>
-  <string name="preference_summary_notloggedin">មិនទាន់កត់ឈ្មោះចូលទេ។</string>
   <string name="toast_logout_complete">បាន​កត់ឈ្មោះចេញ​ហើយ</string>
   <string name="saved_pages_empty_title">គ្មានទំព័រដែលរក្សាទុកនៅទីនេះទេ!</string>
   <string name="saved_pages_empty_message">ទំព័ររក្សាទុកជាមុខងារអស្ចារ្យមួយ។ អ្នកអាចចាត់ទុកវាជាការកត់ចំណាំ សម្រាប់អោយអ្នកអាចអានអត្ថបទពេលអ្នកនៅក្រៅបណ្ដាញ</string>
@@ -104,7 +97,6 @@
   <string name="delete_selected_history">លុបចោល</string>
   <string name="wp_stylized">&lt;big&gt;វី&lt;/big&gt;គីភី&lt;big&gt;ឌា&lt;/big&gt;</string>
   <string name="create_account_username_hint">អត្តនាម</string>
-  <string name="create_account_password_hint">ពាក្យ​សម្ងាត់</string>
   <string name="login_create_account_link">តើអ្នកមិនទាន់មានគណនីទេឬ? សូមចូលរួមជាមួយវិគីភីឌា</string>
   <string name="create_account_login_link">តើអ្នកមានគណនីមួយរួចហើយឬ? សូមកត់ឈ្មោះចូល។</string>
   <string name="create_account_activity_title">បង្កើតគណនីមួយ</string>
@@ -123,7 +115,6 @@
   <string name="create_account_blocked_error">អ្នកមិនអាចបង្កើតគណនីទេព្រោះគណនីរបស់អ្នកត្រូវបានហាមឃាត់ហើយ។</string>
   <string name="create_account_password_name_match_error">អត្តនាមនិងពាក្យសម្ងាត់របស់អ្នកត្រូវតែខុសគ្នា។</string>
   <string name="create_account_generic_error">មិនអាចបង្កើតគណនីបានទេ</string>
-  <string name="create_account_no_network">គ្មាន​បណ្ដាញតភ្ជាប់</string>
   <string name="create_account_next">បន្ទាប់</string>
   <string name="create_account_button">បង្កើតគណនី</string>
   <string name="preferences_general_heading">ទូទៅ​</string>
@@ -181,7 +172,6 @@
   <string name="saved_pages_update_all_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="saved_pages_update_all_error_message">បញ្ហាក្នុងការបន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
   <string name="saved_pages_progress_title">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី</string>
-  <string name="saved_pages_refresh_pages_complete">បន្ទាន់សម័យបានសម្រេច</string>
   <string name="menu_page_saved">ទំព័រត្រូវបានរក្សាទុក</string>
   <string name="menu_refresh_saved_page">ផ្ទុកទំព័រឡើងវិញ</string>
   <string name="abusefilter_title_warn">នេះប្រហែលជាការកែប្រែដែលគ្មានលក្ខណៈស្ថាបនាទេ។ តើអ្នកពិតជាចង់រក្សាវាទុកទេ?</string>
@@ -206,5 +196,4 @@
   <string name="dialog_close_description">បិទ</string>
   <string name="preference_title_show_images">បង្ហាញរូបភាព</string>
   <string name="read_more_section">អានបន្ថែម</string>
-  <string name="read_next_section">អានបន្ទាប់</string>
 </resources>

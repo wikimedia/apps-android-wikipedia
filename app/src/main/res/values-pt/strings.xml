@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipédia</string>
-  <string name="app_name_beta">Wikipédia Beta</string>
-  <string name="app_name_alpha">Wikipédia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipédia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipédia Alpha</string>
   <string name="yes">Sim</string>
   <string name="no">Não</string>
   <string name="acra_report_dialog_title">A Wikipédia crashou :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>
-  <string name="search_network_error">Erro de rede. Toque para tentar de novo.</string>
-  <string name="generic_page_error">Ocorreu um problema ao tratar do seu pedido.</string>
-  <string name="status_code_unavailable">Código de estado de servidor indisponível.</string>
   <string name="page_error_retry">Tentar novamente</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
   <string name="menu_clear_all_saved_pages">Apagar páginas guardadas</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Abrir num novo separador</string>
   <string name="menu_long_press_copy_page">Copiar endereço da ligação</string>
   <string name="nav_item_nearby">Nas redondezas</string>
-  <string name="menu_update_nearby">Atualizar páginas nas redondezas</string>
   <string name="nearby_empty_title">Sem páginas nas redondezas</string>
   <string name="nearby_empty_message">Experimente um novo local para ver as páginas nas redondezas.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Nenhuma conexão de rede</string>
-  <string name="nearby_server_error">Não foi possível obter a lista de locais próximos.</string>
   <string name="nearby_dialog_goto_settings">Atualizações de localização não estão ativadas no seu dispositivo. Gostaria de ir para as configurações do seu dispositivo para as ativar?</string>
   <string name="nearby_set_metric">Mostrar metros/km</string>
   <string name="nearby_set_imperial">Mostrar pés/milhas</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Este utilizador foi bloqueado</string>
   <string name="login_error_throttled">Demasiadas tentativas. Aguarde alguns minutos e tente novamente.</string>
   <string name="login_error_unknown">O início de sessão falhou :(</string>
-  <string name="login_error_no_network">Nenhuma conexão de rede</string>
   <string name="preference_title_logout">Sair</string>
-  <string name="preference_summary_logout">Sair da sua conta Wikipédia</string>
-  <string name="preference_summary_notloggedin">Não iniciou a sessão.</string>
   <string name="toast_logout_complete">Sessão terminada</string>
   <string name="saved_pages_empty_title">Sem páginas guardadas ainda!</string>
   <string name="saved_pages_empty_message">As páginas guardadas são bastante úteis. Pense como se fossem marcadores que pode ler mesmo quando estiver offline.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Eliminar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nome de utilizador(a)</string>
-  <string name="create_account_password_hint">Palavra-passe</string>
   <string name="login_create_account_link">Não tem ainda uma conta? Junte-se à Wikipédia</string>
   <string name="create_account_login_link">Já possui uma conta? Inicie sessão</string>
   <string name="create_account_activity_title">Criar uma conta</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Não pode criar uma conta porque a sua conta está bloqueada.</string>
   <string name="create_account_password_name_match_error">O seu nome de utilizador(a) e palavra-passe devem ser diferentes.</string>
   <string name="create_account_generic_error">Não foi possível criar conta</string>
-  <string name="create_account_no_network">Nenhuma conexão de rede</string>
   <string name="create_account_next">Seguinte</string>
   <string name="create_account_button">Criar conta</string>
   <string name="preferences_general_heading">Geral</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Tentar novamente</string>
   <string name="saved_pages_update_all_error_message">Erro ao atualizar as guardadas</string>
   <string name="saved_pages_progress_title">A recarregar páginas guardadas</string>
-  <string name="saved_pages_refresh_pages_complete">Atualização concluída</string>
   <string name="menu_page_saved">Página gravada</string>
   <string name="menu_refresh_saved_page">Recarregar página</string>
   <string name="abusefilter_title_warn">Esta edição poderá não ser construtiva. Tem a certeza que pretende gravá-la?</string>
@@ -249,14 +237,12 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Mostrar imagens</string>
   <string name="preference_summary_show_images" fuzzy="true">Ativar ou desativar o carregamento de imagens em páginas. Desmarque esta opção se sua ligação à Internet está lenta ou se o seu plano de dados é limitado.</string>
   <string name="read_more_section">Ler mais</string>
-  <string name="read_next_section">Ler próximo</string>
   <string name="menu_gallery_visit_page">Ir para a página do ficheiro</string>
   <string name="gallery_error_draw_failed">Não é possível mostrar a imagem.</string>
   <string name="license_title">Texto da licença para %s biblioteca</string>
   <string name="gallery_menu_share">Partilhar</string>
   <string name="gallery_share_error">Não é possível partilhar a imagem: %s</string>
   <string name="gallery_menu_save">Guardar no dispositivo</string>
-  <string name="gallery_save_error">Não é possível guardar a imagem: %s</string>
   <string name="gallery_save_error_mediastore">Falha ao importar a imagem para a coleção multimédia</string>
   <string name="gallery_save_success">Imagem guardada com êxito</string>
   <string name="gallery_error_video_failed">Não é possível reproduzir o vídeo.</string>
@@ -270,7 +256,6 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Imagem Captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Carregador desconhecido</string>
-  <string name="edit_save_unknown_error">Não foi possível gravar a sua edição: %s</string>
   <string name="menu_new_tab">Novo separador</string>
   <string name="button_close_tab">Fechar separador</string>
   <string name="tool_tip_select_text">Prima e segure em qualquer lugar do texto para realçá-lo, para copiar e partilhar.</string>

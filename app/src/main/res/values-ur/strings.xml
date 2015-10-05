@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ویکیپیڈیا</string>
-  <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
-  <string name="app_name_alpha">ویکیپیڈیا الفا</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ویکیپیڈیا آزمائشی</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ویکیپیڈیا الفا</string>
   <string name="yes">جی ہاں</string>
   <string name="no">نہیں</string>
   <string name="acra_report_dialog_title">ویکیپیڈیا بند ہوگیا :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">ویکیپیڈیا میں تلاش</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="error_network_error" fuzzy="true">کوئی نیٹورک کنکشن نہیں ہے :(</string>
-  <string name="search_network_error">نیٹورک ایرر، دوبارہ کوشش کے لیے طق کریں</string>
-  <string name="generic_page_error">آپ کی درخواست ہینڈل کرنے میں کچھ مسائل تھے</string>
-  <string name="status_code_unavailable">سرور سٹیٹس کوڈ کی عدم دستیابی</string>
   <string name="page_error_retry">دوبارہ کوشش کریں</string>
   <string name="menu_clear_all_history">تاریخچہ حذف کریں</string>
   <string name="menu_clear_all_saved_pages">محفوظ صفحات حذف کریں</string>
@@ -38,15 +35,12 @@
   <string name="menu_page_save">صفحہ محفوظ کریں</string>
   <string name="menu_page_share" fuzzy="true">شیئر کریں</string>
   <string name="nav_item_nearby">قریبی</string>
-  <string name="menu_update_nearby">تجدید قریبی</string>
   <string name="nearby_empty_title">کوئی قریبی صفحہ نہیں ہے!</string>
   <string name="nearby_empty_message" fuzzy="true">جب آپ کسی دوسری جگہ پر جائیں، تب یہ صفحہ ریفریش کریں اور جانیئے آپ کے اردگرد قریب کیا ہے.</string>
   <string name="nearby_distance_in_meters">%d میٹر</string>
   <string name="nearby_distance_in_kilometers">%.2f کلومیٹر</string>
   <string name="nearby_distance_in_feet">%d فٹ</string>
   <string name="nearby_distance_in_miles">%.2f میل</string>
-  <string name="nearby_no_network">کوئی نیٹورک کنکشن نہیں ہے</string>
-  <string name="nearby_server_error">قریبی جگہوں کی فہرست نہیں حاصل ہوسکی.</string>
   <string name="nearby_dialog_goto_settings">آپ کی ڈیوائس میں لوکیشن اپڈیٹس چالو نہیں ہیں. آپ ترتیبات  (سیٹنگز) میں جاکر اسے چالو کریں گے؟</string>
   <string name="nearby_set_metric">میٹر/کلومیٹر دکھائیں</string>
   <string name="nearby_set_imperial">فٹ/میل دکھائیں</string>
@@ -94,10 +88,7 @@
   <string name="login_error_blocked">اس صارف پر پابندی لگی ہوئی ہے</string>
   <string name="login_error_throttled">بہت زیادہ لاگ ان ہونے کی کوششیں. کچھ دیر انتظار کریں اور دوبارہ کوشش کریں</string>
   <string name="login_error_unknown">لاگ ان میں ناکامی :(</string>
-  <string name="login_error_no_network">کوئی نیٹورک کنکشن نہیں ہے</string>
   <string name="preference_title_logout">خارج ہوجائیں</string>
-  <string name="preference_summary_logout">ویکیپیڈیا سے لاگ آؤٹ ہوجائیں</string>
-  <string name="preference_summary_notloggedin">لاگ ان نہیں</string>
   <string name="toast_logout_complete">لاگ آؤٹ ہوگئے</string>
   <string name="saved_pages_empty_title">کوئی محفوظ صفحہ نہیں ہے!</string>
   <string name="saved_pages_empty_message">محفوظ صفحات بڑے کام کی چیز ہیں. انہیں بک مارکس کی طرح سمجھیے لیکن انہیں آپ آف لائن بھی پڑھ سکتے ہیں</string>
@@ -106,7 +97,6 @@
   <string name="delete_selected_history">حذف کریں</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپیڈ&lt;big&gt;یا&lt;/big&gt;</string>
   <string name="create_account_username_hint">صارف نام</string>
-  <string name="create_account_password_hint">پاسورڈ</string>
   <string name="login_create_account_link">کھاتہ نہیں ہے؟ ویکیپیڈیا پر کھاتہ بنائیں</string>
   <string name="create_account_login_link">پہلے سے کھاتہ ہے؟ لاگ ان ہوں</string>
   <string name="create_account_activity_title">کھاتا بنائیں</string>
@@ -126,7 +116,6 @@
   <string name="create_account_blocked_error">آپ کھاتا نہیں بناسکتے کیونکہ آپ کے کھاتے پر پابندی ہے</string>
   <string name="create_account_password_name_match_error">آپکا صارف نام اور پاسور ڈ مخلتف ہونا چاہیے.</string>
   <string name="create_account_generic_error">کھاتا نہیں بنایا جاسکا</string>
-  <string name="create_account_no_network">کوئی نیٹورک کنکشن نہیں ہے</string>
   <string name="create_account_next">اگلا</string>
   <string name="create_account_button">کھاتا بنائیں</string>
   <string name="preferences_general_heading">عام</string>

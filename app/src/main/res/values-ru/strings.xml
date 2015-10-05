@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Википедия</string>
-  <string name="app_name_beta">Википедия (бета)</string>
-  <string name="app_name_alpha">Википедия (альфа)</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Википедия (бета)</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Википедия (альфа)</string>
   <string name="yes">Да</string>
   <string name="no">Нет</string>
   <string name="acra_report_dialog_title">Приложение «Википедия» упало :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Поиск по Википедии</string>
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Не удаётся подключиться к Интернету.</string>
-  <string name="search_network_error">Ошибка сети. Нажмите, чтобы повторить попытку.</string>
-  <string name="generic_page_error">При обработке вашего запроса возникла проблема.</string>
-  <string name="status_code_unavailable">Код статуса сервера недоступен.</string>
   <string name="page_error_retry">Повторить</string>
   <string name="menu_clear_all_history">Очистить историю</string>
   <string name="menu_clear_all_saved_pages">Очистить сохранённые страницы</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Открыть в новой вкладке</string>
   <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>
   <string name="nav_item_nearby">Поблизости</string>
-  <string name="menu_update_nearby">Обновление мест поблизости</string>
   <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
   <string name="nearby_empty_message">Переместитесь в новое место, чтобы увидеть страницы о том, что есть вокруг вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d футов</string>
   <string name="nearby_distance_in_miles">%.2f миль</string>
-  <string name="nearby_no_network">Отсутствует сетевое подключение</string>
-  <string name="nearby_server_error">Не удалось получить список мест поблизости.</string>
   <string name="nearby_dialog_goto_settings">Обновление местоположения не включено на вашем устройстве. Вы хотели бы перейти в настройки устройства для включения обновления местоположения?</string>
   <string name="nearby_set_metric">Показать м/км</string>
   <string name="nearby_set_imperial">Показать футы/мили</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Этот участник был заблокирован</string>
   <string name="login_error_throttled">Слишком много попыток входа. Подождите несколько минут и попробуйте ещё раз.</string>
   <string name="login_error_unknown">Не удалось войти :(</string>
-  <string name="login_error_no_network">Отсутствует сетевое подключение</string>
   <string name="preference_title_logout">Завершение сеанса</string>
-  <string name="preference_summary_logout">Выйти из вашей учётной записи в Википедии</string>
-  <string name="preference_summary_notloggedin">Вход не выполнен.</string>
   <string name="toast_logout_complete">Сеанс был завершён</string>
   <string name="saved_pages_empty_title">Здесь нет сохранённых страниц!</string>
   <string name="saved_pages_empty_message">Сохранённые страницы — это довольно здорово. Подумайте о них, как о закладках, которые вы сможете читать даже тогда, когда вы находитесь в оффлайне.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Удалить</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Имя участника</string>
-  <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">У вас нет учётной записи? Присоединитесь к Википедии</string>
   <string name="create_account_login_link">Вы уже зарегистрированы? Войдите</string>
   <string name="create_account_activity_title">Создать учётную запись</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Вы не можете создать учётную запись, потому что ваша учётная запись заблокирована.</string>
   <string name="create_account_password_name_match_error">Ваше имя пользователя и пароль не должны совпадать.</string>
   <string name="create_account_generic_error">Невозможно создать учётную запись</string>
-  <string name="create_account_no_network">Отсутствует сетевое подключение</string>
   <string name="create_account_next">Далее</string>
   <string name="create_account_button">Создать учётную запись</string>
   <string name="preferences_general_heading">Общие</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Повторить</string>
   <string name="saved_pages_update_all_error_message">Ошибка обновления сохранённых страниц</string>
   <string name="saved_pages_progress_title">Обновление сохранённых страниц</string>
-  <string name="saved_pages_refresh_pages_complete">Обновление завершено</string>
   <string name="menu_page_saved">Страница сохранена</string>
   <string name="menu_refresh_saved_page">Обновить страницу</string>
   <string name="abusefilter_title_warn">Эта правка может быть деструктивной. Вы уверены, что хотите сохранить её?</string>
@@ -250,14 +238,12 @@
   <string name="preference_title_show_images">Показывать изображения</string>
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
   <string name="read_more_section">Читать подробнее</string>
-  <string name="read_next_section">Читать далее</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Текст лицензии для библиотеки %s</string>
   <string name="gallery_menu_share">Поделиться</string>
   <string name="gallery_share_error">Не удалось поделиться изображением: %s</string>
   <string name="gallery_menu_save">Сохранить на устройство</string>
-  <string name="gallery_save_error">Не удалось сохранить изображение: %s</string>
   <string name="gallery_save_error_mediastore">Не удалось импортировать изображение в медиа-коллекцию</string>
   <string name="gallery_save_success">Изображение успешно сохранено.</string>
   <string name="gallery_error_video_failed">Не удаётся воспроизвести видео.</string>
@@ -271,7 +257,6 @@
   <string name="captcha_image">Капча-изображение</string>
   <string name="gallery_fair_use_license">Добросовестное использование</string>
   <string name="gallery_uploader_unknown">Загрузивший неизвестен</string>
-  <string name="edit_save_unknown_error">Не удалось сохранить вашу правку: %s</string>
   <string name="menu_new_tab">Новая вкладка</string>
   <string name="button_close_tab">Закрыть вкладку</string>
   <string name="tool_tip_select_text">Нажмите и удерживайте в любом месте тексте, чтобы выделить его для копирования и возможности поделиться.</string>

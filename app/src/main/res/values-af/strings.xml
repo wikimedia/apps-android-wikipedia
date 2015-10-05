@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alfa</string>
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
   <string name="acra_report_dialog_title">Wikipedia het gebreek :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Soek in Wikipedia</string>
   <string name="nav_item_history">Geskiedenis</string>
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>
-  <string name="search_network_error">Netwerkfout. Kliek om weer te probeer.</string>
-  <string name="generic_page_error">Daar was \'n probleem met die hantering van u versoek.</string>
-  <string name="status_code_unavailable">Bediener statuskode onbeskikbaar.</string>
   <string name="page_error_retry">Probeer weer</string>
   <string name="menu_clear_all_history">Vee geskiedenis uit</string>
   <string name="menu_clear_all_saved_pages">Skrap gestoorde bladsye</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Open in nuwe oortjie</string>
   <string name="menu_long_press_copy_page">Kopieer skakelligging</string>
   <string name="nav_item_nearby">Naby</string>
-  <string name="menu_update_nearby">Opdateer naby</string>
   <string name="nearby_empty_title">Geen nabye bladsye hier!</string>
   <string name="nearby_empty_message">Skuif na \'n nuwe ligging om bladsy naby te sien.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>
   <string name="nearby_distance_in_miles">%.2f myl</string>
-  <string name="nearby_no_network">Geen netwerkverbinding</string>
-  <string name="nearby_server_error">Kon nie lys van nabye plekke kry nie.</string>
   <string name="nearby_dialog_goto_settings">Ligging-opdatering is nie aangeskakel op u toestel nie. Wil u na die toestel se instellings gaan om ligging-opdatering aan te skakel?</string>
   <string name="nearby_set_metric">Wys meter/km</string>
   <string name="nearby_set_imperial">Wys voete/myle</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Hierdie gebruiker is geblok</string>
   <string name="login_error_throttled">Te veel aanmeldpogings. Wag \'n paar minute en probeer weer.</string>
   <string name="login_error_unknown">Aanmelding het misluk :(</string>
-  <string name="login_error_no_network">Geen netwerkverbinding</string>
   <string name="preference_title_logout">Teken uit</string>
-  <string name="preference_summary_logout">Teken uit van u Wikipedia rekening</string>
-  <string name="preference_summary_notloggedin">Nie aangemeld nie</string>
   <string name="toast_logout_complete">Uitgeteken</string>
   <string name="saved_pages_empty_title">Geen gestoorde blasye hier nie!</string>
   <string name="saved_pages_empty_message">Gestoorde bladsye is wonderlik. Dink aan hulle as boekmerke wat u kan lees selfs as u aflyn is.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Skrap</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
-  <string name="create_account_password_hint">Wagwoord</string>
   <string name="login_create_account_link">Nog nie \'n gebruiker? Word lid van Wikipedia</string>
   <string name="create_account_login_link">Het u reeds \'n rekening? Meld aan</string>
   <string name="create_account_activity_title">Skep \'n gebruiker</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">U kan nie \'n gebruiker skep nie want u gebruiker is geblok.</string>
   <string name="create_account_password_name_match_error">U gebruikernaam en wagwoord moet verskil.</string>
   <string name="create_account_generic_error">Kon nie gebruiker skep nie</string>
-  <string name="create_account_no_network">Geen netwerkverbinding</string>
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Skep gebruiker</string>
   <string name="preferences_general_heading">Algemeen</string>
@@ -196,7 +185,6 @@
   <string name="saved_pages_update_all_error_retry">Probeer weer</string>
   <string name="saved_pages_update_all_error_message">Fout tydens opdatering van gestoorde bladsye</string>
   <string name="saved_pages_progress_title">Besig om gestoorde bladsye te herlaai</string>
-  <string name="saved_pages_refresh_pages_complete">Opdatering voltooi</string>
   <string name="menu_page_saved">Blad gestoor</string>
   <string name="menu_refresh_saved_page">Herlaai blad</string>
   <string name="abusefilter_title_warn">Hierdie mag \'n nie-konstruktiewe wysiging wees. Is u seker u wil dit stoor?</string>
@@ -247,14 +235,12 @@ Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Vertoon beelde</string>
   <string name="preference_summary_show_images">Skakel die laai van beelde in bladsye aan of af. Ontmerk hierdie instelling indien u internetverbinding statig is, of u dataplan beperk is.</string>
   <string name="read_more_section">Lees meer</string>
-  <string name="read_next_section">Lees volgende</string>
   <string name="menu_gallery_visit_page">Gaan na lêer blad</string>
   <string name="gallery_error_draw_failed">Kon nie die beeld teken nie.</string>
   <string name="license_title">Lisensie teks vir die %s biblioteek</string>
   <string name="gallery_menu_share">Deel</string>
   <string name="gallery_share_error">Kon nie beeld deel nie: %s</string>
   <string name="gallery_menu_save">Stoor na toestel</string>
-  <string name="gallery_save_error">Kon nie beeld stoor nie: %s</string>
   <string name="gallery_save_error_mediastore">Invoer van beeld na media versameling het misluk</string>
   <string name="gallery_save_success">Beeld suksesvol gestoor.</string>
   <string name="gallery_error_video_failed">Kon nie die video speel nie.</string>
@@ -268,7 +254,6 @@ Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Captcha beeld</string>
   <string name="gallery_fair_use_license">Billike gebruik</string>
   <string name="gallery_uploader_unknown">Oplaaier onbekend</string>
-  <string name="edit_save_unknown_error">Kon nie u wysiging stoor nie: %s</string>
   <string name="menu_new_tab">Nuwe oortjie</string>
   <string name="button_close_tab">Maak oortjie toe</string>
   <string name="tool_tip_select_text">Druk en hou enige plek in die teks om dit te kopiëer en te deel.</string>

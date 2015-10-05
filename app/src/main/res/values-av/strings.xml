@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Википедия</string>
-  <string name="app_name_beta">Википедия (бета)</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Википедия (бета)</string>
   <string name="yes">У</string>
   <string name="no">Гуро</string>
   <string name="acra_report_dialog_title">Программа \"Википедия\" гӀодобе речӀана :(</string>
@@ -10,7 +10,6 @@
   <string name="search_hint">Википедиялда цӀехесе</string>
   <string name="nav_item_history">Тарих</string>
   <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>
-  <string name="search_network_error">Связалъул гъалатӀ. Такрар гьабизе цӀуе.</string>
   <string name="page_error_retry">Такрар гьабизе.</string>
   <string name="menu_clear_all_history">Тарих бацӀцӀине</string>
   <string name="menu_clear_all_saved_pages">ЦӀунарал гьумерал рацӀцӀине</string>
@@ -63,13 +62,9 @@
   <string name="login_error_wrong_username">Мекъаб цӀар</string>
   <string name="login_success_toast" fuzzy="true">Мун системалда лъана!</string>
   <string name="login_error_unknown">Жаниве лъугьине кӀвечӀо :(</string>
-  <string name="login_error_no_network">Связь гьечӀо</string>
   <string name="preference_title_logout">Къватlиве вачIизе</string>
-  <string name="preference_summary_logout">Википедиялда бугеб дур аккаунталдасан къватӀиве лъугьине</string>
-  <string name="preference_summary_notloggedin">Мун жаниве лъугьун гьечIо</string>
   <string name="toast_logout_complete">Сеанс лъугьана</string>
   <string name="create_account_username_hint">ХӀалтӀизабулчиясул цӀар</string>
-  <string name="create_account_password_hint">Пароль</string>
   <string name="create_account_login_link">Аккаунт батани жаниве лъугье</string>
   <string name="create_account_activity_title">Аккаунт гьабизе</string>
   <string name="dialog_create_account_checking_progress">Хал-кӀач гьаби</string>
@@ -79,7 +74,6 @@
   <string name="create_account_email_error">Гьадинаб эллектронияб почалъул адрес данде кколаро</string>
   <string name="create_account_username_exists_error">Гьединаб цӀар уже буго</string>
   <string name="create_account_generic_error">Аккаунт гьабизе кӀвечӀо</string>
-  <string name="create_account_no_network">Связь гьечӀо</string>
   <string name="create_account_next">Хаду</string>
   <string name="create_account_button">Аккаунт гьабизе</string>
   <string name="preferences_general_heading">БетIераб</string>

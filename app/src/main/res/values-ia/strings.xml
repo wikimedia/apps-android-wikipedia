@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Si</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">Wikipedia falleva :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Cercar in Wikipedia</string>
   <string name="nav_item_history">Historico</string>
   <string name="error_network_error" fuzzy="true">Il non ha connexion con le rete :(</string>
-  <string name="search_network_error">Error de rete. Tocca pro reprobar.</string>
-  <string name="generic_page_error">Il ha essite un problema in tu requesta.</string>
-  <string name="status_code_unavailable">Codice de status del serve indisponibile.</string>
   <string name="page_error_retry">Reprobar</string>
   <string name="menu_clear_all_history">Rader historico</string>
   <string name="menu_clear_all_saved_pages">Rader paginas salveguardate</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Aperir in un nove scheda</string>
   <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
   <string name="nav_item_nearby">A proximitate</string>
-  <string name="menu_update_nearby">Actualisar a proximitate</string>
   <string name="nearby_empty_title">Sin paginas a proximitate ci!</string>
   <string name="nearby_empty_message" fuzzy="true">Quando tu te displacia a un nove position, proba a actualisar iste pagina pro saper plus sur lo que es circa te</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f m</string>
-  <string name="nearby_no_network">Sin connexion de rete</string>
-  <string name="nearby_server_error">Il non esseva possibile obtener le lista de locos a proximitate</string>
   <string name="nearby_dialog_goto_settings">Le ajornamentos de ubication non es habilitate su tu dispositivo. Vole tu ir in le preparationes de tu dispositivo pro habilitar le ajornamentos de ubication?</string>
   <string name="nearby_set_metric">Monstra metros/km</string>
   <string name="nearby_set_imperial">Monstra pedes/milias</string>
@@ -98,17 +92,13 @@
   <string name="login_error_blocked">Iste usator ha essite serrate.</string>
   <string name="login_error_throttled">Assatis tentativas de accesso. Attender alique minutas e reprobar.</string>
   <string name="login_error_unknown">Session fallite :(</string>
-  <string name="login_error_no_network">Sin connexion de rete</string>
   <string name="preference_title_logout">Clauder session</string>
-  <string name="preference_summary_logout">Clauder session de tu conto in Wikipedia</string>
-  <string name="preference_summary_notloggedin">Session non aperite.</string>
   <string name="toast_logout_complete">Disconnectite</string>
   <string name="saved_pages_empty_title">Necun pagina ha essite salvate ci!</string>
   <string name="saved_pages_empty_message">Le paginas salvate es phantastic. Considera las qual preferite que tu pote leger etiam quando tu es disconnectite.</string>
   <string name="history_empty_title">Sin paginas recente ci!</string>
   <string name="delete_selected_history">Deler</string>
   <string name="create_account_username_hint">Nomine del usator</string>
-  <string name="create_account_password_hint">Contrasigno</string>
   <string name="login_create_account_link">Non ha tu un conto? Que tu inscribe te a Wikipedia</string>
   <string name="create_account_login_link">Ha tu ja un conto? Que tu accede lo</string>
   <string name="create_account_activity_title">Crear un conto</string>
@@ -126,7 +116,6 @@
   <string name="create_account_blocked_error">Tu non pote crear un conto pois que tu conto es blocate.</string>
   <string name="create_account_password_name_match_error">Tu nomine de usator e tu contrasigno debe esser differente.</string>
   <string name="create_account_generic_error">Non pote crear le conto</string>
-  <string name="create_account_no_network">Sin connexion de rete</string>
   <string name="create_account_next">Sequente</string>
   <string name="create_account_button">Crear un conto</string>
   <string name="preferences_general_heading">General</string>
@@ -169,7 +158,6 @@
   <string name="saved_pages_update_all_error_retry">Reprobar</string>
   <string name="saved_pages_update_all_error_message">Error durante le ajornamento del paginas salvate</string>
   <string name="saved_pages_progress_title">Ajornamento del pagina salvate</string>
-  <string name="saved_pages_refresh_pages_complete">Ajornamento complete</string>
   <string name="menu_page_saved">Pagina salvate</string>
   <string name="menu_refresh_saved_page">Refrescar le pagina</string>
   <string name="abusefilter_title_warn">salvar lo?</string>
@@ -199,7 +187,6 @@
   <string name="gallery_menu_share">Divider</string>
   <string name="gallery_share_error">Non poteva divider imagine: %s</string>
   <string name="gallery_menu_save">Salveguardar in apparato</string>
-  <string name="gallery_save_error">Non poteva salveguardar imagine: %s</string>
   <string name="gallery_save_success">Imagine salveguardate correctemente.</string>
   <string name="err_cannot_save_file">Impossibile salvar le file</string>
   <string name="snippet_share_intro">\"%1$s\" sur @Wikipedia: %2$s</string>

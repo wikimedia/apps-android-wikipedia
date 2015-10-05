@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
   <string name="acra_report_dialog_title">Wikipedia is gecrasht :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="nav_item_history">Geschiedenis</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
-  <string name="search_network_error">Netwerkfout. Klik om het opnieuw te proberen.</string>
-  <string name="generic_page_error">Er is een probleem opgetreden tijdens het afhandelen van uw verzoek.</string>
-  <string name="status_code_unavailable">Serverstatuscode niet beschikbaar.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
   <string name="menu_clear_all_saved_pages">Opgeslagen pagina\'s verwijderen</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
   <string name="menu_long_press_copy_page">Koppelingsadres kopiëren</string>
   <string name="nav_item_nearby">In de buurt</string>
-  <string name="menu_update_nearby">In de buurt bijwerken</string>
   <string name="nearby_empty_title">Geen pagina\'s in de buurt.</string>
   <string name="nearby_empty_message" fuzzy="true">Wanneer u naar een nieuwe locatie verplaatst, probeer dan deze pagina te vernieuwen voor meer informatie over wat er om uw heen is.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>
   <string name="nearby_distance_in_miles">%.2f mijl</string>
-  <string name="nearby_no_network">Geen netwerkverbinding</string>
-  <string name="nearby_server_error">Er kan geen lijst opgehaald worden van plaatsen in de buurt.</string>
   <string name="nearby_dialog_goto_settings">Locatieupdates zijn niet ingeschakeld op uw apparaat. Wilt u in uw apparaatinstellingen locatieupdates inschakelen?</string>
   <string name="nearby_set_metric">Meter/km weergeven</string>
   <string name="nearby_set_imperial">Voeten/mijlen weergeven</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Deze gebruiker is geblokkeerd</string>
   <string name="login_error_throttled">Te veel aanmeldpogingen. Wacht een paar minuten en probeer het daarna opnieuw.</string>
   <string name="login_error_unknown">Aanmelden mislukt :(</string>
-  <string name="login_error_no_network">Geen netwerkverbinding</string>
   <string name="preference_title_logout">Afmelden</string>
-  <string name="preference_summary_logout">Afmelden bij Wikipedia</string>
-  <string name="preference_summary_notloggedin">Niet aangemeld.</string>
   <string name="toast_logout_complete">Afgemeld</string>
   <string name="saved_pages_empty_title">Nog geen opgeslagen pagina\'s</string>
   <string name="saved_pages_empty_message">Opgeslagen pagina\'s zijn allemachtig prachtig. Denk aan bladwijzers die u zelfs kunt lezen wanneer u offline bent.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Verwijderen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Gebruikersnaam</string>
-  <string name="create_account_password_hint">Wachtwoord</string>
   <string name="login_create_account_link">Nog niet geregistreerd? Word lid van Wikipedia</string>
   <string name="create_account_login_link">Hebt u al een account? Meld u aan</string>
   <string name="create_account_activity_title">Gebruiker aanmaken</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">U kunt geen gebruiker maken omdat uw gebruiker is geblokkeerd.</string>
   <string name="create_account_password_name_match_error">De gebruikersnaam en wachtwoord mogen niet met elkaar overeenkomen.</string>
   <string name="create_account_generic_error">Het was niet mogelijk een gebruiker aan te maken</string>
-  <string name="create_account_no_network">Geen netwerkverbinding</string>
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Registreren</string>
   <string name="preferences_general_heading">Algemeen</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Opnieuw proberen</string>
   <string name="saved_pages_update_all_error_message">Er is een fout opgetreden tijdens het bijwerken van de opgeslagen pagina\'s</string>
   <string name="saved_pages_progress_title">Opgeslagen pagina\'s aan het bijwerken</string>
-  <string name="saved_pages_refresh_pages_complete">Bijwerken voltooid</string>
   <string name="menu_page_saved">Pagina opgeslagen</string>
   <string name="menu_refresh_saved_page">Pagina vernieuwen</string>
   <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u die wilt opslaan?</string>
@@ -249,14 +237,12 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="preference_title_show_images">Afbeeldingen weergeven</string>
   <string name="preference_summary_show_images">Laden van afbeeldingen in pagina\'s in- of uitschakelen. Schakel deze instelling uit als uw internetverbinding langzaam is, of als u een beperkte hoeveelheid data kunt gebruiken.</string>
   <string name="read_more_section">Meer lezen</string>
-  <string name="read_next_section">Verder lezen</string>
   <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>
   <string name="gallery_error_draw_failed">De afbeelding kon niet weergegeven worden.</string>
   <string name="license_title">Licentietekst voor de bibliotheek %s</string>
   <string name="gallery_menu_share">Delen</string>
   <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
   <string name="gallery_menu_save">Opslaan op apparaat</string>
-  <string name="gallery_save_error">Kon afbeelding niet opslaan: %s</string>
   <string name="gallery_save_error_mediastore">Het importeren van de afbeelding in de mediacollectie is mislukt</string>
   <string name="gallery_save_success">Afbeelding opgeslagen.</string>
   <string name="gallery_error_video_failed">De video kan niet afgespeeld worden.</string>
@@ -270,7 +256,6 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="captcha_image">Captcha-afbeelding</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader onbekend</string>
-  <string name="edit_save_unknown_error">Uw bewerking kon niet opgeslagen worden: %s</string>
   <string name="menu_new_tab">Nieuw tabblad</string>
   <string name="button_close_tab">Tabblad sluiten</string>
   <string name="tool_tip_select_text">Druk en houd vast op een willekeurige plaats in de tekst om deze te kopiëren en te kunnen delen.</string>

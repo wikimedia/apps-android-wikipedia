@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">විකිපීඩියා</string>
-  <string name="app_name_beta">විකිපීඩියා බීටා</string>
-  <string name="app_name_alpha">විකිපීඩිය ඇල්ෆා</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">විකිපීඩියා බීටා</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">විකිපීඩිය ඇල්ෆා</string>
   <string name="yes">ඔව්</string>
   <string name="no">නැත</string>
   <string name="acra_report_dialog_title">විකිපීඩියා බිඳ වැටිණි :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">විකිපීඩියාව ගවේෂණය කරන්න</string>
   <string name="nav_item_history">ඉතිහාසය</string>
   <string name="error_network_error" fuzzy="true">ජාල සම්බන්ධතාවයක් නොමැත :(</string>
-  <string name="search_network_error">ජාල දෝෂයකි. නැවත උත්සහ කිරීමට ටැප් කරන්න.</string>
   <string name="page_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="menu_clear_all_history">ඉතිහාසය ඉවත් කරන්න</string>
   <string name="menu_clear_all_saved_pages">සුරක්ෂිත පිටු හිස් කරන්න</string>
@@ -32,11 +31,9 @@
   <string name="menu_page_save">පිටුව සුරකින්න</string>
   <string name="menu_page_share" fuzzy="true">හුවමාරු කරන්න</string>
   <string name="nav_item_nearby">අවට</string>
-  <string name="menu_update_nearby">අවට යාවත්කාලීන කරන්න</string>
   <string name="nearby_distance_in_meters">%d මී.</string>
   <string name="nearby_distance_in_kilometers">%.2f කි.මී.</string>
   <string name="nearby_distance_in_feet">අඩි %d</string>
-  <string name="nearby_no_network">කිසිඳු ජාල සම්බන්ධතාවයක් නොමැත</string>
   <string name="nearby_set_metric">පෙන්වන්න මීටර/කි.මි.</string>
   <string name="last_updated_text">අවසන් යාවත්කාලීන කිරීම %s</string>
   <string name="preference_title_language">විකිපීඩියා භාෂාව</string>
@@ -74,17 +71,13 @@
   <string name="login_error_blocked">මෙම පරිශීලකයාව අවහිර කර තිබේ</string>
   <string name="login_error_throttled">බොහෝ වාරයක් පූරණයවීමට උතසාහ කර ඇත.මිනිත්තු කිහිපයකින් පසු නැවත උත්සාහ කරන්න.</string>
   <string name="login_error_unknown">පිවිසීම අසාර්ථකයි :(</string>
-  <string name="login_error_no_network">කිසිඳු ජාල සම්බන්ධතාවයක් නොමැත</string>
   <string name="preference_title_logout">නික්මීම</string>
-  <string name="preference_summary_logout">ඔබේ විකිපීඩියා ගිණුමෙන් නික්මෙන්න</string>
-  <string name="preference_summary_notloggedin">ප්‍රවිෂ්ට වී නොමැත.</string>
   <string name="toast_logout_complete">නික්මී ඇත</string>
   <string name="saved_pages_empty_title">ආරක්ෂණය කරන ලද පිටු මෙහි නොමැත!</string>
   <string name="history_empty_title">මෑත පිටු මෙහි නොමැත!</string>
   <string name="delete_selected_history">මකන්න</string>
   <string name="wp_stylized">&lt;big&gt;වි&lt;/big&gt;කිපීඩි&lt;big&gt;යා&lt;/big&gt;</string>
   <string name="create_account_username_hint">පරිශීලක නාමය</string>
-  <string name="create_account_password_hint">මුරපදය</string>
   <string name="login_create_account_link">ගිණුමක් නොමැතිද? විකිපීඩියා වෙත එක්වන්න</string>
   <string name="create_account_login_link">දැනටමත් ගිණුමක් තිබේද? පිවිසෙන්න</string>
   <string name="create_account_activity_title">ගිණුමක් තනන්න</string>
@@ -96,7 +89,6 @@
   <string name="create_account_username_exists_error">පරිශීලක නාමය දැනටමත් භාවිතයේ පවතී</string>
   <string name="create_account_ip_throttle_error">මෙම IP ලිපිනය භාවිතයෙන් බොහෝ ගිණුම් වීවෘත කර ඇත.පසුව නැවත උත්සහ කරන්න.</string>
   <string name="create_account_generic_error">ගිණුම තැනිය නොහැක</string>
-  <string name="create_account_no_network">කිසිඳු ජාල සම්බන්ධතාවයක් නොමැත</string>
   <string name="create_account_next">මීළඟ</string>
   <string name="create_account_button">ගිණුමක් තනන්න</string>
   <string name="preferences_general_heading">සාමාන්‍ය</string>

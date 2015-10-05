@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name_prod">Wikipedia</string>
-    <string name="app_name_beta">Wikipedia Beta</string>
-    <string name="app_name_alpha">Wikipedia Alpha</string>
+    <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+    <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
 
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -14,9 +14,6 @@
     <string name="search_hint">Search Wikipedia</string>
     <string name="nav_item_history">History</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
-    <string name="search_network_error">Network error. Tap to try again.</string>
-    <string name="generic_page_error">There was a problem handling your request.</string>
-    <string name="status_code_unavailable">Server status code unavailable.</string>
     <string name="page_error_retry">Retry</string>
     <string name="menu_clear_all_history">Clear history</string>
     <string name="menu_clear_all_saved_pages">Clear saved pages</string>
@@ -55,15 +52,12 @@
 
     <!-- Nearby -->
     <string name="nav_item_nearby">Nearby</string>
-    <string name="menu_update_nearby">Update nearby</string>
     <string name="nearby_empty_title">No nearby pages here!</string>
     <string name="nearby_empty_message">Move to a new location to see pages around you.</string>
     <string name="nearby_distance_in_meters">%d m</string>
     <string name="nearby_distance_in_kilometers">%.2f km</string>
     <string name="nearby_distance_in_feet">%d ft</string>
     <string name="nearby_distance_in_miles">%.2f mi</string>
-    <string name="nearby_no_network">No network connection</string>
-    <string name="nearby_server_error">Could not get list of nearby places.</string>
     <string name="nearby_dialog_goto_settings">Location updates are not enabled on your device. Would you like to go to your device\'s settings to enable Location updates?</string>
     <string name="nearby_set_metric">Show meters/km</string>
     <string name="nearby_set_imperial">Show feet/miles</string>
@@ -113,10 +107,7 @@
     <string name="login_error_blocked">This user has been blocked</string>
     <string name="login_error_throttled"><![CDATA[Too many login attempts. Wait for a few minutes and try again.]]></string>
     <string name="login_error_unknown">Login failed :(</string>
-    <string name="login_error_no_network">No network connection</string>
     <string name="preference_title_logout">Log out</string>
-    <string name="preference_summary_logout">Log out of your Wikipedia account</string>
-    <string name="preference_summary_notloggedin">Not logged in.</string>
     <string name="toast_logout_complete">Logged out</string>
     <string name="saved_pages_empty_title">No saved pages here!</string>
     <string name="saved_pages_empty_message">Saved pages are pretty awesome. Think of them as bookmarks that you can read even when you are offline.</string>
@@ -125,7 +116,6 @@
     <string name="delete_selected_history">Delete</string>
     <string name="wp_stylized"><![CDATA[<big>W</big>IKIPEDI<big>A</big>]]></string>
     <string name="create_account_username_hint">Username</string>
-    <string name="create_account_password_hint">Password</string>
     <string name="login_create_account_link">Don\'t have an account? Join Wikipedia</string>
     <string name="create_account_login_link">Already have an account? Log in</string>
     <string name="create_account_activity_title">Create an account</string>
@@ -144,7 +134,6 @@
     <string name="create_account_blocked_error">You cannot create an account because your account is blocked.</string>
     <string name="create_account_password_name_match_error">Your username and your password must be different.</string>
     <string name="create_account_generic_error">Could not create account</string>
-    <string name="create_account_no_network">No network connection</string>
     <string name="create_account_next">Next</string>
     <string name="create_account_button">Create account</string>
     <string name="preferences_general_heading">General</string>
@@ -210,7 +199,6 @@
     <string name="saved_pages_update_all_error_retry">Retry</string>
     <string name="saved_pages_update_all_error_message">Error updating saved pages</string>
     <string name="saved_pages_progress_title">Refreshing saved pages</string>
-    <string name="saved_pages_refresh_pages_complete">Update complete</string>
     <string name="menu_page_saved">Page saved</string>
     <string name="menu_refresh_saved_page">Refresh page</string>
     <string name="abusefilter_title_warn">This may be an unconstructive edit. Are you sure you want to save it?</string>
@@ -262,14 +250,12 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="preference_title_show_images">Show images</string>
     <string name="preference_summary_show_images">Enable or disable loading of images in pages. Uncheck this setting if your Internet connection is slow, or if your data plan is limited.</string>
     <string name="read_more_section">Read more</string>
-    <string name="read_next_section">Read next</string>
     <string name="menu_gallery_visit_page">Go to file page</string>
     <string name="gallery_error_draw_failed">Could not draw the image.</string>
     <string name="license_title">License text for %s library</string>
     <string name="gallery_menu_share">Share</string>
     <string name="gallery_share_error">Could not share image: %s</string>
     <string name="gallery_menu_save">Save to device</string>
-    <string name="gallery_save_error">Could not save image: %s</string>
     <string name="gallery_save_error_mediastore">Failed to import image to media collection</string>
     <string name="gallery_save_success">Image saved successfully.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
@@ -283,7 +269,6 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="captcha_image">Captcha image</string>
     <string name="gallery_fair_use_license">Fair use</string>
     <string name="gallery_uploader_unknown">Uploader unknown</string>
-    <string name="edit_save_unknown_error">Could not save your edit: %s</string>
     <string name="menu_new_tab">New tab</string>
     <string name="button_close_tab">Close tab</string>
     <string name="tool_tip_select_text">Press and hold anywhere in the text to highlight it for copying and sharing.</string>

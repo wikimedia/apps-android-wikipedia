@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Ja</string>
   <string name="no">Nei</string>
   <string name="acra_report_dialog_title">Wikipedia kræsjet :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="nav_item_history">Logg</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
-  <string name="search_network_error">Nettverksfeil. Trykk for å prøve igjen.</string>
-  <string name="generic_page_error">Et problem oppstod under behandlingen av din forespørsel.</string>
-  <string name="status_code_unavailable">Tjenerens statuskode er utilgjengelig.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="menu_clear_all_history">Tøm logg</string>
   <string name="menu_clear_all_saved_pages">Fjern alle lagrede sider</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Åpne i ny arkfane</string>
   <string name="menu_long_press_copy_page">Kopier lenkeadresse</string>
   <string name="nav_item_nearby">I nærheten</string>
-  <string name="menu_update_nearby">Oppdater «i nærheten»</string>
   <string name="nearby_empty_title">Ingen sider i nærheten!</string>
   <string name="nearby_empty_message">Forflytt deg til en ny plass for å se sider om hva som befinner seg rundt deg.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Ingen nettverksforbindelse</string>
-  <string name="nearby_server_error">Kunne ikke hente liste over steder i nærheten.</string>
   <string name="nearby_dialog_goto_settings">Posisjonering er ikke skrudd på for denne enheten. Vil du gå til innstilllinger for enheten din for å skru på posisjonering?</string>
   <string name="nearby_set_metric">Vis meter/km</string>
   <string name="nearby_set_imperial">Vis fot/engelsk mil</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Brukeren har blitt blokkert</string>
   <string name="login_error_throttled">For mange innloggingsforsøk. Vent et par minutter og prøv igjen.</string>
   <string name="login_error_unknown">Innlogging feilet :(</string>
-  <string name="login_error_no_network">Ingen nettverksforbindelse</string>
   <string name="preference_title_logout">Logg ut</string>
-  <string name="preference_summary_logout">Logg ut fra Wikipedia-kontoen din</string>
-  <string name="preference_summary_notloggedin">Ikke innlogget.</string>
   <string name="toast_logout_complete">Logget ut</string>
   <string name="saved_pages_empty_title">Ingen lagrede sider enda!</string>
   <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. Tenk på dem som bokmerker som du også kan lese når du er offline.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Fjern</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brukernavn</string>
-  <string name="create_account_password_hint">Passord</string>
   <string name="login_create_account_link">Har du ingen konto? Opprett en</string>
   <string name="create_account_login_link">Har du en konto allerede? Logg inn</string>
   <string name="create_account_activity_title">Opprett en konto</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Du kan ikke opprette en konto fordi kontoen din er blokkert.</string>
   <string name="create_account_password_name_match_error">Brukernavnet og passordet kan ikke være like.</string>
   <string name="create_account_generic_error">Kunne ikke opprette konto</string>
-  <string name="create_account_no_network">Ingen nettverksforbindelse</string>
   <string name="create_account_next">Neste</string>
   <string name="create_account_button">Opprett konto</string>
   <string name="preferences_general_heading">Generelt</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Prøv igjen</string>
   <string name="saved_pages_update_all_error_message">Feil under gjenoppfrisking av lagrede sider</string>
   <string name="saved_pages_progress_title">Gjenoppfrisker lagrede sider</string>
-  <string name="saved_pages_refresh_pages_complete">Oppdatering ferdig</string>
   <string name="menu_page_saved">Siden ble lagret</string>
   <string name="menu_refresh_saved_page">Gjenoppfrisk siden</string>
   <string name="abusefilter_title_warn">Dette er muligens en lite konstruktiv redigering. Er du sikker på at du vil lagre?</string>
@@ -249,14 +237,12 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Vis bilder</string>
   <string name="preference_summary_show_images">Skru av eller på lasting av bilder på sidene. Fjern avkryssingen om du har en treg internettforbindelse, eller ikke vil bruke så mye data.</string>
   <string name="read_more_section">Les mer</string>
-  <string name="read_next_section">Les neste</string>
   <string name="menu_gallery_visit_page">Gå til filsiden</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne bildet.</string>
   <string name="license_title">Lisenstekst for biblioteket %s</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
   <string name="gallery_menu_save">Lagre på enheten</string>
-  <string name="gallery_save_error">Kunne ikke lagre bilde: %s</string>
   <string name="gallery_save_error_mediastore">Importering av bilde til mediesamling feilet</string>
   <string name="gallery_save_success">Bildet ble lagret.</string>
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
@@ -270,7 +256,6 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Captcha-bilde</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Ukjent opplaster</string>
-  <string name="edit_save_unknown_error">Kunne ikke lagre din redigering: %s</string>
   <string name="menu_new_tab">Ny arkfane</string>
   <string name="button_close_tab">Steng arkfane</string>
   <string name="tool_tip_select_text">Trykk og hold hvor som helst i teksten for å markere for kopiering og deling.</string>

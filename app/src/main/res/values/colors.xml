@@ -7,7 +7,6 @@
     <color name="button_disabled">#BEBEBE</color>
     <color name="preview_header_background">#D0D0D0</color>
     <color name="blue_progressive">#347BFF</color>
-    <color name="blue_progressive_transparent">#88347BFF</color>
     <color name="blue_progressive_dark">#1A3D7F</color>
     <color name="blue_liberal">#3366bb</color>
     <color name="green_progressive">#ff42a078</color>
@@ -25,7 +24,6 @@
     <!-- TODO: replace this color when changing the toolbar color. -->
     <color name="actionbar_background">@color/window_background</color>
     <color name="actionbar_highlight">#ff808080</color>
-    <color name="search_bar">#ff404040</color>
     <color name="search_text_hint">#ff808080</color>
     <color name="lead_gradient_start">#b8000000</color>
     <color name="main_toolbar_background">@color/actionbar_background</color>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Jo</string>
   <string name="no">Neen</string>
   <string name="acra_report_dialog_title">Wikipedia ass ofgestierzt :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Op Wikipedia sichen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
-  <string name="search_network_error">Feeler vum Reseau. Tippt fir nach eng Kéier ze probéieren.</string>
-  <string name="generic_page_error">Et gouf e Problem beim Verschaffe vun Ärer Ufro.</string>
-  <string name="status_code_unavailable">Statuscode vum Server net disponibel.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="menu_clear_all_saved_pages">Gespäichert Säite läschen</string>
@@ -43,15 +40,12 @@
   <string name="menu_long_press_open_in_new_tab">An engem neien Tab opmaachen</string>
   <string name="menu_long_press_copy_page">Adress vum Link kopéieren</string>
   <string name="nav_item_nearby">Nobäi</string>
-  <string name="menu_update_nearby">Aktualisatioun vun \'nobäi\'</string>
   <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
   <string name="nearby_empty_message">Gitt op eng aner Plaz fir Säite ronderëm Iech ze gesinn.</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
   <string name="nearby_distance_in_feet">%d Fouss</string>
   <string name="nearby_distance_in_miles">%.2f Meilen</string>
-  <string name="nearby_no_network">Keng Verbindung mam Reseau</string>
-  <string name="nearby_server_error">D\'Lëscht mat de Plazen nobäi konnt net ofgeruff ginn.</string>
   <string name="nearby_dialog_goto_settings">Aktualisatioune vun der Plaz wou Dir sidd sinn op Ärem Apparat ausgeschalt. Wëllt Dir dat Ären Apparat esou astellen datt d\'Aktualisatioun vun der Plaz wou Dir sidd funktionéiert?</string>
   <string name="nearby_set_metric">A Meter/Kilometer weisen</string>
   <string name="nearby_set_imperial">A Fouss/Meilen weisen</string>
@@ -99,10 +93,7 @@
   <string name="login_error_blocked">Dëse Benotzer gouf gespaart</string>
   <string name="login_error_throttled">Zedacks probéiert anzeloggen. Waart e puer Minutten a probéiert nach eng Kéier.</string>
   <string name="login_error_unknown">Aloggen huet net funktionéiert :(</string>
-  <string name="login_error_no_network">Keng Verbindung mam Reseau</string>
   <string name="preference_title_logout">Ausloggen</string>
-  <string name="preference_summary_logout">Aus Ärem Wikipedia-Benotzerkont ausloggen</string>
-  <string name="preference_summary_notloggedin">Net ageloggt.</string>
   <string name="toast_logout_complete">Ausgeloggt</string>
   <string name="saved_pages_empty_title">Keng gespäichert Säiten hei.</string>
   <string name="saved_pages_empty_message">Gespäichert Säite si flott. Denkt dru fir ze als Lieszeechen ze benotzen déi Dir liese kënnt wann Dir offline sidd.</string>
@@ -111,7 +102,6 @@
   <string name="delete_selected_history">Läschen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Benotzernumm</string>
-  <string name="create_account_password_hint">Passwuert</string>
   <string name="login_create_account_link">Hutt Dir kee Benotzerkont? Da maacht mat bei Wikipedia</string>
   <string name="create_account_login_link">Hutt Dir schonn e Benotzerkont? Loggt Iech an</string>
   <string name="create_account_activity_title">E Benotzerkont opmaachen</string>
@@ -130,7 +120,6 @@
   <string name="create_account_blocked_error">Dir kënnt kee Benotzerkont uleeë wëll Är Benotzerkont gespaart ass.</string>
   <string name="create_account_password_name_match_error">Äre Benotzernumm an Äert Passwuert musse verschidde sinn.</string>
   <string name="create_account_generic_error">Benotzerkont konnt net opgemaach ginn</string>
-  <string name="create_account_no_network">Keng Verbindung mam Reseau</string>
   <string name="create_account_next">Weider</string>
   <string name="create_account_button">Benotzerkont uleeën</string>
   <string name="preferences_general_heading">Allgemeng</string>
@@ -195,7 +184,6 @@
   <string name="saved_pages_update_all_error_retry">Nach eng Kéier probéieren</string>
   <string name="saved_pages_update_all_error_message">Feeler bei der Aktualisatioun vu gespäicherte Säiten</string>
   <string name="saved_pages_progress_title">Gespäichert Säite ginn aktualiséiert</string>
-  <string name="saved_pages_refresh_pages_complete">Aktualisatioun fäerdeg</string>
   <string name="menu_page_saved">Säit gespäichert</string>
   <string name="menu_refresh_saved_page">Säit aktualiséieren</string>
   <string name="abusefilter_title_warn">Dëst gesäit no enger wéineg konstruktiver Ännerung aus. Sidd Dir sécher datt Dir se späichere wëllt?</string>
@@ -225,14 +213,12 @@
   <string name="preference_title_show_images">Biller weisen</string>
   <string name="preference_summary_show_images">Luede vu Biller op Säiten an- oder ausschalten. Huelt dës Astellung ewech wann Är Internetverbindung lues ass oder wann Dir eng Limite fir den Datevolumen hutt.</string>
   <string name="read_more_section">Liest méi</string>
-  <string name="read_next_section">Nächste liesen</string>
   <string name="menu_gallery_visit_page">Op d\'Säit vum Fichier goen</string>
   <string name="gallery_error_draw_failed">D\'Bild konnt net gezeechent ginn.</string>
   <string name="license_title">Lizenztext fir d\'Bibliothek %s</string>
   <string name="gallery_menu_share">Deelen</string>
   <string name="gallery_share_error">Bild konnt net gedeelt ginn: %s</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>
-  <string name="gallery_save_error">Bild konnt net gespspäichert ginn: %s</string>
   <string name="gallery_save_error_mediastore">Bild konnt net an d\'Sammlung vun de Medien importéiert ginn</string>
   <string name="gallery_save_success">Bild gespäichert.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
@@ -245,7 +231,6 @@
   <string name="captcha_image">Captcha-Bild</string>
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Eroplueder onbekannt</string>
-  <string name="edit_save_unknown_error">Är Ännerung konnt net gespäichert ginn: %s</string>
   <string name="menu_new_tab">Neien Tab</string>
   <string name="button_close_tab">Tab zoumaachen</string>
   <string name="page_view_in_browser">Säit am Browser weisen</string>

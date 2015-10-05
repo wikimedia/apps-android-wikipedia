@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">维基百科</string>
-  <string name="app_name_beta">维基百科测试版</string>
-  <string name="app_name_alpha">维基百科内测版</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">维基百科测试版</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">维基百科内测版</string>
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="acra_report_dialog_title">维基百科崩溃了:(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">搜索维基百科</string>
   <string name="nav_item_history">历史</string>
   <string name="error_network_error">无法连接至互联网。</string>
-  <string name="search_network_error">网络出错。点按这里重试。</string>
-  <string name="generic_page_error">处理您的请求时出错。</string>
-  <string name="status_code_unavailable">服务器状态代码不可用。</string>
   <string name="page_error_retry">重试</string>
   <string name="menu_clear_all_history">清除历史</string>
   <string name="menu_clear_all_saved_pages">清除保存的页面</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">在新标签页打开链接</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
   <string name="nav_item_nearby">周边</string>
-  <string name="menu_update_nearby">周边更新</string>
   <string name="nearby_empty_title">这附近没有页面！</string>
   <string name="nearby_empty_message">前往新地点，了解您的周围。</string>
   <string name="nearby_distance_in_meters">%d米</string>
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
   <string name="nearby_distance_in_feet">%d英尺</string>
   <string name="nearby_distance_in_miles">%.2f英里</string>
-  <string name="nearby_no_network">没有网络连接</string>
-  <string name="nearby_server_error">无法获取附近地点的列表。</string>
   <string name="nearby_dialog_goto_settings">您的设备未启用位置信息。您想要前往您的设备设置启用位置信息吗？</string>
   <string name="nearby_set_metric">显示米/千米</string>
   <string name="nearby_set_imperial">显示英尺/英里</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">该用户已经被封禁</string>
   <string name="login_error_throttled">尝试登录次数过多。请等待几分钟后重试。</string>
   <string name="login_error_unknown">登录失败:(</string>
-  <string name="login_error_no_network">没有网络连接</string>
   <string name="preference_title_logout">退出登录</string>
-  <string name="preference_summary_logout">退出您的维基百科账户</string>
-  <string name="preference_summary_notloggedin">没有登录。</string>
   <string name="toast_logout_complete">已退出登录</string>
   <string name="saved_pages_empty_title">这里没有保存的页面！</string>
   <string name="saved_pages_empty_message">保存页面功能非常棒。即使离线时也可以阅读您保存的页面。</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">删除</string>
   <string name="wp_stylized">&lt;big&gt;维&lt;/big&gt;基百&lt;big&gt;科&lt;/big&gt;</string>
   <string name="create_account_username_hint">用户名</string>
-  <string name="create_account_password_hint">密码</string>
   <string name="login_create_account_link">没有账户？加入维基百科</string>
   <string name="create_account_login_link">已经拥有账户？登录</string>
   <string name="create_account_activity_title">创建账户</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">您不能创建账户，因为该账户已被封禁。</string>
   <string name="create_account_password_name_match_error">您的用户名和密码不能相同。</string>
   <string name="create_account_generic_error">无法创建账户</string>
-  <string name="create_account_no_network">没有网络连接</string>
   <string name="create_account_next">下一步</string>
   <string name="create_account_button">创建账户</string>
   <string name="preferences_general_heading">常规</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">重试</string>
   <string name="saved_pages_update_all_error_message">更新保存的页面时出错</string>
   <string name="saved_pages_progress_title">正在更新保存的页面</string>
-  <string name="saved_pages_refresh_pages_complete">更新完成</string>
   <string name="menu_page_saved">页面已保存</string>
   <string name="menu_refresh_saved_page">刷新页面</string>
   <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要保存？</string>
@@ -249,14 +237,12 @@
   <string name="preference_title_show_images">显示图像</string>
   <string name="preference_summary_show_images">启用或停用页面中图像的加载功能。当您的网络连接过慢，或数据流量有限时，请不要选择该设置。</string>
   <string name="read_more_section">阅读更多</string>
-  <string name="read_next_section">阅读下篇</string>
   <string name="menu_gallery_visit_page">前往文件页面</string>
   <string name="gallery_error_draw_failed">无法显示图像。</string>
   <string name="license_title">%s库许可协议文本</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图像：%s</string>
   <string name="gallery_menu_save">保存至设备</string>
-  <string name="gallery_save_error">无法保存图像：%s</string>
   <string name="gallery_save_error_mediastore">导入图像至媒体库失败</string>
   <string name="gallery_save_success">图像保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
@@ -270,7 +256,6 @@
   <string name="captcha_image">验证码图像</string>
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">上传者未知</string>
-  <string name="edit_save_unknown_error">无法保存您的编辑：%s</string>
   <string name="menu_new_tab">新建标签页</string>
   <string name="button_close_tab">关闭标签页</string>
   <string name="tool_tip_select_text">按住文本的任意位置高亮它以便复制和分享。</string>

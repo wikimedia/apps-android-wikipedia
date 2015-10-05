@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Википеди</string>
-  <string name="app_name_alpha">Википеди Альфа</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Википеди Альфа</string>
   <string name="yes">ХӀаъ</string>
   <string name="no">ХӀахӀа</string>
   <string name="search_hint">Википедин чухула лахар</string>
@@ -55,7 +55,6 @@
   <string name="login_success_toast" fuzzy="true">Хьан пароль кхиамца тӀеэца!</string>
   <string name="login_error_blocked">ХӀокху декъашхочун блоктоьхна ю</string>
   <string name="login_error_unknown">Чудаха цаделира :(</string>
-  <string name="login_error_no_network">ЗӀе цахилар</string>
   <string name="preference_title_logout">Болх дӀаберзор</string>
   <string name="saved_pages_empty_title">Кхузахь яц Ӏалашйина агӀонаш.</string>
   <string name="saved_pages_empty_message" fuzzy="true">Ӏалашйина агӀонаш яц.</string>
@@ -64,7 +63,6 @@
   <string name="delete_selected_history">ДӀаяккха</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
   <string name="create_account_username_hint">Декъашхочун цӀе</string>
-  <string name="create_account_password_hint">Пароль</string>
   <string name="login_create_account_link">Кхолла декъашхочун дӀаяздар</string>
   <string name="create_account_activity_title">Кхолла декъашхочун дӀаяздар</string>
   <string name="dialog_create_account_checking_progress">Таллар</string>

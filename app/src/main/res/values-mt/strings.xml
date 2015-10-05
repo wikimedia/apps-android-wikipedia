@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedija</string>
-  <string name="app_name_beta">Wikipedija Beta</string>
-  <string name="app_name_alpha">Wikipedija Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedija Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedija Alpha</string>
   <string name="yes">Iva</string>
   <string name="no">Le</string>
   <string name="acra_report_dialog_title">Il-Wikipedija wafqet :(</string>
   <string name="search_hint">Fittex fuq il-Wikipedija</string>
   <string name="nav_item_history">Kronoloġija</string>
   <string name="error_network_error" fuzzy="true">M\'hemm l-ebda konnessjoni man-netwerk :(</string>
-  <string name="search_network_error">Żball fin-netwerk. Agħfas biex terġa\' tipprova.</string>
-  <string name="generic_page_error">Kien hemm problema fl-immaniġġjar tar-rikjesta tiegħek.</string>
   <string name="page_error_retry">Erġa\' pprova</string>
   <string name="menu_clear_all_history">Ħassar il-kronoloġija</string>
   <string name="menu_clear_all_saved_pages">Ħassar il-paġni ssejvjati</string>
@@ -36,7 +34,6 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">L-ebda konnessjoni tan-netwerk</string>
   <string name="nearby_set_metric">Uri metri/km</string>
   <string name="nearby_set_imperial">Uri piedi/mili</string>
   <string name="nearby_view_on_map">Ara l-post fuq il-mappa</string>
@@ -76,13 +73,10 @@
   <string name="login_error_wrong_username">Isem l-utent ħażin</string>
   <string name="login_error_illegal">Isem l-utent invalidu</string>
   <string name="login_error_blocked">Dan l-utent ġie mblukkat</string>
-  <string name="login_error_no_network">L-ebda konnessjoni man-netwerk</string>
   <string name="preference_title_logout">Oħroġ</string>
-  <string name="preference_summary_logout">Oħroġ mill-kont tal-Wikipedija</string>
   <string name="delete_selected_history">Ħassar</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDIJ&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Isem l-utent</string>
-  <string name="create_account_password_hint">Password</string>
   <string name="login_create_account_link">M\'għandekx kont? Ingħaqad mal-Wikipedija</string>
   <string name="create_account_activity_title">Irreġistra</string>
   <string name="dialog_create_account_checking_progress">Għaddejja l-verifika</string>
@@ -146,7 +140,6 @@
   <string name="find_previous">Sib ta\' qabel</string>
   <string name="error_network_error_try_again">In-netwerk ma setax jintlaħaq. Jekk jogħġbok erġa\' pprova.</string>
   <string name="saved_pages_update_all_error_retry">Erġa\' pprova</string>
-  <string name="saved_pages_refresh_pages_complete">L-aġġornament tkompla</string>
   <string name="menu_page_saved">Paġna ssejvjata</string>
   <string name="menu_refresh_saved_page">Aġġorna l-paġna</string>
   <string name="abusefilter_title_warn">Din tista\' tkun modifiki inutli. Inti ċert li tixtieq tissejvjaha?</string>
@@ -154,7 +147,6 @@
   <string name="dialog_close_description">Agħlaq</string>
   <string name="preference_title_show_images">Uri l-istampi</string>
   <string name="read_more_section">Aqra aktar</string>
-  <string name="read_next_section">Kompli aqra</string>
   <string name="menu_gallery_visit_page">Mur fil-paġna tal-fajl</string>
   <string name="gallery_error_draw_failed">L-istampa ma setgħetx tiġi ġġenerata.</string>
   <string name="gallery_menu_share">Aqsam</string>

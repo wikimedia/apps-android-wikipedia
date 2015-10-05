@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wîkîpediya</string>
-  <string name="app_name_beta">Wîkîpediya Beta</string>
-  <string name="app_name_alpha">Wîkîpediya Alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wîkîpediya Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wîkîpediya Alfa</string>
   <string name="yes">Erê</string>
   <string name="no">Na</string>
   <string name="acra_report_dialog_title">Wîkîpediya nikisî :(</string>
@@ -35,7 +35,6 @@
   <string name="nearby_distance_in_kilometers">%.2f kîlometre</string>
   <string name="nearby_distance_in_feet">%d fît</string>
   <string name="nearby_distance_in_miles">%.2f mîl</string>
-  <string name="nearby_no_network">Xeta înternetê tune ye</string>
   <string name="nearby_set_metric">Metreyan/km nîşan bide</string>
   <string name="preference_title_language">Zimanê Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
@@ -66,15 +65,12 @@
   <string name="login_success_toast" fuzzy="true">Têketin serkevtî bû!</string>
   <string name="login_error_blocked">Ev bikarhêner hatiye astengkirin</string>
   <string name="login_error_unknown">Têketin biser neket :(</string>
-  <string name="login_error_no_network">Xeta înternetê tune ye</string>
   <string name="preference_title_logout">Derkeve</string>
-  <string name="preference_summary_logout">Ji hesabê xwe yê Wîkîpediyayê derkeve</string>
   <string name="saved_pages_empty_title">Li vir ti rûpelên tomarkirî tune ne!</string>
   <string name="history_empty_title">Li vir rûpelên dawî tune ne!</string>
   <string name="delete_selected_history">Jê bibe</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ÎKÎPEDI&lt;big&gt;YA&lt;/big&gt;</string>
   <string name="create_account_username_hint">Navê bikarhêner</string>
-  <string name="create_account_password_hint">Şîfre</string>
   <string name="create_account_activity_title">Hesabekî çêke</string>
   <string name="create_account_password_repeat_hint">Şîfreyê dîsa binivîse</string>
   <string name="create_account_passwords_mismatch_error">Şîfre li hev nayên</string>
@@ -84,7 +80,6 @@
   <string name="create_account_blocked_error">Tu nikarî hesabekî çêkî, ji ber ku hesabê te hatiye astengkirin.</string>
   <string name="create_account_password_name_match_error">Navê te yê bikarhêneriyê û şîfreya te divê ji hev cuda bin.</string>
   <string name="create_account_generic_error">Hesab nikarîbû were çêkirin</string>
-  <string name="create_account_no_network">Xeta înternetê tune ye</string>
   <string name="create_account_next">Pêşve</string>
   <string name="create_account_button">Hesabekî çêke</string>
   <string name="preferences_general_heading">Giştî</string>
@@ -109,7 +104,6 @@
   <string name="edit_summary_tag_links">Girêdan lê hatin zêdekirin</string>
   <string name="edit_summary_tag_other">Yên din</string>
   <string name="saved_pages_update_all_error_retry">Dîsa hewl bide</string>
-  <string name="saved_pages_refresh_pages_complete">Rojanekirin bi dawî bû</string>
   <string name="menu_page_saved">Rûpel hate tomarkirin</string>
   <string name="menu_refresh_saved_page">Rûpelê nû bike</string>
   <string name="dialog_page_issues">Pirsgirêkên rûpelê</string>
@@ -123,7 +117,6 @@
   <string name="dialog_close_description">Bigre</string>
   <string name="preference_title_show_images">Wêneyan nîşan bide</string>
   <string name="read_more_section">Zêdetir bixwîne</string>
-  <string name="read_next_section">Ê li pey bixwine</string>
   <string name="gallery_menu_share">Parve bike</string>
   <string name="gallery_save_success">Wêne bi awayekî serkeftî hate tomarkirin.</string>
   <string name="err_cannot_save_file">Dosye nikare bê tomarkirin</string>

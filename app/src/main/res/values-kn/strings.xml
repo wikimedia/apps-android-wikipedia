@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ವಿಕಿಪೀಡಿಯ</string>
-  <string name="app_name_beta">ವಿಕಿಪೀಡಿಯ ಬೀಟಾ</string>
-  <string name="app_name_alpha">ವಿಕಿಪೀಡಿಯ ಆಲ್ಫಾ</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ವಿಕಿಪೀಡಿಯ ಬೀಟಾ</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ವಿಕಿಪೀಡಿಯ ಆಲ್ಫಾ</string>
   <string name="yes">ಹೌದು</string>
   <string name="no">ಇಲ್ಲ</string>
   <string name="acra_report_dialog_title">ವಿಕಿಪೀಡಿಯ ಕ್ರಿಯಾವೈಫಲ್ಯಗೊಂಡಿದೆ :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">ವಿಕಿಪೀಡಿಯ ಹುಡುಕು</string>
   <string name="nav_item_history">ಇತಿಹಾಸ</string>
   <string name="error_network_error" fuzzy="true">ನೆಟವರ್ಕ್ ಸಂಪರ್ಕ ವಿಲ್ಲ :(</string>
-  <string name="search_network_error">Network error. ತಟ್ಟಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
-  <string name="generic_page_error">ನಿಮ್ಮ ಬೇಡಿಕೆಯನ್ನು ನಿಭಾಯಿಸಲು ಸಮಸ್ಯೆಯೊಂದಿದೆ.</string>
-  <string name="status_code_unavailable">Server status code ಲಭ್ಯವಿಲ್ಲ.</string>
   <string name="page_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="menu_clear_all_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
   <string name="menu_clear_all_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲ ಪುಟಗಳನ್ನು ಅಳಿಸಿ</string>
@@ -39,14 +36,11 @@
   <string name="menu_page_save">ಪುಟವನ್ನು ಉಳಿಸಿ</string>
   <string name="menu_page_share" fuzzy="true">ಹಂಚು</string>
   <string name="nav_item_nearby">ಹತ್ತಿರದ</string>
-  <string name="menu_update_nearby">ಹತ್ತಿರದ ಅಪ್ಡೇಟ್</string>
   <string name="nearby_empty_title">ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ!</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">ಯಾವೂದೇ ನಟ್ವಕ್೯ ಸ‍ಂಪಕ೯ವಿಲ್ಲ</string>
-  <string name="nearby_server_error">ಹತ್ತಿರದ ಜಾಗಗಳ ಪಟ್ಟಿ ಸಿಗಲಿಲ್ಲ.</string>
   <string name="nearby_set_metric">ಪ್ರದಶ೯ನ ಮೀಟರ್/ಕಿಮೀ</string>
   <string name="nearby_set_imperial">ತೋರಿಸು ಅಡಿ/ಮೈಲಿ</string>
   <string name="nearby_view_on_map">ನಕ್ಷೆಯಲ್ಲಿ ಸ್ಥಾನ ವೀಕ್ಷಿಸಿ</string>
@@ -87,10 +81,7 @@
   <string name="login_success_toast" fuzzy="true">ಲಾಗಿನ್ ಯಶಸ್ವಿ!</string>
   <string name="login_error_blocked">ಈ ಬಳಕೆದಾರರನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
   <string name="login_error_unknown">ಲಾಗಿನ್ ಸಾಧ್ಯವಾಗಿಲ್ಲ!</string>
-  <string name="login_error_no_network">ಯಾವುದೇ ನೆಟ್ಟ೯ಕ್ ಸಂಪಕ೯ ಇಲ್ಲ</string>
   <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
-  <string name="preference_summary_logout">ನಿಮ್ಮ ವಿಕಿಪೀಡಿಯ ಖಾತೆಯನ್ನು ಲಾಗ್ ಔಟ್ ಮಾಡಿ</string>
-  <string name="preference_summary_notloggedin">ಲಾಗಿನ್ ಆಗಿಲ್ಲ.</string>
   <string name="toast_logout_complete">ನಿರ್ಗಮನ</string>
   <string name="saved_pages_empty_title">ಇಲ್ಲಿ ಯಾವುದೇ ಉಳಿಸಿದ ಪುಟಗಳು ಇಲ್ಲ</string>
   <string name="saved_pages_empty_message" fuzzy="true">ಯಾವುದೇ ಓದುಗುರುತುಗಳಿಲ್ಲ</string>
@@ -98,7 +89,6 @@
   <string name="history_empty_message" fuzzy="true">ನಿಮ್ಮ ಇತಿಹಾಸಪುಟ ಖಾಲಿಯಾಗಿದೆ.</string>
   <string name="delete_selected_history">ಅಳಿಸಿ</string>
   <string name="create_account_username_hint">ಬಳಕೆದಾರ ಹೆಸರು</string>
-  <string name="create_account_password_hint">ಪ್ರವೇಶಪದ</string>
   <string name="login_create_account_link">ಖಾತೆಯಿಲ್ಲವೇ?ವಿಕಿಪೀಡಿಯ ಸೇರಿ</string>
   <string name="create_account_login_link">ಈಗಾಗಲೇ ಖಾತೆಯಿದೆಯೇ?ಲಾಗಿನ್ ಆಗಿ</string>
   <string name="create_account_activity_title">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
@@ -117,7 +107,6 @@
   <string name="create_account_blocked_error">ನೀವು ಖಾತೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ  ನಿಮ್ಮ ಖಾತೆಯನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ .</string>
   <string name="create_account_password_name_match_error">ನಿಮ್ಮ ಬಳಕೆದಾರ ಹೆಸರು ಮತ್ತು ನಿಮ್ಮ ಗುಪ್ತಪದ ಬೇರೆ ಬೇರೆ ಇರಬೇಕು .</string>
   <string name="create_account_generic_error">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಗುತ್ತಿಲ್ಲ</string>
-  <string name="create_account_no_network">ನೆಟ್ವರ್ಕ್ ಸಂಪರ್ಕವಿಲ್ಲ</string>
   <string name="create_account_next">ಮುಂದಿನ</string>
   <string name="create_account_button">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯ</string>
@@ -144,7 +133,6 @@
   <string name="find_previous">ಹಿಂದಿನದನ್ನು ಹುಡುಕು</string>
   <string name="saved_pages_update_all_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸು</string>
   <string name="saved_pages_progress_title">ಉಳಿಸಿದ ಪುಟವನ್ನು ಮತ್ತೆ ತೆರೆಯಿರಿ</string>
-  <string name="saved_pages_refresh_pages_complete">ಅಪ್ಡೇಟ್ ಸಂಪೂರ್ಣವಾಗಿದೆ</string>
   <string name="menu_page_saved">ಪುಟ ಉಳಿಸಿದ</string>
   <string name="dialog_close_description">ಮುಚ್ಚು</string>
   <string name="preference_title_show_images">ಚಿತ್ರಗಳನ್ನು ತೋರಿಸಲು</string>

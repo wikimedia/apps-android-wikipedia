@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">विकिपीडिया</string>
-  <string name="app_name_beta">विकिपीडिया बीटा</string>
-  <string name="app_name_alpha">विकिपीडिया अल्फा</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">विकिपीडिया बीटा</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">विकिपीडिया अल्फा</string>
   <string name="yes">हो</string>
   <string name="no">नाही</string>
   <string name="search_hint">विकिपीडिया मध्ये शोधा</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error" fuzzy="true">नेटवर्क पर्यंत पोहचू शकत नाही :(</string>
-  <string name="search_network_error">Network खराब आहे. पुन्हा प्रयत्न करण्यासाठी tap करा.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="menu_clear_all_history">इतिहास साफ करा</string>
   <string name="menu_clear_all_saved_pages">साठवलेली पाने पुसून टाका.</string>
@@ -34,14 +33,12 @@
   <string name="menu_page_find_in_page">पाना मध्ये शोधा</string>
   <string name="menu_page_font_and_theme">टंक आणि देखावा</string>
   <string name="nav_item_nearby">जवळपास</string>
-  <string name="menu_update_nearby">जवळपास अद्ययावत</string>
   <string name="nearby_empty_title">जवळपासची पाने नाहीत!</string>
   <string name="nearby_empty_message" fuzzy="true">जेव्हा तुम्ही नवीन ठिकाणी जाल, तेव्हा हे परत अद्ययावत करुन तुमच्या जवळपास काय आहे ते शोधा.</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_distance_in_feet">%d फिट</string>
   <string name="nearby_distance_in_miles">%.2f माइल</string>
-  <string name="nearby_no_network">नेटवर्क जोडलेले नाही</string>
   <string name="nearby_set_imperial">फूट /मैल दाखवा</string>
   <string name="nearby_view_on_map">नकाशावर ठिकाण बघा</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
@@ -72,16 +69,13 @@
   <string name="login_error_illegal">चुकीचे नाव</string>
   <string name="login_success_toast" fuzzy="true">सनोंद प्रवेश यशस्वी!</string>
   <string name="login_error_unknown">सनोंद प्रवेश अयशस्वी :(</string>
-  <string name="login_error_no_network">नेटवर्क जोडलेले नाही</string>
   <string name="preference_title_logout">सनोंद-निर्गम</string>
-  <string name="preference_summary_notloggedin">प्रवेश केलेला नाही</string>
   <string name="toast_logout_complete">सनोंद-बंद</string>
   <string name="saved_pages_empty_title">येथे साठवलेली पाने नाहीत!</string>
   <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
   <string name="history_empty_message" fuzzy="true">आपला इतिहास साफ आहे</string>
   <string name="delete_selected_history">वगळा</string>
   <string name="create_account_username_hint">सदस्यनाम</string>
-  <string name="create_account_password_hint">परवलीचा शब्द</string>
   <string name="login_create_account_link">आपले खाते नाही? विकिपीडियावर खाते तयार करा</string>
   <string name="create_account_login_link">आपले खाते आहे? प्रवेश करा</string>
   <string name="create_account_activity_title">नवीन खाते तयार करा</string>
@@ -138,7 +132,6 @@
   <string name="saved_pages_update_all_error_retry">पुनर्प्रयत्‍न</string>
   <string name="saved_pages_update_all_error_message">पान अद्ययावत करण्यात त्रूटी</string>
   <string name="saved_pages_progress_title">साठवलेली पाने अद्ययावत करीत आहे.</string>
-  <string name="saved_pages_refresh_pages_complete">अद्ययावत पूर्ण</string>
   <string name="menu_page_saved">पान साठवले</string>
   <string name="menu_refresh_saved_page">पान अद्ययावत करा</string>
   <string name="dialog_page_issues">पानाची समस्या</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ଉଇକିପିଡ଼ିଆ</string>
-  <string name="app_name_beta">ଉଇକିପିଡିଆ ବିଟା</string>
-  <string name="app_name_alpha">ଉଇକିପିଡିଆ ଅଲ୍ଫା</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ଉଇକିପିଡିଆ ବିଟା</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ଉଇକିପିଡିଆ ଅଲ୍ଫା</string>
   <string name="yes">ହଁ</string>
   <string name="no">ନାହିଁ</string>
   <string name="acra_report_dialog_title">ଉଇକିପିଡ଼ିଆ ବନ୍ଦ ହୋଇଗଲା :(</string>
@@ -11,7 +11,6 @@
   <string name="search_hint">ଉଇକିପିଡ଼ିଆରେ ଖୋଜନ୍ତୁ</string>
   <string name="nav_item_history">ଇତିହାସ</string>
   <string name="error_network_error" fuzzy="true">ନେଟୱର୍କ ସହ ସଯୋଗ ହୋଇ ନାହିଁ :(</string>
-  <string name="search_network_error">ନେଟୱର୍କରେ ତ୍ରୁଟି । ଆଉଥରେ ଦେଖିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ ।</string>
   <string name="page_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="menu_clear_all_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠା</string>
@@ -36,12 +35,10 @@
   <string name="menu_page_save">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
   <string name="menu_page_share" fuzzy="true">ବାଣ୍ଟିବେ</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
-  <string name="menu_update_nearby">ପାଖାପାଖିଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>
   <string name="nearby_distance_in_meters">%d ମି</string>
   <string name="nearby_distance_in_kilometers">%.2f କିମି</string>
   <string name="nearby_distance_in_feet">%d ଫୁଟ</string>
   <string name="nearby_distance_in_miles">%.2f ମି</string>
-  <string name="nearby_no_network">ନେଟୱର୍କ ମିଳିଲା ନାହିଁ</string>
   <string name="nearby_set_metric">ମି/କିମିରେ ଦେଖିବେ</string>
   <string name="nearby_set_imperial">ଫୁଟ/ମାଇଲରେ ଦେଖିବେ</string>
   <string name="nearby_view_on_map">ମାନ‌ଚିତ୍ରରେ ଜାଗାଟିକୁ ଦେଖିବେ</string>
@@ -82,14 +79,12 @@
   <string name="login_error_blocked">ଏହି ସଭ୍ୟଙ୍କୁ ଅଟକାଯାଇଛି କିଳା ଯାଇଛି</string>
   <string name="login_error_throttled">ଖୁବ ଅଧିକଥର ଲଗ ଇନ କରିବା ପାଇଁ ଚେଷ୍ଟା କରିସାରିଛନ୍ତି । କିଛି ସମୟ ଛାଡ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
   <string name="login_error_unknown">ଲଗଇନ ହେଲାନାହିଁ :(</string>
-  <string name="login_error_no_network">ନେଟୱାର୍କ ମିଳିଲା ନାହିଁ</string>
   <string name="preference_title_logout">ଲଗ ଆଉଟ</string>
   <string name="toast_logout_complete">ଲଗ ଆଉଟ ହୋଇଗଲା</string>
   <string name="saved_pages_empty_message">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ବ‌ହୁତ ଭଲ । ବୁକମାର୍କ କଲା ଭଳି ଆପଣ ଏହାକୁ ଅଫଲାଇନ ବି ପଢିପାରିବେ ।</string>
   <string name="history_empty_message">ଆପଣ ବୋଧେ ସବୁ ଲିଭାଇ ଦେଇଛନ୍ତି । ଆଗକୁ ଆପଣ ଏକ ପୃଷ୍ଠାକୁ ଗଲେ ଏଇଠି ଦେଖିପାରିବେ ।</string>
   <string name="delete_selected_history">ଲିଭାଇବେ</string>
   <string name="create_account_username_hint">ସଭ୍ୟ ନାମ</string>
-  <string name="create_account_password_hint">ପାସୱାର୍ଡ଼</string>
   <string name="login_create_account_link">ଆପଣଙ୍କର ଖାତା ନାହିଁ ? ଉଇକିପିଡିଆରେ ଯୋଗ ଦିଅନ୍ତୁ</string>
   <string name="create_account_activity_title">ଖାତାଟିଏ ଖୋଲନ୍ତୁ</string>
   <string name="dialog_create_account_checking_progress">ପରଖାଯାଉଛି</string>
@@ -101,7 +96,6 @@
   <string name="create_account_ip_throttle_error">ଏହି IP ଠିକଣାରୁ ଖୁବ ଅଧିକ ଖାତା ଖୋଲାଯାଇଛି । ପରେ ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
   <string name="create_account_open_proxy_error">ଏହି IP ଠିକଣାକୁ ନୂଆ ଖାତା ଖୋଲିବାରୁ ରୋକାଯାଇଛି ।</string>
   <string name="create_account_generic_error">ଖାତାଟିଏ ଗଢ଼ା ଯାଇପାରିଲା ନାହିଁ</string>
-  <string name="create_account_no_network">ନେଟୱର୍କ ମିଳିଲା ନାହିଁ</string>
   <string name="preferences_general_heading">ସାଧାରଣ</string>
   <string name="zero_charged_verbiage">ଉଇକିପିଡ଼ିଆ ଜିରୋ ବନ୍ଦ</string>
   <string name="zero_search_hint">ଉଇକିପିଡ଼ିଆ ଜିରୋରେ ଖୋଜନ୍ତୁ</string>

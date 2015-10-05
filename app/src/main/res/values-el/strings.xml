@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Βικιπαίδεια</string>
-  <string name="app_name_beta">Βικιπαίδεια Beta</string>
-  <string name="app_name_alpha">Βικιπαίδεια Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Βικιπαίδεια Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Βικιπαίδεια Alpha</string>
   <string name="yes">Ναι</string>
   <string name="no">Όχι</string>
   <string name="acra_report_dialog_title">H Wikipedia κατέρρευσε :(</string>
@@ -11,8 +11,6 @@
   <string name="search_hint">Αναζήτηση στη Βικιπαίδεια</string>
   <string name="nav_item_history">Ιστορικό</string>
   <string name="error_network_error">Δεν υπάρχει σύνδεση με το Διαδίκτυο.</string>
-  <string name="search_network_error">Σφάλμα δικτύου. Πατήστε για να προσπαθήσετε ξανά.</string>
-  <string name="generic_page_error">Υπήρχε ένα πρόβλημα με το χειρισμό του αιτήματός σας.</string>
   <string name="page_error_retry">Ξαναπροσπαθήστε</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
   <string name="menu_clear_all_saved_pages">Εκκαθάριση αποθηκευμένων σελίδων</string>
@@ -43,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Άνοιγμα σε νέα καρτέλα</string>
   <string name="menu_long_press_copy_page">Αντιγραφή διεύθυνσης συνδέσμου</string>
   <string name="nav_item_nearby">Κοντινά</string>
-  <string name="menu_update_nearby">Ενημέρωση κοντινών</string>
   <string name="nearby_empty_title">Δεν υπάρχουν κοντινές σελίδες εδώ!</string>
   <string name="nearby_empty_message">Μετακινηθείτε σε μια νέα θέση για να δείτε σελίδες γύρω σας.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f χιλιόμετρα</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f μίλια</string>
-  <string name="nearby_no_network">Καμία σύνδεση δικτύου</string>
-  <string name="nearby_server_error">Δεν ανακτήθηκε λίστα με κοντινά μέρη.</string>
   <string name="nearby_dialog_goto_settings">Οι ενημερώσεις Τοποθεσίας δεν είναι ενεργοποιημένες στη συσκευή σας. Θα θέλατε να πάτε στις ρυθμίσεις της συσκευής για να ενεργοποιήσετε της ενημερώσεις Τοποθεσίας;</string>
   <string name="nearby_set_metric">Εμφάνιση μέτρα/χιλιόμετρα</string>
   <string name="nearby_set_imperial">Εμφάνιση πόδια/μίλια</string>
@@ -100,10 +95,7 @@
   <string name="login_error_blocked">Αυτός ο χρήστης έχει αποκλειστεί</string>
   <string name="login_error_throttled">Υπερβολικά πολλές προσπάθειες σύνδεσης. Περιμένετε λίγα λεπτά και προσπαθήστε ξανά.</string>
   <string name="login_error_unknown">Η σύνδεση απέτυχε :(</string>
-  <string name="login_error_no_network">Καμία σύνδεση δικτύου</string>
   <string name="preference_title_logout">Αποσύνδεση</string>
-  <string name="preference_summary_logout">Αποσυνδεθείτε από το λογαριασμό σας στη Βικιπαίδεια</string>
-  <string name="preference_summary_notloggedin">Δεν έχετε συνδεθεί.</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
   <string name="saved_pages_empty_title">Δεν υπάρχουν αποθηκευμένες σελίδες εδώ!</string>
   <string name="saved_pages_empty_message">Οι αποθηκευμένες σελίδες είναι αρκετά φοβερές. Σκεφτείτε τις ως σελιδοδείκτες που μπορείτε να διαβάσετε ακόμα και όταν είστε εκτός σύνδεσης.</string>
@@ -112,7 +104,6 @@
   <string name="delete_selected_history">Διαγραφή</string>
   <string name="wp_stylized">&lt;big&gt;Β&lt;/big&gt;ΙΚΙΠΑΙΔΕΙ&lt;big&gt;Α&lt;/big&gt;</string>
   <string name="create_account_username_hint">Όνομα χρήστη</string>
-  <string name="create_account_password_hint">Κωδικός</string>
   <string name="login_create_account_link">Δεν έχετε λογαριασμό; Γίνετε μέλος της Βικιπαίδειας</string>
   <string name="create_account_login_link">Έχετε ήδη λογαριασμό; Συνδεθείτε</string>
   <string name="create_account_activity_title">Δημιουργία λογαριασμού</string>
@@ -131,7 +122,6 @@
   <string name="create_account_blocked_error">Δεν μπορείτε να δημιουργήσετε ένα λογαριασμό, επειδή ο λογαριασμός σας έχει αποκλειστεί.</string>
   <string name="create_account_password_name_match_error">Το όνομα χρήστη και ο κωδικός πρόσβασής σας πρέπει να είναι διαφορετικά.</string>
   <string name="create_account_generic_error">Δεν ήταν δυνατή η δημιουργία λογαριασμού</string>
-  <string name="create_account_no_network">Καμία σύνδεση με το δίκτυο</string>
   <string name="create_account_next">Επόμενο</string>
   <string name="create_account_button">Δημιουργία λογαριασμού</string>
   <string name="preferences_general_heading">Γενικά</string>
@@ -197,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Ξαναπροσπαθήστε</string>
   <string name="saved_pages_update_all_error_message">Λάθος στην ενημέρωση αποθηκευμένων σελίδων</string>
   <string name="saved_pages_progress_title">Ανανέωση αποθηκευμένων σελίδων</string>
-  <string name="saved_pages_refresh_pages_complete">Η ενημέρωση ολοκληρώθηκε</string>
   <string name="menu_page_saved">Σελίδα αποθηκεύτηκε</string>
   <string name="menu_refresh_saved_page">Ανανέωση σελίδας</string>
   <string name="abusefilter_title_warn">Αυτή μπορεί να είναι μια μη εποικοδομητική επεξεργασία. Είσαι σίγουρος ότι θέλεις να την αποθηκεύσεις;</string>
@@ -239,7 +228,6 @@
   <string name="preference_title_show_images">Προβολή εικόνων</string>
   <string name="preference_summary_show_images">Ενεργοποιήσετε ή να απενεργοποιήσετε τη φόρτωση εικόνων σε σελίδες. Απενεργοποιήστε αυτή τη ρύθμιση, εάν η σύνδεσή σας στο Διαδίκτυο είναι αργή, ή αν το σχέδιο δεδομένων σας (διαθέσιμα Mb) είναι περιορισμένο.</string>
   <string name="read_more_section">Διαβάστε περισσότερα</string>
-  <string name="read_next_section">Διαβάστε την επόμενη</string>
   <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
   <string name="gallery_error_draw_failed">Δεν θα μπορούσε να αντλήσει από την εικόνα.</string>
   <string name="license_title">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ویکی‌پدیا</string>
-  <string name="app_name_beta">ویکی‌پدیای بتا</string>
-  <string name="app_name_alpha">ویکی‌پدیا آلفا</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ویکی‌پدیای بتا</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ویکی‌پدیا آلفا</string>
   <string name="yes">بله</string>
   <string name="no">خیر</string>
   <string name="acra_report_dialog_title">ویکیپدیا در دسترس نیست :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="nav_item_history">تاریخچه</string>
   <string name="error_network_error" fuzzy="true">اتصال به شبکه ممکن نیست.</string>
-  <string name="search_network_error">خطای شبکه. برای تلاش مجدد با انگشت بر روی صفحه بزنید.</string>
-  <string name="generic_page_error">مشکلی برای اجرای درخواستتان وجود دارد.</string>
-  <string name="status_code_unavailable">کد وضعیت سرور در دسترس نیست.</string>
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="menu_clear_all_history">پاک کردن تاریخچه</string>
   <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">باز کردن در برگهٔ جدید</string>
   <string name="menu_long_press_copy_page">کپی نشانی پیوند</string>
   <string name="nav_item_nearby">در نزدیکی</string>
-  <string name="menu_update_nearby">به‌روزرسانی درنزدیکی</string>
   <string name="nearby_empty_title">صفحه‌ای در نزدیکی یافت نشد!</string>
   <string name="nearby_empty_message" fuzzy="true">زمانی که به مکان جدیدی می‌روید این صفحه را از نو تازه کنید تا دربارهٔ چیزهایی که اطرافتان هست اطلاع کسب کنید.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">هیچ اتصال شبکه</string>
-  <string name="nearby_server_error">امکان تهیهٔ فهرست مکان‌های نزدیک نیست</string>
   <string name="nearby_dialog_goto_settings">به‌روزرسانی موقعیت توسط تلفن همره شما پشیبانی نمی شود. آیا می‌خواهید به تنظیمات تلفن همراهتان بروید و از آنجا آن را فعال کنید؟</string>
   <string name="nearby_set_metric">نمایش متر/کیلومتر</string>
   <string name="nearby_set_imperial">نمایش فوت/مایل</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">این کاربر بسته شده است</string>
   <string name="login_error_throttled">تلاش برای ورود به سامانه بیش از حد بوده‌است. برای چند دقیقه صبر می‌کنید.</string>
   <string name="login_error_unknown">ورود ناموفق :(</string>
-  <string name="login_error_no_network">هیچ اتصال شبکه</string>
   <string name="preference_title_logout">خروج از سامانه</string>
-  <string name="preference_summary_logout">خروج</string>
-  <string name="preference_summary_notloggedin">وارد سامانه نشده‌اید</string>
   <string name="toast_logout_complete">خارج شد</string>
   <string name="saved_pages_empty_title">صفحه‌ای در اینجا ذخیره نشده‌است.</string>
   <string name="saved_pages_empty_message">صفحات ذخیره‌شده بسیار عالی هستند. به آنها به چشم بوکمارک‌هایی نگاه کنید که می‌توانید بخوانید حتی زمانی که آفلاین هستید.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">حذف</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپدی&lt;big&gt;ا&lt;/big&gt;</string>
   <string name="create_account_username_hint">نام کاربری</string>
-  <string name="create_account_password_hint">گذرواژه</string>
   <string name="login_create_account_link">ایجاد حساب کاربری</string>
   <string name="create_account_login_link">حساب کاربری دارید؟ وارد شوید.</string>
   <string name="create_account_activity_title">ایجاد حساب کاربری</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">امکان ساخت حساب کاربری به دلیل بسته بودن حساب کاربریتان نیست.</string>
   <string name="create_account_password_name_match_error">نام کاربری و گذرواژه‌تان باید متفاوت باشند.</string>
   <string name="create_account_generic_error">امکان ساختن حساب کاربری وجود ندارد</string>
-  <string name="create_account_no_network">اتصال شبکه یافت نشد.</string>
   <string name="create_account_next">بعدی</string>
   <string name="create_account_button">ایجاد حساب کاربری</string>
   <string name="preferences_general_heading">عمومی</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">تلاش دوباره</string>
   <string name="saved_pages_update_all_error_message">خطا در به روز رسانی صفحات ذخیره شده</string>
   <string name="saved_pages_progress_title">تازه کردن صفحه ذخیره‌شده</string>
-  <string name="saved_pages_refresh_pages_complete">به‌روزرسانی انجام شد.</string>
   <string name="menu_page_saved">صفحه ذخیره شده</string>
   <string name="menu_refresh_saved_page">تازه کردن صفحه</string>
   <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید ذخیره‌اش کنید؟</string>
@@ -249,14 +237,12 @@
   <string name="preference_title_show_images">نمایش تصویرها</string>
   <string name="preference_summary_show_images" fuzzy="true">فعال کردن یا غیرفعال کردن بارگیری تصویرها در صفحات. اگر سرعت اینترنت شما پائین است یا محدودیت حجمی دانلود داده دارید، تنظیمات را غیرفعال کنید.</string>
   <string name="read_more_section">بیشتر بخوانید</string>
-  <string name="read_next_section">بعدی را بخوان</string>
   <string name="menu_gallery_visit_page">رفتن به صفحه پرونده</string>
   <string name="gallery_error_draw_failed">امکان ترسیم تصویر نیست.</string>
   <string name="license_title">متن مجوز برای کتابخانهٔ %s</string>
   <string name="gallery_menu_share">به‌اشتراک‌گذاشتن</string>
   <string name="gallery_share_error">امکان به اشتراک‌گذاری تصویر نیست: %s</string>
   <string name="gallery_menu_save">ذخیره در ابزار</string>
-  <string name="gallery_save_error">امکان به اشتراک‌گذاری تصویر نیست: %s</string>
   <string name="gallery_save_error_mediastore">خطا در درون‌ریزی پرونده در بخش جمع‌آوری رسانه</string>
   <string name="gallery_save_success">صفحه با موفقیت ذخیره‌شده‌است</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
@@ -270,7 +256,6 @@
   <string name="captcha_image">تصویر کپچا</string>
   <string name="gallery_fair_use_license">استفادهٔ منصفانه</string>
   <string name="gallery_uploader_unknown">بارگذار ناشناس</string>
-  <string name="edit_save_unknown_error">امکان دخیرهٔ ویرایش شما وجود ندارد: %s</string>
   <string name="menu_new_tab">برگهٔ جدید</string>
   <string name="button_close_tab">بستن برگه</string>
   <string name="tool_tip_select_text">هر جایی از متن را برای پررنگ شدن و کپی و اشتراک می‌توانید با فشاردادن و نگه‌داشتن انتخاب کنید.</string>

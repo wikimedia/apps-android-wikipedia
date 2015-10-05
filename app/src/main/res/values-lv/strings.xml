@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Vikipēdija</string>
-  <string name="app_name_beta">Vikipēdija Beta</string>
-  <string name="app_name_alpha">Vikipēdija Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Vikipēdija Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Vikipēdija Alpha</string>
   <string name="yes">Jā</string>
   <string name="no">Nē</string>
   <string name="acra_report_dialog_title">Vikipēdija avarēja :(</string>
@@ -10,7 +10,6 @@
   <string name="acra_report_dialog_comment">Ko jūs darījāt, kad notika avārija?</string>
   <string name="search_hint">Meklēt Vikipēdijā</string>
   <string name="nav_item_history">Vēsture</string>
-  <string name="search_network_error">Tīkla kļūda. Pieskarieties, lai mēģinātu vēlreiz.</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>
   <string name="menu_clear_all_history">Notīrīt vēsturi</string>
   <string name="page_does_not_exist_error">Šī lapa neeksistē.</string>
@@ -31,7 +30,6 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pēdas</string>
   <string name="nearby_distance_in_miles">%.2f jūdzes</string>
-  <string name="nearby_no_network">Nav tīkla savienojuma</string>
   <string name="nearby_set_metric">Rādīt metrus/km</string>
   <string name="nearby_set_imperial">Rādīt pēdas/jūdzes</string>
   <string name="preference_title_language">Vikipēdijas valoda</string>
@@ -59,12 +57,9 @@
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
   <string name="login_error_blocked">Šis lietotājs ir bloķēts</string>
   <string name="preference_title_logout">Iziet</string>
-  <string name="preference_summary_logout">Iziet no sava Vikipēdijas konta</string>
-  <string name="preference_summary_notloggedin">Neesi iegājis</string>
   <string name="toast_logout_complete">Jūs esat izgājis</string>
   <string name="delete_selected_history">Dzēst</string>
   <string name="create_account_username_hint">Lietotājvārds</string>
-  <string name="create_account_password_hint">Parole</string>
   <string name="login_create_account_link" fuzzy="true">Izveidot kontu</string>
   <string name="create_account_activity_title">Izveidot kontu</string>
   <string name="dialog_create_account_checking_progress">Pārbauda</string>

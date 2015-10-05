@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
   <string name="yes">Ja</string>
   <string name="no">Nej</string>
   <string name="acra_report_dialog_title">Wikipedia kraschade :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Sök på Wikipedia</string>
   <string name="nav_item_history">Historik</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
-  <string name="search_network_error">Nätverksfel. Tryck för att försöka igen.</string>
-  <string name="generic_page_error">Ett problem uppstod när din begäran skulle behandlas.</string>
-  <string name="status_code_unavailable">Serverns statuskod är otillgänglig.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="menu_clear_all_history">Rensa historik</string>
   <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
   <string name="nav_item_nearby">I närheten</string>
-  <string name="menu_update_nearby">Uppdatera sidor i närheten</string>
   <string name="nearby_empty_title">Inga närliggande sidor här!</string>
   <string name="nearby_empty_message">Flytta till en ny plats för att se sidor runt omkring dig.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Ingen nätverksanslutning</string>
-  <string name="nearby_server_error">Kunde inte hämta listan över platser i närheten.</string>
   <string name="nearby_dialog_goto_settings">Platsuppdateringar är inte aktiverat på din enhet. Vill du gå till din enhets inställningar för att aktivera platsuppdateringar?</string>
   <string name="nearby_set_metric">Visa meter/km</string>
   <string name="nearby_set_imperial">Visa fot/engelsk mil</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Denna användare har blockerats</string>
   <string name="login_error_throttled">För många inloggningsförsök. Vänta några minuter och försök igen.</string>
   <string name="login_error_unknown">Inloggningen misslyckades :(</string>
-  <string name="login_error_no_network">Ingen nätverksanslutning</string>
   <string name="preference_title_logout">Logga ut</string>
-  <string name="preference_summary_logout">Logga ut från ditt Wikipedia-konto</string>
-  <string name="preference_summary_notloggedin">Inte inloggad.</string>
   <string name="toast_logout_complete">Utloggad</string>
   <string name="saved_pages_empty_title">Inga sparade sidor här!</string>
   <string name="saved_pages_empty_message">Sparade sidor är väldigt händigt. Tänk på dem som bokmärken som du kan läsa även när du är offline.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Radera</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Användarnamn</string>
-  <string name="create_account_password_hint">Lösenord</string>
   <string name="login_create_account_link">Har du inget konto? Skapa ett</string>
   <string name="create_account_login_link">Har du redan ett konto? Logga in</string>
   <string name="create_account_activity_title">Skapa ett konto</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Du kan inte skapa ett konto eftersom ditt konto är blockerad.</string>
   <string name="create_account_password_name_match_error">Ditt användarnamn och ditt lösenord måste vara olika.</string>
   <string name="create_account_generic_error">Kan inte skapa konto</string>
-  <string name="create_account_no_network">Ingen nätverksanslutning</string>
   <string name="create_account_next">Nästa</string>
   <string name="create_account_button">Skapa konto</string>
   <string name="preferences_general_heading">Allmänt</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Försök igen</string>
   <string name="saved_pages_update_all_error_message">Fel vid uppdatering av sparade sidor</string>
   <string name="saved_pages_progress_title">Uppdaterar sparade sidor</string>
-  <string name="saved_pages_refresh_pages_complete">Uppdatering slutförd</string>
   <string name="menu_page_saved">Sidan sparades</string>
   <string name="menu_refresh_saved_page">Uppdatera sida</string>
   <string name="abusefilter_title_warn">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill spara den?</string>
@@ -249,14 +237,12 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="preference_title_show_images">Visa bilder</string>
   <string name="preference_summary_show_images">Aktivera eller inaktivera inläsning av bilder på sidor. Avmarkera denna inställning om din Internetanslutning är långsam eller om ditt dataabonnemang är begränsat.</string>
   <string name="read_more_section">Läs mer</string>
-  <string name="read_next_section">Läs nästa</string>
   <string name="menu_gallery_visit_page">Gå till filsida</string>
   <string name="gallery_error_draw_failed">Kunde inte rita bilden.</string>
   <string name="license_title">Licenstext för biblioteket %s</string>
   <string name="gallery_menu_share">Dela</string>
   <string name="gallery_share_error">Kunde inte dela bilden: %s</string>
   <string name="gallery_menu_save">Spara till enheten</string>
-  <string name="gallery_save_error">Kunde inte spara bilden: %s</string>
   <string name="gallery_save_error_mediastore">Kunde inte importera bilden till mediasamlingen</string>
   <string name="gallery_save_success">Bilden har sparats.</string>
   <string name="gallery_error_video_failed">Kan inte spela upp video.</string>
@@ -270,7 +256,6 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="captcha_image">Captcha-bild</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Okänd uppladdare</string>
-  <string name="edit_save_unknown_error">Kunde inte spara din redigering: %s</string>
   <string name="menu_new_tab">Ny flik</string>
   <string name="button_close_tab">Stäng flik</string>
   <string name="tool_tip_select_text">Tryck och håll ned någonstans i texten för att markera den och sedan kopiera och dela den.</string>

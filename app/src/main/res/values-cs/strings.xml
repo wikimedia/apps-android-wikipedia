@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Wikipedie</string>
-  <string name="app_name_beta">Wikipedie Beta</string>
-  <string name="app_name_alpha">Wikipedie Alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedie Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedie Alfa</string>
   <string name="yes">Ano</string>
   <string name="no">Ne</string>
   <string name="acra_report_dialog_title">Wikipedie spadla :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Nelze se připojit k Internetu.</string>
-  <string name="search_network_error">Chyba sítě. Klepnutím to zkusíte znovu.</string>
-  <string name="generic_page_error">Při vyřizování Vaší žádosti se vyskytl problém.</string>
-  <string name="status_code_unavailable">Kód pro status serveru není k dispozici.</string>
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
   <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
   <string name="menu_long_press_copy_page">Zkopírovat adresu odkazu</string>
   <string name="nav_item_nearby">Poblíž</string>
-  <string name="menu_update_nearby">Aktualizovat „poblíž“</string>
   <string name="nearby_empty_title">Žádné stránky poblíž!</string>
   <string name="nearby_empty_message">Přesuňte se na nové místo a uvidíte stránky kolem vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">Bez připojení k síti</string>
-  <string name="nearby_server_error">Nepodařilo se získat seznam blízkých míst.</string>
   <string name="nearby_dialog_goto_settings">Informace o poloze nejsou ve vašem zařízení povoleny. Chcete přejít do nastavení svého zařízení a povolit údaje o poloze?</string>
   <string name="nearby_set_metric">Zobraz metry/km</string>
   <string name="nearby_set_imperial">Zobraz stopy/míle</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Tento uživatel byl zablokován</string>
   <string name="login_error_throttled">Příliš mnoho pokusů o přihlášení. Počkejte několik minut a zkuste to znovu?</string>
   <string name="login_error_unknown">Přihlášení se nezdařilo :(</string>
-  <string name="login_error_no_network">Bez připojení k síti</string>
   <string name="preference_title_logout">Odhlásit se</string>
-  <string name="preference_summary_logout">Odhlásit se z uživatelského účtu na Wikipedii</string>
-  <string name="preference_summary_notloggedin">Nepřihlášen(a).</string>
   <string name="toast_logout_complete">Odhlášeno</string>
   <string name="saved_pages_empty_title">Nejsou zde žádné uložené stránky!</string>
   <string name="saved_pages_empty_message">Uložené stránky jsou super. Používejte je jako záložky, které si můžete číst, i když jste offline.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Smazat</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;E&lt;/big&gt;</string>
   <string name="create_account_username_hint">Uživatelské jméno</string>
-  <string name="create_account_password_hint">Heslo</string>
   <string name="login_create_account_link">Nemáte účet? Přidejte se k Wikipedii</string>
   <string name="create_account_login_link">Účet už máte? Přihlaste se</string>
   <string name="create_account_activity_title">Vytvoření účtu</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Nemůžete vytvořit účet, protože je váš účet zablokován.</string>
   <string name="create_account_password_name_match_error">Vaše uživatelské jméno a heslo se musí lišit.</string>
   <string name="create_account_generic_error">Nepodařilo se vytvořit uživatelský účet</string>
-  <string name="create_account_no_network">Bez připojení k síti</string>
   <string name="create_account_next">Další</string>
   <string name="create_account_button">Vytvořit účet</string>
   <string name="preferences_general_heading">Obecné</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Zkusit znovu</string>
   <string name="saved_pages_update_all_error_message">Chyba aktualizace uložených stránek</string>
   <string name="saved_pages_progress_title">Aktualizují se uložené stránky</string>
-  <string name="saved_pages_refresh_pages_complete">Aktualizace dokončena</string>
   <string name="menu_page_saved">Stránka uložena</string>
   <string name="menu_refresh_saved_page">Obnovit stránku</string>
   <string name="abusefilter_title_warn">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete uložit?</string>
@@ -249,14 +237,12 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Zobrazovat obrázky</string>
   <string name="preference_summary_show_images">Povolit nebo zakázat načítání obrázků na jednotlivých stránkách. Máte-li pomalé připojení k Internetu nebo omezený datový limit, odškrtněte toto nastavení.</string>
   <string name="read_more_section">Číst dál</string>
-  <string name="read_next_section">Číst dále</string>
   <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
   <string name="gallery_error_draw_failed">Nepodařilo se vykreslit obrázek.</string>
   <string name="license_title">Text licence ke knihovně %s</string>
   <string name="gallery_menu_share">Sdílet</string>
   <string name="gallery_share_error">Není možno sdílet obrázek: %s</string>
   <string name="gallery_menu_save">Uložit na zařízení</string>
-  <string name="gallery_save_error">Není možno uložit obrázek: %s</string>
   <string name="gallery_save_error_mediastore">Nepodařilo se importovat obrázek do sbírky médií</string>
   <string name="gallery_save_success">Obrázek úspěšně uložen.</string>
   <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>
@@ -270,7 +256,6 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Obrázek Captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Původce neznámý</string>
-  <string name="edit_save_unknown_error">Nelze uložit vaše úpravy: %s</string>
   <string name="menu_new_tab">Nová záložka</string>
   <string name="button_close_tab">Zavřít záložku</string>
   <string name="tool_tip_select_text">Stiskněte a podržte kdekoliv, čímž zvýrazníte text ke kopírování a sdílení.</string>

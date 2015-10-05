@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">ウィキペディア</string>
-  <string name="app_name_beta">ウィキペディア・ベータ</string>
-  <string name="app_name_alpha">ウィキペディア・アルファ版</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">ウィキペディア・ベータ</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">ウィキペディア・アルファ版</string>
   <string name="yes">はい</string>
   <string name="no">いいえ</string>
   <string name="acra_report_dialog_title">ウィキペディア アプリがクラッシュしました :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="nav_item_history">履歴</string>
   <string name="error_network_error">インターネットに接続できません。</string>
-  <string name="search_network_error">ネットワークエラーです。タップしてやり直してください。</string>
-  <string name="generic_page_error">リクエストの処理中に問題が発生しました。</string>
-  <string name="status_code_unavailable">サーバーステータスコードが使用できません。</string>
   <string name="page_error_retry">再試行</string>
   <string name="menu_clear_all_history">履歴を消去</string>
   <string name="menu_clear_all_saved_pages">保存したページをすべて消去</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
   <string name="nav_item_nearby">付近のスポット</string>
-  <string name="menu_update_nearby">付近のスポットを更新</string>
   <string name="nearby_empty_title">付近のスポットについてのページがありません!</string>
   <string name="nearby_empty_message">新しい場所に移動して、周囲に何があるかを探してみましょう。</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d フィート</string>
   <string name="nearby_distance_in_miles">%.2f マイル</string>
-  <string name="nearby_no_network">ネットワーク接続がありません</string>
-  <string name="nearby_server_error">付近のスポットの一覧を取得できませんでした。</string>
   <string name="nearby_dialog_goto_settings">お使いのデバイスでは位置情報の更新が無効になっています。デバイスの [設定] に移動して位置情報の更新を有効にしますか?</string>
   <string name="nearby_set_metric">メートル/キロメートルで表示</string>
   <string name="nearby_set_imperial">フィート/マイルで表示</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">この利用者はブロックされています</string>
   <string name="login_error_throttled">ログイン失敗が多すぎます。しばらくしてからもう一度やり直してください。</string>
   <string name="login_error_unknown">ログイン失敗</string>
-  <string name="login_error_no_network">ネットワーク接続がありません</string>
   <string name="preference_title_logout">ログアウト</string>
-  <string name="preference_summary_logout">ウィキペディアのアカウントからログアウト</string>
-  <string name="preference_summary_notloggedin">ログインしていません</string>
   <string name="toast_logout_complete">ログアウトしました</string>
   <string name="saved_pages_empty_title">保存したページはありません。</string>
   <string name="saved_pages_empty_message">保存したページは素晴らしい機能です!　オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
   <string name="create_account_username_hint">利用者名</string>
-  <string name="create_account_password_hint">パスワード</string>
   <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加してください</string>
   <string name="create_account_login_link">アカウントを既にお持ちの場合は、こちらからログインしてください</string>
   <string name="create_account_activity_title">アカウント作成</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">あなたのアカウントがブロックされているため、アカウントを作成できません。</string>
   <string name="create_account_password_name_match_error">利用者名とパスワードは同一にできません。</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
-  <string name="create_account_no_network">ネットワーク接続がありません</string>
   <string name="create_account_next">次へ</string>
   <string name="create_account_button">アカウント作成</string>
   <string name="preferences_general_heading">全般</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">再試行</string>
   <string name="saved_pages_update_all_error_message">保存したページを更新する際にエラーが発生しました</string>
   <string name="saved_pages_progress_title">保存したページを更新しています</string>
-  <string name="saved_pages_refresh_pages_complete">更新しました</string>
   <string name="menu_page_saved">保存したページ</string>
   <string name="menu_refresh_saved_page">ページを更新</string>
   <string name="abusefilter_title_warn">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
@@ -250,14 +238,12 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="preference_title_show_images">画像を表示</string>
   <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にします。インターネット接続が遅い時や、データ契約に限度があるときには、このチェックを外してください。</string>
   <string name="read_more_section">続きを読む</string>
-  <string name="read_next_section">次を読む</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
   <string name="gallery_error_draw_failed">画像が描画できませんでした</string>
   <string name="license_title">%s ライブラリのライセンス文</string>
   <string name="gallery_menu_share">シェア</string>
   <string name="gallery_share_error">画像がシェアできませんでした: %s</string>
   <string name="gallery_menu_save">デバイスに保存</string>
-  <string name="gallery_save_error">画像がシェアできませんでした: %s</string>
   <string name="gallery_save_error_mediastore">メディアコレクションへの画像のインポートに失敗しました</string>
   <string name="gallery_save_success">画像を保存しました</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
@@ -271,7 +257,6 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="captcha_image">CAPTCHA画像</string>
   <string name="gallery_fair_use_license">フェアユース</string>
   <string name="gallery_uploader_unknown">不明なアップローダー</string>
-  <string name="edit_save_unknown_error">編集内容を保存できませんでした: %s</string>
   <string name="menu_new_tab">新規タブ</string>
   <string name="button_close_tab">タブを閉じる</string>
   <string name="tool_tip_select_text">コピーとシェアのためにテキストを選択するには、テキストのどこかを長押ししてください。</string>

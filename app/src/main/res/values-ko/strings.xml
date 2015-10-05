@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">위키백과</string>
-  <string name="app_name_beta">위키백과 베타</string>
-  <string name="app_name_alpha">위키백과 알파</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">위키백과 베타</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">위키백과 알파</string>
   <string name="yes">예</string>
   <string name="no">아니오</string>
   <string name="acra_report_dialog_title">위키백과가 충돌했습니다 :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">위키백과 검색</string>
   <string name="nav_item_history">방문 기록</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
-  <string name="search_network_error">네트워크 오류입니다. 다시 시도하려면 누르세요.</string>
-  <string name="generic_page_error">요청을 처리하는 동안 오류가 생겼습니다.</string>
-  <string name="status_code_unavailable">서버 상태 코드를 사용할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="menu_clear_all_saved_pages">저장된 문서 지우기</string>
@@ -43,15 +40,12 @@
   <string name="menu_long_press_open_page">열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="nav_item_nearby">근처</string>
-  <string name="menu_update_nearby">근처 업데이트</string>
   <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>
   <string name="nearby_empty_message" fuzzy="true">새 위치로 움직일 때, 주위에 무엇이 있는지 자세히 알아 보려면 이 문서를 새로 고치세요.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
   <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_no_network">네트워크 연결이 없습니다</string>
-  <string name="nearby_server_error">가까운 장소의 목록을 가져올 수 없습니다.</string>
   <string name="nearby_dialog_goto_settings">위키 업데이트가 장치에서 활성화되어 있지 않습니다. 위치 업데이트를 활성화하기 위해 장치의 설정으로 가겠습니까?</string>
   <string name="nearby_set_metric">meters/km 보이기</string>
   <string name="nearby_set_imperial">feet/miles 보이기</string>
@@ -100,10 +94,7 @@
   <string name="login_error_blocked">이 사용자는 차단되었습니다</string>
   <string name="login_error_throttled">로그인 시도가 너무 많습니다. 잠시 기다리고 나서 다시 시도하세요.</string>
   <string name="login_error_unknown">로그인 실패 :(</string>
-  <string name="login_error_no_network">네트워크 연결이 없습니다</string>
   <string name="preference_title_logout">로그아웃</string>
-  <string name="preference_summary_logout">위키백과 계정에서 로그아웃</string>
-  <string name="preference_summary_notloggedin">로그인하고 있지 않습니다.</string>
   <string name="toast_logout_complete">로그아웃됨</string>
   <string name="saved_pages_empty_title">여기에 저장된 문서가 없습니다!</string>
   <string name="saved_pages_empty_message">저장된 문서는 정말 훌륭합니다. 오프라인일 때여도 읽을 수 있는 책갈피라고 생각해주세요.</string>
@@ -112,7 +103,6 @@
   <string name="delete_selected_history">삭제</string>
   <string name="wp_stylized">&lt;big&gt;위&lt;/big&gt;키백&lt;big&gt;과&lt;/big&gt;</string>
   <string name="create_account_username_hint">사용자 이름</string>
-  <string name="create_account_password_hint">비밀번호</string>
   <string name="login_create_account_link">계정이 없나요? 위키백과에 가입하세요</string>
   <string name="create_account_login_link">계정이 이미 있습니까? 로그인하세요</string>
   <string name="create_account_activity_title">계정 만들기</string>
@@ -131,7 +121,6 @@
   <string name="create_account_blocked_error">당신의 계정이 차단되어 있기 때문에 계정을 만들 수 없습니다.</string>
   <string name="create_account_password_name_match_error">사용자 이름과 비밀번호는 달라야 합니다.</string>
   <string name="create_account_generic_error">계정을 만들 수 없습니다</string>
-  <string name="create_account_no_network">네트워크 연결이 없습니다</string>
   <string name="create_account_next">다음</string>
   <string name="create_account_button">계정 만들기</string>
   <string name="preferences_general_heading">일반</string>
@@ -195,7 +184,6 @@
   <string name="saved_pages_update_all_error_retry">다시 시도</string>
   <string name="saved_pages_update_all_error_message">저징된 문서를 업데이트하는 동안 오류</string>
   <string name="saved_pages_progress_title">저장된 문서를 새로 고치는 중</string>
-  <string name="saved_pages_refresh_pages_complete">업데이트 완료</string>
   <string name="menu_page_saved">문서가 저장되었습니다</string>
   <string name="menu_refresh_saved_page">문서 새로 고침</string>
   <string name="abusefilter_title_warn">비생산적인 편집일 수도 있습니다. 그것을 저장하겠습니까?</string>
@@ -245,14 +233,12 @@
   <string name="preference_title_show_images">그림 보이기</string>
   <string name="preference_summary_show_images" fuzzy="true">문서에서 그림을 불러오는 것을 활성화하거나 비활성화합니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정을 선택 해제하세요.</string>
   <string name="read_more_section">더 읽어보기</string>
-  <string name="read_next_section">다음 읽기</string>
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
   <string name="license_title">%s 라이브러리의 라이선스 텍스트</string>
   <string name="gallery_menu_share">공유</string>
   <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>
   <string name="gallery_menu_save">장치에 저장</string>
-  <string name="gallery_save_error">그림을 저장할 수 없습니다: %s</string>
   <string name="gallery_save_error_mediastore">미디어 컬렉션에서 그림을 가져오는 데 실패했습니다</string>
   <string name="gallery_save_success">그림을 성공적으로 저장했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
@@ -266,7 +252,6 @@
   <string name="captcha_image">캡차 이미지</string>
   <string name="gallery_fair_use_license">공정 이용</string>
   <string name="gallery_uploader_unknown">업로더 모름</string>
-  <string name="edit_save_unknown_error">%s 오류로 인해 편집을 저장하지 못했습니다</string>
   <string name="menu_new_tab">새 탭</string>
   <string name="button_close_tab">탭 닫기</string>
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>

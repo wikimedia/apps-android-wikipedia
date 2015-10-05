@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
   <string name="app_name_prod">Vikipedi</string>
-  <string name="app_name_beta">Vikipedi Beta</string>
-  <string name="app_name_alpha">Vikipedi Alfa</string>
+  <string name="app_name_beta" tools:ignore="UnusedResources">Vikipedi Beta</string>
+  <string name="app_name_alpha" tools:ignore="UnusedResources">Vikipedi Alfa</string>
   <string name="yes">Evet</string>
   <string name="no">Hayır</string>
   <string name="acra_report_dialog_title">Vikipedi çöktü :(</string>
@@ -11,9 +11,6 @@
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="error_network_error" fuzzy="true">İnternete bağlanılamıyor.</string>
-  <string name="search_network_error">Ağ hatası. Tekrar denemek için dokunun.</string>
-  <string name="generic_page_error">Talebiniz gerçekleştirilirken bir sorun çıktı.</string>
-  <string name="status_code_unavailable">Sunucu durum kodu kullanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
@@ -44,15 +41,12 @@
   <string name="menu_long_press_open_in_new_tab">Yeni sekmede aç</string>
   <string name="menu_long_press_copy_page">Bağlantı adresini kopyala</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
-  <string name="menu_update_nearby">Yakınındakileri güncelle</string>
   <string name="nearby_empty_title">Yakınında sayfa yok!</string>
   <string name="nearby_empty_message" fuzzy="true">Yeni bir konuma geçtiğinizde etrafınızdakiler hakkında bilgi almak için bu sayfayı yenilemeyi deneyin.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d fit</string>
   <string name="nearby_distance_in_miles">%.2f mil</string>
-  <string name="nearby_no_network">Ağ bağlantısı yok</string>
-  <string name="nearby_server_error">Yakındaki yerlerin listesi alınamadı.</string>
   <string name="nearby_dialog_goto_settings">Konum güncelleştirmeleri cihazınızda etkin değil. Konum güncelleştirmelerini etkinleştirmek için cihazınızın ayarlarına gitmek ister misiniz?</string>
   <string name="nearby_set_metric">Metre/km olarak göster</string>
   <string name="nearby_set_imperial">Fit/mil olarak göster</string>
@@ -101,10 +95,7 @@
   <string name="login_error_blocked">Bu kullanıcı engellendi</string>
   <string name="login_error_throttled">Çok fazla deneme yaptınız. Birkaç dakika bekleyip tekrar deneyin.</string>
   <string name="login_error_unknown">Oturum açma başarısız :(</string>
-  <string name="login_error_no_network">Ağ bağlantısı yok</string>
   <string name="preference_title_logout">Oturumu kapat</string>
-  <string name="preference_summary_logout">Vikipedi hesabınızın oturumunu kapatır</string>
-  <string name="preference_summary_notloggedin">Oturum açık değil.</string>
   <string name="toast_logout_complete">Oturum kapandı</string>
   <string name="saved_pages_empty_title">Kaydedilmiş bir sayfa yok!</string>
   <string name="saved_pages_empty_message">Kaydedilmiş sayfalar çok güzeldir. Bunu çevrim dışıyken bile okuyabileceğiniz yer imleri olarak düşünün.</string>
@@ -113,7 +104,6 @@
   <string name="delete_selected_history">Sil</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;İKİPED&lt;big&gt;İ&lt;/big&gt;</string>
   <string name="create_account_username_hint">Kullanıcı adı</string>
-  <string name="create_account_password_hint">Şifre</string>
   <string name="login_create_account_link">Hesabınız yok mu? Vikipedi\'ye katılın</string>
   <string name="create_account_login_link">Zaten bir hesabınız var mı? Oturum açın</string>
   <string name="create_account_activity_title">Bir hesap oluştur</string>
@@ -132,7 +122,6 @@
   <string name="create_account_blocked_error">Hesabınız engellenmiş olduğundan yeni hesap oluşturamazsınız.</string>
   <string name="create_account_password_name_match_error">Kullanıcı adınız ve parolanız farklı olmalıdır.</string>
   <string name="create_account_generic_error">Hesap oluşturulamadı</string>
-  <string name="create_account_no_network">Ağ bağlantısı yok</string>
   <string name="create_account_next">İleri</string>
   <string name="create_account_button">Hesap oluştur</string>
   <string name="preferences_general_heading">Genel</string>
@@ -198,7 +187,6 @@
   <string name="saved_pages_update_all_error_retry">Tekrar dene</string>
   <string name="saved_pages_update_all_error_message">Kaydedilen sayfalar güncelleştirilirken hata oluştu</string>
   <string name="saved_pages_progress_title">Kaydedilen sayfalar yenileniyor…</string>
-  <string name="saved_pages_refresh_pages_complete">Güncelleme tamamlandı</string>
   <string name="menu_page_saved">Sayfa kaydedildi</string>
   <string name="menu_refresh_saved_page">Sayfayı yenile</string>
   <string name="abusefilter_title_warn">Bu yapıcı olmayan bir düzenleme olabilir. Kaydetmek istediğinize emin misiniz?</string>
@@ -247,14 +235,12 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="preference_title_show_images">Resimleri göster</string>
   <string name="preference_summary_show_images" fuzzy="true">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
   <string name="read_more_section">Devamı</string>
-  <string name="read_next_section">Sonrakini oku</string>
   <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
   <string name="gallery_error_draw_failed">Resim gösterilemedi.</string>
   <string name="license_title">%s kütüphanesi için lisans metni</string>
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
   <string name="gallery_menu_save">Cihaza kaydet</string>
-  <string name="gallery_save_error">Resim kaydedilemedi: %s</string>
   <string name="gallery_save_error_mediastore">Görüntü medya koleksiyonuna alınamadı</string>
   <string name="gallery_save_success">Resim başarıyla kaydedildi.</string>
   <string name="gallery_error_video_failed">Video oynatılamadı.</string>
@@ -268,7 +254,6 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Captcha resmi</string>
   <string name="gallery_fair_use_license">Adil kullanım</string>
   <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
-  <string name="edit_save_unknown_error">Değişikliğiniz kaydedilemedi: %s</string>
   <string name="menu_new_tab">Yeni sekme</string>
   <string name="button_close_tab">Sekmeyi kapat</string>
   <string name="page_view_in_browser">Sayfayı tarayıcıda görüntüle</string>
