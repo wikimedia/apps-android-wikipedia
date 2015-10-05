@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">వికీపీడియా</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">వికీపీడియా బీటా</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">వికీపీడియా ఆల్ఫా</string>
+  <string name="app_name_beta">వికీపీడియా బీటా</string>
+  <string name="app_name_alpha">వికీపీడియా ఆల్ఫా</string>
   <string name="yes">అవును</string>
   <string name="no">కాదు</string>
   <string name="acra_report_dialog_title">వికీపీడియా పనిచేయడం మానేసింది :(</string>

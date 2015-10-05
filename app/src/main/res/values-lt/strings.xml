@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Vikipedija</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Vikipedija Beta</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Vikipedija Alfa</string>
+  <string name="app_name_beta">Vikipedija Beta</string>
+  <string name="app_name_alpha">Vikipedija Alfa</string>
   <string name="yes">Taip</string>
   <string name="no">Ne</string>
   <string name="acra_report_dialog_title">Vikipedija užlūžo :(</string>

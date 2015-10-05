@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">ویکیپیڈیا</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">ویکیپیڈیا آزمائشی</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">ویکیپیڈیا الفا</string>
+  <string name="app_name_beta">ویکیپیڈیا آزمائشی</string>
+  <string name="app_name_alpha">ویکیپیڈیا الفا</string>
   <string name="yes">جی ہاں</string>
   <string name="no">نہیں</string>
   <string name="acra_report_dialog_title">ویکیپیڈیا بند ہوگیا :(</string>

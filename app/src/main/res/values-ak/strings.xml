@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
+<resources>
+  <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Aane</string>
   <string name="no">Daabi</string>
   <string name="acra_report_dialog_title">Wikipedia adum</string>

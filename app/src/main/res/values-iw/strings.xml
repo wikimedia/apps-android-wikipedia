@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">ויקיפדיה</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">ויקיפדיה בטא</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">ויקיפדיה אלפא</string>
+  <string name="app_name_beta">ויקיפדיה בטא</string>
+  <string name="app_name_alpha">ויקיפדיה אלפא</string>
   <string name="yes">כן</string>
   <string name="no">לא</string>
   <string name="acra_report_dialog_title">יישום ויקיפדיה התרסק :(</string>

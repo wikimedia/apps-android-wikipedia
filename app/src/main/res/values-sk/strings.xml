@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Wikipédia</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipédia Beta</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipédia Alpha</string>
+  <string name="app_name_beta">Wikipédia Beta</string>
+  <string name="app_name_alpha">Wikipédia Alpha</string>
   <string name="yes">Áno</string>
   <string name="no">Nie</string>
   <string name="acra_report_dialog_title">Wikipédia zlyhala :(</string>

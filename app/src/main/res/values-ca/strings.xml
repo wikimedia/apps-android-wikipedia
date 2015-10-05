@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Viquipèdia</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Viquipèdia Beta</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Viquipèdia Alfa</string>
+  <string name="app_name_beta">Viquipèdia Beta</string>
+  <string name="app_name_alpha">Viquipèdia Alfa</string>
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="acra_report_dialog_title">La Viquipèdia ha fallat :(</string>

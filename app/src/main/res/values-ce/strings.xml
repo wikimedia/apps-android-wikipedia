@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Википеди</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Википеди Альфа</string>
+  <string name="app_name_alpha">Википеди Альфа</string>
   <string name="yes">ХӀаъ</string>
   <string name="no">ХӀахӀа</string>
   <string name="search_hint">Википедин чухула лахар</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Wicipedia</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Wicipedia Alffa</string>
+  <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wicipedia Alffa</string>
   <string name="yes">Ydw/Ie/Iawn</string>
   <string name="no">Nac ydw / Na</string>
   <string name="acra_report_dialog_title">Mae Wicipedia wedi cael damwain :(</string>

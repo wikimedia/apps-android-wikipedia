@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">ویکی‌پدیا</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">ویکی‌پدیای بتا</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">ویکی‌پدیا آلفا</string>
+  <string name="app_name_beta">ویکی‌پدیای بتا</string>
+  <string name="app_name_alpha">ویکی‌پدیا آلفا</string>
   <string name="yes">بله</string>
   <string name="no">خیر</string>
   <string name="acra_report_dialog_title">ویکیپدیا در دسترس نیست :(</string>

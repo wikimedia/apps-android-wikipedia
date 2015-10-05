@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">ウィキペディア</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">ウィキペディア・ベータ</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">ウィキペディア・アルファ版</string>
+  <string name="app_name_beta">ウィキペディア・ベータ</string>
+  <string name="app_name_alpha">ウィキペディア・アルファ版</string>
   <string name="yes">はい</string>
   <string name="no">いいえ</string>
   <string name="acra_report_dialog_title">ウィキペディア アプリがクラッシュしました :(</string>

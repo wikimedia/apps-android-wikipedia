@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Wiikippiidiyaa</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Wiikippiidiyaa Beetaa</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Wiikippiidiyaa Aalfaa</string>
+  <string name="app_name_beta">Wiikippiidiyaa Beetaa</string>
+  <string name="app_name_alpha">Wiikippiidiyaa Aalfaa</string>
   <string name="yes">Eyyee</string>
   <string name="no">Lakki</string>
   <string name="acra_report_dialog_title">Wiikipiidiyaan halake :(</string>

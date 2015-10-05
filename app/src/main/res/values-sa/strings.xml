@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">विकिपीडिया</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">विकिपीडिया बिटा</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">विकिपीडिया आल्फा</string>
+  <string name="app_name_beta">विकिपीडिया बिटा</string>
+  <string name="app_name_alpha">विकिपीडिया आल्फा</string>
   <string name="yes">आम्</string>
   <string name="no">न</string>
   <string name="acra_report_dialog_title">विकिपीडिया अभिसम्भग्नः :(</string>

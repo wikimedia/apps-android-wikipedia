@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">ଉଇକିପିଡ଼ିଆ</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">ଉଇକିପିଡିଆ ବିଟା</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">ଉଇକିପିଡିଆ ଅଲ୍ଫା</string>
+  <string name="app_name_beta">ଉଇକିପିଡିଆ ବିଟା</string>
+  <string name="app_name_alpha">ଉଇକିପିଡିଆ ଅଲ୍ଫା</string>
   <string name="yes">ହଁ</string>
   <string name="no">ନାହିଁ</string>
   <string name="acra_report_dialog_title">ଉଇକିପିଡ଼ିଆ ବନ୍ଦ ହୋଇଗଲା :(</string>

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">विकिपीडिया</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">विकिपीडिया बीटा</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">विकिपीडिया अल्फा</string>
-  <string name="yes">हो</string>
+  <string name="app_name_beta">विकिपीडिया बीटा</string>
+  <string name="app_name_alpha">विकिपीडिया अल्फा</string>
+  <string name="yes">होय</string>
   <string name="no">नाही</string>
   <string name="search_hint">विकिपीडिया मध्ये शोधा</string>
   <string name="nav_item_history">इतिहास</string>
-  <string name="error_network_error" fuzzy="true">नेटवर्क पर्यंत पोहचू शकत नाही :(</string>
+  <string name="error_network_error">आंतरजालाशी जुळू शकत नाही.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="menu_clear_all_history">इतिहास साफ करा</string>
   <string name="menu_clear_all_saved_pages">साठवलेली पाने पुसून टाका.</string>
   <string name="page_does_not_exist_error">हे पान अस्तित्वात नाही.</string>
   <string name="nav_item_today">आज</string>
+  <string name="dialog_title_clear_history">न्याहाळकाचा इतिहास मिटवायचा?</string>
   <string name="nav_item_saved_pages">साठवलेली पाने</string>
   <string name="menu_update_all_saved_pages">साठवलेली पाने अद्ययावत करा</string>
   <string name="menu_update_selected_saved_pages">साठवलेली पाने अद्ययावत करा</string>
@@ -25,27 +26,34 @@
   <string name="snackbar_refresh_saved_page">साठवलेले पान अद्ययावत होत आहे…</string>
   <string name="delete_selected_saved_pages">वगळा</string>
   <string name="snackbar_saved_page_deleted">साठवलेले पान(ने) वगळली</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">शोध</string>
+  <string name="saved_pages_search_list_hint">जतन केलेल्या पानांचा शोध</string>
   <string name="saved_pages_search_empty_message">याच्याशी जुळणारे पान सापडत नाही.</string>
+  <string name="menu_page_show_tabs">कळी दाखवा</string>
   <string name="menu_page_other_languages">इतर भाषांत वाचा</string>
   <string name="menu_page_save">जतन करा</string>
   <string name="menu_page_share">दुवा वाटप करा</string>
   <string name="menu_page_find_in_page">पाना मध्ये शोधा</string>
   <string name="menu_page_font_and_theme">टंक आणि देखावा</string>
+  <string name="menu_long_press_open_page">उघडा</string>
+  <string name="menu_long_press_copy_page">दुव्याचा पत्ता उतरवा.</string>
   <string name="nav_item_nearby">जवळपास</string>
   <string name="nearby_empty_title">जवळपासची पाने नाहीत!</string>
-  <string name="nearby_empty_message" fuzzy="true">जेव्हा तुम्ही नवीन ठिकाणी जाल, तेव्हा हे परत अद्ययावत करुन तुमच्या जवळपास काय आहे ते शोधा.</string>
+  <string name="nearby_empty_message">आपल्या सभोवताल असलेली पाने बघण्यास नविन ठिकाणी जा.</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_distance_in_feet">%d फिट</string>
   <string name="nearby_distance_in_miles">%.2f माइल</string>
+  <string name="nearby_set_metric">मिटर्स/किमी दाखवा</string>
   <string name="nearby_set_imperial">फूट /मैल दाखवा</string>
   <string name="nearby_view_on_map">नकाशावर ठिकाण बघा</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">शोधा</string>
+  <string name="preference_system_language_toggle">प्रणाली भाषा वापरा</string>
+  <string name="preference_system_language_summary">प्रणाली भाषा</string>
   <string name="langlinks_filter_hint">शोधा</string>
   <string name="langlinks_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="langlinks_empty">हे पान इतर भाषांमध्ये उपलब्ध नाही आहे</string>
+  <string name="langlinks_no_match">आपल्या पृच्छेशी अनुरुप कोणतीच भाषा सापडली नाही.</string>
   <string name="langlinks_activity_title">इतर भाषा</string>
   <string name="menu_save_changes">बदल जतन करा</string>
   <string name="edit_section_error_retry">पुन्हा प्रयत्न करा</string>
@@ -54,10 +62,12 @@
   <string name="dialog_message_edit_failed">संपादन होऊ शकले नाही!</string>
   <string name="dialog_message_edit_failed_retry">पुन्हा प्रयत्न करा</string>
   <string name="dialog_message_edit_failed_cancel">रद्द करा</string>
+  <string name="dialog_message_leaving_edit">अद्याप आपले बदल जतन करण्यात आलेले नाहीत.आपणास नक्की हे पान सोडावयाचे आहे काय?</string>
   <string name="dialog_message_leaving_edit_leave">सोडा</string>
+  <string name="dialog_message_leaving_edit_stay">तेथेच रहा</string>
   <string name="menu_show_toc">अनुक्रमणिका</string>
   <string name="search_no_results_found">परिणाम सापडले नाही</string>
-  <string name="nav_item_login" fuzzy="true">सनोंद-प्रवेश करा</string>
+  <string name="nav_item_login">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_username_hint">सदस्यनाव</string>
   <string name="login_password_hint">परवलीचा शब्द</string>
   <string name="login_password_show_check">पासवर्ड दाखवा</string>
@@ -67,7 +77,9 @@
   <string name="login_error_wrong_password">चुकीचे पासवर्ड</string>
   <string name="login_error_wrong_username">चुकीचे सदस्यनाव</string>
   <string name="login_error_illegal">चुकीचे नाव</string>
-  <string name="login_success_toast" fuzzy="true">सनोंद प्रवेश यशस्वी!</string>
+  <string name="login_success_toast">यशस्वीरित्या सनोंद प्रवेशित!</string>
+  <string name="login_error_blocked">या सदस्यास प्रतिरोधित केले आहे</string>
+  <string name="login_error_throttled">सनोंद प्रवेशासाठीच्या अनेक खटपटी. काही मिनीट थांबुन पुन्हा प्रयत्न करा.</string>
   <string name="login_error_unknown">सनोंद प्रवेश अयशस्वी :(</string>
   <string name="preference_title_logout">सनोंद-निर्गम</string>
   <string name="toast_logout_complete">सनोंद-बंद</string>
@@ -87,7 +99,9 @@
   <string name="create_account_username_exists_error">सदस्यनाम आधीपासूनच वापरात आहे</string>
   <string name="create_account_ip_throttle_error">या IP address वरून खूप सारे खाते उघडले गेले आहेत. थोड्या वेळाने पुन्हा प्रयंत्न करा.</string>
   <string name="create_account_open_proxy_error">या IP address वरून नवे खाते उघडणे स्तघीत केले गेले आहे.</string>
+  <string name="create_account_noname_error">आपण पुरविलेले सदस्यनाम अवैध आहे.दुसरे सदस्यनाव पुरवा.</string>
   <string name="create_account_invalid_email_error">आपण दिलेला इमेल चुकीचा आहे.</string>
+  <string name="create_account_password_too_short_error">आपण पुरविलेला संकेतांक लहान आहे.</string>
   <string name="create_account_password_name_match_error">तुमचे नाव आणि पासवर्ड वेगवेगळे हवेत</string>
   <string name="create_account_generic_error">खाते उघडू शकत नाही</string>
   <string name="create_account_next">पुढे</string>

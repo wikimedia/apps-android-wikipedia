@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">维基百科</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">维基百科测试版</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">维基百科内测版</string>
+  <string name="app_name_beta">维基百科测试版</string>
+  <string name="app_name_alpha">维基百科内测版</string>
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="acra_report_dialog_title">维基百科崩溃了:(</string>

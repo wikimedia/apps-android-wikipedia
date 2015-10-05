@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">וויקיפעדיע</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">וויקיפעדיע בעטא</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">וויקיפעדיע אלפא</string>
+  <string name="app_name_beta">וויקיפעדיע בעטא</string>
+  <string name="app_name_alpha">וויקיפעדיע אלפא</string>
   <string name="yes">יא</string>
   <string name="no">ניין</string>
   <string name="acra_report_dialog_title">וויקיפעדיע איז איינגעפאלן :(</string>

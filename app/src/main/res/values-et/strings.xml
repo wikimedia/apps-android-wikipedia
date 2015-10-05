@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Vikipeedia</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Vikipeedia beetaversioon</string>
+  <string name="app_name_beta">Vikipeedia beetaversioon</string>
   <string name="yes">Jah</string>
   <string name="no">Ei</string>
   <string name="acra_report_dialog_title">Vikipeedia jooksis kokku :(</string>

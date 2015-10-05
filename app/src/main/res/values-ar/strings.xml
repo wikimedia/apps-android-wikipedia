@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">ويكيبيديا</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">ويكيبيديا بيتا</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">ويكيبيديا ألفا</string>
+  <string name="app_name_beta">ويكيبيديا بيتا</string>
+  <string name="app_name_alpha">ويكيبيديا ألفا</string>
   <string name="yes">نعم</string>
   <string name="no">لا</string>
   <string name="acra_report_dialog_title">تعطّلت ويكيبيديا :(</string>

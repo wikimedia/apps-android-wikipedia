@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">વિકિપીડિયા</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">વિકિપીડિયા બીટા</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">વિકિપીડિયા આલ્ફા</string>
+  <string name="app_name_beta">વિકિપીડિયા બીટા</string>
+  <string name="app_name_alpha">વિકિપીડિયા આલ્ફા</string>
   <string name="yes">હા</string>
   <string name="no">ના</string>
   <string name="acra_report_dialog_title">વિકિપીડિયાના વપરાશમાં ક્ષતિ આવી છે :(</string>

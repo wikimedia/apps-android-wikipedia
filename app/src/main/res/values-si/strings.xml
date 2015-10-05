@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">විකිපීඩියා</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">විකිපීඩියා බීටා</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">විකිපීඩිය ඇල්ෆා</string>
+  <string name="app_name_beta">විකිපීඩියා බීටා</string>
+  <string name="app_name_alpha">විකිපීඩිය ඇල්ෆා</string>
   <string name="yes">ඔව්</string>
   <string name="no">නැත</string>
   <string name="acra_report_dialog_title">විකිපීඩියා බිඳ වැටිණි :(</string>

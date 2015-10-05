@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">উইকিপিডিয়া</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">উইকিপিডিয়া বেটা</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">উইকিপিডিয়া আলফা</string>
+  <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
+  <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="yes">হ্যাঁ</string>
   <string name="no">না</string>
   <string name="acra_report_dialog_title">উইকিপিডিয়া কাজ করছে না :(</string>

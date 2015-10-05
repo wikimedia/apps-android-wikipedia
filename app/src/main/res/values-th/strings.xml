@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">วิกิพีเดีย</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">วิกิพีเดียรุ่นบีตา</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">วิกิพีเดียรุ่นแอลฟา</string>
+  <string name="app_name_beta">วิกิพีเดียรุ่นบีตา</string>
+  <string name="app_name_alpha">วิกิพีเดียรุ่นแอลฟา</string>
   <string name="yes">ใช่</string>
   <string name="no">ไม่</string>
   <string name="acra_report_dialog_title">วิกิพีเดียหยุดการทำงาน :(</string>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Vikipedi</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Vikipedi Beta</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Vikipedi Alfa</string>
+  <string name="app_name_beta">Vikipedi Beta</string>
+  <string name="app_name_alpha">Vikipedi Alfa</string>
   <string name="yes">Evet</string>
   <string name="no">Hayır</string>
   <string name="acra_report_dialog_title">Vikipedi çöktü :(</string>

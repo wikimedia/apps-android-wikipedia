@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">വിക്കിപീഡിയ</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">വിക്കിപീഡിയ ബീറ്റ</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">വിക്കിപീഡിയ ആൽഫ</string>
+  <string name="app_name_beta">വിക്കിപീഡിയ ബീറ്റ</string>
+  <string name="app_name_alpha">വിക്കിപീഡിയ ആൽഫ</string>
   <string name="yes">വേണം</string>
   <string name="no">വേണ്ട</string>
   <string name="acra_report_dialog_title">വിക്കിപീഡിയയിൽ പ്രശ്നമുണ്ടായി :(</string>

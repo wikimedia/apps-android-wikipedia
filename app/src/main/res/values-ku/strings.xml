@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
   <string name="app_name_prod">Wîkîpediya</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Wîkîpediya Beta</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Wîkîpediya Alfa</string>
+  <string name="app_name_beta">Wîkîpediya Beta</string>
+  <string name="app_name_alpha">Wîkîpediya Alfa</string>
   <string name="yes">Erê</string>
   <string name="no">Na</string>
   <string name="acra_report_dialog_title">Wîkîpediya nikisî :(</string>
