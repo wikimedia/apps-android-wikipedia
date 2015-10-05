@@ -6,6 +6,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtils;
+
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
@@ -28,6 +30,7 @@ import android.widget.VideoView;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import uk.co.senab.photoview.PhotoViewAttacher;
+
 import java.util.Map;
 
 public class GalleryItemFragment extends Fragment {
@@ -54,6 +57,7 @@ public class GalleryItemFragment extends Fragment {
     private MediaController mediaController;
 
     private GalleryItem galleryItem;
+
     public GalleryItem getGalleryItem() {
         return galleryItem;
     }
@@ -151,9 +155,9 @@ public class GalleryItemFragment extends Fragment {
         }
         menu.findItem(R.id.menu_gallery_visit_page).setEnabled(galleryItem != null);
         menu.findItem(R.id.menu_gallery_share).setEnabled(galleryItem != null
-                                                          && imageView.getDrawable() != null);
+                && imageView.getDrawable() != null);
         menu.findItem(R.id.menu_gallery_save).setEnabled(galleryItem != null
-                                                         && imageView.getDrawable() != null);
+                && imageView.getDrawable() != null);
     }
 
     @Override
@@ -183,8 +187,9 @@ public class GalleryItemFragment extends Fragment {
 
     /**
      * Notifies this fragment that the current position of its containing ViewPager has changed.
+     *
      * @param fragmentPosition This fragment's position in the ViewPager.
-     * @param pagerPosition The pager's current position that is displayed to the user.
+     * @param pagerPosition    The pager's current position that is displayed to the user.
      */
     public void onUpdatePosition(int fragmentPosition, int pagerPosition) {
         if (fragmentPosition != pagerPosition) {
@@ -218,15 +223,16 @@ public class GalleryItemFragment extends Fragment {
                     return;
                 }
                 if (result.size() > 0) {
-                    galleryItem = (GalleryItem)result.values().toArray()[0];
-                    parentActivity.getGalleryCache().put((PageTitle)result.keySet().toArray()[0],
-                                                         galleryItem);
+                    galleryItem = (GalleryItem) result.values().toArray()[0];
+                    parentActivity.getGalleryCache().put((PageTitle) result.keySet().toArray()[0],
+                            galleryItem);
                     loadMedia();
                 } else {
                     updateProgressBar(false, true, 0);
                     FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
                 }
             }
+
             @Override
             public void onCatch(Throwable caught) {
                 Log.e("Wikipedia", "caught " + caught.getMessage());
@@ -265,6 +271,7 @@ public class GalleryItemFragment extends Fragment {
 
     private View.OnClickListener videoThumbnailClickListener = new View.OnClickListener() {
         private boolean loading = false;
+
         @Override
         public void onClick(View v) {
             if (loading) {
@@ -317,18 +324,18 @@ public class GalleryItemFragment extends Fragment {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
             Picasso.with(parentActivity)
-                   .load(galleryItem.getThumbUrl())
-                   .into(videoThumbnail, new Callback() {
-                       @Override
-                       public void onSuccess() {
-                           updateProgressBar(false, true, 0);
-                       }
+                    .load(galleryItem.getThumbUrl())
+                    .into(videoThumbnail, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            updateProgressBar(false, true, 0);
+                        }
 
-                       @Override
-                       public void onError() {
-                           updateProgressBar(false, true, 0);
-                       }
-                   });
+                        @Override
+                        public void onError() {
+                            updateProgressBar(false, true, 0);
+                        }
+                    });
         }
         videoThumbnail.setOnClickListener(videoThumbnailClickListener);
     }
@@ -337,35 +344,35 @@ public class GalleryItemFragment extends Fragment {
         imageView.setVisibility(View.VISIBLE);
         Log.d(TAG, "Loading image from url: " + url);
         Picasso.with(parentActivity)
-               .load(url)
-               .into(imageView, new Callback() {
-                   @Override
-                   public void onSuccess() {
-                       if (!isAdded()) {
-                           return;
-                       }
-                       updateProgressBar(false, true, 0);
-                       // if it's an SVG or PNG, give it a white background, since most
-                       // images with transparency were intended to be viewed on white.
-                       if (galleryItem.getMimeType().contains("svg")
-                           || galleryItem.getMimeType().contains("png")) {
-                           imageView.setBackgroundColor(Color.WHITE);
-                       }
-                       attacher.update();
-                       attacher.setZoomable(true);
-                       scaleImageToWindow();
-                       parentActivity.supportInvalidateOptionsMenu();
-                   }
+                .load(url)
+                .into(imageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        if (!isAdded()) {
+                            return;
+                        }
+                        updateProgressBar(false, true, 0);
+                        // if it's an SVG or PNG, give it a white background, since most
+                        // images with transparency were intended to be viewed on white.
+                        if (galleryItem.getMimeType().contains("svg")
+                                || galleryItem.getMimeType().contains("png")) {
+                            imageView.setBackgroundColor(Color.WHITE);
+                        }
+                        attacher.update();
+                        attacher.setZoomable(true);
+                        scaleImageToWindow();
+                        parentActivity.supportInvalidateOptionsMenu();
+                    }
 
-                   @Override
-                   public void onError() {
-                       if (!isAdded()) {
-                           return;
-                       }
-                       updateProgressBar(false, true, 0);
-                       FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
-                   }
-               });
+                    @Override
+                    public void onError() {
+                        if (!isAdded()) {
+                            return;
+                        }
+                        updateProgressBar(false, true, 0);
+                        FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
+                    }
+                });
     }
 
     /**
@@ -379,9 +386,9 @@ public class GalleryItemFragment extends Fragment {
         }
         final float scaleThreshold = 0.25f;
         float windowAspect = (float) containerView.getWidth()
-                             / (float) containerView.getHeight();
+                / (float) containerView.getHeight();
         float imageAspect = (float) galleryItem.getWidth()
-                            / (float) galleryItem.getHeight();
+                / (float) galleryItem.getHeight();
         if (Math.abs(1.0f - imageAspect / windowAspect) < scaleThreshold) {
             if (windowAspect > imageAspect) {
                 attacher.setScale(windowAspect / imageAspect);
@@ -420,24 +427,34 @@ public class GalleryItemFragment extends Fragment {
             return;
         }
         parentActivity.getFunnel().logGallerySave(pageTitle, galleryItem.getName());
-        new SaneAsyncTask<Void>(SaneAsyncTask.SINGLE_THREAD) {
+
+        final Bitmap savedImageBitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+
+        new SaneAsyncTask<String>(SaneAsyncTask.SINGLE_THREAD) {
             @Override
-            public Void performTask() throws Throwable {
-                String url = MediaStore.Images.Media.insertImage(parentActivity.getContentResolver(),
-                                ((BitmapDrawable) imageView.getDrawable()).getBitmap(),
-                                pageTitle.getDisplayText(), galleryItem.getName());
-                if (url == null) {
+            public String performTask() throws Throwable {
+                String localUrl = MediaStore.Images.Media.insertImage(parentActivity.getContentResolver(),
+                        savedImageBitmap,
+                        pageTitle.getDisplayText(),
+                        galleryItem.getName());
+                if (localUrl == null) {
                     throw new RuntimeException(getString(R.string.gallery_save_error_mediastore));
                 }
-                return null;
+                return localUrl;
             }
+
             @Override
-            public void onFinish(Void result) {
+            public void onFinish(String localUrl) {
                 if (!isAdded()) {
                     return;
                 }
                 FeedbackUtil.showMessage(parentActivity, R.string.gallery_save_success);
+                SavedImageNotificationHelper.displayImageSavedNotification(imageTitle.getText(),
+                        imageTitle.getCanonicalUri(),
+                        savedImageBitmap,
+                        localUrl);
             }
+
             @Override
             public void onCatch(Throwable caught) {
                 if (!isAdded()) {
@@ -447,5 +464,4 @@ public class GalleryItemFragment extends Fragment {
             }
         }.execute();
     }
-
 }

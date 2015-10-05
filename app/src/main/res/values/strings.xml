@@ -258,6 +258,8 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="gallery_menu_save">Save to device</string>
     <string name="gallery_save_error_mediastore">Failed to import image to media collection</string>
     <string name="gallery_save_success">Image saved successfully.</string>
+    <string name="gallery_image_saved_notification_title">Image saved.</string>
+    <string name="gallery_image_saved_notification_text">Touch to view.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="err_cannot_save_file">Cannot save file</string>
     <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
