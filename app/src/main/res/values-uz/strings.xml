@@ -130,6 +130,7 @@ Oldindan yoqimli ...</string>
   <string name="page_protected_other">Bu sahifa quyidagi darajalarda himoyalangan: %s</string>
   <string name="page_protected_can_not_edit">Ushbu sahifani tahrirlash uchun yetarli huquqingiz yoʻq</string>
   <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
+  <string name="settings_activity_title" fuzzy="true">Moslamalar</string>
   <string name="about_description">«Vikipediya» dasturi haqida</string>
   <string name="privacy_policy_description">Maxfiylik siyosati</string>
   <string name="terms_of_use_description">Foydalanish shartlari</string>

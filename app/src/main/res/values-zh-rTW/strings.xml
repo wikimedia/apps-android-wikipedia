@@ -155,6 +155,7 @@
   <string name="page_protected_other">此頁面已受到以下層級的保護：$1</string>
   <string name="page_protected_can_not_edit">您沒有編輯本頁面的權限</string>
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
+  <string name="settings_activity_title" fuzzy="true">設定</string>
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私政策</string>
   <string name="terms_of_use_description">使用條款</string>

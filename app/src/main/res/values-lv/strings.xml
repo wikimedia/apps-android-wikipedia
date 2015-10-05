@@ -75,6 +75,7 @@
   <string name="zero_interstitial_continue">Pamest</string>
   <string name="zero_interstitial_cancel">Palikt šeit</string>
   <string name="zero_learn_more_learn_more" fuzzy="true">Uzzināt vairāk</string>
+  <string name="settings_activity_title" fuzzy="true">Iestatījumi</string>
   <string name="privacy_policy_description">Privātuma politika</string>
   <string name="terms_of_use_description">Lietošanas noteikumi</string>
   <string name="about_libraries_heading">izmantotās bibliotēkas</string>

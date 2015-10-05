@@ -155,6 +155,7 @@
   <string name="page_protected_other">Gwarezet eo bet ar bajenn-mañ gant al livioù-mañ : %s</string>
   <string name="page_protected_can_not_edit">N\'ho peus ket gwir da aozañ ar bajenn-mañ</string>
   <string name="page_protected_can_not_edit_title">Gwarezet eo ar bajenn-mañ</string>
+  <string name="settings_activity_title" fuzzy="true">Arventennoù</string>
   <string name="about_description">Diwar-benn an arload Wikipedia</string>
   <string name="privacy_policy_description">Reolennoù prevezded</string>
   <string name="terms_of_use_description">Termenoù implijout</string>

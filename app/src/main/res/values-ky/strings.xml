@@ -141,6 +141,7 @@
   <string name="page_protected_other">Бул барак мындай деңгээлдерде корголгон: %s</string>
   <string name="page_protected_can_not_edit">Бул баракты оңдоого сиздин укугуңуз жок.</string>
   <string name="page_protected_can_not_edit_title">Бул барак корголгон</string>
+  <string name="settings_activity_title" fuzzy="true">Ырастоолор</string>
   <string name="about_description">«Уикипедия» тиркемеси жөнүндө</string>
   <string name="privacy_policy_description">Купуялуулук саясаты</string>
   <string name="terms_of_use_description">Колдонуу шарттары</string>

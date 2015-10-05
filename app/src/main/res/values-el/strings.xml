@@ -155,6 +155,7 @@
   <string name="page_protected_other">Αυτή η σελίδα είναι κάτω από το ακόλουθο καθεστός προστασίας: %s</string>
   <string name="page_protected_can_not_edit">Δεν έχετε τα δικαιώματα για να επεξεργαστείτε αυτή τη σελίδα</string>
   <string name="page_protected_can_not_edit_title">Αυτή η σελίδα είναι προστατευμένη</string>
+  <string name="settings_activity_title" fuzzy="true">Ρυθμίσεις</string>
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="privacy_policy_description">Πολιτική ιδιωτικού απορρήτου</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>

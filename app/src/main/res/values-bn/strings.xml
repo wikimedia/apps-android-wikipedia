@@ -154,6 +154,7 @@
   <string name="page_protected_other">এই পাতাটি নিম্নের মাত্রা অনুযায়ী সুরক্ষিত: %s</string>
   <string name="page_protected_can_not_edit">আপনার এই পাতায় সম্পাদনা করার অধিকার নেই।</string>
   <string name="page_protected_can_not_edit_title">এই পাতাটি সুরক্ষিত</string>
+  <string name="settings_activity_title" fuzzy="true">সেটিং</string>
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>

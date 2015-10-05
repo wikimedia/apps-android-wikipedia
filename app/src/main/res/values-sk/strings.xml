@@ -42,7 +42,7 @@
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
   <string name="nav_item_nearby">V okolí</string>
   <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>
-  <string name="nearby_empty_message" fuzzy="true">Keď sa presuniete na nové miesto, skúste obnoviť túto stránku pre zistenie ďalších informácií o tom, čo je okolo vás.</string>
+  <string name="nearby_empty_message">Pre zistenie ďalších informácií o tom, čo je okolo vás sa presuňte na nové miesto.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -81,7 +81,7 @@
   <string name="title_captcha">Zadajte text</string>
   <string name="edit_section_captcha_reload">Ťuknutím načítate captchu znovu</string>
   <string name="edit_saved_page_refresh">Táto uložená stránka môže byť zastaralá a pre umožnenie úprav je potrebnú ju aktualizovať. Chcete stránku aktualizovať?</string>
-  <string name="nav_item_login" fuzzy="true">Prihlásiť sa</string>
+  <string name="nav_item_login">Prihlásiť sa</string>
   <string name="login_username_hint">Používateľské meno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="login_password_show_check">Zobraziť heslo</string>
@@ -155,6 +155,7 @@
   <string name="page_protected_other">Táto stránka je zamknutá do nasledovných úrovní: %s</string>
   <string name="page_protected_can_not_edit">Nemáte práva na úpravu tohto článku</string>
   <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
+  <string name="settings_activity_title" fuzzy="true">Nastavenia</string>
   <string name="about_description">O aplikácii</string>
   <string name="privacy_policy_description">Ochrana osobných údajov</string>
   <string name="terms_of_use_description">Podmienky používania</string>
@@ -250,5 +251,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="button_close_tab">Zavrieť kartu</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
   <string name="error_unknown">Vyskytla sa neznáma chyba.</string>
+  <string name="format_error_server_message">Správa: \"%s\"</string>
+  <string name="format_error_server_code">Kód: \"%s\"</string>
   <string name="button_continue_to_article">Pokračovať na článok</string>
 </resources>

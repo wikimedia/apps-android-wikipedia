@@ -109,6 +109,7 @@
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>
   <string name="history_search_list_hint" fuzzy="true">ရှာ​ဖွေ​ရန်​</string>
   <string name="history_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိပါ။</string>
+  <string name="settings_activity_title" fuzzy="true">အပြင်အဆင်များ</string>
   <string name="about_description">ဝီကီပီဒီးယားအက်ပ် အကြောင်း</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="about_contributors_heading">ပံ့ပိုးထားသူများ</string>

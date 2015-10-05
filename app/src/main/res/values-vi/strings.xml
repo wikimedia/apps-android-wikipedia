@@ -155,6 +155,7 @@
   <string name="page_protected_other">Trang này đã bị khóa ở mức độ sau: %s</string>
   <string name="page_protected_can_not_edit">Bạn không có quyền sửa đổi trang này.</string>
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
+  <string name="settings_activity_title" fuzzy="true">Tùy chọn</string>
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
   <string name="privacy_policy_description">Quy định về quyền riêng tư</string>
   <string name="terms_of_use_description">Điều khoản sử dụng</string>

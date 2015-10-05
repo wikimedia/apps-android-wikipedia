@@ -113,6 +113,7 @@
   <string name="create_account_account_created_toast">ખાતું ખોલવામાં આવ્યું!</string>
   <string name="history_search_list_hint">ઇતિહાસ શોધો</string>
   <string name="history_search_empty_message">તમારી પૂછપરછ સાથે બંધબેસતું કોઈ પાનું મળ્યું નથી.</string>
+  <string name="settings_activity_title" fuzzy="true">ગોઠવણીઓ</string>
   <string name="privacy_policy_description">ગોપનિયતા નીતિ</string>
   <string name="terms_of_use_description">વપરાશની શરતો</string>
   <string name="about_contributors_heading">યોગદાનકર્તાઓ</string>

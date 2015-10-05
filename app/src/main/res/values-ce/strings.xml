@@ -86,6 +86,7 @@
   <string name="edit_preview_fetching_dialog_message">Хьалха хьажар гучудолуш ду…</string>
   <string name="history_search_list_hint" fuzzy="true">Лахар</string>
   <string name="history_search_empty_message">Хьан дехарца агӀонаш цакарий</string>
+  <string name="settings_activity_title" fuzzy="true">Параметраш</string>
   <string name="privacy_policy_description">Къайлаха политика</string>
   <string name="terms_of_use_description">Лелоран хьал</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>

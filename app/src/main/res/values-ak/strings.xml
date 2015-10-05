@@ -113,6 +113,7 @@
   <string name="page_protected_other">Woabɔ krataa yi ho ban akodu: %s</string>
   <string name="page_protected_can_not_edit">Wo nni hokwan sɛ wo kyerɛw biribiara wɔ ha</string>
   <string name="page_protected_can_not_edit_title">Woabɔ krataa yi ho ban</string>
+  <string name="settings_activity_title" fuzzy="true">Kyerɛ nea wopɛ</string>
   <string name="about_description">Efa Wikipedia adwinade yi</string>
   <string name="about_libraries_heading">Libraries used</string>
   <string name="about_contributors_heading">aboafo</string>

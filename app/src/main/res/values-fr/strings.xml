@@ -155,6 +155,7 @@
   <string name="page_protected_other">Cette page a été protégée pour les niveaux suivants : %s</string>
   <string name="page_protected_can_not_edit">Vous n’avez pas le droit de modifier cette page</string>
   <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
+  <string name="settings_activity_title" fuzzy="true">Paramètres</string>
   <string name="about_description">À propos de l’application Wikipédia</string>
   <string name="privacy_policy_description">Politique de confidentialité</string>
   <string name="terms_of_use_description">Conditions d’utilisation</string>

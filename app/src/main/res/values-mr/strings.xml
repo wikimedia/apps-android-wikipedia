@@ -123,6 +123,7 @@
   <string name="error_can_not_process_link">ही दुवा दाखवु शकत नाही</string>
   <string name="page_protected_can_not_edit">तुम्हाला हे पान संपादन करण्याची परवानगी नाही</string>
   <string name="page_protected_can_not_edit_title">पान संरक्षित आहे</string>
+  <string name="settings_activity_title" fuzzy="true">संरचना</string>
   <string name="about_description">विकिपीडिया अॅपविषयी</string>
   <string name="privacy_policy_description">गुप्तता नीती</string>
   <string name="terms_of_use_description">वापराच्या अटी</string>

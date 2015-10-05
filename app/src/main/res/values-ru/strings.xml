@@ -155,6 +155,7 @@
   <string name="page_protected_other">Эта страница была защищена на следующих уровнях: %s</string>
   <string name="page_protected_can_not_edit">У вас нет прав на редактирование этой страницы</string>
   <string name="page_protected_can_not_edit_title">Эта страница защищена</string>
+  <string name="settings_activity_title" fuzzy="true">Настройки</string>
   <string name="about_description">О приложении «Википедия»</string>
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>

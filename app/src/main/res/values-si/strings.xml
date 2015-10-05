@@ -102,6 +102,7 @@
   <string name="preference_title_eventlogging_opt_in">භාවිත වාර්තා යවන්න</string>
   <string name="history_search_list_hint" fuzzy="true">සොයන්න</string>
   <string name="page_protected_can_not_edit_title">මෙම පිටුව ආරක්ෂණය කර ඇත</string>
+  <string name="settings_activity_title" fuzzy="true">සැකසුම්</string>
   <string name="privacy_policy_description">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
   <string name="terms_of_use_description">භාවිතයේ කොන්දේසි</string>
   <string name="about_contributors_heading">දායකයින්</string>
