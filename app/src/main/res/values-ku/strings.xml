@@ -92,8 +92,6 @@
   <string name="history_search_list_hint" fuzzy="true">Lêgerîn</string>
   <string name="page_protected_can_not_edit">Mafê te bo guherandina vê rûpelê tune ye</string>
   <string name="page_protected_can_not_edit_title">Ev rûpel hatiye parastin</string>
-  <string name="more_item_preferences">Bêhtir</string>
-  <string name="more_activity_title">Bêhtir</string>
   <string name="about_description">Di derbarê sepana Wîkîpediyayê de</string>
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>

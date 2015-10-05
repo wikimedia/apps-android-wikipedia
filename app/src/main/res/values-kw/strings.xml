@@ -145,8 +145,6 @@
   <string name="page_protected_other">Difresys re beu an folen ma dhe\'n nivellow a syw: %s</string>
   <string name="page_protected_can_not_edit">Ny\'gas beus an gwiryow dhe janjya an folen ma</string>
   <string name="page_protected_can_not_edit_title">Difresys yw an folen ma</string>
-  <string name="more_item_preferences">Moy</string>
-  <string name="more_activity_title">Moy</string>
   <string name="about_description">A-dro dhe\'n app Wikipedia</string>
   <string name="privacy_policy_description">Polici privetter</string>
   <string name="terms_of_use_description">Termynyow devnydh</string>

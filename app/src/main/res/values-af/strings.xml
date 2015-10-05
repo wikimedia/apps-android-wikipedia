@@ -155,8 +155,6 @@
   <string name="page_protected_other">Hierdie blad is beskerm tot die volgende vlakke: %s</string>
   <string name="page_protected_can_not_edit">U het nie die regte om hierdie blad te wysig nie</string>
   <string name="page_protected_can_not_edit_title">Hierdie blad is beskerm</string>
-  <string name="more_item_preferences">Meer</string>
-  <string name="more_activity_title">Meer</string>
   <string name="about_description">Aangaande Wikipedia toep</string>
   <string name="privacy_policy_description">Privaatheidsbeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaardes</string>

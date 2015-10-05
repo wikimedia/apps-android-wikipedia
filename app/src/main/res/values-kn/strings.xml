@@ -120,8 +120,6 @@
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
   <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
   <string name="history_search_list_hint">ಇತಿಹಾಸ  ಹುಡುಕಿ</string>
-  <string name="more_item_preferences">ಹೆಚ್ಚು</string>
-  <string name="more_activity_title">ಹೆಚ್ಚು</string>
   <string name="terms_of_use_description">ಬಳಕೆಯನ್ನು ನಿಬಂಧನೆಗಳು</string>
   <string name="about_activity_title">ನಮ್ಮ ಬಗ್ಗೆ</string>
   <string name="user_blocked_from_editing_title">ನಿರ್ಬಂಧಿಸಿದ್ದರೆ</string>

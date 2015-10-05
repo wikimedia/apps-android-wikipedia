@@ -118,8 +118,6 @@
   <string name="editing_error_spamblacklist" fuzzy="true">ଆପଣ ଅଟକାଯାଇଥିବା ଡୋମେନମାନଙ୍କରୁ (%s) ଲିଙ୍କ ଦେଇଛନ୍ତି । ଦୟାକରି ତାହା କାଢ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
   <string name="history_search_list_hint" fuzzy="true">ଖୋଜିବେ</string>
   <string name="history_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
-  <string name="more_item_preferences">ଅଧିକ</string>
-  <string name="more_activity_title">ଅଧିକ</string>
   <string name="privacy_policy_description">ଗୁମର ନୀତି</string>
   <string name="terms_of_use_description">ବ୍ୟବହାର ନିୟମାବଳୀ</string>
   <string name="about_contributors_heading">ଅବଦାନକାରୀଗଣ</string>

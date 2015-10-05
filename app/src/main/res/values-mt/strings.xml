@@ -112,8 +112,6 @@
   <string name="error_can_not_process_link">Il-ħolqa ma setgħetx tintwera</string>
   <string name="page_protected_autoconfirmed">Din il-paġna hija semiprotetta.</string>
   <string name="page_protected_sysop">Din il-paġna hija protetta.</string>
-  <string name="more_item_preferences">Aktar</string>
-  <string name="more_activity_title">Aktar</string>
   <string name="about_description">Dwar l-app tal-Wikipedija</string>
   <string name="privacy_policy_description">Politika dwar il-privatezza</string>
   <string name="terms_of_use_description">Termini ta\' użu</string>

@@ -155,8 +155,6 @@
   <string name="page_protected_other">Denne side er beskyttet til følgende niveauer: %s</string>
   <string name="page_protected_can_not_edit">Du har ikke rettigheder til at redigere denne side</string>
   <string name="page_protected_can_not_edit_title">Denne side er beskyttet</string>
-  <string name="more_item_preferences">Mere</string>
-  <string name="more_activity_title">Mere</string>
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Behandling af personlige oplysninger</string>
   <string name="terms_of_use_description">Vilkår for anvendelse</string>

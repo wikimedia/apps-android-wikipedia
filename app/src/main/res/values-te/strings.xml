@@ -158,8 +158,6 @@
   <string name="page_protected_other">ఈ పేజి ఈ స్థాయిలలో రక్షించబడింది: %s</string>
   <string name="page_protected_can_not_edit">ఈ పేజీని సవరించడానికి మీకు హక్కు లేదు</string>
   <string name="page_protected_can_not_edit_title">ఈ పేజీ సంరక్షించబడింది</string>
-  <string name="more_item_preferences">మరిన్ని</string>
-  <string name="more_activity_title">మరిన్ని</string>
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>

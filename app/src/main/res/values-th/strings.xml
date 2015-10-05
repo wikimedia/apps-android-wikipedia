@@ -109,8 +109,6 @@
   <string name="zero_learn_more_learn_more">อ่านเพิ่มเติม</string>
   <string name="zero_learn_more_dismiss">รับทราบ</string>
   <string name="nav_item_random">สุ่ม</string>
-  <string name="more_item_preferences">เพิ่มเติม</string>
-  <string name="more_activity_title">เพิ่มเติม</string>
   <string name="user_blocked_from_editing_title">ถูกบล็อก</string>
   <string name="edit_next">ถัดไป</string>
   <string name="edit_done">บันทึก</string>

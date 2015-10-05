@@ -141,8 +141,6 @@
   <string name="page_protected_other">ഈ താൾ ഈ തലങ്ങൾ വരെ സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു: %s</string>
   <string name="page_protected_can_not_edit">ഈ താൾ തിരുത്താനുള്ള അവകാശം താങ്കൾക്കില്ല</string>
   <string name="page_protected_can_not_edit_title">ഈ താൾ സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു</string>
-  <string name="more_item_preferences">കൂടുതൽ</string>
-  <string name="more_activity_title">കൂടുതൽ</string>
   <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
   <string name="privacy_policy_description">സ്വകാര്യതാനയം</string>
   <string name="terms_of_use_description">ഉപയോഗനിബന്ധനകൾ</string>

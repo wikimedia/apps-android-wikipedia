@@ -77,8 +77,6 @@
   <string name="preference_title_eventlogging_opt_in">Gabaasa fayyadamaa ergi</string>
   <string name="history_search_list_hint" fuzzy="true">Barbaadi</string>
   <string name="error_can_not_process_link">Geessituu kana agarsiisuu hindandeenye</string>
-  <string name="more_item_preferences">Dabalata</string>
-  <string name="more_activity_title">Dabalata</string>
   <string name="privacy_policy_description">Seera mateengaa</string>
   <string name="terms_of_use_description">Waliigaltee fayyadamaa</string>
   <string name="about_translators_heading">Afaan hiiktota</string>

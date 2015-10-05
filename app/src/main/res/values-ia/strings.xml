@@ -133,8 +133,6 @@
   <string name="history_search_list_hint" fuzzy="true">Cercar</string>
   <string name="history_search_empty_message">Necun pagina trovate que corresponde a tu recerca.</string>
   <string name="page_protected_can_not_edit_title">Iste pagina es protegite</string>
-  <string name="more_item_preferences">Plus</string>
-  <string name="more_activity_title">Plus</string>
   <string name="about_description">Re le le application Wikipedia</string>
   <string name="privacy_policy_description">Politica de confidentialitate</string>
   <string name="terms_of_use_description">Conditiones de uso</string>

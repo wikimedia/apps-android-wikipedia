@@ -115,8 +115,6 @@
   <string name="page_protected_other">See lehekülg on kaitstud järgnevalt: %s</string>
   <string name="page_protected_can_not_edit">Sul ei ole õigusi selle lehe muutmiseks</string>
   <string name="page_protected_can_not_edit_title">See lehekülg on kaitstud</string>
-  <string name="more_item_preferences">Veel</string>
-  <string name="more_activity_title">Veel</string>
   <string name="about_description">Teave Vikipeedia rakenduse kohta</string>
   <string name="about_libraries_heading">kasutatud raamatukogud</string>
   <string name="about_contributors_heading">kaastöölised</string>

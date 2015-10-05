@@ -72,7 +72,7 @@
                   android:exported="false"
                 />
         <activity android:name=".settings.SettingsActivity"
-                  android:label="@string/more_activity_title"
+                  android:label="@string/settings_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                   android:exported="false"
                 />

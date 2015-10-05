@@ -223,18 +223,9 @@ Shown in left navigation. Tapping it produces a random page.</string>
   <string name="page_protected_other">Message shown to users when editing a page that is protected with a custom level of protection. %s refers to the name of the protection level. Examples include \'templateeditor\' on enwiki.</string>
   <string name="page_protected_can_not_edit">Message in dialog box telling the user that they can not edit this page because it is protected.</string>
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
-  <string name="more_item_preferences">Used as menu item in the nav menu to go to the Settings screen.
-
-The title for the Settings screen is {{msg-wm|Wikipedia-android-strings-more activity title}}.
-
-See screenshot [[commons:File:Wikipedia Android app menu open.png]]
-{{Identical|More}}</string>
-  <string name="more_activity_title">Title at the top of the More (Settings) screen.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-more item preferences}} - menu item to come to this screen
-{{Identical|More}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
+  <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.</string>
+  <string name="settings_activity_title">Title at the top of the Settings screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.
 {{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.
