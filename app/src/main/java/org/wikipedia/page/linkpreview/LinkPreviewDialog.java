@@ -31,7 +31,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -87,7 +86,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(STYLE_NO_TITLE, R.style.LinkPreviewDialog);
-        setDialogPeekHeight((int) getResources().getDimension(R.dimen.linkPreviewPeekHeight));
+        setContentPeekHeight((int) getResources().getDimension(R.dimen.linkPreviewPeekHeight));
     }
 
     @Override
@@ -290,10 +289,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         if (contents.getExtract().length() > 0) {
             extractText.setText(contents.getExtract());
         }
-
-        LinearLayout.LayoutParams extractLayoutParams = (LinearLayout.LayoutParams) extractText.getLayoutParams();
-        extractLayoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        extractText.setLayoutParams(extractLayoutParams);
     }
 
     private class GalleryThumbnailFetchTask extends GalleryCollectionFetchTask {
@@ -305,7 +300,15 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         public void onGalleryResult(GalleryCollection result) {
             if (result.getItemList().size() > 2) {
                 thumbnailGallery.setGalleryCollection(result);
-                thumbnailGallery.setVisibility(View.VISIBLE);
+
+                // When the visibility is immediately changed, the images flicker. Add a short delay.
+                final int animationDelayMillis = 100;
+                thumbnailGallery.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        thumbnailGallery.setVisibility(View.VISIBLE);
+                    }
+                }, animationDelayMillis);
             }
         }
 

@@ -18,8 +18,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:minHeight="@dimen/linkPreviewPeekHeight"
             android:orientation="vertical"
-            android:background="?attr/link_preview_background_color">
+            android:background="?attr/link_preview_background_color"
+            android:animateLayoutChanges="true">
 
             <LinearLayout
                 android:id="@+id/link_preview_toolbar"
@@ -64,7 +66,7 @@
             <TextView
                 android:id="@+id/link_preview_extract"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="wrap_content"
                 style="@style/RtlAwareTextView"
                 android:paddingTop="4dp"
                 android:paddingLeft="16dp"
@@ -80,8 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/linkPreviewImageSize"
                 android:layout_marginTop="12dp"
-                android:background="?attr/link_preview_background_color"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/link_preview_go_button"
