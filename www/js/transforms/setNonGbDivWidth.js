@@ -1,10 +1,6 @@
 var transformer = require("../transformer");
 
-transformer.register( "setNonGbDivWidth", function( content ) {
-    if (window.apiLevel < 11) {
-        //don't do anything for GB
-        return;
-    }
+transformer.register( "setDivWidth", function( content ) {
     var allDivs = content.querySelectorAll( 'div' );
     var contentWrapper = document.getElementById( "content" );
     var clientWidth = contentWrapper.offsetWidth;

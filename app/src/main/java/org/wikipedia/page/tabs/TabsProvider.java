@@ -6,7 +6,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.ApiUtil;
 
 import com.squareup.picasso.Picasso;
 
@@ -207,18 +206,9 @@ public class TabsProvider {
                                - contentOffset - heightOffset * displayDensity);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, maxHeight);
         float margin = pageContentView.getWidth() * proportionHorz / 2f;
-        if (ApiUtil.hasHoneyComb()) {
-            params.leftMargin = (int) margin;
-            params.rightMargin = (int) margin;
-            params.topMargin = contentOffset;
-        } else {
-            // for 2.3, use padding instead of margin, for some reason.
-            tabListView.setPadding((int) margin, contentOffset, (int) margin, 0);
-            params.height += contentOffset;
-            params.leftMargin = 0;
-            params.rightMargin = 0;
-            params.topMargin = 0;
-        }
+        params.leftMargin = (int) margin;
+        params.rightMargin = (int) margin;
+        params.topMargin = contentOffset;
         tabListView.setLayoutParams(params);
 
         Animation anim = AnimationUtils.loadAnimation(parentActivity,

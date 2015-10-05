@@ -3,6 +3,7 @@ package org.wikipedia.settings;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
@@ -19,7 +20,6 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppLanguageSelectFunnel;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,7 +126,7 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
         languagesFilter.setEnabled(!enabled);
         languagesList.setEnabled(!enabled);
 
-        ViewUtil.setAlpha(languagesList, enabled ? LIST_DISABLED_ALPHA : LIST_ENABLED_ALPHA);
+        ViewCompat.setAlpha(languagesList, enabled ? LIST_DISABLED_ALPHA : LIST_ENABLED_ALPHA);
 
         if (enabled) {
             languagesList.clearChoices();

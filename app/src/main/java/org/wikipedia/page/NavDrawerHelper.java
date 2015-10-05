@@ -24,8 +24,6 @@ import org.wikipedia.nearby.NearbyFragmentOld;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
-import org.wikipedia.settings.SettingsActivityGB;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 
 public class NavDrawerHelper {
@@ -222,7 +220,7 @@ public class NavDrawerHelper {
 
     private void launchSettingsActivity() {
         activity.closeNavDrawer();
-        activity.startActivityForResult(new Intent().setClass(app, ApiUtil.hasHoneyComb() ? SettingsActivity.class : SettingsActivityGB.class),
+        activity.startActivityForResult(new Intent().setClass(app, SettingsActivity.class),
                 SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
     }
 

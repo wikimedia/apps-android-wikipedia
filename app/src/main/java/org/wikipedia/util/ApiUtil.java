@@ -28,21 +28,6 @@ public final class ApiUtil {
         return has(Build.VERSION_CODES.JELLY_BEAN);
     }
 
-    /** @return True if SDK API level is greater than or equal to 14. */
-    public static boolean hasIceCreamSandwich() {
-        return has(Build.VERSION_CODES.ICE_CREAM_SANDWICH);
-    }
-
-    /** @return True if SDK API level is greater than or equal to 13. */
-    public static boolean hasHoneyCombMr2() {
-        return has(Build.VERSION_CODES.HONEYCOMB_MR2);
-    }
-
-    /** @return True if SDK API level is greater than or equal to 11. */
-    public static boolean hasHoneyComb() {
-        return has(Build.VERSION_CODES.HONEYCOMB);
-    }
-
     /** @return SDK level. */
     private static int getLevel() {
         return android.os.Build.VERSION.SDK_INT;
@@ -58,6 +43,5 @@ public final class ApiUtil {
         return !isBefore(level);
     }
 
-    private ApiUtil() {
-    }
+    private ApiUtil() { }
 }

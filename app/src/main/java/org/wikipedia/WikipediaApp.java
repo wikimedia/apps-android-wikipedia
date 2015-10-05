@@ -1,5 +1,6 @@
 package org.wikipedia;
 
+import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -200,10 +201,7 @@ public class WikipediaApp extends Application {
 
         sessionFunnel = new SessionFunnel(this);
 
-        // Enable debugging on the webview
-        if (ApiUtil.hasKitKat()) {
-            WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG);
-        }
+        enableWebViewDebugging();
 
         Api.setConnectionFactory(new OkHttpConnectionFactory(this));
 
@@ -441,15 +439,12 @@ public class WikipediaApp extends Application {
     }
 
     public boolean isFeatureSelectTextAndShareTutorialEnabled() {
-        boolean enabled = false;
-        // Select text does not work on Gingerbread.
-        if (ApiUtil.hasHoneyComb()) {
-            if (Prefs.hasFeatureSelectTextAndShareTutorial()) {
-                enabled = Prefs.isFeatureSelectTextAndShareTutorialEnabled();
-            } else {
-                enabled = new Random().nextInt(2) == 0;
-                Prefs.setFeatureSelectTextAndShareTutorialEnabled(enabled);
-            }
+        boolean enabled;
+        if (Prefs.hasFeatureSelectTextAndShareTutorial()) {
+            enabled = Prefs.isFeatureSelectTextAndShareTutorialEnabled();
+        } else {
+            enabled = new Random().nextInt(2) == 0;
+            Prefs.setFeatureSelectTextAndShareTutorialEnabled(enabled);
         }
         return enabled;
     }
@@ -596,6 +591,13 @@ public class WikipediaApp extends Application {
         return headers;
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void enableWebViewDebugging() {
+        if (ApiUtil.hasKitKat()) {
+            WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG);
+        }
+    }
+
     private Theme unmarshalCurrentTheme() {
         int id = Prefs.getThemeId();
         Theme result = Theme.ofMarshallingId(id);
@@ -605,6 +607,7 @@ public class WikipediaApp extends Application {
         }
         return result;
     }
+
     private int calculateReleaseType() {
         if (BuildConfig.APPLICATION_ID.contains("beta")) {
             return RELEASE_BETA;

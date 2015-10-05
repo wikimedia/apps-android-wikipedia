@@ -9,7 +9,6 @@ import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 
@@ -25,7 +24,6 @@ import com.mapbox.mapboxsdk.tileprovider.tilesource.WebSourceTileLayer;
 import com.mapbox.mapboxsdk.views.MapView;
 import com.squareup.picasso.Picasso;
 
-import android.annotation.TargetApi;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -42,7 +40,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -499,15 +496,8 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         mapView.addMarkers(mMarkerList);
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void addResultsToAdapter(List<NearbyPage> result) {
-        if (ApiUtil.hasHoneyComb()) {
-            adapter.addAll(result);
-        } else {
-            for (NearbyPage page : result) {
-                adapter.add(page);
-            }
-        }
+        adapter.addAll(result);
     }
 
     private void setRefreshingState(boolean isRefreshing) {

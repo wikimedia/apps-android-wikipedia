@@ -1,5 +1,6 @@
 package org.wikipedia.search;
 
+import android.animation.ArgbEvaluator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,23 +13,18 @@ import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.View;
 
-import com.nineoldandroids.view.ViewHelper;
-
 import org.wikipedia.R;
 import org.wikipedia.ViewAnimations;
-import org.wikipedia.util.ArgbEvaluatorCompat;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
-public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeListener,
-        ObservableWebView.OnUpOrCancelMotionEventListener,
-        ObservableWebView.OnDownMotionEventListener {
+public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeListener, ObservableWebView.OnUpOrCancelMotionEventListener, ObservableWebView.OnDownMotionEventListener {
     private static final int HUMAN_SCROLL_THRESHOLD = 200;
     private static final int FULL_OPACITY = 255;
     @NonNull private final View quickReturnView;
     private final float displayDensity;
-    @NonNull private final ArgbEvaluatorCompat colorEvaluator;
+    private final ArgbEvaluator colorEvaluator;
 
     @NonNull private final Context context;
     private ObservableWebView webview;
@@ -49,7 +45,7 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         ViewUtil.setBackgroundDrawable(quickReturnView, toolbarBackground);
         initToolbarGradient();
 
-        colorEvaluator = new ArgbEvaluatorCompat();
+        colorEvaluator = new ArgbEvaluator();
         statusBar = quickReturnView.findViewById(R.id.empty_status_bar).getBackground().mutate();
     }
 
@@ -114,7 +110,7 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         if (oldScrollY > scrollY) {
             int minMargin = 0;
             int scrollDelta = oldScrollY - scrollY;
-            int newMargin = (int) ViewHelper.getTranslationY(quickReturnView) + scrollDelta;
+            int newMargin = (int) quickReturnView.getTranslationY() + scrollDelta;
             animMargin = Math.min(minMargin, newMargin);
         } else {
             // scroll down!
@@ -125,16 +121,16 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
                 animMargin = 0;
             } else {
                 int minMargin = -quickReturnView.getHeight();
-                int newMargin = (int) ViewHelper.getTranslationY(quickReturnView) - scrollDelta;
+                int newMargin = (int) quickReturnView.getTranslationY() - scrollDelta;
                 animMargin = Math.max(minMargin, newMargin);
             }
         }
-        ViewHelper.setTranslationY(quickReturnView, animMargin);
+        quickReturnView.setTranslationY(animMargin);
     }
 
     @Override
     public void onUpOrCancelMotionEvent() {
-        int transY = (int)ViewHelper.getTranslationY(quickReturnView);
+        int transY = (int) quickReturnView.getTranslationY();
         int height = quickReturnView.getHeight();
         if (transY != 0 && transY > -height) {
             if (transY > -height / 2) {

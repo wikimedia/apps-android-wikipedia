@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.Light">
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
@@ -9,7 +9,7 @@
     </style>
 
     <style name="PageTheme" parent="NoTitle">
-        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
     </style>
 
     <style name="NoTitle" parent="AppTheme">

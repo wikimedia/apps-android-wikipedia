@@ -7,5 +7,5 @@ require("./transforms/hideRedLinks");
 require("./transforms/hideRefs");
 require("./transforms/relocateFirstParagraph");
 require("./transforms/setMathFormulaImageMaxWidth");
-require("./transforms/setNonGbDivWidth");
+require("./transforms/setDivWidth");
 require("./transforms/widenImages");

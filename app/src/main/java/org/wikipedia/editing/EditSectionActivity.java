@@ -44,7 +44,6 @@ import org.wikipedia.login.LoginTask;
 import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 
 public class EditSectionActivity extends ThemedActionBarActivity {
@@ -527,32 +526,30 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             item.setEnabled(sectionTextModified);
         }
 
-        if (ApiUtil.hasHoneyComb()) {
-            View v = getLayoutInflater().inflate(R.layout.item_edit_actionbar_button, null);
-            item.setActionView(v);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT);
-            v.setLayoutParams(params);
-            TextView txtView = (TextView) v.findViewById(R.id.edit_actionbar_button_text);
-            txtView.setText(item.getTitle());
-            txtView.setTypeface(null, item.isEnabled() ? Typeface.BOLD : Typeface.NORMAL);
-            v.setTag(item);
-            v.setClickable(true);
-            v.setEnabled(item.isEnabled());
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onOptionsItemSelected((MenuItem) view.getTag());
-                }
-            });
-
-            if (editSummaryFragment.isActive()) {
-                v.setBackgroundResource(R.drawable.button_selector_progressive);
-            } else if (editPreviewFragment.isActive()) {
-                v.setBackgroundResource(R.drawable.button_selector_complete);
-            } else {
-                v.setBackgroundResource(R.drawable.button_selector_progressive);
+        View v = getLayoutInflater().inflate(R.layout.item_edit_actionbar_button, null);
+        item.setActionView(v);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+        v.setLayoutParams(params);
+        TextView txtView = (TextView) v.findViewById(R.id.edit_actionbar_button_text);
+        txtView.setText(item.getTitle());
+        txtView.setTypeface(null, item.isEnabled() ? Typeface.BOLD : Typeface.NORMAL);
+        v.setTag(item);
+        v.setClickable(true);
+        v.setEnabled(item.isEnabled());
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onOptionsItemSelected((MenuItem) view.getTag());
             }
+        });
+
+        if (editSummaryFragment.isActive()) {
+            v.setBackgroundResource(R.drawable.button_selector_progressive);
+        } else if (editPreviewFragment.isActive()) {
+            v.setBackgroundResource(R.drawable.button_selector_complete);
+        } else {
+            v.setBackgroundResource(R.drawable.button_selector_progressive);
         }
 
         return true;

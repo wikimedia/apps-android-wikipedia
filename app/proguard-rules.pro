@@ -43,8 +43,6 @@
 -dontwarn com.squareup.okhttp.**
 -dontnote com.squareup.okhttp.internal.Platform
 
--keep class com.nineoldandroids.animation.** {*;}
--keep class com.nineoldandroids.util.Property {*;}
 
 -keep class com.mobsandgeeks.saripaar.** {*;}
 
@@ -112,3 +110,5 @@
 # Mapbox
 # TODO: use official rules when https://github.com/mapbox/mapbox-android-sdk/issues/363 is resolved.
 -dontwarn java.awt.**
+-keep class com.nineoldandroids.animation.** {*;}
+-keep class com.nineoldandroids.util.Property {*;}

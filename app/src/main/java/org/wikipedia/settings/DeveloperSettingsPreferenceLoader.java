@@ -1,28 +1,19 @@
 package org.wikipedia.settings;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 
 /*package*/ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
-    @NonNull private Context context;
-
-    /*package*/ DeveloperSettingsPreferenceLoader(@NonNull PreferenceActivity activity) {
-        super(activity);
-        init(activity);
-    }
+    @NonNull private final Context context;
 
     /*package*/
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     DeveloperSettingsPreferenceLoader(@NonNull PreferenceFragment fragment) {
         super(fragment);
-        init(fragment.getActivity());
+        this.context = fragment.getActivity().getApplicationContext();
     }
 
     @Override
@@ -50,9 +41,5 @@ import org.wikipedia.R;
 
     private String getCrashButtonKey() {
         return context.getString(R.string.preferences_developer_crash_key);
-    }
-
-    private void init(@NonNull Context context) {
-        this.context = context.getApplicationContext();
     }
 }

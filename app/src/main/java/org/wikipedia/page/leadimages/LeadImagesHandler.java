@@ -10,6 +10,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.FragmentActivity;
 import android.text.Html;
 import android.text.Spannable;
@@ -24,8 +25,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -307,7 +308,7 @@ public class LeadImagesHandler {
             // make the WebView padding be just the height of the title text, plus a fixed offset
             titleContainerHeight = (int) ((pageTitleText.getHeight() / displayDensity))
                     + DISABLED_OFFSET_DP;
-            imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+            imageContainer.setLayoutParams(new CoordinatorLayout.LayoutParams(CoordinatorLayout.LayoutParams.MATCH_PARENT,
                     (int) ((titleContainerHeight) * displayDensity)));
             // reset the background on the lead image, in case we previously set it to white.
             image.setBackgroundColor(Color.TRANSPARENT);
@@ -327,7 +328,7 @@ public class LeadImagesHandler {
             // layout, in case we were previously not showing it:
             // make the WebView padding be a proportion of the total screen height
             titleContainerHeight = (int) (displayHeightDp * IMAGES_CONTAINER_RATIO);
-            imageContainer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+            imageContainer.setLayoutParams(new CoordinatorLayout.LayoutParams(CoordinatorLayout.LayoutParams.MATCH_PARENT,
                     (int) (titleContainerHeight * displayDensity)));
             // prepare the lead image to be populated
             image.setVisibility(View.INVISIBLE);
@@ -408,8 +409,7 @@ public class LeadImagesHandler {
         // preload the display density, since it will be used in a lot of places
         displayDensity = DimenUtil.getDensityScalar();
 
-        int displayHeightPx = DimenUtil.getDisplayHeight(
-                getActivity().getWindowManager().getDefaultDisplay());
+        int displayHeightPx = DimenUtil.getDisplayHeightPx();
 
         displayHeightDp = (int) (displayHeightPx / displayDensity);
     }
@@ -447,10 +447,10 @@ public class LeadImagesHandler {
         if (newHeight < imagePlaceholder.getHeight()) {
             // if the height of the image is less than the container, then just
             // make it the same height as the placeholder.
-            setImageLayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, imagePlaceholder.getHeight());
+            setImageLayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, imagePlaceholder.getHeight());
             imageBaseYOffset = 0;
         } else {
-            setImageLayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, newHeight);
+            setImageLayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, newHeight);
         }
 
         forceRefreshWebView();
@@ -462,7 +462,7 @@ public class LeadImagesHandler {
     }
 
     private void setImageLayoutParams(int width, int height) {
-        image.setLayoutParams(new LinearLayout.LayoutParams(width, height));
+        image.setLayoutParams(new FrameLayout.LayoutParams(width, height));
     }
 
     private SpannableString subtitleSpannable(@Nullable CharSequence str, int sizePx) {
@@ -583,9 +583,9 @@ public class LeadImagesHandler {
     private class WebViewScrollListener implements ObservableWebView.OnScrollChangeListener {
         @Override
         public void onScrollChanged(int oldScrollY, int scrollY) {
-            LinearLayout.LayoutParams contParams = (LinearLayout.LayoutParams) imageContainer
+            CoordinatorLayout.LayoutParams contParams = (CoordinatorLayout.LayoutParams) imageContainer
                     .getLayoutParams();
-            LinearLayout.LayoutParams imgParams = (LinearLayout.LayoutParams) image.getLayoutParams();
+            FrameLayout.LayoutParams imgParams = (FrameLayout.LayoutParams) image.getLayoutParams();
             if (scrollY > imageContainer.getHeight()) {
                 if (contParams.topMargin != -imageContainer.getHeight()) {
                     contParams.topMargin = -imageContainer.getHeight();

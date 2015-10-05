@@ -12,7 +12,6 @@ import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.page.BottomDialog;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.ApiUtil;
 
 public class ThemeChooserDialog extends BottomDialog {
     private WikipediaApp app;
@@ -116,10 +115,8 @@ public class ThemeChooserDialog extends BottomDialog {
             }
         }
 
-        if (ApiUtil.hasHoneyComb()) {
-            buttonThemeLight.setActivated(app.isCurrentThemeLight());
-            buttonThemeDark.setActivated(app.isCurrentThemeDark());
-        }
+        buttonThemeLight.setActivated(app.isCurrentThemeLight());
+        buttonThemeDark.setActivated(app.isCurrentThemeDark());
     }
 
     private class ThemeOnClickListener implements View.OnClickListener {
