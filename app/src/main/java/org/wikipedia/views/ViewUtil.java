@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewManager;
+import android.view.animation.Animation;
 
 import org.wikipedia.util.ApiUtil;
 
@@ -44,6 +45,14 @@ public final class ViewUtil {
     @Nullable public static <T extends View> T findView(@NonNull Activity activity, @IdRes int id) {
         //noinspection unchecked
         return (T) activity.findViewById(id);
+    }
+
+    public static void setAnimationMatrix(View view, Animation animation) {
+        // View.setAnimationMatrix() is hidden so we can't get the final Animation frame
+        // Transformation Matrix and apply it manually.
+        view.clearAnimation();
+        animation.setDuration(0);
+        view.setAnimation(animation);
     }
 
     private ViewUtil() { }

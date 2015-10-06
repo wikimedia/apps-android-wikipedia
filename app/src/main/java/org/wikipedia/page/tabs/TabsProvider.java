@@ -6,6 +6,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.views.ViewUtil;
 
 import com.squareup.picasso.Picasso;
 
@@ -28,6 +29,13 @@ import android.widget.TextView;
 import java.util.List;
 
 public class TabsProvider {
+    public interface TabsProviderListener {
+        void onEnterTabView();
+        void onCancelTabView();
+        void onTabSelected(int position);
+        void onNewTabRequested();
+        void onCloseTabRequested(int position);
+    }
 
     private PageActivity parentActivity;
     private float displayDensity;
@@ -43,14 +51,6 @@ public class TabsProvider {
     private boolean isActionModeDismissedIndirectly;
 
     private List<Tab> tabList;
-
-    public interface TabsProviderListener {
-        void onEnterTabView();
-        void onCancelTabView();
-        void onTabSelected(int position);
-        void onNewTabRequested();
-        void onCloseTabRequested(int position);
-    }
 
     @NonNull
     private TabsProviderListener providerListener = new DefaultTabsProviderListener();
@@ -87,7 +87,7 @@ public class TabsProvider {
     }
 
     public boolean onBackPressed() {
-        if (tabActionMode != null) {
+        if (isTabMode()) {
             exitTabMode();
             providerListener.onCancelTabView();
             return true;
@@ -100,8 +100,12 @@ public class TabsProvider {
         providerListener.onEnterTabView();
     }
 
+    private boolean isTabMode() {
+        return tabActionMode != null;
+    }
+
     private void enterTabMode(@Nullable Runnable onTabModeEntered) {
-        if (tabActionMode != null) {
+        if (isTabMode()) {
             // already inside action mode...
             // but make sure to update the list of tabs.
             tabListAdapter.notifyDataSetInvalidated();
@@ -127,12 +131,13 @@ public class TabsProvider {
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             tabActionMode = mode;
             mode.getMenuInflater().inflate(R.menu.menu_tabs, menu);
-            Animation anim = AnimationUtils.loadAnimation(parentActivity,
-                                                          R.anim.tab_list_zoom_enter);
+            Animation anim = loadPageContentViewAnimation();
             parentActivity.getContentView().startAnimation(anim);
             layoutTabList(onTabModeEntered);
+
             return true;
         }
+
 
         @Override
         public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
@@ -142,6 +147,7 @@ public class TabsProvider {
             // down to the view beneath it, which is the Search bar, and we don't want to
             // unintentionally initiate Search.
             parentActivity.findViewById(R.id.action_mode_bar).setClickable(true);
+
             return false;
         }
 
@@ -171,7 +177,7 @@ public class TabsProvider {
     }
 
     public void exitTabMode() {
-        if (tabActionMode != null) {
+        if (isTabMode()) {
             tabActionMode.finish();
         }
     }
@@ -179,6 +185,7 @@ public class TabsProvider {
     public void showAndHideTabs() {
         enterTabMode(new Runnable() {
             private final int animDelay = 500;
+
             @Override
             public void run() {
                 tabContainerView.postDelayed(new Runnable() {
@@ -192,27 +199,19 @@ public class TabsProvider {
         });
     }
 
+    public void onConfigurationChanged() {
+        if (isTabMode()) {
+            setViewLayoutListener();
+        }
+    }
+
     private void layoutTabList(final Runnable onTabModeEntered) {
         tabContainerView.setVisibility(View.VISIBLE);
         tabListAdapter.notifyDataSetInvalidated();
 
-        // size the listview to be the same width as the scaled-down webview...
-        final float proportionHorz = 0.15f;
-        final float proportionVert = 0.4f;
-        final int heightOffset = 16;
-        int contentOffset = Utils.getContentTopOffsetPx(parentActivity);
-        int maxHeight = (int) (pageContentView.getHeight() * proportionVert
-                               + pageContentView.getHeight() * proportionHorz
-                               - contentOffset - heightOffset * displayDensity);
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, maxHeight);
-        float margin = pageContentView.getWidth() * proportionHorz / 2f;
-        params.leftMargin = (int) margin;
-        params.rightMargin = (int) margin;
-        params.topMargin = contentOffset;
-        tabListView.setLayoutParams(params);
+        setTabListViewLayoutParams();
 
-        Animation anim = AnimationUtils.loadAnimation(parentActivity,
-                                                      R.anim.tab_list_items_enter);
+        Animation anim = loadTabListViewAnimation();
         anim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -288,6 +287,65 @@ public class TabsProvider {
         }
     };
 
+    // size the listview to be the same width as the scaled-down webview...
+    private void setTabListViewLayoutParams() {
+        final float proportionHorz = 0.15f;
+        final float proportionVert = 0.4f;
+        final int heightOffset = 16;
+        int contentOffset = Utils.getContentTopOffsetPx(parentActivity);
+        int maxHeight = (int) (pageContentView.getHeight() * proportionVert
+                + pageContentView.getHeight() * proportionHorz
+                - contentOffset - heightOffset * displayDensity);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, maxHeight);
+        float margin = pageContentView.getWidth() * proportionHorz / 2f;
+        params.leftMargin = (int) margin;
+        params.rightMargin = (int) margin;
+        params.topMargin = contentOffset;
+        tabListView.setLayoutParams(params);
+    }
+
+    private void setViewLayoutListener() {
+        tabListView.addOnLayoutChangeListener(new ViewLayoutListener());
+    }
+
+    private Animation loadPageContentViewAnimation() {
+        return AnimationUtils.loadAnimation(parentActivity, R.anim.tab_list_zoom_enter);
+    }
+
+    private Animation loadTabListViewAnimation() {
+        return AnimationUtils.loadAnimation(parentActivity, R.anim.tab_list_items_enter);
+    }
+
+    private class ViewLayoutListener implements View.OnLayoutChangeListener {
+        @Override
+        @SuppressWarnings("checkstyle:parameternumber")
+        public void onLayoutChange(View view, int left, int top, int right, int bottom, int oldLeft,
+                                   int oldTop, int oldRight, int oldBottom) {
+            view.removeOnLayoutChangeListener(this);
+            invalidateAnimations();
+        }
+
+        // Recalculate animations and apply the final frame.
+        private void invalidateAnimations() {
+            invalidatePageContentViewAnimation();
+            invalidateTabListViewAnimation();
+        }
+
+        private void invalidatePageContentViewAnimation() {
+            ViewUtil.setAnimationMatrix(pageContentView, loadPageContentViewAnimation());
+        }
+
+        private void invalidateTabListViewAnimation() {
+            // Post the layout for update and animation _after_ the current layout is applied.
+            tabListView.post(new Runnable() {
+                @Override
+                public void run() {
+                    setTabListViewLayoutParams();
+                    ViewUtil.setAnimationMatrix(tabListView, loadTabListViewAnimation());
+                }
+            });
+        }
+    }
 
     private static class DefaultTabsProviderListener implements TabsProviderListener {
         public static TabsProviderListener defaultIfNull(TabsProviderListener listener) {
@@ -373,7 +431,7 @@ public class TabsProvider {
                            .placeholder(R.drawable.ic_pageimage_placeholder)
                            .error(R.drawable.ic_pageimage_placeholder)
                            .noFade()
-                           .into(viewHolder.thumbnail);
+                            .into(viewHolder.thumbnail);
                 } else {
                     Picasso.with(parentActivity)
                            .load(R.drawable.ic_pageimage_placeholder)
