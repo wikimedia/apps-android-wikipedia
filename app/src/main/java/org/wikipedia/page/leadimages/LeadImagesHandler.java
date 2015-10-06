@@ -2,6 +2,7 @@ package org.wikipedia.page.leadimages;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -157,7 +158,7 @@ public class LeadImagesHandler {
     }
 
     @Nullable public Bitmap getLeadImageBitmap() {
-        return image.getImageBitmap();
+        return leadImagesEnabled ? newBitmapFromView(image) : null;
     }
 
     public boolean isLeadImageEnabled() {
@@ -233,6 +234,20 @@ public class LeadImagesHandler {
         // kick off the (asynchronous) laying out of the page title text
         layoutPageTitle((int) (getDimension(R.dimen.titleTextSize)
                 / displayDensity), listener, sequence);
+    }
+
+    // ideas from:
+    // http://stackoverflow.com/questions/2801116/converting-a-view-to-bitmap-without-displaying-it-in-android
+    // View has to be already displayed. Note: a copy of the ImageView's Drawable must be made in
+    // some fashion as it may be recycled. See T114658.
+    private Bitmap newBitmapFromView(ImageView view) {
+        // Define a bitmap with the same size as the view
+        Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
+                Bitmap.Config.ARGB_8888);
+        // Bind a canvas to it
+        Canvas canvas = new Canvas(returnedBitmap);
+        view.draw(canvas);
+        return returnedBitmap;
     }
 
     /**
