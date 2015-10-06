@@ -3,9 +3,7 @@ package org.wikipedia.settings;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatDialog;
-import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -13,13 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppLanguageSelectFunnel;
+import org.wikipedia.interlanguage.AppLanguageState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +25,6 @@ import java.util.List;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class LanguagePreferenceDialog extends AppCompatDialog {
-    private static final float LIST_DISABLED_ALPHA = .5f;
-    private static final float LIST_ENABLED_ALPHA = 1;
-
-    private EditText languagesFilter;
     private ListView languagesList;
 
     @NonNull
@@ -60,31 +54,27 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
             textView.setSingleLine(false);
         }
 
-        SwitchCompat systemLanguageSwitch = (SwitchCompat) findViewById(R.id.system_language_switch);
         languagesList = (ListView) findViewById(R.id.preference_languages_list);
-        languagesFilter = (EditText) findViewById(R.id.preference_languages_filter);
-
-        systemLanguageSwitch.setChecked(app.isSystemLanguageEnabled());
-        setSystemLanguageEnabled(app.isSystemLanguageEnabled());
-        systemLanguageSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                setSystemLanguageEnabled(isChecked);
-                app.resetSite();
-                if (isChecked) {
-                    funnel.logSelect();
-                    dismiss();
-                }
-            }
-        });
+        EditText languagesFilter = (EditText) findViewById(R.id.preference_languages_filter);
 
         languagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String lang = (String) languagesList.getAdapter().getItem(i);
                 if (!lang.equals(app.getAppOrSystemLanguageCode())) {
-                    app.setAppLanguageCode(lang);
+
+                    boolean systemLanguage = lang.equals(app.getSystemLanguageCode());
+                    String appCode = systemLanguage
+                            ? AppLanguageState.SYSTEM_LANGUAGE_CODE
+                            : lang;
+
+                    app.setAppLanguageCode(appCode);
+
+                    // Always use the nonnull language code for MRU languages so the list is updated
+                    // with the actual language used. Note: there are likely nulls in this list from
+                    // previous code. You can see the actual list in dev settings.
                     app.setMruLanguageCode(lang);
+
                     funnel.logSelect();
                 }
                 dismiss();
@@ -93,10 +83,8 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
 
         languagesList.setAdapter(new LanguagesAdapter(languageCodes, app));
 
-        if (!app.isSystemLanguageEnabled()) {
-            int selectedLanguageIndex = languageCodes.indexOf(app.getAppLanguageCode());
-            languagesList.setItemChecked(selectedLanguageIndex, true);
-        }
+        int selectedLanguageIndex = languageCodes.indexOf(app.getAppLanguageCode());
+        languagesList.setItemChecked(selectedLanguageIndex, true);
 
         languagesFilter.addTextChangedListener(new TextWatcher() {
             @Override
@@ -120,18 +108,6 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
     public void cancel() {
         funnel.logCancel();
         super.cancel();
-    }
-
-    private void setSystemLanguageEnabled(boolean enabled) {
-        languagesFilter.setEnabled(!enabled);
-        languagesList.setEnabled(!enabled);
-
-        ViewCompat.setAlpha(languagesList, enabled ? LIST_DISABLED_ALPHA : LIST_ENABLED_ALPHA);
-
-        if (enabled) {
-            languagesList.clearChoices();
-            app.setSystemLanguageEnabled();
-        }
     }
 
     private static final class LanguagesAdapter extends BaseAdapter {

@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Zapisując, akceptujesz &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu się&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
   <string name="preference_title_language">Język Wikipedii</string>
   <string name="preference_languages_filter_hint">Szukaj</string>
-  <string name="preference_system_language_toggle">Wykorzystaj język systemowy</string>
-  <string name="preference_system_language_summary">Język systemowy</string>
   <string name="langlinks_filter_hint">Szukaj</string>
   <string name="langlinks_error_retry">Ponów próbę</string>
   <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>

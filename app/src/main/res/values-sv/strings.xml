@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Genom att spara samtycker till &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="preference_languages_filter_hint">Sök</string>
-  <string name="preference_system_language_toggle">Använd systemspråket</string>
-  <string name="preference_system_language_summary">Systemspråk</string>
   <string name="langlinks_filter_hint">Sök</string>
   <string name="langlinks_error_retry">Försök igen</string>
   <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>

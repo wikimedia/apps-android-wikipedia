@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan dihubungkan ke alamat IP perangkat. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki lebih privasi.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_languages_filter_hint">Cari</string>
-  <string name="preference_system_language_toggle">Gunakan bahasa sistem</string>
-  <string name="preference_system_language_summary">Bahasa sistem</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="langlinks_error_retry">Coba lagi</string>
   <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain</string>

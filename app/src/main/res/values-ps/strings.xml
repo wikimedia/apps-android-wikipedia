@@ -35,8 +35,6 @@
   <string name="nearby_view_on_map">په کښېدې ځای کتل</string>
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
   <string name="preference_languages_filter_hint">پلټل</string>
-  <string name="preference_system_language_toggle">د غونډال ژبه کارول</string>
-  <string name="preference_system_language_summary">د غونډال ژبه</string>
   <string name="langlinks_filter_hint">پلټل</string>
   <string name="langlinks_error_retry">بياآزمويل</string>
   <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>

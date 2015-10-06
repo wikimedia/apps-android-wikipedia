@@ -48,8 +48,6 @@
   <string name="content_license_html">અન્ય કશું સૂચવાયું ન હોય ત્યાં સુધી વિગતો &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; હેઠળ ઉપલબ્ધ છે</string>
   <string name="preference_title_language">વિકિપીડિયા ભાષા</string>
   <string name="preference_languages_filter_hint">શોધ</string>
-  <string name="preference_system_language_toggle">સિસ્ટમ ભાષા વાપરો</string>
-  <string name="preference_system_language_summary">સિસ્ટમ ભાષા</string>
   <string name="langlinks_filter_hint">શોધ</string>
   <string name="langlinks_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="langlinks_empty">આ પાનું અન્ય ભાષાઓમાં ઉપલબ્ધ નથી.</string>

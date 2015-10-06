@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;. Các sửa đổi của  bạn sẽ ghi rõ địa chỉ IP của thiết bị của bạn. Bạn có thể &lt;a href=\"https://#login\"&gt;đăng nhập&lt;/a&gt; để bảo vệ quyền riêng tư của bạn một chút hơn.</string>
   <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
-  <string name="preference_system_language_toggle">Sử dụng ngôn ngữ hệ thống</string>
-  <string name="preference_system_language_summary">Ngôn ngữ hệ thống</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
   <string name="langlinks_error_retry">Thử lại</string>
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác</string>

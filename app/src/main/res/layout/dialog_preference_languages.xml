@@ -6,14 +6,6 @@
               android:layout_height="match_parent"
               android:background="?attr/window_background_color">
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/system_language_switch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/preference_system_language_toggle" />
-
     <org.wikipedia.views.PlainPasteEditText
             android:id="@+id/preference_languages_filter"
             android:layout_width="match_parent"

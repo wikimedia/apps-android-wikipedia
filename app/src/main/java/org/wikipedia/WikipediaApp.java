@@ -300,22 +300,19 @@ public class WikipediaApp extends Application {
         return appLanguageState.getAppOrSystemLanguageCode();
     }
 
+    @NonNull
+    public String getSystemLanguageCode() {
+        return appLanguageState.getSystemLanguageCode();
+    }
+
     public void setAppLanguageCode(@Nullable String code) {
         appLanguageState.setAppLanguageCode(code);
         resetSite();
     }
 
-    public boolean isSystemLanguageEnabled() {
-        return appLanguageState.isSystemLanguageEnabled();
-    }
-
-    public void setSystemLanguageEnabled() {
-        appLanguageState.setSystemLanguageEnabled();
-    }
-
     @Nullable
-    public String getAppLanguageLocalizedName() {
-        return appLanguageState.getAppLanguageLocalizedName();
+    public String getAppOrSystemLanguageLocalizedName() {
+        return appLanguageState.getAppOrSystemLanguageLocalizedName();
     }
 
     @NonNull

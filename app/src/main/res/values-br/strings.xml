@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Pa\'z enrollit e tegemerit an &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
   <string name="preference_title_language">Yezh Wikipedia</string>
   <string name="preference_languages_filter_hint">Klask</string>
-  <string name="preference_system_language_toggle">Implijout yezh ar reizhiad</string>
-  <string name="preference_system_language_summary">Yezh ar reizhiad</string>
   <string name="langlinks_filter_hint">Klask</string>
   <string name="langlinks_error_retry">Klask en-dro</string>
   <string name="langlinks_empty">N\'haller ket kaout ar bajenn-mañ e yezhoù all</string>

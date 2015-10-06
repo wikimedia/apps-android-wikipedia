@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Deur te stoor, stem u in tot die &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaardes&lt;/a&gt;, en stel u die bydra onherroeplik vry onder die &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; lisensie. Wysigings sal aan u toestel se IP-adres toegeskryf word. Indien u &lt;a href=\"https://#login\"&gt;aanmeld&lt;/a&gt;, sal u meer privaatheid geniet.</string>
   <string name="preference_title_language">Wikipediataal</string>
   <string name="preference_languages_filter_hint">Soek</string>
-  <string name="preference_system_language_toggle">Gebruik stelseltaal</string>
-  <string name="preference_system_language_summary">Stelseltaal</string>
   <string name="langlinks_filter_hint">Soek</string>
   <string name="langlinks_error_retry">Probeer weer</string>
   <string name="langlinks_empty">Hierdie bladsy is nie beskikbaar in ander tale nie.</string>

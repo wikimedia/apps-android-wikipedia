@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kieli</string>
   <string name="preference_languages_filter_hint">Haku</string>
-  <string name="preference_system_language_toggle">Käytä järjestelmän kieltä</string>
-  <string name="preference_system_language_summary">Järjestelmän kieli</string>
   <string name="langlinks_filter_hint">Haku</string>
   <string name="langlinks_error_retry">Yritä uudelleen</string>
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>

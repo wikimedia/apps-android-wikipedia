@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
-  <string name="preference_system_language_toggle">使用するシステム言語</string>
-  <string name="preference_system_language_summary">サイトの言語</string>
   <string name="langlinks_filter_hint">検索</string>
   <string name="langlinks_error_retry">再試行</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>

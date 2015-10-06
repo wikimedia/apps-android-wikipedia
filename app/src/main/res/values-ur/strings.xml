@@ -51,8 +51,6 @@
   <string name="edit_save_action_license_anon">محفوظ کرنے پر آپ کو &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق سمجھا جائے گا اور ترامیم کو&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس کے تحت آزاد سمجھا جائے گا. ترامیم کو آپکے آئی پی ایڈریس سے منسلک کیا جائے گا. اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی ایڈریس ظاہر نہیں ہوگا</string>
   <string name="preference_title_language">ویکیپیڈیا زبان منتخب کریں</string>
   <string name="preference_languages_filter_hint">تلاش</string>
-  <string name="preference_system_language_toggle">سسٹم کی زبان استعمال کریں</string>
-  <string name="preference_system_language_summary">سسٹم کی زبان</string>
   <string name="langlinks_filter_hint">تلاش</string>
   <string name="langlinks_error_retry">دوبارہ کوشش کریں</string>
   <string name="langlinks_empty">یہ صفحہ کسی دوسری زبان میں دستیاب نہیں ہے.</string>

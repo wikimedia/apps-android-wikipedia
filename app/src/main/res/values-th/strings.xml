@@ -54,8 +54,6 @@
 การแก้ไขจะถูกส่งผ่านที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ &lt;a href=\"https://#login\"&gt;ลงชื่อเข้าใช้&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
   <string name="preference_languages_filter_hint">ค้นหา</string>
-  <string name="preference_system_language_toggle">ใช้ภาษาของระบบ</string>
-  <string name="preference_system_language_summary">ภาษาของระบบ</string>
   <string name="langlinks_filter_hint">ค้นหา</string>
   <string name="langlinks_error_retry">ลองใหม่</string>
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>

@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Uložením souhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budou přiřazeny IP adrese vašeho zařízení. Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyk Wikipedie</string>
   <string name="preference_languages_filter_hint">Hledat</string>
-  <string name="preference_system_language_toggle">Použít systémový jazyk</string>
-  <string name="preference_system_language_summary">Jazyk systému</string>
   <string name="langlinks_filter_hint">Hledat</string>
   <string name="langlinks_error_retry">Zkusit znovu</string>
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích</string>

@@ -50,8 +50,6 @@
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
   <string name="preference_title_language">וויקיפעדיע־שפראך</string>
   <string name="preference_languages_filter_hint">זוכן</string>
-  <string name="preference_system_language_toggle">ניצט סיסטעם־שפראך</string>
-  <string name="preference_system_language_summary">סיסטעם־שפראך</string>
   <string name="langlinks_filter_hint">זוכן</string>
   <string name="langlinks_error_retry">פרובירן ווידער</string>
   <string name="langlinks_empty">דער בלאט איז נישט פאראן אין אנדערע שפראכן.</string>

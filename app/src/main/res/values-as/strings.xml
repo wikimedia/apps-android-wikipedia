@@ -44,8 +44,6 @@
   <string name="nearby_empty_title">ইয়াত কোনো কাষৰীয়া পৃষ্ঠা নাই!</string>
   <string name="preference_title_language">ৱিকিপিডিয়া ভাষা</string>
   <string name="preference_languages_filter_hint">সন্ধান কৰক</string>
-  <string name="preference_system_language_toggle">প্ৰণালীৰ ভাষাৰ ব্যৱহাৰ কৰক</string>
-  <string name="preference_system_language_summary">প্ৰণালী ভাষা</string>
   <string name="langlinks_filter_hint">সন্ধান কৰক</string>
   <string name="langlinks_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="langlinks_empty">এই পৃষ্ঠাটো আন ভাষাত উপলব্ধ নহয়</string>

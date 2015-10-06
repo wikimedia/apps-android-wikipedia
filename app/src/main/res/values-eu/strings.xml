@@ -53,8 +53,6 @@
   <string name="content_license_html">Edukia eskuragarri &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
   <string name="preference_title_language">Wikipediaren hizkuntza</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
-  <string name="preference_system_language_toggle">Erabili sistemako hizkuntza</string>
-  <string name="preference_system_language_summary">Sistemako hizkuntza</string>
   <string name="langlinks_filter_hint">Bilatu</string>
   <string name="langlinks_error_retry">Saiatu berriro</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>

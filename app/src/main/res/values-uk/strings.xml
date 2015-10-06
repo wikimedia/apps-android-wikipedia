@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою Вашого пристрою. Якщо Ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="preference_title_language">Мова Вікіпедії</string>
   <string name="preference_languages_filter_hint">Пошук</string>
-  <string name="preference_system_language_toggle">Використовувати системну мову</string>
-  <string name="preference_system_language_summary">Системна мова</string>
   <string name="langlinks_filter_hint">Пошук</string>
   <string name="langlinks_error_retry">Повторити</string>
   <string name="langlinks_empty">Ця сторінка не доступна на інших мовах</string>

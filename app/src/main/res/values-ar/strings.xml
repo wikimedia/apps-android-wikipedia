@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مُسجلًا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="preference_title_language">لغة ويكيبيديا</string>
   <string name="preference_languages_filter_hint">بحث</string>
-  <string name="preference_system_language_toggle">استخدم لغة النظام</string>
-  <string name="preference_system_language_summary">لغة النظام</string>
   <string name="langlinks_filter_hint">بحث</string>
   <string name="langlinks_error_retry">إعادة المحاولة</string>
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>

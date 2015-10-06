@@ -47,8 +47,6 @@
   <string name="last_updated_text">ಕೊನೆಯ ಪರಿಷ್ಕರಣೆ %1$s</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಭಾಷೆ</string>
   <string name="preference_languages_filter_hint">ಹುಡುಕು</string>
-  <string name="preference_system_language_toggle">ಸಿಸ್ಟಂ ಭಾಷೆಯನ್ನು ಬಳಸಿ</string>
-  <string name="preference_system_language_summary">ಸಿಸ್ಟಂ ಭಾಷೆ</string>
   <string name="langlinks_filter_hint">ಹುಡುಕು</string>
   <string name="langlinks_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇರೆಭಾಷೆಗಳಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ.</string>

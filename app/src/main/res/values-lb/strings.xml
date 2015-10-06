@@ -55,8 +55,6 @@
   <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
   <string name="preference_title_language">Wikipedia-Sprooch</string>
   <string name="preference_languages_filter_hint">Sichen</string>
-  <string name="preference_system_language_toggle">Benotzt d\'Systemsprooch</string>
-  <string name="preference_system_language_summary">Systemsprooch</string>
   <string name="langlinks_filter_hint">Sichen</string>
   <string name="langlinks_error_retry">Nach eng Kéier probéieren</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>

@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. O seu endereço de IP estará visível nas edições do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar sessão&lt;/a&gt;, terá mais privacidade.</string>
   <string name="preference_title_language">Idioma da Wikipédia</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
-  <string name="preference_system_language_toggle">Usar idioma do sistema</string>
-  <string name="preference_system_language_summary">Idioma do sistema</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
   <string name="langlinks_error_retry">Tentar novamente</string>
   <string name="langlinks_empty">Esta página não está disponível noutros idiomas.</string>

@@ -55,8 +55,6 @@
   <string name="content_license_html">Turinys prieinamas pagal &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, jei nenurodyta kitaip</string>
   <string name="preference_title_language">Vikipedijos kalba</string>
   <string name="preference_languages_filter_hint">Ieškoti</string>
-  <string name="preference_system_language_toggle">Naudoti sistemos kalbą</string>
-  <string name="preference_system_language_summary">Sistemos kalba</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
   <string name="langlinks_error_retry">Bandyti dar kartą</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>

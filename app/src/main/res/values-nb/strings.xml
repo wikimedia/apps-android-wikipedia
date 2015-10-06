@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen. Redigeringer vil bli tilskrevet IP-adressen for enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
   <string name="preference_title_language">Wikipedia-språk</string>
   <string name="preference_languages_filter_hint">Søk</string>
-  <string name="preference_system_language_toggle">Bruk systemspråket</string>
-  <string name="preference_system_language_summary">Systemspråk</string>
   <string name="langlinks_filter_hint">Søk</string>
   <string name="langlinks_error_retry">Prøv igjen</string>
   <string name="langlinks_empty">Denne siden er ikke tilgjengelig på andre språk</string>

@@ -38,8 +38,6 @@
   <string name="nearby_set_metric">Metreyan/km nîşan bide</string>
   <string name="preference_title_language">Zimanê Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
-  <string name="preference_system_language_toggle">Zimanê sîstemê bi kar bîne</string>
-  <string name="preference_system_language_summary">Zimanê sîstemê</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
   <string name="langlinks_error_retry">Dîsa hewl bide</string>
   <string name="langlinks_empty">Ev rûpel bi zimanên din tune ye.</string>

@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">一旦保存，即表示您认同&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您的设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="preference_languages_filter_hint">搜索</string>
-  <string name="preference_system_language_toggle">使用系统语言</string>
-  <string name="preference_system_language_summary">系统语言</string>
   <string name="langlinks_filter_hint">搜索</string>
   <string name="langlinks_error_retry">重试</string>
   <string name="langlinks_empty">该页面没有其他语言版本。</string>

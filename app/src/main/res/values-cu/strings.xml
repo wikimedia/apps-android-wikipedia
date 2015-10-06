@@ -37,8 +37,6 @@
   <string name="nearby_distance_in_kilometers">%.2f х҃м</string>
   <string name="preference_title_language">Википєдїѩ ѩꙁꙑкъ</string>
   <string name="preference_languages_filter_hint">исканиѥ</string>
-  <string name="preference_system_language_toggle">сѷстимьна ѩꙁꙑка польꙃєваниѥ</string>
-  <string name="preference_system_language_summary">сѷстимьнъ ѩꙁꙑкъ</string>
   <string name="langlinks_filter_hint">исканиѥ</string>
   <string name="langlinks_error_retry">опакꙑ искоуси сѧ</string>
   <string name="langlinks_empty">си страницѧ дроугꙑ ѩꙁꙑкꙑ нѣстъ</string>

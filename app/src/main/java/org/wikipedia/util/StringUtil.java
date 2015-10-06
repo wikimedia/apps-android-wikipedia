@@ -34,6 +34,10 @@ public final class StringUtil {
         return value == null ? defaultValue : value;
     }
 
+    public static boolean equals(CharSequence lhs, CharSequence rhs) {
+        return emptyIfNull(lhs).equals(emptyIfNull(rhs));
+    }
+
     @NonNull
     public static String listToCsv(@NonNull List<String> list) {
         return listToDelimitedString(list, CSV_DELIMITER);

@@ -49,8 +49,6 @@
   <string name="last_updated_text">இறுதியாக புதுப்பிக்கப்பட்டது %1$s</string>
   <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
   <string name="preference_languages_filter_hint">தேடுக</string>
-  <string name="preference_system_language_toggle">முறைமை மொழியைப் பயன்படுத்துக</string>
-  <string name="preference_system_language_summary">முறைமை மொழி</string>
   <string name="langlinks_filter_hint">தேடுக</string>
   <string name="langlinks_error_retry">மறு முயற்சி செய்</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை</string>

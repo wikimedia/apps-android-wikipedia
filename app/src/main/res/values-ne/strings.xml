@@ -39,7 +39,6 @@
   <string name="nearby_view_on_map">नक्शामा ठाँउ देखाउनु होस्</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">खोज</string>
-  <string name="preference_system_language_summary">प्रणाली भाषाहरू</string>
   <string name="langlinks_filter_hint">खोज</string>
   <string name="langlinks_error_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>

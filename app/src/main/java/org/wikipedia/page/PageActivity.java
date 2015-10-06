@@ -251,6 +251,10 @@ public class PageActivity extends ThemedActionBarActivity {
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
+
+            // Note: when system language is enabled, and the system language is changed outside of
+            // the app, MRU languages are not updated. There's no harm in doing that here but since
+            // the user didin't choose that language in app, it may be unexpected.
         }
         searchHintText.setText(getString(pausedStateOfZero ? R.string.zero_search_hint : R.string.search_hint));
 

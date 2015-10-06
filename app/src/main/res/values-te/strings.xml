@@ -56,8 +56,6 @@
   <string name="edit_save_action_license_anon">భద్రపరచటంతో, మీరు  &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
   <string name="preference_title_language">వికీపీడియా భాష</string>
   <string name="preference_languages_filter_hint">వెతుకు</string>
-  <string name="preference_system_language_toggle">వ్యవస్థ భాషను వాడు</string>
-  <string name="preference_system_language_summary">వ్యవస్థ భాష</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
   <string name="langlinks_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు.</string>

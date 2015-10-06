@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Ved at gemme, accepterer du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
   <string name="preference_title_language">Wikipediasprog</string>
   <string name="preference_languages_filter_hint">Søg</string>
-  <string name="preference_system_language_toggle">Anvend systemsproget</string>
-  <string name="preference_system_language_summary">Systemsprog</string>
   <string name="langlinks_filter_hint">Søg</string>
   <string name="langlinks_error_retry">Prøv igen</string>
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>

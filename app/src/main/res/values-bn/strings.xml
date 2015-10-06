@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.bn\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের IP ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
   <string name="preference_title_language">উইকিপিডিয়া ভাষা</string>
   <string name="preference_languages_filter_hint">অনুসন্ধান</string>
-  <string name="preference_system_language_toggle">সিস্টেমের ভাষা ব্যবহার করুন</string>
-  <string name="preference_system_language_summary">সিস্টেমের ভাষা</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়</string>

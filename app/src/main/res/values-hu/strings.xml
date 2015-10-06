@@ -55,8 +55,6 @@
   <string name="edit_save_action_license_logged_in">A mentéssel elfogadod a &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
   <string name="preference_title_language">Wikipédia-nyelv</string>
   <string name="preference_languages_filter_hint">Keresés</string>
-  <string name="preference_system_language_toggle">Rendszer nyelv használata</string>
-  <string name="preference_system_language_summary">Rendszer nyelv</string>
   <string name="langlinks_filter_hint">Keresés</string>
   <string name="langlinks_error_retry">Újra</string>
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>

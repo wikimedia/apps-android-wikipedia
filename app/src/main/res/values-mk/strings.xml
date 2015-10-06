@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">Зачувувајќи, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="preference_title_language">Јазик на Википедија</string>
   <string name="preference_languages_filter_hint">Пребарајте</string>
-  <string name="preference_system_language_toggle">Користи го системскиот јазик</string>
-  <string name="preference_system_language_summary">Системски јазик</string>
   <string name="langlinks_filter_hint">Пребарај</string>
   <string name="langlinks_error_retry">Повтори</string>
   <string name="langlinks_empty">Страницава не е достапна на други јазици</string>

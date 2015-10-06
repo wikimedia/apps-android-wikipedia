@@ -53,8 +53,6 @@
   <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo. Modifoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutas&lt;/a&gt;, vi havos pli privatecon.</string>
   <string name="preference_title_language">Lingvo de Vikipedio</string>
   <string name="preference_languages_filter_hint">Serĉi</string>
-  <string name="preference_system_language_toggle">Uzi sisteman lingvon</string>
-  <string name="preference_system_language_summary">Sistema lingvo</string>
   <string name="langlinks_filter_hint">Serĉi</string>
   <string name="langlinks_error_retry">Reprovi</string>
   <string name="langlinks_empty">Ĉi tiu paĝo ne disponeblas en aliaj lingvoj</string>

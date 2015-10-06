@@ -57,8 +57,6 @@
   <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ. ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਬੋਲੀ</string>
   <string name="preference_languages_filter_hint">ਖੋਜ</string>
-  <string name="preference_system_language_toggle">ਸਿਸਟਮ ਭਾਸ਼ਾ ਵਰਤੋ</string>
-  <string name="preference_system_language_summary">ਸਿਸਟਮ ਭਾਸ਼ਾ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
   <string name="langlinks_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="langlinks_empty">ਇਹ ਵਰਕਾ ਹੋਰਨਾਂ ਬੋਲੀਆਂ ਵਿੱਚ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।</string>

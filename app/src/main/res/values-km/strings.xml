@@ -51,8 +51,6 @@
   <string name="content_license_html">ខ្លឹមសារអត្ថបទផ្ដល់ជូនក្រោមអាជ្ញាបណ្ឌ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; លើកលែងតែមានបញ្ជាក់ផ្សេងពីនេះ</string>
   <string name="preference_title_language">ភាសាវិគីភីឌា</string>
   <string name="preference_languages_filter_hint">ស្វែងរក</string>
-  <string name="preference_system_language_toggle">ប្រើភាសារបស់ប្រព័ន្ធ</string>
-  <string name="preference_system_language_summary">ភាសារបស់ប្រព័ន្ធ</string>
   <string name="langlinks_filter_hint">ស្វែងរក</string>
   <string name="langlinks_error_retry">ព្យាយាម​ម្ដង​ទៀត</string>
   <string name="langlinks_empty">ទំព័រ​នេះ​មិនអាចអានជា​ភាសាដទៃ​ទៀត​ទេ។</string>
