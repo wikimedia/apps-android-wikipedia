@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.FaceDetector;
 import android.support.annotation.NonNull;
@@ -43,12 +42,6 @@ public class ImageViewWithFace extends ImageView implements Target {
 
     public void setOnImageLoadListener(@Nullable OnImageLoadListener listener) {
         this.listener = listener == null ? new DefaultListener() : listener;
-    }
-
-    @Nullable public Bitmap getImageBitmap() {
-        return getDrawable() instanceof BitmapDrawable
-             ? ((BitmapDrawable) getDrawable()).getBitmap()
-             : null;
     }
 
     @Override
