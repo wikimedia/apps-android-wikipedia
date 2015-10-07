@@ -505,6 +505,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
             }, 0);
         }
+        tabsProvider.onConfigurationChanged();
     }
 
     public Tab getCurrentTab() {
