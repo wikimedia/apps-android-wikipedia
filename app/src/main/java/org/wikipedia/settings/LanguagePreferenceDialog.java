@@ -158,11 +158,11 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_list_item_activated_2, parent, false);
+                convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_language_list_entry, parent, false);
             }
 
-            TextView localizedNameTextView = (TextView) convertView.findViewById(android.R.id.text1);
-            TextView canonicalNameTextView = (TextView) convertView.findViewById(android.R.id.text2);
+            TextView localizedNameTextView = (TextView) convertView.findViewById(R.id.localized_language_name);
+            TextView canonicalNameTextView = (TextView) convertView.findViewById(R.id.language_subtitle);
 
             String languageCode = getItem(position);
 
