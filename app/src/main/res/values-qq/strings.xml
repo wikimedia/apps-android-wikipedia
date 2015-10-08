@@ -326,6 +326,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="gallery_menu_save">Label for menu item to save the current image to the Media collection on the local device.</string>
   <string name="gallery_save_error_mediastore">Error message shown when the image could not be imported into the media collection on the device.</string>
   <string name="gallery_save_success">Toast message shown when the current image was saved successfully to the local device.</string>
+  <string name="gallery_image_saved_notification_title">Message shown when an image is saved to the device.</string>
+  <string name="gallery_image_saved_notification_text">Message inviting the user to touch the notification to view the saved image.</string>
   <string name="gallery_error_video_failed">Error message displayed when a video fails to be played on the device.</string>
   <string name="err_cannot_save_file">Error message when we detect that a file cannot be written to storage.</string>
   <string name="snippet_share_intro">Intro text included as part of the shared text snippet, aka Tweet-a-fact. Please do not translate the \"@Wikipedia\" in the message and preserve the spaces around it, as it refers specifically to Wikipedia\'s Twitter account. This message has two parameters. Please keep the parameters exactly as in the original English message.

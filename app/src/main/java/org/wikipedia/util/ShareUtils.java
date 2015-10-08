@@ -20,6 +20,7 @@ import org.wikipedia.page.PageTitle;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public final class ShareUtils {
     public static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
+    public static final int JPEG_QUALITY = 85;
 
     /** Private constructor, so nobody can construct ShareUtils. */
     private ShareUtils() { }
@@ -64,56 +66,78 @@ public final class ShareUtils {
     public static void shareImage(final Context context, final Bitmap bmp,
                                   final String imageFileName, final String subject,
                                   final String text, final boolean recycleBmp) {
-        final int jpegQuality = 85;
         new SaneAsyncTask<String>(SaneAsyncTask.SINGLE_THREAD) {
             @Override
             public String performTask() throws Throwable {
-                File dir = clearFolder(context);
-                if (dir == null) {
-                    return null;
-                }
-
-                dir.mkdirs();
-
-                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                bmp.compress(Bitmap.CompressFormat.JPEG, jpegQuality, bytes);
-                if (recycleBmp) {
-                    bmp.recycle();
-                }
-                File f = new File(dir, cleanFileName(imageFileName));
-                FileOutputStream fo = new FileOutputStream(f);
-                fo.write(bytes.toByteArray());
-                fo.close();
-                return f.getAbsolutePath();
+                File processedBitmap = processBitmapForSharing(context, bmp, imageFileName, recycleBmp);
+                return "file://" + processedBitmap.getAbsolutePath();
             }
 
             @Override
             public void onFinish(String result) {
                 if (result == null) {
-                    Toast.makeText(context,
-                            String.format(context.getString(R.string.gallery_share_error),
-                                    context.getString(R.string.err_cannot_save_file)),
-                            Toast.LENGTH_SHORT).show();
+                    displayShareErrorMessage(context);
                     return;
                 }
-
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, text);
-                shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + result));
-                shareIntent.setType("image/jpeg");
-                Intent chooserIntent = Intent.createChooser(shareIntent,
-                        context.getResources().getString(R.string.share_via));
+                Intent chooserIntent = buildImageShareChooserIntent(context, subject, text, result);
                 context.startActivity(chooserIntent);
             }
 
             @Override
             public void onCatch(Throwable caught) {
-                Toast.makeText(context,
-                        String.format(context.getString(R.string.gallery_share_error),
-                                caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
+                displayOnCatchMessage(caught, context);
             }
         }.execute();
+    }
+
+
+    public static Intent buildImageShareChooserIntent(Context context, String subject, String text, String path) {
+        Intent shareIntent = createImageShareIntent(subject, text, path);
+        return Intent.createChooser(shareIntent,
+                context.getResources().getString(R.string.share_via));
+    }
+
+    private static File processBitmapForSharing(final Context context, final Bitmap bmp,
+                                                final String imageFileName, final boolean recycleBmp)
+                                                                throws IOException {
+        File dir = clearFolder(context);
+        if (dir == null) {
+            return null;
+        }
+
+        dir.mkdirs();
+
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, JPEG_QUALITY, bytes);
+        if (recycleBmp) {
+            bmp.recycle();
+        }
+        File f = new File(dir, cleanFileName(imageFileName));
+        FileOutputStream fo = new FileOutputStream(f);
+        fo.write(bytes.toByteArray());
+        fo.close();
+        return f;
+    }
+
+    private static Intent createImageShareIntent(String subject, String text, String path) {
+        return new Intent(Intent.ACTION_SEND)
+                .putExtra(Intent.EXTRA_SUBJECT, subject)
+                .putExtra(Intent.EXTRA_TEXT, text)
+                .putExtra(Intent.EXTRA_STREAM, Uri.parse(path))
+                .setType("image/jpeg");
+    }
+
+    private static void displayOnCatchMessage(Throwable caught, Context context) {
+        Toast.makeText(context,
+                String.format(context.getString(R.string.gallery_share_error),
+                        caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
+    }
+
+    private static void displayShareErrorMessage(Context context) {
+        Toast.makeText(context,
+                String.format(context.getString(R.string.gallery_share_error),
+                        context.getString(R.string.err_cannot_save_file)),
+                Toast.LENGTH_SHORT).show();
     }
 
     public static void showUnresolvableIntentMessage(Context context) {
