@@ -74,6 +74,12 @@
             android:entryValues="@array/preference_values_retrofit_log"
             android:summary="%s" />
 
+        <!--suppress AndroidUnknownAttribute -->
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_session_timeout"
+            android:title="@string/preferences_developer_session_timeout_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">

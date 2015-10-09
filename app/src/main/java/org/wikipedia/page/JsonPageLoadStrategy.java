@@ -628,6 +628,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
+        app.getSessionFunnel().leadSectionFetchStart();
         PageLoadUtil.getApiService(model.getTitle().getSite()).pageLead(
                 model.getTitle().getPrefixedText(),
                 PageLoadUtil.calculateLeadImageWidth(),
@@ -636,6 +637,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     @Override
                     public void success(PageLead pageLead, Response response) {
                         Log.v(TAG, response.getUrl());
+                        app.getSessionFunnel().leadSectionFetchEnd();
                         onLeadSectionLoaded(pageLead, startSequenceNum);
                     }
 
@@ -715,6 +717,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private void loadRemainingSections(final int startSequenceNum) {
+        app.getSessionFunnel().restSectionsFetchStart();
         PageLoadUtil.getApiService(model.getTitle().getSite()).pageRemaining(
                 model.getTitle().getPrefixedText(),
                 !app.isImageDownloadEnabled(),
@@ -722,6 +725,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     @Override
                     public void success(PageRemaining pageRemaining, Response response) {
                         Log.v(TAG, response.getUrl());
+                        app.getSessionFunnel().restSectionsFetchEnd();
                         onRemainingSectionsLoaded(pageRemaining, startSequenceNum);
                     }
 

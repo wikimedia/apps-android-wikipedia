@@ -3,23 +3,16 @@ package org.wikipedia.data;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.google.gson.reflect.TypeToken;
-
 import org.acra.ACRA;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.analytics.SessionData;
 import org.wikipedia.util.log.L;
 
-import java.util.Collections;
-import java.util.List;
-
-public final class TabUnmarshaller {
-    private static final TypeToken<List<Tab>> TYPE_TOKEN = new TypeToken<List<Tab>>() { };
-
-    @NonNull public static List<Tab> unmarshal(@Nullable String json) {
-        List<Tab> object = null;
+public final class SessionUnmarshaller {
+    @NonNull public static SessionData unmarshal(@Nullable String json) {
+        SessionData sessionData = null;
         try {
-            object = GsonUnmarshaller.unmarshal(TYPE_TOKEN, json);
+            sessionData = GsonUnmarshaller.unmarshal(SessionData.class, json);
         } catch (Exception e) {
             // Catch all. Any Exception can be thrown when unmarshalling.
             // TODO: replace this block with silent exception reporting.
@@ -30,11 +23,11 @@ public final class TabUnmarshaller {
                 ACRA.getErrorReporter().handleException(e, false);
             }
         }
-        if (object == null) {
-            object = Collections.emptyList();
+        if (sessionData == null) {
+            sessionData = new SessionData();
         }
-        return object;
+        return sessionData;
     }
 
-    private TabUnmarshaller() { }
+    private SessionUnmarshaller() { }
 }
