@@ -8,6 +8,7 @@
     <string name="preferences_developer_misc_heading">Miscellaneous</string>
     <string name="preferences_developer_onboarding_heading">Onboarding</string>
     <string name="preferences_developer_feature_testing_heading">A/B feature testing</string>
+    <string name="preferences_developer_restbase_heading">RESTBase access</string>
     <string name="preferences_developer_logging_heading">Logging</string>
     <string name="preferences_developer_retrofit_log_level">Retrofit Log Level (restart required)</string>
     <string name="preferences_developer_crash_key">crash</string>

@@ -218,8 +218,32 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_exp_html_page_load, false);
     }
 
-    public static boolean forceRestbaseUsage() {
+    public static boolean useRestBaseSetManually() {
+        return getBoolean(R.string.preference_key_use_restbase_manual, false);
+    }
+
+    public static boolean useRestBase() {
         return getBoolean(R.string.preference_key_use_restbase, false);
+    }
+
+    public static void setUseRestBase(boolean enabled) {
+        setBoolean(R.string.preference_key_use_restbase, enabled);
+    }
+
+    public static int getRbTicket(int defaultValue) {
+        return getInt(R.string.preference_key_restbase_ticket, defaultValue);
+    }
+
+    public static void setRbTicket(int rbTicket) {
+        setInt(R.string.preference_key_restbase_ticket, rbTicket);
+    }
+
+    public static int getRequestSuccessCounter(int defaultValue) {
+        return getInt(R.string.preference_key_request_successes, defaultValue);
+    }
+
+    public static void setRequestSuccessCounter(int successes) {
+        setInt(R.string.preference_key_request_successes, successes);
     }
 
     public static RestAdapter.LogLevel getRetrofitLogLevel() {

@@ -16,7 +16,7 @@ import org.wikipedia.page.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.restbase.RbPageLead;
-import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PageLoadUtil;
@@ -138,7 +138,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
         // and kick off the task to load all the things...
         // Use RESTBase if the user is in the sample group
-        if (pageTitle.getSite().getLanguageCode().equalsIgnoreCase("en") && Prefs.forceRestbaseUsage()) {
+        if (pageTitle.getSite().getLanguageCode().equalsIgnoreCase("en")
+                && RbSwitch.INSTANCE.isRestBaseEnabled()) {
             loadContentWithRestBase(shouldLoadImages);
         } else {
             loadContentWithMwapi();
