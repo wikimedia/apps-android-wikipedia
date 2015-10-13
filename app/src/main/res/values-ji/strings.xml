@@ -6,9 +6,11 @@
   <string name="yes">יא</string>
   <string name="no">ניין</string>
   <string name="acra_report_dialog_title">וויקיפעדיע איז איינגעפאלן :(</string>
+  <string name="acra_report_dialog_text">שיקט אונז א קראך־באריכט</string>
+  <string name="acra_report_dialog_comment">וואס האט איר געטון ווען דער קראך האט פאסירט?</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="nav_item_history">היסטאריע</string>
-  <string name="error_network_error" fuzzy="true">די נעצווערק פארבינדונג קען מען נישט צושטעלן.</string>
+  <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
   <string name="menu_clear_all_saved_pages">אפראמען געשפייכלערטע בלעטער</string>
@@ -69,7 +71,7 @@
   <string name="search_no_results_found">נישט געטראפן קיין רעזולטאטן</string>
   <string name="edit_section_captcha_hint">איבערחזרן ווערטער פון אויבן</string>
   <string name="title_captcha">אײַנגעבן קאפטשא</string>
-  <string name="nav_item_login" fuzzy="true">אַרײַנלאָגירן</string>
+  <string name="nav_item_login">ארײַנלאגירן צו וויקיפעדיע</string>
   <string name="login_username_hint">באַניצער נאָמען</string>
   <string name="login_password_hint">פאַסווארט</string>
   <string name="login_password_show_check">ווײַזן פאסווארט</string>
@@ -81,6 +83,7 @@
   <string name="login_error_illegal">אומגילטיקער באַניצער נאָמען</string>
   <string name="login_success_toast">אריינלאגירט מיט הצלחה!</string>
   <string name="login_error_blocked">דער באניצער איז געווארן בלאקירט</string>
+  <string name="login_error_throttled">צופיל ארײַנלאגירן פרואוואונגען. ווארט א פאר מינוט און פרובירט נאכאמאל.</string>
   <string name="login_error_unknown">ארײַנלאגירן אדורכגעפאלן :(</string>
   <string name="preference_title_logout">אַרויסלאָגירן</string>
   <string name="toast_logout_complete">אַרויסלאגירט</string>
@@ -133,7 +136,8 @@
   <string name="page_protected_sysop">דער בלאט איז געווארן גאנג געשיצט</string>
   <string name="page_protected_can_not_edit">איר האט נישט די רעכטן צו רעדאקטירן דעם בלאט</string>
   <string name="page_protected_can_not_edit_title">דער בלאט איז געשיצט</string>
-  <string name="settings_activity_title" fuzzy="true">איינשטעלונגען</string>
+  <string name="settings_item_preferences">איינשטעלונגען</string>
+  <string name="settings_activity_title">איינשטעלונגען</string>
   <string name="about_description">וועגן דעם וויקימעדיע־אפ</string>
   <string name="privacy_policy_description">פּריוואַטקייט פּאליסי</string>
   <string name="terms_of_use_description">ניצבאדינגונגען</string>
@@ -177,6 +181,7 @@
   <string name="preference_title_show_images">ווייזן בילדער</string>
   <string name="read_more_section">לייענט ווײטער</string>
   <string name="menu_gallery_visit_page">גיין צו טעקע־בלאט</string>
+  <string name="gallery_error_draw_failed">מען קען נישט צייכענען דאס בילד</string>
   <string name="gallery_menu_share">טיילן</string>
   <string name="gallery_save_success">בילד דערפאלגרייך געשפייכלערט.</string>
   <string name="gallery_error_video_failed">קען נישט שפילן ווידעא.</string>

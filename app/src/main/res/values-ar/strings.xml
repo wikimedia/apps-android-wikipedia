@@ -10,7 +10,7 @@
   <string name="acra_report_dialog_comment">ماذا كنت تفعل عندما حدث العطل؟</string>
   <string name="search_hint">البحث في ويكيبيديا</string>
   <string name="nav_item_history">التاريخ</string>
-  <string name="error_network_error" fuzzy="true">لا يوجد اتصال بالشبكة :(</string>
+  <string name="error_network_error">لا يوجد اتصال بالشبكة</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="menu_clear_all_history">مسح التاريخ</string>
   <string name="menu_clear_all_saved_pages">إفراغ الصفحات المحفوظة</string>
@@ -24,7 +24,7 @@
   <string name="share_via">مشاركة عبر</string>
   <string name="dialog_title_clear_saved_pages">مسح كل الصفحات المحفوظة؟</string>
   <string name="snackbar_saving_page">جارٍ حفظ الصفحة…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">تم حفظ الصفحة بنجاح</string>
+  <string name="snackbar_saved_page_format">\"%s\" تم حفظ الصفحة للقراءة بدون اتصال انترنت</string>
   <string name="snackbar_saved_page_missing_images">تعذّر حفظ جميع الصور</string>
   <string name="snackbar_refresh_saved_page">جارٍ تحديث الصفحة المحفوظة</string>
   <string name="delete_selected_saved_pages">حذف</string>
@@ -42,7 +42,7 @@
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
   <string name="nav_item_nearby">بالقرب من هنا</string>
   <string name="nearby_empty_title">لا يوجد صفحات بالقرب من هنا!</string>
-  <string name="nearby_empty_message" fuzzy="true">عندما تنتقل إلى مكانٍ جديدٍ، حدّث هذه الصفحة لمعرفة المزيد عن الأماكن التي بقربك.</string>
+  <string name="nearby_empty_message">انتقل إلى مكانٍ جديد، لرؤية صفحات عن الأماكن التي بقربك.</string>
   <string name="nearby_distance_in_meters">%d م</string>
   <string name="nearby_distance_in_kilometers">%.2f كم</string>
   <string name="nearby_distance_in_feet">%d قدم</string>
@@ -79,7 +79,7 @@
   <string name="title_captcha">أدخل كلمة التحقق</string>
   <string name="edit_section_captcha_reload">انقر على كلمة التحقق لإعادة التحميل</string>
   <string name="edit_saved_page_refresh">قد تكون هذه الصفحة المحفوظة غير محدثة، ويجب تحديثها لتتمكن من تعديلها. هل تود تحديثها؟</string>
-  <string name="nav_item_login" fuzzy="true">تسجيل الدخول</string>
+  <string name="nav_item_login">تسجيل الدخول إلى ويكيبيديا</string>
   <string name="login_username_hint">اسم المستخدم</string>
   <string name="login_password_hint">كلمة السر</string>
   <string name="login_password_show_check">عرض كلمة السر</string>
@@ -153,7 +153,8 @@
   <string name="page_protected_other">تمت حماية هذه الصفحة إلى المستويات التالية: %s</string>
   <string name="page_protected_can_not_edit">أنت لا تمتلك الصلاحيات اللازمة لتحرير هذه الصفحة</string>
   <string name="page_protected_can_not_edit_title">هذه الصفحة محمية</string>
-  <string name="settings_activity_title" fuzzy="true">الإعدادات</string>
+  <string name="settings_item_preferences">الإعدادات</string>
+  <string name="settings_activity_title">الإعدادات</string>
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
@@ -206,7 +207,7 @@
   <string name="widget_name_featured_page">صفحة ويكيبيديا المختارة</string>
   <string name="widget_title_featured_page">صفحة اليوم المختارة:</string>
   <string name="widget_name_search">بحث ويكيبيديا</string>
-  <string name="app_store_description" fuzzy="true">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تمت إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
+  <string name="app_store_description">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تمت إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
 
 المميزات:
 -السرعة: يمكنك تطبيقنا الأصلي الجديد من تصفح وتحرير ويكيبيديا بسرعة أكبر من ذي قبل.
@@ -223,7 +224,7 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_text">اضغط للتنزيل</string>
   <string name="dialog_close_description">إغلاق</string>
   <string name="preference_title_show_images">إظهار الصور</string>
-  <string name="preference_summary_show_images" fuzzy="true">تفعيل أو إلغاء تفعيل تحميل الصور في الصفحات. أزل اختيار هذا الإعداد إذا كان اتصالك بالإنترنت بطيئًا، أو إذا كانت خطة بياناتك محدودة.</string>
+  <string name="preference_summary_show_images">تفعيل أو إلغاء تفعيل تحميل الصور في الصفحات. أزل اختيار هذا الإعداد إذا كان اتصالك بالإنترنت بطيئًا، أو إذا كانت خطة بياناتك محدودة.</string>
   <string name="read_more_section">اقرأ المزيد</string>
   <string name="menu_gallery_visit_page">الذهاب إلى صفحة الملف</string>
   <string name="gallery_error_draw_failed">خطأ في إظهار الصورة.</string>
@@ -231,6 +232,7 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_menu_save">الحفظ في الجهاز</string>
+  <string name="gallery_save_error_mediastore">فشل لاستيراد صورة لمجموعة الوسائط</string>
   <string name="gallery_save_success">حُفظت الصورة بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>
@@ -245,8 +247,15 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_uploader_unknown">الرافع غير معروف</string>
   <string name="menu_new_tab">لسان جديد</string>
   <string name="button_close_tab">أغلق اللسان</string>
+  <string name="tool_tip_select_text">اضغط مع الاستمرار في أي مكان في النص لتسليط الضوء عليه للنسخ والمشاركة.</string>
+  <string name="tool_tip_share">بعد تسليط الضوء على حقيقة مثيرة للاهتمام، حاول مشاركتها على شبكات التواصل المفضلة لديك!</string>
+  <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
+  <string name="tool_tip_toc_button">انظر جدول المحتويات في أي وقت عن طريق النقر على هذا الزر، أو السحب من الحافة اليسري من الشاشة.</string>
+  <string name="error_server_response">خادم تعذر إتمام الطلب.</string>
+  <string name="error_response_malformed">الاستجابة من الملقم لم تكن مهيأة بشكل صحيح.</string>
   <string name="error_unknown">حدث خطأ غير معروف.</string>
   <string name="format_error_server_message">الرسالة: \"%s\"</string>
   <string name="format_error_server_code">الكود: \"%s\"</string>
+  <string name="address_copied">العنوان تم نسخه إلى الحافظة.</string>
   <string name="button_continue_to_article">الاستمرار للمقالة</string>
 </resources>

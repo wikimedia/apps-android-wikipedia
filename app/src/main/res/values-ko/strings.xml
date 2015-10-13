@@ -39,6 +39,7 @@
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_long_press_open_page">열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
+  <string name="menu_long_press_copy_page">링크 주소 복사</string>
   <string name="nav_item_nearby">근처</string>
   <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>
   <string name="nearby_empty_message" fuzzy="true">새 위치로 움직일 때, 주위에 무엇이 있는지 자세히 알아 보려면 이 문서를 새로 고치세요.</string>
@@ -152,7 +153,8 @@
   <string name="page_protected_other">이 문서는 다음 수준으로 보호되어 있습니다: %s</string>
   <string name="page_protected_can_not_edit">이 문서를 편집할 권한이 없습니다</string>
   <string name="page_protected_can_not_edit_title">이 문서는 보호되어 있습니다</string>
-  <string name="settings_activity_title" fuzzy="true">설정</string>
+  <string name="settings_item_preferences">설정</string>
+  <string name="settings_activity_title">설정</string>
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인 정보 정책</string>
   <string name="terms_of_use_description">이용 약관</string>
@@ -256,4 +258,5 @@
   <string name="error_unknown">알 수 없는 오류가 발생했습니다.</string>
   <string name="format_error_server_message">메시지: \"%s\"</string>
   <string name="format_error_server_code">코드: \"%s\"</string>
+  <string name="address_copied">주소가 클립보드에 복사되었습니다.</string>
 </resources>

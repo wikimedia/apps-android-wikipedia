@@ -10,21 +10,29 @@
   <string name="acra_report_dialog_comment">کله چې تخنيکي ټکر رامېنځ ته شو، تاسې څه کول؟</string>
   <string name="search_hint">ويکيپېډيا پلټل</string>
   <string name="nav_item_history">پېښليک</string>
-  <string name="error_network_error" fuzzy="true">د گورت کومه اړيکتيا نشته :(</string>
+  <string name="error_network_error">انټرنټ سره نه شي تړل کېدای.</string>
   <string name="page_error_retry">بياآزمويل</string>
   <string name="menu_clear_all_history">پېښليک پاکول</string>
+  <string name="menu_clear_all_saved_pages">خوندي مخونه سپينول</string>
   <string name="page_does_not_exist_error">پدې نوم مخ نشته.</string>
   <string name="nav_item_today">نن</string>
+  <string name="dialog_title_clear_history">آيا سپړل شوی پېښليک سينوې؟</string>
   <string name="nav_item_saved_pages">خوندي مخونه</string>
+  <string name="menu_update_all_saved_pages">خوندي مخونه هممهالول</string>
+  <string name="menu_update_selected_saved_pages">خوندي مخونه هممهالول</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">آيا ټول خوندي مخونه هممهالوې؟</string>
+  <string name="share_via">د شريکولو لار</string>
   <string name="dialog_title_clear_saved_pages">ټول خوندي مخونه پاکول؟</string>
   <string name="snackbar_saving_page">مخ خوندي کېدو کې دی…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">مخ برياليتوب سره خوندي شو</string>
+  <string name="snackbar_saved_page_format">\"%s\" د پرې ليکې لوستنې لپاره خوندي شوی</string>
+  <string name="snackbar_saved_page_missing_images">ټول انځورونه خوندي نه شول</string>
   <string name="snackbar_refresh_saved_page">بياتاندېدنې او مخ خوندي کېدنې کې دی...</string>
   <string name="delete_selected_saved_pages">ړنگول</string>
+  <string name="snackbar_saved_page_deleted">خوندي مخ(مخونه) ړنگ شو(شول)</string>
   <string name="saved_pages_search_list_hint">خوندي مخونه پلټل</string>
   <string name="menu_page_other_languages">په نورو ژبو کې لوستل</string>
   <string name="menu_page_save">مخ خوندي کول</string>
-  <string name="menu_page_share" fuzzy="true">شريکول</string>
+  <string name="menu_page_share">تړنه شريکول</string>
   <string name="menu_page_find_in_page">په مخ کې موندل</string>
   <string name="menu_long_press_open_page">پرانيستل</string>
   <string name="nav_item_nearby">نژدې</string>
@@ -89,7 +97,8 @@
   <string name="create_account_account_created_toast">گڼون مو جوړ شو!</string>
   <string name="history_search_list_hint">پېښليک پلټل</string>
   <string name="page_protected_can_not_edit_title">دا مخ ژغورل شوی</string>
-  <string name="settings_activity_title" fuzzy="true">امستنې</string>
+  <string name="settings_item_preferences">امستنې</string>
+  <string name="settings_activity_title">امستنې</string>
   <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
   <string name="privacy_policy_description">د پټنتيا تگلاره</string>
   <string name="terms_of_use_description">د کارولو شرطونه</string>
@@ -138,4 +147,6 @@
   <string name="cc_logo">کريټيف کامنز منښتليک</string>
   <string name="captcha_image">کېپچا انځور</string>
   <string name="page_view_in_browser" fuzzy="true">په کتنمل کې کتل</string>
+  <string name="format_error_server_message">پيغام: \"%s\"</string>
+  <string name="format_error_server_code">کوډ: \"%s\"</string>
 </resources>

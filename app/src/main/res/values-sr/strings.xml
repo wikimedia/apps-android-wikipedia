@@ -130,7 +130,8 @@
   <string name="page_protected_sysop">Ова страница је потпуно заштићена.</string>
   <string name="page_protected_can_not_edit">Немате овлашћења да уређујете ову страницу</string>
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
-  <string name="settings_activity_title" fuzzy="true">Подешавања</string>
+  <string name="settings_item_preferences">Подешавања</string>
+  <string name="settings_activity_title">Подешавања</string>
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
   <string name="about_contributors_heading">Доприносиоци</string>

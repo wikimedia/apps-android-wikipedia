@@ -42,7 +42,7 @@
   <string name="menu_long_press_copy_page">Copiar o enderezo da ligazón</string>
   <string name="nav_item_nearby">Preto</string>
   <string name="nearby_empty_title">Non hai páxinas próximas aquí!</string>
-  <string name="nearby_empty_message" fuzzy="true">Cando se desprace ata unha nova localización, probe a actualizar esta páxina para aprender máis sobre o que ten ao seu redor.</string>
+  <string name="nearby_empty_message">Móvase ata unha nova localización para ver páxinas ao seu redor.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pés</string>
@@ -79,7 +79,7 @@
   <string name="title_captcha">Introducir o captcha</string>
   <string name="edit_section_captcha_reload">Toque o CAPTCHA para recargalo</string>
   <string name="edit_saved_page_refresh">Esta páxina gardada pode estar obsoleta; cómpre actualizala para habilitar a edición. Quere actualizar a páxina?</string>
-  <string name="nav_item_login" fuzzy="true">Acceder ao sistema</string>
+  <string name="nav_item_login">Acceder a Wikipedia</string>
   <string name="login_username_hint">Nome de usuario</string>
   <string name="login_password_hint">Contrasinal</string>
   <string name="login_password_show_check">Mostrar o contrasinal</string>
@@ -153,7 +153,8 @@
   <string name="page_protected_other">Esta páxina está protexida para os seguintes niveis: %s</string>
   <string name="page_protected_can_not_edit">Non ten os permisos necesarios para editar esta páxina</string>
   <string name="page_protected_can_not_edit_title">Esta páxina está protexida</string>
-  <string name="settings_activity_title" fuzzy="true">Configuracións</string>
+  <string name="settings_item_preferences">Configuración</string>
+  <string name="settings_activity_title">Configuración</string>
   <string name="about_description">Acerca da aplicación da Wikipedia</string>
   <string name="privacy_policy_description">Política de protección de datos</string>
   <string name="terms_of_use_description">Termos de uso</string>
@@ -232,7 +233,7 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Toque para descargar</string>
   <string name="dialog_close_description">Pechar</string>
   <string name="preference_title_show_images">Mostrar as imaxes</string>
-  <string name="preference_summary_show_images" fuzzy="true">Activar ou desactivar a carga de imaxes nas páxinas. Desmarque esta opción se a súa conexión á internet é lenta ou se o seu plan de datos é limitado.</string>
+  <string name="preference_summary_show_images">Activar ou desactivar a carga de imaxes nas páxinas. Desmarque esta opción se a súa conexión á internet é lenta, ou se o seu plan de datos é limitado.</string>
   <string name="read_more_section">Ler máis</string>
   <string name="menu_gallery_visit_page">Ir á páxina do ficheiro</string>
   <string name="gallery_error_draw_failed">Non se pode mostrar a imaxe.</string>

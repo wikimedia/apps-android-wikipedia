@@ -42,7 +42,7 @@
   <string name="menu_long_press_copy_page">複製連結網址</string>
   <string name="nav_item_nearby">附近</string>
   <string name="nearby_empty_title">此處附近無頁面！</string>
-  <string name="nearby_empty_message" fuzzy="true">當您到一個新地點時，請嘗試重新整理此頁面以瞭解您周圍的更多事物。</string>
+  <string name="nearby_empty_message">移至一個新地點以查閱您周圍的頁面。</string>
   <string name="nearby_distance_in_meters">%d 公尺</string>
   <string name="nearby_distance_in_kilometers">%.2f 公里</string>
   <string name="nearby_distance_in_feet">%d 呎</string>
@@ -153,7 +153,8 @@
   <string name="page_protected_other">此頁面已受到以下層級的保護：$1</string>
   <string name="page_protected_can_not_edit">您沒有編輯本頁面的權限</string>
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
-  <string name="settings_activity_title" fuzzy="true">設定</string>
+  <string name="settings_item_preferences">設定</string>
+  <string name="settings_activity_title">設定</string>
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私政策</string>
   <string name="terms_of_use_description">使用條款</string>
