@@ -545,6 +545,10 @@ public class WikipediaApp extends Application {
         return Prefs.isImageDownloadEnabled();
     }
 
+    public boolean isLinkPreviewEnabled() {
+        return Prefs.isLinkPreviewEnabled();
+    }
+
     public void resetSite() {
         primarySite = null;
     }

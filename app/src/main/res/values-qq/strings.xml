@@ -358,4 +358,6 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="format_error_server_code">Message displayed to the user that shows the actual error code received from the server. The \"%s\" symbol is replaced with the API error code.</string>
   <string name="address_copied">Message shown after copying a link to the clipboard</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
+  <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.</string>
+  <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
 </resources>
