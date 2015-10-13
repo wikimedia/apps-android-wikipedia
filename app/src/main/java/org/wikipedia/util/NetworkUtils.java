@@ -67,14 +67,7 @@ public final class NetworkUtils {
      * @return A fully qualified, protocol specified URL
      */
     public static String resolveProtocolRelativeUrl(String url) {
-        String fullUrl;
-        if (url.startsWith("//")) {
-            // That's a protocol specific link! Make it https!
-            fullUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + url;
-        } else {
-            fullUrl = url;
-        }
-        return fullUrl;
+        return (url.startsWith("//") ? WikipediaApp.getInstance().getNetworkProtocol() + ":" + url : url);
     }
 
     /**
