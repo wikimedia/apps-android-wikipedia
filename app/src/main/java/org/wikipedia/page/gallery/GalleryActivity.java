@@ -44,6 +44,8 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.wikipedia.util.NetworkUtils.resolveProtocolRelativeUrl;
+
 public class GalleryActivity extends ThemedActionBarActivity {
     private static final String TAG = "GalleryActivity";
     public static final int ACTIVITY_RESULT_FILEPAGE_SELECT = 1;
@@ -130,7 +132,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             public void onClick(View v) {
                 String licenseUrl = (String) v.getTag();
                 if (!TextUtils.isEmpty(licenseUrl)) {
-                    Utils.handleExternalLink(GalleryActivity.this, Uri.parse(licenseUrl));
+                    Utils.handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
                 }
             }
         });
@@ -321,11 +323,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
             new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
         @Override
         public void onUrlClick(String url) {
-            if (url.startsWith("//")) {
-                // That's a protocol specific link! Make it https!
-                url = "https:" + url;
-            }
-            Log.d(TAG, "Link clicked was " + url);
+            Log.v(TAG, "Link clicked was " + url);
+            url = resolveProtocolRelativeUrl(url);
             Site site = app.getPrimarySite();
             if (url.startsWith("/wiki/")) {
                 PageTitle title = site.titleForInternalLink(url);
