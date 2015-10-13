@@ -40,6 +40,7 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.views.ConfigurableListView;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ConfigurableTextView;
 
@@ -433,7 +434,7 @@ public class BottomContentHandler implements BottomContentInterface,
             PageTitle result = (PageTitle) getItem(position);
             pageTitleText.setText(result.getDisplayText());
 
-            TextView descriptionText = (TextView) convertView.findViewById(R.id.page_list_item_description);
+            GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
             descriptionText.setText(result.getDescription());
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.page_list_item_image);

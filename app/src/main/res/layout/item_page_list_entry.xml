@@ -28,14 +28,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/defaultListItemSize"
-        android:orientation="horizontal"
-        android:gravity="top">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/page_list_item_image"
             android:layout_width="@dimen/defaultListItemSize"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/defaultListItemSize"
+            android:layout_gravity="center_vertical"
             android:contentDescription="@null"
             android:src="@drawable/ic_pageimage_placeholder"
             android:background="@color/window_background_light"
@@ -44,23 +44,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginLeft="12dp"
-            android:layout_marginStart="12dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/list_item_text_horizontal_padding"
+            android:layout_marginStart="@dimen/list_item_text_horizontal_padding"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/page_list_item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-6.5dp"
                 style="@style/RtlAwareTextView"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/textSize"
                 android:ellipsize="middle"
                 android:maxLines="2"
+                android:textColor="@color/list_item_text_primary"
                 tools:text="Sample title" />
 
-            <TextView
+            <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/page_list_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,7 +68,8 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/reference_text"
+                android:textColor="@color/list_item_text_secondary"
+                android:visibility="gone"
                 tools:text="Sample description"
                 />
 
