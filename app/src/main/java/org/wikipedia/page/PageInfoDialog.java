@@ -12,6 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ViewFlipper;
 
+import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
+
 /**
  * A dialog to host page issues and disambig information.
  */
@@ -32,6 +34,9 @@ import android.widget.ViewFlipper;
         issuesHeading = (Button) parentView.findViewById(R.id.page_info_page_issues_heading);
         View separatorHeading = parentView.findViewById(R.id.page_info_heading_separator);
         View closeButton = parentView.findViewById(R.id.page_info_close);
+
+        disambigHeading.setText(getStringForArticleLanguage(pageInfo.getTitle(), R.string.page_similar_titles));
+        issuesHeading.setText(getStringForArticleLanguage(pageInfo.getTitle(), R.string.dialog_page_issues));
 
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override

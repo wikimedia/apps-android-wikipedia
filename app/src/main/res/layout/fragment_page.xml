@@ -78,7 +78,8 @@
                         android:paddingTop="@dimen/list_item_vertical_padding"
                         android:paddingBottom="@dimen/list_item_vertical_padding"
                         android:visibility="gone">
-                        <TextView
+                        <org.wikipedia.views.ConfigurableTextView
+                            android:id="@+id/read_more_header"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -88,7 +89,7 @@
                             android:fontFamily="serif"
                             android:textSize="24sp"
                             android:text="@string/read_more_section" />
-                        <ListView
+                        <org.wikipedia.views.ConfigurableListView
                             android:id="@+id/read_more_list"
                             android:layout_width="match_parent"
                             android:layout_height="0dp" />
@@ -188,8 +189,9 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:background="?attr/toc_background_color">
-                    <ListView
+                        android:background="?attr/toc_background_color"
+                        >
+                    <org.wikipedia.views.ConfigurableListView
                             android:id="@+id/page_toc_list"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"

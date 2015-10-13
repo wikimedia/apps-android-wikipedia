@@ -2,7 +2,6 @@ package org.wikipedia.page;
 
 import org.acra.ACRA;
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.editing.EditHandler;
@@ -20,6 +19,7 @@ import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.L10nUtils;
 import org.wikipedia.util.PageLoadUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -35,8 +35,10 @@ import retrofit.client.Response;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -45,6 +47,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import static org.wikipedia.util.L10nUtils.getStringsForArticleLanguage;
 
 /**
  * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
@@ -328,7 +332,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
 
-        Utils.setupDirectionality(model.getTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(),
+        L10nUtils.setupDirectionality(model.getTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
         // hide the native top and bottom components...
@@ -509,10 +513,20 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private void displayLeadSection() {
-        try {
-            final Page page = model.getPage();
-            final PageProperties pageProperties = page.getPageProperties();
+        final Page page = model.getPage();
+        final PageProperties pageProperties = page.getPageProperties();
 
+        @StringRes int[] stringsToLocalize = {
+                R.string.page_similar_titles,
+                R.string.button_page_issues,
+                R.string.table_infobox,
+                R.string.table_other,
+                R.string.table_close,
+                R.string.expand_refs
+        };
+        SparseArray<String> localizedStrings = getStringsForArticleLanguage(page.getTitle(), stringsToLocalize);
+
+        try {
             JSONObject marginPayload = new JSONObject();
             int margin = DimenUtil.roundedPxToDp(activity.getResources().getDimension(R.dimen.content_margin));
             marginPayload.put("marginLeft", margin);
@@ -523,12 +537,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             leadSectionPayload.put("sequence", currentSequenceNum);
             leadSectionPayload.put("title", page.getDisplayTitle());
             leadSectionPayload.put("section", page.getSections().get(0).toJSON());
-            leadSectionPayload.put("string_page_similar_titles", activity.getString(R.string.page_similar_titles));
-            leadSectionPayload.put("string_page_issues", activity.getString(R.string.button_page_issues));
-            leadSectionPayload.put("string_table_infobox", activity.getString(R.string.table_infobox));
-            leadSectionPayload.put("string_table_other", activity.getString(R.string.table_other));
-            leadSectionPayload.put("string_table_close", activity.getString(R.string.table_close));
-            leadSectionPayload.put("string_expand_refs", activity.getString(R.string.expand_refs));
+            leadSectionPayload.put("string_page_similar_titles", localizedStrings.get(R.string.page_similar_titles));
+            leadSectionPayload.put("string_page_issues", localizedStrings.get(R.string.button_page_issues));
+            leadSectionPayload.put("string_table_infobox", localizedStrings.get(R.string.table_infobox));
+            leadSectionPayload.put("string_table_other", localizedStrings.get(R.string.table_other));
+            leadSectionPayload.put("string_table_close", localizedStrings.get(R.string.table_close));
+            leadSectionPayload.put("string_expand_refs", localizedStrings.get(R.string.expand_refs));
             leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
             leadSectionPayload.put("siteLanguage", model.getTitle().getSite().getLanguageCode());
             leadSectionPayload.put("isMainPage", page.isMainPage());

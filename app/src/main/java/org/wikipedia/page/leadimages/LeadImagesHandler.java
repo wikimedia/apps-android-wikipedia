@@ -28,17 +28,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.R;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
 import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
@@ -52,6 +51,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ConfigurableTextView;
 import org.wikipedia.views.ViewUtil;
 
 import static org.wikipedia.views.ViewUtil.findView;
@@ -111,7 +111,7 @@ public class LeadImagesHandler {
 
     private ImageView imagePlaceholder;
     private ImageViewWithFace image;
-    private TextView pageTitleText;
+    private ConfigurableTextView pageTitleText;
     private Drawable pageTitleGradient;
 
     private int displayHeightDp;
@@ -227,7 +227,7 @@ public class LeadImagesHandler {
         }
 
         // set the page title text, and honor any HTML formatting in the title
-        pageTitleText.setText(Html.fromHtml(getPage().getDisplayTitle()));
+        pageTitleText.setText(Html.fromHtml(getPage().getDisplayTitle()), getPage().getTitle().getSite().getLanguageCode());
         // Set the subtitle, too, so text measurements are accurate.
         layoutWikiDataDescription(getTitle().getDescription());
 

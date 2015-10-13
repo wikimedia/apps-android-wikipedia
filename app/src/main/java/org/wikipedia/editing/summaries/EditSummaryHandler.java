@@ -11,8 +11,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.FilterQueryProvider;
 import android.widget.TextView;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
+
+import static org.wikipedia.util.L10nUtils.setConditionalTextDirection;
 
 import java.util.Date;
 
@@ -58,7 +59,7 @@ public class EditSummaryHandler {
             }
         });
 
-        Utils.setTextDirection(summaryEdit, title.getSite().getLanguageCode());
+        setConditionalTextDirection(summaryEdit, title.getSite().getLanguageCode());
     }
 
     public void show() {

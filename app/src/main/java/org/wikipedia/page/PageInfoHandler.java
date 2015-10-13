@@ -25,7 +25,8 @@ abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
-            PageInfo info = new PageInfo(parseDisambigJson(messagePayload.getJSONArray("hatnotes")),
+            PageInfo info = new PageInfo(activity.getCurPageFragment().getPage().getTitle(),
+                                         parseDisambigJson(messagePayload.getJSONArray("hatnotes")),
                                          Utils.jsonArrayToStringArray(messagePayload.getJSONArray("issues")));
             PageInfoDialog dialog = new PageInfoDialog(activity, info, getDialogHeight());
             dialog.show();

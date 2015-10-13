@@ -17,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -40,9 +39,13 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResults;
+import org.wikipedia.views.ConfigurableListView;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ConfigurableTextView;
 
 import java.util.List;
+
+import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
 
 public class BottomContentHandler implements BottomContentInterface,
                                                 ObservableWebView.OnScrollChangeListener,
@@ -62,7 +65,7 @@ public class BottomContentHandler implements BottomContentInterface,
     private TextView pageLastUpdatedText;
     private TextView pageLicenseText;
     private View readMoreContainer;
-    private ListView readMoreList;
+    private ConfigurableListView readMoreList;
 
     private SuggestedPagesFunnel funnel;
     private SearchResults readMoreItems;
@@ -82,10 +85,10 @@ public class BottomContentHandler implements BottomContentInterface,
         webview.addOnScrollChangeListener(this);
         webview.addOnContentHeightChangedListener(this);
 
-        pageLastUpdatedText = (TextView)bottomContentContainer.findViewById(R.id.page_last_updated_text);
-        pageLicenseText = (TextView)bottomContentContainer.findViewById(R.id.page_license_text);
+        pageLastUpdatedText = (TextView) bottomContentContainer.findViewById(R.id.page_last_updated_text);
+        pageLicenseText = (TextView) bottomContentContainer.findViewById(R.id.page_license_text);
         readMoreContainer = bottomContentContainer.findViewById(R.id.read_more_container);
-        readMoreList = (ListView)bottomContentContainer.findViewById(R.id.read_more_list);
+        readMoreList = (ConfigurableListView) bottomContentContainer.findViewById(R.id.read_more_list);
 
         TextView pageExternalLink = (TextView) bottomContentContainer.findViewById(R.id.page_external_link);
         pageExternalLink.setPaintFlags(pageExternalLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -339,6 +342,11 @@ public class BottomContentHandler implements BottomContentInterface,
     }
 
     private void showReadMore() {
+        if (parentFragment.isAdded()) {
+            ((ConfigurableTextView) readMoreContainer.findViewById(R.id.read_more_header))
+                    .setText(getStringForArticleLanguage(parentFragment.getTitle(), R.string.read_more_section),
+                                     pageTitle.getSite().getLanguageCode());
+        }
         readMoreContainer.setVisibility(View.VISIBLE);
     }
 
@@ -353,7 +361,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private void setUpReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
         final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getPageTitles());
-        readMoreList.setAdapter(adapter);
+        readMoreList.setAdapter(adapter, pageTitle.getSite().getLanguageCode());
         readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

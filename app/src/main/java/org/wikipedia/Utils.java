@@ -1,6 +1,5 @@
 package org.wikipedia;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Looper;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
@@ -28,8 +26,6 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.interlanguage.LanguageUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DimenUtil;
@@ -48,7 +44,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -229,67 +224,6 @@ public final class Utils {
      */
     public static void setErrorPopup(TextView textView, String error) {
         textView.setError(error);
-    }
-
-    /**
-     * List of wiki language codes for which the content is primarily RTL.
-     *
-     * Ensure that this is always sorted alphabetically.
-     */
-    private static final String[] RTL_LANGS = {
-            "ar", "arc", "arz", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
-            "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
-    };
-
-    /**
-     * Returns true if the given wiki language is to be displayed RTL.
-     *
-     * @param lang Wiki code for the language to check for directionality
-     * @return true if it is RTL, false if LTR
-     */
-    public static boolean isLangRTL(String lang) {
-        return Arrays.binarySearch(RTL_LANGS, lang, null) >= 0;
-    }
-
-    /**
-     * Setup directionality for both UI and content elements in a webview.
-     *
-     * @param contentLang The Content language to use to set directionality. Wiki Language code.
-     * @param uiLang The UI language to use to set directionality. Java language code.
-     * @param bridge The CommunicationBridge to use to communicate with the WebView
-     */
-    public static void setupDirectionality(String contentLang, String uiLang, CommunicationBridge bridge) {
-        JSONObject payload = new JSONObject();
-        try {
-            if (isLangRTL(contentLang)) {
-                payload.put("contentDirection", "rtl");
-            } else {
-                payload.put("contentDirection", "ltr");
-            }
-            if (isLangRTL(LanguageUtil.languageCodeToWikiLanguageCode(uiLang))) {
-                payload.put("uiDirection", "rtl");
-            } else {
-                payload.put("uiDirection", "ltr");
-            }
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setDirectionality", payload);
-    }
-
-    /**
-     * Sets text direction (RTL / LTR) for given view based on given lang.
-     *
-     * Doesn't do anything on pre Android 4.2, since their RTL support is terrible.
-     *
-     * @param view View to set direction of
-     * @param lang Wiki code for the language based on which to set direction
-     */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public static void setTextDirection(View view, String lang) {
-        if (ApiUtil.hasJellyBeanMr1()) {
-            view.setTextDirection(Utils.isLangRTL(lang) ? View.TEXT_DIRECTION_RTL : View.TEXT_DIRECTION_LTR);
-        }
     }
 
     /**
