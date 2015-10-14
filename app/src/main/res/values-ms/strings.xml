@@ -57,7 +57,6 @@
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
-  <string name="langlinks_error_retry">Cuba lagi</string>
   <string name="langlinks_empty">Laman ini tidak terdapat dalam bahasa lain</string>
   <string name="langlinks_no_match">Tiada bahasa yang padan dengan pertanyaan anda.</string>
   <string name="langlinks_activity_title">Bahasa lain:</string>

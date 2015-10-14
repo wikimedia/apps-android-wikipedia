@@ -57,7 +57,6 @@
   <string name="preference_title_language">వికీపీడియా భాష</string>
   <string name="preference_languages_filter_hint">వెతుకు</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
-  <string name="langlinks_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు.</string>
   <string name="langlinks_no_match">ఏ భాషలోనూ మీ ప్రశ్నకు సరిపోలిక దొరకలేదు.
 

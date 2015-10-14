@@ -56,7 +56,6 @@
   <string name="preference_title_language">Vikipedijos kalba</string>
   <string name="preference_languages_filter_hint">Ieškoti</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
-  <string name="langlinks_error_retry">Bandyti dar kartą</string>
   <string name="langlinks_empty">Šis puslapis nėra išverstas į kitas kalbas.</string>
   <string name="langlinks_activity_title">Kitos kalbos</string>
   <string name="menu_save_changes">Įrašyti pakeitimus</string>

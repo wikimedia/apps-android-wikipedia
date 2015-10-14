@@ -58,7 +58,6 @@
   <string name="preference_title_language">Idioma da WIkipédia</string>
   <string name="preference_languages_filter_hint">Pesquisar</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
-  <string name="langlinks_error_retry">Repetir</string>
   <string name="langlinks_empty">Esta página não está disponível em outros idiomas</string>
   <string name="langlinks_no_match">Nenhum idioma correspondente com a sua pesquisa.</string>
   <string name="langlinks_activity_title">Outros idiomas</string>

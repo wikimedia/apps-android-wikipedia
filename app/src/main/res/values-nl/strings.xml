@@ -58,7 +58,6 @@
   <string name="preference_title_language">Wikipediataal</string>
   <string name="preference_languages_filter_hint">Zoeken</string>
   <string name="langlinks_filter_hint">Zoeken</string>
-  <string name="langlinks_error_retry">Opnieuw proberen</string>
   <string name="langlinks_empty">Deze pagina is niet beschikbaar in andere talen</string>
   <string name="langlinks_no_match">Geen talen gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="langlinks_activity_title">Andere talen</string>

@@ -35,7 +35,6 @@
   <string name="preference_title_language">Wikipedia kasa</string>
   <string name="preference_languages_filter_hint">Hwehwɛ</string>
   <string name="langlinks_filter_hint">Hwehwɛ</string>
-  <string name="langlinks_error_retry">San yɛ bio</string>
   <string name="langlinks_empty">Saa krataa yi nni kasa a worehwehwɛ no mu</string>
   <string name="langlinks_activity_title">Kasa ahorow</string>
   <string name="menu_save_changes">Fa nsakrae no sie</string>

@@ -53,7 +53,6 @@
   <string name="preference_title_language">Yeth Wikipedya</string>
   <string name="preference_languages_filter_hint">Hwilas</string>
   <string name="langlinks_filter_hint">Hwilas</string>
-  <string name="langlinks_error_retry">Assaya arta</string>
   <string name="langlinks_empty">Nyns yw kavadow an folen ma yn yethow erel.</string>
   <string name="langlinks_no_match">Ny veu kevys yeth vyth.</string>
   <string name="langlinks_activity_title">Yethow erel</string>

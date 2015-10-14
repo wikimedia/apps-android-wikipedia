@@ -55,7 +55,6 @@
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">अन्विष्यताम्</string>
   <string name="langlinks_filter_hint">अन्विष्यताम्</string>
-  <string name="langlinks_error_retry">पुनःप्रयासः</string>
   <string name="langlinks_empty">अन्यभाषासु पृष्ठमिदं न विद्यते ।</string>
   <string name="langlinks_no_match">भवता/भवत्या इष्टं पृष्ठं न प्राप्तम् ।</string>
   <string name="langlinks_activity_title">अन्यभाषाः</string>

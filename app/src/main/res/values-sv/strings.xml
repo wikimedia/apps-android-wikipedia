@@ -58,7 +58,6 @@
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="preference_languages_filter_hint">Sök</string>
   <string name="langlinks_filter_hint">Sök</string>
-  <string name="langlinks_error_retry">Försök igen</string>
   <string name="langlinks_empty">Denna sida är inte tillgänglig på andra språk</string>
   <string name="langlinks_no_match">Inga språk som matchade din sökning hittades.</string>
   <string name="langlinks_activity_title">Andra språk</string>

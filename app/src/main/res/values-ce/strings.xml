@@ -32,7 +32,6 @@
   <string name="preference_title_language" fuzzy="true">Мотт</string>
   <string name="preference_languages_filter_hint">Лахар</string>
   <string name="langlinks_filter_hint">Лахар</string>
-  <string name="langlinks_error_retry">ЮхагӀорта</string>
   <string name="langlinks_no_match">Хьан дехарца меттанаш цакарий</string>
   <string name="langlinks_activity_title">Кхин меттанаш</string>
   <string name="edit_section_error_retry">ЮхагӀорта</string>

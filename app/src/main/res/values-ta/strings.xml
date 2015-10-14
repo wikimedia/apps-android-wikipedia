@@ -50,7 +50,6 @@
   <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
   <string name="preference_languages_filter_hint">தேடுக</string>
   <string name="langlinks_filter_hint">தேடுக</string>
-  <string name="langlinks_error_retry">மறு முயற்சி செய்</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை</string>
   <string name="langlinks_activity_title">மற்ற மொழிகளில்</string>
   <string name="menu_save_changes">மாற்றங்களைச் சேமி</string>

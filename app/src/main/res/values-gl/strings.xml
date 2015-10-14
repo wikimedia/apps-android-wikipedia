@@ -58,7 +58,6 @@
   <string name="preference_title_language">Lingua da Wikipedia</string>
   <string name="preference_languages_filter_hint">Procurar</string>
   <string name="langlinks_filter_hint">Procurar</string>
-  <string name="langlinks_error_retry">Reintentar</string>
   <string name="langlinks_empty">Esta páxina non está dispoñible noutras linguas</string>
   <string name="langlinks_no_match">Non se atopou ningunha lingua que coincidise coa súa pescuda.</string>
   <string name="langlinks_activity_title">Outras linguas</string>

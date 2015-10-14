@@ -44,7 +44,6 @@
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
   <string name="preference_languages_filter_hint">پلټل</string>
   <string name="langlinks_filter_hint">پلټل</string>
-  <string name="langlinks_error_retry">بياآزمويل</string>
   <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>
   <string name="langlinks_activity_title">نورې ژبې</string>
   <string name="menu_save_changes">بدلونونه خوندي کول</string>

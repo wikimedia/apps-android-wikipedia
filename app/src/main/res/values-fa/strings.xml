@@ -58,7 +58,6 @@
   <string name="preference_title_language">زبان</string>
   <string name="preference_languages_filter_hint">جستجو</string>
   <string name="langlinks_filter_hint">جستجو</string>
-  <string name="langlinks_error_retry">سعی مجدد</string>
   <string name="langlinks_empty">این صفحه به زبان های دیگر در دسترس نمی‌باشد.</string>
   <string name="langlinks_no_match">هیچ زبانی برای درخواست شما یافت نشد</string>
   <string name="langlinks_activity_title">زبان‌های دیگر</string>

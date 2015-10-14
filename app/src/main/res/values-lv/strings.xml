@@ -35,7 +35,6 @@
   <string name="preference_title_language">Vikipēdijas valoda</string>
   <string name="preference_languages_filter_hint">Meklēt</string>
   <string name="langlinks_filter_hint">Meklēt</string>
-  <string name="langlinks_error_retry">Mēģināt vēlreiz</string>
   <string name="langlinks_empty">Šī lapa nav pieejama citās valodās</string>
   <string name="langlinks_activity_title">Citas valodas</string>
   <string name="menu_save_changes">Saglabāt izmaiņas</string>

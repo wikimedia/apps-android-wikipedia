@@ -39,7 +39,6 @@
   <string name="preference_title_language">Zimanê Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
-  <string name="langlinks_error_retry">Dîsa hewl bide</string>
   <string name="langlinks_empty">Ev rûpel bi zimanên din tune ye.</string>
   <string name="langlinks_activity_title">Zimanên din</string>
   <string name="menu_save_changes">Guhertinan tomar bike</string>

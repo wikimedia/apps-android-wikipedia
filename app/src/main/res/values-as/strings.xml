@@ -45,7 +45,6 @@
   <string name="preference_title_language">ৱিকিপিডিয়া ভাষা</string>
   <string name="preference_languages_filter_hint">সন্ধান কৰক</string>
   <string name="langlinks_filter_hint">সন্ধান কৰক</string>
-  <string name="langlinks_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="langlinks_empty">এই পৃষ্ঠাটো আন ভাষাত উপলব্ধ নহয়</string>
   <string name="langlinks_no_match">আপোনাৰ অনুসন্ধানৰ সৈতে মিল থকা কোনো ভাষা পোৱা নগ\'ল।</string>
   <string name="langlinks_activity_title">আন ভাষাসমূহ</string>

@@ -70,7 +70,6 @@
     <string name="preference_title_language">Wikipedia language</string>
     <string name="preference_languages_filter_hint">Search</string>
     <string name="langlinks_filter_hint">Search</string>
-    <string name="langlinks_error_retry">Retry</string>
     <string name="langlinks_empty">This page is not available in other languages.</string>
     <string name="langlinks_no_match">No languages found matching your query.</string>
     <string name="langlinks_activity_title">Other languages</string>

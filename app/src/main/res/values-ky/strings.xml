@@ -52,7 +52,6 @@
   <string name="preference_title_language">Уикипедия тили</string>
   <string name="preference_languages_filter_hint">Издөө</string>
   <string name="langlinks_filter_hint">Издөө</string>
-  <string name="langlinks_error_retry">Кайра аракет кылуу</string>
   <string name="langlinks_empty">Бул барак башка тилдерде жеткиликтүү эмес.</string>
   <string name="langlinks_no_match">Сиздин сурооңузга төп тил табылбады.</string>
   <string name="langlinks_activity_title">Башка тилдер</string>

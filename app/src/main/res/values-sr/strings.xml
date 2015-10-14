@@ -55,7 +55,6 @@
   <string name="preference_title_language">Језик Википедије</string>
   <string name="preference_languages_filter_hint">Претрага</string>
   <string name="langlinks_filter_hint">Претрага</string>
-  <string name="langlinks_error_retry">Пробај опет</string>
   <string name="langlinks_empty">Ова страница није доступан на другим језицима.</string>
   <string name="langlinks_activity_title">Други језици</string>
   <string name="menu_save_changes">Сачувај измене</string>

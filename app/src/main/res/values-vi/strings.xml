@@ -58,7 +58,6 @@
   <string name="preference_title_language">Ngôn ngữ Wikipedia</string>
   <string name="preference_languages_filter_hint">Tìm kiếm</string>
   <string name="langlinks_filter_hint">Tìm kiếm</string>
-  <string name="langlinks_error_retry">Thử lại</string>
   <string name="langlinks_empty">Trang này không có sẵn trong ngôn ngữ khác</string>
   <string name="langlinks_no_match">Không tìm thấy ngôn ngữ trùng với truy vấn của bạn.</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>

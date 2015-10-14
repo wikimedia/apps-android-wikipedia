@@ -50,7 +50,6 @@
   <string name="preference_title_language">Vikipedia tili</string>
   <string name="preference_languages_filter_hint">Izlash</string>
   <string name="langlinks_filter_hint">Izlash</string>
-  <string name="langlinks_error_retry">Qayta urinib koʻrish</string>
   <string name="langlinks_empty">Bu sahifa boshqa tillarda mavjud emas.</string>
   <string name="langlinks_no_match">So\'rovingizga mos til topilmadi.</string>
   <string name="langlinks_activity_title">Boshqa tillarda</string>

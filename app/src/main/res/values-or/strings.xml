@@ -47,7 +47,6 @@
   <string name="preference_title_language">ଉଇକିପିଡ଼ିଆ ଭାଷା</string>
   <string name="preference_languages_filter_hint">ଖୋଜନ୍ତୁ</string>
   <string name="langlinks_filter_hint">ଖୋଜନ୍ତୁ</string>
-  <string name="langlinks_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="langlinks_empty">ଏହି ପୃଷ୍ଠାଟି ଅନ୍ୟ ଭାଷାରେ ଉପଲବ୍ଧ ନାହିଁ</string>
   <string name="langlinks_no_match">ଆପଣ ଖୋଜୁଥିବା ଭାଷା ମିଳିଲା ନାହିଁ ।</string>
   <string name="langlinks_activity_title">ଅନ୍ୟ ଭାଷା</string>

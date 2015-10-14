@@ -58,7 +58,6 @@
   <string name="preference_title_language">Мова Вікіпедії</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
-  <string name="langlinks_error_retry">Повторити</string>
   <string name="langlinks_empty">Ця сторінка не доступна на інших мовах</string>
   <string name="langlinks_no_match">Нема мов, що відповідають вашому запиту.</string>
   <string name="langlinks_activity_title">Інші мови</string>

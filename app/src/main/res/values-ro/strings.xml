@@ -58,7 +58,6 @@
   <string name="preference_title_language">Limba Wikipediei</string>
   <string name="preference_languages_filter_hint">Căutare</string>
   <string name="langlinks_filter_hint">Căutare</string>
-  <string name="langlinks_error_retry">Reîncercare</string>
   <string name="langlinks_empty">Această pagină nu este disponibilă în alte limbi</string>
   <string name="langlinks_no_match">Nicio limbă nu corespunde interogării dumneavoastră.</string>
   <string name="langlinks_activity_title">Alte limbi</string>

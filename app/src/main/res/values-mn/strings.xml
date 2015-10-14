@@ -31,7 +31,6 @@
   <string name="preference_languages_filter_hint">Хайлт</string>
   <string name="langlinks_filter_hint">Хайлт</string>
   <string name="menu_page_other_languages">Бусад хэл дээр унших</string>
-  <string name="langlinks_error_retry">Дахин оролд</string>
   <string name="langlinks_activity_title">Бусад хэл</string>
   <string name="menu_save_changes">Өөрчлөлтөө хадгалах</string>
   <string name="edit_section_error_retry">Дахин оролд</string>

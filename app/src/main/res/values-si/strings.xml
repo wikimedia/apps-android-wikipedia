@@ -39,7 +39,6 @@
   <string name="preference_title_language">විකිපීඩියා භාෂාව</string>
   <string name="preference_languages_filter_hint">සොයන්න</string>
   <string name="langlinks_filter_hint">සොයන්න</string>
-  <string name="langlinks_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="langlinks_empty">මෙම පිටුව වෙනත් භාෂාවලින් ලබාගත නොහැක</string>
   <string name="langlinks_no_match">ඔබේ සෙවීමට සමාන භාෂා සොයාගැනීමට නොහැක</string>
   <string name="langlinks_activity_title">වෙනත් භාෂාවන්</string>

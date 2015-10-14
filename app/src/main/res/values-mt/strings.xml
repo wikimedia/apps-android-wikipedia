@@ -44,7 +44,6 @@
   <string name="preference_title_language">Lingwa tal-Wikipedija</string>
   <string name="preference_languages_filter_hint">Fittex</string>
   <string name="langlinks_filter_hint">Fittex</string>
-  <string name="langlinks_error_retry">Erġa\' pprova</string>
   <string name="langlinks_empty">Din il-paġna hija disponibbli f\'lingwi oħrajn.</string>
   <string name="langlinks_no_match">L-ebda lingwa ma taqbel mar-rikjesta tiegħek.</string>
   <string name="langlinks_activity_title">Lingwi oħrajn</string>

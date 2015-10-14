@@ -58,7 +58,6 @@
   <string name="preference_title_language">Wikipedian kieli</string>
   <string name="preference_languages_filter_hint">Haku</string>
   <string name="langlinks_filter_hint">Haku</string>
-  <string name="langlinks_error_retry">Yritä uudelleen</string>
   <string name="langlinks_empty">Tämä sivu ei ole saatavilla muilla kielillä</string>
   <string name="langlinks_no_match">Hakuasi vastaavia kieliä ei löytynyt.</string>
   <string name="langlinks_activity_title">Muilla kielillä</string>

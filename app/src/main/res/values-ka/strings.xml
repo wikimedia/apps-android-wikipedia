@@ -53,7 +53,6 @@
   <string name="preference_title_language">ვიკიპედიის ენები</string>
   <string name="preference_languages_filter_hint">ძიება</string>
   <string name="langlinks_filter_hint">ძიება</string>
-  <string name="langlinks_error_retry">გამეორება</string>
   <string name="langlinks_empty">ეს გვერდი მიუწვდომელია სხვა ენებზე</string>
   <string name="langlinks_no_match">თქვენს მოთხოვნაზე არც ერთი ენა არ მოიძებნა.</string>
   <string name="langlinks_activity_title">სხვა ენები</string>

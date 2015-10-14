@@ -58,7 +58,6 @@
   <string name="preference_title_language">Idioma de la Viquipèdia</string>
   <string name="preference_languages_filter_hint">Cercar</string>
   <string name="langlinks_filter_hint">Cercar</string>
-  <string name="langlinks_error_retry">Tornar-ho a provar</string>
   <string name="langlinks_empty">Aquesta pàgina no està disponible en altres idiomes.</string>
   <string name="langlinks_no_match">No s\'ha trobat cap idioma que coincideixi amb la consulta.</string>
   <string name="langlinks_activity_title">Altres idiomes</string>

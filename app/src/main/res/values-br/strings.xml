@@ -58,7 +58,6 @@
   <string name="preference_title_language">Yezh Wikipedia</string>
   <string name="preference_languages_filter_hint">Klask</string>
   <string name="langlinks_filter_hint">Klask</string>
-  <string name="langlinks_error_retry">Klask en-dro</string>
   <string name="langlinks_empty">N\'haller ket kaout ar bajenn-mañ e yezhoù all</string>
   <string name="langlinks_no_match">N\'eus bet kavet yezh ebet a glot gant ho reked.</string>
   <string name="langlinks_activity_title">Yezhoù all</string>

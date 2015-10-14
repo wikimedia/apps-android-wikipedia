@@ -51,7 +51,6 @@
   <string name="preference_title_language">ဝီကီပီဒီးယား ဘာသာစကား</string>
   <string name="preference_languages_filter_hint">ရှာ​ဖွေ​ရန်​</string>
   <string name="langlinks_filter_hint">ရှာ​ဖွေ​ရန်​</string>
-  <string name="langlinks_error_retry">ပြန်လုပ်</string>
   <string name="langlinks_empty">စာမျက်နှာအား အခြားဘာသာဖြင့်မရှိသေးပါ။</string>
   <string name="langlinks_no_match">ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်ဘာသာစကားမျှမတွေ့ရှိ</string>
   <string name="langlinks_activity_title">အခြားဘာသာစကားများ</string>

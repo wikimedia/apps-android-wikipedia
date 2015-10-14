@@ -58,7 +58,6 @@
   <string name="preference_title_language">Язык Википедии</string>
   <string name="preference_languages_filter_hint">Найти</string>
   <string name="langlinks_filter_hint">Поиск</string>
-  <string name="langlinks_error_retry">Повторить</string>
   <string name="langlinks_empty">Эта страница недоступна на других языках</string>
   <string name="langlinks_no_match">Языки, соответствующие вашему запросу, не найдены.</string>
   <string name="langlinks_activity_title">Другие языки</string>

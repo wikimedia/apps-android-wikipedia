@@ -56,7 +56,6 @@
   <string name="preference_title_language">Wikipedia-Sprooch</string>
   <string name="preference_languages_filter_hint">Sichen</string>
   <string name="langlinks_filter_hint">Sichen</string>
-  <string name="langlinks_error_retry">Nach eng Kéier probéieren</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
   <string name="langlinks_no_match">Keng Sprooche fonnt déi Ärer Ufro passen.</string>
   <string name="langlinks_activity_title">Aner Sproochen</string>

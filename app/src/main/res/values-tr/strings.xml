@@ -58,7 +58,6 @@
   <string name="preference_title_language">Vikipedi dili</string>
   <string name="preference_languages_filter_hint">Ara</string>
   <string name="langlinks_filter_hint">Ara</string>
-  <string name="langlinks_error_retry">Tekrar dene</string>
   <string name="langlinks_empty">Bu sayfa diğer dillerde bulunmamaktadır</string>
   <string name="langlinks_no_match">Sorgunuzla eşleşen bir dil bulunamadı.</string>
   <string name="langlinks_activity_title">Diğer diller</string>

@@ -58,7 +58,6 @@
   <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਬੋਲੀ</string>
   <string name="preference_languages_filter_hint">ਖੋਜ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
-  <string name="langlinks_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="langlinks_empty">ਇਹ ਵਰਕਾ ਹੋਰਨਾਂ ਬੋਲੀਆਂ ਵਿੱਚ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="langlinks_no_match">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮਿਲਦੀਆਂ ਕੋਈ ਬੋਲੀਆਂ ਨਹੀਂ ਲੱਭੀਆਂ।</string>
   <string name="langlinks_activity_title">ਹੋਰ ਬੋਲੀਆਂ</string>

@@ -38,7 +38,6 @@
   <string name="preference_title_language">Википедиялъул мацӀал</string>
   <string name="preference_languages_filter_hint">ЦIехезе</string>
   <string name="langlinks_filter_hint">ЦIехезе</string>
-  <string name="langlinks_error_retry">Такрар гьабизе</string>
   <string name="langlinks_empty">Гьаб гьумер цоги мацӀалда гьечӀо</string>
   <string name="langlinks_activity_title">Цоги мацӀазда</string>
   <string name="menu_save_changes">Хиса-басиял цIунизе</string>

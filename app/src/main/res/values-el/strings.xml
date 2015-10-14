@@ -58,7 +58,6 @@
   <string name="preference_title_language">Γλώσσα Βικιπαίδειας</string>
   <string name="preference_languages_filter_hint">Αναζήτηση</string>
   <string name="langlinks_filter_hint">Αναζήτηση</string>
-  <string name="langlinks_error_retry">Ξαναπροσπαθήστε</string>
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες</string>
   <string name="langlinks_no_match">Δεν βρέθηκαν γλώσσες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="langlinks_activity_title">Άλλες γλώσσες</string>

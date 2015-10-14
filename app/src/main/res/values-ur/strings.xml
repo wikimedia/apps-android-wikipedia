@@ -52,7 +52,6 @@
   <string name="preference_title_language">ویکیپیڈیا زبان منتخب کریں</string>
   <string name="preference_languages_filter_hint">تلاش</string>
   <string name="langlinks_filter_hint">تلاش</string>
-  <string name="langlinks_error_retry">دوبارہ کوشش کریں</string>
   <string name="langlinks_empty">یہ صفحہ کسی دوسری زبان میں دستیاب نہیں ہے.</string>
   <string name="langlinks_no_match">مطلوبہ تلاش کے نتائج کسی زبان میں نہیں ملے</string>
   <string name="langlinks_activity_title">دیگر زبانیں</string>

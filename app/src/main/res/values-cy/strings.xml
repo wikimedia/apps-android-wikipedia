@@ -50,7 +50,6 @@
   <string name="preference_title_language">Wicipedia pa iaith?</string>
   <string name="preference_languages_filter_hint">Chwilio</string>
   <string name="langlinks_filter_hint">Chwilier</string>
-  <string name="langlinks_error_retry">Ailgeisiwch</string>
   <string name="langlinks_empty">Nid yw\'r erthygl hon ar gael mewn ieithoedd eraill.</string>
   <string name="langlinks_no_match">Nid yw\'r iaith a gesiwch ar gael.</string>
   <string name="langlinks_activity_title">Ieithoedd eraill</string>

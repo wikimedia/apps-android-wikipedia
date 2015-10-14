@@ -58,7 +58,6 @@
   <string name="preference_title_language">لغة ويكيبيديا</string>
   <string name="preference_languages_filter_hint">بحث</string>
   <string name="langlinks_filter_hint">بحث</string>
-  <string name="langlinks_error_retry">إعادة المحاولة</string>
   <string name="langlinks_empty">هذه الصفحة غير متوفرة بلغات أخرى</string>
   <string name="langlinks_no_match">لا تتوفر لغات مطابقة لبحثك.</string>
   <string name="langlinks_activity_title">لغات أخرى</string>

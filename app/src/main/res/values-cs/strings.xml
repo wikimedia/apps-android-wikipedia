@@ -58,7 +58,6 @@
   <string name="preference_title_language">Jazyk Wikipedie</string>
   <string name="preference_languages_filter_hint">Hledat</string>
   <string name="langlinks_filter_hint">Hledat</string>
-  <string name="langlinks_error_retry">Zkusit znovu</string>
   <string name="langlinks_empty">Tato stránka není k dispozici v jiných jazycích</string>
   <string name="langlinks_no_match">Nenalezeny žádné jazyky odpovídající vašemu dotazu.</string>
   <string name="langlinks_activity_title">Jiné jazyky</string>

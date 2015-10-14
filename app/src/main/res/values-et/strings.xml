@@ -36,7 +36,6 @@
   <string name="preference_title_language">Vikipeedia keel</string>
   <string name="preference_languages_filter_hint">Otsi</string>
   <string name="langlinks_filter_hint">Otsi</string>
-  <string name="langlinks_error_retry">Proovi uuesti</string>
   <string name="langlinks_empty">See lehekülg ei ole teistes keeltes saadaval</string>
   <string name="langlinks_activity_title">Teised keeled</string>
   <string name="menu_save_changes">Salvesta muudatused</string>

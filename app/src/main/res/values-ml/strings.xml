@@ -55,7 +55,6 @@
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷ</string>
   <string name="preference_languages_filter_hint">തിരയുക</string>
   <string name="langlinks_filter_hint">തിരയുക</string>
-  <string name="langlinks_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="langlinks_empty">ഈ താൾ മറ്റ് ഭാഷകളിൽ ലഭ്യമല്ല</string>
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
   <string name="menu_save_changes">മാറ്റങ്ങൾ സേവ് ചെയ്യുക</string>

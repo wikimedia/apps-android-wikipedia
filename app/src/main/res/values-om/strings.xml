@@ -26,7 +26,6 @@
   <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="preference_languages_filter_hint">Barbaadi</string>
   <string name="langlinks_filter_hint">Barbaadi</string>
-  <string name="langlinks_error_retry">Lammata yaali</string>
   <string name="langlinks_activity_title">Afaan biraa</string>
   <string name="menu_save_changes">Jijjiirama olkaayi</string>
   <string name="edit_section_error_retry">Lammata yaali</string>

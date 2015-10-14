@@ -56,7 +56,6 @@
   <string name="preference_title_language">Wikipédia-nyelv</string>
   <string name="preference_languages_filter_hint">Keresés</string>
   <string name="langlinks_filter_hint">Keresés</string>
-  <string name="langlinks_error_retry">Újra</string>
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>
   <string name="langlinks_activity_title">További nyelvek</string>
   <string name="menu_save_changes">Módosítások mentése</string>

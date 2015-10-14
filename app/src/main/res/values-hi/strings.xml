@@ -52,7 +52,6 @@
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">खोज</string>
   <string name="langlinks_filter_hint">खोज</string>
-  <string name="langlinks_error_retry">पुनः प्रयास करें</string>
   <string name="langlinks_empty">पृष्ठ अन्य भाषा में उपलब्ध नहीं है</string>
   <string name="langlinks_no_match">खोज परिणाम में कोई भाषा नहीं मिली।</string>
   <string name="langlinks_activity_title">अन्य भाषाएँ</string>

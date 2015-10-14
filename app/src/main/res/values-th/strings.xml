@@ -55,7 +55,6 @@
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
   <string name="preference_languages_filter_hint">ค้นหา</string>
   <string name="langlinks_filter_hint">ค้นหา</string>
-  <string name="langlinks_error_retry">ลองใหม่</string>
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>
   <string name="langlinks_no_match">ไม่พบภาษาที่ตรงกับคำค้นหาของคุณ</string>
   <string name="langlinks_activity_title">ภาษาอื่น</string>

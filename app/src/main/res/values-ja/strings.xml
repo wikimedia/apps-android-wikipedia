@@ -58,7 +58,6 @@
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
   <string name="langlinks_filter_hint">検索</string>
-  <string name="langlinks_error_retry">再試行</string>
   <string name="langlinks_empty">このページの他の言語版はありません。</string>
   <string name="langlinks_no_match">入力したキーワードに一致する言語が見つかりません。</string>
   <string name="langlinks_activity_title">他の言語で読む</string>

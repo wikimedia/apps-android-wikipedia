@@ -57,7 +57,6 @@
   <string name="preference_title_language">Wika ng Wikipedia</string>
   <string name="preference_languages_filter_hint">Hanapin</string>
   <string name="langlinks_filter_hint">Hanapin</string>
-  <string name="langlinks_error_retry">Subukang muli</string>
   <string name="langlinks_empty">Ang pahinang ito ay hindi mababasa sa iba pang wika</string>
   <string name="langlinks_no_match">Walang nahanap na mga wika na tumutugma sa iyong tanong.</string>
   <string name="langlinks_activity_title">Iba pang mga wika</string>

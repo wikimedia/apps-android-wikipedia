@@ -54,7 +54,6 @@
   <string name="preference_title_language">Wikipediaren hizkuntza</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
   <string name="langlinks_filter_hint">Bilatu</string>
-  <string name="langlinks_error_retry">Saiatu berriro</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
   <string name="langlinks_no_match">Zure kontsultarekin bat egiten duen hizkuntzarik ez da aurkitu.</string>
   <string name="langlinks_activity_title">Beste hizkuntzak</string>

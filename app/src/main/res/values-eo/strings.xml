@@ -54,7 +54,6 @@
   <string name="preference_title_language">Lingvo de Vikipedio</string>
   <string name="preference_languages_filter_hint">Serĉi</string>
   <string name="langlinks_filter_hint">Serĉi</string>
-  <string name="langlinks_error_retry">Reprovi</string>
   <string name="langlinks_empty">Ĉi tiu paĝo ne disponeblas en aliaj lingvoj</string>
   <string name="langlinks_no_match">Neniu lingvo kongruas kun via serĉo.</string>
   <string name="langlinks_activity_title">Aliaj lingvoj</string>

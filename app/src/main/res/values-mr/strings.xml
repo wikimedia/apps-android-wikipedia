@@ -49,7 +49,6 @@
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="preference_languages_filter_hint">शोधा</string>
   <string name="langlinks_filter_hint">शोधा</string>
-  <string name="langlinks_error_retry">पुन्हा प्रयत्न करा</string>
   <string name="langlinks_empty">हे पान इतर भाषांमध्ये उपलब्ध नाही आहे</string>
   <string name="langlinks_no_match">आपल्या पृच्छेशी अनुरुप कोणतीच भाषा सापडली नाही.</string>
   <string name="langlinks_activity_title">इतर भाषा</string>

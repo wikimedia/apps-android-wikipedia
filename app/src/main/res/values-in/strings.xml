@@ -58,7 +58,6 @@
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
-  <string name="langlinks_error_retry">Coba lagi</string>
   <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain</string>
   <string name="langlinks_no_match">Tidak ada bahasa yang ditemukan yang cocok dengan permintaan Anda.</string>
   <string name="langlinks_activity_title">Bahasa lain</string>

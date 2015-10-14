@@ -44,7 +44,6 @@
   <string name="preference_title_language">Wikipediamál</string>
   <string name="preference_languages_filter_hint">Leita</string>
   <string name="langlinks_filter_hint">Leita</string>
-  <string name="langlinks_error_retry">Royn aftur</string>
   <string name="langlinks_empty">Henda síðan er ikki tøk á øðrum málum.</string>
   <string name="langlinks_activity_title">Onnur mál</string>
   <string name="menu_save_changes">Goym broytingar</string>

@@ -52,7 +52,6 @@
   <string name="preference_title_language">ភាសាវិគីភីឌា</string>
   <string name="preference_languages_filter_hint">ស្វែងរក</string>
   <string name="langlinks_filter_hint">ស្វែងរក</string>
-  <string name="langlinks_error_retry">ព្យាយាម​ម្ដង​ទៀត</string>
   <string name="langlinks_empty">ទំព័រ​នេះ​មិនអាចអានជា​ភាសាដទៃ​ទៀត​ទេ។</string>
   <string name="langlinks_no_match">រកមិនឃើញភាសាត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
   <string name="langlinks_activity_title">ភាសា​ដទៃ​ទៀត</string>

@@ -58,7 +58,6 @@
   <string name="preference_title_language">שפת הוויקיפדיה</string>
   <string name="preference_languages_filter_hint">חיפוש</string>
   <string name="langlinks_filter_hint">חיפוש</string>
-  <string name="langlinks_error_retry">לנסות שוב</string>
   <string name="langlinks_empty">הדף הזה אינו זמין בשפות אחרות</string>
   <string name="langlinks_no_match">לא נמצאות שפות התואמות לשאילתה שלך.</string>
   <string name="langlinks_activity_title">שפות אחרות</string>

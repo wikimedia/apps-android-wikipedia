@@ -58,7 +58,6 @@
   <string name="preference_title_language">维基百科语言</string>
   <string name="preference_languages_filter_hint">搜索</string>
   <string name="langlinks_filter_hint">搜索</string>
-  <string name="langlinks_error_retry">重试</string>
   <string name="langlinks_empty">该页面没有其他语言版本。</string>
   <string name="langlinks_no_match">未找到匹配您的查询的语言。</string>
   <string name="langlinks_activity_title">其他语言</string>

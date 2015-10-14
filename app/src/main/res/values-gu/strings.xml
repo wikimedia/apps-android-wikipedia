@@ -49,7 +49,6 @@
   <string name="preference_title_language">વિકિપીડિયા ભાષા</string>
   <string name="preference_languages_filter_hint">શોધ</string>
   <string name="langlinks_filter_hint">શોધ</string>
-  <string name="langlinks_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="langlinks_empty">આ પાનું અન્ય ભાષાઓમાં ઉપલબ્ધ નથી.</string>
   <string name="langlinks_no_match">તમારી પૃચ્છાને અનુકૂળ કોઈ ભાષા મળી નથી.</string>
   <string name="langlinks_activity_title">અન્ય ભાષાઓ</string>
