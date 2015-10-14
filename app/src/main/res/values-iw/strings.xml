@@ -243,6 +243,8 @@
   <string name="gallery_menu_save">שמירה למכשיר</string>
   <string name="gallery_save_error_mediastore">ייבוא תמונה לאוסף מדיה לא עבד</string>
   <string name="gallery_save_success">התמונה נשמרה בהצלחה.</string>
+  <string name="gallery_image_saved_notification_title">התמונה נשמרה.</string>
+  <string name="gallery_image_saved_notification_text">נא לגעת כדי להציג</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנכן את הסרטון.</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
   <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>

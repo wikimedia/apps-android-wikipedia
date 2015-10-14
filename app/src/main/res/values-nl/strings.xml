@@ -42,7 +42,7 @@
   <string name="menu_long_press_copy_page">Koppelingsadres kopiëren</string>
   <string name="nav_item_nearby">In de buurt</string>
   <string name="nearby_empty_title">Geen pagina\'s in de buurt.</string>
-  <string name="nearby_empty_message" fuzzy="true">Wanneer u naar een nieuwe locatie verplaatst, probeer dan deze pagina te vernieuwen voor meer informatie over wat er om uw heen is.</string>
+  <string name="nearby_empty_message">Ga naar een andere plaats om pagina\'s bij u in de buurt weer te geven.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>
@@ -243,6 +243,8 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_menu_save">Opslaan op apparaat</string>
   <string name="gallery_save_error_mediastore">Het importeren van de afbeelding in de mediacollectie is mislukt</string>
   <string name="gallery_save_success">Afbeelding opgeslagen.</string>
+  <string name="gallery_image_saved_notification_title">Afbeelding opgeslagen.</string>
+  <string name="gallery_image_saved_notification_text">Raak aan om te bekijken.</string>
   <string name="gallery_error_video_failed">De video kan niet afgespeeld worden.</string>
   <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
@@ -267,4 +269,6 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="format_error_server_code">Code: \"%s\"</string>
   <string name="address_copied">Het adres is gekopieerd naar het klembord.</string>
   <string name="button_continue_to_article">Doorgaan naar de pagina</string>
+  <string name="preference_title_show_link_previews">Voorvertoningen van koppelingen weergeven</string>
+  <string name="preference_summary_show_link_previews">Korte voorvertoning weergeven van pagina\'s bij het aanraken van koppelingen.</string>
 </resources>

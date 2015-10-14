@@ -219,6 +219,8 @@
   <string name="gallery_menu_save">Um Apparat späicheren</string>
   <string name="gallery_save_error_mediastore">Bild konnt net an d\'Sammlung vun de Medien importéiert ginn</string>
   <string name="gallery_save_success">Bild gespäichert.</string>
+  <string name="gallery_image_saved_notification_title">Bild gespäichert.</string>
+  <string name="gallery_image_saved_notification_text">Upake fir ze kucken.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>

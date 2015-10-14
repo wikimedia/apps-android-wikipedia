@@ -244,6 +244,8 @@
   <string name="gallery_menu_save">Сохранить на устройство</string>
   <string name="gallery_save_error_mediastore">Не удалось импортировать изображение в медиа-коллекцию</string>
   <string name="gallery_save_success">Изображение успешно сохранено.</string>
+  <string name="gallery_image_saved_notification_title">Изображение сохранено.</string>
+  <string name="gallery_image_saved_notification_text">Нажмите для просмотра.</string>
   <string name="gallery_error_video_failed">Не удаётся воспроизвести видео.</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
   <string name="snippet_share_intro">«%1$s» на сайте @Wikipedia: %2$s</string>

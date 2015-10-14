@@ -242,6 +242,8 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="gallery_menu_save">Lưu vào thiết bị</string>
   <string name="gallery_save_error_mediastore">Thất bại khi nhập hình vào tập hợp phương tiện</string>
   <string name="gallery_save_success">Đã lưu hình thành công.</string>
+  <string name="gallery_image_saved_notification_title">Đã lưu ảnh</string>
+  <string name="gallery_image_saved_notification_text">Chạm để xem</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>
   <string name="snippet_share_intro">“%1$s” trên @Wikipedia: %2$s</string>
