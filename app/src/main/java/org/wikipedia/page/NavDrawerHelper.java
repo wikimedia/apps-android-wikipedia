@@ -106,8 +106,7 @@ public class NavDrawerHelper {
     }
 
     public RandomHandler getNewRandomHandler() {
-        return new RandomHandler(activity.getNavMenu().findItem(R.id.nav_item_random),
-                new RandomHandler.RandomListener() {
+        return new RandomHandler(activity, new RandomHandler.RandomListener() {
                     @Override
                     public void onRandomPageReceived(@Nullable PageTitle title) {
                         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
