@@ -882,6 +882,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public void onSupportActionModeStarted(ActionMode mode) {
         if (!isCabOpen() && !isAppInitiatedActionMode(mode) && getCurPageFragment() != null) {
             // Initiated by the system, likely in response to highlighting text in the WebView.
+            replaceTextSelectMenu(mode);
             getCurPageFragment().onActionModeShown(mode);
         }
 
@@ -979,5 +980,11 @@ public class PageActivity extends ThemedActionBarActivity {
                 new ComponentName(this, WidgetProviderFeaturedPage.class));
         widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         sendBroadcast(widgetIntent);
+    }
+
+    private void replaceTextSelectMenu(ActionMode mode) {
+        Menu menu = mode.getMenu();
+        menu.clear();
+        mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
     }
 }

@@ -66,7 +66,9 @@ See also:
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.
 {{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
-  <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipbord for pasting later.</string>
+  <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
+  <string name="menu_text_select_copy">Menu item caption for copying text to the system clipboard for pasting later.</string>
+  <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
 {{Identical|Nearby}}</string>
   <string name="nearby_empty_title">Title line for message when no nearby pages were found</string>
@@ -356,7 +358,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="error_unknown">Generic error message that tells the user that an unknown error occurred.</string>
   <string name="format_error_server_message">Message displayed to the user that shows the actual error response received from the server. The \"%s\" symbol is replaced with the API response from the server.</string>
   <string name="format_error_server_code">Message displayed to the user that shows the actual error code received from the server. The \"%s\" symbol is replaced with the API error code.</string>
-  <string name="address_copied">Message shown after copying a link to the clipboard</string>
+  <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
+  <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
