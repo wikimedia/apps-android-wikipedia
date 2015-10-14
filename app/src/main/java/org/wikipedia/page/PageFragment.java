@@ -367,6 +367,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             public void onUpOrCancelMotionEvent() {
                 // queue the button to be hidden when the user stops scrolling.
                 setToCButtonFadedIn(false);
+                // update our session, since it's possible for the user to remain on the page for
+                // a long time, and we wouldn't want the session to time out.
+                app.getSessionFunnel().touchSession();
             }
         });
         webView.setOnFastScrollListener(new ObservableWebView.OnFastScrollListener() {

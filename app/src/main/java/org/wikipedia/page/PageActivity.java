@@ -699,11 +699,11 @@ public class PageActivity extends ThemedActionBarActivity {
             }
             return;
         }
+        app.getSessionFunnel().backPressed();
         if (getTopFragment() instanceof BackPressedHandler
                 && ((BackPressedHandler) getTopFragment()).onBackPressed()) {
             return;
         }
-        app.getSessionFunnel().backPressed();
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             popFragment();
         } else {
@@ -803,6 +803,7 @@ public class PageActivity extends ThemedActionBarActivity {
     protected void onResume() {
         super.onResume();
         app.resetSite();
+        app.getSessionFunnel().touchSession();
         boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
         if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
             bus.post(new WikipediaZeroStateChangeEvent());

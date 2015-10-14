@@ -2,7 +2,10 @@ package org.wikipedia.settings;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.SessionData;
+import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.data.GsonMarshaller;
+import org.wikipedia.data.SessionUnmarshaller;
 import org.wikipedia.data.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
@@ -200,6 +203,26 @@ public final class Prefs {
 
     public static boolean hasTabs() {
         return contains(R.string.preference_key_tabs);
+    }
+
+    public static void setSessionData(@NonNull SessionData data) {
+        setString(R.string.preference_key_session_data, GsonMarshaller.marshal(data));
+    }
+
+    @NonNull
+    public static SessionData getSessionData() {
+        return hasSessionData()
+                ? SessionUnmarshaller.unmarshal(getString(R.string.preference_key_session_data, null))
+                : new SessionData();
+    }
+
+    public static boolean hasSessionData() {
+        return contains(R.string.preference_key_session_data);
+    }
+
+    public static int getSessionTimeout() {
+        // return the timeout, but don't let it be less than the minimum
+        return Math.max(getInt(R.string.preference_key_session_timeout, SessionFunnel.DEFAULT_SESSION_TIMEOUT), SessionFunnel.MIN_SESSION_TIMEOUT);
     }
 
     public static int getTextSizeMultiplier() {

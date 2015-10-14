@@ -53,13 +53,13 @@ import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
-                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+                HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_DISAMBIG);
                 dismiss();
                 activity.displayNewPage(title, historyEntry);
             }
         });
         PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(activity);
-        new PageLongPressHandler(getContext(), disambigList, HistoryEntry.SOURCE_INTERNAL_LINK,
+        new PageLongPressHandler(getContext(), disambigList, HistoryEntry.SOURCE_DISAMBIG,
                 contextMenuListener);
 
         if (pageInfo.getDisambigs().length > 0) {
