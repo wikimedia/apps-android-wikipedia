@@ -33,7 +33,7 @@ public final class SavedImageNotificationHelper {
         NotificationCompat.Action savedImageShareAction = buildSavedImageShareAction(savedImageSharePendingIntent);
 
         return new NotificationCompat.Builder(WikipediaApp.getInstance())
-                .setSmallIcon(R.drawable.launcher)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle(getString(R.string.gallery_image_saved_notification_title))
                 .setContentText(getString(R.string.gallery_image_saved_notification_text))
                 .setContentIntent(viewInDefaultViewerAppPendingIntent)
