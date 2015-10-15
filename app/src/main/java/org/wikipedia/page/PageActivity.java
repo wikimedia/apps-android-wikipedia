@@ -312,7 +312,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         @Override
         public void onDrawerSlide(View drawerView, float slideOffset) {
-            super.onDrawerSlide(drawerView, slideOffset);
+            super.onDrawerSlide(drawerView, 0);
             if (!oncePerSlideLock) {
                 // Hide the keyboard when the drawer is opened
                 Utils.hideSoftKeyboard(PageActivity.this);
