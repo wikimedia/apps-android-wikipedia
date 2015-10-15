@@ -666,9 +666,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             return;
         }
 
-        final PageTitle title = model.getTitle();
-        Page page = pageLead.toPage(title);
+        Page page = pageLead.toPage(model.getTitle());
         model.setPage(page);
+        model.setTitle(page.getTitle());
 
         editHandler.setPage(model.getPage());
 
@@ -691,7 +691,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // Update our history entry, in case the Title was changed (i.e. normalized)
         final HistoryEntry curEntry = model.getCurEntry();
         model.setCurEntry(
-                new HistoryEntry(title, curEntry.getTimestamp(), curEntry.getSource()));
+                new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
 
         // Save history entry and page image url
         new SaveHistoryTask(model.getCurEntry(), app).execute();
