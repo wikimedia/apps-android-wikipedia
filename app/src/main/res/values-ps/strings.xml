@@ -5,9 +5,6 @@
   <string name="app_name_alpha">الفا ويکيپېډيا</string>
   <string name="yes">هو</string>
   <string name="no">نه</string>
-  <string name="acra_report_dialog_title">ويکيپېډيا تخنيکي ټکر وکړ :(</string>
-  <string name="acra_report_dialog_text">د تخنيکي ټکر يو راپور موږ ته راولېږئ</string>
-  <string name="acra_report_dialog_comment">کله چې تخنيکي ټکر رامېنځ ته شو، تاسې څه کول؟</string>
   <string name="search_hint">ويکيپېډيا پلټل</string>
   <string name="nav_item_history">پېښليک</string>
   <string name="error_network_error">انټرنټ سره نه شي تړل کېدای.</string>

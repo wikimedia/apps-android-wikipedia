@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Вікіпедія Альфа</string>
   <string name="yes">Так</string>
   <string name="no">Ні</string>
-  <string name="acra_report_dialog_title">Вікіпедія зазнала краху :(</string>
-  <string name="acra_report_dialog_text">Надіслати нам свій звіт про збій</string>
-  <string name="acra_report_dialog_comment">Що ви робили, коли трапився збій?</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="nav_item_history">Історія</string>
   <string name="error_network_error" fuzzy="true">Не вдається підключитися до інтернету.</string>

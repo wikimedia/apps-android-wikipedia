@@ -2,8 +2,11 @@ package org.wikipedia.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -33,6 +36,14 @@ public final class ActivityUtil {
             default:
                 return false;
         }
+    }
+
+    public static Intent getLaunchIntent(Context context) {
+        return getLaunchIntent(context, context.getPackageName());
+    }
+
+    @Nullable public static Intent getLaunchIntent(Context context, String packageName) {
+        return context.getPackageManager().getLaunchIntentForPackage(packageName);
     }
 
     private ActivityUtil() { }

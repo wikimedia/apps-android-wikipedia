@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipèdia alfa</string>
   <string name="yes">Òc</string>
   <string name="no">Non</string>
-  <string name="acra_report_dialog_title">Wikipèdia a fracassat :(</string>
-  <string name="acra_report_dialog_text">Nos mandar un rapòrt de fracàs</string>
-  <string name="acra_report_dialog_comment">Que fasiatz quand lo fracàs s’es produsit ?</string>
   <string name="search_hint">Recercar dins Wikipèdia</string>
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error" fuzzy="true">Pas de connexion a la ret :(</string>

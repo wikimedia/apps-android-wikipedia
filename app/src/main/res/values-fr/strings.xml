@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipédia Alpha</string>
   <string name="yes">Oui</string>
   <string name="no">Non</string>
-  <string name="acra_report_dialog_title">Wikipédia s’est planté :(</string>
-  <string name="acra_report_dialog_text">Nous envoyer un rapport de plantage</string>
-  <string name="acra_report_dialog_comment">Que faisiez-vous lorsque le plantage s’est produit ?</string>
   <string name="search_hint">Rechercher dans Wikipédia</string>
   <string name="nav_item_history">Historique</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>

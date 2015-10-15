@@ -1,6 +1,11 @@
 package org.wikipedia.util.log;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.util.Log;
+
+import org.wikipedia.WikipediaApp;
 
 /** Logging utility like {@link Log} but with implied tags. */
 public final class L {
@@ -39,6 +44,8 @@ public final class L {
         }
     };
 
+    @Nullable private static RemoteExceptionLogger REMOTE_EXCEPTION_LOGGER;
+
     public static void v(CharSequence msg) {
         LEVEL_V.log(msg, null);
     }
@@ -60,43 +67,63 @@ public final class L {
     }
 
     public static void v(Throwable t) {
-        LEVEL_V.log(null, t);
+        LEVEL_V.log("", t);
     }
 
     public static void d(Throwable t) {
-        LEVEL_D.log(null, t);
+        LEVEL_D.log("", t);
     }
 
     public static void i(Throwable t) {
-        LEVEL_I.log(null, t);
+        LEVEL_I.log("", t);
     }
 
     public static void w(Throwable t) {
-        LEVEL_W.log(null, t);
+        LEVEL_W.log("", t);
     }
 
     public static void e(Throwable t) {
-        LEVEL_E.log(null, t);
+        LEVEL_E.log("", t);
     }
 
-    public static void v(CharSequence msg, Exception e) {
-        LEVEL_V.log(msg, e);
+    public static void v(CharSequence msg, Throwable t) {
+        LEVEL_V.log(msg, t);
     }
 
-    public static void d(CharSequence msg, Exception e) {
-        LEVEL_D.log(msg, e);
+    public static void d(CharSequence msg, Throwable t) {
+        LEVEL_D.log(msg, t);
     }
 
-    public static void i(CharSequence msg, Exception e) {
-        LEVEL_I.log(msg, e);
+    public static void i(CharSequence msg, Throwable t) {
+        LEVEL_I.log(msg, t);
     }
 
-    public static void w(CharSequence msg, Exception e) {
-        LEVEL_W.log(msg, e);
+    public static void w(CharSequence msg, Throwable t) {
+        LEVEL_W.log(msg, t);
     }
 
-    public static void e(CharSequence msg, Exception e) {
-        LEVEL_E.log(msg, e);
+    public static void e(CharSequence msg, Throwable t) {
+        LEVEL_E.log(msg, t);
+    }
+
+    public static void logRemoteErrorIfProd(@NonNull Throwable t) {
+        if (WikipediaApp.getInstance().isProdRelease()) {
+            logRemoteError(t);
+        } else {
+            throw new RuntimeException(t);
+        }
+    }
+
+    public static void setRemoteLogger(@Nullable RemoteExceptionLogger logger) {
+        REMOTE_EXCEPTION_LOGGER = logger;
+    }
+
+    @VisibleForTesting
+    public static void logRemoteError(@NonNull Throwable t) {
+        LEVEL_E.log("", t);
+        if (REMOTE_EXCEPTION_LOGGER != null) {
+            REMOTE_EXCEPTION_LOGGER.log(t);
+        }
     }
 
     private abstract static class LogLevel {
@@ -114,6 +141,5 @@ public final class L {
         }
     }
 
-    private L() {
-    }
+    private L() { }
 }

@@ -22,7 +22,7 @@ public class LicenseActivity extends ThemedActionBarActivity {
         setContentView(R.layout.activity_license);
 
         final String path = getIntent().getData().getPath();
-        // Example string: "/android_asset/licenses/ACRA"
+        // Example string: "/android_asset/licenses/Otto"
 
         final int libraryNameStart = 24;
         setTitle(getString(R.string.license_title, path.substring(libraryNameStart)));

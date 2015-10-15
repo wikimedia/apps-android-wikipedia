@@ -81,10 +81,6 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
         languagePref.setSummary(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
     }
 
-    private Preference findPreference(@StringRes int id) {
-        return findPreference(getString(id));
-    }
-
     private String getString(@StringRes int id) {
         return activity.getString(id);
     }

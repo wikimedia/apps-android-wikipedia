@@ -5,9 +5,6 @@
   <string name="app_name_alpha">వికీపీడియా ఆల్ఫా</string>
   <string name="yes">అవును</string>
   <string name="no">కాదు</string>
-  <string name="acra_report_dialog_title">వికీపీడియా పనిచేయడం మానేసింది :(</string>
-  <string name="acra_report_dialog_text">మాకు ఓ క్రాష్ నివేదికను పంపండి</string>
-  <string name="acra_report_dialog_comment">క్రాష్ అయినప్పుడు మీరేం చేస్తున్నారు?</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="nav_item_history">చరిత్ర</string>
   <string name="error_network_error" fuzzy="true">ఇంటర్నెట్ తో అనుసందానం ఏర్పరచలేకపోయాము.</string>

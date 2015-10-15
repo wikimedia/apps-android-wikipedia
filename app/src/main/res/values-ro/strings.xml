@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Da</string>
   <string name="no">Nu</string>
-  <string name="acra_report_dialog_title">Wikipedia s-a blocat :(</string>
-  <string name="acra_report_dialog_text">Trimiteți-ne un raport de erori</string>
-  <string name="acra_report_dialog_comment">Ce făceați când a survenit blocarea?</string>
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>

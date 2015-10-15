@@ -5,9 +5,6 @@
   <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
   <string name="yes">হ্যাঁ</string>
   <string name="no">না</string>
-  <string name="acra_report_dialog_title">উইকিপিডিয়া কাজ করছে না :(</string>
-  <string name="acra_report_dialog_text">ত্রুটি সম্পর্কে আমাদের জানান</string>
-  <string name="acra_report_dialog_comment">অ্যাপটি অকার্যকর হওয়ার সময় আপনি কি করছিলেন?</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>

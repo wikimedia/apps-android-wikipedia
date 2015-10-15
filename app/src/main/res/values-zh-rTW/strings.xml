@@ -5,9 +5,6 @@
   <string name="app_name_alpha">維基百科封測版</string>
   <string name="yes">是</string>
   <string name="no">否</string>
-  <string name="acra_report_dialog_title">維基百科發生錯誤 :(</string>
-  <string name="acra_report_dialog_text">傳送錯誤報告給我們</string>
-  <string name="acra_report_dialog_comment">發生錯誤時你在做什麼？</string>
   <string name="search_hint">在維基百科內搜尋</string>
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無法與網際網路連線。</string>

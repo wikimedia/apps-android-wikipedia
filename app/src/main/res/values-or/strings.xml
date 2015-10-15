@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ଉଇକିପିଡିଆ ଅଲ୍ଫା</string>
   <string name="yes">ହଁ</string>
   <string name="no">ନାହିଁ</string>
-  <string name="acra_report_dialog_title">ଉଇକିପିଡ଼ିଆ ବନ୍ଦ ହୋଇଗଲା :(</string>
-  <string name="acra_report_dialog_text">ତ୍ରୁଟି ବାବଦରେ ଆମକୁ ଜଣାନ୍ତୁ</string>
-  <string name="acra_report_dialog_comment">ତ୍ରୁଟି ହେଲା ବେଳେ ଆପଣ କଣ କରୁଥିଲେ?</string>
   <string name="search_hint">ଉଇକିପିଡ଼ିଆରେ ଖୋଜନ୍ତୁ</string>
   <string name="nav_item_history">ଇତିହାସ</string>
   <string name="error_network_error" fuzzy="true">ନେଟୱର୍କ ସହ ସଯୋଗ ହୋଇ ନାହିଁ :(</string>

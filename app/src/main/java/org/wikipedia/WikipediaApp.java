@@ -1,6 +1,7 @@
 package org.wikipedia;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Application;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -14,10 +15,9 @@ import android.webkit.WebView;
 
 import com.squareup.otto.Bus;
 
-import org.acra.ACRA;
-import org.acra.ReportingInteractionMode;
-import org.acra.annotation.ReportsCrashes;
 import org.mediawiki.api.json.Api;
+import org.wikipedia.crash.CrashReporter;
+import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.data.ContentPersister;
@@ -61,13 +61,6 @@ import java.util.UUID;
 
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
-@ReportsCrashes(
-        formKey = "",
-        mode = ReportingInteractionMode.DIALOG,
-        resDialogTitle = R.string.acra_report_dialog_title,
-        resDialogText = R.string.acra_report_dialog_text,
-        resDialogCommentPrompt = R.string.acra_report_dialog_comment,
-        mailTo = "mobile-android-wikipedia-crashes@wikimedia.org")
 public class WikipediaApp extends Application {
     private static final String HTTPS_PROTOCOL = "https";
     private static final int EVENT_LOG_TESTING_ID = new Random().nextInt(Integer.MAX_VALUE);
@@ -112,6 +105,8 @@ public class WikipediaApp extends Application {
 
     private AppLanguageState appLanguageState;
 
+    private CrashReporter crashReporter;
+
     /**
      * Returns a constant that tells whether this app is a production release,
      * a beta release, or an alpha (continuous integration) release.
@@ -125,10 +120,6 @@ public class WikipediaApp extends Application {
         return releaseType == RELEASE_PROD;
     }
 
-    public boolean isDevRelease() {
-        return releaseType == RELEASE_DEV;
-    }
-
     public boolean isPreBetaRelease() {
         switch (getReleaseType()) {
             case RELEASE_PROD:
@@ -137,6 +128,10 @@ public class WikipediaApp extends Application {
             default:
                 return true;
         }
+    }
+
+    public boolean isDevRelease() {
+        return releaseType == RELEASE_DEV;
     }
 
     private SessionFunnel sessionFunnel;
@@ -187,8 +182,7 @@ public class WikipediaApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ACRA.init(this);
-
+        initExceptionHandling();
 
         bus = new Bus();
 
@@ -521,6 +515,14 @@ public class WikipediaApp extends Application {
         bus.post(new ChangeTextSizeEvent());
     }
 
+    public void putCrashReportProperty(String key, String value) {
+        crashReporter.putReportProperty(key, value);
+    }
+
+    public void checkCrashes(@NonNull Activity activity) {
+        crashReporter.checkCrashes(activity);
+    }
+
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
@@ -590,6 +592,22 @@ public class WikipediaApp extends Application {
         headers.put("Accept-Language", acceptLanguage);
 
         return headers;
+    }
+
+    private void initExceptionHandling() {
+        crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
+        crashReporter.registerCrashHandler(this);
+
+        L.setRemoteLogger(crashReporter);
+    }
+
+    private CrashReporter.AutoUploadConsentAccessor consentAccessor() {
+        return new CrashReporter.AutoUploadConsentAccessor() {
+            @Override
+            public boolean isAutoUploadPermitted() {
+                return Prefs.isCrashReportAutoUploadEnabled();
+            }
+        };
     }
 
     @TargetApi(Build.VERSION_CODES.KITKAT)

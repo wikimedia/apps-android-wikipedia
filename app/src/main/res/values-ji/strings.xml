@@ -5,9 +5,6 @@
   <string name="app_name_alpha">וויקיפעדיע אלפא</string>
   <string name="yes">יא</string>
   <string name="no">ניין</string>
-  <string name="acra_report_dialog_title">וויקיפעדיע איז איינגעפאלן :(</string>
-  <string name="acra_report_dialog_text">שיקט אונז א קראך־באריכט</string>
-  <string name="acra_report_dialog_comment">וואס האט איר געטון ווען דער קראך האט פאסירט?</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>

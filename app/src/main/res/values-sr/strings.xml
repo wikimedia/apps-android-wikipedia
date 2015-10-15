@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Википедија Алфа</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
-  <string name="acra_report_dialog_title">Википедија је пала :(</string>
-  <string name="acra_report_dialog_text">Пошаљите нам извештај</string>
-  <string name="acra_report_dialog_comment">Шта сте ви радили кад је дошло до пада?</string>
   <string name="search_hint">Претрага Википедије</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error" fuzzy="true">Није могуће успоставити мрежну везу.</string>

@@ -5,9 +5,6 @@
   <string name="app_name_alpha">विकिपीडिया अल्फा</string>
   <string name="yes">हो</string>
   <string name="no">होइन</string>
-  <string name="acra_report_dialog_title">विकिपीडिया दुर्घटनाग्रस्त भयो :(</string>
-  <string name="acra_report_dialog_text">हामीलाई दुर्घटना रिपोर्ट पठाउनुहोस्</string>
-  <string name="acra_report_dialog_comment">जब दुर्घटना भयो तपाईँ के गर्दै हुनुहुन्थ्यो?</string>
   <string name="search_hint">विकिपीडिया खोज्नुहोस्</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error" fuzzy="true">सञ्जालमा पुग्न सकेन :(</string>

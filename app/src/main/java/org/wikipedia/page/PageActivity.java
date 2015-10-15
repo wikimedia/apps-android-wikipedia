@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import org.acra.ACRA;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -583,8 +582,8 @@ public class PageActivity extends ThemedActionBarActivity {
         // Close the link preview, if one is open.
         hideLinkPreview();
 
-        ACRA.getErrorReporter().putCustomData("api", title.getSite().getApiDomain());
-        ACRA.getErrorReporter().putCustomData("title", title.toString());
+        app.putCrashReportProperty("api", title.getSite().getApiDomain());
+        app.putCrashReportProperty("title", title.toString());
 
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             closeNavDrawer();

@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipédia Alpha</string>
   <string name="yes">Áno</string>
   <string name="no">Nie</string>
-  <string name="acra_report_dialog_title">Wikipédia zlyhala :(</string>
-  <string name="acra_report_dialog_text">Odoslať správu o zlyhaní</string>
-  <string name="acra_report_dialog_comment">Čo ste robili keď došlo k zlyhaniu?</string>
   <string name="search_hint">Hľadať</string>
   <string name="nav_item_history">História</string>
   <string name="error_network_error">Nie ste pripojení na sieť.</string>

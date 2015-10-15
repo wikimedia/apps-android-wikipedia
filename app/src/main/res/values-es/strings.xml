@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipedia alfa</string>
   <string name="yes">Sí</string>
   <string name="no">No</string>
-  <string name="acra_report_dialog_title">Wikipedia falló :(</string>
-  <string name="acra_report_dialog_text">Envíanos un informe de error</string>
-  <string name="acra_report_dialog_comment">¿Qué hacías cuando ocurrió el fallo?</string>
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>

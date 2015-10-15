@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Википедија Алфа</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
-  <string name="acra_report_dialog_title">Википедија се урна :(</string>
-  <string name="acra_report_dialog_text">Испратете ни извештај за уривање</string>
-  <string name="acra_report_dialog_comment">Што правевте кога се случи урнувањето?</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>

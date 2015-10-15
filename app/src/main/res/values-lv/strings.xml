@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Vikipēdija Alpha</string>
   <string name="yes">Jā</string>
   <string name="no">Nē</string>
-  <string name="acra_report_dialog_title">Vikipēdija avarēja :(</string>
-  <string name="acra_report_dialog_text">Nosūtiet mums avārijas ziņojumu</string>
-  <string name="acra_report_dialog_comment">Ko jūs darījāt, kad notika avārija?</string>
   <string name="search_hint">Meklēt Vikipēdijā</string>
   <string name="nav_item_history">Vēsture</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>

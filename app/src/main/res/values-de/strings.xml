@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Ja</string>
   <string name="no">Nein</string>
-  <string name="acra_report_dialog_title">Wikipedia ist abgestürzt :(</string>
-  <string name="acra_report_dialog_text">Einen Absturzbericht an uns senden</string>
-  <string name="acra_report_dialog_comment">Was hast du gemacht, als der Absturz passiert ist?</string>
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="nav_item_history">Verlauf</string>
   <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>

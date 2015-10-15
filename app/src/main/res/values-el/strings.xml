@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Βικιπαίδεια Alpha</string>
   <string name="yes">Ναι</string>
   <string name="no">Όχι</string>
-  <string name="acra_report_dialog_title">H Wikipedia κατέρρευσε :(</string>
-  <string name="acra_report_dialog_text">Στείλτε μας μια αναφορά σφάλματος</string>
-  <string name="acra_report_dialog_comment">Τι κάνατε όταν συνέβη το σφάλμα;</string>
   <string name="search_hint">Αναζήτηση στη Βικιπαίδεια</string>
   <string name="nav_item_history">Ιστορικό</string>
   <string name="error_network_error">Δεν υπάρχει σύνδεση με το Διαδίκτυο.</string>

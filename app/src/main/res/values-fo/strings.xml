@@ -4,9 +4,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Ja</string>
   <string name="no">Nei</string>
-  <string name="acra_report_dialog_title">Wikipedia krasjaði :(</string>
-  <string name="acra_report_dialog_text">Send okkum eina fráboðan um krasjið</string>
-  <string name="acra_report_dialog_comment">Hvat gjørdi tú, tá ið krasjið fór fram?</string>
   <string name="search_hint">Leita í Wikipedia</string>
   <string name="nav_item_history">Søga</string>
   <string name="error_network_error" fuzzy="true">Tað er onki internet samband :(</string>

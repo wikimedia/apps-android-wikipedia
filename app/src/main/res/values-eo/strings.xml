@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Vikipedio Alfo</string>
   <string name="yes">Jes</string>
   <string name="no">Ne</string>
-  <string name="acra_report_dialog_title">Vikipedio kolapsis</string>
-  <string name="acra_report_dialog_text">Sendu al ni pri-kolapsan raporton</string>
-  <string name="acra_report_dialog_comment">Kion vi faris kiam okazis la kolapso?</string>
   <string name="search_hint">Serĉu en Vikipedio</string>
   <string name="nav_item_history">Historio</string>
   <string name="error_network_error" fuzzy="true">Ne estas ret-aliro</string>

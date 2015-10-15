@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ウィキペディア・アルファ版</string>
   <string name="yes">はい</string>
   <string name="no">いいえ</string>
-  <string name="acra_report_dialog_title">ウィキペディア アプリがクラッシュしました :(</string>
-  <string name="acra_report_dialog_text">クラッシュレポートを送信</string>
-  <string name="acra_report_dialog_comment">クラッシュした際に何をしていましたか?</string>
   <string name="search_hint">ウィキペディアを検索</string>
   <string name="nav_item_history">履歴</string>
   <string name="error_network_error">インターネットに接続できません。</string>

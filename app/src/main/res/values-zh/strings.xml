@@ -3,11 +3,8 @@
   <string name="app_name_prod">维基百科</string>
   <string name="app_name_beta">维基百科测试版</string>
   <string name="app_name_alpha">维基百科内测版</string>
-  <string name="yes">是</string>
-  <string name="no">否</string>
-  <string name="acra_report_dialog_title">维基百科崩溃了:(</string>
-  <string name="acra_report_dialog_text">给我们发送崩溃报告</string>
-  <string name="acra_report_dialog_comment">崩溃发生时您进行了什么操作？</string>
+  <string name="yes">确定</string>
+  <string name="no">取消</string>
   <string name="search_hint">搜索维基百科</string>
   <string name="nav_item_history">历史</string>
   <string name="error_network_error">无法连接至互联网。</string>

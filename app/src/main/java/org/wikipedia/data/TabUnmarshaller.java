@@ -5,8 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.reflect.TypeToken;
 
-import org.acra.ACRA;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.util.log.L;
 
@@ -22,13 +21,7 @@ public final class TabUnmarshaller {
             object = GsonUnmarshaller.unmarshal(TYPE_TOKEN, json);
         } catch (Exception e) {
             // Catch all. Any Exception can be thrown when unmarshalling.
-            // TODO: replace this block with silent exception reporting.
-            if (WikipediaApp.getInstance().isProdRelease()) {
-                L.e(e);
-            } else {
-                ACRA.getErrorReporter().putCustomData("json", json);
-                ACRA.getErrorReporter().handleException(e, false);
-            }
+            L.logRemoteErrorIfProd(new RemoteLogException(e).put("json", json));
         }
         if (object == null) {
             object = Collections.emptyList();

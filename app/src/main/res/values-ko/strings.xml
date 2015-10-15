@@ -5,9 +5,6 @@
   <string name="app_name_alpha">위키백과 알파</string>
   <string name="yes">예</string>
   <string name="no">아니오</string>
-  <string name="acra_report_dialog_title">위키백과가 충돌했습니다 :(</string>
-  <string name="acra_report_dialog_text">충돌 보고서 보내기</string>
-  <string name="acra_report_dialog_comment">충돌이 일어났을 때 무엇을 하고 있었나요?</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="nav_item_history">방문 기록</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>

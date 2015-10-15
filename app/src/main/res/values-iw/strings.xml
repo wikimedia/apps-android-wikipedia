@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ויקיפדיה אלפא</string>
   <string name="yes">כן</string>
   <string name="no">לא</string>
-  <string name="acra_report_dialog_title">יישום ויקיפדיה התרסק :(</string>
-  <string name="acra_report_dialog_text">לשלוח לנו דיווח קריסה</string>
-  <string name="acra_report_dialog_comment">מה עשית בזמן הקריסה?</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="nav_item_history">היסטוריה</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>

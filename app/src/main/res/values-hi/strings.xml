@@ -5,9 +5,6 @@
   <string name="app_name_alpha">विकिपीडिया ऐल्फ़ा</string>
   <string name="yes">हाँ</string>
   <string name="no">नहीं</string>
-  <string name="acra_report_dialog_title">विकिपीडिया अनुप्रयोग में गड़बड़ी आ गई :(</string>
-  <string name="acra_report_dialog_text">हमें गड़बड़ी का विवरण भेजें</string>
-  <string name="acra_report_dialog_comment">इस गड़बड़ के समय आप क्या कर रहे थे?</string>
   <string name="search_hint">विकिपीडिया खोज</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error" fuzzy="true">आप नेटवर्क से जुड़े हुये नहीं हैं :(</string>

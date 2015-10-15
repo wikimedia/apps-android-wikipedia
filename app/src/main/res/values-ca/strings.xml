@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Viquipèdia Alfa</string>
   <string name="yes">Sí</string>
   <string name="no">No</string>
-  <string name="acra_report_dialog_title">La Viquipèdia ha fallat :(</string>
-  <string name="acra_report_dialog_text">Envieu-nos un informe de l\'error</string>
-  <string name="acra_report_dialog_comment">Què féieu quan ha fallat?</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error" fuzzy="true">No es pot establir una connexió de xarxa</string>

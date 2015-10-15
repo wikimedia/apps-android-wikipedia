@@ -5,9 +5,6 @@
   <string name="app_name_alpha">વિકિપીડિયા આલ્ફા</string>
   <string name="yes">હા</string>
   <string name="no">ના</string>
-  <string name="acra_report_dialog_title">વિકિપીડિયાના વપરાશમાં ક્ષતિ આવી છે :(</string>
-  <string name="acra_report_dialog_text">અમને ક્ષતિનો અહેવાલ મોકલો</string>
-  <string name="acra_report_dialog_comment">તમારા શું કરવાથી આ ક્ષતિ આવી ?</string>
   <string name="search_hint">વિકિપીડિયામાં શોધો</string>
   <string name="nav_item_history">ઇતિહાસ</string>
   <string name="error_network_error" fuzzy="true">નેટવર્ક સાથે જોડાણ સ્થાપિત કરી શકાતું નથી.</string>
