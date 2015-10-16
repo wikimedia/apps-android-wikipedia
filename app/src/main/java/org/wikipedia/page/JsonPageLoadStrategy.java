@@ -21,6 +21,7 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtils;
 import org.wikipedia.util.PageLoadUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
@@ -33,9 +34,10 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Build;
+import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 import android.util.SparseArray;
@@ -513,57 +515,13 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private void displayLeadSection() {
-        final Page page = model.getPage();
-        final PageProperties pageProperties = page.getPageProperties();
+        Page page = model.getPage();
 
-        @StringRes int[] stringsToLocalize = {
-                R.string.page_similar_titles,
-                R.string.button_page_issues,
-                R.string.table_infobox,
-                R.string.table_other,
-                R.string.table_close,
-                R.string.expand_refs
-        };
-        SparseArray<String> localizedStrings = getStringsForArticleLanguage(page.getTitle(), stringsToLocalize);
+        sendMarginPayload();
 
-        try {
-            JSONObject marginPayload = new JSONObject();
-            int margin = DimenUtil.roundedPxToDp(activity.getResources().getDimension(R.dimen.content_margin));
-            marginPayload.put("marginLeft", margin);
-            marginPayload.put("marginRight", margin);
-            bridge.sendMessage("setMargins", marginPayload);
+        sendLeadSectionPayload(page);
 
-            JSONObject leadSectionPayload = new JSONObject();
-            leadSectionPayload.put("sequence", currentSequenceNum);
-            leadSectionPayload.put("title", page.getDisplayTitle());
-            leadSectionPayload.put("section", page.getSections().get(0).toJSON());
-            leadSectionPayload.put("string_page_similar_titles", localizedStrings.get(R.string.page_similar_titles));
-            leadSectionPayload.put("string_page_issues", localizedStrings.get(R.string.button_page_issues));
-            leadSectionPayload.put("string_table_infobox", localizedStrings.get(R.string.table_infobox));
-            leadSectionPayload.put("string_table_other", localizedStrings.get(R.string.table_other));
-            leadSectionPayload.put("string_table_close", localizedStrings.get(R.string.table_close));
-            leadSectionPayload.put("string_expand_refs", localizedStrings.get(R.string.expand_refs));
-            leadSectionPayload.put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD);
-            leadSectionPayload.put("siteLanguage", model.getTitle().getSite().getLanguageCode());
-            leadSectionPayload.put("isMainPage", page.isMainPage());
-            leadSectionPayload.put("apiLevel", Build.VERSION.SDK_INT);
-            bridge.sendMessage("displayLeadSection", leadSectionPayload);
-            Log.d(TAG, "Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
-
-            // Hide edit pencils if anon editing is disabled by remote killswitch or if this is a file page
-            JSONObject miscPayload = new JSONObject();
-            boolean isAnonEditingDisabled = app.getRemoteConfig().getConfig()
-                    .optBoolean("disableAnonEditing", false)
-                    && !app.getUserInfoStorage().isLoggedIn();
-            miscPayload.put("noedit", (isAnonEditingDisabled
-                    || page.isFilePage()
-                    || page.isMainPage()));
-            miscPayload.put("protect", !pageProperties.canEdit());
-            bridge.sendMessage("setPageProtected", miscPayload);
-        } catch (JSONException e) {
-            // This should never happen
-            throw new RuntimeException(e);
-        }
+        sendMiscPayload(page);
 
         if (webView.getVisibility() != View.VISIBLE) {
             webView.setVisibility(View.VISIBLE);
@@ -571,6 +529,86 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         refreshView.setRefreshing(false);
         activity.updateProgressBar(true, true, 0);
+    }
+
+    private void sendMarginPayload() {
+        JSONObject marginPayload = marginPayload();
+        bridge.sendMessage("setMargins", marginPayload);
+    }
+
+    private JSONObject marginPayload() {
+        int margin = DimenUtil.roundedPxToDp(getDimension(R.dimen.content_margin));
+        try {
+            return new JSONObject()
+                    .put("marginLeft", margin)
+                    .put("marginRight", margin);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void sendLeadSectionPayload(Page page) {
+        JSONObject leadSectionPayload = leadSectionPayload(page);
+        bridge.sendMessage("displayLeadSection", leadSectionPayload);
+        Log.d(TAG, "Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
+    }
+
+    private JSONObject leadSectionPayload(Page page) {
+        SparseArray<String> localizedStrings = localizedStrings(page);
+
+        try {
+            return new JSONObject()
+                    .put("sequence", currentSequenceNum)
+                    .put("title", page.getDisplayTitle())
+                    .put("section", page.getSections().get(0).toJSON())
+                    .put("string_page_similar_titles", localizedStrings.get(R.string.page_similar_titles))
+                    .put("string_page_issues", localizedStrings.get(R.string.button_page_issues))
+                    .put("string_table_infobox", localizedStrings.get(R.string.table_infobox))
+                    .put("string_table_other", localizedStrings.get(R.string.table_other))
+                    .put("string_table_close", localizedStrings.get(R.string.table_close))
+                    .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
+                    .put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD)
+                    .put("siteLanguage", model.getTitle().getSite().getLanguageCode())
+                    .put("isMainPage", page.isMainPage())
+                    .put("apiLevel", Build.VERSION.SDK_INT);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private SparseArray<String> localizedStrings(Page page) {
+        return getStringsForArticleLanguage(page.getTitle(),
+                ResourceUtil.getIdArray(activity, R.array.page_localized_string_ids));
+    }
+
+
+    private void sendMiscPayload(Page page) {
+        JSONObject miscPayload = miscPayload(page);
+        bridge.sendMessage("setPageProtected", miscPayload);
+    }
+
+    private JSONObject miscPayload(Page page) {
+        try {
+            return new JSONObject()
+                    .put("noedit", !isPageEditable(page)) // Controls whether edit pencils are visible.
+                    .put("protect", page.isProtected());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean isPageEditable(Page page) {
+        return (app.getUserInfoStorage().isLoggedIn() || !isAnonEditingDisabled())
+                && !page.isFilePage()
+                && !page.isMainPage();
+    }
+
+    private boolean isAnonEditingDisabled() {
+        return getRemoteConfig().optBoolean("disableAnonEditing", false);
+    }
+
+    private JSONObject getRemoteConfig() {
+        return app.getRemoteConfig().getConfig();
     }
 
     private void displayNonLeadSectionForUnsavedPage(int index) {
@@ -779,5 +817,13 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     @Override
     public void setEditHandler(EditHandler editHandler) {
         this.editHandler = editHandler;
+    }
+
+    private float getDimension(@DimenRes int id) {
+        return getResources().getDimension(id);
+    }
+
+    private Resources getResources() {
+        return activity.getResources();
     }
 }

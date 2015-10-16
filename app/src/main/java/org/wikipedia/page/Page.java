@@ -153,4 +153,8 @@ public class Page {
             sections.get(i).setContent(remainingSections.get(i - 1).getContent());
         }
     }
+
+    public boolean isProtected() {
+        return !getPageProperties().canEdit();
+    }
 }
