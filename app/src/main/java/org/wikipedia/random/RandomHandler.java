@@ -3,7 +3,8 @@ package org.wikipedia.random;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.MenuItem;
+
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 
@@ -12,31 +13,30 @@ public class RandomHandler {
     private RandomArticleIdTask curRandomArticleIdTask;
     private static final int MESSAGE_RND = 1;
 
-    private MenuItem randomMenuItem;
-    private boolean isClosed;
-    private RandomListener randomListener;
+    private PageActivity activity;
+    private RandomListener listener;
 
     public interface RandomListener {
         void onRandomPageReceived(PageTitle title);
         void onRandomPageFailed(Throwable caught);
     }
 
-    public RandomHandler(MenuItem menuItem, RandomListener listener) {
-        randomMenuItem = menuItem;
-        randomListener = listener;
+    public RandomHandler(PageActivity activity, RandomListener listener) {
+        this.activity = activity;
+        this.listener = listener;
         this.app = WikipediaApp.getInstance();
-        isClosed = false;
 
         //set initial state...
-        setState(false);
+        setProgressBarLoading(false);
+        setNavMenuItemEnabled(true);
     }
 
-    private void setState(boolean busy) {
-        randomMenuItem.setEnabled(!busy);
+    private void setNavMenuItemEnabled(boolean enabled) {
+        activity.setNavMenuItemRandomEnabled(enabled);
     }
 
-    public void onStop() {
-        isClosed = true;
+    private void setProgressBarLoading(boolean loading) {
+        activity.updateProgressBar(loading, true, 0);
     }
 
     public void doVisitRandomArticle() {
@@ -47,28 +47,25 @@ public class RandomHandler {
 
                     @Override
                     public void onBeforeExecute() {
-                        setState(true);
+                        setProgressBarLoading(true);
+                        setNavMenuItemEnabled(false);
                     }
 
                     @Override
                     public void onFinish(PageTitle title) {
-                        if (isClosed) {
-                            return;
-                        }
-                        setState(false);
+                        setProgressBarLoading(false);
+                        setNavMenuItemEnabled(true);
                         Log.d("Wikipedia", "Random article title pulled: " + title);
-                        randomListener.onRandomPageReceived(title);
+                        listener.onRandomPageReceived(title);
                     }
 
                     @Override
                     public void onCatch(Throwable caught) {
-                        if (isClosed) {
-                            return;
-                        }
-                        setState(false);
+                        setProgressBarLoading(false);
+                        setNavMenuItemEnabled(true);
                         Log.d("Wikipedia", "Random article ID retrieval failed");
                         curRandomArticleIdTask = null;
-                        randomListener.onRandomPageFailed(caught);
+                        listener.onRandomPageFailed(caught);
                     }
                 };
                 if (curRandomArticleIdTask != null) {

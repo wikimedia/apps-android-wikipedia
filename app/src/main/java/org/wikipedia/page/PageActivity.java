@@ -380,6 +380,10 @@ public class PageActivity extends ThemedActionBarActivity {
         ViewAnimations.ensureTranslationY(toolbarContainer, 0);
     }
 
+    public void setNavMenuItemRandomEnabled(boolean enabled) {
+        navMenu.findItem(R.id.nav_item_random).setEnabled(enabled);
+    }
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
