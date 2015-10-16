@@ -14,16 +14,11 @@ module.exports = function ( grunt ) {
         "js/preview.js",
         "js/rtlsupport.js",
         "js/sections.js",
-        "lib/js/classList.js",
         "tests/*.js"
     ];
     var allHTMLFiles = [
         "index.html",
         "tests/index.html"
-    ];
-    // FIXME: Unconditionally included polyfills. Should be included only for Android 2.3
-    var oldDroidPolyfills = [
-        "lib/js/classList.js"
     ];
     var distFolder = "../app/src/main/assets/";
 
@@ -51,16 +46,14 @@ module.exports = function ( grunt ) {
                         "js/night.js",
                         "js/preview.js",
                         "js/rtlsupport.js",
-                        "js/sections.js",
-                        "lib/js/classList.js",
-                        "tests/*.js"
-                    ].concat( oldDroidPolyfills ),
+                        "js/sections.js"
+                    ],
                     "bundle-test.js": [
                         "js/loader.js",
                         "js/main.js",
                         "js/bridge.js",
                         "tests/*.js"
-                    ].concat( oldDroidPolyfills ),
+                    ],
                     "preview.js": [
                         "js/loader.js",
                         "js/bridge.js",
@@ -69,7 +62,7 @@ module.exports = function ( grunt ) {
                         "js/preview.js",
                         "js/rtlsupport.js",
                         "js/util.js"
-                    ].concat( oldDroidPolyfills )
+                    ]
                 }
             }
         },
