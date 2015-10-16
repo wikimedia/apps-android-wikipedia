@@ -5,9 +5,6 @@
   <string name="app_name_alpha">വിക്കിപീഡിയ ആൽഫ</string>
   <string name="yes">വേണം</string>
   <string name="no">വേണ്ട</string>
-  <string name="acra_report_dialog_title">വിക്കിപീഡിയയിൽ പ്രശ്നമുണ്ടായി :(</string>
-  <string name="acra_report_dialog_text">ക്രാഷ് റിപ്പോർട്ട് അയയ്ക്കുക</string>
-  <string name="acra_report_dialog_comment">പ്രശ്നമുണ്ടായപ്പോൾ താങ്കൾ എന്തുചെയ്യുകയായിരുന്നു?</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>

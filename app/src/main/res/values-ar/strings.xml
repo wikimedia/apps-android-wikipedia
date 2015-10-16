@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ويكيبيديا ألفا</string>
   <string name="yes">نعم</string>
   <string name="no">لا</string>
-  <string name="acra_report_dialog_title">تعطّلت ويكيبيديا :(</string>
-  <string name="acra_report_dialog_text">أرسل لنا تقرير العطل</string>
-  <string name="acra_report_dialog_comment">ماذا كنت تفعل عندما حدث العطل؟</string>
   <string name="search_hint">البحث في ويكيبيديا</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="error_network_error">لا يوجد اتصال بالشبكة</string>

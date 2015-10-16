@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import org.acra.ACRA;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
@@ -32,6 +31,7 @@ import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtils;
 import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiDrawerLayout;
@@ -76,7 +76,6 @@ import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLException;
 
-// TODO: USE ACRA.getErrorReporter().handleSilentException() if we move to automated crash reporting?
 
 public class PageFragment extends Fragment implements BackPressedHandler {
     public static final int TOC_ACTION_SHOW = 0;
@@ -965,7 +964,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     builder.setView(textView);
                     builder.show();
                 } catch (JSONException e) {
-                    ACRA.getErrorReporter().handleException(e);
+                    L.logRemoteErrorIfProd(e);
                 }
             }
         });
@@ -982,7 +981,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         linkHandler.onUrlClick(href);
                     }
                 } catch (JSONException e) {
-                    ACRA.getErrorReporter().handleException(e);
+                    L.logRemoteErrorIfProd(e);
                 }
             }
         });
@@ -994,7 +993,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
                             new PageTitle(href, model.getTitle().getSite()), GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
                 } catch (JSONException e) {
-                    ACRA.getErrorReporter().handleException(e);
+                    L.logRemoteErrorIfProd(e);
                 }
             }
         });

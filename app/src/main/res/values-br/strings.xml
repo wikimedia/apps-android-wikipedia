@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipedia Alpha</string>
   <string name="yes">Ya</string>
   <string name="no">Ket</string>
-  <string name="acra_report_dialog_title">Sac\'het eo Wikipedia :(</string>
-  <string name="acra_report_dialog_text">Kas un danevell sac\'hañ dimp</string>
-  <string name="acra_report_dialog_comment">Petra e oac\'h oc\'h ober pa oa chomet sac\'het ?</string>
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="nav_item_history">Istor</string>
   <string name="error_network_error" fuzzy="true">N\'eus ket bet gallet kevreañ ouzh ar rouedad :(</string>

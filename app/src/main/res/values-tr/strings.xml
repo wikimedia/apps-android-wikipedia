@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Vikipedi Alfa</string>
   <string name="yes">Evet</string>
   <string name="no">Hayır</string>
-  <string name="acra_report_dialog_title">Vikipedi çöktü :(</string>
-  <string name="acra_report_dialog_text">Bize kilitlenme raporu gönder</string>
-  <string name="acra_report_dialog_comment">Kilitlenme olduğu zaman ne yapıyordunuz?</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="error_network_error" fuzzy="true">İnternete bağlanılamıyor.</string>

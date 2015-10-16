@@ -15,4 +15,6 @@
     <string name="preferences_developer_crash_title">Crash</string>
     <string name="preferences_developer_crash_summary">Tap here to crash the app</string>
     <string name="preferences_developer_session_timeout_title">Session timeout (minutes)</string>
+    <string name="preferences_developer_remote_log_title">Remote logging</string>
+    <string name="preferences_developer_remote_log_summary">Type a message to send.</string>
 </resources>

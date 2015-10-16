@@ -3,9 +3,6 @@
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="yes">Aane</string>
   <string name="no">Daabi</string>
-  <string name="acra_report_dialog_title">Wikipedia adum</string>
-  <string name="acra_report_dialog_text">Ka nea asi kyerɛ yɛn</string>
-  <string name="acra_report_dialog_comment">Dɛn na na woreyɛ ansa na ɛredum?</string>
   <string name="search_hint">Hwehwɛ Wikipedia mu</string>
   <string name="nav_item_history">Nea atwam</string>
   <string name="error_network_error" fuzzy="true">Hwɛ sɛ wo network no yɛ adwuma a :(</string>

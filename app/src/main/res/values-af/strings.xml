@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="yes">Ja</string>
   <string name="no">Nee</string>
-  <string name="acra_report_dialog_title">Wikipedia het gebreek :(</string>
-  <string name="acra_report_dialog_text">Stuur vir ons \'n breekverslag</string>
-  <string name="acra_report_dialog_comment">Wat was u besig om te doen toe die breek plaasgevind het?</string>
   <string name="search_hint">Soek in Wikipedia</string>
   <string name="nav_item_history">Geskiedenis</string>
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>

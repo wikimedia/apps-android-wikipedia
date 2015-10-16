@@ -5,9 +5,6 @@
   <string name="app_name_alpha">विकिपीडिया आल्फा</string>
   <string name="yes">आम्</string>
   <string name="no">न</string>
-  <string name="acra_report_dialog_title">विकिपीडिया अभिसम्भग्नः :(</string>
-  <string name="acra_report_dialog_text">अभिसम्भग्नस्य सूचना असम्भ्यं प्रेष्यताम्</string>
-  <string name="acra_report_dialog_comment">यदा अभिसम्भग्नस्य अवसरः समुद्भति, तदा भवान्/भवती किं करोति ?</string>
   <string name="search_hint">विकिपीडिया-जाले अन्विष्यताम्</string>
   <string name="nav_item_history">इतिहासः</string>
   <string name="error_network_error" fuzzy="true">अन्तर्जालसम्पर्कः नास्ति :(</string>

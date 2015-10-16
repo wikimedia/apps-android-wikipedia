@@ -65,11 +65,10 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-        <activity android:name="org.acra.CrashReportDialog"
-                  android:launchMode="singleInstance"
+        <activity android:name=".crash.CrashReportActivity"
+                  android:label="@string/crash_report_activity_title"
+                  android:noHistory="true"
                   android:excludeFromRecents="true"
-                  android:finishOnTaskLaunch="true"
-                  android:exported="false"
                 />
         <activity android:name=".settings.SettingsActivity"
                   android:label="@string/settings_activity_title"

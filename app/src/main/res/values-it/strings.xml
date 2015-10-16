@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="yes">Sì</string>
   <string name="no">No</string>
-  <string name="acra_report_dialog_title">Wikipedia si è bloccata :(</string>
-  <string name="acra_report_dialog_text">Inviaci una segnalazione di arresto anomalo</string>
-  <string name="acra_report_dialog_comment">Cosa stavi facendo quando si è verificato l\'arresto anomalo?</string>
   <string name="search_hint">Cerca su Wikipedia</string>
   <string name="nav_item_history">Cronologia</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>

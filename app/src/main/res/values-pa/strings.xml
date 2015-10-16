@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ਵਿਕੀਪੀਡੀਆ ਅਲਫ਼ਾ</string>
   <string name="yes">ਹਾਂ</string>
   <string name="no">ਨਹੀਂ</string>
-  <string name="acra_report_dialog_title">ਵਿਕੀਪੀਡੀਆ ਕਰੈਸ਼ ਹੋਇਆ :(</string>
-  <string name="acra_report_dialog_text">ਸਾਨੂੰ ਇੱਕ ਕਰੈਸ਼ ਸੂਚਨਾ ਭੇਜੋ</string>
-  <string name="acra_report_dialog_comment">ਜਦੋਂ ਕਰੈਸ਼ ਹੋਇਆ ਤਾਂ ਤੁਸੀਂ ਕੀ ਕਰ ਰਹੇ ਸੀ?</string>
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>

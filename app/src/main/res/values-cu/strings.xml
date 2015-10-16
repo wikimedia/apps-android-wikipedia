@@ -5,9 +5,6 @@
   <string name="app_name_alpha" tools:ignore="UnusedResources">Википєдїꙗ · алфа</string>
   <string name="yes">Да</string>
   <string name="no">Нѣтъ</string>
-  <string name="acra_report_dialog_title">Википєдїꙗ пала ѥстъ :(</string>
-  <string name="acra_report_dialog_text">падєниꙗ вѣсти посъланиѥ</string>
-  <string name="acra_report_dialog_comment">чьто тꙑ дѣлаашє · ѥгъда падєниѥ жє сътворило сѧ ;</string>
   <string name="search_hint">Википєдїи исканиѥ</string>
   <string name="nav_item_history">їсторїꙗ</string>
   <string name="error_network_error" fuzzy="true">сѣтьна достѫпа нѣстъ</string>

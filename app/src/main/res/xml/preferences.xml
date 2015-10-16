@@ -7,12 +7,6 @@
                 android:title="@string/preference_title_language">
         </org.wikipedia.settings.PreferenceMultiLine>
         <org.wikipedia.settings.CheckBoxPreferenceMultiLine
-            android:key="@string/preference_key_eventlogging_opt_in"
-            android:defaultValue="true"
-            android:title="@string/preference_title_eventlogging_opt_in"
-            android:summary="@string/preference_summary_eventlogging_opt_in"
-            />
-        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
             android:key="@string/preference_key_show_images"
             android:defaultValue="true"
             android:title="@string/preference_title_show_images"
@@ -23,6 +17,18 @@
             android:defaultValue="true"
             android:title="@string/preference_title_show_link_previews"
             android:summary="@string/preference_summary_show_link_previews"
+            />
+        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+            android:key="@string/preference_key_eventlogging_opt_in"
+            android:defaultValue="true"
+            android:title="@string/preference_title_eventlogging_opt_in"
+            android:summary="@string/preference_summary_eventlogging_opt_in"
+            />
+        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+            android:key="@string/preference_key_auto_upload_crash_reports"
+            android:defaultValue="true"
+            android:title="@string/preference_title_auto_upload_crash_reports"
+            android:summary="@string/preference_summary_auto_upload_crash_reports"
             />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/zero_wikipedia_zero_heading">

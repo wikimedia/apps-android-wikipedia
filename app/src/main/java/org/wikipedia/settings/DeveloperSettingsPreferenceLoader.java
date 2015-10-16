@@ -1,57 +1,20 @@
 package org.wikipedia.settings;
 
-import org.wikipedia.R;
-
 import android.content.Context;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.crash.RemoteLogException;
+import org.wikipedia.util.log.L;
+
 /*package*/ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
     @NonNull private final Context context;
 
-    /*package*/
-    DeveloperSettingsPreferenceLoader(@NonNull PreferenceFragment fragment) {
-        super(fragment);
-        this.context = fragment.getActivity().getApplicationContext();
-    }
-
-    @Override
-    public void loadPreferences() {
-        loadPreferences(R.xml.developer_preferences);
-        setupRestBaseCheckboxes();
-        setupCrashButton(findPreference(getCrashButtonKey()));
-    }
-
-    private void setupCrashButton(Preference crashButton) {
-        crashButton.setOnPreferenceClickListener(buildCrashButtonClickListener());
-    }
-
-    private Preference.OnPreferenceClickListener buildCrashButtonClickListener() {
-        return new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                throw new NullPointerException(buildCrashMessage());
-            }
-        };
-    }
-
-    private String buildCrashMessage() {
-        return "Crash test from " + getClass().getName();
-    }
-
-    private String getCrashButtonKey() {
-        return context.getString(R.string.preferences_developer_crash_key);
-    }
-
-    private void setupRestBaseCheckboxes() {
-        CheckBoxPreference manualPreference = (CheckBoxPreference) findPreference(getManualKey());
-        manualPreference.setOnPreferenceChangeListener(setRestBaseManuallyChangeListener);
-        setUseRestBasePreference(manualPreference.isChecked());
-    }
-
-    private Preference.OnPreferenceChangeListener setRestBaseManuallyChangeListener
+    @NonNull private final Preference.OnPreferenceChangeListener setRestBaseManuallyChangeListener
             = new Preference.OnPreferenceChangeListener() {
         /**
          * Called when the useRestBaseSetManually preference has been changed by the user. This is
@@ -69,22 +32,80 @@ import android.support.annotation.NonNull;
         }
     };
 
-    protected void setUseRestBasePreference(boolean manualMode) {
-        RbSwitch.INSTANCE.update();
-        CheckBoxPreference useRestBasePref = getUseRestBasePreference();
-        useRestBasePref.setEnabled(manualMode);
-        useRestBasePref.setChecked(RbSwitch.INSTANCE.isRestBaseEnabled());
+    /*package*/
+    DeveloperSettingsPreferenceLoader(@NonNull PreferenceFragment fragment) {
+        super(fragment);
+        this.context = fragment.getActivity().getApplicationContext();
     }
 
-    protected CheckBoxPreference getUseRestBasePreference() {
-        return (CheckBoxPreference) findPreference(getUseRestBaseKey());
+    @Override
+    public void loadPreferences() {
+        loadPreferences(R.xml.developer_preferences);
+        setupRestBaseCheckboxes();
+        setupCrashButton(findPreference(getCrashButtonKey()));
+        setupRemoteLogButton(findPreference(R.string.preference_key_remote_log));
+    }
+
+    private void setupRestBaseCheckboxes() {
+        CheckBoxPreference manualPreference = (CheckBoxPreference) findPreference(getManualKey());
+        manualPreference.setOnPreferenceChangeListener(setRestBaseManuallyChangeListener);
+        setUseRestBasePreference(manualPreference.isChecked());
     }
 
     private String getManualKey() {
         return context.getString(R.string.preference_key_use_restbase_manual);
     }
 
+    private void setUseRestBasePreference(boolean manualMode) {
+        RbSwitch.INSTANCE.update();
+        CheckBoxPreference useRestBasePref = getUseRestBasePreference();
+        useRestBasePref.setEnabled(manualMode);
+        useRestBasePref.setChecked(RbSwitch.INSTANCE.isRestBaseEnabled());
+    }
+
+    private CheckBoxPreference getUseRestBasePreference() {
+        return (CheckBoxPreference) findPreference(getUseRestBaseKey());
+    }
+
     private String getUseRestBaseKey() {
         return context.getString(R.string.preference_key_use_restbase);
+    }
+
+    private String getCrashButtonKey() {
+        return context.getString(R.string.preferences_developer_crash_key);
+    }
+
+    private void setupCrashButton(Preference button) {
+        button.setOnPreferenceClickListener(buildCrashButtonClickListener());
+    }
+
+    private Preference.OnPreferenceClickListener buildCrashButtonClickListener() {
+        return new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                throw new TestException("User tested crash functionality.");
+            }
+        };
+    }
+
+    private void setupRemoteLogButton(Preference button) {
+        button.setOnPreferenceChangeListener(buildRemoteLogPreferenceChangeListener());
+    }
+
+    private Preference.OnPreferenceChangeListener buildRemoteLogPreferenceChangeListener() {
+        return new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                L.logRemoteError(new RemoteLogException(newValue.toString()));
+                WikipediaApp.getInstance().checkCrashes(getActivity());
+                return true;
+            }
+        };
+    }
+
+    private static class TestException extends RuntimeException {
+        public TestException(String message) {
+            super(message);
+        }
     }
 }

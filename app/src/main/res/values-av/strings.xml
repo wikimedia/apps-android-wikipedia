@@ -4,9 +4,6 @@
   <string name="app_name_beta">Википедия (бета)</string>
   <string name="yes">У</string>
   <string name="no">Гуро</string>
-  <string name="acra_report_dialog_title">Программа \"Википедия\" гӀодобе речӀана :(</string>
-  <string name="acra_report_dialog_text">Сбоязул отчётал нежехъе ритӀизе</string>
-  <string name="acra_report_dialog_comment">Сбой лъугьараб мехалъ нуж щиб гьабула рукӀарал?</string>
   <string name="search_hint">Википедиялда цӀехесе</string>
   <string name="nav_item_history">Тарих</string>
   <string name="error_network_error" fuzzy="true">Связь батизабизе кӀвечӀо :(</string>

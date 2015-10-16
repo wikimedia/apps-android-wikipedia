@@ -35,4 +35,7 @@
     <string name="preference_key_show_link_previews">showLinkPreviews</string>
     <string name="preference_key_session_data">session_data</string>
     <string name="preference_key_session_timeout">session_timeout</string>
+    <string name="preference_key_remote_log">remoteLog</string>
+    <!-- Note: this value _must_ match net.hockeyapp.android.CrashManager.ALWAYS_SEND_KEY. -->
+    <string name="preference_key_auto_upload_crash_reports">always_send_crash_reports</string>
 </resources>

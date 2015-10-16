@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ವಿಕಿಪೀಡಿಯ ಆಲ್ಫಾ</string>
   <string name="yes">ಹೌದು</string>
   <string name="no">ಇಲ್ಲ</string>
-  <string name="acra_report_dialog_title">ವಿಕಿಪೀಡಿಯ ಕ್ರಿಯಾವೈಫಲ್ಯಗೊಂಡಿದೆ :(</string>
-  <string name="acra_report_dialog_text">ನಮಗೆ ಕ್ರಿಯಾವೈಫಲ್ಯ ವರದಿ ಕಳಿಸಿ</string>
-  <string name="acra_report_dialog_comment">ಕ್ರಾಶ್ ಆದಾಗ ನೀವು ಏನು ಮಾಡುತ್ತಿದ್ದಿರಿ?</string>
   <string name="search_hint">ವಿಕಿಪೀಡಿಯ ಹುಡುಕು</string>
   <string name="nav_item_history">ಇತಿಹಾಸ</string>
   <string name="error_network_error" fuzzy="true">ನೆಟವರ್ಕ್ ಸಂಪರ್ಕ ವಿಲ್ಲ :(</string>

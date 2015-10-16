@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipédia Alpha</string>
   <string name="yes">Sim</string>
   <string name="no">Não</string>
-  <string name="acra_report_dialog_title">A Wikipédia travou :(</string>
-  <string name="acra_report_dialog_text">Envie-nos um relatório de erro</string>
-  <string name="acra_report_dialog_comment">O que você estava fazendo quando ocorreu o erro?</string>
   <string name="search_hint">Procurar na Wikipédia</string>
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error" fuzzy="true">A conexão de rede não pode ser estabelecida</string>

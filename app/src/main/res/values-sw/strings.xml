@@ -5,7 +5,6 @@
   <string name="app_name_alpha">Wikipedia ya Alpha</string>
   <string name="yes">Ndiyo</string>
   <string name="no">Hapana</string>
-  <string name="acra_report_dialog_title">Wikipedia imeanguka :(</string>
   <string name="search_hint">Tafuta Wikipedia</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error" fuzzy="true">Hakuna muunganisho kwa mtandao :(</string>

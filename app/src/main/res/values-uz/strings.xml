@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Vikipediya (alfa variant)</string>
   <string name="yes">Ha</string>
   <string name="no">Yoʻq</string>
-  <string name="acra_report_dialog_title">Vikipedia halokatga uchradi :(</string>
-  <string name="acra_report_dialog_text">Bizga halokat hisobotini yuboring</string>
-  <string name="acra_report_dialog_comment">Halokat sodir bo\'lganda siz nima qilayatgan edingiz?</string>
   <string name="search_hint">Vikipediadan izlash</string>
   <string name="nav_item_history">Tarix</string>
   <string name="error_network_error" fuzzy="true">Tarmoq aloqasi mavjud emas :(</string>

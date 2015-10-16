@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ဝီကီပီးဒီးယားအယ်လဖာ</string>
   <string name="yes">လုပ်မည်</string>
   <string name="no">မလုပ်ပါ</string>
-  <string name="acra_report_dialog_title">ဝီကီပီးဒီးယား ပိတ်သွားသည် :(</string>
-  <string name="acra_report_dialog_text">ပျက်စီးမှု အစီရင်ခံစာ ပေးပို့မည်</string>
-  <string name="acra_report_dialog_comment">ပိတ်သွားသော အချိန်တွင် ဘာလုပ်နေခဲ့သလဲ?</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="error_network_error" fuzzy="true">လတ်တစ်လော အင်တာနက်ချိတ်ဆက်မှု မရှိ :(</string>

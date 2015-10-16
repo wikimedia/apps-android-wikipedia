@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import org.acra.ACRA;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -22,6 +21,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtils;
 import org.wikipedia.util.PageLoadUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
@@ -165,7 +165,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     stagedScrollY = messagePayload.getInt("stagedScrollY");
                     loadPageOnWebViewReady(messagePayload.getBoolean("tryFromCache"));
                 } catch (JSONException e) {
-                    ACRA.getErrorReporter().handleException(e);
+                    L.logRemoteErrorIfProd(e);
                 }
             }
         });
@@ -182,7 +182,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     displayNonLeadSection(messagePayload.getInt("index"),
                             messagePayload.optBoolean(BRIDGE_PAYLOAD_SAVED_PAGE, false));
                 } catch (JSONException e) {
-                    ACRA.getErrorReporter().handleException(e);
+                    L.logRemoteErrorIfProd(e);
                 }
             }
         });
@@ -197,7 +197,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                         return;
                     }
                 } catch (JSONException e) {
-                    ACRA.getErrorReporter().handleException(e);
+                    L.logRemoteErrorIfProd(e);
                 }
                 // Do any other stuff that should happen upon page load completion...
                 activity.updateProgressBar(false, true, 0);
@@ -253,7 +253,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             wrapper.put("stagedScrollY", stagedScrollY);
             bridge.sendMessage("beginNewPage", wrapper);
         } catch (JSONException e) {
-            ACRA.getErrorReporter().handleException(e);
+            L.logRemoteErrorIfProd(e);
         }
     }
 
@@ -660,7 +660,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 fragment.readUrlMappings();
             }
         } catch (JSONException e) {
-            ACRA.getErrorReporter().handleException(e);
+            L.logRemoteErrorIfProd(e);
         }
     }
 

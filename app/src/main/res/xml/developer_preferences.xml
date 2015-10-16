@@ -80,6 +80,13 @@
             android:key="@string/preference_key_session_timeout"
             android:title="@string/preferences_developer_session_timeout_title" />
 
+        <!--suppress AndroidUnknownAttribute -->
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_remote_log"
+            android:title="@string/preferences_developer_remote_log_title"
+            android:dialogMessage="@string/preferences_developer_remote_log_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">

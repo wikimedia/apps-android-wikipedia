@@ -5,9 +5,6 @@
   <string name="app_name_alpha">விக்கிப்பீடியா ஆல்பா</string>
   <string name="yes">ஆம்</string>
   <string name="no">இல்லை</string>
-  <string name="acra_report_dialog_title">விக்கிப்பீடியா செயலிழந்துவிட்டது :(</string>
-  <string name="acra_report_dialog_text">எங்களுக்கு ஒரு செயலிழக்க அறிக்கை அனுப்புக</string>
-  <string name="acra_report_dialog_comment">செயலிழப்பு நடந்த போது நீங்கள் என்ன செய்து கொண்டிருந்தீர்கள்?</string>
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="nav_item_history">வரலாறு</string>
   <string name="error_network_error">இணைய தொடர்பு இல்லை :(</string>

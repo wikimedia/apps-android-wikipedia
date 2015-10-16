@@ -5,7 +5,6 @@
   <string name="app_name_alpha">Wikipedija Alpha</string>
   <string name="yes">Iva</string>
   <string name="no">Le</string>
-  <string name="acra_report_dialog_title">Il-Wikipedija wafqet :(</string>
   <string name="search_hint">Fittex fuq il-Wikipedija</string>
   <string name="nav_item_history">Kronoloġija</string>
   <string name="error_network_error" fuzzy="true">M\'hemm l-ebda konnessjoni man-netwerk :(</string>

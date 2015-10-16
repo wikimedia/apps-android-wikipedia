@@ -71,4 +71,7 @@
     <integer name="map_default_zoom">2</integer>
     <dimen name="map_marker_icon_size">32dp</dimen>
 
+    <!-- Crash report -->
+    <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
+
 </resources>

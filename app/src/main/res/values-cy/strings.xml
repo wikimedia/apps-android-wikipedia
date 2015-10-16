@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wicipedia Alffa</string>
   <string name="yes">Ydw/Ie/Iawn</string>
   <string name="no">Nac ydw / Na</string>
-  <string name="acra_report_dialog_title">Mae Wicipedia wedi cael damwain :(</string>
-  <string name="acra_report_dialog_text">Danfonwch adroddiad ar y chwalfa atom</string>
-  <string name="acra_report_dialog_comment">Beth oeddech yn ei wneud pan fethodd Wicipedia?</string>
   <string name="search_hint">Chwilio Wicipedia</string>
   <string name="nav_item_history">Hanes</string>
   <string name="error_network_error" fuzzy="true">Ni ellir cysylltu gyda\'r rhwydwaith :(</string>

@@ -5,9 +5,6 @@
   <string name="app_name_alpha">Wikipédia Alpha</string>
   <string name="yes">Sim</string>
   <string name="no">Não</string>
-  <string name="acra_report_dialog_title">A Wikipédia crashou :(</string>
-  <string name="acra_report_dialog_text">Envie-nos um relatório da falha</string>
-  <string name="acra_report_dialog_comment">O que estava a fazer quando ocorreu o erro?</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>

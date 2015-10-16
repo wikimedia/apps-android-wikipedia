@@ -5,9 +5,6 @@
   <string name="app_name_alpha" tools:ignore="UnusedResources">Википедиа Альфа хувилбар</string>
   <string name="yes">Тийм</string>
   <string name="no">Үгүй</string>
-  <string name="acra_report_dialog_title">Википедиа програм алдаа заалаа :(</string>
-  <string name="acra_report_dialog_text">Бидэнд алдааны мэдээлэл явуулах</string>
-  <string name="acra_report_dialog_comment">Эвдрэл илрэхэд та юу хийж байсан вэ?</string>
   <string name="search_hint">Википедиа -аас хайх</string>
   <string name="nav_item_history">Түүх</string>
   <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>

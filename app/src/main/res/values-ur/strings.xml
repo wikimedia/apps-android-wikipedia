@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ویکیپیڈیا الفا</string>
   <string name="yes">جی ہاں</string>
   <string name="no">نہیں</string>
-  <string name="acra_report_dialog_title">ویکیپیڈیا بند ہوگیا :(</string>
-  <string name="acra_report_dialog_text">ہمیں بند ہونے کی رپورٹ کریں</string>
-  <string name="acra_report_dialog_comment">آپ کیا کررہے تھے جب ویکیپیڈیا کام کرنا رک گیا؟</string>
   <string name="search_hint">ویکیپیڈیا میں تلاش</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="error_network_error" fuzzy="true">کوئی نیٹورک کنکشن نہیں ہے :(</string>

@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ৱিকিপিডিয়া আল্‌ফা</string>
   <string name="yes">হয়</string>
   <string name="no">নহয়</string>
-  <string name="acra_report_dialog_title">ৱিকিপিডিয়াই কাম কৰা নাই :(</string>
-  <string name="acra_report_dialog_text">আমালৈ ত্ৰুটিৰ এখন প্ৰতিবেদন পঠিয়াওক</string>
-  <string name="acra_report_dialog_comment">ত্ৰুটি হোৱাৰ সময়ত আপুনি কি কৰি আছিল?</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error" fuzzy="true">নে\'টৱৰ্কৰ সংযোগ স্থাপন কৰিব পৰা নগ\'ল।</string>

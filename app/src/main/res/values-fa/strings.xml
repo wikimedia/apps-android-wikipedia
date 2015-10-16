@@ -5,9 +5,6 @@
   <string name="app_name_alpha">ویکی‌پدیا آلفا</string>
   <string name="yes">بله</string>
   <string name="no">خیر</string>
-  <string name="acra_report_dialog_title">ویکیپدیا در دسترس نیست :(</string>
-  <string name="acra_report_dialog_text">یرای ما گزارش خروج از دسترس را بفرستید</string>
-  <string name="acra_report_dialog_comment">وقتی خروج از دسترس رخ داده چه کار می‌کردید؟</string>
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="nav_item_history">تاریخچه</string>
   <string name="error_network_error" fuzzy="true">اتصال به شبکه ممکن نیست.</string>
