@@ -204,6 +204,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
+    @Override
+    protected void setTheme() {
+        setActionBarTheme();
+    }
+
     private void updateEditLicenseText() {
         TextView editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
         if (app.getUserInfoStorage().isLoggedIn()) {

@@ -172,7 +172,6 @@
         app:menu="@menu/menu_nav_drawer"
         app:itemTextColor="?attr/nav_item_color"
         app:itemIconTint="?attr/nav_item_color"
-        app:headerLayout="@layout/inflate_header_nav_drawer"
         android:fitsSystemWindows="false" />
 
 </org.wikipedia.views.WikiDrawerLayout>

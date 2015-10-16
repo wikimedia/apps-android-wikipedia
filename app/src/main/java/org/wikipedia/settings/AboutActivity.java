@@ -79,6 +79,11 @@ public class AboutActivity extends ThemedActionBarActivity {
         });
     }
 
+    @Override
+    protected void setTheme() {
+        setActionBarTheme();
+    }
+
     private void makeEverythingClickable(ViewGroup vg) {
         for (int i = 0; i < vg.getChildCount(); i++) {
             if (vg.getChildAt(i) instanceof ViewGroup) {

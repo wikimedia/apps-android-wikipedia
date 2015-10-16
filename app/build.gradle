@@ -44,8 +44,8 @@ if (JavaVersion.current() != JAVA_VERSION) {
 }
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
     compileOptions {
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
@@ -144,10 +144,10 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    compile 'com.android.support:appcompat-v7:22.2.1' // includes support-v4
-    compile 'com.android.support:design:22.2.1'
-    compile 'com.android.support:recyclerview-v7:22.2.1'
-    compile 'com.android.support:percent:22.2.0'
+    compile 'com.android.support:appcompat-v7:23.1.0' // includes support-v4
+    compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:recyclerview-v7:23.1.0'
+    compile 'com.android.support:percent:23.1.0'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
     compile 'com.squareup.okhttp:okhttp:2.4.0'
@@ -157,11 +157,11 @@ dependencies {
     compile 'com.mobsandgeeks:android-saripaar:1.0.3'
     compile 'com.github.chrisbanes.photoview:library:1.2.3'
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
-    compile 'net.hockeyapp.android:HockeySDK:3.5.0'
     compile 'com.jakewharton:disklrucache:2.0.2'
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:0.7.4@aar') {
         transitive = true
     }
+    compile 'net.hockeyapp.android:HockeySDK:3.6.2'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'

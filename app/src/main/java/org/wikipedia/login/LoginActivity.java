@@ -108,6 +108,11 @@ public class LoginActivity extends ThemedActionBarActivity {
         Utils.showPrivacyPolicy(this);
     }
 
+    @Override
+    protected void setTheme() {
+        setActionBarTheme();
+    }
+
     private void logLoginStart() {
         if (loginSource.equals(LoginFunnel.SOURCE_EDIT)) {
             funnel.logStart(

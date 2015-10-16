@@ -111,7 +111,7 @@
                   android:exported="false"
                 />
         <activity android:name=".page.gallery.GalleryActivity"
-                  android:theme="@style/NoTitle"
+                  android:theme="@style/FullScreen"
                   android:exported="false"
                 />
         <activity android:name=".settings.LicenseActivity"

@@ -225,11 +225,14 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                 }
                 try {
                     String value = getInstrumentation().getTargetContext().getResources().getString(resourceId);
+                    // don't care about appcompat string; and preference string resources don't get translated
                     if (name.startsWith("abc_")
                     ||  name.startsWith("preference_")
                     // TODO: remove the following line as part of T91971.
-                    || name.equals("app_store_description")) {
-                        continue; // don't care about appcompat string; and preference string resources don't get translated
+                    || name.equals("app_store_description")
+                    // Required after upgrading Support Libraries from v23.0.1 to v23.1.0.
+                    || name.equals("character_counter_pattern")) {
+                        continue;
                     }
 
                     assertParameterFormats(lang, name, value);

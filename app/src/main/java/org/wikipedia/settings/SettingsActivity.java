@@ -10,4 +10,9 @@ public class SettingsActivity extends PlatformSingleFragmentActivity<SettingsFra
     public SettingsFragment createFragment() {
         return SettingsFragment.newInstance();
     }
+
+    @Override
+    protected void setTheme() {
+        setActionBarTheme();
+    }
 }

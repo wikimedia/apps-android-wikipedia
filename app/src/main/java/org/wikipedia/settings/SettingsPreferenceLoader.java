@@ -7,7 +7,6 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
-import android.support.v7.internal.view.ContextThemeWrapper;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
@@ -33,11 +32,7 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
         languagePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(
-                        new ContextThemeWrapper(activity,
-                                (WikipediaApp.getInstance().isCurrentThemeLight()
-                                        ? R.style.NoTitle
-                                        : R.style.NoTitleDark)), false);
+                LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(activity, false);
                 langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {

@@ -37,7 +37,9 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
     private final AppLanguageSelectFunnel funnel;
 
     public LanguagePreferenceDialog(Context context, boolean initiatedFromSearchBar) {
-        super(context);
+        super(context, WikipediaApp.getInstance().isCurrentThemeLight()
+                ? R.style.Theme_Light_Dialog
+                : R.style.Theme_Dark_Dialog);
         setContentView(R.layout.dialog_preference_languages);
 
         app = WikipediaApp.getInstance();

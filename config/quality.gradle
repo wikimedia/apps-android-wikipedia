@@ -23,13 +23,13 @@ task checkstyle(type: Checkstyle) {
 // These tasks execute both JVM JUnit and Android instrumentation tests (per variant).
 
 def addTestAllTask = { testAllName, jvmJUnitName, androidInstrumentationName ->
-    def testAllTask = task (testAllName) {
+    task (testAllName) {
         // Run JVM JUnit tests and Android instrumentation tests.
         dependsOn ([jvmJUnitName, androidInstrumentationName])
-    }
 
-    // JVM JUnit tests execute quickest and should be attempted prior to Android instrumentation tests.
-    testAllTask.shouldRunAfter jvmJUnitName
+        // JVM JUnit tests execute quickest and should be attempted prior to Android instrumentation tests.
+        shouldRunAfter jvmJUnitName
+    }
 }
 
 // Specify debug or release build type for connectedAndroidTest. Both cannot be used simultaneously.
@@ -42,8 +42,8 @@ android.testBuildType project.gradle.startParameter.taskNames.find { it.contains
 android.applicationVariants.all { variant ->
     def variantName = variant.name.capitalize()
     def testAllName = "testAll${variantName}"
-    def jvmJUnitName = "test${variantName}"
-    def androidInstrumentationName = "connectedAndroidTest${variantName}"
+    def jvmJUnitName = "test${variantName}UnitTest"
+    def androidInstrumentationName = "connected${variantName}AndroidTest"
 
     addTestAllTask(testAllName, jvmJUnitName, androidInstrumentationName)
 }

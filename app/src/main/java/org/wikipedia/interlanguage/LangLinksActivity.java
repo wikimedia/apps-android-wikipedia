@@ -143,6 +143,11 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     }
 
     @Override
+    protected void setTheme() {
+        setActionBarTheme();
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (languageEntries != null) {
@@ -158,7 +163,6 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             ViewAnimations.crossFade(langLinksProgress, langLinksContainer);
         }
     }
-
 
     private void fetchLangLinks() {
         if (languageEntries == null) {

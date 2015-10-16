@@ -8,13 +8,12 @@
         <item name="android:windowBackground">@drawable/splash_bg</item>
     </style>
 
-    <style name="PageTheme" parent="NoTitle">
+    <style name="PageTheme" parent="AppTheme">
         <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
     </style>
 
-    <style name="NoTitle" parent="AppTheme">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="FullScreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="AppTheme.ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
@@ -133,7 +132,7 @@
         <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
     </style>
-    <style name="BottomDialog" parent="Theme.AppCompat.Light.Dialog">
+    <style name="BottomDialog" parent="Theme.Light.Dialog">
         <item name="android:windowTitleStyle">@null</item>
         <item name="android:windowBackground">@null</item>
         <item name="android:backgroundDimAmount">0</item>

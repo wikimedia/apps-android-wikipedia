@@ -42,4 +42,9 @@ public class LicenseActivity extends ThemedActionBarActivity {
         return ActivityUtil.defaultOnOptionsItemSelected(this, item)
                 || super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void setTheme() {
+        setActionBarTheme();
+    }
 }

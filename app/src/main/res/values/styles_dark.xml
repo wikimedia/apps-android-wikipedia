@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Dark" parent="Theme.AppCompat">
+    <style name="Theme.Dark.ActionBar">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="windowActionModeOverlay">false</item>
+        <item name="actionBarPopupTheme">@null</item>
+        <item name="actionBarWidgetTheme">@null</item>
+        <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+        <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item name="colorPrimary">@color/primary_material_dark</item>
+    </style>
+
+    <style name="Theme.Dark" parent="Theme.AppCompat.NoActionBar">
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
         <item name="actionOverflowButtonStyle">@style/AppTheme.OverflowStyle</item>
@@ -45,7 +57,7 @@
         <item name="android:listViewStyle">@style/ListView</item>
     </style>
 
-    <style name="NoTitleDark" parent="@style/Theme.Dark">
+    <style name="Theme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

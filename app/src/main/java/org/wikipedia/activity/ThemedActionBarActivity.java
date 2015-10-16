@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ApiUtil;
 
@@ -22,7 +23,7 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityUtil.requestFullUserOrientation(this);
 
-        setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
+        setTheme();
         removeSplashBackground();
 
         if (getSupportActionBar() != null) {
@@ -45,6 +46,16 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
         return mDestroyed;
     }
 
+    protected void setTheme() {
+        setTheme(WikipediaApp.getInstance().getCurrentTheme().getResourceId());
+    }
+
+    protected void setActionBarTheme() {
+        setTheme(WikipediaApp.getInstance().isCurrentThemeLight()
+                ? R.style.Theme_Light_ActionBar
+                : R.style.Theme_Dark_ActionBar);
+    }
+
     /**
      * Helper function to force the Activity to show the three-dot overflow icon in its ActionBar.
      * @param activity Activity whose overflow icon will be forced.
@@ -52,9 +63,7 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     private static void forceOverflowMenuIcon(Activity activity) {
         try {
             ViewConfiguration config = ViewConfiguration.get(activity);
-            // Note: this field doesn't exist in 2.3, so those users will need to tap the physical menu button,
-            // unless we figure out another solution.
-            // This field also doesn't exist in 4.4, where the overflow icon is always shown:
+            // This field doesn't exist in 4.4, where the overflow icon is always shown:
             // https://android.googlesource.com/platform/frameworks/base.git/+/ea04f3cfc6e245fb415fd352ed0048cd940a46fe%5E!/
             Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
             if (menuKeyField != null) {

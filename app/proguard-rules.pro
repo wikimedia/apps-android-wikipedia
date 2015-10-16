@@ -37,6 +37,9 @@
 # For now just keep all of v4, just to be on the safe side
 -keep class android.support.v4.** {*;}
 
+# This is undocumented but seems to work. Required after upgrading from v23.0.1 to v23.1.0.
+-keep class android.support.v7.** { <init>(...); *; }
+
 -dontnote android.support.v4.text.ICUCompatIcs
 # --- /Android Support libraries ---
 
@@ -83,7 +86,7 @@
   *;
 }
 
-# This isn't documented but seems to work.
+# This is undocumented but seems to work.
 -dontwarn uk.co.senab.photoview.**
 
 # --- /HockeyApp ---

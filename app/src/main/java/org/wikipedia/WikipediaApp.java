@@ -498,7 +498,7 @@ public class WikipediaApp extends Application {
      * @param d Drawable to be adjusted.
      */
     public void adjustLinkDrawableToTheme(Drawable d) {
-        setDrawableTint(d, getColor(isCurrentThemeDark() ? R.color.button_dark : R.color.button_light));
+        setDrawableTint(d, getResources().getColor(isCurrentThemeDark() ? R.color.button_dark : R.color.button_light));
     }
 
     public int getFontSizeMultiplier() {
@@ -638,9 +638,5 @@ public class WikipediaApp extends Application {
             return RELEASE_DEV;
         }
         return RELEASE_PROD;
-    }
-
-    private int getColor(int id) {
-        return getResources().getColor(id);
     }
 }

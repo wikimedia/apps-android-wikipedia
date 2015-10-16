@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import org.wikipedia.R;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,7 +19,7 @@ import android.view.WindowManager;
 public class BottomDialog extends AppCompatDialog {
     private View dialogLayout;
 
-    public BottomDialog(Context context, int dialogLayoutResId) {
+    public BottomDialog(Context context, @LayoutRes int dialogLayoutResId) {
         super(context, R.style.BottomDialog);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

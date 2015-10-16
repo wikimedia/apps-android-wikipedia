@@ -36,7 +36,6 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -120,10 +119,6 @@ public class GalleryActivity extends ThemedActionBarActivity {
         // force the theme to dark...
         setTheme(Theme.DARK.getResourceId());
         app = (WikipediaApp)getApplicationContext();
-
-        // hide system bar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_gallery);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.gallery_toolbar);

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/gallery_background">
 
-    <android.support.v4.view.FixedViewPager
+    <android.support.v4.view.ViewPager
         android:id="@+id/gallery_item_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
