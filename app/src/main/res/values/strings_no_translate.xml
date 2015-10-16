@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">@string/app_name_prod</string>
+    <string name="channel"></string>
+
     <!-- URLs -->
     <string name="zero_webpage_url">https://m.wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
     <string name="map_tile_source_url">https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png</string>
