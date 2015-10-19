@@ -176,6 +176,7 @@
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_menu_save">Сачувај на уређај</string>
   <string name="gallery_save_success">Слика успешно сачувана.</string>
+  <string name="gallery_image_saved_notification_title">Слика сачувана.</string>
   <string name="gallery_error_video_failed">Не могу да пустим видео.</string>
   <string name="err_cannot_save_file">Не могу да сачувам датотеку</string>
   <string name="share_snippet_button">Подели као слику</string>

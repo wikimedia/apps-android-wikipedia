@@ -7,7 +7,7 @@
   <string name="no">Hayır</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
   <string name="nav_item_history">Geçmiş</string>
-  <string name="error_network_error" fuzzy="true">İnternete bağlanılamıyor.</string>
+  <string name="error_network_error">İnternete bağlanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
@@ -75,7 +75,7 @@
   <string name="title_captcha">Captcha\'yı gir</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'yı yenilemek için üzerine dokunun</string>
   <string name="edit_saved_page_refresh">Kaydedilen bu sayfa güncel olmayabilir ve düzenleme yapılabilmesi için yenilenmesi gereklidir. Sayfayı yenilemek ister misiniz?</string>
-  <string name="nav_item_login" fuzzy="true">Oturum aç</string>
+  <string name="nav_item_login">Vikipedi\'de oturum aç</string>
   <string name="login_username_hint">Kullanıcı adı</string>
   <string name="login_password_hint">Parola</string>
   <string name="login_password_show_check">Parolayı görüntüle</string>
@@ -149,7 +149,8 @@
   <string name="page_protected_other">Bu sayfa aşağıdaki seviyelerde korunmaktadır: %s</string>
   <string name="page_protected_can_not_edit">Bu sayfayı düzenleme yetkiniz yok</string>
   <string name="page_protected_can_not_edit_title">Bu sayfa korumalı</string>
-  <string name="settings_activity_title" fuzzy="true">Ayarlar</string>
+  <string name="settings_item_preferences">Ayarlar</string>
+  <string name="settings_activity_title">Ayarlar</string>
   <string name="about_description">Wikipedia uygulaması hakkında</string>
   <string name="privacy_policy_description">Gizlilik politikası</string>
   <string name="terms_of_use_description">Kullanım koşulları</string>
@@ -226,7 +227,7 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">İndirmek için dokunun</string>
   <string name="dialog_close_description">Kapat</string>
   <string name="preference_title_show_images">Resimleri göster</string>
-  <string name="preference_summary_show_images" fuzzy="true">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
+  <string name="preference_summary_show_images">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
   <string name="read_more_section">Devamı</string>
   <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
   <string name="gallery_error_draw_failed">Resim gösterilemedi.</string>
@@ -236,6 +237,8 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_save">Cihaza kaydet</string>
   <string name="gallery_save_error_mediastore">Görüntü medya koleksiyonuna alınamadı</string>
   <string name="gallery_save_success">Resim başarıyla kaydedildi.</string>
+  <string name="gallery_image_saved_notification_title">Görüntü kaydedildi.</string>
+  <string name="gallery_image_saved_notification_text">Görüntülemek için dokunun.</string>
   <string name="gallery_error_video_failed">Video oynatılamadı.</string>
   <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia üzerinde: %2$s</string>

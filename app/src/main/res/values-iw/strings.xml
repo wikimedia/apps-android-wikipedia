@@ -265,4 +265,6 @@
   <string name="format_error_server_code">קוד: \"%s\"</string>
   <string name="address_copied">הכתובת הועתקה ללוח.</string>
   <string name="button_continue_to_article">להמשיך לערך</string>
+  <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
+  <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
 </resources>

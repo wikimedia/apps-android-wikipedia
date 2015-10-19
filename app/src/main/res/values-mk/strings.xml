@@ -265,4 +265,6 @@
   <string name="format_error_server_code">Код: „%s“</string>
   <string name="address_copied">Адресата е ставена во меѓускладот</string>
   <string name="button_continue_to_article">Продолжи кон статијата</string>
+  <string name="preference_title_show_link_previews">Прегледи на врски</string>
+  <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
 </resources>

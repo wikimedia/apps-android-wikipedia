@@ -239,6 +239,8 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="gallery_menu_save">Salvează în dispozitiv</string>
   <string name="gallery_save_error_mediastore">Importarea imaginii în galeria multimedia a eșuat</string>
   <string name="gallery_save_success">Imagine salvată cu succes.</string>
+  <string name="gallery_image_saved_notification_title">Imagine salvată.</string>
+  <string name="gallery_image_saved_notification_text">Atingeți pentru a vizualiza.</string>
   <string name="gallery_error_video_failed">Filmul nu a putut fi redat.</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>
   <string name="snippet_share_intro">O informație interesantă despre %1$s la @Wikipedia: %2$s</string>
@@ -263,4 +265,6 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="format_error_server_code">Cod: „%s”</string>
   <string name="address_copied">Adresă copiată în clipboard.</string>
   <string name="button_continue_to_article">Continuă către articol</string>
+  <string name="preference_title_show_link_previews">Afișare previzualizare legături</string>
+  <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
 </resources>

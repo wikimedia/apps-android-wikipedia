@@ -134,7 +134,7 @@
   <string name="zero_learn_more">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
   <string name="zero_learn_more_learn_more">Meer lezen</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
-  <string name="edit_preview_fetching_dialog_message">Voorbeeld aan het ophalen…</string>
+  <string name="edit_preview_fetching_dialog_message">Voorvertoning aan het ophalen…</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="nav_item_random">Willekeurig</string>
   <string name="create_account_account_created_toast">Gebruiker aangemaakt</string>

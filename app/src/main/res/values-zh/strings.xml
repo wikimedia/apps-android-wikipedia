@@ -3,8 +3,8 @@
   <string name="app_name_prod">维基百科</string>
   <string name="app_name_beta">维基百科测试版</string>
   <string name="app_name_alpha">维基百科内测版</string>
-  <string name="yes">确定</string>
-  <string name="no">取消</string>
+  <string name="yes">是</string>
+  <string name="no">否</string>
   <string name="search_hint">搜索维基百科</string>
   <string name="nav_item_history">历史</string>
   <string name="error_network_error">无法连接至互联网。</string>
@@ -239,6 +239,8 @@
   <string name="gallery_menu_save">保存至设备</string>
   <string name="gallery_save_error_mediastore">导入图像至媒体库失败</string>
   <string name="gallery_save_success">图像保存成功。</string>
+  <string name="gallery_image_saved_notification_title">图片已保存。</string>
+  <string name="gallery_image_saved_notification_text">点按以浏览。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
   <string name="err_cannot_save_file">无法保存文件</string>
   <string name="snippet_share_intro">\@Wikipedia 上的“%1$s”：%2$s</string>
@@ -263,4 +265,6 @@
   <string name="format_error_server_code">代码：“%s”</string>
   <string name="address_copied">地址已复制至剪贴板。</string>
   <string name="button_continue_to_article">继续阅读条目</string>
+  <string name="preference_title_show_link_previews">显示链接预览</string>
+  <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
 </resources>

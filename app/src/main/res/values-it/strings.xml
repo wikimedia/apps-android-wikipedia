@@ -267,4 +267,6 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Codice: \"%s\"</string>
   <string name="address_copied">Indirizzo copiato negli appunti.</string>
   <string name="button_continue_to_article">Continua la voce</string>
+  <string name="preference_title_show_link_previews">Mostra anteprime collegamenti</string>
+  <string name="preference_summary_show_link_previews">Mostra una piccola anteprima delle voci quando si preme sui collegamenti.</string>
 </resources>

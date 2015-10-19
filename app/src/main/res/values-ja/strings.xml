@@ -240,6 +240,7 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="gallery_menu_save">デバイスに保存</string>
   <string name="gallery_save_error_mediastore">メディアコレクションへの画像のインポートに失敗しました</string>
   <string name="gallery_save_success">画像を保存しました</string>
+  <string name="gallery_image_saved_notification_title">画像が保存されました</string>
   <string name="gallery_image_saved_notification_text">タッチして表示する。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="err_cannot_save_file">ファイルを保存できません。</string>

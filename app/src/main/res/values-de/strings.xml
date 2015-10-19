@@ -265,4 +265,6 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="format_error_server_code">Code: „%s“</string>
   <string name="address_copied">Adresse in die Zwischenablage kopiert.</string>
   <string name="button_continue_to_article">Auf Artikel fortfahren</string>
+  <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
+  <string name="preference_summary_show_link_previews">Zeigt eine schnelle Vorschau von Artikeln beim Antippen von Links.</string>
 </resources>

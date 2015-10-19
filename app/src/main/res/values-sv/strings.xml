@@ -265,4 +265,6 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="format_error_server_code">Kod: \"%s\"</string>
   <string name="address_copied">Adressen kopierades till urklipp.</string>
   <string name="button_continue_to_article">Fortsätt till artikeln</string>
+  <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
+  <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
 </resources>

@@ -265,4 +265,6 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">O enderezo copiouse no portapapeis.</string>
   <string name="button_continue_to_article">Continuar ó artigo</string>
+  <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>
+  <string name="preference_summary_show_link_previews">Mostrar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
 </resources>

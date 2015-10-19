@@ -83,7 +83,7 @@
   <string name="login_error_wrong_username">मिथ्या योजकनाम</string>
   <string name="login_error_illegal">अमान्यं योजकनाम</string>
   <string name="login_success_toast" fuzzy="true">स्वागतं ! प्रवेशः सिद्धः ।</string>
-  <string name="login_error_blocked">एषः योजकः अवरुद्धः</string>
+  <string name="login_error_blocked">एषः सदस्यः अवरुद्धः</string>
   <string name="login_error_throttled">प्रेवेशं कर्तुम् अधिकतमप्रयासाः अभूवन् । कृपया काँश्चन निमेषान् यावत् प्रतीक्ष्य पुनः प्रयतताम् ।</string>
   <string name="login_error_unknown">प्रवेशः असफलः :(</string>
   <string name="preference_title_logout">निर्गम्यताम्</string>

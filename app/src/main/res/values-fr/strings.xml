@@ -239,6 +239,8 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="gallery_menu_save">Enregistrer sur l’appareil</string>
   <string name="gallery_save_error_mediastore">Échec à l’importation de l’image dans la collection de médias</string>
   <string name="gallery_save_success">Image bien enregistrée.</string>
+  <string name="gallery_image_saved_notification_title">Image enregistrée.</string>
+  <string name="gallery_image_saved_notification_text">Toucher pour afficher.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>
   <string name="snippet_share_intro">Fait intéressant sur @Wikipedia %1$s : %2$s</string>
@@ -263,4 +265,6 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="format_error_server_code">Code : \"%s\"</string>
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
   <string name="button_continue_to_article">Continuer vers l\'article</string>
+  <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
+  <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
 </resources>
