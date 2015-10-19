@@ -103,6 +103,12 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
         progressBar = (ProgressBar) rootView.findViewById(R.id.link_preview_progress);
         rootView.findViewById(R.id.link_preview_toolbar).setOnClickListener(goToPageListener);
+
+        View overlayRootView = addOverlay(inflater, R.layout.dialog_link_preview_overlay);
+        Button goButton = (Button) overlayRootView.findViewById(R.id.link_preview_go_button);
+        goButton.setOnClickListener(goToPageListener);
+        goButton.setText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
+
         TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
         setConditionalLayoutDirection(rootView, pageTitle.getSite().getLanguageCode());
@@ -124,10 +130,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             new GalleryThumbnailFetchTask(pageTitle).execute();
             thumbnailGallery.setGalleryViewListener(galleryViewListener);
         }
-
-        Button goButton = (Button) rootView.findViewById(R.id.link_preview_go_button);
-        goButton.setOnClickListener(goToPageListener);
-        goButton.setText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
 
         final View overflowButton = rootView.findViewById(R.id.link_preview_overflow_button);
         overflowButton.setOnClickListener(new View.OnClickListener() {
