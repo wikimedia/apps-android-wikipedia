@@ -2,6 +2,7 @@ package org.wikipedia.util;
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,6 +25,11 @@ public final class FeedbackUtil {
     public static void showError(View containerView, Throwable e) {
         ThrowableUtil.AppError error = ThrowableUtil.getAppError(containerView.getContext(), e);
         makeSnackbar(containerView, error.getError(), LENGTH_DEFAULT).show();
+    }
+
+    public static void showMessageAsPlainText(Activity activity, CharSequence possibleHtml) {
+        CharSequence richText = Html.fromHtml(possibleHtml.toString());
+        showMessage(activity, richText.toString());
     }
 
     private static void showMessage(View containerView, CharSequence text, int duration) {

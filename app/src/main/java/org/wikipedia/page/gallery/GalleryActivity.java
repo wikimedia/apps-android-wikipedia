@@ -40,7 +40,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -95,6 +94,27 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private TextView creditText;
     private boolean controlsShowing = true;
 
+    private View.OnClickListener licenseShortClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (v.getContentDescription() == null) {
+                return;
+            }
+            FeedbackUtil.showMessageAsPlainText((Activity) v.getContext(), v.getContentDescription());
+        }
+    };
+
+    private View.OnLongClickListener licenseLongClickListener = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            String licenseUrl = (String) v.getTag();
+            if (!TextUtils.isEmpty(licenseUrl)) {
+                Utils.handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
+            }
+            return true;
+        }
+    };
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // force the theme to dark...
@@ -127,29 +147,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
         descriptionText.setMovementMethod(linkMovementMethod);
 
         licenseIcon = (ImageView) findViewById(R.id.gallery_license_icon);
-        licenseIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String licenseUrl = (String) v.getTag();
-                if (!TextUtils.isEmpty(licenseUrl)) {
-                    Utils.handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
-                }
-            }
-        });
-        licenseIcon.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (v.getContentDescription() == null) {
-                    return false;
-                }
-                int[] pos = new int[2];
-                v.getLocationInWindow(pos);
-                Toast t = Toast.makeText(GalleryActivity.this, v.getContentDescription(), Toast.LENGTH_SHORT);
-                t.setGravity(Gravity.TOP | Gravity.START, pos[0], pos[1]);
-                t.show();
-                return true;
-            }
-        });
+        licenseIcon.setOnClickListener(licenseShortClickListener);
+        licenseIcon.setOnLongClickListener(licenseLongClickListener);
 
         creditText = (TextView) findViewById(R.id.gallery_credit_text);
         creditText.setShadowLayer(2, 1, 1, getResources().getColor(R.color.lead_text_shadow));
