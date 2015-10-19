@@ -72,12 +72,10 @@ class ImagesBatch(object):
     def convert(self):
         for svg in self.svgs:
             if ".nonspecific." in svg:
-                self._do_export("xxhdpi", svg, "drawable")
+                self._do_export("xxxhdpi", svg, "drawable")
             else:
                 for density in DENSITIES.keys():
-                    # For xxxhdpi only generate launcher icons
-                    if not (density == 'xxxhdpi' and 'launcher' not in svg):
-                        self._do_flop(density, self._do_export(density, svg, "drawable-" + density))
+                    self._do_flop(density, self._do_export(density, svg, "drawable-" + density))
             print(u"\u2713 %s" % os.path.basename(svg))
 
 
