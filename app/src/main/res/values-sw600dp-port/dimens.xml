@@ -5,6 +5,7 @@
          screen margins) for sw600dp devices (e.g. 7" tablets) in landscape here.
     -->
     <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="list_item_text_horizontal_padding">24dp</dimen>
 
     <dimen name="titleTextSize">32sp</dimen>
     <dimen name="descriptionTextSize">16sp</dimen>

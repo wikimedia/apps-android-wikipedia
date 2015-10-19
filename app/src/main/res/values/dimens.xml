@@ -8,8 +8,9 @@
 
     <dimen name="corner_radius_smaller">2dp</dimen>
 
-    <dimen name="list_item_vertical_padding">15dp</dimen>
+    <dimen name="list_item_vertical_padding">16dp</dimen>
     <dimen name="list_item_horizontal_padding">16dp</dimen>
+    <dimen name="list_item_text_horizontal_padding">16dp</dimen>
 
     <!-- Default font size for WebView text based on system settings -->
     <dimen name="textSize">16sp</dimen>

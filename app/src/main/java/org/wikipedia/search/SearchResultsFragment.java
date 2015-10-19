@@ -9,6 +9,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.WikiErrorView;
 
 import com.squareup.picasso.Picasso;
@@ -469,7 +470,7 @@ public class SearchResultsFragment extends Fragment {
                 pageTitleText.setText(displayText);
             }
 
-            TextView descriptionText = (TextView) convertView.findViewById(R.id.page_list_item_description);
+            GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
             descriptionText.setText(title.getDescription());
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.page_list_item_image);

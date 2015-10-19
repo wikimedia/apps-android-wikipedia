@@ -73,6 +73,8 @@
 
     <color name="list_item_highlight">#60808080</color>
     <color name="list_item_selected">#20808080</color>
+    <color name="list_item_text_primary">#333333</color>
+    <color name="list_item_text_secondary">#777777</color>
     <color name="lead_text_color">#f0f0f0</color>
     <color name="lead_text_shadow">#80000000</color>
     <color name="lead_disabled_text_light">#000</color>

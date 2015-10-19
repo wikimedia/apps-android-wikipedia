@@ -5,6 +5,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.pageimages.PageImagesTask;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.wikidata.GetDescriptionsTask;
 import com.squareup.picasso.Picasso;
 import android.app.Activity;
@@ -120,7 +121,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             holder = new ViewHolder();
             holder.icon = (ImageView) convertView.findViewById(R.id.page_list_item_image);
             holder.title = (TextView) convertView.findViewById(R.id.page_list_item_title);
-            holder.description = (TextView) convertView.findViewById(R.id.page_list_item_description);
+            holder.description = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
             convertView.setTag(holder);
         } else {
             // view already defined, retrieve view holder
