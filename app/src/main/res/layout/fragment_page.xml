@@ -29,37 +29,10 @@
                     android:layout_height="match_parent"
                     android:layerType="hardware" />
 
-                <FrameLayout
-                    android:id="@+id/page_image_container"
+                <org.wikipedia.views.ArticleHeaderView
+                    android:id="@+id/page_header_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <org.wikipedia.page.leadimages.ImageViewWithFace
-                        android:id="@+id/page_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:visibility="invisible" />
-
-                    <ImageView
-                        android:id="@+id/page_image_placeholder"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@null"/>
-
-                    <org.wikipedia.views.AppTextView
-                        android:id="@+id/page_title_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        style="@style/RtlAwareTextView"
-                        android:paddingTop="32dp"
-                        android:paddingRight="@dimen/activity_horizontal_margin"
-                        android:paddingBottom="16dp"
-                        android:paddingLeft="@dimen/activity_horizontal_margin"
-                        android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar" />
-                </FrameLayout>
+                    android:layout_height="wrap_content" />
 
                 <LinearLayout
                     android:id="@+id/bottom_content_container"

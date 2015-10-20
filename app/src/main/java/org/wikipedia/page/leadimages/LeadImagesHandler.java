@@ -50,11 +50,10 @@ import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.ArticleHeaderView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ConfigurableTextView;
 import org.wikipedia.views.ViewUtil;
-
-import static org.wikipedia.views.ViewUtil.findView;
 
 public class LeadImagesHandler {
     /**
@@ -123,15 +122,15 @@ public class LeadImagesHandler {
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
                              @NonNull ObservableWebView webView,
-                             @NonNull ViewGroup hidingView) {
+                             @NonNull ArticleHeaderView articleHeaderView) {
         this.parentFragment = parentFragment;
-        this.imageContainer = hidingView;
+        this.imageContainer = articleHeaderView;
         this.bridge = bridge;
         this.webView = webView;
 
-        imagePlaceholder = findView(imageContainer, R.id.page_image_placeholder);
-        image = findView(imageContainer, R.id.page_image);
-        pageTitleText = findView(imageContainer, R.id.page_title_text);
+        imagePlaceholder = articleHeaderView.getPlaceholder();
+        image = articleHeaderView.getImage();
+        pageTitleText = articleHeaderView.getText();
 
         pageTitleGradient = GradientUtil.getCubicGradient(getColor(R.color.lead_gradient_start), Gravity.BOTTOM);
         pageTitleText.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL));

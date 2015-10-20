@@ -1,0 +1,34 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <org.wikipedia.page.leadimages.ImageViewWithFace
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="invisible" />
+
+    <!-- TODO: can this be merged with ImageViewWithFace? -->
+    <ImageView
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="?lead_image_drawable"
+        android:contentDescription="@null" />
+
+    <org.wikipedia.views.AppTextView
+        style="@style/RtlAwareTextView"
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:paddingTop="32dp"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="16dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar"
+        tools:text="Title\nSubtitle" />
+
+</merge>
