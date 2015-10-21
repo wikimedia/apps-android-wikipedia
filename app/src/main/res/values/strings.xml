@@ -263,6 +263,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="gallery_image_saved_notification_title">Image saved.</string>
     <string name="gallery_image_saved_notification_text">Touch to view.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
+    <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images. Please try again, and grant the requested permission.</string>
     <string name="err_cannot_save_file">Cannot save file</string>
     <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
     <string name="expand_refs">Tap to expand</string>
@@ -301,4 +302,5 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="crash_report_relaunch">Start over</string>
     <string name="crash_report_quit">Quit</string>
     <!-- /Crash reporter -->
+
 </resources>
