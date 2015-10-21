@@ -50,6 +50,8 @@
     <color name="link_preview_button_background_light_highlight">@color/ripple_material_light</color>
     <color name="nav_background_light">#f0f0f0</color>
     <color name="nav_text_light">#303030</color>
+    <color name="list_item_text_primary_light">#333</color>
+    <color name="list_item_text_secondary_light">#777</color>
 
     <color name="link_dark">#2b6fb2</color>
     <color name="button_dark">#2b6fb2</color>
@@ -73,11 +75,11 @@
     <color name="link_preview_button_background_dark_highlight">@color/ripple_material_dark</color>
     <color name="nav_background_dark">#303030</color>
     <color name="nav_text_dark">#d0d0d0</color>
+    <color name="list_item_text_primary_dark">#d0d0d0</color>
+    <color name="list_item_text_secondary_dark">#808080</color>
 
     <color name="list_item_highlight">#60808080</color>
     <color name="list_item_selected">#20808080</color>
-    <color name="list_item_text_primary">#333333</color>
-    <color name="list_item_text_secondary">#777777</color>
     <color name="lead_text_color">#f0f0f0</color>
     <color name="lead_text_shadow">#80000000</color>
     <color name="lead_disabled_text_light">#000</color>

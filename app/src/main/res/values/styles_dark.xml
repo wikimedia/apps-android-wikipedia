@@ -53,6 +53,8 @@
         <item name="link_preview_button_background">@drawable/link_preview_button_background_dark</item>
         <item name="nav_background_color">@color/nav_background_dark</item>
         <item name="nav_item_color">@color/nav_item_selector_dark</item>
+        <item name="list_item_text_primary_color">@color/list_item_text_primary_dark</item>
+        <item name="list_item_text_secondary_color">@color/list_item_text_secondary_dark</item>
 
         <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
         <item name="android:listViewStyle">@style/ListView</item>
