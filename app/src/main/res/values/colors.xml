@@ -46,7 +46,8 @@
     <color name="link_preview_toolbar_light">#404040</color>
     <color name="link_preview_background_light">#f0f0f0</color>
     <color name="link_preview_text_light">#505050</color>
-    <color name="link_preview_button_background_highlight">@color/ripple_material_light</color>
+    <color name="link_preview_button_background_light">#eaffffff</color>
+    <color name="link_preview_button_background_light_highlight">@color/ripple_material_light</color>
     <color name="nav_background_light">#f0f0f0</color>
     <color name="nav_text_light">#303030</color>
 
@@ -68,6 +69,8 @@
     <color name="link_preview_toolbar_dark">#606060</color>
     <color name="link_preview_background_dark">#303030</color>
     <color name="link_preview_text_dark">#d0d0d0</color>
+    <color name="link_preview_button_background_dark">#ea303030</color>
+    <color name="link_preview_button_background_dark_highlight">@color/ripple_material_dark</color>
     <color name="nav_background_dark">#303030</color>
     <color name="nav_text_dark">#d0d0d0</color>
 

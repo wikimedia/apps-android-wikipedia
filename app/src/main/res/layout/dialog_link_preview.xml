@@ -40,7 +40,7 @@
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     style="@style/RtlAwareTextView"
-                    android:textColor="?attr/link_color"
+                    android:textColor="?attr/link_preview_text_color"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:paddingBottom="4dp"
@@ -84,18 +84,10 @@
                 android:layout_marginTop="12dp"
                 android:visibility="gone" />
 
-            <Button
-                android:id="@+id/link_preview_go_button"
+            <View
+                android:id="@+id/link_preview_bottom_padding"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:textColor="?attr/link_color"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:textSize="@dimen/abc_text_size_menu_material"
-                android:text="@string/button_continue_to_article" />
-
+                android:layout_height="54dp"/>
         </LinearLayout>
 
     </LinearLayout>

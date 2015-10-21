@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/link_preview_button_background_dark_highlight">
+    <item android:drawable="@drawable/link_preview_button_background_dark_shape" />
+</ripple>

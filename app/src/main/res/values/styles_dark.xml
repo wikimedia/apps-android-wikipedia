@@ -50,6 +50,7 @@
         <item name="link_preview_toolbar_color">@color/link_preview_toolbar_dark</item>
         <item name="link_preview_background_color">@color/link_preview_background_dark</item>
         <item name="link_preview_text_color">@color/link_preview_text_dark</item>
+        <item name="link_preview_button_background">@drawable/link_preview_button_background_dark</item>
         <item name="nav_background_color">@color/nav_background_dark</item>
         <item name="nav_item_color">@color/nav_item_selector_dark</item>
 

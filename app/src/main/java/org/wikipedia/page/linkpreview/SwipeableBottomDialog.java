@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.util.DisplayMetrics;
@@ -52,6 +53,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
 
     private ListView listView;
     private int contentPeekHeight;
+    private ViewGroup rootView;
     private View spaceView;
 
     private final AbsListView.OnScrollListener onScrollListener
@@ -70,7 +72,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.dialog_bottom_swipe, container);
+        rootView = (ViewGroup) inflater.inflate(R.layout.dialog_bottom_swipe, container);
 
         List<View> views = new ArrayList<>();
         views.add(makeDismissTriggerView());
@@ -84,6 +86,10 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         setContentPeekHeight();
 
         return rootView;
+    }
+
+    public View addOverlay(LayoutInflater inflater, @LayoutRes int layout) {
+        return inflater.inflate(layout, rootView);
     }
 
     protected abstract View inflateDialogView(LayoutInflater inflater, ViewGroup container);
