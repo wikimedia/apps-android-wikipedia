@@ -84,7 +84,7 @@ public class CabSearchView extends SearchView {
         @Override public void onDestroyActionMode(ActionMode mode) { }
     }
 
-    private class PlainTextInputFilter implements InputFilter {
+    private static class PlainTextInputFilter implements InputFilter {
         @Override
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest,
                                    int dstart, int dend) {

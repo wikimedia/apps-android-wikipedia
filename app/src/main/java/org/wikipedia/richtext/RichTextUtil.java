@@ -37,13 +37,13 @@ public final class RichTextUtil {
         }
     }
 
-    /** Strips all rich text except those used to provide compositional hints. */
+    /** Strips all rich text except spans used to provide compositional hints. */
     public static CharSequence stripRichText(CharSequence str, int start, int end) {
         String plainText = str.toString();
         SpannableString ret = new SpannableString(plainText);
         if (str instanceof Spanned) {
-            List<Object> keyboardHintSpans = RichTextUtil.getComposingSpans((Spanned) str, start, end);
-            RichTextUtil.copySpans((Spanned) str, ret, keyboardHintSpans);
+            List<Object> keyboardHintSpans = getComposingSpans((Spanned) str, start, end);
+            copySpans((Spanned) str, ret, keyboardHintSpans);
         }
         return ret;
     }
