@@ -4,7 +4,7 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
         >
     <item android:id="@+id/menu_new_tab"
-          android:icon="@drawable/ic_add_tab"
+          android:icon="@drawable/ic_add_box_white_24dp"
           android:title="@string/menu_new_tab"
           app:showAsAction="ifRoom" />
 
