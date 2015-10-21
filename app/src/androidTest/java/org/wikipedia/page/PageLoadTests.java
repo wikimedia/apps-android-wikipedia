@@ -62,7 +62,7 @@ public class PageLoadTests extends ActivityInstrumentationTestCase2<PageActivity
         PageTitle pageTitle = new PageTitle(null, title, SITE);
         fragment.displayNewPage(pageTitle,
                 new HistoryEntry(pageTitle, HistoryEntry.SOURCE_RANDOM),
-                false,
+                PageLoadStrategy.Cache.FALLBACK,
                 false);
     }
 }

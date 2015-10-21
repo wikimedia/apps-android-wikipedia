@@ -2,11 +2,14 @@ package org.wikipedia.page.linkpreview;
 
 import org.mediawiki.api.json.Api;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageCache;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.restbase.RbPageLead;
@@ -162,17 +165,70 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
                 linkPreviewOnLoadCallback);
     }
 
+    private void loadContentFromCache() {
+        Log.v(TAG, "Loading link preview from cache");
+        if (!isAdded()) {
+            return;
+        }
+        getApplication().getPageCache()
+                .get(pageTitle, 0, new PageCache.CacheGetListener() {
+                    @Override
+                    public void onGetComplete(Page page, int sequence) {
+                        if (page != null) {
+                            displayPreviewFromCachedPage(page);
+                        } else {
+                            loadContentFromSavedPage();
+                        }
+                    }
+
+                    @Override
+                    public void onGetError(Throwable e, int sequence) {
+                        Log.e(TAG, "Failed to get page from cache.", e);
+                        loadContentFromSavedPage();
+                    }
+                });
+    }
+
+    private void loadContentFromSavedPage() {
+        Log.v(TAG, "Loading link preview from Saved Pages");
+        if (!isAdded()) {
+            return;
+        }
+        new LoadSavedPageTask(pageTitle) {
+            @Override
+            public void onFinish(Page page) {
+                displayPreviewFromCachedPage(page);
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                progressBar.setVisibility(View.GONE);
+                FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
+                dismiss();
+            }
+        }.execute();
+    }
+
+    private void displayPreviewFromCachedPage(Page page) {
+        if (!isAdded()) {
+            Log.d(TAG, "Detached from activity, so stopping update.");
+            return;
+        }
+        progressBar.setVisibility(View.GONE);
+        contents = new LinkPreviewContents(page);
+        layoutPreview();
+    }
+
     private PageLead.Callback linkPreviewOnLoadCallback = new PageLead.Callback() {
         @Override
         public void success(PageLead pageLead, Response response) {
             Log.v(TAG, response.getUrl());
-            progressBar.setVisibility(View.GONE);
             if (pageLead.getLeadSectionContent() != null) {
+                progressBar.setVisibility(View.GONE);
                 contents = new LinkPreviewContents((RbPageLead) pageLead, pageTitle.getSite());
                 layoutPreview();
             } else {
-                FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
-                dismiss();
+                loadContentFromCache();
             }
         }
 
@@ -186,6 +242,10 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
 
     private PageActivity getPageActivity() {
         return (PageActivity) getActivity();
+    }
+
+    private WikipediaApp getApplication() {
+        return WikipediaApp.getInstance();
     }
 
     private class DefaultOnNavigateListener implements OnNavigateListener {
@@ -206,13 +266,12 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
             if (!isAdded()) {
                 return;
             }
-            progressBar.setVisibility(View.GONE);
-            if (result.size() > 0) {
+            if (!result.isEmpty()) {
+                progressBar.setVisibility(View.GONE);
                 contents = (LinkPreviewContents) result.values().toArray()[0];
                 layoutPreview();
             } else {
-                FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
-                dismiss();
+                loadContentFromCache();
             }
         }
         @Override
@@ -221,9 +280,7 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
             if (!isAdded()) {
                 return;
             }
-            progressBar.setVisibility(View.GONE);
-            FeedbackUtil.showError(getActivity(), caught);
-            dismiss();
+            loadContentFromCache();
         }
     }
 

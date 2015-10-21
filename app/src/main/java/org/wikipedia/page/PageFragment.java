@@ -93,6 +93,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private boolean pageSaved;
     private boolean pageRefreshed;
     private boolean savedPageCheckComplete;
+    private boolean errorState = false;
 
     private static final int TOC_BUTTON_HIDE_DELAY = 2000;
     private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * WikipediaApp.getInstance().getScreenDensity());
@@ -151,17 +152,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onRefresh() {
             // don't refresh if it's still loading...
-            if (pageLoadStrategy.isLoading()) {
+            if (pageLoadStrategy.isLoading() || !savedPageCheckComplete || errorState) {
                 refreshView.setRefreshing(false);
                 return;
             }
-            if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
-                // if it's a saved page, then refresh it and re-save!
-                refreshPage(true);
-            } else {
-                // otherwise, refresh the page normally
-                refreshPage(false);
-            }
+            // if it's a saved page, then refresh it and re-save. Otherwise, refresh the page normally
+            refreshPage(isPageSaved());
         }
     };
 
@@ -334,7 +330,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             public void onClick(View v) {
                 errorView.setVisibility(View.GONE);
-                displayNewPage(model.getTitleOriginal(), model.getCurEntry(), true, false);
+                errorState = false;
+                displayNewPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false);
             }
         });
 
@@ -527,7 +524,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void openInNewForegroundTabFromMenu(PageTitle title, HistoryEntry entry) {
         openInNewTabFromMenu(title, entry, getForegroundTabPosition());
-        displayNewPage(title, entry, false, false);
+        displayNewPage(title, entry, PageLoadStrategy.Cache.FALLBACK, false);
     }
 
     public void openInNewTabFromMenu(PageTitle title,
@@ -537,19 +534,19 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabFunnel.logOpenInNew(tabList.size());
     }
 
-    public void displayNewPage(PageTitle title, HistoryEntry entry, boolean tryFromCache,
+    public void displayNewPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
                                boolean pushBackStack) {
-        displayNewPage(title, entry, tryFromCache, pushBackStack, 0);
+        displayNewPage(title, entry, cachePreference, pushBackStack, 0);
     }
 
-    public void displayNewPage(PageTitle title, HistoryEntry entry, boolean tryFromCache,
+    public void displayNewPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
                                boolean pushBackStack, int stagedScrollY) {
-        displayNewPage(title, entry, tryFromCache, pushBackStack, stagedScrollY, false);
+        displayNewPage(title, entry, cachePreference, pushBackStack, stagedScrollY, false);
     }
 
-    public void displayNewPage(PageTitle title, HistoryEntry entry, boolean tryFromCache,
-                               boolean pushBackStack, boolean savedPageRefreshed) {
-        displayNewPage(title, entry, tryFromCache, pushBackStack, 0, savedPageRefreshed);
+    public void displayNewPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
+                               boolean pushBackStack, boolean pageRefreshed) {
+        displayNewPage(title, entry, cachePreference, pushBackStack, 0, pageRefreshed);
     }
 
     /**
@@ -559,16 +556,16 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      * request, etc.
      * @param title Title of the new page to load.
      * @param entry HistoryEntry associated with the new page.
-     * @param tryFromCache Whether to try loading the page from cache (otherwise load directly
-     *                     from network).
+     * @param cachePreference Whether to try loading the page from cache or from network.
      * @param pushBackStack Whether to push the new page onto the backstack.
      */
-    public void displayNewPage(PageTitle title, HistoryEntry entry, boolean tryFromCache,
-                               boolean pushBackStack, int stagedScrollY, boolean savedPageRefreshed) {
+    public void displayNewPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
+                               boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
         // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
         setToCButtonFadedIn(true);
 
+        errorState = false;
         errorView.setVisibility(View.GONE);
 
         model.setTitle(title);
@@ -578,13 +575,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         getPageActivity().updateProgressBar(true, true, 0);
 
-        pageRefreshed = savedPageRefreshed;
+        this.pageRefreshed = pageRefreshed;
         if (!pageRefreshed) {
             savedPageCheckComplete = false;
             checkIfPageIsSaved();
         }
 
-        pageLoadStrategy.onDisplayNewPage(pushBackStack, tryFromCache, stagedScrollY);
+        pageLoadStrategy.onDisplayNewPage(pushBackStack, cachePreference, stagedScrollY);
     }
 
     public Bitmap getLeadImageBitmap() {
@@ -631,7 +628,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             pageLoadStrategy.backFromEditing(data);
             FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
             // and reload the page...
-            displayNewPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
+            displayNewPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false);
         }
     }
 
@@ -662,7 +659,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         MenuItem findInPageItem = menu.findItem(R.id.menu_page_find_in_page);
         MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
 
-        if (pageLoadStrategy.isLoading()) {
+        if (pageLoadStrategy.isLoading() || errorState) {
             savePageItem.setEnabled(false);
             shareItem.setEnabled(false);
             otherLangItem.setEnabled(false);
@@ -797,18 +794,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void commonSectionFetchOnCatch(Throwable caught) {
-        if (!isAdded()) {
-            return;
-        }
-        // in any case, make sure the TOC drawer is closed
-        tocDrawer.closeDrawers();
-        getPageActivity().updateProgressBar(false, true, 0);
-        refreshView.setRefreshing(false);
-
-        hidePageContent();
-        errorView.setError(caught);
-        errorView.setVisibility(View.VISIBLE);
-
         if (ThrowableUtil.throwableContainsException(caught, SSLException.class)) {
             try {
                 if (WikipediaApp.getInstance().incSslFailCount() < 2) {
@@ -821,6 +806,25 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 // meh
             }
         }
+
+        if (!isAdded()) {
+            return;
+        }
+        // in any case, make sure the TOC drawer is closed
+        tocDrawer.closeDrawers();
+        getPageActivity().updateProgressBar(false, true, 0);
+        refreshView.setRefreshing(false);
+
+        if (pageRefreshed) {
+            pageRefreshed = false;
+            FeedbackUtil.showError(getActivity(), caught);
+            return;
+        }
+
+        hidePageContent();
+        errorView.setError(caught);
+        errorView.setVisibility(View.VISIBLE);
+        errorState = true;
     }
 
     public void savePage() {
@@ -881,18 +885,20 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             FeedbackUtil.showMessage(getActivity(), R.string.snackbar_refresh_saved_page);
         }
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
-        displayNewPage(model.getTitle(), model.getCurEntry(), false, false, true);
+        displayNewPage(model.getTitle(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false, true);
     }
 
     public void updateSavePageMenuItem(MenuItem menuItemSavePage) {
         if (!savedPageCheckComplete) {
             menuItemSavePage.setEnabled(false);
-        } else if (pageRefreshed) {
-            menuItemSavePage.setEnabled(false);
-            menuItemSavePage.setTitle(getString(R.string.menu_page_saved));
         } else if (pageSaved) {
-            menuItemSavePage.setEnabled(true);
-            menuItemSavePage.setTitle(getString(R.string.menu_refresh_saved_page));
+            if (pageRefreshed) {
+                menuItemSavePage.setEnabled(false);
+                menuItemSavePage.setTitle(getString(R.string.menu_page_saved));
+            } else {
+                menuItemSavePage.setEnabled(true);
+                menuItemSavePage.setTitle(getString(R.string.menu_refresh_saved_page));
+            }
         } else {
             menuItemSavePage.setEnabled(true);
             menuItemSavePage.setTitle(getString(R.string.menu_page_save));

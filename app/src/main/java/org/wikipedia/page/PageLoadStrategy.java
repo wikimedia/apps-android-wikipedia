@@ -17,6 +17,27 @@ import java.util.List;
  * for viewing.
  */
 public interface PageLoadStrategy {
+
+    /**
+     * Indicates what type of cache strategy should the current request take.
+     */
+    enum Cache {
+        /**
+         * Page should be retrieved from cache if possible, only use network connection if necessary
+         */
+        PREFERRED,
+
+        /**
+         * Page should try to be loaded from network connection, only try cache as a fallback
+         */
+        FALLBACK,
+
+        /**
+         * Page should only load from network, not use cache at all
+         */
+        NONE
+    }
+
     void setup(PageViewModel model, PageFragment fragment,
                SwipeRefreshLayoutWithScroll refreshView, ObservableWebView webView,
                CommunicationBridge bridge, SearchBarHideHandler searchBarHideHandler,
@@ -26,7 +47,7 @@ public interface PageLoadStrategy {
 
     void backFromEditing(Intent data);
 
-    void onDisplayNewPage(boolean pushBackStack, boolean tryFromCache, int stagedScrollY);
+    void onDisplayNewPage(boolean pushBackStack, Cache cachePreference, int stagedScrollY);
 
     boolean isLoading();
 

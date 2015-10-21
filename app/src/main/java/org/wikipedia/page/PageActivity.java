@@ -638,7 +638,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 }
                 frag.closeFindInPage();
                 if (position == TabPosition.CURRENT_TAB) {
-                    frag.displayNewPage(title, entry, false, true);
+                    frag.displayNewPage(title, entry, PageLoadStrategy.Cache.FALLBACK, true);
                 } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
                     frag.openInNewBackgroundTabFromMenu(title, entry);
                 } else {

@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.json.JSONException;
@@ -44,6 +45,13 @@ public class LinkPreviewContents {
         extract = pageLead.getExtract();
         title.setThumbUrl(WikipediaApp.getInstance().getNetworkProtocol() + ":" + pageLead.getLeadImageUrl());
         title.setDescription(pageLead.getDescription());
+    }
+
+    public LinkPreviewContents(@NonNull Page page) {
+        title = page.getTitle();
+        PageExtract pageExtract = new PageExtract(page);
+        // Follow the same logic as if the computed string was retrieved from the API
+        extract = makeStringFromSentences(getSentences(removeParens(pageExtract.getText()), title.getSite()), EXTRACT_MAX_SENTENCES);
     }
 
     /**
