@@ -55,9 +55,9 @@
                 android:layout_height="wrap_content"
                 style="@style/RtlAwareTextView"
                 android:textSize="@dimen/textSize"
-                android:ellipsize="middle"
+                android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/list_item_text_primary"
+                android:textColor="?attr/list_item_text_primary_color"
                 tools:text="Sample title" />
 
             <org.wikipedia.views.GoneIfEmptyTextView
@@ -68,7 +68,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:textColor="@color/list_item_text_secondary"
+                android:textColor="?attr/list_item_text_secondary_color"
                 android:visibility="gone"
                 tools:text="Sample description"
                 />
