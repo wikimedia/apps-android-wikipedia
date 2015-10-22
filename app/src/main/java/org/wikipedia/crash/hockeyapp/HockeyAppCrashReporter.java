@@ -49,7 +49,7 @@ public class HockeyAppCrashReporter extends BaseCrashReporter {
 
     private class CrashListener extends HockeyAppCrashListener {
         @NonNull private final AutoUploadConsentAccessor consentAccessor;
-        public CrashListener(@NonNull AutoUploadConsentAccessor consentAccessor) {
+        CrashListener(@NonNull AutoUploadConsentAccessor consentAccessor) {
             this.consentAccessor = consentAccessor;
         }
 

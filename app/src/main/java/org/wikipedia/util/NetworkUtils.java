@@ -29,8 +29,7 @@ public final class NetworkUtils {
             ConnectivityManager conn = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = conn.getActiveNetworkInfo();
             if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED
-                    && (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE || networkInfo.getType() == ConnectivityManager.TYPE_WIMAX))
-            {
+                    && (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE || networkInfo.getType() == ConnectivityManager.TYPE_WIMAX)) {
                 TelephonyManager t = (TelephonyManager)ctx.getSystemService(WikipediaApp.TELEPHONY_SERVICE);
                 if (t != null && t.getPhoneType() >= 0) {
                     mccMncNetwork = t.getNetworkOperator();

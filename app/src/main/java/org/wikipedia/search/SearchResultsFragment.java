@@ -405,7 +405,7 @@ public class SearchResultsFragment extends Fragment {
 
     private class LongPressHandler extends PageActivityLongPressHandler
             implements PageLongPressHandler.ListViewContextMenuListener {
-        public LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull PageActivity activity) {
             super(activity);
         }
 
@@ -428,7 +428,7 @@ public class SearchResultsFragment extends Fragment {
     private final class SearchResultAdapter extends BaseAdapter {
         private final LayoutInflater inflater;
 
-        private SearchResultAdapter(LayoutInflater inflater) {
+        SearchResultAdapter(LayoutInflater inflater) {
             this.inflater = inflater;
         }
 

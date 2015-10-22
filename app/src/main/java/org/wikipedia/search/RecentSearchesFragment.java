@@ -107,7 +107,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     }
 
     private class RecentSearchesAdapter extends CursorAdapter {
-        public RecentSearchesAdapter(Context context, Cursor c, boolean autoRequery) {
+        RecentSearchesAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }
 

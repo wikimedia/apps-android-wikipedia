@@ -16,7 +16,7 @@ class NearbyResult implements Parcelable {
     private final ArrayList<NearbyPage> list;
 
     /** empty result */
-    public NearbyResult() {
+    NearbyResult() {
         jsonObject = new JSONObject();
         list = new ArrayList<>();
     }

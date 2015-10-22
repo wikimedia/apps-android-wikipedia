@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Bernd Sitzmann, Brion Vibber, Dan Garry, Dmitry Brant, Elena Tonkovidova, Kenan Wang, Maryana Pinchuk, Matanya Moses, Max Semenik, Michael Holloway, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Rummana Yasmeen, Stephen Niedzielski, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
-    <string name="libraries_list"><a href="https://github.com/JakeWharton/DiskLruCache">DiskLruCache</a>
+    <string name="libraries_list"><a href="https://github.com/JakeWharton/ButterKnife">ButterKnife</a>
+        <!-- https://github.com/JakeWharton/ButterKnife/blob/master/LICENSE.txt -->
+        (<a href="file:///android_asset/licenses/ButterKnife">license</a>),
+
+        <a href="https://github.com/JakeWharton/DiskLruCache">DiskLruCache</a>
         <!-- https://github.com/JakeWharton/DiskLruCache/blob/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/DiskLruCache">license</a>),
 

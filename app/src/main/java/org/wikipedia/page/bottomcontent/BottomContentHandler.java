@@ -378,7 +378,7 @@ public class BottomContentHandler implements BottomContentInterface,
     private class LongPressHandler extends PageActivityLongPressHandler
             implements PageLongPressHandler.ListViewContextMenuListener {
         private int lastPosition;
-        public LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull PageActivity activity) {
             super(activity);
         }
 

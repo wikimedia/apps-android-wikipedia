@@ -274,7 +274,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     }
 
     private class SavedPagesAdapter extends CursorAdapter {
-        public SavedPagesAdapter(Context context, Cursor c, boolean autoRequery) {
+        SavedPagesAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }
 

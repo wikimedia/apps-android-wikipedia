@@ -265,7 +265,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     private class LinkPreviewMwapiFetchTask extends PreviewFetchTask {
-        public LinkPreviewMwapiFetchTask(Api api, PageTitle title) {
+        LinkPreviewMwapiFetchTask(Api api, PageTitle title) {
             super(api, title);
         }
 
@@ -302,7 +302,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     private class GalleryThumbnailFetchTask extends GalleryCollectionFetchTask {
-        public GalleryThumbnailFetchTask(PageTitle title) {
+        GalleryThumbnailFetchTask(PageTitle title) {
             super(WikipediaApp.getInstance().getAPIForSite(title.getSite()), title.getSite(), title,
                     true);
         }
@@ -330,7 +330,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     private class LongPressHandler extends PageActivityLongPressHandler {
-        public LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull PageActivity activity) {
             super(activity);
         }
     }

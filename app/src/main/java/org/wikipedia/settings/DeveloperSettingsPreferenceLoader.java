@@ -104,7 +104,7 @@ import org.wikipedia.util.log.L;
     }
 
     private static class TestException extends RuntimeException {
-        public TestException(String message) {
+        TestException(String message) {
             super(message);
         }
     }

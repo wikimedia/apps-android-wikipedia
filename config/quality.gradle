@@ -6,6 +6,7 @@ check.dependsOn 'checkstyle'
 
 checkstyle {
     configFile = file('../config/checkstyle.xml')
+    toolVersion = '6.11.2'
 }
 
 task checkstyle(type: Checkstyle) {

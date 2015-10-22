@@ -419,7 +419,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
     private final class SaveRecentSearchTask extends SaneAsyncTask<Void> {
         private final RecentSearch entry;
-        public SaveRecentSearchTask(RecentSearch entry) {
+        SaveRecentSearchTask(RecentSearch entry) {
             super(SINGLE_THREAD);
             this.entry = entry;
         }

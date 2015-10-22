@@ -114,7 +114,7 @@ import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
 
     private class LongPressHandler extends PageActivityLongPressHandler
             implements PageLongPressHandler.ListViewContextMenuListener {
-        public LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull PageActivity activity) {
             super(activity);
         }
 

@@ -3,19 +3,20 @@ package org.wikipedia.views;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.IdRes;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import org.wikipedia.R;
 import org.wikipedia.page.leadimages.ImageViewWithFace;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class ArticleHeaderView extends FrameLayout {
-    private ImageViewWithFace image;
-    private ImageView placeholder;
-    private AppTextView text;
+    @Bind(R.id.image) ImageViewWithFace image;
+    @Bind(R.id.placeholder) ImageView placeholder;
+    @Bind(R.id.text) AppTextView text;
 
     public ArticleHeaderView(Context context) {
         super(context);
@@ -52,21 +53,10 @@ public class ArticleHeaderView extends FrameLayout {
 
     private void init() {
         inflate();
-        findViews();
+        ButterKnife.bind(this);
     }
 
     private void inflate() {
         inflate(getContext(), R.layout.view_article_header, this);
-    }
-
-    private void findViews() {
-        // TODO: replace manual assignments with Butter Knife annotations.
-        image = findView(R.id.image);
-        placeholder = findView(R.id.placeholder);
-        text = findView(R.id.text);
-    }
-
-    private <T extends View> T findView(@IdRes int id) {
-        return ViewUtil.findView(this, id);
     }
 }

@@ -563,7 +563,7 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
     private class NearbyAdapter extends ArrayAdapter<NearbyPage> {
         private static final int LAYOUT_ID = R.layout.item_nearby_entry;
 
-        public NearbyAdapter(Context context, ArrayList<NearbyPage> pages) {
+        NearbyAdapter(Context context, ArrayList<NearbyPage> pages) {
             super(context, LAYOUT_ID, pages);
         }
 
@@ -730,7 +730,7 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
 
     private class LongPressHandler extends PageActivityLongPressHandler
             implements PageLongPressHandler.ListViewContextMenuListener {
-        public LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull PageActivity activity) {
             super(activity);
         }
 

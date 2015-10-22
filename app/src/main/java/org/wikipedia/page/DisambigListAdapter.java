@@ -36,7 +36,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
      * @param activity The current activity.
      * @param items The objects to represent in the ListView.
      */
-    public DisambigListAdapter(Activity activity, DisambigResult[] items) {
+    DisambigListAdapter(Activity activity, DisambigResult[] items) {
         super(activity, 0, items);
         this.activity = activity;
         this.items = items;

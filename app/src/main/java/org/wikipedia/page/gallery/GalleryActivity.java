@@ -514,7 +514,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         private GalleryCollection galleryCollection;
         private SparseArray<GalleryItemFragment> fragmentArray;
 
-        public GalleryItemAdapter(ThemedActionBarActivity activity) {
+        GalleryItemAdapter(ThemedActionBarActivity activity) {
             super(activity.getSupportFragmentManager());
             fragmentArray = new SparseArray<>();
         }

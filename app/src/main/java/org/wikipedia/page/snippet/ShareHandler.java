@@ -238,7 +238,7 @@ public class ShareHandler {
 
     private class RequestTextSelectOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
         @NonNull private final String purpose;
-        public RequestTextSelectOnMenuItemClickListener(@NonNull String purpose) {
+        RequestTextSelectOnMenuItemClickListener(@NonNull String purpose) {
             this.purpose = purpose;
         }
 
@@ -275,9 +275,9 @@ public class ShareHandler {
 class PreviewDialog extends BottomDialog {
     private boolean completed = false;
 
-    public PreviewDialog(final PageActivity activity, final Bitmap resultBitmap,
-                         final String title, final String introText, final String selectedText,
-                         final ShareAFactFunnel funnel) {
+    PreviewDialog(final PageActivity activity, final Bitmap resultBitmap,
+                  final String title, final String introText, final String selectedText,
+                  final ShareAFactFunnel funnel) {
         super(activity, R.layout.dialog_share_preview);
         ImageView previewImage = (ImageView) getDialogLayout().findViewById(R.id.preview_img);
         previewImage.setImageBitmap(resultBitmap);

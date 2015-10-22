@@ -96,7 +96,7 @@ public class ImageViewWithFace extends ImageView implements Target {
 
         @NonNull private final Bitmap srcBitmap;
 
-        public FaceDetectionTask(int concurrency, @NonNull Bitmap bitmap) {
+        FaceDetectionTask(int concurrency, @NonNull Bitmap bitmap) {
             super(concurrency);
             srcBitmap = bitmap;
         }
