@@ -1,6 +1,7 @@
 // see also http://stackoverflow.com/questions/17050654/get-android-gradle-plugin-checkstyle-working-together-command-line-usage
 
 apply plugin: 'checkstyle'
+apply plugin: 'spoon'
 
 check.dependsOn 'checkstyle'
 
@@ -54,3 +55,7 @@ android.applicationVariants.all { variant ->
 // Add testAll task for all configurations.
 addTestAllTask('testAll', 'test', 'connectedAndroidTest')
 // --- /testAll ---
+
+spoon {
+    adbTimeout = 600
+}

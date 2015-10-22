@@ -21,14 +21,14 @@ public class PageLoadPerformanceTests extends BasePageLoadTest {
     }
 
     @Override
-    protected void loadPage(String title) {
+    protected void loadPageSync(String title) {
         measurement.start(title);
-        loadPage(title, new Callback(title));
+        loadPageSync(title, new Callback(title));
     }
 
     private void loadPageMultipleTimes(String title) throws Throwable {
         for (int i = 0; i < NUM_RUNS; i++) {
-            loadPage(title);
+            loadPageSync(title);
         }
     }
 
