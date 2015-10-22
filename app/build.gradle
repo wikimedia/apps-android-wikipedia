@@ -59,6 +59,7 @@ android {
         targetSdkVersion 22
         versionCode 133
         testApplicationId 'org.wikipedia.test'
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
     sourceSets {
@@ -83,6 +84,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFile 'test-proguard-rules.pro'
         }
     }
 
@@ -168,6 +170,10 @@ dependencies {
         transitive = true
     }
     compile 'net.hockeyapp.android:HockeySDK:3.6.2'
+
+    androidTestCompile('com.android.support.test:runner:0.4')
+    // Required by com.android.support.test:runner.
+    androidTestCompile 'com.android.support:support-annotations:23.1.0'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'

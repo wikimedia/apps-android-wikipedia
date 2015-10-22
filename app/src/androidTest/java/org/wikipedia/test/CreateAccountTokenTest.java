@@ -1,6 +1,5 @@
 package org.wikipedia.test;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import android.text.TextUtils;
 import org.wikipedia.Site;
@@ -21,7 +20,6 @@ public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivi
     }
 
     public void testTokenFetch() throws Throwable {
-        startActivity(new Intent(), null, null);
         final Site testWiki = new Site("test.wikipedia.org");
         final String username = "someusername" + System.currentTimeMillis();
         final String password = "somepassword" + System.currentTimeMillis();

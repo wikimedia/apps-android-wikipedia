@@ -6,7 +6,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.wikipedia.search.SearchResults;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +24,6 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
 
     /** Have to use enwiki since I don't think there are any Wikidata descriptions for testwiki. */
     public void testFullTextSearchWithResults() throws Throwable {
-        startActivity(new Intent(), null, null);
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override
@@ -75,7 +73,6 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
 //    }
 
     public void testEmptyResults() throws Throwable {
-        startActivity(new Intent(), null, null);
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override

@@ -1,6 +1,5 @@
 package org.wikipedia.test.concurrency;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.test.TestDummyActivity;
@@ -23,12 +22,6 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
             executor = new ScheduledThreadPoolExecutor(1);
         }
         return executor;
-    }
-
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-        startActivity(new Intent(), null, null);
     }
 
     public void testFinishHandling() throws Throwable {

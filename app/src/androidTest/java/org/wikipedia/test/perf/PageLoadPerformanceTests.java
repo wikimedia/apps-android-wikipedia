@@ -9,6 +9,9 @@ import org.wikipedia.testlib.TestLatch;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsNull.notNullValue;
+
 /**
  * Test performance of page loading. Update the NUM_RUNS for better statistical significance.
  */
@@ -48,6 +51,7 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
+                assertThat(getFragment(), notNullValue());
                 getFragment().setPageLoadCallbacks(newCallbacks(title, latch));
 
                 measurement.start(title);

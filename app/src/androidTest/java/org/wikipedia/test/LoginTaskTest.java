@@ -1,6 +1,5 @@
 package org.wikipedia.test;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 
 import org.wikipedia.Site;
@@ -20,7 +19,6 @@ public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     }
 
     public void testLogin() throws Throwable {
-        startActivity(new Intent(), null, null);
         final Site testWiki = new Site("test.wikipedia.org");
         final String username = getInstrumentation().getContext().getString(R.string.test_username);
         final String password = getInstrumentation().getContext().getString(R.string.test_password);

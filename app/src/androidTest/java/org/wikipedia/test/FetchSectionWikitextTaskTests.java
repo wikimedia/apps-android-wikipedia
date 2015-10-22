@@ -1,7 +1,6 @@
 
 package org.wikipedia.test;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
@@ -18,7 +17,6 @@ public class FetchSectionWikitextTaskTests extends ActivityUnitTestCase<TestDumm
     }
 
     public void testPageFetch() throws Throwable {
-        startActivity(new Intent(), null, null);
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override

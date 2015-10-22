@@ -6,7 +6,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResults;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 
 import java.util.ArrayList;
@@ -23,17 +22,10 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
     private static final int THUMB_SIZE = 100;
     private static final Site SITE = new Site("en.wikipedia.org"); // suggestions don't seem to work on testwiki
 
-    private WikipediaApp app;
+    private WikipediaApp app = WikipediaApp.getInstance();
 
     public SuggestionsTaskTests() {
         super(TestDummyActivity.class);
-    }
-
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
-        startActivity(new Intent(), null, null);
-        app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
     }
 
     public void testTask() throws Throwable {

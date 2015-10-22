@@ -4,7 +4,6 @@ package org.wikipedia.test;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.editing.EditPreviewTask;
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 
 import java.util.concurrent.CountDownLatch;
@@ -18,7 +17,6 @@ public class PreviewTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     }
 
     public void testPreview() throws Throwable {
-        startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
         long randomTime = System.currentTimeMillis();
         final String wikitext = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + randomTime;

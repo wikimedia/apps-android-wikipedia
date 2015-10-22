@@ -4,7 +4,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.wikidata.GetDescriptionsTask;
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,7 +38,6 @@ public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActi
 
     void getWikidataDescriptions(final PageTitle[] ids) throws Throwable {
         final ArrayList<PageTitle> idList = new ArrayList<>(Arrays.asList(ids));
-        startActivity(new Intent(), null, null);
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override

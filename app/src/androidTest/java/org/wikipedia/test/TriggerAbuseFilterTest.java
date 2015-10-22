@@ -1,6 +1,5 @@
 package org.wikipedia.test;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
@@ -29,7 +28,6 @@ public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivi
      * @throws Throwable
      */
     public void testAbuseFilterTriggerWarn() throws Throwable {
-        startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "User:Yuvipandaaaaaaaa", new Site("test.wikipedia.org"));
         final String wikitext = "Testing Abusefilter by simply editing this page. Triggering rule 94 at " + System.currentTimeMillis();
         final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
@@ -63,7 +61,6 @@ public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivi
      * @throws Throwable
      */
     public void testAbuseFilterTriggerStop() throws Throwable {
-        startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/AbuseFilter", new Site("test.wikipedia.org"));
         final String wikitext = "== Section 2 ==\n\nTriggering AbuseFilter number 2 by saying poop many times at " + System.currentTimeMillis();
         final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
@@ -97,7 +94,6 @@ public class TriggerAbuseFilterTest extends ActivityUnitTestCase<TestDummyActivi
      * @throws Throwable
      */
     public void testAbuseFilterTriggerStopOnArbitraryErrorCode() throws Throwable {
-        startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/AbuseFilter", new Site("test.wikipedia.org"));
         final String wikitext = "== Section 2 ==\n\nTriggering AbuseFilter number 152 by saying appcrashtest many times at " + System.currentTimeMillis();
         final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();

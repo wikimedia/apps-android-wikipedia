@@ -1,6 +1,5 @@
 package org.wikipedia.test;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 
 import org.mediawiki.api.json.ApiException;
@@ -27,7 +26,6 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     }
 
     public void testEdit() throws Throwable {
-        startActivity(new Intent(), null, null);
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override

@@ -1,7 +1,5 @@
-
 package org.wikipedia.test;
 
-import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
@@ -22,7 +20,6 @@ public class TriggerEditCaptchaTest extends ActivityUnitTestCase<TestDummyActivi
     }
 
     public void testCaptchaTrigger() throws Throwable {
-        startActivity(new Intent(), null, null);
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Captcha", new Site("test.wikipedia.org"));
         final String wikitext = "== Section 2 ==\n\nEditing by inserting an external link https://" + System.currentTimeMillis();
         final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
