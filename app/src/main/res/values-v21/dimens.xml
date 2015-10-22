@@ -7,5 +7,9 @@
     <dimen name="floating_action_button_margin_right">16dp</dimen>
     <dimen name="floating_action_button_margin_bottom">16dp</dimen>
 
+    <!-- Value for android:lineSpacingMultiplier in the article title TextView.
+         Note that 0.9 is an *increase* and not a decrease from the default value,
+         which is undocumented but less than 1.0. -->
+    <item name="lead_title_leading_scalar" format="float" type="dimen">0.9</item>
     <item name="lead_subtitle_paragraph_scalar" format="float" type="dimen">1.15</item>
 </resources>
