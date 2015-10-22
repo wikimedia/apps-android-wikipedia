@@ -16,17 +16,17 @@ import static org.wikipedia.util.ShareUtils.buildImageShareChooserIntent;
 
 public final class SavedImageNotificationHelper {
 
-    public static void displayImageSavedNotification(String filename, String fileInfoUrl, Bitmap savedImageBitmap, String localUrl) {
+    public static void displayImageSavedNotification(String filename, String fileInfoUrl, Bitmap savedImageBitmap, Uri contentUri) {
         NotificationManager notificationManager = (NotificationManager) WikipediaApp.getInstance()
                 .getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = buildNotification(filename, fileInfoUrl, savedImageBitmap, localUrl);
+        Notification notification = buildNotification(filename, fileInfoUrl, savedImageBitmap, contentUri);
         notificationManager.notify(0, notification);
     }
 
-    private static Notification buildNotification(String filename, String fileInfoUrl, Bitmap savedImageBitmap, String localUrl) {
+    private static Notification buildNotification(String filename, String fileInfoUrl, Bitmap savedImageBitmap, Uri contentUri) {
         Intent shareChooserIntent = buildImageShareChooserIntent(WikipediaApp.getInstance(),
-                filename, fileInfoUrl, localUrl);
-        Intent viewImageIntent = buildViewInDefaultAppIntent(localUrl);
+                filename, fileInfoUrl, contentUri.toString());
+        Intent viewImageIntent = buildViewInDefaultAppIntent(contentUri);
         PendingIntent savedImageSharePendingIntent = getPendingIntent(shareChooserIntent);
         PendingIntent viewInDefaultViewerAppPendingIntent = getPendingIntent(viewImageIntent);
         NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle().bigPicture(savedImageBitmap);
@@ -52,9 +52,9 @@ public final class SavedImageNotificationHelper {
         return PendingIntent.getActivity(WikipediaApp.getInstance(), 0, i, PendingIntent.FLAG_CANCEL_CURRENT);
     }
 
-    private static Intent buildViewInDefaultAppIntent(String localUrl) {
+    private static Intent buildViewInDefaultAppIntent(Uri contentUri) {
         return new Intent().setAction(android.content.Intent.ACTION_VIEW)
-                .setDataAndType(Uri.parse(localUrl), "image/jpeg");
+                .setDataAndType(contentUri, "image/jpeg");
     }
 
     private static String getString(int stringId) {

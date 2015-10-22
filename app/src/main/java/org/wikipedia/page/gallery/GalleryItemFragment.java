@@ -5,11 +5,13 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtils;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.content.ContentValues;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -36,6 +38,8 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.Map;
 
 public class GalleryItemFragment extends Fragment {
@@ -43,7 +47,9 @@ public class GalleryItemFragment extends Fragment {
     public static final String ARG_PAGETITLE = "pageTitle";
     public static final String ARG_MEDIATITLE = "imageTitle";
     public static final String ARG_MIMETYPE = "mimeType";
+    private static final String FILE_NAMESPACE = "File:";
     private static final int WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST = 44;
+
 
     private WikipediaApp app;
     private GalleryActivity parentActivity;
@@ -434,7 +440,7 @@ public class GalleryItemFragment extends Fragment {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             requestWriteStorageRuntimePermissions(WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST);
         } else {
-            saveImageToMediaStore();
+            saveImage();
         }
     }
 
@@ -450,7 +456,7 @@ public class GalleryItemFragment extends Fragment {
         switch (requestCode) {
             case WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST:
                 if (PermissionUtil.isPermitted(grantResults)) {
-                    saveImageToMediaStore();
+                    saveImage();
                 } else {
                     Log.e(TAG, "Write permission was denied by user");
                     FeedbackUtil.showMessage(getActivity(),
@@ -465,7 +471,7 @@ public class GalleryItemFragment extends Fragment {
     /**
      * Save the current image to the MediaStore of the local device ("Photos" / "Gallery" / etc).
      */
-    private void saveImageToMediaStore() {
+    private void saveImage() {
         if (galleryItem == null) {
             return;
         }
@@ -473,21 +479,19 @@ public class GalleryItemFragment extends Fragment {
 
         final Bitmap savedImageBitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
 
-        new SaneAsyncTask<String>(SaneAsyncTask.SINGLE_THREAD) {
+        new SaneAsyncTask<Uri>(SaneAsyncTask.SINGLE_THREAD) {
             @Override
-            public String performTask() throws Throwable {
-                String localUrl = MediaStore.Images.Media.insertImage(parentActivity.getContentResolver(),
-                        savedImageBitmap,
-                        pageTitle.getDisplayText(),
-                        galleryItem.getName());
-                if (localUrl == null) {
-                    throw new RuntimeException(getString(R.string.gallery_save_error_mediastore));
-                }
-                return localUrl;
+            public Uri performTask() throws Throwable {
+                String saveFilename = trimFileNamespace(galleryItem.getName().replace(' ', '_'));
+                ByteArrayOutputStream bytes = FileUtil.compressBmpToJpg(savedImageBitmap);
+                File savedImageFile = FileUtil.writeToFile(bytes,
+                        new File(FileUtil.getWikipediaImagesDirectory(), saveFilename));
+                notifyContentResolver(savedImageFile.getAbsolutePath(), saveFilename);
+                return Uri.fromFile(savedImageFile);
             }
 
             @Override
-            public void onFinish(String localUrl) {
+            public void onFinish(Uri contentUri) {
                 if (!isAdded()) {
                     return;
                 }
@@ -495,7 +499,7 @@ public class GalleryItemFragment extends Fragment {
                 SavedImageNotificationHelper.displayImageSavedNotification(imageTitle.getText(),
                         imageTitle.getCanonicalUri(),
                         savedImageBitmap,
-                        localUrl);
+                        contentUri);
             }
 
             @Override
@@ -506,5 +510,18 @@ public class GalleryItemFragment extends Fragment {
                 FeedbackUtil.showError(parentActivity, caught);
             }
         }.execute();
+    }
+
+    private String trimFileNamespace(String filename) {
+        return filename.startsWith(FILE_NAMESPACE) ? filename.substring(FILE_NAMESPACE.length()) : filename;
+    }
+
+    private void notifyContentResolver(String path, String filename) {
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.TITLE, filename);
+        values.put(MediaStore.Images.Media.DISPLAY_NAME, imageTitle.getText());
+        values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+        values.put(MediaStore.Images.Media.DATA, path);
+        parentActivity.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
     }
 }
