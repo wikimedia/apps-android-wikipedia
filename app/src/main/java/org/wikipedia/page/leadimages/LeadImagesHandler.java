@@ -521,13 +521,8 @@ public class LeadImagesHandler {
     }
 
     private void startKenBurnsAnimation() {
-        // TODO: will this ever see prod?
-        if (WikipediaApp.getInstance().getReleaseType() != WikipediaApp.RELEASE_PROD) {
-            Animation anim = AnimationUtils.loadAnimation(getActivity(),
-                    R.anim.lead_image_zoom);
-            anim.setFillAfter(true);
-            image.startAnimation(anim);
-        }
+        Animation anim = AnimationUtils.loadAnimation(getActivity(), R.anim.lead_image_zoom);
+        image.startAnimation(anim);
     }
 
     private void forceRefreshWebView() {
