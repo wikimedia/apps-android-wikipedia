@@ -139,5 +139,5 @@
   <string name="table_close">بند</string>
   <string name="read_more_section">مزید پڑھیں</string>
   <string name="err_cannot_save_file">ملف کو محفوظ نہیں کرسکتے</string>
-  <string name="snippet_share_intro" fuzzy="true">\"%1$\" @ویکیپیڈیا: %2$ پر</string>
+  <string name="snippet_share_intro" fuzzy="true">\"%1$s\" @ویکیپیڈیا: %2$s پر</string>
 </resources>
