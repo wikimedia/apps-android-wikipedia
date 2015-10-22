@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Apri</string>
   <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="menu_long_press_copy_page">Copia l\'indirizzo del collegamento</string>
+  <string name="menu_text_select_copy">Copia</string>
+  <string name="menu_text_select_share">Condividi</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>
   <string name="nearby_empty_message">Spostati in una nuova posizione per vedere pagine su ciò che c\'è vicino a te.</string>
@@ -266,7 +268,13 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_message">Messaggio: \"%s\"</string>
   <string name="format_error_server_code">Codice: \"%s\"</string>
   <string name="address_copied">Indirizzo copiato negli appunti.</string>
+  <string name="text_copied">Testo copiato negli appunti.</string>
   <string name="button_continue_to_article">Continua la voce</string>
   <string name="preference_title_show_link_previews">Mostra anteprime collegamenti</string>
   <string name="preference_summary_show_link_previews">Mostra una piccola anteprima delle voci quando si preme sui collegamenti.</string>
+  <string name="crash_report_dialog_dont_send_button">Salta</string>
+  <string name="crash_report_dialog_always_send_button">Invia sempre</string>
+  <string name="crash_report_dialog_send_button">Invia</string>
+  <string name="crash_report_activity_title">Errore dell\'applicazione</string>
+  <string name="crash_report_quit">Esci</string>
 </resources>

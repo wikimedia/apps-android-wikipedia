@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
   <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
+  <string name="menu_text_select_copy">Copiar</string>
+  <string name="menu_text_select_share">Compartir</string>
   <string name="nav_item_nearby">Cercanos</string>
   <string name="nearby_empty_title">¡No hay páginas cercanas aquí!</string>
   <string name="nearby_empty_message">Muévete a una nueva ubicación para ver páginas a tu alrededor.</string>
@@ -140,6 +142,8 @@
   <string name="create_account_account_created_toast">Se creó la cuenta.</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
+  <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permitir a la aplicación enviar automáticamente informes de fallos a HockeyApp / un proveedor de servicios de terceros para que podamos revisar tu fallo y corregir el error más rápido y más fácil.</string>
   <string name="editing_error_spamblacklist">Enlaces a dominios bloqueados (%s) detectados. Por favor elimínelos y vuelva a intentarlo.</string>
   <string name="history_search_list_hint">Buscar en el historial</string>
   <string name="history_search_empty_message">No se encontraron páginas que coincidan con tu consulta.</string>
@@ -264,7 +268,19 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="format_error_server_message">Mensaje: \"%s\"</string>
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">Dirección copiada al portapapeles.</string>
+  <string name="text_copied">Texto copiado al portapapeles.</string>
   <string name="button_continue_to_article">Continuar al artículo</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>
   <string name="preference_summary_show_link_previews">Mostrar una vista previa rápida de los artículos al pulsar en los enlaces.</string>
+  <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
+  <string name="crash_report_dialog_text">¿Te gustaría enviar un informe de fallo a HockeyApp / un proveedor de servicios de terceros para que Wikimedia pueda revisar tu fallo y corregir el error que lo causó?</string>
+  <string name="crash_report_dialog_dont_send_button">Omitir</string>
+  <string name="crash_report_dialog_always_send_button">Enviar siempre</string>
+  <string name="crash_report_dialog_send_button">Enviar</string>
+  <string name="crash_report_activity_title">Error de la aplicación</string>
+  <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.
+
+¿Te gustaría volver a empezar o salir?</string>
+  <string name="crash_report_relaunch">Iniciar de nuevo</string>
+  <string name="crash_report_quit">Salir</string>
 </resources>

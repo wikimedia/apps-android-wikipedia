@@ -30,6 +30,8 @@
   <string name="menu_page_save">Rûpelê tomar bike</string>
   <string name="menu_page_share" fuzzy="true">Parve bike</string>
   <string name="menu_long_press_open_page" fuzzy="true">Girêdanê veke</string>
+  <string name="menu_text_select_copy">Kopî bike</string>
+  <string name="menu_text_select_share">Parve bike</string>
   <string name="nearby_distance_in_meters">%d metre</string>
   <string name="nearby_distance_in_kilometers">%.2f kîlometre</string>
   <string name="nearby_distance_in_feet">%d fît</string>
@@ -119,4 +121,9 @@
   <string name="cc_logo">Lîsansa Creative Commonsê</string>
   <string name="gallery_fair_use_license">Bikaranîna dadmend</string>
   <string name="gallery_uploader_unknown">Barker nenas e</string>
+  <string name="crash_report_dialog_dont_send_button">Derbaske</string>
+  <string name="crash_report_dialog_send_button">Bişîne</string>
+  <string name="crash_report_activity_title">Çewtiya sepanê</string>
+  <string name="crash_report_relaunch">Cardin dest pê bike</string>
+  <string name="crash_report_quit">Derkeve</string>
 </resources>

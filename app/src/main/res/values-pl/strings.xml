@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Skopiuj adres linka</string>
+  <string name="menu_text_select_copy">Kopiuj</string>
+  <string name="menu_text_select_share">Udostępnij</string>
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_empty_title">Nie ma stron o obiektach znajdujących się w pobliżu!</string>
   <string name="nearby_empty_message" fuzzy="true">Kiedy przenosisz się do nowej lokalizacji, spróbuj odświeżyć tę stronę, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
@@ -251,5 +253,12 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="format_error_server_message">Komunikat: „%s”</string>
   <string name="format_error_server_code">Kod: „%s”</string>
   <string name="address_copied">Adres skopiowany do schowka.</string>
+  <string name="text_copied">Tekst skopiowany do schowka.</string>
   <string name="button_continue_to_article">Do artykułu</string>
+  <string name="crash_report_dialog_dont_send_button">Pomiń</string>
+  <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
+  <string name="crash_report_dialog_send_button">Wyślij</string>
+  <string name="crash_report_activity_title">Błąd aplikacji</string>
+  <string name="crash_report_relaunch">Zacznij od początku</string>
+  <string name="crash_report_quit">Wyjście</string>
 </resources>

@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Öffnen</string>
   <string name="menu_long_press_open_in_new_tab">In neuer Registerkarte öffnen</string>
   <string name="menu_long_press_copy_page">Link-Adresse kopieren</string>
+  <string name="menu_text_select_copy">Kopieren</string>
+  <string name="menu_text_select_share">Teilen</string>
   <string name="nav_item_nearby">In der Nähe</string>
   <string name="nearby_empty_title">Hier gibt es keine Seiten in der Nähe!</string>
   <string name="nearby_empty_message">Gehe zu einem neuen Standort, um Seiten anzusehen, die um dich herum sind.</string>
@@ -140,6 +142,8 @@
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
+  <string name="preference_title_auto_upload_crash_reports">Absturzberichte senden</string>
+  <string name="preference_summary_auto_upload_crash_reports">Erlaubt der App, automatisch Absturzberichte an HockeyApp/einen Drittpartei-Diensteanbieter zu senden, so dass wir deinen Absturz überprüfen und den Fehler schneller und einfacher beheben können.</string>
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
   <string name="history_search_list_hint">Verlauf durchsuchen</string>
   <string name="history_search_empty_message">Es wurden keine Seiten mit deiner Suchanfrage gefunden.</string>
@@ -264,7 +268,19 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="format_error_server_message">Nachricht: „%s“</string>
   <string name="format_error_server_code">Code: „%s“</string>
   <string name="address_copied">Adresse in die Zwischenablage kopiert.</string>
+  <string name="text_copied">Text in die Zwischenablage kopiert.</string>
   <string name="button_continue_to_article">Auf Artikel fortfahren</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
   <string name="preference_summary_show_link_previews">Zeigt eine schnelle Vorschau von Artikeln beim Antippen von Links.</string>
+  <string name="crash_report_dialog_title">Leider ist die App beim letzten Mal abgestürzt</string>
+  <string name="crash_report_dialog_text">Möchtest du einen Absturzbericht an HockeyApp/einen Drittpartei-Diensteanbieter senden, so dass Wikimedia deinen Absturz überprüfen und den verursachenden Fehler beheben kann?</string>
+  <string name="crash_report_dialog_dont_send_button">Überspringen</string>
+  <string name="crash_report_dialog_always_send_button">Immer senden</string>
+  <string name="crash_report_dialog_send_button">Senden</string>
+  <string name="crash_report_activity_title">Anwendungsfehler</string>
+  <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.
+
+Möchtest du die App neu starten oder beenden?</string>
+  <string name="crash_report_relaunch">Neu starten</string>
+  <string name="crash_report_quit">Beenden</string>
 </resources>

@@ -64,8 +64,10 @@ See also:
 {{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
-  <string name="menu_text_select_copy">Menu item caption for copying text to the system clipboard for pasting later.</string>
-  <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.</string>
+  <string name="menu_text_select_copy">Menu item caption for copying text to the system clipboard for pasting later.
+{{Identical|Copy}}</string>
+  <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.
+{{Identical|Share}}</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
 {{Identical|Nearby}}</string>
   <string name="nearby_empty_title">Title line for message when no nearby pages were found</string>
@@ -362,11 +364,14 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
   <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
-  <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.</string>
+  <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.
+{{Identical|Skip}}</string>
   <string name="crash_report_dialog_always_send_button">In the dialog that pops up when the app crashes, text for button that prevents the pop up from being shown again and always sends a crash report.</string>
-  <string name="crash_report_dialog_send_button">In the dialog that pops up when the app crashes, text for button that sends a crash report once.</string>
+  <string name="crash_report_dialog_send_button">In the dialog that pops up when the app crashes, text for button that sends a crash report once.
+{{Identical|Send}}</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
-  <string name="crash_report_quit">Title of button user presses to quit the app after it crashes.</string>
+  <string name="crash_report_quit">Title of button user presses to quit the app after it crashes.
+{{Identical|Quit}}</string>
 </resources>

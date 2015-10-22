@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Ouvrir</string>
   <string name="menu_long_press_open_in_new_tab">Ouvrir dans un nouvel onglet</string>
   <string name="menu_long_press_copy_page">Copier l’adresse du lien</string>
+  <string name="menu_text_select_copy">Copier</string>
+  <string name="menu_text_select_share">Partager</string>
   <string name="nav_item_nearby">À proximité</string>
   <string name="nearby_empty_title">Aucune page à proximité ici !</string>
   <string name="nearby_empty_message">Déplacez-vous à un nouvel endroit pour voir les pages des alentours.</string>
@@ -140,6 +142,8 @@
   <string name="create_account_account_created_toast">Compte créé !</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
+  <string name="preference_title_auto_upload_crash_reports">Envoyer des rapports d’incident</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer des rapports d’incident à HockeyApp — un fournisseur de services tiers — de façon automatique, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
   <string name="editing_error_spamblacklist">Liens vers des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
   <string name="history_search_list_hint">Rechercher dans l’historique</string>
   <string name="history_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
@@ -264,7 +268,19 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="format_error_server_message">Message : \"%s\"</string>
   <string name="format_error_server_code">Code : \"%s\"</string>
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
+  <string name="text_copied">Texte copié dans le presse-papier.</string>
   <string name="button_continue_to_article">Continuer vers l\'article</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
+  <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
+  <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
+  <string name="crash_report_dialog_dont_send_button">Sauter</string>
+  <string name="crash_report_dialog_always_send_button">Toujours envoyer</string>
+  <string name="crash_report_dialog_send_button">Envoyer</string>
+  <string name="crash_report_activity_title">Erreur de l’application</string>
+  <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.
+
+Voudriez-vous redémarrer ou quitter ?</string>
+  <string name="crash_report_relaunch">Redémarrer</string>
+  <string name="crash_report_quit">Quitter</string>
 </resources>

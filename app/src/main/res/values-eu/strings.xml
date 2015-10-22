@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Ireki</string>
   <string name="menu_long_press_open_in_new_tab">Ireki fitxa berrian</string>
   <string name="menu_long_press_copy_page">Kopiatu loturaren helbidea</string>
+  <string name="menu_text_select_copy">Kopiatu</string>
+  <string name="menu_text_select_share">Partekatu</string>
   <string name="nav_item_nearby">Gertukoak</string>
   <string name="nearby_empty_title">Ez dauge gertuko orririk hemen!</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -128,7 +130,8 @@
   <string name="page_protected_autoconfirmed">Orri hau  erdi babestua dago.</string>
   <string name="page_protected_sysop">Orri hau erabat babestua dago.</string>
   <string name="page_protected_can_not_edit_title">Orrialde hau babestuta dago</string>
-  <string name="settings_activity_title" fuzzy="true">Ezarpenak</string>
+  <string name="settings_item_preferences">Ezarpenak</string>
+  <string name="settings_activity_title">Ezarpenak</string>
   <string name="about_description">Wikipediaren aplikazioari buruz</string>
   <string name="privacy_policy_description">Pribatutasun politika</string>
   <string name="terms_of_use_description">Erabilera-baldintzak</string>
@@ -176,6 +179,7 @@
   <string name="gallery_menu_share">Partekatu</string>
   <string name="gallery_menu_save">Gailuan gorde</string>
   <string name="gallery_save_success">Irudia ondo gorde da.</string>
+  <string name="gallery_image_saved_notification_title">Irudia gordeta.</string>
   <string name="gallery_error_video_failed">Ezin da bideoa ikusi.</string>
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
   <string name="share_snippet_button">Irudi bezala partekatu</string>
@@ -189,4 +193,7 @@
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
   <string name="format_error_server_code">Kodea:\'\'%s\'\'</string>
+  <string name="crash_report_dialog_dont_send_button">Utzi</string>
+  <string name="crash_report_dialog_send_button">Bidali</string>
+  <string name="crash_report_quit">Irten</string>
 </resources>

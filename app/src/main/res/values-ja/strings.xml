@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">開く</string>
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
+  <string name="menu_text_select_copy">コピー</string>
+  <string name="menu_text_select_share">共有</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="nearby_empty_title">付近のスポットについてのページがありません!</string>
   <string name="nearby_empty_message">新しい場所に移動して、周囲に何があるかを探してみましょう。</string>
@@ -266,4 +268,7 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="format_error_server_code">コード: \"%s\"</string>
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
   <string name="button_continue_to_article">続きを表示する</string>
+  <string name="crash_report_dialog_dont_send_button">スキップ</string>
+  <string name="crash_report_activity_title">アプリケーション・エラー</string>
+  <string name="crash_report_quit">終了</string>
 </resources>

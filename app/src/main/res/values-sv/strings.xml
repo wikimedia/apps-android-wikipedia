@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
+  <string name="menu_text_select_copy">Kopiera</string>
+  <string name="menu_text_select_share">Dela</string>
   <string name="nav_item_nearby">I närheten</string>
   <string name="nearby_empty_title">Inga närliggande sidor här!</string>
   <string name="nearby_empty_message">Flytta till en ny plats för att se sidor runt omkring dig.</string>
@@ -140,6 +142,8 @@
   <string name="create_account_account_created_toast">Konto har skapats!</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
+  <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
+  <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till tredjepartstjänsten HockeyApp så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
   <string name="history_search_list_hint">Sök historik</string>
   <string name="history_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
@@ -264,7 +268,19 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="format_error_server_message">Meddelande: \"%s\"</string>
   <string name="format_error_server_code">Kod: \"%s\"</string>
   <string name="address_copied">Adressen kopierades till urklipp.</string>
+  <string name="text_copied">Texten kopierades till urklipp.</string>
   <string name="button_continue_to_article">Fortsätt till artikeln</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
+  <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
+  <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
+  <string name="crash_report_dialog_dont_send_button">Hoppa över</string>
+  <string name="crash_report_dialog_always_send_button">Skicka alltid</string>
+  <string name="crash_report_dialog_send_button">Skicka</string>
+  <string name="crash_report_activity_title">Applikationsfel</string>
+  <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.
+
+Vill du starta om eller avsluta?</string>
+  <string name="crash_report_relaunch">Starta om</string>
+  <string name="crash_report_quit">Avsluta</string>
 </resources>

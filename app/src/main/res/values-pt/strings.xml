@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir num novo separador</string>
   <string name="menu_long_press_copy_page">Copiar endereço da ligação</string>
+  <string name="menu_text_select_copy">Copiar</string>
+  <string name="menu_text_select_share">Partilhar</string>
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="nearby_empty_title">Sem páginas nas redondezas</string>
   <string name="nearby_empty_message">Experimente um novo local para ver as páginas nas redondezas.</string>
@@ -266,4 +268,9 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="button_continue_to_article">Continuar para o artigo</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
+  <string name="crash_report_dialog_dont_send_button">Ignorar</string>
+  <string name="crash_report_dialog_always_send_button">Enviar sempre</string>
+  <string name="crash_report_dialog_send_button">Enviar</string>
+  <string name="crash_report_activity_title">Error da aplicação</string>
+  <string name="crash_report_quit">Sair</string>
 </resources>

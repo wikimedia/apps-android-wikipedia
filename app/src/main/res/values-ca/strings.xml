@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Obre</string>
   <string name="menu_long_press_open_in_new_tab">Obre en una pestanya nova</string>
   <string name="menu_long_press_copy_page">Copia l\'adreça de l\'enllaç</string>
+  <string name="menu_text_select_copy">Copia</string>
+  <string name="menu_text_select_share">Comparteix</string>
   <string name="nav_item_nearby">A prop</string>
   <string name="nearby_empty_title">Cap pàgina propera des d\'aquí!</string>
   <string name="nearby_empty_message" fuzzy="true">Quan us mogueu a una ubicació nova, proveu de refrescar la pàgina per saber què hi ha al voltant.</string>
@@ -140,6 +142,7 @@
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
+  <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis bloquejats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
   <string name="history_search_list_hint">Cerca a l\'historial</string>
   <string name="history_search_empty_message">No s’ha trobat cap pàgina que coincideixi amb la consulta.</string>
@@ -258,4 +261,9 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Codi \"%s\"</string>
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="button_continue_to_article">Continua a l\'article</string>
+  <string name="crash_report_dialog_dont_send_button">Omet</string>
+  <string name="crash_report_dialog_always_send_button">Envia sempre</string>
+  <string name="crash_report_dialog_send_button">Envia</string>
+  <string name="crash_report_activity_title">Error de l\'aplicació</string>
+  <string name="crash_report_quit">Surt</string>
 </resources>

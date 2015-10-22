@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Otevřít</string>
   <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
   <string name="menu_long_press_copy_page">Zkopírovat adresu odkazu</string>
+  <string name="menu_text_select_copy">Kopírovat</string>
+  <string name="menu_text_select_share">Sdílet</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="nearby_empty_title">Žádné stránky poblíž!</string>
   <string name="nearby_empty_message">Přesuňte se na nové místo a uvidíte stránky kolem vás.</string>
@@ -140,6 +142,8 @@
   <string name="create_account_account_created_toast">Účet založen!</string>
   <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
   <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
+  <string name="preference_title_auto_upload_crash_reports">Posílat zprávy o pádu</string>
+  <string name="preference_summary_auto_upload_crash_reports">Umožní aplikaci automaticky odesílat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, abychom mohli její pád přezkoumat a opravit chybu rychleji a jednodušeji.</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
   <string name="history_search_list_hint">Hledání v historii</string>
   <string name="history_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
@@ -240,6 +244,7 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_save_error_mediastore">Nepodařilo se importovat obrázek do sbírky médií</string>
   <string name="gallery_save_success">Obrázek úspěšně uložen.</string>
   <string name="gallery_image_saved_notification_title">Obrázek uložen.</string>
+  <string name="gallery_image_saved_notification_text">Klepněte pro zobrazení.</string>
   <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
   <string name="snippet_share_intro">„%1$s“ na @Wikipedia: %2$s</string>
@@ -263,5 +268,18 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_message">Zpráva: „%s“</string>
   <string name="format_error_server_code">Kód: „%s“</string>
   <string name="address_copied">Adresu zkopírována do schránky.</string>
+  <string name="text_copied">Text zkopírován do schránky.</string>
   <string name="button_continue_to_article">Pokračovat na článek</string>
+  <string name="preference_title_show_link_previews">Zobrazovat náhledy odkazů</string>
+  <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
+  <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
+  <string name="crash_report_dialog_dont_send_button">Přeskočit</string>
+  <string name="crash_report_dialog_always_send_button">Vždy posílat</string>
+  <string name="crash_report_dialog_send_button">Odeslat</string>
+  <string name="crash_report_activity_title">Chyba aplikace</string>
+  <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedia došlo k chybě a byla ukončena.
+
+Chcete začít znovu, nebo skončit?</string>
+  <string name="crash_report_relaunch">Začít znovu</string>
+  <string name="crash_report_quit">Skončit</string>
 </resources>

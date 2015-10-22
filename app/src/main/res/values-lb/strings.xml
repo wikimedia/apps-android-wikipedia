@@ -36,6 +36,8 @@
   <string name="menu_long_press_open_page">Opmaachen</string>
   <string name="menu_long_press_open_in_new_tab">An engem neien Tab opmaachen</string>
   <string name="menu_long_press_copy_page">Adress vum Link kopéieren</string>
+  <string name="menu_text_select_copy">Kopéieren</string>
+  <string name="menu_text_select_share">Deelen</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
   <string name="nearby_empty_message">Gitt op eng aner Plaz fir Säite ronderëm Iech ze gesinn.</string>
@@ -237,4 +239,9 @@
   <string name="format_error_server_code">Code: \"%s\"</string>
   <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="button_continue_to_article">Virun op den Artikel</string>
+  <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>
+  <string name="crash_report_dialog_always_send_button">Ëmmer schécken</string>
+  <string name="crash_report_dialog_send_button">Schécken</string>
+  <string name="crash_report_activity_title">Feeler vum Programm</string>
+  <string name="crash_report_quit">Erausgoen</string>
 </resources>

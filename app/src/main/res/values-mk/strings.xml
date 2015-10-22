@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Отвори</string>
   <string name="menu_long_press_open_in_new_tab">Отвори ново јазиче</string>
   <string name="menu_long_press_copy_page">Копирај ја адресата на врската</string>
+  <string name="menu_text_select_copy">Копирај</string>
+  <string name="menu_text_select_share">Сподели</string>
   <string name="nav_item_nearby">Во близина</string>
   <string name="nearby_empty_title">Тука нема страници во близина!</string>
   <string name="nearby_empty_message">Отидете на друго место за да ги видите страниците околу вас.</string>
@@ -119,27 +121,29 @@
   <string name="create_account_next">Следно</string>
   <string name="create_account_button">Направи сметка</string>
   <string name="preferences_general_heading">Општи</string>
-  <string name="wikipedia_app_faq">ЧПП за Википедииниот извршник</string>
+  <string name="wikipedia_app_faq">ЧПП за Википедииниот прилог</string>
   <string name="zero_charged_verbiage">Википедија Нулта е исклучена</string>
   <string name="zero_charged_verbiage_extended">За вчитување на други статии може да се наплаќа податочниот промет</string>
   <string name="zero_search_hint">Пребарај ја Википедија Нулта</string>
   <string name="zero_warn_when_leaving">Предупреди ме доколку ја напуштам Википедија Нулта</string>
-  <string name="zero_warn_when_leaving_summary">Ако Вашиот мобилен оператор се откажува од трошоците за пристап до податоци за извршникот на Википедија преку партнероство со Википедија Нулта, оставајќи ја поставкава избрана ќе знаете кога излегувате од нејзиниот бесплатен режим и почнува наплата.</string>
+  <string name="zero_warn_when_leaving_summary">Ако Вашиот мобилен оператор се откажува од трошоците за пристап до податоци за прилогот на Википедија преку партнероство со Википедија Нулта, оставајќи ја поставкава избрана ќе знаете кога излегувате од нејзиниот бесплатен режим и почнува наплата.</string>
   <string name="zero_webpage_title">ЧПП за Википедија Нулта</string>
   <string name="zero_wikipedia_zero_heading">Википедија Нулта</string>
   <string name="zero_interstitial_title">Ја напуштате Википедија Нулта</string>
   <string name="zero_interstitial_leave_app">За ова може да се наплаќа. Да продолжам кон надворешно место?</string>
   <string name="zero_interstitial_continue">Напушти</string>
   <string name="zero_interstitial_cancel">Остани тука</string>
-  <string name="zero_learn_more">За овој Википедиин извршник не се наплаќа податочниот промет.</string>
+  <string name="zero_learn_more">За овој Википедиин прилогот не се наплаќа податочниот промет.</string>
   <string name="zero_learn_more_learn_more">Прочитајте повеќе</string>
   <string name="zero_learn_more_dismiss">Тргни</string>
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед…</string>
-  <string name="send_feedback">Испрати мислење за извршникот</string>
+  <string name="send_feedback">Испрати мислење за прилогот</string>
   <string name="nav_item_random">Случајна</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
-  <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите извршникот, за да може да го подобри</string>
+  <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
+  <string name="preference_title_auto_upload_crash_reports">Испраќај извештаи за уривање</string>
+  <string name="preference_summary_auto_upload_crash_reports">Прилогот да испраќа извештаи за уривање на HockeyApp / надворешен услужник за да може уривањата да се разгледуваат и поправаат полесно и побрзо.</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
   <string name="history_search_list_hint">Историја на пребарувањето</string>
   <string name="history_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
@@ -151,7 +155,7 @@
   <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
   <string name="settings_item_preferences">Нагодувања</string>
   <string name="settings_activity_title">Нагодувања</string>
-  <string name="about_description">За извршникот „Википедија“</string>
+  <string name="about_description">За прилогот „Википедија“</string>
   <string name="privacy_policy_description">Заштита на личните податоци</string>
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/mk?uselang=mk</string>
@@ -159,9 +163,9 @@
   <string name="about_libraries_heading">користени библиотеки</string>
   <string name="about_contributors_heading">учесници</string>
   <string name="about_translators_heading">преведувачи</string>
-  <string name="about_translators_translatewiki">Извршников го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
-  <string name="about_activity_title">За извршникот</string>
+  <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
   <string name="user_blocked_from_editing_title">Блокирано</string>
   <string name="user_logged_in_blocked_from_editing">Вашата корисничка сметка е блокирана и не може да уредува на ова вики.</string>
@@ -198,27 +202,27 @@
   <string name="search_recent_header">Скорешни пребарувања:</string>
   <string name="button_clear_all_recent_searches">Исчисти скорешни пребарувања</string>
   <string name="clear_recent_searches_confirm">Дали сте сигурни дека сакате да ја избришете историјата на пребарувања?</string>
-  <string name="error_browser_not_found">Не можам да ја отворам страницата (не најдов прелистувачки извршник).</string>
+  <string name="error_browser_not_found">Не можам да ја отворам страницата (не најдов прелистувачки прилог).</string>
   <string name="table_infobox">Накратко</string>
   <string name="table_other">Повеќе информации</string>
   <string name="table_close">Затвори</string>
   <string name="widget_name_featured_page">Избрана страница на Википедија</string>
   <string name="widget_title_featured_page">Избрана страница за денес:</string>
   <string name="widget_name_search">Пребарување по Википедија</string>
-  <string name="app_store_description">Официјален Википедиин извршник (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Извршников е преработен од нула и затоа е подобар од било кога.
+  <string name="app_store_description">Официјален Википедиин прилог (апликација) за Android. Википедија е слободна енциклопедија со преку 32 милиони статии на 280 јазици, и претставува најопсежното и најкористеното прирачно дело во историјата на човештвото. Прилогов е преработен од нула и затоа е подобар од било кога.
 
 Можности:
 - Истакнати слики: доживејте ја Википедија како никогаш претходно со истакнати, контекстно релевантна слика и опис најгоре во секоја статија.
 - Галерија на слики: кога ќе допрете на слика, истата ќе ви се појави на цел екран во полна разделеност, и можност за прелистување на други слики со повлекување лево/десно
-- Описи од Википодатоци: кога пребарувате, секој резултат сега содржи краток помошен опис што ви го контекстуализира резултатот. Овие описи се прикажуваат и на други места во извршникот, како што е „Во близина“
+- Описи од Википодатоци: кога пребарувате, секој резултат сега содржи краток помошен опис што ви го контекстуализира резултатот. Овие описи се прикажуваат и на други места во прилогот, како што е „Во близина“
 - Предлагање статии: најдолу на секоја статија ви предлагаме што да читате следно 
 - Зачувани страници: можете да зачувате извесен број на страници за да ги читате кога немате линија
 - Во близина: дознајте повеќе за нештата околу вас статиите за нештата во близина на местото кадешто моментално се наоѓате
-- Јазична поддршка: извршников ви овозможува просто префрлање од едно на друго јазично издание на Википедија
+- Јазична поддршка: прилогов ви овозможува просто префрлање од едно на друго јазично издание на Википедија
 - Преглед на содржината: повлечете лево на секоја статија за да ви се појави нејзината содржина, преку која лесно ќе прејдете на деловите од статијата што ве интересираат
 - Википедија Нулта: податочниот промет проведен на Википедија е бесплатен за операторите што учествуваат во ова.
 
-Давајте ваши мислења за извршникот! Во менито, стснете на „Повеќе“, па на „За извршникот ,Википедија’“, а потоа на „Испрати мислење за извршникот“.
+Давајте ваши мислења за прилогот! Во менито, стснете на „Повеќе“, па на „За прилогот ,Википедија’“, а потоа на „Испрати мислење за прилогот“.
 
 Кодот е 100% отворен. Ако имате искуство со Java и SDK на Android, тогаш со задоволство ве повикуваме да учествувате! https://github.com/wikimedia/apps-android-wikipedia
 
@@ -264,7 +268,19 @@
   <string name="format_error_server_message">Порака: „%s“</string>
   <string name="format_error_server_code">Код: „%s“</string>
   <string name="address_copied">Адресата е ставена во меѓускладот</string>
+  <string name="text_copied">Текстот е ставен во меѓускладот.</string>
   <string name="button_continue_to_article">Продолжи кон статијата</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
+  <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
+  <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
+  <string name="crash_report_dialog_dont_send_button">Прескокни</string>
+  <string name="crash_report_dialog_always_send_button">Секогаш испраќај</string>
+  <string name="crash_report_dialog_send_button">Испрати</string>
+  <string name="crash_report_activity_title">Грешка во прилогот</string>
+  <string name="crash_report_relaunch_or_quit">За жал, прилогот на Википедија наиде на грешка и беше запрен.
+
+Дали би сакале да почнете одново или да напуштите?</string>
+  <string name="crash_report_relaunch">Почни одново</string>
+  <string name="crash_report_quit">Излези</string>
 </resources>

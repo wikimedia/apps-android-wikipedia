@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Deschide</string>
   <string name="menu_long_press_open_in_new_tab">Deschide în filă nouă</string>
   <string name="menu_long_press_copy_page">Copiază adresa legăturii</string>
+  <string name="menu_text_select_copy">Copiază</string>
+  <string name="menu_text_select_share">Distribuie</string>
   <string name="nav_item_nearby">În apropiere</string>
   <string name="nearby_empty_title">Nicio pagină în apropiere aici!</string>
   <string name="nearby_empty_message">Deplasați-vă în altă parte pentru a vedea pagini din apropierea dumneavoastră.</string>
@@ -140,6 +142,8 @@
   <string name="create_account_account_created_toast">Cont creat!</string>
   <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
   <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
+  <string name="preference_title_auto_upload_crash_reports">Trimite rapoarte de erori</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permite aplicației să trimită automat rapoarte de erori către HockeyApp / un furnizor de servicii terț, astfel încât noi să putem verifica erorile dumnevoastră, reparându-le mai rapid și mai ușor.</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
   <string name="history_search_list_hint">Căutare în istoric</string>
   <string name="history_search_empty_message">Nicio pagină nu corespunde interogării dumneavoastră.</string>
@@ -264,7 +268,19 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="format_error_server_message">Mesaj: „%s”</string>
   <string name="format_error_server_code">Cod: „%s”</string>
   <string name="address_copied">Adresă copiată în clipboard.</string>
+  <string name="text_copied">Text copiat în clipboard.</string>
   <string name="button_continue_to_article">Continuă către articol</string>
   <string name="preference_title_show_link_previews">Afișare previzualizare legături</string>
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
+  <string name="crash_report_dialog_title">Ne pare rău, aplicația s-a blocat ultima dată</string>
+  <string name="crash_report_dialog_text">Doriți să trimiteți un raport de erori către HockeyApp / un furnizor de servicii terț, astfel încât Wikimedia să poată verifica erorile dumnevoastră, înlăturând cauza care a produs blocarea?</string>
+  <string name="crash_report_dialog_dont_send_button">Omite</string>
+  <string name="crash_report_dialog_always_send_button">Trimite întotdeauna</string>
+  <string name="crash_report_dialog_send_button">Trimite</string>
+  <string name="crash_report_activity_title">Eroare aplicație</string>
+  <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.
+
+Doriți să o reporniți sau să o închideți?</string>
+  <string name="crash_report_relaunch">Repornește</string>
+  <string name="crash_report_quit">Închide</string>
 </resources>
