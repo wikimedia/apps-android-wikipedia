@@ -424,13 +424,13 @@ public final class Utils {
     /**
      * Resolves the resource ID of a theme-dependent attribute (for example, a color value
      * that changes based on the selected theme)
-     * @param activity The activity whose theme contains the attribute.
+     * @param context The Context whose theme contains the attribute.
      * @param id Theme-dependent attribute ID to be resolved.
      * @return The actual resource ID of the requested theme-dependent attribute.
      */
-    public static int getThemedAttributeId(Activity activity, int id) {
+    public static int getThemedAttributeId(Context context, int id) {
         TypedValue tv = new TypedValue();
-        activity.getTheme().resolveAttribute(id, tv, true);
+        context.getTheme().resolveAttribute(id, tv, true);
         return tv.resourceId;
     }
 
