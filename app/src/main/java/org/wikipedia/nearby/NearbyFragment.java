@@ -803,6 +803,11 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         }
 
         @Override
+        public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
+            ((PageActivity)getActivity()).displayPageInForegroundTab(title, entry);
+        }
+
+        @Override
         public PageTitle getTitleForListPosition(int position) {
             NearbyPage page = adapter.getItem(position);
             return new PageTitle(page.getTitle(), site, page.getThumblUrl());
