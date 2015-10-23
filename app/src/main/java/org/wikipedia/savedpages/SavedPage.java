@@ -5,12 +5,15 @@ import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
 
 import java.io.*;
 import java.util.Date;
+
+import static org.wikipedia.util.FileUtil.delete;
+import static org.wikipedia.util.FileUtil.writeToFile;
+import static org.wikipedia.util.FileUtil.readJSONFile;
 
 public class SavedPage implements Parcelable {
     public static final SavedPagePersistenceHelper PERSISTENCE_HELPER = new SavedPagePersistenceHelper();
@@ -131,7 +134,7 @@ public class SavedPage implements Parcelable {
      * @throws IOException
      */
     public void writeToFileSystem(Page page) throws IOException {
-        Utils.writeToFile(getContentsFile(), page.toJSON());
+        writeToFile(getContentsFile(), page.toJSON());
     }
 
     /**
@@ -140,7 +143,7 @@ public class SavedPage implements Parcelable {
      * @throws IOException
      */
     public void writeUrlMap(JSONObject jsonObject) throws IOException {
-        Utils.writeToFile(getUrlMapFile(), jsonObject);
+        writeToFile(getUrlMapFile(), jsonObject);
     }
 
     /**
@@ -150,11 +153,11 @@ public class SavedPage implements Parcelable {
      * @throws JSONException
      */
     public Page readFromFileSystem() throws IOException, JSONException {
-        return new Page(Utils.readJSONFile(getContentsFile()));
+        return new Page(readJSONFile(getContentsFile()));
     }
 
     public JSONObject readUrlMapFromFileSystem() throws IOException, JSONException {
-        return Utils.readJSONFile(getUrlMapFile());
+        return readJSONFile(getUrlMapFile());
     }
 
     /**
@@ -162,6 +165,6 @@ public class SavedPage implements Parcelable {
      * (Removes the entire directory and any files in it)
      */
     public void deleteFromFileSystem() {
-        Utils.delete(new File(getBaseDir()), true);
+        delete(new File(getBaseDir()), true);
     }
 }

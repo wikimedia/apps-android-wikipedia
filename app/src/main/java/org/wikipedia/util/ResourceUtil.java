@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.IdRes;
+import android.util.TypedValue;
 
 public final class ResourceUtil {
     private static final int NO_ID = 0;
@@ -23,6 +24,19 @@ public final class ResourceUtil {
         }
         typedArray.recycle();
         return ids;
+    }
+
+    /**
+     * Resolves the resource ID of a theme-dependent attribute (for example, a color value
+     * that changes based on the selected theme)
+     * @param context The context whose theme contains the attribute.
+     * @param id Theme-dependent attribute ID to be resolved.
+     * @return The actual resource ID of the requested theme-dependent attribute.
+     */
+    public static int getThemedAttributeId(Context context, int id) {
+        TypedValue tv = new TypedValue();
+        context.getTheme().resolveAttribute(id, tv, true);
+        return tv.resourceId;
     }
 
     private static void checkId(@IdRes int id) {

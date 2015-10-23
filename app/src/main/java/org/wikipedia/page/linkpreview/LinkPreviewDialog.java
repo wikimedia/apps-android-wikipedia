@@ -19,7 +19,6 @@ import org.wikipedia.server.restbase.RbPageLead;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.PageLoadUtil;
 import org.wikipedia.views.ViewUtil;
 
 import android.content.DialogInterface;
@@ -40,8 +39,9 @@ import java.util.Map;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
-import static org.wikipedia.util.L10nUtils.setConditionalLayoutDirection;
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
+import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
 public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogInterface.OnDismissListener {
     private static final String TAG = "LinkPreviewDialog";
@@ -198,7 +198,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         Log.v(TAG, "Loading link preview with RESTBase");
         PageServiceFactory.create(pageTitle.getSite()).pageLead(
                 pageTitle.getPrefixedText(),
-                PageLoadUtil.calculateLeadImageWidth(),
+                calculateLeadImageWidth(),
                 !shouldLoadImages,
                 linkPreviewOnLoadCallback);
     }

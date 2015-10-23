@@ -7,7 +7,7 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import static org.wikipedia.util.L10nUtils.setConditionalLayoutDirection;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class ConfigurableTextView extends TextView {
     public ConfigurableTextView(Context context) {

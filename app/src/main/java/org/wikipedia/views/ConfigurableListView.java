@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import static org.wikipedia.util.L10nUtils.setConditionalLayoutDirection;
+import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class ConfigurableListView extends ListView {
     public ConfigurableListView(Context context) {

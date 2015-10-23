@@ -25,11 +25,8 @@ import java.util.List;
 
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
-public final class ShareUtils {
+public final class ShareUtil {
     public static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
-
-    /** Private constructor, so nobody can construct ShareUtils. */
-    private ShareUtils() { }
 
     /**
      * Share some text and subject (title) as plain text using an activity chooser,
@@ -236,4 +233,6 @@ public final class ShareUtils {
     private static String getPackageName(@NonNull ResolveInfo intentActivity) {
         return intentActivity.activityInfo.packageName;
     }
+
+    private ShareUtil() { }
 }

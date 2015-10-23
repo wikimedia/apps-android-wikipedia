@@ -2,7 +2,6 @@ package org.wikipedia.page;
 
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.history.HistoryEntry;
 
 import android.content.Context;
@@ -15,6 +14,9 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.UriUtil.isValidPageLink;
 
 public class PageLongPressHandler implements View.OnCreateContextMenuListener,
         MenuItem.OnMenuItemClickListener {
@@ -43,7 +45,7 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
             WebView.HitTestResult result = ((WebView) view).getHitTestResult();
             if (result.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
                 Uri uri = Uri.parse(result.getExtra());
-                if (Utils.isValidPageLink(uri)) {
+                if (isValidPageLink(uri)) {
                     title = ((WebViewContextMenuListener) contextMenuListener).getSite()
                             .titleForInternalLink(uri.getPath());
                 }
@@ -55,7 +57,7 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
         }
 
         if (title != null && !title.isSpecial()) {
-            Utils.hideSoftKeyboard(view);
+            hideSoftKeyboard(view);
             entry = new HistoryEntry(title, historySource);
             new MenuInflater(context).inflate(R.menu.menu_page_long_press, menu);
             menu.setHeaderTitle(title.getDisplayText());

@@ -5,7 +5,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.activity.ThemedActionBarActivity;
-import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
@@ -42,7 +41,9 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.wikipedia.util.NetworkUtils.resolveProtocolRelativeUrl;
+import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
+import static org.wikipedia.util.UriUtil.handleExternalLink;
+import static org.wikipedia.util.StringUtil.trim;
 
 public class GalleryActivity extends ThemedActionBarActivity {
     private static final String TAG = "GalleryActivity";
@@ -108,7 +109,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         public boolean onLongClick(View v) {
             String licenseUrl = (String) v.getTag();
             if (!TextUtils.isEmpty(licenseUrl)) {
-                Utils.handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
+                handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
             }
             return true;
         }
@@ -335,7 +336,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
                     if (url.startsWith("/w/")) {
                         url = String.format("%1$s://%2$s", WikipediaApp.getInstance().getNetworkProtocol(), site.getDomain()) + url;
                     }
-                    Utils.handleExternalLink(GalleryActivity.this, Uri.parse(url));
+                    handleExternalLink(GalleryActivity.this, Uri.parse(url));
                 }
             }
         }
@@ -464,7 +465,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
                     .fromHtml(item.getMetadata().get("ObjectName"));
         }
         if (descriptionStr.length() > 0) {
-            descriptionText.setText(Utils.trim(descriptionStr));
+            descriptionText.setText(trim(descriptionStr));
             descriptionText.setVisibility(View.VISIBLE);
         } else {
             descriptionText.setVisibility(View.GONE);

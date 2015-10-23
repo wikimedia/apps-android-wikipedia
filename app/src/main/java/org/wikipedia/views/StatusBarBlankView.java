@@ -6,7 +6,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
-import org.wikipedia.Utils;
+import org.wikipedia.util.DimenUtil;
 
 /**
  * Blank View that properly sizes itself to the same height as the translucent status bar for
@@ -47,6 +47,6 @@ public class StatusBarBlankView extends View {
     }
 
     private int getTranslucentStatusBarHeightPx() {
-        return Utils.getTranslucentStatusBarHeightPx(getContext());
+        return DimenUtil.getTranslucentStatusBarHeightPx(getContext());
     }
 }

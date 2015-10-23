@@ -22,13 +22,14 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.page.leadimages.ImageViewWithFace;
 import org.wikipedia.page.leadimages.ImageViewWithFace.OnImageLoadListener;
 import org.wikipedia.util.GradientUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ArticleHeaderView extends FrameLayout {
     @Bind(R.id.image) ImageViewWithFace image;
@@ -67,7 +68,7 @@ public class ArticleHeaderView extends FrameLayout {
 
         placeholder.setVisibility(View.GONE);
 
-        setTextColor(getColor(Utils.getThemedAttributeId(getContext(),
+        setTextColor(getColor(getThemedAttributeId(getContext(),
                 R.attr.lead_disabled_text_color)));
         clearTextDropShadow();
         clearTextGradient();

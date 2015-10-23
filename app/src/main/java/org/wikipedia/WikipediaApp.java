@@ -46,6 +46,7 @@ import org.wikipedia.search.RecentSearchPersister;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
@@ -59,7 +60,9 @@ import java.util.Random;
 import java.util.TimeZone;
 import java.util.UUID;
 
+import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
+import static org.wikipedia.util.ReleaseUtil.getChannel;
 
 public class WikipediaApp extends Application {
     private static final String HTTPS_PROTOCOL = "https";
@@ -95,43 +98,30 @@ public class WikipediaApp extends Application {
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
     private static final float FONT_SIZE_FACTOR = 0.1f;
 
-    public static final int RELEASE_PROD = 0;
-    public static final int RELEASE_BETA = 1;
-    public static final int RELEASE_ALPHA = 2;
-    public static final int RELEASE_DEV = 3;
-    private final int releaseType;
-
     public static final int PREFERRED_THUMB_SIZE = 320;
 
     private AppLanguageState appLanguageState;
 
     private CrashReporter crashReporter;
 
-    /**
-     * Returns a constant that tells whether this app is a production release,
-     * a beta release, or an alpha (continuous integration) release.
-     * @return Release type of the app.
-     */
-    public int getReleaseType() {
-        return releaseType;
+    public boolean isProdRelease() {
+        return ReleaseUtil.isProdRelease();
     }
 
-    public boolean isProdRelease() {
-        return releaseType == RELEASE_PROD;
+    public boolean isPreProdRelease() {
+        return ReleaseUtil.isPreProdRelease();
+    }
+
+    public boolean isAlphaRelease() {
+        return ReleaseUtil.isAlphaRelease();
     }
 
     public boolean isPreBetaRelease() {
-        switch (getReleaseType()) {
-            case RELEASE_PROD:
-            case RELEASE_BETA:
-                return false;
-            default:
-                return true;
-        }
+        return ReleaseUtil.isPreBetaRelease();
     }
 
     public boolean isDevRelease() {
-        return releaseType == RELEASE_DEV;
+        return ReleaseUtil.isDevRelease();
     }
 
     private SessionFunnel sessionFunnel;
@@ -166,8 +156,6 @@ public class WikipediaApp extends Application {
 
     public WikipediaApp() {
         INSTANCE = this;
-
-        releaseType = calculateReleaseType();
     }
 
     /**
@@ -210,7 +198,7 @@ public class WikipediaApp extends Application {
     private String userAgent;
     public String getUserAgent() {
         if (userAgent == null) {
-            String channel = Utils.getChannel(this);
+            String channel = getChannel(this);
             channel = channel.equals("") ? channel : " ".concat(channel);
             userAgent = String.format("WikipediaApp/%s (Android %s; %s)%s",
                     BuildConfig.VERSION_NAME,
@@ -530,7 +518,7 @@ public class WikipediaApp extends Application {
      * @return Actual current size of the font.
      */
     public float getFontSize(Window window) {
-        return Utils.getFontSizeFromSp(window,
+        return getFontSizeFromSp(window,
                 getResources().getDimension(R.dimen.textSize)) * (1.0f + getFontSizeMultiplier() * FONT_SIZE_FACTOR);
     }
 
@@ -625,18 +613,5 @@ public class WikipediaApp extends Application {
             result = Theme.getFallback();
         }
         return result;
-    }
-
-    private int calculateReleaseType() {
-        if (BuildConfig.APPLICATION_ID.contains("beta")) {
-            return RELEASE_BETA;
-        }
-        if (BuildConfig.APPLICATION_ID.contains("alpha")) {
-            return RELEASE_ALPHA;
-        }
-        if (BuildConfig.APPLICATION_ID.contains("dev")) {
-            return RELEASE_DEV;
-        }
-        return RELEASE_PROD;
     }
 }

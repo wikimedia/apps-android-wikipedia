@@ -16,9 +16,10 @@ import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.FeedbackUtil;
+
+import static org.wikipedia.util.DeviceUtil.mailAppExists;
 
 public class AboutActivity extends ThemedActionBarActivity {
     private static final String KEY_SCROLL_X = "KEY_SCROLL_X";
@@ -44,7 +45,7 @@ public class AboutActivity extends ThemedActionBarActivity {
         findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener(this));
 
         //if there's no Email app, hide the Feedback link.
-        if (!Utils.mailAppExists(this)) {
+        if (!mailAppExists(this)) {
             findViewById(R.id.send_feedback_text).setVisibility(View.GONE);
         }
 

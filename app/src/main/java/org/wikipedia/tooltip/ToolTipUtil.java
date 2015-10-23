@@ -12,8 +12,9 @@ import com.appenguin.onboarding.ToolTip;
 import com.appenguin.onboarding.ToolTipView;
 
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.activity.ActivityUtil;
+
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public final class ToolTipUtil {
     private static final int TOOL_TIP_VIEW_ID = R.id.view_tool_tip_container;
@@ -41,7 +42,7 @@ public final class ToolTipUtil {
                                    View targetView,
                                    @LayoutRes int contentLayout,
                                    ToolTip.Position position) {
-        int color = activity.getResources().getColor(Utils.getThemedAttributeId(activity, R.attr.tool_tip_default_color));
+        int color = activity.getResources().getColor(getThemedAttributeId(activity, R.attr.tool_tip_default_color));
         showToolTip(activity, targetView, contentLayout, color, position);
     }
 

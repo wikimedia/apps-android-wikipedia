@@ -1,11 +1,13 @@
 package org.wikipedia.page;
 
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static org.wikipedia.util.UriUtil.decodeURL;
+import static org.wikipedia.util.JsonUtil.jsonArrayToStringArray;
 
 /**
  * A handler for both disambiguation and page issues information.
@@ -27,7 +29,7 @@ abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
         try {
             PageInfo info = new PageInfo(activity.getCurPageFragment().getPage().getTitle(),
                                          parseDisambigJson(messagePayload.getJSONArray("hatnotes")),
-                                         Utils.jsonArrayToStringArray(messagePayload.getJSONArray("issues")));
+                                         jsonArrayToStringArray(messagePayload.getJSONArray("issues")));
             PageInfoDialog dialog = new PageInfoDialog(activity, info, getDialogHeight());
             dialog.show();
             if ("disambigClicked".equals(messageType)) {
@@ -46,7 +48,7 @@ abstract class PageInfoHandler implements CommunicationBridge.JSEventListener {
         }
         DisambigResult[] stringArray = new DisambigResult[array.length()];
         for (int i = 0; i < array.length(); i++) {
-            stringArray[i] = new DisambigResult(getSite().titleForInternalLink(Utils.decodeURL(array.getString(i))));
+            stringArray[i] = new DisambigResult(getSite().titleForInternalLink(decodeURL(array.getString(i))));
         }
         return stringArray;
     }

@@ -34,7 +34,7 @@ import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtils;
+import org.wikipedia.util.ShareUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -285,7 +285,7 @@ class PreviewDialog extends BottomDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ShareUtils.shareImage(activity, resultBitmap, title, title, introText, false);
+                        ShareUtil.shareImage(activity, resultBitmap, title, title, introText, false);
                         funnel.logShareIntent(selectedText, ShareMode.image);
                         completed = true;
                     }
@@ -294,7 +294,7 @@ class PreviewDialog extends BottomDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ShareUtils.shareText(activity, title, constructShareText(selectedText, introText));
+                        ShareUtil.shareText(activity, title, constructShareText(selectedText, introText));
                         funnel.logShareIntent(selectedText, ShareMode.text);
                         completed = true;
                     }

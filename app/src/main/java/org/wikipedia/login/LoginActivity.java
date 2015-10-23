@@ -18,6 +18,9 @@ import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.PasswordTextInput;
 
+import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+
 public class LoginActivity extends ThemedActionBarActivity {
     public static final int REQUEST_LOGIN = 100;
 
@@ -105,7 +108,7 @@ public class LoginActivity extends ThemedActionBarActivity {
     }
 
     public void showPrivacyPolicy(View v) {
-        Utils.showPrivacyPolicy(this);
+        FeedbackUtil.showPrivacyPolicy(this);
     }
 
     @Override
@@ -183,7 +186,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                 if (result.getCode().equals("Success")) {
                     funnel.logSuccess();
 
-                    Utils.hideSoftKeyboard(LoginActivity.this);
+                    hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);
 
                     finish();
@@ -203,7 +206,7 @@ public class LoginActivity extends ThemedActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        Utils.hideSoftKeyboard(this);
+        hideSoftKeyboard(this);
         super.onBackPressed();
     }
 
@@ -217,15 +220,15 @@ public class LoginActivity extends ThemedActionBarActivity {
                 // a global account (i.e. almost every single user), there is no difference between
                 // WrongPass and WrongPluginPass, so we treat them the same here.
                 passwordText.requestFocus();
-                Utils.setErrorPopup(passwordText, getString(R.string.login_error_wrong_password));
+                setErrorPopup(passwordText, getString(R.string.login_error_wrong_password));
                 break;
             case "NotExists":
                 usernameText.requestFocus();
-                Utils.setErrorPopup(usernameText, getString(R.string.login_error_wrong_username));
+                setErrorPopup(usernameText, getString(R.string.login_error_wrong_username));
                 break;
             case "Illegal":
                 usernameText.requestFocus();
-                Utils.setErrorPopup(usernameText, getString(R.string.login_error_illegal));
+                setErrorPopup(usernameText, getString(R.string.login_error_illegal));
                 break;
             case "Blocked":
                 FeedbackUtil.showMessage(this, R.string.login_error_blocked);

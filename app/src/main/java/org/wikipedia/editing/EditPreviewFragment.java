@@ -22,7 +22,7 @@ import org.wikipedia.*;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.StyleBundle;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.L10nUtils;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.editing.summaries.EditSummaryTag;
@@ -33,6 +33,8 @@ import org.wikipedia.page.PageActivity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class EditPreviewFragment extends Fragment {
     private ObservableWebView webview;
@@ -173,7 +175,7 @@ public class EditPreviewFragment extends Fragment {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
             bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PREVIEW));
-            L10nUtils.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(), bridge);
+            L10nUtil.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().isCurrentThemeDark()) {
                 new NightModeHandler(bridge).turnOn(false);
             }
@@ -288,7 +290,7 @@ public class EditPreviewFragment extends Fragment {
      * @param wikiText The text of the section to be shown in the Preview.
      */
     public void showPreview(final PageTitle title, final String wikiText) {
-        Utils.hideSoftKeyboard(getActivity());
+        hideSoftKeyboard(getActivity());
 
         new EditPreviewTask(getActivity(), wikiText, title) {
             @Override

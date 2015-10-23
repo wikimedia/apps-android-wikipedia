@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.support.annotation.StringRes;
+import android.text.format.DateUtils;
 import android.util.SparseArray;
 import android.view.View;
 
@@ -16,6 +17,7 @@ import org.wikipedia.interlanguage.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Locale;
 
 /**
@@ -26,7 +28,7 @@ import java.util.Locale;
  * Device language is the current language setting in the device system settings.
  * Those can be different.
  */
-public final class L10nUtils {
+public final class L10nUtil {
     /**
      * List of wiki language codes for which the content is primarily RTL.
      *
@@ -182,6 +184,15 @@ public final class L10nUtils {
                       defaultConfig);
     }
 
-    private L10nUtils() {
+    /**
+     * Formats provided date relative to the current system time
+     * @param date Date to format
+     * @return String representing the relative time difference of the paramter from current time
+     */
+    public static String formatDateRelative(Date date) {
+        return DateUtils.getRelativeTimeSpanString(date.getTime(), System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS, 0).toString();
+    }
+
+    private L10nUtil() {
     }
 }

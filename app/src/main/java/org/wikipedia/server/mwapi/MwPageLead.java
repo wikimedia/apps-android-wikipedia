@@ -1,5 +1,5 @@
 package org.wikipedia.server.mwapi;
-import org.wikipedia.Utils;
+
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -21,6 +21,8 @@ import android.support.annotation.VisibleForTesting;
 
 import java.lang.reflect.Type;
 import java.util.List;
+
+import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
 
 /**
  * Gson POJO for loading the first stage of page content.
@@ -142,7 +144,7 @@ public class MwPageLead implements PageLead {
 
         @Nullable
         public String getDescription() {
-            return description != null ? Utils.capitalizeFirstChar(description) : null;
+            return description != null ? capitalizeFirstChar(description) : null;
         }
 
         @Nullable

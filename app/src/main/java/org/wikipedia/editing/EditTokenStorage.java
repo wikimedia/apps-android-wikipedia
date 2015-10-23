@@ -1,9 +1,9 @@
 package org.wikipedia.editing;
 
 import android.content.Context;
+import android.os.Looper;
 
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
@@ -31,7 +31,7 @@ public class EditTokenStorage {
 
     public void get(final Site site, final TokenRetrievedCallback callback) {
         // This might run an AsyncTask, and hence must be called from main thread
-        Utils.ensureMainThread();
+        ensureMainThread();
 
         String curToken = tokenJar.get(site.getDomain());
         if (curToken != null) {
@@ -74,5 +74,14 @@ public class EditTokenStorage {
 
     private List<String> makeList(String str) {
         return StringUtil.delimiterStringToList(str, DELIMITER);
+    }
+
+    /**
+     * Ensures that the calling method is on the main thread.
+     */
+    private void ensureMainThread() {
+        if (Looper.getMainLooper().getThread() != Thread.currentThread()) {
+            throw new IllegalStateException("Method must be called from the main thread");
+        }
     }
 }

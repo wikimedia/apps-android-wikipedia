@@ -6,9 +6,11 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
+
+import static org.wikipedia.util.UriUtil.decodeURL;
+import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 /**
  * Handles any html links coming from a {@link org.wikipedia.page.PageFragment}
@@ -34,7 +36,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
-            String href = Utils.decodeURL(messagePayload.getString("href"));
+            String href = decodeURL(messagePayload.getString("href"));
             onUrlClick(href);
         } catch (IllegalArgumentException e) {
             // The URL is malformed and URL decoder can't understand it. Just do nothing.
@@ -69,7 +71,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
                 if (href.startsWith("/w/")) {
                     href = String.format("%1$s://%2$s", WikipediaApp.getInstance().getNetworkProtocol(), getSite().getDomain()) + href;
                 }
-                Utils.handleExternalLink(context, Uri.parse(href));
+                handleExternalLink(context, Uri.parse(href));
             }
         }
     }

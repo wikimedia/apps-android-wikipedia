@@ -1,6 +1,5 @@
 package org.wikipedia.server.restbase;
 
-import org.wikipedia.Utils;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -21,6 +20,8 @@ import android.support.annotation.Nullable;
 
 import java.lang.reflect.Type;
 import java.util.List;
+
+import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
 
 /**
  * Gson POJO for loading the first stage of page content.
@@ -134,7 +135,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     @Nullable
     public String getDescription() {
-        return description != null ? Utils.capitalizeFirstChar(description) : null;
+        return description != null ? capitalizeFirstChar(description) : null;
     }
 
     @Nullable

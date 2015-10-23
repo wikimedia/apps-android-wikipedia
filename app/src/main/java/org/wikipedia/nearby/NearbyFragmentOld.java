@@ -5,10 +5,10 @@ import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 
@@ -61,6 +61,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.MissingResourceException;
+
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 /**
  * Displays a list of nearby pages.
@@ -130,7 +132,7 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_nearby_old, container, false);
-        rootView.setPadding(0, Utils.getContentTopOffsetPx(getActivity()), 0, 0);
+        rootView.setPadding(0, DimenUtil.getContentTopOffsetPx(getActivity()), 0, 0);
 
         nearbyList = (ListView) rootView.findViewById(R.id.nearby_list);
         nearbyEmptyContainer = rootView.findViewById(R.id.nearby_empty_container);
@@ -655,7 +657,7 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
             if (nearbyPage.getLocation() != null) {
                 // set the calculated angle as the base angle for our compass view
                 viewHolder.thumbnail.setAngle((float) calculateAngle(nearbyPage.getLocation()));
-                viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.page_background_color)));
+                viewHolder.thumbnail.setMaskColor(getResources().getColor(getThemedAttributeId(getActivity(), R.attr.page_background_color)));
                 viewHolder.thumbnail.setTickColor(getResources().getColor(R.color.button_light));
                 if (!compassViews.contains(viewHolder.thumbnail)) {
                     compassViews.add(viewHolder.thumbnail);

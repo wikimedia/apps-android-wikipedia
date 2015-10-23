@@ -32,6 +32,8 @@ import org.wikipedia.views.PasswordTextInput;
 
 import static org.wikipedia.util.FeedbackUtil.showMessage;
 import static org.wikipedia.util.FeedbackUtil.showError;
+import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class CreateAccountActivity extends ThemedActionBarActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
@@ -106,7 +108,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                 if (view instanceof EditText) {
                     //Request focus on the EditText before setting error, so that error is visible
                     view.requestFocus();
-                    Utils.setErrorPopup((EditText) view, rule.getFailureMessage());
+                    setErrorPopup((EditText) view, rule.getFailureMessage());
                 } else {
                     throw new RuntimeException("This should not be happening");
                 }
@@ -215,7 +217,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     }
 
     public void showPrivacyPolicy(View v) {
-        Utils.showPrivacyPolicy(this);
+        FeedbackUtil.showPrivacyPolicy(this);
     }
 
     public void handleError(@NonNull Throwable e) {
@@ -239,7 +241,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                 case "userexists":
                     //Request focus before displaying error message, so that it pops up on its own
                     usernameEdit.requestFocus();
-                    Utils.setErrorPopup(usernameEdit, getString(R.string.create_account_username_exists_error));
+                    setErrorPopup(usernameEdit, getString(R.string.create_account_username_exists_error));
                     break;
                 case "noname":
                     showMessage(this, R.string.create_account_noname_error);
@@ -316,7 +318,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                     progressDialog.dismiss();
                     captchaHandler.cancelCaptcha();
                     funnel.logSuccess();
-                    Utils.hideSoftKeyboard(CreateAccountActivity.this);
+                    hideSoftKeyboard(CreateAccountActivity.this);
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("username", ((CreateAccountSuccessResult) result).getUsername());
                     resultIntent.putExtra("password", passwordEdit.getText().toString());
@@ -344,7 +346,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        Utils.hideSoftKeyboard(this);
+        hideSoftKeyboard(this);
         super.onBackPressed();
     }
 

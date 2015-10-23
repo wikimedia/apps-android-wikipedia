@@ -12,12 +12,13 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.widget.EditText;
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.concurrency.SaneAsyncTask;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class SyntaxHighlighter {
     private static String TAG = "SyntaxHighlighter";
@@ -50,7 +51,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("{{", "}}", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(parentActivity.getResources().getColor(Utils.getThemedAttributeId(parentActivity, R.attr.syntax_highlight_template_color)),
+                return new ColorSpanEx(parentActivity.getResources().getColor(getThemedAttributeId(parentActivity, R.attr.syntax_highlight_template_color)),
                                        Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -59,7 +60,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("[[", "]]", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(parentActivity.getResources().getColor(Utils.getThemedAttributeId(parentActivity, R.attr.link_color)),
+                return new ColorSpanEx(parentActivity.getResources().getColor(getThemedAttributeId(parentActivity, R.attr.link_color)),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -68,7 +69,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("[", "]", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(parentActivity.getResources().getColor(Utils.getThemedAttributeId(parentActivity, R.attr.link_color)),
+                return new ColorSpanEx(parentActivity.getResources().getColor(getThemedAttributeId(parentActivity, R.attr.link_color)),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));

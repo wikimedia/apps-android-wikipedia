@@ -1,12 +1,13 @@
 package org.wikipedia.page;
 
-import org.wikipedia.Utils;
 import org.wikipedia.data.GsonUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.google.gson.annotations.Expose;
+
+import static org.wikipedia.util.StringUtil.compareStrings;
 
 /**
  * Gson POJO for one section of a page.
@@ -63,9 +64,9 @@ public class Section {
         Section other = (Section) o;
         return getId() == other.getId()
                 && getLevel() == other.getLevel()
-                && Utils.compareStrings(getHeading(), other.getHeading())
-                && Utils.compareStrings(getAnchor(), other.getAnchor())
-                && Utils.compareStrings(getContent(), other.getContent());
+                && compareStrings(getHeading(), other.getHeading())
+                && compareStrings(getAnchor(), other.getAnchor())
+                && compareStrings(getContent(), other.getContent());
     }
 
     @Override

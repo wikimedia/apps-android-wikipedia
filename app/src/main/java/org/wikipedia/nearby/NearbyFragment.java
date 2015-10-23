@@ -2,7 +2,6 @@ package org.wikipedia.nearby;
 
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -77,6 +76,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.MissingResourceException;
 
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+
 /**
  * Displays a list of nearby pages.
  */
@@ -138,7 +140,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
-        rootView.setPadding(0, Utils.getContentTopOffsetPx(getActivity()), 0, 0);
+        rootView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
 
         nearbyListContainer = rootView.findViewById(R.id.nearby_list_container);
         nearbyListContainer.setVisibility(View.GONE);
@@ -737,7 +739,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             viewHolder.markerButton.setOnClickListener(markerClickListener);
             viewHolder.markerButton.setOnLongClickListener(markerLongClickListener);
 
-            viewHolder.thumbnail.setMaskColor(getResources().getColor(Utils.getThemedAttributeId(getActivity(), R.attr.page_background_color)));
+            viewHolder.thumbnail.setMaskColor(getResources().getColor(getThemedAttributeId(getActivity(), R.attr.page_background_color)));
             if (currentLocation == null) {
                 viewHolder.distance.setVisibility(View.INVISIBLE);
                 viewHolder.thumbnail.setEnabled(false);

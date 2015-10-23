@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.MainPageNameData;
@@ -16,6 +15,10 @@ import org.wikipedia.staticdata.SpecialAliasData;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
+
+import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
+import static org.wikipedia.util.StringUtil.md5string;
+import static org.wikipedia.util.UriUtil.decodeURL;
 
 /**
  * Represents certain vital information about a page, including the title, namespace,
@@ -83,7 +86,7 @@ public class PageTitle implements Parcelable {
         String[] fragParts = text.split("#", -1);
         text = fragParts[0];
         if (fragParts.length > 1) {
-            this.fragment = Utils.decodeURL(fragParts[1]);
+            this.fragment = decodeURL(fragParts[1]);
         } else {
             this.fragment = null;
         }
@@ -135,7 +138,7 @@ public class PageTitle implements Parcelable {
     }
 
     public void setDescription(@Nullable String description) {
-        this.description = description != null ? Utils.capitalizeFirstChar(description) : null;
+        this.description = description != null ? capitalizeFirstChar(description) : null;
     }
 
     public String getDisplayText() {
@@ -160,7 +163,7 @@ public class PageTitle implements Parcelable {
 
     /** Please keep the ID stable. */
     public String getIdentifier() {
-        return Utils.md5string(toIdentifierJSON().toString());
+        return md5string(toIdentifierJSON().toString());
     }
 
     /** Please keep the ID stable. */

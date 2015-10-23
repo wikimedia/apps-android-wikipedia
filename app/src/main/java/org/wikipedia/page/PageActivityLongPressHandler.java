@@ -10,7 +10,7 @@ import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.savedpages.SaveOtherPageCallback;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtils;
+import org.wikipedia.util.ShareUtil;
 
 public abstract class PageActivityLongPressHandler implements PageLongPressHandler.ContextMenuListener {
     @NonNull private final PageActivity activity;
@@ -37,7 +37,7 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
 
     @Override
     public void onShareLink(PageTitle title) {
-        ShareUtils.shareText(activity, title);
+        ShareUtil.shareText(activity, title);
     }
 
     @Override

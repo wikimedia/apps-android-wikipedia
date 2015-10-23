@@ -29,6 +29,7 @@ import java.util.ListIterator;
 import java.util.Locale;
 
 import static org.wikipedia.util.StringUtil.emptyIfNull;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class LangLinksActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;
@@ -98,7 +99,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                         .putExtra(PageActivity.EXTRA_PAGETITLE, langLink)
                         .putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
                 setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
-                Utils.hideSoftKeyboard(LangLinksActivity.this);
+                hideSoftKeyboard(LangLinksActivity.this);
                 finish();
             }
         });
@@ -138,7 +139,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
     @Override
     public void onBackPressed() {
-        Utils.hideSoftKeyboard(this);
+        hideSoftKeyboard(this);
         super.onBackPressed();
     }
 

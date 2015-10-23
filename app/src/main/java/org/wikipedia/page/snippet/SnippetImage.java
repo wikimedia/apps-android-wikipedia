@@ -21,7 +21,7 @@ import org.wikipedia.page.ImageLicense;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ApiUtil;
-import org.wikipedia.util.L10nUtils;
+import org.wikipedia.util.L10nUtil;
 
 import static android.text.Layout.Alignment.ALIGN_NORMAL;
 import static android.text.Layout.Alignment.ALIGN_OPPOSITE;
@@ -85,7 +85,7 @@ public final class SnippetImage {
         drawLicenseIcons(license, canvas, context);
         int top = drawDescription(canvas, description, HEIGHT - BOTTOM_PADDING - ICONS_HEIGHT);
         drawTitle(canvas, title, top);
-        if (L10nUtils.canLangUseImageForWikipediaWordmark(context)) {
+        if (L10nUtil.canLangUseImageForWikipediaWordmark(context)) {
             drawWordmarkFromStaticImage(canvas, context);
         } else {
             drawWordmarkFromText(canvas, context);
@@ -275,7 +275,7 @@ public final class SnippetImage {
         textPaint.setTextScaleX(scaleX);
 
         Spanned wikipedia = Html.fromHtml(context.getString(R.string.wp_stylized));
-        Layout.Alignment align = L10nUtils.isDeviceRTL() ? ALIGN_OPPOSITE : ALIGN_NORMAL;
+        Layout.Alignment align = L10nUtil.isDeviceRTL() ? ALIGN_OPPOSITE : ALIGN_NORMAL;
         StaticLayout wordmarkLayout = buildLayout(
                 new TextLayoutParams(wikipedia, textPaint, maxWidth, 1.0f, align));
         final int width = (int) wordmarkLayout.getLineWidth(0);
