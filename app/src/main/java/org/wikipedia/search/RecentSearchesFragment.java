@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     private View container;
     private ListView recentSearchesList;
     private RecentSearchesAdapter adapter;
+    private ImageView deleteButton;
 
     public RecentSearchesFragment() {
     }
@@ -35,6 +37,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         searchFragment = (SearchArticlesFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
         this.container = rootView.findViewById(R.id.recent_searches_container);
         recentSearchesList = (ListView) rootView.findViewById(R.id.recent_searches_list);
+        deleteButton = (ImageView) rootView.findViewById(R.id.recent_searches_delete_button);
         return rootView;
     }
 
@@ -94,6 +97,8 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             return;
         }
         adapter.swapCursor(cursorLoader);
+        boolean visible = recentSearchesList.getCount() > 0;
+        deleteButton.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
         getActivity().supportInvalidateOptionsMenu();
     }
 
