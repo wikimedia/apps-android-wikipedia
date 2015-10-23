@@ -312,7 +312,9 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
             return;
         }
-        menu.findItem(R.id.menu_clear_all_history).setEnabled(historyEntryList.getCount() > 0);
+        menu.findItem(R.id.menu_clear_all_history)
+            .setVisible(historyEntryList.getCount() > 0)
+            .setEnabled(historyEntryList.getCount() > 0);
     }
 
     @Override
