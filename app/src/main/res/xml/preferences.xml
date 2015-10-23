@@ -18,6 +18,8 @@
             android:title="@string/preference_title_show_link_previews"
             android:summary="@string/preference_summary_show_link_previews"
             />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_privacy_settings_heading">
         <org.wikipedia.settings.CheckBoxPreferenceMultiLine
             android:key="@string/preference_key_eventlogging_opt_in"
             android:defaultValue="true"
