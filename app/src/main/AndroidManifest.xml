@@ -29,7 +29,8 @@
     <uses-feature android:name="android.hardware.faketouch" android:required="true" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
+        tools:replace="android:allowBackup"
         android:supportsRtl="true"
         android:icon="@mipmap/launcher"
         android:label="@string/app_name"
