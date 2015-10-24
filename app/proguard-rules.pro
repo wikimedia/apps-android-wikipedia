@@ -88,7 +88,8 @@
 
 # This is undocumented but seems to work.
 -dontwarn uk.co.senab.photoview.**
-
+-keep class net.hockeyapp.** { <init>(...); *; }
+-keep enum net.hockeyapp.** { <init>(...); *; }
 # --- /HockeyApp ---
 
 # --- Mapbox ---
