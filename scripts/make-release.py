@@ -93,7 +93,6 @@ def copy_artifacts(flavor):
     sh.mkdir("-p", folder_path)
     version_name = get_version_name_from_apk(get_original_apk_file_name(flavor))
     copy_apk(flavor, version_name)
-    copy_proguard_mapping(flavor, version_name)
 
 
 def get_original_apk_file_name(flavor):
@@ -144,15 +143,6 @@ def copy_apk(flavor, version_name):
     output_file = '%s/wikipedia-%s.apk' % (folder_path, version_name)
     sh.cp(get_original_apk_file_name(flavor), output_file)
     print ' apk: %s' % output_file
-
-
-def copy_proguard_mapping(flavor, version_name):
-    folder_path = 'releases'
-    sh.mkdir("-p", folder_path)
-    output_file = '%s/wikipedia-%s.mapping.tar.gz' % (folder_path, version_name)
-    input_file = 'app/build/outputs/mapping/%s/release/mapping.txt' % flavor
-    sh.tar('czf', output_file, input_file)
-    print ' proguard mapping: %s' % output_file
 
 
 def find_output_apk_for(label, version_code):
