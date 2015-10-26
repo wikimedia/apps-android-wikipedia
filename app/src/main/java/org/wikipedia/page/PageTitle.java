@@ -117,7 +117,7 @@ public class PageTitle implements Parcelable {
     }
 
     public String getText() {
-        return text;
+        return text.replace(" ", "_");
     }
 
     public String getFragment() {
@@ -212,7 +212,7 @@ public class PageTitle implements Parcelable {
                     "%1$s://%2$s/wiki/%3$s%4$s",
                     WikipediaApp.getInstance().getNetworkProtocol(),
                     domain,
-                    URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8"),
+                    URLEncoder.encode(getPrefixedText(), "utf-8"),
                     (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
             );
         } catch (UnsupportedEncodingException e) {
@@ -235,7 +235,7 @@ public class PageTitle implements Parcelable {
                     "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
                     WikipediaApp.getInstance().getNetworkProtocol(),
                     getSite().getApiDomain(),
-                    URLEncoder.encode(getPrefixedText().replace(" ", "_"), "utf-8"),
+                    URLEncoder.encode(getPrefixedText(), "utf-8"),
                     action
             );
         } catch (UnsupportedEncodingException e) {
@@ -245,7 +245,7 @@ public class PageTitle implements Parcelable {
     }
 
     public String getPrefixedText() {
-        return namespace == null ? text : namespace + ":" + text;
+        return namespace == null ? getText() : namespace + ":" + getText();
     }
 
 

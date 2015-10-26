@@ -279,7 +279,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             TextView articleTitleTextView = (TextView) convertView.findViewById(R.id.language_subtitle);
 
             localizedLanguageNameTextView.setText(localizedLanguageName);
-            articleTitleTextView.setText(item.getText());
+            articleTitleTextView.setText(item.getDisplayText());
 
             return convertView;
         }

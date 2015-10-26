@@ -3,6 +3,7 @@ package org.wikipedia.history;
 import android.content.ContentValues;
 import android.database.Cursor;
 
+import android.database.sqlite.SQLiteDatabase;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.data.PersistenceHelper;
@@ -83,5 +84,22 @@ public class HistoryEntryPersistenceHelper extends PersistenceHelper<HistoryEntr
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()
         };
+    }
+
+    @Override
+    protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
+        Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
+        int idIndex = cursor.getColumnIndex("_id");
+        int titleIndex = cursor.getColumnIndex(COL_TITLE);
+        ContentValues values = new ContentValues();
+        while (cursor.moveToNext()) {
+            String title = cursor.getString(titleIndex);
+            if (title.contains(" ")) {
+                values.put(COL_TITLE, title.replace(" ", "_"));
+                String id = Long.toString(cursor.getLong(idIndex));
+                db.updateWithOnConflict(getTableName(), values, "_id = ?", new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
+            }
+        }
+        cursor.close();
     }
 }
