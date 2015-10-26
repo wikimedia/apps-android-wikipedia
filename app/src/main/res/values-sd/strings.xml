@@ -196,10 +196,14 @@
   <string name="button_continue_to_article">مضمون ڏانهن ورو</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن تي پيش نگاهہ وجھو</string>
   <string name="preference_summary_show_link_previews">ڳنڍڻن تي رڪڻ وقت صفحن تي تڪڙي پيش نگاهہ ظاهر ڪريو.</string>
+  <string name="crash_report_dialog_title">معاف ڪجو، پوئين ڀيري ايپ حادثاتاً خراب ٿي وئي</string>
   <string name="crash_report_dialog_dont_send_button">ڇڏيو</string>
   <string name="crash_report_dialog_always_send_button">هميشہ اماڻيو</string>
   <string name="crash_report_dialog_send_button">اماڻيو</string>
   <string name="crash_report_activity_title">ايپليڪيشن جي چُڪَ</string>
+  <string name="crash_report_relaunch_or_quit">اسان معذرت خواهہ آهيون، وڪيپيڊيا ايپ هڪ خرابي کي منهن ڏنو ۽ بند ٿي وئي.
+
+ڇا توهان ٻيهر شروع ڪرڻ پسند ڪندئو يا بس؟</string>
   <string name="crash_report_relaunch">شروع ڪريو</string>
   <string name="crash_report_quit">نڪرو</string>
 </resources>

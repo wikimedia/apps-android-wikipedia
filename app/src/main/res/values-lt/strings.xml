@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Atidaryti</string>
   <string name="menu_long_press_open_in_new_tab">Atidaryti naujame skirtuke</string>
   <string name="menu_long_press_copy_page">Kopijuoti nuorodos adresą</string>
+  <string name="menu_text_select_copy">Kopijuoti</string>
+  <string name="menu_text_select_share">Dalintis</string>
   <string name="nav_item_nearby">Šalia</string>
   <string name="nearby_empty_title">Nėra puslapių šalia!</string>
   <string name="nearby_empty_message" fuzzy="true">Kai persikeliate į naują vietą, pabandykite atnaujinti šį puslapį, kad sužinotumėte daugiau apie tai, kas yra aplink Jus.</string>
@@ -127,10 +129,12 @@
   <string name="nav_item_random">Atsitiktinis</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
+  <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
   <string name="history_search_list_hint">Paieškos istorija</string>
   <string name="page_protected_autoconfirmed">Šis puslapis buvo pusiau saugomas.</string>
   <string name="page_protected_sysop">Šis puslapis buvo visiškai apsaugotas.</string>
   <string name="page_protected_can_not_edit_title">Šis puslapis apsaugotas</string>
+  <string name="settings_item_preferences">Nustatymai</string>
   <string name="settings_activity_title" fuzzy="true">Nustatymai</string>
   <string name="about_description">Apie Vikipedijos programėlę</string>
   <string name="privacy_policy_description">Privatumo politika</string>
@@ -205,5 +209,14 @@
   <string name="format_error_server_message">Pranešimas: \"%s\"</string>
   <string name="format_error_server_code">Kodas: \"%s\"</string>
   <string name="address_copied">Adresas kopijuotas į mainų sritį.</string>
+  <string name="text_copied">Tekstas nukopijuotas į iškarpinę.</string>
   <string name="button_continue_to_article">Grįžti į straipsnį</string>
+  <string name="preference_title_show_link_previews">Rodyti nuorodos peržiūras</string>
+  <string name="crash_report_dialog_title">Atleiskite, programėlė praeitą kartą užlūžo</string>
+  <string name="crash_report_dialog_dont_send_button">Praleisti</string>
+  <string name="crash_report_dialog_always_send_button">Siųsti visada</string>
+  <string name="crash_report_dialog_send_button">Siųsti</string>
+  <string name="crash_report_activity_title">Aplikacijos klaida</string>
+  <string name="crash_report_relaunch">Pradėti iš naujo</string>
+  <string name="crash_report_quit">Išeiti</string>
 </resources>

@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Открыть</string>
   <string name="menu_long_press_open_in_new_tab">Открыть в новой вкладке</string>
   <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>
+  <string name="menu_text_select_copy">Копировать</string>
+  <string name="menu_text_select_share">Поделиться</string>
   <string name="nav_item_nearby">Поблизости</string>
   <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
   <string name="nearby_empty_message">Переместитесь в новое место, чтобы увидеть страницы о том, что есть вокруг вас.</string>
@@ -140,6 +142,8 @@
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
+  <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>
+  <string name="preference_summary_auto_upload_crash_reports">Разрешить отправлять автоматически отчёты об ошибках в HockeyApp / сторонний сервис-провайдер, чтобы мы могли просмотреть информацию об аварии? Это позволит быстрее и проще исправить ошибку.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
   <string name="history_search_list_hint">История поиска</string>
   <string name="history_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
@@ -265,5 +269,19 @@
   <string name="format_error_server_message">Сообщение: «%s»</string>
   <string name="format_error_server_code">Код: «%s»</string>
   <string name="address_copied">Адрес скопирован в буфер обмена.</string>
+  <string name="text_copied">Текст скопирован в буфер обмена.</string>
   <string name="button_continue_to_article">К статье</string>
+  <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>
+  <string name="preference_summary_show_link_previews">Показывать быстрый предпросмотр статей при нажатии на ссылки.</string>
+  <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
+  <string name="crash_report_dialog_text">Вы хотите отправить отчёт об ошибке в HockeyApp / сторонний сервис-провайдер, чтобы в Викимедиа могли просмотреть информацию об аварии и исправить ошибку, вызвавшую её?</string>
+  <string name="crash_report_dialog_dont_send_button">Пропустить</string>
+  <string name="crash_report_dialog_always_send_button">Всегда отправлять</string>
+  <string name="crash_report_dialog_send_button">Отправить</string>
+  <string name="crash_report_activity_title">Ошибка приложения</string>
+  <string name="crash_report_relaunch_or_quit">Мы к сожалению, в приложении Википедии произошла ошибка, в результате чего оно было закрыто.
+
+Вы хотите перезапустить его или выйти?</string>
+  <string name="crash_report_relaunch">Перезапустить</string>
+  <string name="crash_report_quit">Выйти</string>
 </resources>

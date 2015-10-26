@@ -271,6 +271,6 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="crash_report_dialog_dont_send_button">Ignorar</string>
   <string name="crash_report_dialog_always_send_button">Enviar sempre</string>
   <string name="crash_report_dialog_send_button">Enviar</string>
-  <string name="crash_report_activity_title">Error da aplicação</string>
+  <string name="crash_report_activity_title">Erro da aplicação</string>
   <string name="crash_report_quit">Sair</string>
 </resources>

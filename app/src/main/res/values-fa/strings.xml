@@ -7,7 +7,7 @@
   <string name="no">خیر</string>
   <string name="search_hint">جستجوی ویکی‌پدیا</string>
   <string name="nav_item_history">تاریخچه</string>
-  <string name="error_network_error" fuzzy="true">اتصال به شبکه ممکن نیست.</string>
+  <string name="error_network_error">امکان اتصال به اینترنت وجود ندارد.</string>
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="menu_clear_all_history">پاک کردن تاریخچه</string>
   <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
@@ -37,9 +37,11 @@
   <string name="menu_long_press_open_page">باز کردن</string>
   <string name="menu_long_press_open_in_new_tab">باز کردن در برگهٔ جدید</string>
   <string name="menu_long_press_copy_page">کپی نشانی پیوند</string>
+  <string name="menu_text_select_copy">کپى</string>
+  <string name="menu_text_select_share">به‌اشتراک‌گذاشتن</string>
   <string name="nav_item_nearby">در نزدیکی</string>
   <string name="nearby_empty_title">صفحه‌ای در نزدیکی یافت نشد!</string>
-  <string name="nearby_empty_message" fuzzy="true">زمانی که به مکان جدیدی می‌روید این صفحه را از نو تازه کنید تا دربارهٔ چیزهایی که اطرافتان هست اطلاع کسب کنید.</string>
+  <string name="nearby_empty_message">به موقعیت جدیدی بروید تا تصویرهای اطرافتان را ببنید.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -75,7 +77,7 @@
   <string name="title_captcha">کپچا را وارد کنید</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
   <string name="edit_saved_page_refresh">با توجه به تغییرهای احتمالی، برای ویرایش این صفحه باید آن را دوباره بارگذاری نمایید. آیا مایل به بارگذاری مجدد هستید؟</string>
-  <string name="nav_item_login" fuzzy="true">ورود به سامانه</string>
+  <string name="nav_item_login">ورود به ویکی‌پدیا</string>
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">گذرواژه</string>
   <string name="login_password_show_check">نمایش گذرواژه</string>
@@ -140,6 +142,8 @@
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
+  <string name="preference_title_auto_upload_crash_reports">ارسال گزارش خطا در نرم‌افزار</string>
+  <string name="preference_summary_auto_upload_crash_reports">اجازه‌دادن به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم، برای رفع کردن سریع‌تر آنها.</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>
   <string name="history_search_list_hint">تاریخچهٔ جستجو</string>
   <string name="history_search_empty_message">هیچ صفحه‌ای برای درخواست شما یافت نشد</string>
@@ -149,7 +153,8 @@
   <string name="page_protected_other">این صفحه محافظت شده است، در سطح :%s</string>
   <string name="page_protected_can_not_edit">شما اجازه ویرایش این صفحه را ندارید.</string>
   <string name="page_protected_can_not_edit_title">این صفحه محافظت شده‌است</string>
-  <string name="settings_activity_title" fuzzy="true">تنظیمات</string>
+  <string name="settings_item_preferences">تنظیمات</string>
+  <string name="settings_activity_title">تنظیمات</string>
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
@@ -228,7 +233,7 @@
   <string name="alpha_update_notification_text">تپ برای دانلود</string>
   <string name="dialog_close_description">بستن</string>
   <string name="preference_title_show_images">نمایش تصویرها</string>
-  <string name="preference_summary_show_images" fuzzy="true">فعال کردن یا غیرفعال کردن بارگیری تصویرها در صفحات. اگر سرعت اینترنت شما پائین است یا محدودیت حجمی دانلود داده دارید، تنظیمات را غیرفعال کنید.</string>
+  <string name="preference_summary_show_images">فعال کردن یا غیرفعال کردن بارگیری تصویرها در صفحات. اگر سرعت اینترنت شما پائین است یا محدودیت حجمی دانلود داده دارید، تنظیمات را غیرفعال کنید.</string>
   <string name="read_more_section">بیشتر بخوانید</string>
   <string name="menu_gallery_visit_page">رفتن به صفحه پرونده</string>
   <string name="gallery_error_draw_failed">امکان ترسیم تصویر نیست.</string>
@@ -238,6 +243,8 @@
   <string name="gallery_menu_save">ذخیره در ابزار</string>
   <string name="gallery_save_error_mediastore">خطا در درون‌ریزی پرونده در بخش جمع‌آوری رسانه</string>
   <string name="gallery_save_success">صفحه با موفقیت ذخیره‌شده‌است</string>
+  <string name="gallery_image_saved_notification_title">تصویر ذخیره شده</string>
+  <string name="gallery_image_saved_notification_text">برای دیدن لمس کنید.</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="err_cannot_save_file">امکان ذخیره پرونده وجود ندارد</string>
   <string name="snippet_share_intro">\"%1$s\" در @ویکی‌پدیا: %2$s</string>
@@ -261,5 +268,17 @@
   <string name="format_error_server_message">پیام: \"%s\"</string>
   <string name="format_error_server_code">کد: \"%s\"</string>
   <string name="address_copied">نشانی در حافظه موقت ذخیره شد</string>
+  <string name="text_copied">متن در حافظهٔ موقت ذخیره شد.</string>
   <string name="button_continue_to_article">ادامه برای مقاله</string>
+  <string name="preference_title_show_link_previews">نمایش پیوند پی‌نمایش‌ها</string>
+  <string name="preference_summary_show_link_previews">نمایش سریع مقاله زمانی که بر روی لینک‌ها تپ می‌کنید.</string>
+  <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
+  <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
+  <string name="crash_report_dialog_dont_send_button">رها کردن</string>
+  <string name="crash_report_dialog_always_send_button">همیشه ارسال کن</string>
+  <string name="crash_report_dialog_send_button">ارسال</string>
+  <string name="crash_report_activity_title">خطای برنامه</string>
+  <string name="crash_report_relaunch_or_quit">با عرض پوزش نرم‌افزار با خطا خارج شد آیا قصد استفادهٔ مجدد دارید؟</string>
+  <string name="crash_report_relaunch">شروع دوباره</string>
+  <string name="crash_report_quit">خروج</string>
 </resources>

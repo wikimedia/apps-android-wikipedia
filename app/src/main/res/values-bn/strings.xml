@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
   <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
   <string name="nav_item_today">আজ</string>
-  <string name="dialog_title_clear_history">ব্রাউজিং ইতিহাস অপসারণ?</string>
+  <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন?</string>
   <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
   <string name="menu_update_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
   <string name="menu_update_selected_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
@@ -37,9 +37,11 @@
   <string name="menu_long_press_open_page">খুলুন</string>
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
+  <string name="menu_text_select_copy">অনুলিপি</string>
+  <string name="menu_text_select_share">বণ্টন</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>
-  <string name="nearby_empty_message" fuzzy="true">যখন আপনি একটি নতুন অবস্থানে যাবেন, আপনার কাছাকাছি কি আছে জানতে এই পাতাটি পুনঃসতেজ করতে চেষ্টা করুন।</string>
+  <string name="nearby_empty_message">আপনার চারপাশের পাতা দেখার জন্য একটি নতুন অবস্থানে যান।</string>
   <string name="nearby_distance_in_meters">%d মি</string>
   <string name="nearby_distance_in_kilometers">%.2f কিমি</string>
   <string name="nearby_distance_in_feet">%d ফুট</string>
@@ -70,11 +72,11 @@
   <string name="dialog_message_leaving_edit_stay">থাকুন</string>
   <string name="menu_show_toc">সূচিপত্র</string>
   <string name="search_no_results_found">কোনো ফলাফল পাওয়া যায়নি</string>
-  <string name="edit_section_captcha_message">সয়ংক্রিয় স্প্যাম থেকে সুরক্ষার জন্য, অনুগ্রহ করে নিচে দেখানো শব্দটি লিখুন</string>
+  <string name="edit_section_captcha_message">স্বয়ংক্রিয় স্প্যামের বিরুদ্ধে সুরক্ষা করতে সাহায্য করুতে, অনুগ্রহ করে নিচে দেখানো শব্দটি লিখুন</string>
   <string name="edit_section_captcha_hint">শব্দটি পুনরায় লিখুন</string>
   <string name="title_captcha">ক্যাপচা লিখুন</string>
-  <string name="edit_section_captcha_reload">CAPTCHA-তে ক্লিক করে রিলোড করুন</string>
-  <string name="edit_saved_page_refresh">এই পাতাটি হালনাগাদ নয়, এবং সম্পাদনা করার জন্য পাতাটি রিফ্রেশ করা প্রয়োজন। আপনি কি এখনই রিফ্রেশ করতে চান?</string>
+  <string name="edit_section_captcha_reload">পুনঃলোড করতে ক্যাপচা টোকা দিন</string>
+  <string name="edit_saved_page_refresh">এই পাতাটি হালনাগাদ নয়, এবং সম্পাদনা করার জন্য পাতাটি পুনঃসতেজ করা প্রয়োজন। আপনি কি এখনই পুনঃসতেজ করতে চান?</string>
   <string name="nav_item_login">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">পাসওয়ার্ড</string>
@@ -127,9 +129,9 @@
   <string name="zero_webpage_title">উইকিপিডিয়া জিরো</string>
   <string name="zero_wikipedia_zero_heading">উইকিপিডিয়া জিরো</string>
   <string name="zero_interstitial_title">উইকিপিডিয়া জিরো প্রস্থান হচ্ছে</string>
-  <string name="zero_interstitial_leave_app">সাধারণ ডাটা চার্জ প্রযোজ্য হবে। অন্য ওয়েবসাইটি ওপেন করা হবে?</string>
+  <string name="zero_interstitial_leave_app">ডেটা চার্জ প্রযোজ্য হতে পারে। বাহ্যিক সাইটে যাওয়া অব্যাহত রাখবেন?</string>
   <string name="zero_interstitial_continue">অগ্রসর হোন</string>
-  <string name="zero_interstitial_cancel">বাতিল</string>
+  <string name="zero_interstitial_cancel">এখানে থাকুন</string>
   <string name="zero_learn_more">এই উইকিপিডিয়া অ্যাপের জন্য ডাটা চার্জ প্রযোজ্য নয়।</string>
   <string name="zero_learn_more_learn_more">আরও জানুন</string>
   <string name="zero_learn_more_dismiss">খারিজ</string>
@@ -144,24 +146,25 @@
   <string name="history_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
   <string name="error_can_not_process_link">কোনো সংযোগ প্রদর্শিত হয়নি।</string>
   <string name="page_protected_autoconfirmed">এই পাতাটি অর্ধ সুরক্ষিত।</string>
-  <string name="page_protected_sysop">এই পাতটি পুরোপুরি সুরক্ষিত।</string>
+  <string name="page_protected_sysop">এই পাতটি সম্পূর্ণ সুরক্ষিত।</string>
   <string name="page_protected_other">এই পাতাটি নিম্নের মাত্রা অনুযায়ী সুরক্ষিত: %s</string>
   <string name="page_protected_can_not_edit">আপনার এই পাতায় সম্পাদনা করার অধিকার নেই।</string>
   <string name="page_protected_can_not_edit_title">এই পাতাটি সুরক্ষিত</string>
-  <string name="settings_activity_title" fuzzy="true">সেটিং</string>
+  <string name="settings_item_preferences">সেটিংস</string>
+  <string name="settings_activity_title">সেটিংস</string>
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/bn</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">ব্যবহৃত লাইব্রেরীসমূহ</string>
-  <string name="about_contributors_heading">অবদানকারনগণ</string>
+  <string name="about_contributors_heading">অবদানকারীগণ</string>
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
   <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
-  <string name="user_blocked_from_editing_title">বাধা দেওয়া হয়েছে</string>
+  <string name="user_blocked_from_editing_title">অবরুদ্ধ</string>
   <string name="user_logged_in_blocked_from_editing">আপনার ব্যবহারকারী অ্যাকাউন্টটি এই উইকিতে সম্পাদনা করার জন্য বাধা দেয়া হয়েছে।</string>
   <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাকে সম্পাদনা করা জন্য বাধা দেয়া হয়েছে।</string>
   <string name="edit_how_page_improved">কীভাবে আপনি পাতাটি উন্নত করেছেন?</string>
@@ -178,7 +181,7 @@
   <string name="error_network_error_try_again">নেটওয়ার্ক ত্রুটি, পুনরায় চেষ্টা করুন।</string>
   <string name="saved_pages_update_all_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="saved_pages_update_all_error_message">ত্রুটি, পাতা হালনাগাদ করা যায়নি</string>
-  <string name="saved_pages_progress_title">সংরক্ষিত পাতাগুলো রিফ্রেশ করা হচ্ছে</string>
+  <string name="saved_pages_progress_title">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে</string>
   <string name="menu_page_saved">পাতা সংরক্ষিত</string>
   <string name="menu_refresh_saved_page">পাতা পুনঃসতেজ করুন</string>
   <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি সংরক্ষণ করতে চান?</string>
@@ -192,11 +195,11 @@
   <string name="color_theme_light">উজ্জ্বল</string>
   <string name="color_theme_dark">কালো</string>
   <string name="page_similar_titles">অনুরূপ পাতাগুলি</string>
-  <string name="search_did_you_mean">আপনার মানে কি \"%s\"?</string>
-  <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান</string>
+  <string name="search_did_you_mean">আপনি কি \"%s\" বুঝাচ্ছেন?</string>
+  <string name="search_recent_header">সাম্প্রতিক অনুসন্ধান:</string>
   <string name="button_clear_all_recent_searches">সাম্প্রতিক অনুসন্ধান গুলি মুছে ফেলুন</string>
   <string name="clear_recent_searches_confirm">আপনি কি নিশ্চিত যে আপনি আপনার অনুসান্ধান ইতিহাস মুছে ফেলতে ?</string>
-  <string name="error_browser_not_found">ওয়েব পেজ টি খোলা যায়নি ( কোনও ব্রাউজার অ্যাপ্লিকেশান পাওয়া যায়নি )।</string>
+  <string name="error_browser_not_found">ওয়েবপৃষ্ঠাটি খোলা যায়নি (কোন ব্রাউজার অ্যাপ্লিকেশন পাওয়া যায়নি)।</string>
   <string name="table_infobox">দ্রুত তথ্য</string>
   <string name="table_other">আরও তথ্য</string>
   <string name="table_close">বন্ধ</string>
@@ -209,14 +212,16 @@
   <string name="preference_title_show_images">ছবি প্রদর্শন</string>
   <string name="preference_summary_show_images">পাতায় ছবি লোড চালু বা বন্ধ করুন। যদি আপনার ইন্টারনেট সংযোগ ধীর হয়, বা যদি আপনার ডেটা প্ল্যান সীমিত হয় তাহলে এই সেটিংস থেকে টিক চিহ্ন তুলে নিন।</string>
   <string name="read_more_section">আরও জানুন</string>
-  <string name="menu_gallery_visit_page">ফাইল এর পৃষ্ঠাতে যান</string>
-  <string name="gallery_error_draw_failed">ছবি টে আঁকা সম্ভব হইতাছে না।</string>
+  <string name="menu_gallery_visit_page">ফাইলের পৃষ্ঠাতে যান</string>
+  <string name="gallery_error_draw_failed">ছবিটি আঁকা যায়নি।</string>
   <string name="license_title">%s গ্রন্থাগারের জন্য অনুমতি পাঠ</string>
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
-  <string name="gallery_menu_save">সংরক্ষন করুন</string>
+  <string name="gallery_menu_save">ডিভাইসে সংরক্ষণ করুন</string>
   <string name="gallery_save_error_mediastore">মিডিয়া সংগ্রহে চিত্র আমদানি করতে ব্যর্থ</string>
   <string name="gallery_save_success">ছবিটি সফলভাবে সংরক্ষণ করা হয়েছে।</string>
+  <string name="gallery_image_saved_notification_title">ছবিটি সংরক্ষণ করা হয়েছে।</string>
+  <string name="gallery_image_saved_notification_text">দেখতে টোকা দিন।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
   <string name="snippet_share_intro">\@Wikipedia তে \"%1$s\": %2$s</string>
@@ -234,9 +239,17 @@
   <string name="page_view_in_browser">ব্রাউজারে পাতা দেখুন</string>
   <string name="tool_tip_toc_button">যেকোন সময় এই বোতাম টোকা দিয়ে, বা পর্দার ডান প্রান্ত থেকে টেনে আনার দ্বারা টেবিলের বিষয়বস্তু দেখুন।</string>
   <string name="error_server_response">সার্ভার অনুরোধটি সম্পূর্ণ করতে পারেনি।</string>
+  <string name="error_response_malformed">সার্ভার থেকে প্রতিক্রিয়া সঠিকভাবে বিন্যস্ত হয় নি।</string>
   <string name="error_unknown">একটি অজানা ত্রুটি দেখা দিয়েছে।</string>
   <string name="format_error_server_message">বার্তা: \"%s\"</string>
   <string name="format_error_server_code">কোড: \"%s\"</string>
   <string name="address_copied">ঠিকানা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
+  <string name="text_copied">লেখা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="button_continue_to_article">নিবন্ধে চলুন</string>
+  <string name="crash_report_dialog_title">দুঃখিত, অ্যাপ্লিকেশন শেষ বার বিধ্বস্ত হয়েছিল</string>
+  <string name="crash_report_dialog_dont_send_button">উপেক্ষা করো</string>
+  <string name="crash_report_dialog_always_send_button">সর্বদা পাঠান</string>
+  <string name="crash_report_dialog_send_button">পাঠান</string>
+  <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
+  <string name="crash_report_quit">প্রস্থান</string>
 </resources>

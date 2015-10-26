@@ -7,7 +7,7 @@
   <string name="no">Tidak</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="error_network_error">Tidak dapat menghubungkan ke Internet.</string>
+  <string name="error_network_error">Tidak dapat terhubung ke Internet.</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
   <string name="menu_clear_all_saved_pages">Hapus semua halaman tersimpan</string>
@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka di tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamat pranala</string>
+  <string name="menu_text_select_copy">Salin</string>
+  <string name="menu_text_select_share">Bagikan</string>
   <string name="nav_item_nearby">Sekitar</string>
   <string name="nearby_empty_title">Tidak ada halaman terdekat di sini!</string>
   <string name="nearby_empty_message">Pindahkan ke lokasi yang baru untuk melihat artikel di sekitar Anda.</string>
@@ -140,6 +142,7 @@
   <string name="create_account_account_created_toast">Akun dibuat!</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
+  <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
   <string name="history_search_list_hint">Cari riwayat</string>
   <string name="history_search_empty_message">Tidak ada halaman yang cocok dengan \'%s\'</string>
@@ -149,7 +152,8 @@
   <string name="page_protected_other">Halaman ini telah dilindungi ke tingkat sebagai berikut: %s</string>
   <string name="page_protected_can_not_edit">Anda tidak memiliki hak untuk menyunting halaman ini</string>
   <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
-  <string name="settings_activity_title" fuzzy="true">Pengaturan</string>
+  <string name="settings_item_preferences">Pengaturan</string>
+  <string name="settings_activity_title">Pengaturan</string>
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
@@ -238,6 +242,8 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
   <string name="gallery_save_error_mediastore">Gagal mengimpor berkas ke koleksi media</string>
   <string name="gallery_save_success">Penyimpanan gambar berhasil.</string>
+  <string name="gallery_image_saved_notification_title">Berkas tersimpan</string>
+  <string name="gallery_image_saved_notification_text">Sentuh untuk melihat.</string>
   <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>
   <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
   <string name="snippet_share_intro">\"%1$s\" di @Wikipedia: %2$s</string>
@@ -261,5 +267,18 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="format_error_server_message">Pesan: \"%s\"</string>
   <string name="format_error_server_code">Kode: \"%s\"</string>
   <string name="address_copied">Alamat disalin ke papan klip.</string>
+  <string name="text_copied">Teks disalin ke papan klip.</string>
   <string name="button_continue_to_article">Lanjutkan ke artikel</string>
+  <string name="preference_title_show_link_previews">Tampilkan pratinjau pranala</string>
+  <string name="preference_summary_show_link_previews">Tampilkan pratinjau singkat artikel setelah menekan pranala.</string>
+  <string name="crash_report_dialog_title">Maaf, app berhenti dengan sendirinya</string>
+  <string name="crash_report_dialog_dont_send_button">Lewati</string>
+  <string name="crash_report_dialog_always_send_button">Selalu kirim</string>
+  <string name="crash_report_dialog_send_button">Kirim</string>
+  <string name="crash_report_activity_title">Kesalahan aplikasi</string>
+  <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.
+
+Apakah Anda ingin memulai kembali atau keluar?</string>
+  <string name="crash_report_relaunch">Memulai kembali</string>
+  <string name="crash_report_quit">Keluar</string>
 </resources>

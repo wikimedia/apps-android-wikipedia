@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">उघडा</string>
   <string name="menu_long_press_open_in_new_tab">नविन कळीत उघडा</string>
   <string name="menu_long_press_copy_page">दुव्याचा पत्ता उतरवा.</string>
+  <string name="menu_text_select_copy">नक्कल करा</string>
+  <string name="menu_text_select_share">सहभाग करा</string>
   <string name="nav_item_nearby">जवळपास</string>
   <string name="nearby_empty_title">जवळपासची पाने नाहीत!</string>
   <string name="nearby_empty_message">आपल्या सभोवताल असलेली पाने बघण्यास नविन ठिकाणी जा.</string>
@@ -134,7 +136,9 @@
   <string name="send_feedback">प्रतिक्रिया पाठवा</string>
   <string name="nav_item_random">अविशिष्ट</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>
+  <string name="preference_title_eventlogging_opt_in">वापराचा अहवाल पाठवा</string>
   <string name="preference_summary_eventlogging_opt_in">विकिपीडियास आपण हे अॲप कसे वापरता याबद्दल माहिती घेण्यास परवानगी द्या जेणेकरुन ते अॲप अधिक चांगले करता येईल.</string>
+  <string name="preference_title_auto_upload_crash_reports">नेस्तनाबुती(क्रॅश) अहवाल पाठवा</string>
   <string name="history_search_list_hint">शोध इतिहास</string>
   <string name="history_search_empty_message">आपल्या पृच्छेशी अनुरुप कोणतेच पान सापडत नाही.</string>
   <string name="error_can_not_process_link">ही दुवा दाखवु शकत नाही</string>
@@ -206,7 +210,12 @@
   <string name="gallery_image_saved_notification_text">दिसण्यासाठी स्पर्श करा.</string>
   <string name="gallery_error_video_failed">व्हिडिओ चालवता आला नाही.</string>
   <string name="err_cannot_save_file">संचिका जतन करता येत नाही.</string>
+  <string name="expand_refs">विस्तार करण्यास टिचका</string>
+  <string name="share_snippet_button">वित्र म्हणुन सहभाग करा</string>
+  <string name="share_normal_button">मजकूर म्हणून सहभाग करा</string>
+  <string name="snippet_share_preview_image_desc">चित्र झलक दाखवा</string>
   <string name="captcha_image">कॅप्चा चित्र</string>
+  <string name="gallery_uploader_unknown">अपभारक माहित नाही</string>
   <string name="menu_new_tab">नविन कळ</string>
   <string name="button_close_tab">कळ बंद करा</string>
   <string name="tool_tip_select_text">मजकूरात कोठेही, त्याची प्रत करण्यास किंवा त्यास कोणास पाठविण्यासाठी झोतात आणण्यास, दाबून धरुन ठेवा.</string>
@@ -215,5 +224,17 @@
   <string name="error_unknown">एक अज्ञात चूक उद्भवली.</string>
   <string name="format_error_server_message">संदेश: \"%s\"</string>
   <string name="format_error_server_code">संकेत: \"%s\"</string>
+  <string name="address_copied">पत्ता टांचणफळ्यात(क्लिपबोर्ड) नकलविला.</string>
+  <string name="text_copied">मजकूर टांचणफळ्यात(क्लिपबोर्ड) नकलविला.</string>
   <string name="button_continue_to_article">लेखाकडे परत</string>
+  <string name="preference_title_show_link_previews">दुव्याची झलक दाखवा</string>
+  <string name="crash_report_dialog_dont_send_button">पुढे जा</string>
+  <string name="crash_report_dialog_always_send_button">नेहमी पाठवा</string>
+  <string name="crash_report_dialog_send_button">पाठवा</string>
+  <string name="crash_report_activity_title">अनुप्रयोग त्रूटी</string>
+  <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॲपमध्ये त्रूटी उद्भवली आहे म्हणून ते रद्दबादल केल्या गेले.
+
+आपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
+  <string name="crash_report_relaunch">पुन्हा सुरु करा</string>
+  <string name="crash_report_quit">रद्दबादल करा</string>
 </resources>

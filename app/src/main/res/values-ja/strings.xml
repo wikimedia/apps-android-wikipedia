@@ -142,6 +142,7 @@
   <string name="create_account_account_created_toast">アカウントを作成しました</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
+  <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索履歴</string>
   <string name="history_search_empty_message">キーワードに一致するページが見つかりません。</string>
@@ -152,7 +153,7 @@
   <string name="page_protected_can_not_edit">このページを編集する権限がありません</string>
   <string name="page_protected_can_not_edit_title">このページは保護されています</string>
   <string name="settings_item_preferences">設定</string>
-  <string name="settings_activity_title" fuzzy="true">設定</string>
+  <string name="settings_activity_title">設定</string>
   <string name="about_description">ウィキペディアアプリについて</string>
   <string name="privacy_policy_description">プライバシー・ポリシー</string>
   <string name="terms_of_use_description">利用規約</string>
@@ -268,7 +269,12 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="format_error_server_code">コード: \"%s\"</string>
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
   <string name="button_continue_to_article">続きを表示する</string>
+  <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
+  <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
   <string name="crash_report_dialog_dont_send_button">スキップ</string>
+  <string name="crash_report_dialog_always_send_button">常に送信</string>
+  <string name="crash_report_dialog_send_button">送信</string>
   <string name="crash_report_activity_title">アプリケーション・エラー</string>
+  <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
 </resources>

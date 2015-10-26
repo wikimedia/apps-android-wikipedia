@@ -19,17 +19,23 @@
   <string name="menu_update_selected_saved_pages">Rûpelên tomarkirî rojane bike</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Bila hemû rûpelên tomarkirî bên rojanekirin?</string>
   <string name="share_via">Bi awayê $ parve bike</string>
+  <string name="dialog_title_clear_saved_pages">Bila hemû rûpelên tomarkirî bên jêbirin?</string>
   <string name="snackbar_saving_page">Rûpel tê tomarkirin...</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Rûpel bi awayekî serkeftî hate tomarkirin</string>
+  <string name="snackbar_saved_page_format">\"%s\" ji bo xwendina offline hatiye tomarkirin</string>
   <string name="snackbar_saved_page_missing_images">Hemû wêne nikaribûn bên tomarkirin</string>
   <string name="snackbar_refresh_saved_page">Rûpelên tomarkirî tên nûkirin...</string>
   <string name="delete_selected_saved_pages">Jê bibe</string>
   <string name="snackbar_saved_page_deleted">Rûpela(ên) hate(in) jêbirin</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Lêgerîn</string>
+  <string name="saved_pages_search_list_hint">Li rûpelên tomarkirî bigere</string>
+  <string name="menu_page_show_tabs">Hilpêkînan nîşan bide</string>
   <string name="menu_page_other_languages">Di zimanên din de bixwîne</string>
   <string name="menu_page_save">Rûpelê tomar bike</string>
-  <string name="menu_page_share" fuzzy="true">Parve bike</string>
-  <string name="menu_long_press_open_page" fuzzy="true">Girêdanê veke</string>
+  <string name="menu_page_share">Lînkê parve bike</string>
+  <string name="menu_page_find_in_page">Di nav rûpelê de bibîne</string>
+  <string name="menu_page_font_and_theme">Font û tema</string>
+  <string name="menu_long_press_open_page">Veke</string>
+  <string name="menu_long_press_open_in_new_tab">Di hilpêkînek nû de veke</string>
+  <string name="menu_long_press_copy_page">Adrêsa lînkê kopî bike</string>
   <string name="menu_text_select_copy">Kopî bike</string>
   <string name="menu_text_select_share">Parve bike</string>
   <string name="nearby_distance_in_meters">%d metre</string>
@@ -54,13 +60,13 @@
   <string name="menu_show_toc">Tabloya naverokê</string>
   <string name="search_no_results_found">Tu encam nehatin dîtin</string>
   <string name="title_captcha">CAPTCHAyê binivîse</string>
-  <string name="nav_item_login" fuzzy="true">Têkeve</string>
+  <string name="nav_item_login">Têkeve Wîkîpediyayê</string>
   <string name="login_username_hint">Navê bikarhêner</string>
   <string name="login_password_hint">Şîfre</string>
   <string name="menu_login">Têkeve</string>
   <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
   <string name="login_error_wrong_username">Navê bikarhêner ne rast e</string>
-  <string name="login_success_toast" fuzzy="true">Têketin serkevtî bû!</string>
+  <string name="login_success_toast">Têketin serkevtî bû!</string>
   <string name="login_error_blocked">Ev bikarhêner hatiye astengkirin</string>
   <string name="login_error_unknown">Têketin biser neket :(</string>
   <string name="preference_title_logout">Derkeve</string>
@@ -69,9 +75,14 @@
   <string name="delete_selected_history">Jê bibe</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ÎKÎPEDI&lt;big&gt;YA&lt;/big&gt;</string>
   <string name="create_account_username_hint">Navê bikarhêner</string>
+  <string name="login_create_account_link">Hesabek te tune ye? Tevlî Wîkîpediyayê bibe.</string>
+  <string name="create_account_login_link">Hesabê te heye? Têkeve</string>
   <string name="create_account_activity_title">Hesabekî çêke</string>
+  <string name="dialog_create_account_checking_progress">Tê rastandin</string>
+  <string name="create_account_email_hint">E-name (heke bixwazî)</string>
   <string name="create_account_password_repeat_hint">Şîfreyê dîsa binivîse</string>
   <string name="create_account_passwords_mismatch_error">Şîfre li hev nayên</string>
+  <string name="create_account_email_error">Navnîşana enameyê ya derbasdar</string>
   <string name="create_account_username_exists_error">Navê bikarhêner niha tê bikaranîn</string>
   <string name="create_account_open_proxy_error">Navnîşana te bo çêkirina hesaban hatiye astengkirin.</string>
   <string name="create_account_blocked_anon_error">Tu nikarî hesabekî çêkî, ji ber ku navnîşana te ya IP hatiye astengkirin.</string>
@@ -87,7 +98,7 @@
   <string name="zero_learn_more_learn_more">Zêdetir bixwîne</string>
   <string name="nav_item_random">Ketober</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
-  <string name="history_search_list_hint" fuzzy="true">Lêgerîn</string>
+  <string name="history_search_list_hint">Dîroka lêgerînê</string>
   <string name="page_protected_can_not_edit">Mafê te bo guherandina vê rûpelê tune ye</string>
   <string name="page_protected_can_not_edit_title">Ev rûpel hatiye parastin</string>
   <string name="about_description">Di derbarê sepana Wîkîpediyayê de</string>
@@ -95,6 +106,7 @@
   <string name="terms_of_use_description">Mercên bikaranînê</string>
   <string name="about_translators_heading">wergêr</string>
   <string name="about_activity_title">Derbarê</string>
+  <string name="edit_next">Pêşve</string>
   <string name="edit_done">Tomar bike</string>
   <string name="edit_preview">Pêşdîtin</string>
   <string name="edit_summary_tag_links">Girêdan lê hatin zêdekirin</string>
@@ -108,6 +120,7 @@
   <string name="color_theme_dark">Tarî</string>
   <string name="search_did_you_mean">Mebesta te \"%s\" bû?</string>
   <string name="search_recent_header">Lêgerînên dawî:</string>
+  <string name="button_clear_all_recent_searches">Lêgerînên dawî paqij bike</string>
   <string name="table_other">Zêdetir agahî</string>
   <string name="table_close">Bigre</string>
   <string name="dialog_close_description">Bigre</string>
