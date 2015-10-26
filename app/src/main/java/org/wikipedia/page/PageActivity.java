@@ -17,6 +17,7 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.linkpreview.LinkPreviewDialogB;
+import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
@@ -111,7 +112,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private TextView searchHintText;
     private ProgressBar progressBar;
     private View toolbarContainer;
-    private ActionMode currentActionMode;
+    private CompatActionMode currentActionMode;
     private ActionBarDrawerToggle mDrawerToggle;
     private SearchBarHideHandler searchBarHideHandler;
     private boolean pausedStateOfZero;
@@ -277,6 +278,14 @@ public class PageActivity extends ThemedActionBarActivity {
         new RecurringTasksExecutor(app).run();
     }
 
+    private void finishActionMode() {
+        currentActionMode.finish();
+    }
+
+    private void nullifyActionMode() {
+        currentActionMode = null;
+    }
+
     private class MainDrawerToggle extends ActionBarDrawerToggle {
         private boolean oncePerSlideLock = false;
 
@@ -308,7 +317,7 @@ public class PageActivity extends ThemedActionBarActivity {
             }
             // also make sure we're not inside an action mode
             if (isCabOpen()) {
-                currentActionMode.finish();
+                finishActionMode();
             }
             updateNavDrawerSelection(getTopFragment());
             navDrawerHelper.getFunnel().logOpen();
@@ -386,6 +395,11 @@ public class PageActivity extends ThemedActionBarActivity {
 
     public void setNavMenuItemRandomEnabled(boolean enabled) {
         navMenu.findItem(R.id.nav_item_random).setEnabled(enabled);
+    }
+
+    /** @return True if the contextual action bar is open. */
+    public boolean isCabOpen() {
+        return currentActionMode != null;
     }
 
     @Override
@@ -696,7 +710,7 @@ public class PageActivity extends ThemedActionBarActivity {
             return;
         }
         if (isCabOpen()) {
-            currentActionMode.finish();
+            finishActionMode();
             return;
         }
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -890,34 +904,45 @@ public class PageActivity extends ThemedActionBarActivity {
      */
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
-        if (!isCabOpen() && !isAppInitiatedActionMode(mode) && getCurPageFragment() != null) {
-            // Initiated by the system, likely in response to highlighting text in the WebView.
-            replaceTextSelectMenu(mode);
-            getCurPageFragment().onActionModeShown(mode);
+        if (!isCabOpen()) {
+            conditionallyInjectCustomCabMenu(mode);
         }
-
-        currentActionMode = mode;
-        searchBarHideHandler.setForceNoFade(true);
-
+        freezeToolbar();
         super.onSupportActionModeStarted(mode);
     }
 
     @Override
     public void onSupportActionModeFinished(ActionMode mode) {
-        currentActionMode = null;
-        searchBarHideHandler.setForceNoFade(false);
         super.onSupportActionModeFinished(mode);
+        nullifyActionMode();
+        searchBarHideHandler.setForceNoFade(false);
     }
 
-    private boolean isAppInitiatedActionMode(ActionMode mode) {
-        // ActionMode in non-WebView components (History, Saved Pages, or Find In Page) must call
-        // setTag().
-        return mode.getTag() != null;
+    @Override
+    public void onActionModeStarted(android.view.ActionMode mode) {
+        if (!isCabOpen()) {
+            conditionallyInjectCustomCabMenu(mode);
+        }
+        freezeToolbar();
+        super.onActionModeStarted(mode);
     }
 
-    /** @return True if the contextual action bar is open. */
-    private boolean isCabOpen() {
-        return currentActionMode != null;
+    @Override
+    public void onActionModeFinished(android.view.ActionMode mode) {
+        super.onActionModeFinished(mode);
+        nullifyActionMode();
+        searchBarHideHandler.setForceNoFade(false);
+    }
+
+    private <T> void conditionallyInjectCustomCabMenu(T mode) {
+        currentActionMode = new CompatActionMode(mode);
+        if (currentActionMode.shouldInjectCustomMenu(PageActivity.this)) {
+            currentActionMode.injectCustomMenu(PageActivity.this);
+        }
+    }
+
+    private void freezeToolbar() {
+        getSearchBarHideHandler().setForceNoFade(true);
     }
 
     private void registerBus() {
@@ -990,11 +1015,5 @@ public class PageActivity extends ThemedActionBarActivity {
                 new ComponentName(this, WidgetProviderFeaturedPage.class));
         widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         sendBroadcast(widgetIntent);
-    }
-
-    private void replaceTextSelectMenu(ActionMode mode) {
-        Menu menu = mode.getMenu();
-        menu.clear();
-        mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
     }
 }

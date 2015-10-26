@@ -8,7 +8,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
-import android.support.v7.view.ActionMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,7 +57,7 @@ public class ShareHandler {
 
     private final PageActivity activity;
     private final CommunicationBridge bridge;
-    private ActionMode webViewActionMode;
+    private CompatActionMode webViewActionMode;
     private Dialog shareDialog;
     private ShareAFactFunnel funnel;
 
@@ -176,12 +175,14 @@ public class ShareHandler {
     /**
      * @param mode ActionMode under which this context is starting.
      */
-    public void onTextSelected(ActionMode mode) {
+    public void onTextSelected(CompatActionMode mode) {
         webViewActionMode = mode;
         Menu menu = mode.getMenu();
-
         MenuItem shareItem = menu.findItem(R.id.menu_text_select_share);
+        handleSelection(menu, shareItem);
+    }
 
+    private void handleSelection(Menu menu, MenuItem shareItem) {
         if (WikipediaApp.getInstance().isFeatureSelectTextAndShareTutorialEnabled()
                 && WikipediaApp.getInstance().getOnboardingStateMachine().isShareTutorialEnabled()) {
             showShareOnboarding(shareItem);
@@ -236,6 +237,18 @@ public class ShareHandler {
         return activity.getResources();
     }
 
+    private boolean hasWebViewActionMode() {
+        return webViewActionMode != null;
+    }
+
+    private void nullifyWebViewActionMode() {
+        webViewActionMode = null;
+    }
+
+    private void finishWebViewActionMode() {
+        webViewActionMode.finish();
+    }
+
     private class RequestTextSelectOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
         @NonNull private final String purpose;
         RequestTextSelectOnMenuItemClickListener(@NonNull String purpose) {
@@ -247,9 +260,9 @@ public class ShareHandler {
             requestTextSelection(purpose);
 
             // leave context mode...
-            if (webViewActionMode != null) {
-                webViewActionMode.finish();
-                webViewActionMode = null;
+            if (hasWebViewActionMode()) {
+                finishWebViewActionMode();
+                nullifyWebViewActionMode();
             }
             return true;
         }
