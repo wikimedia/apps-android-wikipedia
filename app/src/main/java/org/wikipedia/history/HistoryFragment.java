@@ -327,7 +327,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Clear history!
-                        app.getPersister(HistoryEntry.class).deleteAll();
+                        new DeleteAllHistoryTask(app).execute();
                         entryFilter.setVisibility(View.GONE);
                     }
                 });
