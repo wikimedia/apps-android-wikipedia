@@ -1,6 +1,5 @@
 package org.wikipedia.crash;
 
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
@@ -32,7 +31,7 @@ public class CrashReportFragment extends CallbackFragment<CrashReportFragmentCal
         setOnClickListener(view, R.id.crash_report_quit, new QuitOnClickListener());
 
         setIconColor(view.findViewById(R.id.crash_report_icon).getBackground().mutate(),
-                themeIconColor());
+                getContrastingThemeColor());
 
         return view;
     }
@@ -41,11 +40,9 @@ public class CrashReportFragment extends CallbackFragment<CrashReportFragmentCal
         DrawableUtil.setTint(icon, color);
     }
 
-    @ColorInt private int themeIconColor() {
-        if (WikipediaApp.getInstance().isCurrentThemeLight()) {
-            return Color.BLACK;
-        }
-        return Color.WHITE;
+    @ColorInt
+    private int getContrastingThemeColor() {
+        return WikipediaApp.getInstance().getContrastingThemeColor();
     }
 
     private void setOnClickListener(View view, @IdRes int id, View.OnClickListener listener) {

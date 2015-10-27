@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -444,6 +445,11 @@ public class WikipediaApp extends Application {
 
     public boolean isCurrentThemeDark() {
         return getCurrentTheme().isDark();
+    }
+
+    @ColorInt
+    public int getContrastingThemeColor() {
+        return getCurrentTheme().getContrastingColor();
     }
 
     /**
