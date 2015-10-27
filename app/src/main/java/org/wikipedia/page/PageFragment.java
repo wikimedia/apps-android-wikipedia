@@ -32,6 +32,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtils;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ArticleHeaderView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiDrawerLayout;
@@ -76,6 +77,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLException;
 
+import static org.wikipedia.views.ViewUtil.findView;
 
 public class PageFragment extends Fragment implements BackPressedHandler {
     public static final int TOC_ACTION_SHOW = 0;
@@ -115,7 +117,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      */
     private boolean saveOnComplete = false;
 
-    private ViewGroup leadSectionContainer;
+    private ArticleHeaderView articleHeaderView;
     private LeadImagesHandler leadImagesHandler;
     private SearchBarHideHandler searchBarHideHandler;
     private ObservableWebView webView;
@@ -315,7 +317,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             int getDialogHeight() {
                 // could have scrolled up a bit but the page info links must still be visible else they couldn't have been clicked
-                return webView.getHeight() + webView.getScrollY() - leadSectionContainer.getHeight();
+                return webView.getHeight() + webView.getScrollY() - articleHeaderView.getHeight();
             }
         };
 
@@ -341,8 +343,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         tocHandler = new ToCHandler(getPageActivity(), tocDrawer, bridge);
 
-        leadSectionContainer = (ViewGroup) getView().findViewById(R.id.page_image_container);
-        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, leadSectionContainer);
+        // TODO: initialize View references in onCreateView().
+        articleHeaderView = findView(getView(), R.id.page_header_view);
+        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, articleHeaderView);
         searchBarHideHandler = getPageActivity().getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
