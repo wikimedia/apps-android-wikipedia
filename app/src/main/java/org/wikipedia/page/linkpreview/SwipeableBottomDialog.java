@@ -200,7 +200,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     private static final class SwipeableAdapter extends BaseAdapter {
         @NonNull private final List<View> views;
 
-        public SwipeableAdapter(@NonNull List<View> views) {
+        SwipeableAdapter(@NonNull List<View> views) {
             this.views = views;
         }
 

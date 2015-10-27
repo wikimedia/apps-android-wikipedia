@@ -12,14 +12,14 @@ import net.hockeyapp.android.ExceptionHandler;
     private final Thread.UncaughtExceptionHandler defaultExceptionHandler;
     @Nullable private HockeyAppCrashListener listener;
 
-    public HockeyAppExceptionHandler(@Nullable HockeyAppCrashListener listener,
-                                     boolean ignoreDefaultHandler) {
+    HockeyAppExceptionHandler(@Nullable HockeyAppCrashListener listener,
+                              boolean ignoreDefaultHandler) {
         this(Thread.getDefaultUncaughtExceptionHandler(), listener, ignoreDefaultHandler);
     }
 
-    public HockeyAppExceptionHandler(Thread.UncaughtExceptionHandler defaultExceptionHandler,
-                                     @Nullable HockeyAppCrashListener listener,
-                                     boolean ignoreDefaultHandler) {
+    HockeyAppExceptionHandler(Thread.UncaughtExceptionHandler defaultExceptionHandler,
+                              @Nullable HockeyAppCrashListener listener,
+                              boolean ignoreDefaultHandler) {
         super(defaultExceptionHandler, listener, ignoreDefaultHandler);
         this.defaultExceptionHandler = defaultExceptionHandler;
         this.listener = listener;

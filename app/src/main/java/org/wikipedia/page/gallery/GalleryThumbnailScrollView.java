@@ -59,7 +59,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
         private final ImageView mImageView;
         private GalleryItem mGalleryItem;
 
-        public GalleryItemHolder(View itemView) {
+        GalleryItemHolder(View itemView) {
             super(itemView);
             mImageView = (ImageView) itemView.findViewById(R.id.gallery_thumbnail_image);
         }
@@ -105,7 +105,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
     private final class GalleryViewAdapter extends RecyclerView.Adapter<GalleryItemHolder> {
         @NonNull private final GalleryCollection mCollection;
 
-        public GalleryViewAdapter(@NonNull GalleryCollection collection) {
+        GalleryViewAdapter(@NonNull GalleryCollection collection) {
             mCollection = collection;
         }
 

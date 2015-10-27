@@ -81,7 +81,7 @@ public class EditSummaryHandler {
     }
 
     private  class EditSummaryAdapter extends android.support.v4.widget.CursorAdapter {
-        public EditSummaryAdapter(Context context, Cursor c, boolean autoRequery) {
+        EditSummaryAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }
 

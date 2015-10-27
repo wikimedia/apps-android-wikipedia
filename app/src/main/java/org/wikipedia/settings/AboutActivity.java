@@ -101,7 +101,7 @@ public class AboutActivity extends ThemedActionBarActivity {
         private final Activity mActivity;
         private int mSecretClickCount;
 
-        public AboutLogoClickListener(Activity activity) {
+        AboutLogoClickListener(Activity activity) {
             mActivity = activity;
         }
 

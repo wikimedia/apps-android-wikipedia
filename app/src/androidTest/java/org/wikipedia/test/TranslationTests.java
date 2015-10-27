@@ -302,7 +302,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         private final int id;
         private final String name;
 
-        public Res(int id, String name) {
+        Res(int id, String name) {
             this.id = id;
             this.name = name;
         }

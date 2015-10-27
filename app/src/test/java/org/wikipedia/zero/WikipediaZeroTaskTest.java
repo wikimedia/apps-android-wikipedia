@@ -64,7 +64,7 @@ public class WikipediaZeroTaskTest {
         @Nullable
         private final ZeroMessage expected;
 
-        public Subject(@NonNull TestLatch latch, @Nullable ZeroMessage expected) {
+        Subject(@NonNull TestLatch latch, @Nullable ZeroMessage expected) {
             super(new ImmediateExecutor(), new TestApi(server), "userAgent");
             this.latch = latch;
             this.expected = expected;

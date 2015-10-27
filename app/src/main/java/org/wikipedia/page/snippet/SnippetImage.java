@@ -421,8 +421,17 @@ public final class SnippetImage {
         private final float spacingMultiplier;
         private final Layout.Alignment align;
 
-        private TextLayoutParams(CharSequence text, TextPaint textPaint, int lineWidth,
-                                 float spacingMultiplier, Layout.Alignment align) {
+        /** Copy constructor with updated text */
+        TextLayoutParams(TextLayoutParams other, CharSequence text) {
+            this.text = text;
+            this.textPaint = other.textPaint;
+            this.lineWidth = other.lineWidth;
+            this.spacingMultiplier = other.spacingMultiplier;
+            this.align = other.align;
+        }
+
+        TextLayoutParams(CharSequence text, TextPaint textPaint, int lineWidth,
+                         float spacingMultiplier, Layout.Alignment align) {
             this.text = text;
             this.textPaint = textPaint;
             this.lineWidth = lineWidth;
@@ -433,15 +442,6 @@ public final class SnippetImage {
         private TextLayoutParams(CharSequence text, TextPaint textPaint, int lineWidth,
                                  float spacingMultiplier) {
             this(text, textPaint, lineWidth, spacingMultiplier, ALIGN_NORMAL);
-        }
-
-        /** Copy constructor with updated text */
-        public TextLayoutParams(TextLayoutParams other, CharSequence text) {
-            this.text = text;
-            this.textPaint = other.textPaint;
-            this.lineWidth = other.lineWidth;
-            this.spacingMultiplier = other.spacingMultiplier;
-            this.align = other.align;
         }
     }
 }

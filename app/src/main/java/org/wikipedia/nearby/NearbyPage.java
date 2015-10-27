@@ -29,7 +29,7 @@ import android.support.annotation.Nullable;
  * }
  * </pre>
  */
-class NearbyPage {
+public class NearbyPage {
 
     private String title;
     private String thumblUrl;

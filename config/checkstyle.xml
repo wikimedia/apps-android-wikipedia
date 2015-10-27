@@ -148,17 +148,6 @@
         </module>
         <module name="MissingSwitchDefault"/>
 
-        <!-- For the Gradle checkstyle task. I kept getting something like this:-->
-        <!--<file name=".../android-wikipedia/app/src/main/java/org/wikipedia/Utils.java">-->
-            <!--<error line="515" column="71" severity="error" message="Unable to get class information for JSONException." source="com.puppycrawl.tools.checkstyle.checks.coding.RedundantThrowsCheck"/>-->
-        <!--</file>-->
-        <!-- Ideally, we would get the Exception classes included in the checkstyle specific classpath. -->
-        <module name="RedundantThrows">
-            <property name="allowUnchecked" value="true"/>
-            <property name="allowSubclasses" value="true"/>
-            <property name="suppressLoadErrors" value="true"/>
-        </module>
-
         <module name="SimplifyBooleanExpression"/>
         <module name="SimplifyBooleanReturn"/>
 
@@ -167,9 +156,10 @@
         <module name="FinalClass"/>
         <module name="HideUtilityClassConstructor"/>
         <module name="InterfaceIsType"/>
-        <module name="VisibilityModifier"/>
-
-
+        <module name="VisibilityModifier">
+            <!-- Butter Knife -->
+            <property name="ignoreAnnotationCanonicalNames" value="Bind" />
+        </module>
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>

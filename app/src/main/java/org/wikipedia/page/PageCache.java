@@ -36,7 +36,7 @@ public class PageCache {
     private class InitDiskCacheTask extends SaneAsyncTask<Void> {
         private final File cacheDir;
 
-        public InitDiskCacheTask(File cacheDir) {
+        InitDiskCacheTask(File cacheDir) {
             super(SINGLE_THREAD);
             this.cacheDir = cacheDir;
         }
@@ -80,7 +80,7 @@ public class PageCache {
         private final PageTitle title;
         private final Page page;
 
-        public AddPageToCacheTask(PageTitle title, Page page) {
+        AddPageToCacheTask(PageTitle title, Page page) {
             super(SINGLE_THREAD);
             this.title = title;
             this.page = page;
@@ -136,7 +136,7 @@ public class PageCache {
     private class GetPageFromCacheTask extends SaneAsyncTask<Page> {
         private final PageTitle title;
 
-        public GetPageFromCacheTask(PageTitle title) {
+        GetPageFromCacheTask(PageTitle title) {
             super(SINGLE_THREAD);
             this.title = title;
         }

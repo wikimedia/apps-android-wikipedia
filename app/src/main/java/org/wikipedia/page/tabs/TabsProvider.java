@@ -123,7 +123,7 @@ public class TabsProvider {
         private static final String TAB_ACTION_MODE_TAG = "actionModeTabList";
         private final Runnable onTabModeEntered;
 
-        public TabActionModeCallback(Runnable onTabModeEntered) {
+        TabActionModeCallback(Runnable onTabModeEntered) {
             this.onTabModeEntered = onTabModeEntered;
         }
 
@@ -371,7 +371,7 @@ public class TabsProvider {
     private final class TabListAdapter extends BaseAdapter {
         private final LayoutInflater inflater;
 
-        private TabListAdapter(LayoutInflater inflater) {
+        TabListAdapter(LayoutInflater inflater) {
             this.inflater = inflater;
         }
 

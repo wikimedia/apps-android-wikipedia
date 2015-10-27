@@ -77,7 +77,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLException;
 
-import static org.wikipedia.views.ViewUtil.findView;
+import static butterknife.ButterKnife.findById;
 
 public class PageFragment extends Fragment implements BackPressedHandler {
     public static final int TOC_ACTION_SHOW = 0;
@@ -344,7 +344,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler = new ToCHandler(getPageActivity(), tocDrawer, bridge);
 
         // TODO: initialize View references in onCreateView().
-        articleHeaderView = findView(getView(), R.id.page_header_view);
+        articleHeaderView = findById(getView(), R.id.page_header_view);
         leadImagesHandler = new LeadImagesHandler(this, bridge, webView, articleHeaderView);
         searchBarHideHandler = getPageActivity().getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
@@ -1128,7 +1128,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private class LongPressHandler extends PageActivityLongPressHandler
             implements PageLongPressHandler.WebViewContextMenuListener {
-        public LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull PageActivity activity) {
             super(activity);
         }
 

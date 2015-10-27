@@ -275,9 +275,9 @@ public class PageActivity extends ThemedActionBarActivity {
     private class MainDrawerToggle extends ActionBarDrawerToggle {
         private boolean oncePerSlideLock = false;
 
-        public MainDrawerToggle(android.app.Activity activity,
-                                android.support.v4.widget.DrawerLayout drawerLayout,
-                                int openDrawerContentDescRes, int closeDrawerContentDescRes) {
+        MainDrawerToggle(android.app.Activity activity,
+                         android.support.v4.widget.DrawerLayout drawerLayout,
+                         int openDrawerContentDescRes, int closeDrawerContentDescRes) {
             super(activity, drawerLayout, openDrawerContentDescRes, closeDrawerContentDescRes);
         }
 

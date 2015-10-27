@@ -7,7 +7,7 @@ import android.text.style.LineHeightSpan;
 /*package*/ abstract class RelativeLineHeightSpan implements LineHeightSpan {
     private final float scalar;
 
-    public RelativeLineHeightSpan(float scalar) {
+    RelativeLineHeightSpan(float scalar) {
         this.scalar = scalar;
     }
 

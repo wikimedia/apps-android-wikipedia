@@ -243,7 +243,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     }
 
     private class HistoryEntryAdapter extends CursorAdapter {
-        public HistoryEntryAdapter(Context context, Cursor c, boolean autoRequery) {
+        HistoryEntryAdapter(Context context, Cursor c, boolean autoRequery) {
             super(context, c, autoRequery);
         }
 

@@ -27,7 +27,7 @@ class IssuesListAdapter extends ArrayAdapter<String> {
      * @param activity The current activity.
      * @param items The objects to represent in the ListView.
      */
-    public IssuesListAdapter(Activity activity, String[] items) {
+    IssuesListAdapter(Activity activity, String[] items) {
         super(activity, 0, items);
         this.activity = activity;
         this.items = items;

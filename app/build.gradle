@@ -126,6 +126,11 @@ android {
     lintOptions {
         disable 'MissingTranslation'
         warning 'NewApi' // until https://code.google.com/p/android/issues/detail?id=137195 is released
+        disable 'InvalidPackage' // required by Butter Knife
+    }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
     }
 }
 
@@ -157,6 +162,7 @@ dependencies {
     compile 'com.mobsandgeeks:android-saripaar:1.0.3'
     compile 'com.github.chrisbanes.photoview:library:1.2.3'
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
+    compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton:disklrucache:2.0.2'
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:0.7.4@aar') {
         transitive = true
