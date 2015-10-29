@@ -5,15 +5,16 @@
     <org.wikipedia.page.leadimages.ImageViewWithFace
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:visibility="invisible" />
+        android:background="@color/white"
+        android:contentDescription="@null" />
 
     <!-- TODO: can this be merged with ImageViewWithFace? -->
     <ImageView
         android:id="@+id/placeholder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:src="?lead_image_drawable"
         android:contentDescription="@null" />
