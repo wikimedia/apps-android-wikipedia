@@ -56,7 +56,7 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 133
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
