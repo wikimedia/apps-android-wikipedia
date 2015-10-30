@@ -1,15 +1,16 @@
 package org.wikipedia.nearby;
 
-import org.wikipedia.page.PageActivityLongPressHandler;
-import org.wikipedia.page.PageLongPressHandler;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageActivityLongPressHandler;
+import org.wikipedia.page.PageLongPressHandler;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.log.L;
 
 import com.mapbox.mapboxsdk.events.MapListener;
@@ -24,11 +25,13 @@ import com.mapbox.mapboxsdk.tileprovider.tilesource.WebSourceTileLayer;
 import com.mapbox.mapboxsdk.views.MapView;
 import com.squareup.picasso.Picasso;
 
+import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -65,6 +68,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -83,6 +87,8 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
     private static final int ONE_THOUSAND = 1000;
     private static final double METER_TO_FEET = 3.280839895;
     private static final int ONE_MILE = 5280;
+    private static final int INITIAL_LOCATION_PERMISSION_REQUEST = 50;
+    private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 51;
 
     private final List<Marker> mMarkerList = new ArrayList<>();
     private View nearbyListContainer;
@@ -145,7 +151,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
                 // don't change zoom level: https://github.com/mapbox/mapbox-android-sdk/issues/453
                 mapView.setUserLocationRequiredZoom(mapView.getZoomLevel());
 
-                mapView.goToUserLocation(true);
+                checkLocationPermissionsToGoToUserLocation();
             }
         });
 
@@ -210,6 +216,7 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
 
         setRefreshingState(true);
         initializeMap();
+        checkInitialLocationPermissions();
     }
 
     @Override
@@ -249,17 +256,6 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
         mapView.setTileSource(tileSource);
         mapView.setZoom(getResources().getInteger(R.integer.map_default_zoom));
         mapView.setUserLocationTrackingMode(UserLocationOverlay.TrackingMode.FOLLOW_BEARING);
-        mapView.getUserLocationOverlay().runOnFirstFix(new Runnable() {
-            @Override
-            public void run() {
-                if (!isResumed()) {
-                    return;
-                }
-                currentLocation = mapView.getUserLocationOverlay().getLastFix();
-                makeUseOfNewLocation(currentLocation);
-                fetchNearbyPages();
-            }
-        });
 
         mapView.setMapViewListener(new DefaultMapViewListener() {
             @Override
@@ -288,6 +284,79 @@ public class NearbyFragment extends Fragment implements SensorEventListener {
             public void onRotate(RotateEvent rotateEvent) {
             }
         });
+    }
+
+    private void checkInitialLocationPermissions() {
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestLocationRuntimePermissions(INITIAL_LOCATION_PERMISSION_REQUEST);
+        } else {
+            requestLocation();
+        }
+    }
+
+    private void checkLocationPermissionsToGoToUserLocation() {
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestLocationRuntimePermissions(GO_TO_LOCATION_PERMISSION_REQUEST);
+        } else {
+            goToUserLocation();
+        }
+    }
+
+    private void requestLocationRuntimePermissions(int requestCode) {
+        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, requestCode);
+        // once permission is granted/denied it will continue with onRequestPermissionsResult
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case INITIAL_LOCATION_PERMISSION_REQUEST:
+                if (PermissionUtil.isPermitted(grantResults)) {
+                    requestLocation();
+                } else {
+                    setRefreshingState(false);
+                    FeedbackUtil.showMessage(getActivity(), R.string.nearby_zoom_to_location);
+                }
+                break;
+            case GO_TO_LOCATION_PERMISSION_REQUEST:
+                if (PermissionUtil.isPermitted(grantResults)) {
+                    mapView.goToUserLocation(true);
+                } else {
+                    setRefreshingState(false);
+                    FeedbackUtil.showMessage(getActivity(), R.string.nearby_zoom_to_location);
+                }
+                break;
+            default:
+                throw new RuntimeException("unexpected permission request code " + requestCode);
+        }
+    }
+
+    private void requestLocation() {
+        if (mapView.getUserLocationOverlay() == null) {
+            return;
+        }
+        mapView.getUserLocationOverlay().runOnFirstFix(new Runnable() {
+            @Override
+            public void run() {
+                if (!isResumed()) {
+                    return;
+                }
+                // TODO: need to ensure that the following lines will be called eventually;
+                // even in the case where the app goes to the background right when this fragment
+                // is created.
+                currentLocation = mapView.getUserLocationOverlay().getLastFix();
+                makeUseOfNewLocation(currentLocation);
+                fetchNearbyPages();
+            }
+        });
+    }
+
+    private void goToUserLocation() {
+        mapView.goToUserLocation(true);
     }
 
     private Icon makeMarkerIcon(boolean isActive) {

@@ -62,6 +62,8 @@
     <string name="nearby_set_metric">Show meters/km</string>
     <string name="nearby_set_imperial">Show feet/miles</string>
     <string name="nearby_view_on_map">View place on map</string>
+    <string name="nearby_zoom_to_location">Zoom to a location on the map</string>
+    <string name="nearby_requires_location">The Nearby feature requires the location permission.</string>
 
     <string name="last_updated_text">Last updated %s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>

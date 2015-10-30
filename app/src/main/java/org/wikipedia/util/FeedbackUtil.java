@@ -1,6 +1,7 @@
 package org.wikipedia.util;
 
 import android.app.Activity;
+import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.text.Html;
 import android.view.View;
@@ -36,7 +37,7 @@ public final class FeedbackUtil {
         makeSnackbar(containerView, text, duration).show();
     }
 
-    public static void showMessage(Activity activity, int resId) {
+    public static void showMessage(Activity activity, @StringRes int resId) {
         showMessage(activity, activity.getString(resId), Snackbar.LENGTH_LONG);
     }
 
@@ -44,7 +45,7 @@ public final class FeedbackUtil {
         showMessage(findBestView(activity), text, Snackbar.LENGTH_LONG);
     }
 
-    public static void showMessage(Activity activity, int resId, int duration) {
+    public static void showMessage(Activity activity, @StringRes int resId, int duration) {
         showMessage(activity, activity.getString(resId), duration);
     }
 

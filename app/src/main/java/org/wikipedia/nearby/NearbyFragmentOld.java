@@ -10,13 +10,17 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.PermissionUtil;
 
 import com.squareup.picasso.Picasso;
+
+import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.hardware.GeomagneticField;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -31,6 +35,7 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
@@ -71,6 +76,7 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
     private static final double ONE_THOUSAND_D = 1000.0d;
     private static final double METER_TO_FEET = 3.280839895;
     private static final int ONE_MILE = 5280;
+    private static final int LOCATION_PERMISSION_REQUEST = 49;
 
     private ListView nearbyList;
     private View nearbyEmptyContainer;
@@ -111,6 +117,9 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
     //whether to display distances in imperial units (feet/miles) instead of metric
     private boolean showImperial = false;
 
+    // if the user has already denied the location permission
+    private boolean locationPermissionDenied;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,7 +142,7 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
             @Override
             public void onRefresh() {
                 setRefreshingState(true);
-                requestLocationUpdates();
+                checkLocationPermissions();
                 refreshView.setRefreshing(false);
             }
         });
@@ -243,7 +252,9 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
         super.onResume();
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
         mSensorManager.registerListener(this, mMagnetometer, SensorManager.SENSOR_DELAY_UI);
-        requestLocationUpdates();
+        if (!locationPermissionDenied) {
+            checkLocationPermissions();
+        }
     }
 
     @Override
@@ -256,7 +267,10 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
 
     private void stopLocationUpdates() {
         setRefreshingState(false);
-        locationManager.removeUpdates(locationListener);
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager.removeUpdates(locationListener);
+        }
     }
 
     private void requestLocationUpdates() {
@@ -286,11 +300,56 @@ public class NearbyFragmentOld extends Fragment implements SensorEventListener {
         }
     }
 
+    private void checkLocationPermissions() {
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestLocationRuntimePermissions(LOCATION_PERMISSION_REQUEST);
+        } else {
+            requestLocationUpdates();
+        }
+    }
+
+    private void requestLocationRuntimePermissions(int requestCode) {
+        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, requestCode);
+        // once permission is granted/denied it will continue with onRequestPermissionsResult
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case LOCATION_PERMISSION_REQUEST:
+                if (PermissionUtil.isPermitted(grantResults)) {
+                    requestLocationUpdates();
+                } else {
+                    locationPermissionDenied = true;
+                    showDialogPermissionDenied();
+                }
+                break;
+            default:
+                throw new RuntimeException("unexpected permission request code " + requestCode);
+        }
+    }
+
     private void requestLocation(String provider) {
-        locationManager.requestLocationUpdates(provider, MIN_TIME_MILLIS, MIN_DISTANCE_METERS, locationListener);
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager.requestLocationUpdates(provider, MIN_TIME_MILLIS, MIN_DISTANCE_METERS,
+                    locationListener);
+        }
+    }
+
+    private void showDialogPermissionDenied() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setMessage(R.string.nearby_requires_location);
+        alert.setCancelable(true);
+        AlertDialog ad = alert.create();
+        ad.show();
     }
 
     private void showDialogForSettings() {
+        setRefreshingState(false);
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setMessage(R.string.nearby_dialog_goto_settings);
         alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

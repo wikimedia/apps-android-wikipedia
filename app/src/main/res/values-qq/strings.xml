@@ -80,6 +80,8 @@ See also:
   <string name="nearby_set_metric">Menu item for displaying distances in metric units (meters and kilometers).</string>
   <string name="nearby_set_imperial">Menu item for displaying distances in imperial units (feet and miles).</string>
   <string name="nearby_view_on_map">Hint for button that pinpoints the selected Nearby item on a map (will open external app, e.g. Google Maps).</string>
+  <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
+  <string name="nearby_requires_location">Dialog message saying that the Nearby feature requires the location permission. This is shown after the user taps on "deny" location permission. (First generation of Nearby feature only.)</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
