@@ -19,7 +19,6 @@ import org.wikipedia.page.PageTitle;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,6 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public final class ShareUtils {
     public static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
-    public static final int JPEG_QUALITY = 85;
 
     /** Private constructor, so nobody can construct ShareUtils. */
     private ShareUtils() { }
@@ -104,19 +102,15 @@ public final class ShareUtils {
         if (dir == null) {
             return null;
         }
-
         dir.mkdirs();
 
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, JPEG_QUALITY, bytes);
+        ByteArrayOutputStream bytes = FileUtil.compressBmpToJpg(bmp);
+
         if (recycleBmp) {
             bmp.recycle();
         }
-        File f = new File(dir, cleanFileName(imageFileName));
-        FileOutputStream fo = new FileOutputStream(f);
-        fo.write(bytes.toByteArray());
-        fo.close();
-        return f;
+
+        return FileUtil.writeToFile(bytes, new File(dir, cleanFileName(imageFileName)));
     }
 
     private static Intent createImageShareIntent(String subject, String text, String path) {
