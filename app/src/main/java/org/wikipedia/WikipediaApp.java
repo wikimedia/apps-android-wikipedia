@@ -612,8 +612,8 @@ public class WikipediaApp extends Application {
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void enableWebViewDebugging() {
-        if (ApiUtil.hasKitKat()) {
-            WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG);
+        if (BuildConfig.DEBUG && ApiUtil.hasKitKat()) {
+            WebView.setWebContentsDebuggingEnabled(true);
         }
     }
 
