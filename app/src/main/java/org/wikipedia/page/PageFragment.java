@@ -930,18 +930,30 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
-        // create a new tab
-        Tab tab = new Tab();
-        // if the requested position is at the top, then make its backstack current
-        if (position == getForegroundTabPosition()) {
-            pageLoadStrategy.setBackStack(tab.getBackStack());
+        if (shouldCreateNewTab()) {
+            // create a new tab
+            Tab tab = new Tab();
+            // if the requested position is at the top, then make its backstack current
+            if (position == getForegroundTabPosition()) {
+                pageLoadStrategy.setBackStack(tab.getBackStack());
+            }
+            // put this tab in the requested position
+            tabList.add(position, tab);
+            // add the requested page to its backstack
+            tab.getBackStack().add(new PageBackStackItem(title, entry));
+        } else {
+            getTopMostTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
-        // put this tab in the requested position
-        tabList.add(position, tab);
-        // add the requested page to its backstack
-        tab.getBackStack().add(new PageBackStackItem(title, entry));
         // and... that should be it.
         tabsProvider.showAndHideTabs();
+    }
+
+    private Tab getTopMostTab() {
+        return tabList.get(tabList.size() - 1);
+    }
+
+    private boolean shouldCreateNewTab() {
+        return !getTopMostTab().getBackStack().isEmpty();
     }
 
     private int getBackgroundTabPosition() {
