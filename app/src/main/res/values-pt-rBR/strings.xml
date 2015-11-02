@@ -138,6 +138,7 @@
   <string name="send_feedback">Enviar comentários sobre o aplicativo</string>
   <string name="nav_item_random">Aleatório</string>
   <string name="create_account_account_created_toast">Conta criada!</string>
+  <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
   <string name="editing_error_spamblacklist">Foram detectados links para páginas bloqueadas (%s). Por favor, remova-os e tente novamente.</string>

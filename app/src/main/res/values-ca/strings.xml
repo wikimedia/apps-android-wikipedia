@@ -140,6 +140,7 @@
   <string name="send_feedback">Envia comentaris de l\'aplicació</string>
   <string name="nav_item_random">A l\'atzar</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
+  <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes sobre l\'ús de l\'aplicació</string>
   <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>

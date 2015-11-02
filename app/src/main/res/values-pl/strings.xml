@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Udostępnij</string>
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_empty_title">Nie ma stron o obiektach znajdujących się w pobliżu!</string>
-  <string name="nearby_empty_message" fuzzy="true">Kiedy przenosisz się do nowej lokalizacji, spróbuj odświeżyć tę stronę, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
+  <string name="nearby_empty_message">Przenieś się do nowej lokalizacji, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d stóp</string>
@@ -140,8 +140,10 @@
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
   <string name="nav_item_random">Losowa strona</string>
   <string name="create_account_account_created_toast">Konto zostało utworzone!</string>
+  <string name="preferences_privacy_settings_heading">Prywatność</string>
   <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
+  <string name="preference_title_auto_upload_crash_reports">Wysyłaj raporty o awariach</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
   <string name="history_search_list_hint">Historia wyszukiwania</string>
   <string name="history_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
@@ -152,7 +154,7 @@
   <string name="page_protected_can_not_edit">Nie masz uprawnień do edycji tej strony</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="settings_item_preferences">Ustawienia</string>
-  <string name="settings_activity_title" fuzzy="true">Ustawienia</string>
+  <string name="settings_activity_title">Ustawienia</string>
   <string name="about_description">O aplikacji Wikipedia</string>
   <string name="privacy_policy_description">Polityka prywatności</string>
   <string name="terms_of_use_description">Warunki użytkowania</string>
@@ -230,6 +232,8 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="gallery_menu_save">Zapisz na urządzeniu</string>
   <string name="gallery_save_error_mediastore">Nie udało się zaimportować obrazu do kolekcji mediów</string>
   <string name="gallery_save_success">Obraz pomyślnie zapisany.</string>
+  <string name="gallery_image_saved_notification_title">Obraz zapisany.</string>
+  <string name="gallery_image_saved_notification_text">Naciśnij, aby wyświetlić.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
@@ -255,10 +259,15 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="address_copied">Adres skopiowany do schowka.</string>
   <string name="text_copied">Tekst skopiowany do schowka.</string>
   <string name="button_continue_to_article">Do artykułu</string>
+  <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
+  <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
   <string name="crash_report_dialog_send_button">Wyślij</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
+  <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.
+
+Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
   <string name="crash_report_quit">Wyjście</string>
 </resources>

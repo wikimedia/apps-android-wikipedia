@@ -7,7 +7,7 @@
   <string name="no">Ні</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="nav_item_history">Історія</string>
-  <string name="error_network_error" fuzzy="true">Не вдається підключитися до інтернету.</string>
+  <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
   <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
@@ -37,9 +37,11 @@
   <string name="menu_long_press_open_page">Відкрити</string>
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
   <string name="menu_long_press_copy_page">Копіювати адресу посилання</string>
+  <string name="menu_text_select_copy">Скопіювати</string>
+  <string name="menu_text_select_share">Поділитися</string>
   <string name="nav_item_nearby">Неподалік</string>
   <string name="nearby_empty_title">Тут немає суміжних сторінок!</string>
-  <string name="nearby_empty_message" fuzzy="true">Коли ви переміститесь на нове місце, спробуйте оновити цю сторінку щоб взнати що навколо вас.</string>
+  <string name="nearby_empty_message">Перемістіться у нове місце, щоб побачити сторінки про те, що є навколо Вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d футів</string>
@@ -75,7 +77,7 @@
   <string name="title_captcha">Введіть символи із малюнку</string>
   <string name="edit_section_captcha_reload">Натисніть малюнок для оновлення</string>
   <string name="edit_saved_page_refresh">Ця збережена сторінка може бути застарілою і повинна бути оновленою для ввімкнення можливості редагування. Чи бажаєте Ви оновити цю сторінку?</string>
-  <string name="nav_item_login" fuzzy="true">Увійти</string>
+  <string name="nav_item_login">Увійти у Вікіпедію</string>
   <string name="login_username_hint">Ім\'я користувача</string>
   <string name="login_password_hint">Пароль</string>
   <string name="login_password_show_check">Показати пароль</string>
@@ -138,8 +140,11 @@
   <string name="send_feedback">Надіслати відгук про програму</string>
   <string name="nav_item_random">Випадково</string>
   <string name="create_account_account_created_toast">Створено обліковий запис!</string>
+  <string name="preferences_privacy_settings_heading">Конфіденційність</string>
   <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
   <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як Ви використовуєте додаток, щоб зробити його кращим</string>
+  <string name="preference_title_auto_upload_crash_reports">Надсилати звіти про аварійне завершення роботи</string>
+  <string name="preference_summary_auto_upload_crash_reports">Дозволити програмці відправляти автоматичні звіти про збої до HockeyApp / сторонньому сервіс-провайдеру, щоб ми могли розглянути Ваш збій і виправити помилки швидше і легше.</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
   <string name="history_search_list_hint">Історія пошуку</string>
   <string name="history_search_empty_message">Нема сторінок, що відповідають вашому запиту.</string>
@@ -149,7 +154,8 @@
   <string name="page_protected_other">Ця сторінка захищена до наступних рівнів: %s</string>
   <string name="page_protected_can_not_edit">У Вас немає прав на редагування цієї сторінки</string>
   <string name="page_protected_can_not_edit_title">Цю сторінку захищено</string>
-  <string name="settings_activity_title" fuzzy="true">Налаштування</string>
+  <string name="settings_item_preferences">Налаштування</string>
+  <string name="settings_activity_title">Налаштування</string>
   <string name="about_description">Про додаток Вікіпедії</string>
   <string name="privacy_policy_description">Політика конфіденційності</string>
   <string name="terms_of_use_description">Умови використання</string>
@@ -238,7 +244,7 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Натисніть, щоб завантажити</string>
   <string name="dialog_close_description">Закрити</string>
   <string name="preference_title_show_images">Показати зображення</string>
-  <string name="preference_summary_show_images" fuzzy="true">Включити або відключити завантаження зображень в сторінках. Вимкніть цю опцію, якщо ваше інтернет з\'єднання повільне, або якщо ваш тарифний план обмежений.</string>
+  <string name="preference_summary_show_images">Включити або відключити завантаження зображень на сторінках. Вимкніть цю опцію, якщо Ваше інтернет-з\'єднання повільне, або якщо Ваш тарифний план обмежений.</string>
   <string name="read_more_section">Читати більше</string>
   <string name="menu_gallery_visit_page">Перейти на сторінку файлу</string>
   <string name="gallery_error_draw_failed">Не вдалось відтворити зображення.</string>
@@ -248,6 +254,8 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_save">Зберегти на пристрій</string>
   <string name="gallery_save_error_mediastore">Не вдалося імпортувати зображення до медіа-колекції</string>
   <string name="gallery_save_success">Зображення успішно збережено!</string>
+  <string name="gallery_image_saved_notification_title">Зображення збережено.</string>
+  <string name="gallery_image_saved_notification_text">Натисніть, щоб переглянути.</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>
   <string name="snippet_share_intro">\"%1$s\" на сайті @Wikipedia: %2$s</string>
@@ -271,5 +279,19 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_message">Повідомлення: «%s»</string>
   <string name="format_error_server_code">Код: «%s»</string>
   <string name="address_copied">Адресу скопійовано до буферу обміну.</string>
+  <string name="text_copied">Текст скопійовано в буфер обміну.</string>
   <string name="button_continue_to_article">Продовження на сторінці</string>
+  <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
+  <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
+  <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>
+  <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
+  <string name="crash_report_dialog_dont_send_button">Пропустити</string>
+  <string name="crash_report_dialog_always_send_button">Завжди надсилати</string>
+  <string name="crash_report_dialog_send_button">Надіслати</string>
+  <string name="crash_report_activity_title">Помилка програми</string>
+  <string name="crash_report_relaunch_or_quit">Перепрошуємо, у програмці Вікіпедії сталася помилка і її було закрито.
+
+Хочете почати спочатку чи вийти?</string>
+  <string name="crash_report_relaunch">Почати спочатку</string>
+  <string name="crash_report_quit">Вийти</string>
 </resources>

@@ -140,6 +140,7 @@
   <string name="send_feedback">שליחת משוב על היישומון</string>
   <string name="nav_item_random">אקראי</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
+  <string name="preferences_privacy_settings_heading">פרטיות</string>
   <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
   <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישומון כדי לשפר את היישומון</string>
   <string name="preference_title_auto_upload_crash_reports">שליחת דיווחי קריסה</string>

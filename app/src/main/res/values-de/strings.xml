@@ -140,6 +140,7 @@
   <string name="send_feedback">App-Rückmeldung senden</string>
   <string name="nav_item_random">Zufällig</string>
   <string name="create_account_account_created_toast">Benutzerkonto erstellt!</string>
+  <string name="preferences_privacy_settings_heading">Datenschutz</string>
   <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
   <string name="preference_title_auto_upload_crash_reports">Absturzberichte senden</string>

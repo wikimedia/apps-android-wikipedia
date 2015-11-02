@@ -140,6 +140,7 @@
   <string name="send_feedback">フィードバックを送る</string>
   <string name="nav_item_random">おまかせ表示</string>
   <string name="create_account_account_created_toast">アカウントを作成しました</string>
+  <string name="preferences_privacy_settings_heading">プライバシー</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>

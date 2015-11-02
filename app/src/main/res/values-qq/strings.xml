@@ -81,7 +81,7 @@ See also:
   <string name="nearby_set_imperial">Menu item for displaying distances in imperial units (feet and miles).</string>
   <string name="nearby_view_on_map">Hint for button that pinpoints the selected Nearby item on a map (will open external app, e.g. Google Maps).</string>
   <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
-  <string name="nearby_requires_location">Dialog message saying that the Nearby feature requires the location permission. This is shown after the user taps on "deny" location permission. (First generation of Nearby feature only.)</string>
+  <string name="nearby_requires_location">Dialog message saying that the Nearby feature requires the location permission. This is shown after the user taps on \"deny\" location permission. (First generation of Nearby feature only.)</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
@@ -210,7 +210,8 @@ See also:
 Shown in left navigation. Tapping it produces a random page.</string>
   <string name="create_account_account_created_toast">Message shown in a small toast when account creation is successful.
 * {{msg-mw|Accountcreatedtext|message}}</string>
-  <string name="preferences_privacy_settings_heading">Section title for privacy related settings</string>
+  <string name="preferences_privacy_settings_heading">Section title for privacy related settings
+{{Identical|Privacy}}</string>
   <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_title_auto_upload_crash_reports">Title of preference that when checked enables automatic upload of crash reports.</string>

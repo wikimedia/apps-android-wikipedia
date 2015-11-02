@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="menu_long_press_copy_page">링크 주소 복사</string>
+  <string name="menu_text_select_copy">복사</string>
+  <string name="menu_text_select_share">공유</string>
   <string name="nav_item_nearby">근처</string>
   <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>
   <string name="nearby_empty_message" fuzzy="true">새 위치로 움직일 때, 주위에 무엇이 있는지 자세히 알아 보려면 이 문서를 새로 고치세요.</string>
@@ -138,6 +140,7 @@
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="nav_item_random">임의 문서</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
+  <string name="preferences_privacy_settings_heading">개인 정보 정책</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
@@ -257,4 +260,10 @@
   <string name="format_error_server_message">메시지: \"%s\"</string>
   <string name="format_error_server_code">코드: \"%s\"</string>
   <string name="address_copied">주소가 클립보드에 복사되었습니다.</string>
+  <string name="text_copied">텍스트가 클립보드에 복사되었습니다.</string>
+  <string name="crash_report_dialog_always_send_button">항상 보내기</string>
+  <string name="crash_report_dialog_send_button">보내기</string>
+  <string name="crash_report_activity_title">애플리케이션 오류</string>
+  <string name="crash_report_relaunch">다시 시작</string>
+  <string name="crash_report_quit">종료</string>
 </resources>

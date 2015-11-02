@@ -137,6 +137,7 @@
   <string name="send_feedback">Feedback vun der App schécken</string>
   <string name="nav_item_random">Zoufall</string>
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
+  <string name="preferences_privacy_settings_heading">Dateschutz</string>
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlaben Informatiounen iwwer d\'Benotze vun der App ze sammele fir se ze verbesseren.</string>
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>

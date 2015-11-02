@@ -113,7 +113,7 @@
   <string name="create_account_open_proxy_error">या IP address वरून नवे खाते उघडणे स्तघीत केले गेले आहे.</string>
   <string name="create_account_noname_error">आपण पुरविलेले सदस्यनाम अवैध आहे.दुसरे सदस्यनाव पुरवा.</string>
   <string name="create_account_invalid_email_error">आपण दिलेला इमेल चुकीचा आहे.</string>
-  <string name="create_account_password_too_short_error">आपण पुरविलेला संकेतांक लहान आहे.</string>
+  <string name="create_account_password_too_short_error">आपण पुरविलेला परवलीचा शब्द खूप आखूड आहे.</string>
   <string name="create_account_blocked_anon_error">आपण खाते तयार करु शकत नाही कारण आपला अंकपत्ता(आयपी ऐड्रेस) प्रतिबंधित करण्यात आला आहे.</string>
   <string name="create_account_blocked_error">आपण खाते तयार करु शकत नाही कारण आपले खाते प्रतिबंधित करण्यात अलेले आहे.</string>
   <string name="create_account_password_name_match_error">तुमचे नाव आणि पासवर्ड वेगवेगळे हवेत</string>

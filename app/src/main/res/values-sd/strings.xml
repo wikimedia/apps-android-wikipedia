@@ -116,6 +116,7 @@
   <string name="zero_learn_more_learn_more">وڌيڪ پڙهو</string>
   <string name="zero_learn_more_dismiss">برخواست</string>
   <string name="create_account_account_created_toast">کاتو کلي چڪو!</string>
+  <string name="preferences_privacy_settings_heading">ّذاتيات</string>
   <string name="preference_title_eventlogging_opt_in">استعمال جي رپورٽ اماڻيو</string>
   <string name="preference_title_auto_upload_crash_reports">ڊهي پوڻ جي رپورٽ اماڻيو</string>
   <string name="history_search_list_hint">سوانح ۾ ڳوليو</string>

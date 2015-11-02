@@ -140,6 +140,7 @@
   <string name="send_feedback">Испрати мислење за прилогот</string>
   <string name="nav_item_random">Случајна</string>
   <string name="create_account_account_created_toast">Сметката е создадена!</string>
+  <string name="preferences_privacy_settings_heading">Лични податоци</string>
   <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
   <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
   <string name="preference_title_auto_upload_crash_reports">Испраќај извештаи за уривање</string>

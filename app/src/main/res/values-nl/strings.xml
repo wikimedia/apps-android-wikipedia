@@ -140,6 +140,7 @@
   <string name="send_feedback">Terugkoppeling over app geven</string>
   <string name="nav_item_random">Willekeurig</string>
   <string name="create_account_account_created_toast">Gebruiker aangemaakt</string>
+  <string name="preferences_privacy_settings_heading">Privacy</string>
   <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
   <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
   <string name="preference_title_auto_upload_crash_reports">Crashrapporten verzenden</string>

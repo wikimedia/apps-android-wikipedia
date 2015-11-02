@@ -140,6 +140,7 @@
   <string name="send_feedback">Enviar comentarios sobre la aplicación</string>
   <string name="nav_item_random">Aleatorio</string>
   <string name="create_account_account_created_toast">Se creó la cuenta.</string>
+  <string name="preferences_privacy_settings_heading">Privacidad</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>

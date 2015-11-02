@@ -140,6 +140,7 @@
   <string name="send_feedback">Отправить отзыв о приложении</string>
   <string name="nav_item_random">Случайная</string>
   <string name="create_account_account_created_toast">Учётная запись создана!</string>
+  <string name="preferences_privacy_settings_heading">Конфиденциальность</string>
   <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
   <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>

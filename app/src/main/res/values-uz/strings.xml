@@ -140,7 +140,7 @@ Oldindan yoqimli ...</string>
   <string name="user_blocked_from_editing_title">Chetlatilgan</string>
   <string name="user_logged_in_blocked_from_editing">Sizning hisobingiz ushbu vikini tahrirlashdan toʻsib qoʻyilgan.</string>
   <string name="user_anon_blocked_from_editing">Sizning IP manzilingiz tahrirlashdan toʻsib qoʻyilgan.</string>
-  <string name="edit_how_page_improved">Sahifani qanday qilib yaxshiladingiz?</string>
+  <string name="edit_how_page_improved">Sahifani yaxshilashga qanday yordam koʻrsatdingiz?</string>
   <string name="edit_next">Keyingi</string>
   <string name="edit_done">Saqlash</string>
   <string name="edit_preview">Koʻrib chiqish</string>

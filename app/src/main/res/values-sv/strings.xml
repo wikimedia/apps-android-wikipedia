@@ -140,6 +140,7 @@
   <string name="send_feedback">Skicka återkoppling om appen</string>
   <string name="nav_item_random">Slumpartikel</string>
   <string name="create_account_account_created_toast">Konto har skapats!</string>
+  <string name="preferences_privacy_settings_heading">Integritet</string>
   <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
   <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>

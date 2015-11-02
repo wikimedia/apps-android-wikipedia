@@ -140,6 +140,7 @@
   <string name="send_feedback">Envoyer un avis sur l’application</string>
   <string name="nav_item_random">Aléatoire</string>
   <string name="create_account_account_created_toast">Compte créé !</string>
+  <string name="preferences_privacy_settings_heading">Confidentialité</string>
   <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="preference_title_auto_upload_crash_reports">Envoyer des rapports d’incident</string>
