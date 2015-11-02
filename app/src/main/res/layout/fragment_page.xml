@@ -26,8 +26,7 @@
                 <org.wikipedia.views.ObservableWebView
                     android:id="@+id/page_web_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layerType="hardware" />
+                    android:layout_height="match_parent" />
 
                 <org.wikipedia.views.ArticleHeaderView
                     android:id="@+id/page_header_view"
