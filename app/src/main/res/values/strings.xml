@@ -290,6 +290,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="button_continue_to_article">Continue to article</string>
     <string name="preference_title_show_link_previews">Show link previews</string>
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
+    <string name="nav_item_donate">Support Wikipedia</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_dialog_title">Sorry, app crashed last time</string>

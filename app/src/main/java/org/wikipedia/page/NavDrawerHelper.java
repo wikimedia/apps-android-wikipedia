@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
@@ -25,6 +27,7 @@ import org.wikipedia.random.RandomHandler;
 import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.UriUtil;
 
 public class NavDrawerHelper {
 
@@ -93,6 +96,9 @@ public class NavDrawerHelper {
                     case R.id.nav_item_random:
                         activity.getRandomHandler().doVisitRandomArticle();
                         funnel.logRandom();
+                        break;
+                    case R.id.nav_item_donate:
+                        openDonatePage();
                         break;
                     default:
                         return false;
@@ -236,5 +242,12 @@ public class NavDrawerHelper {
         app.getUserInfoStorage().clearUser();
         activity.closeNavDrawer();
         FeedbackUtil.showMessage(activity, R.string.toast_logout_complete);
+    }
+
+    private void openDonatePage() {
+        activity.closeNavDrawer();
+        UriUtil.visitInExternalBrowser(activity,
+                Uri.parse(String.format(activity.getString(R.string.donate_url),
+                        BuildConfig.VERSION_NAME, app.getSystemLanguageCode())));
     }
 }
