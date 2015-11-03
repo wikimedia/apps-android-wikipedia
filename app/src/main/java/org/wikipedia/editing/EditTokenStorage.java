@@ -53,6 +53,10 @@ public class EditTokenStorage {
         }.execute();
     }
 
+    public void clearEditTokenForDomain(String wiki) {
+        Prefs.removeEditTokenForWiki(wiki);
+    }
+
     public void clearAllTokens() {
         for (String wiki : tokenJar.keySet()) {
             Prefs.removeEditTokenForWiki(wiki);

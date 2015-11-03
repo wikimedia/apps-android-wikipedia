@@ -99,6 +99,10 @@ public class SharedPreferenceCookieManager extends CookieManager {
         throw new UnsupportedOperationException("We poor. We no have CookieStore");
     }
 
+    public void clearCookiesForDomain(String domain) {
+        Prefs.removeCookiesForDomain(domain);
+    }
+
     public void clearAllCookies() {
         for (String domain: cookieJar.keySet()) {
             Prefs.removeCookiesForDomain(domain);
