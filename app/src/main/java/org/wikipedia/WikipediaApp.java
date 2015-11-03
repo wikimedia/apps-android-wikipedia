@@ -428,6 +428,21 @@ public class WikipediaApp extends Application {
         return enabled;
     }
 
+    public int getLinkPreviewVersion() {
+        int version;
+        if (Prefs.hasLinkPreviewVersion()) {
+            version = Prefs.getLinkPreviewVersion();
+        } else {
+            version = new Random().nextInt(2);
+            Prefs.setLinkPreviewVersion(version);
+        }
+        return version;
+    }
+
+    public boolean isLinkPreviewExperimental() {
+        return getLinkPreviewVersion() != 0;
+    }
+
     /**
      * Gets the currently-selected theme for the app.
      * @return Theme that is currently selected, which is the actual theme ID that can

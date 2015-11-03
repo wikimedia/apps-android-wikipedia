@@ -3,6 +3,7 @@ package org.wikipedia.page.linkpreview;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.json.JSONException;
@@ -41,7 +42,7 @@ public class LinkPreviewContents {
     public LinkPreviewContents(@NonNull RbPageLead pageLead, @NonNull Site site) {
         title = new PageTitle(pageLead.getDisplayTitle(), site);
         extract = pageLead.getExtract();
-        title.setThumbUrl(pageLead.getLeadImageUrl());
+        title.setThumbUrl(WikipediaApp.getInstance().getNetworkProtocol() + ":" + pageLead.getLeadImageUrl());
         title.setDescription(pageLead.getDescription());
     }
 

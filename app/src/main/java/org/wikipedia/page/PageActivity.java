@@ -16,6 +16,7 @@ import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.page.linkpreview.LinkPreviewDialogB;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
@@ -50,6 +51,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -663,7 +665,9 @@ public class PageActivity extends ThemedActionBarActivity {
 
     public void showLinkPreview(PageTitle title, int entrySource) {
         if (getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG) == null) {
-            LinkPreviewDialog linkPreview = LinkPreviewDialog.newInstance(title, entrySource);
+            DialogFragment linkPreview = app.isLinkPreviewExperimental()
+                    ? LinkPreviewDialogB.newInstance(title, entrySource)
+                    : LinkPreviewDialog.newInstance(title, entrySource);
             linkPreview.show(getSupportFragmentManager(), LINK_PREVIEW_FRAGMENT_TAG);
         }
     }
@@ -672,7 +676,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * Dismiss the current link preview, if one is open.
      */
     private void hideLinkPreview() {
-        LinkPreviewDialog linkPreview = (LinkPreviewDialog) getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG);
+        DialogFragment linkPreview = (DialogFragment) getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG);
         if (linkPreview != null) {
             linkPreview.dismiss();
         }

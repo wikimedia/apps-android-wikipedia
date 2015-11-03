@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/link_preview_top_shadow"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/linkPreviewPeekHeight"
+            android:orientation="vertical"
+            android:background="?attr/link_preview_background_color"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:id="@+id/link_preview_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                style="@style/RtlAwareTextView"
+                android:background="?attr/selectableItemBackground"
+                android:textColor="?attr/link_color"
+                android:paddingTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp"
+                android:textSize="22sp"
+                android:fontFamily="serif"
+                android:lineSpacingMultiplier="0.9"
+                android:maxLines="2"
+                android:ellipsize="end"
+                tools:text="Lorem ipsum" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_highlight"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/link_preview_extract"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:layout_weight="1"
+                    style="@style/RtlAwareTextView"
+                    android:paddingTop="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textSize="16sp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:textColor="?attr/link_preview_text_color"
+                    android:textIsSelectable="true"
+                    android:maxLines="7"
+                    android:ellipsize="end"
+                    tools:text="Lorem ipsum"/>
+                <ImageView
+                    android:id="@+id/link_preview_lead_image"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:src="?attr/lead_image_drawable"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"/>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/link_preview_bottom_padding"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/link_preview_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+</FrameLayout>
