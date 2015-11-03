@@ -20,7 +20,6 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -32,13 +31,12 @@ import com.squareup.picasso.Target;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.drawable.DrawableUtil;
+import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.page.leadimages.ImageViewWithFace;
 import org.wikipedia.page.leadimages.ImageViewWithFace.OnImageLoadListener;
-import org.wikipedia.richtext.IntrinsicImageSpan;
 import org.wikipedia.richtext.LeadingSpan;
 import org.wikipedia.richtext.ParagraphSpan;
-import org.wikipedia.richtext.PronunciationSpan;
+import org.wikipedia.richtext.AudioUrlSpan;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
@@ -56,6 +54,7 @@ public class ArticleHeaderView extends FrameLayout {
 
     @NonNull private CharSequence title = "";
     @NonNull private CharSequence subtitle = "";
+    @Nullable private String pronunciationUrl;
 
     public ArticleHeaderView(Context context) {
         super(context);
@@ -186,14 +185,13 @@ public class ArticleHeaderView extends FrameLayout {
         text.setTextSize(unit, size);
     }
 
-    public void setPronunciation() {
-        // TODO: implementation.
+    public void setPronunciation(@Nullable String url) {
+        pronunciationUrl = url;
         updateText();
     }
 
     public boolean hasPronunciation() {
-        // TODO: implementation.
-        return false;
+        return pronunciationUrl != null;
     }
 
     private void updateText() {
@@ -213,19 +211,13 @@ public class ArticleHeaderView extends FrameLayout {
     }
 
     private Spanned pronunciationSpanned() {
+        AudioUrlSpan span = new AudioUrlSpan(text, new DefaultAvPlayer());
+        span.setTint(hasImage() ? Color.WHITE : getContrastingThemeColor());
         return RichTextUtil.setSpans(new SpannableString(" "),
-                                     0,
-                                     1,
-                                     Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
-                                     pronunciationIconSpan(),
-                                     new PronunciationSpan());
-    }
-
-    private Object pronunciationIconSpan() {
-        ImageSpan span = new IntrinsicImageSpan(getContext(), R.drawable.ic_volume_up_black_24dp,
-                ImageSpan.ALIGN_BASELINE);
-        DrawableUtil.setTint(span.getDrawable(), hasImage() ? Color.WHITE : getContrastingThemeColor());
-        return span;
+                0,
+                1,
+                Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
+                span);
     }
 
     private Spanned subtitleSpanned() {
@@ -281,7 +273,7 @@ public class ArticleHeaderView extends FrameLayout {
     }
 
     @ColorInt
-    private int getContrastingThemeColor() {
+    private static int getContrastingThemeColor() {
         return WikipediaApp.getInstance().getContrastingThemeColor();
     }
 

@@ -70,11 +70,13 @@
     <item name="lead_subtitle_leading_scalar" format="float" type="dimen">1.35</item>
     <item name="lead_subtitle_paragraph_scalar" format="float" type="dimen">1.15</item>
 
+    <dimen name="audio_url_span_loading_spinner_border_thickness">3dp</dimen>
+    <dimen name="audio_url_span_loading_spinner_radius">12dp</dimen>
+
     <!-- Maps -->
     <integer name="map_default_zoom">2</integer>
     <dimen name="map_marker_icon_size">32dp</dimen>
 
     <!-- Crash report -->
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
-
 </resources>
