@@ -159,6 +159,17 @@
         <module name="VisibilityModifier">
             <!-- Butter Knife -->
             <property name="ignoreAnnotationCanonicalNames" value="Bind" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindBool" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindColor" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindDimen" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindDrawable" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindInt" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindString" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnClick" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnItemSelected" />
+
+            <!-- Testing -->
+            <property name="ignoreAnnotationCanonicalNames" value="Rule" />
         </module>
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
