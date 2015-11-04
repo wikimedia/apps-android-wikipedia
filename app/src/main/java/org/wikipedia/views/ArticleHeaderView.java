@@ -31,7 +31,9 @@ import com.squareup.picasso.Target;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
+import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.leadimages.ImageViewWithFace;
 import org.wikipedia.page.leadimages.ImageViewWithFace.OnImageLoadListener;
 import org.wikipedia.richtext.LeadingSpan;
@@ -55,6 +57,8 @@ public class ArticleHeaderView extends FrameLayout {
     @NonNull private CharSequence title = "";
     @NonNull private CharSequence subtitle = "";
     @Nullable private String pronunciationUrl;
+
+    @NonNull private final AvPlayer avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
 
     public ArticleHeaderView(Context context) {
         super(context);
@@ -194,7 +198,21 @@ public class ArticleHeaderView extends FrameLayout {
         return pronunciationUrl != null;
     }
 
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        avPlayer.init();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        avPlayer.deinit();
+    }
+
     private void updateText() {
+        avPlayer.stop();
+
         SpannableStringBuilder builder = new SpannableStringBuilder(title);
 
         if (hasPronunciation()) {
@@ -211,7 +229,7 @@ public class ArticleHeaderView extends FrameLayout {
     }
 
     private Spanned pronunciationSpanned() {
-        AudioUrlSpan span = new AudioUrlSpan(text, new DefaultAvPlayer());
+        AudioUrlSpan span = new AudioUrlSpan(text, avPlayer, pronunciationUrl);
         span.setTint(hasImage() ? Color.WHITE : getContrastingThemeColor());
         return RichTextUtil.setSpans(new SpannableString(" "),
                 0,
@@ -268,7 +286,7 @@ public class ArticleHeaderView extends FrameLayout {
 
     private void initText() {
         // TODO: replace with android:fontFamily="serif" attribute when our minimum API level is
-        //       Jelly Bean, API 16, or we make custom typeface attribute.
+        //       Jelly Bean, API 16, or if we make custom typeface attribute.
         text.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL));
     }
 

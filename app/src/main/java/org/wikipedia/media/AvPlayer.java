@@ -1,11 +1,29 @@
 package org.wikipedia.media;
 
+import android.support.annotation.NonNull;
+
 public interface AvPlayer {
-    void init();
+    interface Callback {
+        void onSuccess();
+    }
+
+    interface ErrorCallback {
+        void onError();
+    }
+
     void deinit();
-    void load(String path);
-    void play();
-    void togglePlayback();
+    void init();
+
+    void load(@NonNull String path,
+              @NonNull Callback callback,
+              @NonNull ErrorCallback errorCallback);
+
     void stop();
-    void seek(int millis);
+
+    void play(@NonNull Callback callback, @NonNull ErrorCallback errorCallback);
+    void play(@NonNull String path,
+              @NonNull Callback callback,
+              @NonNull ErrorCallback errorCallback);
+
+    void pause();
 }

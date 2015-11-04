@@ -24,10 +24,16 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
     @NonNull
     private final AvPlayer player;
 
-    public AudioUrlSpan(@NonNull View view, @NonNull AvPlayer player) {
+    @NonNull
+    private final AvCallback avCallback = new AvCallback();
+
+    @NonNull
+    private final String path;
+
+    public AudioUrlSpan(@NonNull View view, @NonNull AvPlayer player, @NonNull String path) {
         super(view, drawable(view.getContext()));
         this.player = player;
-        view.addOnAttachStateChangeListener(new ViewAttachListener());
+        this.path = path;
     }
 
     public void setTint(@ColorInt int color) {
@@ -43,7 +49,7 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
     public void start() {
         showIcon(PLAY_ICON_LEVEL);
         super.start();
-        player.play();
+        player.play(path, avCallback, avCallback);
     }
 
     @Override
@@ -51,12 +57,6 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
         showIcon(STOP_ICON_LEVEL);
         super.stop();
         player.stop();
-    }
-
-    @Override
-    public void toggle() {
-        super.toggle();
-        player.togglePlayback();
     }
 
     @Override
@@ -104,15 +104,16 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
         return context.getResources().getDimensionPixelSize(id);
     }
 
-    private class ViewAttachListener implements View.OnAttachStateChangeListener {
+    private class AvCallback implements AvPlayer.Callback, AvPlayer.ErrorCallback {
         @Override
-        public void onViewAttachedToWindow(View view) {
-            player.init();
+        public void onSuccess() {
+            stop();
         }
 
+
         @Override
-        public void onViewDetachedFromWindow(View v) {
-            player.deinit();
+        public void onError() {
+            stop();
         }
     }
 }

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class TextViewSpanOnTouchListener implements View.OnTouchListener {
-    @Nullable private TextView textView;
+    @NonNull private TextView textView;
 
     public TextViewSpanOnTouchListener(@NonNull TextView textView) {
         this.textView = textView;
