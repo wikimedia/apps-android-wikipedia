@@ -45,4 +45,9 @@
             android:title="@string/settings_item_preferences"
             android:icon="@drawable/ic_settings_black_24dp" />
     </group>
+    <group android:id="@+id/group_donate">
+        <item android:id="@+id/nav_item_donate"
+            android:title="@string/nav_item_donate"
+            android:icon="@drawable/ic_favorite_black_24dp"/>
+    </group>
 </menu>
