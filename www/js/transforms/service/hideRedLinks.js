@@ -1,4 +1,4 @@
-var transformer = require("../transformer");
+var transformer = require("../../transformer");
 
 transformer.register( "hideRedLinks", function( content ) {
 	var redLinks = content.querySelectorAll( 'a.new' );

@@ -1,4 +1,4 @@
-var transformer = require("../transformer");
+var transformer = require("../../transformer");
 
 transformer.register( "anchorPopUpMediaTransforms", function( content ) {
     // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),

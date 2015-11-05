@@ -1,4 +1,4 @@
-var transformer = require("../transformer");
+var transformer = require("../../transformer");
 
 // Move the first non-empty paragraph (and related elements) to the top of the section.
 // This will have the effect of shifting the infobox and/or any images at the top of the page

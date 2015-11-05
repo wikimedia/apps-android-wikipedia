@@ -82,6 +82,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.string_expand_refs = payload.string_expand_refs;
     window.pageTitle = payload.title;
     window.isMainPage = payload.isMainPage;
+    window.fromRestBase = payload.fromRestBase;
     window.isBeta = payload.isBeta;
     window.siteLanguage = payload.siteLanguage;
 
@@ -89,18 +90,23 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
 
-    transformer.transform( "moveFirstGoodParagraphUp" );
-    transformer.transform( "addDarkModeStyles", content );
-    transformer.transform( "hideRedLinks", content );
-    transformer.transform( "setDivWidth", content );
-    transformer.transform( "setMathFormulaImageMaxWidth", content );
-    transformer.transform( "anchorPopUpMediaTransforms", content );
-    transformer.transform( "hideIPA", content );
+    // Content service transformations
+    if (!window.fromRestBase) {
+        transformer.transform( "moveFirstGoodParagraphUp" );
+        transformer.transform( "hideRedLinks", content );
+        transformer.transform( "setMathFormulaImageMaxWidth", content );
+        transformer.transform( "anchorPopUpMediaTransforms", content );
+    }
+
+    // client only transformations:
+    transformer.transform( "addDarkModeStyles", content ); // client setting
+    transformer.transform( "setDivWidth", content ); // offsetWidth
+    transformer.transform( "hideIPA", content ); // clickHandler
 
     if (!window.isMainPage) {
-        transformer.transform( "hideTables", content );
-        transformer.transform( "addImageOverflowXContainers", content );
-        transformer.transform( "widenImages", content );
+        transformer.transform( "hideTables", content ); // clickHandler
+        transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
+        transformer.transform( "widenImages", content ); // offsetWidth
     }
 
     // insert the edit pencil
@@ -165,17 +171,23 @@ function elementsForSection( section ) {
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    transformer.transform( "addDarkModeStyles", content );
-    transformer.transform( "hideRedLinks", content );
-    transformer.transform( "setDivWidth", content );
-    transformer.transform( "setMathFormulaImageMaxWidth", content );
-    transformer.transform( "anchorPopUpMediaTransforms", content );
-    transformer.transform( "hideIPA", content );
-    transformer.transform( "hideRefs", content );
+
+    // Content service transformations
+    if (!window.fromRestBase) {
+        transformer.transform( "hideRedLinks", content );
+        transformer.transform( "setMathFormulaImageMaxWidth", content );
+        transformer.transform( "anchorPopUpMediaTransforms", content );
+    }
+
+    transformer.transform( "addDarkModeStyles", content ); // client setting
+    transformer.transform( "setDivWidth", content ); // offsetWidth
+    transformer.transform( "hideIPA", content ); // clickHandler
+    transformer.transform( "hideRefs", content ); // clickHandler
+
     if (!window.isMainPage) {
-        transformer.transform( "hideTables", content );
-        transformer.transform( "addImageOverflowXContainers", content );
-        transformer.transform( "widenImages", content );
+        transformer.transform( "hideTables", content ); // clickHandler
+        transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
+        transformer.transform( "widenImages", content ); // offsetWidth
     }
 
     return [ heading, content ];
