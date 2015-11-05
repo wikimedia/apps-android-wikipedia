@@ -11,10 +11,6 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_restbase_heading">
 
-    <!--<CheckBoxPreference-->
-        <!--android:key="@string/preference_key_exp_html_page_load"-->
-        <!--android:title="@string/preference_key_exp_html_page_load" />-->
-
         <CheckBoxPreference
             android:key="@string/preference_key_use_restbase_manual"
             android:title="@string/preference_key_use_restbase_manual" />

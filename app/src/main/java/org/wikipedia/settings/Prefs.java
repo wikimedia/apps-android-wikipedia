@@ -241,10 +241,6 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_eventlogging_opt_in, true);
     }
 
-    public static boolean isExperimentalHtmlPageLoadEnabled() {
-        return getBoolean(R.string.preference_key_exp_html_page_load, false);
-    }
-
     public static boolean useRestBaseSetManually() {
         return getBoolean(R.string.preference_key_use_restbase_manual, false);
     }
