@@ -1,14 +1,18 @@
 package org.wikipedia.test.perf;
 
+import org.junit.Rule;
+import org.junit.Test;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageLoadCallbacks;
 import org.wikipedia.page.PageLoadTests;
 import org.wikipedia.testlib.TestLatch;
 
-import android.test.ActivityInstrumentationTestCase2;
+import android.support.annotation.NonNull;
+import android.support.test.rule.ActivityTestRule;
 import android.test.suitebuilder.annotation.LargeTest;
 
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -16,22 +20,14 @@ import static org.hamcrest.core.IsNull.notNullValue;
  * Test performance of page loading. Update the NUM_RUNS for better statistical significance.
  */
 @LargeTest
-public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<PageActivity> {
+public class PageLoadPerformanceTests {
+    @Rule @NonNull
+    public final ActivityTestRule<PageActivity> activityRule = new ActivityTestRule<>(PageActivity.class);
+
     private static final int NUM_RUNS = 1; //50;
     private final MeasurementController measurement = new MeasurementController();
 
-    public PageLoadPerformanceTests() {
-        super(PageActivity.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-
-        // Launch Activity.
-        getActivity();
-    }
-
+    @Test
     public void testLoadPages() throws Throwable {
         loadPageMultipleTimes("Test_page_for_app_testing/Section1");
         loadPageMultipleTimes("A_long_page");
@@ -48,6 +44,7 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
 
     private void loadPageUi(final String title) throws Throwable {
         final TestLatch latch = new TestLatch();
+
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
@@ -73,5 +70,9 @@ public class PageLoadPerformanceTests extends ActivityInstrumentationTestCase2<P
 
     private PageFragment getFragment() {
         return (PageFragment) getActivity().getTopFragment();
+    }
+
+    private PageActivity getActivity() {
+        return activityRule.getActivity();
     }
 }
