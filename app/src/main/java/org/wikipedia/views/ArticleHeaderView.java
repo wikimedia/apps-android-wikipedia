@@ -206,7 +206,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     @Override
-    public void onScrollChanged(int oldScrollY, int scrollY) {
+    public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         updateParallaxScroll(scrollY);
     }
 

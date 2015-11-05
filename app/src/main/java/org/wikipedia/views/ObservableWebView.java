@@ -77,7 +77,7 @@ public class ObservableWebView extends WebView {
     }
 
     public interface OnScrollChangeListener {
-        void onScrollChanged(int oldScrollY, int scrollY);
+        void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll);
     }
 
     public interface OnDownMotionEventListener {
@@ -123,11 +123,11 @@ public class ObservableWebView extends WebView {
     @Override
     protected void onScrollChanged(int left, int top, int oldLeft, int oldTop) {
         super.onScrollChanged(left, top, oldLeft, oldTop);
+        boolean isHumanScroll = Math.abs(top - oldTop) < MAX_HUMAN_SCROLL;
         for (OnScrollChangeListener listener : onScrollChangeListeners) {
-            listener.onScrollChanged(oldTop, top);
+            listener.onScrollChanged(oldTop, top, isHumanScroll);
         }
-        //make sure it's a human scroll
-        if (Math.abs(top - oldTop) > MAX_HUMAN_SCROLL) {
+        if (!isHumanScroll) {
             return;
         }
         totalAmountScrolled += (top - oldTop);

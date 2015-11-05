@@ -87,11 +87,11 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         if (webview == null) {
             return;
         }
-        onScrollChanged(webview.getScrollY(), webview.getScrollY());
+        onScrollChanged(webview.getScrollY(), webview.getScrollY(), false);
     }
 
     @Override
-    public void onScrollChanged(int oldScrollY, int scrollY) {
+    public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);
         toolbarShadow.setAlpha(opacity);

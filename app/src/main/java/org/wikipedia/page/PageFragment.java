@@ -8,6 +8,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -111,6 +112,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @NonNull
     private TabFunnel tabFunnel = new TabFunnel();
+
+    @Nullable
+    private PageScrollFunnel pageScrollFunnel;
 
     /**
      * Whether to save the full page content as soon as it's loaded.
@@ -385,10 +389,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         });
         webView.addOnScrollChangeListener(new ObservableWebView.OnScrollChangeListener() {
             @Override
-            public void onScrollChanged(int oldScrollY, int scrollY) {
+            public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
                 if (scrollY <= 0) {
                     // always show the ToC button when we're at the top of the page.
                     setToCButtonFadedIn(true);
+                }
+                if (pageScrollFunnel != null) {
+                    pageScrollFunnel.onPageScrolled(oldScrollY, scrollY, isHumanScroll);
                 }
             }
         });
@@ -482,12 +489,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void onPause() {
         super.onPause();
         Prefs.setTabs(tabList);
+        closePageScrollFunnel();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("");
+        initPageScrollFunnel();
     }
 
     @Override
@@ -581,6 +590,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             checkIfPageIsSaved();
         }
 
+        closePageScrollFunnel();
         pageLoadStrategy.onDisplayNewPage(pushBackStack, cachePreference, stagedScrollY);
     }
 
@@ -777,6 +787,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void onPageLoadComplete() {
         editHandler.setPage(model.getPage());
+        initPageScrollFunnel();
 
         if (saveOnComplete) {
             saveOnComplete = false;
@@ -1132,6 +1143,21 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             throw new RuntimeException(e);
         }
         bridge.sendMessage("setDecorOffset", payload);
+    }
+
+    private void initPageScrollFunnel() {
+        if (model.getPage() != null) {
+            pageScrollFunnel = new PageScrollFunnel(app, model.getPage().getPageProperties().getPageId());
+        }
+    }
+
+    private void closePageScrollFunnel() {
+        if (pageScrollFunnel != null && webView.getContentHeight() > 0) {
+            pageScrollFunnel.setViewportHeight(webView.getHeight());
+            pageScrollFunnel.setPageHeight(webView.getContentHeight());
+            pageScrollFunnel.logDone();
+        }
+        pageScrollFunnel = null;
     }
 
     // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.

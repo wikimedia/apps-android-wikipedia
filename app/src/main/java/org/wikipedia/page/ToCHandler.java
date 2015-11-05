@@ -95,7 +95,8 @@ public class ToCHandler {
         tocList.addHeaderView(headerView);
 
         // create a dummy funnel, in case the drawer is pulled out before a page is loaded.
-        funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), WikipediaApp.getInstance().getPrimarySite());
+        funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(),
+                WikipediaApp.getInstance().getPrimarySite(), 0, 0);
 
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private boolean sectionRequested = false;
@@ -156,8 +157,6 @@ public class ToCHandler {
     }
 
     public void setupToC(final Page page, Site site, boolean firstPage) {
-        funnel = new ToCInteractionFunnel((WikipediaApp)slidingPane.getContext().getApplicationContext(), site);
-
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
 
@@ -167,7 +166,7 @@ public class ToCHandler {
             public void onClick(View v) {
                 scrollToSection(page.getSections().get(0));
                 wasClicked = true;
-                funnel.logClick();
+                funnel.logClick(0, page.getTitle().getDisplayText());
                 hide();
             }
         });
@@ -179,10 +178,13 @@ public class ToCHandler {
                 Section section = (Section) parent.getAdapter().getItem(position);
                 scrollToSection(section);
                 wasClicked = true;
-                funnel.logClick();
+                funnel.logClick(position, section.getHeading());
                 hide();
             }
         });
+
+        funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), site,
+                page.getPageProperties().getPageId(), tocList.getAdapter().getCount());
 
         if (!page.isMainPage() && !firstPage) {
             if (WikipediaApp.getInstance().getOnboardingStateMachine().isTocTutorialEnabled()) {

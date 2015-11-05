@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import java.util.concurrent.TimeUnit;
 
 /*package*/ abstract class TimedFunnel extends Funnel {
-    private final long startTime;
+    private long startTime;
 
     /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate) {
         this(app, schemaName, revision, sampleRate, null);
@@ -28,6 +28,10 @@ import java.util.concurrent.TimeUnit;
     /** Override me for deviant implementations. */
     protected String getDurationFieldName() {
         return "timeSpent";
+    }
+
+    protected void resetDuration() {
+        startTime = System.currentTimeMillis();
     }
 
     private long getDuration() {

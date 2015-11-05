@@ -163,7 +163,7 @@ public class BottomContentHandler implements BottomContentInterface,
     }
 
     @Override
-    public void onScrollChanged(int oldScrollY, int scrollY) {
+    public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         if (bottomContentContainer.getVisibility() == View.GONE) {
             return;
         }
@@ -198,7 +198,7 @@ public class BottomContentHandler implements BottomContentInterface,
             return;
         }
         // trigger a manual scroll event to update our position
-        onScrollChanged(webView.getScrollY(), webView.getScrollY());
+        onScrollChanged(webView.getScrollY(), webView.getScrollY(), false);
     }
 
     /**
