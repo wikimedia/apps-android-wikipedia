@@ -217,7 +217,6 @@
   <string name="gallery_menu_share">Deelen</string>
   <string name="gallery_share_error">Bild konnt net gedeelt ginn: %s</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>
-  <string name="gallery_save_error_mediastore">Bild konnt net an d\'Sammlung vun de Medien importéiert ginn</string>
   <string name="gallery_save_success">Bild gespäichert.</string>
   <string name="gallery_image_saved_notification_title">Bild gespäichert.</string>
   <string name="gallery_image_saved_notification_text">Upake fir ze kucken.</string>

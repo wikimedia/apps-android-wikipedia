@@ -209,7 +209,6 @@
   <string name="gallery_menu_share">वितरतु</string>
   <string name="gallery_share_error">चित्रस्य वितरणं न जातम् : %s</string>
   <string name="gallery_menu_save">यन्त्रे रक्ष्यताम्</string>
-  <string name="gallery_save_error_mediastore">माध्यमक्रोडीकरणाय चित्रस्य आयातं निष्फलम् अभवत्</string>
   <string name="gallery_save_success">चित्रं सफलतया रक्षितम् ।</string>
   <string name="gallery_error_video_failed">चलच्चित्रम् आरब्धुं न शक्तम् ।</string>
   <string name="err_cannot_save_file">सञ्चिकारक्षणम् असफलम्</string>

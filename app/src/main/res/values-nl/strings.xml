@@ -242,7 +242,6 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_menu_share">Delen</string>
   <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
   <string name="gallery_menu_save">Opslaan op apparaat</string>
-  <string name="gallery_save_error_mediastore">Het importeren van de afbeelding in de mediacollectie is mislukt</string>
   <string name="gallery_save_success">Afbeelding opgeslagen.</string>
   <string name="gallery_image_saved_notification_title">Afbeelding opgeslagen.</string>
   <string name="gallery_image_saved_notification_text">Raak aan om te bekijken.</string>

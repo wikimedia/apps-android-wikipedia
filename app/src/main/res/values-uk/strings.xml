@@ -252,7 +252,6 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Поділитися</string>
   <string name="gallery_share_error">Не вдалось поділитися зображенням: %s</string>
   <string name="gallery_menu_save">Зберегти на пристрій</string>
-  <string name="gallery_save_error_mediastore">Не вдалося імпортувати зображення до медіа-колекції</string>
   <string name="gallery_save_success">Зображення успішно збережено!</string>
   <string name="gallery_image_saved_notification_title">Зображення збережено.</string>
   <string name="gallery_image_saved_notification_text">Натисніть, щоб переглянути.</string>

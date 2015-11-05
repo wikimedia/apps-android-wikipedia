@@ -241,7 +241,6 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
   <string name="gallery_menu_save">Tallenna laitteeseen</string>
-  <string name="gallery_save_error_mediastore">Kuvan tuonti mediakokoelmaan epäonnistui</string>
   <string name="gallery_save_success">Kuva tallennettu onnistuneesti.</string>
   <string name="gallery_image_saved_notification_title">Kuva tallennettiin.</string>
   <string name="gallery_image_saved_notification_text">Kosketa katsoaksesi.</string>

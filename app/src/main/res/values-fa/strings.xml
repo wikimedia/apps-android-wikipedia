@@ -241,7 +241,6 @@
   <string name="gallery_menu_share">به‌اشتراک‌گذاشتن</string>
   <string name="gallery_share_error">امکان به اشتراک‌گذاری تصویر نیست: %s</string>
   <string name="gallery_menu_save">ذخیره در ابزار</string>
-  <string name="gallery_save_error_mediastore">خطا در درون‌ریزی پرونده در بخش جمع‌آوری رسانه</string>
   <string name="gallery_save_success">صفحه با موفقیت ذخیره‌شده‌است</string>
   <string name="gallery_image_saved_notification_title">تصویر ذخیره شده</string>
   <string name="gallery_image_saved_notification_text">برای دیدن لمس کنید.</string>

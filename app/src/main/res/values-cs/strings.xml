@@ -241,7 +241,6 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Sdílet</string>
   <string name="gallery_share_error">Není možno sdílet obrázek: %s</string>
   <string name="gallery_menu_save">Uložit na zařízení</string>
-  <string name="gallery_save_error_mediastore">Nepodařilo se importovat obrázek do sbírky médií</string>
   <string name="gallery_save_success">Obrázek úspěšně uložen.</string>
   <string name="gallery_image_saved_notification_title">Obrázek uložen.</string>
   <string name="gallery_image_saved_notification_text">Klepněte pro zobrazení.</string>

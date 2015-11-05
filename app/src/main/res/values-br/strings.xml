@@ -234,7 +234,6 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="gallery_menu_share">Rannañ</string>
   <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>
   <string name="gallery_menu_save">Enrollañ en ardivink</string>
-  <string name="gallery_save_error_mediastore">C\'hwitet eo bet enporzhiadur ar skeudenn en dastumad mediaoù</string>
   <string name="gallery_save_success">Pajenn enrollet mat.</string>
   <string name="gallery_error_video_failed">Ne c\'haller ket lenn ar video.</string>
   <string name="err_cannot_save_file">Ne c\'haller ket enrollañ ar restr</string>

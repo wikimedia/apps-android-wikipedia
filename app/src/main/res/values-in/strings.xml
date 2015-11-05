@@ -241,7 +241,6 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
-  <string name="gallery_save_error_mediastore">Gagal mengimpor berkas ke koleksi media</string>
   <string name="gallery_save_success">Penyimpanan gambar berhasil.</string>
   <string name="gallery_image_saved_notification_title">Berkas tersimpan</string>
   <string name="gallery_image_saved_notification_text">Sentuh untuk melihat.</string>

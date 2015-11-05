@@ -242,7 +242,6 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
   <string name="gallery_menu_save">Lagre på enheten</string>
-  <string name="gallery_save_error_mediastore">Importering av bilde til mediesamling feilet</string>
   <string name="gallery_save_success">Bildet ble lagret.</string>
   <string name="gallery_image_saved_notification_title">Bilde ble lagret.</string>
   <string name="gallery_image_saved_notification_text">Trykk for å vise.</string>

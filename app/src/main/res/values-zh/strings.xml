@@ -242,7 +242,6 @@
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图像：%s</string>
   <string name="gallery_menu_save">保存至设备</string>
-  <string name="gallery_save_error_mediastore">导入图像至媒体库失败</string>
   <string name="gallery_save_success">图像保存成功。</string>
   <string name="gallery_image_saved_notification_title">图片已保存。</string>
   <string name="gallery_image_saved_notification_text">点按以浏览。</string>

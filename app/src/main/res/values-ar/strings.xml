@@ -228,7 +228,6 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_menu_save">الحفظ في الجهاز</string>
-  <string name="gallery_save_error_mediastore">فشل لاستيراد صورة لمجموعة الوسائط</string>
   <string name="gallery_save_success">حُفظت الصورة بنجاح.</string>
   <string name="gallery_image_saved_notification_title">حُفظت الصورة.</string>
   <string name="gallery_image_saved_notification_text">اضغط للعرض.</string>

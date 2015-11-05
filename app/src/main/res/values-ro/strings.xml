@@ -241,7 +241,6 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="gallery_menu_share">Distribuie</string>
   <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
   <string name="gallery_menu_save">Salvează în dispozitiv</string>
-  <string name="gallery_save_error_mediastore">Importarea imaginii în galeria multimedia a eșuat</string>
   <string name="gallery_save_success">Imagine salvată cu succes.</string>
   <string name="gallery_image_saved_notification_title">Imagine salvată.</string>
   <string name="gallery_image_saved_notification_text">Atingeți pentru a vizualiza.</string>

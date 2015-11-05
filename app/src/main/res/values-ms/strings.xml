@@ -233,7 +233,6 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Kongsi</string>
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam peranti</string>
-  <string name="gallery_save_error_mediastore">Imej gagal diimport ke koleksi media</string>
   <string name="gallery_save_success">Imej berjaya disimpan.</string>
   <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>
   <string name="err_cannot_save_file">Fail tidak dapat disimpan</string>

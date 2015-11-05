@@ -242,7 +242,6 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">No se pudo compartir la imagen: %s</string>
   <string name="gallery_menu_save">Guardar en dispositivo</string>
-  <string name="gallery_save_error_mediastore">No se pudo importar la imagen a la colección de medios</string>
   <string name="gallery_save_success">Imagen guardada correctamente.</string>
   <string name="gallery_image_saved_notification_title">Imagen guardada.</string>
   <string name="gallery_image_saved_notification_text">Toca para ver.</string>
