@@ -27,7 +27,6 @@ import org.wikipedia.page.PageActivityLongPressHandler;
 import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -46,7 +45,9 @@ import org.wikipedia.views.ConfigurableTextView;
 
 import java.util.List;
 
-import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.formatDateRelative;
+import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class BottomContentHandler implements BottomContentInterface,
                                                 ObservableWebView.OnScrollChangeListener,
@@ -96,7 +97,7 @@ public class BottomContentHandler implements BottomContentInterface,
         pageExternalLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.visitInExternalBrowser(activity, Uri.parse(pageTitle.getMobileUri()));
+                visitInExternalBrowser(activity, Uri.parse(pageTitle.getMobileUri()));
             }
         });
         PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(activity);
@@ -273,7 +274,7 @@ public class BottomContentHandler implements BottomContentInterface,
         } else {
             String lastUpdatedHtml = "<a href=\"" + page.getTitle().getUriForAction("history")
                     + "\">" + activity.getString(R.string.last_updated_text,
-                    Utils.formatDateRelative(page.getPageProperties().getLastModified())
+                    formatDateRelative(page.getPageProperties().getLastModified())
                             + "</a>");
             pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml));
             pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));

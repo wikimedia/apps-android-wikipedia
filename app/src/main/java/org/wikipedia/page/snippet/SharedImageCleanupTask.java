@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.recurring.RecurringTask;
-import org.wikipedia.util.ShareUtils;
+import org.wikipedia.util.ShareUtil;
 
 import java.util.Date;
 
@@ -27,7 +27,7 @@ public class SharedImageCleanupTask extends RecurringTask {
 
     @Override
     protected void run(Date lastRun) {
-        ShareUtils.clearFolder(context);
+        ShareUtil.clearFolder(context);
     }
 
     @Override

@@ -2,15 +2,16 @@ package org.wikipedia.savedpages;
 
 import android.util.Log;
 import com.github.kevinsawicki.http.HttpRequest;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.util.NetworkUtils;
+import org.wikipedia.util.UriUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import static org.wikipedia.util.FileUtil.copyStreams;
 
 /** */
 public class DownloadImageTask extends SaneAsyncTask<Boolean> {
@@ -23,7 +24,7 @@ public class DownloadImageTask extends SaneAsyncTask<Boolean> {
     public DownloadImageTask(WikipediaApp app, String imageUrl, File file) {
         super(HIGH_CONCURRENCY);
         this.app = app;
-        this.imageUrl = NetworkUtils.resolveProtocolRelativeUrl(imageUrl);
+        this.imageUrl = UriUtil.resolveProtocolRelativeUrl(imageUrl);
         this.file = file;
     }
 
@@ -56,7 +57,7 @@ public class DownloadImageTask extends SaneAsyncTask<Boolean> {
     private void writeFile(InputStream inputStream, File file) throws IOException {
         FileOutputStream outputStream = new FileOutputStream(file);
         try {
-            Utils.copyStreams(inputStream, outputStream);
+            copyStreams(inputStream, outputStream);
         } finally {
             outputStream.close();
         }

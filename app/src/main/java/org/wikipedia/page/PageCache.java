@@ -1,6 +1,5 @@
 package org.wikipedia.page;
 
-import org.wikipedia.Utils;
 import org.wikipedia.concurrency.SaneAsyncTask;
 
 import com.jakewharton.disklrucache.DiskLruCache;
@@ -14,6 +13,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import static org.wikipedia.util.FileUtil.readFile;
+import static org.wikipedia.util.FileUtil.writeToStream;
 
 /**
  * Implements a cache of Page objects.
@@ -101,7 +103,7 @@ public class PageCache {
                         return null;
                     }
                     OutputStream outputStream = new BufferedOutputStream(editor.newOutputStream(0));
-                    Utils.writeToStream(outputStream, page.toJSON().toString());
+                    writeToStream(outputStream, page.toJSON().toString());
                     mDiskLruCache.flush();
                     editor.commit();
                 } catch (IOException e) {
@@ -155,7 +157,7 @@ public class PageCache {
                 try {
                     Log.d(TAG, "Reading from cache: " + title.getDisplayText());
                     InputStream inputStream = new BufferedInputStream(snapshot.getInputStream(0));
-                    String jsonStr = Utils.readFile(inputStream);
+                    String jsonStr = readFile(inputStream);
                     return new Page(new JSONObject(jsonStr));
                 } finally {
                     snapshot.close();

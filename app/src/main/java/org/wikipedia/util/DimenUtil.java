@@ -1,10 +1,14 @@
 package org.wikipedia.util;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.support.annotation.DimenRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Window;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
 public final class DimenUtil {
@@ -37,6 +41,53 @@ public final class DimenUtil {
         return TypedValue.complexToFloat(getValue(id).data);
     }
 
+    public static int getTranslucentStatusBarHeightPx(Context context) {
+        return DimenUtil.roundedDpToPx(getTranslucentStatusBarHeight(context));
+    }
+
+    /**
+     * Calculates the actual font size for the current device, based on an "sp" measurement.
+     * @param window The window on which the font will be rendered.
+     * @param fontSp Measurement in "sp" units of the font.
+     * @return Actual font size for the given sp amount.
+     */
+    public static float getFontSizeFromSp(Window window, float fontSp) {
+        final DisplayMetrics metrics = new DisplayMetrics();
+        window.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return fontSp / metrics.scaledDensity;
+    }
+
+    // TODO: use getResources().getDimensionPixelSize()?  Define leadImageWidth with px, not dp?
+    public static int calculateLeadImageWidth() {
+        Resources res = WikipediaApp.getInstance().getResources();
+        return (int) (res.getDimension(R.dimen.leadImageWidth) / res.getDisplayMetrics().density);
+    }
+
+    /**
+     * Gets the screen height in pixels.
+     * @return screen height in pixels
+     */
+    public static int getDisplayHeightPx() {
+        return getDisplayMetrics().heightPixels;
+    }
+
+    public static int getContentTopOffsetPx(Context context) {
+        return roundedDpToPx(getContentTopOffset(context));
+    }
+
+    public static float getContentTopOffset(Context context) {
+        return getToolbarHeight(context) + getTranslucentStatusBarHeight(context);
+    }
+
+    /** @return Height of status bar if translucency is enabled, zero otherwise. */
+    public static float getTranslucentStatusBarHeight(Context context) {
+        return isStatusBarTranslucent() ? getStatusBarHeight(context) : 0;
+    }
+
+    public static int getStatusBarHeightPx(Context context) {
+        return DimenUtil.roundedDpToPx(getStatusBarHeight(context));
+    }
+
     private static TypedValue getValue(@DimenRes int id) {
         TypedValue typedValue = new TypedValue();
         getResources().getValue(id, typedValue, true);
@@ -51,12 +102,38 @@ public final class DimenUtil {
         return WikipediaApp.getInstance().getResources();
     }
 
+
+    private static float getStatusBarHeight(Context context) {
+        int id = getStatusBarId(context);
+        return id > 0 ? DimenUtil.getDimension(id) : 0;
+    }
+
+    private static float getToolbarHeight(Context context) {
+        return DimenUtil.roundedPxToDp(getToolbarHeightPx(context));
+    }
+
     /**
-     * Gets the screen height in pixels.
-     * @return screen height in pixels
+     * Returns the height of the toolbar in the current activity. The system controls the height of
+     * the toolbar, which may be slightly different depending on screen orientation, and device
+     * version.
+     * @param context Context used for retrieving the height attribute.
+     * @return Height of the toolbar.
      */
-    public static int getDisplayHeightPx() {
-        return getDisplayMetrics().heightPixels;
+    private static int getToolbarHeightPx(Context context) {
+        final TypedArray styledAttributes = context.getTheme().obtainStyledAttributes(new int[] {
+                android.support.v7.appcompat.R.attr.actionBarSize
+        });
+        int size = styledAttributes.getDimensionPixelSize(0, 0);
+        styledAttributes.recycle();
+        return size;
+    }
+
+    @DimenRes private static int getStatusBarId(Context context) {
+        return context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+    }
+
+    private static boolean isStatusBarTranslucent() {
+        return ApiUtil.hasKitKat();
     }
 
     private DimenUtil() { }

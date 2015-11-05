@@ -5,7 +5,6 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
-import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.WidgetsFunnel;
@@ -68,6 +67,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity {
 
@@ -314,7 +317,7 @@ public class PageActivity extends ThemedActionBarActivity {
             super.onDrawerSlide(drawerView, 0);
             if (!oncePerSlideLock) {
                 // Hide the keyboard when the drawer is opened
-                Utils.hideSoftKeyboard(PageActivity.this);
+                hideSoftKeyboard(PageActivity.this);
                 //also make sure ToC is hidden
                 if (getCurPageFragment() != null) {
                     getCurPageFragment().toggleToC(PageFragment.TOC_ACTION_HIDE);
@@ -352,7 +355,7 @@ public class PageActivity extends ThemedActionBarActivity {
     // Note: this method is invoked even when in CAB mode.
     @Override
     public boolean dispatchKeyEvent(@NonNull KeyEvent event) {
-        return Utils.isBackKeyUp(event) && ToolTipUtil.dismissToolTip(this)
+        return isBackKeyUp(event) && ToolTipUtil.dismissToolTip(this)
                 || super.dispatchKeyEvent(event);
     }
 
@@ -593,7 +596,7 @@ public class PageActivity extends ThemedActionBarActivity {
             closeNavDrawer();
         }
         if (title.isSpecial()) {
-            Utils.visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
+            visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
         }
         resetFragments(allowStateLoss);
@@ -780,7 +783,7 @@ public class PageActivity extends ThemedActionBarActivity {
             if (prefsKey != null) {
                 alert.setPositiveButton(getString(R.string.zero_learn_more_learn_more), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Utils.visitInExternalBrowser(PageActivity.this, Uri.parse(getString(R.string.zero_webpage_url)));
+                        visitInExternalBrowser(PageActivity.this, Uri.parse(getString(R.string.zero_webpage_url)));
                     }
                 });
             }

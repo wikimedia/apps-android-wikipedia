@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.util.ApiUtil;
 
 import android.annotation.TargetApi;
@@ -13,6 +12,8 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView.FindListener;
 import android.widget.TextView;
+
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class FindInPageActionProvider extends ActionProvider {
 
@@ -39,7 +40,7 @@ public class FindInPageActionProvider extends ActionProvider {
         findInPageNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.hideSoftKeyboard(parentActivity);
+                hideSoftKeyboard(parentActivity);
                 if (!pageFragmentValid()) {
                     return;
                 }
@@ -51,7 +52,7 @@ public class FindInPageActionProvider extends ActionProvider {
         findInPagePrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.hideSoftKeyboard(parentActivity);
+                hideSoftKeyboard(parentActivity);
                 if (!pageFragmentValid()) {
                     return;
                 }

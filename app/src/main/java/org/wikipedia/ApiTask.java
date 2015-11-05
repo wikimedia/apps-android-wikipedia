@@ -9,7 +9,7 @@ import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.util.NetworkUtils;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
@@ -62,7 +62,7 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
                 && WikipediaApp.getInstance().incSslFailCount() < 2) {
             WikipediaApp.getInstance().setSslFallback(true);
             if (!isCancelled()) {
-                NetworkUtils.toastNetworkFail();
+                FeedbackUtil.toastNetworkFail();
             }
             cancel();
             return;

@@ -11,9 +11,10 @@ import android.view.View;
 import com.appenguin.onboarding.ToolTipRelativeLayout;
 import com.appenguin.onboarding.ToolTipView;
 
-import org.wikipedia.Utils;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.views.ViewUtil;
+
+import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 
 
 /** A one use {@link ToolTipRelativeLayout} that is detached (dismissed) by tapping. For automatic
@@ -60,7 +61,7 @@ public class ToolTipContainerView extends ToolTipRelativeLayout {
     // Note: This method won't be called when the view doesn't have focus.
     @Override
     public boolean dispatchKeyEventPreIme(@NonNull KeyEvent event) {
-        if (Utils.isBackKeyUp(event)) {
+        if (isBackKeyUp(event)) {
             postDetach();
             return true;
         }

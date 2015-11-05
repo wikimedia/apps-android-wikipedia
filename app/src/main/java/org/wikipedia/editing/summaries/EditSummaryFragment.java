@@ -11,9 +11,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.editing.EditSectionActivity;
+
+import static org.wikipedia.util.DeviceUtil.showSoftKeyboard;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class EditSummaryFragment extends Fragment {
     private PageTitle title;
@@ -74,7 +76,7 @@ public class EditSummaryFragment extends Fragment {
             public void run() {
                 parentActivity.supportInvalidateOptionsMenu();
                 summaryText.requestFocus();
-                Utils.showSoftKeyboard(parentActivity, summaryText);
+                showSoftKeyboard(parentActivity, summaryText);
             }
         });
     }
@@ -88,7 +90,7 @@ public class EditSummaryFragment extends Fragment {
         ViewAnimations.fadeOut(editSummaryContainer, new Runnable() {
             @Override
             public void run() {
-                Utils.hideSoftKeyboard(parentActivity);
+                hideSoftKeyboard(parentActivity);
                 parentActivity.supportInvalidateOptionsMenu();
             }
         });

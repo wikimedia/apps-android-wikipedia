@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.wikipedia.ApiTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
@@ -13,6 +12,7 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.PageProperties;
+import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -139,7 +139,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             if (item.has("terms")) {
                 JSONArray arr = item.getJSONObject("terms").optJSONArray("description");
                 if (arr != null && arr.length() > 0) {
-                    description = Utils.capitalizeFirstChar(arr.getString(0));
+                    description = StringUtil.capitalizeFirstChar(arr.getString(0));
                 }
             }
             PageProperties properties = null;

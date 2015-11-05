@@ -12,7 +12,7 @@ import android.support.v4.app.NotificationCompat;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 
-import static org.wikipedia.util.ShareUtils.buildImageShareChooserIntent;
+import static org.wikipedia.util.ShareUtil.buildImageShareChooserIntent;
 
 public final class SavedImageNotificationHelper {
 

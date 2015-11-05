@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ViewFlipper;
 
-import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 
 /**
  * A dialog to host page issues and disambig information.

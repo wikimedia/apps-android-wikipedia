@@ -30,7 +30,7 @@ public class RecurringTasksExecutor {
                 for (RecurringTask task: allTasks) {
                     task.runIfNecessary();
                 }
-                if (WikipediaApp.getInstance().getReleaseType() == WikipediaApp.RELEASE_ALPHA) {
+                if (WikipediaApp.getInstance().isAlphaRelease()) {
                     new AlphaUpdateChecker(app).runIfNecessary();
                 }
                 return null;

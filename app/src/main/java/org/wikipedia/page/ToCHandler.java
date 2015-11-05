@@ -2,7 +2,6 @@ package org.wikipedia.page;
 
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -32,7 +31,9 @@ import com.appenguin.onboarding.ToolTip;
 
 import java.util.ArrayList;
 
-import static org.wikipedia.util.L10nUtils.getStringForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ToCHandler {
     private static final int MAX_LEVELS = 3;
@@ -60,7 +61,7 @@ public class ToCHandler {
         this.slidingPane = slidingPane;
 
         this.tocList = (ConfigurableListView) slidingPane.findViewById(R.id.page_toc_list);
-        ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, Utils.getContentTopOffsetPx(activity), 0, 0);
+        ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, getContentTopOffsetPx(activity), 0, 0);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
 
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
@@ -257,10 +258,10 @@ public class ToCHandler {
 
             if (section.getLevel() > 1) {
                 sectionHeading.setTextColor(
-                        WikipediaApp.getInstance().getResources().getColor(Utils.getThemedAttributeId(parentActivity, R.attr.toc_subsection_text_color)));
+                        WikipediaApp.getInstance().getResources().getColor(getThemedAttributeId(parentActivity, R.attr.toc_subsection_text_color)));
             } else {
                 sectionHeading.setTextColor(
-                        WikipediaApp.getInstance().getResources().getColor(Utils.getThemedAttributeId(parentActivity, R.attr.toc_section_text_color)));
+                        WikipediaApp.getInstance().getResources().getColor(getThemedAttributeId(parentActivity, R.attr.toc_section_text_color)));
             }
             return convertView;
         }

@@ -3,7 +3,6 @@ package org.wikipedia.networking;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.NetworkUtils;
 
 import retrofit.RequestInterceptor;
 
@@ -26,7 +25,7 @@ public class MccMncStateHandler {
     public Api makeApiWithMccMncHeaderEnrichment(WikipediaApp app, Site site,
                                                  HashMap<String, String> customHeaders) {
         if (shouldSendHeader(app, site.getApiDomain())) {
-            String mccMnc = NetworkUtils.getMccMnc(app);
+            String mccMnc = NetworkUtil.getMccMnc(app);
             if (mccMnc != null) {
                 customHeaders.put("X-MCCMNC", mccMnc);
                 this.mccMncSent = true;
@@ -51,7 +50,7 @@ public class MccMncStateHandler {
     public void injectMccMncHeader(WikipediaApp app, String domain,
                                    RequestInterceptor.RequestFacade request) {
         if (shouldSendHeader(app, domain)) {
-            String mccMnc = NetworkUtils.getMccMnc(app);
+            String mccMnc = NetworkUtil.getMccMnc(app);
             if (mccMnc != null) {
                 request.addHeader("X-MCCMNC", mccMnc);
                 this.mccMncSent = true;

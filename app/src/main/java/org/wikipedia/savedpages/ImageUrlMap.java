@@ -6,7 +6,6 @@ import android.text.Html;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Utils;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.Section;
@@ -14,6 +13,8 @@ import org.wikipedia.page.Section;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import static org.wikipedia.util.StringUtil.md5string;
 
 /**
  * Mappings of image source URLs to local file URLs.
@@ -132,7 +133,7 @@ public final class ImageUrlMap {
         };
 
         private String urlToFilePath(String url) {
-            return imgDir + Utils.md5string(url) + getFileExtension(url);
+            return imgDir + md5string(url) + getFileExtension(url);
         }
 
         private String getFileExtension(String url) {

@@ -31,7 +31,6 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.activity.ThemedActionBarActivity;
-import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
@@ -46,7 +45,9 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.util.FeedbackUtil;
 
-import static org.wikipedia.util.L10nUtils.setConditionalTextDirection;
+import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String ACTION_EDIT_SECTION = "org.wikipedia.edit_section";
@@ -227,7 +228,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     loginIntent.putExtra(LoginActivity.EDIT_SESSION_TOKEN, funnel.getSessionToken());
                     startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
                 } else {
-                    Utils.handleExternalLink(EditSectionActivity.this, Uri.parse(url));
+                    handleExternalLink(EditSectionActivity.this, Uri.parse(url));
                 }
             }
         }));
@@ -301,7 +302,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                             Intent data = new Intent();
                             data.putExtra(EXTRA_SECTION_ID, sectionID);
                             setResult(EditHandler.RESULT_REFRESH_PAGE, data);
-                            Utils.hideSoftKeyboard(EditSectionActivity.this);
+                            hideSoftKeyboard(EditSectionActivity.this);
                             finish();
                         } else if (result instanceof CaptchaResult) {
                             if (captchaHandler.isActive()) {
@@ -448,7 +449,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             abusefilterText.setText(Html.fromHtml(getString(R.string.abusefilter_text_warn)));
         }
 
-        Utils.hideSoftKeyboard(this);
+        hideSoftKeyboard(this);
         ViewAnimations.fadeIn(abusefilterContainer, new Runnable() {
             @Override
             public void run() {
@@ -492,7 +493,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             funnel.logSaveAttempt();
         } else {
             //we must be showing the editing window, so show the Preview.
-            Utils.hideSoftKeyboard(this);
+            hideSoftKeyboard(this);
             editPreviewFragment.showPreview(title, sectionText.getText().toString());
             funnel.logPreview();
         }
@@ -643,7 +644,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             return;
         }
 
-        Utils.hideSoftKeyboard(this);
+        hideSoftKeyboard(this);
 
         if (sectionTextModified) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);

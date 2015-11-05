@@ -26,7 +26,6 @@ import org.wikipedia.R;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Utils;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -39,6 +38,8 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ArticleHeaderView;
 import org.wikipedia.views.ObservableWebView;
+
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class LeadImagesHandler {
     /**
@@ -264,7 +265,7 @@ public class LeadImagesHandler {
         int titleContainerHeight;
 
         if (isMainPage()) {
-            titleContainerHeight = (int) (Utils.getContentTopOffsetPx(getActivity()) / displayDensity);
+            titleContainerHeight = (int) (getContentTopOffsetPx(getActivity()) / displayDensity);
             articleHeaderView.hide();
         } else if (!leadImagesEnabled) {
             articleHeaderView.showText();
@@ -279,7 +280,6 @@ public class LeadImagesHandler {
                     + DISABLED_OFFSET_DP;
             articleHeaderView.setLayoutParams(new CoordinatorLayout.LayoutParams(CoordinatorLayout.LayoutParams.MATCH_PARENT,
                     (int) ((titleContainerHeight) * displayDensity)));
-
         } else {
             articleHeaderView.showTextImage();
 

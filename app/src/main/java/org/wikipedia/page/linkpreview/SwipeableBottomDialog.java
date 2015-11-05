@@ -1,7 +1,6 @@
 package org.wikipedia.page.linkpreview;
 
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 
 import android.app.Dialog;
 import android.content.res.Configuration;
@@ -22,6 +21,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.wikipedia.util.DimenUtil.getStatusBarHeightPx;
 
 /*
  A few notes about the geometry of this special dialog class:
@@ -190,7 +191,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     }
 
     private int dialogHeightPx() {
-        return getDisplayMetrics().heightPixels - Utils.getStatusBarHeightPx(getActivity());
+        return getDisplayMetrics().heightPixels - getStatusBarHeightPx(getActivity());
     }
 
     private DisplayMetrics getDisplayMetrics() {

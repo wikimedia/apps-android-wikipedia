@@ -7,7 +7,7 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
-import org.wikipedia.util.ShareUtils;
+import org.wikipedia.util.ShareUtil;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -423,7 +423,7 @@ public class GalleryItemFragment extends Fragment {
             return;
         }
         parentActivity.getFunnel().logGalleryShare(pageTitle, galleryItem.getName());
-        ShareUtils.shareImage(parentActivity,
+        ShareUtil.shareImage(parentActivity,
                 ((BitmapDrawable) imageView.getDrawable()).getBitmap(),
                 new java.io.File(galleryItem.getUrl()).getName(),
                 pageTitle.getDisplayText(),

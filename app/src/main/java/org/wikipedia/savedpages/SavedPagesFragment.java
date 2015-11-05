@@ -33,7 +33,6 @@ import com.squareup.picasso.Picasso;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -42,6 +41,8 @@ import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class SavedPagesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
     // make sure this number is unique among other fragments that use a loader
@@ -72,7 +73,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_saved_pages, container, false);
-        rootView.setPadding(0, Utils.getContentTopOffsetPx(getActivity()), 0, 0);
+        rootView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
 
         savedPagesList = (ListView) rootView.findViewById(R.id.saved_pages_list);
         savedPagesEmptyContainer = rootView.findViewById(R.id.saved_pages_empty_container);

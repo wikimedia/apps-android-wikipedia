@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.wikipedia.ApiTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
@@ -16,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
+
+import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
 
 public class TitleSearchTask extends ApiTask<SearchResults> {
     private final String prefix;
@@ -130,7 +131,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
             if (item.has("terms")) {
                 JSONArray arr = item.getJSONObject("terms").optJSONArray("description");
                 if (arr != null && arr.length() > 0) {
-                    description = Utils.capitalizeFirstChar(arr.getString(0));
+                    description = capitalizeFirstChar(arr.getString(0));
                 }
             }
             pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description));

@@ -3,11 +3,12 @@ package org.wikipedia.nearby;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Utils;
 
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
 
 /**
  * Data object holding information about a nearby page.
@@ -66,7 +67,7 @@ public class NearbyPage {
             if (terms != null) {
                 final JSONArray descArray = terms.optJSONArray("description");
                 if (descArray != null) {
-                    description = Utils.capitalizeFirstChar(descArray.optString(0));
+                    description = capitalizeFirstChar(descArray.optString(0));
                 }
             }
         } catch (JSONException e) {

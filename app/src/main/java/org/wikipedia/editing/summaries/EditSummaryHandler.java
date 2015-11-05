@@ -13,7 +13,7 @@ import android.widget.TextView;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 
-import static org.wikipedia.util.L10nUtils.setConditionalTextDirection;
+import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 
 import java.util.Date;
 

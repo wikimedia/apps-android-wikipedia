@@ -1,7 +1,6 @@
 package org.wikipedia.page.tabs;
 
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageBackStackItem;
@@ -27,6 +26,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.List;
+
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class TabsProvider {
     public interface TabsProviderListener {
@@ -292,7 +294,7 @@ public class TabsProvider {
         final float proportionHorz = 0.15f;
         final float proportionVert = 0.4f;
         final int heightOffset = 16;
-        int contentOffset = Utils.getContentTopOffsetPx(parentActivity);
+        int contentOffset = getContentTopOffsetPx(parentActivity);
         int maxHeight = (int) (pageContentView.getHeight() * proportionVert
                 + pageContentView.getHeight() * proportionHorz
                 - contentOffset - heightOffset * displayDensity);
@@ -418,7 +420,7 @@ public class TabsProvider {
             convertView.setBackgroundColor(parentActivity.getResources().getColor(
                     position == 0
                             ? R.color.gallery_background
-                            : Utils.getThemedAttributeId(parentActivity, R.attr.tab_shadow_color)));
+                            : getThemedAttributeId(parentActivity, R.attr.tab_shadow_color)));
 
             List<PageBackStackItem> backstack = tabList.get(position).getBackStack();
             if (backstack.size() > 0) {

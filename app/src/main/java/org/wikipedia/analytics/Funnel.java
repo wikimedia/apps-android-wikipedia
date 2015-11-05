@@ -6,7 +6,6 @@ import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 
 import java.util.UUID;
@@ -148,7 +147,7 @@ import java.util.UUID;
                 new EventLoggingEvent(
                         schemaName,
                         revision,
-                        Utils.getDBNameForSite(site == null ? getApp().getPrimarySite() : site),
+                        getDBNameForSite(site == null ? getApp().getPrimarySite() : site),
                         app.getUserAgent(),
                         preprocessData(eventData)
                 ).log();
@@ -183,5 +182,17 @@ import java.util.UUID;
     /** @return The session identifier used by {@link #preprocessSessionToken}. */
     @Nullable protected String getSessionToken() {
         return sessionToken;
+    }
+
+    /**
+     * Returns db name for given site
+     *
+     * WARNING: HARDCODED TO WORK FOR WIKIPEDIA ONLY
+     *
+     * @param site Site object to get dbname for
+     * @return dbname for given site object
+     */
+    private String getDBNameForSite(Site site) {
+        return site.getLanguageCode() + "wiki";
     }
 }

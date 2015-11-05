@@ -18,7 +18,7 @@ import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.L10nUtils;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.PageLoadUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
@@ -50,7 +50,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import static org.wikipedia.util.L10nUtils.getStringsForArticleLanguage;
+import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
+import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
 /**
  * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
@@ -334,7 +335,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
 
-        L10nUtils.setupDirectionality(model.getTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(),
+        L10nUtil.setupDirectionality(model.getTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
         // hide the native top and bottom components...
@@ -567,7 +568,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     .put("string_table_other", localizedStrings.get(R.string.table_other))
                     .put("string_table_close", localizedStrings.get(R.string.table_close))
                     .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
-                    .put("isBeta", app.getReleaseType() != WikipediaApp.RELEASE_PROD)
+                    .put("isBeta", app.isPreProdRelease()) // True for any non-production release type
                     .put("siteLanguage", model.getTitle().getSite().getLanguageCode())
                     .put("isMainPage", page.isMainPage())
                     .put("apiLevel", Build.VERSION.SDK_INT);
@@ -669,7 +670,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         app.getSessionFunnel().leadSectionFetchStart();
         PageLoadUtil.getApiService(model.getTitle().getSite()).pageLead(
                 model.getTitle().getPrefixedText(),
-                PageLoadUtil.calculateLeadImageWidth(),
+                calculateLeadImageWidth(),
                 !app.isImageDownloadEnabled(),
                 new PageLead.Callback() {
                     @Override

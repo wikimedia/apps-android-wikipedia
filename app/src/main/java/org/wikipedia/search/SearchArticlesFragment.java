@@ -3,7 +3,6 @@ package org.wikipedia.search;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -31,6 +30,9 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class SearchArticlesFragment extends Fragment implements BackPressedHandler {
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
@@ -100,7 +102,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         View parentLayout = inflater.inflate(R.layout.fragment_search, container, false);
 
         searchContainerView = parentLayout.findViewById(R.id.search_container);
-        searchContainerView.setPadding(0, Utils.getContentTopOffsetPx(getActivity()), 0, 0);
+        searchContainerView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
         searchContainerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -262,7 +264,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
         // hide ourselves
         searchContainerView.setVisibility(View.GONE);
-        Utils.hideSoftKeyboard(getActivity());
+        hideSoftKeyboard(getActivity());
         addRecentSearch(lastSearchedText);
     }
 
@@ -400,7 +402,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         }
         funnel.searchClick();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-        Utils.hideSoftKeyboard(getActivity());
+        hideSoftKeyboard(getActivity());
         // if this search session was started from our Widget, then clear the widget flag,
         // so that we no longer care that we were launched from the widget, since we've now
         // selected a page to navigate to.

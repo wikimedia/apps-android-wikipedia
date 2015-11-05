@@ -4,7 +4,6 @@ import org.wikipedia.BackPressedHandler;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
@@ -29,7 +28,7 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtils;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ArticleHeaderView;
@@ -78,6 +77,12 @@ import java.util.concurrent.TimeUnit;
 import javax.net.ssl.SSLException;
 
 import static butterknife.ButterKnife.findById;
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.DimenUtil.getContentTopOffset;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.UriUtil.decodeURL;
+import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageFragment extends Fragment implements BackPressedHandler {
     public static final int TOC_ACTION_SHOW = 0;
@@ -163,7 +168,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private final View.OnClickListener tocButtonOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Utils.hideSoftKeyboard(getActivity());
+            hideSoftKeyboard(getActivity());
             setToCButtonFadedIn(true);
             toggleToC(TOC_ACTION_TOGGLE);
         }
@@ -229,7 +234,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         refreshView = (SwipeRefreshLayoutWithScroll) rootView
                 .findViewById(R.id.page_refresh_container);
-        int swipeOffset = Utils.getContentTopOffsetPx(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
+        int swipeOffset = getContentTopOffsetPx(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
         refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
         // if we want to give it a custom color:
         //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
@@ -259,7 +264,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // the background may be shown momentarily while the WebView loads content,
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
         webView.setBackgroundColor(getResources().getColor(
-                Utils.getThemedAttributeId(getActivity(), R.attr.page_background_color)));
+                getThemedAttributeId(getActivity(), R.attr.page_background_color)));
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");
         setupMessageHandlers();
@@ -405,7 +410,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // doesn't support the Special namespace.
         // TODO: remove when Special pages are properly returned by the server
         if (title.isSpecial()) {
-            Utils.visitInExternalBrowser(getActivity(), Uri.parse(title.getMobileUri()));
+            visitInExternalBrowser(getActivity(), Uri.parse(title.getMobileUri()));
             return;
         }
         if (referenceDialog != null && referenceDialog.isShowing()) {
@@ -692,7 +697,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 return true;
             case R.id.menu_page_share:
-                ShareUtils.shareText(getActivity(), model.getTitle());
+                ShareUtil.shareText(getActivity(), model.getTitle());
                 return true;
             case R.id.menu_page_other_languages:
                 Intent langIntent = new Intent();
@@ -754,7 +759,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 webView.clearMatches();
                 pageActivity.showToolbar();
                 setToCButtonFadedIn(true);
-                Utils.hideSoftKeyboard(pageActivity);
+                hideSoftKeyboard(pageActivity);
             }
         });
     }
@@ -987,7 +992,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
-                    String href = Utils.decodeURL(messagePayload.getString("href"));
+                    String href = decodeURL(messagePayload.getString("href"));
                     if (href.startsWith("/wiki/")) {
                         PageTitle imageTitle = model.getTitle().getSite().titleForInternalLink(href);
                         GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
@@ -1004,7 +1009,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
-                    String href = Utils.decodeURL(messagePayload.getString("href"));
+                    String href = decodeURL(messagePayload.getString("href"));
                     GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
                             new PageTitle(href, model.getTitle().getSite()), GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
                 } catch (JSONException e) {
@@ -1121,7 +1126,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private void sendDecorOffsetMessage() {
         JSONObject payload = new JSONObject();
         try {
-            payload.put("offset", Utils.getContentTopOffset(getActivity()));
+            payload.put("offset", getContentTopOffset(getActivity()));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

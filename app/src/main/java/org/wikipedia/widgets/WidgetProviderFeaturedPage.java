@@ -15,7 +15,6 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 import org.wikipedia.R;
-import org.wikipedia.Utils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -27,6 +26,8 @@ import org.wikipedia.util.log.L;
 
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+
+import static org.wikipedia.util.UriUtil.decodeURL;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
     private static final String TAG = "WidgetFeatured";
@@ -114,7 +115,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                 continue;
             }
             PageTitle title = WikipediaApp.getInstance().getPrimarySite()
-                    .titleForInternalLink(Utils.decodeURL(span.getURL()));
+                    .titleForInternalLink(decodeURL(span.getURL()));
             if (!title.isFilePage() && !title.isSpecial()) {
                 titleText = title.getDisplayText();
                 break;
