@@ -2,20 +2,17 @@ package org.wikipedia.page;
 
 import org.wikipedia.Site;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.testlib.TestLatch;
 
 import android.test.ActivityInstrumentationTestCase2;
-
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Test loading of pages on a high level. Replacement for SectionFetchTaskTests.
  */
 public class PageLoadTests extends ActivityInstrumentationTestCase2<PageActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = (int) TimeUnit.SECONDS.toMillis(30);
     private static final Site SITE = new Site("test.wikipedia.org");
     private PageActivity activity;
-    private CountDownLatch completionLatch;
+    private TestLatch completionLatch;
     private PageFragment fragment;
 
     private PageLoadCallbacks callback = new PageLoadCallbacks() {
@@ -49,7 +46,7 @@ public class PageLoadTests extends ActivityInstrumentationTestCase2<PageActivity
     }
 
     private void loadPage(final String title) throws Throwable {
-        completionLatch = new CountDownLatch(1);
+        completionLatch = new TestLatch();
         getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
@@ -58,7 +55,7 @@ public class PageLoadTests extends ActivityInstrumentationTestCase2<PageActivity
                 loadPage(fragment, title);
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        completionLatch.await();
     }
 
     public static void loadPage(PageFragment fragment, String title) {
