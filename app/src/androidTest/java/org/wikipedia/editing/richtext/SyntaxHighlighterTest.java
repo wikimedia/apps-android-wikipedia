@@ -1,19 +1,16 @@
-package org.wikipedia.test;
+package org.wikipedia.editing.richtext;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.EditText;
 
-import org.wikipedia.editing.richtext.ColorSpanEx;
-import org.wikipedia.editing.richtext.SpanExtents;
-import org.wikipedia.editing.richtext.SyntaxHighlighter;
 import org.wikipedia.page.PageActivity;
 
 import java.util.List;
 
-public class SyntaxHighlightTests extends ActivityInstrumentationTestCase2<PageActivity> {
+public class SyntaxHighlighterTest extends ActivityInstrumentationTestCase2<PageActivity> {
     private PageActivity activity;
 
-    public SyntaxHighlightTests() {
+    public SyntaxHighlighterTest() {
         super(PageActivity.class);
     }
 
