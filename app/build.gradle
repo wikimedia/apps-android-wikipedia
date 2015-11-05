@@ -45,7 +45,7 @@ if (JavaVersion.current() != JAVA_VERSION) {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '23.0.2'
     compileOptions {
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
