@@ -171,14 +171,32 @@ dependencies {
     }
     compile 'net.hockeyapp.android:HockeySDK:3.6.2'
 
-    androidTestCompile('com.android.support.test:runner:0.4')
-    // Required by com.android.support.test:runner.
-    androidTestCompile 'com.android.support:support-annotations:23.1.0'
-
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'
-    testCompile 'org.robolectric:robolectric:3.0-rc3'
+    testCompile 'org.robolectric:robolectric:3.0'
     testCompile 'com.squareup.okhttp:mockwebserver:2.4.0'
+
+    // Required by Android JUnit Runner.
+    androidTestCompile 'com.android.support:support-annotations:23.1.0'
+
+    androidTestCompile 'com.android.support.test:rules:0.4.1' // JUnit Rules
+    androidTestCompile 'com.android.support.test:runner:0.4.1' // Android JUnit Runner
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+
+    // Espresso-contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks,
+    // CountingIdlingResource
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.1') {
+        // http://stackoverflow.com/questions/30578243/why-would-adding-espresso-contrib-cause-an-inflateexception
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
+
+    // Espresso-web for WebView support
+    androidTestCompile 'com.android.support.test.espresso:espresso-web:2.2.1'
+
+    // Espresso-idling-resource for synchronization with background jobs.
+    androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:2.2.1'
 }
 
 private setSigningConfigKey(config, Properties props) {
