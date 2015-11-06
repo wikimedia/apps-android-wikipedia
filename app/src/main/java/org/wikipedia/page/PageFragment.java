@@ -17,6 +17,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
+import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.snippet.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
@@ -615,7 +616,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         pageSaved = saved;
     }
 
-    public void onActionModeShown(ActionMode mode) {
+    public void onActionModeShown(CompatActionMode mode) {
         // make sure we have a page loaded, since shareHandler makes references to it.
         if (model.getPage() != null) {
             shareHandler.onTextSelected(mode);

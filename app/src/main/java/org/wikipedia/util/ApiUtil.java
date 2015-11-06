@@ -3,6 +3,11 @@ package org.wikipedia.util;
 import android.os.Build;
 
 public final class ApiUtil {
+    /** @return True if SDK API level is greater than or equal to 23. */
+    public static boolean hasMarshmallow() {
+        return has(Build.VERSION_CODES.M);
+    }
+
     /** @return True if SDK API level is greater than or equal to 21. */
     public static boolean hasLollipop() {
         return has(Build.VERSION_CODES.LOLLIPOP);

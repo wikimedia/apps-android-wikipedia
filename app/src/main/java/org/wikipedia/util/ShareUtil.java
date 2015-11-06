@@ -6,16 +6,17 @@ import android.content.pm.LabeledIntent;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Environment;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
+import android.support.v4.content.FileProvider;
 import android.widget.Toast;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.log.L;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -27,6 +28,8 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public final class ShareUtil {
     public static final String APP_PACKAGE_REGEX = "org\\.wikipedia.*";
+    private static final String FILE_PROVIDER_AUTHORITY = BuildConfig.APPLICATION_ID + ".fileprovider";
+    private static final String FILE_PREFIX = "file://";
 
     /**
      * Share some text and subject (title) as plain text using an activity chooser,
@@ -61,15 +64,15 @@ public final class ShareUtil {
     public static void shareImage(final Context context, final Bitmap bmp,
                                   final String imageFileName, final String subject,
                                   final String text, final boolean recycleBmp) {
-        new SaneAsyncTask<String>(SaneAsyncTask.SINGLE_THREAD) {
+        new SaneAsyncTask<Uri>(SaneAsyncTask.SINGLE_THREAD) {
             @Override
-            public String performTask() throws Throwable {
+            public Uri performTask() throws Throwable {
                 File processedBitmap = processBitmapForSharing(context, bmp, imageFileName, recycleBmp);
-                return "file://" + processedBitmap.getAbsolutePath();
+                return getUri(context, processedBitmap);
             }
 
             @Override
-            public void onFinish(String result) {
+            public void onFinish(Uri result) {
                 if (result == null) {
                     displayShareErrorMessage(context);
                     return;
@@ -85,21 +88,27 @@ public final class ShareUtil {
         }.execute();
     }
 
-
-    public static Intent buildImageShareChooserIntent(Context context, String subject, String text, String path) {
-        Intent shareIntent = createImageShareIntent(subject, text, path);
+    public static Intent buildImageShareChooserIntent(Context context, String subject, String text, Uri uri) {
+        Intent shareIntent = createImageShareIntent(subject, text, uri);
         return Intent.createChooser(shareIntent,
                 context.getResources().getString(R.string.share_via));
+    }
+
+
+    private static Uri getUri(Context context, File processedBitmap) {
+        return ApiUtil.hasMarshmallow()
+                ? FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, processedBitmap)
+                : Uri.parse(FILE_PREFIX + processedBitmap.getAbsolutePath());
     }
 
     private static File processBitmapForSharing(final Context context, final Bitmap bmp,
                                                 final String imageFileName, final boolean recycleBmp)
                                                                 throws IOException {
-        File dir = clearFolder(context);
-        if (dir == null) {
+        File shareFolder = getClearShareFolder(context);
+        if (shareFolder == null) {
             return null;
         }
-        dir.mkdirs();
+        shareFolder.mkdirs();
 
         ByteArrayOutputStream bytes = FileUtil.compressBmpToJpg(bmp);
 
@@ -107,14 +116,14 @@ public final class ShareUtil {
             bmp.recycle();
         }
 
-        return FileUtil.writeToFile(bytes, new File(dir, cleanFileName(imageFileName)));
+        return FileUtil.writeToFile(bytes, new File(shareFolder, cleanFileName(imageFileName)));
     }
 
-    private static Intent createImageShareIntent(String subject, String text, String path) {
+    private static Intent createImageShareIntent(String subject, String text, Uri uri) {
         return new Intent(Intent.ACTION_SEND)
                 .putExtra(Intent.EXTRA_SUBJECT, subject)
                 .putExtra(Intent.EXTRA_TEXT, text)
-                .putExtra(Intent.EXTRA_STREAM, Uri.parse(path))
+                .putExtra(Intent.EXTRA_STREAM, uri)
                 .setType("image/jpeg");
     }
 
@@ -136,32 +145,21 @@ public final class ShareUtil {
     }
 
     /**
-     * Cleans up the directory that contains the shared image.
+     * Cleans up and returns the internal cache subdirectory for share-a-fact images.
      */
-    public static File clearFolder(Context context) {
-        if (!isExternalStorageWritable()) {
-            return null;
-        }
-
+    public static File getClearShareFolder(Context context) {
         try {
-            File dir = new File(context.getExternalCacheDir(), "img");
-            if (dir.isDirectory()) {
-                for (String file : dir.list()) {
-                    new File(dir, file).delete();
-                }
-            }
+            File dir = new File(getShareFolder(context), "share");
+            FileUtil.clearDirectory(dir);
             return dir;
-        } catch (Exception e) {
-            // There have been a few reports of exceptions coming from the getExternalCacheDir()
-            // function, even though we check that external storage is mounted properly.
-            // Until we can reproduce it, at least we won't crash.
-            Log.d("clearFolder", "Failed to clear shared image folder.", e);
+        } catch (Throwable caught) {
+            L.e("Caught " + caught.getMessage(), caught);
         }
         return null;
     }
 
-    private static boolean isExternalStorageWritable() {
-        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
+    public static File getShareFolder(Context context) {
+        return ApiUtil.hasMarshmallow() ? context.getCacheDir() : context.getExternalFilesDir(null);
     }
 
     private static String cleanFileName(String fileName) {

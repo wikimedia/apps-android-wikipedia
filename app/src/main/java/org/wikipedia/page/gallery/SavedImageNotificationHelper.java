@@ -25,7 +25,7 @@ public final class SavedImageNotificationHelper {
 
     private static Notification buildNotification(String filename, String fileInfoUrl, Bitmap savedImageBitmap, Uri contentUri) {
         Intent shareChooserIntent = buildImageShareChooserIntent(WikipediaApp.getInstance(),
-                filename, fileInfoUrl, contentUri.toString());
+                filename, fileInfoUrl, contentUri);
         Intent viewImageIntent = buildViewInDefaultAppIntent(contentUri);
         PendingIntent savedImageSharePendingIntent = getPendingIntent(shareChooserIntent);
         PendingIntent viewInDefaultViewerAppPendingIntent = getPendingIntent(viewImageIntent);

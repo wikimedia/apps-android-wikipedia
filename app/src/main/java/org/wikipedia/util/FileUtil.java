@@ -151,6 +151,14 @@ public final class FileUtil {
         }
     }
 
+    public static void clearDirectory(File dir) {
+        if (dir.isDirectory()) {
+            for (String file : dir.list()) {
+                new File(dir, file).delete();
+            }
+        }
+    }
+
     private FileUtil() {
 
     }
