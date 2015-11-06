@@ -242,7 +242,6 @@
   <string name="gallery_menu_share">שיתוף</string>
   <string name="gallery_share_error">לא היה ניתן לשתף את התמונה: %s</string>
   <string name="gallery_menu_save">שמירה למכשיר</string>
-  <string name="gallery_save_error_mediastore">ייבוא תמונה לאוסף מדיה לא עבד</string>
   <string name="gallery_save_success">התמונה נשמרה בהצלחה.</string>
   <string name="gallery_image_saved_notification_title">התמונה נשמרה.</string>
   <string name="gallery_image_saved_notification_text">נא לגעת כדי להציג</string>

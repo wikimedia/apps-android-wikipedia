@@ -242,7 +242,6 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">無法分享圖片：%s</string>
   <string name="gallery_menu_save">儲存至裝置</string>
-  <string name="gallery_save_error_mediastore">匯入圖片至媒體收藏失敗</string>
   <string name="gallery_save_success">已成功儲存圖片。</string>
   <string name="gallery_image_saved_notification_title">圖片已儲存。</string>
   <string name="gallery_image_saved_notification_text">輕觸以檢視。</string>

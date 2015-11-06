@@ -221,7 +221,6 @@
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
   <string name="gallery_menu_save">ডিভাইসে সংরক্ষণ করুন</string>
-  <string name="gallery_save_error_mediastore">মিডিয়া সংগ্রহে চিত্র আমদানি করতে ব্যর্থ</string>
   <string name="gallery_save_success">ছবিটি সফলভাবে সংরক্ষণ করা হয়েছে।</string>
   <string name="gallery_image_saved_notification_title">ছবিটি সংরক্ষণ করা হয়েছে।</string>
   <string name="gallery_image_saved_notification_text">দেখতে টোকা দিন।</string>

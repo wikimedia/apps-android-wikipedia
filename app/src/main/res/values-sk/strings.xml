@@ -228,7 +228,6 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_menu_share">Zdieľať</string>
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
   <string name="gallery_menu_save">Uložiť v zariadení</string>
-  <string name="gallery_save_error_mediastore">Nepodarilo sa importovať obrázok do kolekcie médií</string>
   <string name="gallery_save_success">Obrázok bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>

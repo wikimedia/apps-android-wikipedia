@@ -235,7 +235,6 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
   <string name="gallery_menu_save">Cihaza kaydet</string>
-  <string name="gallery_save_error_mediastore">Görüntü medya koleksiyonuna alınamadı</string>
   <string name="gallery_save_success">Resim başarıyla kaydedildi.</string>
   <string name="gallery_image_saved_notification_title">Görüntü kaydedildi.</string>
   <string name="gallery_image_saved_notification_text">Görüntülemek için dokunun.</string>

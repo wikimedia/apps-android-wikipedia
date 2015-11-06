@@ -258,7 +258,6 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="gallery_menu_share">Share</string>
     <string name="gallery_share_error">Could not share image: %s</string>
     <string name="gallery_menu_save">Save to device</string>
-    <string name="gallery_save_error_mediastore">Failed to import image to media collection</string>
     <string name="gallery_save_success">Image saved successfully.</string>
     <string name="gallery_image_saved_notification_title">Image saved.</string>
     <string name="gallery_image_saved_notification_text">Touch to view.</string>
