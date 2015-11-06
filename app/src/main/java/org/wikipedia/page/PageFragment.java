@@ -210,11 +210,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getActivity().getApplicationContext();
         model = new PageViewModel();
-        if (Prefs.isExperimentalHtmlPageLoadEnabled()) {
-            pageLoadStrategy = new HtmlPageLoadStrategy();
-        } else {
-            pageLoadStrategy = new JsonPageLoadStrategy();
-        }
+        pageLoadStrategy = new JsonPageLoadStrategy();
 
         initTabs();
     }
@@ -326,9 +322,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
         };
 
-        if (!Prefs.isExperimentalHtmlPageLoadEnabled()) {
-            bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PAGEVIEW));
-        }
+        bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PAGEVIEW));
 
         // make sure styles get injected before the NightModeHandler and other handlers
         if (app.isCurrentThemeDark()) {
