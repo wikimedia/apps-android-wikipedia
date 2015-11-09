@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">মিটার/কিমি দেখাও</string>
   <string name="nearby_set_imperial">ফুট/মাইল দেখাও</string>
   <string name="nearby_view_on_map">মানচিত্রে স্থান দেখুন</string>
+  <string name="nearby_zoom_to_location">মানচিত্রে একটি অবস্থানে জুম করুন</string>
+  <string name="nearby_requires_location">\'কাছাকাছি\' বৈশিষ্ট্যের অবস্থান অনুমতির প্রয়োজন।</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.bn\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
@@ -209,6 +211,26 @@
   <string name="widget_name_featured_page">উইকিপিডিয়া নির্বাচিত পাতা</string>
   <string name="widget_title_featured_page">আজকের নির্বাচিত পাতা:</string>
   <string name="widget_name_search">উইকিপিডিয়া অনুসন্ধান</string>
+  <string name="app_store_description">এন্ড্রয়েডের জন্য অফিসিয়াল উইকিপিডিয়া অ্যাপ। উইকিপিডিয়া মুক্ত বিশ্বকোষটিতে ২৮০টি ভাষায় ৩২০ লক্ষের অধিক নিবন্ধ রয়েছে, এবং মানুষের তৈরি সবচেয়ে ব্যাপক ও বহুল ব্যবহৃত একটি তথ্যসূত্র।
+
+বৈশিষ্ট্যসমূহ:
+- ভূমিকা চিত্র: নিবন্ধের শীর্ষে প্রসঙ্গ-প্রাসঙ্গিক চিত্র ও বিবরণসহ আগে কখনও না হওয়া উইকিপিডিয়া অভিজ্ঞতা
+- ছবির গ্যালারি: একটি ছবিতে টোকা দিলে তা আপনাকে উচ্চ রেজল্যুশনের চিত্র পুরো পর্দা দেখায়, সেইসাথে বাম/ডানের অতিরিক্ত চিত্র ব্রাউজ করার জন্য ডানে-বামে যাওয়ার অপশন
+- উইকিউপাত্ত থেকে বিবরণ: অনুসন্ধানের সময়, প্রতিটি অনুসন্ধানের ফলাফলে এখন একটি দ্রুত বিবরণ রয়েছে যা ফলাফলের বিষয়বস্তু সম্পর্কে জানতে সাহায্য করে। এছাড়াও এই বিবরণ অ্যাপ্লিকেশন অন্যান্য এলাকায় দেখানো হয়, যেমন কাছাকাছি
+- নিবন্ধ পরামর্শ: আপনি পরে কি পড়তে পারেন সে সম্পর্কে পরামর্শ দেখতে একটি নিবন্ধের নীচে স্ক্রোল করুন
+- সংরক্ষিত পাতা: অফলাইনে পড়ার জন্য পাতা সংরক্ষণ করুন এবং ইন্টারনেট সংযোগ ছাড়াই তাঁদের ব্রাউজ করুন
+- কাছাকাছি: আপনার বর্তমান অবস্থানের কাছাকাছি আপনার চারপাশের জিনিস সম্পর্কিত নিবন্ধের লিংক পাওয়ার দ্বারা আরও জানুন
+- ভাষা সমর্থন: কোন ভাষায় লিখিত উইকিপিডিয়া পড়তে দিবে
+- পরিচ্ছেদসমূহ: পরিচ্ছেদসমূহ আনার জন্য যেকোন নিবন্ধে ডান থেকে বামে ক্রল করুন, যা আপনাকে সহজেই নিবন্ধের অনুচ্ছেদে ঝাঁপ দিতে দিবে
+- উইকিপিডিয়া জিরো: অংশগ্রহণকারী মোবাইল অপারেটরদের জন্য ডেটা চার্জ মওকুফ
+
+অ্যাপ্লিকেশন সম্পর্কে আপনার মতামত পাঠান! মেনুতে, \"আরও\" টিপুন, এরপর \"উইকিপিডিয়া অ্যাপ সম্পর্কে\", এরপর \"অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান\"।
+
+কোড ১০০% মুক্ত উৎসের। আপনার যদি জাভা এবং অ্যান্ড্রয়েড SDK-এর সাথে কাজ করার অভিজ্ঞতা থাকে, তাহলে আমরা আপনার অবদানের অপেক্ষায় থাকলাম! https://github.com/wikimedia/apps-android-wikipedia
+
+গোপনীয়তার নীতি: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+ব্যবহারের শর্তাবলী: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">নতুন আলফা হালনাগাদ উপলব্ধ</string>
   <string name="alpha_update_notification_text">ডাউনলোড করতে টোকা দিন</string>
   <string name="dialog_close_description">বন্ধ</string>
@@ -225,6 +247,7 @@
   <string name="gallery_image_saved_notification_title">ছবিটি সংরক্ষণ করা হয়েছে।</string>
   <string name="gallery_image_saved_notification_text">দেখতে টোকা দিন।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
+  <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন। দয়া করে আবার চেষ্টা করুন, এবং অনুরোধকৃত অনুমতি মঞ্জুর করুন।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
   <string name="snippet_share_intro">\@Wikipedia তে \"%1$s\": %2$s</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>

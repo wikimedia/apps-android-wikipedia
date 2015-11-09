@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">Afficher en m/km</string>
   <string name="nearby_set_imperial">Afficher en pieds/miles</string>
   <string name="nearby_view_on_map">Afficher le lieu sur la carte</string>
+  <string name="nearby_zoom_to_location">Zoomer sur un endroit de la carte</string>
+  <string name="nearby_requires_location">La fonctionnalité À proximité nécessite le droit de localisation.</string>
   <string name="last_updated_text">Dernière modification le %s</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -246,6 +248,7 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="gallery_image_saved_notification_title">Image enregistrée.</string>
   <string name="gallery_image_saved_notification_text">Toucher pour afficher.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
+  <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans le stockage de votre appareil est nécessaire pour enregistrer des images. Veuillez réessayer, et accorder la permission demandée.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>
   <string name="snippet_share_intro">Fait intéressant sur @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Taper pour développer</string>

@@ -41,15 +41,20 @@
   <string name="menu_text_select_share">Partekatu</string>
   <string name="nav_item_nearby">Gertukoak</string>
   <string name="nearby_empty_title">Ez dauge gertuko orririk hemen!</string>
+  <string name="nearby_empty_message">Leku berri batera mugitu zure inguruko orrialdeak ikusteko.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d oin</string>
   <string name="nearby_distance_in_miles">%.2f milia</string>
+  <string name="nearby_dialog_goto_settings">Lekuaren gaurkotzea ez dago gaituta zure gailuan. Nahi al duzu zure gailuen hobespenetara joatea Lekuaren gaurkotzea gaitzeko?</string>
   <string name="nearby_set_metric">Erakutsi metroak/km</string>
   <string name="nearby_set_imperial">Erakutsi oinak/miliak</string>
   <string name="nearby_view_on_map">Ikusi lekua mapan</string>
+  <string name="nearby_zoom_to_location">Zoom egin mapa bateko kokapenean</string>
+  <string name="nearby_requires_location">\"Gertukoak\" tresnak kokapen baimenak behar ditu.</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
   <string name="content_license_html">Edukia eskuragarri &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
+  <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="preference_title_language">Wikipediaren hizkuntza</string>
   <string name="preference_languages_filter_hint">Bilatu</string>
   <string name="langlinks_filter_hint">Bilatu</string>
@@ -88,6 +93,9 @@
   <string name="login_error_unknown">Ezin izan da saioa hasi :(</string>
   <string name="preference_title_logout">Saioa itxi</string>
   <string name="toast_logout_complete">Saioa itxita</string>
+  <string name="saved_pages_empty_title">Ez dago gordetako orrialderik hemen!</string>
+  <string name="saved_pages_empty_message">Gordetako orriak gauza oso onak dira. Pentsa ezazu gordetzen badituzu gero offline baldin bazaude ere irakur ditzakezula.</string>
+  <string name="history_empty_title">Ez dauge azkenaldiko orririk hemen!</string>
   <string name="delete_selected_history">Ezabatu</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Erabiltzaile izena</string>
@@ -113,17 +121,24 @@
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Wikipedia Zero ez dago martxan</string>
   <string name="zero_search_hint">Bilatu Wikipedia Zeron</string>
+  <string name="zero_warn_when_leaving">Abisatu Wikipedia Zero uzten badut</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Wikipedia Zerotik irteten</string>
+  <string name="zero_interstitial_leave_app">Datuengatik kobratzea posible da. Kanpoko gune batera jarraitu nahi duzu?</string>
   <string name="zero_interstitial_continue">Irten</string>
   <string name="zero_interstitial_cancel">Hemen gelditu</string>
+  <string name="zero_learn_more">Datuengatik kobratzen da Wikipedia aplikazio honetan.</string>
   <string name="zero_learn_more_learn_more">Irakurri gehiago</string>
   <string name="zero_learn_more_dismiss">Utzi</string>
+  <string name="edit_preview_fetching_dialog_message">Aurreikuspena eskuratzen...</string>
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
   <string name="nav_item_random">Ausazkoa</string>
   <string name="create_account_account_created_toast">Kontua sortua!</string>
+  <string name="preferences_privacy_settings_heading">Pribatutasuna</string>
   <string name="preference_title_eventlogging_opt_in">Erabilera txostenak bidali</string>
+  <string name="preference_summary_eventlogging_opt_in">Baimendu Wikimediari zure aplikazioaren erabileraren inguruko informazioa jasotzen, aplikazioa hobetzeko.</string>
+  <string name="preference_title_auto_upload_crash_reports">Bidali akatsen txostenak</string>
   <string name="history_search_list_hint">Bilatu historia</string>
   <string name="history_search_empty_message">Zure kontsultarekin bat egiten duen orririk ez da aurkitu.</string>
   <string name="error_can_not_process_link">Ezin izan da esteka erakutsi</string>
@@ -154,6 +169,7 @@
   <string name="find_next">Aurkitu hurrengoa</string>
   <string name="find_previous">Aurkitu aurrekoa</string>
   <string name="saved_pages_update_all_error_retry">Saiatu berriro</string>
+  <string name="saved_pages_progress_title">Gordetako orriak eguneratzen</string>
   <string name="menu_page_saved">Orrialdea gordeta</string>
   <string name="menu_refresh_saved_page">Orrialdea eguneratu</string>
   <string name="dialog_page_issues">Orriaren arazoak</string>
@@ -176,6 +192,8 @@
   <string name="dialog_close_description">Itxi</string>
   <string name="preference_title_show_images">Irudiak erakutsi</string>
   <string name="read_more_section">Irakurri gehiago</string>
+  <string name="menu_gallery_visit_page">Joan fitxategiaren orrialdera</string>
+  <string name="gallery_error_draw_failed">Ezin da irudia marraztu.</string>
   <string name="gallery_menu_share">Partekatu</string>
   <string name="gallery_menu_save">Gailuan gorde</string>
   <string name="gallery_save_success">Irudia ondo gorde da.</string>
@@ -187,13 +205,20 @@
   <string name="snippet_share_preview_image_desc">Aurrikuspen irudia</string>
   <string name="cc_logo">Creative Commons lizentzia</string>
   <string name="captcha_image">Captcha irudia</string>
+  <string name="gallery_fair_use_license">Erabilera justua</string>
+  <string name="gallery_uploader_unknown">Igotzaile ezezaguna</string>
   <string name="menu_new_tab">Fitxa berria</string>
   <string name="button_close_tab">Itxi fitxa</string>
   <string name="page_view_in_browser">Orria nabigatzailean ikusi</string>
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
   <string name="format_error_server_code">Kodea:\'\'%s\'\'</string>
+  <string name="button_continue_to_article">Artikulura jarraitu</string>
+  <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
   <string name="crash_report_dialog_dont_send_button">Utzi</string>
+  <string name="crash_report_dialog_always_send_button">Beti bidali</string>
   <string name="crash_report_dialog_send_button">Bidali</string>
+  <string name="crash_report_activity_title">Aplikazioaren akatsa</string>
+  <string name="crash_report_relaunch">Berriro ere hasi</string>
   <string name="crash_report_quit">Irten</string>
 </resources>

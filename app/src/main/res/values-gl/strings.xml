@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir a ligazón nunha nova lapela</string>
   <string name="menu_long_press_copy_page">Copiar o enderezo da ligazón</string>
+  <string name="menu_text_select_copy">Copiar</string>
+  <string name="menu_text_select_share">Compartir</string>
   <string name="nav_item_nearby">Preto</string>
   <string name="nearby_empty_title">Non hai páxinas próximas aquí!</string>
   <string name="nearby_empty_message">Móvase ata unha nova localización para ver páxinas ao seu redor.</string>
@@ -48,6 +50,8 @@
   <string name="nearby_set_metric">Mostrar en metros/quilómetros</string>
   <string name="nearby_set_imperial">Mostrar en pés/millas</string>
   <string name="nearby_view_on_map">Ver o lugar no mapa</string>
+  <string name="nearby_zoom_to_location">Zoom a unha localización do mapa</string>
+  <string name="nearby_requires_location">A funcionalidade Proximidade require o permiso de localización.</string>
   <string name="last_updated_text">Última actualización o %1$s</string>
   <string name="content_license_html">Todo o contido está dispoñible baixo a licenza &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.gl\"&gt;CC BY-SA 3.0&lt;/a&gt;, agás que se indique o contrario</string>
   <string name="edit_save_action_license_logged_in">Ao gardar, acepta os &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/gl\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.gl\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -138,8 +142,11 @@
   <string name="send_feedback">Enviar comentarios sobre a aplicación</string>
   <string name="nav_item_random">Ao chou</string>
   <string name="create_account_account_created_toast">Conta creada!</string>
+  <string name="preferences_privacy_settings_heading">Privacidade</string>
   <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
   <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recompile información acerca de como utiliza a aplicación para facela mellor</string>
+  <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
+  <string name="preference_summary_auto_upload_crash_reports">Permitir á aplicación enviar automaticamente informes de fallos a HockeyApp / un provedor de servizos de terceiros para que poidamos revisar o seu fallo e corrixir o erro máis rápido e de forma máis doada.</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
   <string name="history_search_list_hint">Historial de procuras</string>
   <string name="history_search_empty_message">Non se atopou ningunha páxina que coincidise coa súa pescuda.</string>
@@ -241,6 +248,7 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_image_saved_notification_title">Imaxe gardada.</string>
   <string name="gallery_image_saved_notification_text">Prema para ver.</string>
   <string name="gallery_error_video_failed">Non se puido reproducir o vídeo.</string>
+  <string name="gallery_save_image_write_permission_rationale">É necesario o permiso de escritura no seu dispositivo para gardar imaxes. Por favor, probe de novo, e permita o permiso solicitado.</string>
   <string name="err_cannot_save_file">Non se pode gardar o ficheiro</string>
   <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para ampliar</string>
@@ -263,7 +271,19 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_message">Mensaxe: \"%s\"</string>
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">O enderezo copiouse no portapapeis.</string>
+  <string name="text_copied">O texto copiouse no portapapeis.</string>
   <string name="button_continue_to_article">Continuar ó artigo</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>
   <string name="preference_summary_show_link_previews">Mostrar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
+  <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
+  <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
+  <string name="crash_report_dialog_dont_send_button">Omitir</string>
+  <string name="crash_report_dialog_always_send_button">Enviar sempre</string>
+  <string name="crash_report_dialog_send_button">Enviar</string>
+  <string name="crash_report_activity_title">Erro da aplicación</string>
+  <string name="crash_report_relaunch_or_quit">Sentímolo, a aplicación de Wikipedia tivo un erro e pechouse.
+
+Gustaríalle volver a comezar ou saír?</string>
+  <string name="crash_report_relaunch">Comezar de novo</string>
+  <string name="crash_report_quit">Saír</string>
 </resources>

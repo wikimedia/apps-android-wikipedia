@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Otvoriť</string>
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
+  <string name="menu_text_select_copy">Kopírovať</string>
+  <string name="menu_text_select_share">Zdieľať</string>
   <string name="nav_item_nearby">V okolí</string>
   <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>
   <string name="nearby_empty_message">Pre zistenie ďalších informácií o tom, čo je okolo vás sa presuňte na nové miesto.</string>
@@ -138,6 +140,7 @@
   <string name="send_feedback">Odoslať spätnú väzbu</string>
   <string name="nav_item_random">Náhodný článok</string>
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
+  <string name="preferences_privacy_settings_heading">Súkromie</string>
   <string name="preference_title_eventlogging_opt_in">Odoslať správu o používaní</string>
   <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
@@ -149,7 +152,8 @@
   <string name="page_protected_other">Táto stránka je zamknutá do nasledovných úrovní: %s</string>
   <string name="page_protected_can_not_edit">Nemáte práva na úpravu tohto článku</string>
   <string name="page_protected_can_not_edit_title">Táto stránka je chránená</string>
-  <string name="settings_activity_title" fuzzy="true">Nastavenia</string>
+  <string name="settings_item_preferences">Nastavenia</string>
+  <string name="settings_activity_title">Nastavenia</string>
   <string name="about_description">O aplikácii</string>
   <string name="privacy_policy_description">Ochrana osobných údajov</string>
   <string name="terms_of_use_description">Podmienky používania</string>
@@ -182,7 +186,7 @@
   <string name="saved_pages_progress_title">Obnovenie uložených stránok</string>
   <string name="menu_page_saved">Stránka uložená</string>
   <string name="menu_refresh_saved_page">Obnoviť stránku</string>
-  <string name="abusefilter_title_warn">Táto editácia môže byť nekonštruktívna. Naozaj si ju prajete uložiť?</string>
+  <string name="abusefilter_title_warn">Táto úprava môže byť nekonštruktívna. Naozaj ju chcete uložiť?</string>
   <string name="abusefilter_title_disallow">Túto úpravu nie je možné uložiť. Vráťte sa prosím späť a zmeňte ju.</string>
   <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>
   <string name="abusefilter_text_disallow">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu alebo ako vandalizmus.&lt;br /&gt;&lt;br /&gt; Wikipédia je encyklopédia a patrí do nej iba nesporný a relevantný obsah.</string>
@@ -229,6 +233,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
   <string name="gallery_menu_save">Uložiť v zariadení</string>
   <string name="gallery_save_success">Obrázok bol úspešne uložený.</string>
+  <string name="gallery_image_saved_notification_title">Obrázok bol uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>
@@ -247,4 +252,8 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="format_error_server_message">Správa: \"%s\"</string>
   <string name="format_error_server_code">Kód: \"%s\"</string>
   <string name="button_continue_to_article">Pokračovať na článok</string>
+  <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
+  <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
+  <string name="crash_report_dialog_always_send_button">Vždy odoslať</string>
+  <string name="crash_report_dialog_send_button">Odoslať</string>
 </resources>
