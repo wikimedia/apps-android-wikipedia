@@ -165,6 +165,9 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
     private PageLead.Callback linkPreviewOnLoadCallback = new PageLead.Callback() {
         @Override
         public void success(PageLead pageLead, Response response) {
+            if (!isAdded()) {
+                return;
+            }
             Log.v(TAG, response.getUrl());
             progressBar.setVisibility(View.GONE);
             if (pageLead.getLeadSectionContent() != null) {
@@ -178,6 +181,9 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
 
         @Override
         public void failure(RetrofitError error) {
+            if (!isAdded()) {
+                return;
+            }
             Log.e(TAG, "Link preview fetch error: " + error);
             // Fall back to MWAPI
             loadContentWithMwapi();
