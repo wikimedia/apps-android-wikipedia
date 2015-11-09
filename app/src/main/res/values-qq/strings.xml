@@ -71,7 +71,7 @@ See also:
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
 {{Identical|Nearby}}</string>
   <string name="nearby_empty_title">Title line for message when no nearby pages were found</string>
-  <string name="nearby_empty_message">Message details when no nearby pages were found</string>
+  <string name="nearby_empty_message">Message details when no pages about nearby topics were found</string>
   <string name="nearby_distance_in_meters">Distance to the place mentioned in the nearby page in meters. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
   <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
   <string name="nearby_distance_in_feet">Distance to the place mentioned in the nearby page in feet. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
