@@ -30,17 +30,17 @@ public class PreviewFetchTask extends PageQueryTask<LinkPreviewContents> {
         it's liable to return content that lies beyond the lead section, which might include
         unparsed wikitext, which we certainly don't want.
         */
-        builder.param("prop", "extracts|pageimages|pageterms")
+        builder.param("prop", "extracts|pageimages")
                .param("redirects", "true")
-               .param("exsentences", "10")
+               .param("exsentences", "5")
                .param("explaintext", "true")
                .param("piprop", "thumbnail|name")
-               .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
-               .param("wbptterms", "description");
+               .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE));
     }
 
     @Override
-    public LinkPreviewContents processPage(int pageId, PageTitle pageTitle, JSONObject pageData) throws Throwable {
+    public LinkPreviewContents processPage(int pageId, PageTitle pageTitle, JSONObject pageData)
+            throws Throwable {
         return new LinkPreviewContents(pageData, title.getSite());
     }
 }

@@ -34,16 +34,12 @@ public class LinkPreviewContents {
         if (json.has("thumbnail")) {
             title.setThumbUrl(json.getJSONObject("thumbnail").optString("source"));
         }
-        if (json.has("terms") && json.getJSONObject("terms").has("description")) {
-            title.setDescription(json.getJSONObject("terms").getJSONArray("description").optString(0));
-        }
     }
 
     public LinkPreviewContents(@NonNull RbPageLead pageLead, @NonNull Site site) {
         title = new PageTitle(pageLead.getDisplayTitle(), site);
         extract = pageLead.getExtract();
         title.setThumbUrl(WikipediaApp.getInstance().getNetworkProtocol() + ":" + pageLead.getLeadImageUrl());
-        title.setDescription(pageLead.getDescription());
     }
 
     /**
