@@ -53,7 +53,7 @@
     <!-- Nearby -->
     <string name="nav_item_nearby">Nearby</string>
     <string name="nearby_empty_title">No nearby pages here!</string>
-    <string name="nearby_empty_message">Move to a new location to see pages around you.</string>
+    <string name="nearby_empty_message">Move to a new location to see pages about topics near you.</string>
     <string name="nearby_distance_in_meters">%d m</string>
     <string name="nearby_distance_in_kilometers">%.2f km</string>
     <string name="nearby_distance_in_feet">%d ft</string>
