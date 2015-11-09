@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">näytä metrit/kilometrit</string>
   <string name="nearby_set_imperial">Näytä jalkoja/maileja</string>
   <string name="nearby_view_on_map">Katso sijainti kartalla</string>
+  <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
+  <string name="nearby_requires_location">Lähistöllä-ominaisuus vaatii sijainnin käyttöoikeuden.</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
@@ -245,6 +247,7 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_image_saved_notification_title">Kuva tallennettiin.</string>
   <string name="gallery_image_saved_notification_text">Kosketa katsoaksesi.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
+  <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten. Yritä uudelleen ja anna pyydetty käyttöoikeus.</string>
   <string name="err_cannot_save_file">Tiedostoa ei voi tallentaa</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia ssa: %2$s</string>
   <string name="expand_refs">Napauta laajentaaksesi</string>

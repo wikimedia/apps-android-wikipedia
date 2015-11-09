@@ -136,8 +136,9 @@
   <string name="send_feedback">प्रतिक्रिया पाठवा</string>
   <string name="nav_item_random">अविशिष्ट</string>
   <string name="create_account_account_created_toast">खाते उघडले!</string>
+  <string name="preferences_privacy_settings_heading">गुप्तता</string>
   <string name="preference_title_eventlogging_opt_in">वापराचा अहवाल पाठवा</string>
-  <string name="preference_summary_eventlogging_opt_in">विकिपीडियास आपण हे अॲप कसे वापरता याबद्दल माहिती घेण्यास परवानगी द्या जेणेकरुन ते अॲप अधिक चांगले करता येईल.</string>
+  <string name="preference_summary_eventlogging_opt_in">विकिपीडियास आपण हे अॅप कसे वापरता याबद्दल माहिती घेण्यास परवानगी द्या जेणेकरुन ते अॅप अधिक चांगले करता येईल.</string>
   <string name="preference_title_auto_upload_crash_reports">नेस्तनाबुती(क्रॅश) अहवाल पाठवा</string>
   <string name="history_search_list_hint">शोध इतिहास</string>
   <string name="history_search_empty_message">आपल्या पृच्छेशी अनुरुप कोणतेच पान सापडत नाही.</string>
@@ -154,7 +155,7 @@
   <string name="terms_of_use_description">वापराच्या अटी</string>
   <string name="about_contributors_heading">योगदानकर्ते</string>
   <string name="about_translators_heading">भाषांतरकार</string>
-  <string name="about_translators_translatewiki">हे  अॲप स्वयंसेवक भाषांतरकारांनी  &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;येथे भाषांतरीत केले आहे.</string>
+  <string name="about_translators_translatewiki">हे  अॅप स्वयंसेवक भाषांतरकारांनी  &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; येथे भाषांतरीत केले आहे.</string>
   <string name="about_wmf">हे &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमिडिया फाउंडेशनचे&lt;/a&gt; उत्पादन आहे.</string>
   <string name="about_activity_title">आमच्याबद्दल</string>
   <string name="edit_abandon_confirm">हे पान बदलण्यात आले आहे. आपणास आपले बदल जतन न करताच बाहेर व्हायचे आहे काय?</string>

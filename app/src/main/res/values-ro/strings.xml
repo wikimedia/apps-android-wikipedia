@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">Arată în metri/km</string>
   <string name="nearby_set_imperial">Arată în picioare/mile</string>
   <string name="nearby_view_on_map">Vizualizează locul pe hartă</string>
+  <string name="nearby_zoom_to_location">Mărire pe o locație de pe hartă</string>
+  <string name="nearby_requires_location">Funcția În apropiere necesită permisiunea de localizare.</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -140,6 +142,7 @@
   <string name="send_feedback">Trimiteți o părere despre aplicație</string>
   <string name="nav_item_random">Aleatoriu</string>
   <string name="create_account_account_created_toast">Cont creat!</string>
+  <string name="preferences_privacy_settings_heading">Confidențialitate</string>
   <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
   <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
   <string name="preference_title_auto_upload_crash_reports">Trimite rapoarte de erori</string>
@@ -245,6 +248,7 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="gallery_image_saved_notification_title">Imagine salvată.</string>
   <string name="gallery_image_saved_notification_text">Atingeți pentru a vizualiza.</string>
   <string name="gallery_error_video_failed">Filmul nu a putut fi redat.</string>
+  <string name="gallery_save_image_write_permission_rationale">Pentru salvarea imaginilor este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului. Încercați din nou și oferiți permisiunea solicitată.</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>
   <string name="snippet_share_intro">O informație interesantă despre %1$s la @Wikipedia: %2$s</string>
   <string name="expand_refs">Atingeți pentru a extinde</string>

@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">顯示公尺/公里</string>
   <string name="nearby_set_imperial">顯示英尺/英里</string>
   <string name="nearby_view_on_map">在地圖上檢視地點</string>
+  <string name="nearby_zoom_to_location">縮放至地圖上的位置</string>
+  <string name="nearby_requires_location">附近功能需要位置權限。</string>
   <string name="last_updated_text">最後更新：%s</string>
   <string name="content_license_html">內容在&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/A&gt;之條款下提供，除非另有註明。</string>
   <string name="edit_save_action_license_logged_in">儲存後，表示您同意我們的&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。</string>

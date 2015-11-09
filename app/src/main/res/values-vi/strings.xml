@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">Mở</string>
   <string name="menu_long_press_open_in_new_tab">Mở trong thẻ mới</string>
   <string name="menu_long_press_copy_page">Chép địa chỉ liên kết</string>
+  <string name="menu_text_select_copy">Chép</string>
+  <string name="menu_text_select_share">Chia sẻ</string>
   <string name="nav_item_nearby">Lân cận</string>
   <string name="nearby_empty_title">Không có trang nào gần đây!</string>
   <string name="nearby_empty_message">Di chuyển đến một vị trí mới để đọc về các đề tài nằm chung quanh bạn.</string>
@@ -48,6 +50,8 @@
   <string name="nearby_set_metric">Hiển thị mét/km</string>
   <string name="nearby_set_imperial">Hiển thị foot/dặm</string>
   <string name="nearby_view_on_map">Xem trên bản đồ</string>
+  <string name="nearby_zoom_to_location">Phóng to đến một địa điểm trên bản đồ</string>
+  <string name="nearby_requires_location">Tính năng Lân cận cần bạn cho phép sử dụng vị trí hiện tại của bạn.</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
   <string name="edit_save_action_license_logged_in">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -138,8 +142,11 @@
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
   <string name="nav_item_random">Ngẫu nhiên</string>
   <string name="create_account_account_created_toast">Đã mở tài khoản thành công!</string>
+  <string name="preferences_privacy_settings_heading">Riêng tư</string>
   <string name="preference_title_eventlogging_opt_in">Gửi báo cáo sử dụng</string>
   <string name="preference_summary_eventlogging_opt_in">Cho phép Wikimedia thu thập thông tin về cách bạn sử dụng ứng dụng để giúp cải thiện ứng dụng</string>
+  <string name="preference_title_auto_upload_crash_reports">Gửi báo cáo crash</string>
+  <string name="preference_summary_auto_upload_crash_reports">Cho phép ứng dụng tự động gửi báo cáo crash đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để chúng tôi có thể xem xét và sửa lỗi nhanh và dễ dàng hơn.</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
   <string name="history_search_list_hint">Lịch sử tìm kiếm</string>
   <string name="history_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
@@ -149,7 +156,8 @@
   <string name="page_protected_other">Trang này đã bị khóa ở mức độ sau: %s</string>
   <string name="page_protected_can_not_edit">Bạn không có quyền sửa đổi trang này.</string>
   <string name="page_protected_can_not_edit_title">Trang này bị khóa</string>
-  <string name="settings_activity_title" fuzzy="true">Tùy chọn</string>
+  <string name="settings_item_preferences">Tùy chọn</string>
+  <string name="settings_activity_title">Tùy chọn</string>
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
   <string name="privacy_policy_description">Quy định về quyền riêng tư</string>
   <string name="terms_of_use_description">Điều khoản sử dụng</string>
@@ -240,6 +248,7 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="gallery_image_saved_notification_title">Đã lưu ảnh</string>
   <string name="gallery_image_saved_notification_text">Chạm để xem</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
+  <string name="gallery_save_image_write_permission_rationale">Để lưu ảnh, bạn cần cho phép ghi dữ liệu vào bộ nhớ thiết bị. Xin hãy thử lại và đồng ý cấp phép cho yêu cầu.</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>
   <string name="snippet_share_intro">“%1$s” trên @Wikipedia: %2$s</string>
   <string name="expand_refs">Chạm để mở rộng</string>
@@ -262,5 +271,17 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="format_error_server_message">Thông báo: \"%s\"</string>
   <string name="format_error_server_code">Mã: \"%s\"</string>
   <string name="address_copied">Đã chép địa chỉ vào bảng tạm.</string>
+  <string name="text_copied">Đã chép vào clipboard.</string>
   <string name="button_continue_to_article">Đi tiếp đến bài</string>
+  <string name="preference_title_show_link_previews">Hiện bản xem trước</string>
+  <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
+  <string name="crash_report_dialog_title">Rất tiếc, ứng dụng gặp sự cố lần trước</string>
+  <string name="crash_report_dialog_text">Bạn có muốn gửi một báo cáo crash đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để Wikimedia có thể xem xét và sửa lỗi gây ra việc này không?</string>
+  <string name="crash_report_dialog_dont_send_button">Bỏ qua</string>
+  <string name="crash_report_dialog_always_send_button">Luôn gửi</string>
+  <string name="crash_report_dialog_send_button">Gửi</string>
+  <string name="crash_report_activity_title">Lỗi ứng dụng</string>
+  <string name="crash_report_relaunch_or_quit">Bạn muốn bắt đầu lại hay thoát?</string>
+  <string name="crash_report_relaunch">Bắt đầu lại</string>
+  <string name="crash_report_quit">Thoát</string>
 </resources>

@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">Visualizza metri/km</string>
   <string name="nearby_set_imperial">Visualizza piedi/miglia</string>
   <string name="nearby_view_on_map">Vedi il luogo sulla mappa</string>
+  <string name="nearby_zoom_to_location">Zoom a una posizione sulla mappa</string>
+  <string name="nearby_requires_location">La funzione Nelle vicinanze richiede l\'autorizzazione per la localizzazione.</string>
   <string name="last_updated_text">Ultimo aggiornamento %s</string>
   <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
   <string name="edit_save_action_license_logged_in">Salvando, accetti le nostre &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -248,6 +250,7 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_image_saved_notification_title">Immagine salvata.</string>
   <string name="gallery_image_saved_notification_text">Tocca per vederla.</string>
   <string name="gallery_error_video_failed">Impossibile riprodurre il video.</string>
+  <string name="gallery_save_image_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio delle immagini. Prova di nuovo, e concedi l\'autorizzazione richiesta.</string>
   <string name="err_cannot_save_file">Impossibile salvare il file</string>
   <string name="snippet_share_intro">\"%1$s\" su @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca per espandere</string>

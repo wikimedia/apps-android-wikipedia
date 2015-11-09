@@ -7,7 +7,7 @@
   <string name="no">Tidak</string>
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="nav_item_history">Sejarah</string>
-  <string name="error_network_error" fuzzy="true">Tiada sambungan rangkaian :(</string>
+  <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
   <string name="menu_clear_all_saved_pages">Padamkan semua laman tersimpan</string>
@@ -21,7 +21,7 @@
   <string name="share_via">Sebarkan melalui</string>
   <string name="dialog_title_clear_saved_pages">Padamkan semua laman tersimpan?</string>
   <string name="snackbar_saving_page">Menyimpan laman…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Laman disimpan</string>
+  <string name="snackbar_saved_page_format">\"%s\" disimpan untuk dibaca di luar talian</string>
   <string name="snackbar_saved_page_missing_images">Semua gambar tidak dapat disimpan</string>
   <string name="snackbar_refresh_saved_page">Memuat semula laman tersimpan…</string>
   <string name="delete_selected_saved_pages">Hapuskan</string>
@@ -31,14 +31,17 @@
   <string name="menu_page_show_tabs">Paparkan tab</string>
   <string name="menu_page_other_languages">Baca dalam bahasa lain</string>
   <string name="menu_page_save">Simpan laman</string>
-  <string name="menu_page_share" fuzzy="true">Sebarkan</string>
+  <string name="menu_page_share">Kongsikan pautan</string>
   <string name="menu_page_find_in_page">Cari dalam laman</string>
   <string name="menu_page_font_and_theme">Tukar fon dan tema</string>
-  <string name="menu_long_press_open_page" fuzzy="true">Buka pautan</string>
+  <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka dalam tab baru</string>
+  <string name="menu_long_press_copy_page">Salin alamat pautan</string>
+  <string name="menu_text_select_copy">Salin</string>
+  <string name="menu_text_select_share">Kongsi</string>
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="nearby_empty_title">Tiada laman berdekatan di sini!</string>
-  <string name="nearby_empty_message" fuzzy="true">Apabila bergerak ke lokasi baru, cuba muat semula (\'\'refresh\'\') halaman ini untuk mengetahui lebih lanjut mengenai apa-apa yang ada di sekeliling anda.</string>
+  <string name="nearby_empty_message">Bergerak ke lokasi baru untuk melihat laman-laman di sekitar anda.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d kaki</string>
@@ -47,6 +50,7 @@
   <string name="nearby_set_metric">Paparkan meter/km</string>
   <string name="nearby_set_imperial">Paparkan kaki/batu</string>
   <string name="nearby_view_on_map">Lihat di peta</string>
+  <string name="nearby_zoom_to_location">Zum kepada lokasi pada peta</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -74,7 +78,7 @@
   <string name="title_captcha">Taipkan captcha</string>
   <string name="edit_section_captcha_reload">Ketik CAPTCHA untuk muat semula</string>
   <string name="edit_saved_page_refresh">Laman tersimpan ini mungkin sudah ketinggalan dan mesti dimuatkan semula untuk dapat disunting. Inginkah anda memuatkan semula laman ini?</string>
-  <string name="nav_item_login" fuzzy="true">Log masuk</string>
+  <string name="nav_item_login">Log masuk ke dalam Wikipedia</string>
   <string name="login_username_hint">Nama pengguna</string>
   <string name="login_password_hint">Kata laluan</string>
   <string name="login_password_show_check">Paparkan kata laluan</string>
@@ -84,7 +88,7 @@
   <string name="login_error_wrong_password">Kata laluan tidak betul</string>
   <string name="login_error_wrong_username">Nama pengguna tidak betul</string>
   <string name="login_error_illegal">Nama pengguna tidak sah</string>
-  <string name="login_success_toast" fuzzy="true">Berjaya Log Masuk!</string>
+  <string name="login_success_toast">Berjaya log masuk!</string>
   <string name="login_error_blocked">Pengguna ini telah disekat</string>
   <string name="login_error_throttled">Terlalu banyak cubaab log masuk. Sila tunggu seketika, kemudian cuba lagi.</string>
   <string name="login_error_unknown">Log masuk gagal :(</string>
@@ -137,8 +141,11 @@
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
   <string name="nav_item_random">Rawak</string>
   <string name="create_account_account_created_toast">Akaun dicipta!</string>
+  <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
+  <string name="preference_title_auto_upload_crash_reports">Hantar laporan keruntuhan</string>
+  <string name="preference_summary_auto_upload_crash_reports">Benarkan aplikasi untuk menghantar laporan keruntuhan ke HockeyApp / pembekal perkhidmatan pihak ketiga secara automatik supaya kami boleh mengkaji keruntuhan anda dan membaiki pepijat dengan lebih cepat dan mudah.</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
   <string name="history_search_list_hint">Cari dalam sejarah</string>
   <string name="history_search_empty_message">Tiada laman yang padan dengan pertanyaan anda.</string>
@@ -148,7 +155,8 @@
   <string name="page_protected_other">Laman ini telah diberi perlindungan pada tahap-tahap: %s</string>
   <string name="page_protected_can_not_edit">Anda tiada hak utuk menyunting laman ini</string>
   <string name="page_protected_can_not_edit_title">Halaman ini dilindungi</string>
-  <string name="settings_activity_title" fuzzy="true">Tetapan</string>
+  <string name="settings_item_preferences">Tetapan</string>
+  <string name="settings_activity_title">Tetapan</string>
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Dasar privasi</string>
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
@@ -225,7 +233,7 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Ketik untuk muat turun</string>
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Paparkan imej</string>
-  <string name="preference_summary_show_images" fuzzy="true">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
+  <string name="preference_summary_show_images">Hidupkan atau matikan ciri-ciri memuatkan gambar dalam laman. Anda disaran supaya mematikan ciri-ciri ini jika sambungan internet anda perlahan ataupun pelan data anda terhad.</string>
   <string name="read_more_section">Selanjutnya</string>
   <string name="menu_gallery_visit_page">Pergi ke laman fail</string>
   <string name="gallery_error_draw_failed">Imej tidak dapat dilukis.</string>
@@ -234,7 +242,10 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam peranti</string>
   <string name="gallery_save_success">Imej berjaya disimpan.</string>
+  <string name="gallery_image_saved_notification_title">Gambar disimpan.</string>
+  <string name="gallery_image_saved_notification_text">Sentuh untuk paparkan.</string>
   <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>
+  <string name="gallery_save_image_write_permission_rationale">Keizinan untuk menulis kepada storan pada peranti anda diperlukan untuk menyimpan gambar. Sila cuba lagi dan berikan keizinan yang dipohon.</string>
   <string name="err_cannot_save_file">Fail tidak dapat disimpan</string>
   <string name="snippet_share_intro">Fakta menarik di @Wikipedia %1$s: %2$s</string>
   <string name="expand_refs">Ketik untuk kembangkan</string>
@@ -249,5 +260,25 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="button_close_tab">Tutup tab</string>
   <string name="tool_tip_select_text">Tekan dan tahan di mana-mana saja pada teks untuk menyorotnya untuk disalin dan disebarkan.</string>
   <string name="tool_tip_share">Setelah menyoroti fakta menarik, cuba anda sebarkannya dalam rangkaian kegemaran anda.</string>
-  <string name="page_view_in_browser" fuzzy="true">Paparkan dalam pelayar</string>
+  <string name="page_view_in_browser">Paparkan laman dalam pelayar</string>
+  <string name="tool_tip_toc_button">Lihat jadual kandungan bila-bila masa dengan mengetik butang ini, atau meluncur dari tepi kanan skrin</string>
+  <string name="error_server_response">Pelayan tidak dapat menyiapkan permintaan.</string>
+  <string name="error_response_malformed">Respons dari pelayan tidak diformatkan dengan betul.</string>
+  <string name="error_unknown">Berlakunya ralat yang tidak diketahui.</string>
+  <string name="format_error_server_message">Mesej: \"%s\"</string>
+  <string name="format_error_server_code">Kod: \"%s\"</string>
+  <string name="address_copied">Alamat disalin ke papan klip.</string>
+  <string name="text_copied">Teks disalin ke papan klip.</string>
+  <string name="button_continue_to_article">Terus ke rencana</string>
+  <string name="preference_title_show_link_previews">Paparkan pratonton pautan</string>
+  <string name="preference_summary_show_link_previews">Paparkan pratonton cepat bagi rencana apabila mengetik pautan.</string>
+  <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
+  <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
+  <string name="crash_report_dialog_dont_send_button">Langkau</string>
+  <string name="crash_report_dialog_always_send_button">Sentiasa hantar</string>
+  <string name="crash_report_dialog_send_button">Hantar</string>
+  <string name="crash_report_activity_title">Ralat aplikasi</string>
+  <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
+  <string name="crash_report_relaunch">Mula balik</string>
+  <string name="crash_report_quit">Keluar</string>
 </resources>

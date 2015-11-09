@@ -29,7 +29,7 @@
   <string name="saved_pages_search_list_hint">Претрага сачуваних страница</string>
   <string name="saved_pages_search_empty_message">Нема пронађених страница које одговарају вашем упиту.</string>
   <string name="menu_page_show_tabs">Прикажи језичке</string>
-  <string name="menu_page_other_languages">Други језици</string>
+  <string name="menu_page_other_languages">Читај на осталим језици</string>
   <string name="menu_page_save">Сачувај страницу</string>
   <string name="menu_page_share">Дели</string>
   <string name="menu_page_find_in_page">Пронађи на страници</string>
@@ -59,7 +59,7 @@
   <string name="langlinks_filter_hint">Претрага</string>
   <string name="langlinks_empty">Ова страница није доступан на другим језицима.</string>
   <string name="langlinks_no_match">Нема пронађених језика који одговарају вашем упиту.</string>
-  <string name="langlinks_activity_title">Други језици</string>
+  <string name="langlinks_activity_title">Остали језици</string>
   <string name="menu_save_changes">Сачувај измене</string>
   <string name="edit_section_error_retry">Пробај опет</string>
   <string name="dialog_saving_in_progress">Чување…</string>
@@ -99,10 +99,10 @@
   <string name="create_account_login_link">Већ имате свој налог? Пријавите се</string>
   <string name="create_account_activity_title">Отворите налог</string>
   <string name="dialog_create_account_checking_progress">Верификација</string>
-  <string name="create_account_email_hint">Е-пошта (опционо)</string>
+  <string name="create_account_email_hint">Имејл (опционо)</string>
   <string name="create_account_password_repeat_hint">Понови лозинку</string>
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
-  <string name="create_account_email_error">Неисправна е-пошта</string>
+  <string name="create_account_email_error">Неисправна имејл адреса</string>
   <string name="create_account_username_exists_error">Корисничко име је заузето</string>
   <string name="create_account_ip_throttle_error">Са ове ИП адресе је направљено превише налога. Покушајте касније.</string>
   <string name="create_account_open_proxy_error">Отварање налога са ове ИП адресе је онемогућено.</string>
@@ -173,7 +173,7 @@
   <string name="search_recent_header">Скорашње претраге:</string>
   <string name="button_clear_all_recent_searches">Очисти скорашње претраге</string>
   <string name="clear_recent_searches_confirm">Да ли сте сигурни да желите очистити историју претраживања?</string>
-  <string name="error_browser_not_found">Не могу да отворим веб страницу (није пронађен веб прегледач).</string>
+  <string name="error_browser_not_found">Не могу да отворим веб-страницу (није пронађен веб-прегледач).</string>
   <string name="table_infobox">Брзи факти</string>
   <string name="table_other">Више информација</string>
   <string name="table_close">Затвори</string>
