@@ -8,11 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.FragmentActivity;
 import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
 import android.util.TypedValue;
 import android.graphics.PointF;
 import android.view.animation.Animation;
@@ -31,11 +27,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.richtext.LeadingSpan;
-import org.wikipedia.richtext.ParagraphSpan;
-import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ArticleHeaderView;
 import org.wikipedia.views.ObservableWebView;
 
@@ -191,7 +183,8 @@ public class LeadImagesHandler {
         }
 
         // set the page title text, and honor any HTML formatting in the title
-        articleHeaderView.setText(Html.fromHtml(getPage().getDisplayTitle()), getPage().getTitle().getSite().getLanguageCode());
+        articleHeaderView.setTitle(Html.fromHtml(getPage().getDisplayTitle()));
+        articleHeaderView.setLocale(getPage().getTitle().getSite().getLanguageCode());
         // Set the subtitle, too, so text measurements are accurate.
         layoutWikiDataDescription(getTitle().getDescription());
 
@@ -322,18 +315,13 @@ public class LeadImagesHandler {
      */
     private void layoutWikiDataDescription(@Nullable final String description) {
         if (!TextUtils.isEmpty(description)) {
-            CharSequence title = articleHeaderView.getText();
             int titleLineCount = articleHeaderView.getLineCount();
 
-            SpannableStringBuilder builder = new SpannableStringBuilder(title);
-            builder.append("\n");
-            builder.append(subtitleSpannable(description, getDimensionPixelSize(R.dimen.descriptionTextSize)));
-            articleHeaderView.setText(builder);
+            articleHeaderView.setSubtitle(description);
 
             // Only show the description if it's two lines or less.
             if ((articleHeaderView.getLineCount() - titleLineCount) > 2) {
-                // Restore title.
-                articleHeaderView.setText(title);
+                articleHeaderView.setSubtitle(null);
             }
         }
     }
@@ -352,19 +340,6 @@ public class LeadImagesHandler {
 
     private void setImageLayoutParams(int width, int height) {
         image.setLayoutParams(new FrameLayout.LayoutParams(width, height));
-    }
-
-    private SpannableString subtitleSpannable(@Nullable CharSequence str, int sizePx) {
-        final float leadingScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_leading_scalar);
-        final float paragraphScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_paragraph_scalar);
-        CharSequence nonnullStr = StringUtil.emptyIfNull(str);
-        return RichTextUtil.setSpans(new SpannableString(nonnullStr),
-                                     0,
-                                     nonnullStr.length(),
-                                     Spannable.SPAN_INCLUSIVE_INCLUSIVE,
-                                     new AbsoluteSizeSpan(sizePx, false),
-                                     new LeadingSpan(leadingScalar),
-                                     new ParagraphSpan(paragraphScalar));
     }
 
     private void loadLeadImage() {
@@ -442,10 +417,6 @@ public class LeadImagesHandler {
 
     private float getDimension(@DimenRes int id) {
         return getResources().getDimension(id);
-    }
-
-    private int getDimensionPixelSize(@DimenRes int id) {
-        return getResources().getDimensionPixelSize(id);
     }
 
     private Resources getResources() {

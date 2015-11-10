@@ -1,5 +1,7 @@
 package org.wikipedia.theme;
 
+import android.graphics.Color;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
@@ -47,6 +49,14 @@ public enum Theme {
 
     public boolean isDark() {
         return !isLight();
+    }
+
+    @ColorInt
+    public int getContrastingColor() {
+        if (isLight()) {
+            return Color.BLACK;
+        }
+        return Color.WHITE;
     }
 
     Theme(int marshallingId, String funnelName, int resourceId) {

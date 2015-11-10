@@ -10,11 +10,11 @@ import java.util.Collection;
 import java.util.List;
 
 public final class RichTextUtil {
-    @NonNull public static SpannableString setSpans(@NonNull SpannableString spanned,
-                                                    int start,
-                                                    int end,
-                                                    int flags,
-                                                    @NonNull Object... spans) {
+    @NonNull public static Spannable setSpans(@NonNull Spannable spanned,
+                                              int start,
+                                              int end,
+                                              int flags,
+                                              @NonNull Object... spans) {
         for (Object span : spans) {
             spanned.setSpan(span, start, end, flags);
         }

@@ -10,8 +10,17 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -22,9 +31,18 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.page.leadimages.ImageViewWithFace;
 import org.wikipedia.page.leadimages.ImageViewWithFace.OnImageLoadListener;
+import org.wikipedia.richtext.IntrinsicImageSpan;
+import org.wikipedia.richtext.LeadingSpan;
+import org.wikipedia.richtext.ParagraphSpan;
+import org.wikipedia.richtext.PronunciationSpan;
+import org.wikipedia.richtext.RichTextUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.StringUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -35,6 +53,9 @@ public class ArticleHeaderView extends FrameLayout {
     @Bind(R.id.image) ImageViewWithFace image;
     @Bind(R.id.placeholder) ImageView placeholder;
     @Bind(R.id.text) AppTextView text;
+
+    @NonNull private CharSequence title = "";
+    @NonNull private CharSequence subtitle = "";
 
     public ArticleHeaderView(Context context) {
         super(context);
@@ -65,6 +86,7 @@ public class ArticleHeaderView extends FrameLayout {
         setVisibility(View.VISIBLE);
 
         image.setVisibility(View.GONE);
+        updateText();
 
         placeholder.setVisibility(View.GONE);
 
@@ -78,6 +100,7 @@ public class ArticleHeaderView extends FrameLayout {
         setVisibility(View.VISIBLE);
 
         image.setVisibility(View.INVISIBLE);
+        updateText();
 
         placeholder.setVisibility(View.VISIBLE);
 
@@ -100,6 +123,10 @@ public class ArticleHeaderView extends FrameLayout {
                 .load(url)
                 .noFade()
                 .into((Target) image);
+    }
+
+    public boolean hasImage() {
+        return image.getVisibility() != View.GONE;
     }
 
     // ideas from:
@@ -129,12 +156,22 @@ public class ArticleHeaderView extends FrameLayout {
         return text.getText();
     }
 
-    public void setText(CharSequence text) {
-        this.text.setText(text);
+    public void setTitle(@Nullable CharSequence text) {
+        title = StringUtil.emptyIfNull(text);
+        updateText();
     }
 
-    public void setText(CharSequence text, String locale) {
-        this.text.setText(text, locale);
+    public void setSubtitle(@Nullable CharSequence text) {
+        subtitle = StringUtil.emptyIfNull(text);
+        updateText();
+    }
+
+    public boolean hasSubtitle() {
+        return !TextUtils.isEmpty(subtitle);
+    }
+
+    public void setLocale(String locale) {
+        text.setLocale(locale);
     }
 
     public void setTextColor(@ColorInt int color) {
@@ -147,6 +184,61 @@ public class ArticleHeaderView extends FrameLayout {
 
     public void setTextSize(int unit, float size) {
         text.setTextSize(unit, size);
+    }
+
+    public void setPronunciation() {
+        // TODO: implementation.
+        updateText();
+    }
+
+    public boolean hasPronunciation() {
+        // TODO: implementation.
+        return false;
+    }
+
+    private void updateText() {
+        SpannableStringBuilder builder = new SpannableStringBuilder(title);
+
+        if (hasPronunciation()) {
+            builder.append(" ");
+            builder.append(pronunciationSpanned());
+        }
+
+        if (hasSubtitle()) {
+            builder.append("\n");
+            builder.append(subtitleSpanned());
+        }
+
+        text.setText(builder);
+    }
+
+    private Spanned pronunciationSpanned() {
+        return RichTextUtil.setSpans(new SpannableString(" "),
+                                     0,
+                                     1,
+                                     Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
+                                     pronunciationIconSpan(),
+                                     new PronunciationSpan());
+    }
+
+    private Object pronunciationIconSpan() {
+        ImageSpan span = new IntrinsicImageSpan(getContext(), R.drawable.ic_volume_up_black_24dp,
+                ImageSpan.ALIGN_BASELINE);
+        DrawableUtil.setTint(span.getDrawable(), hasImage() ? Color.WHITE : getContrastingThemeColor());
+        return span;
+    }
+
+    private Spanned subtitleSpanned() {
+        final float leadingScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_leading_scalar);
+        final float paragraphScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_paragraph_scalar);
+        return RichTextUtil.setSpans(new SpannableString(subtitle),
+                                     0,
+                                     subtitle.length(),
+                                     Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
+                                     new AbsoluteSizeSpan(getDimensionPixelSize(R.dimen.descriptionTextSize),
+                                             false),
+                                     new LeadingSpan(leadingScalar),
+                                     new ParagraphSpan(paragraphScalar));
     }
 
     private void setTextDropShadow() {
@@ -188,7 +280,17 @@ public class ArticleHeaderView extends FrameLayout {
         text.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL));
     }
 
-    @ColorInt private int getColor(@ColorRes int id) {
+    @ColorInt
+    private int getContrastingThemeColor() {
+        return WikipediaApp.getInstance().getContrastingThemeColor();
+    }
+
+    @ColorInt
+    private int getColor(@ColorRes int id) {
         return ContextCompat.getColor(getContext(), id);
+    }
+
+    private int getDimensionPixelSize(@DimenRes int id) {
+        return getResources().getDimensionPixelSize(id);
     }
 }
