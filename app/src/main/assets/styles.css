@@ -1115,6 +1115,14 @@ th .sortkey {
   margin-right: auto;
 }
 
+.content figcaption {
+  margin: .5em 0 0;
+  font-size: .8em;
+  line-height: 1.5;
+  padding: 0 !important;
+  color: #555555;
+  width: auto !important;
+}
 /* Center text beneath images now that images are centered. */
 /* Add a little breathing room beneath thumb captions - see enwiki "Vincent van Gogh > Paris (1886-1888)" */
 /* Wrangle extra margin - see enwiki "Claude Monet > Impressionism" */
@@ -1154,10 +1162,12 @@ th .sortkey {
   }
 }
 .thumbinner,
-.gallerytext {
+.gallerytext,
+figcaption {
   text-align: center;
 }
-.thumbcaption {
+.thumbcaption,
+figcaption {
   margin-bottom: 1.5em !important;
 }
 li.gallerybox div.thumb > div {
