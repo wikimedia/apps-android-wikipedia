@@ -59,6 +59,12 @@ public class RbPageCombo implements PageCombo {
         return lead != null ? lead.getLeadSectionContent() : "";
     }
 
+    @Override
+    @Nullable
+    public String getTitlePronunciationUrl() {
+        return lead == null ? null : lead.getTitlePronunciationUrl();
+    }
+
     /** Converter */
     public PageProperties toPageProperties() {
         return new PageProperties(lead);

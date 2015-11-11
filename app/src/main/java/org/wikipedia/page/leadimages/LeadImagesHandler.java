@@ -183,6 +183,7 @@ public class LeadImagesHandler {
         // set the page title text, and honor any HTML formatting in the title
         articleHeaderView.setTitle(Html.fromHtml(getPage().getDisplayTitle()));
         articleHeaderView.setLocale(getPage().getTitle().getSite().getLanguageCode());
+        articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
         // Set the subtitle, too, so text measurements are accurate.
         layoutWikiDataDescription(getTitle().getDescription());
 
@@ -310,7 +311,9 @@ public class LeadImagesHandler {
      * @param description WikiData description to be shown.
      */
     private void layoutWikiDataDescription(@Nullable final String description) {
-        if (!TextUtils.isEmpty(description)) {
+        if (TextUtils.isEmpty(description)) {
+            articleHeaderView.setSubtitle(null);
+        } else {
             int titleLineCount = articleHeaderView.getLineCount();
 
             articleHeaderView.setSubtitle(description);

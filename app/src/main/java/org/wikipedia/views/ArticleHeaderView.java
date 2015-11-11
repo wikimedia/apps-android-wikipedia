@@ -251,7 +251,8 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     private Spanned pronunciationSpanned() {
-        AudioUrlSpan span = new AudioUrlSpan(text, avPlayer, pronunciationUrl);
+        AudioUrlSpan span = new AudioUrlSpan(text, avPlayer, pronunciationUrl,
+                AudioUrlSpan.ALIGN_BASELINE);
         span.setTint(hasImage() ? Color.WHITE : getContrastingThemeColor());
         return RichTextUtil.setSpans(new SpannableString(" "),
                 0,

@@ -19,6 +19,8 @@ import java.util.Date;
  * Immutable class that contains metadata associated with a PageTitle.
  */
 public class PageProperties implements Parcelable {
+    private static final String JSON_NAME_TITLE_PRONUNCIATION_URL = "titlePronunciationUrl";
+
     private final int pageId;
     private final long revisionId;
     private final Date lastModified;
@@ -28,8 +30,9 @@ public class PageProperties implements Parcelable {
     private final boolean isMainPage;
     private final boolean isDisambiguationPage;
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
-    private final String leadImageUrl;
+    @Nullable private final String leadImageUrl;
     private final String leadImageName;
+    @Nullable private final String titlePronunciationUrl;
 
     /**
      * True if the user who first requested this page can edit this page
@@ -45,6 +48,7 @@ public class PageProperties implements Parcelable {
         pageId = core.getId();
         revisionId = core.getRevision();
         displayTitleText = StringUtil.emptyIfNull(core.getDisplayTitle());
+        titlePronunciationUrl = core.getTitlePronunciationUrl();
         editProtectionStatus = core.getFirstAllowedEditorRole();
         languageCount = core.getLanguageCount();
         leadImageUrl = core.getLeadImageUrl();
@@ -74,6 +78,7 @@ public class PageProperties implements Parcelable {
         pageId = json.optInt("id");
         revisionId = json.optLong("revision");
         displayTitleText = json.optString("displaytitle");
+        titlePronunciationUrl = json.optString(JSON_NAME_TITLE_PRONUNCIATION_URL, null);
         // Mediawiki API is stupid!
         if (!(json.opt("protection") instanceof JSONArray)
             && json.optJSONObject("protection") != null
@@ -124,6 +129,11 @@ public class PageProperties implements Parcelable {
         return displayTitleText;
     }
 
+    @Nullable
+    public String getTitlePronunciationUrl() {
+        return titlePronunciationUrl;
+    }
+
     public String getEditProtectionStatus() {
         return editProtectionStatus;
     }
@@ -168,6 +178,7 @@ public class PageProperties implements Parcelable {
         parcel.writeLong(revisionId);
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
+        parcel.writeString(titlePronunciationUrl);
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(languageCount);
         parcel.writeInt(canEdit ? 1 : 0);
@@ -182,6 +193,7 @@ public class PageProperties implements Parcelable {
         revisionId = in.readLong();
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
+        titlePronunciationUrl = in.readString();
         editProtectionStatus = in.readString();
         languageCount = in.readInt();
         canEdit = in.readInt() == 1;
@@ -217,6 +229,7 @@ public class PageProperties implements Parcelable {
                 && revisionId == that.revisionId
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
+                && TextUtils.equals(titlePronunciationUrl, that.titlePronunciationUrl)
                 && languageCount == that.languageCount
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
@@ -230,6 +243,7 @@ public class PageProperties implements Parcelable {
     public int hashCode() {
         int result = lastModified.hashCode();
         result = 31 * result + displayTitleText.hashCode();
+        result = 31 * result + (titlePronunciationUrl != null ? titlePronunciationUrl.hashCode() : 0);
         result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
         result = 31 * result + languageCount;
         result = 31 * result + (isMainPage ? 1 : 0);
@@ -255,6 +269,7 @@ public class PageProperties implements Parcelable {
             json.put("lastmodified", WikipediaApp.getInstance().getSimpleDateFormat()
                     .format(getLastModified()));
             json.put("displaytitle", displayTitleText);
+            json.put(JSON_NAME_TITLE_PRONUNCIATION_URL, titlePronunciationUrl);
             if (editProtectionStatus == null) {
                 json.put("protection", new JSONArray());
             } else {

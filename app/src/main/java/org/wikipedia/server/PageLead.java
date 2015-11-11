@@ -1,5 +1,7 @@
 package org.wikipedia.server;
 
+import android.support.annotation.Nullable;
+
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 
@@ -21,6 +23,9 @@ public interface PageLead {
     Page toPage(PageTitle title);
 
     String getLeadSectionContent();
+
+    @Nullable
+    String getTitlePronunciationUrl();
 
     /** So we can have polymorphic Retrofit Callbacks */
     interface Callback {

@@ -79,6 +79,12 @@ public class MwPageLead implements PageLead {
         }
     }
 
+    @Nullable
+    @Override
+    public String getTitlePronunciationUrl() {
+        return null;
+    }
+
     @VisibleForTesting
     public Mobileview getMobileview() {
         return mobileview;
@@ -130,6 +136,12 @@ public class MwPageLead implements PageLead {
         @Nullable
         public String getDisplayTitle() {
             return displaytitle;
+        }
+
+        @Nullable
+        @Override
+        public String getTitlePronunciationUrl() {
+            return null;
         }
 
         @Nullable

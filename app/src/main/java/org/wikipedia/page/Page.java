@@ -1,5 +1,7 @@
 package org.wikipedia.page;
 
+import android.support.annotation.Nullable;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,6 +56,11 @@ public class Page {
 
     public String getDisplayTitle() {
         return pageProperties.getDisplayTitle();
+    }
+
+    @Nullable
+    public String getTitlePronunciationUrl() {
+        return getPageProperties().getTitlePronunciationUrl();
     }
 
     public PageProperties getPageProperties() {

@@ -30,8 +30,11 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
     @NonNull
     private final String path;
 
-    public AudioUrlSpan(@NonNull View view, @NonNull AvPlayer player, @NonNull String path) {
-        super(view, drawable(view.getContext()));
+    public AudioUrlSpan(@NonNull View view,
+                        @NonNull AvPlayer player,
+                        @NonNull String path,
+                        int verticalAlignment) {
+        super(view, drawable(view.getContext()), verticalAlignment);
         this.player = player;
         this.path = path;
     }

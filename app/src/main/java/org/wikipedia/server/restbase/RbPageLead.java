@@ -16,6 +16,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.lang.reflect.Type;
@@ -35,6 +36,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Expose @Nullable private String redirected;
     @Expose @Nullable private String normalizedtitle;
     @Expose @Nullable private String extract;
+    @Expose @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
     @Expose private int languagecount;
     @Expose private boolean editable;
     @Expose private boolean mainpage;
@@ -114,6 +116,12 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         return extract;
     }
 
+    @Override
+    @Nullable
+    public String getTitlePronunciationUrl() {
+        return titlePronunciation == null ? null : titlePronunciation.getUrl();
+    }
+
     public int getLanguageCount() {
         return languagecount;
     }
@@ -174,6 +182,17 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         this.leadImageThumbWidth = leadImageThumbWidth;
     }
 
+    /**
+     * For the lead image File: page name
+     */
+    public static class TitlePronunciation {
+        @Expose @NonNull private String url;
+
+        @NonNull
+        public String getUrl() {
+            return url;
+        }
+    }
 
     /**
      * For the lead image File: page name
@@ -191,7 +210,6 @@ public class RbPageLead implements PageLead, PageLeadProperties {
             return urls != null ? urls.get(leadImageThumbWidth) : null;
         }
     }
-
 
     /**
      * For the lead image URLs

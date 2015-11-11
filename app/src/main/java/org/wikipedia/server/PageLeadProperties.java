@@ -25,6 +25,9 @@ public interface PageLeadProperties {
     String getDisplayTitle();
 
     @Nullable
+    String getTitlePronunciationUrl();
+
+    @Nullable
     String getRedirected();
 
     @Nullable

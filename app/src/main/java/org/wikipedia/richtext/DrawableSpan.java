@@ -2,6 +2,8 @@ package org.wikipedia.richtext;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.DrawableRes;
@@ -68,6 +70,36 @@ public class DrawableSpan extends ImageSpan {
     @Nullable
     public Drawable getDrawable() {
         return drawable;
+    }
+
+    // Make vertical alignment consistent across APIs. See https://code.google.com/p/android/issues/detail?id=21397
+    @Override
+    @SuppressWarnings("checkstyle:parameternumber")
+    public void draw(Canvas canvas,
+                     CharSequence text,
+                     int start,
+                     int end,
+                     float x,
+                     int top,
+                     int y,
+                     int bottom, Paint paint) {
+        if (drawable == null) {
+            return;
+        }
+
+        canvas.save();
+
+        int transY;
+        if (mVerticalAlignment == ALIGN_BOTTOM) {
+            transY = bottom;
+        } else {
+            transY = y;
+        }
+        transY -= drawable.getBounds().bottom;
+
+        canvas.translate(x, transY);
+        drawable.draw(canvas);
+        canvas.restore();
     }
 
     public void setDrawable(@Nullable Drawable drawable) {

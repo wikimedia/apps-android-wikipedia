@@ -9,7 +9,6 @@ import java.io.IOException;
 
 public class MediaPlayerImplementation implements AvPlayerImplementation {
     private static final boolean VERBOSE = false;
-    private boolean paused;
 
     @NonNull private final MediaPlayer player = new MediaPlayer();
 
@@ -23,10 +22,6 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
 
     @Override
     public void init() {
-        if (VERBOSE) {
-            L.v("Resetting");
-        }
-        player.reset();
     }
 
     @Override
@@ -44,10 +39,9 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
         }
 
         // Do not call MediaPlayer.stop(). This requires going through the whole lifecycle again.
-        if (!paused) {
-            pause();
-        }
+        // Also, seek triggers playback, so call before pausing.
         player.seekTo(0);
+        pause();
     }
 
     @Override
@@ -62,7 +56,6 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
         if (VERBOSE) {
             L.v("Pausing");
         }
-        paused = true;
         player.pause();
     }
 
@@ -70,9 +63,9 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
                       @NonNull MediaPlayer.OnPreparedListener listener,
                       @NonNull MediaPlayer.OnErrorListener errorListener) {
         if (VERBOSE) {
-            L.v("Loading");
+            L.v("Loading path=" + path);
         }
-        paused = false;
+        player.reset();
         player.setOnPreparedListener(listener);
         player.setOnErrorListener(errorListener);
         if (setDataSource(path)) {
@@ -87,7 +80,6 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
         if (VERBOSE) {
             L.v("Playing");
         }
-        paused = false;
         player.setOnCompletionListener(listener);
         player.setOnErrorListener(errorListener);
         player.start();
