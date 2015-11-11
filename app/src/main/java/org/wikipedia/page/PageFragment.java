@@ -6,6 +6,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ConnectionIssueFunnel;
+import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.SavedPagesFunnel;
@@ -720,7 +721,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void showFindInPage() {
         final PageActivity pageActivity = getPageActivity();
-        final FindInPageActionProvider findInPageActionProvider = new FindInPageActionProvider(pageActivity);
+        final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getSite(),
+                model.getPage().getPageProperties().getPageId());
+        final FindInPageActionProvider findInPageActionProvider
+                = new FindInPageActionProvider(pageActivity, funnel);
 
         pageActivity.startSupportActionMode(new ActionMode.Callback() {
             private final String actionModeTag = "actionModeFindInPage";
@@ -748,6 +752,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             public void onDestroyActionMode(ActionMode mode) {
                 findInPageActionMode = null;
+                funnel.setPageHeight(webView.getContentHeight());
+                funnel.logDone();
                 webView.clearMatches();
                 pageActivity.showToolbar();
                 setToCButtonFadedIn(true);

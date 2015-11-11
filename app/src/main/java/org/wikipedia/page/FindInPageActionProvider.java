@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import org.wikipedia.R;
+import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.util.ApiUtil;
 
 import android.annotation.TargetApi;
@@ -16,16 +17,17 @@ import android.widget.TextView;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class FindInPageActionProvider extends ActionProvider {
-
-    private PageActivity parentActivity;
+    private final PageActivity parentActivity;
+    private final FindInPageFunnel funnel;
 
     private View findInPageNext;
     private View findInPagePrev;
     private TextView findInPageMatch;
 
-    public FindInPageActionProvider(PageActivity parentActivity) {
+    public FindInPageActionProvider(PageActivity parentActivity, FindInPageFunnel funnel) {
         super(parentActivity);
         this.parentActivity = parentActivity;
+        this.funnel = funnel;
     }
 
     @Override
@@ -44,6 +46,7 @@ public class FindInPageActionProvider extends ActionProvider {
                 if (!pageFragmentValid()) {
                     return;
                 }
+                funnel.addFindNext();
                 parentActivity.getCurPageFragment().getWebView().findNext(true);
             }
         });
@@ -56,6 +59,7 @@ public class FindInPageActionProvider extends ActionProvider {
                 if (!pageFragmentValid()) {
                     return;
                 }
+                funnel.addFindPrev();
                 parentActivity.getCurPageFragment().getWebView().findNext(false);
             }
         });
@@ -92,6 +96,7 @@ public class FindInPageActionProvider extends ActionProvider {
             if (!pageFragmentValid()) {
                 return false;
             }
+            funnel.setFindText(s);
             if (s.length() > 0) {
                 findInPage(s);
             } else {
