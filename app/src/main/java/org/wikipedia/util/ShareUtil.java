@@ -213,6 +213,18 @@ public final class ShareUtil {
         return context.getPackageManager().queryIntentActivities(intent, 0);
     }
 
+    public static boolean canOpenUrlInApp(@NonNull Context context, @NonNull String url) {
+        boolean canOpen = false;
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        for (ResolveInfo intentActivity : queryIntentActivities(intent, context)) {
+            if (getPackageName(intentActivity).matches(APP_PACKAGE_REGEX)) {
+                canOpen = true;
+                break;
+            }
+        }
+        return canOpen;
+    }
+
     private static boolean isIntentActivityBlacklisted(@Nullable ResolveInfo intentActivity,
                                                        @Nullable String packageNameBlacklistRegex) {
         return intentActivity != null

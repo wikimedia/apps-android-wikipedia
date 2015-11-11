@@ -1,6 +1,8 @@
 package org.wikipedia.analytics;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -50,5 +52,15 @@ public final class InstallReferrerReceiver extends BroadcastReceiver {
             InstallReferrerFunnel funnel = new InstallReferrerFunnel(WikipediaApp.getInstance());
             funnel.logInstall(refUrl, refCampaignId, refCampaignInstallId);
         }
+        if (!TextUtils.isEmpty(refUrl) && ShareUtil.canOpenUrlInApp(ctx, refUrl)) {
+            openPageFromUrl(ctx, refUrl);
+        }
+    }
+
+    private void openPageFromUrl(Context context, String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setClass(context, PageActivity.class);
+        context.startActivity(intent);
     }
 }
