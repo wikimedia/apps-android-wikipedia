@@ -49,7 +49,7 @@ import butterknife.ButterKnife;
 
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
-public class ArticleHeaderView extends FrameLayout {
+public class ArticleHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
     @Bind(R.id.image) ImageViewWithFace image;
     @Bind(R.id.placeholder) ImageView placeholder;
     @Bind(R.id.text) AppTextView text;
@@ -57,6 +57,8 @@ public class ArticleHeaderView extends FrameLayout {
     @NonNull private CharSequence title = "";
     @NonNull private CharSequence subtitle = "";
     @Nullable private String pronunciationUrl;
+
+    private int imageYOffset;
 
     @NonNull private final AvPlayer avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
 
@@ -146,6 +148,11 @@ public class ArticleHeaderView extends FrameLayout {
         return returnedBitmap;
     }
 
+    public void setImageYOffset(int offset) {
+        imageYOffset = offset;
+        updateParallaxScroll();
+    }
+
     // TODO: remove.
     public ImageView getPlaceholder() {
         return placeholder;
@@ -199,6 +206,11 @@ public class ArticleHeaderView extends FrameLayout {
     }
 
     @Override
+    public void onScrollChanged(int oldScrollY, int scrollY) {
+        updateParallaxScroll(scrollY);
+    }
+
+    @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         avPlayer.init();
@@ -208,6 +220,16 @@ public class ArticleHeaderView extends FrameLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         avPlayer.deinit();
+    }
+
+    private void updateParallaxScroll() {
+        updateParallaxScroll((int) -getTranslationY());
+    }
+
+    private void updateParallaxScroll(int scrollY) {
+        int offset = Math.min(getHeight(), scrollY);
+        setTranslationY(-offset);
+        image.setTranslationY(imageYOffset + offset / 2);
     }
 
     private void updateText() {
@@ -242,13 +264,13 @@ public class ArticleHeaderView extends FrameLayout {
         final float leadingScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_leading_scalar);
         final float paragraphScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_paragraph_scalar);
         return RichTextUtil.setSpans(new SpannableString(subtitle),
-                                     0,
-                                     subtitle.length(),
-                                     Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
-                                     new AbsoluteSizeSpan(getDimensionPixelSize(R.dimen.descriptionTextSize),
-                                             false),
-                                     new LeadingSpan(leadingScalar),
-                                     new ParagraphSpan(paragraphScalar));
+                0,
+                subtitle.length(),
+                Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
+                new AbsoluteSizeSpan(getDimensionPixelSize(R.dimen.descriptionTextSize),
+                        false),
+                new LeadingSpan(leadingScalar),
+                new ParagraphSpan(paragraphScalar));
     }
 
     private void setTextDropShadow() {
