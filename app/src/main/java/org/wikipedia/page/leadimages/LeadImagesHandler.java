@@ -90,10 +90,8 @@ public class LeadImagesHandler {
     private ImageViewWithFace image;
 
     private int displayHeightDp;
-    private int imageBaseYOffset;
     private float faceYOffsetNormalized;
     private float displayDensity;
-    @NonNull private final WebViewScrollListener webViewScrollListener = new WebViewScrollListener();
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
@@ -293,8 +291,6 @@ public class LeadImagesHandler {
 
         // tell our listener that it's ok to start loading the rest of the WebView content
         listener.onLayoutComplete(sequence);
-
-        forceRefreshWebView();
     }
 
     private void setWebViewPaddingTop(int padding) {
@@ -353,6 +349,7 @@ public class LeadImagesHandler {
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && leadImagesEnabled) {
             String fullUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + url;
+            articleHeaderView.setImageYOffset(0);
             articleHeaderView.loadImage(fullUrl);
         }
     }
@@ -371,12 +368,8 @@ public class LeadImagesHandler {
         image.startAnimation(anim);
     }
 
-    private void forceRefreshWebView() {
-        webViewScrollListener.onScrollChanged(webView.getScrollY(), webView.getScrollY());
-    }
-
     private void initWebView() {
-        webView.addOnScrollChangeListener(webViewScrollListener);
+        webView.addOnScrollChangeListener(articleHeaderView);
 
         webView.addOnClickListener(new ObservableWebView.OnClickListener() {
             @Override
@@ -427,28 +420,6 @@ public class LeadImagesHandler {
         return parentFragment.getActivity();
     }
 
-    private class WebViewScrollListener implements ObservableWebView.OnScrollChangeListener {
-        @Override
-        public void onScrollChanged(int oldScrollY, int scrollY) {
-            CoordinatorLayout.LayoutParams contParams = (CoordinatorLayout.LayoutParams) articleHeaderView
-                    .getLayoutParams();
-            FrameLayout.LayoutParams imgParams = (FrameLayout.LayoutParams) image.getLayoutParams();
-            if (scrollY > articleHeaderView.getHeight()) {
-                if (contParams.topMargin != -articleHeaderView.getHeight()) {
-                    contParams.topMargin = -articleHeaderView.getHeight();
-                    imgParams.topMargin = 0;
-                    articleHeaderView.setLayoutParams(contParams);
-                    image.setLayoutParams(imgParams);
-                }
-            } else {
-                contParams.topMargin = -scrollY;
-                imgParams.topMargin = imageBaseYOffset + scrollY / 2; //parallax, baby
-                articleHeaderView.setLayoutParams(contParams);
-                image.setLayoutParams(imgParams);
-            }
-        }
-    }
-
     private class ImageLoadListener implements ImageViewWithFace.OnImageLoadListener {
         @Override
         public void onImageLoaded(Bitmap bitmap, @Nullable final PointF faceLocation) {
@@ -476,6 +447,7 @@ public class LeadImagesHandler {
             // give our image an offset based on the location of the face,
             // relative to the image container
             float scale = (float) newHeight / (float) bmpHeight;
+            int imageBaseYOffset;
             if (faceLocation != null) {
                 int faceY = (int) (faceLocation.y * scale);
                 // if we have a face, then offset to the face location
@@ -508,7 +480,7 @@ public class LeadImagesHandler {
                 setImageLayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, newHeight);
             }
 
-            forceRefreshWebView();
+            articleHeaderView.setImageYOffset(imageBaseYOffset);
 
             // fade in the new image!
             ViewAnimations.crossFade(imagePlaceholder, image);

@@ -80,7 +80,7 @@ public class ObservableWebView extends WebView {
         void onScrollChanged(int oldScrollY, int scrollY);
     }
 
-    public interface  OnDownMotionEventListener {
+    public interface OnDownMotionEventListener {
         void onDownMotionEvent();
     }
 
