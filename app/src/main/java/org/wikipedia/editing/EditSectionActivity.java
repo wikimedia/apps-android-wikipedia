@@ -257,7 +257,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
 
-                new DoEditTask(EditSectionActivity.this, title, sectionText.getText().toString(),
+                new EditTask(EditSectionActivity.this, title, sectionText.getText().toString(),
                         sectionID, token, summaryText, app.getUserInfoStorage().isLoggedIn()) {
                     @Override
                     public void onBeforeExecute() {

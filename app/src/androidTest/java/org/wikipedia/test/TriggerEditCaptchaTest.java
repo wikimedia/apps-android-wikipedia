@@ -5,7 +5,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.CaptchaResult;
-import org.wikipedia.editing.DoEditTask;
+import org.wikipedia.editing.EditTask;
 import org.wikipedia.editing.EditingResult;
 import org.wikipedia.editing.SuccessEditResult;
 
@@ -29,7 +29,7 @@ public class TriggerEditCaptchaTest extends ActivityUnitTestCase<TestDummyActivi
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, 0, "+\\", "", false) {
+                new EditTask(getInstrumentation().getTargetContext(), title, wikitext, 0, "+\\", "", false) {
                     @Override
                     public void onFinish(EditingResult result) {
                         assertNotNull(result);
