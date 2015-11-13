@@ -74,8 +74,7 @@
     <dimen name="audio_url_span_loading_spinner_radius">12dp</dimen>
 
     <!-- Maps -->
-    <integer name="map_default_zoom">2</integer>
-    <dimen name="map_marker_icon_size">32dp</dimen>
+    <integer name="map_default_zoom">12</integer>
 
     <!-- Crash report -->
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>

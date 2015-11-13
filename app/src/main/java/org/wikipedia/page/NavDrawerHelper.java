@@ -83,6 +83,7 @@ public class NavDrawerHelper {
                         funnel.logSavedPages();
                         break;
                     case R.id.nav_item_nearby:
+                        // TODO: remove production check when Maps is ready for production
                         activity.pushFragment(app.isProdRelease() ? new NearbyFragmentOld() : new NearbyFragment());
                         funnel.logNearby();
                         break;
