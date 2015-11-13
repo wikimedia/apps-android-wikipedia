@@ -209,11 +209,8 @@ public class PageActivity extends ThemedActionBarActivity {
             drawerLayout.setDrawerShadow(R.drawable.nav_drawer_shadow, GravityCompat.START);
         }
         navDrawer = (NavigationView) findViewById(R.id.navdrawer);
-        // TODO: replace with app:headerLayout="@layout/inflate_header_nav_drawer" attribute once
-        //       https://code.google.com/p/android/issues/detail?id=190226 is resolved.
-        View navDrawerHeader = navDrawer.inflateHeaderView(R.layout.inflate_header_nav_drawer);
         navMenu = navDrawer.getMenu();
-        navDrawerHelper = new NavDrawerHelper(this, navDrawerHeader);
+        navDrawerHelper = new NavDrawerHelper(this, navDrawer.getHeaderView(0));
         navDrawer.setNavigationItemSelectedListener(navDrawerHelper.getNewListener());
 
         randomHandler = navDrawerHelper.getNewRandomHandler();

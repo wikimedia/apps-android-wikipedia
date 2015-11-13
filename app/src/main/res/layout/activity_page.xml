@@ -169,6 +169,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="?attr/nav_background_color"
+        app:headerLayout="@layout/inflate_header_nav_drawer"
         app:menu="@menu/menu_nav_drawer"
         app:itemTextColor="?attr/nav_item_color"
         app:itemIconTint="?attr/nav_item_color"
