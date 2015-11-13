@@ -1,3 +1,4 @@
+-dontobfuscate
 
 # https://github.com/square/okio/issues/60
 -dontwarn okio.**
@@ -13,22 +14,6 @@
 -keep class uk.co.senab.photoview.** {*;}
 
 -keep class com.github.kevinsawicki.http.** {*;}
-
-# --- Android Support libraries ---
-# https://phabricator.wikimedia.org/T78197
-# https://phabricator.wikimedia.org/T117049
-# NoClassDefFoundError: android.support.v7.internal.view.menu.MenuBuilder
-# http://stackoverflow.com/questions/26657348/appcompat-v7-v21-0-0-causing-crash-on-samsung-devices-with-android-v4-2-2
-# Allow obfuscation of android.support.v7.internal.view.menu.** but not the rest of android.support
-# to avoid problem on Samsung 4.2.2 devices with appcompat v21
-# see https://code.google.com/p/android/issues/detail?id=78377#hc150
--keep class !android.support.v7.internal.view.menu.**,android.support.v7.** {*;}
-
-# For now just keep all of v4, just to be on the safe side
--keep class android.support.v4.** {*;}
-
--dontnote android.support.v4.text.ICUCompatIcs
-# --- /Android Support libraries ---
 
 # --- Retrofit ---
 # https://github.com/square/retrofit/issues/117

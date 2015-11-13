@@ -156,10 +156,10 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    compile 'com.android.support:appcompat-v7:23.1.0' // includes support-v4
-    compile 'com.android.support:design:23.1.0'
-    compile 'com.android.support:recyclerview-v7:23.1.0'
-    compile 'com.android.support:percent:23.1.0'
+    compile 'com.android.support:appcompat-v7:23.1.1' // includes support-v4
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+    compile 'com.android.support:percent:23.1.1'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
@@ -182,7 +182,7 @@ dependencies {
     testCompile 'com.squareup.okhttp:mockwebserver:2.5.0'
 
     // Required by Android JUnit Runner.
-    androidTestCompile 'com.android.support:support-annotations:23.1.0'
+    androidTestCompile 'com.android.support:support-annotations:23.1.1'
 
     androidTestCompile 'com.android.support.test:rules:0.4.1' // JUnit Rules
     androidTestCompile 'com.android.support.test:runner:0.4.1' // Android JUnit Runner
