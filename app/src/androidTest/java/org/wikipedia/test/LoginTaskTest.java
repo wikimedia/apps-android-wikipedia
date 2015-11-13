@@ -1,56 +1,70 @@
 package org.wikipedia.test;
 
-import android.test.ActivityUnitTestCase;
+import android.support.annotation.StringRes;
+import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.LoginTask;
+import org.wikipedia.testlib.TestLatch;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
 
-public class LoginTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 20000;
+@RunWith(AndroidJUnit4.class)
+public class LoginTaskTest {
+    private static final Site TEST_WIKI_SITE = new Site("test.wikipedia.org");
+    private static final String SUCCESS = "Success";
+    private static final String USERNAME = getString(R.string.test_username);
+    private static final String PASSWORD = getString(R.string.test_password);
 
-    public LoginTaskTest() {
-        super(TestDummyActivity.class);
-    }
+    private final WikipediaApp app = WikipediaApp.getInstance();
+    private final TestLatch completionLatch = new TestLatch();
 
+    @Test
     public void testLogin() throws Throwable {
-        final Site testWiki = new Site("test.wikipedia.org");
-        final String username = getInstrumentation().getContext().getString(R.string.test_username);
-        final String password = getInstrumentation().getContext().getString(R.string.test_password);
-        final WikipediaApp app = (WikipediaApp)getInstrumentation().getTargetContext().getApplicationContext();
-
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        runTestOnUiThread(new Runnable() {
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                new LoginTask(getInstrumentation().getTargetContext(), testWiki, username, password) {
-                    @Override
-                    public void onFinish(LoginResult result) {
-                        super.onFinish(result);
-                        assertNotNull(result);
-                        assertEquals(result.getCode(), "Success");
-                        app.getEditTokenStorage().get(testWiki, new EditTokenStorage.TokenRetrievedCallback() {
-                            @Override
-                            public void onTokenRetrieved(String token) {
-                                assertNotNull(token);
-                                assertFalse(token.equals("+\\"));
-                                completionLatch.countDown();
-                            }
-
-                            @Override
-                            public void onTokenFailed(Throwable caught) {
-                                fail("onTokenFailed called: " + caught);
-                            }
-                        });
-                    }
-                }.execute();
+                loginTestTask.execute();
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        completionLatch.await();
+    }
+
+    private LoginTask loginTestTask = new LoginTask(app, TEST_WIKI_SITE, USERNAME, PASSWORD) {
+        @Override
+        public void onFinish(LoginResult result) {
+            super.onFinish(result);
+            assertThat(result.getCode(), equalTo(SUCCESS));
+            app.getEditTokenStorage().get(TEST_WIKI_SITE, callback);
+        }
+    };
+
+    private EditTokenStorage.TokenRetrievedCallback callback = new EditTokenStorage.TokenRetrievedCallback() {
+        @Override
+        public void onTokenRetrieved(String token) {
+            assertThat(token.equals("+\\"), is(false));
+            completionLatch.countDown();
+        }
+
+        @Override
+        public void onTokenFailed(Throwable caught) {
+            throw new RuntimeException(caught);
+        }
+    };
+
+    private void runOnMainSync(Runnable r) {
+        getInstrumentation().runOnMainSync(r);
+    }
+
+    private static String getString(@StringRes int id) {
+        return getInstrumentation().getContext().getString(id);
     }
 }
