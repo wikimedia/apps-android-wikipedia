@@ -6,6 +6,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageLeadProperties;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import com.google.gson.JsonArray;
@@ -119,7 +120,9 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Override
     @Nullable
     public String getTitlePronunciationUrl() {
-        return titlePronunciation == null ? null : titlePronunciation.getUrl();
+        return titlePronunciation == null
+                ? null
+                : UriUtil.resolveProtocolRelativeUrl(titlePronunciation.getUrl());
     }
 
     public int getLanguageCount() {
