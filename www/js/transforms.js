@@ -1,11 +1,11 @@
 require("./transforms/addDarkModeStyles");
 require("./transforms/addImageOverflowContainers");
-require("./transforms/anchorPopUpMediaTransforms");
+require("./transforms/service/anchorPopUpMediaTransforms");
 require("./transforms/collapseTables");
 require("./transforms/hideIpa");
-require("./transforms/hideRedLinks");
+require("./transforms/service/hideRedLinks");
 require("./transforms/hideRefs");
-require("./transforms/relocateFirstParagraph");
-require("./transforms/setMathFormulaImageMaxWidth");
+require("./transforms/service/relocateFirstParagraph");
+require("./transforms/service/setMathFormulaImageMaxWidth");
 require("./transforms/setDivWidth");
 require("./transforms/widenImages");

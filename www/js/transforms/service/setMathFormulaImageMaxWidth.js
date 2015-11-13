@@ -1,4 +1,4 @@
-var transformer = require("../transformer");
+var transformer = require("../../transformer");
 
 transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
     // Prevent horizontally scrollable pages by checking for math formula images (which are

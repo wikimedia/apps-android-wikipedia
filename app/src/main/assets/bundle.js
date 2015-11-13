@@ -484,6 +484,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.string_expand_refs = payload.string_expand_refs;
     window.pageTitle = payload.title;
     window.isMainPage = payload.isMainPage;
+    window.fromRestBase = payload.fromRestBase;
     window.isBeta = payload.isBeta;
     window.siteLanguage = payload.siteLanguage;
 
@@ -491,18 +492,23 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // dimension measurements for items.
     document.getElementById( "content" ).appendChild( content );
 
-    transformer.transform( "moveFirstGoodParagraphUp" );
-    transformer.transform( "addDarkModeStyles", content );
-    transformer.transform( "hideRedLinks", content );
-    transformer.transform( "setDivWidth", content );
-    transformer.transform( "setMathFormulaImageMaxWidth", content );
-    transformer.transform( "anchorPopUpMediaTransforms", content );
-    transformer.transform( "hideIPA", content );
+    // Content service transformations
+    if (!window.fromRestBase) {
+        transformer.transform( "moveFirstGoodParagraphUp" );
+        transformer.transform( "hideRedLinks", content );
+        transformer.transform( "setMathFormulaImageMaxWidth", content );
+        transformer.transform( "anchorPopUpMediaTransforms", content );
+    }
+
+    // client only transformations:
+    transformer.transform( "addDarkModeStyles", content ); // client setting
+    transformer.transform( "setDivWidth", content ); // offsetWidth
+    transformer.transform( "hideIPA", content ); // clickHandler
 
     if (!window.isMainPage) {
-        transformer.transform( "hideTables", content );
-        transformer.transform( "addImageOverflowXContainers", content );
-        transformer.transform( "widenImages", content );
+        transformer.transform( "hideTables", content ); // clickHandler
+        transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
+        transformer.transform( "widenImages", content ); // offsetWidth
     }
 
     // insert the edit pencil
@@ -567,17 +573,23 @@ function elementsForSection( section ) {
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = section.text;
     content.id = "content_block_" + section.id;
-    transformer.transform( "addDarkModeStyles", content );
-    transformer.transform( "hideRedLinks", content );
-    transformer.transform( "setDivWidth", content );
-    transformer.transform( "setMathFormulaImageMaxWidth", content );
-    transformer.transform( "anchorPopUpMediaTransforms", content );
-    transformer.transform( "hideIPA", content );
-    transformer.transform( "hideRefs", content );
+
+    // Content service transformations
+    if (!window.fromRestBase) {
+        transformer.transform( "hideRedLinks", content );
+        transformer.transform( "setMathFormulaImageMaxWidth", content );
+        transformer.transform( "anchorPopUpMediaTransforms", content );
+    }
+
+    transformer.transform( "addDarkModeStyles", content ); // client setting
+    transformer.transform( "setDivWidth", content ); // offsetWidth
+    transformer.transform( "hideIPA", content ); // clickHandler
+    transformer.transform( "hideRefs", content ); // clickHandler
+
     if (!window.isMainPage) {
-        transformer.transform( "hideTables", content );
-        transformer.transform( "addImageOverflowXContainers", content );
-        transformer.transform( "widenImages", content );
+        transformer.transform( "hideTables", content ); // clickHandler
+        transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
+        transformer.transform( "widenImages", content ); // offsetWidth
     }
 
     return [ heading, content ];
@@ -744,38 +756,6 @@ transformer.register( "addImageOverflowXContainers", function( content ) {
 },{"../transformer":12,"../utilities":24}],15:[function(require,module,exports){
 var transformer = require("../transformer");
 
-transformer.register( "anchorPopUpMediaTransforms", function( content ) {
-    // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),
-    // and enclose them in an anchor that will lead to the correct click handler...
-	var mediaDivs = content.querySelectorAll( 'div.PopUpMediaTransform' );
-	for ( var i = 0; i < mediaDivs.length; i++ ) {
-		var mediaDiv = mediaDivs[i];
-		var imgTags = mediaDiv.querySelectorAll( 'img' );
-		if (imgTags.length === 0) {
-		    continue;
-		}
-		// the first img element is the video thumbnail, and its 'alt' attribute is
-		// the file name of the video!
-		if (!imgTags[0].getAttribute( 'alt' )) {
-		    continue;
-		}
-		// also, we should hide the "Play media" link that appears under the thumbnail,
-		// since we don't need it.
-		var aTags = mediaDiv.querySelectorAll( 'a' );
-		if (aTags.length > 0) {
-		    aTags[0].parentNode.removeChild(aTags[0]);
-		}
-		var containerLink = document.createElement( 'a' );
-        containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
-        containerLink.classList.add( 'app_media' );
-        mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
-        mediaDiv.parentNode.removeChild(mediaDiv);
-        containerLink.appendChild(imgTags[0]);
-	}
-} );
-},{"../transformer":12}],16:[function(require,module,exports){
-var transformer = require("../transformer");
-
 /*
 Tries to get an array of table header (TH) contents from a given table.
 If there are no TH elements in the table, an empty array is returned.
@@ -913,7 +893,7 @@ transformer.register( "hideTables", function( content ) {
 module.exports = {
     handleTableCollapseOrExpandClick: handleTableCollapseOrExpandClick
 };
-},{"../transformer":12}],17:[function(require,module,exports){
+},{"../transformer":12}],16:[function(require,module,exports){
 var transformer = require("../transformer");
 var bridge = require("../bridge");
 
@@ -962,20 +942,7 @@ transformer.register( "hideIPA", function( content ) {
         containerSpan.onclick = ipaClickHandler;
     }
 } );
-},{"../bridge":2,"../transformer":12}],18:[function(require,module,exports){
-var transformer = require("../transformer");
-
-transformer.register( "hideRedLinks", function( content ) {
-	var redLinks = content.querySelectorAll( 'a.new' );
-	for ( var i = 0; i < redLinks.length; i++ ) {
-		var redLink = redLinks[i];
-		var replacementSpan = document.createElement( 'span' );
-		replacementSpan.innerHTML = redLink.innerHTML;
-		replacementSpan.setAttribute( 'class', redLink.getAttribute( 'class' ) );
-		redLink.parentNode.replaceChild( replacementSpan, redLink );
-	}
-} );
-},{"../transformer":12}],19:[function(require,module,exports){
+},{"../bridge":2,"../transformer":12}],17:[function(require,module,exports){
 var transformer = require("../transformer");
 var collapseTables = require("./collapseTables");
 
@@ -1021,8 +988,54 @@ transformer.register( "hideRefs", function( content ) {
         bottomDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
     }
 } );
-},{"../transformer":12,"./collapseTables":16}],20:[function(require,module,exports){
-var transformer = require("../transformer");
+},{"../transformer":12,"./collapseTables":15}],18:[function(require,module,exports){
+var transformer = require("../../transformer");
+
+transformer.register( "anchorPopUpMediaTransforms", function( content ) {
+    // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),
+    // and enclose them in an anchor that will lead to the correct click handler...
+	var mediaDivs = content.querySelectorAll( 'div.PopUpMediaTransform' );
+	for ( var i = 0; i < mediaDivs.length; i++ ) {
+		var mediaDiv = mediaDivs[i];
+		var imgTags = mediaDiv.querySelectorAll( 'img' );
+		if (imgTags.length === 0) {
+		    continue;
+		}
+		// the first img element is the video thumbnail, and its 'alt' attribute is
+		// the file name of the video!
+		if (!imgTags[0].getAttribute( 'alt' )) {
+		    continue;
+		}
+		// also, we should hide the "Play media" link that appears under the thumbnail,
+		// since we don't need it.
+		var aTags = mediaDiv.querySelectorAll( 'a' );
+		if (aTags.length > 0) {
+		    aTags[0].parentNode.removeChild(aTags[0]);
+		}
+		var containerLink = document.createElement( 'a' );
+        containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
+        containerLink.classList.add( 'app_media' );
+        mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
+        mediaDiv.parentNode.removeChild(mediaDiv);
+        containerLink.appendChild(imgTags[0]);
+	}
+} );
+
+},{"../../transformer":12}],19:[function(require,module,exports){
+var transformer = require("../../transformer");
+
+transformer.register( "hideRedLinks", function( content ) {
+	var redLinks = content.querySelectorAll( 'a.new' );
+	for ( var i = 0; i < redLinks.length; i++ ) {
+		var redLink = redLinks[i];
+		var replacementSpan = document.createElement( 'span' );
+		replacementSpan.innerHTML = redLink.innerHTML;
+		replacementSpan.setAttribute( 'class', redLink.getAttribute( 'class' ) );
+		redLink.parentNode.replaceChild( replacementSpan, redLink );
+	}
+} );
+},{"../../transformer":12}],20:[function(require,module,exports){
+var transformer = require("../../transformer");
 
 // Move the first non-empty paragraph (and related elements) to the top of the section.
 // This will have the effect of shifting the infobox and/or any images at the top of the page
@@ -1105,8 +1118,8 @@ function addTrailingNodes( span, nodes, startIndex ) {
     }
 }
 
-},{"../transformer":12}],21:[function(require,module,exports){
-var transformer = require("../transformer");
+},{"../../transformer":12}],21:[function(require,module,exports){
+var transformer = require("../../transformer");
 
 transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
     // Prevent horizontally scrollable pages by checking for math formula images (which are
@@ -1122,7 +1135,7 @@ transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
         }
     }
 } );
-},{"../transformer":12}],22:[function(require,module,exports){
+},{"../../transformer":12}],22:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "setDivWidth", function( content ) {
@@ -1344,4 +1357,4 @@ module.exports = {
     firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}]},{},[2,7,24,12,13,14,15,16,17,18,19,20,21,22,23,1,3,4,5,6,8,9,10,11])
+},{}]},{},[2,7,24,12,13,14,15,16,17,22,23,18,19,20,21,1,3,4,5,6,8,9,10,11])
