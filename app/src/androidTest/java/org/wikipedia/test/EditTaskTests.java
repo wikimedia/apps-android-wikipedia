@@ -6,7 +6,7 @@ import org.mediawiki.api.json.ApiException;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.editing.DoEditTask;
+import org.wikipedia.editing.EditTask;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.EditingResult;
 import org.wikipedia.editing.FetchSectionWikitextTask;
@@ -17,11 +17,11 @@ import org.wikipedia.login.User;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
+public class EditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
     private static final int SECTION_ID = 3;
 
-    public DoEditTaskTests() {
+    public EditTaskTests() {
         super(TestDummyActivity.class);
     }
 
@@ -43,7 +43,7 @@ public class DoEditTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
         app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetrievedCallback() {
             @Override
             public void onTokenRetrieved(String token) {
-                new DoEditTask(getInstrumentation().getTargetContext(), title, wikitext, SECTION_ID, token, "", false) {
+                new EditTask(getInstrumentation().getTargetContext(), title, wikitext, SECTION_ID, token, "", false) {
                     @Override
                     public void onFinish(EditingResult result) {
                         assertNotNull(result);

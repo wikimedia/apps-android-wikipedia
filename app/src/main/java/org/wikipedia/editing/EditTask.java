@@ -10,7 +10,7 @@ import org.wikipedia.ApiTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 
-public class DoEditTask extends ApiTask<EditingResult> {
+public class EditTask extends ApiTask<EditingResult> {
     private final PageTitle title;
     private final String sectionWikitext;
     private final int sectionID;
@@ -18,7 +18,7 @@ public class DoEditTask extends ApiTask<EditingResult> {
     private final String editToken;
     private final boolean loggedIn;
 
-    public DoEditTask(Context context, PageTitle title, String sectionWikitext, int sectionID,
+    public EditTask(Context context, PageTitle title, String sectionWikitext, int sectionID,
                       String editToken, String summary, boolean loggedIn) {
         super(
                 SINGLE_THREAD,
