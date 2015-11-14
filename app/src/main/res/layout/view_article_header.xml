@@ -5,8 +5,8 @@
     <org.wikipedia.page.leadimages.ImageViewWithFace
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
+        android:layout_height="match_parent"
+        android:scaleType="matrix"
         android:background="@color/white"
         android:contentDescription="@null" />
 
@@ -14,8 +14,8 @@
     <ImageView
         android:id="@+id/placeholder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
+        android:layout_height="match_parent"
+        android:scaleType="matrix"
         android:src="?lead_image_drawable"
         android:contentDescription="@null" />
 

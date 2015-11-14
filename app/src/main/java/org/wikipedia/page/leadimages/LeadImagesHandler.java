@@ -13,7 +13,6 @@ import android.util.TypedValue;
 import android.graphics.PointF;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import org.json.JSONException;
@@ -337,10 +336,6 @@ public class LeadImagesHandler {
         displayHeightDp = (int) (displayHeightPx / displayDensity);
     }
 
-    private void setImageLayoutParams(int width, int height) {
-        image.setLayoutParams(new FrameLayout.LayoutParams(width, height));
-    }
-
     private void loadLeadImage() {
         loadLeadImage(getLeadImageUrl());
     }
@@ -352,7 +347,7 @@ public class LeadImagesHandler {
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && leadImagesEnabled) {
             String fullUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + url;
-            articleHeaderView.setImageYOffset(0);
+            articleHeaderView.setImageYScalar(0);
             articleHeaderView.loadImage(fullUrl);
         }
     }
@@ -444,51 +439,36 @@ public class LeadImagesHandler {
         }
 
         private void detectFace(int bmpHeight, float aspect, @Nullable PointF faceLocation) {
-            int newWidth = image.getWidth();
-            int newHeight = (int) (newWidth * aspect);
+            faceYOffsetNormalized = faceYScalar(bmpHeight, faceLocation);
 
-            // give our image an offset based on the location of the face,
-            // relative to the image container
-            float scale = (float) newHeight / (float) bmpHeight;
-            int imageBaseYOffset;
-            if (faceLocation != null) {
-                int faceY = (int) (faceLocation.y * scale);
-                // if we have a face, then offset to the face location
-                imageBaseYOffset = -(faceY - (imagePlaceholder.getHeight() / 2));
-                // Adjust the face position by a slight amount.
-                // The face recognizer gives the location of the *eyes*, whereas we actually
-                // want to center on the *nose*...
-                imageBaseYOffset += getDimension(R.dimen.face_detection_nose_y_offset);
-                faceYOffsetNormalized = faceLocation.y / bmpHeight;
-            } else {
-                // No face, so we'll just chop the top 25% off rather than centering
-                final float oneQuarter = 0.25f;
-                imageBaseYOffset = -(int) ((newHeight - imagePlaceholder.getHeight()) * oneQuarter);
-                faceYOffsetNormalized = oneQuarter;
-            }
+            float scalar = constrainScalar(faceYOffsetNormalized);
 
-            // is the offset too far to the top?
-            imageBaseYOffset = Math.min(0, imageBaseYOffset);
-
-            // is the offset too far to the bottom?
-            imageBaseYOffset = Math.max(imageBaseYOffset, imagePlaceholder.getHeight() - newHeight);
-
-            // resize our image to have the same proportions as the acquired bitmap
-            if (newHeight < imagePlaceholder.getHeight()) {
-                // if the height of the image is less than the container, then just
-                // make it the same height as the placeholder.
-                setImageLayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, imagePlaceholder.getHeight());
-                imageBaseYOffset = 0;
-            } else {
-                setImageLayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, newHeight);
-            }
-
-            articleHeaderView.setImageYOffset(imageBaseYOffset);
+            articleHeaderView.setImageYScalar(scalar);
 
             // fade in the new image!
             ViewAnimations.crossFade(imagePlaceholder, image);
 
             startKenBurnsAnimation();
+        }
+
+        private float constrainScalar(float scalar) {
+            scalar = Math.max(0, scalar);
+            scalar = Math.min(scalar, 1);
+            return scalar;
+        }
+
+        private float faceYScalar(int bmpHeight, @Nullable PointF faceLocation) {
+            final float defaultOffsetScalar = .25f;
+            float scalar = defaultOffsetScalar;
+            if (faceLocation != null) {
+                scalar = faceLocation.y / bmpHeight;
+                // TODO: if it is desirable to offset to the nose, replace this arbitrary hardcoded
+                //       value with a proportion. FaceDetector.eyesDistance() presumably provides
+                //       the interpupillary distance in pixels. We can multiply this measurement by
+                //       the proportion of the length of the nose to the IPD.
+                scalar += getDimension(R.dimen.face_detection_nose_y_offset) / bmpHeight;
+            }
+            return scalar;
         }
     }
 }
