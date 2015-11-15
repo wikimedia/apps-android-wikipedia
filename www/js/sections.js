@@ -1,5 +1,6 @@
 var bridge = require("./bridge");
 var transformer = require("./transformer");
+var clickHandlerSetup = require("./onclick");
 
 bridge.registerListener( "clearContents", function() {
     clearContents();
@@ -93,15 +94,18 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // Content service transformations
     if (!window.fromRestBase) {
         transformer.transform( "moveFirstGoodParagraphUp" );
+
         transformer.transform( "hideRedLinks", content );
         transformer.transform( "setMathFormulaImageMaxWidth", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
+        transformer.transform( "hideIPA", content );
+    } else {
+        clickHandlerSetup.addIPAonClick( content );
     }
 
     // client only transformations:
     transformer.transform( "addDarkModeStyles", content ); // client setting
     transformer.transform( "setDivWidth", content ); // offsetWidth
-    transformer.transform( "hideIPA", content ); // clickHandler
 
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
@@ -177,11 +181,14 @@ function elementsForSection( section ) {
         transformer.transform( "hideRedLinks", content );
         transformer.transform( "setMathFormulaImageMaxWidth", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
+        transformer.transform( "hideIPA", content );
+    } else {
+        clickHandlerSetup.addIPAonClick( content );
     }
 
     transformer.transform( "addDarkModeStyles", content ); // client setting
     transformer.transform( "setDivWidth", content ); // offsetWidth
-    transformer.transform( "hideIPA", content ); // clickHandler
+
     transformer.transform( "hideRefs", content ); // clickHandler
 
     if (!window.isMainPage) {
