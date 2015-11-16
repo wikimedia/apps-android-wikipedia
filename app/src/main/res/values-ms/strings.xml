@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Kongsi</string>
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="nearby_empty_title">Tiada laman berdekatan di sini!</string>
-  <string name="nearby_empty_message">Bergerak ke lokasi baru untuk melihat laman-laman di sekitar anda.</string>
+  <string name="nearby_empty_message" fuzzy="true">Bergerak ke lokasi baru untuk melihat laman-laman di sekitar anda.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d kaki</string>

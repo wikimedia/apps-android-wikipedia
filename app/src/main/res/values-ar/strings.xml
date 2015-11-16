@@ -37,9 +37,11 @@
   <string name="menu_long_press_open_page">مفتوح</string>
   <string name="menu_long_press_open_in_new_tab">افتح في لسان جديد</string>
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
+  <string name="menu_text_select_copy">نسخ</string>
+  <string name="menu_text_select_share">شارك</string>
   <string name="nav_item_nearby">بالقرب من هنا</string>
   <string name="nearby_empty_title">لا يوجد صفحات بالقرب من هنا!</string>
-  <string name="nearby_empty_message">انتقل إلى مكانٍ جديد، لرؤية صفحات عن الأماكن التي بقربك.</string>
+  <string name="nearby_empty_message" fuzzy="true">انتقل إلى مكانٍ جديد، لرؤية صفحات عن الأماكن التي بقربك.</string>
   <string name="nearby_distance_in_meters">%d م</string>
   <string name="nearby_distance_in_kilometers">%.2f كم</string>
   <string name="nearby_distance_in_feet">%d قدم</string>
@@ -48,6 +50,8 @@
   <string name="nearby_set_metric">إظهار متر/كيلو متر</string>
   <string name="nearby_set_imperial">إظهار قدم/ميل</string>
   <string name="nearby_view_on_map">عرض المكان على الخريطة</string>
+  <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
+  <string name="nearby_requires_location"> ميزة الاقتراب تتطلب إذن من الموقع.</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
   <string name="edit_save_action_license_logged_in">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -138,8 +142,11 @@
   <string name="send_feedback">إرسال الملاحظات على التطبيق</string>
   <string name="nav_item_random">عشوائي</string>
   <string name="create_account_account_created_toast">تم إنشاء الحساب!</string>
+  <string name="preferences_privacy_settings_heading">الخصوصية</string>
   <string name="preference_title_eventlogging_opt_in">إرسال تقارير الاستخدام</string>
   <string name="preference_summary_eventlogging_opt_in">السماح لويكيميديا بجمع المعلومات حول كيفية استخدام التطبيق لتحسينه</string>
+  <string name="preference_title_auto_upload_crash_reports">إرسال تقارير الأعطال</string>
+  <string name="preference_summary_auto_upload_crash_reports">إسمح للتطبيق بإرسال تقارير الأعطال تلقائيا إلى HockeyApp / مزود خدمة من طرف ثالث،  حتى نتمكن من مراجعة العطل الخاص بك وإصلاح الخلل بشكل أسرع وأكثر سهولة.</string>
   <string name="editing_error_spamblacklist">تم اكتشاف روابط لنطاقات ممنوعة:  (%s). الرجاء إزالة هذه النطاقات والمحاولة مرةً أخرى.</string>
   <string name="history_search_list_hint">البحث في التاريخ</string>
   <string name="history_search_empty_message">لم يتم العثور على صفحات مطابقة لبحثك.</string>
@@ -232,6 +239,7 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_image_saved_notification_title">حُفظت الصورة.</string>
   <string name="gallery_image_saved_notification_text">اضغط للعرض.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
+  <string name="gallery_save_image_write_permission_rationale">مطلوب إذن الكتابة في ذاكرة التخزين على جهازك لحفظ الصور. يرجى المحاولة مرة أخرى، مع منح الإذن المطلوب.</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>
   <string name="snippet_share_intro">\"%1$s\" في @Wikipedia: %2$s</string>
   <string name="expand_refs">اضغط للتوسيع</string>
@@ -254,7 +262,20 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="format_error_server_message">الرسالة: \"%s\"</string>
   <string name="format_error_server_code">الكود: \"%s\"</string>
   <string name="address_copied">العنوان تم نسخه إلى الحافظة.</string>
+  <string name="text_copied">تم نسخ النص  إلى الحافظة.</string>
   <string name="button_continue_to_article">الاستمرار للمقالة</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
+  <string name="nav_item_donate">ادعم ويكيبيديا</string>
+  <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
+  <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعةالعطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
+  <string name="crash_report_dialog_dont_send_button">تجاوز</string>
+  <string name="crash_report_dialog_always_send_button">دائماأرسل</string>
+  <string name="crash_report_dialog_send_button">أرسل</string>
+  <string name="crash_report_activity_title">عطل في التطبيق</string>
+  <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.
+
+تريد أن تبدأ من جديد أو إنهاء؟</string>
+  <string name="crash_report_relaunch">ابدأ من جديد</string>
+  <string name="crash_report_quit">خروج</string>
 </resources>

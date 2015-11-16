@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">שיתוף</string>
   <string name="nav_item_nearby">בסביבה</string>
   <string name="nearby_empty_title">אין דפים על דברים כאן בסביבה!</string>
-  <string name="nearby_empty_message">נא לנסות לעבור למקום חדש כדי לראות דפים מסביבך.</string>
+  <string name="nearby_empty_message" fuzzy="true">נא לנסות לעבור למקום חדש כדי לראות דפים מסביבך.</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_distance_in_feet">%d רגל</string>
@@ -275,6 +275,7 @@
   <string name="button_continue_to_article">להמשיך לערך</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
+  <string name="nav_item_donate">לתמוך בוויקיפדיה</string>
   <string name="crash_report_dialog_title">סליחה, היישום קרס בפעם הקומת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>

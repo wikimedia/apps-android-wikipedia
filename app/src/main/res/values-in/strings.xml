@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Bagikan</string>
   <string name="nav_item_nearby">Sekitar</string>
   <string name="nearby_empty_title">Tidak ada halaman terdekat di sini!</string>
-  <string name="nearby_empty_message">Pindahkan ke lokasi yang baru untuk melihat artikel di sekitar Anda.</string>
+  <string name="nearby_empty_message" fuzzy="true">Pindahkan ke lokasi yang baru untuk melihat artikel di sekitar Anda.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d kaki</string>

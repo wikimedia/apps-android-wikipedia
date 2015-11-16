@@ -15,6 +15,9 @@
   <string name="nav_item_today">اڄ</string>
   <string name="dialog_title_clear_history">جھانگُو سوانح مِٽايو</string>
   <string name="nav_item_saved_pages">سانڍيل صفحا</string>
+  <string name="menu_update_all_saved_pages">دانڍيل صفحن ۾ جدت آڻيو</string>
+  <string name="menu_update_selected_saved_pages">سانڍيل صفحن ۾ جدت آڻيو</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">سڀني سانڍيل صفحن ۾ جدت آڻيون؟</string>
   <string name="share_via">ونڊيو بذريعہ</string>
   <string name="dialog_title_clear_saved_pages">سمورا سانڍيل صفحا ڊاهيون؟</string>
   <string name="snackbar_saving_page">صفحو سانڍيندي ...</string>
@@ -38,15 +41,21 @@
   <string name="menu_text_select_share">ونڊيو</string>
   <string name="nav_item_nearby">ويجھڙو</string>
   <string name="nearby_empty_title">ڪي به ويجهڙ وارا صفحا نه آهن!</string>
-  <string name="nearby_empty_message">پنهنجي چوڌاري وارا صفحا ڏسڻ لاءِ ڪنهن نئين جڳھ ڏي چرو.</string>
+  <string name="nearby_empty_message" fuzzy="true">پنهنجي چوڌاري وارا صفحا ڏسڻ لاءِ ڪنهن نئين جڳھ ڏي چرو.</string>
   <string name="nearby_distance_in_meters">%d ميٽر</string>
   <string name="nearby_distance_in_kilometers">%.2f ڪلوميٽر</string>
   <string name="nearby_distance_in_feet">%d فُٽ</string>
   <string name="nearby_distance_in_miles">%.2f ميل</string>
+  <string name="nearby_dialog_goto_settings">مڪاني جدتون توهان جي اوزار تي قابل بڻايل نه آهن. ڇا توهان پنهنجي اوزار جي ترتيبن ۾ وڃي ڪري مڪاني جدتن کي قابل بڻائڻ پسند ڪندئو؟</string>
   <string name="nearby_set_metric">ميٽر / ڪلوميٽر ڏيکاريو</string>
   <string name="nearby_set_imperial">فُٽ / ميل ڏيکاريو</string>
   <string name="nearby_view_on_map">اها جاءِ نقشي ۾ ڏسو</string>
+  <string name="nearby_zoom_to_location">نقشي تي ڪو مقام وڏو ڪري ڏسو</string>
+  <string name="nearby_requires_location">ويجهڙ ۾ سهولت کي جڳھ جي اجازت گهربل آهي.</string>
   <string name="last_updated_text">پوئين ترميم %s</string>
+  <string name="content_license_html">مواد موجود آهي &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت نه ته ٻي صورت ۾ نوٽ ٿيل آهي.</string>
+  <string name="edit_save_action_license_logged_in">سانڍڻ سان, توهان &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt; سان راضي ٿيو ٿا, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
+  <string name="edit_save_action_license_anon">سانڍڻ سان, توهان &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; license. ترميمون توهان جي آءِپي پتي سان لاڳ ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, ته توهان کي وڌيڪ ذاتيات هوندر.</string>
   <string name="preference_title_language">وڪي‌پيڊيا ٻولي</string>
   <string name="preference_languages_filter_hint">ڳوليو</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
@@ -87,6 +96,7 @@
   <string name="history_empty_title">هتي ڪي بہ نوان صفحا ڪونهن!</string>
   <string name="history_empty_message">توهان شايد سڀني کي ڊاهي ڇڏيو. آئينده توهان اڳ ۾ گھميل ڪنهن بہ صفحي تي هتان وڃي سگھو ٿا.</string>
   <string name="delete_selected_history">ڊاهيو</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">يُوزرنانءُ</string>
   <string name="login_create_account_link">پنهنجو کاتو نہ ٿا رکو؟ وڪي‌پيڊيا جو حصو بڻجو</string>
   <string name="create_account_login_link">اڳ ۾ ئي کاتيدار آهيو؟ لاگ اِن ٿيو</string>
@@ -111,6 +121,7 @@
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">وڪي‌پيڊيا ايپ ڪپوس</string>
   <string name="zero_charged_verbiage">وڪي‌پيڊيا ٻڙي بند آهي.</string>
+  <string name="zero_charged_verbiage_extended">ٻيا مضمون لوڊ ڪرڻ سان ڊيٽا رقمون لاڳو ٿي سگهن ٿيون.</string>
   <string name="zero_search_hint">وڪي‌پيڊيا ٻڙي ۾ ڳوليو</string>
   <string name="zero_warn_when_leaving">جيڪڏهن وڪيپيڊيا زيرو ڇڏي وڃي رهي هجي ته خبردار ڪريو</string>
   <string name="zero_webpage_title">وڪي‌پيڊيا ٻڙي ڪپوس</string>
@@ -121,6 +132,7 @@
   <string name="zero_interstitial_cancel">هتي ترسو</string>
   <string name="zero_learn_more_learn_more">وڌيڪ پڙهو</string>
   <string name="zero_learn_more_dismiss">برخواست</string>
+  <string name="edit_preview_fetching_dialog_message">پيش نگاھ ٺاهيندي...</string>
   <string name="send_feedback">ايپ جي پذيرائي موڪليو</string>
   <string name="nav_item_random">بي ترتيب</string>
   <string name="create_account_account_created_toast">کاتو کلي چڪو!</string>
@@ -164,9 +176,11 @@
   <string name="find_previous">پويون لهو</string>
   <string name="error_network_error_try_again">نيٽورڪ کي نه پهچي سگھيو، براءِ مهرباني ٻيهر ڪوشش ڪريو.</string>
   <string name="saved_pages_update_all_error_retry">ٻيهر ڪوشش ڪريو</string>
+  <string name="saved_pages_update_all_error_message">سانڍيل صفحي ۾ جدت آڻڻ ۾ مسئلو.</string>
   <string name="saved_pages_progress_title">سانڍيل صفحن کي تازو ڪندي</string>
   <string name="menu_page_saved">صفحو سانڍجي ويو</string>
   <string name="menu_refresh_saved_page">صفحي کي تازو ڪريو</string>
+  <string name="abusefilter_title_warn">هي هڪ غير تخليقي ترميم لڳي ٿي، ڇا توهان انکي سانڍڻ چاهيو ٿا؟</string>
   <string name="abusefilter_title_disallow">توهان هي ترميم سانڍي نٿا سگھو. براءِ مهرباني واپس وڃو ۽ انکي تبديل ڪريو.</string>
   <string name="dialog_page_issues">صفحي جا مسئلا</string>
   <string name="button_page_issues">صفحي جا مسئلا</string>
@@ -186,12 +200,15 @@
   <string name="widget_name_featured_page">وڪيپيڊيا نمايان صفحو</string>
   <string name="widget_title_featured_page">ااڄ جو نمايان صفحو:</string>
   <string name="widget_name_search">وڪي‌پيڊيا ڳولا</string>
+  <string name="alpha_update_notification_title">نئين الفا جدت موجود آهي</string>
   <string name="alpha_update_notification_text">اتارڻ لاءِ ڪلڪ ڪريو</string>
   <string name="dialog_close_description">بند ڪريو</string>
   <string name="preference_title_show_images">عڪس ڏيکاريو</string>
+  <string name="preference_summary_show_images">صفحن ۾ عڪسن جو لوڊ ٿيڻ لائق يا نالائق بڻايو. هن ترتيب تان نشان هٽايو جيڪڏهن توهانجو انٽرنيٽ ڪنيڪشن آهستي آهي، يا توهان جو ڊيٽا منصوبو محدود آهي.</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
   <string name="menu_gallery_visit_page">صفحي ڏانهن وڃو</string>
   <string name="gallery_error_draw_failed">عڪس چِٽجي نہ سگھيو.</string>
+  <string name="license_title">%s ڪتب خاني لاءِ لائسنس متن</string>
   <string name="gallery_menu_share">ونڊيو</string>
   <string name="gallery_share_error">عڪس بنام %s ونڊجي نہ سگھيو</string>
   <string name="gallery_menu_save">آلي ۾ سانڍيو</string>
@@ -200,6 +217,7 @@
   <string name="gallery_image_saved_notification_text">ڏسڻ لاءِ ڇُهو.</string>
   <string name="gallery_error_video_failed">وڊيو هلي نہ سگھي.</string>
   <string name="err_cannot_save_file">فائيل سانڍي نہ ٿو سگھجي.</string>
+  <string name="snippet_share_intro">\"%1$s\" @Wikipedia تي: %2$s</string>
   <string name="expand_refs">وڏو ڪرڻ لاءِ ڪلڪ ڪريو</string>
   <string name="share_snippet_button">بطور عڪس ونڊيو</string>
   <string name="share_normal_button">بطور ٽيڪسٽ ونڊيو</string>
@@ -210,6 +228,7 @@
   <string name="gallery_uploader_unknown">اڻڄاتل چاڙهيندڙ</string>
   <string name="menu_new_tab">نئين ٽيب</string>
   <string name="button_close_tab">ٽيب بنديو</string>
+  <string name="tool_tip_select_text">متن ۾ ڪنهن به جڳھ تي زور ڏيو يا جهلي بيهو ته جيئن ان جو نقل ڪرڻ ۽ ونڊڻ جي لاءِ نمايان ٿي سگهي.</string>
   <string name="page_view_in_browser">صفحي کي جھانگُوءَ ۾ ڏسو</string>
   <string name="error_server_response">سَروَر درخواست تي عمل ڪري نہ سگھيو.</string>
   <string name="error_unknown">اڻجاتل چُڪَ واقع ٿي.</string>
@@ -220,6 +239,7 @@
   <string name="button_continue_to_article">مضمون ڏانهن ورو</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن تي پيش نگاهہ وجھو</string>
   <string name="preference_summary_show_link_previews">ڳنڍڻن تي رڪڻ وقت صفحن تي تڪڙي پيش نگاهہ ظاهر ڪريو.</string>
+  <string name="nav_item_donate">وڪيپيڊيا کي سوورٽ ڪريو</string>
   <string name="crash_report_dialog_title">معاف ڪجو، پوئين ڀيري ايپ حادثاتاً خراب ٿي وئي</string>
   <string name="crash_report_dialog_dont_send_button">ڇڏيو</string>
   <string name="crash_report_dialog_always_send_button">هميشہ اماڻيو</string>

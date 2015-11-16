@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Дели</string>
   <string name="nav_item_nearby">У близини</string>
   <string name="nearby_empty_title">Нема ништа у близини!</string>
-  <string name="nearby_empty_message">Пређите на нову локацију да види странице око себе.</string>
+  <string name="nearby_empty_message" fuzzy="true">Пређите на нову локацију да види странице око себе.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d ft</string>

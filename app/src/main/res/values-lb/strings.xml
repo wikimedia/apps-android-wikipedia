@@ -40,7 +40,7 @@
   <string name="menu_text_select_share">Deelen</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
-  <string name="nearby_empty_message">Gitt op eng aner Plaz fir Säite ronderëm Iech ze gesinn.</string>
+  <string name="nearby_empty_message" fuzzy="true">Gitt op eng aner Plaz fir Säite ronderëm Iech ze gesinn.</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
   <string name="nearby_distance_in_feet">%d Fouss</string>
@@ -241,6 +241,7 @@
   <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="text_copied">Text an den Tëschespäicher kopéiert.</string>
   <string name="button_continue_to_article">Virun op den Artikel</string>
+  <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
   <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>
   <string name="crash_report_dialog_always_send_button">Ëmmer schécken</string>

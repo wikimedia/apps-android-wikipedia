@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">分享</string>
   <string name="nav_item_nearby">周边</string>
   <string name="nearby_empty_title">这附近没有页面！</string>
-  <string name="nearby_empty_message">前往新地点，了解您的周围。</string>
+  <string name="nearby_empty_message" fuzzy="true">前往新地点，了解您的周围。</string>
   <string name="nearby_distance_in_meters">%d米</string>
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
   <string name="nearby_distance_in_feet">%d英尺</string>
@@ -275,6 +275,7 @@
   <string name="button_continue_to_article">继续阅读条目</string>
   <string name="preference_title_show_link_previews">显示链接预览</string>
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
+  <string name="nav_item_donate">支持维基百科</string>
   <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
   <string name="crash_report_dialog_text">您是否希望发送崩溃报告至HockeyApp/第三方服务提供方，这样维基媒体可以浏览您的崩溃报告，并修复导致它的漏洞？</string>
   <string name="crash_report_dialog_dont_send_button">跳过</string>

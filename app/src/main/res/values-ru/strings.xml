@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Поделиться</string>
   <string name="nav_item_nearby">Поблизости</string>
   <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
-  <string name="nearby_empty_message">Переместитесь в новое место, чтобы увидеть страницы о том, что есть вокруг вас.</string>
+  <string name="nearby_empty_message" fuzzy="true">Переместитесь в новое место, чтобы увидеть страницы о том, что есть вокруг вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d футов</string>
@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">Показать м/км</string>
   <string name="nearby_set_imperial">Показать футы/мили</string>
   <string name="nearby_view_on_map">Посмотреть место на карте</string>
+  <string name="nearby_zoom_to_location">Указать местоположение на карте</string>
+  <string name="nearby_requires_location">Функция «Поблизости» требует разрешения на определение местоположения.</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="content_license_html">Содержимое доступно в соответствии &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
   <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования\" &gt;&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -247,6 +249,7 @@
   <string name="gallery_image_saved_notification_title">Изображение сохранено.</string>
   <string name="gallery_image_saved_notification_text">Нажмите для просмотра.</string>
   <string name="gallery_error_video_failed">Не удаётся воспроизвести видео.</string>
+  <string name="gallery_save_image_write_permission_rationale">Для сохранения изображений требуется разрешение на запись в хранилище вашего устройства. Пожалуйста, попробуйте ещё раз и дайте запрашиваемое разрешение.</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
   <string name="snippet_share_intro">«%1$s» на сайте @Wikipedia: %2$s</string>
   <string name="expand_refs">Нажмите, чтобы развернуть</string>
@@ -273,6 +276,7 @@
   <string name="button_continue_to_article">К статье</string>
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>
   <string name="preference_summary_show_link_previews">Показывать быстрый предпросмотр статей при нажатии на ссылки.</string>
+  <string name="nav_item_donate">Поддержать Википедию</string>
   <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
   <string name="crash_report_dialog_text">Вы хотите отправить отчёт об ошибке в HockeyApp / сторонний сервис-провайдер, чтобы в Викимедиа могли просмотреть информацию об аварии и исправить ошибку, вызвавшую её?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустить</string>

@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Compartir</string>
   <string name="nav_item_nearby">Preto</string>
   <string name="nearby_empty_title">Non hai páxinas próximas aquí!</string>
-  <string name="nearby_empty_message">Móvase ata unha nova localización para ver páxinas ao seu redor.</string>
+  <string name="nearby_empty_message" fuzzy="true">Móvase ata unha nova localización para ver páxinas ao seu redor.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pés</string>
@@ -275,6 +275,7 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="button_continue_to_article">Continuar ó artigo</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>
   <string name="preference_summary_show_link_previews">Mostrar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
+  <string name="nav_item_donate">Apoia a Wikimedia</string>
   <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
   <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>

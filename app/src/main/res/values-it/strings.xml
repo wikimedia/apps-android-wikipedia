@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Condividi</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>
-  <string name="nearby_empty_message">Spostati in una nuova posizione per vedere pagine su ciò che c\'è vicino a te.</string>
+  <string name="nearby_empty_message" fuzzy="true">Spostati in una nuova posizione per vedere pagine su ciò che c\'è vicino a te.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -277,6 +277,7 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="button_continue_to_article">Continua la voce</string>
   <string name="preference_title_show_link_previews">Mostra anteprime collegamenti</string>
   <string name="preference_summary_show_link_previews">Mostra una piccola anteprima delle voci quando si preme sui collegamenti.</string>
+  <string name="nav_item_donate">Sostieni Wikipedia</string>
   <string name="crash_report_dialog_title">Spiacenti, l\'ultima volta l\'applicazione è andata in errore</string>
   <string name="crash_report_dialog_text">Vuoi inviare una segnalazione sull\'errore a HockeyApp / un fornitore terzo di servizi, in modo che Wikimedia possa rivedere il tuo errore e correggere il bug più che lo ha causato?</string>
   <string name="crash_report_dialog_dont_send_button">Salta</string>

@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Distribuie</string>
   <string name="nav_item_nearby">În apropiere</string>
   <string name="nearby_empty_title">Nicio pagină în apropiere aici!</string>
-  <string name="nearby_empty_message">Deplasați-vă în altă parte pentru a vedea pagini din apropierea dumneavoastră.</string>
+  <string name="nearby_empty_message" fuzzy="true">Deplasați-vă în altă parte pentru a vedea pagini din apropierea dumneavoastră.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d picioare</string>
@@ -275,6 +275,7 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="button_continue_to_article">Continuă către articol</string>
   <string name="preference_title_show_link_previews">Afișează previzualizarea legăturilor</string>
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
+  <string name="nav_item_donate">Susțineți Wikipedia</string>
   <string name="crash_report_dialog_title">Ne pare rău, aplicația s-a blocat ultima dată</string>
   <string name="crash_report_dialog_text">Doriți să trimiteți un raport de erori către HockeyApp / un furnizor de servicii terț, astfel încât Wikimedia să poată verifica erorile dumnevoastră, înlăturând cauza care a produs blocarea?</string>
   <string name="crash_report_dialog_dont_send_button">Omite</string>

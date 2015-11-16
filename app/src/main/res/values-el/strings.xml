@@ -39,7 +39,7 @@
   <string name="menu_long_press_copy_page">Αντιγραφή διεύθυνσης συνδέσμου</string>
   <string name="nav_item_nearby">Κοντινά</string>
   <string name="nearby_empty_title">Δεν υπάρχουν κοντινές σελίδες εδώ!</string>
-  <string name="nearby_empty_message">Μετακινηθείτε σε μια νέα θέση για να δείτε σελίδες γύρω σας.</string>
+  <string name="nearby_empty_message" fuzzy="true">Μετακινηθείτε σε μια νέα θέση για να δείτε σελίδες γύρω σας.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f χιλιόμετρα</string>
   <string name="nearby_distance_in_feet">%d ft</string>

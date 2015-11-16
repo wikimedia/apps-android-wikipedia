@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Сподели</string>
   <string name="nav_item_nearby">Во близина</string>
   <string name="nearby_empty_title">Тука нема страници во близина!</string>
-  <string name="nearby_empty_message">Отидете на друго место за да ги видите страниците околу вас.</string>
+  <string name="nearby_empty_message" fuzzy="true">Отидете на друго место за да ги видите страниците околу вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d стапки</string>
@@ -275,6 +275,7 @@
   <string name="button_continue_to_article">Продолжи кон статијата</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
+  <string name="nav_item_donate">Поддржете ја Википедија</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>

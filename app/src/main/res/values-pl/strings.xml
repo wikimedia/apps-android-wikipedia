@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Udostępnij</string>
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_empty_title">Nie ma stron o obiektach znajdujących się w pobliżu!</string>
-  <string name="nearby_empty_message">Przenieś się do nowej lokalizacji, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
+  <string name="nearby_empty_message" fuzzy="true">Przenieś się do nowej lokalizacji, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d stóp</string>

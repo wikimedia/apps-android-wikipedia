@@ -37,6 +37,8 @@
   <string name="menu_long_press_open_page">עפענען</string>
   <string name="menu_long_press_open_in_new_tab">עפֿענען אין נײַעם טאב</string>
   <string name="menu_long_press_copy_page">קאפירן לינק אדרעס</string>
+  <string name="menu_text_select_copy">קאפירן</string>
+  <string name="menu_text_select_share">טיילן</string>
   <string name="nav_item_nearby">דערבײַ</string>
   <string name="nearby_empty_title">קיין בלעטער נישט דערבײ!</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
@@ -46,6 +48,7 @@
   <string name="nearby_set_metric">ווייזן מעטער/ק\"מ</string>
   <string name="nearby_set_imperial">ווייזן פיס/מייל</string>
   <string name="nearby_view_on_map">ווייזן ארט אויף דער מאפע</string>
+  <string name="nearby_zoom_to_location">פֿארגרעסערן צו א לאקאציע אויף דער מאפע</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
   <string name="preference_title_language">וויקיפעדיע־שפראך</string>
   <string name="preference_languages_filter_hint">זוכן</string>
@@ -123,6 +126,7 @@
   <string name="send_feedback">שיקן אפ־פידבעק</string>
   <string name="nav_item_random">צופֿעליג</string>
   <string name="create_account_account_created_toast">קאָנטע באַשאַפֿן!</string>
+  <string name="preferences_privacy_settings_heading">פריוואטקייט</string>
   <string name="preference_title_eventlogging_opt_in">שיקן ניצונג־באריכטן</string>
   <string name="preference_summary_eventlogging_opt_in">דערלויבן וויקימעדיע צו זאמלען אינפארמאציע וויאזוי איר ניצט דעם אפ כדי צו פארבעסערן דעם אפ</string>
   <string name="history_search_list_hint">זוכן היסטאריע</string>
@@ -130,6 +134,7 @@
   <string name="error_can_not_process_link">נישט מעגלעך צו ווײַזן דעם לינק</string>
   <string name="page_protected_autoconfirmed">דער בלאט איז געווארן האלב געשיצט.</string>
   <string name="page_protected_sysop">דער בלאט איז געווארן גאנג געשיצט</string>
+  <string name="page_protected_other">דער בלאט איז געווארן געשיצט צו די פאלגנדע ניוואען: %s</string>
   <string name="page_protected_can_not_edit">איר האט נישט די רעכטן צו רעדאקטירן דעם בלאט</string>
   <string name="page_protected_can_not_edit_title">דער בלאט איז געשיצט</string>
   <string name="settings_item_preferences">איינשטעלונגען</string>
@@ -156,6 +161,8 @@
   <string name="find_next">זוכן נעקסטע</string>
   <string name="find_previous">זוכן פריערדיקע</string>
   <string name="saved_pages_update_all_error_retry">פרובירן ווידער</string>
+  <string name="saved_pages_update_all_error_message">גרײז ביים דערהיינטיגן אויפגעהיטענע בלעטער</string>
+  <string name="saved_pages_progress_title">אקטואליזירן געשפייכלטע בלעטער</string>
   <string name="menu_page_saved">בלאט אויפגעהיטן</string>
   <string name="menu_refresh_saved_page">אקטואליזירן בלאט</string>
   <string name="dialog_page_issues">בלאט־פֿראגעס</string>
@@ -180,6 +187,7 @@
   <string name="gallery_error_draw_failed">מען קען נישט צייכענען דאס בילד</string>
   <string name="gallery_menu_share">טיילן</string>
   <string name="gallery_save_success">בילד דערפאלגרייך געשפייכלערט.</string>
+  <string name="gallery_image_saved_notification_title">בילד אויפגעהיטן</string>
   <string name="gallery_error_video_failed">קען נישט שפילן ווידעא.</string>
   <string name="err_cannot_save_file">קען נישט אויפהיטן טעקע</string>
   <string name="snippet_share_intro">\"%1$s\" ביי @Wikipedia: %2$s</string>
@@ -193,4 +201,10 @@
   <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="format_error_server_code">קאד: \"%s\"</string>
+  <string name="button_continue_to_article">ווײטער צום ארטיקל</string>
+  <string name="crash_report_dialog_dont_send_button">איבערהיפן</string>
+  <string name="crash_report_dialog_always_send_button">אלעמאל שיקן</string>
+  <string name="crash_report_dialog_send_button">שיקן</string>
+  <string name="crash_report_activity_title">אפליקאציע פֿעלער</string>
+  <string name="crash_report_quit">פֿארלאזן</string>
 </resources>

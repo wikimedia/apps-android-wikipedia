@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Del</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="nearby_empty_title">Ingen sider i nærheten!</string>
-  <string name="nearby_empty_message">Forflytt deg til en ny plass for å se sider om hva som befinner seg rundt deg.</string>
+  <string name="nearby_empty_message" fuzzy="true">Forflytt deg til en ny plass for å se sider om hva som befinner seg rundt deg.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

@@ -36,7 +36,7 @@
   <string name="menu_page_font_and_theme">فانٹ اور پس منظر</string>
   <string name="nav_item_nearby">قریبی</string>
   <string name="nearby_empty_title">کوئی قریبی صفحہ نہیں ہے!</string>
-  <string name="nearby_empty_message">جب آپ کسی دوسری جگہ پر جائیں، تب یہ صفحہ تازہ کریں اور جانیں آپ کے اردگرد نیا کیا ہے۔</string>
+  <string name="nearby_empty_message" fuzzy="true">جب آپ کسی دوسری جگہ پر جائیں، تب یہ صفحہ تازہ کریں اور جانیں آپ کے اردگرد نیا کیا ہے۔</string>
   <string name="nearby_distance_in_meters">%d میٹر</string>
   <string name="nearby_distance_in_kilometers">%.2f کلومیٹر</string>
   <string name="nearby_distance_in_feet">%d فٹ</string>

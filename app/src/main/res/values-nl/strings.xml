@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Delen</string>
   <string name="nav_item_nearby">In de buurt</string>
   <string name="nearby_empty_title">Geen pagina\'s in de buurt.</string>
-  <string name="nearby_empty_message">Ga naar een andere plaats om pagina\'s bij u in de buurt weer te geven.</string>
+  <string name="nearby_empty_message" fuzzy="true">Ga naar een andere plaats om pagina\'s bij u in de buurt weer te geven.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>

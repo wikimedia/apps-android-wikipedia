@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">বণ্টন</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>
-  <string name="nearby_empty_message">আপনার চারপাশের পাতা দেখার জন্য একটি নতুন অবস্থানে যান।</string>
+  <string name="nearby_empty_message" fuzzy="true">আপনার চারপাশের পাতা দেখার জন্য একটি নতুন অবস্থানে যান।</string>
   <string name="nearby_distance_in_meters">%d মি</string>
   <string name="nearby_distance_in_kilometers">%.2f কিমি</string>
   <string name="nearby_distance_in_feet">%d ফুট</string>

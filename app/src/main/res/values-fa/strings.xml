@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">به‌اشتراک‌گذاشتن</string>
   <string name="nav_item_nearby">در نزدیکی</string>
   <string name="nearby_empty_title">صفحه‌ای در نزدیکی یافت نشد!</string>
-  <string name="nearby_empty_message">به موقعیت جدیدی بروید تا تصویرهای اطرافتان را ببنید.</string>
+  <string name="nearby_empty_message" fuzzy="true">به موقعیت جدیدی بروید تا تصویرهای اطرافتان را ببنید.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">نمایش متر/کیلومتر</string>
   <string name="nearby_set_imperial">نمایش فوت/مایل</string>
   <string name="nearby_view_on_map">دیدن مکان در نقشه</string>
+  <string name="nearby_zoom_to_location">بزرگنمایی مکان در نقشه</string>
+  <string name="nearby_requires_location">ویژگی نمایش نقاطت نزدیک نیازمند اجازهٔ دسترسی به موقعیت است.</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="edit_save_action_license_logged_in">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
@@ -140,6 +142,7 @@
   <string name="send_feedback">فرستادن بازخورد برنامه</string>
   <string name="nav_item_random">تصادفی</string>
   <string name="create_account_account_created_toast">حساب ساخته شد!</string>
+  <string name="preferences_privacy_settings_heading">حریم شخصی</string>
   <string name="preference_title_eventlogging_opt_in">فرستادن گزارش‌های رفتارهای کاربری</string>
   <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، تدوین نماید</string>
   <string name="preference_title_auto_upload_crash_reports">ارسال گزارش خطا در نرم‌افزار</string>
@@ -245,6 +248,7 @@
   <string name="gallery_image_saved_notification_title">تصویر ذخیره شده</string>
   <string name="gallery_image_saved_notification_text">برای دیدن لمس کنید.</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
+  <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
   <string name="err_cannot_save_file">امکان ذخیره پرونده وجود ندارد</string>
   <string name="snippet_share_intro">\"%1$s\" در @ویکی‌پدیا: %2$s</string>
   <string name="expand_refs">برای بازشدن صفحه را لمس کنید</string>
@@ -271,6 +275,7 @@
   <string name="button_continue_to_article">ادامه برای مقاله</string>
   <string name="preference_title_show_link_previews">نمایش پیوند پی‌نمایش‌ها</string>
   <string name="preference_summary_show_link_previews">نمایش سریع مقاله زمانی که بر روی لینک‌ها تپ می‌کنید.</string>
+  <string name="nav_item_donate">حمایت از ویکی‌مدیا</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
   <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
   <string name="crash_report_dialog_dont_send_button">رها کردن</string>

@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Sdílet</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="nearby_empty_title">Žádné stránky poblíž!</string>
-  <string name="nearby_empty_message">Přesuňte se na nové místo a uvidíte stránky kolem vás.</string>
+  <string name="nearby_empty_message" fuzzy="true">Přesuňte se na nové místo a uvidíte stránky kolem vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -271,6 +271,7 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="button_continue_to_article">Pokračovat na článek</string>
   <string name="preference_title_show_link_previews">Zobrazovat náhledy odkazů</string>
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
+  <string name="nav_item_donate">Podpořte Wikipedii</string>
   <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
   <string name="crash_report_dialog_dont_send_button">Přeskočit</string>
   <string name="crash_report_dialog_always_send_button">Vždy posílat</string>

@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Chia sẻ</string>
   <string name="nav_item_nearby">Lân cận</string>
   <string name="nearby_empty_title">Không có trang nào gần đây!</string>
-  <string name="nearby_empty_message">Di chuyển đến một vị trí mới để đọc về các đề tài nằm chung quanh bạn.</string>
+  <string name="nearby_empty_message" fuzzy="true">Di chuyển đến một vị trí mới để đọc về các đề tài nằm chung quanh bạn.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d foot</string>
@@ -275,6 +275,7 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="button_continue_to_article">Đi tiếp đến bài</string>
   <string name="preference_title_show_link_previews">Hiện bản xem trước</string>
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
+  <string name="nav_item_donate">Hỗ trợ Wikimedia</string>
   <string name="crash_report_dialog_title">Rất tiếc, ứng dụng gặp sự cố lần trước</string>
   <string name="crash_report_dialog_text">Bạn có muốn gửi một báo cáo crash đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để Wikimedia có thể xem xét và sửa lỗi gây ra việc này không?</string>
   <string name="crash_report_dialog_dont_send_button">Bỏ qua</string>

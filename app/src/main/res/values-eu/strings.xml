@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Partekatu</string>
   <string name="nav_item_nearby">Gertukoak</string>
   <string name="nearby_empty_title">Ez dauge gertuko orririk hemen!</string>
-  <string name="nearby_empty_message">Leku berri batera mugitu zure inguruko orrialdeak ikusteko.</string>
+  <string name="nearby_empty_message" fuzzy="true">Leku berri batera mugitu zure inguruko orrialdeak ikusteko.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d oin</string>

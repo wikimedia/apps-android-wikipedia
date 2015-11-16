@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Поділитися</string>
   <string name="nav_item_nearby">Неподалік</string>
   <string name="nearby_empty_title">Тут немає суміжних сторінок!</string>
-  <string name="nearby_empty_message">Перемістіться у нове місце, щоб побачити сторінки про те, що є навколо Вас.</string>
+  <string name="nearby_empty_message" fuzzy="true">Перемістіться у нове місце, щоб побачити сторінки про те, що є навколо Вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_distance_in_feet">%d футів</string>

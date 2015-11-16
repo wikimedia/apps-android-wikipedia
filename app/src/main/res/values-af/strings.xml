@@ -39,7 +39,7 @@
   <string name="menu_long_press_copy_page">Kopieer skakelligging</string>
   <string name="nav_item_nearby">Naby</string>
   <string name="nearby_empty_title">Geen nabye bladsye hier!</string>
-  <string name="nearby_empty_message">Skuif na \'n nuwe ligging om bladsy naby te sien.</string>
+  <string name="nearby_empty_message" fuzzy="true">Skuif na \'n nuwe ligging om bladsy naby te sien.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d voet</string>

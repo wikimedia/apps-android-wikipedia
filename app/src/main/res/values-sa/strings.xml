@@ -94,7 +94,7 @@
   <string name="history_empty_message">कदाचित् तानि सर्वाणि भवता/भवत्या अपाकृतानि । द्वितीयवारं यदा भवान्/भवती तत् पृष्ठं गच्छति, तदा इतः तत् पुनः प्राप्स्यति ।</string>
   <string name="delete_selected_history">अपाक्रियताम्</string>
   <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
-  <string name="create_account_username_hint">प्रयोक्तृनाम</string>
+  <string name="create_account_username_hint">सदस्यनाम</string>
   <string name="login_create_account_link">लेखा नास्ति ? विकिपीडिया-जाले सदस्यता प्राप्यताम्</string>
   <string name="create_account_login_link">पूर्वमेव लेखा अस्ति किं ? प्रविश्यताम्</string>
   <string name="create_account_activity_title">सदस्यता प्राप्यताम्</string>
@@ -103,15 +103,15 @@
   <string name="create_account_password_repeat_hint">कूटशब्दः पुनः लिख्यताम्</string>
   <string name="create_account_passwords_mismatch_error">कूटशब्दयोः समानता नास्ति</string>
   <string name="create_account_email_error">अमान्यः वि-पत्रसङ्केतः</string>
-  <string name="create_account_username_exists_error">प्रयोक्तृनाम पूर्वमेव वर्तते</string>
+  <string name="create_account_username_exists_error">सदस्यनाम पूर्वमेव वर्तते</string>
   <string name="create_account_ip_throttle_error">एतेन सार्वसङ्केतेन अधिकतमाः लेखाः रचिताः । कृपया पुनः प्रयतताम् ।</string>
   <string name="create_account_open_proxy_error">नूतनलेखायाः निर्माणाय एतत् सार्वसङ्केतः स्थगितः अस्ति ।</string>
-  <string name="create_account_noname_error">भवता/भवत्या प्रदत्तं योजकनाम अमान्यम् अस्ति । कृपया अन्यं प्रयोक्तृनाम लिखतु ।</string>
+  <string name="create_account_noname_error">भवता/भवत्या प्रदत्तं सदस्यनाम अमान्यम् अस्ति । कृपया अन्यं सदस्यनाम लिखतु ।</string>
   <string name="create_account_invalid_email_error">भवतः/भवत्या दत्तः वि-पत्रसङ्केतः अमान्यः अस्ति ।</string>
   <string name="create_account_password_too_short_error">भवतः/भवत्या लिखितः कूटशब्दः अति लघुः अस्ति ।</string>
   <string name="create_account_blocked_anon_error">भवान्/भवती लेखां निर्मातुं न शक्नोति, यतः भवतः/भवत्याः सार्वसङ्केतः प्रतिबन्धितः अस्ति ।</string>
   <string name="create_account_blocked_error">भवान्/भवती लेखां निर्मातुं न शक्नोति, यतः भवतः/भवत्याः लेखा प्रतिबन्धिता अस्ति ।</string>
-  <string name="create_account_password_name_match_error">भवतां/भवतः प्रयोक्तृनाम, कूटशब्दः च भिन्नौ स्तः ।</string>
+  <string name="create_account_password_name_match_error">भवतां/भवतः सदस्यनाम, कूटशब्दः च भिन्नौ स्तः ।</string>
   <string name="create_account_generic_error">सदस्यता प्राप्तुं न शक्यते</string>
   <string name="create_account_next">अग्रिमम्</string>
   <string name="create_account_button">सदस्यता प्राप्यताम्</string>

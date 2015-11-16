@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Partilhar</string>
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="nearby_empty_title">Sem páginas nas redondezas</string>
-  <string name="nearby_empty_message">Experimente um novo local para ver as páginas nas redondezas.</string>
+  <string name="nearby_empty_message" fuzzy="true">Experimente um novo local para ver as páginas nas redondezas.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>

@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">分享</string>
   <string name="nav_item_nearby">附近</string>
   <string name="nearby_empty_title">此處附近無頁面！</string>
-  <string name="nearby_empty_message">移至一個新地點以查閱您周圍的頁面。</string>
+  <string name="nearby_empty_message" fuzzy="true">移至一個新地點以查閱您周圍的頁面。</string>
   <string name="nearby_distance_in_meters">%d 公尺</string>
   <string name="nearby_distance_in_kilometers">%.2f 公里</string>
   <string name="nearby_distance_in_feet">%d 呎</string>
@@ -248,6 +248,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_image_saved_notification_title">圖片已儲存。</string>
   <string name="gallery_image_saved_notification_text">輕觸以檢視。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>
+  <string name="gallery_save_image_write_permission_rationale">需要寫入您的裝置儲存的權限方能儲存圖片。請重試並授與要求的權限。</string>
   <string name="err_cannot_save_file">無法儲存檔案</string>
   <string name="snippet_share_intro">\"%1$s\" 於 @Wikipedia：%2$s</string>
   <string name="expand_refs">輕觸展開</string>
@@ -274,6 +275,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="button_continue_to_article">繼續閱讀條目</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
   <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
+  <string name="nav_item_donate">支持維基百科</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
