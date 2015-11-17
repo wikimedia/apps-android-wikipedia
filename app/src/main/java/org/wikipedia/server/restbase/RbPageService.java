@@ -102,7 +102,7 @@ public class RbPageService implements PageService {
          * @param noImages add the noimages flag to the request if true
          * @param cb a Retrofit callback which provides the populated RbPageLead object in #success
          */
-        @GET("/page/mobile-html-sections-lead/{title}")
+        @GET("/page/mobile-sections-lead/{title}")
         void pageLead(@Path("title") String title, @Query("noimages") Boolean noImages,
                       Callback<RbPageLead> cb);
 
@@ -113,7 +113,7 @@ public class RbPageService implements PageService {
          * @param noImages add the noimages flag to the request if true
          * @param cb a Retrofit callback which provides the populated RbPageRemaining object in #success
          */
-        @GET("/page/mobile-html-sections-remaining/{title}")
+        @GET("/page/mobile-sections-remaining/{title}")
         void pageRemaining(@Path("title") String title, @Query("noimages") Boolean noImages,
                            Callback<RbPageRemaining> cb);
 
@@ -125,7 +125,7 @@ public class RbPageService implements PageService {
          * @param noImages add the noimages flag to the request if true
          * @param cb a Retrofit callback which provides the populated RbPageCombo object in #success
          */
-        @GET("/page/mobile-html-sections/{title}")
+        @GET("/page/mobile-sections/{title}")
         void pageCombo(@Path("title") String title, @Query("noimages") Boolean noImages,
                        Callback<RbPageCombo> cb);
     }
