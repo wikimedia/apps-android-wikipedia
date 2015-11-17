@@ -6,6 +6,7 @@ import org.wikipedia.server.PageCombo;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
+import org.wikipedia.server.PageSummary;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
@@ -25,6 +26,22 @@ public class MwPageService implements PageService {
     public MwPageService(final Site site) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
         webService = MwPageEndpointsCache.INSTANCE.getMwPageEndpoints(site);
+    }
+
+    @Override
+    public void pageSummary(String title, final PageSummary.Callback cb) {
+        webService.pageSummary(title, new Callback<MwPageSummary>() {
+            @Override
+            public void success(MwPageSummary pageSummary, Response response) {
+                responseHeaderHandler.onHeaderCheck(response);
+                cb.success(pageSummary, response);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                cb.failure(error);
+            }
+        });
     }
 
     @Override
@@ -91,6 +108,30 @@ public class MwPageService implements PageService {
      * Retrofit endpoints for MW API endpoints.
      */
     interface MwPageEndpoints {
+        /**
+         * Gets the lead section and initial metadata of a given title.
+         *
+         * @param title the page title with prefix if necessary
+         * @param cb a Retrofit callback which provides the populated MwPageLead object in #success
+         */
+         /*
+          Here's the rationale for this API call:
+          We request 10 sentences from the lead section, and then re-parse the text using our own
+          sentence parsing logic to end up with 2 sentences for the link preview. We trust our
+          parsing logic more than TextExtracts because it's better-tailored to the user's
+          Locale on the client side. For example, the TextExtracts extension incorrectly treats
+          abbreviations like "i.e.", "B.C.", "Jr.", etc. as separate sentences, whereas our parser
+          will leave those alone.
+
+          Also, we no longer request "excharacters" from TextExtracts, since it has an issue where
+          it's liable to return content that lies beyond the lead section, which might include
+          unparsed wikitext, which we certainly don't want.
+        */
+        @GET("/w/api.php?action=query&format=json&formatversion=2&prop=extracts%7Cpageimages"
+                + "&redirects=true&exsentences=5&explaintext=true&piprop=thumbnail%7Cname"
+                + "&pithumbsize=" + WikipediaApp.PREFERRED_THUMB_SIZE)
+        void pageSummary(@Query("titles") String title, Callback<MwPageSummary> cb);
+
         /**
          * Gets the lead section and initial metadata of a given title.
          *

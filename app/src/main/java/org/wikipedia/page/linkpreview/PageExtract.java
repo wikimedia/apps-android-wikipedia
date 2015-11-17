@@ -13,8 +13,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.StringReader;
 
 /**
- * Logic to obtain an extract text from a page. This extract text should be suitable to display it as plain text
- * in the LinkPreview dialog.
+ * Logic to obtain an extract text from a page. This extract text should be suitable to display
+ * it as plain text in the LinkPreview dialog.
  */
 public class PageExtract {
     private final Page page;

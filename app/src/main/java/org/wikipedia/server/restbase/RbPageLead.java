@@ -36,7 +36,6 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Expose @Nullable private String displaytitle;
     @Expose @Nullable private String redirected;
     @Expose @Nullable private String normalizedtitle;
-    @Expose @Nullable private String extract;
     @Expose @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
     @Expose private int languagecount;
     @Expose private boolean editable;
@@ -110,11 +109,6 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Nullable
     public String getLastModified() {
         return lastmodified;
-    }
-
-    @Nullable
-    public String getExtract() {
-        return extract;
     }
 
     @Override

@@ -7,6 +7,14 @@ package org.wikipedia.server;
  */
 public interface PageService {
     /**
+     * Gets a page summary for a given title -- for link previews
+     *
+     * @param title the page title to be used including prefix
+     * @param cb a Retrofit callback which provides the populated PageSummary object in #success
+     */
+    void pageSummary(String title, PageSummary.Callback cb);
+
+    /**
      * Gets the lead section and initial metadata of a given title.
      *
      * @param title the page title with prefix if necessary
