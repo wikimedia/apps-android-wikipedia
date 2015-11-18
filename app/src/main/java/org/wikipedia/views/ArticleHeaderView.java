@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -58,7 +59,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     @NonNull private CharSequence subtitle = "";
     @Nullable private String pronunciationUrl;
 
-    private int imageYOffset;
+    private float imageYScalar;
 
     @NonNull private final AvPlayer avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
 
@@ -148,8 +149,8 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         return returnedBitmap;
     }
 
-    public void setImageYOffset(int offset) {
-        imageYOffset = offset;
+    public void setImageYScalar(float offset) {
+        imageYScalar = offset;
         updateParallaxScroll();
     }
 
@@ -217,6 +218,12 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        updateParallaxScroll();
+    }
+
+    @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         avPlayer.deinit();
@@ -229,7 +236,11 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     private void updateParallaxScroll(int scrollY) {
         int offset = Math.min(getHeight(), scrollY);
         setTranslationY(-offset);
-        image.setTranslationY(imageYOffset + offset / 2);
+
+        if (image.getDrawable() != null) {
+            updateImageViewParallax(image, imageYScalar, offset / 2);
+        }
+        updateImageViewParallax(placeholder, 0, offset / 2);
     }
 
     private void updateText() {
@@ -248,6 +259,47 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         }
 
         text.setText(builder);
+    }
+
+    private void updateImageViewParallax(ImageView view, float scalar, int offset) {
+        Matrix matrix = centerCropWithOffsetScalar(view, view.getDrawable(), view.getImageMatrix(), scalar);
+        matrix.postTranslate(0, offset);
+        view.setImageMatrix(matrix);
+    }
+
+    // See ImageView
+    private Matrix centerCropWithOffsetScalar(@NonNull View view,
+                                              @NonNull Drawable drawable,
+                                              @NonNull Matrix initial,
+                                              float offsetScalar) {
+        final float halfScalar = .5f;
+
+        Matrix matrix = new Matrix(initial);
+
+        int drawableWidth = drawable.getIntrinsicWidth();
+        int drawableHeight = drawable.getIntrinsicHeight();
+
+        int canvasWidth = view.getWidth() - view.getPaddingLeft() - view.getPaddingRight();
+        int canvasHeight = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
+
+        float scale;
+        float dx = 0;
+        float dy = 0;
+        if (drawableWidth * canvasHeight > canvasWidth * drawableHeight) {
+            scale = (float) canvasHeight / (float) drawableHeight;
+            dx = (canvasWidth - drawableWidth * scale) * halfScalar;
+        } else {
+            scale = (float) canvasWidth / (float) drawableWidth;
+            dy = (canvasHeight - drawableHeight * scale) * halfScalar;
+        }
+
+        matrix.setScale(scale, scale);
+        matrix.postTranslate(dx, dy);
+
+        float y = (canvasHeight - drawableHeight * scale) * (offsetScalar - halfScalar);
+        matrix.postTranslate(0, y);
+
+        return matrix;
     }
 
     private Spanned pronunciationSpanned() {
