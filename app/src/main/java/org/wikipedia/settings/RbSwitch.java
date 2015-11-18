@@ -1,5 +1,6 @@
 package org.wikipedia.settings;
 
+import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 
 import retrofit.RetrofitError;
@@ -22,6 +23,10 @@ public final class RbSwitch {
     private static final int FAILED = -1;
 
     public static final RbSwitch INSTANCE = new RbSwitch();
+
+    public boolean isRestBaseEnabled(Site site) {
+        return isRestBaseEnabled() && !site.getLanguageCode().startsWith("zh");
+    }
 
     public boolean isRestBaseEnabled() {
         return Prefs.useRestBase();
