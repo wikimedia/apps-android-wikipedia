@@ -1,5 +1,5 @@
-var transformer = require("../transformer");
-var bridge = require("../bridge");
+var transformer = require("../../transformer");
+var bridge = require("../../bridge");
 
 /*
 OnClick handler function for IPA spans.

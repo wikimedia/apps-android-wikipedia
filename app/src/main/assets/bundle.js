@@ -120,7 +120,7 @@ function collectIssues( sourceNode ) {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":24}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":25}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -181,7 +181,7 @@ transformer.register( 'displayDisambigLink', function( content ) {
     return content;
 } );
 
-},{"./transformer":12}],4:[function(require,module,exports){
+},{"./transformer":13}],4:[function(require,module,exports){
 var actions = require('./actions');
 var bridge = require('./bridge');
 
@@ -215,7 +215,7 @@ transformer.register( 'displayIssuesLink', function( content ) {
     return content;
 } );
 
-},{"./transformer":12}],6:[function(require,module,exports){
+},{"./transformer":13}],6:[function(require,module,exports){
 var bridge = require( "./bridge" );
 
 function addStyleLink( href ) {
@@ -290,7 +290,7 @@ bridge.registerListener( "setPageProtected", function( payload ) {
 bridge.registerListener( "setDecorOffset", function( payload ) {
     transformer.setDecorOffset(payload.offset);
 } );
-},{"./bridge":2,"./transformer":12}],8:[function(require,module,exports){
+},{"./bridge":2,"./transformer":13}],8:[function(require,module,exports){
 var bridge = require("./bridge");
 var loader = require("./loader");
 var utilities = require("./utilities");
@@ -374,7 +374,29 @@ module.exports = {
 	setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"./bridge":2,"./loader":6,"./utilities":24}],9:[function(require,module,exports){
+},{"./bridge":2,"./loader":6,"./utilities":25}],9:[function(require,module,exports){
+var bridge = require("./bridge");
+
+/*
+OnClick handler function for IPA spans.
+*/
+function ipaClickHandler() {
+    var container = this;
+    bridge.sendMessage( "ipaSpan", { "contents": container.innerHTML });
+}
+
+function addIPAonClick( content ) {
+    var spans = content.querySelectorAll( "span.ipa_button" );
+    for (var i = 0; i < spans.length; i++) {
+        var parent = spans[i].parentNode;
+        parent.onclick = ipaClickHandler;
+    }
+}
+
+module.exports = {
+    addIPAonClick: addIPAonClick
+};
+},{"./bridge":2}],10:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "displayPreviewHTML", function( payload ) {
@@ -383,7 +405,7 @@ bridge.registerListener( "displayPreviewHTML", function( payload ) {
     content.innerHTML = payload.html;
 } );
 
-},{"./bridge":2}],10:[function(require,module,exports){
+},{"./bridge":2}],11:[function(require,module,exports){
 var bridge = require("./bridge");
 
 bridge.registerListener( "setDirectionality", function( payload ) {
@@ -399,9 +421,10 @@ bridge.registerListener( "setDirectionality", function( payload ) {
     html.classList.add( "ui-" + payload.uiDirection );
 } );
 
-},{"./bridge":2}],11:[function(require,module,exports){
+},{"./bridge":2}],12:[function(require,module,exports){
 var bridge = require("./bridge");
 var transformer = require("./transformer");
+var clickHandlerSetup = require("./onclick");
 
 bridge.registerListener( "clearContents", function() {
     clearContents();
@@ -495,15 +518,18 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     // Content service transformations
     if (!window.fromRestBase) {
         transformer.transform( "moveFirstGoodParagraphUp" );
+
         transformer.transform( "hideRedLinks", content );
         transformer.transform( "setMathFormulaImageMaxWidth", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
+        transformer.transform( "hideIPA", content );
+    } else {
+        clickHandlerSetup.addIPAonClick( content );
     }
 
     // client only transformations:
     transformer.transform( "addDarkModeStyles", content ); // client setting
     transformer.transform( "setDivWidth", content ); // offsetWidth
-    transformer.transform( "hideIPA", content ); // clickHandler
 
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
@@ -579,11 +605,14 @@ function elementsForSection( section ) {
         transformer.transform( "hideRedLinks", content );
         transformer.transform( "setMathFormulaImageMaxWidth", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
+        transformer.transform( "hideIPA", content );
+    } else {
+        clickHandlerSetup.addIPAonClick( content );
     }
 
     transformer.transform( "addDarkModeStyles", content ); // client setting
     transformer.transform( "setDivWidth", content ); // offsetWidth
-    transformer.transform( "hideIPA", content ); // clickHandler
+
     transformer.transform( "hideRefs", content ); // clickHandler
 
     if (!window.isMainPage) {
@@ -673,7 +702,7 @@ bridge.registerListener( "requestCurrentSection", function() {
     bridge.sendMessage( "currentSectionResponse", { sectionID: getCurrentSection() } );
 } );
 
-},{"./bridge":2,"./transformer":12}],12:[function(require,module,exports){
+},{"./bridge":2,"./onclick":9,"./transformer":13}],13:[function(require,module,exports){
 function Transformer() {
 }
 
@@ -704,7 +733,7 @@ Transformer.prototype.setDecorOffset = function(offset) {
 };
 
 module.exports = new Transformer();
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var transformer = require("../transformer");
 var night = require("../night");
 
@@ -713,7 +742,7 @@ transformer.register( "addDarkModeStyles", function( content ) {
 		night.setImageBackgroundsForDarkMode ( content );
 	}
 } );
-},{"../night":8,"../transformer":12}],14:[function(require,module,exports){
+},{"../night":8,"../transformer":13}],15:[function(require,module,exports){
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 
@@ -753,7 +782,7 @@ transformer.register( "addImageOverflowXContainers", function( content ) {
         images[i].addEventListener('load', maybeAddImageOverflowXContainer, false);
     }
 } );
-},{"../transformer":12,"../utilities":24}],15:[function(require,module,exports){
+},{"../transformer":13,"../utilities":25}],16:[function(require,module,exports){
 var transformer = require("../transformer");
 
 /*
@@ -893,9 +922,88 @@ transformer.register( "hideTables", function( content ) {
 module.exports = {
     handleTableCollapseOrExpandClick: handleTableCollapseOrExpandClick
 };
-},{"../transformer":12}],16:[function(require,module,exports){
+},{"../transformer":13}],17:[function(require,module,exports){
 var transformer = require("../transformer");
-var bridge = require("../bridge");
+var collapseTables = require("./collapseTables");
+
+transformer.register( "hideRefs", function( content ) {
+    var refLists = content.querySelectorAll( "div.reflist" );
+    for (var i = 0; i < refLists.length; i++) {
+        var caption = "<strong class='app_table_collapsed_caption'>" + window.string_expand_refs + "</strong>";
+
+        //create the container div that will contain both the original table
+        //and the collapsed version.
+        var containerDiv = document.createElement( 'div' );
+        containerDiv.className = 'app_table_container';
+        refLists[i].parentNode.insertBefore(containerDiv, refLists[i]);
+        refLists[i].parentNode.removeChild(refLists[i]);
+
+        //create the collapsed div
+        var collapsedDiv = document.createElement( 'div' );
+        collapsedDiv.classList.add('app_table_collapsed_container');
+        collapsedDiv.classList.add('app_table_collapsed_open');
+        collapsedDiv.innerHTML = caption;
+
+        //create the bottom collapsed div
+        var bottomDiv = document.createElement( 'div' );
+        bottomDiv.classList.add('app_table_collapsed_bottom');
+        bottomDiv.classList.add('app_table_collapse_icon');
+        bottomDiv.innerHTML = window.string_table_close;
+
+        //add our stuff to the container
+        containerDiv.appendChild(collapsedDiv);
+        containerDiv.appendChild(refLists[i]);
+        containerDiv.appendChild(bottomDiv);
+
+        //give it just a little padding
+        refLists[i].style.padding = "4px";
+
+        //set initial visibility
+        refLists[i].style.display = 'none';
+        collapsedDiv.style.display = 'block';
+        bottomDiv.style.display = 'none';
+
+        //assign click handler to the collapsed divs
+        collapsedDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
+        bottomDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
+    }
+} );
+},{"../transformer":13,"./collapseTables":16}],18:[function(require,module,exports){
+var transformer = require("../../transformer");
+
+transformer.register( "anchorPopUpMediaTransforms", function( content ) {
+    // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),
+    // and enclose them in an anchor that will lead to the correct click handler...
+	var mediaDivs = content.querySelectorAll( 'div.PopUpMediaTransform' );
+	for ( var i = 0; i < mediaDivs.length; i++ ) {
+		var mediaDiv = mediaDivs[i];
+		var imgTags = mediaDiv.querySelectorAll( 'img' );
+		if (imgTags.length === 0) {
+		    continue;
+		}
+		// the first img element is the video thumbnail, and its 'alt' attribute is
+		// the file name of the video!
+		if (!imgTags[0].getAttribute( 'alt' )) {
+		    continue;
+		}
+		// also, we should hide the "Play media" link that appears under the thumbnail,
+		// since we don't need it.
+		var aTags = mediaDiv.querySelectorAll( 'a' );
+		if (aTags.length > 0) {
+		    aTags[0].parentNode.removeChild(aTags[0]);
+		}
+		var containerLink = document.createElement( 'a' );
+        containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
+        containerLink.classList.add( 'app_media' );
+        mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
+        mediaDiv.parentNode.removeChild(mediaDiv);
+        containerLink.appendChild(imgTags[0]);
+	}
+} );
+
+},{"../../transformer":13}],19:[function(require,module,exports){
+var transformer = require("../../transformer");
+var bridge = require("../../bridge");
 
 /*
 OnClick handler function for IPA spans.
@@ -942,86 +1050,7 @@ transformer.register( "hideIPA", function( content ) {
         containerSpan.onclick = ipaClickHandler;
     }
 } );
-},{"../bridge":2,"../transformer":12}],17:[function(require,module,exports){
-var transformer = require("../transformer");
-var collapseTables = require("./collapseTables");
-
-transformer.register( "hideRefs", function( content ) {
-    var refLists = content.querySelectorAll( "div.reflist" );
-    for (var i = 0; i < refLists.length; i++) {
-        var caption = "<strong class='app_table_collapsed_caption'>" + window.string_expand_refs + "</strong>";
-
-        //create the container div that will contain both the original table
-        //and the collapsed version.
-        var containerDiv = document.createElement( 'div' );
-        containerDiv.className = 'app_table_container';
-        refLists[i].parentNode.insertBefore(containerDiv, refLists[i]);
-        refLists[i].parentNode.removeChild(refLists[i]);
-
-        //create the collapsed div
-        var collapsedDiv = document.createElement( 'div' );
-        collapsedDiv.classList.add('app_table_collapsed_container');
-        collapsedDiv.classList.add('app_table_collapsed_open');
-        collapsedDiv.innerHTML = caption;
-
-        //create the bottom collapsed div
-        var bottomDiv = document.createElement( 'div' );
-        bottomDiv.classList.add('app_table_collapsed_bottom');
-        bottomDiv.classList.add('app_table_collapse_icon');
-        bottomDiv.innerHTML = window.string_table_close;
-
-        //add our stuff to the container
-        containerDiv.appendChild(collapsedDiv);
-        containerDiv.appendChild(refLists[i]);
-        containerDiv.appendChild(bottomDiv);
-
-        //give it just a little padding
-        refLists[i].style.padding = "4px";
-
-        //set initial visibility
-        refLists[i].style.display = 'none';
-        collapsedDiv.style.display = 'block';
-        bottomDiv.style.display = 'none';
-
-        //assign click handler to the collapsed divs
-        collapsedDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
-        bottomDiv.onclick = collapseTables.handleTableCollapseOrExpandClick;
-    }
-} );
-},{"../transformer":12,"./collapseTables":15}],18:[function(require,module,exports){
-var transformer = require("../../transformer");
-
-transformer.register( "anchorPopUpMediaTransforms", function( content ) {
-    // look for video thumbnail containers (divs that have class "PopUpMediaTransform"),
-    // and enclose them in an anchor that will lead to the correct click handler...
-	var mediaDivs = content.querySelectorAll( 'div.PopUpMediaTransform' );
-	for ( var i = 0; i < mediaDivs.length; i++ ) {
-		var mediaDiv = mediaDivs[i];
-		var imgTags = mediaDiv.querySelectorAll( 'img' );
-		if (imgTags.length === 0) {
-		    continue;
-		}
-		// the first img element is the video thumbnail, and its 'alt' attribute is
-		// the file name of the video!
-		if (!imgTags[0].getAttribute( 'alt' )) {
-		    continue;
-		}
-		// also, we should hide the "Play media" link that appears under the thumbnail,
-		// since we don't need it.
-		var aTags = mediaDiv.querySelectorAll( 'a' );
-		if (aTags.length > 0) {
-		    aTags[0].parentNode.removeChild(aTags[0]);
-		}
-		var containerLink = document.createElement( 'a' );
-        containerLink.setAttribute( 'href', imgTags[0].getAttribute( 'alt' ) );
-        containerLink.classList.add( 'app_media' );
-        mediaDiv.parentNode.insertBefore(containerLink, mediaDiv);
-        mediaDiv.parentNode.removeChild(mediaDiv);
-        containerLink.appendChild(imgTags[0]);
-	}
-} );
-
-},{"../../transformer":12}],19:[function(require,module,exports){
+},{"../../bridge":2,"../../transformer":13}],20:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "hideRedLinks", function( content ) {
@@ -1034,7 +1063,7 @@ transformer.register( "hideRedLinks", function( content ) {
 		redLink.parentNode.replaceChild( replacementSpan, redLink );
 	}
 } );
-},{"../../transformer":12}],20:[function(require,module,exports){
+},{"../../transformer":13}],21:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 // Move the first non-empty paragraph (and related elements) to the top of the section.
@@ -1118,7 +1147,7 @@ function addTrailingNodes( span, nodes, startIndex ) {
     }
 }
 
-},{"../../transformer":12}],21:[function(require,module,exports){
+},{"../../transformer":13}],22:[function(require,module,exports){
 var transformer = require("../../transformer");
 
 transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
@@ -1135,7 +1164,7 @@ transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
         }
     }
 } );
-},{"../../transformer":12}],22:[function(require,module,exports){
+},{"../../transformer":13}],23:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "setDivWidth", function( content ) {
@@ -1153,7 +1182,7 @@ transformer.register( "setDivWidth", function( content ) {
         }
     }
 } );
-},{"../transformer":12}],23:[function(require,module,exports){
+},{"../transformer":13}],24:[function(require,module,exports){
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 
@@ -1262,7 +1291,7 @@ transformer.register( "widenImages", function( content ) {
         images[i].addEventListener('load', maybeWidenImage, false);
     }
 } );
-},{"../transformer":12,"../utilities":24}],24:[function(require,module,exports){
+},{"../transformer":13,"../utilities":25}],25:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -1357,4 +1386,4 @@ module.exports = {
     firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}]},{},[2,7,24,12,13,14,15,16,17,22,23,18,19,20,21,1,3,4,5,6,8,9,10,11])
+},{}]},{},[2,7,25,13,14,15,16,17,23,24,18,19,20,21,22,1,3,4,5,6,8,10,11,12])
