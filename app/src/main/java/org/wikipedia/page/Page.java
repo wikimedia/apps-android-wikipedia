@@ -6,6 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.gallery.GalleryCollection;
+import org.wikipedia.settings.Prefs;
+
+import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +18,11 @@ import java.util.List;
  * Represents a particular page along with its full contents.
  */
 public class Page {
+    @VisibleForTesting
+    static final int MEDIAWIKI_ORIGIN = 0;
+    @VisibleForTesting
+    static final int RESTBASE_ORIGIN = 1;
+
     private final PageTitle title;
     private final List<Section> sections;
     private final PageProperties pageProperties;
@@ -25,6 +34,15 @@ public class Page {
      * activity will then be able to retrieve the page's gallery collection from cache.
      */
     private GalleryCollection galleryCollection;
+
+    /**
+     * An indicator what payload version the page content was originally retrieved from.
+     * If it's set to RESTBASE_ORIGIN the it came from the Mobile Content Service
+     * (via RESTBase). This is esp. useful for saved pages, so that an older saved page will get the
+     * correct kind of DOM transformations applied.
+     */
+    private int version = MEDIAWIKI_ORIGIN;
+
     public GalleryCollection getGalleryCollection() {
         return galleryCollection;
     }
@@ -33,17 +51,39 @@ public class Page {
     }
 
     /** Regular constructor */
-    public Page(PageTitle title, List<Section> sections, PageProperties pageProperties) {
+    public Page(@NonNull PageTitle title, @NonNull List<Section> sections,
+                @NonNull PageProperties pageProperties) {
+        if (Prefs.useRestBase()) {
+            this.version = RESTBASE_ORIGIN;
+        }
+        this.title = title;
+        this.sections = sections;
+        this.pageProperties = pageProperties;
+    }
+
+    @VisibleForTesting
+    Page(@NonNull PageTitle title, @NonNull List<Section> sections,
+         @NonNull PageProperties pageProperties, int version) {
+        this.version = version;
         this.title = title;
         this.sections = sections;
         this.pageProperties = pageProperties;
     }
 
     /** Copy constructor */
-    public Page(Page orig) {
+    public Page(@NonNull Page orig) {
+        this.version = orig.version;
         this.title = orig.title;
         this.sections = orig.sections;
         this.pageProperties = orig.pageProperties;
+    }
+
+    /**
+     * This could also be called getVersion but since there are only two different versions
+     * I like to call it isFromRestBase to make it clearer.
+     */
+    public boolean isFromRestBase() {
+        return version == RESTBASE_ORIGIN;
     }
 
     public PageTitle getTitle() {
@@ -97,6 +137,7 @@ public class Page {
                 + "title=" + title
                 + ", sections=" + sections
                 + ", pageProperties=" + pageProperties
+                + ", version=" + version
                 + '}';
     }
 
@@ -115,6 +156,7 @@ public class Page {
     public JSONObject toJSON() {
         JSONObject json = new JSONObject();
         try {
+            json.putOpt("version", version);
             json.putOpt("title", getTitle().toJSON());
             JSONArray sectionsJSON = new JSONArray();
             for (Section section : getSections()) {
@@ -133,6 +175,7 @@ public class Page {
     }
 
     public Page(JSONObject json) {
+        version = json.optInt("version");
         title = new PageTitle(json.optJSONObject("title"));
         JSONArray sectionsJSON = json.optJSONArray("sections");
         sections = new ArrayList<>(sectionsJSON.length());

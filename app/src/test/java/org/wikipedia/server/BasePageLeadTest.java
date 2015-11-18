@@ -20,7 +20,7 @@ public abstract class BasePageLeadTest {
     protected static final String MAIN_PAGE = "Main Page";
 
     @NonNull
-    protected String getEnglishMainPageJson() {
+    public static String getEnglishMainPageJson() {
         return "{"
                 + "\"lastmodified\":\"" + LAST_MODIFIED_DATE + "\","
                 + "\"revision\":" + REVISION + ","

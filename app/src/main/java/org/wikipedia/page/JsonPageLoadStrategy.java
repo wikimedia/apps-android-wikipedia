@@ -18,7 +18,6 @@ import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.search.SearchBarHideHandler;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.PageLoadUtil;
@@ -621,7 +620,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     .put("isBeta", app.isPreProdRelease()) // True for any non-production release type
                     .put("siteLanguage", model.getTitle().getSite().getLanguageCode())
                     .put("isMainPage", page.isMainPage())
-                    .put("fromRestBase", Prefs.useRestBase())
+                    .put("fromRestBase", page.isFromRestBase())
                     .put("apiLevel", Build.VERSION.SDK_INT);
         } catch (JSONException e) {
             throw new RuntimeException(e);
