@@ -3,13 +3,11 @@ package org.wikipedia.page.linkpreview;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.server.restbase.RbPageLead;
+
+import org.wikipedia.server.PageSummary;
 
 import java.text.BreakIterator;
 import java.util.ArrayList;
@@ -29,18 +27,10 @@ public class LinkPreviewContents {
         return extract;
     }
 
-    public LinkPreviewContents(@NonNull JSONObject json, @NonNull Site site) throws JSONException {
-        title = new PageTitle(json.getString("title"), site);
-        extract = makeStringFromSentences(getSentences(removeParens(json.optString("extract")), site), EXTRACT_MAX_SENTENCES);
-        if (json.has("thumbnail")) {
-            title.setThumbUrl(json.getJSONObject("thumbnail").optString("source"));
-        }
-    }
-
-    public LinkPreviewContents(@NonNull RbPageLead pageLead, @NonNull Site site) {
-        title = new PageTitle(pageLead.getDisplayTitle(), site);
-        extract = pageLead.getExtract();
-        title.setThumbUrl(WikipediaApp.getInstance().getNetworkProtocol() + ":" + pageLead.getLeadImageUrl());
+    public LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull Site site) {
+        title = new PageTitle(pageSummary.getTitle(), site);
+        extract = pageSummary.getExtract();
+        title.setThumbUrl(pageSummary.getThumbnailUrl());
     }
 
     public LinkPreviewContents(@NonNull Page page) {

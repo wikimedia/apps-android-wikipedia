@@ -1,6 +1,5 @@
 package org.wikipedia.page.linkpreview;
 
-import org.mediawiki.api.json.Api;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -10,10 +9,8 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.savedpages.LoadSavedPageTask;
-import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageServiceFactory;
-import org.wikipedia.server.restbase.RbPageLead;
-import org.wikipedia.settings.RbSwitch;
+import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -33,14 +30,11 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.Map;
-
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
-import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 
 public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogInterface.OnDismissListener {
     private static final String TAG = "LinkPreviewDialog";
@@ -84,7 +78,6 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
     @Override
     protected View inflateDialogView(LayoutInflater inflater, ViewGroup container) {
         WikipediaApp app = WikipediaApp.getInstance();
-        boolean shouldLoadImages = app.isImageDownloadEnabled();
         pageTitle = getArguments().getParcelable("title");
         entrySource = getArguments().getInt("entrySource");
 
@@ -114,13 +107,7 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
         progressBar.setVisibility(View.VISIBLE);
 
         // and kick off the task to load all the things...
-        // Use RESTBase if the user is in the sample group
-        if (pageTitle.getSite().getLanguageCode().equalsIgnoreCase("en")
-                && RbSwitch.INSTANCE.isRestBaseEnabled()) {
-            loadContentWithRestBase(shouldLoadImages);
-        } else {
-            loadContentWithMwapi();
-        }
+        loadContent();
 
         funnel = new LinkPreviewFunnel(app);
         funnel.logLinkClick();
@@ -151,17 +138,9 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
         }
     }
 
-    private void loadContentWithMwapi() {
-        Log.v(TAG, "Loading link preview with MWAPI");
-        new LinkPreviewMwapiFetchTask(WikipediaApp.getInstance().getAPIForSite(pageTitle.getSite()), pageTitle).execute();
-    }
-
-    private void loadContentWithRestBase(boolean shouldLoadImages) {
-        Log.v(TAG, "Loading link preview with RESTBase");
-        PageServiceFactory.create(pageTitle.getSite()).pageLead(
+    private void loadContent() {
+        PageServiceFactory.create(pageTitle.getSite()).pageSummary(
                 pageTitle.getPrefixedText(),
-                calculateLeadImageWidth(),
-                !shouldLoadImages,
                 linkPreviewOnLoadCallback);
     }
 
@@ -219,18 +198,19 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
         layoutPreview();
     }
 
-    private PageLead.Callback linkPreviewOnLoadCallback = new PageLead.Callback() {
+    private PageSummary.Callback linkPreviewOnLoadCallback = new PageSummary.Callback() {
         @Override
-        public void success(PageLead pageLead, Response response) {
+        public void success(PageSummary pageSummary, Response response) {
             if (!isAdded()) {
                 return;
             }
             Log.v(TAG, response.getUrl());
-            if (pageLead.getLeadSectionContent() != null) {
+            if (!pageSummary.hasError()) {
                 progressBar.setVisibility(View.GONE);
-                contents = new LinkPreviewContents((RbPageLead) pageLead, pageTitle.getSite());
+                contents = new LinkPreviewContents(pageSummary, pageTitle.getSite());
                 layoutPreview();
             } else {
+                pageSummary.logError("Page summary request failed");
                 loadContentFromCache();
             }
         }
@@ -241,8 +221,6 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
                 return;
             }
             Log.e(TAG, "Link preview fetch error: " + error);
-            // Fall back to MWAPI
-            loadContentWithMwapi();
         }
     };
 
@@ -259,34 +237,6 @@ public class LinkPreviewDialogB extends SwipeableBottomDialog implements DialogI
         public void onNavigate(PageTitle title) {
             HistoryEntry newEntry = new HistoryEntry(title, entrySource);
             getPageActivity().displayNewPage(title, newEntry);
-        }
-    }
-
-    private class LinkPreviewMwapiFetchTask extends PreviewFetchTask {
-        LinkPreviewMwapiFetchTask(Api api, PageTitle title) {
-            super(api, title);
-        }
-
-        @Override
-        public void onFinish(Map<PageTitle, LinkPreviewContents> result) {
-            if (!isAdded()) {
-                return;
-            }
-            if (!result.isEmpty()) {
-                progressBar.setVisibility(View.GONE);
-                contents = (LinkPreviewContents) result.values().toArray()[0];
-                layoutPreview();
-            } else {
-                loadContentFromCache();
-            }
-        }
-        @Override
-        public void onCatch(Throwable caught) {
-            Log.e(TAG, "caught " + caught.getMessage());
-            if (!isAdded()) {
-                return;
-            }
-            loadContentFromCache();
         }
     }
 

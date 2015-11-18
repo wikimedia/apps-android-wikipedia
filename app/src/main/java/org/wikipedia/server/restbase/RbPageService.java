@@ -6,6 +6,7 @@ import org.wikipedia.server.PageCombo;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
+import org.wikipedia.server.PageSummary;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
@@ -26,6 +27,23 @@ public class RbPageService implements PageService {
     public RbPageService(final Site site) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
         webService = RbPageEndpointsCache.INSTANCE.getRbPageEndpoints(site);
+    }
+
+    @Override
+    public void pageSummary(String title, final PageSummary.Callback cb) {
+        webService.pageSummary(title, new Callback<RbPageSummary>() {
+            @Override
+            public void success(RbPageSummary pageSummary, Response response) {
+                responseHeaderHandler.onHeaderCheck(response);
+                cb.success(pageSummary, response);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                RbSwitch.INSTANCE.onRbRequestFailed(error);
+                cb.failure(error);
+            }
+        });
     }
 
     @Override
@@ -95,6 +113,15 @@ public class RbPageService implements PageService {
      * Retrofit endpoints for MW API endpoints.
      */
     interface RbPageEndpoints {
+        /**
+         * Gets a page summary for a given title -- for link previews
+         *
+         * @param title the page title to be used including prefix
+         * @param cb a Retrofit callback which provides the populated RbPageCombo object in #success
+         */
+        @GET("/page/mobile-summary/{title}")
+        void pageSummary(@Path("title") String title, Callback<RbPageSummary> cb);
+
         /**
          * Gets the lead section and initial metadata of a given title.
          *
