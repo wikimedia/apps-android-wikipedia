@@ -363,7 +363,7 @@ public class LeadImagesHandler {
      */
     @Nullable
     private String getLeadImageUrl() {
-        return getPage().getPageProperties().getLeadImageUrl();
+        return getPage() == null ? null : getPage().getPageProperties().getLeadImageUrl();
     }
 
     private void startKenBurnsAnimation() {
