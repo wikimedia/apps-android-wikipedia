@@ -2,14 +2,19 @@ package org.wikipedia.savedpages;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.support.annotation.NonNull;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.data.PersistenceHelper;
+import org.wikipedia.util.StringUtil;
 
+import java.io.File;
 import java.util.Date;
 
 public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
@@ -76,6 +81,41 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
     @Override
     protected int getDBVersionIntroducedAt() {
         return DB_VER_INTRODUCED;
+    }
+
+    @Override
+    protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
+        Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
+        int idIndex = cursor.getColumnIndex("_id");
+        int titleIndex = cursor.getColumnIndex(COL_TITLE);
+        ContentValues values = new ContentValues();
+        while (cursor.moveToNext()) {
+            String title = cursor.getString(titleIndex);
+            if (title.contains(" ")) {
+                values.put(COL_TITLE, title.replace(" ", "_"));
+                String id = Long.toString(cursor.getLong(idIndex));
+                db.updateWithOnConflict(getTableName(), values, "_id = ?", new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
+
+                SavedPage obj = fromCursor(cursor);
+                File newDir = new File(SavedPage.getSavedPagesDir() + "/" + obj.getTitle().getIdentifier());
+                new File(SavedPage.getSavedPagesDir() + "/" + getSavedPageDir(obj, title)).renameTo(newDir);
+            }
+        }
+        cursor.close();
+    }
+
+    private String getSavedPageDir(SavedPage page, String originalTitleText) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("namespace", page.getTitle().getNamespace());
+            json.put("text", originalTitleText);
+            json.put("fragment", page.getTitle().getFragment());
+            json.put("site", page.getTitle().getSite().getDomain());
+            return StringUtil.md5string(json.toString());
+        } catch (JSONException e) {
+            // This will also never happen
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

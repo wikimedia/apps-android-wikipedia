@@ -15,6 +15,8 @@ import static org.wikipedia.util.StringUtil.removeNulls;
 
 public abstract class PersistenceHelper<T> {
 
+    private static final int MIN_VERSION_NORMALIZED_TITLES = 8;
+
     public static class Column{
         private final String name;
         private final String type;
@@ -103,6 +105,9 @@ public abstract class PersistenceHelper<T> {
             createTables(db, toVersion);
             return;
         }
+        if (fromVersion < MIN_VERSION_NORMALIZED_TITLES) {
+            convertAllTitlesToUnderscores(db);
+        }
         String tableName = getTableName();
         ArrayList<Column> columns = getElements(fromVersion + 1, toVersion);
         if (columns.size() == 0) {
@@ -115,6 +120,17 @@ public abstract class PersistenceHelper<T> {
         String alterTableString = "ALTER TABLE " + tableName + " " + TextUtils.join(", ", columnCommands) + ";";
         Log.d("Wikipedia", alterTableString);
         db.execSQL(alterTableString);
+    }
+
+    /**
+     * One-time fix for the inconsistencies in title formats all over the database. This migration will enforce
+     * all titles stored in the database to follow the "Underscore_format" instead of the "Human readable form"
+     * TODO: Delete this code after April 2016
+     *
+     * @param db Database object
+     */
+    protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
+        // Default implementation is empty, since not every table needs to deal with titles
     }
 
     private Uri baseContentURI;

@@ -28,10 +28,10 @@ public class PageTitleTests extends TestCase {
     public void testPrefixedText() throws Exception {
         Site enwiki = new Site("en.wikipedia.org");
 
-        assertEquals(new PageTitle(null, "Test  title",  enwiki).getPrefixedText(), "Test  title");
-        assertEquals(new PageTitle(null, "Test title",  enwiki).getPrefixedText(), "Test title");
-        assertEquals(new PageTitle("Talk", "Test title",  enwiki).getPrefixedText(), "Talk:Test title");
-        assertEquals(new PageTitle(null, "Test   title",  enwiki).getText(), "Test   title");
+        assertEquals(new PageTitle(null, "Test  title",  enwiki).getPrefixedText(), "Test__title");
+        assertEquals(new PageTitle(null, "Test title",  enwiki).getPrefixedText(), "Test_title");
+        assertEquals(new PageTitle("Talk", "Test title",  enwiki).getPrefixedText(), "Talk:Test_title");
+        assertEquals(new PageTitle(null, "Test title",  enwiki).getText(), "Test_title");
     }
 
     public void testFromInternalLink() throws Exception {
