@@ -179,8 +179,6 @@
   <string name="saved_pages_update_all_error_retry">Zkusit znovu</string>
   <string name="saved_pages_update_all_error_message">Chyba aktualizace uložených stránek</string>
   <string name="saved_pages_progress_title">Aktualizují se uložené stránky</string>
-  <string name="menu_page_saved">Stránka uložena</string>
-  <string name="menu_refresh_saved_page">Obnovit stránku</string>
   <string name="abusefilter_title_warn">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete uložit?</string>
   <string name="abusefilter_title_disallow">Tuto editaci nemůžete uložit. Prosím, vraťte se zpět a změnte ji.</string>
   <string name="abusefilter_text_warn">Automatický filtr identifikoval tuto editaci jako potenciálně nekonstruktivní. Mohla obsahovat něco z:&lt;br /&gt;&lt;br /&gt;· Text pouze velkými písmeny&lt;br /&gt;· Mazání obsahu nebo spam&lt;br /&gt;· Nerelevantní externí odkazy nebo obrázky&lt;br /&gt;· Opakované znaky</string>

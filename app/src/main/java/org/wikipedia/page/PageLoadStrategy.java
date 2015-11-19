@@ -62,4 +62,7 @@ public interface PageLoadStrategy {
     void updateCurrentBackStackItem();
 
     void loadPageFromBackStack();
+
+    // TODO: remove. This has nothing to do with loading the page.
+    void layoutLeadImage();
 }

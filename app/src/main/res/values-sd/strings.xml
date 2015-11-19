@@ -170,8 +170,6 @@
   <string name="saved_pages_update_all_error_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="saved_pages_update_all_error_message">سانڍيل صفحي ۾ جدت آڻڻ ۾ مسئلو.</string>
   <string name="saved_pages_progress_title">سانڍيل صفحن کي تازو ڪندي</string>
-  <string name="menu_page_saved">صفحو سانڍجي ويو</string>
-  <string name="menu_refresh_saved_page">صفحي کي تازو ڪريو</string>
   <string name="abusefilter_title_warn">هي هڪ غير تخليقي ترميم لڳي ٿي، ڇا توهان انکي سانڍڻ چاهيو ٿا؟</string>
   <string name="abusefilter_title_disallow">توهان هي ترميم سانڍي نٿا سگھو. براءِ مهرباني واپس وڃو ۽ انکي تبديل ڪريو.</string>
   <string name="dialog_page_issues">صفحي جا مسئلا</string>

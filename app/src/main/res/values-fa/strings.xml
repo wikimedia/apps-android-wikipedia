@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">تلاش دوباره</string>
   <string name="saved_pages_update_all_error_message">خطا در به روز رسانی صفحات ذخیره شده</string>
   <string name="saved_pages_progress_title">تازه کردن صفحه ذخیره‌شده</string>
-  <string name="menu_page_saved">صفحه ذخیره شده</string>
-  <string name="menu_refresh_saved_page">تازه کردن صفحه</string>
   <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید ذخیره‌اش کنید؟</string>
   <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را ذخیره کنید. لطفاً بازگردید و تغییرش دهید.</string>
   <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>

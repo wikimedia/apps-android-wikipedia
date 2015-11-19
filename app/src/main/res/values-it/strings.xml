@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Riprova</string>
   <string name="saved_pages_update_all_error_message">Errore durante l\'aggiornamento delle pagine salvate</string>
   <string name="saved_pages_progress_title">Aggiornamento pagine salvate</string>
-  <string name="menu_page_saved">Pagina salvata</string>
-  <string name="menu_refresh_saved_page">Aggiorna pagina</string>
   <string name="abusefilter_title_warn">Questa potrebbe essere una modifica inutile. Sei sicuro di volerla salvare?</string>
   <string name="abusefilter_title_disallow">Non puoi salvare questa modifica. Per favore torna indietro e modificala.</string>
   <string name="abusefilter_text_warn">Un filtro automatico ha identificato inutile questa modifica. Potrebbe includere uno o più dei seguenti elementi:&lt;br /&gt;&lt;br /&gt;· Scritte tutte in maiuscolo&lt;br /&gt;· Articolo vuoto o di spam&lt;br /&gt;· Collegamenti esterni o immagini non pertinenti&lt;br /&gt;· Caratteri ripetuti</string>

@@ -178,8 +178,6 @@
   <string name="saved_pages_update_all_error_retry">Ponów próbę</string>
   <string name="saved_pages_update_all_error_message">Błąd podczas aktualizowania zapisanych stron</string>
   <string name="saved_pages_progress_title">Odświeżanie zapisanych stron</string>
-  <string name="menu_page_saved">Strona zapisana</string>
-  <string name="menu_refresh_saved_page">Odśwież stronę</string>
   <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją zapisać?</string>
   <string name="abusefilter_title_disallow">Nie możesz zapisać tej edycji. Wróć do niej i popraw ją.</string>
   <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może zawierać jeden lub więcej z następujących błedów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnetrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>

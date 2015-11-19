@@ -129,8 +129,6 @@
   <string name="find_previous">Sib ta\' qabel</string>
   <string name="error_network_error_try_again">In-netwerk ma setax jintlaħaq. Jekk jogħġbok erġa\' pprova.</string>
   <string name="saved_pages_update_all_error_retry">Erġa\' pprova</string>
-  <string name="menu_page_saved">Paġna ssejvjata</string>
-  <string name="menu_refresh_saved_page">Aġġorna l-paġna</string>
   <string name="abusefilter_title_warn">Din tista\' tkun modifiki inutli. Inti ċert li tixtieq tissejvjaha?</string>
   <string name="abusefilter_title_disallow">Ma tistax tissejvja din il-modifika. Jekk jogħġbok mura lura u biddilha.</string>
   <string name="dialog_close_description">Agħlaq</string>

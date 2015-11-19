@@ -28,6 +28,8 @@
     <color name="lead_gradient_start">#b8000000</color>
     <color name="main_toolbar_background">@color/actionbar_background</color>
     <color name="status_bar_background">#1d1d1d</color>
+    <color name="grey_211">#ebebeb</color>
+    <color name="grey_700">#616161</color>
 
     <color name="link_light">#347bff</color>
     <color name="button_light">#777</color>

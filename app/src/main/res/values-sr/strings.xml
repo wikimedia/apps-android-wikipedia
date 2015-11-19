@@ -155,8 +155,6 @@
   <string name="saved_pages_update_all_error_retry">Покушај поново</string>
   <string name="saved_pages_update_all_error_message">Дошло је до грешке код ажурирања сачуваних страница</string>
   <string name="saved_pages_progress_title">Освежавам сачуване странице</string>
-  <string name="menu_page_saved">Страница сачувана</string>
-  <string name="menu_refresh_saved_page">Освежи страницу</string>
   <string name="dialog_page_issues">Недостаци странице</string>
   <string name="button_page_issues">Недостаци странице</string>
   <string name="text_size_select">Величина фонта</string>

@@ -121,8 +121,6 @@
   <string name="find_next">بل موندل</string>
   <string name="find_previous">پخوانی موندل</string>
   <string name="saved_pages_update_all_error_retry">بياآزمويل</string>
-  <string name="menu_page_saved">مخ خوندي شو</string>
-  <string name="menu_refresh_saved_page">مخ بياتاندول</string>
   <string name="dialog_page_issues">د مخ ستونزې</string>
   <string name="button_page_issues">د مخ ستونزې</string>
   <string name="text_size_select">د ليکبڼې کچه</string>

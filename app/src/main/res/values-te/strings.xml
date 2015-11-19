@@ -174,8 +174,6 @@
   <string name="saved_pages_update_all_error_retry">పునఃప్రయత్నించండి</string>
   <string name="saved_pages_update_all_error_message">భద్రపరచబడిన పేజీలను నవీకరించటంలో సమస్య వచ్చింది.</string>
   <string name="saved_pages_progress_title">భద్రపరచబడిన పుటలను ఉపశాంతి నిచ్చేట్లు చేస్తుంది.</string>
-  <string name="menu_page_saved">పేజి భద్రపరచబడింది</string>
-  <string name="menu_refresh_saved_page">రిఫ్రెష్ పేజీ</string>
   <string name="abusefilter_title_warn">ఇది అనిర్మాణాత్మక సవరణ అయ్యుండవచ్చు. ఖచ్చితంగా భద్రపరచాలనుకుంటున్నారా?</string>
   <string name="abusefilter_title_disallow">ఈ సవరణని మీరు భద్రపరచలేరు. దయచేసి వెనెక్కి వెళ్లి మార్చండి.</string>
   <string name="abusefilter_text_warn">ఒక స్వయంచాలకమైన ఫిల్టర్ మీ సవరణను అనిర్మాణాత్మకంగా ఉన్నట్టు గుర్తించింది. సవరణలో వీటిలో ఒకటి లేదా ఎక్కువ ఉండి ఉండవచ్చు: &lt;br /&gt;&lt;br /&gt;· అన్ని పెద్ద అక్షరాలలో టైపు చేయటం &lt;br /&gt;· వ్యాసాని ఖాళీ లేదా స్పామ్ చేయటం &lt;br /&gt;· అసందర్భోచిత బయటి లింకులు లేదా చిత్రాలు &lt;br /&gt;· పునరావృతమవుతున్న అక్షరాలు</string>

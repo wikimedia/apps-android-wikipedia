@@ -130,8 +130,6 @@
   <string name="find_next">Recercar lo seguent</string>
   <string name="find_previous">Recercar lo precedent</string>
   <string name="saved_pages_update_all_error_retry">Ensajar tornarmai</string>
-  <string name="menu_page_saved">Pagina enregistrada</string>
-  <string name="menu_refresh_saved_page">Refrescar la pagina</string>
   <string name="dialog_page_issues">Discussions sus la pagina</string>
   <string name="button_page_issues">Questions sus la pagina</string>
   <string name="text_size_select">Talha de poliça</string>

@@ -163,8 +163,6 @@
   <string name="saved_pages_update_all_error_retry">Assaya arta</string>
   <string name="saved_pages_update_all_error_message">Yth esa kammwrians ow nowedhi folennow gwithys</string>
   <string name="saved_pages_progress_title">Ow taskarga folennow gwithys</string>
-  <string name="menu_page_saved">Folen gwithys</string>
-  <string name="menu_refresh_saved_page">Daskarga an folen</string>
   <string name="abusefilter_title_warn">Hemm a alsa bos chanj didhrehevus. Owgh hwi sur bos hwans dhywgh y witha?</string>
   <string name="abusefilter_title_disallow">Ny yllowgh gwitha an chanj ma. Gwrewgh dehweles hag y janjya.</string>
   <string name="text_size_select">Myns an font</string>

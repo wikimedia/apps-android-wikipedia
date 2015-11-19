@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Atualizar</string>
   <string name="saved_pages_update_all_error_message">Erro ao atualizar as páginas salvas</string>
   <string name="saved_pages_progress_title">Atualizando páginas salvas</string>
-  <string name="menu_page_saved">Página salva</string>
-  <string name="menu_refresh_saved_page">Atualizar página</string>
   <string name="abusefilter_title_warn">Esta edição pode não ser benéfica. Você tem certeza de que gostaria de salvá-la?</string>
   <string name="abusefilter_title_disallow">Você não pode salvar esta edição. Volte e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou que esta edição contém possíveis erros. Ela pode conter uma ou mais das seguintes características:&lt;br /&gt;&lt;br /&gt;· Uso excessivo de letras maiúsculas;&lt;br/&gt;· Entradas em branco ou com spam;&lt;br/&gt;· Imagens ou ligações externas irrelevantes; e&lt;br/&gt;· Repetição de caracteres.</string>

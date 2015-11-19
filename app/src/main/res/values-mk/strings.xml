@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Пробај пак</string>
   <string name="saved_pages_update_all_error_message">Грешка при подновувањето на зачуваните страници</string>
   <string name="saved_pages_progress_title">Ги превчитувам зачуваните страници</string>
-  <string name="menu_page_saved">Страницата е зачувана</string>
-  <string name="menu_refresh_saved_page">Превчитај ја страницата</string>
   <string name="abusefilter_title_warn">Ова уредување може да е неконструктивно. Дали сигурно сакате да го зачувате?</string>
   <string name="abusefilter_title_disallow">Не можете да го зачувате уредувањево. Вратете се и изменето го.</string>
   <string name="abusefilter_text_warn">Автоматскиот филтер утврди дека уредувањево е потенцијално неконструктивно. Може да содржи едно од следниве:&lt;br /&gt;&lt;br /&gt;· Текст напишан со големи букви&lt;br /&gt;· Празнење на статии или спамирање&lt;br /&gt;· Нерелевантни надворешни врски или слики&lt;br /&gt;· Повторување на знаци</string>

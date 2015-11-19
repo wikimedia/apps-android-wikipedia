@@ -179,8 +179,6 @@
   <string name="saved_pages_update_all_error_retry">Opnieuw proberen</string>
   <string name="saved_pages_update_all_error_message">Er is een fout opgetreden tijdens het bijwerken van de opgeslagen pagina\'s</string>
   <string name="saved_pages_progress_title">Opgeslagen pagina\'s aan het bijwerken</string>
-  <string name="menu_page_saved">Pagina opgeslagen</string>
-  <string name="menu_refresh_saved_page">Pagina vernieuwen</string>
   <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u die wilt opslaan?</string>
   <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
   <string name="abusefilter_text_warn">Een geautomatiseerde filter heeft deze bewerking als potentieel onconstructief geïdentificeerd. Het kan een of meer van de volgende bevatten:&lt;br /&gt;&lt;br /&gt;· Getypt in hoofdletters&lt;br /&gt;· Leeghalen van artikelen of spammen&lt;br /&gt;· Irrelevant externe koppelingen of afbeeldingen&lt;br /&gt;· Tekens herhalen</string>

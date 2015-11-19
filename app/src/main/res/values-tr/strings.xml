@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Tekrar dene</string>
   <string name="saved_pages_update_all_error_message">Kaydedilen sayfalar güncelleştirilirken hata oluştu</string>
   <string name="saved_pages_progress_title">Kaydedilen sayfalar yenileniyor…</string>
-  <string name="menu_page_saved">Sayfa kaydedildi</string>
-  <string name="menu_refresh_saved_page">Sayfayı yenile</string>
   <string name="abusefilter_title_warn">Bu yapıcı olmayan bir düzenleme olabilir. Kaydetmek istediğinize emin misiniz?</string>
   <string name="abusefilter_title_disallow">Bu düzenlemeyi kaydedemezsiniz. Lütfen geri dönüp değiştirin.</string>
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>

@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Reîncearcă</string>
   <string name="saved_pages_update_all_error_message">Eroare la actualizarea paginilor salvate</string>
   <string name="saved_pages_progress_title">Se reîncarcă paginile salvate</string>
-  <string name="menu_page_saved">Pagină salvată</string>
-  <string name="menu_refresh_saved_page">Reîncarcă pagina</string>
   <string name="abusefilter_title_warn">Această modificare poate fi neconstructivă. Sigur doriți s-o salvați?</string>
   <string name="abusefilter_title_disallow">Nu puteți salva această modificare. Mergeți înapoi și schimbați-o.</string>
   <string name="abusefilter_text_warn">Un filtru automat a identificat această modificare ca potențial neconstructivă. Poate avea cel puțin una din următoarele probleme:&lt;br /&gt;&lt;br /&gt;· Scrierea integrală cu majuscule&lt;br /&gt;· Golirea conținutului sau introducerea de spam&lt;br /&gt;· Legături externe sau imagini irelevante&lt;br /&gt;· Caractere repetate</string>

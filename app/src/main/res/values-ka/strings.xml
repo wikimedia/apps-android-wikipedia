@@ -157,8 +157,6 @@
   <string name="saved_pages_update_all_error_retry">ხელახლა ცდა</string>
   <string name="saved_pages_update_all_error_message">შეცდომა შენახული გვერდების განახლებისას</string>
   <string name="saved_pages_progress_title">შენახული გვერდების გადატვირთვა</string>
-  <string name="menu_page_saved">გვერდი შენახულია</string>
-  <string name="menu_refresh_saved_page">გვერდის გადატვირთვა</string>
   <string name="abusefilter_title_disallow">ამ ცვლილების შენახვა არ შეგიძლიათ. დაბრუნდით უკან და შეცვალეთ.</string>
   <string name="text_size_select">შრიფტის ზომა</string>
   <string name="color_theme_select">თემა</string>

@@ -168,8 +168,6 @@
   <string name="saved_pages_update_all_error_retry">Reprovi</string>
   <string name="saved_pages_update_all_error_message">Eraro dum ĝisdatigo de konservitaj paĝoj</string>
   <string name="saved_pages_progress_title">Ĝisdatigante konservitajn paĝojn</string>
-  <string name="menu_page_saved">Paĝo konservita</string>
-  <string name="menu_refresh_saved_page">Ĝisdatigi paĝon</string>
   <string name="abusefilter_title_warn">Tio ĉi eble estas nekonstruiga redakto. Ĉu vi certas, ke vi volas konservi ĝin?</string>
   <string name="abusefilter_title_disallow">Vi ne povas konservi ĉi tiun modifon. Bonvole iru reen kaj ŝanĝu ĝin.</string>
   <string name="dialog_page_issues">Paĝaj problemoj</string>

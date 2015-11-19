@@ -5,11 +5,6 @@ transformer.register( 'displayDisambigLink', function( content ) {
     if ( hatnotes.length > 0 ) {
         var container = document.getElementById( "issues_container" );
         var wrapper = document.createElement( 'div' );
-        var link = document.createElement( 'a' );
-        link.setAttribute( 'href', '#disambig' );
-        link.className = 'disambig_button';
-        link.id = 'disambig_button';
-        wrapper.appendChild( link );
         var i = 0,
             len = hatnotes.length;
         for (; i < len; i++) {

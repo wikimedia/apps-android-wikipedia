@@ -179,8 +179,6 @@
   <string name="saved_pages_update_all_error_retry">Повторити</string>
   <string name="saved_pages_update_all_error_message">Помилка при оновленні збережених сторінок</string>
   <string name="saved_pages_progress_title">Перезавантаження збережених сторінок</string>
-  <string name="menu_page_saved">Сторінку збережено</string>
-  <string name="menu_refresh_saved_page">Оновити сторінку</string>
   <string name="abusefilter_title_warn">Це може редагування бути неконструктивним. Ви впевнені, що хочете його зберегти?</string>
   <string name="abusefilter_title_disallow">Ви не можете зберегти це редагування. Будь ласка, поверніться назад і змініть його.</string>
   <string name="abusefilter_text_warn">Автоматичний фільтр визначив це редагування як потенційно неконструктивне. У ньому може бути щось із цього:&lt;br /&gt;&lt;br /&gt;· Набрано повністю великими літерами&lt;br /&gt;· Очищення статті або спам&lt;br /&gt;· Невідповідні зовнішні посилання чи зображення&lt;br /&gt;· Повторювані символи</string>

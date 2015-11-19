@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -25,17 +24,12 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
-import org.wikipedia.page.leadimages.ImageViewWithFace;
 import org.wikipedia.page.leadimages.ImageViewWithFace.OnImageLoadListener;
 import org.wikipedia.richtext.LeadingSpan;
 import org.wikipedia.richtext.ParagraphSpan;
@@ -51,9 +45,11 @@ import butterknife.ButterKnife;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ArticleHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
-    @Bind(R.id.image) ImageViewWithFace image;
-    @Bind(R.id.placeholder) ImageView placeholder;
-    @Bind(R.id.text) AppTextView text;
+    private static final float SCREEN_PROPORTION = 1 / 1.75f;
+
+    @Bind(R.id.view_article_header_image) ArticleHeaderImageView image;
+    @Bind(R.id.view_article_header_text) AppTextView text;
+    @Bind(R.id.view_article_header_menu_bar) ArticleMenuBarView menuBar;
 
     @NonNull private CharSequence title = "";
     @NonNull private CharSequence subtitle = "";
@@ -91,10 +87,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     public void showText() {
         setVisibility(View.VISIBLE);
 
-        image.setVisibility(View.GONE);
         updateText();
-
-        placeholder.setVisibility(View.GONE);
 
         setTextColor(getColor(getThemedAttributeId(getContext(),
                 R.attr.lead_disabled_text_color)));
@@ -105,10 +98,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     public void showTextImage() {
         setVisibility(View.VISIBLE);
 
-        image.setVisibility(View.INVISIBLE);
         updateText();
-
-        placeholder.setVisibility(View.VISIBLE);
 
         setTextColor(getColor(R.color.lead_text_color));
         setTextDropShadow();
@@ -116,23 +106,26 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     // TODO: remove.
-    public ImageViewWithFace getImage() {
-        return image;
+    public View getImage() {
+        return image.getImage();
     }
 
-    public void setOnImageLoadListener(OnImageLoadListener listener) {
-        image.setOnImageLoadListener(listener);
+    public void setOnImageLoadListener(@Nullable OnImageLoadListener listener) {
+        image.setLoadListener(listener);
     }
 
-    public void loadImage(@NonNull String url) {
-        Picasso.with(getContext())
-                .load(url)
-                .noFade()
-                .into((Target) image);
+    public void loadImage(@Nullable String url) {
+        image.load(url);
+        int height = url == null ? 0 : (int) (DimenUtil.getDisplayHeightPx() * SCREEN_PROPORTION);
+        setMinimumHeight(height);
+    }
+
+    public void crossFadeImage() {
+        image.crossFade();
     }
 
     public boolean hasImage() {
-        return image.getVisibility() != View.GONE;
+        return image.hasImage();
     }
 
     // ideas from:
@@ -152,11 +145,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     public void setImageYScalar(float offset) {
         imageYScalar = offset;
         updateParallaxScroll();
-    }
-
-    // TODO: remove.
-    public ImageView getPlaceholder() {
-        return placeholder;
     }
 
     public int getLineCount() {
@@ -206,6 +194,14 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         return pronunciationUrl != null;
     }
 
+    public void updateMenuBar(boolean bookmarkSaved) {
+        menuBar.update(bookmarkSaved);
+    }
+
+    public void setMenuBarCallback(@Nullable ArticleMenuBarView.Callback callback) {
+        menuBar.setCallback(callback);
+    }
+
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         updateParallaxScroll(scrollY);
@@ -215,6 +211,14 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         avPlayer.init();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int maxHeight = (int) (DimenUtil.getDisplayHeightPx() * SCREEN_PROPORTION);
+        heightMeasureSpec = MeasureSpec.makeMeasureSpec(Math.min(MeasureSpec.getSize(heightMeasureSpec),
+                        maxHeight), MeasureSpec.AT_MOST);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
@@ -236,11 +240,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     private void updateParallaxScroll(int scrollY) {
         int offset = Math.min(getHeight(), scrollY);
         setTranslationY(-offset);
-
-        if (image.getDrawable() != null) {
-            updateImageViewParallax(image, imageYScalar, offset / 2);
-        }
-        updateImageViewParallax(placeholder, 0, offset / 2);
+        image.setParallax(imageYScalar, offset / 2);
     }
 
     private void updateText() {
@@ -259,47 +259,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         }
 
         text.setText(builder);
-    }
-
-    private void updateImageViewParallax(ImageView view, float scalar, int offset) {
-        Matrix matrix = centerCropWithOffsetScalar(view, view.getDrawable(), view.getImageMatrix(), scalar);
-        matrix.postTranslate(0, offset);
-        view.setImageMatrix(matrix);
-    }
-
-    // See ImageView
-    private Matrix centerCropWithOffsetScalar(@NonNull View view,
-                                              @NonNull Drawable drawable,
-                                              @NonNull Matrix initial,
-                                              float offsetScalar) {
-        final float halfScalar = .5f;
-
-        Matrix matrix = new Matrix(initial);
-
-        int drawableWidth = drawable.getIntrinsicWidth();
-        int drawableHeight = drawable.getIntrinsicHeight();
-
-        int canvasWidth = view.getWidth() - view.getPaddingLeft() - view.getPaddingRight();
-        int canvasHeight = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
-
-        float scale;
-        float dx = 0;
-        float dy = 0;
-        if (drawableWidth * canvasHeight > canvasWidth * drawableHeight) {
-            scale = (float) canvasHeight / (float) drawableHeight;
-            dx = (canvasWidth - drawableWidth * scale) * halfScalar;
-        } else {
-            scale = (float) canvasWidth / (float) drawableWidth;
-            dy = (canvasHeight - drawableHeight * scale) * halfScalar;
-        }
-
-        matrix.setScale(scale, scale);
-        matrix.postTranslate(dx, dy);
-
-        float y = (canvasHeight - drawableHeight * scale) * (offsetScalar - halfScalar);
-        matrix.postTranslate(0, y);
-
-        return matrix;
     }
 
     private Spanned pronunciationSpanned() {

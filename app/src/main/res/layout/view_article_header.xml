@@ -2,34 +2,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <org.wikipedia.page.leadimages.ImageViewWithFace
-        android:id="@+id/image"
+    <org.wikipedia.views.ArticleHeaderImageView
+        android:id="@+id/view_article_header_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="matrix"
-        android:background="@color/white"
-        android:contentDescription="@null" />
+        android:layout_height="match_parent" />
 
-    <!-- TODO: can this be merged with ImageViewWithFace? -->
-    <ImageView
-        android:id="@+id/placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="matrix"
-        android:src="?lead_image_drawable"
-        android:contentDescription="@null" />
-
-    <org.wikipedia.views.AppTextView
-        style="@style/RtlAwareTextView"
-        android:id="@+id/text"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:layout_gravity="bottom"
-        android:paddingTop="32dp"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="16dp"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar"
-        tools:text="Title\nSubtitle" />
+        android:orientation="vertical">
+
+        <org.wikipedia.views.StatusBarBlankView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <org.wikipedia.views.AppTextView
+            style="@style/RtlAwareTextView"
+            android:id="@+id/view_article_header_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="16dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar"
+            tools:text="Title\nSubtitle" />
+
+        <org.wikipedia.views.ArticleMenuBarView
+            android:id="@+id/view_article_header_menu_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/view_article_menu_bar_button_padding"
+            android:paddingLeft="@dimen/view_article_menu_bar_button_padding"
+            android:background="@color/grey_211"
+            android:clickable="true"
+            android:maxHeight="42dp"
+            android:gravity="center_vertical" />
+
+    </LinearLayout>
 
 </merge>

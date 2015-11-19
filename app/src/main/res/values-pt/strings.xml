@@ -179,8 +179,6 @@
   <string name="saved_pages_update_all_error_retry">Tentar novamente</string>
   <string name="saved_pages_update_all_error_message">Erro ao atualizar as guardadas</string>
   <string name="saved_pages_progress_title">A recarregar páginas guardadas</string>
-  <string name="menu_page_saved">Página gravada</string>
-  <string name="menu_refresh_saved_page">Recarregar página</string>
   <string name="abusefilter_title_warn">Esta edição poderá não ser construtiva. Tem a certeza que pretende gravá-la?</string>
   <string name="abusefilter_title_disallow">Não pode gravar esta edição. Por favor, volte atrás e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou esta edição como não sendo construtiva. Pode conter os seguintes erros:&lt;br /&gt;&lt;br /&gt;Uso excessivo de maiúsculas;&lt;br/&gt;Branqueamento de artigos e spam;&lt;br/&gt;Imagens ou ligações externas irrelevantes;&lt;br/&gt;Repetição de caracteres</string>

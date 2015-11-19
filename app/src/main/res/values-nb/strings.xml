@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Prøv igjen</string>
   <string name="saved_pages_update_all_error_message">Feil under gjenoppfrisking av lagrede sider</string>
   <string name="saved_pages_progress_title">Gjenoppfrisker lagrede sider</string>
-  <string name="menu_page_saved">Siden ble lagret</string>
-  <string name="menu_refresh_saved_page">Gjenoppfrisk siden</string>
   <string name="abusefilter_title_warn">Dette er muligens en lite konstruktiv redigering. Er du sikker på at du vil lagre?</string>
   <string name="abusefilter_title_disallow">Du kan ikke lagre denne redigeringen. Vennligst gå tilbake og prøv igjen.</string>
   <string name="abusefilter_text_warn">Redigeringen har blitt identifisert som potensielt destruktiv av et automatisk filter. Den kan inneholde en eller flere av følgende ting:&lt;br /&gt;&lt;br /&gt;· Hele ord skrevet med store bokstaver&lt;br /&gt;· Tømming av artikkelen eller spamming&lt;br /&gt;· Irrelevante eksterne lenker eller bilder&lt;br /&gt;· Gjentagende tegn</string>

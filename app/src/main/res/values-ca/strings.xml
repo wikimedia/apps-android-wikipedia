@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Tornar-ho a provar</string>
   <string name="saved_pages_update_all_error_message">Error en actualitzar les pàgines desades</string>
   <string name="saved_pages_progress_title">S\'estan actualitzant les pàgines desades</string>
-  <string name="menu_page_saved">Pàgina desada</string>
-  <string name="menu_refresh_saved_page">Actualitzar la pàgina</string>
   <string name="abusefilter_title_warn">Això podria ser una modificació no constructiva. Segur que voleu desar-la?</string>
   <string name="abusefilter_title_disallow">No podeu desar aquesta modificació. Aneu enrere i canvieu-la.</string>
   <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs irrellevants o imatges&lt;br /&gt;· Caràcters que es repeteixin</string>

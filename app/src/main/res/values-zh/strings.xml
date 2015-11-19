@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">重试</string>
   <string name="saved_pages_update_all_error_message">更新保存的页面时出错</string>
   <string name="saved_pages_progress_title">正在更新保存的页面</string>
-  <string name="menu_page_saved">页面已保存</string>
-  <string name="menu_refresh_saved_page">刷新页面</string>
   <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要保存？</string>
   <string name="abusefilter_title_disallow">您不能保存该编辑。请返回更改。</string>
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全文大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>

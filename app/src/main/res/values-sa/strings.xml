@@ -178,8 +178,6 @@
   <string name="saved_pages_update_all_error_retry">पुनःप्रयासः</string>
   <string name="saved_pages_update_all_error_message">पृष्ठम् अद्यतनकरणे दोषः</string>
   <string name="saved_pages_progress_title">रक्षितपृष्ठानां प्रत्यवस्थापनम्</string>
-  <string name="menu_page_saved">पृष्ठं रक्षितम्</string>
-  <string name="menu_refresh_saved_page">पृष्ठं प्रत्यववस्थाप्यताम्</string>
   <string name="abusefilter_title_warn">एतत् सम्पादनम् अरचनात्मकं भाति । भवान्/भवती निश्चयेन एतत् रक्षितुम् इच्छति ?</string>
   <string name="abusefilter_title_disallow">भवान्/भवती एतत् सम्पादनं रक्षितुं न शक्नोति । कृपया प्रतिनिवर्त्य परिवर्तयतु ।</string>
   <string name="abusefilter_text_warn">स्वचालितशोधन्या भवतः/भवत्याः सम्पादनम् अरचनात्मकम् उत नाशकत्वं परिगण्यते । निम्नेषु एकम् उत एकाधिकं भवेत् :&lt;br /&gt;&lt;br /&gt;· सर्वाणि बृहदाक्षराणि (caps) टङ्कितानि &lt;br /&gt;· लेखं त्रोटयति उत फल्गूकरोति &lt;br /&gt;·  बाह्यपरिसन्धिः असङ्गतः उत चित्राणि असङ्गतानि&lt;br /&gt;· अक्षराणां पुनरुक्तिः</string>

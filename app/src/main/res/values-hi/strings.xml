@@ -142,7 +142,6 @@
   <string name="find_next">अगला ढूँढें</string>
   <string name="find_previous">पिछला ढूँढें</string>
   <string name="saved_pages_update_all_error_retry">पुनः प्रयास करें</string>
-  <string name="menu_page_saved">पृष्ठ सहेजा गया</string>
   <string name="abusefilter_title_disallow">आप इस संपादन को सहेजा नही कर सकतें। कृपया पीछे जा कर इसे बदलें।</string>
   <string name="dialog_page_issues">पृष्ठ समस्या</string>
   <string name="text_size_select">फ़ॉन्ट का आकार</string>

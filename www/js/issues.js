@@ -6,11 +6,6 @@ transformer.register( 'displayIssuesLink', function( content ) {
         var el = issues[0];
         var container = document.getElementById( "issues_container" );
         var wrapper = document.createElement( 'div' );
-        var link = document.createElement( 'a' );
-        link.setAttribute( 'href', '#issues' );
-        link.className = 'issues_button';
-        link.id = 'issues_button';
-        wrapper.appendChild( link );
         el.parentNode.replaceChild( wrapper, el );
         var i = 0,
             len = issues.length;

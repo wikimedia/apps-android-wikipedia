@@ -142,8 +142,6 @@
   <string name="saved_pages_update_all_error_retry">Reprobar</string>
   <string name="saved_pages_update_all_error_message">Error durante le ajornamento del paginas salvate</string>
   <string name="saved_pages_progress_title">Ajornamento del pagina salvate</string>
-  <string name="menu_page_saved">Pagina salvate</string>
-  <string name="menu_refresh_saved_page">Refrescar le pagina</string>
   <string name="abusefilter_title_warn">salvar lo?</string>
   <string name="abusefilter_title_disallow">Tu non pote salvar iste modifica. Per favor retorna e cambia la.</string>
   <string name="dialog_page_issues">Problemas con le pagina</string>

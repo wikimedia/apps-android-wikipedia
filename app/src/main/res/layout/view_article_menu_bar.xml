@@ -1,0 +1,28 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageButton
+        style="@style/ArticleMenuBarViewButton"
+        android:id="@+id/view_article_menu_bar_bookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bookmark"
+        android:contentDescription="@string/article_menu_bar_bookmark" />
+
+    <ImageButton
+        style="@style/ArticleMenuBarViewButton"
+        android:id="@+id/view_article_menu_bar_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_share_dark"
+        android:contentDescription="@string/article_menu_bar_share" />
+
+    <ImageButton
+        style="@style/ArticleMenuBarViewButton"
+        android:id="@+id/view_article_menu_bar_navigate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/ic_navigate"
+        android:contentDescription="@string/article_menu_bar_navigate" />
+
+</merge>

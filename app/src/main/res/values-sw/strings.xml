@@ -121,8 +121,6 @@
   <string name="find_next">Tafuta ifuatayo</string>
   <string name="find_previous">Tafuta iliyotangulia</string>
   <string name="saved_pages_update_all_error_retry">Jaribu tena</string>
-  <string name="menu_page_saved">Ukurasa umehifadhiwa</string>
-  <string name="menu_refresh_saved_page">Pakia ukurasa tena</string>
   <string name="page_similar_titles">Kurasa zifananazo</string>
   <string name="search_did_you_mean">Je ulimaanisha \"%s\"?</string>
   <string name="table_other">Maelezo zaidi</string>

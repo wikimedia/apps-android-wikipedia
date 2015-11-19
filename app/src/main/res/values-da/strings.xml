@@ -179,8 +179,6 @@
   <string name="saved_pages_update_all_error_retry">Prøv igen</string>
   <string name="saved_pages_update_all_error_message">Der opstod fejl under opdatering af gemte sider</string>
   <string name="saved_pages_progress_title">Opdaterer gemte sider</string>
-  <string name="menu_page_saved">Side gemt</string>
-  <string name="menu_refresh_saved_page">Opdater side</string>
   <string name="abusefilter_title_warn">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på du ønsker at gemme den?</string>
   <string name="abusefilter_title_disallow">Du kan ikke gemme denne redigering. Gå venligst tilbage og ændre den.</string>
   <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>

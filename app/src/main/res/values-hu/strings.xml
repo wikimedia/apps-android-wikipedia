@@ -159,8 +159,6 @@
   <string name="error_network_error_try_again">Nem sikerült elérni a hálózatot, kérjük, próbáld újra.</string>
   <string name="saved_pages_update_all_error_retry">Újra</string>
   <string name="saved_pages_update_all_error_message">Hiba a mentett lapok frissítése során</string>
-  <string name="menu_page_saved">Lap elmentve</string>
-  <string name="menu_refresh_saved_page">Lap frissítése</string>
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Világos</string>
   <string name="color_theme_dark">Sötét</string>

@@ -177,8 +177,6 @@
   <string name="saved_pages_update_all_error_retry">Adklask</string>
   <string name="saved_pages_update_all_error_message">Fazi pa oad oc\'h hizivaat pajennoù enrollet</string>
   <string name="saved_pages_progress_title">O freskaat ar pajennoù enrollet…</string>
-  <string name="menu_page_saved">Pajenn enrollet</string>
-  <string name="menu_refresh_saved_page">Freskaat ar bajenn</string>
   <string name="abusefilter_title_warn">War a seblant ne vo ket degaset kalz a dra gant ar c\'hemm-mañ. Ha sur oc\'h e fell deoc\'h enrollañ anezhañ ?</string>
   <string name="abusefilter_title_disallow">Ne c\'hallit ket enrollañ ar c\'hemm-mañ. Distroit ha kemmit anezhañ.</string>
   <string name="abusefilter_text_warn">Ur sil emgefre en deus anavezet ar c\'hemm-mañ. Hervezañ ne zegaso ket kalz a dra. Ennañ e c\'hallfe bezañ un elfenn pe meur a hini &lt;br/br/&gt;Bizskrivañ pep tra gant pennlizherennoù&lt;br/&gt;. Pennadoù goullo pe posteloù strobus &lt;br/&gt;. Liammoù pe skeudennoù diavaez  diazaz&lt;br/&gt;. Arouezennoù bizskrivet en-dro.</string>

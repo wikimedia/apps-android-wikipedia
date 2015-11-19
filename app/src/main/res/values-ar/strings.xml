@@ -178,8 +178,6 @@
   <string name="saved_pages_update_all_error_retry">إعادة المحاولة</string>
   <string name="saved_pages_update_all_error_message">حدث خطأ أثناء تحديث الصفحات المحفوظة</string>
   <string name="saved_pages_progress_title">جارٍ تحديث الصفحات المحفوظة</string>
-  <string name="menu_page_saved">حُفظت الصفحة</string>
-  <string name="menu_refresh_saved_page">تحديث الصفحة</string>
   <string name="abusefilter_title_warn">هذا التعديل ربما لا يكون بنّاءً. هل أنت متأكد من أنك تريد حفظه؟</string>
   <string name="abusefilter_title_disallow">لا يمكنك حفظ هذا التعديل. فضلًا عُد وغيّره.</string>
   <string name="abusefilter_text_warn">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ. قد يحتوي التعديل على حالة أو أكثر مما يلي:&lt;br /&gt;&lt;br /&gt;· كتابة الكل بأحرف كبيرة&lt;br /&gt;· إفراغ المقالات أو إضافة وصلات السبام&lt;br /&gt;· إضافة وصلات خارجية أو صور ليست لها صلة بالموضوع&lt;br /&gt;· تكرار أحرف</string>

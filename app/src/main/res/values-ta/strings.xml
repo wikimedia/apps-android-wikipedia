@@ -135,7 +135,6 @@
   <string name="edit_summary_tag_typo">தட்டுப்பிழைத்திருத்தம்</string>
   <string name="edit_summary_tag_grammar">இலக்கணப் பிழைத்திருத்தம்</string>
   <string name="edit_summary_tag_other">பிற சுருக்கம்</string>
-  <string name="menu_page_saved">பக்கம் சேமிக்கப்பட்டது</string>
   <string name="dialog_page_issues">பக்க சிக்கல்கள்</string>
   <string name="button_page_issues">பக்க சிக்கல்கள்</string>
   <string name="text_size_select">எழுத்துரு அளவு</string>

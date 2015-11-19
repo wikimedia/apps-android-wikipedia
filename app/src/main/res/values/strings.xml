@@ -36,11 +36,13 @@
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>
-    <string name="menu_page_other_languages">Read in other languages</string>
+    <string name="menu_page_other_languages">Change language</string>
+    <string name="menu_page_find_in_page">Find in page</string>
+    <string name="menu_page_content_issues">Content issues</string>
+    <string name="menu_page_similar_titles">Similar titles</string>
+    <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_save">Save page</string>
     <string name="menu_page_share">Share link</string>
-    <string name="menu_page_find_in_page">Find in page</string>
-    <string name="menu_page_font_and_theme">Font and theme</string>
 
     <!-- Long press menu -->
     <string name="menu_long_press_open_page">Open</string>
@@ -193,8 +195,7 @@
     <string name="saved_pages_update_all_error_retry">Retry</string>
     <string name="saved_pages_update_all_error_message">Error updating saved pages</string>
     <string name="saved_pages_progress_title">Refreshing saved pages</string>
-    <string name="menu_page_saved">Page saved</string>
-    <string name="menu_refresh_saved_page">Refresh page</string>
+    <!-- need this and next? -->
     <string name="abusefilter_title_warn">This may be an unconstructive edit. Are you sure you want to save it?</string>
     <string name="abusefilter_title_disallow">You cannot save this edit. Please go back and change it.</string>
     <string name="abusefilter_text_warn"><![CDATA[An automated filter has identified this edit as potentially unconstructive. It may contain one or more of the following:<br /><br />· Typing in all caps<br />· Blanking articles or spamming<br />· Irrelevant external links or images<br />· Repeating characters]]></string>
@@ -297,4 +298,9 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="crash_report_quit">Quit</string>
     <!-- /Crash reporter -->
 
+    <!-- Article menu bar -->
+    <string name="article_menu_bar_bookmark">Save the article for offline reading later</string>
+    <string name="article_menu_bar_share">Share the article link</string>
+    <string name="article_menu_bar_navigate">Navigate to the location of the article</string>
+    <!-- /Article menu bar -->
 </resources>

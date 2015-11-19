@@ -124,7 +124,6 @@
   <string name="edit_preview">نمائش</string>
   <string name="edit_summary_tag_typo">درستی املا</string>
   <string name="edit_summary_tag_grammar">درستی قواعد</string>
-  <string name="menu_refresh_saved_page">صفحہ تازہ کریں</string>
   <string name="search_did_you_mean">کیا آپ کو \"%s\" ہے؟</string>
   <string name="search_recent_header">حالیہ تلاش کیے گئے صفحات:</string>
   <string name="button_clear_all_recent_searches">حالیہ تلاش کی تاریخ حذف کریں</string>

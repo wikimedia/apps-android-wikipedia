@@ -181,4 +181,11 @@
         <item name="android:maxLength">8</item>
     </style>
 
+    <style name="ArticleMenuBarViewButton" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingRight">@dimen/view_article_menu_bar_button_padding</item>
+        <item name="android:paddingLeft">@dimen/view_article_menu_bar_button_padding</item>
+        <item name="android:tint">@color/grey_700</item>
+    </style>
+
 </resources>

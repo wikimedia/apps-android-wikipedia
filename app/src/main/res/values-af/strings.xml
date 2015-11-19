@@ -169,8 +169,6 @@
   <string name="saved_pages_update_all_error_retry">Probeer weer</string>
   <string name="saved_pages_update_all_error_message">Fout tydens opdatering van gestoorde bladsye</string>
   <string name="saved_pages_progress_title">Besig om gestoorde bladsye te herlaai</string>
-  <string name="menu_page_saved">Blad gestoor</string>
-  <string name="menu_refresh_saved_page">Herlaai blad</string>
   <string name="abusefilter_title_warn">Hierdie mag \'n nie-konstruktiewe wysiging wees. Is u seker u wil dit stoor?</string>
   <string name="abusefilter_title_disallow">U kan nie hierdie wysiging stoor nie. Gaan asseblief terug en verander dit.</string>
   <string name="abusefilter_text_warn">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief geïdentifiseer. Dit mag een of meer van die volgende bevat:&lt;br /&gt;&lt;br /&gt;· Tik van alles in hoofletters&lt;br /&gt;· Leegmaak van artikels of pespos&lt;br /&gt;· Irrelevante eksterne skakels&lt;br /&gt;· Herhalende karakter</string>

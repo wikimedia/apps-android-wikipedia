@@ -31,7 +31,6 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ArticleHeaderView;
@@ -102,6 +101,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private PageLoadStrategy pageLoadStrategy;
     private PageViewModel model;
+    @Nullable private PageInfo pageInfo;
 
     /**
      * List of tabs, each of which contains a backstack of page titles.
@@ -138,6 +138,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private WikiDrawerLayout tocDrawer;
 
     private FloatingActionButton tocButton;
+
+    @Nullable private Menu menu;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -308,19 +310,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
                 referenceDialog.updateReference(refHtml);
                 referenceDialog.show();
-            }
-        };
-
-        new PageInfoHandler(getPageActivity(), bridge) {
-            @Override
-            Site getSite() {
-                return model.getTitle().getSite();
-            }
-
-            @Override
-            int getDialogHeight() {
-                // could have scrolled up a bit but the page info links must still be visible else they couldn't have been clicked
-                return webView.getHeight() + webView.getScrollY() - articleHeaderView.getHeight();
             }
         };
 
@@ -507,15 +496,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageLoadStrategy.isLoading()) {
-            leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
-                @Override
-                public void onLayoutComplete(int sequence) {
-                    // (We don't care about the sequence number here, since it doesn't affect
-                    // page loading)
-                    // When it's finished laying out, make sure the toolbar is shown appropriately.
-                    searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                }
-            }, 0);
+            pageLoadStrategy.layoutLeadImage();
         }
         tabsProvider.onConfigurationChanged();
     }
@@ -649,6 +630,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
         inflater.inflate(R.menu.menu_page_actions, menu);
+        this.menu = menu;
     }
 
     @Override
@@ -657,31 +639,25 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!isAdded() || getPageActivity().isSearching()) {
             return;
         }
-        MenuItem savePageItem = menu.findItem(R.id.menu_page_save);
-        if (savePageItem == null) {
-            return;
-        }
-        if (getTitle() != null) {
-            updateSavePageMenuItem(savePageItem);
-        }
 
-        MenuItem shareItem = menu.findItem(R.id.menu_page_share);
         MenuItem otherLangItem = menu.findItem(R.id.menu_page_other_languages);
         MenuItem findInPageItem = menu.findItem(R.id.menu_page_find_in_page);
+        MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
+        MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
         MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
 
         if (pageLoadStrategy.isLoading() || errorState) {
-            savePageItem.setEnabled(false);
-            shareItem.setEnabled(false);
             otherLangItem.setEnabled(false);
             findInPageItem.setEnabled(false);
+            contentIssues.setEnabled(false);
+            similarTitles.setEnabled(false);
             themeChooserItem.setEnabled(false);
         } else {
-            shareItem.setEnabled(true);
             // Only display "Read in other languages" if the article is in other languages
             otherLangItem.setVisible(model.getPage() != null && model.getPage().getPageProperties().getLanguageCount() != 0);
             otherLangItem.setEnabled(true);
             findInPageItem.setEnabled(true);
+            updateMenuPageInfo(menu);
             themeChooserItem.setEnabled(true);
         }
     }
@@ -690,17 +666,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         switch (item.getItemId()) {
             case R.id.homeAsUp:
                 // TODO SEARCH: add up navigation, see also http://developer.android.com/training/implementing-navigation/ancestral.html
-                return true;
-            case R.id.menu_page_save:
-                if (item.getTitle().equals(getString(R.string.menu_refresh_saved_page))) {
-                    refreshPage(true);
-                } else {
-                    savePage();
-                    app.getFunnelManager().getSavedPagesFunnel(model.getTitle().getSite()).logSaveNew();
-                }
-                return true;
-            case R.id.menu_page_share:
-                ShareUtil.shareText(getActivity(), model.getTitle());
                 return true;
             case R.id.menu_page_other_languages:
                 Intent langIntent = new Intent();
@@ -712,6 +677,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 return true;
             case R.id.menu_page_find_in_page:
                 showFindInPage();
+                return true;
+            case R.id.menu_page_content_issues:
+                showContentIssues();
+                return true;
+            case R.id.menu_page_similar_titles:
+                showSimilarTitles();
                 return true;
             case R.id.menu_page_font_and_theme:
                 getPageActivity().showThemeChooser();
@@ -726,6 +697,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onDestroyOptionsMenu() {
+        menu = null;
         super.onDestroyOptionsMenu();
     }
 
@@ -876,7 +848,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             public void onFinish(JSONObject result) {
                 // have we been unwittingly detached from our Activity?
                 if (!isAdded()) {
-                    Log.d("PageFragment", "Detached from activity, so stopping update.");
+                    L.d("Detached from activity, so stopping update.");
                     return;
                 }
 
@@ -884,16 +856,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
 
             @Override
-            public void onCatch(Throwable caught) {
-
+            public void onCatch(Throwable e) {
                 /*
                 If anything bad happens during loading of a saved page, then simply bounce it
                 back to the online version of the page, and re-save the page contents locally when it's done.
                  */
-
-                Log.d("LoadSavedPageTask", "Error loading saved page: " + caught.getMessage());
-                caught.printStackTrace();
-
+                L.d(e);
                 refreshPage(true);
             }
         }.execute();
@@ -906,23 +874,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
         displayNewPage(model.getTitle(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false, true);
-    }
-
-    public void updateSavePageMenuItem(MenuItem menuItemSavePage) {
-        if (!savedPageCheckComplete) {
-            menuItemSavePage.setEnabled(false);
-        } else if (pageSaved) {
-            if (pageRefreshed) {
-                menuItemSavePage.setEnabled(false);
-                menuItemSavePage.setTitle(getString(R.string.menu_page_saved));
-            } else {
-                menuItemSavePage.setEnabled(true);
-                menuItemSavePage.setTitle(getString(R.string.menu_refresh_saved_page));
-            }
-        } else {
-            menuItemSavePage.setEnabled(true);
-            menuItemSavePage.setTitle(getString(R.string.menu_page_save));
-        }
     }
 
     private ToCHandler tocHandler;
@@ -953,6 +904,34 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void setupToC(PageViewModel model, boolean isFirstPage) {
         tocHandler.setupToC(model.getPage(), model.getTitle().getSite(), isFirstPage);
         tocHandler.setEnabled(true);
+    }
+
+    private void updateMenuPageInfo(@NonNull Menu menu) {
+        MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
+        MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
+        contentIssues.setVisible(pageInfo != null && pageInfo.hasContentIssues());
+        contentIssues.setEnabled(true);
+        similarTitles.setVisible(pageInfo != null && pageInfo.hasSimilarTitles());
+        similarTitles.setEnabled(true);
+    }
+
+    private void showContentIssues() {
+        showPageInfoDialog().showIssues();
+    }
+
+    private void showSimilarTitles() {
+        showPageInfoDialog().showDisambig();
+    }
+
+    private PageInfoDialog showPageInfoDialog() {
+        PageInfoDialog dialog = new PageInfoDialog((PageActivity) getActivity(), pageInfo, pageInfoDialogHeight());
+        dialog.show();
+        return dialog;
+    }
+
+    private int pageInfoDialogHeight() {
+        // could have scrolled up a bit but the page info links must still be visible else they couldn't have been clicked
+        return webView.getHeight() + webView.getScrollY() - articleHeaderView.getHeight();
     }
 
     private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
@@ -1090,6 +1069,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public LinkHandler getLinkHandler() {
         return linkHandler;
+    }
+
+    public void updatePageInfo(@Nullable PageInfo pageInfo) {
+        this.pageInfo = pageInfo;
+        if (menu != null) {
+            updateMenuPageInfo(menu);
+        }
     }
 
     private void checkIfPageIsSaved() {

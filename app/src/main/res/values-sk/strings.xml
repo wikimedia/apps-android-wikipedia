@@ -178,8 +178,6 @@
   <string name="saved_pages_update_all_error_retry">Znova</string>
   <string name="saved_pages_update_all_error_message">Chyba pri aktualizácii uložených stránok</string>
   <string name="saved_pages_progress_title">Obnovenie uložených stránok</string>
-  <string name="menu_page_saved">Stránka uložená</string>
-  <string name="menu_refresh_saved_page">Obnoviť stránku</string>
   <string name="abusefilter_title_warn">Táto úprava môže byť nekonštruktívna. Naozaj ju chcete uložiť?</string>
   <string name="abusefilter_title_disallow">Túto úpravu nie je možné uložiť. Vráťte sa prosím späť a zmeňte ju.</string>
   <string name="abusefilter_text_warn">Automatický filter identifikoval túto úpravu ako potenciálne nekonštruktívnu. Mohla by obsahovať jednu alebo viaceré nasledovné veci:&lt;br /&gt;&lt;br /&gt;· vloženie iba veľkých písmen&lt;br /&gt;· vymazávanie článkov alebo spam&lt;br /&gt;· nerelevantné externé linky alebo obrázky&lt;br /&gt;· opakujúce sa znaky</string>

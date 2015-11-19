@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="saved_pages_update_all_error_message">ত্রুটি, পাতা হালনাগাদ করা যায়নি</string>
   <string name="saved_pages_progress_title">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে</string>
-  <string name="menu_page_saved">পাতা সংরক্ষিত</string>
-  <string name="menu_refresh_saved_page">পাতা পুনঃসতেজ করুন</string>
   <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি সংরক্ষণ করতে চান?</string>
   <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা সংরক্ষণ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
   <string name="abusefilter_text_warn">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক হিসাবে চিহ্নিত করেছে। এতে নিম্নলিখিতগুলি এক বা একাধিক বার থাকতে পারে:&lt;br /&gt;&lt;br /&gt;· নিবন্ধ খালি করা বা স্প্যামিং করা&lt;br /&gt;· অপ্রাসঙ্গিক বাহ্যিক লিঙ্ক বা ছবি&lt;br /&gt;· অক্ষরের পুনরাবৃত্তি</string>

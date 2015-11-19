@@ -63,13 +63,7 @@ document.onclick = function() {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
-                if ( "issues" === targetId ) {
-                    issuesClicked( sourceNode );
-                } else if ( "disambig" === targetId ) {
-                    disambigClicked( sourceNode );
-                } else {
-                    handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
-                }
+                handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
             } else if (sourceNode.classList.contains( 'app_media' )) {
                 bridge.sendMessage( 'mediaClicked', { "href": href } );
             } else if (sourceNode.classList.contains( 'image' )) {
@@ -81,42 +75,6 @@ document.onclick = function() {
         }
     }
 };
-
-function issuesClicked( sourceNode ) {
-    var issues = collectIssues( sourceNode.parentNode );
-    var disambig = collectDisambig( sourceNode.parentNode.parentNode ); // not clicked node
-    bridge.sendMessage( 'issuesClicked', { "hatnotes": disambig, "issues": issues } );
-}
-
-function disambigClicked( sourceNode ) {
-    var disambig = collectDisambig( sourceNode.parentNode );
-    var issues = collectIssues( sourceNode.parentNode.parentNode ); // not clicked node
-    bridge.sendMessage( 'disambigClicked', { "hatnotes": disambig, "issues": issues } );
-}
-
-function collectDisambig( sourceNode ) {
-    var res = [];
-    var links = sourceNode.querySelectorAll( 'div.hatnote a' );
-    var i = 0,
-        len = links.length;
-    for (; i < len; i++) {
-        // Pass the href; we'll decode it into a proper page title in Java
-        res.push( links[i].getAttribute( 'href' ) );
-    }
-    return res;
-}
-
-function collectIssues( sourceNode ) {
-    var res = [];
-    var issues = sourceNode.querySelectorAll( 'table.ambox' );
-    var i = 0,
-        len = issues.length;
-    for (; i < len; i++) {
-        // .ambox- is used e.g. on eswiki
-        res.push( issues[i].querySelector( '.mbox-text, .ambox-text' ).innerHTML );
-    }
-    return res;
-}
 
 module.exports = new ActionsHandler();
 
@@ -166,11 +124,6 @@ transformer.register( 'displayDisambigLink', function( content ) {
     if ( hatnotes.length > 0 ) {
         var container = document.getElementById( "issues_container" );
         var wrapper = document.createElement( 'div' );
-        var link = document.createElement( 'a' );
-        link.setAttribute( 'href', '#disambig' );
-        link.className = 'disambig_button';
-        link.id = 'disambig_button';
-        wrapper.appendChild( link );
         var i = 0,
             len = hatnotes.length;
         for (; i < len; i++) {
@@ -199,11 +152,6 @@ transformer.register( 'displayIssuesLink', function( content ) {
         var el = issues[0];
         var container = document.getElementById( "issues_container" );
         var wrapper = document.createElement( 'div' );
-        var link = document.createElement( 'a' );
-        link.setAttribute( 'href', '#issues' );
-        link.className = 'issues_button';
-        link.id = 'issues_button';
-        wrapper.appendChild( link );
         el.parentNode.replaceChild( wrapper, el );
         var i = 0,
             len = issues.length;
@@ -431,6 +379,7 @@ bridge.registerListener( "clearContents", function() {
 });
 
 bridge.registerListener( "setMargins", function( payload ) {
+    document.getElementById( "content" ).style.marginTop = payload.marginTop + "px";
     document.getElementById( "content" ).style.marginLeft = payload.marginLeft + "px";
     document.getElementById( "content" ).style.marginRight = payload.marginRight + "px";
 });
@@ -490,7 +439,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     var issuesContainer = document.createElement( "div" );
     issuesContainer.setAttribute( "dir", window.directionality );
     issuesContainer.id = "issues_container";
-    issuesContainer.className = "issues_container";
     document.getElementById( "content" ).appendChild( issuesContainer );
 
     var editButton = buildEditSectionButton( payload.section.id );
@@ -543,26 +491,13 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     transformer.transform("displayDisambigLink", content);
     transformer.transform("displayIssuesLink", content);
 
+    bridge.sendMessage( "pageInfo", {
+      "issues" : collectIssues(),
+      "disambiguations" : collectDisambig()
+    });
     //if there were no page issues, then hide the container
     if (!issuesContainer.hasChildNodes()) {
         document.getElementById( "content" ).removeChild(issuesContainer);
-    }
-    //update the text of the disambiguation link, if there is one
-    var disambigBtn = document.getElementById( "disambig_button" );
-    if (disambigBtn !== null) {
-        disambigBtn.innerText = payload.string_page_similar_titles;
-    }
-    //update the text of the page-issues link, if there is one
-    var issuesBtn = document.getElementById( "issues_button" );
-    if (issuesBtn !== null) {
-        issuesBtn.innerText = payload.string_page_issues;
-    }
-    //if we have both issues and disambiguation, then insert the separator
-    if (issuesBtn !== null && disambigBtn !== null) {
-        var separator = document.createElement( 'span' );
-        separator.innerText = '|';
-        separator.className = 'issues_separator';
-        issuesContainer.insertBefore(separator, issuesBtn.parentNode);
     }
 
     document.getElementById( "loading_sections").className = "loading";
@@ -635,7 +570,9 @@ bridge.registerListener( "displaySection", function ( payload ) {
             scrolledOnLoad = true;
         }
         document.getElementById( "loading_sections").className = "";
-        bridge.sendMessage( "pageLoadComplete", { "sequence": payload.sequence, "savedPage": payload.savedPage } );
+        bridge.sendMessage( "pageLoadComplete", {
+          "sequence": payload.sequence,
+          "savedPage": payload.savedPage });
     } else {
         var contentWrapper = document.getElementById( "content" );
         elementsForSection(payload.section).forEach(function (element) {
@@ -657,6 +594,30 @@ bridge.registerListener( "displaySection", function ( payload ) {
 bridge.registerListener( "scrollToSection", function ( payload ) {
     scrollToSection( payload.anchor );
 });
+
+function collectDisambig() {
+    var res = [];
+    var links = document.querySelectorAll( 'div.hatnote a' );
+    var i = 0,
+        len = links.length;
+    for (; i < len; i++) {
+        // Pass the href; we'll decode it into a proper page title in Java
+        res.push( links[i].getAttribute( 'href' ) );
+    }
+    return res;
+}
+
+function collectIssues() {
+    var res = [];
+    var issues = document.querySelectorAll( 'table.ambox' );
+    var i = 0,
+        len = issues.length;
+    for (; i < len; i++) {
+        // .ambox- is used e.g. on eswiki
+        res.push( issues[i].querySelector( '.mbox-text, .ambox-text' ).innerHTML );
+    }
+    return res;
+}
 
 function scrollToSection( anchor ) {
     if (anchor === "heading_0") {

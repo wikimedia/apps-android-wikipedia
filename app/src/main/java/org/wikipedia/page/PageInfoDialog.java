@@ -17,13 +17,13 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 /**
  * A dialog to host page issues and disambig information.
  */
-/*package*/ class PageInfoDialog extends BottomDialog {
+public class PageInfoDialog extends BottomDialog {
     private final ViewFlipper flipper;
     private final Button disambigHeading;
     private final Button issuesHeading;
     private final ListView disambigList;
 
-    /*package*/ PageInfoDialog(final PageActivity activity, PageInfo pageInfo, int height) {
+    public PageInfoDialog(final PageActivity activity, PageInfo pageInfo, int height) {
         super(activity, R.layout.dialog_page_info);
 
         View parentView = getDialogLayout();
@@ -47,8 +47,8 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 
         parentView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, height));
 
-        issuesList.setAdapter(new IssuesListAdapter(activity, pageInfo.getIssues()));
-        disambigList.setAdapter(new DisambigListAdapter(activity, pageInfo.getDisambigs()));
+        issuesList.setAdapter(new IssuesListAdapter(activity, pageInfo.getContentIssues()));
+        disambigList.setAdapter(new DisambigListAdapter(activity, pageInfo.getSimilarTitles()));
         disambigList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -62,7 +62,7 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
         new PageLongPressHandler(getContext(), disambigList, HistoryEntry.SOURCE_DISAMBIG,
                 contextMenuListener);
 
-        if (pageInfo.getDisambigs().length > 0) {
+        if (pageInfo.getSimilarTitles().length > 0) {
             disambigHeading.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -73,7 +73,7 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
             disambigHeading.setVisibility(View.GONE);
             separatorHeading.setVisibility(View.GONE);
         }
-        if (pageInfo.getIssues().length > 0) {
+        if (pageInfo.getContentIssues().length > 0) {
             issuesHeading.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -86,7 +86,7 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
         }
     }
 
-    /*package*/ void showDisambig() {
+    public void showDisambig() {
         if (flipper.getCurrentView() != flipper.getChildAt(0)) {
             flipper.setInAnimation(getContext(), R.anim.slide_in_left);
             flipper.setOutAnimation(getContext(), R.anim.slide_out_right);
@@ -99,7 +99,7 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
         issuesHeading.setEnabled(true);
     }
 
-    /*package*/ void showIssues() {
+    public void showIssues() {
         if (flipper.getCurrentView() != flipper.getChildAt(1)) {
             flipper.setInAnimation(getContext(), R.anim.slide_in_right);
             flipper.setOutAnimation(getContext(), R.anim.slide_out_left);

@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Thử lại</string>
   <string name="saved_pages_update_all_error_message">Có lỗi khi cập nhật các trang đã lưu</string>
   <string name="saved_pages_progress_title">Đang làm mới các trang đã lưu</string>
-  <string name="menu_page_saved">Đã lưu trang</string>
-  <string name="menu_refresh_saved_page">Làm mới trang</string>
   <string name="abusefilter_title_warn">Sửa đổi này có vẻ không có tính xây dựng. Bạn có chắc chắn muốn lưu nó?</string>
   <string name="abusefilter_title_disallow">Bạn không thể lưu sửa đổi này. Vui lòng quay lại và thay đổi nó.</string>
   <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này là có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>

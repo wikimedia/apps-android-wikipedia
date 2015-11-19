@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Reintentar</string>
   <string name="saved_pages_update_all_error_message">Error al actualizar páginas guardadas</string>
   <string name="saved_pages_progress_title">Actualizando páginas guardadas</string>
-  <string name="menu_page_saved">Página guardada</string>
-  <string name="menu_refresh_saved_page">Recargar página</string>
   <string name="abusefilter_title_warn">Esta parece una edición no constructiva. ¿Estás seguro de que quieres guardarla?</string>
   <string name="abusefilter_title_disallow">No puedes guardar esta edición. Por favor vuelve atrás y cámbiala.</string>
   <string name="abusefilter_text_warn">Un filtro automático ha identificado esta edición como potencialmente no constructiva. Puede contener uno o más de los siguientes:&lt;br&gt;&lt;br&gt;· Escrito en mayúsculas&lt;br&gt;· Borrado de artículos o spam&lt;br&gt;· Enlaces externos o imágenes irrelevantes&lt;br&gt;· Caracteres repetidos</string>

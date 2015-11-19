@@ -145,5 +145,10 @@ public final class StringUtil {
         return "";
     }
 
+    @NonNull
+    public static String intToHexStr(int i) {
+        return String.format("x%08x", i);
+    }
+
     private StringUtil() { }
 }

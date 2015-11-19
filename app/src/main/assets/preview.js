@@ -63,13 +63,7 @@ document.onclick = function() {
             var href = sourceNode.getAttribute( "href" );
             if ( href[0] === "#" ) {
                 var targetId = href.slice(1);
-                if ( "issues" === targetId ) {
-                    issuesClicked( sourceNode );
-                } else if ( "disambig" === targetId ) {
-                    disambigClicked( sourceNode );
-                } else {
-                    handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
-                }
+                handleReference( targetId, util.ancestorContainsClass( sourceNode, "mw-cite-backlink" ) );
             } else if (sourceNode.classList.contains( 'app_media' )) {
                 bridge.sendMessage( 'mediaClicked', { "href": href } );
             } else if (sourceNode.classList.contains( 'image' )) {
@@ -81,42 +75,6 @@ document.onclick = function() {
         }
     }
 };
-
-function issuesClicked( sourceNode ) {
-    var issues = collectIssues( sourceNode.parentNode );
-    var disambig = collectDisambig( sourceNode.parentNode.parentNode ); // not clicked node
-    bridge.sendMessage( 'issuesClicked', { "hatnotes": disambig, "issues": issues } );
-}
-
-function disambigClicked( sourceNode ) {
-    var disambig = collectDisambig( sourceNode.parentNode );
-    var issues = collectIssues( sourceNode.parentNode.parentNode ); // not clicked node
-    bridge.sendMessage( 'disambigClicked', { "hatnotes": disambig, "issues": issues } );
-}
-
-function collectDisambig( sourceNode ) {
-    var res = [];
-    var links = sourceNode.querySelectorAll( 'div.hatnote a' );
-    var i = 0,
-        len = links.length;
-    for (; i < len; i++) {
-        // Pass the href; we'll decode it into a proper page title in Java
-        res.push( links[i].getAttribute( 'href' ) );
-    }
-    return res;
-}
-
-function collectIssues( sourceNode ) {
-    var res = [];
-    var issues = sourceNode.querySelectorAll( 'table.ambox' );
-    var i = 0,
-        len = issues.length;
-    for (; i < len; i++) {
-        // .ambox- is used e.g. on eswiki
-        res.push( issues[i].querySelector( '.mbox-text, .ambox-text' ).innerHTML );
-    }
-    return res;
-}
 
 module.exports = new ActionsHandler();
 

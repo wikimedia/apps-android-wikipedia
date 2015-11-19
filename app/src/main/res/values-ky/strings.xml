@@ -161,8 +161,6 @@
   <string name="saved_pages_update_all_error_retry">Кайра аракет кылуу</string>
   <string name="saved_pages_update_all_error_message">Сакталган барактарды жаңылоо катасы</string>
   <string name="saved_pages_progress_title">Сакталган барактар жаңыланууда…</string>
-  <string name="menu_page_saved">Барак сакталды</string>
-  <string name="menu_refresh_saved_page">Баракты жаңылоо</string>
   <string name="abusefilter_title_warn">Бул оңдоо бузуку болушу мүмкүн. Сиз аны сактооңузга ишенесизби?</string>
   <string name="abusefilter_title_disallow">Сиз бул оңдоону сактай албайсыз. Сураныч, артка кайтыңыз жана аны өзгөртүңүз.</string>
   <string name="dialog_page_issues">Барак боюнча суроолор</string>

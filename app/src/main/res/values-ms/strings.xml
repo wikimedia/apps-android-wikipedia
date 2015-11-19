@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Cuba lagi</string>
   <string name="saved_pages_update_all_error_message">Ralat kemaskini laman tersimpan</string>
   <string name="saved_pages_progress_title">Memuatkan semula laman tersimpan</string>
-  <string name="menu_page_saved">Laman disimpan</string>
-  <string name="menu_refresh_saved_page">Segarkan laman</string>
   <string name="abusefilter_title_warn">Suntingan ini mungkin tidak membina. Adakah anda betul-betul mahu menyimpannya?</string>
   <string name="abusefilter_title_disallow">Suntingan ini tidak boleh disimpan. Sila kembali dan suntingnya semula.</string>
   <string name="abusefilter_text_warn">Penapis automatik mendapati suntingan ini berkemungkinan adalah tidak membina. Mungkin ia ada antara yang berikut:&lt;br /&gt;&lt;br /&gt;. Menaip dalam huruf besar&lt;br /&gt;. Mengosongkan rencana atau menspam&lt;br /&gt;. Pautan luar atau imej-imej tidak berkaitan&lt;br /&gt;. Aksara berulang</string>

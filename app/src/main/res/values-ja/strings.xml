@@ -179,8 +179,6 @@
   <string name="saved_pages_update_all_error_retry">再試行</string>
   <string name="saved_pages_update_all_error_message">保存したページを更新する際にエラーが発生しました</string>
   <string name="saved_pages_progress_title">保存したページを更新しています</string>
-  <string name="menu_page_saved">保存したページ</string>
-  <string name="menu_refresh_saved_page">ページを更新</string>
   <string name="abusefilter_title_warn">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
   <string name="abusefilter_title_disallow">この編集は保存できません。戻って変更してください。</string>
   <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;すべて大文字で書かれている&lt;br /&gt;記事が白紙化されているか、スパムである&lt;br /&gt;文字の繰り返し</string>

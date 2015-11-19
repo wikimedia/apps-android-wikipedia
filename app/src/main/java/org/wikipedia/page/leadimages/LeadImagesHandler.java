@@ -2,18 +2,17 @@ package org.wikipedia.page.leadimages;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.PointF;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.FragmentActivity;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.TypedValue;
-import android.graphics.PointF;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,13 +20,18 @@ import org.wikipedia.R;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.savedpages.DeleteSavedPageTask;
+import org.wikipedia.savedpages.SavePageTask;
+import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.ArticleHeaderView;
+import org.wikipedia.views.ArticleMenuBarView;
 import org.wikipedia.views.ObservableWebView;
 
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
@@ -39,12 +43,6 @@ public class LeadImagesHandler {
      * the page title.
      */
     private static final int MIN_SCREEN_HEIGHT_DP = 480;
-
-    /**
-     * Ratio of how much of the screen will be filled up by the lead image view, versus the
-     * total screen height.
-     */
-    private static final float IMAGES_CONTAINER_RATIO = 0.5f;
 
     /**
      * Maximum height of the page title text. If the text overflows this size, then the
@@ -63,12 +61,6 @@ public class LeadImagesHandler {
      */
     private static final int TITLE_TEXT_SIZE_DECREMENT_SP = 4;
 
-    /**
-     * Number of pixels to offset the WebView content (in addition to page title height),
-     * when lead images are disabled.
-     */
-    private static final int DISABLED_OFFSET_DP = 88;
-
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete(int sequence);
     }
@@ -77,16 +69,8 @@ public class LeadImagesHandler {
     @NonNull private final CommunicationBridge bridge;
     @NonNull private final ObservableWebView webView;
 
-    /**
-     * Whether lead images are enabled, overall.  They will be disabled automatically
-     * if the screen height is less than a defined constant (above), or if the current article
-     * doesn't have a lead image associated with it.
-     */
-    private boolean leadImagesEnabled;
-
     @NonNull private final ArticleHeaderView articleHeaderView;
-    private ImageView imagePlaceholder;
-    private ImageViewWithFace image;
+    private View image;
 
     private int displayHeightDp;
     private float faceYOffsetNormalized;
@@ -97,21 +81,21 @@ public class LeadImagesHandler {
                              @NonNull ObservableWebView webView,
                              @NonNull ArticleHeaderView articleHeaderView) {
         this.articleHeaderView = articleHeaderView;
+        this.articleHeaderView.setMenuBarCallback(new MenuBarCallback());
         this.parentFragment = parentFragment;
         this.bridge = bridge;
         this.webView = webView;
 
-        imagePlaceholder = articleHeaderView.getPlaceholder();
         image = articleHeaderView.getImage();
 
         initDisplayDimensions();
 
         initWebView();
 
+        initArticleHeaderView();
+
         // hide ourselves by default
         hide();
-
-        articleHeaderView.setOnImageLoadListener(new ImageLoadListener());
     }
 
     /**
@@ -123,11 +107,24 @@ public class LeadImagesHandler {
     }
 
     @Nullable public Bitmap getLeadImageBitmap() {
-        return leadImagesEnabled ? articleHeaderView.copyImage() : null;
+        return isLeadImageEnabled() ? articleHeaderView.copyImage() : null;
     }
 
     public boolean isLeadImageEnabled() {
-        return leadImagesEnabled;
+        String thumbUrl = getLeadImageUrl();
+        if (!WikipediaApp.getInstance().isImageDownloadEnabled() || displayHeightDp < MIN_SCREEN_HEIGHT_DP) {
+            // disable the lead image completely
+            return false;
+        } else {
+            // Enable only if the image is not a GIF, since GIF images are usually mathematical
+            // diagrams or animations that won't look good as a lead image.
+            // TODO: retrieve the MIME type of the lead image, instead of relying on file name.
+            return thumbUrl != null && !thumbUrl.endsWith(".gif");
+        }
+    }
+
+    public void updateMenuBar(boolean bookmarkSaved) {
+        articleHeaderView.updateMenuBar(bookmarkSaved);
     }
 
     /**
@@ -165,25 +162,16 @@ public class LeadImagesHandler {
      *
      * @param listener Listener that will receive an event when the layout is completed.
      */
-    public void beginLayout(OnLeadImageLayoutListener listener, int sequence) {
+    public void beginLayout(OnLeadImageLayoutListener listener,
+                            int sequence) {
         if (getPage() == null) {
             return;
         }
 
-        String thumbUrl = getLeadImageUrl();
         initDisplayDimensions();
 
-        if (!WikipediaApp.getInstance().isImageDownloadEnabled() || displayHeightDp < MIN_SCREEN_HEIGHT_DP) {
-            // disable the lead image completely
-            leadImagesEnabled = false;
-        } else {
-            // Enable only if the image is not a GIF, since GIF images are usually mathematical
-            // diagrams or animations that won't look good as a lead image.
-            // TODO: retrieve the MIME type of the lead image, instead of relying on file name.
-            leadImagesEnabled = thumbUrl != null && !thumbUrl.endsWith(".gif");
-        }
-
         // set the page title text, and honor any HTML formatting in the title
+        loadLeadImage();
         articleHeaderView.setTitle(Html.fromHtml(getPage().getDisplayTitle()));
         articleHeaderView.setLocale(getPage().getTitle().getSite().getLanguageCode());
         articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
@@ -257,44 +245,29 @@ public class LeadImagesHandler {
             return;
         }
 
-        int titleContainerHeight;
-
         if (isMainPage()) {
-            titleContainerHeight = (int) (getContentTopOffsetPx(getActivity()) / displayDensity);
             articleHeaderView.hide();
-        } else if (!leadImagesEnabled) {
-            articleHeaderView.showText();
-
-            // TODO: remove. Somebody is resetting the visibility of the ImageView.
-            image.setImageDrawable(null);
-
-            // ok, we're not going to show lead images, so we need to make some
-            // adjustments to our layout:
-            // make the WebView padding be just the height of the title text, plus a fixed offset
-            titleContainerHeight = (int) ((articleHeaderView.getTextHeight() / displayDensity))
-                    + DISABLED_OFFSET_DP;
-            articleHeaderView.setLayoutParams(new CoordinatorLayout.LayoutParams(CoordinatorLayout.LayoutParams.MATCH_PARENT,
-                    (int) ((titleContainerHeight) * displayDensity)));
         } else {
-            articleHeaderView.showTextImage();
-
-            // we're going to show the lead image, so make some adjustments to the
-            // layout, in case we were previously not showing it:
-            // make the WebView padding be a proportion of the total screen height
-            titleContainerHeight = (int) (displayHeightDp * IMAGES_CONTAINER_RATIO);
-            articleHeaderView.setLayoutParams(new CoordinatorLayout.LayoutParams(CoordinatorLayout.LayoutParams.MATCH_PARENT,
-                    (int) (titleContainerHeight * displayDensity)));
-
+            if (!isLeadImageEnabled()) {
+                articleHeaderView.showText();
+            } else {
+                articleHeaderView.showTextImage();
+            }
         }
-
-        final int paddingExtra = 8;
-        setWebViewPaddingTop(titleContainerHeight + paddingExtra);
-
-        // and start fetching the lead image, if we have one
-        loadLeadImage();
 
         // tell our listener that it's ok to start loading the rest of the WebView content
         listener.onLayoutComplete(sequence);
+    }
+
+    private void updatePadding() {
+        int padding;
+        if (isMainPage()) {
+            padding = Math.round(getContentTopOffsetPx(getActivity()) / displayDensity);
+        } else {
+            padding = Math.round(articleHeaderView.getHeight() / displayDensity);
+        }
+
+        setWebViewPaddingTop(padding);
     }
 
     private void setWebViewPaddingTop(int padding) {
@@ -349,10 +322,12 @@ public class LeadImagesHandler {
      *            http://foo.bar.com/.
      */
     private void loadLeadImage(@Nullable String url) {
-        if (!isMainPage() && !TextUtils.isEmpty(url) && leadImagesEnabled) {
+        if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
             String fullUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + url;
             articleHeaderView.setImageYScalar(0);
             articleHeaderView.loadImage(fullUrl);
+        } else {
+            articleHeaderView.loadImage(null);
         }
     }
 
@@ -370,6 +345,18 @@ public class LeadImagesHandler {
         image.startAnimation(anim);
     }
 
+    private void initArticleHeaderView() {
+        articleHeaderView.setOnImageLoadListener(new ImageLoadListener());
+        articleHeaderView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            @SuppressWarnings("checkstyle:parameternumber")
+            public void onLayoutChange(View v, int left, int top, int right, int bottom,
+                                       int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                updatePadding();
+            }
+        });
+    }
+
     private void initWebView() {
         webView.addOnScrollChangeListener(articleHeaderView);
 
@@ -378,7 +365,7 @@ public class LeadImagesHandler {
             public boolean onClick(float x, float y) {
                 // if the click event is within the area of the lead image, then the user
                 // must have wanted to click on the lead image!
-                if (getPage() != null && leadImagesEnabled && y < (articleHeaderView.getHeight() - webView.getScrollY())) {
+                if (getPage() != null && isLeadImageEnabled() && y < (articleHeaderView.getHeight() - webView.getScrollY())) {
                     String imageName = getPage().getPageProperties().getLeadImageName();
                     if (imageName != null) {
                         PageTitle imageTitle = new PageTitle("File:" + imageName,
@@ -423,6 +410,60 @@ public class LeadImagesHandler {
         return parentFragment.getActivity();
     }
 
+    private class MenuBarCallback extends ArticleMenuBarView.DefaultCallback {
+        @Override
+        public void onBookmarkClick(boolean bookmarkSaved) {
+            if (getPage() == null) {
+                return;
+            }
+
+            if (bookmarkSaved) {
+                saveBookmark();
+            } else {
+                deleteBookmark();
+            }
+        }
+
+        @Override
+        public void onShareClick() {
+            if (getPage() != null) {
+                ShareUtil.shareText(getActivity(), getPage().getTitle());
+            }
+        }
+
+        private void saveBookmark() {
+            WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(getTitle().getSite()).logSaveNew();
+            FeedbackUtil.showMessage(getActivity(), R.string.snackbar_saving_page);
+            new SavePageTask(WikipediaApp.getInstance(), getTitle(), getPage()) {
+                @Override
+                public void onFinish(Boolean success) {
+                    if (parentFragment.isAdded() && getTitle() != null) {
+                        parentFragment.setPageSaved(!success);
+                        FeedbackUtil.showMessage(getActivity(), getActivity().getString(success
+                                ? R.string.snackbar_saved_page_format
+                                : R.string.snackbar_saved_page_missing_images, getTitle()));
+                    }
+                }
+            }.execute();
+        }
+
+        private void deleteBookmark() {
+            new DeleteSavedPageTask(getActivity(), new SavedPage(getTitle())) {
+                @Override
+                public void onFinish(Boolean success) {
+                    WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(getTitle().getSite()).logDelete();
+                    if (parentFragment.isAdded()) {
+                        parentFragment.setPageSaved(!success);
+                        if (success) {
+                            FeedbackUtil.showMessage(getActivity(),
+                                    R.string.snackbar_saved_page_deleted);
+                        }
+                    }
+                }
+            }.execute();
+        }
+    }
+
     private class ImageLoadListener implements ImageViewWithFace.OnImageLoadListener {
         @Override
         public void onImageLoaded(Bitmap bitmap, @Nullable final PointF faceLocation) {
@@ -451,7 +492,7 @@ public class LeadImagesHandler {
             articleHeaderView.setImageYScalar(scalar);
 
             // fade in the new image!
-            ViewAnimations.crossFade(imagePlaceholder, image);
+            articleHeaderView.crossFadeImage();
 
             startKenBurnsAnimation();
         }

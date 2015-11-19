@@ -178,8 +178,6 @@
   <string name="saved_pages_update_all_error_retry">Ξαναπροσπαθήστε</string>
   <string name="saved_pages_update_all_error_message">Λάθος στην ενημέρωση αποθηκευμένων σελίδων</string>
   <string name="saved_pages_progress_title">Ανανέωση αποθηκευμένων σελίδων</string>
-  <string name="menu_page_saved">Σελίδα αποθηκεύτηκε</string>
-  <string name="menu_refresh_saved_page">Ανανέωση σελίδας</string>
   <string name="abusefilter_title_warn">Αυτή μπορεί να είναι μια μη εποικοδομητική επεξεργασία. Είσαι σίγουρος ότι θέλεις να την αποθηκεύσεις;</string>
   <string name="abusefilter_title_disallow">Δεν μπορείτε να αποθηκεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
   <string name="abusefilter_text_warn">Ένα αυτοματοποιημένο φίλτρο έχει αναγνωρίσει αυτή την επεξεργασία ως δυνητικά μη εποικοδομητική. Μπορεί να περιέχει ένα ή περισσότερα από τα ακόλουθα:&lt;br /&gt;&lt;br /&gt;· Πληκτρολόγηση με όλα κεφαλαία&lt;br /&gt;· Άδειασμα λημμάτων ή spamming&lt;br /&gt;· Άσχετες εξωτερικές συνδέσεις ή εικόνες&lt;br /&gt;· Επανάληψη χαρακτήρων</string>

@@ -169,8 +169,6 @@
   <string name="saved_pages_update_all_error_retry">Subukang muli</string>
   <string name="saved_pages_update_all_error_message">May mali sa pag-update sa mga naitalang pahina</string>
   <string name="saved_pages_progress_title">Pinapanariwang-muli (refresh) ang mga naitalang pahina</string>
-  <string name="menu_page_saved">Pahina ay naitala</string>
-  <string name="menu_refresh_saved_page">Panariwaing muli ang pahina</string>
   <string name="abusefilter_title_warn">Maaaring hindi makakatulong na pahina ito. Tiyak ka bang nais mong itala ito?</string>
   <string name="abusefilter_title_disallow">Hindi mo maaaring maitala ang edit na ito. Mangyaring bumalik muli at baguhin iyon.</string>
   <string name="abusefilter_text_warn">Natukoy ng isang automated filter ang edit na ito na potensyal na di-makakatulong. Maaaring naglalaman ito ng isa o humigit pa sa mga sumusunod:&lt;br /&gt;&lt;br /&gt;· Pagta-type ng naka-all caps&lt;br /&gt;· Pagba-blangko ng mga artikulo o pag-ispam&lt;br /&gt;· Walang kaugnay na mga kawing panlabas (external links) o mga larawan&lt;br /&gt;· Pag-uulit ng mga karakter</string>

@@ -177,8 +177,6 @@
   <string name="saved_pages_update_all_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="saved_pages_update_all_error_message">সঞ্চিত পৃষ্ঠাসমূহ আপডে\'ট কৰাত ত্ৰুটি হৈছে</string>
   <string name="saved_pages_progress_title">সঞ্চিত পৃষ্ঠাসমূহ পুনঃসতেজ কৰা হৈছে</string>
-  <string name="menu_page_saved">পৃষ্ঠা সঞ্চিত হ\'ল</string>
-  <string name="menu_refresh_saved_page">পৃষ্ঠা পুনঃসতেজ কৰক</string>
   <string name="abusefilter_title_warn">এইটো সম্ভৱ এটা অগঠনমূলক সম্পাদনা। আপুনি এইটো সাঁচিব বুলি নিশ্চিতনে?</string>
   <string name="abusefilter_title_disallow">আপুনি এই সম্পাদনাটো সাঁচিব নোৱাৰে। অনুগ্ৰহ কৰি ঘূৰি গৈ এইটো সলাওক।</string>
   <string name="abusefilter_text_warn">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বুলি চিহ্নিত কৰিছে। ইয়াত তলৰ এটা বা অধিক থাকিব পাৰে:&lt;br /&gt;&lt;br /&gt;· প্ৰবন্ধ খালি কৰা বা স্পামিং&lt;br /&gt;· অপ্ৰয়োজনীয় বাহ্যিক সংযোগ বা ছবি&lt;br /&gt;· চিহ্নৰ পুনৰাবৃত্তি</string>

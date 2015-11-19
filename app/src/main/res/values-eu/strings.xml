@@ -161,8 +161,6 @@
   <string name="find_previous">Aurkitu aurrekoa</string>
   <string name="saved_pages_update_all_error_retry">Saiatu berriro</string>
   <string name="saved_pages_progress_title">Gordetako orriak eguneratzen</string>
-  <string name="menu_page_saved">Orrialdea gordeta</string>
-  <string name="menu_refresh_saved_page">Orrialdea eguneratu</string>
   <string name="dialog_page_issues">Orriaren arazoak</string>
   <string name="button_page_issues">Orriaren arazoak</string>
   <string name="text_size_select">Letra-tamaina</string>

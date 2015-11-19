@@ -106,7 +106,6 @@
   <string name="find_next">ค้นหาถัดไป</string>
   <string name="find_previous">ค้นหาก่อนหน้า</string>
   <string name="saved_pages_update_all_error_retry">ลองใหม่</string>
-  <string name="menu_refresh_saved_page">รีเฟรชหน้า</string>
   <string name="color_theme_light">สว่าง</string>
   <string name="color_theme_dark">มืด</string>
   <string name="page_similar_titles">หน้าที่คล้ายกัน</string>

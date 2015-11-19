@@ -127,13 +127,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void setup(PageViewModel model,
-                      PageFragment fragment,
+    public void setup(PageViewModel model, PageFragment fragment,
                       SwipeRefreshLayoutWithScroll refreshView,
-                      ObservableWebView webView,
-                      CommunicationBridge bridge,
-                      SearchBarHideHandler searchBarHideHandler,
-                      LeadImagesHandler leadImagesHandler) {
+                      ObservableWebView webView, CommunicationBridge bridge,
+                      SearchBarHideHandler searchBarHideHandler, LeadImagesHandler leadImagesHandler) {
         this.model = model;
         this.fragment = fragment;
         activity = (PageActivity) fragment.getActivity();
@@ -160,10 +157,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private void setupSpecificMessageHandlers() {
         bridge.addListener("onBeginNewPage", new SynchronousBridgeListener() {
             @Override
-            public void onMessage(JSONObject messagePayload) {
+            public void onMessage(JSONObject payload) {
                 try {
-                    stagedScrollY = messagePayload.getInt("stagedScrollY");
-                    loadPageOnWebViewReady(Cache.valueOf(messagePayload.getString("cachePreference")));
+                    stagedScrollY = payload.getInt("stagedScrollY");
+                    loadPageOnWebViewReady(Cache.valueOf(payload.getString("cachePreference")));
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }
@@ -171,10 +168,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         });
         bridge.addListener("requestSection", new SynchronousBridgeListener() {
             @Override
-            public void onMessage(JSONObject messagePayload) {
+            public void onMessage(JSONObject payload) {
                 try {
-                    displayNonLeadSection(messagePayload.getInt("index"),
-                            messagePayload.optBoolean(BRIDGE_PAYLOAD_SAVED_PAGE, false));
+                    displayNonLeadSection(payload.getInt("index"),
+                            payload.optBoolean(BRIDGE_PAYLOAD_SAVED_PAGE, false));
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }
@@ -182,7 +179,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         });
         bridge.addListener("pageLoadComplete", new SynchronousBridgeListener() {
             @Override
-            public void onMessage(JSONObject messagePayload) {
+            public void onMessage(JSONObject payload) {
                 // Do any other stuff that should happen upon page load completion...
                 activity.updateProgressBar(false, true, 0);
 
@@ -192,6 +189,16 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 // accidentally display the current article as a "read more" suggestion
                 bottomContentHandler.setTitle(model.getTitle());
                 bottomContentHandler.beginLayout();
+            }
+        });
+        bridge.addListener("pageInfo", new CommunicationBridge.JSEventListener() {
+            @Override
+            public void onMessage(String message, JSONObject payload) {
+                if (fragment.isAdded()) {
+                    PageInfo pageInfo = PageInfoUnmarshaller.unmarshal(model.getTitle(),
+                            model.getTitle().getSite(), payload);
+                    fragment.updatePageInfo(pageInfo);
+                }
             }
         });
 
@@ -210,6 +217,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     @Override
     public void onDisplayNewPage(boolean pushBackStack, Cache cachePreference, int stagedScrollY) {
+        fragment.updatePageInfo(null);
+        leadImagesHandler.updateMenuBar(false);
+
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
@@ -262,20 +272,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 break;
             case STATE_COMPLETE_FETCH:
                 editHandler.setPage(model.getPage());
-                // kick off the lead image layout
-                leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+                layoutLeadImage(new Runnable() {
                     @Override
-                    public void onLayoutComplete(int sequence) {
-                        if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
-                            return;
-                        }
-                        searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                        // when the lead image layout is complete, load the lead section and
-                        // the other sections into the webview.
-                        displayLeadSection();
+                    public void run() {
                         displayNonLeadSectionForUnsavedPage(1);
                     }
-                }, sequenceNumber.get());
+                });
                 break;
             default:
                 // This should never happen
@@ -457,22 +459,15 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
                 model.setPage(result);
                 editHandler.setPage(model.getPage());
-                // kick off the lead image layout
-                leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+                layoutLeadImage(new Runnable() {
                     @Override
-                    public void onLayoutComplete(int sequence) {
-                        if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
-                            return;
-                        }
-                        searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                        // when the lead image is laid out, load the lead section and the rest
-                        // of the sections into the webview.
-                        displayLeadSection();
+                    public void run() {
                         displayNonLeadSectionForSavedPage(1);
+                        leadImagesHandler.updateMenuBar(true);
 
                         setState(STATE_COMPLETE_FETCH);
                     }
-                }, sequenceNumber.get());
+                });
             }
 
             @Override
@@ -538,6 +533,22 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         Log.d(TAG, "Loaded page " + item.getTitle().getDisplayText() + " from backstack");
     }
 
+    @Override
+    public void layoutLeadImage() {
+        leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+            @Override
+            public void onLayoutComplete(int sequence) {
+                if (fragment.isAdded()) {
+                    searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+                }
+            }
+        }, sequenceNumber.get());
+    }
+
+    private void layoutLeadImage(@Nullable Runnable runnable) {
+        leadImagesHandler.beginLayout(new LeadImageLayoutListener(runnable), sequenceNumber.get());
+    }
+
     private void displayLeadSection() {
         Page page = model.getPage();
 
@@ -564,6 +575,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         int margin = DimenUtil.roundedPxToDp(getDimension(R.dimen.content_margin));
         try {
             return new JSONObject()
+                    .put("marginTop", margin)
                     .put("marginLeft", margin)
                     .put("marginRight", margin);
         } catch (JSONException e) {
@@ -585,8 +597,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     .put("sequence", sequenceNumber.get())
                     .put("title", page.getDisplayTitle())
                     .put("section", page.getSections().get(0).toJSON())
-                    .put("string_page_similar_titles", localizedStrings.get(R.string.page_similar_titles))
-                    .put("string_page_issues", localizedStrings.get(R.string.button_page_issues))
                     .put("string_table_infobox", localizedStrings.get(R.string.table_infobox))
                     .put("string_table_other", localizedStrings.get(R.string.table_other))
                     .put("string_table_close", localizedStrings.get(R.string.table_close))
@@ -734,21 +744,13 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         editHandler.setPage(model.getPage());
 
-        // kick off the lead image layout
-        leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+        layoutLeadImage(new Runnable() {
             @Override
-            public void onLayoutComplete(int sequence) {
-                if (!sequenceNumber.inSync(sequence)) {
-                    return;
-                }
-                searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                // when the lead image is laid out, display the lead section in the webview,
-                // and start loading the rest of the sections.
-                displayLeadSection();
+            public void run() {
                 setState(STATE_INITIAL_FETCH);
                 performActionForState(state);
             }
-        }, sequenceNumber.get());
+        });
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
         final HistoryEntry curEntry = model.getCurEntry();
@@ -857,6 +859,29 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private Resources getResources() {
         return activity.getResources();
+    }
+
+    private class LeadImageLayoutListener implements LeadImagesHandler.OnLeadImageLayoutListener {
+        @Nullable private final Runnable runnable;
+
+        LeadImageLayoutListener(@Nullable Runnable runnable) {
+            this.runnable = runnable;
+        }
+
+        @Override
+        public void onLayoutComplete(int sequence) {
+            if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
+                return;
+            }
+            searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+
+            if (runnable != null) {
+                // when the lead image is laid out, load the lead section and the rest
+                // of the sections into the webview.
+                displayLeadSection();
+                runnable.run();
+            }
+        }
     }
 
     private abstract class SynchronousBridgeListener implements CommunicationBridge.JSEventListener {

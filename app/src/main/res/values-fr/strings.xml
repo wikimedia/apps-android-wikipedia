@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Réessayer</string>
   <string name="saved_pages_update_all_error_message">Erreur à la mise à jour des pages enregistrées</string>
   <string name="saved_pages_progress_title">Rafraîchissement des pages enregistrées</string>
-  <string name="menu_page_saved">Page enregistrée</string>
-  <string name="menu_refresh_saved_page">Rafraîchir la page</string>
   <string name="abusefilter_title_warn">Cela pourrait être une modification non constructive. Êtes-vous sûr de l’enregistrer ?</string>
   <string name="abusefilter_title_disallow">Vous ne pouvez pas enregistrer cette modification. Veuillez revenir en arrière et la changer.</string>
   <string name="abusefilter_text_warn">Un filtre automatique a identifié cette modification comme potentiellement non constructive. Elle pourrait contenir un ou plusieurs des éléments suivants :&lt;br /&gt;&lt;br /&gt;· Saisie toute en majuscules&lt;br /&gt;· Découpage d’articles ou pourriel&lt;br /&gt;· Liens ou images externes inappropriés&lt;br /&gt;· Caractères répétés</string>

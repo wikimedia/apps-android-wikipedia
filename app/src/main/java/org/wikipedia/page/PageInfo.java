@@ -1,28 +1,50 @@
 package org.wikipedia.page;
 
+import android.support.annotation.NonNull;
+
 /**
- * Holds information about disambigs and page issues for a page.
+ * Holds similar titles (disambiguations) and content issues for a page.
  */
 public class PageInfo {
-    private final DisambigResult[] disambigs;
-    private final String[] issues;
-    private final PageTitle title;
+    @NonNull private final DisambigResult[] similarTitles;
+    @NonNull private final String[] contentIssues;
+    @NonNull private final PageTitle title;
 
-    public PageInfo(PageTitle title, DisambigResult[] disambigs, String[] issues) {
+    public PageInfo(@NonNull PageTitle title,
+                    @NonNull DisambigResult[] similarTitles,
+                    @NonNull String[] contentIssues) {
         this.title = title;
-        this.disambigs = disambigs;
-        this.issues = issues;
+        this.similarTitles = similarTitles;
+        this.contentIssues = contentIssues;
     }
 
+    @NonNull
     public PageTitle getTitle() {
         return title;
     }
 
-    public DisambigResult[] getDisambigs() {
-        return disambigs;
+    public boolean hasSimilarTitles() {
+        return getSimilarTitles().length > 0;
     }
 
-    public String[] getIssues() {
-        return issues;
+    @NonNull
+    public DisambigResult[] getSimilarTitles() {
+        return similarTitles;
+    }
+
+    public boolean hasContentIssues() {
+        return getContentIssues().length > 0;
+    }
+
+    @NonNull
+    public String[] getContentIssues() {
+        return contentIssues;
+    }
+
+    @Override
+    public String toString() {
+        return title.getDisplayText() + ": "
+                + contentIssues.length + " issue(s); "
+                + similarTitles.length + " disambiguation(s)";
     }
 }

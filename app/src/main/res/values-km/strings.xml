@@ -158,8 +158,6 @@
   <string name="saved_pages_update_all_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="saved_pages_update_all_error_message">បញ្ហាក្នុងការបន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
   <string name="saved_pages_progress_title">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី</string>
-  <string name="menu_page_saved">ទំព័រត្រូវបានរក្សាទុក</string>
-  <string name="menu_refresh_saved_page">ផ្ទុកទំព័រឡើងវិញ</string>
   <string name="abusefilter_title_warn">នេះប្រហែលជាការកែប្រែដែលគ្មានលក្ខណៈស្ថាបនាទេ។ តើអ្នកពិតជាចង់រក្សាវាទុកទេ?</string>
   <string name="abusefilter_title_disallow">អ្នកមិនអាចរក្សាទុកកំណែប្រែនេះទេ។ សូមត្រឡប់ក្រោយហើយកែប្រែវាម្ដងទៀត។</string>
   <string name="dialog_page_issues">បញ្ហារបស់ទំព័រ</string>

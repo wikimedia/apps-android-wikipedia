@@ -3,6 +3,7 @@ package org.wikipedia.media;
 import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -156,14 +157,10 @@ public class MediaPlayerImplementation implements AvPlayerImplementation {
         @Override
         public boolean onError(MediaPlayer mp, int what, int extra) {
             if (VERBOSE) {
-                L.v("Error: what=" + formatHex(what) + " extra=" + formatHex(extra));
+                L.v("Error: what=" + StringUtil.intToHexStr(what) + " extra=" + StringUtil.intToHexStr(extra));
             }
             onError();
             return true;
-        }
-
-        private String formatHex(int hex) {
-            return String.format("x%08x", hex);
         }
     }
 }

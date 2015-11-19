@@ -175,8 +175,6 @@
   <string name="saved_pages_update_all_error_retry">Nach eng Kéier probéieren</string>
   <string name="saved_pages_update_all_error_message">Feeler bei der Aktualisatioun vu gespäicherte Säiten</string>
   <string name="saved_pages_progress_title">Gespäichert Säite ginn aktualiséiert</string>
-  <string name="menu_page_saved">Säit gespäichert</string>
-  <string name="menu_refresh_saved_page">Säit aktualiséieren</string>
   <string name="abusefilter_title_warn">Dëst gesäit no enger wéineg konstruktiver Ännerung aus. Sidd Dir sécher datt Dir se späichere wëllt?</string>
   <string name="abusefilter_title_disallow">Dir däerft dës Ännerung net späicheren. Gitt w.e.g. zréck an ännert se.</string>
   <string name="abusefilter_text_warn">En automatesche Filter huet dës Ännerung als méiglecherweis net konstruktiv identifizéiert. Et ka sinn dat eent oder méi vun dësen Elementer dra virkommen:&lt;br /&gt;&lt;br /&gt;· Alles ass a grousse Buschtawe geschriwwen&lt;br /&gt; Artikelen eidelmaachen oder Spam drasetzen &lt;br /&gt; Irrelevant extern Linken oder Biller&lt;br /&gt; Zeeche widderhuelen</string>

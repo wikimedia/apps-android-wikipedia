@@ -157,8 +157,6 @@
   <string name="saved_pages_update_all_error_retry">פרובירן ווידער</string>
   <string name="saved_pages_update_all_error_message">גרײז ביים דערהיינטיגן אויפגעהיטענע בלעטער</string>
   <string name="saved_pages_progress_title">אקטואליזירן געשפייכלטע בלעטער</string>
-  <string name="menu_page_saved">בלאט אויפגעהיטן</string>
-  <string name="menu_refresh_saved_page">אקטואליזירן בלאט</string>
   <string name="dialog_page_issues">בלאט־פֿראגעס</string>
   <string name="button_page_issues">בלאט־פֿראגעס</string>
   <string name="text_size_select">פֿאנט גרייס</string>

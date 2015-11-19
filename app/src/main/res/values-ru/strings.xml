@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Повторить</string>
   <string name="saved_pages_update_all_error_message">Ошибка обновления сохранённых страниц</string>
   <string name="saved_pages_progress_title">Обновление сохранённых страниц</string>
-  <string name="menu_page_saved">Страница сохранена</string>
-  <string name="menu_refresh_saved_page">Обновить страницу</string>
   <string name="abusefilter_title_warn">Эта правка может быть деструктивной. Вы уверены, что хотите сохранить её?</string>
   <string name="abusefilter_title_disallow">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
   <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>

@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Försök igen</string>
   <string name="saved_pages_update_all_error_message">Fel vid uppdatering av sparade sidor</string>
   <string name="saved_pages_progress_title">Uppdaterar sparade sidor</string>
-  <string name="menu_page_saved">Sidan sparades</string>
-  <string name="menu_refresh_saved_page">Uppdatera sida</string>
   <string name="abusefilter_title_warn">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill spara den?</string>
   <string name="abusefilter_title_disallow">Du kan inte spara denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>

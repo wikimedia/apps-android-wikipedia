@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">לנסות שוב</string>
   <string name="saved_pages_update_all_error_message">שגיאה בעדכון הדפים השמורים</string>
   <string name="saved_pages_progress_title">רענון הדפים השמורים</string>
-  <string name="menu_page_saved">הדף נשמר</string>
-  <string name="menu_refresh_saved_page">רענון דף</string>
   <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. באמת לשמור אותה?</string>
   <string name="abusefilter_title_disallow">לא ניתן לשמור את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>

@@ -170,8 +170,6 @@
   <string name="saved_pages_update_all_error_retry">पुनर्प्रयत्‍न</string>
   <string name="saved_pages_update_all_error_message">पान अद्ययावत करण्यात त्रुटी</string>
   <string name="saved_pages_progress_title">साठवलेली पाने तरोताजी करीत आहे.</string>
-  <string name="menu_page_saved">पान साठवले</string>
-  <string name="menu_refresh_saved_page">पान तरोताजे करा</string>
   <string name="abusefilter_title_warn">हे एक अरचनात्मक संपादन असू शकते. हे जतन करण्याबाबत आपण खात्री देता काय?</string>
   <string name="abusefilter_title_disallow">आपण हे संपादन जतन करु शकत नाही.कृपया परत जाउन ते बदला.</string>
   <string name="abusefilter_text_warn">हे संपादन स्वयंचलित गाळणीने  \'उच्चपातळीचे अरचनात्मक\' असे नोंदविलेले आहे.यात खालीलपैकी एक वा एकाधिक असू शकते &lt;br /&gt;&lt;br /&gt;· सर्व अक्षरे ठळक&lt;br /&gt;लेख कोरा करणे किंवा उत्पात&lt;br /&gt;·असंबंधित दुवे किंवा चित्रे&lt;br /&gt;·त्याच वर्णांची वारंवारिता</string>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/view_article_header_image_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:scaleType="matrix"
+        android:src="?lead_image_drawable"
+        android:contentDescription="@null" />
+
+    <!-- A white background is necessary for transparent diagrams as they tend to expect a white
+         backdrop. -->
+    <org.wikipedia.page.leadimages.ImageViewWithFace
+        android:id="@+id/view_article_header_image_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:scaleType="matrix"
+        android:background="@color/white"
+        android:contentDescription="@null" />
+
+</merge>

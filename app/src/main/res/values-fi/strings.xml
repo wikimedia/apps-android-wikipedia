@@ -180,8 +180,6 @@
   <string name="saved_pages_update_all_error_retry">Yritä uudelleen</string>
   <string name="saved_pages_update_all_error_message">Tallennettujen sivujen päivitys epäonnistui</string>
   <string name="saved_pages_progress_title">Päivitetään tallennettuja sivuja</string>
-  <string name="menu_page_saved">Sivu tallennettu</string>
-  <string name="menu_refresh_saved_page">Päivitä sivu</string>
   <string name="abusefilter_title_warn">Tämä saattaa olla haitallinen muokkaus. Haluatko varmasti tallentaa sen?</string>
   <string name="abusefilter_title_disallow">Et voi tallentaa tätä muokkausta. Palaa takaisin ja muuta sitä.</string>
   <string name="abusefilter_text_warn">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi. Se saattaa sisältää yhden tai useampia seuraavista asioista:&lt;br /&gt;&lt;br /&gt;· Kokonaan isoilla kirjaimilla kirjoitettu teksti&lt;br /&gt;· Artikkeleiden tyhjentäminen tai mainostaminen&lt;br /&gt;· Aiheeseen liittymättömät linkit tai kuvat&lt;br /&gt;· Toistuvat merkkijonot</string>

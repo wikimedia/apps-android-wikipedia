@@ -147,8 +147,6 @@ Oldindan yoqimli ...</string>
   <string name="saved_pages_update_all_error_retry">Qayta urinib koʻrish</string>
   <string name="saved_pages_update_all_error_message">Saqlangan sahifalarni yangilashda xatolik</string>
   <string name="saved_pages_progress_title">Saqlangan sahifalarni yangilash</string>
-  <string name="menu_page_saved">Sahifa saqlandi</string>
-  <string name="menu_refresh_saved_page">Sahifani yangilash</string>
   <string name="dialog_page_issues">Sahifa muammolari</string>
   <string name="button_page_issues">Sahifa muammolari</string>
   <string name="text_size_select">Shrift o‘lchami</string>
