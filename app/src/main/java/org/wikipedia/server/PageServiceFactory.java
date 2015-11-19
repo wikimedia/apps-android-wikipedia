@@ -12,7 +12,7 @@ import org.wikipedia.settings.RbSwitch;
  */
 public final class PageServiceFactory {
     public static PageService create(Site site) {
-        if (RbSwitch.INSTANCE.isRestBaseEnabled()) {
+        if (RbSwitch.INSTANCE.isRestBaseEnabled(site)) {
             return new RbPageService(site);
         } else {
             return new MwPageService(site);

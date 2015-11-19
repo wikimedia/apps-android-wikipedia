@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.gallery.GalleryCollection;
-import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.RbSwitch;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
@@ -53,7 +53,7 @@ public class Page {
     /** Regular constructor */
     public Page(@NonNull PageTitle title, @NonNull List<Section> sections,
                 @NonNull PageProperties pageProperties) {
-        if (Prefs.useRestBase()) {
+        if (RbSwitch.INSTANCE.isRestBaseEnabled(title.getSite())) {
             this.version = RESTBASE_ORIGIN;
         }
         this.title = title;
