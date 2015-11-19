@@ -37,6 +37,7 @@ import org.wikipedia.zero.ZeroMessage;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
+import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
@@ -45,6 +46,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -425,6 +427,10 @@ public class PageActivity extends ThemedActionBarActivity {
                 && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             // Share menu.
             handleShareIntent(intent);
+        } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
+                && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
+            // Process text.
+            handleProcessTextIntent(intent);
         } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
             // Log that the user tapped on the search widget
             // Instantiate the funnel anonymously to save on memory overhead
@@ -442,6 +448,15 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private void handleShareIntent(Intent intent) {
         String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+        openSearch(text == null ? null : text.trim());
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private void handleProcessTextIntent(Intent intent) {
+        if (!ApiUtil.hasMarshmallow()) {
+            return;
+        }
+        String text = intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT);
         openSearch(text == null ? null : text.trim());
     }
 
