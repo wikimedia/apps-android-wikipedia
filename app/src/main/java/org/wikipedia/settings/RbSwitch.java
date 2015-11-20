@@ -65,7 +65,7 @@ public final class RbSwitch {
             Prefs.setRbTicket(ticket);
         }
         int admittedPct = WikipediaApp.getInstance()
-                .getRemoteConfig().getConfig().optInt("restbaseRatePct", 0); // [0, 100]
+                .getRemoteConfig().getConfig().optInt("restbaseBetaPercent", 0); // [0, 100]
         return ticket <= admittedPct;
     }
 
