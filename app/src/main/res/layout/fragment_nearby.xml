@@ -1,47 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="?attr/page_background_color">
-
-    <FrameLayout
+    <com.mapbox.mapboxsdk.views.MapView
+        android:id="@+id/mapview"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <com.mapbox.mapboxsdk.views.MapView
-            android:id="@+id/mapview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/user_location_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/FloatingActionButton"
-            android:layout_gravity="bottom|end"
-            android:src="@drawable/ic_gps_fixed_white_24dp"
-            android:contentDescription="@string/menu_show_toc"
-            app:elevation="4dp"
-            app:borderWidth="0dp"
-            app:backgroundTint="@color/blue_progressive"
-            app:layout_anchorGravity="bottom|right|end" />
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/nearby_list_container"
-        android:layout_width="match_parent"
-        android:layout_height="180dp">
-        <ListView
-            android:id="@+id/nearby_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="6dp"
-            android:background="@drawable/toolbar_bottom_shadow"/>
-    </FrameLayout>
-
-</LinearLayout>
+        android:layout_height="match_parent"
+        />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/user_location_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/FloatingActionButton"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/ic_gps_fixed_white_24dp"
+        android:contentDescription="@string/menu_show_toc"
+        app:elevation="4dp"
+        app:borderWidth="0dp"
+        app:backgroundTint="@color/blue_progressive"
+        app:layout_anchorGravity="bottom|right|end" />
+</FrameLayout>
