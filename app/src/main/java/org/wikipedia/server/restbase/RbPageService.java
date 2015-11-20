@@ -119,7 +119,7 @@ public class RbPageService implements PageService {
          * @param title the page title to be used including prefix
          * @param cb a Retrofit callback which provides the populated RbPageCombo object in #success
          */
-        @GET("/page/mobile-summary/{title}")
+        @GET("/page/summary/{title}")
         void pageSummary(@Path("title") String title, Callback<RbPageSummary> cb);
 
         /**
