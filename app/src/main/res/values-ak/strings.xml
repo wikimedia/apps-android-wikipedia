@@ -53,7 +53,7 @@
   <string name="login_password_hint">Password</string>
   <string name="login_password_show_check">Fa password no kyerɛ</string>
   <string name="menu_login">Kɔ mu</string>
-  <string name="login_activity_title">Kɔ Wikipedia mu</string>
+  <string name="login_activity_title" fuzzy="true">Kɔ Wikipedia mu</string>
   <string name="login_in_progress_dialog_message">Rekɔ mu</string>
   <string name="login_error_wrong_password">Woati password no</string>
   <string name="login_error_wrong_username">Woati username no</string>

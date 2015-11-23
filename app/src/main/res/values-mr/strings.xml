@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">सहभाग करा</string>
   <string name="nav_item_nearby">जवळपास</string>
   <string name="nearby_empty_title">येथे जवळपासची पाने नाहीत!</string>
-  <string name="nearby_empty_message" fuzzy="true">आपल्या सभोवताल असलेली पाने बघण्यास नविन ठिकाणी जा.</string>
+  <string name="nearby_empty_message">आपल्या जवळपास असलेल्या विषयांची पाने बघण्यास नविन ठिकाणी जा.</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_distance_in_feet">%d फिट</string>
@@ -50,6 +50,7 @@
   <string name="nearby_set_metric">मिटर्स/किमी दाखवा</string>
   <string name="nearby_set_imperial">फूट /मैल दाखवा</string>
   <string name="nearby_view_on_map">नकाशावर ठिकाण बघा</string>
+  <string name="nearby_requires_location">जवळपासचे फिचर्स दाखविण्यास स्थळनिश्चिती परवानगी आवश्यक आहे.</string>
   <string name="last_updated_text">शेवटले अद्यतन %s</string>
   <string name="content_license_html">जेथे जेथे विशेषत्वाने नोंदविलेले नाही तेथील आशय हा &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत उपलब्ध आहे असे समजावे.</string>
   <string name="edit_save_action_license_logged_in">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.</string>
@@ -82,7 +83,7 @@
   <string name="login_password_hint">परवलीचा शब्द</string>
   <string name="login_password_show_check">परवलीचा शब्द दर्शवा</string>
   <string name="menu_login">सनोंद-प्रवेश करा</string>
-  <string name="login_activity_title">विकिपीडिया मध्ये सनोंद-प्रवेश करा</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडिया मध्ये सनोंद-प्रवेश करा</string>
   <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>
   <string name="login_error_wrong_password">चुकीचा परवलीचा शब्द</string>
   <string name="login_error_wrong_username">चुकीचे सदस्यनाव</string>
@@ -175,7 +176,7 @@
   <string name="find_previous">मागील शोधा</string>
   <string name="error_network_error_try_again">नेटवर्कपर्यंत पोहोचू शकत नाही, पुन्हा प्रयत्न करा.</string>
   <string name="saved_pages_update_all_error_retry">पुनर्प्रयत्‍न</string>
-  <string name="saved_pages_update_all_error_message">पान अद्ययावत करण्यात त्रूटी</string>
+  <string name="saved_pages_update_all_error_message">पान अद्ययावत करण्यात त्रुटी</string>
   <string name="saved_pages_progress_title">साठवलेली पाने तरोताजी करीत आहे.</string>
   <string name="menu_page_saved">पान साठवले</string>
   <string name="menu_refresh_saved_page">पान तरोताजे करा</string>
@@ -210,6 +211,7 @@
   <string name="gallery_image_saved_notification_title">चित्र जतन केले आहे.</string>
   <string name="gallery_image_saved_notification_text">दिसण्यासाठी स्पर्श करा.</string>
   <string name="gallery_error_video_failed">व्हिडिओ चालवता आला नाही.</string>
+  <string name="gallery_save_image_write_permission_rationale">चित्रे जतन करण्यास, आपल्या उपकरणावर, भांडार-लेखन परवानगी आवश्यक आहे. पुन्हा प्रयत्न करा व विनंती केलेली परवानगी द्या.</string>
   <string name="err_cannot_save_file">संचिका जतन करता येत नाही.</string>
   <string name="expand_refs">विस्तार करण्यास टिचका</string>
   <string name="share_snippet_button">वित्र म्हणुन सहभाग करा</string>
@@ -230,11 +232,12 @@
   <string name="text_copied">मजकूर टांचणफळ्यात(क्लिपबोर्ड) नकलविला.</string>
   <string name="button_continue_to_article">लेखाकडे परत</string>
   <string name="preference_title_show_link_previews">दुव्याची झलक दाखवा</string>
+  <string name="nav_item_donate">विकिपीडियास साहाय्य करा</string>
   <string name="crash_report_dialog_dont_send_button">पुढे जा</string>
   <string name="crash_report_dialog_always_send_button">नेहमी पाठवा</string>
   <string name="crash_report_dialog_send_button">पाठवा</string>
-  <string name="crash_report_activity_title">अनुप्रयोग त्रूटी</string>
-  <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॲपमध्ये त्रूटी उद्भवली आहे म्हणून ते रद्दबादल केल्या गेले.
+  <string name="crash_report_activity_title">अनुप्रयोग त्रुटी</string>
+  <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॅपमध्ये त्रुटी उद्भवली आहे म्हणून ते रद्दबादल केल्या गेले.
 
 आपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
   <string name="crash_report_relaunch">पुन्हा सुरु करा</string>

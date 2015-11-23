@@ -82,7 +82,7 @@
   <string name="login_password_hint">パスワード</string>
   <string name="login_password_show_check">パスワードを表示</string>
   <string name="menu_login">ログイン</string>
-  <string name="login_activity_title">ウィキペディアへのログイン</string>
+  <string name="login_activity_title" fuzzy="true">ウィキペディアへのログイン</string>
   <string name="login_in_progress_dialog_message">ログイン中…</string>
   <string name="login_error_wrong_password">パスワードが違います</string>
   <string name="login_error_wrong_username">利用者名が正しくありません</string>
@@ -268,8 +268,10 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="format_error_server_message">メッセージ: \"%s\"</string>
   <string name="format_error_server_code">コード: \"%s\"</string>
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
+  <string name="text_copied">テキストがクリップボードにコピーされました。</string>
   <string name="button_continue_to_article">続きを表示する</string>
   <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
+  <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事の簡素なプレビューを表示します。</string>
   <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
   <string name="crash_report_dialog_dont_send_button">スキップ</string>
   <string name="crash_report_dialog_always_send_button">常に送信</string>

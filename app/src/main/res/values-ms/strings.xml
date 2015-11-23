@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Kongsi</string>
   <string name="nav_item_nearby">Berdekatan</string>
   <string name="nearby_empty_title">Tiada laman berdekatan di sini!</string>
-  <string name="nearby_empty_message" fuzzy="true">Bergerak ke lokasi baru untuk melihat laman-laman di sekitar anda.</string>
+  <string name="nearby_empty_message">Pindah ke lokasi lain untuk melihat laman-laman berkenaan topik berhampiran anda.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d kaki</string>
@@ -51,6 +51,7 @@
   <string name="nearby_set_imperial">Paparkan kaki/batu</string>
   <string name="nearby_view_on_map">Lihat di peta</string>
   <string name="nearby_zoom_to_location">Zum kepada lokasi pada peta</string>
+  <string name="nearby_requires_location">Ciri Nearby memerlukan kebenaran lokasi.</string>
   <string name="last_updated_text">Mutakhir: %1$s</string>
   <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, anda menyetujui &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -83,7 +84,7 @@
   <string name="login_password_hint">Kata laluan</string>
   <string name="login_password_show_check">Paparkan kata laluan</string>
   <string name="menu_login">Log masuk</string>
-  <string name="login_activity_title">Log masuk ke dalam Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Log masuk ke dalam Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
   <string name="login_error_wrong_password">Kata laluan tidak betul</string>
   <string name="login_error_wrong_username">Nama pengguna tidak betul</string>
@@ -272,6 +273,7 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="button_continue_to_article">Terus ke rencana</string>
   <string name="preference_title_show_link_previews">Paparkan pratonton pautan</string>
   <string name="preference_summary_show_link_previews">Paparkan pratonton cepat bagi rencana apabila mengetik pautan.</string>
+  <string name="nav_item_donate">Sokonglah Wikipedia</string>
   <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
   <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Langkau</string>

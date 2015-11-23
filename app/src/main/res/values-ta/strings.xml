@@ -70,7 +70,7 @@
   <string name="login_password_hint">கடவுச்சொல்</string>
   <string name="login_password_show_check">கடவுச்சொல்லை காட்டு</string>
   <string name="menu_login">புகுபதிகை</string>
-  <string name="login_activity_title">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
+  <string name="login_activity_title" fuzzy="true">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
   <string name="login_in_progress_dialog_message">புகுபதிகையாகின்றது…</string>
   <string name="login_error_wrong_password">தவறான கடவுச்சொல்.</string>
   <string name="login_error_wrong_username">தவறான பயனர்பெயர்</string>

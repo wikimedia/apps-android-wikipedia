@@ -84,7 +84,7 @@
   <string name="login_password_hint">Lösenord</string>
   <string name="login_password_show_check">Visa lösenord</string>
   <string name="menu_login">Logga in</string>
-  <string name="login_activity_title">Logga in på Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Logga in på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Loggar in dig…</string>
   <string name="login_error_wrong_password">Felaktigt lösenord</string>
   <string name="login_error_wrong_username">Felaktigt användarnamn</string>

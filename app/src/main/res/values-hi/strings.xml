@@ -74,7 +74,7 @@
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
   <string name="login_password_show_check">पासवर्ड को प्रदर्शित करें।</string>
   <string name="menu_login">लॉग-इन</string>
-  <string name="login_activity_title">विकिपीडिया मैन भर्ती होइए</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडिया मैन भर्ती होइए</string>
   <string name="login_in_progress_dialog_message">आप्को प्रवेश कर रहे है</string>
   <string name="login_error_wrong_password">कुटशब्द गलत है</string>
   <string name="login_error_wrong_username">गलत उपयोगकर्ता नाम</string>

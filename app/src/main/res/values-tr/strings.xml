@@ -37,9 +37,11 @@
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_new_tab">Yeni sekmede aç</string>
   <string name="menu_long_press_copy_page">Bağlantı adresini kopyala</string>
+  <string name="menu_text_select_copy">Kopyala</string>
+  <string name="menu_text_select_share">Paylaş</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
   <string name="nearby_empty_title">Yakınında sayfa yok!</string>
-  <string name="nearby_empty_message" fuzzy="true">Yeni bir konuma geçtiğinizde etrafınızdakiler hakkında bilgi almak için bu sayfayı yenilemeyi deneyin.</string>
+  <string name="nearby_empty_message">Etrafınızdaki konular hakkında sayfalar görmek için yeni bir konuma geçin.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d fit</string>
@@ -48,6 +50,7 @@
   <string name="nearby_set_metric">Metre/km olarak göster</string>
   <string name="nearby_set_imperial">Fit/mil olarak göster</string>
   <string name="nearby_view_on_map">Yeri harita üzerinde gör</string>
+  <string name="nearby_zoom_to_location">Harita üzerinde bir yere yakınlaştır</string>
   <string name="last_updated_text">Son güncelleme %s</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
@@ -80,7 +83,7 @@
   <string name="login_password_hint">Parola</string>
   <string name="login_password_show_check">Parolayı görüntüle</string>
   <string name="menu_login">Oturum aç</string>
-  <string name="login_activity_title">Vikipedi\'ye giriş yap</string>
+  <string name="login_activity_title" fuzzy="true">Vikipedi\'ye giriş yap</string>
   <string name="login_in_progress_dialog_message">Oturum açılıyor…</string>
   <string name="login_error_wrong_password">Yanlış parola</string>
   <string name="login_error_wrong_username">Yanlış kullanıcı adı</string>
@@ -140,6 +143,7 @@
   <string name="create_account_account_created_toast">Hesap yaratıldı!</string>
   <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia\'nın, uygulamayı geliştirmek için, kullanım alışkanlıklarınız hakkında bilgi toplamasına izin verin</string>
+  <string name="preference_title_auto_upload_crash_reports">Hata bildirimi gönder</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
   <string name="history_search_list_hint">Arama geçmişi</string>
   <string name="history_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
@@ -259,5 +263,15 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_message">Mesaj: \"%s\"</string>
   <string name="format_error_server_code">Kod: \"%s\"</string>
   <string name="address_copied">Adres panoya kopyalandı.</string>
+  <string name="text_copied">Metin panoya kopyalandı.</string>
   <string name="button_continue_to_article">Maddeye devam et</string>
+  <string name="nav_item_donate">Vikipediye Destek Ol</string>
+  <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
+  <string name="crash_report_dialog_dont_send_button">Atla</string>
+  <string name="crash_report_dialog_always_send_button">Her zaman gönder</string>
+  <string name="crash_report_dialog_send_button">Gönder</string>
+  <string name="crash_report_activity_title">Uygulama hatası</string>
+  <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.</string>
+  <string name="crash_report_relaunch">Baştan başla</string>
+  <string name="crash_report_quit">Çıkış</string>
 </resources>

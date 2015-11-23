@@ -76,7 +76,7 @@
   <string name="login_password_hint">Pasvorto</string>
   <string name="login_password_show_check">Montri pasvorton</string>
   <string name="menu_login">Ensaluti</string>
-  <string name="login_activity_title">Ensaluti en Vikipedio</string>
+  <string name="login_activity_title" fuzzy="true">Ensaluti en Vikipedio</string>
   <string name="login_in_progress_dialog_message">Ensalutante…</string>
   <string name="login_error_wrong_password">Neĝusta pasvorto</string>
   <string name="login_error_wrong_username">Neĝusta uzantnomo</string>

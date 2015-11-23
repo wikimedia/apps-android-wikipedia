@@ -68,7 +68,7 @@
   <string name="login_password_hint">Maxfiy soʻz</string>
   <string name="login_password_show_check">Maxfiy so\'zni ko\'rsatish</string>
   <string name="menu_login">Kirish</string>
-  <string name="login_activity_title">Vikipediaga kirish</string>
+  <string name="login_activity_title" fuzzy="true">Vikipediaga kirish</string>
   <string name="login_in_progress_dialog_message">Saytga kiryapsiz…</string>
   <string name="login_error_wrong_password">Maxfiy so‘z noto‘g‘ri</string>
   <string name="login_error_wrong_username">Foydalanuvchi nomida xato</string>

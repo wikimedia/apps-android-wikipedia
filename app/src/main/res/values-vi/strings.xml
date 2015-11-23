@@ -84,7 +84,7 @@
   <string name="login_password_hint">Mật khẩu</string>
   <string name="login_password_show_check">Hiển thị mật khẩu</string>
   <string name="menu_login">Đăng nhập</string>
-  <string name="login_activity_title">Đăng nhập vào Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Đăng nhập vào Wikipedia</string>
   <string name="login_in_progress_dialog_message">Đang đăng nhập bạn vào…</string>
   <string name="login_error_wrong_password">Sai mật khẩu</string>
   <string name="login_error_wrong_username">Sai tên người dùng</string>
@@ -245,8 +245,8 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
   <string name="gallery_menu_save">Lưu vào thiết bị</string>
   <string name="gallery_save_success">Đã lưu hình thành công.</string>
-  <string name="gallery_image_saved_notification_title">Đã lưu ảnh</string>
-  <string name="gallery_image_saved_notification_text">Chạm để xem</string>
+  <string name="gallery_image_saved_notification_title">Đã lưu ảnh.</string>
+  <string name="gallery_image_saved_notification_text">Chạm để xem.</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Để lưu ảnh, bạn cần cho phép ghi dữ liệu vào bộ nhớ thiết bị. Xin hãy thử lại và đồng ý cấp phép cho yêu cầu.</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>

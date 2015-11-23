@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Sdílet</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="nearby_empty_title">Žádné stránky poblíž!</string>
-  <string name="nearby_empty_message" fuzzy="true">Přesuňte se na nové místo a uvidíte stránky kolem vás.</string>
+  <string name="nearby_empty_message">Přesuňte se na nové místo a uvidíte stránky o tématech kolem vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -50,6 +50,7 @@
   <string name="nearby_set_metric">Zobraz metry/km</string>
   <string name="nearby_set_imperial">Zobraz stopy/míle</string>
   <string name="nearby_view_on_map">Zobrazit místo na mapě</string>
+  <string name="nearby_requires_location">Funkce Poblíž vyžaduje přístup k poloze.</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="edit_save_action_license_logged_in">Uložením souhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -82,7 +83,7 @@
   <string name="login_password_hint">Heslo</string>
   <string name="login_password_show_check">Zobrazovat heslo</string>
   <string name="menu_login">Přihlásit se</string>
-  <string name="login_activity_title">Přihlášení do Wikipedie</string>
+  <string name="login_activity_title" fuzzy="true">Přihlášení do Wikipedie</string>
   <string name="login_in_progress_dialog_message">Přihlašování…</string>
   <string name="login_error_wrong_password">Nesprávné heslo</string>
   <string name="login_error_wrong_username">Nesprávné uživatelské jméno</string>
@@ -140,6 +141,7 @@
   <string name="send_feedback">Poslat názor na aplikaci</string>
   <string name="nav_item_random">Náhodně</string>
   <string name="create_account_account_created_toast">Účet založen!</string>
+  <string name="preferences_privacy_settings_heading">Soukromí</string>
   <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
   <string name="preference_summary_eventlogging_opt_in">Umožnit nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat</string>
   <string name="preference_title_auto_upload_crash_reports">Posílat zprávy o pádu</string>

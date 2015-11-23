@@ -81,7 +81,7 @@
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="login_password_show_check">సంకేతపదాన్ని చూపించు</string>
   <string name="menu_login">లాగినవండి</string>
-  <string name="login_activity_title">వికీపీడియాలోకి లాగినవండి</string>
+  <string name="login_activity_title" fuzzy="true">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_in_progress_dialog_message">మిమల్ని లాగిన్ చేస్తున్నాము...</string>
   <string name="login_error_wrong_password">సంకేతపదం తప్పు</string>
   <string name="login_error_wrong_username">వాడుకరి పేరు తప్పు</string>

@@ -75,7 +75,7 @@
   <string name="login_password_hint">פאַסווארט</string>
   <string name="login_password_show_check">ווײַזן פאסווארט</string>
   <string name="menu_login">אַרײַנלאגירן</string>
-  <string name="login_activity_title">ארײַנלאגירן צו וויקיפעדיע</string>
+  <string name="login_activity_title" fuzzy="true">ארײַנלאגירן צו וויקיפעדיע</string>
   <string name="login_in_progress_dialog_message">לאגירט אײַך אריין…</string>
   <string name="login_error_wrong_password">פאלש פאסווארט</string>
   <string name="login_error_wrong_username">פאלשער באניצער־נאמען</string>

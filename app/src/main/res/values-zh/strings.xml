@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">分享</string>
   <string name="nav_item_nearby">周边</string>
   <string name="nearby_empty_title">这附近没有页面！</string>
-  <string name="nearby_empty_message" fuzzy="true">前往新地点，了解您的周围。</string>
+  <string name="nearby_empty_message">移动到新地点以查看有关您附近的话题的页面。</string>
   <string name="nearby_distance_in_meters">%d米</string>
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
   <string name="nearby_distance_in_feet">%d英尺</string>
@@ -84,7 +84,7 @@
   <string name="login_password_hint">密码</string>
   <string name="login_password_show_check">显示密码</string>
   <string name="menu_login">登录</string>
-  <string name="login_activity_title">登录维基百科</string>
+  <string name="login_activity_title" fuzzy="true">登录维基百科</string>
   <string name="login_in_progress_dialog_message">正在登录…</string>
   <string name="login_error_wrong_password">密码错误</string>
   <string name="login_error_wrong_username">用户名错误</string>

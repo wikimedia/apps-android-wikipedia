@@ -68,7 +68,7 @@
   <string name="login_password_hint">પાસવર્ડ</string>
   <string name="login_password_show_check">પાસવર્ડ દર્શાવો</string>
   <string name="menu_login">પ્રવેશ કરો</string>
-  <string name="login_activity_title">વિકિપીડિયા પર લોગીન કરો</string>
+  <string name="login_activity_title" fuzzy="true">વિકિપીડિયા પર લોગીન કરો</string>
   <string name="login_in_progress_dialog_message">તમે લોગઈન થઈ રહ્યા છો...</string>
   <string name="login_error_wrong_password">અયોગ્ય પાસવર્ડ</string>
   <string name="login_error_wrong_username">અયોગ્ય સભ્યનામ</string>

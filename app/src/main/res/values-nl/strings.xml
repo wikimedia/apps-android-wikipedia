@@ -82,7 +82,7 @@
   <string name="login_password_hint">Wachtwoord</string>
   <string name="login_password_show_check">Wachtwoord weergeven</string>
   <string name="menu_login">Aanmelden</string>
-  <string name="login_activity_title">Aanmelden bij Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Aanmelden bij Wikipedia</string>
   <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
   <string name="login_error_wrong_password">Het wachtwoord is onjuist</string>
   <string name="login_error_wrong_username">Onjuiste gebruikersnaam</string>
@@ -272,6 +272,7 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="button_continue_to_article">Doorgaan naar de pagina</string>
   <string name="preference_title_show_link_previews">Voorvertoningen van koppelingen weergeven</string>
   <string name="preference_summary_show_link_previews">Korte voorvertoning weergeven van pagina\'s bij het aanraken van koppelingen.</string>
+  <string name="nav_item_donate">Steun Wikipedia</string>
   <string name="crash_report_dialog_title">De app is de laatste keer helaas gecrasht</string>
   <string name="crash_report_dialog_text">Wilt u crashrapporteren naar HockeyApp, een dienstverlener, sturen zodat Wikimedia de omstandigheden van uw crash kan analyseren en fouten die de crash heeft veroorzaakt kan herstellen?</string>
   <string name="crash_report_dialog_dont_send_button">Overslaan</string>

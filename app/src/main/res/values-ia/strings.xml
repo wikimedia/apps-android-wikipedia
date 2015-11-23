@@ -78,7 +78,7 @@
   <string name="login_password_hint">Contrasigno</string>
   <string name="login_password_show_check">Monstrar le contrasigno</string>
   <string name="menu_login">Aperir session</string>
-  <string name="login_activity_title">Aperir session a Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Aperir session a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Tu accesso es in corso…</string>
   <string name="login_error_wrong_password">Contrasigno incorrecte</string>
   <string name="login_error_wrong_username">Nomine del usator incorrecte</string>

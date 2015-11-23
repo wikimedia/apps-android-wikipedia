@@ -84,7 +84,7 @@
   <string name="login_password_hint">گذرواژه</string>
   <string name="login_password_show_check">نمایش گذرواژه</string>
   <string name="menu_login">ورود به سامانه</string>
-  <string name="login_activity_title">ورود به ویکیپدیا</string>
+  <string name="login_activity_title" fuzzy="true">ورود به ویکیپدیا</string>
   <string name="login_in_progress_dialog_message">در حال وارد شدن به سامانه…</string>
   <string name="login_error_wrong_password">گذرواژهٔ نادرست</string>
   <string name="login_error_wrong_username">نام کاربری نادرست</string>

@@ -7,7 +7,7 @@
   <string name="no">নহয়</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="nav_item_history">ইতিহাস</string>
-  <string name="error_network_error" fuzzy="true">নে\'টৱৰ্কৰ সংযোগ স্থাপন কৰিব পৰা নগ\'ল।</string>
+  <string name="error_network_error">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই।</string>
   <string name="page_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="menu_clear_all_history">ইতিহাস মোহাৰক</string>
   <string name="menu_clear_all_saved_pages">সকলো সাঁচি থোৱা পৃষ্ঠা মচি পেলাওক</string>
@@ -20,14 +20,14 @@
   <string name="dialog_prompt_refresh_all_saved_pages">সকলো সংৰক্ষিত পৃষ্ঠা নবীকৰণ কৰিব?</string>
   <string name="share_via">শ্বেয়াৰ</string>
   <string name="dialog_title_clear_saved_pages">সকলো সাঁচি থোৱা পৃষ্ঠা মচি পেলাওক?</string>
-  <string name="snackbar_saving_page">পৃষ্ঠা সংৰক্ষিত হৈ আছে...</string>
-  <string name="snackbar_saved_page_format">অফলাইন পঠনৰ বাবে \"%s\" সাঁচি থোৱা হ\'ল</string>
-  <string name="snackbar_saved_page_missing_images">সকলো ছবি সংৰক্ষণ কৰিব পৰা নগ\'ল</string>
-  <string name="snackbar_refresh_saved_page">সংৰক্ষিত পৃষ্ঠা পুনঃসতেজ কৰা হৈছে</string>
+  <string name="snackbar_saving_page">পৃষ্ঠা সাঁচি থোৱা হৈছে...</string>
+  <string name="snackbar_saved_page_format">অফলাইন পঢ়িবৰ বাবে \"%s\" সাঁচি থোৱা হ\'ল</string>
+  <string name="snackbar_saved_page_missing_images">সকলো ছবি সাঁচিব পৰা নগ\'ল</string>
+  <string name="snackbar_refresh_saved_page">সঞ্চিত পৃষ্ঠা পুনঃসতেজ কৰা হৈছে...</string>
   <string name="delete_selected_saved_pages">বিলোপ</string>
-  <string name="snackbar_saved_page_deleted">সংৰক্ষিত পৃষ্ঠা(সমূহ) মচি পেলোৱা হৈছে</string>
-  <string name="saved_pages_search_list_hint">সংৰক্ষিত পৃষ্ঠাসমূহ সন্ধান কৰক</string>
-  <string name="saved_pages_search_empty_message">আপোনাৰ অনুসন্ধানৰ সৈতে মিল থকা কোনো পৃষ্ঠা পোৱা নগ\'ল।</string>
+  <string name="snackbar_saved_page_deleted">সঞ্চিত পৃষ্ঠা(সমূহ) মচি পেলোৱা হৈছে</string>
+  <string name="saved_pages_search_list_hint">সঞ্চিত পৃষ্ঠাসমূহ সন্ধান কৰক</string>
+  <string name="saved_pages_search_empty_message">আপোনাৰ সন্ধানৰ সৈতে মিল থকা কোনো পৃষ্ঠা পোৱা নগ\'ল।</string>
   <string name="menu_page_show_tabs">টেব্‌সমূহ দেখুৱাওক</string>
   <string name="menu_page_other_languages">অন্য ভাষাত পঢ়ক</string>
   <string name="menu_page_save">পৃষ্ঠা সাঁচক</string>
@@ -37,9 +37,25 @@
   <string name="menu_long_press_open_page">খোলক</string>
   <string name="menu_long_press_open_in_new_tab">নতুন টেবত খোলক</string>
   <string name="menu_long_press_copy_page">লিংক ঠিকনা প্ৰতিলিপি কৰক</string>
+  <string name="menu_text_select_copy">প্ৰতিলিপি</string>
   <string name="menu_text_select_share">ভাগবতৰা কৰক</string>
   <string name="nav_item_nearby">কাষৰীয়া</string>
   <string name="nearby_empty_title">ইয়াত কোনো কাষৰীয়া পৃষ্ঠা নাই!</string>
+  <string name="nearby_empty_message">আপোনাৰ কাষৰীয়া বিষয়ৰ পৃষ্ঠা চাবলৈ এটা নতুন স্থানলৈ যাওক।</string>
+  <string name="nearby_distance_in_meters">%d মিটাৰ</string>
+  <string name="nearby_distance_in_kilometers">%.2f কি:মি:</string>
+  <string name="nearby_distance_in_feet">%d ফুট</string>
+  <string name="nearby_distance_in_miles">%.2f মাইল</string>
+  <string name="nearby_dialog_goto_settings">আপোনাৰ সঁজুলিত অৱস্থান আপডে\'ট সক্ৰিয় কৰা নাই। এইটো সক্ৰিয় কৰিবলৈ সঁজুলিৰ ছেটিংছলৈ যাব বিচাৰিছেনে?</string>
+  <string name="nearby_set_metric">মিটাৰ/কি:মি: দেখুৱাওক</string>
+  <string name="nearby_set_imperial">ফুট/মাইল দেখুৱাওক</string>
+  <string name="nearby_view_on_map">মানচিত্ৰত ঠাই চাওক</string>
+  <string name="nearby_zoom_to_location">মানচিত্ৰত এটা অৱস্থান ডাঙৰকৈ চাওক</string>
+  <string name="nearby_requires_location">কাষৰীয়া বৈশিষ্টৰ বাবে অৱস্থান অনুমতিৰ প্ৰয়োজন।</string>
+  <string name="last_updated_text">%s তাৰিখে সৰ্বশেষ আপডে\'ট</string>
+  <string name="content_license_html">আন একো উল্লেখ নকৰিলে এই সমল &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ৰ আওতাত উপলব্ধ</string>
+  <string name="edit_save_action_license_logged_in">সাঁচি থওঁতে আপুনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
+  <string name="edit_save_action_license_anon">সাঁচি থওঁতে আপুনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
   <string name="preference_title_language">ৱিকিপিডিয়া ভাষা</string>
   <string name="preference_languages_filter_hint">সন্ধান কৰক</string>
   <string name="langlinks_filter_hint">সন্ধান কৰক</string>
@@ -48,8 +64,8 @@
   <string name="langlinks_activity_title">আন ভাষাসমূহ</string>
   <string name="menu_save_changes">সালসলনি সাঁচি থওক</string>
   <string name="edit_section_error_retry">পুনৰ চেষ্টা কৰক</string>
-  <string name="dialog_saving_in_progress">সংৰক্ষণ হৈ আছে...</string>
-  <string name="edit_saved_successfully">সম্পাদনা সংৰক্ষিত হৈছে!</string>
+  <string name="dialog_saving_in_progress">সাঁচি থোৱা হৈছে...</string>
+  <string name="edit_saved_successfully">সম্পাদনা সাঁচি থোৱা হৈছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা ব্যৰ্থ হৈছে!</string>
   <string name="dialog_message_edit_failed_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="dialog_message_edit_failed_cancel">বাতিল কৰক</string>
@@ -62,18 +78,29 @@
   <string name="edit_section_captcha_hint">ওপৰত দিয়া শব্দবোৰ পুনৰ লিখক</string>
   <string name="title_captcha">কেপ্‌চা লিখক</string>
   <string name="edit_section_captcha_reload">CAPTCHA-ত ক্লিক কৰি ৰিল\'ড কৰক</string>
-  <string name="nav_item_login" fuzzy="true">প্ৰৱেশ</string>
+  <string name="edit_saved_page_refresh">সাঁচি থোৱা পৃষ্ঠাটোৰ সময় উকলিব পাৰে আৰু সম্পাদনা সক্ৰিয় কৰিবলৈ সতেজ কৰাৰ প্ৰয়োজন। আপুনি পৃষ্ঠাটো সতেজ কৰিবলৈ বিচাৰিছেনে?</string>
+  <string name="nav_item_login">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_username_hint">সদস্যনাম</string>
   <string name="login_password_hint">গুপ্তশব্দ</string>
   <string name="login_password_show_check">গুপ্তশব্দ দেখুৱাওক</string>
   <string name="menu_login">প্ৰৱেশ</string>
-  <string name="login_activity_title">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
+  <string name="login_activity_title" fuzzy="true">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে...</string>
   <string name="login_error_wrong_password">ভুল গুপ্তশব্দ</string>
   <string name="login_error_wrong_username">ভুল সদস্যনাম</string>
   <string name="login_error_illegal">অগ্ৰহণযোগ্য সদস্যনাম</string>
   <string name="login_success_toast">প্ৰৱেশ সফল হ\'ল!</string>
   <string name="login_error_blocked">এই সদস্যজনক বাৰণ কৰা হৈছে।</string>
+  <string name="login_error_throttled">কেইবাবৰো প্ৰৱেশৰ চেষ্টা। অনুগ্ৰহ কৰি কেইমিনিটমানৰ পাছত পুনৰ চেষ্টা কৰক।</string>
+  <string name="login_error_unknown">প্ৰৱেশ ব্যৰ্থ :(</string>
+  <string name="preference_title_logout">প্ৰস্থান</string>
+  <string name="toast_logout_complete">প্ৰস্থান হ\'ল</string>
+  <string name="saved_pages_empty_title">ইয়াত কোনো সঞ্চিত পৃষ্ঠা নাই!</string>
+  <string name="saved_pages_empty_message">সঞ্চিত পৃষ্ঠাসমূহ সঁচাই বঢ়িয়া। আপুনি অফলাইন থকা অৱস্থাতো পঢ়িব পৰাকৈ সেইবোৰ বুক্‌মাৰ্ক বুলি ভাবিব পাৰে।</string>
+  <string name="history_empty_title">ইয়াত কোনো শেহতীয়া পৃষ্ঠা নাই!</string>
+  <string name="history_empty_message">আপুনি হয়তো গোটেইবোৰ বিলোপ কৰিছে। ইয়াত পাছত আপুনি কোনো পৃষ্ঠালৈ গ\'লে ইয়াতে পুনৰ চাব পাৰিব।</string>
+  <string name="delete_selected_history">বিলোপ কৰক</string>
+  <string name="wp_stylized">&lt;big&gt;ৱি&lt;/big&gt;কিপিডি&lt;big&gt;য়া&lt;/big&gt;</string>
   <string name="create_account_username_hint">সদস্যনাম</string>
   <string name="login_create_account_link">কোনো একাউণ্ট নাই? ৱিকিপিডিয়াত যোগ দিয়ক</string>
   <string name="create_account_login_link">ইতিমধ্যে এটা একাউণ্ট আছে? প্ৰৱেশ কৰক</string>
@@ -86,8 +113,162 @@
   <string name="create_account_username_exists_error">এই সদস্যনাম ইতিমধ্যে আছেই</string>
   <string name="create_account_ip_throttle_error">এই আই পি ঠিকনাৰ পৰা কেইবাটাও একাউণ্ট সৃষ্টি কৰা হৈছে। অলপ সময়ৰ পাছত চেষ্টা কৰক।</string>
   <string name="create_account_open_proxy_error">এই আই পি ঠিকনাৰ পৰা নতুন একাউণ্ট সৃষ্টি বাৰণ কৰা হৈছে।</string>
+  <string name="create_account_noname_error">আপুনি দিয়া সদস্যনামটো অবৈধ। অনুগ্ৰহ কৰি আন এটা সদস্যনাম দিয়ক।</string>
+  <string name="create_account_invalid_email_error">আপুনি দিয়া ইমেইল ঠিকনাটো অবৈধ।</string>
+  <string name="create_account_password_too_short_error">আপুনি দিয়া গুপ্তশব্দটো বৰ চুটি।</string>
+  <string name="create_account_blocked_anon_error">আপুনি একাউণ্ট সৃষ্টি কৰিব নোৱাৰে কাৰণ আপোনাৰ আই পি ঠিকনা অৱৰোধ কৰা হৈছে।</string>
+  <string name="create_account_blocked_error">আপুনি একাউণ্ট সৃষ্টি কৰিব নোৱাৰে কাৰণ আপোনাৰ একাউণ্ট অৱৰোধ কৰা হৈছে।</string>
+  <string name="create_account_password_name_match_error">আপোনাৰ সদস্যনাম আৰু গুপ্তশব্দ বেলেগ হ\'ব লাগিব।</string>
+  <string name="create_account_generic_error">একাউণ্ট সৃষ্টি কৰিব পৰা নগ\'ল</string>
+  <string name="create_account_next">পৰৱৰ্তী</string>
+  <string name="create_account_button">একাউণ্ট সৃষ্টি কৰক</string>
+  <string name="preferences_general_heading">সাধাৰণ</string>
+  <string name="wikipedia_app_faq">ৱিকিপিডিয়া এপ্‌ FAQ</string>
+  <string name="zero_charged_verbiage">ৱিকিপিডিয়া জিৰ\' বন্ধ হৈ আছে</string>
+  <string name="zero_charged_verbiage_extended">অন্য প্ৰবন্ধ ল\'ড কৰিলে ডে\'টা মূল্য বহন কৰিব লাগিব।</string>
+  <string name="zero_search_hint">ৱিকিপিডিয়া জিৰ\' সন্ধান কৰক</string>
+  <string name="zero_warn_when_leaving">ৱিকিপিডিয়া জিৰ\' এৰিলে সতৰ্ক কৰিব</string>
+  <string name="zero_warn_when_leaving_summary">যদি আপোনাৰ ম\'বাইল অপাৰেটৰে ৱিকিপিডিয়া জিৰ\' সহযোগৰ জৰিয়তে ৱিকিপিডিয়া এপৰ বাবে ডে\'টা মূল্য ৰেহাই দিয়ে, তেন্তে এই ছেটিং সক্ৰিয় কৰি থ\'লে আপুনি ৱিকিপিডিয়াৰ পৰা আঁতৰি গৈ মূল্য বহন কৰিবলগীয়া হ\'লে জানিব পাৰিব।</string>
+  <string name="zero_webpage_title">ৱিকিপিডিয়া জিৰ\' FAQ</string>
+  <string name="zero_wikipedia_zero_heading">ৱিকিপিডিয়া জিৰ\'</string>
+  <string name="zero_interstitial_title">ৱিকিপিডিয়া জিৰ\'ৰ পৰা আঁতৰিছে</string>
+  <string name="zero_interstitial_leave_app">ডে\'টা মূল্য প্ৰয়োগ হ\'ব পাৰে। বাহ্যিক ছাইটলৈ যাবনে?</string>
+  <string name="zero_interstitial_continue">প্ৰস্থান</string>
+  <string name="zero_interstitial_cancel">ইয়াতে থাকক</string>
+  <string name="zero_learn_more">এই ৱিকিপিডিয়া এপৰ বাবে ডে\'টা মূল্য ৰেহাই দিয়া হৈছে।</string>
+  <string name="zero_learn_more_learn_more">আৰু পঢ়ক</string>
+  <string name="zero_learn_more_dismiss">বাতিল কৰক</string>
+  <string name="edit_preview_fetching_dialog_message">প্ৰাক্‌দৰ্শন অনা হৈছে...</string>
+  <string name="send_feedback">এপ্‌ প্ৰতিক্ৰিয়া জনাওক</string>
+  <string name="nav_item_random">যিকোনো</string>
+  <string name="create_account_account_created_toast">একাউণ্ট সৃষ্টি হ\'ল!</string>
   <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
+  <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
+  <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
+  <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
+  <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
+  <string name="history_search_list_hint">ইতিহাস সন্ধান কৰক</string>
+  <string name="history_search_empty_message">আপোনাৰ বিচৰাৰ লগত মিলা কোনো পৃষ্ঠা পোৱা নগ\'ল।</string>
+  <string name="error_can_not_process_link">এই সংযোগ দেখুৱাব পৰা নগ\'ল</string>
+  <string name="page_protected_autoconfirmed">এই পৃষ্ঠাটো অৰ্ধ-সুৰক্ষিত কৰা হৈছে।</string>
+  <string name="page_protected_sysop">এই পৃষ্ঠাটো সম্পূৰ্ণ সুৰক্ষিত কৰা হৈছে।</string>
+  <string name="page_protected_other">এই পৃষ্ঠাটো তলৰ স্তৰলৈ সুৰক্ষিত কৰা হৈছে: %s</string>
+  <string name="page_protected_can_not_edit">আপোনাৰ এই পৃষ্ঠা সম্পাদনা কৰাৰ অধিকাৰ নাই</string>
+  <string name="page_protected_can_not_edit_title">এই পৃষ্ঠাটো সুৰক্ষিত</string>
+  <string name="settings_item_preferences">ছেটিং</string>
+  <string name="settings_activity_title">ছেটিং</string>
+  <string name="about_description">ৱিকিপিডিয়া এপ্‌টোৰ বিষয়ে</string>
+  <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
+  <string name="terms_of_use_description">ব্যৱহাৰৰ চৰ্তাৱলী</string>
+  <string name="about_libraries_heading">ব্যৱহৃত পুথিভঁৰাল</string>
+  <string name="about_contributors_heading">অৱদানকাৰীসমূহ</string>
+  <string name="about_translators_heading">অনুবাদকসকল</string>
+  <string name="about_translators_translatewiki">এই এপ্‌টো স্বেচ্ছাসেৱক অনুবাদকে &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ত অনুবাদ কৰিছে।</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছন&lt;/a&gt;ৰ এটা সামগ্ৰী</string>
+  <string name="about_activity_title">বিষয়ে</string>
+  <string name="edit_abandon_confirm">এই পৃষ্ঠাটো সলোৱা হৈছে। আপোনাৰ সালসলনি সাঁচি নোথোৱাকৈ গুচি যাব বুলি নিশ্চিতনে?</string>
+  <string name="user_blocked_from_editing_title">অৱৰোধিত</string>
+  <string name="user_logged_in_blocked_from_editing">এই ৱিকিত সম্পাদনা কৰিব নোৱৰাকৈ আপোনাৰ একাউণ্ট অৱৰোধ কৰা হৈছে।</string>
+  <string name="user_anon_blocked_from_editing">আপোনাৰ আই পি ঠিকনাক সম্পাদনাৰ পৰা বাৰণ কৰা হৈছে।</string>
+  <string name="edit_how_page_improved">আপুনি পৃষ্ঠাটো কেনেকৈ উন্নত কৰিলে?</string>
+  <string name="edit_next">পৰৱৰ্তী</string>
+  <string name="edit_done">সাঁচি থওক</string>
+  <string name="edit_preview">প্ৰাক্‌দৰ্শন</string>
+  <string name="edit_summary_tag_typo">বানান শুধৰণি</string>
+  <string name="edit_summary_tag_grammar">ব্যাকৰণ শুধৰণি</string>
+  <string name="edit_summary_tag_links">লিংক যোগ</string>
+  <string name="edit_summary_tag_other">অন্য</string>
+  <string name="edit_summary_tag_other_hint">পৃষ্ঠাটো উন্নত কৰাত আপোনাৰ অন্য অৱদান</string>
+  <string name="find_next">পৰৱৰ্তী বিচাৰক</string>
+  <string name="find_previous">পূৰ্বৱৰ্তী বিচাৰক</string>
+  <string name="error_network_error_try_again">নে\'টৱৰ্ক পোৱা নগ\'ল, অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।</string>
+  <string name="saved_pages_update_all_error_retry">পুনৰ চেষ্টা কৰক</string>
+  <string name="saved_pages_update_all_error_message">সঞ্চিত পৃষ্ঠাসমূহ আপডে\'ট কৰাত ত্ৰুটি হৈছে</string>
+  <string name="saved_pages_progress_title">সঞ্চিত পৃষ্ঠাসমূহ পুনঃসতেজ কৰা হৈছে</string>
+  <string name="menu_page_saved">পৃষ্ঠা সঞ্চিত হ\'ল</string>
+  <string name="menu_refresh_saved_page">পৃষ্ঠা পুনঃসতেজ কৰক</string>
+  <string name="abusefilter_title_warn">এইটো সম্ভৱ এটা অগঠনমূলক সম্পাদনা। আপুনি এইটো সাঁচিব বুলি নিশ্চিতনে?</string>
+  <string name="abusefilter_title_disallow">আপুনি এই সম্পাদনাটো সাঁচিব নোৱাৰে। অনুগ্ৰহ কৰি ঘূৰি গৈ এইটো সলাওক।</string>
+  <string name="abusefilter_text_warn">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বুলি চিহ্নিত কৰিছে। ইয়াত তলৰ এটা বা অধিক থাকিব পাৰে:&lt;br /&gt;&lt;br /&gt;· প্ৰবন্ধ খালি কৰা বা স্পামিং&lt;br /&gt;· অপ্ৰয়োজনীয় বাহ্যিক সংযোগ বা ছবি&lt;br /&gt;· চিহ্নৰ পুনৰাবৃত্তি</string>
+  <string name="abusefilter_text_disallow">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বা ধ্বংসমূলক বুলি চিহ্নিত কৰিছে।&lt;br /&gt;&lt;br /&gt;ৱিকিপিডিয়া এখন বিশ্বকোষ আৰু ইয়াত কেৱল নিৰপেক্ষ, উল্লেখযোগ্য বিষয় থাকিব পাৰে।</string>
+  <string name="dialog_page_issues">পৃষ্ঠা সমস্যা</string>
+  <string name="button_page_issues">পৃষ্ঠা সমস্যা</string>
+  <string name="text_size_select">ফ\'ণ্টৰ আকাৰ</string>
+  <string name="color_theme_select">থীম</string>
+  <string name="color_theme_light">পাতল</string>
+  <string name="color_theme_dark">ডাঠ</string>
+  <string name="page_similar_titles">একে ধৰণৰ পৃষ্ঠা</string>
+  <string name="search_did_you_mean">আপুনি \"%s\" বুজাইছেনে?</string>
+  <string name="search_recent_header">শেহতীয়া সন্ধানসমূহ:</string>
+  <string name="button_clear_all_recent_searches">শেহতীয়া সন্ধানসমূহ পৰিষ্কাৰ কৰক</string>
+  <string name="clear_recent_searches_confirm">আপুনি আপোনাৰ সন্ধান ইতিহাস পৰিষ্কাৰ কৰিব বুলি নিশ্চিতনে?</string>
+  <string name="error_browser_not_found">ৱেব পৃষ্ঠা খুলিব পৰা নগ\'ল (কোনো ব্ৰাউজাৰ এপ্‌ নাই)।</string>
+  <string name="table_infobox">ক্ষিপ্ৰ তথ্য</string>
+  <string name="table_other">অধিক তথ্য</string>
+  <string name="table_close">বন্ধ কৰক</string>
+  <string name="widget_name_featured_page">ৱিকিপিডিয়া নিৰ্বাচিত পৃষ্ঠা</string>
+  <string name="widget_title_featured_page">আজিৰ নিৰ্বাচিত পৃষ্ঠা:</string>
+  <string name="widget_name_search">ৱিকিপিডিয়া সন্ধান</string>
+  <string name="app_store_description">এণ্ড্ৰইডৰ বাবে আনুষ্ঠানিক ৱিকিপিডিয়া এপ্‌। ৱিকিপিডিয়া এখন বিনামূলীয়া বিশ্বকোষ য\'ত ২৮০টা ভাষাত ৩.২ কোটিতকৈও অধিক প্ৰবন্ধ আছে, আৰু ই মানুহে যুগুতাই উলিওৱা সকলোতকৈ বিশদ আৰু সৰ্বাধিক ব্যৱহৃত প্ৰসংগ কৰ্ম।
+
+বৈশিষ্টসমূহ:
+- শীৰ্ষ চিত্ৰ: প্ৰবন্ধৰ শীৰ্ষত স্পষ্ট, প্ৰাসংগিক চিত্ৰ আৰু বৰ্ণনাৰে আগতে নোপোৱা ধৰণৰে ৱিকিপিডিয়াৰ অভিজ্ঞতা লাভ কৰক
+- চিত্ৰ ভঁৰাল: এখন ছবিত টুকুৰিয়ালে আপুনি ছবিখন উচ্চ ৰিজ\'লিউচনত পূৰ্ণ স্ক্ৰীনত দেখা পাব, আৰু লগতে আন ছবি চাবৰ বাবে বাওঁ/সোঁফালে যাবলৈ বিকল্প পাব
+- ৱিকিডে\'টা বিৱৰণ: সন্ধান কৰোঁতে প্ৰতিটো সন্ধান ফলাফলত এতিয়া এটা ক্ষিপ্ৰ বিৱৰণ দেখিব। এই বৰ্ণনাবোৰ এপ্‌টোৰ আন ঠাই যেনে কাষৰীয়াতো পাব। 
+- প্ৰবন্ধ পৰামৰ্শ: প্ৰবন্ধটোৰ তললৈ গ\'লে আপুনি ইয়াৰ পাছত পঢ়িবলৈ পৰামৰ্শ লাভ কৰিব
+- সঞ্চিত পৃষ্ঠা: অফলাইন পঢ়িবৰ বাবে নিৰ্বাচিত পৃষ্ঠা সাঁচি থওক আৰু আপোনাৰ ডে\'টা সযোগ নথাকিলেও সেয়া চাওক
+- কাষৰীয়া: আপোনাৰ বৰ্তমান অৱস্থানৰ ওচৰত থকা বিষয়ৰ প্ৰবন্ধৰ সংযোগেৰে আপোনাৰ ওচৰ-পাজৰৰ তথ্য লভক 
+- ভাষা সমৰ্থন: কোনো অসুবিধা নোহোৱাকৈ অন্য ভাষাত ৱিকিপিডিয়া খোলক
+- বিষয়বস্তুৰ তালিকা: যিকোনো প্ৰবন্ধত বাওঁফালে স্বাইপ কৰি বিষয়বস্তুৰ তালিকা পাব যিয়ে প্ৰবন্ধৰ নিৰ্দিষ্ট অনুচ্ছেদলৈ যোৱাত সহায় কৰিব
+- ৱিকিপিডিয়া জিৰ\': অংশগ্ৰহণ কৰা ম\'বাইল অপাৰেটৰৰ বাবে ডে\'টা মূল্য ৰেহাই
+
+এপ্‌টোৰ বিষয়ে আপোনাৰ প্ৰতিক্ৰিয়া জনাওক! মেনুত \"অধিক\" টিপক, তাৰ পিছত \"ৱিকিপিডিয়া এপ্‌টোৰ বিষয়ে\", তাৰ পিছত \"এপ্‌ প্ৰতিক্ৰিয়া জনাওক\"।
+
+ক\'ডসমূহ ১০০% মুক্ত উৎসৰ। যদি আপোনাৰ জাভা আৰু এণ্ড্ৰইড SDKৰ অভিজ্ঞতা আছে, তেন্তে আমি আপোনাৰ বৰঙণিলৈ বাট চাম! https://github.com/wikimedia/apps-android-wikipedia
+
+Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
+  <string name="alpha_update_notification_title">নতুন আলফা আপ্‌ডে\'ট উপলব্ধ</string>
+  <string name="alpha_update_notification_text">ডাউনল\'ড কৰিবলৈ টেপ্‌ কৰক</string>
+  <string name="dialog_close_description">বন্ধ কৰক</string>
+  <string name="preference_title_show_images">চিত্ৰ দেখুৱাওক</string>
+  <string name="preference_summary_show_images">পৃষ্ঠাত ছবিৰ ল\'ডিং সক্ৰিয় বা নিষ্ক্ৰিয় কৰক। আপোনাৰ ইণ্টাৰনেট সংযোগ লেহেমীয়া হ\'লে বা আপোনাৰ ডে\'টা প্লেন সীমিত হ\'লে এই ছেটিংটো অচিহ্নিত কৰক।</string>
+  <string name="read_more_section">আৰু পঢ়ক</string>
+  <string name="menu_gallery_visit_page">ফাইল পৃষ্ঠালৈ যাওক</string>
+  <string name="license_title">%s পুথিভঁৰালৰ বাবে অনুজ্ঞাপত্ৰ পাঠ্য</string>
+  <string name="gallery_menu_share">শ্বেয়াৰ কৰক</string>
+  <string name="gallery_share_error">ছবিখন শ্বেয়াৰ কৰিব পৰা নগ\'ল: %s</string>
+  <string name="gallery_menu_save">সঁজুলিত সাঁচি থওক</string>
+  <string name="gallery_save_success">ছবিখন সফলতাৰে সঞ্চিত হ\'ল।</string>
+  <string name="gallery_image_saved_notification_title">ছবিখন সঞ্চিত হ\'ল।</string>
+  <string name="gallery_image_saved_notification_text">চাবলৈ স্পৰ্শ কৰক।</string>
+  <string name="gallery_error_video_failed">ভিডিঅ\'টো চলাব পৰা নগ\'ল।</string>
+  <string name="err_cannot_save_file">ফাইল সাঁচিব পৰা নগ\'ল</string>
+  <string name="expand_refs">বহলাবলৈ টেপ্‌ কৰক</string>
+  <string name="share_snippet_button">ছবি হিচাপে শ্বেয়াৰ কৰক</string>
+  <string name="share_normal_button">পাঠ্য হিচাপে শ্বেয়াৰ কৰক</string>
+  <string name="snippet_share_preview_image_desc">ছবিৰ প্ৰাক্‌দৰ্শন কৰক</string>
+  <string name="cc_logo">ক্ৰিয়েটিভ কমন্স লাইচেন্স</string>
+  <string name="captcha_image">কেপ্‌চা ছবি</string>
+  <string name="gallery_fair_use_license">ভাল ব্যৱহাৰ</string>
+  <string name="gallery_uploader_unknown">আপল\'ডাৰ অজ্ঞাত</string>
+  <string name="menu_new_tab">নতুন টেব্‌</string>
+  <string name="button_close_tab">টেব্‌ বন্ধ কৰক</string>
+  <string name="tool_tip_select_text">প্ৰতিলিপি আৰু শ্বেয়াৰ কৰিবলৈ পাঠ্যৰ যিকোনো ঠাইত টিপি ধৰি থাকি উজ্জ্বল কৰক।</string>
+  <string name="tool_tip_share">এটা আগ্ৰহজনক তথ্য নিৰ্বাচন কৰাৰ পাছত ইয়াক আপোনাৰ পছন্দৰ নে\'টৱৰ্কত শ্বেয়াৰ কৰিবলৈ চেষ্টা কৰক!</string>
+  <string name="page_view_in_browser">পৃষ্ঠাটো ব্ৰাউজাৰত চাওক</string>
+  <string name="tool_tip_toc_button">এই বুটামটো টেপ্‌ কৰি নাইবা স্ক্ৰীনৰ সোঁকাষৰ পৰা স্লাইড কৰি বিষয়বস্তুৰ তালিকা যিকোনো সময়ত চাব পাৰিব।</string>
+  <string name="error_server_response">চাৰ্ভাৰে অনুৰোধ ৰক্ষা কৰিব নোৱাৰিলে।</string>
+  <string name="error_unknown">এটা অজ্ঞাত ত্ৰুটি হৈছে।</string>
+  <string name="format_error_server_message">বাৰ্তা: \"%s\"</string>
+  <string name="format_error_server_code">সংকেত: \"%s\"</string>
+  <string name="address_copied">ঠিকনাটো ক্লিপ্‌ব\'ৰ্ডলৈ প্ৰতিলিপি কৰা হৈছে।</string>
   <string name="text_copied">পাঠসমূহ ক্লিপবৰ্ডলৈ কপি কৰা হ\'ল।</string>
+  <string name="button_continue_to_article">প্ৰবন্ধটো অব্যাহত ৰাখক</string>
+  <string name="preference_title_show_link_previews">সংযোগ প্ৰাক্‌দৰ্শন দেখুৱাওক</string>
+  <string name="preference_summary_show_link_previews">সংযোগত টেপ্‌ কৰিলে প্ৰবন্ধৰ ক্ষিপ্ৰ প্ৰাক্‌দৰ্শন দেখুৱাওক।</string>
+  <string name="nav_item_donate">ৱিকিপিডিয়াক সমৰ্থন কৰক</string>
   <string name="crash_report_dialog_title">দুঃখিত, যোৱাবাৰত এপ্লিকেচন বিধ্বস্ক হৈছিল</string>
   <string name="crash_report_dialog_dont_send_button">এৰি যাওক</string>
   <string name="crash_report_dialog_always_send_button">সদায়ে পঠিয়াওক</string>

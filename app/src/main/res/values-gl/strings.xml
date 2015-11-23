@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Compartir</string>
   <string name="nav_item_nearby">Preto</string>
   <string name="nearby_empty_title">Non hai páxinas próximas aquí!</string>
-  <string name="nearby_empty_message" fuzzy="true">Móvase ata unha nova localización para ver páxinas ao seu redor.</string>
+  <string name="nearby_empty_message">Móvase ata unha nova localización para ver páxinas sobre temas preto de vostede.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d pés</string>
@@ -84,7 +84,7 @@
   <string name="login_password_hint">Contrasinal</string>
   <string name="login_password_show_check">Mostrar o contrasinal</string>
   <string name="menu_login">Acceder ao sistema</string>
-  <string name="login_activity_title">Acceder á Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Acceder á Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
   <string name="login_error_wrong_password">O contrasinal é incorrecto</string>
   <string name="login_error_wrong_username">O nome de usuario é incorrecto</string>

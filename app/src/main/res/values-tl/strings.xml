@@ -38,7 +38,7 @@
   <string name="menu_long_press_open_in_new_tab">Buksan sa bagong talahanayan (tab)</string>
   <string name="nav_item_nearby">Kalapit</string>
   <string name="nearby_empty_title">Walang kalapit na pahina rito!</string>
-  <string name="nearby_empty_message" fuzzy="true">Kapag pumunta ka sa bagong lokasyon, subukang i-refresh ang pahinang ito upang malaman pa ang kung ano pa ang nakapalibot sa iyo.</string>
+  <string name="nearby_empty_message">Iurong sa bagong lokasyon upang makita ang mga pahinang tungkol sa mga paksang malapit sa iyo.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -79,7 +79,7 @@
   <string name="login_password_hint">Hudyat (password)</string>
   <string name="login_password_show_check">Ipakita ang hudyat (password)</string>
   <string name="menu_login">Lumagda (login)</string>
-  <string name="login_activity_title">Lumagda (login) sa Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Lumagda (login) sa Wikipedia</string>
   <string name="login_in_progress_dialog_message">Inilalagda ka na...</string>
   <string name="login_error_wrong_password">Hindi tamang hudyat</string>
   <string name="login_error_wrong_username">Di-tamang pangalan ng tagagamit</string>
@@ -137,6 +137,7 @@
   <string name="send_feedback">Magpadala ng tugon sa app</string>
   <string name="nav_item_random">Aleatoryo (Random)</string>
   <string name="create_account_account_created_toast">Nalikha ang akawnt!</string>
+  <string name="preferences_privacy_settings_heading">Paglilihim/Pribasidad</string>
   <string name="preference_title_eventlogging_opt_in">Magpadala ng mga ulat sa paggamit</string>
   <string name="preference_summary_eventlogging_opt_in">Pahintulutan ang Wikipedia na mangumpuni ng impormasyon tungkol sa kung paano mo ginagamit ang aplikasyon upang maipabuti pa ang aplikasyon</string>
   <string name="editing_error_spamblacklist">May natagpuang mga dominyong nakaharang (%s).  Mangyari po lamang na tanggalin ito at subukan muli.</string>

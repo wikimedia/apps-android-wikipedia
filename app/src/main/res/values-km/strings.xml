@@ -73,7 +73,7 @@
   <string name="login_password_hint">ពាក្យ​សម្ងាត់</string>
   <string name="login_password_show_check">បង្ហាញ​ពាក្យ​សម្ងាត់</string>
   <string name="menu_login">កត់ឈ្មោះចូល</string>
-  <string name="login_activity_title">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
+  <string name="login_activity_title" fuzzy="true">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
   <string name="login_in_progress_dialog_message">កំពុង​កត់ឈ្មោះ​ចូល…</string>
   <string name="login_error_wrong_password">ពាក្យ​សម្ងាត់​មិនត្រឹមត្រូវ</string>
   <string name="login_error_wrong_username">អត្តនាមមិនត្រឹមត្រូវ</string>

@@ -54,7 +54,7 @@
   <string name="login_password_hint">Parool</string>
   <string name="login_password_show_check">Kuva parool</string>
   <string name="menu_login">Logi sisse</string>
-  <string name="login_activity_title">Logi Vikipeediasse</string>
+  <string name="login_activity_title" fuzzy="true">Logi Vikipeediasse</string>
   <string name="login_in_progress_dialog_message">Sisselogimine…</string>
   <string name="login_error_wrong_password">Vale parool</string>
   <string name="login_error_wrong_username">Vale kasutajanimi</string>

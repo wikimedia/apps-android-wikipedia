@@ -63,7 +63,7 @@
   <string name="login_password_hint">Neno la siri</string>
   <string name="login_password_show_check">Onyesha neno la siri</string>
   <string name="menu_login">Ingia</string>
-  <string name="login_activity_title">Ingia katika Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Ingia katika Wikipedia</string>
   <string name="login_in_progress_dialog_message">Inakuingiza...</string>
   <string name="login_error_wrong_password">Neno la siri batili</string>
   <string name="login_error_wrong_username">Jina la mtumiaji batili</string>
