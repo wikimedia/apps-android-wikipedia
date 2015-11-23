@@ -170,8 +170,6 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        clearResults();
-
         currentSearchTerm = term;
 
         if (term.isEmpty()) {
@@ -202,7 +200,6 @@ public class SearchResultsFragment extends Fragment {
             if (!isAdded()) {
                 return true;
             }
-            clearResults();
             final String mySearchTerm = (String) msg.obj;
             doTitlePrefixSearch(mySearchTerm);
             return true;
@@ -385,10 +382,10 @@ public class SearchResultsFragment extends Fragment {
      * @param results List of results to display. If null, clears the list of suggestions & hides it.
      */
     private void displayResults(List<PageTitle> results) {
+        clearResults();
+
         for (PageTitle newResult : results) {
-            if (!totalResults.contains(newResult)) {
-                totalResults.add(newResult);
-            }
+            totalResults.add(newResult);
         }
 
         searchResultsContainer.setVisibility(View.VISIBLE);
