@@ -29,14 +29,16 @@
                     android:contentDescription="@null"
                     />
             <LinearLayout android:layout_width="0dp"
-                          android:layout_height="72dp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="72dp"
                           android:layout_weight="1"
                           android:orientation="vertical"
                           android:layout_marginLeft="4dp"
                           android:layout_marginStart="4dp"
                     >
                 <TextView android:layout_width="wrap_content"
-                          android:layout_height="48dp"
+                          android:layout_height="wrap_content"
+                          android:minHeight="48dp"
                           style="?android:textAppearanceLarge"
                           android:gravity="top"
                           android:layout_gravity="top"
