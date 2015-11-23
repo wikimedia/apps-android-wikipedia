@@ -50,7 +50,6 @@ public class NearbyFragment extends Fragment {
 
     private Sprite markerIconPassive;
 
-    private WikipediaApp app;
     private Site site;
     private NearbyResult lastResult;
     @Nullable private Location currentLocation;
@@ -60,8 +59,7 @@ public class NearbyFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = WikipediaApp.getInstance();
-        site = app.getPrimarySite();
+        site = WikipediaApp.getInstance().getPrimarySite();
     }
 
     @Override

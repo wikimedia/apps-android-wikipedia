@@ -108,7 +108,6 @@ public class PageActivity extends ThemedActionBarActivity {
     private View fragmentContainerView;
     private View tabsContainerView;
     private WikiDrawerLayout drawerLayout;
-    private NavigationView navDrawer;
     private Menu navMenu;
     private SearchArticlesFragment searchFragment;
     private TextView searchHintText;
@@ -210,7 +209,7 @@ public class PageActivity extends ThemedActionBarActivity {
         if (!ApiUtil.hasLollipop()) {
             drawerLayout.setDrawerShadow(R.drawable.nav_drawer_shadow, GravityCompat.START);
         }
-        navDrawer = (NavigationView) findViewById(R.id.navdrawer);
+        NavigationView navDrawer = (NavigationView) findViewById(R.id.navdrawer);
         navMenu = navDrawer.getMenu();
         navDrawerHelper = new NavDrawerHelper(this, navDrawer.getHeaderView(0));
         navDrawer.setNavigationItemSelectedListener(navDrawerHelper.getNewListener());
