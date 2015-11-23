@@ -64,7 +64,7 @@
   <string name="login_username_hint">Navê bikarhêner</string>
   <string name="login_password_hint">Şîfre</string>
   <string name="menu_login">Têkeve</string>
-  <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
+  <string name="login_activity_title" fuzzy="true">Têkeve Wîkîpediyayê</string>
   <string name="login_error_wrong_username">Navê bikarhêner ne rast e</string>
   <string name="login_success_toast">Têketin serkevtî bû!</string>
   <string name="login_error_blocked">Ev bikarhêner hatiye astengkirin</string>

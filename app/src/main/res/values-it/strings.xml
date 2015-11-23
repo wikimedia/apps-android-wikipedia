@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">Condividi</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>
-  <string name="nearby_empty_message" fuzzy="true">Spostati in una nuova posizione per vedere pagine su ciò che c\'è vicino a te.</string>
+  <string name="nearby_empty_message">Spostati in una nuova posizione per vedere pagine su argomenti vicino a te.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -84,7 +84,7 @@
   <string name="login_password_hint">Password</string>
   <string name="login_password_show_check">Visualizza la password</string>
   <string name="menu_login">Entra</string>
-  <string name="login_activity_title">Accedi a Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Accedi a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accesso in corso…</string>
   <string name="login_error_wrong_password">Password non corretta</string>
   <string name="login_error_wrong_username">Nome utente non corretto</string>

@@ -84,7 +84,7 @@
   <string name="login_password_hint">Пароль</string>
   <string name="login_password_show_check">Отобразить пароль</string>
   <string name="menu_login">Войти</string>
-  <string name="login_activity_title">Войти в Википедию</string>
+  <string name="login_activity_title" fuzzy="true">Войти в Википедию</string>
   <string name="login_in_progress_dialog_message">Вход в систему…</string>
   <string name="login_error_wrong_password">Неверный пароль</string>
   <string name="login_error_wrong_username">Неверное имя пользователя</string>

@@ -69,7 +69,7 @@
   <string name="login_password_hint">စကားဝှက်</string>
   <string name="login_password_show_check">စကားဝှက်ကို ပြပါ။</string>
   <string name="menu_login">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
-  <string name="login_activity_title">ဝီကီပီဒီးယားသို့ အကောင့်ဝင်ပါ</string>
+  <string name="login_activity_title" fuzzy="true">ဝီကီပီဒီးယားသို့ အကောင့်ဝင်ပါ</string>
   <string name="login_error_wrong_password">မှားယွင်းသော စကားဝှက်</string>
   <string name="login_error_wrong_username">မှားယွင်းသော အသုံးပြုသူအမည်</string>
   <string name="login_success_toast" fuzzy="true">မှတ်တမ်းဖြင့် ဝင်​ခြင်း အောင်မြင်သည်။</string>

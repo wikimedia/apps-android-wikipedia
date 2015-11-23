@@ -84,7 +84,7 @@
   <string name="login_password_hint">كلمة السر</string>
   <string name="login_password_show_check">عرض كلمة السر</string>
   <string name="menu_login">تسجيل الدخول</string>
-  <string name="login_activity_title">الدخول إلى ويكيبيديا</string>
+  <string name="login_activity_title" fuzzy="true">الدخول إلى ويكيبيديا</string>
   <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
   <string name="login_error_wrong_password">كلمة السر غير صحيحة</string>
   <string name="login_error_wrong_username">اسم المستخدم غير صحيح</string>

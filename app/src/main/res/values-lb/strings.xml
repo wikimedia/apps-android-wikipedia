@@ -80,7 +80,7 @@
   <string name="login_password_hint">Passwuert</string>
   <string name="login_password_show_check">Passwuert weisen</string>
   <string name="menu_login">Aloggen</string>
-  <string name="login_activity_title">Op Wikipedia aloggen</string>
+  <string name="login_activity_title" fuzzy="true">Op Wikipedia aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
   <string name="login_error_wrong_password">Falscht Passwuert</string>
   <string name="login_error_wrong_username">Falsche Benotzernumm</string>

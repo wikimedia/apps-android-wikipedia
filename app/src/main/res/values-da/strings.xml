@@ -82,7 +82,7 @@
   <string name="login_password_hint">Adgangskode</string>
   <string name="login_password_show_check">Vis adgangskode</string>
   <string name="menu_login">Log på</string>
-  <string name="login_activity_title">Log på Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Log på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
   <string name="login_error_wrong_password">Forkert adgangskode</string>
   <string name="login_error_wrong_username">Forkert brugernavn</string>

@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">বণ্টন</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>
-  <string name="nearby_empty_message" fuzzy="true">আপনার চারপাশের পাতা দেখার জন্য একটি নতুন অবস্থানে যান।</string>
+  <string name="nearby_empty_message">আপনার কাছাকাছি থাকা বিষয় সম্পর্কিত পাতা দেখার জন্য একটি নতুন অবস্থানে যান।</string>
   <string name="nearby_distance_in_meters">%d মি</string>
   <string name="nearby_distance_in_kilometers">%.2f কিমি</string>
   <string name="nearby_distance_in_feet">%d ফুট</string>
@@ -84,7 +84,7 @@
   <string name="login_password_hint">পাসওয়ার্ড</string>
   <string name="login_password_show_check">পাসওয়ার্ড দেখাও</string>
   <string name="menu_login">প্রবেশ</string>
-  <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ</string>
+  <string name="login_activity_title" fuzzy="true">উইকিপিডিয়াতে প্রবেশ</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
   <string name="login_error_wrong_password">ভুল পাসওয়ার্ড</string>
   <string name="login_error_wrong_username">ভুল ব্যবহারকারী নাম</string>
@@ -274,6 +274,7 @@
   <string name="button_continue_to_article">নিবন্ধে চলুন</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
+  <string name="nav_item_donate">দান করুন</string>
   <string name="crash_report_dialog_title">দুঃখিত, অ্যাপ্লিকেশন শেষ বার বিধ্বস্ত হয়েছিল</string>
   <string name="crash_report_dialog_dont_send_button">উপেক্ষা করো</string>
   <string name="crash_report_dialog_always_send_button">সর্বদা পাঠান</string>

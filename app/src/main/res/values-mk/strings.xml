@@ -84,7 +84,7 @@
   <string name="login_password_hint">Лозинка</string>
   <string name="login_password_show_check">Прикажи лозинка</string>
   <string name="menu_login">Најава</string>
-  <string name="login_activity_title">Најава на Википедија</string>
+  <string name="login_activity_title" fuzzy="true">Најава на Википедија</string>
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
   <string name="login_error_wrong_password">Погрешна лозинка</string>
   <string name="login_error_wrong_username">Погрешнно корисничко име</string>

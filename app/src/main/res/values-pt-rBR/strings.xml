@@ -80,7 +80,7 @@
   <string name="login_password_hint">Senha</string>
   <string name="login_password_show_check">Mostrar senha</string>
   <string name="menu_login">Entrar</string>
-  <string name="login_activity_title">Entra na Wikipédia</string>
+  <string name="login_activity_title" fuzzy="true">Entra na Wikipédia</string>
   <string name="login_in_progress_dialog_message">Autenticando…</string>
   <string name="login_error_wrong_password">Senha incorreta.</string>
   <string name="login_error_wrong_username">Nome de usuário incorreto</string>

@@ -67,7 +67,7 @@
   <string name="login_password_hint">ପାସୱାର୍ଡ଼</string>
   <string name="login_password_show_check">ପାସୱାର୍ଡ଼ ଦେଖାନ୍ତୁ</string>
   <string name="menu_login">ଲଗଇନ</string>
-  <string name="login_activity_title">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
+  <string name="login_activity_title" fuzzy="true">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
   <string name="login_in_progress_dialog_message">ଆପଣଙ୍କୁ ଲଗ ଇନ କରାଉଛି</string>
   <string name="login_error_wrong_password">ପାସୱାର୍ଡ଼ଟି ଭୁଲ</string>
   <string name="login_error_wrong_username">ସଭ୍ୟ ନାମଟି ଭୁଲ</string>

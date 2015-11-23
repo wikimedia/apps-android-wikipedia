@@ -42,7 +42,7 @@
   <string name="login_password_hint">Iggitaa</string>
   <string name="login_password_show_check">Iggitaa agarsiisi</string>
   <string name="menu_login">Seeni</string>
-  <string name="login_activity_title">Wiikippidiyaa seeni</string>
+  <string name="login_activity_title" fuzzy="true">Wiikippidiyaa seeni</string>
   <string name="login_error_wrong_password">Iggitaa dogoggoraa</string>
   <string name="login_error_wrong_username">Maqaa fayyadamaa dogoggoraa</string>
   <string name="login_error_illegal">Iggita fashalaa</string>

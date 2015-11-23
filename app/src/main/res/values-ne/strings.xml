@@ -54,7 +54,7 @@
   <string name="login_password_hint">पासवर्ड</string>
   <string name="login_password_show_check">पासवर्ड देखाउने</string>
   <string name="menu_login">प्रवेश</string>
-  <string name="login_activity_title">विकिपीडियामा प्रवेश गर्ने</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडियामा प्रवेश गर्ने</string>
   <string name="login_in_progress_dialog_message">प्रवेश गर्दै</string>
   <string name="login_error_wrong_password">गलत पासवर्ड</string>
   <string name="login_error_wrong_username">गलत प्रयोगकर्ता नाम</string>

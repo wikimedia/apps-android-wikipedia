@@ -80,7 +80,7 @@
   <string name="login_password_hint">Κωδικός</string>
   <string name="login_password_show_check">Εμφάνιση κωδικού πρόσβασης</string>
   <string name="menu_login">Σύνδεση</string>
-  <string name="login_activity_title">Συνδεθείτε στη Βικιπαίδεια</string>
+  <string name="login_activity_title" fuzzy="true">Συνδεθείτε στη Βικιπαίδεια</string>
   <string name="login_in_progress_dialog_message">Σύνδεση…</string>
   <string name="login_error_wrong_password">Λανθασμένος κωδικός πρόσβασης</string>
   <string name="login_error_wrong_username">Λανθασμένο όνομα χρήστη</string>
