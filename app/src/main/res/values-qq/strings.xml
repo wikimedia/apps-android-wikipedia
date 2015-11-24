@@ -71,20 +71,9 @@ See also:
 {{Identical|Share}}</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
 {{Identical|Nearby}}</string>
-  <string name="nearby_empty_title">Title line for message when no nearby pages were found</string>
-  <string name="nearby_empty_message">Message details when no pages about nearby topics were found</string>
   <string name="nearby_distance_in_meters">Distance to the place mentioned in the nearby page in meters. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
   <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
-  <string name="nearby_distance_in_feet">Distance to the place mentioned in the nearby page in feet. Please leave the %d as is. It represents an integer decimal number up to 999.</string>
-  <string name="nearby_distance_in_miles">Distance to the place mentioned in the nearby page in miles. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
-  <string name="nearby_dialog_goto_settings">Dialog text that tells the user that Location updates are not enabled on the device, and asks if the user wants to go to the Settings page on the device where they can enable Location updates.</string>
-  <string name="nearby_set_metric">Menu item for displaying distances in metric units (meters and kilometers).</string>
-  <string name="nearby_set_imperial">Menu item for displaying distances in imperial units (feet and miles).</string>
-  <string name="nearby_view_on_map">Hint for button that pinpoints the selected Nearby item on a map (will open external app, e.g. Google Maps).</string>
   <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
-  <string name="nearby_requires_location">Dialog message saying that the Nearby feature requires the location permission. This is shown after the user taps on \"deny\" location permission. (First generation of Nearby feature only.)
-
-\"Nearby\" is {{msg-wikimedia|Wikipedia-android-strings-nav item nearby}}</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>

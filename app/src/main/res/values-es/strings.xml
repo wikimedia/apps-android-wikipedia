@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Copiar</string>
   <string name="menu_text_select_share">Compartir</string>
   <string name="nav_item_nearby">Cercanos</string>
-  <string name="nearby_empty_title">¡No hay páginas cercanas aquí!</string>
-  <string name="nearby_empty_message" fuzzy="true">Muévete a una nueva ubicación para ver páginas a tu alrededor.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d pies</string>
-  <string name="nearby_distance_in_miles">%.2f millas</string>
-  <string name="nearby_dialog_goto_settings">Las actualizaciones de ubicación están desactivadas en tu dispositivo. ¿Quieres ir a las preferencias del mismo para habilitarlas?</string>
-  <string name="nearby_set_metric">Mostrar metros/km</string>
-  <string name="nearby_set_imperial">Mostrar pies/millas</string>
-  <string name="nearby_view_on_map">Ver lugar en mapa</string>
   <string name="nearby_zoom_to_location">Amplia una ubicación en el mapa</string>
-  <string name="nearby_requires_location">La característica Cercanos requiere el permiso de ubicación.</string>
   <string name="last_updated_text">Última actualización: %s</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>

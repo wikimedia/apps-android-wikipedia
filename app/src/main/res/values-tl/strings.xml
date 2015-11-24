@@ -37,16 +37,8 @@
   <string name="menu_long_press_open_page" fuzzy="true">Buksan ang kawing (link)</string>
   <string name="menu_long_press_open_in_new_tab">Buksan sa bagong talahanayan (tab)</string>
   <string name="nav_item_nearby">Kalapit</string>
-  <string name="nearby_empty_title">Walang kalapit na pahina rito!</string>
-  <string name="nearby_empty_message">Iurong sa bagong lokasyon upang makita ang mga pahinang tungkol sa mga paksang malapit sa iyo.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">Ang mga update sa lokasyon ay hindi pinagana sa iyong aparato. Nais mo bang pumunta sa kaayusan ng iyong aparato upang paganahin ang mga update sa lokasyon?</string>
-  <string name="nearby_set_metric">Ipakita ang metro/km</string>
-  <string name="nearby_set_imperial">Ipakita ang talampakan/milya</string>
-  <string name="nearby_view_on_map">Tingnan ang lugar sa mapa</string>
   <string name="last_updated_text">Huling pagsasa-panahon (update) %s</string>
   <string name="content_license_html">Naroon ang nilalaman sa ilalim ng &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; maliban na lang kung itinala</string>
   <string name="edit_save_action_license_logged_in">Sa pagtatala (saving), sumasang-ayon ka sa &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Tuntunin sa Paggamit&lt;/a&gt;, at walang alinlangan inililimbag ang iyong mga ambag sa ilalim ng &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; na lisensya.</string>

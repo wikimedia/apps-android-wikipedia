@@ -41,17 +41,8 @@
   <string name="menu_text_select_copy">Kopírovat</string>
   <string name="menu_text_select_share">Sdílet</string>
   <string name="nav_item_nearby">Poblíž</string>
-  <string name="nearby_empty_title">Žádné stránky poblíž!</string>
-  <string name="nearby_empty_message">Přesuňte se na nové místo a uvidíte stránky o tématech kolem vás.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">Informace o poloze nejsou ve vašem zařízení povoleny. Chcete přejít do nastavení svého zařízení a povolit údaje o poloze?</string>
-  <string name="nearby_set_metric">Zobraz metry/km</string>
-  <string name="nearby_set_imperial">Zobraz stopy/míle</string>
-  <string name="nearby_view_on_map">Zobrazit místo na mapě</string>
-  <string name="nearby_requires_location">Funkce Poblíž vyžaduje přístup k poloze.</string>
   <string name="last_updated_text">Naposledy aktualizováno %s</string>
   <string name="content_license_html">Obsah je dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.cs\"&gt;CC BY-SA 3.0&lt;/a&gt;, pokud není uvedeno jinak</string>
   <string name="edit_save_action_license_logged_in">Uložením souhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

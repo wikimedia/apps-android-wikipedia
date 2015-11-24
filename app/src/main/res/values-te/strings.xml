@@ -38,16 +38,8 @@
   <string name="menu_long_press_open_page" fuzzy="true">లంకను తెరువు</string>
   <string name="menu_long_press_open_in_new_tab">కొత్త ట్యాబులో తెరువు</string>
   <string name="nav_item_nearby">దగ్గరలో</string>
-  <string name="nearby_empty_title">దగ్గరలో ఏ పేజీలు లేవు!</string>
-  <string name="nearby_empty_message" fuzzy="true">మీరు కొత్త ప్రదేశానికి వెళ్తే, మీ చుట్టూ ఉన్న విషయాల గురించి మరింత తెలుసుకోవటానికి ఈ పేజీని తాజాపరిచండి.</string>
   <string name="nearby_distance_in_meters">%d మీటర్లు</string>
   <string name="nearby_distance_in_kilometers">%.2f కిలోమీటర్లు</string>
-  <string name="nearby_distance_in_feet">%d అడుగులు</string>
-  <string name="nearby_distance_in_miles">%.2f మైళ్ళు</string>
-  <string name="nearby_dialog_goto_settings">ప్రదేశగుర్తింపు సేవ మీ పరికరంలో అన్ చేసి లేదు. మీ పరికర అమర్పులకి వెళ్లి ప్రదేశగుర్తింపు సేవని ఆన్ చేయాలని అనుకుంటున్నారా?</string>
-  <string name="nearby_set_metric">మీటర్లు/కిలోమీటర్లుగా చూపించు</string>
-  <string name="nearby_set_imperial">అడుగులు/మైళ్ళుగా చూపించు</string>
-  <string name="nearby_view_on_map">పటంలో స్థానం చూడండి</string>
   <string name="last_updated_text">%s కి ఆఖరుగా తాజాపరచబడింది</string>
   <string name="content_license_html">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
   <string name="edit_save_action_license_logged_in">భద్రపర్చడం ద్వారా &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>

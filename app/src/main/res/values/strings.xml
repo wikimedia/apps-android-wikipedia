@@ -53,18 +53,9 @@
 
     <!-- Nearby -->
     <string name="nav_item_nearby">Nearby</string>
-    <string name="nearby_empty_title">No nearby pages here!</string>
-    <string name="nearby_empty_message">Move to a new location to see pages about topics near you.</string>
     <string name="nearby_distance_in_meters">%d m</string>
     <string name="nearby_distance_in_kilometers">%.2f km</string>
-    <string name="nearby_distance_in_feet">%d ft</string>
-    <string name="nearby_distance_in_miles">%.2f mi</string>
-    <string name="nearby_dialog_goto_settings">Location updates are not enabled on your device. Would you like to go to your device\'s settings to enable Location updates?</string>
-    <string name="nearby_set_metric">Show meters/km</string>
-    <string name="nearby_set_imperial">Show feet/miles</string>
-    <string name="nearby_view_on_map">View place on map</string>
     <string name="nearby_zoom_to_location">Zoom to a location on the map</string>
-    <string name="nearby_requires_location">The Nearby feature requires the location permission.</string>
 
     <string name="last_updated_text">Last updated %s</string>
     <string name="content_license_html"><![CDATA[Content is available under <a href=\"//creativecommons.org/licenses/by-sa/3.0/\">CC BY-SA 3.0</a> unless otherwise noted]]></string>

@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Kopyala</string>
   <string name="menu_text_select_share">Paylaş</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
-  <string name="nearby_empty_title">Yakınında sayfa yok!</string>
-  <string name="nearby_empty_message">Etrafınızdaki konular hakkında sayfalar görmek için yeni bir konuma geçin.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d fit</string>
-  <string name="nearby_distance_in_miles">%.2f mil</string>
-  <string name="nearby_dialog_goto_settings">Konum güncelleştirmeleri cihazınızda etkin değil. Konum güncelleştirmelerini etkinleştirmek için cihazınızın ayarlarına gitmek ister misiniz?</string>
-  <string name="nearby_set_metric">Metre/km olarak göster</string>
-  <string name="nearby_set_imperial">Fit/mil olarak göster</string>
-  <string name="nearby_view_on_map">Yeri harita üzerinde gör</string>
   <string name="nearby_zoom_to_location">Harita üzerinde bir yere yakınlaştır</string>
-  <string name="nearby_requires_location">Yakındakiler özelliği konum izni gerektirir.</string>
   <string name="last_updated_text">Son güncelleme %s</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>

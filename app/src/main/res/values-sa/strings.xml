@@ -40,18 +40,9 @@
   <string name="menu_text_select_copy">प्रतिकृतिः</string>
   <string name="menu_text_select_share">वितरतु</string>
   <string name="nav_item_nearby">निकटे</string>
-  <string name="nearby_empty_title">निकटवर्तिपृष्ठं न विद्यते !</string>
-  <string name="nearby_empty_message">कस्मिँश्चित् नवीने स्थाने प्राप्ते सति स्वं परितः विद्यमानस्य विषये ज्ञातुम् एतत् पृष्ठं प्रत्यवस्थापयतु ।</string>
   <string name="nearby_distance_in_meters">%d मीटर्</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
-  <string name="nearby_distance_in_feet">%d फिट्</string>
-  <string name="nearby_distance_in_miles">%.2f माइल्</string>
-  <string name="nearby_dialog_goto_settings">स्थाननवीकरणस्य विकल्पः भवतां यन्त्रे निष्क्रियः अस्ति । स्वस्य यन्त्रस्य अभिविन्यासं गत्वा स्थाननवीकरणस्य विकल्पं सक्रियं कर्तुम् इच्छति ?</string>
-  <string name="nearby_set_metric">कि.मी./मीटरस् दर्श्यताम्</string>
-  <string name="nearby_set_imperial">फिट्/माइल्स् दर्श्यताम्</string>
-  <string name="nearby_view_on_map">भूपटे स्थलं दृश्यताम्</string>
   <string name="nearby_zoom_to_location">भूपटे स्थानं दृष्टुं सर्पकं क्रियताम्</string>
-  <string name="nearby_requires_location">निकटस्थानं दृष्टुं स्थानस्य आज्ञा आवश्यकी</string>
   <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
   <string name="content_license_html">अन्तर्विषयः &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; इत्यत्र उपलब्धः अस्ति, अन्यथा लिखतु</string>
   <string name="edit_save_action_license_logged_in">रक्षणेन सह, भवान्/भवती &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।</string>

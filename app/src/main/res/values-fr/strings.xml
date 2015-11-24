@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Copier</string>
   <string name="menu_text_select_share">Partager</string>
   <string name="nav_item_nearby">À proximité</string>
-  <string name="nearby_empty_title">Aucune page à proximité ici !</string>
-  <string name="nearby_empty_message" fuzzy="true">Déplacez-vous à un nouvel endroit pour voir les pages des alentours.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d pieds</string>
-  <string name="nearby_distance_in_miles">%.2f miles</string>
-  <string name="nearby_dialog_goto_settings">Les mises à jour d’emplacement ne sont pas activées sur votre terminal. Voulez-vous aller sur les paramètres de votre appareil pour activer les mises à jour d’emplacement ?</string>
-  <string name="nearby_set_metric">Afficher en m/km</string>
-  <string name="nearby_set_imperial">Afficher en pieds/miles</string>
-  <string name="nearby_view_on_map">Afficher le lieu sur la carte</string>
   <string name="nearby_zoom_to_location">Zoomer sur un endroit de la carte</string>
-  <string name="nearby_requires_location">La fonctionnalité À proximité nécessite le droit de localisation.</string>
   <string name="last_updated_text">Dernière modification le %s</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>

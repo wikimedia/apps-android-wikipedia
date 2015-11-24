@@ -40,18 +40,9 @@
   <string name="menu_text_select_copy">پرت</string>
   <string name="menu_text_select_share">ونڊيو</string>
   <string name="nav_item_nearby">ويجھڙو</string>
-  <string name="nearby_empty_title">ڪي به ويجهڙ وارا صفحا نه آهن!</string>
-  <string name="nearby_empty_message">پنهنجي ويجهڙ  وارن مضمونن جا صفحا ڏسڻ لاءِ ڪنهن نئين جڳھ ڏانهن چرو.</string>
   <string name="nearby_distance_in_meters">%d ميٽر</string>
   <string name="nearby_distance_in_kilometers">%.2f ڪلوميٽر</string>
-  <string name="nearby_distance_in_feet">%d فُٽ</string>
-  <string name="nearby_distance_in_miles">%.2f ميل</string>
-  <string name="nearby_dialog_goto_settings">مڪاني جدتون توهان جي اوزار تي قابل بڻايل نه آهن. ڇا توهان پنهنجي اوزار جي ترتيبن ۾ وڃي ڪري مڪاني جدتن کي قابل بڻائڻ پسند ڪندئو؟</string>
-  <string name="nearby_set_metric">ميٽر / ڪلوميٽر ڏيکاريو</string>
-  <string name="nearby_set_imperial">فُٽ / ميل ڏيکاريو</string>
-  <string name="nearby_view_on_map">اها جاءِ نقشي ۾ ڏسو</string>
   <string name="nearby_zoom_to_location">نقشي تي ڪو مقام وڏو ڪري ڏسو</string>
-  <string name="nearby_requires_location">ويجهڙ ۾ سهولت کي جڳھ جي اجازت گهربل آهي.</string>
   <string name="last_updated_text">پوئين ترميم %s</string>
   <string name="content_license_html">مواد موجود آهي &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; جي تحت نه ته ٻي صورت ۾ نوٽ ٿيل آهي.</string>
   <string name="edit_save_action_license_logged_in">سانڍڻ سان, توهان &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt; سان راضي ٿيو ٿا, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>

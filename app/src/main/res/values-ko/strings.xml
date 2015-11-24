@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">복사</string>
   <string name="menu_text_select_share">공유</string>
   <string name="nav_item_nearby">근처</string>
-  <string name="nearby_empty_title">여기 근처에 문서가 없습니다!</string>
-  <string name="nearby_empty_message" fuzzy="true">새 위치로 움직일 때, 주위에 무엇이 있는지 자세히 알아 보려면 이 문서를 새로 고치세요.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">위키 업데이트가 장치에서 활성화되어 있지 않습니다. 위치 업데이트를 활성화하기 위해 장치의 설정으로 가겠습니까?</string>
-  <string name="nearby_set_metric">meters/km 보이기</string>
-  <string name="nearby_set_imperial">feet/miles 보이기</string>
-  <string name="nearby_view_on_map">지도에서 장소 보기</string>
   <string name="nearby_zoom_to_location">지도 상의 장소를 확대</string>
-  <string name="nearby_requires_location">주변 기능은 GPS 권한을 요구합니다.</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>

@@ -41,16 +41,8 @@
   <string name="menu_text_select_copy">Kopier</string>
   <string name="menu_text_select_share">Del</string>
   <string name="nav_item_nearby">I nærheden</string>
-  <string name="nearby_empty_title">Ingen sider i nærheden her!</string>
-  <string name="nearby_empty_message" fuzzy="true">Flyt dig til en ny placering for at se sider omkring dig.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d fod</string>
-  <string name="nearby_distance_in_miles">%.2f mil</string>
-  <string name="nearby_dialog_goto_settings">Opdatering af placering er ikke aktiveret på din enhed. Vil du gå til din enheds indstillinger for at aktivere opdatering af placering?</string>
-  <string name="nearby_set_metric">Vis meter/km</string>
-  <string name="nearby_set_imperial">Vis fod/mil</string>
-  <string name="nearby_view_on_map">Vis sted på kort</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
   <string name="edit_save_action_license_logged_in">Ved at gemme, accepterer du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>

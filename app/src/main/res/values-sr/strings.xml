@@ -41,16 +41,8 @@
   <string name="menu_text_select_copy">Копирај</string>
   <string name="menu_text_select_share">Дели</string>
   <string name="nav_item_nearby">У близини</string>
-  <string name="nearby_empty_title">Нема ништа у близини!</string>
-  <string name="nearby_empty_message">Пређите на нову локацију да видите теме близу вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">Локацијска ажурирања нису укључена на вашем уређају. Да ли желите да отворите подешавања вашег уређаја и да их укључите?</string>
-  <string name="nearby_set_metric">Прикажи метре/км</string>
-  <string name="nearby_set_imperial">Прикажи стопе/миље</string>
-  <string name="nearby_view_on_map">Погледај место на мапи</string>
   <string name="last_updated_text">Последње ажурирање %s</string>
   <string name="content_license_html">Садржај је доступан под лиценцом &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; осим ако је другачије наведено</string>
   <string name="edit_save_action_license_logged_in">Чувањем измена прихватате &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;услове коришћења&lt;/a&gt; и неопозиво прихватате да се Ваш допринос објави под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

@@ -41,16 +41,8 @@
   <string name="menu_text_select_copy">Скопіювати</string>
   <string name="menu_text_select_share">Поділитися</string>
   <string name="nav_item_nearby">Неподалік</string>
-  <string name="nearby_empty_title">Тут немає суміжних сторінок!</string>
-  <string name="nearby_empty_message" fuzzy="true">Перемістіться у нове місце, щоб побачити сторінки про те, що є навколо Вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
-  <string name="nearby_distance_in_feet">%d футів</string>
-  <string name="nearby_distance_in_miles">%.2f миль</string>
-  <string name="nearby_dialog_goto_settings">Оновлення розташування не увімкнено на вашому пристрої. Ви хотіли б перейти в налаштування пристрою для увімкнення оновлення місця знаходження?</string>
-  <string name="nearby_set_metric">Показувати в метрах/кілометрах</string>
-  <string name="nearby_set_imperial">Показувати в футах/милях</string>
-  <string name="nearby_view_on_map">Переглянути місце на карті</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>

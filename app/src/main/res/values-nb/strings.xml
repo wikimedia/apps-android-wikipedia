@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Kopier</string>
   <string name="menu_text_select_share">Del</string>
   <string name="nav_item_nearby">I nærheten</string>
-  <string name="nearby_empty_title">Ingen sider i nærheten!</string>
-  <string name="nearby_empty_message">Beveg deg til et nytt sted for å vise sider om emner i nærheten.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">Posisjonering er ikke skrudd på for denne enheten. Vil du gå til innstilllinger for enheten din for å skru på posisjonering?</string>
-  <string name="nearby_set_metric">Vis meter/km</string>
-  <string name="nearby_set_imperial">Vis fot/engelsk mil</string>
-  <string name="nearby_view_on_map">Vis sted på kart</string>
   <string name="nearby_zoom_to_location">Zoom til et sted på kartet</string>
-  <string name="nearby_requires_location">Funksjonen «I nærheten» trenger tilgang til enhetens posisjon.</string>
   <string name="last_updated_text">Sist oppdatert %1$s</string>
   <string name="content_license_html">Innholdet er tilgjengelig under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
   <string name="edit_save_action_license_logged_in">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>

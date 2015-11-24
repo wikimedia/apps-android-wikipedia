@@ -40,14 +40,8 @@
   <string name="menu_text_select_copy">קאפירן</string>
   <string name="menu_text_select_share">טיילן</string>
   <string name="nav_item_nearby">דערבײַ</string>
-  <string name="nearby_empty_title">קיין בלעטער נישט דערבײ!</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
-  <string name="nearby_distance_in_feet">%d פיס</string>
-  <string name="nearby_distance_in_miles">%.2f מייל</string>
-  <string name="nearby_set_metric">ווייזן מעטער/ק\"מ</string>
-  <string name="nearby_set_imperial">ווייזן פיס/מייל</string>
-  <string name="nearby_view_on_map">ווייזן ארט אויף דער מאפע</string>
   <string name="nearby_zoom_to_location">פֿארגרעסערן צו א לאקאציע אויף דער מאפע</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
   <string name="preference_title_language">וויקיפעדיע־שפראך</string>

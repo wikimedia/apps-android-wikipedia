@@ -40,16 +40,8 @@
   <string name="menu_text_select_copy">Kopéieren</string>
   <string name="menu_text_select_share">Deelen</string>
   <string name="nav_item_nearby">Nobäi</string>
-  <string name="nearby_empty_title">Keng Säiten hei nobäi!</string>
-  <string name="nearby_empty_message" fuzzy="true">Gitt op eng aner Plaz fir Säite ronderëm Iech ze gesinn.</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
-  <string name="nearby_distance_in_feet">%d Fouss</string>
-  <string name="nearby_distance_in_miles">%.2f Meilen</string>
-  <string name="nearby_dialog_goto_settings">Aktualisatioune vun der Plaz wou Dir sidd sinn op Ärem Apparat ausgeschalt. Wëllt Dir dat Ären Apparat esou astellen datt d\'Aktualisatioun vun der Plaz wou Dir sidd funktionéiert?</string>
-  <string name="nearby_set_metric">A Meter/Kilometer weisen</string>
-  <string name="nearby_set_imperial">A Fouss/Meilen weisen</string>
-  <string name="nearby_view_on_map">Plaz op der Kaart weisen</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
   <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>

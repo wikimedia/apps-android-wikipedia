@@ -41,15 +41,8 @@
   <string name="menu_text_select_copy">Copio</string>
   <string name="menu_text_select_share">Rhannu</string>
   <string name="nav_item_nearby">Gerllaw</string>
-  <string name="nearby_empty_title">Nid oes tudalennau cyfagos yma!</string>
-  <string name="nearby_empty_message" fuzzy="true">Symudwch i leoliad newydd fel y gallwch weld y dalennau o\'ch cwmpas.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d tr</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_set_metric">Dangoser mewn metrau/km</string>
-  <string name="nearby_set_imperial">Dangoser mewn tr/mill</string>
-  <string name="nearby_view_on_map">Gweld y man ar fap</string>
   <string name="nearby_zoom_to_location">Swmiwch i\'r lleoliad ar y map</string>
   <string name="last_updated_text">Diweddarwyd ddiwethaf%1$s</string>
   <string name="content_license_html">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>

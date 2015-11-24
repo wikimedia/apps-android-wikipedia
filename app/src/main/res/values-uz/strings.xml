@@ -34,15 +34,8 @@
   <string name="menu_page_find_in_page">Sahifadan topish</string>
   <string name="menu_page_font_and_theme">Shrift va mavzu</string>
   <string name="nav_item_nearby">Yaqin atrofda</string>
-  <string name="nearby_empty_title">Yaqin atrof bilan bog‘liq sahifalar topilmadi!</string>
-  <string name="nearby_empty_message" fuzzy="true">Ko‘chib o‘tganingizda atrofingiz haqida o‘rganish uchun ushbu sahifani yangilab ko‘ring.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_set_metric">Metr/kilometr birligida ko\'rsatish</string>
-  <string name="nearby_set_imperial">Fut/milya birligida ko\'rsatish</string>
-  <string name="nearby_view_on_map">U erni xaritada ko\'rish</string>
   <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
   <string name="preference_title_language">Vikipedia tili</string>
   <string name="preference_languages_filter_hint">Izlash</string>

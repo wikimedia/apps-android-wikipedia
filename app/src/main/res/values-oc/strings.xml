@@ -34,14 +34,8 @@
   <string name="menu_page_find_in_page">Recercar dins la pagina</string>
   <string name="menu_page_font_and_theme">Modificar la poliça e lo tèma</string>
   <string name="nav_item_nearby">A proximitat</string>
-  <string name="nearby_empty_title">Pas cap de pagina a proximitat aicí !</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d pès</string>
-  <string name="nearby_distance_in_miles">%.2f millas</string>
-  <string name="nearby_set_metric">Afichar en m/km</string>
-  <string name="nearby_set_imperial">Afichar en pès/miles</string>
-  <string name="nearby_view_on_map">Afichar lo luòc sus la mapa</string>
   <string name="last_updated_text">Darrièra modificacion lo %1$s</string>
   <string name="content_license_html">Lo contengut es disponible jos &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licéncia CC BY-SA 3.0&lt;/a&gt; levat indicacion contrària</string>
   <string name="preference_title_language">Lenga de Wikipèdia</string>

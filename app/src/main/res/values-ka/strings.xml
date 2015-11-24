@@ -40,16 +40,8 @@
   <string name="menu_text_select_copy">კოპირება</string>
   <string name="menu_text_select_share">გაზიარება</string>
   <string name="nav_item_nearby">სიახლოვეს</string>
-  <string name="nearby_empty_title">ახლომდებარე გვერდები ვერ მოიძებნა!</string>
-  <string name="nearby_empty_message" fuzzy="true">როდესაც შეიცვლი ადგილმდებარეობას, გადატვირთე ეს გვერდი, რათა გაიგო თუ რა ხდება ახალ გარემოში.</string>
   <string name="nearby_distance_in_meters">%d მ</string>
   <string name="nearby_distance_in_kilometers">%.2f კმ</string>
-  <string name="nearby_distance_in_feet">%d ფტ</string>
-  <string name="nearby_distance_in_miles">%.2f მი</string>
-  <string name="nearby_dialog_goto_settings">განახლებები მდებაორებაზე (Location updates) არაა ჩართული შენს მოწყობილობაზე. გსურთ კონფიგურაციის გვერდზე გადასვლა მდებაორებაზე განახლებების ჩასართავად?</string>
-  <string name="nearby_set_metric">უჩვენე მეტრები/კმ</string>
-  <string name="nearby_set_imperial">უჩვენე ფუტები/მილები</string>
-  <string name="nearby_view_on_map">ადგილის ნახვა რუკაზე</string>
   <string name="last_updated_text">ბოლოს განახლდა %s</string>
   <string name="content_license_html">შინაარსი ვრცელდება &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით, თუკი სხვაგვარად არ არის აღნიშნული</string>
   <string name="edit_save_action_license_logged_in">შენახვით, თქვენ ეთანხმებით &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>

@@ -39,15 +39,8 @@
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
   <string name="menu_long_press_copy_page">കണ്ണിയുടെ വിലാസം പകർത്തുക</string>
   <string name="nav_item_nearby">സമീപസ്ഥം</string>
-  <string name="nearby_empty_title">സമീപസ്ഥ കാര്യങ്ങളെക്കുറിച്ച് താളുകളൊന്നുമില്ല!</string>
-  <string name="nearby_empty_message" fuzzy="true">പുതിയ സ്ഥലത്തേക്ക് താങ്കൾ പോവുകയാണെങ്കിൽ, താങ്കളുടെ അടുത്തുള്ള കാര്യങ്ങൾ എന്തൊക്കെയാണെന്ന് പഠിക്കാൻ താൾ പുതുക്കുക.</string>
   <string name="nearby_distance_in_meters">%d മീ</string>
   <string name="nearby_distance_in_kilometers">%.2f കി.മീ.</string>
-  <string name="nearby_distance_in_feet">%d അടി</string>
-  <string name="nearby_distance_in_miles">%.2f മൈൽ</string>
-  <string name="nearby_set_metric">മീറ്ററുകൾ/കി.മീ. പ്രദർശിപ്പിക്കുക</string>
-  <string name="nearby_set_imperial">അടി/മൈൽസ് പ്രദർശിപ്പിക്കുക</string>
-  <string name="nearby_view_on_map">ഭൂപടത്തിൽ സ്ഥലങ്ങൾ കാണുക</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
   <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷ</string>

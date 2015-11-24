@@ -41,15 +41,8 @@
   <string name="menu_text_select_copy">Másol</string>
   <string name="menu_text_select_share">Megosztás</string>
   <string name="nav_item_nearby">Közeli</string>
-  <string name="nearby_empty_title">Nincsenek közeli lapok!</string>
-  <string name="nearby_empty_message">Menj egy ismertebb helyre, hogy részleteket mutathassunk a környékről.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_set_metric">Méter/kilométer formátum használata</string>
-  <string name="nearby_set_imperial">Láb/mérföld formátum használata</string>
-  <string name="nearby_view_on_map">Helyek megtekintése térképen</string>
   <string name="nearby_zoom_to_location">Közelíts egy helyre a térképen</string>
   <string name="last_updated_text">Utoljára frissítve: %s</string>
   <string name="content_license_html">A tartalom a &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>

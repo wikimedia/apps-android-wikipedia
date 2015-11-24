@@ -39,11 +39,6 @@
   <string name="nav_item_nearby">نژدې</string>
   <string name="nearby_distance_in_meters">%d متر</string>
   <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
-  <string name="nearby_distance_in_feet">%d گام</string>
-  <string name="nearby_distance_in_miles">%.2f ميله</string>
-  <string name="nearby_set_metric">متر/کيلومتر ښکاره کول</string>
-  <string name="nearby_set_imperial">فوټ/ميل ښکاره کول</string>
-  <string name="nearby_view_on_map">په کښېدې ځای کتل</string>
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
   <string name="preference_languages_filter_hint">پلټل</string>
   <string name="langlinks_filter_hint">پلټل</string>

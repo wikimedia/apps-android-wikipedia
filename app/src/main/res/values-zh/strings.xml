@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">复制</string>
   <string name="menu_text_select_share">分享</string>
   <string name="nav_item_nearby">周边</string>
-  <string name="nearby_empty_title">这附近没有页面！</string>
-  <string name="nearby_empty_message">移动到新地点以查看有关您附近的话题的页面。</string>
   <string name="nearby_distance_in_meters">%d米</string>
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
-  <string name="nearby_distance_in_feet">%d英尺</string>
-  <string name="nearby_distance_in_miles">%.2f英里</string>
-  <string name="nearby_dialog_goto_settings">您的设备未启用位置信息。您想要前往您的设备设置启用位置信息吗？</string>
-  <string name="nearby_set_metric">显示米/千米</string>
-  <string name="nearby_set_imperial">显示英尺/英里</string>
-  <string name="nearby_view_on_map">在地图上查看地点</string>
   <string name="nearby_zoom_to_location">缩放至地图上的位置</string>
-  <string name="nearby_requires_location">周边功能需要位置权限。</string>
   <string name="last_updated_text">最后更新于%s</string>
   <string name="content_license_html">除非另有声明，内容采用&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议发表。</string>
   <string name="edit_save_action_license_logged_in">一旦保存，即表示您认同&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>

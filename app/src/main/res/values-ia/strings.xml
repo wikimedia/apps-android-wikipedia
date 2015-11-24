@@ -38,16 +38,8 @@
   <string name="menu_long_press_open_in_new_tab">Aperir in un nove scheda</string>
   <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
   <string name="nav_item_nearby">A proximitate</string>
-  <string name="nearby_empty_title">Sin paginas a proximitate ci!</string>
-  <string name="nearby_empty_message" fuzzy="true">Quando tu te displacia a un nove position, proba a actualisar iste pagina pro saper plus sur lo que es circa te</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f m</string>
-  <string name="nearby_dialog_goto_settings">Le ajornamentos de ubication non es habilitate su tu dispositivo. Vole tu ir in le preparationes de tu dispositivo pro habilitar le ajornamentos de ubication?</string>
-  <string name="nearby_set_metric">Monstra metros/km</string>
-  <string name="nearby_set_imperial">Monstra pedes/milias</string>
-  <string name="nearby_view_on_map">Vider le ubication sur le mappa</string>
   <string name="last_updated_text">Ultime actualisation %s</string>
   <string name="content_license_html">Content is available under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; unless otherwise noted</string>
   <string name="edit_save_action_license_logged_in">By saving, you agree to the &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>

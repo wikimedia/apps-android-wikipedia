@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">অনুলিপি</string>
   <string name="menu_text_select_share">বণ্টন</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
-  <string name="nearby_empty_title">এখানে কাছাকাছি কোন পাতা নেই</string>
-  <string name="nearby_empty_message">আপনার কাছাকাছি থাকা বিষয় সম্পর্কিত পাতা দেখার জন্য একটি নতুন অবস্থানে যান।</string>
   <string name="nearby_distance_in_meters">%d মি</string>
   <string name="nearby_distance_in_kilometers">%.2f কিমি</string>
-  <string name="nearby_distance_in_feet">%d ফুট</string>
-  <string name="nearby_distance_in_miles">%.2f মাইল</string>
-  <string name="nearby_dialog_goto_settings">অবস্থান হালনাগাদ আপনার ডিভাইসে সক্রিয় করা নেই। আপনি কি অবস্থান হালনাগাদ সক্রিয় করতে আপনার ডিভাইসের সেটিংসে যেতে চান?</string>
-  <string name="nearby_set_metric">মিটার/কিমি দেখাও</string>
-  <string name="nearby_set_imperial">ফুট/মাইল দেখাও</string>
-  <string name="nearby_view_on_map">মানচিত্রে স্থান দেখুন</string>
   <string name="nearby_zoom_to_location">মানচিত্রে একটি অবস্থানে জুম করুন</string>
-  <string name="nearby_requires_location">\'কাছাকাছি\' বৈশিষ্ট্যের অবস্থান অনুমতির প্রয়োজন।</string>
   <string name="last_updated_text">%1$s তারিখে সর্বশেষ হালনাগাদ</string>
   <string name="content_license_html">সকল তথ্য &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশিত যদি অন্য কিছু উল্লেখ করা না থাকে</string>
   <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.bn\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>

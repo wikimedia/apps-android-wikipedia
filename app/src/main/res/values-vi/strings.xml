@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Chép</string>
   <string name="menu_text_select_share">Chia sẻ</string>
   <string name="nav_item_nearby">Lân cận</string>
-  <string name="nearby_empty_title">Không có trang nào gần đây!</string>
-  <string name="nearby_empty_message" fuzzy="true">Di chuyển đến một vị trí mới để đọc về các đề tài nằm chung quanh bạn.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d foot</string>
-  <string name="nearby_distance_in_miles">%.2f dặm</string>
-  <string name="nearby_dialog_goto_settings">Các cập nhật vị trí không được kích hoạt trên thiết bị của bạn. Bạn có muốn mở cài đặt của thiết bị này để kích hoạt các cập nhật vị trí?</string>
-  <string name="nearby_set_metric">Hiển thị mét/km</string>
-  <string name="nearby_set_imperial">Hiển thị foot/dặm</string>
-  <string name="nearby_view_on_map">Xem trên bản đồ</string>
   <string name="nearby_zoom_to_location">Phóng to đến một địa điểm trên bản đồ</string>
-  <string name="nearby_requires_location">Tính năng Lân cận cần bạn cho phép sử dụng vị trí hiện tại của bạn.</string>
   <string name="last_updated_text">Cập nhật lần cuối vào %1$s</string>
   <string name="content_license_html">Nội dung được phát hành theo &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt; nếu không ghi giấy phép khác</string>
   <string name="edit_save_action_license_logged_in">Với việc lưu trang, bạn chấp nhận &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.vi\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

@@ -40,18 +40,9 @@
   <string name="menu_text_select_copy">Kopiuj</string>
   <string name="menu_text_select_share">Udostępnij</string>
   <string name="nav_item_nearby">W pobliżu</string>
-  <string name="nearby_empty_title">Nie ma stron o obiektach znajdujących się w pobliżu!</string>
-  <string name="nearby_empty_message" fuzzy="true">Przenieś się do nowej lokalizacji, aby dowiedzieć się więcej o tym, co jest wokół Ciebie.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d stóp</string>
-  <string name="nearby_distance_in_miles">%.2f mil</string>
-  <string name="nearby_dialog_goto_settings">Aktualizacja położenia nie jest włączona na twoim urządzeniu. Czy chcesz przejść do ustawień urządzenia, aby ją włączyć?</string>
-  <string name="nearby_set_metric">Pokaż metry/km</string>
-  <string name="nearby_set_imperial">Pokaż stopy/mile</string>
-  <string name="nearby_view_on_map">Zobacz miejsce na mapie</string>
   <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
-  <string name="nearby_requires_location">Funkcja \"w Pobliżu\" wymaga zgody na ustalenie pozycji.</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zapisując, akceptujesz &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

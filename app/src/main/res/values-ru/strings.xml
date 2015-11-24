@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Копировать</string>
   <string name="menu_text_select_share">Поделиться</string>
   <string name="nav_item_nearby">Поблизости</string>
-  <string name="nearby_empty_title">Нет страниц об объектах поблизости!</string>
-  <string name="nearby_empty_message" fuzzy="true">Переместитесь в новое место, чтобы увидеть страницы о том, что есть вокруг вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
-  <string name="nearby_distance_in_feet">%d футов</string>
-  <string name="nearby_distance_in_miles">%.2f миль</string>
-  <string name="nearby_dialog_goto_settings">Обновление местоположения не включено на вашем устройстве. Вы хотели бы перейти в настройки устройства для включения обновления местоположения?</string>
-  <string name="nearby_set_metric">Показать м/км</string>
-  <string name="nearby_set_imperial">Показать футы/мили</string>
-  <string name="nearby_view_on_map">Посмотреть место на карте</string>
   <string name="nearby_zoom_to_location">Указать местоположение на карте</string>
-  <string name="nearby_requires_location">Функция «Поблизости» требует разрешения на определение местоположения.</string>
   <string name="last_updated_text">Последнее обновление: %1$s</string>
   <string name="content_license_html">Содержимое доступно в соответствии &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC BY-SA 3.0&lt;/a&gt; (если не указано иное)</string>
   <string name="edit_save_action_license_logged_in">Сохраняя изменения, вы соглашаетесь с &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru условиями использования\" &gt;&lt;/a&gt;, а также соглашаетесь на неотзывную публикацию по лицензии &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>

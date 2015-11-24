@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Kopioi</string>
   <string name="menu_text_select_share">Jaa</string>
   <string name="nav_item_nearby">Lähistöllä</string>
-  <string name="nearby_empty_title">Lähistöllä olevia sivuja ei ole!</string>
-  <string name="nearby_empty_message">Siirry uuteen paikkaan nähdäksesi sivuja lähellä olevista paikoista</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d jalkaa</string>
-  <string name="nearby_distance_in_miles">%.2f  mailia</string>
-  <string name="nearby_dialog_goto_settings">Sijaintipäivitykset eivät ole käytössä laitteessasi? Haluatko ottaa sijaintipäivitykset käyttöön?</string>
-  <string name="nearby_set_metric">näytä metrit/kilometrit</string>
-  <string name="nearby_set_imperial">Näytä jalkoja/maileja</string>
-  <string name="nearby_view_on_map">Katso sijainti kartalla</string>
   <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
-  <string name="nearby_requires_location">Lähistöllä-ominaisuus vaatii sijainnin käyttöoikeuden.</string>
   <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>

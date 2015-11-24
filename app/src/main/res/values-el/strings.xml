@@ -40,16 +40,8 @@
   <string name="menu_text_select_copy">Αντιγραφή</string>
   <string name="menu_text_select_share">Κοινοποίηση</string>
   <string name="nav_item_nearby">Κοντινά</string>
-  <string name="nearby_empty_title">Δεν υπάρχουν κοντινές σελίδες εδώ!</string>
-  <string name="nearby_empty_message">Μετακινήσετε σε μια νέα θέση για να δείτε τις σελίδες σχετικά με θέματα κοντά σας.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f χιλιόμετρα</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f μίλια</string>
-  <string name="nearby_dialog_goto_settings">Οι ενημερώσεις Τοποθεσίας δεν είναι ενεργοποιημένες στη συσκευή σας. Θα θέλατε να πάτε στις ρυθμίσεις της συσκευής για να ενεργοποιήσετε της ενημερώσεις Τοποθεσίας;</string>
-  <string name="nearby_set_metric">Εμφάνιση μέτρα/χιλιόμετρα</string>
-  <string name="nearby_set_imperial">Εμφάνιση πόδια/μίλια</string>
-  <string name="nearby_view_on_map">Δείτε το μέρος στο χάρτη</string>
   <string name="nearby_zoom_to_location">Ζουμ σε μια θέση στο χάρτη</string>
   <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>

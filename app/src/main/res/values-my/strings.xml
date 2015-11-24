@@ -32,15 +32,8 @@
   <string name="menu_page_save">စာမျက်နှာကိုသိမ်း</string>
   <string name="menu_page_share" fuzzy="true">မျှဝေ</string>
   <string name="nav_item_nearby">အနီးအနား</string>
-  <string name="nearby_empty_title">အနီးအနားတွင် စာမျက်နှာများမရှိ!</string>
-  <string name="nearby_empty_message" fuzzy="true">တည်နေရာအသစ်သို့ ရောက်သွားတိုင်း ယခုစာမျက်နှာကို အသစ်ပြန်ဆွဲကြည့်ပြီး ပတ်ဝန်းကျင် အကြောင်း စူးစမ်းပါ</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">တည်နေရာပြ စနစ်အား သင့် device တွင်ပိတ်ထားပါသည်။ device အပြင်အဆင်သို့ သွားပြီး တည်နေရာပြစနစ် အားဖွင့်မလား ?</string>
-  <string name="nearby_set_metric">meters/km ဖြင့်ပြပါ</string>
-  <string name="nearby_set_imperial">fee/miles ဖြင့်ပြပါ</string>
   <string name="last_updated_text">နောက်ဆုံးပြင်ခဲ့ချိန် %s</string>
   <string name="content_license_html">အထူးသတိပေးမထားပါက အချက်အလက်များအား &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; အနေဖြင့် ရယူသုံးဆွဲ နိုင်သည်။</string>
   <string name="edit_save_action_license_logged_in">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;သုံးဆွဲမှု သဘောတူညီချက်&lt;/a&gt; အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင် ဖြင့်ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။</string>

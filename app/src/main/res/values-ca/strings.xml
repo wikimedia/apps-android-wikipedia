@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Copia</string>
   <string name="menu_text_select_share">Comparteix</string>
   <string name="nav_item_nearby">A prop</string>
-  <string name="nearby_empty_title">Cap pàgina propera des d\'aquí!</string>
-  <string name="nearby_empty_message" fuzzy="true">Vés a una nova ubicació per veure pàgines al teu voltant.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d peus</string>
-  <string name="nearby_distance_in_miles">%.2f milles</string>
-  <string name="nearby_dialog_goto_settings">Les actualitzacions d\'ubicació no estan actives al vostre dispositiu. Voleu anar a la pantalla de configuració per tal d\'habilitar-les?</string>
-  <string name="nearby_set_metric">Mostrar metres/quilòmetres</string>
-  <string name="nearby_set_imperial">Mostrar peus/milles</string>
-  <string name="nearby_view_on_map">Mostrar el lloc en el mapa</string>
   <string name="nearby_zoom_to_location">Zoom a una ubicació en el mapa</string>
-  <string name="nearby_requires_location">La funció requereix el permís d\'ubicació.</string>
   <string name="last_updated_text">Última actualització %1$s</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

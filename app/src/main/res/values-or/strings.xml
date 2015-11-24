@@ -35,11 +35,6 @@
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
   <string name="nearby_distance_in_meters">%d ମି</string>
   <string name="nearby_distance_in_kilometers">%.2f କିମି</string>
-  <string name="nearby_distance_in_feet">%d ଫୁଟ</string>
-  <string name="nearby_distance_in_miles">%.2f ମି</string>
-  <string name="nearby_set_metric">ମି/କିମିରେ ଦେଖିବେ</string>
-  <string name="nearby_set_imperial">ଫୁଟ/ମାଇଲରେ ଦେଖିବେ</string>
-  <string name="nearby_view_on_map">ମାନ‌ଚିତ୍ରରେ ଜାଗାଟିକୁ ଦେଖିବେ</string>
   <string name="last_updated_text">%1$s ରେ ଶେଷଥର ଅପଡେଟ ହୋଇଥିଲା</string>
   <string name="content_license_html">ଅଲଗା କିଛି ଦର୍ଶିଯାଇନାଥିଲେ ବିଷୟବସ୍ତୁ &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ରେ ଉପଲବ୍ଧ</string>
   <string name="preference_title_language">ଉଇକିପିଡ଼ିଆ ଭାଷା</string>

@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Copia</string>
   <string name="menu_text_select_share">Condividi</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
-  <string name="nearby_empty_title">Nessuna pagina nelle vicinanze qui!</string>
-  <string name="nearby_empty_message">Spostati in una nuova posizione per vedere pagine su argomenti vicino a te.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">Gli aggiornamenti di posizione non sono abilitati sul tuo dispositivo. Vuoi andare nelle impostazioni del tuo dispositivo per abilitare gli aggiornamenti di posizione?</string>
-  <string name="nearby_set_metric">Visualizza metri/km</string>
-  <string name="nearby_set_imperial">Visualizza piedi/miglia</string>
-  <string name="nearby_view_on_map">Vedi il luogo sulla mappa</string>
   <string name="nearby_zoom_to_location">Zoom a una posizione sulla mappa</string>
-  <string name="nearby_requires_location">La funzione Nelle vicinanze richiede l\'autorizzazione per la localizzazione.</string>
   <string name="last_updated_text">Ultimo aggiornamento %s</string>
   <string name="content_license_html">Il contenuto è disponibile in base alla &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt; se non diversamente specificato</string>
   <string name="edit_save_action_license_logged_in">Salvando, accetti le nostre &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/it\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.it\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

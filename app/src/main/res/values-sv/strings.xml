@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Kopiera</string>
   <string name="menu_text_select_share">Dela</string>
   <string name="nav_item_nearby">I närheten</string>
-  <string name="nearby_empty_title">Inga närliggande sidor här!</string>
-  <string name="nearby_empty_message" fuzzy="true">Flytta till en ny plats för att se sidor runt omkring dig.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">Platsuppdateringar är inte aktiverat på din enhet. Vill du gå till din enhets inställningar för att aktivera platsuppdateringar?</string>
-  <string name="nearby_set_metric">Visa meter/km</string>
-  <string name="nearby_set_imperial">Visa fot/engelsk mil</string>
-  <string name="nearby_view_on_map">Visa plats på karta</string>
   <string name="nearby_zoom_to_location">Zooma till en plats på kartan</string>
-  <string name="nearby_requires_location">Funktionen I närheten kräver platsens behörighet.</string>
   <string name="last_updated_text">Senast uppdaterad %s</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="edit_save_action_license_logged_in">Genom att spara godkänner du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

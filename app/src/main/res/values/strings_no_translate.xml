@@ -7,7 +7,6 @@
 
     <!-- URLs -->
     <string name="zero_webpage_url">https://m.wikimediafoundation.org/wiki/Wikipedia_Zero_App_FAQ</string>
-    <string name="map_tile_source_url">https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png</string>
     <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s</string>
 
     <!-- Search -->

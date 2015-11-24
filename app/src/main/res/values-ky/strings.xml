@@ -34,15 +34,8 @@
   <string name="menu_page_find_in_page">Бул барактан табуу</string>
   <string name="menu_page_font_and_theme">Жазуу түрүн жана жасалганы өзгөртүү</string>
   <string name="nav_item_nearby">Жакынкы</string>
-  <string name="nearby_empty_title">Жакынкы жерлердеги объекттер жөнүндө барактар жок!</string>
-  <string name="nearby_empty_message" fuzzy="true">Сиз башка жерге жылгандан кийин, сиз жакта эмне бар экенин билүү үчүн бул баракты жаңылап көрүңүз.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
-  <string name="nearby_distance_in_feet">%d фут</string>
-  <string name="nearby_distance_in_miles">%.2f миль</string>
-  <string name="nearby_dialog_goto_settings">Сиздин түзүлүшүңүздө жайгашкан жерди жаңылоо иштетилген эмес. Жайгашкан жерди жаңылоону иштетүү үчүн түзүлүшүңүздүн ырастоолоруна өтүүнү каалайсызбы?</string>
-  <string name="nearby_set_metric">Метр/километр өлчөмүндө көрсөтүү</string>
-  <string name="nearby_set_imperial">Фут/миль өлчөмүндө көрсөтүү</string>
   <string name="last_updated_text">Акыркы жаңылоо: %1$s</string>
   <string name="content_license_html">Камтылма (башка нерсе көрсөтүлгөн эмес болсо) &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; негизинде жеткиликтүү</string>
   <string name="edit_save_action_license_logged_in">Өзгөртүүлөрдү сактоо менен бирге, сиз [https://wikimediafoundation.org/wiki/Terms_of_Use/ky колдонуу шарттары] менен, ошондой эле &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt; лицензиясы боюнча irrevocably release шарттарына макул экендигиңизди билдиресиз.</string>

@@ -38,13 +38,8 @@
   <string name="menu_text_select_copy">පිටපත් කරන්න</string>
   <string name="menu_text_select_share">හුවමාරු කරන්න</string>
   <string name="nav_item_nearby">අවට</string>
-  <string name="nearby_empty_title">මෙහි ළඟ පහත පිටු නැත!</string>
   <string name="nearby_distance_in_meters">%d මී.</string>
   <string name="nearby_distance_in_kilometers">%.2f කි.මී.</string>
-  <string name="nearby_distance_in_feet">අඩි %d</string>
-  <string name="nearby_set_metric">පෙන්වන්න මීටර/කි.මි.</string>
-  <string name="nearby_set_imperial">අඩි/සැතපුම් පෙන්වන්න</string>
-  <string name="nearby_view_on_map">ස්ථානය සිතියම මත බලන්න</string>
   <string name="last_updated_text">අවසන් යාවත්කාලීන කිරීම %s</string>
   <string name="preference_title_language">විකිපීඩියා භාෂාව</string>
   <string name="preference_languages_filter_hint">සොයන්න</string>

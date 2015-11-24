@@ -40,18 +40,9 @@
   <string name="menu_text_select_copy">コピー</string>
   <string name="menu_text_select_share">共有</string>
   <string name="nav_item_nearby">付近のスポット</string>
-  <string name="nearby_empty_title">付近のスポットについてのページがありません!</string>
-  <string name="nearby_empty_message">新しい場所に移動して、近くにあるトピックを探してみましょう。</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d フィート</string>
-  <string name="nearby_distance_in_miles">%.2f マイル</string>
-  <string name="nearby_dialog_goto_settings">お使いのデバイスでは位置情報の更新が無効になっています。デバイスの [設定] に移動して位置情報の更新を有効にしますか?</string>
-  <string name="nearby_set_metric">メートル/キロメートルで表示</string>
-  <string name="nearby_set_imperial">フィート/マイルで表示</string>
-  <string name="nearby_view_on_map">地図上でこの場所を見る</string>
   <string name="nearby_zoom_to_location">地図上の場所へズームする</string>
-  <string name="nearby_requires_location">「付近のスポット」機能では位置情報の許可が必要になります。</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
   <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>

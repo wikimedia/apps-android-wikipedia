@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">העתקה</string>
   <string name="menu_text_select_share">שיתוף</string>
   <string name="nav_item_nearby">בסביבה</string>
-  <string name="nearby_empty_title">אין דפים על דברים כאן בסביבה!</string>
-  <string name="nearby_empty_message">נא לנסות לעבור למקום חדש כדי לראות דפים מסביבך.</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
-  <string name="nearby_distance_in_feet">%d רגל</string>
-  <string name="nearby_distance_in_miles">%.2f מיל</string>
-  <string name="nearby_dialog_goto_settings">עדכוני מיקום לא מופעלים במכשיר שלך. האם לעבור להגדרות המכשיר שלך כדי להפעיל כדי להפעיל עדכוני מיקום?</string>
-  <string name="nearby_set_metric">להציג מטר/ק\"מ</string>
-  <string name="nearby_set_imperial">להציג רגל/מיל</string>
-  <string name="nearby_view_on_map">הצגת מקום על מפה</string>
   <string name="nearby_zoom_to_location">להתקרב למקום במפה</string>
-  <string name="nearby_requires_location">האפשרות \"בסביבה\" דורשת את הרשאת המיקום.</string>
   <string name="last_updated_text">עודכן לאחרונה %s</string>
   <string name="content_license_html">התוכן זמין לפי תנאי &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; אלא אם צוין אחרת</string>
   <string name="edit_save_action_license_logged_in">שמירת השינויים מהווה את הסכמתך ל&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>

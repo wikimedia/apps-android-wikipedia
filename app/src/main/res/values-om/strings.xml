@@ -20,8 +20,6 @@
   <string name="nav_item_nearby">Dhihoo</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
   <string name="preference_languages_filter_hint">Barbaadi</string>
   <string name="langlinks_filter_hint">Barbaadi</string>
   <string name="langlinks_activity_title">Afaan biraa</string>

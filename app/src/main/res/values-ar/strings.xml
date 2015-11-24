@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">نسخ</string>
   <string name="menu_text_select_share">شارك</string>
   <string name="nav_item_nearby">بالقرب من هنا</string>
-  <string name="nearby_empty_title">لا يوجد صفحات بالقرب من هنا!</string>
-  <string name="nearby_empty_message">انتقل إلى مكانٍ جديد، لرؤية صفحات عن الأماكن التي بقربك.</string>
   <string name="nearby_distance_in_meters">%d م</string>
   <string name="nearby_distance_in_kilometers">%.2f كم</string>
-  <string name="nearby_distance_in_feet">%d قدم</string>
-  <string name="nearby_distance_in_miles">%.2f ميل</string>
-  <string name="nearby_dialog_goto_settings">تحديثات الأماكن ليست مفعلة في جهازك. هل تود الانتقال إلى إعدادات جهازك لتفعيلها؟</string>
-  <string name="nearby_set_metric">إظهار متر/كيلو متر</string>
-  <string name="nearby_set_imperial">إظهار قدم/ميل</string>
-  <string name="nearby_view_on_map">عرض المكان على الخريطة</string>
   <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
-  <string name="nearby_requires_location"> ميزة الاقتراب تتطلب إذن من الموقع.</string>
   <string name="last_updated_text">آخر تحديث %s</string>
   <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
   <string name="edit_save_action_license_logged_in">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

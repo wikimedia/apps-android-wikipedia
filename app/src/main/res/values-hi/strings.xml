@@ -33,15 +33,8 @@
   <string name="menu_page_share" fuzzy="true">साझा करें</string>
   <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="nav_item_nearby">निकट</string>
-  <string name="nearby_empty_title">कोई निकट पृष्ठ नहीं!</string>
-  <string name="nearby_empty_message" fuzzy="true">किसी नए स्थान पर जाने पर अपने आस-पास के बारे में जानने के लिए इस पृष्ठ को रिफ़्रेश करें।</string>
   <string name="nearby_distance_in_meters">%d मी॰</string>
   <string name="nearby_distance_in_kilometers">%.2f किमी</string>
-  <string name="nearby_distance_in_feet">%d फ़ुट</string>
-  <string name="nearby_distance_in_miles">%.2f मील</string>
-  <string name="nearby_set_metric">दिखाएँ मी/किमी</string>
-  <string name="nearby_set_imperial">दिखाएँ फ़ुट/मील</string>
-  <string name="nearby_view_on_map">स्थान नक़्शे पर देखें</string>
   <string name="last_updated_text">%s अन्तिम अद्यतन हुआ।</string>
   <string name="content_license_html">सामग्री &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; पर उपलब्ध है अन्यथा लिखें</string>
   <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>

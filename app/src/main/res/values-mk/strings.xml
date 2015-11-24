@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Копирај</string>
   <string name="menu_text_select_share">Сподели</string>
   <string name="nav_item_nearby">Во близина</string>
-  <string name="nearby_empty_title">Тука нема страници во близина!</string>
-  <string name="nearby_empty_message" fuzzy="true">Отидете на друго место за да ги видите страниците околу вас.</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
-  <string name="nearby_distance_in_feet">%d стапки</string>
-  <string name="nearby_distance_in_miles">%.2f милји</string>
-  <string name="nearby_dialog_goto_settings">Немате овозможено поднова на места. Дали би сакале да појдете во нагодувањата за да ја овозможите?</string>
-  <string name="nearby_set_metric">Прикажувај метри/километри</string>
-  <string name="nearby_set_imperial">Прикажувај стапки/милји</string>
-  <string name="nearby_view_on_map">Местото на карта</string>
   <string name="nearby_zoom_to_location">Приближи на некое место на картата</string>
-  <string name="nearby_requires_location">Функцијата „Во близина“ бара дозвола за пронаоѓање на вашата местоположба</string>
   <string name="last_updated_text">Последен пат изменето на %1$s</string>
   <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>

@@ -25,10 +25,6 @@
   <string name="nav_item_nearby">Tuvumā</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d pēdas</string>
-  <string name="nearby_distance_in_miles">%.2f jūdzes</string>
-  <string name="nearby_set_metric">Rādīt metrus/km</string>
-  <string name="nearby_set_imperial">Rādīt pēdas/jūdzes</string>
   <string name="preference_title_language">Vikipēdijas valoda</string>
   <string name="preference_languages_filter_hint">Meklēt</string>
   <string name="langlinks_filter_hint">Meklēt</string>

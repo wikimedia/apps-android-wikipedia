@@ -34,9 +34,6 @@
   <string name="nav_item_nearby">Nærindis</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f míl</string>
-  <string name="nearby_set_metric">Vís metrar/km</string>
   <string name="last_updated_text">Seinast dagført %1$s</string>
   <string name="content_license_html">Innihaldið er tøkt undir &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; um ikki annað er viðmerkt</string>
   <string name="preference_title_language">Wikipediamál</string>

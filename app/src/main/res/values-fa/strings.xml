@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">کپى</string>
   <string name="menu_text_select_share">به‌اشتراک‌گذاشتن</string>
   <string name="nav_item_nearby">در نزدیکی</string>
-  <string name="nearby_empty_title">صفحه‌ای در نزدیکی یافت نشد!</string>
-  <string name="nearby_empty_message" fuzzy="true">به موقعیت جدیدی بروید تا تصویرهای اطرافتان را ببنید.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">به‌روزرسانی موقعیت توسط تلفن همره شما پشیبانی نمی شود. آیا می‌خواهید به تنظیمات تلفن همراهتان بروید و از آنجا آن را فعال کنید؟</string>
-  <string name="nearby_set_metric">نمایش متر/کیلومتر</string>
-  <string name="nearby_set_imperial">نمایش فوت/مایل</string>
-  <string name="nearby_view_on_map">دیدن مکان در نقشه</string>
   <string name="nearby_zoom_to_location">بزرگنمایی مکان در نقشه</string>
-  <string name="nearby_requires_location">ویژگی نمایش نقاطت نزدیک نیازمند اجازهٔ دسترسی به موقعیت است.</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="edit_save_action_license_logged_in">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>

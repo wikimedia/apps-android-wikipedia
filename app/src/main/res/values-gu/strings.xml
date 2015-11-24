@@ -33,14 +33,8 @@
   <string name="menu_page_share" fuzzy="true">વહેંચો</string>
   <string name="menu_page_find_in_page">પાનામાં શોધો</string>
   <string name="nav_item_nearby">નજીકના</string>
-  <string name="nearby_empty_title">અહીં કોઈ નજીકના પાના નથી !</string>
   <string name="nearby_distance_in_meters">%d મી.</string>
   <string name="nearby_distance_in_kilometers">%.2f કિમી</string>
-  <string name="nearby_distance_in_feet">%d ફીટ</string>
-  <string name="nearby_distance_in_miles">%.2f માઇલ</string>
-  <string name="nearby_set_metric">મીટર/કિમી બતાવો</string>
-  <string name="nearby_set_imperial">ફીટ/માઇલ બતાવો</string>
-  <string name="nearby_view_on_map">નકશા પર સ્થાન જુઓ</string>
   <string name="last_updated_text">%s એ છેલ્લું અદ્યતન કરાયું</string>
   <string name="content_license_html">અન્ય કશું સૂચવાયું ન હોય ત્યાં સુધી વિગતો &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; હેઠળ ઉપલબ્ધ છે</string>
   <string name="preference_title_language">વિકિપીડિયા ભાષા</string>

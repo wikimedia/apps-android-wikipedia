@@ -33,14 +33,8 @@
   <string name="menu_page_save">ಪುಟವನ್ನು ಉಳಿಸಿ</string>
   <string name="menu_page_share" fuzzy="true">ಹಂಚು</string>
   <string name="nav_item_nearby">ಹತ್ತಿರದ</string>
-  <string name="nearby_empty_title">ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ!</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_set_metric">ಪ್ರದಶ೯ನ ಮೀಟರ್/ಕಿಮೀ</string>
-  <string name="nearby_set_imperial">ತೋರಿಸು ಅಡಿ/ಮೈಲಿ</string>
-  <string name="nearby_view_on_map">ನಕ್ಷೆಯಲ್ಲಿ ಸ್ಥಾನ ವೀಕ್ಷಿಸಿ</string>
   <string name="last_updated_text">ಕೊನೆಯ ಪರಿಷ್ಕರಣೆ %1$s</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಭಾಷೆ</string>
   <string name="preference_languages_filter_hint">ಹುಡುಕು</string>

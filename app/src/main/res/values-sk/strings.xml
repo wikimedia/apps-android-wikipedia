@@ -41,16 +41,8 @@
   <string name="menu_text_select_copy">Kopírovať</string>
   <string name="menu_text_select_share">Zdieľať</string>
   <string name="nav_item_nearby">V okolí</string>
-  <string name="nearby_empty_title">V okolí sa nenašli žiadne stránky!</string>
-  <string name="nearby_empty_message" fuzzy="true">Pre zistenie ďalších informácií o tom, čo je okolo vás sa presuňte na nové miesto.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">Informácie o polohe nie sú vo vašom prístroji povolené. Chceli by ste prejsť do nastavení vášho zariadenia týkajúcich sa lokalizačných služieb?</string>
-  <string name="nearby_set_metric">Zobraziť metre/km</string>
-  <string name="nearby_set_imperial">Zobraziť stopy/míle</string>
-  <string name="nearby_view_on_map">Zobraziť miesto na mape</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

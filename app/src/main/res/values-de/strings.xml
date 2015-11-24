@@ -41,18 +41,9 @@
   <string name="menu_text_select_copy">Kopieren</string>
   <string name="menu_text_select_share">Teilen</string>
   <string name="nav_item_nearby">In der Nähe</string>
-  <string name="nearby_empty_title">Hier gibt es keine Seiten in der Nähe!</string>
-  <string name="nearby_empty_message">Gehe zu einem neuen Standort, um Seiten zu Themen in deiner Nähe anzusehen.</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
-  <string name="nearby_distance_in_feet">%d Fuß</string>
-  <string name="nearby_distance_in_miles">%.2f Meilen</string>
-  <string name="nearby_dialog_goto_settings">Standortsaktualisierungen sind auf deinem Gerät nicht aktiviert. Möchtest du zu deinen Geräteeinstellungen gehen, um Standortsaktualisierungen zu aktivieren?</string>
-  <string name="nearby_set_metric">Meter/Kilometer anzeigen</string>
-  <string name="nearby_set_imperial">Fuß/Meilen anzeigen</string>
-  <string name="nearby_view_on_map">Ort auf der Karte ansehen</string>
   <string name="nearby_zoom_to_location">Vergrößere auf einen Standort auf der Karte</string>
-  <string name="nearby_requires_location">Die Funktion „In der Nähe“ erfordert die Standort-Berechtigung.</string>
   <string name="last_updated_text">Zuletzt aktualisiert %1$s</string>
   <string name="content_license_html">Der Inhalt ist verfügbar unter &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA 3.0&lt;/a&gt;, sofern nicht anders angegeben.</string>
   <string name="edit_save_action_license_logged_in">Mit dem Speichern stimmst du den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/de\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt; zu.</string>

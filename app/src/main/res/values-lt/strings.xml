@@ -41,16 +41,8 @@
   <string name="menu_text_select_copy">Kopijuoti</string>
   <string name="menu_text_select_share">Dalintis</string>
   <string name="nav_item_nearby">Šalia</string>
-  <string name="nearby_empty_title">Nėra puslapių šalia!</string>
-  <string name="nearby_empty_message" fuzzy="true">Kai persikeliate į naują vietą, pabandykite atnaujinti šį puslapį, kad sužinotumėte daugiau apie tai, kas yra aplink Jus.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d pėdų</string>
-  <string name="nearby_distance_in_miles">%.2f mylios</string>
-  <string name="nearby_dialog_goto_settings">Vietos naujinimai nėra įjungti Jūsų įrenginyje. Ar norėtumėte eiti į savo įrenginio nustatymus įjungti vietos naujinimus?</string>
-  <string name="nearby_set_metric">Rodyti metrus/kilometrus</string>
-  <string name="nearby_set_imperial">Rodyti pėdas/mylias</string>
-  <string name="nearby_view_on_map">Peržiūrėti vietą žemėlapyje</string>
   <string name="last_updated_text">Paskutinį kartą atnaujinta %1$s</string>
   <string name="content_license_html">Turinys prieinamas pagal &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, jei nenurodyta kitaip</string>
   <string name="preference_title_language">Vikipedijos kalba</string>

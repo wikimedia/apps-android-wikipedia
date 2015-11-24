@@ -41,16 +41,8 @@
   <string name="menu_text_select_copy">Kopiëren</string>
   <string name="menu_text_select_share">Delen</string>
   <string name="nav_item_nearby">In de buurt</string>
-  <string name="nearby_empty_title">Geen pagina\'s in de buurt.</string>
-  <string name="nearby_empty_message" fuzzy="true">Ga naar een andere plaats om pagina\'s bij u in de buurt weer te geven.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d voet</string>
-  <string name="nearby_distance_in_miles">%.2f mijl</string>
-  <string name="nearby_dialog_goto_settings">Locatieupdates zijn niet ingeschakeld op uw apparaat. Wilt u in uw apparaatinstellingen locatieupdates inschakelen?</string>
-  <string name="nearby_set_metric">Meter/km weergeven</string>
-  <string name="nearby_set_imperial">Voeten/mijlen weergeven</string>
-  <string name="nearby_view_on_map">Plaats op kaart bekijken</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>

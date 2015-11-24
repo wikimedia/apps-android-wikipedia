@@ -39,16 +39,8 @@
   <string name="menu_long_press_open_in_new_tab">Abrir em uma nova aba</string>
   <string name="menu_long_press_copy_page">Copiar endereço do link</string>
   <string name="nav_item_nearby">Próximo</string>
-  <string name="nearby_empty_title">Sem páginas por perto!</string>
-  <string name="nearby_empty_message" fuzzy="true">Quando estiver num novo local, experimente atualizar esta página para saber mais sobre o que o rodeia.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_distance_in_feet">%d ft</string>
-  <string name="nearby_distance_in_miles">%.2f mi</string>
-  <string name="nearby_dialog_goto_settings">As atualizações de localização não estão ativadas. Gostaria de ir para as configurações do seu dispositivo para ativa-las?</string>
-  <string name="nearby_set_metric">Mostrar metros/km</string>
-  <string name="nearby_set_imperial">Mostrar pés/milhas</string>
-  <string name="nearby_view_on_map">Ver local no mapa</string>
   <string name="last_updated_text">Última atualização: %s</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado o contrário</string>
   <string name="edit_save_action_license_logged_in">Ao salvar, você concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>

@@ -40,17 +40,8 @@
   <string name="menu_text_select_copy">नक्कल करा</string>
   <string name="menu_text_select_share">सहभाग करा</string>
   <string name="nav_item_nearby">जवळपास</string>
-  <string name="nearby_empty_title">येथे जवळपासची पाने नाहीत!</string>
-  <string name="nearby_empty_message">आपल्या जवळपास असलेल्या विषयांची पाने बघण्यास नविन ठिकाणी जा.</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
-  <string name="nearby_distance_in_feet">%d फिट</string>
-  <string name="nearby_distance_in_miles">%.2f माइल</string>
-  <string name="nearby_dialog_goto_settings">आपल्या उपकरणात स्थल-अद्यतन(लोकेशन अपडेट्स) सक्षम केले नाही.आपणास ते सक्षम करण्यासाठी आपल्या उपकरणाच्या सेटिंग्ज मध्ये जावयाचे आहे काय?</string>
-  <string name="nearby_set_metric">मिटर्स/किमी दाखवा</string>
-  <string name="nearby_set_imperial">फूट /मैल दाखवा</string>
-  <string name="nearby_view_on_map">नकाशावर ठिकाण बघा</string>
-  <string name="nearby_requires_location">जवळपासचे फिचर्स दाखविण्यास स्थळनिश्चिती परवानगी आवश्यक आहे.</string>
   <string name="last_updated_text">शेवटले अद्यतन %s</string>
   <string name="content_license_html">जेथे जेथे विशेषत्वाने नोंदविलेले नाही तेथील आशय हा &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत उपलब्ध आहे असे समजावे.</string>
   <string name="edit_save_action_license_logged_in">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.</string>
