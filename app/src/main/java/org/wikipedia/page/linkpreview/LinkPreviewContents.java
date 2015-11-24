@@ -29,7 +29,7 @@ public class LinkPreviewContents {
 
     public LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull Site site) {
         title = new PageTitle(pageSummary.getTitle(), site);
-        extract = pageSummary.getExtract();
+        extract = makeStringFromSentences(getSentences(removeParens(pageSummary.getExtract()), title.getSite()), EXTRACT_MAX_SENTENCES);
         title.setThumbUrl(pageSummary.getThumbnailUrl());
     }
 
