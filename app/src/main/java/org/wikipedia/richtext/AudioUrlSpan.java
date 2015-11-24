@@ -1,7 +1,11 @@
 package org.wikipedia.richtext;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
 import android.support.annotation.ColorInt;
@@ -18,6 +22,7 @@ import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.media.AvPlayer;
 
 public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
+
     private static final int STOP_ICON_LEVEL = 0;
     private static final int PLAY_ICON_LEVEL = 1;
 
@@ -30,6 +35,9 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
     @NonNull
     private final String path;
 
+    @NonNull
+    private final DefaultClickSpan clickSpan;
+
     public AudioUrlSpan(@NonNull View view,
                         @NonNull AvPlayer player,
                         @NonNull String path,
@@ -37,6 +45,7 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
         super(view, drawable(view.getContext()), verticalAlignment);
         this.player = player;
         this.path = path;
+        clickSpan = clickSpan(view.getResources());
     }
 
     public void setTint(@ColorInt int color) {
@@ -44,8 +53,13 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
     }
 
     @Override
-    public void onClick(TextView textView) {
+    public void onClick(@NonNull TextView textView) {
         toggle();
+    }
+
+    @Override
+    public boolean contains(@NonNull PointF point) {
+        return clickSpan.contains(point);
     }
 
     @Override
@@ -74,6 +88,28 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
         return super.getDrawable();
     }
 
+    @Override
+    @SuppressWarnings("checkstyle:parameternumber")
+    public void draw(Canvas canvas,
+                     CharSequence text,
+                     int start,
+                     int end,
+                     float x,
+                     int top,
+                     int y,
+                     int bottom,
+                     Paint paint) {
+        super.draw(canvas, text, start, end, x, top, y, bottom, paint);
+
+        clickSpan.setOriginX(x + getDrawable().getBounds().centerX());
+        clickSpan.setOriginY(drawY(y, bottom) + getDrawable().getBounds().centerY());
+
+        final boolean debugClickBounds = false;
+        if (debugClickBounds) {
+            clickSpan.draw(canvas);
+        }
+    }
+
     private void showIcon(int level) {
         getDrawable().setLevel(level);
     }
@@ -82,21 +118,35 @@ public class AudioUrlSpan extends AnimatedImageSpan implements ClickSpan {
         return getDrawable().getLevel();
     }
 
+    @NonNull
     private static Drawable drawable(Context context) {
         LevelListDrawable levels = new AppLevelListDrawable();
         levels.addLevel(PLAY_ICON_LEVEL, PLAY_ICON_LEVEL, spinnerDrawable(context));
         levels.addLevel(STOP_ICON_LEVEL, STOP_ICON_LEVEL, speakerDrawable(context));
+        int radius = getDimensionPixelSize(context, R.dimen.audio_url_span_loading_spinner_radius);
+        levels.setBounds(0, 0, radius * 2, radius * 2);
         return levels;
     }
 
+    @NonNull
     private static Drawable speakerDrawable(Context context) {
         return getDrawable(context, R.drawable.ic_volume_up_black_24dp);
     }
 
+    @NonNull
     private static Drawable spinnerDrawable(Context context) {
         return new CircularProgressDrawable(Color.WHITE,
                 getDimensionPixelSize(context, R.dimen.audio_url_span_loading_spinner_border_thickness),
                 getDimensionPixelSize(context, R.dimen.audio_url_span_loading_spinner_radius));
+    }
+
+    @NonNull
+    private DefaultClickSpan clickSpan(Resources resources) {
+        DefaultClickSpan span = new DefaultClickSpan();
+        float leg = resources.getDimension(R.dimen.audio_url_span_click_size);
+        span.setWidth(leg);
+        span.setHeight(leg);
+        return span;
     }
 
     private static Drawable getDrawable(Context context, @DrawableRes int id) {

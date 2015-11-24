@@ -82,22 +82,15 @@ public class DrawableSpan extends ImageSpan {
                      float x,
                      int top,
                      int y,
-                     int bottom, Paint paint) {
+                     int bottom,
+                     Paint paint) {
         if (drawable == null) {
             return;
         }
 
         canvas.save();
 
-        int transY;
-        if (mVerticalAlignment == ALIGN_BOTTOM) {
-            transY = bottom;
-        } else {
-            transY = y;
-        }
-        transY -= drawable.getBounds().bottom;
-
-        canvas.translate(x, transY);
+        canvas.translate(x, drawY(y, bottom));
         drawable.draw(canvas);
         canvas.restore();
     }
@@ -110,6 +103,17 @@ public class DrawableSpan extends ImageSpan {
         if (drawable != null && drawable.getBounds().isEmpty()) {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         }
+    }
+
+    protected int drawY(int y, int bottom) {
+        int ret;
+        if (mVerticalAlignment == ALIGN_BASELINE) {
+            ret = y;
+        } else {
+            ret = bottom;
+        }
+        ret -= drawable == null ? 0 : drawable.getBounds().bottom;
+        return ret;
     }
 
     private void init() {
