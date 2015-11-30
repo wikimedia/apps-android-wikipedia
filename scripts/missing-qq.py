@@ -22,4 +22,4 @@ for child in qqroot:
 # Iterate through all messages and check that they're documented
 for child in enroot:
     if child.attrib['name'] not in qqmsgs:
-        print child.attrib['name'] + " is undocumented!"
+        print(child.attrib['name'] + " is undocumented!")
