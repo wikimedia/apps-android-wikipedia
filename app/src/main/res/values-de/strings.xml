@@ -84,7 +84,7 @@
   <string name="login_password_hint">Passwort</string>
   <string name="login_password_show_check">Passwort anzeigen</string>
   <string name="menu_login">Anmelden</string>
-  <string name="login_activity_title" fuzzy="true">Bei Wikipedia anmelden</string>
+  <string name="login_activity_title">Bei Wikipedia anmelden</string>
   <string name="login_in_progress_dialog_message">Melde dich an …</string>
   <string name="login_error_wrong_password">Falsches Passwort</string>
   <string name="login_error_wrong_username">Falscher Benutzername</string>

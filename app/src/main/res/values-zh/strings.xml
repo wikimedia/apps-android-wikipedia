@@ -84,7 +84,7 @@
   <string name="login_password_hint">密码</string>
   <string name="login_password_show_check">显示密码</string>
   <string name="menu_login">登录</string>
-  <string name="login_activity_title" fuzzy="true">登录维基百科</string>
+  <string name="login_activity_title">登录至维基百科</string>
   <string name="login_in_progress_dialog_message">正在登录…</string>
   <string name="login_error_wrong_password">密码错误</string>
   <string name="login_error_wrong_username">用户名错误</string>

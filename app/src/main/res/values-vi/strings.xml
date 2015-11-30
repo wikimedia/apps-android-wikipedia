@@ -84,7 +84,7 @@
   <string name="login_password_hint">Mật khẩu</string>
   <string name="login_password_show_check">Hiển thị mật khẩu</string>
   <string name="menu_login">Đăng nhập</string>
-  <string name="login_activity_title" fuzzy="true">Đăng nhập vào Wikipedia</string>
+  <string name="login_activity_title">Đăng nhập vào Wikipedia</string>
   <string name="login_in_progress_dialog_message">Đang đăng nhập bạn vào…</string>
   <string name="login_error_wrong_password">Sai mật khẩu</string>
   <string name="login_error_wrong_username">Sai tên người dùng</string>

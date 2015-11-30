@@ -50,6 +50,8 @@
   <string name="nearby_set_metric">Pokaż metry/km</string>
   <string name="nearby_set_imperial">Pokaż stopy/mile</string>
   <string name="nearby_view_on_map">Zobacz miejsce na mapie</string>
+  <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
+  <string name="nearby_requires_location">Funkcja \"w Pobliżu\" wymaga zgody na ustalenie pozycji.</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zapisując, akceptujesz &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -82,7 +84,7 @@
   <string name="login_password_hint">Hasło</string>
   <string name="login_password_show_check">Wyświetl hasło</string>
   <string name="menu_login">Zaloguj się</string>
-  <string name="login_activity_title" fuzzy="true">Logowanie do Wikipedii</string>
+  <string name="login_activity_title">Logowanie do Wikipedii</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_error_wrong_password">Nieprawidłowe hasło</string>
   <string name="login_error_wrong_username">Nieprawidłowa nazwa użytkownika</string>
@@ -234,6 +236,7 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="gallery_image_saved_notification_title">Obraz zapisany.</string>
   <string name="gallery_image_saved_notification_text">Naciśnij, aby wyświetlić.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
+  <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów. Proszę, spróbuj jeszcze raz i przyznaj poproszone uprawnienia.</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Kliknij, aby rozwinąć</string>
@@ -260,6 +263,8 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="button_continue_to_article">Do artykułu</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
+  <string name="nav_item_donate">Wspomóż Wikipedię</string>
+  <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
   <string name="crash_report_dialog_send_button">Wyślij</string>

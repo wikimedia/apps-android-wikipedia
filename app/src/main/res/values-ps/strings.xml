@@ -31,7 +31,9 @@
   <string name="menu_page_save">مخ خوندي کول</string>
   <string name="menu_page_share">تړنه شريکول</string>
   <string name="menu_page_find_in_page">په مخ کې موندل</string>
+  <string name="menu_page_font_and_theme">ليکبڼه او شازمکه</string>
   <string name="menu_long_press_open_page">پرانيستل</string>
+  <string name="menu_long_press_copy_page">د تړنې پته لمېسل</string>
   <string name="menu_text_select_copy">لمېسل</string>
   <string name="menu_text_select_share">شريکول</string>
   <string name="nav_item_nearby">نژدې</string>
@@ -39,6 +41,8 @@
   <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
   <string name="nearby_distance_in_feet">%d گام</string>
   <string name="nearby_distance_in_miles">%.2f ميله</string>
+  <string name="nearby_set_metric">متر/کيلومتر ښکاره کول</string>
+  <string name="nearby_set_imperial">فوټ/ميل ښکاره کول</string>
   <string name="nearby_view_on_map">په کښېدې ځای کتل</string>
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
   <string name="preference_languages_filter_hint">پلټل</string>
@@ -55,17 +59,17 @@
   <string name="menu_show_toc">نيوليک</string>
   <string name="search_no_results_found">کومې پايلې و نه موندل شوې</string>
   <string name="title_captcha">کېپچا ورکړئ</string>
-  <string name="nav_item_login" fuzzy="true">ننوتل</string>
+  <string name="nav_item_login">ويکيپېډيا کې ننوتل</string>
   <string name="login_username_hint">کارن-نوم</string>
   <string name="login_password_hint">پټنوم</string>
   <string name="login_password_show_check">پټنوم ښکاره کول</string>
   <string name="menu_login">ننوتل</string>
-  <string name="login_activity_title" fuzzy="true">ويکيپېډيا کې ننوتل</string>
+  <string name="login_activity_title">ويکيپېډيا کې ننوتل</string>
   <string name="login_in_progress_dialog_message">په ننوتلو کې دی...</string>
   <string name="login_error_wrong_password">ناسم پټنوم</string>
   <string name="login_error_wrong_username">ناسم کارن-نوم</string>
   <string name="login_error_illegal">ناسم کارن-نوم</string>
-  <string name="login_success_toast" fuzzy="true">غونډال کې بريالی ورننوتې!</string>
+  <string name="login_success_toast">برياليتوب سره ننوتلي ياست!</string>
   <string name="login_error_blocked">په دې کارن بنديز لگېدلی</string>
   <string name="preference_title_logout">وتل</string>
   <string name="toast_logout_complete">ووتلۍ</string>
@@ -75,6 +79,7 @@
   <string name="login_create_account_link">گڼون نه لرې؟ ويکيپېډيا سره يوځای شه</string>
   <string name="create_account_login_link">آيا له پخوا نه يو گڼون لرې؟ ورننوځه</string>
   <string name="create_account_activity_title">يو گڼون جوړول</string>
+  <string name="dialog_create_account_checking_progress">تاييدېدنه</string>
   <string name="create_account_email_hint">برېښليک (اختياري)</string>
   <string name="create_account_password_repeat_hint">پټنوم بياليکل</string>
   <string name="create_account_passwords_mismatch_error">پټنومونه مو سره ورته نه دي</string>
@@ -119,6 +124,7 @@
   <string name="dialog_page_issues">د مخ ستونزې</string>
   <string name="button_page_issues">د مخ ستونزې</string>
   <string name="text_size_select">د ليکبڼې کچه</string>
+  <string name="color_theme_select">شازمکه</string>
   <string name="color_theme_light">رڼا</string>
   <string name="color_theme_dark">تياره</string>
   <string name="page_similar_titles">ورته مخونه</string>
@@ -136,7 +142,9 @@
   <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
   <string name="license_title">د %s کتابتون لپاره د منښتليک متن</string>
   <string name="gallery_menu_share">شريکول</string>
+  <string name="gallery_menu_save">وزلې کې خوندي کول</string>
   <string name="gallery_save_success">انځور برياليتوب سره خوندي شو.</string>
+  <string name="gallery_image_saved_notification_title">مخ خوندي شو.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
   <string name="err_cannot_save_file">دوتنه د خوندي کولو وړ نه ده</string>
   <string name="snippet_share_intro">\"%1$s\" په @Wikipedia: %2$s</string>
@@ -152,5 +160,6 @@
   <string name="crash_report_dialog_dont_send_button">تېرېدل</string>
   <string name="crash_report_dialog_always_send_button">تل لېږل</string>
   <string name="crash_report_dialog_send_button">لېږل</string>
+  <string name="crash_report_relaunch">سر له نوي پيلول</string>
   <string name="crash_report_quit">بندول</string>
 </resources>

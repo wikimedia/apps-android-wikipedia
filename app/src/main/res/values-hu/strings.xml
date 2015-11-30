@@ -7,7 +7,7 @@
   <string name="no">Nem</string>
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="nav_item_history">Előzmények</string>
-  <string name="error_network_error" fuzzy="true">Nincs hálózati kapcsolat :(</string>
+  <string name="error_network_error">Nem tud csatlakozni az Internethez.</string>
   <string name="page_error_retry">Újra</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="menu_clear_all_saved_pages">Elmentett lapok törlése</string>
@@ -37,9 +37,11 @@
   <string name="menu_long_press_open_page">Megnyitás</string>
   <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
   <string name="menu_long_press_copy_page">Hivatkozás címének másolása</string>
+  <string name="menu_text_select_copy">Másol</string>
+  <string name="menu_text_select_share">Megosztás</string>
   <string name="nav_item_nearby">Közeli</string>
   <string name="nearby_empty_title">Nincsenek közeli lapok!</string>
-  <string name="nearby_empty_message" fuzzy="true">Ha új helyre mész próbáld frissíteni ezt a oldalt, így többet tudhatsz meg a körülötted lévő dolgokról.</string>
+  <string name="nearby_empty_message">Menj egy ismertebb helyre, hogy részleteket mutathassunk a környékről.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -47,6 +49,7 @@
   <string name="nearby_set_metric">Méter/kilométer formátum használata</string>
   <string name="nearby_set_imperial">Láb/mérföld formátum használata</string>
   <string name="nearby_view_on_map">Helyek megtekintése térképen</string>
+  <string name="nearby_zoom_to_location">Közelíts egy helyre a térképen</string>
   <string name="last_updated_text">Utoljára frissítve: %s</string>
   <string name="content_license_html">A tartalom a &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
   <string name="edit_save_action_license_logged_in">A mentéssel elfogadod a &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
@@ -71,12 +74,12 @@
   <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
   <string name="edit_section_captcha_reload">Érintsd meg a CAPTCHA-t az újratöltéshez</string>
-  <string name="nav_item_login" fuzzy="true">Bejelentkezés</string>
+  <string name="nav_item_login">Bejelentkezés a Wikipédiába</string>
   <string name="login_username_hint">Felhasználónév</string>
   <string name="login_password_hint">Jelszó</string>
   <string name="login_password_show_check">Jelszó megjelenítése</string>
   <string name="menu_login">Bejelentkezés</string>
-  <string name="login_activity_title" fuzzy="true">Bejelentkezés a Wikipédiába</string>
+  <string name="login_activity_title">Bejelentkezés a Wikipédiába</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>
   <string name="login_error_wrong_password">Hibás jelszó</string>
   <string name="login_error_wrong_username">Helytelen felhasználónév</string>
@@ -89,6 +92,7 @@
   <string name="toast_logout_complete">Kijelentkezve</string>
   <string name="saved_pages_empty_title">Nincsenek mentett lapok!</string>
   <string name="saved_pages_empty_message">A mentett lapok csodásak. Gondolj úgy rájuk, mint a könyvjelzőkre, amelyeket akkor is tudod olvasni, ha offline vagy.</string>
+  <string name="history_empty_title">Nincsenek korábbi lapok!</string>
   <string name="delete_selected_history">Töröl</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Felhasználónév</string>
@@ -130,7 +134,7 @@
   <string name="nav_item_random">Véletlen lap</string>
   <string name="create_account_account_created_toast">Felhasználói fiók létrehozva!</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
-  <string name="history_search_list_hint" fuzzy="true">Keresés</string>
+  <string name="history_search_list_hint">Keresési előzmények</string>
   <string name="history_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
   <string name="page_protected_autoconfirmed">Ez az oldal félig védett.</string>
@@ -138,7 +142,8 @@
   <string name="page_protected_other">Az a lap az alábbi szinten védett: %s</string>
   <string name="page_protected_can_not_edit">Nincs jogosultságod az oldal szerkesztéséhez</string>
   <string name="page_protected_can_not_edit_title">Ez a lap védett</string>
-  <string name="settings_activity_title" fuzzy="true">Beállítások</string>
+  <string name="settings_item_preferences">Beállítások</string>
+  <string name="settings_activity_title">Beállítások</string>
   <string name="about_description">A Wikipédia appról</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
@@ -166,7 +171,20 @@
   <string name="color_theme_light">Világos</string>
   <string name="color_theme_dark">Sötét</string>
   <string name="page_similar_titles">Hasonló lapok</string>
+  <string name="table_other">További információk</string>
+  <string name="table_close">Bezár</string>
+  <string name="widget_name_featured_page">Wikipédia kiemelt oldal</string>
+  <string name="widget_title_featured_page">Mai kiemelt lap</string>
+  <string name="widget_name_search">Wikipédia keresés</string>
   <string name="alpha_update_notification_title">Új alfa frissítés érhető el</string>
   <string name="alpha_update_notification_text">Koppints a letöltéshez</string>
+  <string name="dialog_close_description">Bezár</string>
+  <string name="preference_title_show_images">Képek megjelenítése</string>
+  <string name="read_more_section">További információ</string>
+  <string name="gallery_error_draw_failed">Nem tudta megrajzolni a képet.</string>
   <string name="gallery_menu_share">Megosztás</string>
+  <string name="gallery_menu_save">Mentés az eszközre</string>
+  <string name="gallery_save_success">A kép sikeresen mentve.</string>
+  <string name="gallery_image_saved_notification_title">A kép eltárolva.</string>
+  <string name="gallery_image_saved_notification_text">Érintse meg a megtekintéshez.</string>
 </resources>

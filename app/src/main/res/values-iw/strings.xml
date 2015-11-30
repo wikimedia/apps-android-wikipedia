@@ -84,7 +84,7 @@
   <string name="login_password_hint">ססמה</string>
   <string name="login_password_show_check">להציג את הססמה</string>
   <string name="menu_login">כניסה לחשבון</string>
-  <string name="login_activity_title" fuzzy="true">כניסה לוויקיפדיה</string>
+  <string name="login_activity_title">כניסה לוויקיפדיה</string>
   <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
   <string name="login_error_wrong_password">ססמה שגויה</string>
   <string name="login_error_wrong_username">שם משתמש שגוי</string>

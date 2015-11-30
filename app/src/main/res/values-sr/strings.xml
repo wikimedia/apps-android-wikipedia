@@ -79,7 +79,7 @@
   <string name="login_password_hint">Лозинка</string>
   <string name="login_password_show_check">Прикажи лозинку</string>
   <string name="menu_login">Пријави ме</string>
-  <string name="login_activity_title" fuzzy="true">Пријављивање на Википедију</string>
+  <string name="login_activity_title">Пријављивање на Википедију</string>
   <string name="login_in_progress_dialog_message">Пријављивање…</string>
   <string name="login_error_wrong_password">Неисправна лозинка</string>
   <string name="login_error_wrong_username">Корисничко име је погрешно</string>
@@ -91,6 +91,8 @@
   <string name="preference_title_logout">Одјави ме</string>
   <string name="toast_logout_complete">Одјављени сте</string>
   <string name="saved_pages_empty_title">Нема сачуваних страница!</string>
+  <string name="saved_pages_empty_message">Чување страница пружа вам могућност да их читате и када нисте на интернету.</string>
+  <string name="history_empty_title">Нема страница!</string>
   <string name="history_empty_message">Највероватније сте их све обрисали. Кад идући пут будете посетили страницу, можете јој се поново вратити овде.</string>
   <string name="delete_selected_history">Брисање</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
@@ -177,6 +179,8 @@
   <string name="table_infobox">Брзи факти</string>
   <string name="table_other">Више информација</string>
   <string name="table_close">Затвори</string>
+  <string name="alpha_update_notification_title">Нова алфа-надоградња доступна</string>
+  <string name="alpha_update_notification_text">Тапните да преузмете</string>
   <string name="dialog_close_description">Затвори</string>
   <string name="preference_title_show_images">Прикажи слике</string>
   <string name="read_more_section">Прочитај више</string>
@@ -197,6 +201,8 @@
   <string name="page_view_in_browser">Види страницу у веб-прегледачу</string>
   <string name="format_error_server_message">Порука: „%s“</string>
   <string name="format_error_server_code">Код: „%s“</string>
+  <string name="button_continue_to_article">Продужи на чланак</string>
+  <string name="preference_title_show_link_previews">Прикажи преглед везе</string>
   <string name="nav_item_donate">Подржите Википедију</string>
   <string name="crash_report_dialog_dont_send_button">Прескочи</string>
   <string name="crash_report_dialog_send_button">Пошаљи</string>

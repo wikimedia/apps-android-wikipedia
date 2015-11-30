@@ -74,7 +74,7 @@
   <string name="login_error_wrong_username">Foydalanuvchi nomida xato</string>
   <string name="login_success_toast" fuzzy="true">Kirish muvaffaqiyatli amalga oshdi!</string>
   <string name="login_error_blocked">Bu foydalanuvchi chetlatilgan</string>
-  <string name="login_error_throttled">Juda ko‘p kirish harakati bo‘lgan. Bir necha daqiqa kutib turib keyin yana harakat qiling.</string>
+  <string name="login_error_throttled">Juda ko‘p marta kirishga harakat qilindi. Bir necha daqiqa kuting va yana kirishga harakat qilib koʻring.</string>
   <string name="login_error_unknown">Kirish amalga oshmadi :(</string>
   <string name="preference_title_logout">Chiqish</string>
   <string name="toast_logout_complete">Chiqildi</string>

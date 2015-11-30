@@ -41,7 +41,7 @@
   <string name="menu_text_select_share">ونڊيو</string>
   <string name="nav_item_nearby">ويجھڙو</string>
   <string name="nearby_empty_title">ڪي به ويجهڙ وارا صفحا نه آهن!</string>
-  <string name="nearby_empty_message" fuzzy="true">پنهنجي چوڌاري وارا صفحا ڏسڻ لاءِ ڪنهن نئين جڳھ ڏي چرو.</string>
+  <string name="nearby_empty_message">پنهنجي ويجهڙ  وارن مضمونن جا صفحا ڏسڻ لاءِ ڪنهن نئين جڳھ ڏانهن چرو.</string>
   <string name="nearby_distance_in_meters">%d ميٽر</string>
   <string name="nearby_distance_in_kilometers">%.2f ڪلوميٽر</string>
   <string name="nearby_distance_in_feet">%d فُٽ</string>
@@ -81,7 +81,7 @@
   <string name="login_password_hint">ڳجھو لفظ</string>
   <string name="login_password_show_check">ڳجھو لفظ ڏيکاريو</string>
   <string name="menu_login">لاگ اِن</string>
-  <string name="login_activity_title" fuzzy="true">وڪي‌پيڊيا ۾ لاگ اِن ٿيو</string>
+  <string name="login_activity_title">وڪيپيڊيا ۾ لاگ اِن ٿيو</string>
   <string name="login_in_progress_dialog_message">توهان لاگ اِن ٿي رهيا آهيو</string>
   <string name="login_error_wrong_password">غير درست ڳجھو لفظ</string>
   <string name="login_error_wrong_username">غير درست يُوزرنانءُ</string>
@@ -130,6 +130,7 @@
   <string name="zero_interstitial_leave_app">ڊيٽا رقمون لاڳو ٿي سگهن ٿيون. ٻاهرين سائيٽ ڏي جاري رکجي؟</string>
   <string name="zero_interstitial_continue">موڪلاڻي</string>
   <string name="zero_interstitial_cancel">هتي ترسو</string>
+  <string name="zero_learn_more">هن وڪيپيڊيا ايپ لاءِ ڊيٽا رقمن تان هٿ کنيل آهي.</string>
   <string name="zero_learn_more_learn_more">وڌيڪ پڙهو</string>
   <string name="zero_learn_more_dismiss">برخواست</string>
   <string name="edit_preview_fetching_dialog_message">پيش نگاھ ٺاهيندي...</string>

@@ -84,7 +84,7 @@
   <string name="login_password_hint">Contraseña</string>
   <string name="login_password_show_check">Mostrar la contraseña</string>
   <string name="menu_login">Acceder</string>
-  <string name="login_activity_title" fuzzy="true">Acceder a Wikipedia</string>
+  <string name="login_activity_title">Acceder a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Iniciando sesión…</string>
   <string name="login_error_wrong_password">Contraseña incorrecta</string>
   <string name="login_error_wrong_username">Nombre de usuario incorrecto</string>
