@@ -156,6 +156,8 @@ public class NearbyFragment extends Fragment {
     private void initializeMap() {
         mapView.setStyleUrl("asset://mapstyle.json");
         mapView.setMyLocationTrackingMode(MyLocationTracking.TRACKING_NONE);
+        mapView.setLogoVisibility(View.GONE);
+        mapView.setAttributionVisibility(View.GONE);
 
         mapView.setOnMyLocationChangeListener(new MapView.OnMyLocationChangeListener() {
             @Override
