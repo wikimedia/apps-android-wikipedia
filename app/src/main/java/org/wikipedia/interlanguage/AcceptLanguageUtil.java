@@ -2,6 +2,8 @@ package org.wikipedia.interlanguage;
 
 import android.support.annotation.NonNull;
 
+import java.util.Locale;
+
 public final class AcceptLanguageUtil {
     private static final float APP_LANGUAGE_QUALITY = .9f;
     private static final float SYSTEM_LANGUAGE_QUALITY = .8f;
@@ -33,7 +35,7 @@ public final class AcceptLanguageUtil {
         }
 
         // Accept-language is nonempty, append the language.
-        return String.format("%s,%s;q=%.1f", acceptLanguage, languageCode, quality);
+        return String.format(Locale.ROOT, "%s,%s;q=%.1f", acceptLanguage, languageCode, quality);
     }
 
     private AcceptLanguageUtil() { }
