@@ -209,6 +209,10 @@ public final class Prefs {
         return contains(R.string.preference_key_tabs);
     }
 
+    public static void clearTabs() {
+        remove(R.string.preference_key_tabs);
+    }
+
     public static void setSessionData(@NonNull SessionData data) {
         setString(R.string.preference_key_session_data, GsonMarshaller.marshal(data));
     }

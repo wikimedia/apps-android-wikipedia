@@ -322,24 +322,24 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_clear_all_history:
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage(R.string.dialog_title_clear_history);
-                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Clear history!
-                        new DeleteAllHistoryTask(app).execute();
-                        entryFilter.setVisibility(View.GONE);
-                    }
-                });
-
-                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Uh, do nothing?
-                    }
-                });
-                builder.create().show();
+                new AlertDialog.Builder(getActivity())
+                        .setTitle(R.string.dialog_title_clear_history)
+                        .setMessage(R.string.dialog_message_clear_history)
+                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Clear history!
+                                new DeleteAllHistoryTask(app).execute();
+                                entryFilter.setVisibility(View.GONE);
+                                ((PageActivity) getActivity()).resetAfterClearHistory();
+                            }
+                        })
+                        .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Uh, do nothing?
+                            }
+                        }).create().show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -17,7 +17,8 @@
     <string name="nav_item_today">Today</string>
 
     <!-- Saved pages -->
-    <string name="dialog_title_clear_history">Clear browsing history?</string>
+    <string name="dialog_title_clear_history">Clear browsing history</string>
+    <string name="dialog_message_clear_history">This will delete all of your browsing history, and close any currently open tabs. Are you sure?</string>
     <string name="nav_item_saved_pages">Saved pages</string>
     <string name="menu_update_all_saved_pages">Update saved pages</string>
     <string name="menu_update_selected_saved_pages">Update saved pages</string>
