@@ -33,8 +33,8 @@
                 android:minHeight="64dp">
                 <ImageView
                     android:id="@+id/link_preview_thumbnail"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="@dimen/defaultListItemSize"
+                    android:layout_height="@dimen/defaultListItemSize"
                     android:layout_margin="16dp"
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@null"
@@ -49,10 +49,10 @@
                     style="@style/RtlAwareTextView"
                     android:textColor="?attr/link_preview_text_color"
                     android:paddingBottom="4dp"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:fontFamily="serif"
                     android:lineSpacingMultiplier="0.9"
-                    android:maxLines="2"
+                    android:maxLines="3"
                     android:ellipsize="end"
                     tools:text="Lorem ipsum" />
                 <ImageView

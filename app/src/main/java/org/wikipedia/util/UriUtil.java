@@ -3,7 +3,9 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
@@ -90,6 +92,16 @@ public final class UriUtil {
         } else {
             visitInExternalBrowser(context, uri);
         }
+    }
+
+    public static void sendGeoIntent(final Context context, @NonNull Location location, String placeName) {
+        String geoStr = "geo:";
+        geoStr += Double.toString(location.getLatitude()) + ","
+                + Double.toString(location.getLongitude());
+        if (!TextUtils.isEmpty(placeName)) {
+            geoStr += "?q=" + Uri.encode(placeName);
+        }
+        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(geoStr)));
     }
 
     private UriUtil() {

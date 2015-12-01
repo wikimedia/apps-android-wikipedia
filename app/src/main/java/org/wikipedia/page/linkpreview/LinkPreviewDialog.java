@@ -19,11 +19,15 @@ import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ViewUtil;
 
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
 import android.text.TextUtils;
 import android.util.Log;
@@ -56,6 +60,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
     private PageTitle pageTitle;
     private int entrySource;
+    @Nullable private Location location;
 
     private LinkPreviewFunnel funnel;
     private LinkPreviewContents contents;
@@ -79,11 +84,21 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         }
     };
 
-    public static LinkPreviewDialog newInstance(PageTitle title, int entrySource) {
+    private View.OnClickListener getDirectionsListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            goToExternalMapsApp();
+        }
+    };
+
+    public static LinkPreviewDialog newInstance(PageTitle title, int entrySource, @Nullable Location location) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
         Bundle args = new Bundle();
         args.putParcelable("title", title);
         args.putInt("entrySource", entrySource);
+        if (location != null) {
+            args.putParcelable("location", location);
+        }
         dialog.setArguments(args);
         return dialog;
     }
@@ -101,6 +116,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         boolean shouldLoadImages = app.isImageDownloadEnabled();
         pageTitle = getArguments().getParcelable("title");
         entrySource = getArguments().getInt("entrySource");
+        location = getArguments().getParcelable("location");
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
         progressBar = (ProgressBar) rootView.findViewById(R.id.link_preview_progress);
@@ -110,6 +126,13 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         Button goButton = (Button) overlayRootView.findViewById(R.id.link_preview_go_button);
         goButton.setOnClickListener(goToPageListener);
         goButton.setText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
+
+        Button directionsButton = (Button) overlayRootView.findViewById(R.id.link_preview_directions_button);
+        if (location != null) {
+            directionsButton.setOnClickListener(getDirectionsListener);
+        } else {
+            directionsButton.setVisibility(View.GONE);
+        }
 
         TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
@@ -364,6 +387,17 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     private class LongPressHandler extends PageActivityLongPressHandler {
         LongPressHandler(@NonNull PageActivity activity) {
             super(activity);
+        }
+    }
+
+    private void goToExternalMapsApp() {
+        if (location != null) {
+            try {
+                dismiss();
+                UriUtil.sendGeoIntent(getActivity(), location, pageTitle.getDisplayText());
+            } catch (ActivityNotFoundException e) {
+                FeedbackUtil.showMessage(getActivity(), R.string.error_no_maps_app);
+            }
         }
     }
 }
