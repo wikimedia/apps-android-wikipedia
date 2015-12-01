@@ -16,7 +16,6 @@ import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.page.linkpreview.LinkPreviewDialogB;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -690,9 +689,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     public void showLinkPreview(PageTitle title, int entrySource) {
         if (getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG) == null) {
-            DialogFragment linkPreview = app.isLinkPreviewExperimental()
-                    ? LinkPreviewDialogB.newInstance(title, entrySource)
-                    : LinkPreviewDialog.newInstance(title, entrySource);
+            DialogFragment linkPreview = LinkPreviewDialog.newInstance(title, entrySource);
             linkPreview.show(getSupportFragmentManager(), LINK_PREVIEW_FRAGMENT_TAG);
         }
     }

@@ -32,7 +32,6 @@
     <string name="preference_key_last_run_time_format">%s-lastrun</string>
     <string name="preference_key_tabs">tabs</string>
     <string name="preference_key_show_link_previews">showLinkPreviews</string>
-    <string name="preference_key_link_preview_version">linkPreviewVersion</string>
     <string name="preference_key_session_data">session_data</string>
     <string name="preference_key_session_timeout">session_timeout</string>
     <string name="preference_key_remote_log">remoteLog</string>
