@@ -25,14 +25,18 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.PopupMenu;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -47,6 +51,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
     private ProgressBar progressBar;
     private TextView extractText;
+    private ImageView thumbnailView;
     private GalleryThumbnailScrollView thumbnailGallery;
 
     private PageTitle pageTitle;
@@ -121,6 +126,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
         onNavigateListener = new DefaultOnNavigateListener();
         extractText = (TextView) rootView.findViewById(R.id.link_preview_extract);
+        thumbnailView = (ImageView) rootView.findViewById(R.id.link_preview_thumbnail);
 
         thumbnailGallery = (GalleryThumbnailScrollView) rootView.findViewById(R.id.link_preview_thumbnail_gallery);
         if (shouldLoadImages) {
@@ -312,6 +318,18 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     private void layoutPreview() {
         if (contents.getExtract().length() > 0) {
             extractText.setText(contents.getExtract());
+        }
+        if (!TextUtils.isEmpty(contents.getTitle().getThumbUrl())
+                && WikipediaApp.getInstance().isImageDownloadEnabled()) {
+            Picasso.with(getActivity())
+                    .load(contents.getTitle().getThumbUrl())
+                    .placeholder(R.drawable.ic_pageimage_placeholder)
+                    .error(R.drawable.ic_pageimage_placeholder)
+                    .into(thumbnailView);
+        } else {
+            Picasso.with(getActivity())
+                    .load(R.drawable.ic_pageimage_placeholder)
+                    .into(thumbnailView);
         }
     }
 
