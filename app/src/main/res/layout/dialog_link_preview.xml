@@ -31,18 +31,23 @@
                 android:clickable="true"
                 android:background="?attr/selectableItemBackground"
                 android:minHeight="64dp">
+                <ImageView
+                    android:id="@+id/link_preview_thumbnail"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_pageimage_placeholder"/>
                 <TextView
                     android:id="@+id/link_preview_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     style="@style/RtlAwareTextView"
                     android:textColor="?attr/link_preview_text_color"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
                     android:paddingBottom="4dp"
                     android:textSize="22sp"
                     android:fontFamily="serif"
@@ -54,7 +59,7 @@
                     android:id="@+id/link_preview_overflow_button"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center_vertical"
                     android:clickable="true"
                     android:padding="12dp"
                     android:background="?attr/actionBarItemBackground"
@@ -63,12 +68,19 @@
                     android:tint="?attr/link_preview_text_color"/>
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/list_separator_light"/>
+
             <TextView
                 android:id="@+id/link_preview_extract"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/RtlAwareTextView"
-                android:paddingTop="4dp"
+                android:paddingTop="8dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:textSize="16sp"
