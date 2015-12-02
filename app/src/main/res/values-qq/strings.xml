@@ -22,6 +22,7 @@
   <string name="nav_item_today">Text in navigation sidebar that when tapped leads to the Main Page.
 {{Identical|Today}}</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
+  <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.
 {{Identical|Saved page}}</string>
   <string name="menu_update_all_saved_pages">Menu item (icon) in saved pages screen to update all saved pages.

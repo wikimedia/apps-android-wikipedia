@@ -21,6 +21,7 @@ import org.wikipedia.random.RandomHandler;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
@@ -55,6 +56,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -575,6 +577,13 @@ public class PageActivity extends ThemedActionBarActivity {
         showToolbar();
         //also make sure the progress bar is not showing
         updateProgressBar(false, true, 0);
+    }
+
+    public void resetAfterClearHistory() {
+        // remove all current fragments from the backstack
+        getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        Prefs.clearTabs();
+        displayMainPageIfNoTabs();
     }
 
     /**
