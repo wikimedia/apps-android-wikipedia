@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">બધા સાચવેલા પાનાં કાઢી નાખો</string>
   <string name="page_does_not_exist_error">આ પાનું અસ્તિત્વમાં નથી.</string>
   <string name="nav_item_today">આજે</string>
-  <string name="dialog_title_clear_history">બ્રાઉઝિંગનો ઇતિહાસ હટાવશો?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">બ્રાઉઝિંગનો ઇતિહાસ હટાવશો?</string>
   <string name="nav_item_saved_pages">સાચવેલા પાનાઓ</string>
   <string name="menu_update_all_saved_pages">સાચવેલા પાનાંઓ અદ્યતન કરો</string>
   <string name="menu_update_selected_saved_pages">સાચવેલા પાનાંઓ અદ્યતન કરો</string>

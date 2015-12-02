@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
   <string name="nav_item_today">Hôm nay</string>
-  <string name="dialog_title_clear_history">Bạn muốn xóa lịch sử duyệt trang?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Bạn muốn xóa lịch sử duyệt trang?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Bạn có chắc chắn muốn xóa tất cả lịch sử?</string>
   <string name="nav_item_saved_pages">Trang đã lưu</string>
   <string name="menu_update_all_saved_pages">Cập nhật các trang đã lưu</string>
   <string name="menu_update_selected_saved_pages">Cập nhật các trang đã lưu</string>

@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
   <string name="page_does_not_exist_error">Denna sida finns inte!</string>
   <string name="nav_item_today">Idag</string>
-  <string name="dialog_title_clear_history">Rensa webbhistorik?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Rensa webbhistorik?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Är du säker på att du vill rensa bort all historik?</string>
   <string name="nav_item_saved_pages">Sparade sidor</string>
   <string name="menu_update_all_saved_pages">Uppdatera sparade sidor</string>
   <string name="menu_update_selected_saved_pages">Uppdatera sparade sidor</string>
@@ -84,7 +85,7 @@
   <string name="login_password_hint">Lösenord</string>
   <string name="login_password_show_check">Visa lösenord</string>
   <string name="menu_login">Logga in</string>
-  <string name="login_activity_title" fuzzy="true">Logga in på Wikipedia</string>
+  <string name="login_activity_title">Logga in på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Loggar in dig…</string>
   <string name="login_error_wrong_password">Felaktigt lösenord</string>
   <string name="login_error_wrong_username">Felaktigt användarnamn</string>

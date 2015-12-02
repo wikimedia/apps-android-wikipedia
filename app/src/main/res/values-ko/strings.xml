@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">저장된 문서 지우기</string>
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
   <string name="nav_item_today">오늘</string>
-  <string name="dialog_title_clear_history">방문 기록을 지우겠습니까?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">방문 기록을 지우겠습니까?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">정말 모든 방문 기록을 지울까요?</string>
   <string name="nav_item_saved_pages">저장된 문서</string>
   <string name="menu_update_all_saved_pages">저장된 문서 업데이트</string>
   <string name="menu_update_selected_saved_pages">저장된 문서 업데이트</string>
@@ -50,6 +51,8 @@
   <string name="nearby_set_metric">meters/km 보이기</string>
   <string name="nearby_set_imperial">feet/miles 보이기</string>
   <string name="nearby_view_on_map">지도에서 장소 보기</string>
+  <string name="nearby_zoom_to_location">지도 상의 장소를 확대</string>
+  <string name="nearby_requires_location">주변 기능은 GPS 권한을 요구합니다.</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
   <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>
@@ -82,7 +85,7 @@
   <string name="login_password_hint">비밀번호</string>
   <string name="login_password_show_check">비밀번호 보이기</string>
   <string name="menu_login">로그인</string>
-  <string name="login_activity_title" fuzzy="true">위키백과에 로그인</string>
+  <string name="login_activity_title">위키백과에 로그인</string>
   <string name="login_in_progress_dialog_message">로그인 중…</string>
   <string name="login_error_wrong_password">비밀번호가 잘못되었습니다</string>
   <string name="login_error_wrong_username">사용자 이름이 잘못되었습니다</string>
@@ -230,7 +233,7 @@
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
   <string name="dialog_close_description">닫기</string>
   <string name="preference_title_show_images">그림 보이기</string>
-  <string name="preference_summary_show_images" fuzzy="true">문서에서 그림을 불러오는 것을 활성화하거나 비활성화합니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정을 선택 해제하세요.</string>
+  <string name="preference_summary_show_images">문서에서 그림을 불러오는 것을 활성화하거나 비활성화합니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정을 선택 해제하세요.</string>
   <string name="read_more_section">더 읽어보기</string>
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
@@ -261,6 +264,11 @@
   <string name="format_error_server_code">코드: \"%s\"</string>
   <string name="address_copied">주소가 클립보드에 복사되었습니다.</string>
   <string name="text_copied">텍스트가 클립보드에 복사되었습니다.</string>
+  <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
+  <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
+  <string name="nav_item_donate">위키백과 지원</string>
+  <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱에서 오류가 발생하였습니다</string>
+  <string name="crash_report_dialog_dont_send_button">넘어가기</string>
   <string name="crash_report_dialog_always_send_button">항상 보내기</string>
   <string name="crash_report_dialog_send_button">보내기</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>

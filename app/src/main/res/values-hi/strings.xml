@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">संरक्षित पृष्ठों को हटायें</string>
   <string name="page_does_not_exist_error">यह पृष्ठ अस्तित्व में नहीं है।</string>
   <string name="nav_item_today">आज</string>
-  <string name="dialog_title_clear_history">ब्राउज़िंग का इतिहास साफ़ करें?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ब्राउज़िंग का इतिहास साफ़ करें?</string>
   <string name="nav_item_saved_pages">सहेजे गये पृष्ठ</string>
   <string name="menu_update_all_saved_pages">सहेजे गए पृष्ठों को अद्यतन करें</string>
   <string name="menu_update_selected_saved_pages">संरक्षित पृष्ठों को अद्यतन करें</string>

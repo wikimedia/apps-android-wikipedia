@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
   <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
   <string name="nav_item_today">Dnes</string>
-  <string name="dialog_title_clear_history">Vymazat historii prohlížení?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Vymazat historii prohlížení?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Jste si jisti, že chcete vymazat celou historii?</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
   <string name="menu_update_all_saved_pages">Aktualizovat uložené stránky</string>
   <string name="menu_update_selected_saved_pages">Aktualizovat uložené stránky</string>

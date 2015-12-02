@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
   <string name="page_does_not_exist_error">این صفحه وجود ندارد!</string>
   <string name="nav_item_today">امروز</string>
-  <string name="dialog_title_clear_history">پاک کردن تاریخچه جستجو؟</string>
+  <string name="dialog_title_clear_history" fuzzy="true">پاک کردن تاریخچه جستجو؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">آیا مطمئنید که می خواهید کل تاریخچه را پاک کنید؟</string>
   <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
   <string name="menu_update_all_saved_pages">به‌روزرسانی صفحات ذخیره‌شده</string>
   <string name="menu_update_selected_saved_pages">به‌روزرسانی صفحه‌های ذخیره‌شده</string>

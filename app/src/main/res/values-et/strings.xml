@@ -11,7 +11,7 @@
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
   <string name="menu_clear_all_saved_pages">Tühjenda kõik salvestatud leheküljed</string>
   <string name="page_does_not_exist_error">Seda lehekülge ei ole olemas!</string>
-  <string name="dialog_title_clear_history">Kustuta sirvimise ajalugu?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Kustuta sirvimise ajalugu?</string>
   <string name="nav_item_saved_pages">Salvestatud leheküljed</string>
   <string name="menu_update_all_saved_pages">Uuenda salvestatud leheküljed</string>
   <string name="menu_update_selected_saved_pages">Uuenda salvestatud leheküljed</string>

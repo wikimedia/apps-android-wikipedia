@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Valyti įrašytus puslapius</string>
   <string name="page_does_not_exist_error">Šis puslapis neegzistuoja.</string>
   <string name="nav_item_today">Šiandien</string>
-  <string name="dialog_title_clear_history">Valyti naršymo istoriją?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Valyti naršymo istoriją?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ar tikrai norite išvalyti visą istoriją?</string>
   <string name="nav_item_saved_pages">Įrašyti puslapiai</string>
   <string name="menu_update_all_saved_pages">Atnaujinti įrašytus puslapius</string>
   <string name="menu_update_selected_saved_pages">Atnaujinti įrašytus puslapius</string>

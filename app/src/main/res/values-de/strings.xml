@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Gespeicherte Seiten löschen</string>
   <string name="page_does_not_exist_error">Diese Seite ist nicht vorhanden.</string>
   <string name="nav_item_today">Heute</string>
-  <string name="dialog_title_clear_history">Browsing-Verlauf löschen?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Browsing-Verlauf löschen?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Bist du sicher, dass du den gesamten Verlauf löschen möchtest?</string>
   <string name="nav_item_saved_pages">Gespeicherte Seiten</string>
   <string name="menu_update_all_saved_pages">Gespeicherte Seiten aktualisieren</string>
   <string name="menu_update_selected_saved_pages">Gespeicherte Seiten aktualisieren</string>

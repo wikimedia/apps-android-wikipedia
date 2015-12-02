@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Ryd gemte sider</string>
   <string name="page_does_not_exist_error">Denne side findes ikke.</string>
   <string name="nav_item_today">I dag</string>
-  <string name="dialog_title_clear_history">Vil du rydde browserhistorikken?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Vil du rydde browserhistorikken?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Er du sikker på du ønsker at slette al historik?</string>
   <string name="nav_item_saved_pages">Gemte sider</string>
   <string name="menu_update_all_saved_pages">Opdater gemte sider</string>
   <string name="menu_update_selected_saved_pages">Opdater gemte sider</string>

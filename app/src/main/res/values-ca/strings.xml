@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Esborra les pàgines desades</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
   <string name="nav_item_today">Avui</string>
-  <string name="dialog_title_clear_history">Esborrar l\'historial?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Esborrar l\'historial?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Estàs segur que vols esborrar tot l\'historial?</string>
   <string name="nav_item_saved_pages">Pàgines desades</string>
   <string name="menu_update_all_saved_pages">Actualitza les pàgines desades</string>
   <string name="menu_update_selected_saved_pages">Actualitza les pàgines desades</string>

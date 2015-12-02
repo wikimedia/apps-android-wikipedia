@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Исчисти ги сите зачувани страници</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>
   <string name="nav_item_today">Денес</string>
-  <string name="dialog_title_clear_history">Да ја исчистам историјата на прелистување?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Да ја исчистам историјата на прелистување?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Дали сте сигурни дека сакате да ја исчистите сета историја?</string>
   <string name="nav_item_saved_pages">Зачувани страници</string>
   <string name="menu_update_all_saved_pages">Поднови зачувани страници</string>
   <string name="menu_update_selected_saved_pages">Поднови зачувани страници</string>

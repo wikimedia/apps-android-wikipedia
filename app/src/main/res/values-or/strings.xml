@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠା</string>
   <string name="page_does_not_exist_error">ଏହି ପୃଷ୍ଠାଟି ନାହିଁ ।</string>
   <string name="nav_item_today">ଆଜି</string>
-  <string name="dialog_title_clear_history">ଇତିହାସ ଲିଭାଇବେ?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ଇତିହାସ ଲିଭାଇବେ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">ସମସ୍ତ ପୃଷ୍ଠା ଲିଭାଇବା ବାବଦରେ ଆପଣ ନିଶ୍ଚିତ ତ?</string>
   <string name="nav_item_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
   <string name="menu_update_all_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>
   <string name="menu_update_selected_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>

@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">সকলো সাঁচি থোৱা পৃষ্ঠা মচি পেলাওক</string>
   <string name="page_does_not_exist_error">এই নামৰ কোনো পৃষ্ঠা নাই।</string>
   <string name="nav_item_today">আজি</string>
-  <string name="dialog_title_clear_history">ব্ৰাউজিং ইতিহাস মচি পেলাওক?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ব্ৰাউজিং ইতিহাস মচি পেলাওক?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">সমগ্ৰ ইতিহাস মচি পেলাব বুলি আপুনি নিশ্চিতনে?</string>
   <string name="nav_item_saved_pages">সংৰক্ষিত পৃষ্ঠাসমূহ</string>
   <string name="menu_update_all_saved_pages">সংৰক্ষিত পৃষ্ঠাসমূহ নবীকৰণ কৰক</string>
   <string name="menu_update_selected_saved_pages">সংৰক্ষিত পৃষ্ঠাবোৰ নবীকৰণ কৰক</string>

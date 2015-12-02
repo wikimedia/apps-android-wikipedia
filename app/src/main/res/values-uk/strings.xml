@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
   <string name="page_does_not_exist_error">Ця сторінка не існує.</string>
   <string name="nav_item_today">Сьогодні</string>
-  <string name="dialog_title_clear_history">Очистити історію перегляду?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Очистити історію перегляду?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Ви впевнені, що хочете очистити всю історію?</string>
   <string name="nav_item_saved_pages">Збережені сторінки</string>
   <string name="menu_update_all_saved_pages">Оновити збережені сторінки</string>
   <string name="menu_update_selected_saved_pages">Оновити збережені сторінки</string>

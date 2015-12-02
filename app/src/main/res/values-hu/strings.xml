@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Elmentett lapok törlése</string>
   <string name="page_does_not_exist_error">Ez a lap nem létezik.</string>
   <string name="nav_item_today">Ma</string>
-  <string name="dialog_title_clear_history">Törlöd a böngészési előzményeket?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Törlöd a böngészési előzményeket?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Biztosan törölni szeretnéd az előzményeket?</string>
   <string name="nav_item_saved_pages">Elmentett lapok</string>
   <string name="menu_update_all_saved_pages">Mentett lapok frissítése</string>
   <string name="menu_update_selected_saved_pages">Mentett lapok frissítése</string>

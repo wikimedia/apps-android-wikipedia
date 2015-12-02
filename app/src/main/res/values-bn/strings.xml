@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
   <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
   <string name="nav_item_today">আজ</string>
-  <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ব্রাউজ ইতিহাস অপসারণ করবেন?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">আপনি নিশ্চিতভাবে ইতিহাস অপসারণ করতে চান?</string>
   <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
   <string name="menu_update_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
   <string name="menu_update_selected_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>

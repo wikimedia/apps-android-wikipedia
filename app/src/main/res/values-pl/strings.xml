@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">Wyczyść listę zapisanych stron</string>
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
   <string name="nav_item_today">Dzisiaj</string>
-  <string name="dialog_title_clear_history">Wyczyścić historię przeglądania?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Wyczyścić historię przeglądania?</string>
   <string name="nav_item_saved_pages">Zapisane strony</string>
   <string name="menu_update_all_saved_pages">Odśwież zapisane strony</string>
   <string name="menu_update_selected_saved_pages">Odśwież zapisane strony</string>

@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">Saqlangan sahifalarni o\'chirish</string>
   <string name="page_does_not_exist_error">Bu sahifa mavjud emas.</string>
   <string name="nav_item_today">Bugun</string>
-  <string name="dialog_title_clear_history">Ko\'rish tarixini o\'chirasizmi?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Ko\'rish tarixini o\'chirasizmi?</string>
   <string name="nav_item_saved_pages">Saqlangan sahifalar</string>
   <string name="menu_update_all_saved_pages">Saqlangan sahifalarni yangilash</string>
   <string name="menu_update_selected_saved_pages">Saqlangan sahifalarni yangilash</string>

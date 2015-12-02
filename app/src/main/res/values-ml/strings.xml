@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">സേവ് ചെയ്ത താളുകൾ ഒഴിവാക്കുക</string>
   <string name="page_does_not_exist_error">ഈ താൾ നിലവിലില്ല.</string>
   <string name="nav_item_today">ഇന്ന്</string>
-  <string name="dialog_title_clear_history">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">എല്ലാ ഹിസ്റ്ററിയും ശൂന്യമാക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
   <string name="nav_item_saved_pages">സേവ് ചെയ്ത താളുകൾ</string>
   <string name="menu_update_all_saved_pages">സേവ് ചെയ്ത താളുകൾ പുതുക്കുക</string>
   <string name="menu_update_selected_saved_pages">സേവ് ചെയ്ത താളുകൾ പുതുക്കുക</string>

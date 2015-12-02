@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Apagar todas as páginas salvas</string>
   <string name="page_does_not_exist_error">Esta página não existe</string>
   <string name="nav_item_today">Hoje</string>
-  <string name="dialog_title_clear_history">Limpar histórico do navegador?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Limpar histórico do navegador?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Está certo de que deseja limpar todo o histórico?</string>
   <string name="nav_item_saved_pages">Páginas salvas</string>
   <string name="menu_update_all_saved_pages">Atualizar páginas salvas</string>
   <string name="menu_update_selected_saved_pages">Atualizar páginas salvas</string>

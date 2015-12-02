@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">خوندي مخونه سپينول</string>
   <string name="page_does_not_exist_error">پدې نوم مخ نشته.</string>
   <string name="nav_item_today">نن</string>
-  <string name="dialog_title_clear_history">آيا سپړل شوی پېښليک سينوې؟</string>
+  <string name="dialog_title_clear_history" fuzzy="true">آيا سپړل شوی پېښليک سينوې؟</string>
   <string name="nav_item_saved_pages">خوندي مخونه</string>
   <string name="menu_update_all_saved_pages">خوندي مخونه هممهالول</string>
   <string name="menu_update_selected_saved_pages">خوندي مخونه هممهالول</string>
@@ -95,11 +95,18 @@
   <string name="zero_interstitial_continue">وتل</string>
   <string name="zero_interstitial_cancel">دلته پاتېدل</string>
   <string name="zero_learn_more_learn_more">نور لوستل</string>
+  <string name="zero_learn_more_dismiss">تړل</string>
   <string name="edit_preview_fetching_dialog_message">مخليدنه راغونډېدنې کې ده…</string>
+  <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>
   <string name="nav_item_random">ناټاکلی</string>
   <string name="create_account_account_created_toast">گڼون مو جوړ شو!</string>
   <string name="preferences_privacy_settings_heading">پټنتيا</string>
+  <string name="preference_title_eventlogging_opt_in">د کارېدنې راپورونه لېږل</string>
+  <string name="preference_title_auto_upload_crash_reports">د ټکر راپورونه لېږل</string>
   <string name="history_search_list_hint">پېښليک پلټل</string>
+  <string name="error_can_not_process_link">دا تړنه ښکاره نه شوه</string>
+  <string name="page_protected_autoconfirmed">دا مخ نيم-ژغورلی دی.</string>
+  <string name="page_protected_sysop">دا مخ بشپړ ژغورلی دی.</string>
   <string name="page_protected_can_not_edit_title">دا مخ ژغورل شوی</string>
   <string name="settings_item_preferences">امستنې</string>
   <string name="settings_activity_title">امستنې</string>
@@ -153,7 +160,7 @@
   <string name="snippet_share_preview_image_desc">انځور مخليدنه</string>
   <string name="cc_logo">کريټيف کامنز منښتليک</string>
   <string name="captcha_image">کېپچا انځور</string>
-  <string name="page_view_in_browser" fuzzy="true">په کتنمل کې کتل</string>
+  <string name="page_view_in_browser">مخ په کتنمل کې کتل</string>
   <string name="format_error_server_message">پيغام: \"%s\"</string>
   <string name="format_error_server_code">کوډ: \"%s\"</string>
   <string name="nav_item_donate">د ويکيپېډيا ملاتړ وکړئ</string>

@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">భద్రపరిచిన పేజీలను తుడిచివేయి</string>
   <string name="page_does_not_exist_error">ఈ పేజి లేదు.</string>
   <string name="nav_item_today">ఈరోజు</string>
-  <string name="dialog_title_clear_history">విహరణ చరిత్రను తుడిచివెయ్యాలా?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">విహరణ చరిత్రను తుడిచివెయ్యాలా?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">మీరు నిజంగానే చరిత్రనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
   <string name="nav_item_saved_pages">భద్రపరచబడిన పేజీలు</string>
   <string name="menu_update_all_saved_pages">భద్రపరచబడిన పేజీలను తాజాపరుచు</string>
   <string name="menu_update_selected_saved_pages">భద్రపరచబడిన పుటల జాబితాను తాజాపరుచు</string>

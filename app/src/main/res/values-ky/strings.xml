@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">Бардык сакталган барактарды өчүрүү</string>
   <string name="page_does_not_exist_error">Мындай барак жок.</string>
   <string name="nav_item_today">Бүгүн</string>
-  <string name="dialog_title_clear_history">Тарыхты өчүрүү керекпи?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Тарыхты өчүрүү керекпи?</string>
   <string name="nav_item_saved_pages">Сакталган барактар</string>
   <string name="menu_update_all_saved_pages">Сакталган барактарды жаңылоо</string>
   <string name="menu_update_selected_saved_pages">Сакталган барактарды жаңылоо</string>

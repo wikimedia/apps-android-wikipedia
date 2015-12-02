@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Tyhjennä tallennetut sivut</string>
   <string name="page_does_not_exist_error">Tätä sivua ei ole.</string>
   <string name="nav_item_today">Tänään</string>
-  <string name="dialog_title_clear_history">Tyhjennetäänkö selaushistoria?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Tyhjennetäänkö selaushistoria?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Oletko varma, että haluat tyhjentää koko historian?</string>
   <string name="nav_item_saved_pages">Tallennetut sivut</string>
   <string name="menu_update_all_saved_pages">Päivitä tallennetut sivut</string>
   <string name="menu_update_selected_saved_pages">Päivitä tallennetut sivut</string>

@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Limpar as páxinas gardadas</string>
   <string name="page_does_not_exist_error">Esta páxina non existe.</string>
   <string name="nav_item_today">Hoxe</string>
-  <string name="dialog_title_clear_history">Quere limpar o historial?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Quere limpar o historial?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Está seguro de querer limpar todo o historial?</string>
   <string name="nav_item_saved_pages">Páxinas gardadas</string>
   <string name="menu_update_all_saved_pages">Actualizar as páxinas gardadas</string>
   <string name="menu_update_selected_saved_pages">Actualizar as páxinas gardadas</string>

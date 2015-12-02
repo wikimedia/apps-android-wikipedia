@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">ลบหน้าที่บันทึกไว้ทั้งหมด</string>
   <string name="page_does_not_exist_error">ไม่มีหน้าดังกล่าว</string>
   <string name="nav_item_today">วันนี้</string>
-  <string name="dialog_title_clear_history">ล้างประวัติการเข้าชมหรือไม่</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ล้างประวัติการเข้าชมหรือไม่</string>
   <string name="nav_item_saved_pages">หน้าที่บันทึกไว้</string>
   <string name="menu_update_all_saved_pages">ปรับปรุงหน้าที่บันทึกไว้</string>
   <string name="menu_update_selected_saved_pages">ปรับปรุงหน้าที่บันทึกไว้</string>

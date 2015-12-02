@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">إفراغ الصفحات المحفوظة</string>
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
   <string name="nav_item_today">اليوم</string>
-  <string name="dialog_title_clear_history">مسح تاريخ التصفح؟</string>
+  <string name="dialog_title_clear_history" fuzzy="true">مسح تاريخ التصفح؟</string>
+  <string name="dialog_message_clear_history" fuzzy="true">هل أنت متأكد من أنك تريد مسح كل التاريخ؟</string>
   <string name="nav_item_saved_pages">الصفحات المحفوظة</string>
   <string name="menu_update_all_saved_pages">تحديث الصفحات المحفوظة</string>
   <string name="menu_update_selected_saved_pages">تحديث الصفحات المحفوظة</string>
@@ -41,7 +42,7 @@
   <string name="menu_text_select_share">شارك</string>
   <string name="nav_item_nearby">بالقرب من هنا</string>
   <string name="nearby_empty_title">لا يوجد صفحات بالقرب من هنا!</string>
-  <string name="nearby_empty_message" fuzzy="true">انتقل إلى مكانٍ جديد، لرؤية صفحات عن الأماكن التي بقربك.</string>
+  <string name="nearby_empty_message">انتقل إلى مكانٍ جديد، لرؤية صفحات عن الأماكن التي بقربك.</string>
   <string name="nearby_distance_in_meters">%d م</string>
   <string name="nearby_distance_in_kilometers">%.2f كم</string>
   <string name="nearby_distance_in_feet">%d قدم</string>
@@ -84,7 +85,7 @@
   <string name="login_password_hint">كلمة السر</string>
   <string name="login_password_show_check">عرض كلمة السر</string>
   <string name="menu_login">تسجيل الدخول</string>
-  <string name="login_activity_title" fuzzy="true">الدخول إلى ويكيبيديا</string>
+  <string name="login_activity_title">تسجيل الدخول إلى ويكيبيديا</string>
   <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
   <string name="login_error_wrong_password">كلمة السر غير صحيحة</string>
   <string name="login_error_wrong_username">اسم المستخدم غير صحيح</string>

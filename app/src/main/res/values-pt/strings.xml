@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Apagar páginas guardadas</string>
   <string name="page_does_not_exist_error">Esta página não existe.</string>
   <string name="nav_item_today">Hoje</string>
-  <string name="dialog_title_clear_history">Limpar histórico de navegação?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Limpar histórico de navegação?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Tens a certeza que quer remover todo o histórico?</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>
   <string name="menu_update_all_saved_pages">Atualizar páginas guardadas</string>
   <string name="menu_update_selected_saved_pages">Atualizar páginas guardadas</string>
@@ -41,7 +42,7 @@
   <string name="menu_text_select_share">Partilhar</string>
   <string name="nav_item_nearby">Nas redondezas</string>
   <string name="nearby_empty_title">Sem páginas nas redondezas</string>
-  <string name="nearby_empty_message" fuzzy="true">Experimente um novo local para ver as páginas nas redondezas.</string>
+  <string name="nearby_empty_message">Experimente um novo local para ver as páginas nas redondezas.</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_distance_in_feet">%d ft</string>
@@ -272,6 +273,7 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>
   <string name="button_continue_to_article">Continuar para o artigo</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
+  <string name="nav_item_donate">Apoie a Wikimedia</string>
   <string name="crash_report_dialog_title">Desculpe, a aplicação encerrou inesperadamente da última vez</string>
   <string name="crash_report_dialog_text">Gostaria de enviar um relatório de falhas para HockeyApp / um provedor de serviços de terceiros, de modo que a Wikimedia possa analisar e corrigir o erro que causou o encerramento?</string>
   <string name="crash_report_dialog_dont_send_button">Ignorar</string>

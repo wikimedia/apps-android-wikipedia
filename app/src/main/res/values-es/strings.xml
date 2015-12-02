@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Borrar páginas guardadas</string>
   <string name="page_does_not_exist_error">Esta página no existe.</string>
   <string name="nav_item_today">Hoy</string>
-  <string name="dialog_title_clear_history">¿Limpiar el historial?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">¿Limpiar el historial?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">¿Estás seguro que deseas limpiar todo el historial?</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>
   <string name="menu_update_all_saved_pages">Actualizar páginas guardadas</string>
   <string name="menu_update_selected_saved_pages">Actualizar páginas guardadas</string>

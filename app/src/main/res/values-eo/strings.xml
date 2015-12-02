@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">Malplenigi ĉiujn konservitajn paĝojn</string>
   <string name="page_does_not_exist_error">Ĉi tiu paĝo ne ekzistas.</string>
   <string name="nav_item_today">Hodiaŭ</string>
-  <string name="dialog_title_clear_history">Ĉu malplenigi la navigadan historion?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Ĉu malplenigi la navigadan historion?</string>
   <string name="nav_item_saved_pages">Konservitaj paĝoj</string>
   <string name="menu_update_all_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
   <string name="menu_update_selected_saved_pages">Ĝisdatigi konservitajn paĝojn</string>

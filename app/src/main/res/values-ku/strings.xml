@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">Rûpelên tomarkirî jê bibe</string>
   <string name="page_does_not_exist_error">Ev rûpel tune ye</string>
   <string name="nav_item_today">Îro</string>
-  <string name="dialog_title_clear_history">Bila dîroka lêgerînê jê were birin?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Bila dîroka lêgerînê jê were birin?</string>
   <string name="nav_item_saved_pages">Rûpelên tomarkirî</string>
   <string name="menu_update_all_saved_pages">Rûpelên tomarkirî rojane bike</string>
   <string name="menu_update_selected_saved_pages">Rûpelên tomarkirî rojane bike</string>

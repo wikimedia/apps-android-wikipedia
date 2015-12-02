@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲ ಪುಟಗಳನ್ನು ಅಳಿಸಿ</string>
   <string name="page_does_not_exist_error">ಈ ಪುಟವು ಆಸ್ಥಿತ್ವದಲ್ಲಿ ಇಲ್ಲ.</string>
   <string name="nav_item_today">ಇಂದು</string>
-  <string name="dialog_title_clear_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ?</string>
   <string name="nav_item_saved_pages">ಉಳಿಸಿದ ಪುಟಗಳು</string>
   <string name="menu_update_all_saved_pages">ಉಳಿಸಿದ ಪುಟಗಳನ್ನು ನವೀಕರಿಸಿ.</string>
   <string name="menu_update_selected_saved_pages">ಉಳಿಸಿದ ಪುಟಗಳನ್ನು ನವೀಕರಿಸಿ.</string>

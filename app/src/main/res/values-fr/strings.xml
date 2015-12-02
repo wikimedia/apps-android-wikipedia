@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Effacer les pages enregistrées</string>
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="nav_item_today">Aujourd’hui</string>
-  <string name="dialog_title_clear_history">Effacer l’historique de navigation ?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Effacer l’historique de navigation ?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Êtes-vous sûr de vouloir effacer tout l’historique ?</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
   <string name="menu_update_all_saved_pages">Mettre à jour les pages enregistrées</string>
   <string name="menu_update_selected_saved_pages">Mettre à jour les pages enregistrées</string>

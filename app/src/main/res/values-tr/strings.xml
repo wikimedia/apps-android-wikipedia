@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
   <string name="nav_item_today">Bugün</string>
-  <string name="dialog_title_clear_history">Göz atma geçmişini temizle?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Göz atma geçmişini temizle?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Tüm geçmişi silmek istediğinizden emin misiniz?</string>
   <string name="nav_item_saved_pages">Kaydedilen sayfalar</string>
   <string name="menu_update_all_saved_pages">Kaydedilen sayfaları güncelle</string>
   <string name="menu_update_selected_saved_pages">Kaydedilen sayfaları güncelle</string>

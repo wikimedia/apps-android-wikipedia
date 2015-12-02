@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">Garbitu gordetako orrialdeak</string>
   <string name="page_does_not_exist_error">Orri hori ez da existitzen.</string>
   <string name="nav_item_today">Gaur</string>
-  <string name="dialog_title_clear_history">Garbitu nabigatze-historia?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Garbitu nabigatze-historia?</string>
   <string name="nav_item_saved_pages">Gordetako orrialdeak</string>
   <string name="menu_update_all_saved_pages">Gordetako orrialdeak eguneratu</string>
   <string name="menu_update_selected_saved_pages">Gordetako orrialdeak eguneratu</string>
