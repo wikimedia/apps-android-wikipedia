@@ -48,12 +48,12 @@ public class PageTitle implements Parcelable {
     private final String namespace;
     private final String text;
     private final String fragment;
-    private String thumbUrl;
+    @Nullable private String thumbUrl;
     private final Site site;
     private String description = null;
     private PageProperties properties = null;
 
-    public PageTitle(final String namespace, final String text, final String fragment, final String thumbUrl, final Site site) {
+    public PageTitle(final String namespace, final String text, final String fragment, @Nullable final String thumbUrl, final Site site) {
         this.namespace = namespace;
         this.text = text;
         this.fragment = fragment;
@@ -76,7 +76,7 @@ public class PageTitle implements Parcelable {
         this(namespace, text, null, null, site);
     }
 
-    public PageTitle(String text, final Site site, String thumbUrl) {
+    public PageTitle(String text, final Site site, @Nullable String thumbUrl) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         if (TextUtils.isEmpty(text)) {
             // If empty, this refers to the main page.
@@ -124,11 +124,11 @@ public class PageTitle implements Parcelable {
         return fragment;
     }
 
-    public String getThumbUrl() {
+    @Nullable public String getThumbUrl() {
         return thumbUrl;
     }
 
-    public void setThumbUrl(String thumbUrl) {
+    public void setThumbUrl(@Nullable String thumbUrl) {
         this.thumbUrl = thumbUrl;
     }
 

@@ -1,6 +1,7 @@
 package org.wikipedia.page.linkpreview;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.page.Page;
@@ -46,7 +47,11 @@ public class LinkPreviewContents {
      * @return New string that is the same as the original string, but without any
      * content in parentheses.
      */
-    public static String removeParens(String text) {
+    public static String removeParens(@Nullable String text) {
+        if (text == null) {
+            return "";
+        }
+
         StringBuilder outStr = new StringBuilder(text.length());
         char c;
         int level = 0;
