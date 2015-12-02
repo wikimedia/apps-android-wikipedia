@@ -4,13 +4,13 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.Site;
 import org.wikipedia.server.PageService;
-import org.wikipedia.server.PageServiceFactory;
+import org.wikipedia.server.ContentServiceFactory;
 
 public final class PageLoadUtil {
 
     @NonNull
     public static PageService getApiService(Site site) {
-        return PageServiceFactory.create(site);
+        return ContentServiceFactory.create(site);
     }
 
     private PageLoadUtil() { }

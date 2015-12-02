@@ -69,6 +69,7 @@ See also:
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
   <string name="menu_text_select_copy">Menu item caption for copying text to the system clipboard for pasting later.
 {{Identical|Copy}}</string>
+  <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.</string>
   <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.
 {{Identical|Share}}</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
@@ -297,6 +298,9 @@ Please test the URL to make sure it works</string>
   <string name="widget_name_search">Name of the Widget (as seen in the Android widget picker) for searching Wikipedia
 
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
+
+  <string name="wiktionary_no_definitions_found">Message shown when a user requests a definition from Wiktionary but no definition is found.</string>
+
   <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
   

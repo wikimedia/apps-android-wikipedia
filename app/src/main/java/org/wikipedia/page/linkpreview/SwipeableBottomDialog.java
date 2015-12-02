@@ -44,7 +44,7 @@ import static org.wikipedia.util.DimenUtil.getStatusBarHeightPx;
  | //////////////////////// |
  |--------------------------|
 
- The dialog window, the second transparent view, the dialog contents view are resized on
+ The dialog window, the second transparent view, and the dialog contents view are resized on
  configuration change.
  */
 public abstract class SwipeableBottomDialog extends DialogFragment {
@@ -197,7 +197,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         return getDisplayMetrics().heightPixels - getStatusBarHeightPx(getActivity());
     }
 
-    private DisplayMetrics getDisplayMetrics() {
+    protected DisplayMetrics getDisplayMetrics() {
         return getResources().getDisplayMetrics();
     }
 

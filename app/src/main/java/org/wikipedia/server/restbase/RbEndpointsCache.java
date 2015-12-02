@@ -18,16 +18,16 @@ import java.util.Locale;
  * It's good to cache the Retrofit web service since it's a memory intensive object.
  * Keep the same instance around as long as we're dealing with the same domain.
  */
-public final class RbPageEndpointsCache {
-    public static final RbPageEndpointsCache INSTANCE = new RbPageEndpointsCache();
+public final class RbEndpointsCache {
+    public static final RbEndpointsCache INSTANCE = new RbEndpointsCache();
 
     private Site site;
-    private RbPageService.RbPageEndpoints cachedWebService;
+    private RbContentService.RbEndpoints cachedWebService;
 
-    private RbPageEndpointsCache() {
+    private RbEndpointsCache() {
     }
 
-    public RbPageService.RbPageEndpoints getRbPageEndpoints(Site newSite) {
+    public RbContentService.RbEndpoints getRbEndpoints(Site newSite) {
         if (!newSite.equals(site)) {
             cachedWebService = createRbService(newSite);
             site = newSite;
@@ -35,8 +35,8 @@ public final class RbPageEndpointsCache {
         return cachedWebService;
     }
 
-    private RbPageService.RbPageEndpoints createRbService(final Site site) {
-        RbPageService.RbPageEndpoints webService;
+    private RbContentService.RbEndpoints createRbService(final Site site) {
+        RbContentService.RbEndpoints webService;
         final String domain = site.getApiDomain();
         final WikipediaApp app = WikipediaApp.getInstance();
         RestAdapter restAdapter = new RestAdapter.Builder()
@@ -63,7 +63,7 @@ public final class RbPageEndpointsCache {
                         .create()))
 
                 .build();
-        webService = restAdapter.create(RbPageService.RbPageEndpoints.class);
+        webService = restAdapter.create(RbContentService.RbEndpoints.class);
         return webService;
     }
 }

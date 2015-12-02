@@ -29,6 +29,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageFragment;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.util.ClipboardUtil;
@@ -38,7 +39,9 @@ import org.wikipedia.util.ShareUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.util.log.L;
+import org.wikipedia.wiktionary.WiktionaryDialog;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
@@ -51,7 +54,9 @@ public class ShareHandler {
     private static final String PAYLOAD_PURPOSE_KEY = "purpose";
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
     private static final String PAYLOAD_PURPOSE_COPY = "copy";
+    private static final String PAYLOAD_PURPOSE_DEFINE = "define";
     private static final String PAYLOAD_TEXT_KEY = "text";
+    private static final String WIKTIONARY_DEFINITION_TAG = "wiktionary_definition_dialog";
 
     @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_liberal;
 
@@ -85,11 +90,20 @@ public class ShareHandler {
                     case PAYLOAD_PURPOSE_COPY:
                         onCopyPayload(text);
                         break;
+                    case PAYLOAD_PURPOSE_DEFINE:
+                        onDefinePayload(text);
+                        break;
                     default:
                         L.d("Unknown purpose=" + purpose);
                 }
             }
         });
+    }
+
+    public void showWiktionaryDefinition(String text) {
+        PageTitle title = activity.getCurPageFragment().getTitle();
+        WiktionaryDialog dialog = WiktionaryDialog.newInstance(title, text);
+        dialog.show(activity.getSupportFragmentManager(), WIKTIONARY_DEFINITION_TAG);
     }
 
     private void onSharePayload(String text) {
@@ -103,6 +117,10 @@ public class ShareHandler {
     private void onCopyPayload(String text) {
         copyText(text);
         showCopySnackbar();
+    }
+
+    private void onDefinePayload(String text) {
+        showWiktionaryDefinition(text.toLowerCase());
     }
 
     private void copyText(String text) {
@@ -189,13 +207,28 @@ public class ShareHandler {
             WikipediaApp.getInstance().getOnboardingStateMachine().setShareTutorial();
         }
 
-        // Provide our own listeners for the copy and share buttons.
+        // Provide our own listeners for the copy, define, and share buttons.
         shareItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_SHARE));
         MenuItem copyItem = menu.findItem(R.id.menu_text_select_copy);
         copyItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_COPY));
+        MenuItem defineItem = menu.findItem(R.id.menu_text_select_define);
+        if (shouldEnableWiktionaryDialog()) {
+            defineItem.setVisible(true);
+            defineItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_DEFINE));
+        }
 
         createFunnel();
         funnel.logHighlight();
+    }
+
+    private boolean shouldEnableWiktionaryDialog() {
+        return Prefs.useRestBase() && WikipediaApp.getInstance().isPreProdRelease()
+            && isWiktionaryDialogEnabledForArticleLanguage();
+    }
+
+    private boolean isWiktionaryDialogEnabledForArticleLanguage() {
+        return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
+                .contains(activity.getCurPageFragment().getTitle().getSite().getLanguageCode());
     }
 
     private void showShareOnboarding(MenuItem shareItem) {

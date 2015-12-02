@@ -150,5 +150,21 @@ public final class StringUtil {
         return String.format("x%08x", i);
     }
 
+    public static String addUnderscores(String text) {
+        return text.replace(" ", "_");
+    }
+
+    public static String removeUnderscores(String text) {
+        return text.replace("_", " ");
+    }
+
+    public static boolean hasSectionAnchor(String text) {
+        return text.contains("#");
+    }
+
+    public static String removeSectionAnchor(String text) {
+        return text.substring(0, text.indexOf("#"));
+    }
+
     private StringUtil() { }
 }

@@ -44,7 +44,7 @@ function getLeadParagraph() {
 // If fewer than two characters are highlighted, returns the text of the first paragraph.
 bridge.registerListener( "getTextSelection", function( payload ) {
     var text = window.getSelection().toString().trim();
-    if (text.length < 2) {
+    if (text.length < 2 && payload.purpose === "share") {
         text = getLeadParagraph();
     }
     if (text.length > 250) {

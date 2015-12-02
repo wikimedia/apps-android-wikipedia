@@ -51,6 +51,7 @@
 
     <!-- Toolbar menu items -->
     <string name="menu_text_select_copy">Copy</string>
+    <string name="menu_text_select_define">Define</string>
     <string name="menu_text_select_share">Share</string>
 
     <!-- Nearby -->
@@ -218,6 +219,7 @@
     <string name="widget_name_featured_page">Wikipedia featured page</string>
     <string name="widget_title_featured_page">Today\'s featured page:</string>
     <string name="widget_name_search">Wikipedia search</string>
+    <string name="wiktionary_no_definitions_found">No definitions found.</string>
 
     <string name="app_store_description" tools:ignore="PluralsCandidate,UnusedResources,StringFormatInvalid">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled.
 

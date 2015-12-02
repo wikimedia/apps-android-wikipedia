@@ -20,13 +20,13 @@ import retrofit.http.Query;
 /**
  * Retrofit web service client for RESTBase Nodejs API.
  */
-public class RbPageService implements PageService {
-    private final RbPageEndpoints webService;
+public class RbContentService implements PageService {
+    private final RbEndpoints webService;
     private WikipediaZeroHandler responseHeaderHandler;
 
-    public RbPageService(final Site site) {
+    public RbContentService(final Site site) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        webService = RbPageEndpointsCache.INSTANCE.getRbPageEndpoints(site);
+        webService = RbEndpointsCache.INSTANCE.getRbEndpoints(site);
     }
 
     @Override
@@ -97,6 +97,26 @@ public class RbPageService implements PageService {
         });
     }
 
+    /* Not defined in the PageService interface since the Wiktionary definition endpoint exists only
+     * in the mobile content service, and does not concern the wholesale retrieval of the contents
+     * of a wiki page.
+     */
+    public void define(String title, final RbDefinition.Callback cb) {
+        webService.define(title, new Callback<RbDefinition>() {
+            @Override
+            public void success(RbDefinition definition, Response response) {
+                responseHeaderHandler.onHeaderCheck(response);
+                cb.success(definition, response);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                RbSwitch.INSTANCE.onRbRequestFailed(error);
+                cb.failure(error);
+            }
+        });
+    }
+
     /**
      * Optional boolean Retrofit parameter.
      * We don't want to send the query parameter at all when it's false since the presence of the parameter
@@ -110,9 +130,9 @@ public class RbPageService implements PageService {
     }
 
     /**
-     * Retrofit endpoints for MW API endpoints.
+     * Retrofit endpoints for mobile content service endpoints.
      */
-    interface RbPageEndpoints {
+    interface RbEndpoints {
         /**
          * Gets a page summary for a given title -- for link previews
          *
@@ -155,5 +175,14 @@ public class RbPageService implements PageService {
         @GET("/page/mobile-sections/{title}")
         void pageCombo(@Path("title") String title, @Query("noimages") Boolean noImages,
                        Callback<RbPageCombo> cb);
+
+
+        /**
+         * Gets selected Wiktionary content for a given title derived from user-selected text
+         *
+         * @param title the Wiktionary page title derived from user-selected Wikipedia article text
+         */
+        @GET("/page/definition/{title}")
+        void define(@Path("title") String title, Callback<RbDefinition> cb);
     }
 }

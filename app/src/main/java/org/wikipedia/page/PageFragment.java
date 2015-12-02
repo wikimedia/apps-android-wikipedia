@@ -144,7 +144,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ReferenceDialog referenceDialog;
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
-    private ShareHandler shareHandler;
+    @NonNull private ShareHandler shareHandler;
     private TabsProvider tabsProvider;
 
     private WikipediaApp app;
@@ -189,6 +189,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public PageTitle getTitleOriginal() {
         return model.getTitleOriginal();
+    }
+
+    @NonNull public ShareHandler getShareHandler() {
+        return shareHandler;
     }
 
     @Nullable public Page getPage() {

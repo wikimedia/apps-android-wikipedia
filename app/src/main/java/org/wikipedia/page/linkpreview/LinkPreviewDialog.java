@@ -15,7 +15,7 @@ import org.wikipedia.page.gallery.GalleryCollection;
 import org.wikipedia.page.gallery.GalleryCollectionFetchTask;
 import org.wikipedia.page.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.savedpages.LoadSavedPageTask;
-import org.wikipedia.server.PageServiceFactory;
+import org.wikipedia.server.ContentServiceFactory;
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -209,7 +209,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     private void loadContent() {
-        PageServiceFactory.create(pageTitle.getSite()).pageSummary(
+        ContentServiceFactory.create(pageTitle.getSite()).pageSummary(
                 pageTitle.getPrefixedText(),
                 linkPreviewOnLoadCallback);
     }
