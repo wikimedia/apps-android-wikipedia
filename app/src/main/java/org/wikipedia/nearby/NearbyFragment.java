@@ -183,7 +183,7 @@ public class NearbyFragment extends Fragment {
                 NearbyPage page = findNearbyPageFromMarker(marker);
                 if (page != null) {
                     PageTitle title = new PageTitle(page.getTitle(), site, page.getThumblUrl());
-                    ((PageActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY);
+                    ((PageActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
                     return true;
                 } else {
                     return false;

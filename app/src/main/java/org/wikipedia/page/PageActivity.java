@@ -45,6 +45,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -697,8 +698,12 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void showLinkPreview(PageTitle title, int entrySource) {
+        showLinkPreview(title, entrySource, null);
+    }
+
+    public void showLinkPreview(PageTitle title, int entrySource, @Nullable Location location) {
         if (getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG) == null) {
-            DialogFragment linkPreview = LinkPreviewDialog.newInstance(title, entrySource);
+            DialogFragment linkPreview = LinkPreviewDialog.newInstance(title, entrySource, location);
             linkPreview.show(getSupportFragmentManager(), LINK_PREVIEW_FRAGMENT_TAG);
         }
     }

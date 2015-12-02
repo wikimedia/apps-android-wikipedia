@@ -367,6 +367,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="address_copied">Message shown after copying a link to the system clipboard.</string>
   <string name="text_copied">Message shown after copying text to the system clipboard.</string>
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
+  <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
+  <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="nav_item_donate">Text in navigation sidebar that when tapped leads to a web page where the user may donate to Wikipedia.</string>
