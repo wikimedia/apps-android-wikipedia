@@ -333,18 +333,6 @@ public final class Prefs {
         return contains(R.string.preference_key_feature_select_text_and_share_tutorials_enabled);
     }
 
-    public static int getLinkPreviewVersion() {
-        return getInt(R.string.preference_key_link_preview_version, 0);
-    }
-
-    public static void setLinkPreviewVersion(int version) {
-        setInt(R.string.preference_key_link_preview_version, version);
-    }
-
-    public static boolean hasLinkPreviewVersion() {
-        return contains(R.string.preference_key_link_preview_version);
-    }
-
     public static boolean isTocTutorialEnabled() {
         return getBoolean(R.string.preference_key_toc_tutorial_enabled, true);
     }
