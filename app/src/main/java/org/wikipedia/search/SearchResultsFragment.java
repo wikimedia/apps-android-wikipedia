@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -52,13 +53,13 @@ public class SearchResultsFragment extends Fragment {
     private TextView searchSuggestion;
 
     private WikipediaApp app;
-    private ParcelableLruCache<List<PageTitle>> searchResultsCache
+    @NonNull private ParcelableLruCache<List<PageTitle>> searchResultsCache
             = new ParcelableLruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS, List.class);
     private Handler searchHandler;
     private TitleSearchTask curSearchTask;
     private String currentSearchTerm = "";
-    private SearchResults lastFullTextResults;
-    private List<PageTitle> totalResults = new ArrayList<>();
+    @Nullable private SearchResults lastFullTextResults;
+    @NonNull private final List<PageTitle> totalResults = new ArrayList<>();
 
     /**
      * Whether full-text search has been disabled via remote kill-switch.
@@ -173,11 +174,13 @@ public class SearchResultsFragment extends Fragment {
         currentSearchTerm = term;
 
         if (term.isEmpty()) {
+            clearResults();
             return;
         }
 
         List<PageTitle> cacheResult = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + term);
-        if (cacheResult != null) {
+        if (cacheResult != null && !cacheResult.isEmpty()) {
+            clearResults();
             displayResults(cacheResult);
             return;
         }
@@ -232,6 +235,7 @@ public class SearchResultsFragment extends Fragment {
                 getPageActivity().updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
                 if (!pageTitles.isEmpty()) {
+                    clearResults();
                     displayResults(pageTitles);
                 }
 
@@ -246,6 +250,8 @@ public class SearchResultsFragment extends Fragment {
                             + "</u>"));
                     searchSuggestion.setTag(suggestion);
                     searchSuggestion.setVisibility(View.VISIBLE);
+                } else {
+                    searchSuggestion.setVisibility(View.GONE);
                 }
 
                 // scroll to top, but post it to the message queue, because it should be done
@@ -259,7 +265,7 @@ public class SearchResultsFragment extends Fragment {
 
                 if (pageTitles.isEmpty()) {
                     // kick off full text search if we get no results
-                    doFullTextSearch(currentSearchTerm, null);
+                    doFullTextSearch(currentSearchTerm, null, true);
                 }
             }
 
@@ -292,7 +298,9 @@ public class SearchResultsFragment extends Fragment {
         searchTask.execute();
     }
 
-    private void doFullTextSearch(final String searchTerm, final SearchResults.ContinueOffset continueOffset) {
+    private void doFullTextSearch(final String searchTerm,
+                                  final SearchResults.ContinueOffset continueOffset,
+                                  final boolean clearOnSuccess) {
         // Use nanoTime to measure the time the search was started.
         final long startTime = System.nanoTime();
         new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(),
@@ -307,6 +315,11 @@ public class SearchResultsFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
+
+                if (clearOnSuccess) {
+                    clearResults(false);
+                }
+
                 // To ease data analysis and better make the funnel track with user behaviour,
                 // only transmit search results events if there are a nonzero number of results
                 final List<PageTitle> pageTitles = results.getPageTitles();
@@ -324,10 +337,11 @@ public class SearchResultsFragment extends Fragment {
 
                 getPageActivity().updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
-                displayResults(pageTitles);
 
                 // full text special:
                 SearchResultsFragment.this.lastFullTextResults = results;
+
+                displayResults(pageTitles);
             }
 
             @Override
@@ -346,8 +360,9 @@ public class SearchResultsFragment extends Fragment {
         }.execute();
     }
 
+    @Nullable
     public PageTitle getFirstResult() {
-        if (totalResults != null && !totalResults.isEmpty()) {
+        if (!totalResults.isEmpty()) {
             return totalResults.get(0);
         } else {
             return null;
@@ -355,10 +370,16 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void clearResults() {
+        clearResults(true);
+    }
+
+    private void clearResults(boolean clearSuggestion) {
         searchResultsContainer.setVisibility(View.GONE);
         searchNoResults.setVisibility(View.GONE);
         searchErrorView.setVisibility(View.GONE);
-        searchSuggestion.setVisibility(View.GONE);
+        if (clearSuggestion) {
+            searchSuggestion.setVisibility(View.GONE);
+        }
 
         lastFullTextResults = null;
 
@@ -382,10 +403,10 @@ public class SearchResultsFragment extends Fragment {
      * @param results List of results to display. If null, clears the list of suggestions & hides it.
      */
     private void displayResults(List<PageTitle> results) {
-        clearResults();
-
         for (PageTitle newResult : results) {
-            totalResults.add(newResult);
+            if (!totalResults.contains(newResult)) {
+                totalResults.add(newResult);
+            }
         }
 
         searchResultsContainer.setVisibility(View.VISIBLE);
@@ -431,7 +452,7 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return totalResults == null ? 0 : totalResults.size();
+            return totalResults.size();
         }
 
         @Override
@@ -487,13 +508,13 @@ public class SearchResultsFragment extends Fragment {
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!
-            if (position == totalResults.size() - 1 && !fullSearchDisabled) {
+            if (position == (totalResults.size() - 1) && !fullSearchDisabled) {
                 if (lastFullTextResults == null) {
                     // the first full text search
-                    doFullTextSearch(currentSearchTerm, null);
+                    doFullTextSearch(currentSearchTerm, null, false);
                 } else if (lastFullTextResults.getContinueOffset() != null) {
                     // subsequent full text searches
-                    doFullTextSearch(currentSearchTerm, lastFullTextResults.getContinueOffset());
+                    doFullTextSearch(currentSearchTerm, lastFullTextResults.getContinueOffset(), false);
                 }
             }
 
