@@ -217,13 +217,13 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
     private void loadContentFromCache() {
         Log.v(TAG, "Loading link preview from cache");
-        if (!isAdded()) {
-            return;
-        }
         getApplication().getPageCache()
                 .get(pageTitle, 0, new PageCache.CacheGetListener() {
                     @Override
                     public void onGetComplete(Page page, int sequence) {
+                        if (!isAdded()) {
+                            return;
+                        }
                         if (page != null) {
                             displayPreviewFromCachedPage(page);
                         } else {
@@ -233,6 +233,9 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
                     @Override
                     public void onGetError(Throwable e, int sequence) {
+                        if (!isAdded()) {
+                            return;
+                        }
                         Log.e(TAG, "Failed to get page from cache.", e);
                         loadContentFromSavedPage();
                     }
@@ -241,17 +244,20 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
     private void loadContentFromSavedPage() {
         Log.v(TAG, "Loading link preview from Saved Pages");
-        if (!isAdded()) {
-            return;
-        }
         new LoadSavedPageTask(pageTitle) {
             @Override
             public void onFinish(Page page) {
+                if (!isAdded()) {
+                    return;
+                }
                 displayPreviewFromCachedPage(page);
             }
 
             @Override
             public void onCatch(Throwable caught) {
+                if (!isAdded()) {
+                    return;
+                }
                 progressBar.setVisibility(View.GONE);
                 FeedbackUtil.showMessage(getActivity(), R.string.error_network_error);
                 dismiss();
@@ -260,10 +266,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     private void displayPreviewFromCachedPage(Page page) {
-        if (!isAdded()) {
-            Log.d(TAG, "Detached from activity, so stopping update.");
-            return;
-        }
         progressBar.setVisibility(View.GONE);
         contents = new LinkPreviewContents(page);
         layoutPreview();
