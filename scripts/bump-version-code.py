@@ -46,7 +46,7 @@ def transform_file(file_path, *funcs):
         data = func(data)
     f.write(data)
     f.close()
-    print file_path
+    print(file_path)
 
 
 def bump(file_path):
