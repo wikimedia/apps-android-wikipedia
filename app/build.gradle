@@ -170,7 +170,7 @@ dependencies {
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton:disklrucache:2.0.2'
-    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:2.2.0@aar') {
+    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:2.3.0@aar') {
         transitive = true
     }
     compile 'net.hockeyapp.android:HockeySDK:3.6.2'
@@ -213,7 +213,7 @@ private setSigningConfigKey(config, Properties props) {
     return config
 }
 
-private @Nullable Properties loadProperties(File file) {
+@Nullable private Properties loadProperties(File file) {
     Properties props = null
     if (file.canRead()) {
         props = new Properties()
