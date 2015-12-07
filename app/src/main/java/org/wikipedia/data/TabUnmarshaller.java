@@ -21,7 +21,8 @@ public final class TabUnmarshaller {
             object = GsonUnmarshaller.unmarshal(TYPE_TOKEN, json);
         } catch (Exception e) {
             // Catch all. Any Exception can be thrown when unmarshalling.
-            L.logRemoteErrorIfProd(new RemoteLogException(e).put("json", json));
+            // TODO: replace with logRemoteErrorIfProd after 2.1.135 beta releases.
+            L.logRemoteError(new RemoteLogException(e).put("json", json));
         }
         if (object == null) {
             object = Collections.emptyList();
