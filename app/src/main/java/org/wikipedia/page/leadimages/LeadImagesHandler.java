@@ -166,6 +166,10 @@ public class LeadImagesHandler {
      * @param listener Listener that will receive an event when the layout is completed.
      */
     public void beginLayout(OnLeadImageLayoutListener listener, int sequence) {
+        if (getPage() == null) {
+            return;
+        }
+
         String thumbUrl = getLeadImageUrl();
         initDisplayDimensions();
 
@@ -374,7 +378,7 @@ public class LeadImagesHandler {
             public boolean onClick(float x, float y) {
                 // if the click event is within the area of the lead image, then the user
                 // must have wanted to click on the lead image!
-                if (leadImagesEnabled && y < (articleHeaderView.getHeight() - webView.getScrollY())) {
+                if (getPage() != null && leadImagesEnabled && y < (articleHeaderView.getHeight() - webView.getScrollY())) {
                     String imageName = getPage().getPageProperties().getLeadImageName();
                     if (imageName != null) {
                         PageTitle imageTitle = new PageTitle("File:" + imageName,
@@ -391,13 +395,14 @@ public class LeadImagesHandler {
     }
 
     private boolean isMainPage() {
-        return getPage().isMainPage();
+        return getPage() != null && getPage().isMainPage();
     }
 
     private PageTitle getTitle() {
         return parentFragment.getTitle();
     }
 
+    @Nullable
     private Page getPage() {
         return parentFragment.getPage();
     }
@@ -427,7 +432,7 @@ public class LeadImagesHandler {
                 @Override
                 public void run() {
                     if (isFragmentAdded()) {
-                        detectFace(bmpHeight, aspect, faceLocation);
+                        detectFace(bmpHeight, faceLocation);
                     }
                 }
             });
@@ -438,7 +443,7 @@ public class LeadImagesHandler {
             // just keep showing the placeholder image...
         }
 
-        private void detectFace(int bmpHeight, float aspect, @Nullable PointF faceLocation) {
+        private void detectFace(int bmpHeight, @Nullable PointF faceLocation) {
             faceYOffsetNormalized = faceYScalar(bmpHeight, faceLocation);
 
             float scalar = constrainScalar(faceYOffsetNormalized);
