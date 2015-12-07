@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">Gespäichert Säite läschen</string>
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
   <string name="nav_item_today">Haut</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Historique vum  Browse läschen?</string>
+  <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history" fuzzy="true">Sidd Dir sécher datt Dir all d\'Versioune läsche wëllt?</string>
   <string name="nav_item_saved_pages">Gespäichert Säiten</string>
   <string name="menu_update_all_saved_pages">Gespäichert Säiten aktualiséieren</string>
@@ -233,7 +233,7 @@
   <string name="format_error_server_code">Code: \"%s\"</string>
   <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="text_copied">Text an den Tëschespäicher kopéiert.</string>
-  <string name="button_continue_to_article">Virun op den Artikel</string>
+  <string name="button_continue_to_article" fuzzy="true">Virun op den Artikel</string>
   <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
   <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>

@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">Garbitu gordetako orrialdeak</string>
   <string name="page_does_not_exist_error">Orri hori ez da existitzen.</string>
   <string name="nav_item_today">Gaur</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Garbitu nabigatze-historia?</string>
+  <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
   <string name="nav_item_saved_pages">Gordetako orrialdeak</string>
   <string name="menu_update_all_saved_pages">Gordetako orrialdeak eguneratu</string>
   <string name="menu_update_selected_saved_pages">Gordetako orrialdeak eguneratu</string>
@@ -73,7 +73,7 @@
   <string name="login_password_hint">Pasahitza</string>
   <string name="login_password_show_check">Pasahitza erakutsi</string>
   <string name="menu_login">Saioa hasi</string>
-  <string name="login_activity_title" fuzzy="true">Saioa hasi Wikipedian</string>
+  <string name="login_activity_title">Saioa hasi Wikipedian</string>
   <string name="login_in_progress_dialog_message">Saioa hasten...</string>
   <string name="login_error_wrong_password">Pasahitz okerra</string>
   <string name="login_error_wrong_username">Erabiltzaile izen okerra</string>
@@ -204,7 +204,7 @@
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
   <string name="format_error_server_code">Kodea:\'\'%s\'\'</string>
-  <string name="button_continue_to_article">Artikulura jarraitu</string>
+  <string name="button_continue_to_article">Artikulua irakurri</string>
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
   <string name="crash_report_dialog_dont_send_button">Utzi</string>
   <string name="crash_report_dialog_always_send_button">Beti bidali</string>

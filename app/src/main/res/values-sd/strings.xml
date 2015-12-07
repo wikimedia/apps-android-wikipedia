@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">سانڍيل صفحا ڊاهيو</string>
   <string name="page_does_not_exist_error">اهو صفحو وجود نہ ٿو رکي.</string>
   <string name="nav_item_today">اڄ</string>
-  <string name="dialog_title_clear_history" fuzzy="true">جھانگُو سوانح مِٽايو</string>
+  <string name="dialog_title_clear_history">ڳولا جي سوانح مٽايو</string>
   <string name="nav_item_saved_pages">سانڍيل صفحا</string>
   <string name="menu_update_all_saved_pages">دانڍيل صفحن ۾ جدت آڻيو</string>
   <string name="menu_update_selected_saved_pages">سانڍيل صفحن ۾ جدت آڻيو</string>
@@ -228,7 +228,7 @@
   <string name="format_error_server_code">ڪوڊ: %s</string>
   <string name="address_copied">پتي جو پرت ڪلپ بورڊ تي رکيو ويو.</string>
   <string name="text_copied">ٽيڪسٽ جو پرت ڪلپو بورڊ تي رکيو ويو.</string>
-  <string name="button_continue_to_article">مضمون ڏانهن ورو</string>
+  <string name="button_continue_to_article" fuzzy="true">مضمون ڏانهن ورو</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن تي پيش نگاهہ وجھو</string>
   <string name="preference_summary_show_link_previews">ڳنڍڻن تي رڪڻ وقت صفحن تي تڪڙي پيش نگاهہ ظاهر ڪريو.</string>
   <string name="nav_item_donate">وڪيپيڊيا کي سوورٽ ڪريو</string>

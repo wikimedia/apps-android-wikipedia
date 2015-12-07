@@ -33,6 +33,11 @@
   <string name="menu_page_share" fuzzy="true">Kundividi</string>
   <string name="menu_page_find_in_page">Trovi en la paĝo</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
+  <string name="menu_long_press_open_page">Malfermi</string>
+  <string name="menu_long_press_open_in_new_tab">Malfermi en nova langeto</string>
+  <string name="menu_long_press_copy_page">Kopii ligilan adreson</string>
+  <string name="menu_text_select_copy">Kopii</string>
+  <string name="menu_text_select_share">Konigi</string>
   <string name="nav_item_nearby">Ĉirkaŭe</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -133,7 +138,8 @@
   <string name="page_protected_other">Ĉi tiu paĝo estas protektita je la jenaj niveloj: %s</string>
   <string name="page_protected_can_not_edit">Vi ne havas la rajtojn por redakti ĉi tiun paĝon</string>
   <string name="page_protected_can_not_edit_title">Ĉi tiu paĝo estas protektita</string>
-  <string name="settings_activity_title" fuzzy="true">Agordoj</string>
+  <string name="settings_item_preferences">Agordoj</string>
+  <string name="settings_activity_title">Agordoj</string>
   <string name="about_description">Pri la Vikipedia aplikaĵo</string>
   <string name="privacy_policy_description">Politiko pri privateco</string>
   <string name="terms_of_use_description">Uzkondiĉoj</string>
@@ -230,4 +236,9 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="captcha_image">Captcha-bildo</string>
   <string name="gallery_fair_use_license">Justa uzo</string>
   <string name="gallery_uploader_unknown">Alŝutanto nekonata</string>
+  <string name="menu_new_tab">Nova langeto</string>
+  <string name="button_close_tab">Fermi langeton</string>
+  <string name="format_error_server_message">Mesaĝo: \"%s\"</string>
+  <string name="format_error_server_code">Kodo: \"%s\"</string>
+  <string name="crash_report_dialog_send_button">Sendi</string>
 </resources>

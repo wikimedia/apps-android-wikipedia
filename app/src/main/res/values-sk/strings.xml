@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Vymazať uložené stránky</string>
   <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
   <string name="nav_item_today">Dnes</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Vymazať históriu prehliadania?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Naozaj chcete vymazať celú históriu?</string>
+  <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
+  <string name="dialog_message_clear_history">Týmto sa odstráni vaša história prehliadania a zavrú sa všetky otvorené karty. Naozaj chcete vymazať celú históriu?</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
   <string name="menu_update_all_saved_pages">Aktualizovať uložené stránky</string>
   <string name="menu_update_selected_saved_pages">Aktualizovať uložené stránky</string>
@@ -75,7 +75,7 @@
   <string name="login_password_hint">Heslo</string>
   <string name="login_password_show_check">Zobraziť heslo</string>
   <string name="menu_login">Prihlásiť sa</string>
-  <string name="login_activity_title" fuzzy="true">Prihlásiť sa na Wikipédiu</string>
+  <string name="login_activity_title">Prihlásiť sa na Wikipédiu</string>
   <string name="login_in_progress_dialog_message">Prihlasujem…</string>
   <string name="login_error_wrong_password">Nesprávne heslo</string>
   <string name="login_error_wrong_username">Nesprávne používateľské meno</string>
@@ -228,6 +228,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_menu_save">Uložiť v zariadení</string>
   <string name="gallery_save_success">Obrázok bol úspešne uložený.</string>
   <string name="gallery_image_saved_notification_title">Obrázok bol uložený.</string>
+  <string name="gallery_image_saved_notification_text">Ťuknutím zobrazte.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>
@@ -242,10 +243,14 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="menu_new_tab">Nová karta</string>
   <string name="button_close_tab">Zavrieť kartu</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
+  <string name="error_server_response">Server nemohol dokončiť požiadavku.</string>
+  <string name="error_response_malformed">Odpoveď zo servera nebola správne naformátovaná.</string>
   <string name="error_unknown">Vyskytla sa neznáma chyba.</string>
   <string name="format_error_server_message">Správa: \"%s\"</string>
   <string name="format_error_server_code">Kód: \"%s\"</string>
-  <string name="button_continue_to_article">Pokračovať na článok</string>
+  <string name="address_copied">Adresa bola skopírovaná do schránky.</string>
+  <string name="text_copied">Text bol skopírovaný do schránky.</string>
+  <string name="button_continue_to_article" fuzzy="true">Pokračovať na článok</string>
   <string name="nav_item_donate">Podporte Wikipédiu</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>

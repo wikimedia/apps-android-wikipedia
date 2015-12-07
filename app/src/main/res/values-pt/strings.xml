@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Apagar páginas guardadas</string>
   <string name="page_does_not_exist_error">Esta página não existe.</string>
   <string name="nav_item_today">Hoje</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Limpar histórico de navegação?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Tens a certeza que quer remover todo o histórico?</string>
+  <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
+  <string name="dialog_message_clear_history">Isto eliminará todo o histórico do seu navegador e fechará quaisquer separadores abertos. Tem a certeza?</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>
   <string name="menu_update_all_saved_pages">Atualizar páginas guardadas</string>
   <string name="menu_update_selected_saved_pages">Atualizar páginas guardadas</string>
@@ -262,7 +262,7 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>
-  <string name="button_continue_to_article">Continuar para o artigo</string>
+  <string name="button_continue_to_article" fuzzy="true">Continuar para o artigo</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
   <string name="nav_item_donate">Apoie a Wikimedia</string>
   <string name="crash_report_dialog_title">Desculpe, a aplicação encerrou inesperadamente da última vez</string>

@@ -204,7 +204,7 @@
   <string name="format_error_server_code">Kodas: \"%s\"</string>
   <string name="address_copied">Adresas kopijuotas į mainų sritį.</string>
   <string name="text_copied">Tekstas nukopijuotas į iškarpinę.</string>
-  <string name="button_continue_to_article">Grįžti į straipsnį</string>
+  <string name="button_continue_to_article" fuzzy="true">Grįžti į straipsnį</string>
   <string name="preference_title_show_link_previews">Rodyti nuorodos peržiūras</string>
   <string name="crash_report_dialog_title">Atleiskite, programėlė praeitą kartą užlūžo</string>
   <string name="crash_report_dialog_dont_send_button">Praleisti</string>

@@ -262,7 +262,7 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Kod: \"%s\"</string>
   <string name="address_copied">Adres panoya kopyalandı.</string>
   <string name="text_copied">Metin panoya kopyalandı.</string>
-  <string name="button_continue_to_article">Maddeye devam et</string>
+  <string name="button_continue_to_article" fuzzy="true">Maddeye devam et</string>
   <string name="preference_title_show_link_previews">Bağlantı ön izlemelerini görüntüle</string>
   <string name="preference_summary_show_link_previews">Bağlantılara dokununca kısa bir ön izleme görüntülenir.</string>
   <string name="nav_item_donate">Vikipediye Destek Ol</string>

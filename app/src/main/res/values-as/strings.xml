@@ -257,7 +257,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">সংকেত: \"%s\"</string>
   <string name="address_copied">ঠিকনাটো ক্লিপ্‌ব\'ৰ্ডলৈ প্ৰতিলিপি কৰা হৈছে।</string>
   <string name="text_copied">পাঠসমূহ ক্লিপবৰ্ডলৈ কপি কৰা হ\'ল।</string>
-  <string name="button_continue_to_article">প্ৰবন্ধটো অব্যাহত ৰাখক</string>
+  <string name="button_continue_to_article" fuzzy="true">প্ৰবন্ধটো অব্যাহত ৰাখক</string>
   <string name="preference_title_show_link_previews">সংযোগ প্ৰাক্‌দৰ্শন দেখুৱাওক</string>
   <string name="preference_summary_show_link_previews">সংযোগত টেপ্‌ কৰিলে প্ৰবন্ধৰ ক্ষিপ্ৰ প্ৰাক্‌দৰ্শন দেখুৱাওক।</string>
   <string name="nav_item_donate">ৱিকিপিডিয়াক সমৰ্থন কৰক</string>

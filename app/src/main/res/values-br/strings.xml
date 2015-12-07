@@ -256,7 +256,7 @@ Digor penn-da-benn eo ar c\'hod. M\'ho peus skiant-prenet gant Java hag ar c\'hi
   <string name="format_error_server_message">Kemennad : %s</string>
   <string name="format_error_server_code">Kod : \"%s\"</string>
   <string name="address_copied">Chomlec\'h eilet er golver</string>
-  <string name="button_continue_to_article">Kenderc\'hel war-zu ar pennad</string>
+  <string name="button_continue_to_article" fuzzy="true">Kenderc\'hel war-zu ar pennad</string>
   <string name="crash_report_dialog_always_send_button">Kas atav</string>
   <string name="crash_report_dialog_send_button">Kas</string>
   <string name="crash_report_quit">Kuitaat</string>

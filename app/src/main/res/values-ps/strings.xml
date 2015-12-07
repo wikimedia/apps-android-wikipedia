@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">خوندي مخونه سپينول</string>
   <string name="page_does_not_exist_error">پدې نوم مخ نشته.</string>
   <string name="nav_item_today">نن</string>
-  <string name="dialog_title_clear_history" fuzzy="true">آيا سپړل شوی پېښليک سينوې؟</string>
+  <string name="dialog_title_clear_history">سپړل شوی پېښليک سپينول</string>
   <string name="nav_item_saved_pages">خوندي مخونه</string>
   <string name="menu_update_all_saved_pages">خوندي مخونه هممهالول</string>
   <string name="menu_update_selected_saved_pages">خوندي مخونه هممهالول</string>

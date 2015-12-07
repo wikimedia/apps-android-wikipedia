@@ -264,7 +264,7 @@
   <string name="format_error_server_code">کد: \"%s\"</string>
   <string name="address_copied">نشانی در حافظه موقت ذخیره شد</string>
   <string name="text_copied">متن در حافظهٔ موقت ذخیره شد.</string>
-  <string name="button_continue_to_article">ادامه برای مقاله</string>
+  <string name="button_continue_to_article" fuzzy="true">ادامه برای مقاله</string>
   <string name="preference_title_show_link_previews">نمایش پیوند پی‌نمایش‌ها</string>
   <string name="preference_summary_show_link_previews">نمایش سریع مقاله زمانی که بر روی لینک‌ها تپ می‌کنید.</string>
   <string name="nav_item_donate">حمایت از ویکی‌مدیا</string>

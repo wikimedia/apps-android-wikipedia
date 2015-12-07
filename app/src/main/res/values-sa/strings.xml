@@ -262,7 +262,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">कूटः : \"%s\"</string>
   <string name="address_copied">अंशफलके सङ्केतः प्रतिकृतिकृतः ।</string>
   <string name="text_copied">अंशफलके पाठः प्रतिकृतिकृतः ।</string>
-  <string name="button_continue_to_article">लेखाय गच्छतु</string>
+  <string name="button_continue_to_article" fuzzy="true">लेखाय गच्छतु</string>
   <string name="preference_title_show_link_previews">परिसन्धेः प्राग्दृश्यानि दर्श्यन्ताम्</string>
   <string name="preference_summary_show_link_previews">यदा परिसन्धौ नुद्यते, तदा लेखानां त्वरितप्राग्दृश्यं दर्श्यताम् ।</string>
   <string name="nav_item_donate">विकिपीडिया समर्थ्यताम्</string>

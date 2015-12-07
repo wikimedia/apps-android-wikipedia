@@ -249,5 +249,5 @@ Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_message">Boodskap: \"%s\"</string>
   <string name="format_error_server_code">Kode: \"%s\"</string>
   <string name="address_copied">Adres gekopiëer na knipbord.</string>
-  <string name="button_continue_to_article">Gaan voort na artikel</string>
+  <string name="button_continue_to_article" fuzzy="true">Gaan voort na artikel</string>
 </resources>

@@ -251,7 +251,7 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="format_error_server_code">Kod: „%s”</string>
   <string name="address_copied">Adres skopiowany do schowka.</string>
   <string name="text_copied">Tekst skopiowany do schowka.</string>
-  <string name="button_continue_to_article">Do artykułu</string>
+  <string name="button_continue_to_article" fuzzy="true">Do artykułu</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="nav_item_donate">Wspomóż Wikipedię</string>

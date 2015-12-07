@@ -264,7 +264,7 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="format_error_server_code">Mã: \"%s\"</string>
   <string name="address_copied">Đã chép địa chỉ vào bảng tạm.</string>
   <string name="text_copied">Đã chép vào clipboard.</string>
-  <string name="button_continue_to_article">Đi tiếp đến bài</string>
+  <string name="button_continue_to_article" fuzzy="true">Đi tiếp đến bài</string>
   <string name="preference_title_show_link_previews">Hiện bản xem trước</string>
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
   <string name="nav_item_donate">Hỗ trợ Wikimedia</string>

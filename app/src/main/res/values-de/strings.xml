@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Gespeicherte Seiten löschen</string>
   <string name="page_does_not_exist_error">Diese Seite ist nicht vorhanden.</string>
   <string name="nav_item_today">Heute</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Browsing-Verlauf löschen?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Bist du sicher, dass du den gesamten Verlauf löschen möchtest?</string>
+  <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
+  <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="nav_item_saved_pages">Gespeicherte Seiten</string>
   <string name="menu_update_all_saved_pages">Gespeicherte Seiten aktualisieren</string>
   <string name="menu_update_selected_saved_pages">Gespeicherte Seiten aktualisieren</string>
@@ -264,7 +264,9 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="format_error_server_code">Code: „%s“</string>
   <string name="address_copied">Adresse in die Zwischenablage kopiert.</string>
   <string name="text_copied">Text in die Zwischenablage kopiert.</string>
-  <string name="button_continue_to_article">Auf Artikel fortfahren</string>
+  <string name="button_continue_to_article">Artikel lesen</string>
+  <string name="button_get_directions">Richtungen abrufen</string>
+  <string name="error_no_maps_app">Es konnten keine Apps gefunden werden, die Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Vorschaubilder von Links anzeigen</string>
   <string name="preference_summary_show_link_previews">Zeigt eine schnelle Vorschau von Artikeln beim Antippen von Links.</string>
   <string name="nav_item_donate">Wikipedia unterstützen</string>

@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">אפראמען געשפייכלערטע בלעטער</string>
   <string name="page_does_not_exist_error">דער בלאט עקזיסטירט נישט.</string>
   <string name="nav_item_today">הײַנט</string>
-  <string name="dialog_title_clear_history" fuzzy="true">אפראמען בלעטערן היסטאריע?</string>
+  <string name="dialog_title_clear_history">אפראמען בלעטערן היסטאריע</string>
   <string name="nav_item_saved_pages">אײַנגעשפייכלערטע בלעטער</string>
   <string name="menu_update_all_saved_pages">דערהײַנטיקן געשפייכלערטע בלעטער</string>
   <string name="menu_update_selected_saved_pages">דערהײַנטיקן געשפייכלערטע בלעטער</string>
@@ -69,7 +69,7 @@
   <string name="login_password_hint">פאַסווארט</string>
   <string name="login_password_show_check">ווײַזן פאסווארט</string>
   <string name="menu_login">אַרײַנלאגירן</string>
-  <string name="login_activity_title" fuzzy="true">ארײַנלאגירן צו וויקיפעדיע</string>
+  <string name="login_activity_title">ארײַנלאגירן צו וויקיפעדיע</string>
   <string name="login_in_progress_dialog_message">לאגירט אײַך אריין…</string>
   <string name="login_error_wrong_password">פאלש פאסווארט</string>
   <string name="login_error_wrong_username">פאלשער באניצער־נאמען</string>
@@ -168,6 +168,8 @@
   <string name="page_similar_titles">ענלעכע בלעטער</string>
   <string name="search_did_you_mean">צי האט איר געמיינט \"%s\"?</string>
   <string name="search_recent_header">לעצטיקע זוכן:</string>
+  <string name="button_clear_all_recent_searches">אפראמען לעצטיקע זוכן</string>
+  <string name="clear_recent_searches_confirm">איר ווילט טאקע אפראמען אייער זוך־היסטאריע?</string>
   <string name="table_infobox">גיכע פאקטן</string>
   <string name="table_other">נאך אינפֿאָרמאַציע</string>
   <string name="table_close">פארמאכן</string>
@@ -195,10 +197,12 @@
   <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="format_error_server_code">קאד: \"%s\"</string>
-  <string name="button_continue_to_article">ווײטער צום ארטיקל</string>
+  <string name="button_continue_to_article" fuzzy="true">ווײטער צום ארטיקל</string>
+  <string name="nav_item_donate">שטיצן וויקיפעדיע</string>
   <string name="crash_report_dialog_dont_send_button">איבערהיפן</string>
   <string name="crash_report_dialog_always_send_button">אלעמאל שיקן</string>
   <string name="crash_report_dialog_send_button">שיקן</string>
   <string name="crash_report_activity_title">אפליקאציע פֿעלער</string>
+  <string name="crash_report_relaunch">אנהייבן פונדאסניי</string>
   <string name="crash_report_quit">פֿארלאזן</string>
 </resources>
