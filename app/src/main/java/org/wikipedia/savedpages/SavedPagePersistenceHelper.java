@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,13 +34,11 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
             COL_TITLE
     };
 
+    /** Requires database of version {@link #DB_VER_NAMESPACE_ADDED} or greater. */
     @Override
-    public SavedPage fromCursor(Cursor c) {
-        Site site = new Site(c.getString(c.getColumnIndex(COL_SITE)));
-        PageTitle title = new PageTitle(c.getString(c.getColumnIndex(COL_NAMESPACE)),
-                c.getString(c.getColumnIndex(COL_TITLE)), site);
-        Date timestamp = new Date(c.getLong(c.getColumnIndex(COL_TIMESTAMP)));
-        return new SavedPage(title, timestamp);
+    public SavedPage fromCursor(Cursor cursor) {
+        return fromPreNamespaceCursor(cursor,
+                cursor.getString(cursor.getColumnIndex(COL_NAMESPACE)));
     }
 
     @Override
@@ -96,12 +95,28 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
                 String id = Long.toString(cursor.getLong(idIndex));
                 db.updateWithOnConflict(getTableName(), values, "_id = ?", new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
 
-                SavedPage obj = fromCursor(cursor);
+                SavedPage obj = hasNamespace(db) ? fromCursor(cursor) : fromPreNamespaceCursor(cursor);
                 File newDir = new File(SavedPage.getSavedPagesDir() + "/" + obj.getTitle().getIdentifier());
                 new File(SavedPage.getSavedPagesDir() + "/" + getSavedPageDir(obj, title)).renameTo(newDir);
             }
         }
         cursor.close();
+    }
+
+    private boolean hasNamespace(@NonNull SQLiteDatabase db) {
+        return db.getVersion() >= DB_VER_NAMESPACE_ADDED;
+    }
+
+    private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor) {
+        return fromPreNamespaceCursor(cursor, null);
+    }
+
+    private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace) {
+        Site site = new Site(cursor.getString(cursor.getColumnIndex(COL_SITE)));
+        PageTitle title = new PageTitle(namespace,
+                cursor.getString(cursor.getColumnIndex(COL_TITLE)), site);
+        Date timestamp = new Date(cursor.getLong(cursor.getColumnIndex(COL_TIMESTAMP)));
+        return new SavedPage(title, timestamp);
     }
 
     private String getSavedPageDir(SavedPage page, String originalTitleText) {
