@@ -82,11 +82,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
      */
     @NonNull private List<PageBackStackItem> backStack;
 
-    /**
-     * Sequence number to maintain synchronization when loading page content asynchronously
-     * between the Java and Javascript layers, as well as between async tasks and the UI thread.
-     */
-    private int currentSequenceNum;
+    @NonNull private final SequenceNumber sequenceNumber = new SequenceNumber();
 
     /**
      * The y-offset position to which the page will be scrolled once it's fully loaded
@@ -131,10 +127,13 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void setup(PageViewModel model, PageFragment fragment,
+    public void setup(PageViewModel model,
+                      PageFragment fragment,
                       SwipeRefreshLayoutWithScroll refreshView,
-                      ObservableWebView webView, CommunicationBridge bridge,
-                      SearchBarHideHandler searchBarHideHandler, LeadImagesHandler leadImagesHandler) {
+                      ObservableWebView webView,
+                      CommunicationBridge bridge,
+                      SearchBarHideHandler searchBarHideHandler,
+                      LeadImagesHandler leadImagesHandler) {
         this.model = model;
         this.fragment = fragment;
         activity = (PageActivity) fragment.getActivity();
@@ -150,8 +149,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     public void onActivityCreated(@NonNull List<PageBackStackItem> backStack) {
         setupSpecificMessageHandlers();
 
-        currentSequenceNum = 0;
-
         this.backStack = backStack;
 
         // if we already have pages in the backstack (whether it's from savedInstanceState, or
@@ -161,16 +158,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private void setupSpecificMessageHandlers() {
-        bridge.addListener("onBeginNewPage", new CommunicationBridge.JSEventListener() {
+        bridge.addListener("onBeginNewPage", new SynchronousBridgeListener() {
             @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                if (!fragment.isAdded()) {
-                    return;
-                }
+            public void onMessage(JSONObject messagePayload) {
                 try {
-                    if (messagePayload.getInt("sequence") != currentSequenceNum) {
-                        return;
-                    }
                     stagedScrollY = messagePayload.getInt("stagedScrollY");
                     loadPageOnWebViewReady(Cache.valueOf(messagePayload.getString("cachePreference")));
                 } catch (JSONException e) {
@@ -178,16 +169,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 }
             }
         });
-        bridge.addListener("requestSection", new CommunicationBridge.JSEventListener() {
+        bridge.addListener("requestSection", new SynchronousBridgeListener() {
             @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                if (!fragment.isAdded()) {
-                    return;
-                }
+            public void onMessage(JSONObject messagePayload) {
                 try {
-                    if (messagePayload.getInt("sequence") != currentSequenceNum) {
-                        return;
-                    }
                     displayNonLeadSection(messagePayload.getInt("index"),
                             messagePayload.optBoolean(BRIDGE_PAYLOAD_SAVED_PAGE, false));
                 } catch (JSONException e) {
@@ -195,19 +180,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 }
             }
         });
-        bridge.addListener("pageLoadComplete", new CommunicationBridge.JSEventListener() {
+        bridge.addListener("pageLoadComplete", new SynchronousBridgeListener() {
             @Override
-            public void onMessage(String messageType, JSONObject messagePayload) {
-                if (!fragment.isAdded()) {
-                    return;
-                }
-                try {
-                    if (messagePayload.getInt("sequence") != currentSequenceNum) {
-                        return;
-                    }
-                } catch (JSONException e) {
-                    L.logRemoteErrorIfProd(e);
-                }
+            public void onMessage(JSONObject messagePayload) {
                 // Do any other stuff that should happen upon page load completion...
                 activity.updateProgressBar(false, true, 0);
 
@@ -245,7 +220,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         // increment our sequence number, so that any async tasks that depend on the sequence
         // will invalidate themselves upon completion.
-        currentSequenceNum++;
+        sequenceNumber.increase();
 
         if (cachePreference == Cache.NONE) {
             // If this is a refresh, don't clear the webview contents
@@ -263,7 +238,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             try {
                 JSONObject wrapper = new JSONObject();
                 // whatever we pass to this event will be passed back to us by the WebView!
-                wrapper.put("sequence", currentSequenceNum);
+                wrapper.put("sequence", sequenceNumber.get());
                 wrapper.put("cachePreference", cachePreference.name());
                 wrapper.put("stagedScrollY", stagedScrollY);
                 bridge.sendMessage("beginNewPage", wrapper);
@@ -280,10 +255,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         switch (forState) {
             case STATE_NO_FETCH:
                 activity.updateProgressBar(true, true, 0);
-                loadLeadSection(currentSequenceNum);
+                loadLeadSection(sequenceNumber.get());
                 break;
             case STATE_INITIAL_FETCH:
-                loadRemainingSections(currentSequenceNum);
+                loadRemainingSections(sequenceNumber.get());
                 break;
             case STATE_COMPLETE_FETCH:
                 editHandler.setPage(model.getPage());
@@ -291,7 +266,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                     @Override
                     public void onLayoutComplete(int sequence) {
-                        if (!fragment.isAdded() || sequence != currentSequenceNum) {
+                        if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
                             return;
                         }
                         searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
@@ -300,7 +275,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                         displayLeadSection();
                         displayNonLeadSectionForUnsavedPage(1);
                     }
-                }, currentSequenceNum);
+                }, sequenceNumber.get());
                 break;
             default:
                 // This should never happen
@@ -418,10 +393,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private void loadPageFromCache(final ErrorCallback errorCallback) {
         app.getPageCache()
-                .get(model.getTitleOriginal(), currentSequenceNum, new PageCache.CacheGetListener() {
+                .get(model.getTitleOriginal(), sequenceNumber.get(), new PageCache.CacheGetListener() {
                     @Override
                     public void onGetComplete(Page page, int sequence) {
-                        if (sequence != currentSequenceNum) {
+                        if (!sequenceNumber.inSync(sequence)) {
                             return;
                         }
                         if (page != null) {
@@ -453,7 +428,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     @Override
                     public void onGetError(Throwable e, int sequence) {
                         Log.e(TAG, "Failed to get page from cache.", e);
-                        if (sequence != currentSequenceNum) {
+                        if (!sequenceNumber.inSync(sequence)) {
                             return;
                         }
                         errorCallback.call(e);
@@ -488,7 +463,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
                     @Override
                     public void onLayoutComplete(int sequence) {
-                        if (!fragment.isAdded() || sequence != currentSequenceNum) {
+                        if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
                             return;
                         }
                         searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
@@ -499,7 +474,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
                         setState(STATE_COMPLETE_FETCH);
                     }
-                }, currentSequenceNum);
+                }, sequenceNumber.get());
             }
 
             @Override
@@ -609,7 +584,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         try {
             return new JSONObject()
-                    .put("sequence", currentSequenceNum)
+                    .put("sequence", sequenceNumber.get())
                     .put("title", page.getDisplayTitle())
                     .put("section", page.getSections().get(0).toJSON())
                     .put("string_page_similar_titles", localizedStrings.get(R.string.page_similar_titles))
@@ -679,7 +654,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         try {
             final Page page = model.getPage();
             JSONObject wrapper = new JSONObject();
-            wrapper.put("sequence", currentSequenceNum);
+            wrapper.put("sequence", sequenceNumber.get());
             wrapper.put(BRIDGE_PAYLOAD_SAVED_PAGE, savedPage);
             boolean lastSection = index == page.getSections().size();
             if (!lastSection) {
@@ -740,7 +715,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private void onLeadSectionLoaded(PageLead pageLead, int startSequenceNum) {
-        if (!fragment.isAdded() || startSequenceNum != currentSequenceNum) {
+        if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
         if (pageLead.hasError()) {
@@ -766,7 +741,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
             @Override
             public void onLayoutComplete(int sequence) {
-                if (sequence != currentSequenceNum) {
+                if (!sequenceNumber.inSync(sequence)) {
                     return;
                 }
                 searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
@@ -776,7 +751,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 setState(STATE_INITIAL_FETCH);
                 performActionForState(state);
             }
-        }, currentSequenceNum);
+        }, sequenceNumber.get());
 
         // Update our history entry, in case the Title was changed (i.e. normalized)
         final HistoryEntry curEntry = model.getCurEntry();
@@ -829,7 +804,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private void onRemainingSectionsLoaded(PageRemaining pageRemaining, int startSequenceNum) {
         networkErrorCallback = null;
-        if (!fragment.isAdded() || startSequenceNum != currentSequenceNum) {
+        if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
 
@@ -848,7 +823,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         cacheOnComplete = false;
         state = STATE_COMPLETE_FETCH;
         activity.supportInvalidateOptionsMenu();
-        if (startSequenceNum != currentSequenceNum) {
+        if (!sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
         if (callback != null) {
@@ -885,5 +860,44 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private Resources getResources() {
         return activity.getResources();
+    }
+
+    private abstract class SynchronousBridgeListener implements CommunicationBridge.JSEventListener {
+        private static final String BRIDGE_PAYLOAD_SEQUENCE = "sequence";
+
+        @Override
+        public void onMessage(String message, JSONObject payload) {
+            if (fragment.isAdded() && inSync(payload)) {
+                onMessage(payload);
+            }
+        }
+
+        protected abstract void onMessage(JSONObject payload);
+
+        private boolean inSync(JSONObject payload) {
+            return sequenceNumber.inSync(payload.optInt(BRIDGE_PAYLOAD_SEQUENCE,
+                    sequenceNumber.get() - 1));
+        }
+    }
+
+    /**
+     * Monotonically increasing sequence number to maintain synchronization when loading page
+     * content asynchronously between the Java and JavaScript layers, as well as between synchronous
+     * methods and asynchronous callbacks on the UI thread.
+     */
+    private static class SequenceNumber {
+        private int sequence;
+
+        void increase() {
+            ++sequence;
+        }
+
+        int get() {
+            return sequence;
+        }
+
+        boolean inSync(int sequence) {
+            return this.sequence == sequence;
+        }
     }
 }
