@@ -45,7 +45,7 @@ public class PageTitle implements Parcelable {
      * * [[Utilisateur:Deskana]] on frwiki will have a namespace of "Utilisateur", even if you got
      *   to the page by going to [[User:Deskana]] and having MediaWiki automatically redirect you.
      */
-    private final String namespace;
+    @Nullable private final String namespace;
     private final String text;
     private final String fragment;
     @Nullable private String thumbUrl;
@@ -53,7 +53,7 @@ public class PageTitle implements Parcelable {
     private String description = null;
     private PageProperties properties = null;
 
-    public PageTitle(final String namespace, final String text, final String fragment, @Nullable final String thumbUrl, final Site site) {
+    public PageTitle(@Nullable final String namespace, final String text, final String fragment, @Nullable final String thumbUrl, final Site site) {
         this.namespace = namespace;
         this.text = text;
         this.fragment = fragment;
@@ -61,18 +61,18 @@ public class PageTitle implements Parcelable {
         this.thumbUrl = thumbUrl;
     }
 
-    public PageTitle(final String text, final Site site, final String thumbUrl, final String description, final PageProperties properties) {
+    public PageTitle(final String text, final Site site, @Nullable final String thumbUrl, final String description, final PageProperties properties) {
         this(text, site, thumbUrl);
         this.properties = properties;
         this.description = description;
     }
 
-    public PageTitle(final String text, final Site site, final String thumbUrl, final String description) {
+    public PageTitle(final String text, final Site site, @Nullable final String thumbUrl, final String description) {
         this(text, site, thumbUrl);
         this.description = description;
     }
 
-    public PageTitle(final String namespace, final String text, final Site site) {
+    public PageTitle(@Nullable final String namespace, final String text, final Site site) {
         this(namespace, text, null, null, site);
     }
 
@@ -108,6 +108,7 @@ public class PageTitle implements Parcelable {
         this(text, site, null);
     }
 
+    @Nullable
     public String getNamespace() {
         return namespace;
     }
