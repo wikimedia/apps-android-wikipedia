@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.BuildConfig;
+import org.wikipedia.WikipediaApp;
 
 public abstract class SQLiteContentProvider<T> extends ContentProvider {
     private final PersistenceHelper<T> persistenceHelper;
@@ -18,7 +19,9 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         this.persistenceHelper = persistenceHelper;
     }
 
-    protected abstract DBOpenHelper getDbOpenHelper();
+    protected DBOpenHelper getDbOpenHelper() {
+        return WikipediaApp.getInstance().getDbOpenHelper();
+    }
 
     private final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     protected UriMatcher getUriMatcher() {

@@ -323,7 +323,7 @@ public class WikipediaApp extends Application {
     }
 
     private DBOpenHelper dbOpenHelper;
-    public DBOpenHelper getDbOpenHelper() {
+    public synchronized DBOpenHelper getDbOpenHelper() {
         if (dbOpenHelper == null) {
             dbOpenHelper = new DBOpenHelper(this);
         }
