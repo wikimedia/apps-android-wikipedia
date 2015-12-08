@@ -4,8 +4,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.data.DBOpenHelper;
 import org.wikipedia.data.SQLiteContentProvider;
 import org.wikipedia.pageimages.PageImage;
 
@@ -26,11 +24,6 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
                           getTableName() + "/" + PageImage.PERSISTENCE_HELPER.getTableName(),
                           MATCH_WITH_PAGEIMAGES);
         return ret;
-    }
-
-    @Override
-    protected DBOpenHelper getDbOpenHelper() {
-        return ((WikipediaApp)getContext().getApplicationContext()).getDbOpenHelper();
     }
 
     @Override
