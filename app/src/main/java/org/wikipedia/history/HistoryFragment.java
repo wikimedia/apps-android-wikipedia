@@ -155,7 +155,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                             if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {
                                 entryFilter.setVisibility(View.GONE);
                             }
-                            actionMode.finish();
+                            mode.finish();
                             return true;
                         } else {
                             // This can't happen
