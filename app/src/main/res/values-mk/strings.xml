@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Исчисти ги сите зачувани страници</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>
   <string name="nav_item_today">Денес</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Да ја исчистам историјата на прелистување?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Дали сте сигурни дека сакате да ја исчистите сета историја?</string>
+  <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
+  <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="nav_item_saved_pages">Зачувани страници</string>
   <string name="menu_update_all_saved_pages">Поднови зачувани страници</string>
   <string name="menu_update_selected_saved_pages">Поднови зачувани страници</string>
@@ -76,7 +76,7 @@
   <string name="login_password_hint">Лозинка</string>
   <string name="login_password_show_check">Прикажи лозинка</string>
   <string name="menu_login">Најава</string>
-  <string name="login_activity_title" fuzzy="true">Најава на Википедија</string>
+  <string name="login_activity_title">Најава на Википедија</string>
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
   <string name="login_error_wrong_password">Погрешна лозинка</string>
   <string name="login_error_wrong_username">Погрешнно корисничко име</string>
@@ -264,7 +264,9 @@
   <string name="format_error_server_code">Код: „%s“</string>
   <string name="address_copied">Адресата е ставена во меѓускладот</string>
   <string name="text_copied">Текстот е ставен во меѓускладот.</string>
-  <string name="button_continue_to_article">Продолжи кон статијата</string>
+  <string name="button_continue_to_article">Прочитајте ја статијата</string>
+  <string name="button_get_directions">Дај насоки</string>
+  <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
   <string name="nav_item_donate">Поддржете ја Википедија</string>

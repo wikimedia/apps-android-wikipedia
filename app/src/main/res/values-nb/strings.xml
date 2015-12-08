@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Fjern alle lagrede sider</string>
   <string name="page_does_not_exist_error">Denne siden eksisterer ikke.</string>
   <string name="nav_item_today">I dag</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Tøm besøkslogg?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Er du sikker på at du vil tømme hele loggen?</string>
+  <string name="dialog_title_clear_history">Tøm besøkslogg</string>
+  <string name="dialog_message_clear_history">Dette vil slette hele besøksloggen og lukke alle åpne faner. Er du sikker?</string>
   <string name="nav_item_saved_pages">Lagrede sider</string>
   <string name="menu_update_all_saved_pages">Oppdater lagrede sider</string>
   <string name="menu_update_selected_saved_pages">Oppdater lagrede sider</string>
@@ -76,7 +76,7 @@
   <string name="login_password_hint">Passord</string>
   <string name="login_password_show_check">Vis passord</string>
   <string name="menu_login">Logg inn</string>
-  <string name="login_activity_title" fuzzy="true">Logg inn på Wikipedia</string>
+  <string name="login_activity_title">Logg inn på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger deg inn…</string>
   <string name="login_error_wrong_password">Feil passord</string>
   <string name="login_error_wrong_username">Feil brukernavn</string>
@@ -264,7 +264,7 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Kode: «%s»</string>
   <string name="address_copied">Adressen har blitt kopiert til utklippstavlen.</string>
   <string name="text_copied">Teksten ble kopiert til utklippstavlen.</string>
-  <string name="button_continue_to_article">Fortsett til artikkelen</string>
+  <string name="button_continue_to_article" fuzzy="true">Fortsett til artikkelen</string>
   <string name="preference_title_show_link_previews">Forhåndsvis lenker</string>
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="nav_item_donate">Støtt Wikipedia</string>

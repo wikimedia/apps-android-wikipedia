@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Șterge paginile salvate</string>
   <string name="page_does_not_exist_error">Această pagină nu există.</string>
   <string name="nav_item_today">Astăzi</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Curățați istoricul de navigare?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Sunteți sigur că doriți să curățați tot istoricul?</string>
+  <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
+  <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="nav_item_saved_pages">Pagini salvate</string>
   <string name="menu_update_all_saved_pages">Actualizează paginile salvate</string>
   <string name="menu_update_selected_saved_pages">Actualizează paginile salvate</string>
@@ -76,7 +76,7 @@
   <string name="login_password_hint">Parolă</string>
   <string name="login_password_show_check">Arată parola</string>
   <string name="menu_login">Autentificare</string>
-  <string name="login_activity_title" fuzzy="true">Autentificare la Wikipedia</string>
+  <string name="login_activity_title">Autentificare la Wikipedia</string>
   <string name="login_in_progress_dialog_message">Autentificare în curs…</string>
   <string name="login_error_wrong_password">Parolă incorectă</string>
   <string name="login_error_wrong_username">Nume de utilizator incorect</string>
@@ -264,7 +264,7 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="format_error_server_code">Cod: „%s”</string>
   <string name="address_copied">Adresă copiată în clipboard.</string>
   <string name="text_copied">Text copiat în clipboard.</string>
-  <string name="button_continue_to_article">Continuă către articol</string>
+  <string name="button_continue_to_article" fuzzy="true">Continuă către articol</string>
   <string name="preference_title_show_link_previews">Afișează previzualizarea legăturilor</string>
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
   <string name="nav_item_donate">Susțineți Wikipedia</string>

@@ -194,7 +194,7 @@
   <string name="page_view_in_browser">Види страницу у веб-прегледачу</string>
   <string name="format_error_server_message">Порука: „%s“</string>
   <string name="format_error_server_code">Код: „%s“</string>
-  <string name="button_continue_to_article">Продужи на чланак</string>
+  <string name="button_continue_to_article" fuzzy="true">Продужи на чланак</string>
   <string name="preference_title_show_link_previews">Прикажи преглед везе</string>
   <string name="nav_item_donate">Подржите Википедију</string>
   <string name="crash_report_dialog_dont_send_button">Прескочи</string>

@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Esborra les pàgines desades</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
   <string name="nav_item_today">Avui</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Esborrar l\'historial?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Estàs segur que vols esborrar tot l\'historial?</string>
+  <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
+  <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="nav_item_saved_pages">Pàgines desades</string>
   <string name="menu_update_all_saved_pages">Actualitza les pàgines desades</string>
   <string name="menu_update_selected_saved_pages">Actualitza les pàgines desades</string>
@@ -76,7 +76,7 @@
   <string name="login_password_hint">Contrasenya</string>
   <string name="login_password_show_check">Mostrar contrasenya</string>
   <string name="menu_login">Iniciar la sessió</string>
-  <string name="login_activity_title" fuzzy="true">Entrar a la Viquipèdia</string>
+  <string name="login_activity_title">Inicia sessió a la Viquipèdia</string>
   <string name="login_in_progress_dialog_message">S’està iniciant la sessió…</string>
   <string name="login_error_wrong_password">Contrasenya incorrecta</string>
   <string name="login_error_wrong_username">Nom d\'usuari incorrecte</string>
@@ -90,7 +90,7 @@
   <string name="saved_pages_empty_title">Aquí no hi ha cap pàgina desada!</string>
   <string name="saved_pages_empty_message">Les pàgines desades són fantàstiques. Penseu que són talment com adreces d\'interès que podeu llegir fins i tot sense connexió.</string>
   <string name="history_empty_title">Aquí no hi ha pàgines recents!</string>
-  <string name="history_empty_message">Probablement les heu eliminades totes. La propera vegada que aneu a una pàgina podeu tornar-hi des d\'aquí.</string>
+  <string name="history_empty_message">Probablement les heu eliminades totes. La pròxima vegada que aneu a una pàgina podreu tornar-hi des d\'aquí.</string>
   <string name="delete_selected_history">Esborrar</string>
   <string name="wp_stylized">&lt;big&gt;V&lt;/big&gt;IQUIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nom d\'usuari</string>
@@ -197,7 +197,7 @@
   <string name="search_recent_header">Cerques recents:</string>
   <string name="button_clear_all_recent_searches">Esborrar les cerques recents</string>
   <string name="clear_recent_searches_confirm">Segur que voleu esborrar l\'historial de cerca?</string>
-  <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap aplicació del navegador)</string>
+  <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap aplicació del navegador).</string>
   <string name="table_infobox">Dades bàsiques</string>
   <string name="table_other">Més informació</string>
   <string name="table_close">Tancar</string>
@@ -207,7 +207,7 @@
   <string name="app_store_description">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta de l\'obra de referència més completa i usada que mai s\'hagi compilat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
 
 Característiques:
- - Rapidesa: com a aplicació nativa us permet navegar i editar la Viquipèdia més ràpid que abans.
+ - Rapidesa: com a aplicació nativa us permet navegar i editar la Viquipèdia més de pressa que abans.
  - Edició: podeu utilitzar-la per editar la Viquipèdia! Tant si ho feu sota un compte d\'usuari com de forma anònima, agraïm totes les contribucions.
  - Pàgines recents: us proporcionem un historial de lectura. Així podeu tocar tants enllaços com vulgueu sense preocupar-vos de perdre el fil.
  - Pàgines desades: podeu seleccionar i desar pàgines per a llegir-les quan no tingueu connexió.
@@ -252,15 +252,15 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="tool_tip_select_text">Mantén premut qualsevol part del text per a ressaltar-lo per copiar i compartir.</string>
   <string name="tool_tip_share">Després de destacar un fet interessant, proveu de compartir-lo en les vostres xarxes preferides!</string>
   <string name="page_view_in_browser">Visualitza la pàgina en el navegador</string>
-  <string name="tool_tip_toc_button">Mira la taula de continguts en qualsevol moment tocant aquest botó, o arrossegant des de la part dreta de la pantalla</string>
+  <string name="tool_tip_toc_button">Mireu la taula de continguts en qualsevol moment tocant aquest botó, o arrossegant des de la part dreta de la pantalla.</string>
   <string name="error_server_response">El servidor no pot completar la petició.</string>
   <string name="error_response_malformed">La resposta del servidor no s\'ha formatat correctament.</string>
-  <string name="error_unknown">S\'ha produït un error desconegut</string>
+  <string name="error_unknown">S\'ha produït un error desconegut.</string>
   <string name="format_error_server_message">Missatge \"%s\"</string>
   <string name="format_error_server_code">Codi \"%s\"</string>
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="text_copied">Text copiat al porta-retalls.</string>
-  <string name="button_continue_to_article">Continua a l\'article</string>
+  <string name="button_continue_to_article" fuzzy="true">Continua a l\'article</string>
   <string name="preference_title_show_link_previews">Mostra enllaç de vistes prèvies</string>
   <string name="preference_summary_show_link_previews">Mostra una vista prèvia ràpida d\'articles en tocar enllaços.</string>
   <string name="nav_item_donate">Doneu suport a la Viquipèdia</string>

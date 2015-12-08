@@ -255,7 +255,7 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="format_error_server_code">الكود: \"%s\"</string>
   <string name="address_copied">العنوان تم نسخه إلى الحافظة.</string>
   <string name="text_copied">تم نسخ النص  إلى الحافظة.</string>
-  <string name="button_continue_to_article">الاستمرار للمقالة</string>
+  <string name="button_continue_to_article" fuzzy="true">الاستمرار للمقالة</string>
   <string name="preference_title_show_link_previews">إظهار معايناتٍ للوصلة</string>
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
   <string name="nav_item_donate">ادعم ويكيبيديا</string>

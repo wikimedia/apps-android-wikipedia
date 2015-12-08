@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">保存したページをすべて消去</string>
   <string name="page_does_not_exist_error">このページは存在しません。</string>
   <string name="nav_item_today">今日のメインページ</string>
-  <string name="dialog_title_clear_history" fuzzy="true">閲覧履歴を消去しますか?</string>
+  <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
   <string name="nav_item_saved_pages">保存したページ</string>
   <string name="menu_update_all_saved_pages">保存したページを更新</string>
   <string name="menu_update_selected_saved_pages">保存したページを更新</string>
@@ -264,7 +264,7 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="format_error_server_code">コード: \"%s\"</string>
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
   <string name="text_copied">テキストがクリップボードにコピーされました。</string>
-  <string name="button_continue_to_article">続きを表示する</string>
+  <string name="button_continue_to_article" fuzzy="true">続きを表示する</string>
   <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
   <string name="nav_item_donate">ウィキペディアを支援する</string>

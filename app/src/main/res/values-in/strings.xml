@@ -261,7 +261,7 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="format_error_server_code">Kode: \"%s\"</string>
   <string name="address_copied">Alamat disalin ke papan klip.</string>
   <string name="text_copied">Teks disalin ke papan klip.</string>
-  <string name="button_continue_to_article">Lanjutkan ke artikel</string>
+  <string name="button_continue_to_article" fuzzy="true">Lanjutkan ke artikel</string>
   <string name="preference_title_show_link_previews">Tampilkan pratinjau pranala</string>
   <string name="preference_summary_show_link_previews">Tampilkan pratinjau singkat artikel setelah menekan pranala.</string>
   <string name="crash_report_dialog_title">Maaf, app berhenti dengan sendirinya</string>

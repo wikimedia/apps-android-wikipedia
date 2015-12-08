@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">清除已儲存的頁面</string>
   <string name="page_does_not_exist_error">此頁面不存在！</string>
   <string name="nav_item_today">今日</string>
-  <string name="dialog_title_clear_history" fuzzy="true">清除瀏覽歷史？</string>
+  <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history" fuzzy="true">確定要清除所有歷史記錄嗎?</string>
   <string name="nav_item_saved_pages">已儲存的頁面</string>
   <string name="menu_update_all_saved_pages">更新已儲存的頁面</string>
@@ -76,7 +76,7 @@
   <string name="login_password_hint">密碼</string>
   <string name="login_password_show_check">顯示密碼</string>
   <string name="menu_login">登入</string>
-  <string name="login_activity_title" fuzzy="true">登入至維基百科</string>
+  <string name="login_activity_title">登入至維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入…</string>
   <string name="login_error_wrong_password">密碼錯誤</string>
   <string name="login_error_wrong_username">使用者名稱錯誤</string>
@@ -264,7 +264,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">代碼： \"%s\"</string>
   <string name="address_copied">網址已複製至剪貼簿。</string>
   <string name="text_copied">文字已複製至剪貼簿。</string>
-  <string name="button_continue_to_article">繼續閱讀條目</string>
+  <string name="button_continue_to_article" fuzzy="true">繼續閱讀條目</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
   <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
   <string name="nav_item_donate">支持維基百科</string>

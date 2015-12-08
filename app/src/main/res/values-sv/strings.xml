@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
   <string name="page_does_not_exist_error">Denna sida finns inte!</string>
   <string name="nav_item_today">Idag</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Rensa webbhistorik?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Är du säker på att du vill rensa bort all historik?</string>
+  <string name="dialog_title_clear_history">Rensa webbhistoriken</string>
+  <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="nav_item_saved_pages">Sparade sidor</string>
   <string name="menu_update_all_saved_pages">Uppdatera sparade sidor</string>
   <string name="menu_update_selected_saved_pages">Uppdatera sparade sidor</string>
@@ -264,7 +264,9 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="format_error_server_code">Kod: \"%s\"</string>
   <string name="address_copied">Adressen kopierades till urklipp.</string>
   <string name="text_copied">Texten kopierades till urklipp.</string>
-  <string name="button_continue_to_article">Fortsätt till artikeln</string>
+  <string name="button_continue_to_article">Läs artikeln</string>
+  <string name="button_get_directions">Få vägbeskrivningar</string>
+  <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
   <string name="nav_item_donate">Stöd Wikipedia</string>

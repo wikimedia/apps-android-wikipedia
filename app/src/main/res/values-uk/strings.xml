@@ -272,7 +272,7 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Код: «%s»</string>
   <string name="address_copied">Адресу скопійовано до буферу обміну.</string>
   <string name="text_copied">Текст скопійовано в буфер обміну.</string>
-  <string name="button_continue_to_article">Продовження на сторінці</string>
+  <string name="button_continue_to_article" fuzzy="true">Продовження на сторінці</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
   <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>

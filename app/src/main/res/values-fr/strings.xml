@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Effacer les pages enregistrées</string>
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="nav_item_today">Aujourd’hui</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Effacer l’historique de navigation ?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Êtes-vous sûr de vouloir effacer tout l’historique ?</string>
+  <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
+  <string name="dialog_message_clear_history">Cela supprimera tout l’historique de votre navigateur, et fermera tous els onglets ouverts. Êtes-vous sûr ?</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
   <string name="menu_update_all_saved_pages">Mettre à jour les pages enregistrées</string>
   <string name="menu_update_selected_saved_pages">Mettre à jour les pages enregistrées</string>
@@ -76,7 +76,7 @@
   <string name="login_password_hint">Mot de passe</string>
   <string name="login_password_show_check">Afficher le mot de passe</string>
   <string name="menu_login">Connexion</string>
-  <string name="login_activity_title" fuzzy="true">Se connecter à Wikipédia</string>
+  <string name="login_activity_title">Se connecter à Wikipédia</string>
   <string name="login_in_progress_dialog_message">Connexion en cours…</string>
   <string name="login_error_wrong_password">Mot de passe incorrect</string>
   <string name="login_error_wrong_username">Nom d’utilisateur incorrect</string>
@@ -264,7 +264,7 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="format_error_server_code">Code : \"%s\"</string>
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
   <string name="text_copied">Texte copié dans le presse-papier.</string>
-  <string name="button_continue_to_article">Continuer vers l\'article</string>
+  <string name="button_continue_to_article" fuzzy="true">Continuer vers l\'article</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="nav_item_donate">Soutenir Wikipédia</string>

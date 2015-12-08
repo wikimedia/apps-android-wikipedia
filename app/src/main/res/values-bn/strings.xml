@@ -264,7 +264,7 @@
   <string name="format_error_server_code">কোড: \"%s\"</string>
   <string name="address_copied">ঠিকানা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="text_copied">লেখা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
-  <string name="button_continue_to_article">নিবন্ধে চলুন</string>
+  <string name="button_continue_to_article">নিবন্ধ পড়ুন</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
   <string name="nav_item_donate">দান করুন</string>

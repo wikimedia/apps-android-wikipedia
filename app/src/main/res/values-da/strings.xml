@@ -262,7 +262,7 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="format_error_server_code">Kode: \"%s\"</string>
   <string name="address_copied">Adressen er kopieret til udklipsholder.</string>
   <string name="text_copied">Tekst kopieret til udklipsholder.</string>
-  <string name="button_continue_to_article">Fortsæt til artikel</string>
+  <string name="button_continue_to_article" fuzzy="true">Fortsæt til artikel</string>
   <string name="preference_title_show_link_previews">Vis forhåndsvisning af links</string>
   <string name="preference_summary_show_link_previews">Viser en kort forhåndsvisning af artikler når du trykker på links.</string>
   <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>

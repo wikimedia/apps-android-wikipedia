@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
   <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
   <string name="nav_item_today">Dnes</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Vymazat historii prohlížení?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Jste si jisti, že chcete vymazat celou historii?</string>
+  <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
+  <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené karty. Jste si jisti?</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
   <string name="menu_update_all_saved_pages">Aktualizovat uložené stránky</string>
   <string name="menu_update_selected_saved_pages">Aktualizovat uložené stránky</string>
@@ -262,7 +262,7 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Kód: „%s“</string>
   <string name="address_copied">Adresu zkopírována do schránky.</string>
   <string name="text_copied">Text zkopírován do schránky.</string>
-  <string name="button_continue_to_article">Pokračovat na článek</string>
+  <string name="button_continue_to_article" fuzzy="true">Pokračovat na článek</string>
   <string name="preference_title_show_link_previews">Zobrazovat náhledy odkazů</string>
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
   <string name="nav_item_donate">Podpořte Wikipedii</string>
