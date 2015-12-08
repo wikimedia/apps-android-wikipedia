@@ -99,16 +99,17 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
             pageArray[pageIndex++] = page;
         }
 
-        // Go through the redirects array (if any), and transfer the indices from the
-        // redirected titles to the original titles
+        // Go through the redirects array (if any), and transfer any "tofragment" items to
+        // the original results.
         if (queryResult.has("redirects")) {
             JSONArray redirs = queryResult.getJSONArray("redirects");
             for (int i = 0; i < redirs.length(); i++) {
+                JSONObject redirect = (JSONObject) redirs.get(i);
                 for (JSONObject page : pageArray) {
-                    if (page.getString("title").equals(((JSONObject) redirs.get(i)).getString("to"))
-                            && ((JSONObject) redirs.get(i)).has("index")
-                            && !page.has("index")) {
-                        page.put("index", ((JSONObject) redirs.get(i)).getInt("index"));
+                    if (page.getString("title").equals(redirect.getString("to"))
+                            && redirect.has("tofragment")
+                            && !page.has("tofragment")) {
+                        page.put("tofragment", redirect.getString("tofragment"));
                     }
                 }
             }
@@ -134,7 +135,11 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
                     description = capitalizeFirstChar(arr.getString(0));
                 }
             }
-            pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description));
+            String titleText = item.getString("title");
+            if (item.has("tofragment")) {
+                titleText += "#" + item.getString("tofragment");
+            }
+            pageTitles.add(new PageTitle(titleText, site, thumbUrl, description));
         }
         return new SearchResults(pageTitles, null, suggestion);
     }
