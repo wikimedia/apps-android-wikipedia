@@ -40,6 +40,7 @@ import android.os.Build;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
@@ -692,7 +693,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 } else if (sectionTargetFromTitle != null) {
                     //if we have a section to scroll to (from our PageTitle):
                     wrapper.put("fragment", sectionTargetFromTitle);
-                } else if (model.getTitle().getFragment() != null) {
+                } else if (!TextUtils.isEmpty(model.getTitle().getFragment())) {
                     // It's possible, that the link was a redirect and the new title has a fragment
                     // scroll to it, if there was no fragment so far
                     wrapper.put("fragment", model.getTitle().getFragment());

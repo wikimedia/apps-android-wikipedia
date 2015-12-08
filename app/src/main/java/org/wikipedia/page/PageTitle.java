@@ -86,7 +86,7 @@ public class PageTitle implements Parcelable {
         String[] fragParts = text.split("#", -1);
         text = fragParts[0];
         if (fragParts.length > 1) {
-            this.fragment = decodeURL(fragParts[1]);
+            this.fragment = decodeURL(fragParts[1]).replace(" ", "_");
         } else {
             this.fragment = null;
         }
