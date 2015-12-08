@@ -171,6 +171,7 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
+        cancelSearchTask();
         currentSearchTerm = term;
 
         if (term.isEmpty()) {
@@ -185,7 +186,6 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        searchHandler.removeMessages(MESSAGE_SEARCH);
         Message searchMessage = Message.obtain();
         searchMessage.what = MESSAGE_SEARCH;
         searchMessage.obj = term;
@@ -287,6 +287,14 @@ public class SearchResultsFragment extends Fragment {
             }
         };
 
+        cancelSearchTask();
+        curSearchTask = searchTask;
+        searchTask.execute();
+    }
+
+    private void cancelSearchTask() {
+        getPageActivity().updateProgressBar(false, true, 0);
+        searchHandler.removeMessages(MESSAGE_SEARCH);
         if (curSearchTask != null) {
             // This does not cancel the HTTP request itself
             // But it does cancel the execution of onFinish
@@ -294,8 +302,6 @@ public class SearchResultsFragment extends Fragment {
             // the results of a newer search query
             curSearchTask.cancel();
         }
-        curSearchTask = searchTask;
-        searchTask.execute();
     }
 
     private void doFullTextSearch(final String searchTerm,
