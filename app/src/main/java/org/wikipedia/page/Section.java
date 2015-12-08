@@ -1,9 +1,12 @@
 package org.wikipedia.page;
 
+import android.support.annotation.NonNull;
+
 import org.wikipedia.data.GsonUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.util.StringUtil;
 
 import com.google.gson.annotations.Expose;
 
@@ -101,16 +104,16 @@ public class Section {
         return toclevel;
     }
 
-    public String getHeading() {
-        return line;
+    @NonNull public String getHeading() {
+        return StringUtil.emptyIfNull(line);
     }
 
-    public String getAnchor() {
-        return anchor;
+    @NonNull public String getAnchor() {
+        return StringUtil.emptyIfNull(anchor);
     }
 
-    public String getContent() {
-        return text;
+    @NonNull public String getContent() {
+        return StringUtil.emptyIfNull(text);
     }
 
     public void setContent(String content) {

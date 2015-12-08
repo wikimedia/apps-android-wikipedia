@@ -51,8 +51,8 @@ public abstract class BasePageLeadTest {
         assertThat(props.getSections().get(0).getId(), is(0));
         assertThat(props.getSections().get(0).getContent(), is("My lead section text"));
         assertThat(props.getSections().get(0).getLevel(), is(1));
-        assertThat(props.getSections().get(0).getAnchor(), equalTo(null));
-        assertThat(props.getSections().get(0).getHeading(), equalTo(null));
+        assertThat(props.getSections().get(0).getAnchor(), equalTo(""));
+        assertThat(props.getSections().get(0).getHeading(), equalTo(""));
         assertThat(props.getFirstAllowedEditorRole(), is("made_up_role1"));
         assertThat(props.isEditable(), is(false));
         assertThat(props.isMainPage(), is(true));
