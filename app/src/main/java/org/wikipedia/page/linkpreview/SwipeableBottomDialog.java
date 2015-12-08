@@ -117,6 +117,9 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        if (getDialog() == null) {
+            return;
+        }
 
         setWindowLayout();
         spaceView.getLayoutParams().height = dialogHeightPx();
