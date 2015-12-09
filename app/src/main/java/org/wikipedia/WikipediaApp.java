@@ -54,9 +54,11 @@ import org.wikipedia.zero.WikipediaZeroHandler;
 import retrofit.RequestInterceptor;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Random;
 import java.util.TimeZone;
 import java.util.UUID;
@@ -101,7 +103,20 @@ public class WikipediaApp extends Application {
 
     public static final int PREFERRED_THUMB_SIZE = 320;
 
+    private final RemoteConfig remoteConfig = new RemoteConfig();
+    private final UserInfoStorage userInfoStorage = new UserInfoStorage();
+    private final MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
+    private final Map<String, ContentPersister> persisters = Collections.synchronizedMap(new HashMap<String, ContentPersister>());
+    private final HashMap<String, Api> apis = new HashMap<>();
     private AppLanguageState appLanguageState;
+    private FunnelManager funnelManager;
+    private SessionFunnel sessionFunnel;
+
+    private DBOpenHelper dbOpenHelper;
+    private EditTokenStorage editTokenStorage;
+    private SharedPreferenceCookieManager cookieManager;
+    private String userAgent;
+    private Site primarySite;
 
     private CrashReporter crashReporter;
 
@@ -125,7 +140,6 @@ public class WikipediaApp extends Application {
         return ReleaseUtil.isDevRelease();
     }
 
-    private SessionFunnel sessionFunnel;
     public SessionFunnel getSessionFunnel() {
         return sessionFunnel;
     }
@@ -181,8 +195,11 @@ public class WikipediaApp extends Application {
         currentTheme = unmarshalCurrentTheme();
 
         appLanguageState = new AppLanguageState(this);
-
+        funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
+        editTokenStorage = new EditTokenStorage(this);
+        cookieManager = new SharedPreferenceCookieManager();
+        dbOpenHelper = new DBOpenHelper(this);
 
         enableWebViewDebugging();
 
@@ -196,7 +213,6 @@ public class WikipediaApp extends Application {
         return bus;
     }
 
-    private String userAgent;
     public String getUserAgent() {
         if (userAgent == null) {
             String channel = getChannel(this);
@@ -221,8 +237,6 @@ public class WikipediaApp extends Application {
                 emptyIfNull(getAppLanguageCode()), appLanguageState.getSystemLanguageCode());
     }
 
-    private HashMap<String, Api> apis = new HashMap<>();
-    private MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
     public MccMncStateHandler getMccMncStateHandler() {
         return mccMncStateHandler;
     }
@@ -249,8 +263,6 @@ public class WikipediaApp extends Application {
         api.setHeaderCheckListener(zeroHandler);
         return api;
     }
-
-    private Site primarySite;
 
     /**
      * Default site of the application
@@ -322,15 +334,10 @@ public class WikipediaApp extends Application {
         return appLanguageState.getAppLanguageCanonicalName(code);
     }
 
-    private DBOpenHelper dbOpenHelper;
-    public synchronized DBOpenHelper getDbOpenHelper() {
-        if (dbOpenHelper == null) {
-            dbOpenHelper = new DBOpenHelper(this);
-        }
+    public DBOpenHelper getDbOpenHelper() {
         return dbOpenHelper;
     }
 
-    private HashMap<String, ContentPersister> persisters = new HashMap<>();
     public ContentPersister getPersister(Class cls) {
         if (!persisters.containsKey(cls.getCanonicalName())) {
             ContentPersister persister;
@@ -352,45 +359,23 @@ public class WikipediaApp extends Application {
         return persisters.get(cls.getCanonicalName());
     }
 
-
-    private RemoteConfig remoteConfig;
     public RemoteConfig getRemoteConfig() {
-        if (remoteConfig == null) {
-            remoteConfig = new RemoteConfig();
-        }
         return remoteConfig;
     }
 
-    private EditTokenStorage editTokenStorage;
     public EditTokenStorage getEditTokenStorage() {
-        if (editTokenStorage == null) {
-            editTokenStorage = new EditTokenStorage(this);
-        }
         return editTokenStorage;
     }
 
-    private SharedPreferenceCookieManager cookieManager;
     public SharedPreferenceCookieManager getCookieManager() {
-        if (cookieManager == null) {
-            cookieManager = new SharedPreferenceCookieManager();
-        }
         return cookieManager;
     }
 
-    private UserInfoStorage userInfoStorage;
     public UserInfoStorage getUserInfoStorage() {
-        if (userInfoStorage == null) {
-            userInfoStorage = new UserInfoStorage();
-        }
         return userInfoStorage;
     }
 
-    private FunnelManager funnelManager;
     public FunnelManager getFunnelManager() {
-        if (funnelManager == null) {
-            funnelManager = new FunnelManager(this);
-        }
-
         return funnelManager;
     }
 

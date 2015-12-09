@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import org.wikipedia.settings.Prefs;
 
 /**
- * Store for config values that are retreived from a server,
+ * Store for config values that are retrieved from a server,
  * and refreshed periodically.
  */
 public class RemoteConfig {
