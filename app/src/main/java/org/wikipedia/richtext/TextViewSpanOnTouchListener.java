@@ -1,13 +1,15 @@
 package org.wikipedia.richtext;
 
-import android.graphics.Rect;
+import android.graphics.PointF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.Layout;
 import android.text.Spanned;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TextViewSpanOnTouchListener implements View.OnTouchListener {
     @NonNull private TextView textView;
@@ -18,53 +20,51 @@ public class TextViewSpanOnTouchListener implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View view, MotionEvent event) {
-        ClickSpan span = getSpanned() == null ? null : getEventClickSpan(getSpanned(), event);
-        if (span == null) {
+        List<ClickSpan> contains = getSpanned() == null
+                ? null
+                : filterContains(allClickSpans(getSpanned()), getEventPoint(event));
+        if (contains == null || contains.isEmpty()) {
             return false;
         }
 
+
         int action = event.getAction();
         if (action == MotionEvent.ACTION_UP) {
-            span.onClick(textView);
+            for (ClickSpan span : contains) {
+                span.onClick(textView);
+            }
         }
 
         return action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_DOWN;
     }
 
-    @Nullable
-    private ClickSpan getEventClickSpan(@NonNull Spanned spanned, @NonNull MotionEvent event) {
-        return getEventSpan(spanned, event, ClickSpan.class);
-    }
-
-    @Nullable
-    private <T> T getEventSpan(@NonNull Spanned spanned,
-                               @NonNull MotionEvent event,
-                               @NonNull Class<T> clazz) {
-        Integer offset = getEventCharacterOffset(event);
-        if (offset == null) {
-            return null;
+    @NonNull
+    private List<ClickSpan> filterContains(@NonNull ClickSpan[] spans, @NonNull PointF point) {
+        List<ClickSpan> contains = new ArrayList<>();
+        for (ClickSpan span : spans) {
+            if (span.contains(point)) {
+                contains.add(span);
+            }
         }
-
-        T[] spans = spanned.getSpans(offset, offset, clazz);
-        return spans.length > 0 ? spans[0] : null;
+        return contains;
     }
 
-    @Nullable
-    private Integer getEventCharacterOffset(@NonNull MotionEvent event) {
-        int x = getEventX(event);
-        int y = getEventY(event);
-        int line = getLineOffset(y);
-
-        Rect bounds = getLineBounds(line);
-        return bounds.contains(x, y) ? getCharacterOffset(line, x) : null;
+    @NonNull
+    private ClickSpan[] allClickSpans(Spanned spanned) {
+        return spanned.getSpans(0, spanned.length(), ClickSpan.class);
     }
 
-    private int getEventX(@NonNull MotionEvent event) {
-        return Math.round(event.getX()) - getTotalPaddingLeft() + getScrollX();
+    @NonNull
+    private PointF getEventPoint(@NonNull MotionEvent event) {
+        return new PointF(getEventX(event), getEventY(event));
     }
 
-    private int getEventY(@NonNull MotionEvent event) {
-        return Math.round(event.getY()) - getTotalPaddingTop() + getScrollY();
+    private float getEventX(@NonNull MotionEvent event) {
+        return event.getX() - getTotalPaddingLeft() + getScrollX();
+    }
+
+    private float getEventY(@NonNull MotionEvent event) {
+        return event.getY() - getTotalPaddingTop() + getScrollY();
     }
 
     @Nullable
@@ -74,28 +74,6 @@ public class TextViewSpanOnTouchListener implements View.OnTouchListener {
 
     private CharSequence getText() {
         return textView.getText();
-    }
-
-    private Rect getLineBounds(int line) {
-        Rect bounds = new Rect();
-        getLayout().getLineBounds(line, bounds);
-        // Left and right are set to the bounds of the TextView, not the bounds of the line. See
-        // Layout.getLineBounds.
-        bounds.left = Math.round(getLayout().getLineLeft(line));
-        bounds.right = Math.round(getLayout().getLineRight(line));
-        return bounds;
-    }
-
-    private int getCharacterOffset(int line, int x) {
-        return getLayout().getOffsetForHorizontal(line, x);
-    }
-
-    private int getLineOffset(int y) {
-        return getLayout().getLineForVertical(y);
-    }
-
-    private Layout getLayout() {
-        return textView.getLayout();
     }
 
     private int getScrollX() {

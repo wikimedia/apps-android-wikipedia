@@ -70,8 +70,9 @@
     <item name="lead_subtitle_leading_scalar" format="float" type="dimen">1.35</item>
     <item name="lead_subtitle_paragraph_scalar" format="float" type="dimen">1.15</item>
 
-    <dimen name="audio_url_span_loading_spinner_border_thickness">3dp</dimen>
-    <dimen name="audio_url_span_loading_spinner_radius">12dp</dimen>
+    <dimen name="audio_url_span_loading_spinner_border_thickness">2dp</dimen>
+    <dimen name="audio_url_span_loading_spinner_radius">8dp</dimen>
+    <dimen name="audio_url_span_click_size">48dp</dimen>
 
     <!-- Maps -->
     <integer name="map_default_zoom">12</integer>
