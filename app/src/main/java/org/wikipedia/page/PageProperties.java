@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.location.Location;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -20,6 +21,7 @@ import java.util.Date;
  */
 public class PageProperties implements Parcelable {
     private static final String JSON_NAME_TITLE_PRONUNCIATION_URL = "titlePronunciationUrl";
+    private static final String JSON_NAME_GEO = "geo";
 
     private final int pageId;
     private final long revisionId;
@@ -33,6 +35,7 @@ public class PageProperties implements Parcelable {
     @Nullable private final String leadImageUrl;
     private final String leadImageName;
     @Nullable private final String titlePronunciationUrl;
+    @Nullable private final Location geo;
 
     /**
      * True if the user who first requested this page can edit this page
@@ -49,6 +52,7 @@ public class PageProperties implements Parcelable {
         revisionId = core.getRevision();
         displayTitleText = StringUtil.emptyIfNull(core.getDisplayTitle());
         titlePronunciationUrl = core.getTitlePronunciationUrl();
+        geo = core.getGeo();
         editProtectionStatus = core.getFirstAllowedEditorRole();
         languageCount = core.getLanguageCount();
         leadImageUrl = core.getLeadImageUrl();
@@ -79,6 +83,8 @@ public class PageProperties implements Parcelable {
         revisionId = json.optLong("revision");
         displayTitleText = json.optString("displaytitle");
         titlePronunciationUrl = json.optString(JSON_NAME_TITLE_PRONUNCIATION_URL, null);
+        geo = GeoUnmarshaller.unmarshal(json.optString(JSON_NAME_GEO, null));
+
         // Mediawiki API is stupid!
         if (!(json.opt("protection") instanceof JSONArray)
             && json.optJSONObject("protection") != null
@@ -134,6 +140,11 @@ public class PageProperties implements Parcelable {
         return titlePronunciationUrl;
     }
 
+    @Nullable
+    public Location getGeo() {
+        return geo;
+    }
+
     public String getEditProtectionStatus() {
         return editProtectionStatus;
     }
@@ -179,6 +190,7 @@ public class PageProperties implements Parcelable {
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
         parcel.writeString(titlePronunciationUrl);
+        parcel.writeString(GeoMarshaller.marshal(geo));
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(languageCount);
         parcel.writeInt(canEdit ? 1 : 0);
@@ -194,6 +206,7 @@ public class PageProperties implements Parcelable {
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
         titlePronunciationUrl = in.readString();
+        geo = GeoUnmarshaller.unmarshal(in.readString());
         editProtectionStatus = in.readString();
         languageCount = in.readInt();
         canEdit = in.readInt() == 1;
@@ -230,6 +243,7 @@ public class PageProperties implements Parcelable {
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
                 && TextUtils.equals(titlePronunciationUrl, that.titlePronunciationUrl)
+                && (geo == that.geo || geo != null && geo.equals(that.geo))
                 && languageCount == that.languageCount
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
@@ -244,6 +258,7 @@ public class PageProperties implements Parcelable {
         int result = lastModified.hashCode();
         result = 31 * result + displayTitleText.hashCode();
         result = 31 * result + (titlePronunciationUrl != null ? titlePronunciationUrl.hashCode() : 0);
+        result = 31 * result + (geo != null ? geo.hashCode() : 0);
         result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
         result = 31 * result + languageCount;
         result = 31 * result + (isMainPage ? 1 : 0);
@@ -270,6 +285,7 @@ public class PageProperties implements Parcelable {
                     .format(getLastModified()));
             json.put("displaytitle", displayTitleText);
             json.put(JSON_NAME_TITLE_PRONUNCIATION_URL, titlePronunciationUrl);
+            json.put(JSON_NAME_GEO, GeoMarshaller.marshal(geo));
             if (editProtectionStatus == null) {
                 json.put("protection", new JSONArray());
             } else {

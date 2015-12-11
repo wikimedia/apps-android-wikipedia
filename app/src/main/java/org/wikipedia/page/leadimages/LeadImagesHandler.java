@@ -3,6 +3,7 @@ package org.wikipedia.page.leadimages;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
+import android.location.Location;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -30,6 +31,7 @@ import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ArticleHeaderView;
 import org.wikipedia.views.ArticleMenuBarView;
 import org.wikipedia.views.ObservableWebView;
@@ -123,8 +125,12 @@ public class LeadImagesHandler {
         }
     }
 
-    public void updateMenuBar(boolean bookmarkSaved) {
-        articleHeaderView.updateMenuBar(bookmarkSaved);
+    public void updateBookmark(boolean bookmarkSaved) {
+        articleHeaderView.updateBookmark(bookmarkSaved);
+    }
+
+    public void updateNavigate(@Nullable Location geo) {
+        articleHeaderView.updateNavigate(geo != null);
     }
 
     /**
@@ -340,6 +346,11 @@ public class LeadImagesHandler {
         return getPage() == null ? null : getPage().getPageProperties().getLeadImageUrl();
     }
 
+    @Nullable
+    private Location getGeo() {
+        return getPage() == null ? null : getPage().getPageProperties().getGeo();
+    }
+
     private void startKenBurnsAnimation() {
         Animation anim = AnimationUtils.loadAnimation(getActivity(), R.anim.lead_image_zoom);
         image.startAnimation(anim);
@@ -431,6 +442,11 @@ public class LeadImagesHandler {
             }
         }
 
+        @Override
+        public void onNavigateClick() {
+            openGeoIntent();
+        }
+
         private void saveBookmark() {
             WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(getTitle().getSite()).logSaveNew();
             FeedbackUtil.showMessage(getActivity(), R.string.snackbar_saving_page);
@@ -462,13 +478,18 @@ public class LeadImagesHandler {
                 }
             }.execute();
         }
+
+        private void openGeoIntent() {
+            if (getGeo() != null) {
+                UriUtil.sendGeoIntent(getActivity(), getGeo(), getTitle().getDisplayText());
+            }
+        }
     }
 
     private class ImageLoadListener implements ImageViewWithFace.OnImageLoadListener {
         @Override
         public void onImageLoaded(Bitmap bitmap, @Nullable final PointF faceLocation) {
             final int bmpHeight = bitmap.getHeight();
-            final float aspect = (float) bitmap.getHeight() / (float) bitmap.getWidth();
             articleHeaderView.post(new Runnable() {
                 @Override
                 public void run() {
