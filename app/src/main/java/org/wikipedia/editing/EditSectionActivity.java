@@ -223,9 +223,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             public void onUrlClick(String url) {
                 if (url.equals("https://#login")) {
                     funnel.logLoginAttempt();
-                    Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
-                    loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_EDIT);
-                    loginIntent.putExtra(LoginActivity.EDIT_SESSION_TOKEN, funnel.getSessionToken());
+                    Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
+                            LoginFunnel.SOURCE_EDIT, funnel.getSessionToken());
                     startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
                 } else {
                     handleExternalLink(EditSectionActivity.this, Uri.parse(url));
@@ -413,8 +412,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        Intent loginIntent = new Intent(EditSectionActivity.this, LoginActivity.class);
-                        loginIntent.putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_BLOCKED);
+                        Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
+                                LoginFunnel.SOURCE_BLOCKED);
                         startActivity(loginIntent);
                     }
                 });

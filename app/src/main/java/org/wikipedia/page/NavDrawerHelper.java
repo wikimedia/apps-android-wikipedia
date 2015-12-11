@@ -230,8 +230,7 @@ public class NavDrawerHelper {
 
     private void launchLoginActivity() {
         activity.closeNavDrawer();
-        activity.startActivityForResult(new Intent(app, LoginActivity.class)
-                .putExtra(LoginActivity.LOGIN_REQUEST_SOURCE, LoginFunnel.SOURCE_NAV),
+        activity.startActivityForResult(LoginActivity.newIntent(app, LoginFunnel.SOURCE_NAV),
                 LoginActivity.REQUEST_LOGIN);
     }
 

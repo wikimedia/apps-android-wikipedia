@@ -1,8 +1,11 @@
 package org.wikipedia.login;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -42,6 +45,19 @@ public class LoginActivity extends ThemedActionBarActivity {
 
     private ProgressDialog progressDialog;
     private boolean wentStraightToCreateAccount;
+
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull String source) {
+        return newIntent(context, source, null);
+    }
+
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull String source,
+                                   @Nullable String token) {
+        return new Intent(context, LoginActivity.class)
+                .putExtra(LOGIN_REQUEST_SOURCE, source)
+                .putExtra(EDIT_SESSION_TOKEN, token);
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
