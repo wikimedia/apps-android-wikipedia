@@ -51,6 +51,7 @@ public interface PageLoadStrategy {
 
     boolean isLoading();
 
+    /** Convenience method for hiding all the content of a page. */
     void onHidePageContent();
 
     boolean onBackPressed();
@@ -59,6 +60,11 @@ public interface PageLoadStrategy {
 
     void setBackStack(@NonNull List<PageBackStackItem> backStack);
 
+    /**
+     * Update the current topmost backstack item, based on the currently displayed page.
+     * (Things like the last y-offset position should be updated here)
+     * Should be done right before loading a new page.
+     */
     void updateCurrentBackStackItem();
 
     void loadPageFromBackStack();
