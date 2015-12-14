@@ -115,15 +115,16 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private BottomContentInterface bottomContentHandler;
 
-
     @Override
-    public void setup(PageViewModel model,
-                      PageFragment fragment,
-                      SwipeRefreshLayoutWithScroll refreshView,
-                      ObservableWebView webView,
-                      CommunicationBridge bridge,
-                      SearchBarHideHandler searchBarHideHandler,
-                      LeadImagesHandler leadImagesHandler) {
+    @SuppressWarnings("checkstyle:parameternumber")
+    public void setUp(@NonNull PageViewModel model,
+                      @NonNull PageFragment fragment,
+                      @NonNull SwipeRefreshLayoutWithScroll refreshView,
+                      @NonNull ObservableWebView webView,
+                      @NonNull CommunicationBridge bridge,
+                      @NonNull SearchBarHideHandler searchBarHideHandler,
+                      @NonNull LeadImagesHandler leadImagesHandler,
+                      @NonNull List<PageBackStackItem> backStack) {
         this.model = model;
         this.fragment = fragment;
         activity = (PageActivity) fragment.getActivity();
@@ -133,11 +134,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         this.bridge = bridge;
         this.searchBarHideHandler = searchBarHideHandler;
         this.leadImagesHandler = leadImagesHandler;
-    }
 
-    @Override
-    public void onActivityCreated(@NonNull List<PageBackStackItem> backStack) {
-        setupSpecificMessageHandlers();
+        setUpBridgeListeners();
+
+        bottomContentHandler = new BottomContentHandler(fragment, bridge, webView,
+                fragment.getLinkHandler(),
+                (ViewGroup) fragment.getView().findViewById(R.id.bottom_content_container));
 
         this.backStack = backStack;
 
@@ -332,7 +334,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }.execute();
     }
 
-    private void setupSpecificMessageHandlers() {
+    private void setUpBridgeListeners() {
         bridge.addListener("onBeginNewPage", new SynchronousBridgeListener() {
             @Override
             public void onMessage(JSONObject payload) {
@@ -379,10 +381,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 }
             }
         });
-
-        bottomContentHandler = new BottomContentHandler(fragment, bridge, webView,
-                fragment.getLinkHandler(),
-                (ViewGroup) fragment.getView().findViewById(R.id.bottom_content_container));
     }
 
     private void performActionForState(int forState) {

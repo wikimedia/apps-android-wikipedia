@@ -349,9 +349,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         new PageLongPressHandler(getActivity(), webView, HistoryEntry.SOURCE_INTERNAL_LINK,
                 contextMenuListener);
 
-        pageLoadStrategy.setup(model, this, refreshView, webView, bridge, searchBarHideHandler,
-                leadImagesHandler);
-        pageLoadStrategy.onActivityCreated(getCurrentTab().getBackStack());
+        pageLoadStrategy.setUp(model, this, refreshView, webView, bridge, searchBarHideHandler,
+                leadImagesHandler, getCurrentTab().getBackStack());
     }
 
     private void initWebViewListeners() {

@@ -38,12 +38,15 @@ public interface PageLoadStrategy {
         NONE
     }
 
-    void setup(PageViewModel model, PageFragment fragment,
-               SwipeRefreshLayoutWithScroll refreshView, ObservableWebView webView,
-               CommunicationBridge bridge, SearchBarHideHandler searchBarHideHandler,
-               LeadImagesHandler leadImagesHandler);
-
-    void onActivityCreated(@NonNull List<PageBackStackItem> backStack);
+    @SuppressWarnings("checkstyle:parameternumber")
+    void setUp(@NonNull PageViewModel model,
+               @NonNull PageFragment fragment,
+               @NonNull SwipeRefreshLayoutWithScroll refreshView,
+               @NonNull ObservableWebView webView,
+               @NonNull CommunicationBridge bridge,
+               @NonNull SearchBarHideHandler searchBarHideHandler,
+               @NonNull LeadImagesHandler leadImagesHandler,
+               @NonNull List<PageBackStackItem> backStack);
 
     void backFromEditing(Intent data);
 
