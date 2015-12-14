@@ -648,15 +648,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         activity.updateProgressBar(true, false,
                 PageActivity.PROGRESS_BAR_MAX_VALUE / model.getPage()
                         .getSections().size() * index);
-        if (index > model.getPage().getSections().size()) {
-            // TODO: Remove this check if we find that it no longer happens, or if we fix it.
-            String errorText = "Section index mismatch!";
-            errorText += " modelTitle=" + model.getTitleOriginal().getPrefixedText();
-            errorText += ", pageTitle=" + model.getPage().getTitle().getPrefixedText();
-            errorText += ", source=" + model.getCurEntry().getSource();
-            L.logRemoteErrorIfProd(new RuntimeException(errorText));
-            return;
-        }
         try {
             final Page page = model.getPage();
             JSONObject wrapper = new JSONObject();
