@@ -41,7 +41,6 @@ import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,12 +65,15 @@ import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
  * - and many handlers.
  */
 public class JsonPageLoadStrategy implements PageLoadStrategy {
-    private static final String TAG = "JsonPageLoad";
+    private interface ErrorCallback {
+        void call(@Nullable Throwable error);
+    }
+
     private static final String BRIDGE_PAYLOAD_SAVED_PAGE = "savedPage";
 
-    public static final int STATE_NO_FETCH = 1;
-    public static final int STATE_INITIAL_FETCH = 2;
-    public static final int STATE_COMPLETE_FETCH = 3;
+    private static final int STATE_NO_FETCH = 1;
+    private static final int STATE_INITIAL_FETCH = 2;
+    private static final int STATE_COMPLETE_FETCH = 3;
 
     private int state = STATE_NO_FETCH;
 
@@ -97,10 +99,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
      */
     private boolean cacheOnComplete = true;
 
-    private interface ErrorCallback {
-        void call(@Nullable Throwable error);
-    }
-
     private ErrorCallback networkErrorCallback;
 
     // copied fields
@@ -117,10 +115,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private BottomContentInterface bottomContentHandler;
 
-    @Override
-    public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
-        this.backStack = backStack;
-    }
 
     @Override
     public void setup(PageViewModel model,
@@ -151,6 +145,191 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // from being stored in the activity's fragment backstack), then load the topmost page
         // on the backstack.
         loadPageFromBackStack();
+    }
+
+    @Override
+    public void backFromEditing(Intent data) {
+        //Retrieve section ID from intent, and find correct section, so where know where to scroll to
+        sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
+        //reset our scroll offset, since we have a section scroll target
+        stagedScrollY = 0;
+    }
+
+    @Override
+    public void onDisplayNewPage(boolean pushBackStack, Cache cachePreference, int stagedScrollY) {
+        fragment.updatePageInfo(null);
+        leadImagesHandler.updateBookmark(false);
+        leadImagesHandler.updateNavigate(null);
+
+        if (pushBackStack) {
+            // update the topmost entry in the backstack, before we start overwriting things.
+            updateCurrentBackStackItem();
+            pushBackStack();
+        }
+
+        state = STATE_NO_FETCH;
+
+        // increment our sequence number, so that any async tasks that depend on the sequence
+        // will invalidate themselves upon completion.
+        sequenceNumber.increase();
+
+        if (cachePreference == Cache.NONE) {
+            // If this is a refresh, don't clear the webview contents
+            this.stagedScrollY = stagedScrollY;
+            loadPageOnWebViewReady(cachePreference);
+        } else {
+            // kick off an event to the WebView that will cause it to clear its contents,
+            // and then report back to us when the clearing is complete, so that we can synchronize
+            // the transitions of our native components to the new page content.
+            // The callback event from the WebView will then call the loadPageOnWebViewReady()
+            // function, which will continue the loading process.
+            leadImagesHandler.hide();
+            bottomContentHandler.hide();
+            activity.getSearchBarHideHandler().setFadeEnabled(false);
+            try {
+                JSONObject wrapper = new JSONObject();
+                // whatever we pass to this event will be passed back to us by the WebView!
+                wrapper.put("sequence", sequenceNumber.get());
+                wrapper.put("cachePreference", cachePreference.name());
+                wrapper.put("stagedScrollY", stagedScrollY);
+                bridge.sendMessage("beginNewPage", wrapper);
+            } catch (JSONException e) {
+                L.logRemoteErrorIfProd(e);
+            }
+        }
+    }
+
+    @Override
+    public boolean isLoading() {
+        return state != STATE_COMPLETE_FETCH;
+    }
+
+    @Override
+    public void onHidePageContent() {
+        bottomContentHandler.hide();
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        popBackStack();
+        if (!backStack.isEmpty()) {
+            loadPageFromBackStack();
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void setEditHandler(EditHandler editHandler) {
+        this.editHandler = editHandler;
+    }
+
+    @Override
+    public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
+        this.backStack = backStack;
+    }
+
+    @Override
+    public void updateCurrentBackStackItem() {
+        if (backStack.isEmpty()) {
+            return;
+        }
+        PageBackStackItem item = backStack.get(backStack.size() - 1);
+        item.setScrollY(webView.getScrollY());
+    }
+
+    @Override
+    public void loadPageFromBackStack() {
+        if (backStack.isEmpty()) {
+            return;
+        }
+        PageBackStackItem item = backStack.get(backStack.size() - 1);
+        // display the page based on the backstack item, stage the scrollY position based on
+        // the backstack item.
+        fragment.displayNewPage(item.getTitle(), item.getHistoryEntry(), Cache.PREFERRED, false,
+                item.getScrollY());
+        L.d("Loaded page " + item.getTitle().getDisplayText() + " from backstack");
+    }
+
+    @Override
+    public void layoutLeadImage() {
+        leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
+            @Override
+            public void onLayoutComplete(int sequence) {
+                if (fragment.isAdded()) {
+                    searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+                }
+            }
+        }, sequenceNumber.get());
+    }
+
+    @VisibleForTesting
+    protected void loadLeadSection(final int startSequenceNum) {
+        app.getSessionFunnel().leadSectionFetchStart();
+        PageLoadUtil.getApiService(model.getTitle().getSite()).pageLead(
+                model.getTitle().getPrefixedText(),
+                calculateLeadImageWidth(),
+                !app.isImageDownloadEnabled(),
+                new PageLead.Callback() {
+                    @Override
+                    public void success(PageLead pageLead, Response response) {
+                        L.v(response.getUrl());
+                        app.getSessionFunnel().leadSectionFetchEnd();
+                        onLeadSectionLoaded(pageLead, startSequenceNum);
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        L.e("PageLead error: ", error);
+                        commonSectionFetchOnCatch(error, startSequenceNum);
+                    }
+                });
+    }
+
+    @VisibleForTesting
+    protected void commonSectionFetchOnCatch(Throwable caught, int startSequenceNum) {
+        ErrorCallback callback = networkErrorCallback;
+        networkErrorCallback = null;
+        cacheOnComplete = false;
+        state = STATE_COMPLETE_FETCH;
+        activity.supportInvalidateOptionsMenu();
+        if (!sequenceNumber.inSync(startSequenceNum)) {
+            return;
+        }
+        if (callback != null) {
+            callback.call(caught);
+        }
+    }
+
+    private void loadSavedPage(final ErrorCallback errorCallback) {
+        new LoadSavedPageTask(model.getTitle(), sequenceNumber.get()) {
+            @Override
+            public void onFinish(Page result) {
+                if (!fragment.isAdded() || !sequenceNumber.inSync(getSequence())) {
+                    return;
+                }
+
+                // Save history entry and page image url
+                new SaveHistoryTask(model.getCurEntry(), app).execute();
+
+                model.setPage(result);
+                editHandler.setPage(model.getPage());
+                layoutLeadImage(new Runnable() {
+                    @Override
+                    public void run() {
+                        displayNonLeadSectionForSavedPage(1);
+                        leadImagesHandler.updateBookmark(true);
+
+                        setState(STATE_COMPLETE_FETCH);
+                    }
+                });
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                errorCallback.call(caught);
+            }
+        }.execute();
     }
 
     private void setupSpecificMessageHandlers() {
@@ -206,58 +385,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 (ViewGroup) fragment.getView().findViewById(R.id.bottom_content_container));
     }
 
-    @Override
-    public void backFromEditing(Intent data) {
-        //Retrieve section ID from intent, and find correct section, so where know where to scroll to
-        sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
-        //reset our scroll offset, since we have a section scroll target
-        stagedScrollY = 0;
-    }
-
-    @Override
-    public void onDisplayNewPage(boolean pushBackStack, Cache cachePreference, int stagedScrollY) {
-        fragment.updatePageInfo(null);
-        leadImagesHandler.updateBookmark(false);
-        leadImagesHandler.updateNavigate(null);
-
-        if (pushBackStack) {
-            // update the topmost entry in the backstack, before we start overwriting things.
-            updateCurrentBackStackItem();
-            pushBackStack();
-        }
-
-        state = STATE_NO_FETCH;
-
-        // increment our sequence number, so that any async tasks that depend on the sequence
-        // will invalidate themselves upon completion.
-        sequenceNumber.increase();
-
-        if (cachePreference == Cache.NONE) {
-            // If this is a refresh, don't clear the webview contents
-            this.stagedScrollY = stagedScrollY;
-            loadPageOnWebViewReady(cachePreference);
-        } else {
-            // kick off an event to the WebView that will cause it to clear its contents,
-            // and then report back to us when the clearing is complete, so that we can synchronize
-            // the transitions of our native components to the new page content.
-            // The callback event from the WebView will then call the loadPageOnWebViewReady()
-            // function, which will continue the loading process.
-            leadImagesHandler.hide();
-            bottomContentHandler.hide();
-            activity.getSearchBarHideHandler().setFadeEnabled(false);
-            try {
-                JSONObject wrapper = new JSONObject();
-                // whatever we pass to this event will be passed back to us by the WebView!
-                wrapper.put("sequence", sequenceNumber.get());
-                wrapper.put("cachePreference", cachePreference.name());
-                wrapper.put("stagedScrollY", stagedScrollY);
-                bridge.sendMessage("beginNewPage", wrapper);
-            } catch (JSONException e) {
-                L.logRemoteErrorIfProd(e);
-            }
-        }
-    }
-
     private void performActionForState(int forState) {
         if (!fragment.isAdded()) {
             return;
@@ -280,7 +407,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 });
                 break;
             default:
-                // This should never happen
                 throw new RuntimeException("Unknown state encountered " + state);
         }
     }
@@ -306,16 +432,11 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
                             @Override
                             public void onPutError(Throwable e) {
-                                Log.e(TAG, "Failed to add page to cache.", e);
+                                L.e("Failed to add page to cache.", e);
                             }
                         });
             }
         }
-    }
-
-    @Override
-    public boolean isLoading() {
-        return state != STATE_COMPLETE_FETCH;
     }
 
     private void loadPageOnWebViewReady(Cache cachePreference) {
@@ -336,7 +457,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     If anything bad happens during loading of a saved page, then simply bounce it
                     back to the online version of the page, and re-save the page contents locally when it's done.
                      */
-                    Log.d("LoadSavedPageTask", "Error loading saved page: " + error.getMessage());
+                    L.d("Error loading saved page: ", error);
                     error.printStackTrace();
                     fragment.refreshPage(true);
                 }
@@ -402,8 +523,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                             return;
                         }
                         if (page != null) {
-                            Log.d(TAG, "Using page from cache: "
-                                    + model.getTitleOriginal().getDisplayText());
+                            L.d("Using page from cache: " + model.getTitleOriginal().getDisplayText());
                             model.setPage(page);
                             model.setTitle(page.getTitle());
                             // Update our history entry, in case the Title was changed (i.e. normalized)
@@ -429,7 +549,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
                     @Override
                     public void onGetError(Throwable e, int sequence) {
-                        Log.e(TAG, "Failed to get page from cache.", e);
+                        L.e("Failed to get page from cache.", e);
                         if (!sequenceNumber.inSync(sequence)) {
                             return;
                         }
@@ -444,37 +564,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         cacheOnComplete = true;
         setState(STATE_NO_FETCH);
         performActionForState(state);
-    }
-
-    public void loadSavedPage(final ErrorCallback errorCallback) {
-        new LoadSavedPageTask(model.getTitle(), sequenceNumber.get()) {
-            @Override
-            public void onFinish(Page result) {
-                if (!fragment.isAdded() || !sequenceNumber.inSync(getSequence())) {
-                    return;
-                }
-
-                // Save history entry and page image url
-                new SaveHistoryTask(model.getCurEntry(), app).execute();
-
-                model.setPage(result);
-                editHandler.setPage(model.getPage());
-                layoutLeadImage(new Runnable() {
-                    @Override
-                    public void run() {
-                        displayNonLeadSectionForSavedPage(1);
-                        leadImagesHandler.updateBookmark(true);
-
-                        setState(STATE_COMPLETE_FETCH);
-                    }
-                });
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                errorCallback.call(caught);
-            }
-        }.execute();
     }
 
     private void updateThumbnail(String thumbUrl) {
@@ -504,45 +593,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private void pushBackStack() {
         PageBackStackItem item = new PageBackStackItem(model.getTitleOriginal(), model.getCurEntry());
         backStack.add(item);
-    }
-
-    /**
-     * Update the current topmost backstack item, based on the currently displayed page.
-     * (Things like the last y-offset position should be updated here)
-     * Should be done right before loading a new page.
-     */
-    @Override
-    public void updateCurrentBackStackItem() {
-        if (backStack.isEmpty()) {
-            return;
-        }
-        PageBackStackItem item = backStack.get(backStack.size() - 1);
-        item.setScrollY(webView.getScrollY());
-    }
-
-    @Override
-    public void loadPageFromBackStack() {
-        if (backStack.isEmpty()) {
-            return;
-        }
-        PageBackStackItem item = backStack.get(backStack.size() - 1);
-        // display the page based on the backstack item, stage the scrollY position based on
-        // the backstack item.
-        fragment.displayNewPage(item.getTitle(), item.getHistoryEntry(), Cache.PREFERRED, false,
-                item.getScrollY());
-        Log.d(TAG, "Loaded page " + item.getTitle().getDisplayText() + " from backstack");
-    }
-
-    @Override
-    public void layoutLeadImage() {
-        leadImagesHandler.beginLayout(new LeadImagesHandler.OnLeadImageLayoutListener() {
-            @Override
-            public void onLayoutComplete(int sequence) {
-                if (fragment.isAdded()) {
-                    searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
-                }
-            }
-        }, sequenceNumber.get());
     }
 
     private void layoutLeadImage(@Nullable Runnable runnable) {
@@ -589,7 +639,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private void sendLeadSectionPayload(Page page) {
         JSONObject leadSectionPayload = leadSectionPayload(page);
         bridge.sendMessage("displayLeadSection", leadSectionPayload);
-        Log.d(TAG, "Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
+        L.d("Sent message 'displayLeadSection' for page: " + page.getDisplayTitle());
     }
 
     private JSONObject leadSectionPayload(Page page) {
@@ -701,29 +751,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }
     }
 
-    @VisibleForTesting
-    protected void loadLeadSection(final int startSequenceNum) {
-        app.getSessionFunnel().leadSectionFetchStart();
-        PageLoadUtil.getApiService(model.getTitle().getSite()).pageLead(
-                model.getTitle().getPrefixedText(),
-                calculateLeadImageWidth(),
-                !app.isImageDownloadEnabled(),
-                new PageLead.Callback() {
-                    @Override
-                    public void success(PageLead pageLead, Response response) {
-                        Log.v(TAG, response.getUrl());
-                        app.getSessionFunnel().leadSectionFetchEnd();
-                        onLeadSectionLoaded(pageLead, startSequenceNum);
-                    }
-
-                    @Override
-                    public void failure(RetrofitError error) {
-                        Log.e(TAG, "PageLead error: " + error);
-                        commonSectionFetchOnCatch(error, startSequenceNum);
-                    }
-                });
-    }
-
     private void onLeadSectionLoaded(PageLead pageLead, int startSequenceNum) {
         if (!fragment.isAdded() || !sequenceNumber.inSync(startSequenceNum)) {
             return;
@@ -790,14 +817,14 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 new PageRemaining.Callback() {
                     @Override
                     public void success(PageRemaining pageRemaining, @NonNull Response response) {
-                        Log.v(TAG, response.getUrl());
+                        L.v(response.getUrl());
                         app.getSessionFunnel().restSectionsFetchEnd();
                         onRemainingSectionsLoaded(pageRemaining, startSequenceNum);
                     }
 
                     @Override
                     public void failure(RetrofitError error) {
-                        Log.e(TAG, "PageRemaining error: " + error);
+                        L.e("PageRemaining error: ", error);
                         commonSectionFetchOnCatch(error, startSequenceNum);
                     }
                 });
@@ -815,44 +842,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         setState(STATE_COMPLETE_FETCH);
 
         fragment.onPageLoadComplete();
-    }
-
-    @VisibleForTesting
-    protected void commonSectionFetchOnCatch(Throwable caught, int startSequenceNum) {
-        ErrorCallback callback = networkErrorCallback;
-        networkErrorCallback = null;
-        cacheOnComplete = false;
-        state = STATE_COMPLETE_FETCH;
-        activity.supportInvalidateOptionsMenu();
-        if (!sequenceNumber.inSync(startSequenceNum)) {
-            return;
-        }
-        if (callback != null) {
-            callback.call(caught);
-        }
-    }
-
-    /**
-     * Convenience method for hiding all the content of a page.
-     */
-    @Override
-    public void onHidePageContent() {
-        bottomContentHandler.hide();
-    }
-
-    @Override
-    public boolean onBackPressed() {
-        popBackStack();
-        if (!backStack.isEmpty()) {
-            loadPageFromBackStack();
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public void setEditHandler(EditHandler editHandler) {
-        this.editHandler = editHandler;
     }
 
     private float getDimension(@DimenRes int id) {
