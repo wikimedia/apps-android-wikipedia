@@ -28,10 +28,10 @@
   <string name="snackbar_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">खोज</string>
   <string name="saved_pages_search_empty_message">आपकी आवश्यकता से मिलता कोई पृष्ठ नहीं पाया गया।</string>
-  <string name="menu_page_other_languages">अन्य भाषा में पढ़ें</string>
+  <string name="menu_page_other_languages" fuzzy="true">अन्य भाषा में पढ़ें</string>
+  <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="menu_page_save">पृष्ठ सहेजें</string>
   <string name="menu_page_share" fuzzy="true">साझा करें</string>
-  <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="nav_item_nearby">निकट</string>
   <string name="nearby_distance_in_meters">%d मी॰</string>
   <string name="nearby_distance_in_kilometers">%.2f किमी</string>
@@ -136,6 +136,8 @@
   <string name="edit_next">अगला</string>
   <string name="edit_done">सहेजें</string>
   <string name="edit_preview">पूर्वावलोकन</string>
+  <string name="edit_summary_tag_typo">छोटा सा सुधार किया।</string>
+  <string name="edit_summary_tag_grammar">व्याकरण में सुधार</string>
   <string name="edit_summary_tag_links">कड़ियाँ लगाई</string>
   <string name="edit_summary_tag_other">अन्य</string>
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>

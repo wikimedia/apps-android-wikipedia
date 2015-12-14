@@ -29,11 +29,11 @@
   <string name="snackbar_saved_page_deleted">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
   <string name="saved_pages_search_list_hint">ស្វែងរកទំព័រដែលបានរក្សាទុក</string>
   <string name="saved_pages_search_empty_message">រកមិនឃើញទំព័រត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
-  <string name="menu_page_other_languages">អានជាភាសា​ដទៃ​ទៀត</string>
-  <string name="menu_page_save">រក្សា​ទុក​ទំព័រ</string>
-  <string name="menu_page_share" fuzzy="true">ចែក​រំលែក</string>
+  <string name="menu_page_other_languages" fuzzy="true">អានជាភាសា​ដទៃ​ទៀត</string>
   <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
   <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
+  <string name="menu_page_save">រក្សា​ទុក​ទំព័រ</string>
+  <string name="menu_page_share" fuzzy="true">ចែក​រំលែក</string>
   <string name="nav_item_nearby">ជិតខាង</string>
   <string name="nearby_distance_in_meters">%d ម</string>
   <string name="nearby_distance_in_kilometers">%.2f គ.ម</string>

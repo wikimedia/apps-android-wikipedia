@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Пошук в збережених сторінках</string>
   <string name="saved_pages_search_empty_message">Нема сторінок, що відповідають вашому запиту.</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
-  <string name="menu_page_other_languages">Читати іншими мовами</string>
-  <string name="menu_page_save">Зберегти сторінку</string>
-  <string name="menu_page_share">Поділитися посиланням</string>
+  <string name="menu_page_other_languages" fuzzy="true">Читати іншими мовами</string>
   <string name="menu_page_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
+  <string name="menu_page_save">Зберегти сторінку</string>
+  <string name="menu_page_share">Поділитися посиланням</string>
   <string name="menu_long_press_open_page">Відкрити</string>
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
   <string name="menu_long_press_copy_page">Копіювати адресу посилання</string>

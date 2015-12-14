@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Hapus semua halaman tersimpan</string>
   <string name="page_does_not_exist_error">Halaman ini tidak ada.</string>
   <string name="nav_item_today">Hari ini</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Hapus riwayat perambanan?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Apakah Anda yakin ingin menghapus semua riwayat?</string>
+  <string name="dialog_title_clear_history">Hapus riwayat penjelajahan</string>
+  <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penjelajahan Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
   <string name="nav_item_saved_pages">Halaman tersimpan</string>
   <string name="menu_update_all_saved_pages">Halaman terbaru yang disimpan</string>
   <string name="menu_update_selected_saved_pages">Halaman terbaru yang disimpan</string>
@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Cari halaman tersimpan</string>
   <string name="saved_pages_search_empty_message">Tidak ada halaman yang cocok dengan \'%s\'</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
-  <string name="menu_page_other_languages">Baca dalam bahasa lain</string>
-  <string name="menu_page_save">Simpan halaman</string>
-  <string name="menu_page_share">Bagikan pranala</string>
+  <string name="menu_page_other_languages" fuzzy="true">Baca dalam bahasa lain</string>
   <string name="menu_page_find_in_page">Cari di halaman</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
+  <string name="menu_page_save">Simpan halaman</string>
+  <string name="menu_page_share">Bagikan pranala</string>
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka di tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamat pranala</string>
@@ -43,6 +43,7 @@
   <string name="nav_item_nearby">Sekitar</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_zoom_to_location">Perbesar ke lokasi di peta</string>
   <string name="last_updated_text">Terakhir diperbarui %1$s</string>
   <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -75,7 +76,7 @@
   <string name="login_password_hint">Kata sandi</string>
   <string name="login_password_show_check">Tampilkan kata sandi</string>
   <string name="menu_login">Masuk log</string>
-  <string name="login_activity_title" fuzzy="true">Masuk ke Wikipedia</string>
+  <string name="login_activity_title">Masuk log ke Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang masuk log…</string>
   <string name="login_error_wrong_password">Kata sandi salah</string>
   <string name="login_error_wrong_username">Nama pengguna salah</string>
@@ -133,6 +134,7 @@
   <string name="send_feedback">Kirim umpan balik aplikasi</string>
   <string name="nav_item_random">Sembarang</string>
   <string name="create_account_account_created_toast">Akun dibuat!</string>
+  <string name="preferences_privacy_settings_heading">Privasi</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
@@ -236,6 +238,7 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_image_saved_notification_title">Berkas tersimpan</string>
   <string name="gallery_image_saved_notification_text">Sentuh untuk melihat.</string>
   <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>
+  <string name="gallery_save_image_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda dibutuhkan untuk menyimpan gambar. Silakan coba lagi, dan bolehkan izin yang diminta.</string>
   <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
   <string name="snippet_share_intro">\"%1$s\" di @Wikipedia: %2$s</string>
   <string name="expand_refs">Ketuk untuk memperluas</string>
@@ -259,10 +262,13 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="format_error_server_code">Kode: \"%s\"</string>
   <string name="address_copied">Alamat disalin ke papan klip.</string>
   <string name="text_copied">Teks disalin ke papan klip.</string>
-  <string name="button_continue_to_article" fuzzy="true">Lanjutkan ke artikel</string>
+  <string name="button_continue_to_article">Baca artikel</string>
+  <string name="button_get_directions">Dapatkan petunjuk arah</string>
+  <string name="error_no_maps_app">Tidak dapat menemukan aplikasi yang memberikan petunjuk arah.</string>
   <string name="preference_title_show_link_previews">Tampilkan pratinjau pranala</string>
   <string name="preference_summary_show_link_previews">Tampilkan pratinjau singkat artikel setelah menekan pranala.</string>
-  <string name="crash_report_dialog_title">Maaf, app berhenti dengan sendirinya</string>
+  <string name="nav_item_donate">Dukung Wikipedia</string>
+  <string name="crash_report_dialog_title">Maaf, aplikasi berhenti dengan sendirinya</string>
   <string name="crash_report_dialog_text">Apakah Anda ingin mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga sehingga Wikimedia dapat meninjau kerusakan Anda dan memperbaiki kesalahan yang disebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Lewati</string>
   <string name="crash_report_dialog_always_send_button">Selalu kirim</string>

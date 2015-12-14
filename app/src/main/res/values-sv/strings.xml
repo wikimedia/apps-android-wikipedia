@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Sök sparade sidor</string>
   <string name="saved_pages_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
-  <string name="menu_page_other_languages">Läs på andra språk</string>
-  <string name="menu_page_save">Spara sidan</string>
-  <string name="menu_page_share">Dela länk</string>
+  <string name="menu_page_other_languages" fuzzy="true">Läs på andra språk</string>
   <string name="menu_page_find_in_page">Sök på sidan</string>
   <string name="menu_page_font_and_theme">Ändra teckensnitt och tema</string>
+  <string name="menu_page_save">Spara sidan</string>
+  <string name="menu_page_share">Dela länk</string>
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>

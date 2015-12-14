@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Поиск по сохранённым страницам</string>
   <string name="saved_pages_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
-  <string name="menu_page_other_languages">Читать на других языках</string>
-  <string name="menu_page_save">Сохранить страницу</string>
-  <string name="menu_page_share">Поделиться ссылкой</string>
+  <string name="menu_page_other_languages" fuzzy="true">Читать на других языках</string>
   <string name="menu_page_find_in_page">Найти на странице</string>
   <string name="menu_page_font_and_theme">Изменение шрифта и оформления</string>
+  <string name="menu_page_save">Сохранить страницу</string>
+  <string name="menu_page_share">Поделиться ссылкой</string>
   <string name="menu_long_press_open_page">Открыть</string>
   <string name="menu_long_press_open_in_new_tab">Открыть в новой вкладке</string>
   <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>

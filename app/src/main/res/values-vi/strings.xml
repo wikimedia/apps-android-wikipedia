@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
   <string name="nav_item_today">Hôm nay</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Bạn muốn xóa lịch sử duyệt trang?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Bạn có chắc chắn muốn xóa tất cả lịch sử?</string>
+  <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
+  <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
   <string name="nav_item_saved_pages">Trang đã lưu</string>
   <string name="menu_update_all_saved_pages">Cập nhật các trang đã lưu</string>
   <string name="menu_update_selected_saved_pages">Cập nhật các trang đã lưu</string>
@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Tìm kiếm các trang đã lưu</string>
   <string name="saved_pages_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="menu_page_show_tabs">Hiển thị tab</string>
-  <string name="menu_page_other_languages">Đọc trong ngôn ngữ khác</string>
-  <string name="menu_page_save">Lưu trang</string>
-  <string name="menu_page_share">Chia sẻ liên kết</string>
+  <string name="menu_page_other_languages" fuzzy="true">Đọc trong ngôn ngữ khác</string>
   <string name="menu_page_find_in_page">Tìm trong trang</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
+  <string name="menu_page_save">Lưu trang</string>
+  <string name="menu_page_share">Chia sẻ liên kết</string>
   <string name="menu_long_press_open_page">Mở</string>
   <string name="menu_long_press_open_in_new_tab">Mở trong thẻ mới</string>
   <string name="menu_long_press_copy_page">Chép địa chỉ liên kết</string>
@@ -262,7 +262,9 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="format_error_server_code">Mã: \"%s\"</string>
   <string name="address_copied">Đã chép địa chỉ vào bảng tạm.</string>
   <string name="text_copied">Đã chép vào clipboard.</string>
-  <string name="button_continue_to_article" fuzzy="true">Đi tiếp đến bài</string>
+  <string name="button_continue_to_article">Đọc bài</string>
+  <string name="button_get_directions">Chỉ đường</string>
+  <string name="error_no_maps_app">Không tìm thấy ứng dụng nào có khả năng chỉ đường.</string>
   <string name="preference_title_show_link_previews">Hiện bản xem trước</string>
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
   <string name="nav_item_donate">Hỗ trợ Wikimedia</string>

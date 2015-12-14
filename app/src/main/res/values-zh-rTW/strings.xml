@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">搜尋已儲存的頁面</string>
   <string name="saved_pages_search_empty_message">未找到符合您查詢的頁面。</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
-  <string name="menu_page_other_languages">閱讀其他語言</string>
-  <string name="menu_page_save">儲存頁面</string>
-  <string name="menu_page_share">分享連結</string>
+  <string name="menu_page_other_languages" fuzzy="true">閱讀其他語言</string>
   <string name="menu_page_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
+  <string name="menu_page_save">儲存頁面</string>
+  <string name="menu_page_share">分享連結</string>
   <string name="menu_long_press_open_page">開啟</string>
   <string name="menu_long_press_open_in_new_tab">在新分頁開啟</string>
   <string name="menu_long_press_copy_page">複製連結網址</string>

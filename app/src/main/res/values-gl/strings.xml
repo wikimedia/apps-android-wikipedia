@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Limpar as páxinas gardadas</string>
   <string name="page_does_not_exist_error">Esta páxina non existe.</string>
   <string name="nav_item_today">Hoxe</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Quere limpar o historial?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Está seguro de querer limpar todo o historial?</string>
+  <string name="dialog_title_clear_history">Limpar historial de navegación</string>
+  <string name="dialog_message_clear_history">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
   <string name="nav_item_saved_pages">Páxinas gardadas</string>
   <string name="menu_update_all_saved_pages">Actualizar as páxinas gardadas</string>
   <string name="menu_update_selected_saved_pages">Actualizar as páxinas gardadas</string>
@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Procurar nas páxinas gardadas</string>
   <string name="saved_pages_search_empty_message">Non se atopou ningunha páxina que coincidise coa súa pescuda.</string>
   <string name="menu_page_show_tabs">Mostrar as lapelas</string>
-  <string name="menu_page_other_languages">Ler noutras linguas</string>
-  <string name="menu_page_save">Gardar a páxina</string>
-  <string name="menu_page_share">Compartir a ligazón</string>
+  <string name="menu_page_other_languages" fuzzy="true">Ler noutras linguas</string>
   <string name="menu_page_find_in_page">Atopar na páxina</string>
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
+  <string name="menu_page_save">Gardar a páxina</string>
+  <string name="menu_page_share">Compartir a ligazón</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir a ligazón nunha nova lapela</string>
   <string name="menu_long_press_copy_page">Copiar o enderezo da ligazón</string>
@@ -76,7 +76,7 @@
   <string name="login_password_hint">Contrasinal</string>
   <string name="login_password_show_check">Mostrar o contrasinal</string>
   <string name="menu_login">Acceder ao sistema</string>
-  <string name="login_activity_title" fuzzy="true">Acceder á Wikipedia</string>
+  <string name="login_activity_title">Iniciar sesión na Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
   <string name="login_error_wrong_password">O contrasinal é incorrecto</string>
   <string name="login_error_wrong_username">O nome de usuario é incorrecto</string>
@@ -262,7 +262,9 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">O enderezo copiouse no portapapeis.</string>
   <string name="text_copied">O texto copiouse no portapapeis.</string>
-  <string name="button_continue_to_article" fuzzy="true">Continuar ó artigo</string>
+  <string name="button_continue_to_article">Artigo lido</string>
+  <string name="button_get_directions">Obter as direccións</string>
+  <string name="error_no_maps_app">Imposible atopar unha aplicación que proporcione as direccións.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>
   <string name="preference_summary_show_link_previews">Mostrar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
   <string name="nav_item_donate">Apoia a Wikimedia</string>

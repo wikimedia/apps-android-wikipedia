@@ -29,11 +29,11 @@
   <string name="saved_pages_search_list_hint">შენახული გვერდების ძიება</string>
   <string name="saved_pages_search_empty_message">თქვენს მოთხოვნას არცერთი გვერდი არ დაემთხვა.</string>
   <string name="menu_page_show_tabs">ჩანართების ჩვენება</string>
-  <string name="menu_page_other_languages">წაიკითხეთ სხვა ენებზე</string>
-  <string name="menu_page_save">შენახული გვერდები</string>
-  <string name="menu_page_share">ბმულის გაზიარება</string>
+  <string name="menu_page_other_languages" fuzzy="true">წაიკითხეთ სხვა ენებზე</string>
   <string name="menu_page_find_in_page">გვერდში ძიება</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
+  <string name="menu_page_save">შენახული გვერდები</string>
+  <string name="menu_page_share">ბმულის გაზიარება</string>
   <string name="menu_long_press_open_page">გახსნა</string>
   <string name="menu_long_press_open_in_new_tab">ახალ ჩანართში გახსნა</string>
   <string name="menu_long_press_copy_page">ბმულის მისამართის დაკოპირება</string>

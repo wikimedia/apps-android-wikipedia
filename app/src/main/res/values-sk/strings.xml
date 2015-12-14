@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Hľadať v uložených stránkach</string>
   <string name="saved_pages_search_empty_message">Nenašli sa žiadne stránky zodpovedajúce týmto kritériám.</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
-  <string name="menu_page_other_languages">V iných jazykoch</string>
-  <string name="menu_page_save">Uložiť stránku</string>
-  <string name="menu_page_share">Zdieľať</string>
+  <string name="menu_page_other_languages" fuzzy="true">V iných jazykoch</string>
   <string name="menu_page_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_font_and_theme">Zmeniť písmo a vzhľad</string>
+  <string name="menu_page_save">Uložiť stránku</string>
+  <string name="menu_page_share">Zdieľať</string>
   <string name="menu_long_press_open_page">Otvoriť</string>
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
@@ -248,7 +248,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="format_error_server_code">Kód: \"%s\"</string>
   <string name="address_copied">Adresa bola skopírovaná do schránky.</string>
   <string name="text_copied">Text bol skopírovaný do schránky.</string>
-  <string name="button_continue_to_article" fuzzy="true">Pokračovať na článok</string>
+  <string name="button_continue_to_article">Prečítať si článok</string>
   <string name="nav_item_donate">Podporte Wikipédiu</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>

@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Rechercher les pages enregistrées</string>
   <string name="saved_pages_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
-  <string name="menu_page_other_languages">Lire dans d’autres langues</string>
-  <string name="menu_page_save">Enregistrer la page</string>
-  <string name="menu_page_share">Partager le lien</string>
+  <string name="menu_page_other_languages" fuzzy="true">Lire dans d’autres langues</string>
   <string name="menu_page_find_in_page">Rechercher dans la page</string>
   <string name="menu_page_font_and_theme">Modifier la police et le thème</string>
+  <string name="menu_page_save">Enregistrer la page</string>
+  <string name="menu_page_share">Partager le lien</string>
   <string name="menu_long_press_open_page">Ouvrir</string>
   <string name="menu_long_press_open_in_new_tab">Ouvrir dans un nouvel onglet</string>
   <string name="menu_long_press_copy_page">Copier l’adresse du lien</string>
@@ -262,7 +262,9 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="format_error_server_code">Code : \"%s\"</string>
   <string name="address_copied">Adresse copiée dans le presse-papier.</string>
   <string name="text_copied">Texte copié dans le presse-papier.</string>
-  <string name="button_continue_to_article" fuzzy="true">Continuer vers l\'article</string>
+  <string name="button_continue_to_article">Lire l’article</string>
+  <string name="button_get_directions">Obtenir les directions</string>
+  <string name="error_no_maps_app">Impossible de trouver une application qui fournit des directions.</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de lien</string>
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="nav_item_donate">Soutenir Wikipédia</string>

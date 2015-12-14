@@ -23,11 +23,11 @@
   <string name="delete_selected_saved_pages">मेट्ने</string>
   <string name="snackbar_saved_page_deleted">संग्रह भएका पृष्ठहरू मेटाइयो</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">खोज्ने</string>
-  <string name="menu_page_other_languages">अन्य भाषाहरूमा पढ्ने</string>
-  <string name="menu_page_save">संग्रहित पृष्ठहरू</string>
-  <string name="menu_page_share" fuzzy="true">बाड्ने</string>
+  <string name="menu_page_other_languages" fuzzy="true">अन्य भाषाहरूमा पढ्ने</string>
   <string name="menu_page_find_in_page">पृष्ठमा खोज्ने</string>
   <string name="menu_page_font_and_theme">फन्ट तथा विषयसार</string>
+  <string name="menu_page_save">संग्रहित पृष्ठहरू</string>
+  <string name="menu_page_share" fuzzy="true">बाड्ने</string>
   <string name="nav_item_nearby">नजिकै</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>

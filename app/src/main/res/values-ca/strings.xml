@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Cerca en les pàgines desades</string>
   <string name="saved_pages_search_empty_message">No s\'ha trobat cap pàgina que coincidís amb la vostra consulta.</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
-  <string name="menu_page_other_languages">Llegir-ho en altres idiomes</string>
-  <string name="menu_page_save">Desa la pàgina</string>
-  <string name="menu_page_share">Comparteix l\'enllaç</string>
+  <string name="menu_page_other_languages" fuzzy="true">Llegir-ho en altres idiomes</string>
   <string name="menu_page_find_in_page">Cercar en la pàgina</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
+  <string name="menu_page_save">Desa la pàgina</string>
+  <string name="menu_page_share">Comparteix l\'enllaç</string>
   <string name="menu_long_press_open_page">Obre</string>
   <string name="menu_long_press_open_in_new_tab">Obre en una pestanya nova</string>
   <string name="menu_long_press_copy_page">Copia l\'adreça de l\'enllaç</string>
@@ -234,7 +234,7 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_image_saved_notification_title">Imatge desada.</string>
   <string name="gallery_image_saved_notification_text">Toca per veure.</string>
   <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>
-  <string name="gallery_save_image_write_permission_rationale">És necessari tenir permís d\'escriptura en el vostre dispositiu  per a poder desar imatges. Torneu-ho a provar, donant permís a la sol·licitut.</string>
+  <string name="gallery_save_image_write_permission_rationale">Cal tenir permís d\'escriptura en el vostre dispositiu per a poder desar imatges. Torneu-ho a provar, donant el permís demanat.</string>
   <string name="err_cannot_save_file">No es pot desar el fitxer</string>
   <string name="snippet_share_intro">«%1$s» a @Wikipedia: %2$s</string>
   <string name="expand_refs">Toqueu per ampliar</string>
@@ -258,7 +258,9 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Codi \"%s\"</string>
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="text_copied">Text copiat al porta-retalls.</string>
-  <string name="button_continue_to_article" fuzzy="true">Continua a l\'article</string>
+  <string name="button_continue_to_article">Llegeix l\'article</string>
+  <string name="button_get_directions">Obtenir indicacions</string>
+  <string name="error_no_maps_app">No es pot trobar cap aplicació que proporcioni direccions.</string>
   <string name="preference_title_show_link_previews">Mostra enllaç de vistes prèvies</string>
   <string name="preference_summary_show_link_previews">Mostra una vista prèvia ràpida d\'articles en tocar enllaços.</string>
   <string name="nav_item_donate">Doneu suport a la Viquipèdia</string>

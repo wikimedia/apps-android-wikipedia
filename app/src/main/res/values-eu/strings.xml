@@ -29,11 +29,11 @@
   <string name="saved_pages_search_list_hint">Bilatu gordetako orriak</string>
   <string name="saved_pages_search_empty_message">Zure kontsultarekin bat egiten duen orririk ez da aurkitu.</string>
   <string name="menu_page_show_tabs">Fitxak erakutsi</string>
-  <string name="menu_page_other_languages">Irakurri beste hizkuntzetan</string>
-  <string name="menu_page_save">Gorde orrialdea</string>
-  <string name="menu_page_share">Partekatu lotura</string>
+  <string name="menu_page_other_languages" fuzzy="true">Irakurri beste hizkuntzetan</string>
   <string name="menu_page_find_in_page">Aurkitu orrialdean</string>
   <string name="menu_page_font_and_theme">Letra eta gaia</string>
+  <string name="menu_page_save">Gorde orrialdea</string>
+  <string name="menu_page_share">Partekatu lotura</string>
   <string name="menu_long_press_open_page">Ireki</string>
   <string name="menu_long_press_open_in_new_tab">Ireki fitxa berrian</string>
   <string name="menu_long_press_copy_page">Kopiatu loturaren helbidea</string>
@@ -187,6 +187,7 @@
   <string name="gallery_menu_save">Gailuan gorde</string>
   <string name="gallery_save_success">Irudia ondo gorde da.</string>
   <string name="gallery_image_saved_notification_title">Irudia gordeta.</string>
+  <string name="gallery_image_saved_notification_text">Ukitu ikusteko.</string>
   <string name="gallery_error_video_failed">Ezin da bideoa ikusi.</string>
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
   <string name="share_snippet_button">Irudi bezala partekatu</string>
@@ -203,7 +204,9 @@
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
   <string name="format_error_server_code">Kodea:\'\'%s\'\'</string>
   <string name="button_continue_to_article">Artikulua irakurri</string>
+  <string name="button_get_directions">Helbidea lortu</string>
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
+  <string name="nav_item_donate">Wikipedia Lagundu</string>
   <string name="crash_report_dialog_dont_send_button">Utzi</string>
   <string name="crash_report_dialog_always_send_button">Beti bidali</string>
   <string name="crash_report_dialog_send_button">Bidali</string>

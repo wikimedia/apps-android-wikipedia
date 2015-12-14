@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Hledat uložené stránky</string>
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
-  <string name="menu_page_other_languages">Číst v jiných jazycích</string>
-  <string name="menu_page_save">Uložit stránku</string>
-  <string name="menu_page_share">Sdílet odkaz</string>
+  <string name="menu_page_other_languages" fuzzy="true">Číst v jiných jazycích</string>
   <string name="menu_page_find_in_page">Najít na stránce</string>
   <string name="menu_page_font_and_theme">Písmo a vzhled</string>
+  <string name="menu_page_save">Uložit stránku</string>
+  <string name="menu_page_share">Sdílet odkaz</string>
   <string name="menu_long_press_open_page">Otevřít</string>
   <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
   <string name="menu_long_press_copy_page">Zkopírovat adresu odkazu</string>

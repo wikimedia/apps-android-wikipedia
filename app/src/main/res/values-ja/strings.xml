@@ -14,6 +14,7 @@
   <string name="page_does_not_exist_error">このページは存在しません。</string>
   <string name="nav_item_today">今日のメインページ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
+  <string name="dialog_message_clear_history">これはあなたの閲覧履歴をすべて消去し、現在開いているタブを閉じますがよろしいですか？</string>
   <string name="nav_item_saved_pages">保存したページ</string>
   <string name="menu_update_all_saved_pages">保存したページを更新</string>
   <string name="menu_update_selected_saved_pages">保存したページを更新</string>
@@ -29,11 +30,11 @@
   <string name="saved_pages_search_list_hint">保存したページを検索</string>
   <string name="saved_pages_search_empty_message">キーワードに一致するページが見つかりません。</string>
   <string name="menu_page_show_tabs">タブを表示</string>
-  <string name="menu_page_other_languages">他の言語で読む</string>
-  <string name="menu_page_save">ページを保存</string>
-  <string name="menu_page_share">リンクをシェア</string>
+  <string name="menu_page_other_languages" fuzzy="true">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
+  <string name="menu_page_save">ページを保存</string>
+  <string name="menu_page_share">リンクをシェア</string>
   <string name="menu_long_press_open_page">開く</string>
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
@@ -238,7 +239,7 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="gallery_image_saved_notification_title">画像が保存されました</string>
   <string name="gallery_image_saved_notification_text">タッチして表示する。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
-  <string name="gallery_save_image_write_permission_rationale">ストレージに書き込むパーミッションは画像の保存に必要になります。もう一度やり直し、このパーミッションを許可してください。</string>
+  <string name="gallery_save_image_write_permission_rationale">ストレージに書き込むパーミッションは画像の保存に必要になります。もう一度やり直して、このパーミッションを許可してください。</string>
   <string name="err_cannot_save_file">ファイルを保存できません。</string>
   <string name="snippet_share_intro">\"%1$s\" の記事を @Wikipedia で読む: %2$s</string>
   <string name="expand_refs">タップして開く</string>
@@ -262,7 +263,9 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="format_error_server_code">コード: \"%s\"</string>
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
   <string name="text_copied">テキストがクリップボードにコピーされました。</string>
-  <string name="button_continue_to_article" fuzzy="true">続きを表示する</string>
+  <string name="button_continue_to_article">記事を読む</string>
+  <string name="button_get_directions">ルートを検索</string>
+  <string name="error_no_maps_app">ルートを示すアプリケーションが見つかりませんでした。</string>
   <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
   <string name="nav_item_donate">ウィキペディアを支援する</string>

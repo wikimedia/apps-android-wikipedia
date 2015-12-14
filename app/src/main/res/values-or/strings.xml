@@ -29,7 +29,7 @@
   <string name="snackbar_saved_page_deleted">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଲିଭାଗଲା</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">ଖୋଜିବେ</string>
   <string name="saved_pages_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
-  <string name="menu_page_other_languages">ଅନ୍ୟ ଭାଷାରେ ପଢିବେ</string>
+  <string name="menu_page_other_languages" fuzzy="true">ଅନ୍ୟ ଭାଷାରେ ପଢିବେ</string>
   <string name="menu_page_save">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
   <string name="menu_page_share" fuzzy="true">ବାଣ୍ଟିବେ</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>

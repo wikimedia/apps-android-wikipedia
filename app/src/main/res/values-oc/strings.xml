@@ -28,11 +28,11 @@
   <string name="snackbar_saved_page_deleted">Pagina(s) enregistrada(s) suprimida(s)</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Recercar</string>
   <string name="saved_pages_search_empty_message">Cap de pagina pas trobada que corresponda a vòstra requèsta.</string>
-  <string name="menu_page_other_languages">Legir dins d’autras lengas</string>
-  <string name="menu_page_save">Enregistrar la pagina</string>
-  <string name="menu_page_share" fuzzy="true">Partejar</string>
+  <string name="menu_page_other_languages" fuzzy="true">Legir dins d’autras lengas</string>
   <string name="menu_page_find_in_page">Recercar dins la pagina</string>
   <string name="menu_page_font_and_theme">Modificar la poliça e lo tèma</string>
+  <string name="menu_page_save">Enregistrar la pagina</string>
+  <string name="menu_page_share" fuzzy="true">Partejar</string>
   <string name="nav_item_nearby">A proximitat</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>

@@ -28,7 +28,7 @@
   <string name="snackbar_saved_page_deleted">သိမ်းဆည်း စာမျက်နှာ(များ) ဖျက်ပြီး</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">ရှာဖွေ</string>
   <string name="saved_pages_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိ</string>
-  <string name="menu_page_other_languages">အခြားဘာသာစကားဖြင့် ဖတ်ရန်</string>
+  <string name="menu_page_other_languages" fuzzy="true">အခြားဘာသာစကားဖြင့် ဖတ်ရန်</string>
   <string name="menu_page_save">စာမျက်နှာကိုသိမ်း</string>
   <string name="menu_page_share" fuzzy="true">မျှဝေ</string>
   <string name="nav_item_nearby">အနီးအနား</string>

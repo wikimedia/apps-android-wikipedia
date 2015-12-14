@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
   <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
   <string name="nav_item_today">আজ</string>
-  <string name="dialog_title_clear_history" fuzzy="true">ব্রাউজ ইতিহাস অপসারণ করবেন?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">আপনি নিশ্চিতভাবে ইতিহাস অপসারণ করতে চান?</string>
+  <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন</string>
+  <string name="dialog_message_clear_history">এই আপনার সব ব্রাউজ করা ইতিহাস সব মুছে দিন, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
   <string name="menu_update_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
   <string name="menu_update_selected_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">সংরক্ষিত পাতা অনুসন্ধান</string>
   <string name="saved_pages_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
   <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
-  <string name="menu_page_other_languages">অন্য ভাষায় পড়ুন</string>
-  <string name="menu_page_save">পাতা সংরক্ষণ করুন</string>
-  <string name="menu_page_share">লিঙ্ক শেয়ার</string>
+  <string name="menu_page_other_languages" fuzzy="true">অন্য ভাষায় পড়ুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
+  <string name="menu_page_save">পাতা সংরক্ষণ করুন</string>
+  <string name="menu_page_share">লিঙ্ক শেয়ার</string>
   <string name="menu_long_press_open_page">খুলুন</string>
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
@@ -263,6 +263,8 @@
   <string name="address_copied">ঠিকানা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="text_copied">লেখা ক্লিপবোর্ডে অনুলিপি হয়েছে।</string>
   <string name="button_continue_to_article">নিবন্ধ পড়ুন</string>
+  <string name="button_get_directions">দিক নির্দেশনা পান</string>
+  <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_show_link_previews">লিঙ্ক প্রাকদর্শন দেখান</string>
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
   <string name="nav_item_donate">দান করুন</string>

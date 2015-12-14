@@ -27,11 +27,11 @@
   <string name="saved_pages_search_list_hint">සුරක්ශිත කළ පිටු සොයන්න</string>
   <string name="saved_pages_search_empty_message">ඔබගේ විමසුම හා ගැලපෙන පිටු සොයාගැනීමට නොමැත.</string>
   <string name="menu_page_show_tabs">ටැබ් පෙන්වන්න</string>
-  <string name="menu_page_other_languages">වෙනත් භාෂාවලින් කියවන්න</string>
-  <string name="menu_page_save">පිටුව සුරකින්න</string>
-  <string name="menu_page_share">සබැඳිය හුවමාරු කරන්න</string>
+  <string name="menu_page_other_languages" fuzzy="true">වෙනත් භාෂාවලින් කියවන්න</string>
   <string name="menu_page_find_in_page">පිටුවෙහි සොයන්න</string>
   <string name="menu_page_font_and_theme">අකුරු රටාව හා තේමාව</string>
+  <string name="menu_page_save">පිටුව සුරකින්න</string>
+  <string name="menu_page_share">සබැඳිය හුවමාරු කරන්න</string>
   <string name="menu_long_press_open_page">විවෘත කරන්න</string>
   <string name="menu_long_press_open_in_new_tab">නව ටැබයක විවෘත කරන්න</string>
   <string name="menu_long_press_copy_page">සබැඳි ලිපිනය පිටපත් කරන්න</string>

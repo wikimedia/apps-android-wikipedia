@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">저장된 문서 검색</string>
   <string name="saved_pages_search_empty_message">검색어와 일치하는 문서를 찾을 수 없습니다.</string>
   <string name="menu_page_show_tabs">탭 보기</string>
-  <string name="menu_page_other_languages">다른 언어로 읽기</string>
-  <string name="menu_page_save">문서 저장</string>
-  <string name="menu_page_share">링크 공유</string>
+  <string name="menu_page_other_languages" fuzzy="true">다른 언어로 읽기</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
+  <string name="menu_page_save">문서 저장</string>
+  <string name="menu_page_share">링크 공유</string>
   <string name="menu_long_press_open_page">열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="menu_long_press_copy_page">링크 주소 복사</string>

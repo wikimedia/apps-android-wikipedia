@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Претрага сачуваних страница</string>
   <string name="saved_pages_search_empty_message">Нема пронађених страница које одговарају вашем упиту.</string>
   <string name="menu_page_show_tabs">Прикажи језичке</string>
-  <string name="menu_page_other_languages">Читај на осталим језици</string>
-  <string name="menu_page_save">Сачувај страницу</string>
-  <string name="menu_page_share">Дели</string>
+  <string name="menu_page_other_languages" fuzzy="true">Читај на осталим језици</string>
   <string name="menu_page_find_in_page">Пронађи на страници</string>
   <string name="menu_page_font_and_theme">Фонт и тема</string>
+  <string name="menu_page_save">Сачувај страницу</string>
+  <string name="menu_page_share">Дели</string>
   <string name="menu_long_press_open_page">Отвори</string>
   <string name="menu_long_press_open_in_new_tab">Отвори у новом језичку</string>
   <string name="menu_long_press_copy_page">Копирај URL везу</string>

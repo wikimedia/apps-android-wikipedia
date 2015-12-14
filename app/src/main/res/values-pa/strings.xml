@@ -29,11 +29,11 @@
   <string name="saved_pages_search_list_hint">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਖੋਜੋ</string>
   <string name="saved_pages_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
   <string name="menu_page_show_tabs">ਟੈਬ ਦਿਖਾਵੋ</string>
-  <string name="menu_page_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
-  <string name="menu_page_save">ਵਰਕਾ ਸੰਭਾਲੋ</string>
-  <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
+  <string name="menu_page_other_languages" fuzzy="true">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="menu_page_find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ-ਬਨਾਵਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
+  <string name="menu_page_save">ਵਰਕਾ ਸੰਭਾਲੋ</string>
+  <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="menu_long_press_open_page">ਖੋਲ੍ਹੋ</string>
   <string name="menu_long_press_open_in_new_tab">ਨਵੇਂ ਟੈਬ \'ਚ ਖੋਲ੍ਹੋ</string>
   <string name="menu_long_press_copy_page">ਕੜੀ ਦਾ ਪਤਾ ੳੁਤਾਰੋ</string>

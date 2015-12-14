@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Buscar en páginas guardadas</string>
   <string name="saved_pages_search_empty_message">No se encontraron páginas que coincidan con tu consulta.</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
-  <string name="menu_page_other_languages">Leer en otros idiomas</string>
-  <string name="menu_page_save">Guardar página</string>
-  <string name="menu_page_share">Compartir enlace</string>
+  <string name="menu_page_other_languages" fuzzy="true">Leer en otros idiomas</string>
   <string name="menu_page_find_in_page">Buscar en la página</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
+  <string name="menu_page_save">Guardar página</string>
+  <string name="menu_page_share">Compartir enlace</string>
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
   <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
@@ -262,7 +262,9 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">Dirección copiada en el portapapeles.</string>
   <string name="text_copied">Texto copiado en el portapapeles.</string>
-  <string name="button_continue_to_article" fuzzy="true">Continuar al artículo</string>
+  <string name="button_continue_to_article">Leer artículo</string>
+  <string name="button_get_directions">Obtener indicaciones</string>
+  <string name="error_no_maps_app">No se pudo encontrar ninguna aplicación que proporcione indicaciones.</string>
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>
   <string name="preference_summary_show_link_previews">Mostrar una vista previa rápida de los artículos al pulsar en los enlaces.</string>
   <string name="nav_item_donate">Apoya a Wikipedia</string>

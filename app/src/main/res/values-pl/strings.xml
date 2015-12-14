@@ -29,11 +29,11 @@
   <string name="saved_pages_search_list_hint">Wyszukiwanie zapisanych stron</string>
   <string name="saved_pages_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
-  <string name="menu_page_other_languages">Czytaj w innych językach</string>
-  <string name="menu_page_save">Zapisz stronę</string>
-  <string name="menu_page_share">Podziel się linkiem</string>
+  <string name="menu_page_other_languages" fuzzy="true">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
+  <string name="menu_page_save">Zapisz stronę</string>
+  <string name="menu_page_share">Podziel się linkiem</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Skopiuj adres linka</string>
@@ -249,7 +249,7 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="format_error_server_code">Kod: „%s”</string>
   <string name="address_copied">Adres skopiowany do schowka.</string>
   <string name="text_copied">Tekst skopiowany do schowka.</string>
-  <string name="button_continue_to_article" fuzzy="true">Do artykułu</string>
+  <string name="button_continue_to_article">Przeczytaj artykuł</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="nav_item_donate">Wspomóż Wikipedię</string>

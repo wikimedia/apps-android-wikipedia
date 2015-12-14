@@ -55,14 +55,14 @@ See also:
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.
 {{Identical|Otherlanguages}}</string>
-  <string name="menu_page_save">Menu item for saving a page for later reading.
-{{Identical|Save page}}</string>
-  <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
-{{Identical|Share}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_content_issues">Menu item for showing known issues on current page</string>
   <string name="menu_page_similar_titles">Menu item for showing articles similar to the current page</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
+  <string name="menu_page_save">Menu item for saving a page for later reading.
+{{Identical|Save page}}</string>
+  <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
+{{Identical|Share}}</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.
 {{Identical|Open}}</string>
   <string name="menu_long_press_open_in_new_tab">Menu item for opening a link in a new tab.</string>

@@ -28,11 +28,11 @@
   <string name="snackbar_saved_page_deleted">Rûpela(ên) hate(in) jêbirin</string>
   <string name="saved_pages_search_list_hint">Li rûpelên tomarkirî bigere</string>
   <string name="menu_page_show_tabs">Hilpêkînan nîşan bide</string>
-  <string name="menu_page_other_languages">Di zimanên din de bixwîne</string>
-  <string name="menu_page_save">Rûpelê tomar bike</string>
-  <string name="menu_page_share">Lînkê parve bike</string>
+  <string name="menu_page_other_languages" fuzzy="true">Di zimanên din de bixwîne</string>
   <string name="menu_page_find_in_page">Di nav rûpelê de bibîne</string>
   <string name="menu_page_font_and_theme">Font û tema</string>
+  <string name="menu_page_save">Rûpelê tomar bike</string>
+  <string name="menu_page_share">Lînkê parve bike</string>
   <string name="menu_long_press_open_page">Veke</string>
   <string name="menu_long_press_open_in_new_tab">Di hilpêkînek nû de veke</string>
   <string name="menu_long_press_copy_page">Adrêsa lînkê kopî bike</string>

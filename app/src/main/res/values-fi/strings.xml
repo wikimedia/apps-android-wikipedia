@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Hae tallennetuista sivuista</string>
   <string name="saved_pages_search_empty_message">Hakuasi vastaavia sivua ei löytynyt.</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
-  <string name="menu_page_other_languages">Muilla kielillä</string>
-  <string name="menu_page_save">Tallenna sivu</string>
-  <string name="menu_page_share">Jaa linkki</string>
+  <string name="menu_page_other_languages" fuzzy="true">Muilla kielillä</string>
   <string name="menu_page_find_in_page">Etsi sivulta</string>
   <string name="menu_page_font_and_theme">Muuta kirjaisintyyppiä ja teemaa</string>
+  <string name="menu_page_save">Tallenna sivu</string>
+  <string name="menu_page_share">Jaa linkki</string>
   <string name="menu_long_press_open_page">Avaa</string>
   <string name="menu_long_press_open_in_new_tab">Avaa uudessa välilehdessä</string>
   <string name="menu_long_press_copy_page">Kopioi linkin osoite</string>

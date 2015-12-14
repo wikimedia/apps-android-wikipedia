@@ -29,11 +29,11 @@
   <string name="saved_pages_search_list_hint">محفوظ صفحات تلاش کریں</string>
   <string name="saved_pages_search_empty_message">مطلوبہ تلاش کے نتائج نہیں ملے.</string>
   <string name="menu_page_show_tabs">دکھائیں</string>
-  <string name="menu_page_other_languages">دوسری زبان میں مطالعہ کریں</string>
-  <string name="menu_page_save">صفحہ محفوظ کریں</string>
-  <string name="menu_page_share">ربط شیئر کریں</string>
+  <string name="menu_page_other_languages" fuzzy="true">دوسری زبان میں مطالعہ کریں</string>
   <string name="menu_page_find_in_page">صفحہ میں تلاش کریں</string>
   <string name="menu_page_font_and_theme">فانٹ اور پس منظر</string>
+  <string name="menu_page_save">صفحہ محفوظ کریں</string>
+  <string name="menu_page_share">ربط شیئر کریں</string>
   <string name="nav_item_nearby">قریبی</string>
   <string name="nearby_distance_in_meters">%d میٹر</string>
   <string name="nearby_distance_in_kilometers">%.2f کلومیٹر</string>

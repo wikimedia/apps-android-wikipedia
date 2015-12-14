@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Søk i lagrede sider</string>
   <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
   <string name="menu_page_show_tabs">Vis arkfaner</string>
-  <string name="menu_page_other_languages">Les på andre språk</string>
-  <string name="menu_page_save">Lagre side</string>
-  <string name="menu_page_share">Del lenke</string>
+  <string name="menu_page_other_languages" fuzzy="true">Les på andre språk</string>
   <string name="menu_page_find_in_page">Søk i siden</string>
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
+  <string name="menu_page_save">Lagre side</string>
+  <string name="menu_page_share">Del lenke</string>
   <string name="menu_long_press_open_page">Åpne</string>
   <string name="menu_long_press_open_in_new_tab">Åpne i ny arkfane</string>
   <string name="menu_long_press_copy_page">Kopier lenkeadresse</string>

@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">In opgeslagen pagina\'s zoeken</string>
   <string name="saved_pages_search_empty_message">Geen pagina\'s gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
-  <string name="menu_page_other_languages">In een andere taal lezen</string>
-  <string name="menu_page_save">Pagina opslaan</string>
-  <string name="menu_page_share">Koppeling delen</string>
+  <string name="menu_page_other_languages" fuzzy="true">In een andere taal lezen</string>
   <string name="menu_page_find_in_page">Op pagina zoeken</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
+  <string name="menu_page_save">Pagina opslaan</string>
+  <string name="menu_page_share">Koppeling delen</string>
   <string name="menu_long_press_open_page">Openen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
   <string name="menu_long_press_copy_page">Koppelingsadres kopiëren</string>

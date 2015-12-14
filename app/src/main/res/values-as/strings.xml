@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">সঞ্চিত পৃষ্ঠাসমূহ সন্ধান কৰক</string>
   <string name="saved_pages_search_empty_message">আপোনাৰ সন্ধানৰ সৈতে মিল থকা কোনো পৃষ্ঠা পোৱা নগ\'ল।</string>
   <string name="menu_page_show_tabs">টেব্‌সমূহ দেখুৱাওক</string>
-  <string name="menu_page_other_languages">অন্য ভাষাত পঢ়ক</string>
-  <string name="menu_page_save">পৃষ্ঠা সাঁচক</string>
-  <string name="menu_page_share">লিংক শ্বেয়াৰ কৰক</string>
+  <string name="menu_page_other_languages" fuzzy="true">অন্য ভাষাত পঢ়ক</string>
   <string name="menu_page_find_in_page">এই পৃষ্ঠাত বিচাৰক</string>
   <string name="menu_page_font_and_theme">ফ\'ণ্ট আৰু থীম</string>
+  <string name="menu_page_save">পৃষ্ঠা সাঁচক</string>
+  <string name="menu_page_share">লিংক শ্বেয়াৰ কৰক</string>
   <string name="menu_long_press_open_page">খোলক</string>
   <string name="menu_long_press_open_in_new_tab">নতুন টেবত খোলক</string>
   <string name="menu_long_press_copy_page">লিংক ঠিকনা প্ৰতিলিপি কৰক</string>

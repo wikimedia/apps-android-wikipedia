@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">ابحث في الصفحات المحفوظة</string>
   <string name="saved_pages_search_empty_message">لم يتم العثور على صفحات مطابقة لبحثك.</string>
   <string name="menu_page_show_tabs">أظهر الألسنة</string>
-  <string name="menu_page_other_languages">اقرأ بلغات أخرى</string>
-  <string name="menu_page_save">حفظ الصفحة</string>
-  <string name="menu_page_share">شارك الوصلة</string>
+  <string name="menu_page_other_languages" fuzzy="true">اقرأ بلغات أخرى</string>
   <string name="menu_page_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
+  <string name="menu_page_save">حفظ الصفحة</string>
+  <string name="menu_page_share">شارك الوصلة</string>
   <string name="menu_long_press_open_page">مفتوح</string>
   <string name="menu_long_press_open_in_new_tab">افتح في لسان جديد</string>
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>

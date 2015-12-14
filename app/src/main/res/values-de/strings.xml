@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">Gespeicherte Seiten suchen</string>
   <string name="saved_pages_search_empty_message">Keine Seiten mit deiner Suchanfrage gefunden.</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
-  <string name="menu_page_other_languages">In anderen Sprachen lesen</string>
-  <string name="menu_page_save">Seite speichern</string>
-  <string name="menu_page_share">Link teilen</string>
+  <string name="menu_page_other_languages" fuzzy="true">In anderen Sprachen lesen</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
   <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
+  <string name="menu_page_save">Seite speichern</string>
+  <string name="menu_page_share">Link teilen</string>
   <string name="menu_long_press_open_page">Öffnen</string>
   <string name="menu_long_press_open_in_new_tab">In neuer Registerkarte öffnen</string>
   <string name="menu_long_press_copy_page">Link-Adresse kopieren</string>

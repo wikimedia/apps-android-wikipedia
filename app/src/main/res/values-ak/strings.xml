@@ -23,10 +23,10 @@
   <string name="snackbar_refresh_saved_page">Mereyɛ krataa no foforo</string>
   <string name="delete_selected_saved_pages">Popa</string>
   <string name="snackbar_saved_page_deleted">Nkrataa a wode asie no apopa</string>
-  <string name="menu_page_other_languages">Kan wɔ kasa ahorow mu</string>
+  <string name="menu_page_other_languages" fuzzy="true">Kan wɔ kasa ahorow mu</string>
+  <string name="menu_page_find_in_page">Hwehwɛ wɔ krataa yi mu</string>
   <string name="menu_page_save">Fa sie</string>
   <string name="menu_page_share" fuzzy="true">Kyekyɛ</string>
-  <string name="menu_page_find_in_page">Hwehwɛ wɔ krataa yi mu</string>
   <string name="last_updated_text">Wo nkyerɛase %s</string>
   <string name="content_license_html">Saa nkrataa yi nyinaa hyɛ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ase, ɛte saa a, wɔbɛka ade foforo</string>
   <string name="preference_title_language">Wikipedia kasa</string>

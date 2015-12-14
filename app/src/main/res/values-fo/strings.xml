@@ -28,7 +28,7 @@
   <string name="snackbar_saved_page_deleted">Goymd(ar) síða(ur) slettað(ar)</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">Leita</string>
   <string name="saved_pages_search_empty_message">Fann ongar síður ið svaraðu til tín fyrispurning.</string>
-  <string name="menu_page_other_languages">Les á øðrum málum</string>
+  <string name="menu_page_other_languages" fuzzy="true">Les á øðrum málum</string>
   <string name="menu_page_save">Goym síðu</string>
   <string name="menu_page_share" fuzzy="true">Deil</string>
   <string name="nav_item_nearby">Nærindis</string>

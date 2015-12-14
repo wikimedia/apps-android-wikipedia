@@ -30,11 +30,11 @@
   <string name="saved_pages_search_list_hint">സേവ് ചെയ്തിട്ടുള്ള താളുകളിൽ തിരയുക</string>
   <string name="saved_pages_search_empty_message">താങ്കൾ തിരഞ്ഞതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>
-  <string name="menu_page_other_languages">മറ്റു ഭാഷകളിൽ വായിക്കുക</string>
-  <string name="menu_page_save">താൾ സേവ് ചെയ്യുക</string>
-  <string name="menu_page_share">കണ്ണി പങ്ക് വെയ്ക്കുക</string>
+  <string name="menu_page_other_languages" fuzzy="true">മറ്റു ഭാഷകളിൽ വായിക്കുക</string>
   <string name="menu_page_find_in_page">താളിൽ കണ്ടെത്തുക</string>
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
+  <string name="menu_page_save">താൾ സേവ് ചെയ്യുക</string>
+  <string name="menu_page_share">കണ്ണി പങ്ക് വെയ്ക്കുക</string>
   <string name="menu_long_press_open_page">തുറക്കുക</string>
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
   <string name="menu_long_press_copy_page">കണ്ണിയുടെ വിലാസം പകർത്തുക</string>
