@@ -1,5 +1,7 @@
 package org.wikipedia.util;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -94,14 +96,20 @@ public final class UriUtil {
         }
     }
 
-    public static void sendGeoIntent(final Context context, @NonNull Location location, String placeName) {
+    public static void sendGeoIntent(@NonNull Activity activity,
+                                     @NonNull Location location,
+                                     String placeName) {
         String geoStr = "geo:";
         geoStr += Double.toString(location.getLatitude()) + ","
                 + Double.toString(location.getLongitude());
         if (!TextUtils.isEmpty(placeName)) {
             geoStr += "?q=" + Uri.encode(placeName);
         }
-        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(geoStr)));
+        try {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(geoStr)));
+        } catch (ActivityNotFoundException e) {
+            FeedbackUtil.showMessage(activity, R.string.error_no_maps_app);
+        }
     }
 
     private UriUtil() {

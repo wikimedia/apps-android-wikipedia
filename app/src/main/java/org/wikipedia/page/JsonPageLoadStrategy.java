@@ -80,7 +80,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
      * Since the list consists of Parcelable objects, it can be saved and restored from the
      * savedInstanceState of the fragment.
      */
-    @NonNull private List<PageBackStackItem> backStack;
+    @NonNull private List<PageBackStackItem> backStack = new ArrayList<>();
 
     @NonNull private final SequenceNumber sequenceNumber = new SequenceNumber();
 
@@ -117,20 +117,19 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private BottomContentInterface bottomContentHandler;
 
-    JsonPageLoadStrategy() {
-        backStack = new ArrayList<>();
-    }
-
     @Override
     public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
         this.backStack = backStack;
     }
 
     @Override
-    public void setup(PageViewModel model, PageFragment fragment,
+    public void setup(PageViewModel model,
+                      PageFragment fragment,
                       SwipeRefreshLayoutWithScroll refreshView,
-                      ObservableWebView webView, CommunicationBridge bridge,
-                      SearchBarHideHandler searchBarHideHandler, LeadImagesHandler leadImagesHandler) {
+                      ObservableWebView webView,
+                      CommunicationBridge bridge,
+                      SearchBarHideHandler searchBarHideHandler,
+                      LeadImagesHandler leadImagesHandler) {
         this.model = model;
         this.fragment = fragment;
         activity = (PageActivity) fragment.getActivity();
@@ -218,7 +217,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     @Override
     public void onDisplayNewPage(boolean pushBackStack, Cache cachePreference, int stagedScrollY) {
         fragment.updatePageInfo(null);
-        leadImagesHandler.updateMenuBar(false);
+        leadImagesHandler.updateBookmark(false);
+        leadImagesHandler.updateNavigate(null);
 
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
@@ -463,7 +463,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     @Override
                     public void run() {
                         displayNonLeadSectionForSavedPage(1);
-                        leadImagesHandler.updateMenuBar(true);
+                        leadImagesHandler.updateBookmark(true);
 
                         setState(STATE_COMPLETE_FETCH);
                     }
@@ -564,6 +564,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         refreshView.setRefreshing(false);
         activity.updateProgressBar(true, true, 0);
+
+        leadImagesHandler.updateNavigate(page.getPageProperties().getGeo());
     }
 
     private void sendMarginPayload() {
@@ -774,8 +776,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
             @Override
             public void onCatch(Throwable caught) {
-                // Thumbnails are expendable
-                Log.w("SaveThumbnailTask", "Caught " + caught.getMessage(), caught);
+                L.w(caught);
             }
         }).execute();
     }
@@ -787,7 +788,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 !app.isImageDownloadEnabled(),
                 new PageRemaining.Callback() {
                     @Override
-                    public void success(PageRemaining pageRemaining, Response response) {
+                    public void success(PageRemaining pageRemaining, @NonNull Response response) {
                         Log.v(TAG, response.getUrl());
                         app.getSessionFunnel().restSectionsFetchEnd();
                         onRemainingSectionsLoaded(pageRemaining, startSequenceNum);

@@ -8,6 +8,7 @@ import org.wikipedia.util.log.L;
 
 import com.google.gson.annotations.Expose;
 
+import android.location.Location;
 import android.support.annotation.Nullable;
 
 
@@ -63,6 +64,12 @@ public class RbPageCombo implements PageCombo {
     @Nullable
     public String getTitlePronunciationUrl() {
         return lead == null ? null : lead.getTitlePronunciationUrl();
+    }
+
+    @Nullable
+    @Override
+    public Location getGeo() {
+        return lead == null ? null : lead.getGeo();
     }
 
     /** Converter */

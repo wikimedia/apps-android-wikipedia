@@ -2,6 +2,7 @@ package org.wikipedia.server;
 
 import org.wikipedia.page.Section;
 
+import android.location.Location;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
@@ -26,6 +27,9 @@ public interface PageLeadProperties {
 
     @Nullable
     String getTitlePronunciationUrl();
+
+    @Nullable
+    Location getGeo();
 
     @Nullable
     String getRedirected();

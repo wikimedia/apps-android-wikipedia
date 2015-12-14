@@ -1,5 +1,6 @@
 package org.wikipedia.server;
 
+import android.location.Location;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.page.Page;
@@ -26,6 +27,9 @@ public interface PageLead {
 
     @Nullable
     String getTitlePronunciationUrl();
+
+    @Nullable
+    Location getGeo();
 
     /** So we can have polymorphic Retrofit Callbacks */
     interface Callback {

@@ -22,7 +22,6 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ViewUtil;
 
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.location.Location;
 import android.os.Bundle;
@@ -394,12 +393,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
     private void goToExternalMapsApp() {
         if (location != null) {
-            try {
-                dismiss();
-                UriUtil.sendGeoIntent(getActivity(), location, pageTitle.getDisplayText());
-            } catch (ActivityNotFoundException e) {
-                FeedbackUtil.showMessage(getActivity(), R.string.error_no_maps_app);
-            }
+            dismiss();
+            UriUtil.sendGeoIntent(getActivity(), location, pageTitle.getDisplayText());
         }
     }
 }

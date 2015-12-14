@@ -61,8 +61,12 @@ public class ArticleMenuBarView extends LinearLayout {
         this.callback = callback == null ? new DefaultCallback() : callback;
     }
 
-    public void update(boolean bookmarkSaved) {
+    public void updateBookmark(boolean bookmarkSaved) {
         bookmark.setActivated(bookmarkSaved);
+    }
+
+    public void updateNavigate(boolean geolocated) {
+        navigate.setVisibility(geolocated ? VISIBLE : GONE);
     }
 
     @OnClick({R.id.view_article_menu_bar_bookmark,

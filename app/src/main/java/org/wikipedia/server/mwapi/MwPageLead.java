@@ -15,6 +15,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.Expose;
 
+import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
@@ -85,6 +86,12 @@ public class MwPageLead implements PageLead {
         return null;
     }
 
+    @Nullable
+    @Override
+    public Location getGeo() {
+        return null;
+    }
+
     @VisibleForTesting
     public Mobileview getMobileview() {
         return mobileview;
@@ -138,9 +145,15 @@ public class MwPageLead implements PageLead {
             return displaytitle;
         }
 
-        @Nullable
         @Override
+        @Nullable
         public String getTitlePronunciationUrl() {
+            return null;
+        }
+
+        @Override
+        @Nullable
+        public Location getGeo() {
             return null;
         }
 

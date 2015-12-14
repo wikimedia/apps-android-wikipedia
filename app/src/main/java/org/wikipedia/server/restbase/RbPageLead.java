@@ -1,5 +1,6 @@
 package org.wikipedia.server.restbase;
 
+import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -15,8 +16,10 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
+import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -37,6 +40,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Expose @Nullable private String redirected;
     @Expose @Nullable private String normalizedtitle;
     @Expose @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
+    @Expose @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location geo;
     @Expose private int languagecount;
     @Expose private boolean editable;
     @Expose private boolean mainpage;
@@ -117,6 +121,12 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         return titlePronunciation == null
                 ? null
                 : UriUtil.resolveProtocolRelativeUrl(titlePronunciation.getUrl());
+    }
+
+    @Override
+    @Nullable
+    public Location getGeo() {
+        return geo;
     }
 
     public int getLanguageCount() {
