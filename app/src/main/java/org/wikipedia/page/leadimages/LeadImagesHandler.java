@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.location.Location;
+import android.support.annotation.ColorInt;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -488,13 +489,14 @@ public class LeadImagesHandler {
 
     private class ImageLoadListener implements ImageViewWithFace.OnImageLoadListener {
         @Override
-        public void onImageLoaded(Bitmap bitmap, @Nullable final PointF faceLocation) {
+        public void onImageLoaded(Bitmap bitmap, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
             final int bmpHeight = bitmap.getHeight();
             articleHeaderView.post(new Runnable() {
                 @Override
                 public void run() {
                     if (isFragmentAdded()) {
                         detectFace(bmpHeight, faceLocation);
+                        articleHeaderView.setMenuBarColor(mainColor);
                     }
                 }
             });
@@ -502,7 +504,7 @@ public class LeadImagesHandler {
 
         @Override
         public void onImageFailed() {
-            // just keep showing the placeholder image...
+            articleHeaderView.resetMenuBarColor();
         }
 
         private void detectFace(int bmpHeight, @Nullable PointF faceLocation) {

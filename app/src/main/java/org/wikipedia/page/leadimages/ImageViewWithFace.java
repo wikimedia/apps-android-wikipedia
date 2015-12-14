@@ -9,20 +9,23 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.media.FaceDetector;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import org.wikipedia.R;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.log.L;
 
 public class ImageViewWithFace extends ImageView implements Target {
     public interface OnImageLoadListener {
-        void onImageLoaded(Bitmap bitmap, @Nullable PointF faceLocation);
+        void onImageLoaded(Bitmap bitmap, @Nullable PointF faceLocation, @ColorInt int mainColor);
         void onImageFailed();
     }
 
@@ -46,8 +49,8 @@ public class ImageViewWithFace extends ImageView implements Target {
 
     @Override
     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-        if (isBitmapEligibleForFaceDetection(bitmap)) {
-            spawnFaceDetectionTask(bitmap);
+        if (isBitmapEligibleForImageProcessing(bitmap)) {
+            spawnImageProcessingTask(bitmap);
         } else {
             listener.onImageFailed();
         }
@@ -63,17 +66,18 @@ public class ImageViewWithFace extends ImageView implements Target {
 
     @Override public void onPrepareLoad(Drawable placeHolderDrawable) { }
 
-    private boolean isBitmapEligibleForFaceDetection(Bitmap bitmap) {
+    private boolean isBitmapEligibleForImageProcessing(Bitmap bitmap) {
         final int minSize = 64;
         return bitmap.getWidth() >= minSize && bitmap.getHeight() >= minSize;
     }
 
-    private void spawnFaceDetectionTask(@NonNull final Bitmap bitmap) {
-        new FaceDetectionTask(SaneAsyncTask.LOW_CONCURRENCY, bitmap) {
+    private void spawnImageProcessingTask(@NonNull final Bitmap bitmap) {
+        new ImageProcessingTask(SaneAsyncTask.LOW_CONCURRENCY, bitmap) {
             @Override
             public PointF performTask() {
                 PointF facePos = super.performTask();
-                listener.onImageLoaded(bitmap, facePos);
+                int defaultColor = getContext().getResources().getColor(R.color.grey_700);
+                listener.onImageLoaded(bitmap, facePos, extractMainColor(defaultColor));
                 return facePos;
             }
 
@@ -86,7 +90,7 @@ public class ImageViewWithFace extends ImageView implements Target {
         }.execute();
     }
 
-    private static class FaceDetectionTask extends SaneAsyncTask<PointF> {
+    private static class ImageProcessingTask extends SaneAsyncTask<PointF> {
         // Width to which to reduce image copy on which face detection is performed in onBitMapLoaded()
         // (with height reduced proportionally there).  Performing face detection on a scaled-down
         // image copy improves speed and memory use.
@@ -95,8 +99,9 @@ public class ImageViewWithFace extends ImageView implements Target {
         private static final int BITMAP_COPY_WIDTH = 200;
 
         @NonNull private final Bitmap srcBitmap;
+        private Palette colorPalette;
 
-        FaceDetectionTask(int concurrency, @NonNull Bitmap bitmap) {
+        ImageProcessingTask(int concurrency, @NonNull Bitmap bitmap) {
             super(concurrency);
             srcBitmap = bitmap;
         }
@@ -111,6 +116,7 @@ public class ImageViewWithFace extends ImageView implements Target {
             // because the FaceDetector requires it to be a 565 bitmap, and it
             // must also be even width. Reduce size of copy for performance.
             Bitmap testBmp = new565ScaledBitmap(srcBitmap);
+            colorPalette = Palette.from(testBmp).generate();
 
             // initialize the face detector, and look for only one face...
             FaceDetector fd = new FaceDetector(testBmp.getWidth(), testBmp.getHeight(), 1);
@@ -134,6 +140,16 @@ public class ImageViewWithFace extends ImageView implements Target {
             return facePos;
         }
 
+        @ColorInt protected int extractMainColor(@ColorInt int defaultColor) {
+            int mainColor = defaultColor;
+            if (colorPalette.getDarkMutedSwatch() != null) {
+                mainColor = colorPalette.getDarkMutedSwatch().getRgb();
+            } else if (colorPalette.getDarkVibrantSwatch() != null) {
+                mainColor = colorPalette.getDarkVibrantSwatch().getRgb();
+            }
+            return mainColor;
+        }
+
         @NonNull private Bitmap new565ScaledBitmap(Bitmap src) {
             Bitmap copy =  Bitmap.createBitmap(BITMAP_COPY_WIDTH,
                     (src.getHeight() * BITMAP_COPY_WIDTH) / src.getWidth(), Bitmap.Config.RGB_565);
@@ -148,7 +164,7 @@ public class ImageViewWithFace extends ImageView implements Target {
     }
 
     private static class DefaultListener implements OnImageLoadListener {
-        @Override public void onImageLoaded(Bitmap bitmap, PointF faceLocation) { }
+        @Override public void onImageLoaded(Bitmap bitmap, PointF faceLocation, @ColorInt int mainColor) { }
         @Override public void onImageFailed() { }
     }
 }
