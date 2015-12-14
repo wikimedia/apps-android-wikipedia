@@ -5,18 +5,21 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import org.wikipedia.R;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class ArticleMenuBarView extends LinearLayout {
     public interface Callback {
@@ -88,6 +91,17 @@ public class ArticleMenuBarView extends LinearLayout {
                 L.w("Unknown id=" + StringUtil.intToHexStr(view.getId()));
                 break;
         }
+    }
+
+    @OnLongClick({R.id.view_article_menu_bar_bookmark,
+            R.id.view_article_menu_bar_share,
+            R.id.view_article_menu_bar_navigate})
+    public boolean onLongClick(View view) {
+        if (!TextUtils.isEmpty(view.getContentDescription())) {
+            FeedbackUtil.showToolbarButtonToast(view);
+            return true;
+        }
+        return false;
     }
 
     private void init() {

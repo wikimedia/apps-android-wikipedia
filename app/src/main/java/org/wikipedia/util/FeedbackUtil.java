@@ -6,6 +6,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.design.widget.Snackbar;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,6 +84,14 @@ public final class FeedbackUtil {
      */
     public static void setErrorPopup(TextView textView, String error) {
         textView.setError(error);
+    }
+
+    public static void showToolbarButtonToast(View view) {
+        Toast toast = Toast.makeText(view.getContext(), view.getContentDescription(), Toast.LENGTH_SHORT);
+        int[] location = new int[2];
+        view.getLocationOnScreen(location);
+        toast.setGravity(Gravity.TOP | Gravity.START, location[0], location[1]);
+        toast.show();
     }
 
     private static View findBestView(Activity activity) {

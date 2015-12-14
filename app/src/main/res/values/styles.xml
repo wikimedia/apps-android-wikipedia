@@ -186,6 +186,7 @@
         <item name="android:paddingRight">@dimen/view_article_menu_bar_button_padding</item>
         <item name="android:paddingLeft">@dimen/view_article_menu_bar_button_padding</item>
         <item name="android:tint">@color/grey_700</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
 </resources>
