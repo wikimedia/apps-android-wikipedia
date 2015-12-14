@@ -22,6 +22,8 @@ import org.wikipedia.testlib.TestLatch;
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(AndroidJUnit4.class)
@@ -181,11 +183,24 @@ public class EditTaskTest {
     private void save(final TestLatch completionLatch) {
         final PageTitle title = new PageTitle(null, EDIT_TASK_PAGE_TITLE, TEST_WIKI_SITE);
         final String addedText = EDIT_TASK_WIKITEXT + System.currentTimeMillis();
+        storeOldContentThenEdit(title, addedText, completionLatch);
+    }
 
+    private void storeOldContentThenEdit(final PageTitle title, final String addedText, final TestLatch completionLatch) {
+        new FetchSectionWikitextTask(app, title, SECTION_ID) {
+            @Override
+            public void onFinish(String oldContent) {
+                getReadyToEdit(title, oldContent, addedText, completionLatch);
+            }
+        }.execute();
+    }
+
+    public void getReadyToEdit(final PageTitle title, final String oldContent,
+                               final String addedText, final TestLatch completionLatch) {
         app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetrievedCallback() {
             @Override
             public void onTokenRetrieved(String token) {
-                edit(title, addedText, token, completionLatch);
+                edit(title, oldContent, addedText, token, completionLatch);
             }
 
             @Override
@@ -195,12 +210,13 @@ public class EditTaskTest {
         });
     }
 
-    private void edit(final PageTitle title, final String addedText, String token, final TestLatch completionLatch) {
+    private void edit(final PageTitle title, final String oldContent, final String addedText,
+                      String token, final TestLatch completionLatch) {
         new EditTask(app, title, addedText, SECTION_ID, token, "", false) {
             @Override
             public void onFinish(EditingResult result) {
                 verifyEditResultCode(result);
-                verifyNewContent(title, addedText, completionLatch);
+                verifyNewContent(title, oldContent, addedText, completionLatch);
             }
 
             @Override
@@ -214,11 +230,16 @@ public class EditTaskTest {
         assertThat(result.getResult(), is(SUCCESS));
     }
 
-    private void verifyNewContent(PageTitle title, final String addedText, final TestLatch completionLatch) {
+    private void verifyNewContent(PageTitle title, final String oldContent, final String addedText,
+                                  final TestLatch completionLatch) {
         new FetchSectionWikitextTask(app, title, SECTION_ID) {
             @Override
             public void onFinish(String result) {
-                assertThat(addedText, is(result));
+                if (!result.equals(addedText)) {
+                    // maybe another test instance was running in parallel and change the value again
+                    assertThat(oldContent, is(not(result)));
+                    assertThat(result, startsWith(EDIT_TASK_WIKITEXT));
+                }
                 completionLatch.countDown();
             }
         }.execute();
