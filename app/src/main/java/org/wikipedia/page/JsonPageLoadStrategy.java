@@ -574,12 +574,13 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private JSONObject marginPayload() {
-        int margin = DimenUtil.roundedPxToDp(getDimension(R.dimen.content_margin));
+        int horizontalMargin = DimenUtil.roundedPxToDp(getDimension(R.dimen.content_margin));
+        int verticalMargin = DimenUtil.roundedPxToDp(getDimension(R.dimen.activity_vertical_margin));
         try {
             return new JSONObject()
-                    .put("marginTop", margin)
-                    .put("marginLeft", margin)
-                    .put("marginRight", margin);
+                    .put("marginTop", verticalMargin)
+                    .put("marginLeft", horizontalMargin)
+                    .put("marginRight", horizontalMargin);
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
