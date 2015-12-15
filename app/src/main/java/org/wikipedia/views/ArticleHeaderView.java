@@ -118,6 +118,9 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         image.load(url);
         int height = url == null ? 0 : (int) (DimenUtil.getDisplayHeightPx() * SCREEN_PROPORTION);
         setMinimumHeight(height);
+        if (url == null) {
+            resetMenuBarColor();
+        }
     }
 
     public void crossFadeImage() {
@@ -200,6 +203,14 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
     public void updateNavigate(boolean geoLocated) {
         menuBar.updateNavigate(geoLocated);
+    }
+
+    public void resetMenuBarColor() {
+        menuBar.resetMenuBarColor();
+    }
+
+    public void setMenuBarColor(@ColorInt int color) {
+        menuBar.setMenuBarColor(color);
     }
 
     public void setMenuBarCallback(@Nullable ArticleMenuBarView.Callback callback) {

@@ -1,8 +1,11 @@
 package org.wikipedia.views;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -70,6 +73,18 @@ public class ArticleMenuBarView extends LinearLayout {
 
     public void updateNavigate(boolean geolocated) {
         navigate.setVisibility(geolocated ? VISIBLE : GONE);
+    }
+
+    public void resetMenuBarColor() {
+        setMenuBarColor(getResources().getColor(R.color.grey_700));
+    }
+
+    public void setMenuBarColor(@ColorInt int color) {
+        final int animDuration = 500;
+        final ObjectAnimator animator = ObjectAnimator.ofObject(getBackground(), "color",
+                new ArgbEvaluator(), color);
+        animator.setDuration(animDuration);
+        animator.start();
     }
 
     @OnClick({R.id.view_article_menu_bar_bookmark,

@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:background="@color/grey_211"
+            android:background="@color/grey_700"
             android:clickable="true"
             android:maxHeight="42dp"
             android:gravity="center_vertical" />
