@@ -55,7 +55,7 @@ public class PageInfoDialog extends BottomDialog {
                 PageTitle title = ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_DISAMBIG);
                 dismiss();
-                activity.displayNewPage(title, historyEntry);
+                activity.loadPage(title, historyEntry);
             }
         });
         PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(activity);

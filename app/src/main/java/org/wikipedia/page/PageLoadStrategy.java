@@ -48,20 +48,11 @@ public interface PageLoadStrategy {
                @NonNull LeadImagesHandler leadImagesHandler,
                @NonNull List<PageBackStackItem> backStack);
 
-    void backFromEditing(Intent data);
-
-    void onDisplayNewPage(boolean pushBackStack, Cache cachePreference, int stagedScrollY);
+    void load(boolean pushBackStack, Cache cachePreference, int stagedScrollY);
 
     boolean isLoading();
 
-    /** Convenience method for hiding all the content of a page. */
-    void onHidePageContent();
-
-    boolean onBackPressed();
-
-    void setEditHandler(EditHandler editHandler);
-
-    void setBackStack(@NonNull List<PageBackStackItem> backStack);
+    void loadFromBackStack();
 
     /**
      * Update the current topmost backstack item, based on the currently displayed page.
@@ -70,7 +61,16 @@ public interface PageLoadStrategy {
      */
     void updateCurrentBackStackItem();
 
-    void loadPageFromBackStack();
+    void setBackStack(@NonNull List<PageBackStackItem> backStack);
+
+    boolean popBackStack();
+
+    /** Convenience method for hiding all the content of a page. */
+    void onHidePageContent();
+
+    void setEditHandler(EditHandler editHandler);
+
+    void backFromEditing(Intent data);
 
     // TODO: remove. This has nothing to do with loading the page.
     void layoutLeadImage();

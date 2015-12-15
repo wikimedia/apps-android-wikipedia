@@ -60,7 +60,7 @@ public class PageLoadTests extends ActivityInstrumentationTestCase2<PageActivity
 
     public static void loadPage(PageFragment fragment, String title) {
         PageTitle pageTitle = new PageTitle(null, title, SITE);
-        fragment.displayNewPage(pageTitle,
+        fragment.loadPage(pageTitle,
                 new HistoryEntry(pageTitle, HistoryEntry.SOURCE_RANDOM),
                 PageLoadStrategy.Cache.FALLBACK,
                 false);

@@ -335,7 +335,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         @Override
         public void onNavigate(PageTitle title) {
             HistoryEntry newEntry = new HistoryEntry(title, entrySource);
-            getPageActivity().displayNewPage(title, newEntry);
+            getPageActivity().loadPage(title, newEntry);
         }
     }
 

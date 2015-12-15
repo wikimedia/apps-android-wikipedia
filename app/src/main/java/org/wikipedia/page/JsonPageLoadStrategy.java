@@ -146,19 +146,11 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // if we already have pages in the backstack (whether it's from savedInstanceState, or
         // from being stored in the activity's fragment backstack), then load the topmost page
         // on the backstack.
-        loadPageFromBackStack();
+        loadFromBackStack();
     }
 
     @Override
-    public void backFromEditing(Intent data) {
-        //Retrieve section ID from intent, and find correct section, so where know where to scroll to
-        sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
-        //reset our scroll offset, since we have a section scroll target
-        stagedScrollY = 0;
-    }
-
-    @Override
-    public void onDisplayNewPage(boolean pushBackStack, Cache cachePreference, int stagedScrollY) {
+    public void load(boolean pushBackStack, Cache cachePreference, int stagedScrollY) {
         fragment.updatePageInfo(null);
         leadImagesHandler.updateBookmark(false);
         leadImagesHandler.updateNavigate(null);
@@ -178,12 +170,12 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         if (cachePreference == Cache.NONE) {
             // If this is a refresh, don't clear the webview contents
             this.stagedScrollY = stagedScrollY;
-            loadPageOnWebViewReady(cachePreference);
+            loadOnWebViewReady(cachePreference);
         } else {
             // kick off an event to the WebView that will cause it to clear its contents,
             // and then report back to us when the clearing is complete, so that we can synchronize
             // the transitions of our native components to the new page content.
-            // The callback event from the WebView will then call the loadPageOnWebViewReady()
+            // The callback event from the WebView will then call the loadOnWebViewReady()
             // function, which will continue the loading process.
             leadImagesHandler.hide();
             bottomContentHandler.hide();
@@ -207,28 +199,16 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void onHidePageContent() {
-        bottomContentHandler.hide();
-    }
-
-    @Override
-    public boolean onBackPressed() {
-        popBackStack();
-        if (!backStack.isEmpty()) {
-            loadPageFromBackStack();
-            return true;
+    public void loadFromBackStack() {
+        if (backStack.isEmpty()) {
+            return;
         }
-        return false;
-    }
-
-    @Override
-    public void setEditHandler(EditHandler editHandler) {
-        this.editHandler = editHandler;
-    }
-
-    @Override
-    public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
-        this.backStack = backStack;
+        PageBackStackItem item = backStack.get(backStack.size() - 1);
+        // display the page based on the backstack item, stage the scrollY position based on
+        // the backstack item.
+        fragment.loadPage(item.getTitle(), item.getHistoryEntry(), Cache.PREFERRED, false,
+                item.getScrollY());
+        L.d("Loaded page " + item.getTitle().getDisplayText() + " from backstack");
     }
 
     @Override
@@ -241,16 +221,39 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void loadPageFromBackStack() {
-        if (backStack.isEmpty()) {
-            return;
+    public void setBackStack(@NonNull List<PageBackStackItem> backStack) {
+        this.backStack = backStack;
+    }
+
+    public boolean popBackStack() {
+        if (!backStack.isEmpty()) {
+            backStack.remove(backStack.size() - 1);
         }
-        PageBackStackItem item = backStack.get(backStack.size() - 1);
-        // display the page based on the backstack item, stage the scrollY position based on
-        // the backstack item.
-        fragment.displayNewPage(item.getTitle(), item.getHistoryEntry(), Cache.PREFERRED, false,
-                item.getScrollY());
-        L.d("Loaded page " + item.getTitle().getDisplayText() + " from backstack");
+
+        if (!backStack.isEmpty()) {
+            loadFromBackStack();
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void onHidePageContent() {
+        bottomContentHandler.hide();
+    }
+
+    @Override
+    public void setEditHandler(EditHandler editHandler) {
+        this.editHandler = editHandler;
+    }
+
+    @Override
+    public void backFromEditing(Intent data) {
+        //Retrieve section ID from intent, and find correct section, so where know where to scroll to
+        sectionTargetFromIntent = data.getIntExtra(EditSectionActivity.EXTRA_SECTION_ID, 0);
+        //reset our scroll offset, since we have a section scroll target
+        stagedScrollY = 0;
     }
 
     @Override
@@ -340,7 +343,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             public void onMessage(JSONObject payload) {
                 try {
                     stagedScrollY = payload.getInt("stagedScrollY");
-                    loadPageOnWebViewReady(Cache.valueOf(payload.getString("cachePreference")));
+                    loadOnWebViewReady(Cache.valueOf(payload.getString("cachePreference")));
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }
@@ -437,7 +440,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }
     }
 
-    private void loadPageOnWebViewReady(Cache cachePreference) {
+    private void loadOnWebViewReady(Cache cachePreference) {
         // stage any section-specific link target from the title, since the title may be
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
@@ -463,10 +466,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         } else {
             switch (cachePreference) {
                 case PREFERRED:
-                    loadPageFromCache(new ErrorCallback() {
+                    loadFromCache(new ErrorCallback() {
                         @Override
                         public void call(Throwable cacheError) {
-                            loadPageFromNetwork(new ErrorCallback() {
+                            loadFromNetwork(new ErrorCallback() {
                                 @Override
                                 public void call(final Throwable networkError) {
                                     loadSavedPage(new ErrorCallback() {
@@ -481,10 +484,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     });
                     break;
                 case FALLBACK:
-                    loadPageFromNetwork(new ErrorCallback() {
+                    loadFromNetwork(new ErrorCallback() {
                         @Override
                         public void call(final Throwable networkError) {
-                            loadPageFromCache(new ErrorCallback() {
+                            loadFromCache(new ErrorCallback() {
                                 @Override
                                 public void call(Throwable cacheError) {
                                     loadSavedPage(new ErrorCallback() {
@@ -501,7 +504,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 case NONE:
                 default:
                     // This is a refresh, don't clear contents in this case
-                    loadPageFromNetwork(new ErrorCallback() {
+                    loadFromNetwork(new ErrorCallback() {
                         @Override
                         public void call(Throwable networkError) {
                             fragment.commonSectionFetchOnCatch(networkError);
@@ -512,7 +515,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }
     }
 
-    private void loadPageFromCache(final ErrorCallback errorCallback) {
+    private void loadFromCache(final ErrorCallback errorCallback) {
         app.getPageCache()
                 .get(model.getTitleOriginal(), sequenceNumber.get(), new PageCache.CacheGetListener() {
                     @Override
@@ -556,7 +559,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 });
     }
 
-    private void loadPageFromNetwork(final ErrorCallback errorCallback) {
+    private void loadFromNetwork(final ErrorCallback errorCallback) {
         networkErrorCallback = errorCallback;
         // and make sure to write it to cache when it's loaded.
         cacheOnComplete = true;
@@ -572,17 +575,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private boolean isFirstPage() {
         return backStack.size() <= 1 && !webView.canGoBack();
-    }
-
-    /**
-     * Pop the topmost entry from the backstack.
-     * Does NOT automatically load the next topmost page on the backstack.
-     */
-    private void popBackStack() {
-        if (backStack.isEmpty()) {
-            return;
-        }
-        backStack.remove(backStack.size() - 1);
     }
 
     /**

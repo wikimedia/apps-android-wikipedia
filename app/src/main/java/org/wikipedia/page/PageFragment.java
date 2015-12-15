@@ -325,7 +325,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             public void onClick(View v) {
                 errorView.setVisibility(View.GONE);
                 errorState = false;
-                displayNewPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false);
+                loadPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false);
             }
         });
 
@@ -406,7 +406,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         if (!TextUtils.isEmpty(title.getNamespace()) || !app.isLinkPreviewEnabled()) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-            getPageActivity().displayNewPage(title, historyEntry);
+            getPageActivity().loadPage(title, historyEntry);
             new LinkPreviewFunnel(app).logNavigate();
         } else {
             getPageActivity().showLinkPreview(title, HistoryEntry.SOURCE_INTERNAL_LINK);
@@ -435,7 +435,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 tabList.add(tab);
                 pageLoadStrategy.updateCurrentBackStackItem();
                 pageLoadStrategy.setBackStack(tab.getBackStack());
-                pageLoadStrategy.loadPageFromBackStack();
+                pageLoadStrategy.loadFromBackStack();
             }
             tabsProvider.exitTabMode();
             tabFunnel.logSelect(tabList.size(), position);
@@ -444,7 +444,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onNewTabRequested() {
             // just load the main page into a new tab...
-            getPageActivity().displayMainPageInForegroundTab();
+            getPageActivity().loadMainPageInForegroundTab();
             tabFunnel.logCreateNew(tabList.size());
         }
 
@@ -465,7 +465,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 tabsProvider.invalidate();
                 // but if it's the topmost tab, then load the topmost page in the next tab.
                 pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
-                pageLoadStrategy.loadPageFromBackStack();
+                pageLoadStrategy.loadFromBackStack();
             } else {
                 tabFunnel.logCancel(tabList.size());
                 // and if the last tab was closed, then finish the activity!
@@ -514,7 +514,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void openInNewForegroundTabFromMenu(PageTitle title, HistoryEntry entry) {
         openInNewTabFromMenu(title, entry, getForegroundTabPosition());
-        displayNewPage(title, entry, PageLoadStrategy.Cache.FALLBACK, false);
+        loadPage(title, entry, PageLoadStrategy.Cache.FALLBACK, false);
     }
 
     public void openInNewTabFromMenu(PageTitle title,
@@ -524,19 +524,19 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabFunnel.logOpenInNew(tabList.size());
     }
 
-    public void displayNewPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
-                               boolean pushBackStack) {
-        displayNewPage(title, entry, cachePreference, pushBackStack, 0);
+    public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
+                         boolean pushBackStack) {
+        loadPage(title, entry, cachePreference, pushBackStack, 0);
     }
 
-    public void displayNewPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
-                               boolean pushBackStack, int stagedScrollY) {
-        displayNewPage(title, entry, cachePreference, pushBackStack, stagedScrollY, false);
+    public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
+                         boolean pushBackStack, int stagedScrollY) {
+        loadPage(title, entry, cachePreference, pushBackStack, stagedScrollY, false);
     }
 
-    public void displayNewPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
-                               boolean pushBackStack, boolean pageRefreshed) {
-        displayNewPage(title, entry, cachePreference, pushBackStack, 0, pageRefreshed);
+    public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
+                         boolean pushBackStack, boolean pageRefreshed) {
+        loadPage(title, entry, cachePreference, pushBackStack, 0, pageRefreshed);
     }
 
     /**
@@ -549,8 +549,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      * @param cachePreference Whether to try loading the page from cache or from network.
      * @param pushBackStack Whether to push the new page onto the backstack.
      */
-    public void displayNewPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
-                               boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
+    public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
+                         boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
         // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
         setToCButtonFadedIn(true);
@@ -572,7 +572,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         closePageScrollFunnel();
-        pageLoadStrategy.onDisplayNewPage(pushBackStack, cachePreference, stagedScrollY);
+        pageLoadStrategy.load(pushBackStack, cachePreference, stagedScrollY);
     }
 
     public Bitmap getLeadImageBitmap() {
@@ -619,7 +619,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             pageLoadStrategy.backFromEditing(data);
             FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
             // and reload the page...
-            displayNewPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false);
+            loadPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false);
         }
     }
 
@@ -872,7 +872,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             FeedbackUtil.showMessage(getActivity(), R.string.snackbar_refresh_saved_page);
         }
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
-        displayNewPage(model.getTitle(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false, true);
+        loadPage(model.getTitle(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false, true);
     }
 
     private ToCHandler tocHandler;
@@ -1053,7 +1053,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (closeFindInPage()) {
             return true;
         }
-        if (pageLoadStrategy.onBackPressed()) {
+        if (pageLoadStrategy.popBackStack()) {
             return true;
         }
         if (tabsProvider.onBackPressed()) {

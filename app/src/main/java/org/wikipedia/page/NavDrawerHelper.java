@@ -70,7 +70,7 @@ public class NavDrawerHelper {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_item_today:
-                        activity.displayMainPageInCurrentTab();
+                        activity.loadMainPageInCurrentTab();
                         funnel.logToday();
                         break;
                     case R.id.nav_item_history:
@@ -115,7 +115,7 @@ public class NavDrawerHelper {
                     @Override
                     public void onRandomPageReceived(@Nullable PageTitle title) {
                         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                        activity.displayNewPage(title, historyEntry, PageActivity.TabPosition.CURRENT_TAB, true);
+                        activity.loadPage(title, historyEntry, PageActivity.TabPosition.CURRENT_TAB, true);
                     }
 
                     @Override

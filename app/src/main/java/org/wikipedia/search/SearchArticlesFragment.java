@@ -408,7 +408,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         // selected a page to navigate to.
         launchedFromWidget = false;
         closeSearch();
-        ((PageActivity)getActivity()).displayNewPage(title, historyEntry, inNewTab
+        ((PageActivity)getActivity()).loadPage(title, historyEntry, inNewTab
                 ? PageActivity.TabPosition.NEW_TAB_BACKGROUND
                 : PageActivity.TabPosition.CURRENT_TAB, false);
     }

@@ -265,7 +265,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         if (languageChanged) {
             app.resetSite();
-            displayMainPageInForegroundTab();
+            loadMainPageInForegroundTab();
         }
 
         if (savedInstanceState == null) {
@@ -414,16 +414,16 @@ public class PageActivity extends ThemedActionBarActivity {
             Site site = new Site(intent.getData().getAuthority());
             PageTitle title = site.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
-            displayPageInForegroundTab(title, historyEntry);
+            loadPageInForegroundTab(title, historyEntry);
         } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            displayNewPage(title, historyEntry);
+            loadPage(title, historyEntry);
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getPrimarySite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-            displayPageInForegroundTab(title, historyEntry);
+            loadPageInForegroundTab(title, historyEntry);
         } else if (Intent.ACTION_SEND.equals(intent.getAction())
                 && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             // Share menu.
@@ -441,9 +441,9 @@ public class PageActivity extends ThemedActionBarActivity {
             // Log that the user tapped on the featured article widget
             // Instantiate the funnel anonymously to save on memory overhead
             new WidgetsFunnel(app).logFeaturedArticleWidgetTap();
-            displayMainPageInForegroundTab();
+            loadMainPageInForegroundTab();
         } else {
-            displayMainPageIfNoTabs();
+            loadMainPageIfNoTabs();
         }
     }
 
@@ -584,7 +584,7 @@ public class PageActivity extends ThemedActionBarActivity {
         // remove all current fragments from the backstack
         getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         Prefs.clearTabs();
-        displayMainPageIfNoTabs();
+        loadMainPageIfNoTabs();
     }
 
     /**
@@ -592,15 +592,15 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param title Title of the page to load.
      * @param entry HistoryEntry associated with this page.
      */
-    public void displayNewPage(PageTitle title, HistoryEntry entry) {
-        displayNewPage(title, entry, TabPosition.CURRENT_TAB, false);
+    public void loadPage(PageTitle title, HistoryEntry entry) {
+        loadPage(title, entry, TabPosition.CURRENT_TAB, false);
     }
 
-    public void displayNewPage(PageTitle title,
-                               HistoryEntry entry,
-                               TabPosition position,
-                               boolean allowStateLoss) {
-        displayNewPage(title, entry, position, allowStateLoss, false);
+    public void loadPage(PageTitle title,
+                         HistoryEntry entry,
+                         TabPosition position,
+                         boolean allowStateLoss) {
+        loadPage(title, entry, position, allowStateLoss, false);
     }
 
     /**
@@ -613,11 +613,11 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param allowStateLoss Whether to allow state loss.
      * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
-    public void displayNewPage(final PageTitle title,
-                               final HistoryEntry entry,
-                               final TabPosition position,
-                               boolean allowStateLoss,
-                               final boolean mustBeEmpty) {
+    public void loadPage(final PageTitle title,
+                         final HistoryEntry entry,
+                         final TabPosition position,
+                         boolean allowStateLoss,
+                         final boolean mustBeEmpty) {
         if (isDestroyed()) {
             return;
         }
@@ -658,7 +658,7 @@ public class PageActivity extends ThemedActionBarActivity {
                 }
                 frag.closeFindInPage();
                 if (position == TabPosition.CURRENT_TAB) {
-                    frag.displayNewPage(title, entry, PageLoadStrategy.Cache.FALLBACK, true);
+                    frag.loadPage(title, entry, PageLoadStrategy.Cache.FALLBACK, true);
                 } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
                     frag.openInNewBackgroundTabFromMenu(title, entry);
                 } else {
@@ -669,16 +669,16 @@ public class PageActivity extends ThemedActionBarActivity {
         });
     }
 
-    public void displayPageInForegroundTab(PageTitle title, HistoryEntry entry) {
-        displayNewPage(title, entry, TabPosition.NEW_TAB_FOREGROUND, false);
+    public void loadPageInForegroundTab(PageTitle title, HistoryEntry entry) {
+        loadPage(title, entry, TabPosition.NEW_TAB_FOREGROUND, false);
     }
 
-    public void displayMainPageInCurrentTab() {
-        displayMainPage(false, TabPosition.CURRENT_TAB, false);
+    public void loadMainPageInCurrentTab() {
+        loadMainPage(false, TabPosition.CURRENT_TAB, false);
     }
 
-    public void displayMainPageInForegroundTab() {
-        displayMainPage(true, TabPosition.NEW_TAB_FOREGROUND, false);
+    public void loadMainPageInForegroundTab() {
+        loadMainPage(true, TabPosition.NEW_TAB_FOREGROUND, false);
     }
 
     /**
@@ -691,10 +691,10 @@ public class PageActivity extends ThemedActionBarActivity {
      *                       the UI state to change unexpectedly on the user.
      * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
-    public void displayMainPage(boolean allowStateLoss, TabPosition position, boolean mustBeEmpty) {
+    public void loadMainPage(boolean allowStateLoss, TabPosition position, boolean mustBeEmpty) {
         PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getPrimarySite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
-        displayNewPage(title, historyEntry, position, allowStateLoss, mustBeEmpty);
+        loadPage(title, historyEntry, position, allowStateLoss, mustBeEmpty);
     }
 
     public void showLinkPreview(PageTitle title, int entrySource) {
@@ -763,8 +763,8 @@ public class PageActivity extends ThemedActionBarActivity {
                 : R.string.snackbar_saved_page_missing_images, title));
     }
 
-    private void displayMainPageIfNoTabs() {
-        displayMainPage(false, TabPosition.CURRENT_TAB, true);
+    private void loadMainPageIfNoTabs() {
+        loadMainPage(false, TabPosition.CURRENT_TAB, true);
     }
 
     private class EventBusMethods {
@@ -1021,7 +1021,7 @@ public class PageActivity extends ThemedActionBarActivity {
         uiThread.postDelayed(new Runnable() {
             @Override
             public void run() {
-                displayMainPageInForegroundTab();
+                loadMainPageInForegroundTab();
                 updateFeaturedPageWidget();
             }
         }, DateUtils.SECOND_IN_MILLIS);

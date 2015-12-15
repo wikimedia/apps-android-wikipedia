@@ -369,7 +369,7 @@ public class BottomContentHandler implements BottomContentInterface,
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = (PageTitle) adapter.getItem(position);
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                activity.displayNewPage(title, historyEntry);
+                activity.loadPage(title, historyEntry);
                 funnel.logSuggestionClicked(pageTitle, results.getPageTitles(), position);
             }
         });

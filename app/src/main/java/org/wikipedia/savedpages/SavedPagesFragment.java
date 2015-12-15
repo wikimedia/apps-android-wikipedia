@@ -201,7 +201,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                 if (actionMode == null) {
                     SavedPage savedPage = (SavedPage) view.getTag();
                     HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
-                    ((PageActivity)getActivity()).displayNewPage(savedPage.getTitle(), newEntry);
+                    ((PageActivity)getActivity()).loadPage(savedPage.getTitle(), newEntry);
                 }
             }
         });

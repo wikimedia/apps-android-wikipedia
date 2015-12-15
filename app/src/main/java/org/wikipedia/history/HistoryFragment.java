@@ -115,7 +115,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 if (actionMode == null) {
                     HistoryEntry oldEntry = (HistoryEntry) view.getTag();
                     HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
-                    ((PageActivity) getActivity()).displayNewPage(oldEntry.getTitle(), newEntry);
+                    ((PageActivity) getActivity()).loadPage(oldEntry.getTitle(), newEntry);
                 }
             }
         });

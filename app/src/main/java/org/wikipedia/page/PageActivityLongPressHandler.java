@@ -21,12 +21,12 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
 
     @Override
     public void onOpenLink(PageTitle title, HistoryEntry entry) {
-        activity.displayNewPage(title, entry);
+        activity.loadPage(title, entry);
     }
 
     @Override
     public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-        activity.displayNewPage(title, entry, PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
+        activity.loadPage(title, entry, PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
     }
 
     @Override
