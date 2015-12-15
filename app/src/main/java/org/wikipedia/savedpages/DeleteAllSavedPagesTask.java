@@ -12,7 +12,6 @@ public class DeleteAllSavedPagesTask extends SaneAsyncTask<Void> {
     private final WikipediaApp app;
 
     public DeleteAllSavedPagesTask(Context context) {
-        super(SINGLE_THREAD);
         app = (WikipediaApp) context.getApplicationContext();
     }
 

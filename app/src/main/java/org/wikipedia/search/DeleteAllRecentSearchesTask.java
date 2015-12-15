@@ -9,7 +9,6 @@ public class DeleteAllRecentSearchesTask extends SaneAsyncTask<Void> {
     private final WikipediaApp app;
 
     public DeleteAllRecentSearchesTask(Context context) {
-        super(SINGLE_THREAD);
         app = (WikipediaApp) context.getApplicationContext();
     }
 

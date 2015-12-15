@@ -14,7 +14,7 @@ public class PageImagesTask extends PageQueryTask<String> {
     private final int thumbsCount;
 
     public PageImagesTask(Api api, Site site, List<PageTitle> titles, int thumbSize) {
-        super(LOW_CONCURRENCY, api, site, titles);
+        super(api, site, titles);
         this.thumbSize = thumbSize;
         this.thumbsCount = titles.size();
     }

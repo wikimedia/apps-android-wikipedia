@@ -10,10 +10,7 @@ import org.wikipedia.WikipediaApp;
 
 public class RefreshCaptchaTask extends ApiTask<CaptchaResult> {
     public RefreshCaptchaTask(Context context, Site site) {
-        super(
-                SINGLE_THREAD,
-                ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
-        );
+        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(site));
     }
 
     @Override

@@ -13,7 +13,6 @@ public class LoadSavedPageTask extends SaneAsyncTask<Page> {
     }
 
     public LoadSavedPageTask(PageTitle title, int sequence) {
-        super(SINGLE_THREAD);
         this.title = title;
         this.sequence = sequence;
     }

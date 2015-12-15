@@ -8,20 +8,13 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
 
-import java.util.concurrent.Executor;
-
 public class WikipediaZeroTask extends ApiTask<ZeroMessage> {
     private String userAgent;
 
     // TODO: should user agent be exposed from Api?
-    public WikipediaZeroTask(Api api, String userAgent) {
-        super(SINGLE_THREAD, api);
-        init(userAgent);
-    }
-
     @VisibleForTesting
-    public WikipediaZeroTask(Executor executor, Api api, String userAgent) {
-        super(executor, api);
+    public WikipediaZeroTask(Api api, String userAgent) {
+        super(api);
         init(userAgent);
     }
 

@@ -13,8 +13,6 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
-import java.util.concurrent.Executor;
-
 import java.util.Map;
 
 import javax.net.ssl.SSLException;
@@ -23,14 +21,8 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     private static final boolean VERBOSE = WikipediaApp.getInstance().isDevRelease();
     private final Api api;
 
-    public ApiTask(int concurrency, Api api) {
-        super(concurrency);
-        this.api = api;
-    }
-
     @VisibleForTesting
-    public ApiTask(Executor executor, Api api) {
-        super(executor);
+    public ApiTask(Api api) {
         this.api = api;
     }
 

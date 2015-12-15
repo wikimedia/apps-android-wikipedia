@@ -15,7 +15,6 @@ public class LoginTask extends SaneAsyncTask<LoginResult> {
     private final WikipediaApp app;
 
     public LoginTask(Context context, Site site, String username, String password) {
-        super(SINGLE_THREAD);
         app = (WikipediaApp)context.getApplicationContext();
         api = app.getAPIForSite(site);
         this.username = username;

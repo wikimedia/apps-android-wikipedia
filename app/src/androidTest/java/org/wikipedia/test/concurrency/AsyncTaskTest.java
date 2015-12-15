@@ -5,23 +5,13 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.test.TestDummyActivity;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 1000;
-    private Executor executor;
 
     public AsyncTaskTest() {
         super(TestDummyActivity.class);
-    }
-
-    private Executor getDefaultExecutor() {
-        if (executor == null) {
-            executor = new ScheduledThreadPoolExecutor(1);
-        }
-        return executor;
     }
 
     public void testFinishHandling() throws Throwable {
@@ -30,7 +20,7 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new SaneAsyncTask<Integer>(getDefaultExecutor()) {
+                new SaneAsyncTask<Integer>() {
                     @Override
                     public void onFinish(Integer result) {
                         assertEquals(returned, result);
@@ -58,7 +48,7 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new SaneAsyncTask<Void>(getDefaultExecutor()) {
+                new SaneAsyncTask<Void>() {
                     @Override
                     public void onFinish(Void result) {
                         assertTrue("onFinish called despite exception", false);
@@ -86,7 +76,7 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
             @Override
             public void run() {
                 final Thread callingThread = Thread.currentThread();
-                new SaneAsyncTask<Thread>(getDefaultExecutor()) {
+                new SaneAsyncTask<Thread>() {
                     @Override
                     public void onBeforeExecute() {
                         assertSame(callingThread, Thread.currentThread());
@@ -117,7 +107,7 @@ public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
             @Override
             public void run() {
                 final Thread callingThread = Thread.currentThread();
-                new SaneAsyncTask<Thread>(getDefaultExecutor()) {
+                new SaneAsyncTask<Thread>() {
                     @Override
                     public void onBeforeExecute() {
                         assertSame(callingThread, Thread.currentThread());

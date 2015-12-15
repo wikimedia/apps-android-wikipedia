@@ -37,7 +37,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
     public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults,
                                   SearchResults.ContinueOffset continueOffset, boolean getMoreLike,
                                   int thumbSize) {
-        super(LOW_CONCURRENCY, api);
+        super(api);
         this.site = site;
         this.searchTerm = searchTerm;
         this.maxResults = maxResults;

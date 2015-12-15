@@ -15,10 +15,7 @@ public class EditPreviewTask extends ApiTask<String> {
     private final PageTitle title;
 
     public EditPreviewTask(Context context, String wikiText, PageTitle title) {
-        super(
-                SINGLE_THREAD,
-                ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
-        );
+        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite()));
         this.wikiText = wikiText;
         this.title = title;
     }

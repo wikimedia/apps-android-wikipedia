@@ -17,7 +17,6 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
     private final Context context;
 
     public MainPageReadMoreTopicTask(Context context) {
-        super(SaneAsyncTask.SINGLE_THREAD);
         this.context = context;
     }
 

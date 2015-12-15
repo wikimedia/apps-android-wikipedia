@@ -9,7 +9,6 @@ public class LoadSavedPageUrlMapTask extends SaneAsyncTask<JSONObject> {
     private final PageTitle title;
 
     public LoadSavedPageUrlMapTask(PageTitle title) {
-        super(SINGLE_THREAD);
         this.title = title;
     }
 

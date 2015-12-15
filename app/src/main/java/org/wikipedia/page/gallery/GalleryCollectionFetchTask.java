@@ -18,7 +18,7 @@ public abstract class GalleryCollectionFetchTask extends PageQueryTask<GalleryIt
     }
 
     public GalleryCollectionFetchTask(Api api, Site site, PageTitle title, boolean getThumbs) {
-        super(LOW_CONCURRENCY, api, site, title);
+        super(api, site, title);
         this.getThumbs = getThumbs;
     }
 

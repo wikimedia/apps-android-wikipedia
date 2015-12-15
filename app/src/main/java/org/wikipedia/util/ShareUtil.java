@@ -64,7 +64,7 @@ public final class ShareUtil {
     public static void shareImage(final Context context, final Bitmap bmp,
                                   final String imageFileName, final String subject,
                                   final String text, final boolean recycleBmp) {
-        new SaneAsyncTask<Uri>(SaneAsyncTask.SINGLE_THREAD) {
+        new SaneAsyncTask<Uri>() {
             @Override
             public Uri performTask() throws Throwable {
                 File processedBitmap = processBitmapForSharing(context, bmp, imageFileName, recycleBmp);

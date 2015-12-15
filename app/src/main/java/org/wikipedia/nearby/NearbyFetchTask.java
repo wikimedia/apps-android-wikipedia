@@ -25,10 +25,7 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
     private final double radius;
 
     public NearbyFetchTask(Context context, Site site, double latitude, double longitude, double radius) {
-        super(
-                SINGLE_THREAD,
-                ((WikipediaApp) context.getApplicationContext()).getAPIForSite(site)
-        );
+        super(((WikipediaApp) context.getApplicationContext()).getAPIForSite(site));
         this.latitude = latitude;
         this.longitude = longitude;
         this.radius = radius < MAX_RADIUS ? radius : MAX_RADIUS;

@@ -10,10 +10,7 @@ import org.wikipedia.WikipediaApp;
 
 public class FetchEditTokenTask extends ApiTask<String> {
     public FetchEditTokenTask(Context context, Site site) {
-        super(
-                SINGLE_THREAD,
-                ((WikipediaApp)context.getApplicationContext()).getAPIForSite(site)
-        );
+        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(site));
     }
 
     @Override

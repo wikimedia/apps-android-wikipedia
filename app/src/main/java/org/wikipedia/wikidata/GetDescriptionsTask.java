@@ -18,7 +18,7 @@ public class GetDescriptionsTask extends PageQueryTask<Void> {
     private List<PageTitle> titles;
 
     public GetDescriptionsTask(Api api, Site site, List<PageTitle> titles) {
-        super(LOW_CONCURRENCY, api, site, titles);
+        super(api, site, titles);
         this.titles = titles;
     }
 

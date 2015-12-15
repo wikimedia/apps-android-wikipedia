@@ -29,7 +29,7 @@ public class RemoteConfigRefreshTask extends RecurringTask {
 
     @Override
     protected void run(Date lastRun) {
-        new SaneAsyncTask<Boolean>(1) {
+        new SaneAsyncTask<Boolean>() {
             @Override
             public Boolean performTask() throws Throwable {
                 JSONObject config = new JSONObject(HttpRequest.get(REMOTE_CONFIG_URL).body());

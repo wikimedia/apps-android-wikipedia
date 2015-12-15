@@ -16,10 +16,7 @@ import java.util.ArrayList;
 public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
     private final PageTitle title;
     public LangLinksFetchTask(Context context, PageTitle title) {
-        super(
-                SINGLE_THREAD,
-                ((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite())
-        );
+        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite()));
         this.title = title;
     }
 

@@ -18,14 +18,14 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle, T>> {
     private final List<PageTitle> titles;
     private final Site site;
 
-    public PageQueryTask(int concurrencyLevel, Api api, Site site, List<PageTitle> titles) {
-        super(concurrencyLevel, api);
+    public PageQueryTask(Api api, Site site, List<PageTitle> titles) {
+        super(api);
         this.titles = titles;
         this.site = site;
     }
 
-    public PageQueryTask(int concurrencyLevel, Api api, Site site, PageTitle title) {
-        super(concurrencyLevel, api);
+    public PageQueryTask(Api api, Site site, PageTitle title) {
+        super(api);
         this.titles = new ArrayList<>();
         titles.add(title);
         this.site = site;

@@ -15,7 +15,7 @@ public class ImageLicenseFetchTask extends PageQueryTask<ImageLicense> {
     private static final String TAG = "ImageLicenseFetchTask";
 
     public ImageLicenseFetchTask(Api api, Site site, PageTitle title) {
-        super(LOW_CONCURRENCY, api, site, title);
+        super(api, site, title);
     }
 
     @Override

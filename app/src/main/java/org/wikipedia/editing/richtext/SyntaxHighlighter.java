@@ -174,7 +174,6 @@ public class SyntaxHighlighter {
 
     private class SyntaxHighlightTask extends SaneAsyncTask<List<SpanExtents>> {
         SyntaxHighlightTask(Editable text) {
-            super(SINGLE_THREAD);
             this.text = text;
         }
 

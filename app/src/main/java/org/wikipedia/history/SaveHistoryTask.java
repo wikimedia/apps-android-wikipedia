@@ -14,7 +14,6 @@ public class SaveHistoryTask extends SaneAsyncTask<Void> {
     private final WikipediaApp app;
 
     public SaveHistoryTask(HistoryEntry entry, WikipediaApp app) {
-        super(SINGLE_THREAD);
         this.entry = entry;
         this.app = app;
     }

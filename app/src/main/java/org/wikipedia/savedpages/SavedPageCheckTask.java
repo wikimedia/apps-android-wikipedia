@@ -11,7 +11,6 @@ public class SavedPageCheckTask extends SaneAsyncTask<Boolean> {
     private final WikipediaApp app;
 
     public SavedPageCheckTask(PageTitle title, WikipediaApp app) {
-        super(SINGLE_THREAD);
         this.title = title;
         this.app = app;
     }

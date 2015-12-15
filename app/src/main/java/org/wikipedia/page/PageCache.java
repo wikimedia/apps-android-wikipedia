@@ -39,7 +39,6 @@ public class PageCache {
         private final File cacheDir;
 
         InitDiskCacheTask(File cacheDir) {
-            super(SINGLE_THREAD);
             this.cacheDir = cacheDir;
         }
 
@@ -83,7 +82,6 @@ public class PageCache {
         private final Page page;
 
         AddPageToCacheTask(PageTitle title, Page page) {
-            super(SINGLE_THREAD);
             this.title = title;
             this.page = page;
         }
@@ -139,7 +137,6 @@ public class PageCache {
         private final PageTitle title;
 
         GetPageFromCacheTask(PageTitle title) {
-            super(SINGLE_THREAD);
             this.title = title;
         }
 

@@ -72,7 +72,7 @@ public class ImageViewWithFace extends ImageView implements Target {
     }
 
     private void spawnImageProcessingTask(@NonNull final Bitmap bitmap) {
-        new ImageProcessingTask(SaneAsyncTask.LOW_CONCURRENCY, bitmap) {
+        new ImageProcessingTask(bitmap) {
             @Override
             public PointF performTask() {
                 PointF facePos = super.performTask();
@@ -101,8 +101,7 @@ public class ImageViewWithFace extends ImageView implements Target {
         @NonNull private final Bitmap srcBitmap;
         private Palette colorPalette;
 
-        ImageProcessingTask(int concurrency, @NonNull Bitmap bitmap) {
-            super(concurrency);
+        ImageProcessingTask(@NonNull Bitmap bitmap) {
             srcBitmap = bitmap;
         }
 

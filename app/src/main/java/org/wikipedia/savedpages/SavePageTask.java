@@ -20,7 +20,6 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
     private CountDownLatch imagesDownloadedLatch;
 
     public SavePageTask(WikipediaApp app, PageTitle title, Page page) {
-        super(SINGLE_THREAD);
         this.app = app;
         this.title = title;
         this.page = page;

@@ -25,7 +25,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
     private static final String NUM_RESULTS_PER_QUERY = "20";
 
     public TitleSearchTask(Api api, Site site, String prefix) {
-        super(HIGH_CONCURRENCY, api);
+        super(api);
         this.prefix = prefix;
         this.site = site;
     }

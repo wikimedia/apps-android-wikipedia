@@ -12,7 +12,7 @@ public class GalleryItemFetchTask extends PageQueryTask<GalleryItem> {
     private final boolean isVideo;
 
     public GalleryItemFetchTask(Api api, Site site, PageTitle title, boolean isVideo) {
-        super(LOW_CONCURRENCY, api, site, title);
+        super(api, site, title);
         this.isVideo = isVideo;
     }
 

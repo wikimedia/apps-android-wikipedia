@@ -7,7 +7,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.shadows.ShadowApplication;
 import org.wikipedia.test.ImmediateExecutor;
 import org.wikipedia.test.TestApi;
 import org.wikipedia.test.TestFileUtil;
@@ -51,7 +50,6 @@ public class WikipediaZeroTaskTest {
         server.enqueue(responseBody);
 
         subject.execute();
-        ShadowApplication.runBackgroundTasks();
 
         server.takeRequest();
         latch.await();
@@ -65,7 +63,7 @@ public class WikipediaZeroTaskTest {
         private final ZeroMessage expected;
 
         Subject(@NonNull TestLatch latch, @Nullable ZeroMessage expected) {
-            super(new ImmediateExecutor(), new TestApi(server), "userAgent");
+            super(new TestApi(server), "userAgent");
             this.latch = latch;
             this.expected = expected;
         }
@@ -75,6 +73,11 @@ public class WikipediaZeroTaskTest {
             super.onFinish(result);
             assertThat(result, is(expected));
             latch.countDown();
+        }
+
+        @Override
+        public void execute() {
+            super.executeOnExecutor(new ImmediateExecutor());
         }
     }
 }

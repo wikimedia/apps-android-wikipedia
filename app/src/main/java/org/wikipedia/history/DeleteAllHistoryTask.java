@@ -10,7 +10,6 @@ public class DeleteAllHistoryTask extends SaneAsyncTask<Void> {
     private final WikipediaApp app;
 
     public DeleteAllHistoryTask(Context context) {
-        super(SINGLE_THREAD);
         app = (WikipediaApp) context.getApplicationContext();
     }
 

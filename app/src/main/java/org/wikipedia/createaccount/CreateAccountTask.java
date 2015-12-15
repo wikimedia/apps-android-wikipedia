@@ -18,7 +18,7 @@ public abstract class CreateAccountTask extends ApiTask<CreateAccountResult> {
     private String token;
 
     public CreateAccountTask(Context context, String username, String password, String email) {
-        super(SINGLE_THREAD, ((WikipediaApp)context.getApplicationContext()).getPrimarySiteApi());
+        super(((WikipediaApp)context.getApplicationContext()).getPrimarySiteApi());
 
         this.username = username;
         this.password = password;

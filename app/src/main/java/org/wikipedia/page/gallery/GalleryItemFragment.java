@@ -479,7 +479,7 @@ public class GalleryItemFragment extends Fragment {
 
         final Bitmap savedImageBitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
 
-        new SaneAsyncTask<Uri>(SaneAsyncTask.SINGLE_THREAD) {
+        new SaneAsyncTask<Uri>() {
             @Override
             public Uri performTask() throws Throwable {
                 String saveFilename = trimFileNamespace(galleryItem.getName().replace(' ', '_'));
