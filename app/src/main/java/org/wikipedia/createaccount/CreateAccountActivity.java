@@ -13,12 +13,12 @@ import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.EditText;
-import com.mobsandgeeks.saripaar.Rule;
+import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
 import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
-import com.mobsandgeeks.saripaar.annotation.Required;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
@@ -29,6 +29,8 @@ import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.editing.CaptchaHandler;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.PasswordTextInput;
+
+import java.util.List;
 
 import static org.wikipedia.util.FeedbackUtil.showMessage;
 import static org.wikipedia.util.FeedbackUtil.showError;
@@ -44,14 +46,13 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String LOGIN_SESSION_TOKEN = "login_session_token";
 
-    @Required(order = 1)
+    @NotEmpty
     private EditText usernameEdit;
-    @Required(order = 2)
-    @Password(order = 3)
+    @Password()
     private EditText passwordEdit;
-    @ConfirmPassword(order = 4, messageResId = R.string.create_account_passwords_mismatch_error)
+    @ConfirmPassword(messageResId = R.string.create_account_passwords_mismatch_error)
     private EditText passwordRepeatEdit;
-    @Email(order = 5, messageResId = R.string.create_account_email_error)
+    @Email(messageResId = R.string.create_account_email_error)
     private EditText emailEdit;
 
     private Button createAccountButton;
@@ -104,13 +105,17 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
 
             @Override
-            public void onValidationFailed(View view, Rule<?> rule) {
-                if (view instanceof EditText) {
-                    //Request focus on the EditText before setting error, so that error is visible
-                    view.requestFocus();
-                    setErrorPopup((EditText) view, rule.getFailureMessage());
-                } else {
-                    throw new RuntimeException("This should not be happening");
+            public void onValidationFailed(List<ValidationError> errors) {
+                for (ValidationError error : errors) {
+                    View view = error.getView();
+                    String message = error.getCollatedErrorMessage(view.getContext());
+                    if (view instanceof EditText) {
+                        //Request focus on the EditText before setting error, so that error is visible
+                        view.requestFocus();
+                        setErrorPopup((EditText) view, message);
+                    } else {
+                        throw new RuntimeException("This should not be happening");
+                    }
                 }
             }
         });
