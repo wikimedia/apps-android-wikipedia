@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
@@ -45,6 +46,8 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
         app = WikipediaApp.getInstance();
         languageCodes = app.getAppMruLanguageCodes();
         funnel = new AppLanguageSelectFunnel(initiatedFromSearchBar);
+
+        enableInitialSoftInputFocus();
     }
 
     @Override
@@ -110,6 +113,12 @@ public class LanguagePreferenceDialog extends AppCompatDialog {
     public void cancel() {
         funnel.logCancel();
         super.cancel();
+    }
+
+    private void enableInitialSoftInputFocus() {
+        int mode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
+                | WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE;
+        getWindow().setSoftInputMode(mode);
     }
 
     private static final class LanguagesAdapter extends BaseAdapter {
