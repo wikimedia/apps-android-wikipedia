@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import org.wikipedia.util.log.L;
+
 /**
  * TODO: Remove this class when the Support library and/or PhotoView is updated.
  * This solves an intermittent crash when using ViewPager with the PhotoView component.
@@ -26,6 +28,7 @@ public class FixedViewPager extends ViewPager {
         try {
             return super.onInterceptTouchEvent(ev);
         } catch (IllegalArgumentException e) {
+            L.logRemoteErrorIfProd(e);
             return false;
         }
     }
