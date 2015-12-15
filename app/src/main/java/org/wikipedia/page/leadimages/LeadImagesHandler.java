@@ -33,8 +33,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.UriUtil;
-import org.wikipedia.views.ArticleHeaderView;
-import org.wikipedia.views.ArticleMenuBarView;
 import org.wikipedia.views.ObservableWebView;
 
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
