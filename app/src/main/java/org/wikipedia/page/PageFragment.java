@@ -164,7 +164,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 return;
             }
             // if it's a saved page, then refresh it and re-save. Otherwise, refresh the page normally
-            refreshPage(isPageSaved());
+            refreshPage(pageSaved);
         }
     };
 
@@ -203,10 +203,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void setSavedPageCheckComplete(boolean complete) {
         savedPageCheckComplete = complete;
-        if (!isAdded()) {
-            return;
-        }
-        getActivity().supportInvalidateOptionsMenu();
     }
 
     @Override
@@ -219,6 +215,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         initTabs();
     }
 
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
@@ -246,6 +243,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return rootView;
     }
 
+    @Override
     public void onDestroyView() {
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
@@ -253,6 +251,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         super.onDestroyView();
     }
 
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
@@ -596,12 +595,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
     }
 
-    public boolean isPageSaved() {
-        return pageSaved;
-    }
-
     public void setPageSaved(boolean saved) {
         pageSaved = saved;
+        leadImagesHandler.updateBookmark(pageSaved);
     }
 
     public void onActionModeShown(CompatActionMode mode) {
@@ -831,6 +827,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     Log.d("PageFragment", "Detached from activity, no snackbar.");
                     return;
                 }
+                setPageSaved(true);
                 getPageActivity().showPageSavedMessage(model.getTitle().getDisplayText(), success);
             }
         }.execute();

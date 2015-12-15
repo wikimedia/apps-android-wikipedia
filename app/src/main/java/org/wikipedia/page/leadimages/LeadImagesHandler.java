@@ -455,7 +455,7 @@ public class LeadImagesHandler {
                 @Override
                 public void onFinish(Boolean success) {
                     if (parentFragment.isAdded() && getTitle() != null) {
-                        parentFragment.setPageSaved(!success);
+                        parentFragment.setPageSaved(success);
                         FeedbackUtil.showMessage(getActivity(), getActivity().getString(success
                                 ? R.string.snackbar_saved_page_format
                                 : R.string.snackbar_saved_page_missing_images, getTitle()));

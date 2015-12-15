@@ -108,7 +108,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private PageActivity activity;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    private WikipediaApp app;
+    @NonNull private final WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
     private SearchBarHideHandler searchBarHideHandler;
     private EditHandler editHandler;
@@ -128,7 +128,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         this.model = model;
         this.fragment = fragment;
         activity = (PageActivity) fragment.getActivity();
-        this.app = (WikipediaApp) activity.getApplicationContext();
         this.refreshView = refreshView;
         this.webView = webView;
         this.bridge = bridge;
@@ -150,11 +149,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     @Override
-    public void load(boolean pushBackStack, Cache cachePreference, int stagedScrollY) {
-        fragment.updatePageInfo(null);
-        leadImagesHandler.updateBookmark(false);
-        leadImagesHandler.updateNavigate(null);
-
+    public void load(boolean pushBackStack, @NonNull Cache cachePreference, int stagedScrollY) {
         if (pushBackStack) {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
@@ -172,6 +167,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             this.stagedScrollY = stagedScrollY;
             loadOnWebViewReady(cachePreference);
         } else {
+            fragment.updatePageInfo(null);
+            fragment.setPageSaved(false);
+            leadImagesHandler.updateNavigate(null);
+
             // kick off an event to the WebView that will cause it to clear its contents,
             // and then report back to us when the clearing is complete, so that we can synchronize
             // the transitions of our native components to the new page content.
@@ -323,7 +322,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     @Override
                     public void run() {
                         displayNonLeadSectionForSavedPage(1);
-                        leadImagesHandler.updateBookmark(true);
+                        fragment.setPageSaved(true);
 
                         setState(STATE_COMPLETE_FETCH);
                     }
