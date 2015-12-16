@@ -26,6 +26,8 @@ public final class LanguageUtil {
                 return "he"; // Hebrew
             case "in":
                 return "id"; // Indonesian
+            case "nb":
+                return "no"; // Norsk bokmål T114042
             case "ji":
                 return "yi"; // Yiddish
             case "zh":
