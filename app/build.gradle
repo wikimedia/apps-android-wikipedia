@@ -1,6 +1,5 @@
 apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
-apply plugin: 'com.jakewharton.hugo'
 apply from: '../config/quality.gradle'
 
 import com.android.ddmlib.DdmPreferences
