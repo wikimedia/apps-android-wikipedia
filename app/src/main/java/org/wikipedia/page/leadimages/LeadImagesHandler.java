@@ -458,7 +458,7 @@ public class LeadImagesHandler {
                         parentFragment.setPageSaved(!success);
                         FeedbackUtil.showMessage(getActivity(), getActivity().getString(success
                                 ? R.string.snackbar_saved_page_format
-                                : R.string.snackbar_saved_page_missing_images, getTitle()));
+                                : R.string.snackbar_saved_page_missing_images, getTitle().getDisplayText()));
                     }
                 }
             }.execute();
