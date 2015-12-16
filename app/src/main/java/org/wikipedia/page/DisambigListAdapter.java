@@ -133,7 +133,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
 
         holder.description.setText(item.getTitle().getDescription());
 
-        String thumbnail = pageImagesCache.get(item.getTitle().getDisplayText());
+        String thumbnail = pageImagesCache.get(item.getTitle().getPrefixedText());
         if (thumbnail == null) {
             Picasso.with(parent.getContext())
                    .load(R.drawable.ic_pageimage_placeholder)
