@@ -1,4 +1,4 @@
-package org.wikipedia.views;
+package org.wikipedia.page.leadimages;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;

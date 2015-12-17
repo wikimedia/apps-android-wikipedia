@@ -1,4 +1,4 @@
-package org.wikipedia.views;
+package org.wikipedia.page.leadimages;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -17,7 +17,6 @@ import com.squareup.picasso.Target;
 
 import org.wikipedia.R;
 import org.wikipedia.ViewAnimations;
-import org.wikipedia.page.leadimages.ImageViewWithFace;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

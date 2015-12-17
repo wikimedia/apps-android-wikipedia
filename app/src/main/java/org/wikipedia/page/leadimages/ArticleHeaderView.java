@@ -1,4 +1,4 @@
-package org.wikipedia.views;
+package org.wikipedia.page.leadimages;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -38,6 +38,9 @@ import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.AppTextView;
+import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ViewUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,7 +51,8 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     private static final float SCREEN_PROPORTION = 1 / 1.75f;
 
     @Bind(R.id.view_article_header_image) ArticleHeaderImageView image;
-    @Bind(R.id.view_article_header_text) AppTextView text;
+    @Bind(R.id.view_article_header_text)
+    AppTextView text;
     @Bind(R.id.view_article_header_menu_bar) ArticleMenuBarView menuBar;
 
     @NonNull private CharSequence title = "";
