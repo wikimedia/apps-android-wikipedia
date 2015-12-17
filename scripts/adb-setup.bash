@@ -42,6 +42,12 @@ unlock-screen() {
   adb shell input keyevent $KEYCODE_MENU
 }
 
+reset-time() {
+  # The emulator's clock may be out of sync which causes network errors like:
+  #   javax.net.ssl.SSLHandshakeException: com.android.org.bouncycastle.jce.exception.ExtCertPathValidatorException: Could not validate certificate: current time: Fri Sep 04 09:18:17 GMT+00:00 2015, validation time: Thu Dec 10 23:22:05 GMT+00:00 2015
+  adb shell date -s $(date +%Y%m%d.%H%M%S)
+}
+
 # ------------------------------------------------------------------------------
 main() {
   ADB_ARGS=("$@")
@@ -49,6 +55,7 @@ main() {
   wait-for-boot
   wait-for-internet
   unlock-screen
+  reset-time
 }
 
 # ------------------------------------------------------------------------------
