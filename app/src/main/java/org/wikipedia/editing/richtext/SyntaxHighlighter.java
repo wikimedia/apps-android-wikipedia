@@ -1,18 +1,20 @@
 package org.wikipedia.editing.richtext;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
-import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.widget.EditText;
 import org.wikipedia.R;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,10 @@ import java.util.Stack;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class SyntaxHighlighter {
-    private static String TAG = "SyntaxHighlighter";
+    @VisibleForTesting
+    interface OnSyntaxHighlightListener {
+        void syntaxHighlightResults(List<SpanExtents> spanExtents);
+    }
 
     private EditText textBox;
     private List<SyntaxRule> syntaxRules;
@@ -30,15 +35,14 @@ public class SyntaxHighlighter {
     private Handler handler;
 
     private OnSyntaxHighlightListener syntaxHighlightListener;
-    public interface OnSyntaxHighlightListener {
-        void syntaxHighlightResults(List<SpanExtents> spanExtents);
+
+    public SyntaxHighlighter(ContextThemeWrapper context, EditText textBox) {
+        this(context, textBox, null);
     }
 
-    public SyntaxHighlighter(final Activity parentActivity, final EditText textBox) {
-        this(parentActivity, textBox, null);
-    }
-
-    public SyntaxHighlighter(final Activity parentActivity, final EditText textBox, OnSyntaxHighlightListener listener) {
+    public SyntaxHighlighter(final ContextThemeWrapper context,
+                             final EditText textBox,
+                             @Nullable OnSyntaxHighlightListener listener) {
         this.textBox = textBox;
         this.syntaxHighlightListener = listener;
         syntaxRules = new ArrayList<>();
@@ -51,7 +55,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("{{", "}}", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(parentActivity.getResources().getColor(getThemedAttributeId(parentActivity, R.attr.syntax_highlight_template_color)),
+                return new ColorSpanEx(context.getResources().getColor(getThemedAttributeId(context, R.attr.syntax_highlight_template_color)),
                                        Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -60,7 +64,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("[[", "]]", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(parentActivity.getResources().getColor(getThemedAttributeId(parentActivity, R.attr.link_color)),
+                return new ColorSpanEx(context.getResources().getColor(getThemedAttributeId(context, R.attr.link_color)),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -69,7 +73,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("[", "]", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(parentActivity.getResources().getColor(getThemedAttributeId(parentActivity, R.attr.link_color)),
+                return new ColorSpanEx(context.getResources().getColor(getThemedAttributeId(context, R.attr.link_color)),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -78,7 +82,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("<", ">", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(parentActivity.getResources().getColor(R.color.syntax_highlight_htmltag),
+                return new ColorSpanEx(context.getResources().getColor(R.color.syntax_highlight_htmltag),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -139,6 +143,8 @@ public class SyntaxHighlighter {
         }));
         */
 
+        handler = new Handler(Looper.getMainLooper());
+
         // add a text-change listener that will trigger syntax highlighting
         // whenever text is modified.
         textBox.addTextChangedListener(new TextWatcher() {
@@ -157,8 +163,6 @@ public class SyntaxHighlighter {
                 handler.postDelayed(syntaxHighlightCallback, DateUtils.SECOND_IN_MILLIS / 2);
             }
         });
-
-        handler = new Handler(Looper.getMainLooper());
     }
 
     private Runnable syntaxHighlightCallback = new Runnable() {
@@ -261,17 +265,15 @@ public class SyntaxHighlighter {
                 }
             }
 
-            if (syntaxHighlightListener != null) {
-                syntaxHighlightListener.syntaxHighlightResults(spansToSet);
-            }
             return spansToSet;
         }
 
         @Override
         public void onFinish(List<SpanExtents> result) {
-            if (isCancelled()) {
-                return;
+            if (syntaxHighlightListener != null) {
+                syntaxHighlightListener.syntaxHighlightResults(result);
             }
+
             // TODO: probably possible to make this more efficient...
             // Right now, on longer articles, this is quite heavy on the UI thread.
             // remove any of our custom spans from the previous cycle...
@@ -285,12 +287,7 @@ public class SyntaxHighlighter {
                 textBox.getText().setSpan(spanEx, spanEx.getStart(), spanEx.getEnd(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
             }
             time = System.currentTimeMillis() - time;
-            Log.d(TAG, "That took " + time + "ms");
-        }
-
-        @Override
-        public void onCatch(Throwable caught) {
-            Log.d(TAG, caught.getMessage());
+            L.v("That took " + time + "ms");
         }
     }
 
