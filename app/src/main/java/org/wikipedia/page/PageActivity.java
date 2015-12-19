@@ -94,6 +94,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public static final int PROGRESS_BAR_MAX_VALUE = 10000;
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
+    public static final String ACTION_PAGE_SAVE = "org.wikipedia.page_save";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
@@ -419,6 +420,10 @@ public class PageActivity extends ThemedActionBarActivity {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
             loadPage(title, historyEntry);
+        } else if (ACTION_PAGE_SAVE.equals(intent.getAction())) {
+            
+            /** TODO: display page and save it for offline reading */
+            
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getPrimarySite());
