@@ -1,5 +1,6 @@
 package org.wikipedia.wiktionary;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.Html;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.WiktionaryDialogFunnel;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -48,6 +51,7 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
     private String selectedText;
     private RbDefinition currentDefinition;
     private View rootView;
+    private WiktionaryDialogFunnel funnel;
 
     public static WiktionaryDialog newInstance(@NonNull PageTitle title, @NonNull String selectedText) {
         WiktionaryDialog dialog = new WiktionaryDialog();
@@ -84,7 +88,15 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
 
         loadDefinitions();
 
+        funnel = new WiktionaryDialogFunnel(WikipediaApp.getInstance(), selectedText);
+
         return rootView;
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialogInterface) {
+        super.onDismiss(dialogInterface);
+        funnel.logClose();
     }
 
     private void loadDefinitions() {
