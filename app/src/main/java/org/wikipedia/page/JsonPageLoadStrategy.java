@@ -11,6 +11,7 @@ import org.wikipedia.history.SaveHistoryTask;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
+import org.wikipedia.pageimages.PageImagePersistenceHelper;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.ServiceError;
@@ -786,7 +787,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             public void onFinish(Map<PageTitle, String> result) {
                 if (result.containsKey(model.getTitle())) {
                     PageImage pi = new PageImage(model.getTitle(), result.get(model.getTitle()));
-                    app.getPersister(PageImage.class).upsert(pi, PageImage.PERSISTENCE_HELPER.SELECTION_KEYS);
+                    app.getPersister(PageImage.class).upsert(pi, PageImagePersistenceHelper.SELECTION_KEYS);
                     updateThumbnail(result.get(model.getTitle()));
                 }
             }

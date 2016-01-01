@@ -1,6 +1,7 @@
 package org.wikipedia.search;
 
 import org.wikipedia.BackPressedHandler;
+import org.wikipedia.history.HistoryEntryPersistenceHelper;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -427,7 +428,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
         @Override
         public Void performTask() throws Throwable {
-            app.getPersister(RecentSearch.class).upsert(entry, HistoryEntry.PERSISTENCE_HELPER.SELECTION_KEYS);
+            app.getPersister(RecentSearch.class).upsert(entry, HistoryEntryPersistenceHelper.SELECTION_KEYS);
             return null;
         }
 

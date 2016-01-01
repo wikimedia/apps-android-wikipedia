@@ -149,7 +149,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                                 if (checkedItems.valueAt(i)) {
                                     app.getPersister(HistoryEntry.class).delete(
                                             HistoryEntry.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i))),
-                                                    HistoryEntry.PERSISTENCE_HELPER.SELECTION_KEYS);
+                                                    HistoryEntryPersistenceHelper.SELECTION_KEYS);
                                 }
                             }
                             if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {
