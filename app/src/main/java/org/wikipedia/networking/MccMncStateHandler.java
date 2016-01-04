@@ -17,10 +17,10 @@ public class MccMncStateHandler {
      * and the user isn't currently opted out of event logging.
      * http://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
      *
-     * @param ctx application context
+     * @param app app instance
      * @param site currently active site
      * @param customHeaders HashMap of custom headers
-     * @return
+     * @return API enriched with MCC-MNC headers, or null if headers aren't necessary
      */
     public Api makeApiWithMccMncHeaderEnrichment(WikipediaApp app, Site site,
                                                  HashMap<String, String> customHeaders) {
@@ -43,7 +43,7 @@ public class MccMncStateHandler {
      *
      * This is the equivalent of #makeApiWithMccMncHeaderEnrichment for Retrofit
      *
-     * @param ctx Application context
+     * @param app app instance
      * @param domain currently active API domain
      * @param request Retrofit request
      */
