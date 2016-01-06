@@ -255,6 +255,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
                 String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
+                // Summaries are plaintext, so remove any HTML that's made its way into the summary
+                summaryText = Html.fromHtml(summaryText).toString();
 
                 new EditTask(EditSectionActivity.this, title, sectionText.getText().toString(),
                         sectionID, token, summaryText, app.getUserInfoStorage().isLoggedIn()) {
