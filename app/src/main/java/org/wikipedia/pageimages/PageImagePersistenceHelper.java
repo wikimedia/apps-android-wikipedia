@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
@@ -91,12 +92,12 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
     }
 
     @Override
-    protected String getPrimaryKeySelection(PageImage obj, String[] selectionArgs) {
+    protected String getPrimaryKeySelection(@NonNull PageImage obj, String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getUnfilteredPrimaryKeySelectionArgs(PageImage obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull PageImage obj) {
         return new String[] {
                 obj.getTitle().getSite().getDomain(),
                 obj.getTitle().getNamespace(),

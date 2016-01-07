@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
+
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.data.PersistenceHelper;
@@ -73,12 +75,12 @@ public class HistoryEntryPersistenceHelper extends PersistenceHelper<HistoryEntr
     }
 
     @Override
-    protected String getPrimaryKeySelection(HistoryEntry obj, String[] selectionArgs) {
+    protected String getPrimaryKeySelection(@NonNull HistoryEntry obj, String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getUnfilteredPrimaryKeySelectionArgs(HistoryEntry obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull HistoryEntry obj) {
         return new String[] {
                 obj.getTitle().getSite().getDomain(),
                 obj.getTitle().getNamespace(),

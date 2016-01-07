@@ -4,6 +4,8 @@ import org.wikipedia.data.PersistenceHelper;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
+
 import java.util.Date;
 
 public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearch> {
@@ -57,12 +59,12 @@ public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearc
     }
 
     @Override
-    protected String getPrimaryKeySelection(RecentSearch obj, String[] selectionArgs) {
+    protected String getPrimaryKeySelection(@NonNull RecentSearch obj, String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getUnfilteredPrimaryKeySelectionArgs(RecentSearch obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull RecentSearch obj) {
         return new String[] {
                 obj.getText(),
         };

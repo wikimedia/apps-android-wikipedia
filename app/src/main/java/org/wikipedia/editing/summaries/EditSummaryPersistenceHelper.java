@@ -2,6 +2,8 @@ package org.wikipedia.editing.summaries;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.support.annotation.NonNull;
+
 import org.wikipedia.data.PersistenceHelper;
 
 import java.util.Date;
@@ -57,12 +59,12 @@ public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary>
     }
 
     @Override
-    protected String getPrimaryKeySelection(EditSummary obj, String[] selectionArgs) {
+    protected String getPrimaryKeySelection(@NonNull EditSummary obj, String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getUnfilteredPrimaryKeySelectionArgs(EditSummary obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull EditSummary obj) {
         return new String[] {
                 obj.getSummary()
         };
