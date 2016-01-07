@@ -41,6 +41,7 @@ import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
@@ -382,7 +383,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     private void refreshSelected() {
         SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
-        ArrayList<SavedPage> savedPages = new ArrayList<>();
+        List<SavedPage> savedPages = new ArrayList<>();
         for (int i = 0; i < checkedItems.size(); i++) {
             if (checkedItems.valueAt(i)) {
                 SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
@@ -394,7 +395,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     }
 
     private void refreshAll() {
-        ArrayList<SavedPage> savedPages = new ArrayList<>();
+        List<SavedPage> savedPages = new ArrayList<>();
         for (int i = 0; i < adapter.getCount(); i++) {
             SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(i));
             savedPages.add(page);

@@ -18,7 +18,7 @@ import java.util.Map;
 public class SharedPreferenceCookieManager extends CookieManager {
     private static final String DELIMITER = ";";
 
-    private final HashMap<String, HashMap<String, String>> cookieJar = new HashMap<>();
+    private final Map<String, Map<String, String>> cookieJar = new HashMap<>();
 
     public SharedPreferenceCookieManager() {
         List<String> domains = makeList(Prefs.getCookieDomains());
@@ -35,7 +35,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
         }
 
         Map<String, List<String>> cookieMap = new HashMap<>();
-        ArrayList<String> cookiesList = new ArrayList<>();
+        List<String> cookiesList = new ArrayList<>();
 
         String domain = uri.getAuthority();
 
@@ -121,8 +121,8 @@ public class SharedPreferenceCookieManager extends CookieManager {
         cookieJar.clear();
     }
 
-    private HashMap<String, String> makeCookieMap(List<String> cookies) {
-        HashMap<String, String> cookiesMap = new HashMap<>();
+    private Map<String, String> makeCookieMap(List<String> cookies) {
+        Map<String, String> cookiesMap = new HashMap<>();
         for (String cookie : cookies) {
             if (!cookie.contains("=")) {
                 throw new RuntimeException("Cookie " + cookie + " is invalid!");
@@ -134,7 +134,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
     }
 
     private List<String> makeCookieList(Map<String, String> cookies) {
-        ArrayList<String> cookiesList = new ArrayList<>();
+        List<String> cookiesList = new ArrayList<>();
         for (Map.Entry<String, String> entry: cookies.entrySet()) {
             cookiesList.add(entry.getKey() + "=" + entry.getValue());
         }

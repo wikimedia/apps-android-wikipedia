@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
 
@@ -84,7 +85,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
                 suggestion = searchinfo.getString("suggestion");
             }
         }
-        ArrayList<PageTitle> pageTitles = new ArrayList<>();
+        List<PageTitle> pageTitles = new ArrayList<>();
         JSONObject pages = queryResult.optJSONObject("pages");
         if (pages == null) {
             return new SearchResults(pageTitles, null, suggestion);

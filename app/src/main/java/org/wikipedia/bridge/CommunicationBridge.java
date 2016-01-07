@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
@@ -26,12 +27,12 @@ import static org.wikipedia.util.UriUtil.decodeURL;
 public class CommunicationBridge {
     private final WebView webView;
 
-    private final Map<String, ArrayList<JSEventListener>> eventListeners;
+    private final Map<String, List<JSEventListener>> eventListeners;
 
     private final BridgeMarshaller marshaller;
 
     private boolean isDOMReady = false;
-    private final ArrayList<String> pendingJSMessages = new ArrayList<>();
+    private final List<String> pendingJSMessages = new ArrayList<>();
 
     public interface JSEventListener {
         void onMessage(String messageType, JSONObject messagePayload);
@@ -73,7 +74,7 @@ public class CommunicationBridge {
         if (eventListeners.containsKey(type)) {
             eventListeners.get(type).add(listener);
         } else {
-            ArrayList<JSEventListener> listeners = new ArrayList<>();
+            List<JSEventListener> listeners = new ArrayList<>();
             listeners.add(listener);
             eventListeners.put(type, listeners);
         }
@@ -108,7 +109,7 @@ public class CommunicationBridge {
             if (!eventListeners.containsKey(type)) {
                 throw new RuntimeException("No such message type registered: " + type);
             }
-            ArrayList<JSEventListener> listeners = eventListeners.get(type);
+            List<JSEventListener> listeners = eventListeners.get(type);
             for (JSEventListener listener : listeners) {
                 listener.onMessage(type, messagePack.optJSONObject("payload"));
             }

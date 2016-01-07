@@ -91,7 +91,7 @@ public class WikipediaApp extends Application {
     private final UserInfoStorage userInfoStorage = new UserInfoStorage();
     private final MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
     private final Map<String, ContentPersister> persisters = Collections.synchronizedMap(new HashMap<String, ContentPersister>());
-    private final HashMap<String, Api> apis = new HashMap<>();
+    private final Map<String, Api> apis = new HashMap<>();
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
@@ -226,7 +226,7 @@ public class WikipediaApp extends Application {
     }
     public Api getAPIForSite(Site site) {
         String acceptLanguage = getAcceptLanguage(site);
-        HashMap<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
+        Map<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
 
         // Because the mccMnc enrichment is a one-time thing, we don't need to have a complex hash key
         // for the apis HashMap<String, Api> like we do below. It naturally gets the correct
@@ -535,17 +535,17 @@ public class WikipediaApp extends Application {
         return simpleDateFormat;
     }
 
-    /** For Retrofit requests. */
+    /** For Retrofit requests. Keep in sync with #buildCustomHeaders */
     public void injectCustomHeaders(RequestInterceptor.RequestFacade request, Site site) {
-        HashMap<String, String> headers = buildCustomHeaders(getAcceptLanguage(site));
+        Map<String, String> headers = buildCustomHeaders(getAcceptLanguage(site));
         for (String key : headers.keySet()) {
             request.addHeader(key, headers.get(key));
         }
     }
 
     /** For java-mwapi API requests. */
-    private HashMap<String, String> buildCustomHeaders(String acceptLanguage) {
-        HashMap<String, String> headers = new HashMap<>();
+    private Map<String, String> buildCustomHeaders(String acceptLanguage) {
+        Map<String, String> headers = new HashMap<>();
         headers.put("User-Agent", getUserAgent());
 
         if (isEventLoggingEnabled()) {

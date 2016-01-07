@@ -6,7 +6,7 @@ import org.wikipedia.WikipediaApp;
 
 import retrofit.RequestInterceptor;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class MccMncStateHandler {
     private boolean mccMncSent = false;
@@ -23,7 +23,7 @@ public class MccMncStateHandler {
      * @return API enriched with MCC-MNC headers, or null if headers aren't necessary
      */
     public Api makeApiWithMccMncHeaderEnrichment(WikipediaApp app, Site site,
-                                                 HashMap<String, String> customHeaders) {
+                                                 Map<String, String> customHeaders) {
         if (shouldSendHeader(app, site.getDomain())) {
             String mccMnc = NetworkUtil.getMccMnc(app);
             if (mccMnc != null) {

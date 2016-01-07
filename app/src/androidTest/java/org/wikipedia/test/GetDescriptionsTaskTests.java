@@ -7,6 +7,7 @@ import org.wikipedia.wikidata.GetDescriptionsTask;
 import android.test.ActivityUnitTestCase;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -37,7 +38,7 @@ public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActi
     }
 
     void getWikidataDescriptions(final PageTitle[] ids) throws Throwable {
-        final ArrayList<PageTitle> idList = new ArrayList<>(Arrays.asList(ids));
+        final List<PageTitle> idList = new ArrayList<>(Arrays.asList(ids));
         final CountDownLatch completionLatch = new CountDownLatch(1);
         runTestOnUiThread(new Runnable() {
             @Override

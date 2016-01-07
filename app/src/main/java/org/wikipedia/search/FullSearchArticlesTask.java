@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 public class FullSearchArticlesTask extends ApiTask<SearchResults> {
     private final Site site;
@@ -129,7 +130,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             }
         });
         // and create our list of results from the now-sorted array
-        ArrayList<PageTitle> pageTitles = new ArrayList<>();
+        List<PageTitle> pageTitles = new ArrayList<>();
         for (JSONObject item : pageArray) {
             String thumbUrl = null;
             if (item.has("thumbnail")) {

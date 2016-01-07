@@ -10,6 +10,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.wikipedia.util.StringUtil.removeNulls;
 
@@ -88,8 +89,8 @@ public abstract class PersistenceHelper<T> {
         return 1;
     }
 
-    public ArrayList<Column> getElements(int fromVersion, int toVersion) {
-         ArrayList<Column> columns = new ArrayList<>();
+    public List<Column> getElements(int fromVersion, int toVersion) {
+         List<Column> columns = new ArrayList<>();
          for (int i = fromVersion; i <= toVersion; i++) {
              columns.addAll(Arrays.asList(getColumnsAdded(i)));
          }
@@ -109,11 +110,11 @@ public abstract class PersistenceHelper<T> {
             convertAllTitlesToUnderscores(db);
         }
         String tableName = getTableName();
-        ArrayList<Column> columns = getElements(fromVersion + 1, toVersion);
+        List<Column> columns = getElements(fromVersion + 1, toVersion);
         if (columns.size() == 0) {
             return;
         }
-        ArrayList<String> columnCommands = new ArrayList<>(columns.size());
+        List<String> columnCommands = new ArrayList<>(columns.size());
         for (Column column : columns) {
             columnCommands.add("ADD COLUMN " + column);
         }
