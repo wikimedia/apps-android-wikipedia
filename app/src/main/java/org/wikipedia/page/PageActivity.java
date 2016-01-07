@@ -505,18 +505,8 @@ public class PageActivity extends ThemedActionBarActivity {
         drawerLayout.closeDrawer(GravityCompat.START);
     }
 
-    /**
-     * Reset our fragment structure to the default, which is simply one PageViewFragment
-     * on the fragment stack.
-     * @param allowStateLoss Whether to allow state loss.
-     */
-    private void resetFragments(boolean allowStateLoss) {
-        while (getTopFragment() != null && !(getTopFragment() instanceof PageFragment)) {
-            getSupportFragmentManager().popBackStackImmediate();
-        }
-        if (getTopFragment() == null) {
-            pushFragment(new PageFragment(), allowStateLoss);
-        }
+    private void removeAllFragments() {
+        getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 
     /**
@@ -544,15 +534,10 @@ public class PageActivity extends ThemedActionBarActivity {
         if (getTopFragment() != null && (getTopFragment().getClass() == f.getClass())) {
             return;
         }
-        int totalFragments = getSupportFragmentManager().getBackStackEntryCount();
-        if (totalFragments > 0) {
-            resetFragments(allowStateLoss);
-        }
-        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
 
-        // do an animation on the new fragment, but only if there was a previous one before it.
-        trans.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out, 0, 0);
-        trans.replace(R.id.content_fragment_container, f, "fragment_" + Integer.toString(totalFragments));
+        removeAllFragments();
+        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+        trans.add(R.id.content_fragment_container, f);
         trans.addToBackStack(null);
         if (allowStateLoss) {
             trans.commitAllowingStateLoss();
@@ -581,8 +566,7 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void resetAfterClearHistory() {
-        // remove all current fragments from the backstack
-        getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        removeAllFragments();
         Prefs.clearTabs();
         loadMainPageIfNoTabs();
     }
@@ -635,7 +619,8 @@ public class PageActivity extends ThemedActionBarActivity {
             visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
         }
-        resetFragments(allowStateLoss);
+
+        pushFragment(new PageFragment(), allowStateLoss);
 
         fragmentContainerView.post(new Runnable() {
             @Override
@@ -749,12 +734,11 @@ public class PageActivity extends ThemedActionBarActivity {
         if (getTopFragment() instanceof BackPressedHandler
                 && ((BackPressedHandler) getTopFragment()).onBackPressed()) {
             return;
+        } else if (!(getTopFragment() instanceof PageFragment)) {
+            pushFragment(new PageFragment(), false);
+            return;
         }
-        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
-            popFragment();
-        } else {
-            finish();
-        }
+        finish();
     }
 
     /*package*/ void showPageSavedMessage(@NonNull String title, boolean success) {
