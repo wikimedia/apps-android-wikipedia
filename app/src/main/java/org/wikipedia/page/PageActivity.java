@@ -551,20 +551,6 @@ public class PageActivity extends ThemedActionBarActivity {
         updateProgressBar(false, true, 0);
     }
 
-    /**
-     * Remove the fragment that is currently at the top of the backstack, and go back to
-     * the previous fragment.
-     */
-    public void popFragment() {
-        getSupportFragmentManager().popBackStack();
-        // make sure the ActionBar is showing, since we could be currently scrolled down far enough
-        // within a Page fragment that the ActionBar is hidden, and if the previous fragment was
-        // a different type of fragment (e.g. History), the ActionBar would remain hidden.
-        showToolbar();
-        //also make sure the progress bar is not showing
-        updateProgressBar(false, true, 0);
-    }
-
     public void resetAfterClearHistory() {
         removeAllFragments();
         Prefs.clearTabs();
