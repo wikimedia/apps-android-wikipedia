@@ -139,8 +139,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private FloatingActionButton tocButton;
 
-    @Nullable private Menu menu;
-
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
     private ReferenceDialog referenceDialog;
@@ -625,7 +623,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
         inflater.inflate(R.menu.menu_page_actions, menu);
-        this.menu = menu;
     }
 
     @Override
@@ -688,12 +685,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onDestroyOptionsMenu() {
-        menu = null;
-        super.onDestroyOptionsMenu();
     }
 
     public void showFindInPage() {
@@ -1069,8 +1060,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void updatePageInfo(@Nullable PageInfo pageInfo) {
         this.pageInfo = pageInfo;
-        if (menu != null) {
-            updateMenuPageInfo(menu);
+        if (getActivity() != null) {
+            getActivity().supportInvalidateOptionsMenu();
         }
     }
 
