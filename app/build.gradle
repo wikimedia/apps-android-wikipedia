@@ -57,7 +57,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 136
+        versionCode 137
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
