@@ -17,7 +17,7 @@ import static org.hamcrest.Matchers.is;
 
 public class SyntaxHighlighterTest {
     @Test
-    public void testSyntaxHighlight() throws Throwable {
+    public void testSyntaxHighlight() {
         final String testStr = "foo {{template1}} bar {{template2}} baz";
         final int span1Start = 4;
         final int span1End = 17;
@@ -54,7 +54,7 @@ public class SyntaxHighlighterTest {
             latch.countDown();
         }
 
-        public List<SpanExtents> await() throws Throwable {
+        public List<SpanExtents> await() {
             latch.await();
             return result;
         }
