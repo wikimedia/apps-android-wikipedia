@@ -157,6 +157,7 @@ dependencies {
 
     String okHttpVersion = '2.7.0'
     String supportVersion = '23.1.1'
+    String espressoVersion = '2.2.1'
 
     compile "com.android.support:appcompat-v7:$supportVersion" // includes support-v4
     compile "com.android.support:design:$supportVersion"
@@ -189,11 +190,11 @@ dependencies {
 
     androidTestCompile 'com.android.support.test:rules:0.4.1' // JUnit Rules
     androidTestCompile 'com.android.support.test:runner:0.4.1' // Android JUnit Runner
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
 
     // Espresso-contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks,
     // CountingIdlingResource
-    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.1') {
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
         // http://stackoverflow.com/questions/30578243/why-would-adding-espresso-contrib-cause-an-inflateexception
         exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'support-v4'
@@ -201,10 +202,10 @@ dependencies {
     }
 
     // Espresso-web for WebView support
-    androidTestCompile 'com.android.support.test.espresso:espresso-web:2.2.1'
+    androidTestCompile "com.android.support.test.espresso:espresso-web:$espressoVersion"
 
     // Espresso-idling-resource for synchronization with background jobs.
-    androidTestCompile 'com.android.support.test.espresso:espresso-idling-resource:2.2.1'
+    androidTestCompile "com.android.support.test.espresso:espresso-idling-resource:$espressoVersion"
 }
 
 private setSigningConfigKey(config, Properties props) {
