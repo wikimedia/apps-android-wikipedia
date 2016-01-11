@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Elmentett lapok törlése</string>
   <string name="page_does_not_exist_error">Ez a lap nem létezik.</string>
   <string name="nav_item_today">Ma</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Törlöd a böngészési előzményeket?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Biztosan törölni szeretnéd az előzményeket?</string>
+  <string name="dialog_title_clear_history">Böngészési előzmények törlése</string>
+  <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
   <string name="nav_item_saved_pages">Elmentett lapok</string>
   <string name="menu_update_all_saved_pages">Mentett lapok frissítése</string>
   <string name="menu_update_selected_saved_pages">Mentett lapok frissítése</string>
@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Mentett lapok keresése</string>
   <string name="saved_pages_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
   <string name="menu_page_show_tabs">Fülek megjelenítése</string>
-  <string name="menu_page_other_languages" fuzzy="true">Olvasás más nyelven</string>
+  <string name="menu_page_other_languages">Nyelvváltás</string>
   <string name="menu_page_find_in_page">Keresés a lapon</string>
+  <string name="menu_page_content_issues">Tartalmi problémák</string>
+  <string name="menu_page_similar_titles">Hasonló címek</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
   <string name="menu_page_save">Lap mentése</string>
   <string name="menu_page_share">Link megosztása</string>
@@ -47,10 +49,12 @@
   <string name="last_updated_text">Utoljára frissítve: %s</string>
   <string name="content_license_html">A tartalom a &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
   <string name="edit_save_action_license_logged_in">A mentéssel elfogadod a &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
+  <string name="edit_save_action_license_anon">A mentéssel elfogadod a &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
   <string name="preference_title_language">Wikipédia-nyelv</string>
   <string name="preference_languages_filter_hint">Keresés</string>
   <string name="langlinks_filter_hint">Keresés</string>
   <string name="langlinks_empty">Ez a lap nem érhető el más nyelveken</string>
+  <string name="langlinks_no_match">Nem található a kérésnek megfelelő nyelv.</string>
   <string name="langlinks_activity_title">További nyelvek</string>
   <string name="menu_save_changes">Módosítások mentése</string>
   <string name="edit_section_error_retry">Újra</string>
@@ -68,6 +72,7 @@
   <string name="edit_section_captcha_hint">Ismételd meg a fenti szavakat</string>
   <string name="title_captcha">Add meg a CAPTCHA-t</string>
   <string name="edit_section_captcha_reload">Érintsd meg a CAPTCHA-t az újratöltéshez</string>
+  <string name="edit_saved_page_refresh">Ez a mentett lap elavult lehet, és frissíteni kell, hogy szerkeszthető legyen. Szeretnéd frissíteni a lapot?</string>
   <string name="nav_item_login">Bejelentkezés a Wikipédiába</string>
   <string name="login_username_hint">Felhasználónév</string>
   <string name="login_password_hint">Jelszó</string>
@@ -87,6 +92,7 @@
   <string name="saved_pages_empty_title">Nincsenek mentett lapok!</string>
   <string name="saved_pages_empty_message">A mentett lapok csodásak. Gondolj úgy rájuk, mint a könyvjelzőkre, amelyeket akkor is tudod olvasni, ha offline vagy.</string>
   <string name="history_empty_title">Nincsenek korábbi lapok!</string>
+  <string name="history_empty_message">Talán mindet törölted. Miután legközelebb meglátogatsz egy lapot, innen visszatalálsz rá.</string>
   <string name="delete_selected_history">Töröl</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Felhasználónév</string>
@@ -111,9 +117,12 @@
   <string name="create_account_next">Következő</string>
   <string name="create_account_button">Fiók létrehozása</string>
   <string name="preferences_general_heading">Általános</string>
+  <string name="wikipedia_app_faq">Wikipédia app GYIK</string>
   <string name="zero_charged_verbiage">Wikipedia Zero kikapcsolva</string>
+  <string name="zero_charged_verbiage_extended">További szócikkek betöltése okozhat adatköltségeket.</string>
   <string name="zero_search_hint">Wikipedia Zero keresés</string>
   <string name="zero_warn_when_leaving">Figyelmeztet, ha elhagyom a Wikipédia Zérót</string>
+  <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia appot, ami költségekkel járhat.</string>
   <string name="zero_webpage_title">Wikipedia Zero GyIK</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Wikipedia Zero elhagyása</string>
@@ -123,11 +132,15 @@
   <string name="zero_learn_more">Adatforgalmi díjak mellőzése Wikipédia alkalmazásokban.</string>
   <string name="zero_learn_more_learn_more">Tudnivalók</string>
   <string name="zero_learn_more_dismiss">Elutasít</string>
-  <string name="edit_preview_fetching_dialog_message">Előnézed készítése...</string>
+  <string name="edit_preview_fetching_dialog_message">Előnézet készítése…</string>
   <string name="send_feedback">Alkalmazás visszajelzés küldése</string>
   <string name="nav_item_random">Véletlen lap</string>
   <string name="create_account_account_created_toast">Felhasználói fiók létrehozva!</string>
+  <string name="preferences_privacy_settings_heading">Adatvédelem</string>
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
+  <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
+  <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
+  <string name="preference_summary_auto_upload_crash_reports">Az app automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, és gyorsabban és könnyebben kijavíthassuk a hibát.</string>
   <string name="history_search_list_hint">Keresési előzmények</string>
   <string name="history_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
@@ -149,6 +162,9 @@
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. Biztos mentés nélkül akarsz kilépni?</string>
   <string name="user_blocked_from_editing_title">Blokkolva</string>
+  <string name="user_logged_in_blocked_from_editing">A szerkesztői fiókod el van tiltva a szerkesztéstől ezen a wikin.</string>
+  <string name="user_anon_blocked_from_editing">Az IP-címed el van tiltva a szerkesztéstől.</string>
+  <string name="edit_how_page_improved">Hogy javítottad a lapot?</string>
   <string name="edit_next">Következő</string>
   <string name="edit_done">Mentés</string>
   <string name="edit_preview">Előnézet</string>
@@ -156,18 +172,51 @@
   <string name="edit_summary_tag_grammar">Nyelvtani javítás</string>
   <string name="edit_summary_tag_links">Hozzáadott linkek</string>
   <string name="edit_summary_tag_other">Egyéb</string>
+  <string name="find_next">Következő keresése</string>
+  <string name="find_previous">Előző keresése</string>
   <string name="error_network_error_try_again">Nem sikerült elérni a hálózatot, kérjük, próbáld újra.</string>
   <string name="saved_pages_update_all_error_retry">Újra</string>
   <string name="saved_pages_update_all_error_message">Hiba a mentett lapok frissítése során</string>
+  <string name="saved_pages_progress_title">Mentett lapok frissítése</string>
+  <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan el akarod menteni?</string>
+  <string name="dialog_page_issues">A lap problémái</string>
+  <string name="button_page_issues">A lap problémái</string>
+  <string name="text_size_select">Betűméret</string>
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Világos</string>
   <string name="color_theme_dark">Sötét</string>
   <string name="page_similar_titles">Hasonló lapok</string>
+  <string name="search_did_you_mean">Így értetted: „%s”?</string>
+  <string name="search_recent_header">Legutóbbi keresések:</string>
+  <string name="button_clear_all_recent_searches">Legutóbbi keresések törlése</string>
+  <string name="clear_recent_searches_confirm">Biztosan törölni szeretnéd a keresési előzményeidet?</string>
+  <string name="error_browser_not_found">Nem sikerült megnyitni a weblapot (nem találtam böngészőalkalmazást).</string>
+  <string name="table_infobox">Gyors adatok</string>
   <string name="table_other">További információk</string>
   <string name="table_close">Bezár</string>
   <string name="widget_name_featured_page">Wikipédia kiemelt oldal</string>
   <string name="widget_title_featured_page">Mai kiemelt lap</string>
   <string name="widget_name_search">Wikipédia keresés</string>
+  <string name="app_store_description">Hivatalos Wikipédia alkalmazás Androidra. A Wikipédia a szabad enciklopédia több mint 32 millió szócikkel 280 nyelven, és ez a legátfogóbb és legszélesebb körben használt referenciamunka, amit az emberiség valaha is összeállított.
+
+Funkciók:
+– Borítóképek: élvezd a Wikipédiát, ahogy még soha, egy hangsúlyos, témához kapcsolódó képpel és egy leírással a szócikkek tetején.
+– Képgaléria: ha megérintesz egy képet, megjelenik teljes képernyőn, nagy felbontásban, amit oldalra elhúzva böngészheted a lapon lévő összes képet.
+– Leírások a Wikidatából: kereséskor a találatok tartalmaznak egy rövid leírást, ami segít megtalálni a jó szócikket. Ezek a leírások az alkalmazás más részein (például Közelben) is megjelennek.
+– Ajánlott szócikkek: görgess a szócikk aljára javaslatokért, hogy mit olvashatnál következőnek.
+– Mentett lapok: ments el lapokat kapcsolat nélküli olvasásra, és böngészd őket akkor is, ha nincs adatkapcsolatod.
+– Közelben: tudj meg többet a körülötted lévő dolgokról úgy, hogy az alkalmazás megmutatja az aktuális pozíciódhoz közeli szócikkeket.
+– Nyelvi támogatás: zökkenőmentesen válthatsz a Wikipédia bármely nyelvű változata között.
+– Tartalomjegyzék: legyints balra bármilyen szócikken a tartalomjegyzék előhozásához, amivel könnyedén ugorhatsz a szócikk egyes szakaszaihoz.
+– Wikipédia Zéró: az adatköltségeket elengedik az együttműködő mobilszolgáltatók (Magyarországon nincs ilyen).
+
+Küldj visszajelzést az appról! A menüben nyomd meg a „Beállítások”, majd „A Wikipédia appról” gombot, végül válaszd a „visszajelzés küldése” linket.
+
+A forráskód 100%-ban nyílt. Ha van tapasztalatod a Javával és az Android SDK-val, várunk téged is a közreműködők között! https://github.com/wikimedia/apps-android-wikipedia
+
+Adatvédelmi irányelvek: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Felhasználási feltételek: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Új alfa frissítés érhető el</string>
   <string name="alpha_update_notification_text">Koppints a letöltéshez</string>
   <string name="dialog_close_description">Bezár</string>
@@ -179,4 +228,5 @@
   <string name="gallery_save_success">A kép sikeresen mentve.</string>
   <string name="gallery_image_saved_notification_title">A kép eltárolva.</string>
   <string name="gallery_image_saved_notification_text">Érintse meg a megtekintéshez.</string>
+  <string name="error_unknown">Ismeretlen hiba történt.</string>
 </resources>

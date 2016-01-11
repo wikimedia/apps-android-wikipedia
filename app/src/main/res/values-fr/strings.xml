@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Rechercher les pages enregistrées</string>
   <string name="saved_pages_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
-  <string name="menu_page_other_languages" fuzzy="true">Lire dans d’autres langues</string>
+  <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Rechercher dans la page</string>
+  <string name="menu_page_content_issues">Problèmes de contenu</string>
+  <string name="menu_page_similar_titles">Titres similaires</string>
   <string name="menu_page_font_and_theme">Modifier la police et le thème</string>
   <string name="menu_page_save">Enregistrer la page</string>
   <string name="menu_page_share">Partager le lien</string>
@@ -279,4 +281,7 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
 Voudriez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
   <string name="crash_report_quit">Quitter</string>
+  <string name="article_menu_bar_bookmark">Sauvegarder l\'article pour le lire hors ligne plus tard</string>
+  <string name="article_menu_bar_share">Partager cet article</string>
+  <string name="article_menu_bar_navigate">Naviguer à l’emplacement de l’article</string>
 </resources>

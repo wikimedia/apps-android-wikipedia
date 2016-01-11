@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Gespeicherte Seiten suchen</string>
   <string name="saved_pages_search_empty_message">Keine Seiten mit deiner Suchanfrage gefunden.</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
-  <string name="menu_page_other_languages" fuzzy="true">In anderen Sprachen lesen</string>
+  <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
+  <string name="menu_page_content_issues">Inhaltsprobleme</string>
+  <string name="menu_page_similar_titles">Ähnliche Titel</string>
   <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
   <string name="menu_page_save">Seite speichern</string>
   <string name="menu_page_share">Link teilen</string>
@@ -279,4 +281,7 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
 Möchtest du die App neu starten oder beenden?</string>
   <string name="crash_report_relaunch">Neu starten</string>
   <string name="crash_report_quit">Beenden</string>
+  <string name="article_menu_bar_bookmark">Den Artikel zum späteren Offline-Lesen speichern</string>
+  <string name="article_menu_bar_share">Artikellink teilen</string>
+  <string name="article_menu_bar_navigate">Zum Standort des Artikels navigieren</string>
 </resources>

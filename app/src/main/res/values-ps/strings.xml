@@ -29,6 +29,7 @@
   <string name="saved_pages_search_list_hint">خوندي مخونه پلټل</string>
   <string name="menu_page_other_languages" fuzzy="true">په نورو ژبو کې لوستل</string>
   <string name="menu_page_find_in_page">په مخ کې موندل</string>
+  <string name="menu_page_similar_titles">ورته سرليکونه</string>
   <string name="menu_page_font_and_theme">ليکبڼه او شازمکه</string>
   <string name="menu_page_save">مخ خوندي کول</string>
   <string name="menu_page_share">تړنه شريکول</string>

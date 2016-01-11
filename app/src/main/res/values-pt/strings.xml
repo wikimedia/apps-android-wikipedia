@@ -260,7 +260,7 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>
-  <string name="button_continue_to_article">Leia o artigo</string>
+  <string name="button_continue_to_article">Ler o artigo</string>
   <string name="button_get_directions">Obter direções</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
   <string name="nav_item_donate">Apoie a Wikimedia</string>

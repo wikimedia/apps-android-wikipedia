@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Hľadať v uložených stránkach</string>
   <string name="saved_pages_search_empty_message">Nenašli sa žiadne stránky zodpovedajúce týmto kritériám.</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
-  <string name="menu_page_other_languages" fuzzy="true">V iných jazykoch</string>
+  <string name="menu_page_other_languages">Zmeniť jazyk</string>
   <string name="menu_page_find_in_page">Nájsť na stránke</string>
+  <string name="menu_page_content_issues">Problémy s obsahom</string>
+  <string name="menu_page_similar_titles">Podobné články</string>
   <string name="menu_page_font_and_theme">Zmeniť písmo a vzhľad</string>
   <string name="menu_page_save">Uložiť stránku</string>
   <string name="menu_page_share">Zdieľať</string>
@@ -249,10 +251,14 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="address_copied">Adresa bola skopírovaná do schránky.</string>
   <string name="text_copied">Text bol skopírovaný do schránky.</string>
   <string name="button_continue_to_article">Prečítať si článok</string>
+  <string name="button_get_directions">Nájsť trasu</string>
+  <string name="error_no_maps_app">Nenašli sme žiadne aplikácie poskytujúce navigáciu.</string>
   <string name="nav_item_donate">Podporte Wikipédiu</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
   <string name="crash_report_dialog_always_send_button">Vždy odoslať</string>
   <string name="crash_report_dialog_send_button">Odoslať</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
+  <string name="article_menu_bar_bookmark">Uložiť článok na offline čítanie</string>
+  <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
 </resources>

@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Søk i lagrede sider</string>
   <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
   <string name="menu_page_show_tabs">Vis arkfaner</string>
-  <string name="menu_page_other_languages" fuzzy="true">Les på andre språk</string>
+  <string name="menu_page_other_languages">Endre språk</string>
   <string name="menu_page_find_in_page">Søk i siden</string>
+  <string name="menu_page_content_issues">Innholdsproblemer</string>
+  <string name="menu_page_similar_titles">Lignende artikler</string>
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
   <string name="menu_page_save">Lagre side</string>
   <string name="menu_page_share">Del lenke</string>
@@ -262,7 +264,9 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Kode: «%s»</string>
   <string name="address_copied">Adressen har blitt kopiert til utklippstavlen.</string>
   <string name="text_copied">Teksten ble kopiert til utklippstavlen.</string>
-  <string name="button_continue_to_article" fuzzy="true">Fortsett til artikkelen</string>
+  <string name="button_continue_to_article">Les artikkelen</string>
+  <string name="button_get_directions">Veibeskrivelse</string>
+  <string name="error_no_maps_app">Fant ikke noen apper som kunne gi veibeskrivelse.</string>
   <string name="preference_title_show_link_previews">Forhåndsvis lenker</string>
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="nav_item_donate">Støtt Wikipedia</string>
@@ -277,4 +281,7 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
 Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="crash_report_relaunch">Start på nytt</string>
   <string name="crash_report_quit">Avslutt</string>
+  <string name="article_menu_bar_bookmark">Lagre artikkelen for å kunne lese den offline senere</string>
+  <string name="article_menu_bar_share">Del lenke til artikkelen</string>
+  <string name="article_menu_bar_navigate">Naviger til det omtalte stedet</string>
 </resources>

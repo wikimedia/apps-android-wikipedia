@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Kaydedilen sayfaları ara</string>
   <string name="saved_pages_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
-  <string name="menu_page_other_languages" fuzzy="true">Başka dilde oku</string>
+  <string name="menu_page_other_languages">Başka dilde oku</string>
   <string name="menu_page_find_in_page">Sayfada bul</string>
+  <string name="menu_page_content_issues">İçerik sorunları</string>
+  <string name="menu_page_similar_titles">Benzer başlıklar</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_save">Sayfayı kaydet</string>
   <string name="menu_page_share">Bağlantı paylaş</string>
@@ -213,13 +215,13 @@
 - İçindekiler: Herhangi bir maddede içindekileri görmek için sola kaydırın; böylece istediğiniz alt başlığa kolayca geçebilirsiniz.
 - Wikipedia Zero: Anlaşmalı mobil operatörlerde veri iletişim ücretleri alınmaz.
 
-Uygulama hakkındaki görüşlerinizi bize gönderin! Menüde \"Daha fazla\"ya tıklayın; sonrasında \"Wikipedia uygulaması hakkında\"ya ve ardından \"Uygulama geri bildirimi gönder\"e basın.
+Uygulama hakkındaki görüşlerinizi bize gönderin! Menüde \"Daha fazla\"ya tıklayın; sonrasında \"Vikipedi uygulaması hakkında\"ya ve ardından \"Uygulama geri bildirimi gönder\"e basın.
 
 Uygulama kodları %100 açık kaynaklıdır. Eğer Java ve Android SDK tecrübeniz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
 
-Gizlilik ilkesi: http://wikimediafoundation.org/wiki/Privacy_policy
+Gizlilik Politikası: https://meta.wikimedia.org/wiki/Privacy_policy/tr
 
-Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
+Kullanım koşulları: https://meta.wikimedia.org/wiki/Terms_of_use/tr</string>
   <string name="alpha_update_notification_title">Yeni alfa güncellemesi var</string>
   <string name="alpha_update_notification_text">İndirmek için dokunun</string>
   <string name="dialog_close_description">Kapat</string>
@@ -275,4 +277,7 @@ Kullanım koşulları: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.</string>
   <string name="crash_report_relaunch">Baştan başla</string>
   <string name="crash_report_quit">Çıkış</string>
+  <string name="article_menu_bar_bookmark">Maddeyi daha sonra çevrimdışı okuma için kaydet</string>
+  <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
+  <string name="article_menu_bar_navigate">Makale konumuna gidin</string>
 </resources>

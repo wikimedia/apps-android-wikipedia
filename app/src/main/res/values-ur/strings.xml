@@ -13,7 +13,8 @@
   <string name="menu_clear_all_saved_pages">محفوظ صفحات حذف کریں</string>
   <string name="page_does_not_exist_error">یہ صفحہ موجود نہیں ہے.</string>
   <string name="nav_item_today">آج</string>
-  <string name="dialog_title_clear_history" fuzzy="true">براؤزنگ ہسٹری حذف کریں؟</string>
+  <string name="dialog_title_clear_history">براؤزنگ کا تاریخچہ صاف کریں</string>
+  <string name="dialog_message_clear_history">یہ آپ کی تمام براؤزنگ کا تاریخچہ صارف کر دے گا اور کھلی ہوئی ٹیبز بند کر دے گا۔ کیا آپ ایسا کرنا چاہتے ہیں؟</string>
   <string name="nav_item_saved_pages">محفوظ صفحات</string>
   <string name="menu_update_all_saved_pages">محفوظ صفحات کی تجدید کریں</string>
   <string name="menu_update_selected_saved_pages">محفوظ صفحات کی تجدید کریں</string>
@@ -31,12 +32,20 @@
   <string name="menu_page_show_tabs">دکھائیں</string>
   <string name="menu_page_other_languages" fuzzy="true">دوسری زبان میں مطالعہ کریں</string>
   <string name="menu_page_find_in_page">صفحہ میں تلاش کریں</string>
+  <string name="menu_page_content_issues">مسائل مواد</string>
+  <string name="menu_page_similar_titles">اسی طرح کے عنوانات</string>
   <string name="menu_page_font_and_theme">فانٹ اور پس منظر</string>
   <string name="menu_page_save">صفحہ محفوظ کریں</string>
   <string name="menu_page_share">ربط شیئر کریں</string>
+  <string name="menu_long_press_open_page">کھولیں</string>
+  <string name="menu_long_press_open_in_new_tab">نئی ٹیب میں کھولیں</string>
+  <string name="menu_long_press_copy_page">اس کا ربط کاپی کریں</string>
+  <string name="menu_text_select_copy">نقل</string>
+  <string name="menu_text_select_share">دوسروں کو بھیجیں</string>
   <string name="nav_item_nearby">قریبی</string>
   <string name="nearby_distance_in_meters">%d میٹر</string>
   <string name="nearby_distance_in_kilometers">%.2f کلومیٹر</string>
+  <string name="nearby_zoom_to_location">نقشہ پر مقام کو بڑا کریں</string>
   <string name="last_updated_text">آخری تجدید %s</string>
   <string name="content_license_html">تمام مواد لائسنس &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; کے تحت دستیاب ہے جب تک کوئی دوسری شرط عائد نہ ہو</string>
   <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق سمجھا جائے گا اور ترامیم کو&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس کے تحت آزاد سمجھا جائے گا</string>
@@ -68,7 +77,7 @@
   <string name="login_password_hint">کلمۂ شناخت</string>
   <string name="login_password_show_check">ظاہری کملہ شناخت</string>
   <string name="menu_login">داخل ہوں</string>
-  <string name="login_activity_title" fuzzy="true">ویکیپیڈیا میں داخل ہوں</string>
+  <string name="login_activity_title">ویکیپیڈیا میں داخل (لاگ ان) ہوں</string>
   <string name="login_in_progress_dialog_message">لاگ ان ہورہے ہیں...</string>
   <string name="login_error_wrong_password">غلط پاسورڈ</string>
   <string name="login_error_wrong_username">غکط صارف نام</string>
@@ -120,10 +129,12 @@
   <string name="zero_interstitial_cancel">یہیں رہیں</string>
   <string name="zero_learn_more_learn_more">مزید پڑھیں</string>
   <string name="zero_learn_more_dismiss">ہٹائیں</string>
+  <string name="edit_next">اگلا</string>
   <string name="edit_done">محفوظ</string>
   <string name="edit_preview">نمائش</string>
   <string name="edit_summary_tag_typo">درستی املا</string>
   <string name="edit_summary_tag_grammar">درستی قواعد</string>
+  <string name="edit_summary_tag_other">دیگر</string>
   <string name="search_did_you_mean">کیا آپ کو \"%s\" ہے؟</string>
   <string name="search_recent_header">حالیہ تلاش کیے گئے صفحات:</string>
   <string name="button_clear_all_recent_searches">حالیہ تلاش کی تاریخ حذف کریں</string>

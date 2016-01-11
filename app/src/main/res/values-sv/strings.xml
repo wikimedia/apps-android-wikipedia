@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Sök sparade sidor</string>
   <string name="saved_pages_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
-  <string name="menu_page_other_languages" fuzzy="true">Läs på andra språk</string>
+  <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Sök på sidan</string>
+  <string name="menu_page_content_issues">Innehållsproblem</string>
+  <string name="menu_page_similar_titles">Liknande artiklar</string>
   <string name="menu_page_font_and_theme">Ändra teckensnitt och tema</string>
   <string name="menu_page_save">Spara sidan</string>
   <string name="menu_page_share">Dela länk</string>
@@ -279,4 +281,7 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
 Vill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
   <string name="crash_report_quit">Avsluta</string>
+  <string name="article_menu_bar_bookmark">Spara artikeln för att läsa den senare offline</string>
+  <string name="article_menu_bar_share">Dela länk till artikeln</string>
+  <string name="article_menu_bar_navigate">Navigera till artikelns plats</string>
 </resources>

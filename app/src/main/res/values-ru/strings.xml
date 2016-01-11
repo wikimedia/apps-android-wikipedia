@@ -30,8 +30,9 @@
   <string name="saved_pages_search_list_hint">Поиск по сохранённым страницам</string>
   <string name="saved_pages_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
-  <string name="menu_page_other_languages" fuzzy="true">Читать на других языках</string>
+  <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти на странице</string>
+  <string name="menu_page_similar_titles">Похожие названия</string>
   <string name="menu_page_font_and_theme">Изменение шрифта и оформления</string>
   <string name="menu_page_save">Сохранить страницу</string>
   <string name="menu_page_share">Поделиться ссылкой</string>
@@ -280,4 +281,6 @@
 Вы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
   <string name="crash_report_quit">Выйти</string>
+  <string name="article_menu_bar_bookmark">Сохранить статью для последующего чтения в автономном режиме</string>
+  <string name="article_menu_bar_share">Поделиться ссылкой на статью</string>
 </resources>

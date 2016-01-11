@@ -28,9 +28,11 @@
   <string name="snackbar_saved_page_deleted">သိမ်းဆည်း စာမျက်နှာ(များ) ဖျက်ပြီး</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">ရှာဖွေ</string>
   <string name="saved_pages_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိ</string>
-  <string name="menu_page_other_languages" fuzzy="true">အခြားဘာသာစကားဖြင့် ဖတ်ရန်</string>
+  <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
   <string name="menu_page_save">စာမျက်နှာကိုသိမ်း</string>
   <string name="menu_page_share" fuzzy="true">မျှဝေ</string>
+  <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
+  <string name="menu_text_select_copy">မိတ္တူကူး</string>
   <string name="nav_item_nearby">အနီးအနား</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -117,5 +119,5 @@
   <string name="widget_name_featured_page">ဝီကီပီဒီယား မျက်နှာဖုံးဆောင်းပါး</string>
   <string name="widget_name_search">ဝီကီပီဒီးယားမှာ ရှာဖွေ</string>
   <string name="alpha_update_notification_title">စမ်းသပ်သုံးစွဲမှု အသစ်ရယူနိုင်ပါပြီ</string>
-  <string name="alpha_update_notification_text">ထိနိုပ်ခြင်းဖြင့် ရယူပါ</string>
+  <string name="alpha_update_notification_text">တို့ထိခြင်းဖြင့် ရယူပါ</string>
 </resources>

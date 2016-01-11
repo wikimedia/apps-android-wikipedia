@@ -54,7 +54,7 @@ See also:
   <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query.</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.
-{{Identical|Otherlanguages}}</string>
+{{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_content_issues">Menu item for showing known issues on current page</string>
   <string name="menu_page_similar_titles">Menu item for showing articles similar to the current page</string>

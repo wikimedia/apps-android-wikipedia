@@ -13,7 +13,7 @@
   <string name="menu_clear_all_saved_pages">சேமித்தப் பக்கங்களை நீக்கு</string>
   <string name="page_does_not_exist_error">இந்தப் பக்கம் இல்லை!</string>
   <string name="nav_item_today">இன்று</string>
-  <string name="dialog_title_clear_history" fuzzy="true">உலவல் வரலாற்றை நீக்கவா?</string>
+  <string name="dialog_title_clear_history">உலவல் வரலாற்றை நீக்கு</string>
   <string name="nav_item_saved_pages">சேமிக்கப்பட்ட பக்கங்கள்</string>
   <string name="menu_update_all_saved_pages">சேமிக்கப்பட்ட பக்கங்களை இற்றைப்படுத்து</string>
   <string name="menu_update_selected_saved_pages">சேமிக்கப்பட்ட பக்கங்களை இற்றைப்படுத்து</string>
@@ -21,25 +21,35 @@
   <string name="share_via">இதன் வழியாக பகிரவும்…</string>
   <string name="dialog_title_clear_saved_pages">சேமிக்கப்பட்ட அனைத்து பக்கங்களையும் நீக்கவா?</string>
   <string name="snackbar_saving_page">பக்கம் சேமிக்கப்படுகின்றது…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">பக்கம் வெற்றிகரமாக சேமிக்கப்பட்டது</string>
+  <string name="snackbar_saved_page_format">\"%s\" அகல்நிலை வாசிப்பிற்கு சேமிக்கப்பட்டது</string>
   <string name="snackbar_saved_page_missing_images">அனைத்துப் படிமங்களையும் சேமிக்க முடியவில்லை</string>
   <string name="snackbar_refresh_saved_page">சேமிக்கப்பட்ட பக்கம் புதுப்பிக்கிறது…</string>
   <string name="delete_selected_saved_pages">நீக்குக</string>
   <string name="snackbar_saved_page_deleted">சேமிக்கப்பட்ட பக்கங்கள் அழிக்கப்பட்டன</string>
   <string name="saved_pages_search_list_hint">சேமித்த பக்கங்களில் தேடுக</string>
   <string name="saved_pages_search_empty_message">உங்கள் வினவலுடன் பொருந்தக்கூடிய எந்தவொரு பக்கமும் காணப்படவில்லை.</string>
+  <string name="menu_page_show_tabs">தத்தல்களை காண்பி</string>
   <string name="menu_page_other_languages" fuzzy="true">மற்ற மொழிகளில் படிக்க</string>
+  <string name="menu_page_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
+  <string name="menu_page_similar_titles">ஒத்த(ஒப்பான) தலைப்பு</string>
   <string name="menu_page_font_and_theme">எழுத்துரு மற்றும் பிற</string>
   <string name="menu_page_save">பக்கத்தைச் சேமி</string>
-  <string name="menu_page_share" fuzzy="true">பகிர்</string>
+  <string name="menu_page_share">இணைப்பை பகிர்</string>
+  <string name="menu_long_press_open_page">திற</string>
+  <string name="menu_long_press_open_in_new_tab">புதிய தத்ததில் திற</string>
+  <string name="menu_long_press_copy_page">இணைப்பு முகவரியை நகலெடு</string>
+  <string name="menu_text_select_copy">நகல்</string>
+  <string name="menu_text_select_share">பகிர்</string>
   <string name="nav_item_nearby">அருகில்</string>
   <string name="nearby_distance_in_meters">%d மீ</string>
   <string name="nearby_distance_in_kilometers">%.2f கி. மீ.</string>
+  <string name="nearby_zoom_to_location">வரைபடத்தை ஒரு இடத்தை பெரிதாக்கவும்</string>
   <string name="last_updated_text">இறுதியாக புதுப்பிக்கப்பட்டது %1$s</string>
   <string name="preference_title_language">விக்கப்பீடியா மொழி</string>
   <string name="preference_languages_filter_hint">தேடுக</string>
   <string name="langlinks_filter_hint">தேடுக</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை</string>
+  <string name="langlinks_no_match">உங்கள் வினவலுடன் பொருந்தக்கூடிய மொழிகள் காணப்படவில்லை.</string>
   <string name="langlinks_activity_title">மற்ற மொழிகளில்</string>
   <string name="menu_save_changes">மாற்றங்களைச் சேமி</string>
   <string name="edit_section_error_retry">மறு முயற்சி செய்</string>
@@ -50,6 +60,7 @@
   <string name="dialog_message_edit_failed_cancel">இரத்து செய்</string>
   <string name="dialog_message_leaving_edit">தங்களின் மாற்றங்கள் இன்னும் சேமிக்கப்படவில்லை. தாங்கள் நிச்சயமாக இந்தப் பக்கத்தை விட்டு வெளியேற விரும்புகிறீர்களா?</string>
   <string name="dialog_message_leaving_edit_leave">விட்டுவிடவும்</string>
+  <string name="dialog_message_leaving_edit_stay">தங்கு</string>
   <string name="menu_show_toc">உள்ளடக்க அட்டவணை</string>
   <string name="search_no_results_found">முடிவுகள் எதுவும் காணப்படவில்லை</string>
   <string name="edit_section_captcha_message">தானியங்கு எரிதத்தை எதிர்த்து காக்க, கீழ்வரும் சொற்களை உள்ளிடவும்</string>
@@ -57,12 +68,12 @@
   <string name="title_captcha">CAPTCHAவை உள்ளிடவும்</string>
   <string name="edit_section_captcha_reload">மறுஏற்றம் செய்ய கேப்ட்சாவை தட்டவும்</string>
   <string name="edit_saved_page_refresh">இந்த சேமிக்கப்பட்ட பக்கம் காலாவதியாகி இருக்கலாம், அதனால் தொகுத்தலை இயக்க புதிப்பிக்கப்பட வேண்டும். பக்கத்தைப் புதிப்பிக்க விரும்புகிறீர்களா?</string>
-  <string name="nav_item_login" fuzzy="true">புகுபதிகை</string>
+  <string name="nav_item_login">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
   <string name="login_username_hint">பயனர் பெயர்</string>
   <string name="login_password_hint">கடவுச்சொல்</string>
   <string name="login_password_show_check">கடவுச்சொல்லை காட்டு</string>
   <string name="menu_login">புகுபதிகை</string>
-  <string name="login_activity_title" fuzzy="true">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
+  <string name="login_activity_title">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
   <string name="login_in_progress_dialog_message">புகுபதிகையாகின்றது…</string>
   <string name="login_error_wrong_password">தவறான கடவுச்சொல்.</string>
   <string name="login_error_wrong_username">தவறான பயனர்பெயர்</string>
@@ -91,10 +102,17 @@
   <string name="create_account_username_exists_error">பயனர் பெயர் ஏற்கனவே பயன்பாட்டில் உள்ளது</string>
   <string name="create_account_ip_throttle_error">இந்த ஐ.பி-இல் இருந்து மிக அதிகமான கணக்குகள் உருவாக்கப்பட்டுள்ளன. சிறிது நேரம் கழித்து மீண்டும் முயற்சிக்கவும்.</string>
   <string name="create_account_open_proxy_error">இந்த ஐபி முகவரியிலிருந்து கணக்குகள் உருவாக்குவது தடுக்கப்பட்டுள்ளது.</string>
+  <string name="create_account_noname_error">நீங்கள் அளித்துள்ள பயனீட்டாளர் பெயர் செல்லுபடியாகவில்லை. தயவு செய்து வேறொரு பயனீட்டாளர் பெயர் அளிக்கவும்.</string>
+  <string name="create_account_invalid_email_error">நீங்கள் அளித்துள்ள மின் அஞ்சல் முகவரி செல்லுபடியாகவில்லை .</string>
+  <string name="create_account_password_too_short_error">நீங்கள் அளித்துள்ள கடவுச்சொல் மிகவும் குறுகியதாக உள்ளது.</string>
+  <string name="create_account_blocked_anon_error">உங்களால் ஒரு கணக்கு உருவாக்க இயலாது ஏனென்றால் உங்கள் இணைய நெறிமுறை முகவரி தடை செய்யபட்டுள்ளது.</string>
+  <string name="create_account_blocked_error">உங்களால் ஒரு கணக்கு உருவாக்க இயலாது ஏனென்றால் உங்கள் கணக்கு தடை செய்யபட்டுள்ளது.</string>
+  <string name="create_account_password_name_match_error">உங்கள் பயனீட்டாளர் பெயரும் , கடவுச்சொல்லும் வித்யாசமாக இருக்க வேண்டும்.</string>
   <string name="create_account_generic_error">கணக்கை உருவாக்க முடியவில்லை</string>
   <string name="create_account_next">அடுத்து</string>
   <string name="create_account_button">கணக்கை உருவாக்குக</string>
   <string name="preferences_general_heading">பொதுவான</string>
+  <string name="wikipedia_app_faq">விக்கிப்பீடியா செயலி அடிக்கடிக் கேட்கப்படும் கேள்விகள்</string>
   <string name="zero_charged_verbiage">விக்கிப்பீடியா சுழி செயலில் இல்லை</string>
   <string name="zero_charged_verbiage_extended">மேலும் கட்டுரைகளை ஏற்றினால் தரவுக்கட்டணங்களுக்கு உள்ளாகலாம்.</string>
   <string name="zero_search_hint">விக்கிப்பீடியா சுழியில் தேடுக</string>
@@ -111,14 +129,19 @@
   <string name="edit_preview_fetching_dialog_message">முன்தோற்றத்தை இறக்குகிறது…</string>
   <string name="send_feedback">நிரல் பின்னூட்டம் அனுப்பு</string>
   <string name="nav_item_random">ஏதோ ஒன்று</string>
+  <string name="create_account_account_created_toast">கணக்கு உருவாக்கப்பட்டது.</string>
+  <string name="preferences_privacy_settings_heading">தனியுரிமை</string>
+  <string name="preference_title_auto_upload_crash_reports">முறிவு அறிக்கை அனுப்பு.</string>
   <string name="history_search_list_hint">வரலாற்றைத் தேடுக</string>
+  <string name="history_search_empty_message">உங்கள் வினவலுடன் பொருந்தக்கூடிய எந்தவொரு பக்கமும் காணப்படவில்லை.</string>
   <string name="error_can_not_process_link">இந்த இணைப்பைக் காட்ட முடியவில்லை</string>
   <string name="page_protected_autoconfirmed">இந்த பக்கம் அரைப் பாதுகாக்கபட்டுள்ளது.</string>
   <string name="page_protected_sysop">இந்த பக்கம் முழுமையாகப் பாதுகாக்கப்பட்டுள்ளது.</string>
   <string name="page_protected_other">இந்தப்பக்கம் பின்வரும் நிலைகளில் பாதுகாக்கப்பட்டுள்ளது: %s</string>
   <string name="page_protected_can_not_edit">உங்களுக்கு இந்த பக்கத்தை தொகுக்கும் உரிமைகள் இல்லை</string>
   <string name="page_protected_can_not_edit_title">இந்த பக்கம் பாதுகாக்கப்பட்டுள்ளது.</string>
-  <string name="settings_activity_title" fuzzy="true">அமைப்புகள்</string>
+  <string name="settings_item_preferences">அமைப்புகள்</string>
+  <string name="settings_activity_title">அமைப்புகள்</string>
   <string name="about_description">விக்கிப்பீடியா நிரலைப் பற்றி</string>
   <string name="privacy_policy_description">தகவல் பாதுகாப்பு</string>
   <string name="terms_of_use_description">பயன்பாட்டு விதிமுறைகள்</string>
@@ -132,9 +155,20 @@
   <string name="about_activity_title">இதுபற்றி</string>
   <string name="edit_abandon_confirm">இந்தப் பக்கத்தில் மாற்றங்கள் உள்ளன. உறுதியாக உங்கள் மாற்றங்களை சேமிக்காமல் வெளியேற விரும்புகிறீர்களா?</string>
   <string name="user_blocked_from_editing_title">தடுக்கப்பட்டது</string>
+  <string name="user_logged_in_blocked_from_editing">உங்கள் பயனீட்டாளர் கணக்கு விக்கி தொகுகல்லிருந்து தடை செய்யப்பட்டுள்ளது.</string>
+  <string name="user_anon_blocked_from_editing">உங்கள் இனைய நெறிமுறை முகவரி தொகுகல்லிருந்து தடை செய்யப்பட்டுள்ளது.</string>
+  <string name="edit_next">அடுத்து</string>
+  <string name="edit_done">சேமி</string>
+  <string name="edit_preview">முன்னோட்டம்</string>
   <string name="edit_summary_tag_typo">தட்டுப்பிழைத்திருத்தம்</string>
   <string name="edit_summary_tag_grammar">இலக்கணப் பிழைத்திருத்தம்</string>
+  <string name="edit_summary_tag_links">சேர்க்கப்பட்ட இணைப்புகள்</string>
   <string name="edit_summary_tag_other">பிற சுருக்கம்</string>
+  <string name="find_next">அடுத்ததை கண்டுபிடி</string>
+  <string name="find_previous">முன்னதைத் தேடு</string>
+  <string name="saved_pages_update_all_error_retry">மறு முயற்சி செய்</string>
+  <string name="saved_pages_update_all_error_message">சேமித்த பக்கங்களை தோடர்வெளியீடுவதில் பிழை</string>
+  <string name="saved_pages_progress_title">சேமித்த பக்கங்கள் புத்துணர்வூட்டப்படுகிறது.</string>
   <string name="dialog_page_issues">பக்க சிக்கல்கள்</string>
   <string name="button_page_issues">பக்க சிக்கல்கள்</string>
   <string name="text_size_select">எழுத்துரு அளவு</string>
@@ -147,6 +181,8 @@
   <string name="button_clear_all_recent_searches">அண்மைய தேடல்களை அழிக்கவும்</string>
   <string name="clear_recent_searches_confirm">வரலாற்றை அழிக்க சம்மதமா?</string>
   <string name="error_browser_not_found">இப்பக்கத்தினை திறக்க இயலவில்லை (உலாவி செயலிகள் ஏதும் இல்லை).</string>
+  <string name="table_infobox">விரைவு காரணி</string>
+  <string name="table_other">மேலதிகத் தகவல்கள்</string>
   <string name="table_close">மூடுக</string>
   <string name="widget_name_featured_page">விக்கிப்பீடியா சிறப்புப் பக்கம்</string>
   <string name="widget_title_featured_page">இன்றைய சிறப்பு உள்ளடக்கம்</string>
@@ -160,7 +196,26 @@
   <string name="gallery_menu_share">பகிர்</string>
   <string name="gallery_share_error">%s படிமத்தை பகிர இயலவில்லை</string>
   <string name="gallery_menu_save">கைபேசியில் சேமி</string>
+  <string name="gallery_save_success">அமைகை வெற்றிகரமாக சேமிக்கப்பட்டது</string>
+  <string name="gallery_image_saved_notification_title">அமைகை சேமிக்கப்பட்டது.</string>
+  <string name="gallery_error_video_failed">காணொளியை இயக்க இயலவில்லை.</string>
+  <string name="err_cannot_save_file">ஆவணத்தை சேமிக்க முடியாது.</string>
+  <string name="share_snippet_button">அமைகையாக பகிர்.</string>
+  <string name="share_normal_button">உரையாக பகிர்.</string>
+  <string name="snippet_share_preview_image_desc">உருவ முன்னோட்டம்.</string>
+  <string name="menu_new_tab">புதிய தத்தல்</string>
+  <string name="button_close_tab">தத்தலை மூடு</string>
+  <string name="page_view_in_browser">உலாவியில் பக்கத்தை காண்பி</string>
   <string name="error_unknown">இனம் தெரியாத ஒரு தவறு நிகழ்ந்துவிட்டது</string>
   <string name="format_error_server_message">\"%s\" செயதி</string>
   <string name="format_error_server_code">\"%s\" மூலம்</string>
+  <string name="button_continue_to_article">கட்டுரையை வாசி</string>
+  <string name="button_get_directions">வழிகளைப் பெறு</string>
+  <string name="preference_title_show_link_previews">முன்னோட்ட இணைப்புகளை காண்பி</string>
+  <string name="nav_item_donate">விக்கிமீடியாவை ஆதரிக்கவும்</string>
+  <string name="crash_report_dialog_dont_send_button">தவிர்</string>
+  <string name="crash_report_dialog_always_send_button">எப்பவும் அனுப்பு</string>
+  <string name="crash_report_activity_title">செயலி பிழை</string>
+  <string name="crash_report_quit">முடித்துக்கொள்</string>
+  <string name="article_menu_bar_share">கட்டுரை இணைப்பை பகிர்</string>
 </resources>

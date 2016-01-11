@@ -156,4 +156,5 @@
   <string name="read_more_section">और पढ़ें</string>
   <string name="gallery_menu_share">साझा करें</string>
   <string name="snippet_share_intro">\@Wikipedia पर \"%1$s\": %2$s</string>
+  <string name="button_continue_to_article">लेख पढ़ें</string>
 </resources>

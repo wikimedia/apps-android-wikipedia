@@ -32,6 +32,8 @@
   <string name="menu_page_show_tabs">Rodyti skirtukus</string>
   <string name="menu_page_other_languages" fuzzy="true">Skaityti kitomis kalbomis</string>
   <string name="menu_page_find_in_page">Rasti puslapyje</string>
+  <string name="menu_page_content_issues">Turinio klausimai</string>
+  <string name="menu_page_similar_titles">Panašūs pavadinimai</string>
   <string name="menu_page_font_and_theme">Šriftas ir temos</string>
   <string name="menu_page_save">Įrašyti puslapį</string>
   <string name="menu_page_share">Pasidalinkite nuoroda</string>
@@ -211,4 +213,5 @@
   <string name="crash_report_activity_title">Aplikacijos klaida</string>
   <string name="crash_report_relaunch">Pradėti iš naujo</string>
   <string name="crash_report_quit">Išeiti</string>
+  <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
   <string name="app_name_prod">ウィキペディア</string>
   <string name="app_name_beta">ウィキペディア・ベータ</string>
-  <string name="app_name_alpha">ウィキペディア・アルファ版</string>
+  <string name="app_name_alpha">ウィキペディア・アルファ</string>
   <string name="yes">はい</string>
   <string name="no">いいえ</string>
   <string name="search_hint">ウィキペディアを検索</string>
@@ -22,7 +22,7 @@
   <string name="share_via">シェアする</string>
   <string name="dialog_title_clear_saved_pages">保存したページをすべて消去しますか?</string>
   <string name="snackbar_saving_page">ページを保存中…</string>
-  <string name="snackbar_saved_page_format">オフラインでの読みのため、\"%s\" ページを保存しました</string>
+  <string name="snackbar_saved_page_format">オフラインでの読みのため、ページ「%s」を保存しました</string>
   <string name="snackbar_saved_page_missing_images">一部の画像を保存できませんでした</string>
   <string name="snackbar_refresh_saved_page">保存したページを更新しています…</string>
   <string name="delete_selected_saved_pages">削除</string>
@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">保存したページを検索</string>
   <string name="saved_pages_search_empty_message">キーワードに一致するページが見つかりません。</string>
   <string name="menu_page_show_tabs">タブを表示</string>
-  <string name="menu_page_other_languages" fuzzy="true">他の言語で読む</string>
+  <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
+  <string name="menu_page_content_issues">コンテンツの問題点</string>
+  <string name="menu_page_similar_titles">類似したタイトル</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_save">ページを保存</string>
   <string name="menu_page_share">リンクをシェア</string>
@@ -46,7 +48,7 @@
   <string name="nearby_zoom_to_location">地図上の場所へズームする</string>
   <string name="last_updated_text">最終更新: %s</string>
   <string name="content_license_html">特記なき場合、コンテンツは&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;で利用可能です</string>
-  <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
+  <string name="edit_save_action_license_logged_in">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="edit_save_action_license_anon">保存すると、&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ライセンス下でのコンテンツ再利用を許諾することになります。これは撤回できません。編集はあなたのデバイスのIPアドレスと関連付けて記録されます。さらにプライバシーを求める場合は&lt;a href=\"https://#login\"&gt;ログイン&lt;/a&gt;してください。</string>
   <string name="preference_title_language">ウィキペディアの言語</string>
   <string name="preference_languages_filter_hint">検索</string>
@@ -69,7 +71,7 @@
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
   <string name="title_captcha">CAPTCHA を入力</string>
-  <string name="edit_section_captcha_reload">タップするとCAPTCHAを再読み込みします</string>
+  <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>
   <string name="edit_saved_page_refresh">この保存されたページは期限切れかもしれません。編集するには更新する必要があります。ページを更新しますか?</string>
   <string name="nav_item_login">ウィキペディアにログイン</string>
   <string name="login_username_hint">利用者名</string>
@@ -108,14 +110,14 @@
   <string name="create_account_noname_error">入力した利用者名は無効です。別の利用者名を入力してください。</string>
   <string name="create_account_invalid_email_error">入力したメールアドレスは無効です。</string>
   <string name="create_account_password_too_short_error">パスワードが短すぎます。</string>
-  <string name="create_account_blocked_anon_error">IPアドレスがブロックされているため、アカウントを作成できません。</string>
+  <string name="create_account_blocked_anon_error">IP アドレスがブロックされているため、アカウントを作成できません。</string>
   <string name="create_account_blocked_error">あなたのアカウントがブロックされているため、アカウントを作成できません。</string>
   <string name="create_account_password_name_match_error">利用者名とパスワードは同一にできません。</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
   <string name="create_account_next">次へ</string>
   <string name="create_account_button">アカウント作成</string>
   <string name="preferences_general_heading">全般</string>
-  <string name="wikipedia_app_faq">ウィキペディアアプリについてのFAQ</string>
+  <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
   <string name="zero_charged_verbiage">ウィキペディアゼロはオフです</string>
   <string name="zero_charged_verbiage_extended">その他の記事の読み込みには料金が発生する場合があります。</string>
   <string name="zero_search_hint">ウィキペディアゼロを検索</string>
@@ -195,7 +197,7 @@
   <string name="search_recent_header">最近の検索：</string>
   <string name="button_clear_all_recent_searches">最近の検索を消去</string>
   <string name="clear_recent_searches_confirm">本当に検索履歴を消去しますか?</string>
-  <string name="error_browser_not_found">Webページを開くことができませんでした。(ブラウザーアプリが見つかりません)</string>
+  <string name="error_browser_not_found">Webページを開くことができませんでした。(ブラウザアプリが見つかりません)</string>
   <string name="table_infobox">基本データ</string>
   <string name="table_other">さらに見る</string>
   <string name="table_close">閉じる</string>
@@ -227,7 +229,7 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>
   <string name="preference_title_show_images">画像を表示</string>
-  <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にします。インターネット接続が遅い時や、データ契約に限度があるときには、このチェックを外してください。</string>
+  <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にします。インターネット接続が遅い時や、データ通信契約に上限があるときには、このチェックを外してください。</string>
   <string name="read_more_section">続きを読む</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
   <string name="gallery_error_draw_failed">画像が描画できませんでした</string>
@@ -280,4 +282,7 @@ https://github.com/wikimedia/apps-android-wikipedia
 アプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
+  <string name="article_menu_bar_bookmark">オフラインでも閲読できるように記事を保存します</string>
+  <string name="article_menu_bar_share">記事のリンクを共有します</string>
+  <string name="article_menu_bar_navigate">記事の場所に移動します</string>
 </resources>

@@ -14,7 +14,7 @@
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
   <string name="nav_item_today">Haut</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Sidd Dir sécher datt Dir all d\'Versioune läsche wëllt?</string>
+  <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="nav_item_saved_pages">Gespäichert Säiten</string>
   <string name="menu_update_all_saved_pages">Gespäichert Säiten aktualiséieren</string>
   <string name="menu_update_selected_saved_pages">Gespäichert Säiten aktualiséieren</string>
@@ -30,8 +30,9 @@
   <string name="saved_pages_search_list_hint">Op gespäicherte Säite sichen</string>
   <string name="saved_pages_search_empty_message">Keng Säite fonnt déi Ärer Ufro entspriechen.</string>
   <string name="menu_page_show_tabs">Tabs weisen</string>
-  <string name="menu_page_other_languages" fuzzy="true">An anere Sprooche liesen</string>
+  <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Op der Säit sichen</string>
+  <string name="menu_page_similar_titles">Ähnlech Titelen</string>
   <string name="menu_page_save">Säit späicheren</string>
   <string name="menu_page_share">Link deelen</string>
   <string name="menu_long_press_open_page">Opmaachen</string>
@@ -42,6 +43,7 @@
   <string name="nav_item_nearby">Nobäi</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
+  <string name="nearby_zoom_to_location">Zoom op eng Plaz op der Kaart</string>
   <string name="last_updated_text">Lescht Aktualisatioun %1$s</string>
   <string name="content_license_html">Den Inhalt ass ënner &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; wann et net anescht uginn ass</string>
   <string name="edit_save_action_license_logged_in">Mam Späichere sidd Dir mat den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt;.</string>
@@ -238,6 +240,12 @@
   <string name="crash_report_dialog_always_send_button">Ëmmer schécken</string>
   <string name="crash_report_dialog_send_button">Schécken</string>
   <string name="crash_report_activity_title">Feeler vum Programm</string>
+  <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.
+
+Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
   <string name="crash_report_quit">Erausgoen</string>
+  <string name="article_menu_bar_bookmark">Den Artikel späichere fir en duerno offline ze liesen</string>
+  <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
+  <string name="article_menu_bar_navigate">Op d\'Plaz vum Artikel navigéieren</string>
 </resources>

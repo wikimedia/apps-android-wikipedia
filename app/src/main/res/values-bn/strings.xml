@@ -32,6 +32,7 @@
   <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
   <string name="menu_page_other_languages" fuzzy="true">অন্য ভাষায় পড়ুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
+  <string name="menu_page_similar_titles">অনুরূপ শিরোনাম</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_save">পাতা সংরক্ষণ করুন</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
@@ -279,4 +280,5 @@
 আপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>
+  <string name="article_menu_bar_bookmark">পরে অফলাইনে পড়ার জন্য নিবন্ধটি সংরক্ষণ করুন</string>
 </resources>

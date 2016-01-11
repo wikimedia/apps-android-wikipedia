@@ -262,7 +262,7 @@ Termos de Uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/pt-br</string
   <string name="format_error_server_code">Código: \"%s\"</string>
   <string name="address_copied">Endereço copiado para a área de transferência.</string>
   <string name="text_copied">Texto copiado para a área de transferência.</string>
-  <string name="button_continue_to_article" fuzzy="true">Continuar para o artigo</string>
+  <string name="button_continue_to_article">Leia o artigo</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
   <string name="preference_summary_show_link_previews">Mostra uma rápida pré-visualização dos artigos correspondentes ao tocar em ligações.</string>
   <string name="nav_item_donate">Apoiar a Wikipédia</string>

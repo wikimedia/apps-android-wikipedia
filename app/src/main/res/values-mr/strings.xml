@@ -30,8 +30,9 @@
   <string name="saved_pages_search_list_hint">जतन केलेल्या पानांचा शोध</string>
   <string name="saved_pages_search_empty_message">याच्याशी जुळणारे पान सापडत नाही.</string>
   <string name="menu_page_show_tabs">कळी दाखवा</string>
-  <string name="menu_page_other_languages" fuzzy="true">इतर भाषांत वाचा</string>
+  <string name="menu_page_other_languages">भाषा बदला</string>
   <string name="menu_page_find_in_page">पाना मध्ये शोधा</string>
+  <string name="menu_page_similar_titles">सारखी शीर्षके</string>
   <string name="menu_page_font_and_theme">टंक आणि देखावा</string>
   <string name="menu_page_save">पान जतन करा</string>
   <string name="menu_page_share">दुवा वाटप करा</string>
@@ -232,4 +233,6 @@
 आपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
   <string name="crash_report_relaunch">पुन्हा सुरु करा</string>
   <string name="crash_report_quit">रद्दबादल करा</string>
+  <string name="article_menu_bar_share">लेखदुवा सहभागा</string>
+  <string name="article_menu_bar_navigate">या लेखाच्या स्थळास न्याहाळा</string>
 </resources>

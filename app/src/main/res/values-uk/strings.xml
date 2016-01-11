@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
   <string name="page_does_not_exist_error">Ця сторінка не існує.</string>
   <string name="nav_item_today">Сьогодні</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Очистити історію перегляду?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Ви впевнені, що хочете очистити всю історію?</string>
+  <string name="dialog_title_clear_history">Очистити історію перегляду</string>
+  <string name="dialog_message_clear_history">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
   <string name="nav_item_saved_pages">Збережені сторінки</string>
   <string name="menu_update_all_saved_pages">Оновити збережені сторінки</string>
   <string name="menu_update_selected_saved_pages">Оновити збережені сторінки</string>
@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Пошук в збережених сторінках</string>
   <string name="saved_pages_search_empty_message">Нема сторінок, що відповідають вашому запиту.</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
-  <string name="menu_page_other_languages" fuzzy="true">Читати іншими мовами</string>
+  <string name="menu_page_other_languages">Змінити мову</string>
   <string name="menu_page_find_in_page">Знайти на сторінці</string>
+  <string name="menu_page_content_issues">Проблеми матеріалу</string>
+  <string name="menu_page_similar_titles">Подібні назви</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
   <string name="menu_page_save">Зберегти сторінку</string>
   <string name="menu_page_share">Поділитися посиланням</string>
@@ -43,6 +45,7 @@
   <string name="nav_item_nearby">Неподалік</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
+  <string name="nearby_zoom_to_location">Вказати місце розташування на карті</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
@@ -75,7 +78,7 @@
   <string name="login_password_hint">Пароль</string>
   <string name="login_password_show_check">Показати пароль</string>
   <string name="menu_login">Увійти</string>
-  <string name="login_activity_title" fuzzy="true">Вхід у Вікіпедію</string>
+  <string name="login_activity_title">Вхід у Вікіпедію</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_error_wrong_password">Невірний пароль.</string>
   <string name="login_error_wrong_username">Неправильне ім\'я користувача</string>
@@ -247,6 +250,7 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_image_saved_notification_title">Зображення збережено.</string>
   <string name="gallery_image_saved_notification_text">Натисніть, щоб переглянути.</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
+  <string name="gallery_save_image_write_permission_rationale">Для збереження зображень потрібен дозвіл на запис у сховищі вашого пристрою. Будь ласка, спробуйте ще раз і дайте запитуваний дозвіл.</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>
   <string name="snippet_share_intro">\"%1$s\" на сайті @Wikipedia: %2$s</string>
   <string name="expand_refs">Торкніться, щоб розкрити</string>
@@ -270,9 +274,12 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Код: «%s»</string>
   <string name="address_copied">Адресу скопійовано до буферу обміну.</string>
   <string name="text_copied">Текст скопійовано в буфер обміну.</string>
-  <string name="button_continue_to_article" fuzzy="true">Продовження на сторінці</string>
+  <string name="button_continue_to_article">Читати статтю</string>
+  <string name="button_get_directions">Прокласти маршрут</string>
+  <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
+  <string name="nav_item_donate">Підтримати Вікіпедію</string>
   <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>
   <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустити</string>
@@ -284,4 +291,7 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
 Хочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>
+  <string name="article_menu_bar_bookmark">Зберегти статті для читання в автономному режимі пізніше</string>
+  <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
+  <string name="article_menu_bar_navigate">Перейти до розташування статті</string>
 </resources>

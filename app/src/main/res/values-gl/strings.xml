@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Procurar nas páxinas gardadas</string>
   <string name="saved_pages_search_empty_message">Non se atopou ningunha páxina que coincidise coa súa pescuda.</string>
   <string name="menu_page_show_tabs">Mostrar as lapelas</string>
-  <string name="menu_page_other_languages" fuzzy="true">Ler noutras linguas</string>
+  <string name="menu_page_other_languages">Cambiar a lingua</string>
   <string name="menu_page_find_in_page">Atopar na páxina</string>
+  <string name="menu_page_content_issues">Problemas de contido</string>
+  <string name="menu_page_similar_titles">Títulos similares</string>
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
   <string name="menu_page_save">Gardar a páxina</string>
   <string name="menu_page_share">Compartir a ligazón</string>
@@ -279,4 +281,7 @@ Termos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
 Gustaríalle volver a comezar ou saír?</string>
   <string name="crash_report_relaunch">Comezar de novo</string>
   <string name="crash_report_quit">Saír</string>
+  <string name="article_menu_bar_bookmark">Gardar o artigo para ler despois sen conexión</string>
+  <string name="article_menu_bar_share">Compartir a ligazón do artigo</string>
+  <string name="article_menu_bar_navigate">Navegar á localización do artigo</string>
 </resources>

@@ -50,18 +50,18 @@
   <string name="dialog_message_edit_failed">સંપાદન અસફળ!</string>
   <string name="dialog_message_edit_failed_retry">ફરી પ્રયત્ન કરો</string>
   <string name="dialog_message_edit_failed_cancel">રદ કરો</string>
-  <string name="dialog_message_leaving_edit_leave">બહાર નીકળો</string>
+  <string name="dialog_message_leaving_edit_leave">પ્રસ્થાન</string>
   <string name="dialog_message_leaving_edit_stay">થોભો</string>
   <string name="menu_show_toc">અનુક્રમણિકા</string>
   <string name="search_no_results_found">કોઈ પરિણામો ન મળ્યા</string>
   <string name="edit_section_captcha_hint">ઉપરના શબ્દોનું પુનરાવર્તન કરો</string>
   <string name="title_captcha">કૅપ્ચા દાખલ કરો</string>
   <string name="edit_section_captcha_reload">કૅપ્ચા ફરી લોડ કરવા અહીં દબાવો</string>
-  <string name="nav_item_login" fuzzy="true">પ્રવેશ કરો</string>
+  <string name="nav_item_login">પ્રવેશ</string>
   <string name="login_username_hint">સભ્યનામ</string>
   <string name="login_password_hint">પાસવર્ડ</string>
   <string name="login_password_show_check">પાસવર્ડ દર્શાવો</string>
-  <string name="menu_login">પ્રવેશ કરો</string>
+  <string name="menu_login">પ્રવેશ</string>
   <string name="login_activity_title" fuzzy="true">વિકિપીડિયા પર લોગીન કરો</string>
   <string name="login_in_progress_dialog_message">તમે લોગઈન થઈ રહ્યા છો...</string>
   <string name="login_error_wrong_password">અયોગ્ય પાસવર્ડ</string>
@@ -70,7 +70,7 @@
   <string name="login_success_toast" fuzzy="true">પ્રવેશ સફળ!</string>
   <string name="login_error_blocked">આ સભ્યને પ્રતિબંધિત કરાયા છે</string>
   <string name="login_error_unknown">પ્રવેશ નિષ્ફળ :(</string>
-  <string name="preference_title_logout">બહાર નીકળો</string>
+  <string name="preference_title_logout">પ્રસ્થાન</string>
   <string name="toast_logout_complete">બહાર નીકળી ગયા</string>
   <string name="saved_pages_empty_title">કોઇ પાનાં સંગ્રહેલ નથી!</string>
   <string name="history_empty_title">અહીં તાજેતરનાં પાનાઓ નથી!</string>
@@ -93,7 +93,7 @@
   <string name="preferences_general_heading">સામાન્ય</string>
   <string name="zero_wikipedia_zero_heading">વિકિપીડિયા ઝીરો</string>
   <string name="zero_interstitial_title">વિકિપીડિયા ઝીરોમાંથી બહાર નીકળી રહ્યા છો</string>
-  <string name="zero_interstitial_continue">બહાર નીકળો</string>
+  <string name="zero_interstitial_continue">પ્રસ્થાન</string>
   <string name="zero_interstitial_cancel">અહીં રહો</string>
   <string name="zero_learn_more_learn_more">વધુ વાંચો</string>
   <string name="zero_learn_more_dismiss">વિસર્જન</string>

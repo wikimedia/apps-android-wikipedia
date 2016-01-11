@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">חיפוש בדפים השמורים</string>
   <string name="saved_pages_search_empty_message">לא נמצאו דפים התואמים לשאילתה שלך.</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
-  <string name="menu_page_other_languages" fuzzy="true">קריאה בשפות אחרות</string>
+  <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בדף</string>
+  <string name="menu_page_content_issues">בעיות בתוכן</string>
+  <string name="menu_page_similar_titles">כותרות דומות</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_save">שמירת דף</string>
   <string name="menu_page_share">שיתוף קישור</string>
@@ -279,4 +281,7 @@
 האם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
   <string name="crash_report_quit">לצאת</string>
+  <string name="article_menu_bar_bookmark">שמירת ערך לקריאה בלי רשת אחר־כך</string>
+  <string name="article_menu_bar_share">שיתוף קישור לערך</string>
+  <string name="article_menu_bar_navigate">מעבר למקום בתוך ערך</string>
 </resources>

@@ -31,6 +31,8 @@
   <string name="menu_page_show_tabs">ਟੈਬ ਦਿਖਾਵੋ</string>
   <string name="menu_page_other_languages" fuzzy="true">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="menu_page_find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
+  <string name="menu_page_content_issues">ਸਮੱਗਰੀ ਸਮੱਸਿਆਵਾਂ</string>
+  <string name="menu_page_similar_titles">ਇੱਕੋ ਤਰ੍ਹਾਂ ਦੇ ਸਿਰਲੇਖ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ-ਬਨਾਵਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="menu_page_save">ਵਰਕਾ ਸੰਭਾਲੋ</string>
   <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
@@ -208,4 +210,7 @@
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
   <string name="gallery_menu_save">ੳੁਪਕਰਨ \'ਚ ਸੰਭਾਲੋ</string>
+  <string name="article_menu_bar_bookmark">ਲੇਖ ਔਫਲਾਈਨ ਪੜ੍ਹਨ ਲਈ ਸਾਂਭੋ</string>
+  <string name="article_menu_bar_share">ਲੇਖ ਦੀ ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
+  <string name="article_menu_bar_navigate">ਲੇਖ ਦੇ ਟਿਕਾਣੇ ਤੱਕ ਸਫ਼ਰ ਕਰੋ</string>
 </resources>

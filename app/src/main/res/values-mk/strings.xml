@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Пребарај по зачуваните страници</string>
   <string name="saved_pages_search_empty_message">Не пронајдов страници што одговараат на бараното.</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
-  <string name="menu_page_other_languages" fuzzy="true">Прочитајте на други јазици</string>
+  <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди на страницата</string>
+  <string name="menu_page_content_issues">Проблеми со содржината</string>
+  <string name="menu_page_similar_titles">Слични наслови</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_save">Зачувај страница</string>
   <string name="menu_page_share">Сподели врска</string>
@@ -279,4 +281,7 @@
 Дали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
   <string name="crash_report_quit">Излези</string>
+  <string name="article_menu_bar_bookmark">Зачувај ја статијава за читање вон линија</string>
+  <string name="article_menu_bar_share">Сподели врска за статијата</string>
+  <string name="article_menu_bar_navigate">Оди на местото на статијата</string>
 </resources>

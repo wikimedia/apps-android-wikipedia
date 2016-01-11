@@ -34,9 +34,12 @@
   <string name="menu_page_find_in_page">పుటలో వెతకండి</string>
   <string name="menu_page_font_and_theme">ఖతి మరియు అలంకారం</string>
   <string name="menu_page_save">పేజీని భద్రపరచు</string>
-  <string name="menu_page_share" fuzzy="true">పంచుకోండి</string>
-  <string name="menu_long_press_open_page" fuzzy="true">లంకను తెరువు</string>
+  <string name="menu_page_share">లంకెను పంచుకోండి</string>
+  <string name="menu_long_press_open_page">తెరువు</string>
   <string name="menu_long_press_open_in_new_tab">కొత్త ట్యాబులో తెరువు</string>
+  <string name="menu_long_press_copy_page">లంకె చిరునామాను కాపీచెయ్యి</string>
+  <string name="menu_text_select_copy">కాపీచేయి</string>
+  <string name="menu_text_select_share">పంచుకోండి</string>
   <string name="nav_item_nearby">దగ్గరలో</string>
   <string name="nearby_distance_in_meters">%d మీటర్లు</string>
   <string name="nearby_distance_in_kilometers">%.2f కిలోమీటర్లు</string>
@@ -69,7 +72,7 @@
   <string name="title_captcha">కాప్చాని నమొదు చెయ్యండి</string>
   <string name="edit_section_captcha_reload">మళ్లీ లోడ్ చేయడానికి కాప్చాని నొక్కండి</string>
   <string name="edit_saved_page_refresh">ఈ భద్రపరచబడిన పేజి గడువు ముగిసి ఉండవచ్చు, సవరణ ప్రారంభం చెయ్యడానికి రిఫ్రెష్ చేయాలి. మీరు పేజీ రిఫ్రెష్ చేయాలని అనుకుంటున్నారా ?</string>
-  <string name="nav_item_login" fuzzy="true">లాగినవండి</string>
+  <string name="nav_item_login">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="login_password_show_check">సంకేతపదాన్ని చూపించు</string>
@@ -145,7 +148,8 @@
   <string name="page_protected_other">ఈ పేజి ఈ స్థాయిలలో రక్షించబడింది: %s</string>
   <string name="page_protected_can_not_edit">ఈ పేజీని సవరించడానికి మీకు హక్కు లేదు</string>
   <string name="page_protected_can_not_edit_title">ఈ పేజీ సంరక్షించబడింది</string>
-  <string name="settings_activity_title" fuzzy="true">అమరికలు</string>
+  <string name="settings_item_preferences">అమరికలు</string>
+  <string name="settings_activity_title">అమరికలు</string>
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
@@ -209,6 +213,7 @@
   <string name="gallery_share_error">చిత్రాన్ని భాగ్యపరచలేకపోయాము : %s</string>
   <string name="gallery_menu_save">పరికరానికి భద్రపరుచు</string>
   <string name="gallery_save_success">బొమ్మ విజయవంతంగా భద్రపరచబడింది.</string>
+  <string name="gallery_image_saved_notification_text">చూడడానికి తాకండి.</string>
   <string name="gallery_error_video_failed">దృశ్యకాన్ని ప్రదర్శించలేకపోతున్నాము.</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
   <string name="snippet_share_intro">\@Wikipedia పై \"%1$s\" : %2$s</string>
@@ -231,4 +236,6 @@
   <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
   <string name="format_error_server_message">సందేశం: \"%s\"</string>
   <string name="format_error_server_code">కోడ్: \"%s\"</string>
+  <string name="nav_item_donate">వికీపీడియాకి తోడ్పడండి</string>
+  <string name="crash_report_dialog_send_button">పంపించు</string>
 </resources>

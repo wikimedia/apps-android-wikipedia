@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Tìm kiếm các trang đã lưu</string>
   <string name="saved_pages_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="menu_page_show_tabs">Hiển thị tab</string>
-  <string name="menu_page_other_languages" fuzzy="true">Đọc trong ngôn ngữ khác</string>
+  <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
   <string name="menu_page_find_in_page">Tìm trong trang</string>
+  <string name="menu_page_content_issues">Vấn đề nội dung</string>
+  <string name="menu_page_similar_titles">Tiêu đề tương tự</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
   <string name="menu_page_save">Lưu trang</string>
   <string name="menu_page_share">Chia sẻ liên kết</string>
@@ -277,4 +279,7 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="crash_report_relaunch_or_quit">Bạn muốn bắt đầu lại hay thoát?</string>
   <string name="crash_report_relaunch">Bắt đầu lại</string>
   <string name="crash_report_quit">Thoát</string>
+  <string name="article_menu_bar_bookmark">Lưu bài để đọc sau</string>
+  <string name="article_menu_bar_share">Chia sẻ liên kết đến bài</string>
+  <string name="article_menu_bar_navigate">Chuyển đến vị trí của bài</string>
 </resources>

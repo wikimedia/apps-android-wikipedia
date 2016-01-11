@@ -14,7 +14,7 @@
   <string name="page_does_not_exist_error">此頁面不存在！</string>
   <string name="nav_item_today">今日</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
-  <string name="dialog_message_clear_history" fuzzy="true">確定要清除所有歷史記錄嗎?</string>
+  <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉任何目前開啟的分頁。您確定嗎？</string>
   <string name="nav_item_saved_pages">已儲存的頁面</string>
   <string name="menu_update_all_saved_pages">更新已儲存的頁面</string>
   <string name="menu_update_selected_saved_pages">更新已儲存的頁面</string>
@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">搜尋已儲存的頁面</string>
   <string name="saved_pages_search_empty_message">未找到符合您查詢的頁面。</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
-  <string name="menu_page_other_languages" fuzzy="true">閱讀其他語言</string>
+  <string name="menu_page_other_languages">變更語言</string>
   <string name="menu_page_find_in_page">於頁面中尋找</string>
+  <string name="menu_page_content_issues">內容問題</string>
+  <string name="menu_page_similar_titles">類似標題</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
   <string name="menu_page_save">儲存頁面</string>
   <string name="menu_page_share">分享連結</string>
@@ -262,7 +264,9 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">代碼： \"%s\"</string>
   <string name="address_copied">網址已複製至剪貼簿。</string>
   <string name="text_copied">文字已複製至剪貼簿。</string>
-  <string name="button_continue_to_article" fuzzy="true">繼續閱讀條目</string>
+  <string name="button_continue_to_article">閱讀條目</string>
+  <string name="button_get_directions">取得路線</string>
+  <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
   <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
   <string name="nav_item_donate">支持維基百科</string>
@@ -277,4 +281,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
 您是否想要重新啟動或者離開？</string>
   <string name="crash_report_relaunch">重新啟動</string>
   <string name="crash_report_quit">結束</string>
+  <string name="article_menu_bar_bookmark">儲存條目以便日後離線閱讀</string>
+  <string name="article_menu_bar_share">分享條目連結</string>
+  <string name="article_menu_bar_navigate">導覽至條目的位置</string>
 </resources>

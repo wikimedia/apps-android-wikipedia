@@ -13,8 +13,8 @@
   <string name="menu_clear_all_saved_pages">저장된 문서 지우기</string>
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
   <string name="nav_item_today">오늘</string>
-  <string name="dialog_title_clear_history" fuzzy="true">방문 기록을 지우겠습니까?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">정말 모든 방문 기록을 지울까요?</string>
+  <string name="dialog_title_clear_history">방문 기록 지우기</string>
+  <string name="dialog_message_clear_history">이것은 당신의 모든 방문 기록을 지울 것입니다. 그리고 모든 창을 닫을 것입니다. 정말 하시겠습니까?</string>
   <string name="nav_item_saved_pages">저장된 문서</string>
   <string name="menu_update_all_saved_pages">저장된 문서 업데이트</string>
   <string name="menu_update_selected_saved_pages">저장된 문서 업데이트</string>
@@ -32,6 +32,7 @@
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages" fuzzy="true">다른 언어로 읽기</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
+  <string name="menu_page_similar_titles">비슷한 제목</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_save">문서 저장</string>
   <string name="menu_page_share">링크 공유</string>
@@ -246,6 +247,8 @@
   <string name="gallery_uploader_unknown">업로더 모름</string>
   <string name="menu_new_tab">새 탭</string>
   <string name="button_close_tab">탭 닫기</string>
+  <string name="tool_tip_select_text">복사하거나 공유하기 위해 텍스트의 아무 곳이나 누르고 표시하세요.</string>
+  <string name="tool_tip_share">모든 흥미로운 사실을 드래그 한 뒤에 그것을 당신의 네트워크에 공유해 보세요!</string>
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
   <string name="error_server_response">서버가 요청을 완료할 수 없습니다.</string>
   <string name="error_unknown">알 수 없는 오류가 발생했습니다.</string>
@@ -253,6 +256,7 @@
   <string name="format_error_server_code">코드: \"%s\"</string>
   <string name="address_copied">주소가 클립보드에 복사되었습니다.</string>
   <string name="text_copied">텍스트가 클립보드에 복사되었습니다.</string>
+  <string name="button_continue_to_article">문서 읽기</string>
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
   <string name="nav_item_donate">위키백과 지원</string>
@@ -263,4 +267,6 @@
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch">다시 시작</string>
   <string name="crash_report_quit">종료</string>
+  <string name="article_menu_bar_bookmark">오프라인에서 읽기 위하여 이 문서를 저장하기</string>
+  <string name="article_menu_bar_share">문서 링크 공유</string>
 </resources>

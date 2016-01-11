@@ -31,6 +31,7 @@
   <string name="menu_page_show_tabs">Fitxak erakutsi</string>
   <string name="menu_page_other_languages" fuzzy="true">Irakurri beste hizkuntzetan</string>
   <string name="menu_page_find_in_page">Aurkitu orrialdean</string>
+  <string name="menu_page_similar_titles">Antzeko artikuluak</string>
   <string name="menu_page_font_and_theme">Letra eta gaia</string>
   <string name="menu_page_save">Gorde orrialdea</string>
   <string name="menu_page_share">Partekatu lotura</string>
@@ -203,6 +204,8 @@
   <string name="error_unknown">Ezezaguna den errorea gertatu da.</string>
   <string name="format_error_server_message">Mezua:\'\'%s\'\'</string>
   <string name="format_error_server_code">Kodea:\'\'%s\'\'</string>
+  <string name="address_copied">Helbidea klip-erretilura kopiatua.</string>
+  <string name="text_copied">Testua klip-erretilura kopiatua.</string>
   <string name="button_continue_to_article">Artikulua irakurri</string>
   <string name="button_get_directions">Helbidea lortu</string>
   <string name="preference_title_show_link_previews">Lotura aurreikuspenak erakutsi</string>
@@ -213,4 +216,6 @@
   <string name="crash_report_activity_title">Aplikazioaren akatsa</string>
   <string name="crash_report_relaunch">Berriro ere hasi</string>
   <string name="crash_report_quit">Irten</string>
+  <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
+  <string name="article_menu_bar_navigate">Nabigatu artikuluaren kokagunera</string>
 </resources>
