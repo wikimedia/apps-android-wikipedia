@@ -23,6 +23,7 @@
 
     <!-- Default width of the lead image to be downloaded -->
     <dimen name="leadImageWidth">640dp</dimen>
+    <item type="dimen" format="float" name="articleHeaderViewScreenHeightRatio">0.571</item>
     <!-- Default font size of the page title -->
     <dimen name="titleTextSize">28sp</dimen>
     <!-- Default font size of the Wikidata description for the page -->
