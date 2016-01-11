@@ -55,17 +55,22 @@ public final class RbSwitch {
     }
 
     private static boolean isSlatedForRestBase() {
-        if (WikipediaApp.getInstance().isProdRelease()) {
-            return false; // production will come later
-        }
-
         int ticket = Prefs.getRbTicket(0);
         if (ticket == 0) {
             ticket = new Random().nextInt(HUNDRED_PERCENT) + 1; // [1, 100]
             Prefs.setRbTicket(ticket);
         }
+
+        if (WikipediaApp.getInstance().isProdRelease()) {
+            return isAdmitted(ticket, "restbasePercent");
+        } else {
+            return isAdmitted(ticket, "restbaseBetaPercent");
+        }
+    }
+
+    private static boolean isAdmitted(int ticket, String configKey) {
         int admittedPct = WikipediaApp.getInstance()
-                .getRemoteConfig().getConfig().optInt("restbaseBetaPercent", 0); // [0, 100]
+                .getRemoteConfig().getConfig().optInt(configKey, 0); // [0, 100]
         return ticket <= admittedPct;
     }
 
