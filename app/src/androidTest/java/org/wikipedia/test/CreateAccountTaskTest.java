@@ -1,56 +1,71 @@
 package org.wikipedia.test;
 
-import android.test.ActivityUnitTestCase;
-import android.text.TextUtils;
+import android.support.annotation.NonNull;
+import android.support.test.runner.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.createaccount.CreateAccountCaptchaResult;
 import org.wikipedia.createaccount.CreateAccountResult;
 import org.wikipedia.createaccount.CreateAccountSuccessResult;
 import org.wikipedia.createaccount.CreateAccountTask;
+import org.wikipedia.editing.CaptchaResult;
+import org.wikipedia.testlib.TestLatch;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import static android.support.test.InstrumentationRegistry.getTargetContext;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.hamcrest.Matchers.isEmptyOrNullString;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.startsWith;
 
-public class CreateAccountTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 20000;
+@RunWith(AndroidJUnit4.class)
+public class CreateAccountTaskTest {
+    @Test
+    public void testTokenFetch() {
+        Site testWiki = new Site("test.wikipedia.org");
+        String username = "someusername" + System.currentTimeMillis();
+        String password = "somepassword" + System.currentTimeMillis();
 
-    public CreateAccountTaskTest() {
-        super(TestDummyActivity.class);
+        Subject subject = new Subject(username, password, null);
+        subject.execute();
+        CreateAccountResult result = subject.await();
+
+        if (!(result instanceof CreateAccountSuccessResult)) {
+            // We don't always get a CAPTCHA when running this test repeatedly
+
+            assertThat(result, instanceOf(CreateAccountCaptchaResult.class));
+            CaptchaResult captchaResult = ((CreateAccountCaptchaResult) result).getCaptchaResult();
+            assertThat(captchaResult, notNullValue());
+            assertThat(captchaResult.getCaptchaId(), not(isEmptyOrNullString()));
+
+            String expectedCaptchaUrlPrefix = WikipediaApp.getInstance().getNetworkProtocol()
+                    + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image";
+            assertThat(captchaResult.getCaptchaUrl(testWiki), startsWith(expectedCaptchaUrlPrefix));
+        }
     }
 
-    public void testTokenFetch() throws Throwable {
-        final Site testWiki = new Site("test.wikipedia.org");
-        final String username = "someusername" + System.currentTimeMillis();
-        final String password = "somepassword" + System.currentTimeMillis();
+    private static class Subject extends CreateAccountTask {
+        @NonNull private final TestLatch latch = new TestLatch();
+        private CreateAccountResult result;
 
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        runTestOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                new CreateAccountTask(getInstrumentation().getTargetContext(), username, password, null) {
-                    @Override
-                    public void onFinish(CreateAccountResult baseResult) {
-                        if (baseResult instanceof CreateAccountSuccessResult) {
-                            // We don't always get a CAPTCHA when running this test repeatedly
-                            completionLatch.countDown();
-                            return;
-                        }
-                        assertTrue("got " + baseResult.getClass().getSimpleName(),
-                                baseResult instanceof CreateAccountCaptchaResult);
-                        CreateAccountCaptchaResult result = (CreateAccountCaptchaResult)baseResult;
-                        assertNotNull(result);
-                        assertNotNull(result.getCaptchaResult());
-                        assertFalse(TextUtils.isEmpty(result.getCaptchaResult().getCaptchaId()));
-                        String captchaUrl = result.getCaptchaResult().getCaptchaUrl(testWiki);
-                        assertTrue(captchaUrl.startsWith(WikipediaApp.getInstance().getNetworkProtocol()
-                                + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image"));
-                        completionLatch.countDown();
-                    }
-                }.execute();
-            }
-        });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        Subject(String username, String password, String email) {
+            super(getTargetContext(), username, password, email);
+        }
+
+        @Override
+        public void onFinish(CreateAccountResult result) {
+            super.onFinish(result);
+            this.result = result;
+            latch.countDown();
+        }
+
+        public CreateAccountResult await() {
+            latch.await();
+            return result;
+        }
     }
 }
-
