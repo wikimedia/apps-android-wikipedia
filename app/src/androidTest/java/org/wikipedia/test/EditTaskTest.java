@@ -1,6 +1,5 @@
 package org.wikipedia.test;
 
-import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -19,7 +18,7 @@ import org.wikipedia.editing.EditingResult;
 import org.wikipedia.editing.FetchSectionWikitextTask;
 import org.wikipedia.testlib.TestLatch;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.not;
@@ -46,8 +45,8 @@ public class EditTaskTest {
     private static final String ABUSE_FILTER_ERROR_WIKITEXT = "== Section 2 ==\n\nTriggering AbuseFilter number 2 by saying poop many times at ";
     private static final String ARBITRARY_ERROR_CODE_WIKITEXT = "== Section 2 ==\n\nTriggering AbuseFilter number 152 by saying appcrashtest many times at ";
 
-    private WikipediaApp app = WikipediaApp.getInstance();
-    private Context context = getInstrumentation().getTargetContext();
+    // https://www.mediawiki.org/wiki/Manual:Edit_token#The_edit_token_suffix
+    private static final String ANONYMOUS_TOKEN = "+\\";
 
     @Before
     public void setUp() {
@@ -75,7 +74,7 @@ public class EditTaskTest {
         runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                new EditTask(context, title, wikitext, 0, "+\\", "", false) {
+                new EditTask(getTargetContext(), title, wikitext, 0, ANONYMOUS_TOKEN, "", false) {
                     @Override
                     public void onFinish(EditingResult result) {
                         if (captchaShown(result)) {
@@ -95,8 +94,6 @@ public class EditTaskTest {
      * Type:   warn
      * Action: editing any userspace page while logged out
      * Filter: https://test.wikipedia.org/wiki/Special:AbuseFilter/94
-     *
-     * @throws Throwable
      */
     @Test
     public void testAbuseFilterTriggerWarn() {
@@ -106,7 +103,7 @@ public class EditTaskTest {
         runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                new EditTask(context, title, wikitext, 0, "+\\", "", false) {
+                new EditTask(getTargetContext(), title, wikitext, 0, ANONYMOUS_TOKEN, "", false) {
                     @Override
                     public void onFinish(EditingResult result) {
                         assertThat(result, instanceOf(AbuseFilterEditResult.class));
@@ -125,8 +122,6 @@ public class EditTaskTest {
      * Type:   disallow
      * Action: adding string "poop" to page text
      * Filter: https://test.wikipedia.org/wiki/Special:AbuseFilter/2
-     *
-     * @throws Throwable
      */
     @Test
     public void testAbuseFilterTriggerStop() {
@@ -136,7 +131,7 @@ public class EditTaskTest {
         runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                new EditTask(context, title, wikitext, 0, "+\\", "", false) {
+                new EditTask(getTargetContext(), title, wikitext, 0, ANONYMOUS_TOKEN, "", false) {
                     @Override
                     public void onFinish(EditingResult result) {
                         assertThat(result, instanceOf(AbuseFilterEditResult.class));
@@ -155,8 +150,6 @@ public class EditTaskTest {
      * Type:   warn
      * Action: adding string "appcrashtest" to page text
      * Filter: https://test.wikipedia.org/wiki/Special:AbuseFilter/152
-     *
-     * @throws Throwable
      */
     @Test
     public void testAbuseFilterTriggerStopOnArbitraryErrorCode() {
@@ -166,7 +159,7 @@ public class EditTaskTest {
         runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                new EditTask(context, title, wikitext, 0, "+\\", "", false) {
+                new EditTask(getTargetContext(), title, wikitext, 0, ANONYMOUS_TOKEN, "", false) {
                     @Override
                     public void onFinish(EditingResult result) {
                         assertThat(result, instanceOf(AbuseFilterEditResult.class));
@@ -187,7 +180,7 @@ public class EditTaskTest {
     }
 
     private void storeOldContentThenEdit(final PageTitle title, final String addedText, final TestLatch completionLatch) {
-        new FetchSectionWikitextTask(app, title, SECTION_ID) {
+        new FetchSectionWikitextTask(getTargetContext(), title, SECTION_ID) {
             @Override
             public void onFinish(String oldContent) {
                 getReadyToEdit(title, oldContent, addedText, completionLatch);
@@ -197,7 +190,7 @@ public class EditTaskTest {
 
     public void getReadyToEdit(final PageTitle title, final String oldContent,
                                final String addedText, final TestLatch completionLatch) {
-        app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetrievedCallback() {
+        app().getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetrievedCallback() {
             @Override
             public void onTokenRetrieved(String token) {
                 edit(title, oldContent, addedText, token, completionLatch);
@@ -212,7 +205,7 @@ public class EditTaskTest {
 
     private void edit(final PageTitle title, final String oldContent, final String addedText,
                       String token, final TestLatch completionLatch) {
-        new EditTask(app, title, addedText, SECTION_ID, token, "", false) {
+        new EditTask(getTargetContext(), title, addedText, SECTION_ID, token, "", false) {
             @Override
             public void onFinish(EditingResult result) {
                 verifyEditResultCode(result);
@@ -232,7 +225,7 @@ public class EditTaskTest {
 
     private void verifyNewContent(PageTitle title, final String oldContent, final String addedText,
                                   final TestLatch completionLatch) {
-        new FetchSectionWikitextTask(app, title, SECTION_ID) {
+        new FetchSectionWikitextTask(getTargetContext(), title, SECTION_ID) {
             @Override
             public void onFinish(String result) {
                 if (!result.equals(addedText)) {
@@ -266,17 +259,21 @@ public class EditTaskTest {
         return url.startsWith(CAPTCHA_URL);
     }
 
-    private static String getNetworkProtocol() {
-        return WikipediaApp.getInstance().getNetworkProtocol();
-    }
 
     private void clearSession() {
-        app.getEditTokenStorage().clearEditTokenForDomain(TEST_WIKI_DOMAIN);
-        app.getCookieManager().clearCookiesForDomain(TEST_WIKI_DOMAIN);
+        app().getEditTokenStorage().clearEditTokenForDomain(TEST_WIKI_DOMAIN);
+        app().getCookieManager().clearCookiesForDomain(TEST_WIKI_DOMAIN);
     }
 
     private void runOnMainSync(Runnable r) {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(r);
     }
-}
 
+    private static String getNetworkProtocol() {
+        return app().getNetworkProtocol();
+    }
+
+    private static WikipediaApp app() {
+        return WikipediaApp.getInstance();
+    }
+}
