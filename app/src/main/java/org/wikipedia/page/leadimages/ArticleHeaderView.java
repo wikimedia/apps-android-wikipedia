@@ -48,8 +48,6 @@ import butterknife.ButterKnife;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ArticleHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
-    private static final float SCREEN_PROPORTION = 1 / 1.75f;
-
     @Bind(R.id.view_article_header_image) ArticleHeaderImageView image;
     @Bind(R.id.view_article_header_text)
     AppTextView text;
@@ -120,7 +118,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
     public void loadImage(@Nullable String url) {
         image.load(url);
-        int height = url == null ? 0 : (int) (DimenUtil.getDisplayHeightPx() * SCREEN_PROPORTION);
+        int height = url == null ? 0 : (int) (DimenUtil.getDisplayHeightPx() * getScreenHeightRatio());
         setMinimumHeight(height);
         if (url == null) {
             resetMenuBarColor();
@@ -234,7 +232,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int maxHeight = (int) (DimenUtil.getDisplayHeightPx() * SCREEN_PROPORTION);
+        int maxHeight = (int) (DimenUtil.getDisplayHeightPx() * getScreenHeightRatio());
         heightMeasureSpec = MeasureSpec.makeMeasureSpec(Math.min(MeasureSpec.getSize(heightMeasureSpec),
                         maxHeight), MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -341,6 +339,10 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         // TODO: replace with android:fontFamily="serif" attribute when our minimum API level is
         //       Jelly Bean, API 16, or if we make custom typeface attribute.
         text.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL));
+    }
+
+    private float getScreenHeightRatio() {
+        return DimenUtil.getFloat(R.dimen.articleHeaderViewScreenHeightRatio);
     }
 
     @ColorInt
