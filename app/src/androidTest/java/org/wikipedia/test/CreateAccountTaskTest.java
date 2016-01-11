@@ -12,10 +12,10 @@ import org.wikipedia.createaccount.CreateAccountTask;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-public class CreateAccountTokenTest extends ActivityUnitTestCase<TestDummyActivity> {
+public class CreateAccountTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
 
-    public CreateAccountTokenTest() {
+    public CreateAccountTaskTest() {
         super(TestDummyActivity.class);
     }
 
