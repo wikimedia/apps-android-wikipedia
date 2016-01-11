@@ -55,7 +55,7 @@ public class EditTaskTest {
     }
 
     @Test
-    public void testEdit() throws Throwable {
+    public void testEdit() {
         final TestLatch completionLatch = new TestLatch();
         runOnMainSync(new Runnable() {
             @Override
@@ -67,7 +67,7 @@ public class EditTaskTest {
     }
 
     @Test
-    public void testCaptcha() throws Throwable {
+    public void testCaptcha() {
         final PageTitle title = new PageTitle(null, CAPTCHA_TEST_PAGE_TITLE, TEST_WIKI_SITE);
         final String wikitext = CAPTCHA_TEST_WIKITEXT + System.currentTimeMillis();
 
@@ -99,7 +99,7 @@ public class EditTaskTest {
      * @throws Throwable
      */
     @Test
-    public void testAbuseFilterTriggerWarn() throws Throwable {
+    public void testAbuseFilterTriggerWarn() {
         final PageTitle title = new PageTitle(null, ABUSE_FILTER_WARNING_PAGE_TITLE, TEST_WIKI_SITE);
         final String wikitext = ABUSE_FILTER_WARNING_WIKITEXT + System.currentTimeMillis();
         final TestLatch completionLatch = new TestLatch();
@@ -129,7 +129,7 @@ public class EditTaskTest {
      * @throws Throwable
      */
     @Test
-    public void testAbuseFilterTriggerStop() throws Throwable {
+    public void testAbuseFilterTriggerStop() {
         final PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI_SITE);
         final String wikitext = ABUSE_FILTER_ERROR_WIKITEXT + System.currentTimeMillis();
         final TestLatch completionLatch = new TestLatch();
@@ -159,7 +159,7 @@ public class EditTaskTest {
      * @throws Throwable
      */
     @Test
-    public void testAbuseFilterTriggerStopOnArbitraryErrorCode() throws Throwable {
+    public void testAbuseFilterTriggerStopOnArbitraryErrorCode() {
         final PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI_SITE);
         final String wikitext = ARBITRARY_ERROR_CODE_WIKITEXT + System.currentTimeMillis();
         final TestLatch completionLatch = new TestLatch();

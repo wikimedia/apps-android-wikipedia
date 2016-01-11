@@ -21,9 +21,15 @@ public class TestLatch {
         latch.countDown();
     }
 
-    public void await() throws InterruptedException {
-        if (!latch.await(TestConstants.TIMEOUT_DURATION, TestConstants.TIMEOUT_UNIT)) {
-            throw new InterruptedException("Timeout elapsed.");
+    public void await() {
+        boolean done = false;
+
+        try {
+            done = latch.await(TestConstants.TIMEOUT_DURATION, TestConstants.TIMEOUT_UNIT);
+        } catch (InterruptedException ignore) { }
+
+        if (!done) {
+            throw new RuntimeException("Timeout elapsed.");
         }
     }
 }

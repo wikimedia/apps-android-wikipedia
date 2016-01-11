@@ -28,7 +28,7 @@ public class LoginTaskTest {
     private final TestLatch completionLatch = new TestLatch();
 
     @Test
-    public void testLogin() throws Throwable {
+    public void testLogin() {
         runOnMainSync(new Runnable() {
             @Override
             public void run() {

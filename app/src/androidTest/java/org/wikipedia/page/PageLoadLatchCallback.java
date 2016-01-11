@@ -11,10 +11,6 @@ public class PageLoadLatchCallback implements PageLoadCallbacks {
     }
 
     public void await() {
-        try {
-            latch.await();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        latch.await();
     }
 }

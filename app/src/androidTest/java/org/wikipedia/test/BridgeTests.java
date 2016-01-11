@@ -30,7 +30,7 @@ public class BridgeTests {
     private JSONObject payload;
 
     @Test
-    public void testDOMLoaded() throws Throwable {
+    public void testDOMLoaded() {
         completionLatch = new TestLatch();
         runOnMainSync(new Runnable() {
             @Override
@@ -52,7 +52,7 @@ public class BridgeTests {
     };
 
     @Test
-    public void testPingBackHandling() throws Throwable {
+    public void testPingBackHandling() {
         completionLatch = new TestLatch();
         runOnMainSync(new Runnable() {
             @Override
