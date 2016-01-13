@@ -2,8 +2,6 @@ package org.wikipedia.page.leadimages;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -24,6 +22,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -108,7 +107,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     // TODO: remove.
-    public View getImage() {
+    public ImageView getImage() {
         return image.getImage();
     }
 
@@ -131,20 +130,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
     public boolean hasImage() {
         return image.hasImage();
-    }
-
-    // ideas from:
-    // http://stackoverflow.com/questions/2801116/converting-a-view-to-bitmap-without-displaying-it-in-android
-    // View has to be already displayed. Note: a copy of the ImageView's Drawable must be made in
-    // some fashion as it may be recycled. See T114658.
-    public Bitmap copyImage() {
-        // Define a bitmap with the same size as the view
-        Bitmap returnedBitmap = Bitmap.createBitmap(image.getWidth(), image.getHeight(),
-                Bitmap.Config.ARGB_8888);
-        // Bind a canvas to it
-        Canvas canvas = new Canvas(returnedBitmap);
-        image.draw(canvas);
-        return returnedBitmap;
     }
 
     public void setImageYScalar(float offset) {

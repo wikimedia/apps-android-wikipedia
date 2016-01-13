@@ -3,6 +3,7 @@ package org.wikipedia.page.leadimages;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DimenRes;
@@ -108,7 +109,9 @@ public class LeadImagesHandler {
     }
 
     @Nullable public Bitmap getLeadImageBitmap() {
-        return isLeadImageEnabled() ? articleHeaderView.copyImage() : null;
+        return isLeadImageEnabled() && articleHeaderView.getImage().getDrawable() != null
+                ? ((BitmapDrawable) articleHeaderView.getImage().getDrawable()).getBitmap()
+                : null;
     }
 
     public boolean isLeadImageEnabled() {
