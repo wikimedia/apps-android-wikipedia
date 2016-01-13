@@ -3,15 +3,17 @@ package org.wikipedia.editing;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.ColorMatrixColorFilter;
-import android.net.Uri;
+import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -23,7 +25,7 @@ public class CaptchaHandler {
     private final Activity activity;
     private final View captchaContainer;
     private final View captchaProgress;
-    private final ImageView captchaImage;
+    private final SimpleDraweeView captchaImage;
     private final EditText captchaText;
     private final Site site;
     private final View primaryView;
@@ -40,7 +42,7 @@ public class CaptchaHandler {
         this.prevTitle = prevTitle;
 
         captchaContainer = activity.findViewById(R.id.captcha_container);
-        captchaImage = (ImageView) activity.findViewById(R.id.captcha_image);
+        captchaImage = (SimpleDraweeView) activity.findViewById(R.id.captcha_image);
         captchaText = (EditText) activity.findViewById(R.id.captcha_text);
         captchaProgress = activity.findViewById(R.id.captcha_image_progress);
         Button submitButton = (Button) activity.findViewById(R.id.captcha_submit_button);
@@ -56,23 +58,23 @@ public class CaptchaHandler {
                 new RefreshCaptchaTask(activity, site) {
                     @Override
                     public void onBeforeExecute() {
-                        ViewAnimations.crossFade(captchaImage, captchaProgress);
+                        captchaProgress.setVisibility(View.VISIBLE);
                     }
 
                     @Override
                     public void onFinish(CaptchaResult result) {
                         captchaResult = result;
+                        captchaProgress.setVisibility(View.GONE);
                         handleCaptcha(true);
                     }
 
                     @Override
                     public void onCatch(Throwable caught) {
                         cancelCaptcha();
+                        captchaProgress.setVisibility(View.GONE);
                         FeedbackUtil.showError(activity, caught);
                     }
-
                 }.execute();
-
             }
         });
     }
@@ -100,13 +102,12 @@ public class CaptchaHandler {
         if (captchaResult == null) {
             return;
         }
-        Picasso.with(activity)
-                .load(Uri.parse(captchaResult.getCaptchaUrl(site)))
-                        // Don't use .fit() here - seems to cause the loading to fail
-                        // See https://github.com/square/picasso/issues/249
-                .into(captchaImage, new Callback() {
+        captchaImage.setController(Fresco.newDraweeControllerBuilder()
+                .setUri(captchaResult.getCaptchaUrl(site))
+                .setAutoPlayAnimations(true)
+                .setControllerListener(new BaseControllerListener<ImageInfo>() {
                     @Override
-                    public void onSuccess() {
+                    public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
                         ((AppCompatActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
                         if (progressDialog.isShowing()) {
                             progressDialog.hide();
@@ -128,17 +129,12 @@ public class CaptchaHandler {
 
                         // In case there was a captcha attempt before
                         captchaText.setText("");
-                        if (isReload) {
-                            ViewAnimations.crossFade(captchaProgress, captchaImage);
-                        } else {
+                        if (!isReload) {
                             ViewAnimations.crossFade(primaryView, captchaContainer);
                         }
                     }
-
-                    @Override
-                    public void onError() {
-                    }
-                });
+                })
+                .build());
     }
 
     public void hideCaptcha() {

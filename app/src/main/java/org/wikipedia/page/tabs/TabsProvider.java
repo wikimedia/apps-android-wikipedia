@@ -1,13 +1,12 @@
 package org.wikipedia.page.tabs;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.views.ViewUtil;
 
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,7 +21,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.List;
@@ -364,7 +362,7 @@ public class TabsProvider {
     private static class ViewHolder {
         private View container;
         private TextView title;
-        private ImageView thumbnail;
+        private SimpleDraweeView thumbnail;
         private View gradient;
         private View closeButton;
         private int position;
@@ -401,7 +399,7 @@ public class TabsProvider {
                 convertView.setTag(viewHolder);
                 viewHolder.container = convertView;
                 viewHolder.title = (TextView) convertView.findViewById(R.id.tab_item_title);
-                viewHolder.thumbnail = (ImageView) convertView.findViewById(R.id.tab_item_thumbnail);
+                viewHolder.thumbnail = (SimpleDraweeView) convertView.findViewById(R.id.tab_item_thumbnail);
                 viewHolder.gradient = convertView.findViewById(R.id.tab_item_bottom_gradient);
                 viewHolder.closeButton = convertView.findViewById(R.id.tab_item_close);
             } else {
@@ -426,19 +424,7 @@ public class TabsProvider {
             if (backstack.size() > 0) {
                 PageTitle title = backstack.get(backstack.size() - 1).getTitle();
                 viewHolder.title.setText(title.getDisplayText());
-                String thumbnail = title.getThumbUrl();
-                if (WikipediaApp.getInstance().isImageDownloadEnabled() && thumbnail != null) {
-                    Picasso.with(parentActivity)
-                           .load(thumbnail)
-                           .placeholder(R.drawable.ic_pageimage_placeholder)
-                           .error(R.drawable.ic_pageimage_placeholder)
-                           .noFade()
-                            .into(viewHolder.thumbnail);
-                } else {
-                    Picasso.with(parentActivity)
-                           .load(R.drawable.ic_pageimage_placeholder)
-                           .into(viewHolder.thumbnail);
-                }
+                ViewUtil.loadImageUrlInto(viewHolder.thumbnail, title.getThumbUrl());
             }
             return convertView;
         }

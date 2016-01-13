@@ -10,9 +10,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,7 +27,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -497,20 +498,8 @@ public class SearchResultsFragment extends Fragment {
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
             descriptionText.setText(title.getDescription());
 
-            ImageView imageView = (ImageView) convertView.findViewById(R.id.page_list_item_image);
-
-            String thumbnail = title.getThumbUrl();
-            if (app.isImageDownloadEnabled() && thumbnail != null) {
-                Picasso.with(parent.getContext())
-                        .load(thumbnail)
-                        .placeholder(R.drawable.ic_pageimage_placeholder)
-                        .error(R.drawable.ic_pageimage_placeholder)
-                        .into(imageView);
-            } else {
-                Picasso.with(getActivity())
-                       .load(R.drawable.ic_pageimage_placeholder)
-                       .into(imageView);
-            }
+            ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image),
+                    title.getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!

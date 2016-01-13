@@ -2,6 +2,8 @@ package org.wikipedia.page.leadimages;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -55,8 +57,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     @NonNull private CharSequence title = "";
     @NonNull private CharSequence subtitle = "";
     @Nullable private String pronunciationUrl;
-
-    private float imageYScalar;
 
     @NonNull private final AvPlayer avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
 
@@ -124,16 +124,23 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         }
     }
 
-    public void crossFadeImage() {
-        image.crossFade();
-    }
-
     public boolean hasImage() {
         return image.hasImage();
     }
 
+    public void setAnimationPaused(boolean paused) {
+        image.setAnimationPaused(paused);
+    }
+
+    public Bitmap copyBitmap() {
+        Bitmap returnedBitmap = Bitmap.createBitmap(image.getWidth(), image.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(returnedBitmap);
+        image.draw(canvas);
+        return returnedBitmap;
+    }
+
     public void setImageYScalar(float offset) {
-        imageYScalar = offset;
+        image.setFocusOffset(offset);
         updateParallaxScroll();
     }
 
@@ -242,7 +249,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     private void updateParallaxScroll(int scrollY) {
         int offset = Math.min(getHeight(), scrollY);
         setTranslationY(-offset);
-        image.setParallax(imageYScalar, offset / 2);
+        image.setTranslationY(offset / 2);
     }
 
     private void updateText() {

@@ -2,13 +2,20 @@ package org.wikipedia.views;
 
 import android.annotation.TargetApi;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.ActionMode;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewManager;
 import android.view.animation.Animation;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ApiUtil;
 
 import java.lang.reflect.Field;
@@ -56,6 +63,15 @@ public final class ViewUtil {
         Field originatingView = mode.getClass().getDeclaredField("mOriginatingView");
         originatingView.setAccessible(true);
         return (View) originatingView.get(mode);
+    }
+
+    public static void loadImageUrlInto(@NonNull SimpleDraweeView drawee, @Nullable String url) {
+        drawee.setController(Fresco.newDraweeControllerBuilder()
+                .setUri(WikipediaApp.getInstance().isImageDownloadEnabled()
+                        && !TextUtils.isEmpty(url)
+                        ? Uri.parse(url) : null)
+                .setAutoPlayAnimations(true)
+                .build());
     }
 
     private ViewUtil() { }

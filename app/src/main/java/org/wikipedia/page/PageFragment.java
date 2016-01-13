@@ -419,12 +419,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         public void onEnterTabView() {
             tabFunnel = new TabFunnel();
             tabFunnel.logEnterList(tabList.size());
+            leadImagesHandler.setAnimationPaused(true);
         }
 
         @Override
         public void onCancelTabView() {
             tabsProvider.exitTabMode();
             tabFunnel.logCancel(tabList.size());
+            leadImagesHandler.setAnimationPaused(false);
         }
 
         @Override
@@ -440,6 +442,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
             tabsProvider.exitTabMode();
             tabFunnel.logSelect(tabList.size(), position);
+            leadImagesHandler.setAnimationPaused(false);
         }
 
         @Override

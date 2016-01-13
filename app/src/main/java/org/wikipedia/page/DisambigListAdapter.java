@@ -6,14 +6,15 @@ import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.wikidata.GetDescriptionsTask;
-import com.squareup.picasso.Picasso;
+
+import com.facebook.drawee.view.SimpleDraweeView;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +109,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     }
 
     class ViewHolder {
-        private ImageView icon;
+        private SimpleDraweeView icon;
         private TextView title;
         private TextView description;
     }
@@ -119,7 +120,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_page_list_entry, null);
             holder = new ViewHolder();
-            holder.icon = (ImageView) convertView.findViewById(R.id.page_list_item_image);
+            holder.icon = (SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image);
             holder.title = (TextView) convertView.findViewById(R.id.page_list_item_title);
             holder.description = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
             convertView.setTag(holder);
@@ -130,22 +131,9 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
 
         final DisambigResult item = items[position];
         holder.title.setText(item.getTitle().getDisplayText());
-
         holder.description.setText(item.getTitle().getDescription());
 
-        String thumbnail = pageImagesCache.get(item.getTitle().getPrefixedText());
-        if (thumbnail == null) {
-            Picasso.with(parent.getContext())
-                   .load(R.drawable.ic_pageimage_placeholder)
-                   .into(holder.icon);
-        } else {
-            Picasso.with(parent.getContext())
-                   .load(thumbnail)
-                   .placeholder(R.drawable.ic_pageimage_placeholder)
-                   .error(R.drawable.ic_pageimage_placeholder)
-                   .into(holder.icon);
-        }
-
+        ViewUtil.loadImageUrlInto(holder.icon, pageImagesCache.get(item.getTitle().getPrefixedText()));
         return convertView;
     }
 }
