@@ -5,11 +5,11 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 
-public class WidgetsFunnel extends Funnel {
-    private static final String SCHEMA_NAME = "MobileWikiAppWidgets";
-    private static final int REV_ID = 11312870;
+public class IntentFunnel extends Funnel {
+    private static final String SCHEMA_NAME = "MobileWikiAppIntents";
+    private static final int REV_ID = 15237384;
 
-    public WidgetsFunnel(WikipediaApp app) {
+    public IntentFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REV_ID);
     }
 
@@ -22,6 +22,18 @@ public class WidgetsFunnel extends Funnel {
     public void logFeaturedArticleWidgetTap() {
         log(
                 "action", "featuredarticlewidgettap"
+        );
+    }
+
+    public void logShareIntent() {
+        log(
+                "action", "share"
+        );
+    }
+
+    public void logProcessTextIntent() {
+        log(
+                "action", "processtext"
         );
     }
 

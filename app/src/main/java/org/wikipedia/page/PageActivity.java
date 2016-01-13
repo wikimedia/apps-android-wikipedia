@@ -7,7 +7,7 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.WidgetsFunnel;
+import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
@@ -426,21 +426,17 @@ public class PageActivity extends ThemedActionBarActivity {
             loadPageInForegroundTab(title, historyEntry);
         } else if (Intent.ACTION_SEND.equals(intent.getAction())
                 && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
-            // Share menu.
+            new IntentFunnel(app).logShareIntent();
             handleShareIntent(intent);
         } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
                 && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
-            // Process text.
+            new IntentFunnel(app).logProcessTextIntent();
             handleProcessTextIntent(intent);
         } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
-            // Log that the user tapped on the search widget
-            // Instantiate the funnel anonymously to save on memory overhead
-            new WidgetsFunnel(app).logSearchWidgetTap();
+            new IntentFunnel(app).logSearchWidgetTap();
             openSearch();
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
-            // Log that the user tapped on the featured article widget
-            // Instantiate the funnel anonymously to save on memory overhead
-            new WidgetsFunnel(app).logFeaturedArticleWidgetTap();
+            new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
         } else {
             loadMainPageIfNoTabs();
