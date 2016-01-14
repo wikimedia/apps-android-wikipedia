@@ -9,11 +9,12 @@ import org.wikipedia.util.StringUtil;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EditTokenStorage {
     private static final String DELIMITER = ";";
 
-    private final HashMap<String, String> tokenJar = new HashMap<>();
+    private final Map<String, String> tokenJar = new HashMap<>();
     private final Context context;
 
     public interface TokenRetrievedCallback {

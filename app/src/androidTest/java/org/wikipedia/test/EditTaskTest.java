@@ -1,91 +1,51 @@
 package org.wikipedia.test;
 
-import android.support.test.InstrumentationRegistry;
+import android.support.annotation.NonNull;
 import android.support.test.runner.AndroidJUnit4;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.AbuseFilterEditResult;
 import org.wikipedia.editing.CaptchaResult;
 import org.wikipedia.editing.EditTask;
+import org.wikipedia.editing.EditingResult;
 import org.wikipedia.editing.SuccessEditResult;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.editing.EditTokenStorage;
-import org.wikipedia.editing.EditingResult;
-import org.wikipedia.editing.FetchSectionWikitextTask;
 import org.wikipedia.testlib.TestLatch;
 
 import static android.support.test.InstrumentationRegistry.getTargetContext;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.startsWith;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
 
 @RunWith(AndroidJUnit4.class)
 public class EditTaskTest {
-    private static final int SECTION_ID = 3;
     private static final Site TEST_WIKI_SITE = new Site("test.wikipedia.org");
-    private static final String TEST_WIKI_DOMAIN = TEST_WIKI_SITE.getDomain();
 
-    private static final String EDIT_TASK_PAGE_TITLE = "Test_page_for_app_testing/Section1";
-    private static final String EDIT_TASK_WIKITEXT = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at ";
-    private static final String SUCCESS = "Success";
-
-    private static final String CAPTCHA_TEST_PAGE_TITLE = "Test_page_for_app_testing/Captcha";
-    private static final String CAPTCHA_TEST_WIKITEXT = "== Section 2 ==\n\nEditing by inserting an external link https://";
-    private static final String CAPTCHA_URL = getNetworkProtocol() + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image";
-
-    private static final String ABUSE_FILTER_WARNING_PAGE_TITLE = "User:Yuvipandaaaaaaaa";
-    private static final String ABUSE_FILTER_WARNING_WIKITEXT = "Testing Abusefilter by simply editing this page. Triggering rule 94 at ";
     private static final String ABUSE_FILTER_ERROR_PAGE_TITLE = "Test_page_for_app_testing/AbuseFilter";
-    private static final String ABUSE_FILTER_ERROR_WIKITEXT = "== Section 2 ==\n\nTriggering AbuseFilter number 2 by saying poop many times at ";
-    private static final String ARBITRARY_ERROR_CODE_WIKITEXT = "== Section 2 ==\n\nTriggering AbuseFilter number 152 by saying appcrashtest many times at ";
-
-    // https://www.mediawiki.org/wiki/Manual:Edit_token#The_edit_token_suffix
-    private static final String ANONYMOUS_TOKEN = "+\\";
-
-    @Before
-    public void setUp() {
-        clearSession();
-    }
 
     @Test
     public void testEdit() {
-        final TestLatch completionLatch = new TestLatch();
-        runOnMainSync(new Runnable() {
-            @Override
-            public void run() {
-                save(completionLatch);
-            }
-        });
-        completionLatch.await();
+        PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", TEST_WIKI_SITE);
+        String wikitext = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at "
+                + System.currentTimeMillis();
+        final int sectionId = 3;
+
+        EditingResult result = Subject.execute(title, wikitext, sectionId);
+        assertThat(result, instanceOf(SuccessEditResult.class));
     }
 
     @Test
     public void testCaptcha() {
-        final PageTitle title = new PageTitle(null, CAPTCHA_TEST_PAGE_TITLE, TEST_WIKI_SITE);
-        final String wikitext = CAPTCHA_TEST_WIKITEXT + System.currentTimeMillis();
+        PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Captcha", TEST_WIKI_SITE);
+        String wikitext = "== Section 2 ==\n\nEditing by inserting an external link https://"
+                + System.currentTimeMillis();
 
-        final TestLatch completionLatch = new TestLatch();
-        runOnMainSync(new Runnable() {
-            @Override
-            public void run() {
-                new EditTask(getTargetContext(), title, wikitext, 0, ANONYMOUS_TOKEN, "", false) {
-                    @Override
-                    public void onFinish(EditingResult result) {
-                        if (captchaShown(result)) {
-                            validateCaptcha(result);
-                        }
-                        completionLatch.countDown();
-                    }
-                }.execute();
-            }
-        });
-        completionLatch.await();
+        EditingResult result = Subject.execute(title, wikitext);
+        validateCaptcha(result);
     }
 
     /**
@@ -97,23 +57,21 @@ public class EditTaskTest {
      */
     @Test
     public void testAbuseFilterTriggerWarn() {
-        final PageTitle title = new PageTitle(null, ABUSE_FILTER_WARNING_PAGE_TITLE, TEST_WIKI_SITE);
-        final String wikitext = ABUSE_FILTER_WARNING_WIKITEXT + System.currentTimeMillis();
-        final TestLatch completionLatch = new TestLatch();
-        runOnMainSync(new Runnable() {
-            @Override
-            public void run() {
-                new EditTask(getTargetContext(), title, wikitext, 0, ANONYMOUS_TOKEN, "", false) {
-                    @Override
-                    public void onFinish(EditingResult result) {
-                        assertThat(result, instanceOf(AbuseFilterEditResult.class));
-                        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_WARNING));
-                        completionLatch.countDown();
-                    }
-                }.execute();
-            }
-        });
-        completionLatch.await();
+        PageTitle title = new PageTitle(null, "User:Yuvipandaaaaaaaa", TEST_WIKI_SITE);
+
+        // Rule 94 is only a warning so the initial attempt may be successful. The second is
+        // guaranteed to be a warning if different content is used. @FlakyTest(tolerance = 2)
+        // doesn't work with JUnit 4.
+        EditingResult result = null;
+        for (int i = 0; !(result instanceof AbuseFilterEditResult) && i < 2; ++i) {
+            String wikitext = "Testing Abusefilter by simply editing this page. Triggering rule 94 at "
+                    + System.nanoTime();
+            result = Subject.execute(title, wikitext);
+        }
+
+        assertThat(result, instanceOf(AbuseFilterEditResult.class));
+        //noinspection ConstantConditions
+        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_WARNING));
     }
 
     /**
@@ -125,23 +83,13 @@ public class EditTaskTest {
      */
     @Test
     public void testAbuseFilterTriggerStop() {
-        final PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI_SITE);
-        final String wikitext = ABUSE_FILTER_ERROR_WIKITEXT + System.currentTimeMillis();
-        final TestLatch completionLatch = new TestLatch();
-        runOnMainSync(new Runnable() {
-            @Override
-            public void run() {
-                new EditTask(getTargetContext(), title, wikitext, 0, ANONYMOUS_TOKEN, "", false) {
-                    @Override
-                    public void onFinish(EditingResult result) {
-                        assertThat(result, instanceOf(AbuseFilterEditResult.class));
-                        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_ERROR));
-                        completionLatch.countDown();
-                    }
-                }.execute();
-            }
-        });
-        completionLatch.await();
+        PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI_SITE);
+        String wikitext = "== Section 2 ==\n\nTriggering AbuseFilter number 2 by saying poop many times at "
+                + System.currentTimeMillis();
+
+        EditingResult result = Subject.execute(title, wikitext);
+        assertThat(result, instanceOf(AbuseFilterEditResult.class));
+        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_ERROR));
     }
 
     /**
@@ -153,99 +101,14 @@ public class EditTaskTest {
      */
     @Test
     public void testAbuseFilterTriggerStopOnArbitraryErrorCode() {
-        final PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI_SITE);
-        final String wikitext = ARBITRARY_ERROR_CODE_WIKITEXT + System.currentTimeMillis();
-        final TestLatch completionLatch = new TestLatch();
-        runOnMainSync(new Runnable() {
-            @Override
-            public void run() {
-                new EditTask(getTargetContext(), title, wikitext, 0, ANONYMOUS_TOKEN, "", false) {
-                    @Override
-                    public void onFinish(EditingResult result) {
-                        assertThat(result, instanceOf(AbuseFilterEditResult.class));
-                        // For now we handle arbitrary error codes as TYPE_ERROR. This may change.
-                        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_ERROR));
-                        completionLatch.countDown();
-                    }
-                }.execute();
-            }
-        });
-        completionLatch.await();
-    }
+        PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI_SITE);
+        String wikitext = "== Section 2 ==\n\nTriggering AbuseFilter number 152 by saying appcrashtest many times at "
+                + System.currentTimeMillis();
 
-    private void save(final TestLatch completionLatch) {
-        final PageTitle title = new PageTitle(null, EDIT_TASK_PAGE_TITLE, TEST_WIKI_SITE);
-        final String addedText = EDIT_TASK_WIKITEXT + System.currentTimeMillis();
-        storeOldContentThenEdit(title, addedText, completionLatch);
-    }
-
-    private void storeOldContentThenEdit(final PageTitle title, final String addedText, final TestLatch completionLatch) {
-        new FetchSectionWikitextTask(getTargetContext(), title, SECTION_ID) {
-            @Override
-            public void onFinish(String oldContent) {
-                getReadyToEdit(title, oldContent, addedText, completionLatch);
-            }
-        }.execute();
-    }
-
-    public void getReadyToEdit(final PageTitle title, final String oldContent,
-                               final String addedText, final TestLatch completionLatch) {
-        app().getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetrievedCallback() {
-            @Override
-            public void onTokenRetrieved(String token) {
-                edit(title, oldContent, addedText, token, completionLatch);
-            }
-
-            @Override
-            public void onTokenFailed(Throwable caught) {
-                throw new RuntimeException(caught);
-            }
-        });
-    }
-
-    private void edit(final PageTitle title, final String oldContent, final String addedText,
-                      String token, final TestLatch completionLatch) {
-        new EditTask(getTargetContext(), title, addedText, SECTION_ID, token, "", false) {
-            @Override
-            public void onFinish(EditingResult result) {
-                verifyEditResultCode(result);
-                verifyNewContent(title, oldContent, addedText, completionLatch);
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                throw new RuntimeException(caught);
-            }
-        }.execute();
-    }
-
-    private void verifyEditResultCode(EditingResult result) {
-        assertThat(result.getResult(), is(SUCCESS));
-    }
-
-    private void verifyNewContent(PageTitle title, final String oldContent, final String addedText,
-                                  final TestLatch completionLatch) {
-        new FetchSectionWikitextTask(getTargetContext(), title, SECTION_ID) {
-            @Override
-            public void onFinish(String result) {
-                if (!result.equals(addedText)) {
-                    // maybe another test instance was running in parallel and change the value again
-                    assertThat(oldContent, is(not(result)));
-                    assertThat(result, startsWith(EDIT_TASK_WIKITEXT));
-                }
-                completionLatch.countDown();
-            }
-        }.execute();
-    }
-
-    /**
-     * We don't always get a Captcha when running this test.  If the edit operation returns
-     * a result of type SuccessEditResult, no Captcha was shown, so we'll skip validation.
-     * @param result the editing result object
-     * @return true if result is an instance of SuccessEditResult
-     */
-    private boolean captchaShown(EditingResult result) {
-        return !(result instanceof SuccessEditResult);
+        EditingResult result = Subject.execute(title, wikitext);
+        assertThat(result, instanceOf(AbuseFilterEditResult.class));
+        // For now we handle arbitrary error codes as TYPE_ERROR. This may change.
+        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_ERROR));
     }
 
     private void validateCaptcha(EditingResult result) {
@@ -256,24 +119,59 @@ public class EditTaskTest {
     }
 
     private boolean isValidCaptchaUrl(String url) {
-        return url.startsWith(CAPTCHA_URL);
+        return url.startsWith(getNetworkProtocol()
+                + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image");
     }
 
-
-    private void clearSession() {
-        app().getEditTokenStorage().clearEditTokenForDomain(TEST_WIKI_DOMAIN);
-        app().getCookieManager().clearCookiesForDomain(TEST_WIKI_DOMAIN);
-    }
-
-    private void runOnMainSync(Runnable r) {
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(r);
-    }
-
-    private static String getNetworkProtocol() {
+    private String getNetworkProtocol() {
         return app().getNetworkProtocol();
     }
 
-    private static WikipediaApp app() {
+    private WikipediaApp app() {
         return WikipediaApp.getInstance();
+    }
+
+    private static class Subject extends EditTask {
+        private static final int DEFAULT_SECTION_ID = 0;
+
+        // https://www.mediawiki.org/wiki/Manual:Edit_token#The_edit_token_suffix
+        private static final String ANONYMOUS_TOKEN = "+\\";
+
+        private static final String DEFAULT_SUMMARY = "";
+
+        public static EditingResult execute(PageTitle title, String sectionWikitext) {
+            return execute(title, sectionWikitext, DEFAULT_SECTION_ID);
+        }
+
+        public static EditingResult execute(PageTitle title, String sectionWikitext, int sectionId) {
+            return execute(title, sectionWikitext, sectionId, ANONYMOUS_TOKEN);
+        }
+
+        public static EditingResult execute(PageTitle title, String sectionWikitext, int sectionId,
+                                            String token) {
+            Subject subject = new Subject(title, sectionWikitext, sectionId, token);
+            subject.execute();
+            return subject.await();
+        }
+
+        @NonNull private final TestLatch latch = new TestLatch();
+        private EditingResult result;
+
+        Subject(PageTitle title, String sectionWikitext, int sectionId, String token) {
+            super(getTargetContext(), title, sectionWikitext, sectionId, token, DEFAULT_SUMMARY,
+                    false);
+        }
+
+        @Override
+        public void onFinish(EditingResult result) {
+            super.onFinish(result);
+            this.result = result;
+            latch.countDown();
+        }
+
+        public EditingResult await() {
+            latch.await();
+            return result;
+        }
     }
 }
