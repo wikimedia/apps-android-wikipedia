@@ -3,6 +3,7 @@ package org.wikipedia.test;
 import android.support.annotation.NonNull;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.Site;
@@ -26,6 +27,12 @@ public class EditTaskTest {
     private static final Site TEST_WIKI_SITE = new Site("test.wikipedia.org");
 
     private static final String ABUSE_FILTER_ERROR_PAGE_TITLE = "Test_page_for_app_testing/AbuseFilter";
+
+    @Before
+    public void setUp() {
+        // Cookies for a logged in session cannot be used with the anonymous edit token.
+        app().getCookieManager().clearAllCookies();
+    }
 
     @Test
     public void testEdit() {
