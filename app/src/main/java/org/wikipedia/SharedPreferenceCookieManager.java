@@ -99,8 +99,11 @@ public class SharedPreferenceCookieManager extends CookieManager {
         throw new UnsupportedOperationException("We poor. We no have CookieStore");
     }
 
+    // This will remove cookies for the domain specified but cookies from other domains may still be
+    // merged into requests.
     public void clearCookiesForDomain(String domain) {
         Prefs.removeCookiesForDomain(domain);
+        cookieJar.remove(domain);
     }
 
     public void clearAllCookies() {
