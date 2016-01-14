@@ -844,6 +844,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
             @Override
             public void onCatch(Throwable e) {
+                if (!isAdded()) {
+                    return;
+                }
                 /*
                 If anything bad happens during loading of a saved page, then simply bounce it
                 back to the online version of the page, and re-save the page contents locally when it's done.
