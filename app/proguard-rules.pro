@@ -51,33 +51,6 @@
 -keep class sun.misc.Unsafe { *; }
 # --- /Gson ---
 
-# --- HockeyApp ---
-# http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-and-proguard
-
-# Restore source file names and restore approximate line numbers in the stack traces,
-# otherwise the stack traces are pretty useless.
--keepattributes SourceFile,LineNumberTable
-
--keep public class javax.net.ssl.**
--keepclassmembers public class javax.net.ssl.** {
-  *;
-}
-
--keep public class org.apache.http.**
--keepclassmembers public class org.apache.http.** {
-  *;
-}
-
--keepclassmembers class net.hockeyapp.android.UpdateFragment {
-  *;
-}
-
-# This is undocumented but seems to work.
--dontwarn uk.co.senab.photoview.**
--keep class net.hockeyapp.** { <init>(...); *; }
--keep enum net.hockeyapp.** { <init>(...); *; }
-# --- /HockeyApp ---
-
 # --- Mapbox ---
 # TODO: remove when upstream patch is merged: https://phabricator.wikimedia.org/T120388
 -keep class com.mapbox.mapboxsdk.views.** { *; }
