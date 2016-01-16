@@ -39,14 +39,16 @@ android.testBuildType project.gradle.startParameter.taskNames.find { it.contains
         'release' :
         'debug'
 
-// Add testAll tasks for each build variant.
+// Add testAll tasks for each build variant of the current build type.
 android.applicationVariants.all { variant ->
-    def variantName = variant.name.capitalize()
-    def testAllName = "testAll${variantName}"
-    def jvmJUnitName = "test${variantName}UnitTest"
-    def androidInstrumentationName = "connected${variantName}AndroidTest"
+    if (variant.name.toLowerCase().endsWith(android.testBuildType)) {
+        def variantName = variant.name.capitalize()
+        def testAllName = "testAll${variantName}"
+        def jvmJUnitName = "test${variantName}UnitTest"
+        def androidInstrumentationName = "connected${variantName}AndroidTest"
 
-    addTestAllTask(testAllName, jvmJUnitName, androidInstrumentationName)
+        addTestAllTask(testAllName, jvmJUnitName, androidInstrumentationName)
+    }
 }
 
 // Add testAll task for all configurations.
