@@ -65,7 +65,7 @@ public class EventLoggingEvent {
 
         @Override
         public Integer performTask() throws Throwable {
-            String elUrl = WikipediaApp.getInstance().getSslFailCount() < 2 ? EVENTLOG_URL : EVENTLOG_URL.replace("https", "http");
+            String elUrl = EVENTLOG_URL;
             String dataURL = Uri.parse(elUrl)
                     .buildUpon().query(data.toString())
                     .build().toString();

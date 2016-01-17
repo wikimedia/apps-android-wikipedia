@@ -9,13 +9,9 @@ import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.Map;
-
-import javax.net.ssl.SSLException;
 
 public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     private static final boolean VERBOSE = WikipediaApp.getInstance().isDevRelease();
@@ -37,8 +33,7 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     }
 
     /**
-     * Called when an exception is thrown in the background process.  Checks whether the exception
-     * is an SSLException and, if so, prompts user to try again if the SSLException is the first.
+     * Called when an exception is thrown in the background process.
      * <p/>
      * Called on the UI Thread.
      *
@@ -50,15 +45,6 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
     @Override
     public void onCatch(Throwable caught) {
         L.d(caught);
-        if (ThrowableUtil.throwableContainsException(caught, SSLException.class)
-                && WikipediaApp.getInstance().incSslFailCount() < 2) {
-            WikipediaApp.getInstance().setSslFallback(true);
-            if (!isCancelled()) {
-                FeedbackUtil.toastNetworkFail();
-            }
-            cancel();
-            return;
-        }
         throw new RuntimeException(caught);
     }
 
