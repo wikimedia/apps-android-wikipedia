@@ -28,8 +28,7 @@
         android:id="@+id/retry_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/page_error_retry"/>
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/server_message_text"

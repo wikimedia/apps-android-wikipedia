@@ -11,6 +11,7 @@
     <string name="nav_item_history">History</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
+    <string name="page_error_back_to_main">Go back</string>
     <string name="menu_clear_all_history">Clear history</string>
     <string name="menu_clear_all_saved_pages">Clear saved pages</string>
     <string name="page_does_not_exist_error">This page does not exist.</string>

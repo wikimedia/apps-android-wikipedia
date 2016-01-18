@@ -325,6 +325,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 loadPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false);
             }
         });
+        errorView.setBackClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         editHandler = new EditHandler(this, bridge);
         pageLoadStrategy.setEditHandler(editHandler);
