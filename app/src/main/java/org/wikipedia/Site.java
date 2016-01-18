@@ -42,7 +42,7 @@ public class Site implements Parcelable {
     }
 
     public String getApiDomain() {
-        return WikipediaApp.getInstance().getSslFallback() ? domain : urlToMobileSite(domain);
+        return urlToMobileSite(domain);
     }
 
     public boolean getUseSecure() {

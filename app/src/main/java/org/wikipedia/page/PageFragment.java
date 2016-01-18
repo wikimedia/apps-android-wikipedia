@@ -1,47 +1,5 @@
 package org.wikipedia.page;
 
-import org.wikipedia.BackPressedHandler;
-import org.wikipedia.NightModeHandler;
-import org.wikipedia.R;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.ConnectionIssueFunnel;
-import org.wikipedia.analytics.FindInPageFunnel;
-import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.analytics.LinkPreviewFunnel;
-import org.wikipedia.analytics.PageScrollFunnel;
-import org.wikipedia.analytics.SavedPagesFunnel;
-import org.wikipedia.analytics.TabFunnel;
-import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.StyleBundle;
-import org.wikipedia.editing.EditHandler;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.interlanguage.LangLinksActivity;
-import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.page.leadimages.LeadImagesHandler;
-import org.wikipedia.page.snippet.CompatActionMode;
-import org.wikipedia.page.snippet.ShareHandler;
-import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.page.tabs.TabsProvider;
-import org.wikipedia.savedpages.ImageUrlMap;
-import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
-import org.wikipedia.savedpages.SavePageTask;
-import org.wikipedia.savedpages.SavedPageCheckTask;
-import org.wikipedia.search.SearchBarHideHandler;
-import org.wikipedia.settings.Prefs;
-import org.wikipedia.tooltip.ToolTipUtil;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ThrowableUtil;
-import org.wikipedia.util.log.L;
-import org.wikipedia.page.leadimages.ArticleHeaderView;
-import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
-import org.wikipedia.views.WikiDrawerLayout;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.wikipedia.views.WikiErrorView;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -72,16 +30,54 @@ import android.widget.TextView;
 
 import com.appenguin.onboarding.ToolTip;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.BackPressedHandler;
+import org.wikipedia.NightModeHandler;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ConnectionIssueFunnel;
+import org.wikipedia.analytics.FindInPageFunnel;
+import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.analytics.PageScrollFunnel;
+import org.wikipedia.analytics.SavedPagesFunnel;
+import org.wikipedia.analytics.TabFunnel;
+import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.StyleBundle;
+import org.wikipedia.editing.EditHandler;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.page.leadimages.ArticleHeaderView;
+import org.wikipedia.page.leadimages.LeadImagesHandler;
+import org.wikipedia.page.snippet.CompatActionMode;
+import org.wikipedia.page.snippet.ShareHandler;
+import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.page.tabs.TabsProvider;
+import org.wikipedia.savedpages.ImageUrlMap;
+import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
+import org.wikipedia.savedpages.SavePageTask;
+import org.wikipedia.savedpages.SavedPageCheckTask;
+import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
+import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
+import org.wikipedia.views.WikiDrawerLayout;
+import org.wikipedia.views.WikiErrorView;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import javax.net.ssl.SSLException;
-
 import static butterknife.ButterKnife.findById;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -776,19 +772,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void commonSectionFetchOnCatch(Throwable caught) {
-        if (ThrowableUtil.throwableContainsException(caught, SSLException.class)) {
-            try {
-                if (WikipediaApp.getInstance().incSslFailCount() < 2) {
-                    WikipediaApp.getInstance().setSslFallback(true);
-                    connectionIssueFunnel.logConnectionIssue("mdot", "commonSectionFetchOnCatch");
-                } else {
-                    connectionIssueFunnel.logConnectionIssue("desktop", "commonSectionFetchOnCatch");
-                }
-            } catch (Exception e) {
-                // meh
-            }
-        }
-
         if (!isAdded()) {
             return;
         }

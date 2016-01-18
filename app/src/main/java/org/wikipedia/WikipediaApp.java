@@ -81,22 +81,6 @@ public class WikipediaApp extends Application {
         return HTTPS_PROTOCOL;
     }
 
-    private boolean sslFallback = false;
-    public boolean getSslFallback() {
-        return sslFallback;
-    }
-    public void setSslFallback(boolean fallback) {
-        sslFallback = fallback;
-    }
-
-    private int sslFailCount = 0;
-    public int getSslFailCount() {
-        return sslFailCount;
-    }
-    public int incSslFailCount() {
-        return ++sslFailCount;
-    }
-
     public static final int FONT_SIZE_MULTIPLIER_MIN = -5;
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
     private static final float FONT_SIZE_FACTOR = 0.1f;
