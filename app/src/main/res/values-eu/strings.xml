@@ -182,7 +182,7 @@
   <string name="dialog_close_description">Itxi</string>
   <string name="preference_title_show_images">Irudiak erakutsi</string>
   <string name="read_more_section">Irakurri gehiago</string>
-  <string name="menu_gallery_visit_page">Joan fitxategiaren orrialdera</string>
+  <string name="menu_gallery_visit_page">Joan fitxategiaren orrira</string>
   <string name="gallery_error_draw_failed">Ezin da irudia marraztu.</string>
   <string name="gallery_menu_share">Partekatu</string>
   <string name="gallery_menu_save">Gailuan gorde</string>

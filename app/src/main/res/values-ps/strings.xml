@@ -27,7 +27,7 @@
   <string name="delete_selected_saved_pages">ړنگول</string>
   <string name="snackbar_saved_page_deleted">خوندي مخ(مخونه) ړنگ شو(شول)</string>
   <string name="saved_pages_search_list_hint">خوندي مخونه پلټل</string>
-  <string name="menu_page_other_languages" fuzzy="true">په نورو ژبو کې لوستل</string>
+  <string name="menu_page_other_languages">ژبه بدلول</string>
   <string name="menu_page_find_in_page">په مخ کې موندل</string>
   <string name="menu_page_similar_titles">ورته سرليکونه</string>
   <string name="menu_page_font_and_theme">ليکبڼه او شازمکه</string>
@@ -157,10 +157,13 @@
   <string name="page_view_in_browser">مخ په کتنمل کې کتل</string>
   <string name="format_error_server_message">پيغام: \"%s\"</string>
   <string name="format_error_server_code">کوډ: \"%s\"</string>
+  <string name="button_continue_to_article">ليکنه لوستل</string>
+  <string name="button_get_directions">لارښوونې ترلاسه کول</string>
   <string name="nav_item_donate">د ويکيپېډيا ملاتړ وکړئ</string>
   <string name="crash_report_dialog_dont_send_button">تېرېدل</string>
   <string name="crash_report_dialog_always_send_button">تل لېږل</string>
   <string name="crash_report_dialog_send_button">لېږل</string>
+  <string name="crash_report_activity_title">د کاريال تېروتنه</string>
   <string name="crash_report_relaunch">سر له نوي پيلول</string>
   <string name="crash_report_quit">بندول</string>
 </resources>

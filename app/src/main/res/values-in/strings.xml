@@ -30,8 +30,10 @@
   <string name="saved_pages_search_list_hint">Cari halaman tersimpan</string>
   <string name="saved_pages_search_empty_message">Tidak ada halaman yang cocok dengan \'%s\'</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
-  <string name="menu_page_other_languages" fuzzy="true">Baca dalam bahasa lain</string>
+  <string name="menu_page_other_languages">Ganti bahasa</string>
   <string name="menu_page_find_in_page">Cari di halaman</string>
+  <string name="menu_page_content_issues">Masalah konten</string>
+  <string name="menu_page_similar_titles">Judul yang sama</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
   <string name="menu_page_save">Simpan halaman</string>
   <string name="menu_page_share">Bagikan pranala</string>
@@ -279,4 +281,6 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
 Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
   <string name="crash_report_quit">Keluar</string>
+  <string name="article_menu_bar_bookmark">Simpan artikel secara luring untuk dibaca nanti</string>
+  <string name="article_menu_bar_share">Berbagi pranala artikel</string>
 </resources>

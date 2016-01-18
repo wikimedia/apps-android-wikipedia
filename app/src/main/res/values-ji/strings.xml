@@ -29,7 +29,7 @@
   <string name="saved_pages_search_list_hint">זוכן געשפייכלערטע בלעטער</string>
   <string name="saved_pages_search_empty_message">קיין בלעטער נישט געטראפן וואס זענען צוגעפאסט צו אײַער פראגע.</string>
   <string name="menu_page_show_tabs">ווײַזן טאבן</string>
-  <string name="menu_page_other_languages" fuzzy="true">לייענען אין אנדערע שפראכן</string>
+  <string name="menu_page_other_languages">ענדערן שפראך</string>
   <string name="menu_page_find_in_page">טרעפן אין בלאט</string>
   <string name="menu_page_font_and_theme">פאנט און טעמע</string>
   <string name="menu_page_save">אױפֿהיטן בלאַט</string>
