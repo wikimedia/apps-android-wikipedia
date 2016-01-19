@@ -9,6 +9,7 @@ import org.wikipedia.data.SessionUnmarshaller;
 import org.wikipedia.data.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.util.StringUtil;
 
 import retrofit.RestAdapter;
 
@@ -293,8 +294,10 @@ public final class Prefs {
         }
     }
 
+    @NonNull
     public static String getRestbaseUriFormat() {
-        return getString(R.string.preference_key_restbase_uri_format, "%1$s://%2$s/api/rest_v1");
+        return StringUtil.defaultIfBlank(getString(R.string.preference_key_restbase_uri_format, null),
+                "%1$s://%2$s/api/rest_v1");
     }
 
     public static long getLastRunTime(@NonNull String task) {

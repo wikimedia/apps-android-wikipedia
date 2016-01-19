@@ -16,6 +16,14 @@ import java.util.List;
 public final class StringUtil {
     private static final String CSV_DELIMITER = ",";
 
+    public static boolean isBlank(@Nullable String str) {
+        return str == null || !TextUtils.isGraphic(str);
+    }
+
+    public static String defaultIfBlank(@Nullable String value, @Nullable String defaultValue) {
+        return isBlank(value) ? defaultValue : value;
+    }
+
     @NonNull
     public static String emptyIfNull(@Nullable String value) {
         return defaultIfNull(value, "");
