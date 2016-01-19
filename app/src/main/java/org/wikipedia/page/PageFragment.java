@@ -37,7 +37,6 @@ import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.ConnectionIssueFunnel;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
@@ -146,7 +145,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private WikipediaApp app;
 
     private SavedPagesFunnel savedPagesFunnel;
-    private ConnectionIssueFunnel connectionIssueFunnel;
 
     @NonNull
     private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
@@ -253,7 +251,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        connectionIssueFunnel = new ConnectionIssueFunnel(app);
 
         updateFontSize();
 
