@@ -528,32 +528,27 @@ public class WikipediaApp extends Application {
         return simpleDateFormat;
     }
 
-    /** For Retrofit requests. Keep in sync with #buildCustomHeaders */
+    /** For Retrofit requests. */
     public void injectCustomHeaders(RequestInterceptor.RequestFacade request, Site site) {
-        request.addHeader("User-Agent", getUserAgent());
-
-        // Add the app install ID to the header, but only if the user has not opted out of logging
-        if (isEventLoggingEnabled()) {
-            request.addHeader("X-WMF-UUID", getAppInstallID());
+        HashMap<String, String> headers = buildCustomHeaders(getAcceptLanguage(site));
+        for (String key : headers.keySet()) {
+            request.addHeader(key, headers.get(key));
         }
-
-        request.addHeader("Accept-Language", getAcceptLanguage(site));
     }
 
     /** For java-mwapi API requests. */
     private HashMap<String, String> buildCustomHeaders(String acceptLanguage) {
-        // https://lists.wikimedia.org/pipermail/wikimedia-l/2014-April/071131.html
         HashMap<String, String> headers = new HashMap<>();
-
         headers.put("User-Agent", getUserAgent());
 
-        // Add the app install ID to the header, but only if the user has not opted out of logging
         if (isEventLoggingEnabled()) {
             headers.put("X-WMF-UUID", getAppInstallID());
+        } else {
+            // Send do-not-track header if the user has opted out of event logging
+            headers.put("DNT", "1");
         }
 
         headers.put("Accept-Language", acceptLanguage);
-
         return headers;
     }
 
