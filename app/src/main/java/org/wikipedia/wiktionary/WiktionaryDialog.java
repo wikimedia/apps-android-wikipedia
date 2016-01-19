@@ -100,6 +100,11 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
     }
 
     private void loadDefinitions() {
+        if (selectedText.trim().isEmpty()) {
+            displayNoDefinitionsFound();
+            return;
+        }
+
         PageService contentService = ContentServiceFactory.create(new Site(pageTitle.getSite().getLanguageCode() + WIKTIONARY_DOMAIN));
         if (contentService instanceof RbContentService) {
             ((RbContentService) contentService).define(
@@ -132,7 +137,6 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
             if (!isAdded()) {
                 return;
             }
-            progressBar.setVisibility(View.GONE);
             displayNoDefinitionsFound();
             L.e("Wiktionary definition fetch error: " + error);
         }
@@ -141,6 +145,7 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
     private void displayNoDefinitionsFound() {
         TextView noDefinitionsFoundView = (TextView) rootView.findViewById(R.id.wiktionary_no_definitions_found);
         noDefinitionsFoundView.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
     }
 
     private void layOutDefinitionsByUsage() {
