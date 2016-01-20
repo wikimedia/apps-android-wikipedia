@@ -60,6 +60,14 @@ public final class ThrowableUtil {
         return result;
     }
 
+    public static boolean isRetryable(@NonNull Context ctx, @NonNull Throwable e) {
+        return isRetryable(ThrowableUtil.getAppError(ctx, e));
+    }
+
+    public static boolean isRetryable(@NonNull ThrowableUtil.AppError e) {
+        return !e.getDetail().contains("404");
+    }
+
     private static boolean isNetworkError(@NonNull Throwable e) {
         return ThrowableUtil.throwableContainsException(e, HttpRequest.HttpRequestException.class)
                || ThrowableUtil.throwableContainsException(e, UnknownHostException.class)

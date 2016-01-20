@@ -63,6 +63,7 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -150,13 +151,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
-            // don't refresh if it's still loading...
-            if (pageLoadStrategy.isLoading() || !savedPageCheckComplete || errorState) {
-                refreshView.setRefreshing(false);
-                return;
-            }
-            // if it's a saved page, then refresh it and re-save. Otherwise, refresh the page normally
-            refreshPage(pageSaved);
+            refreshPage();
         }
     };
 
@@ -317,9 +312,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorView.setRetryClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                errorView.setVisibility(View.GONE);
-                errorState = false;
-                loadPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false);
+                refreshPage();
             }
         });
         errorView.setBackClickListener(new View.OnClickListener() {
@@ -756,6 +749,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void onPageLoadComplete() {
+        refreshView.setEnabled(true);
         editHandler.setPage(model.getPage());
         initPageScrollFunnel();
 
@@ -786,12 +780,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (pageRefreshed) {
             pageRefreshed = false;
             FeedbackUtil.showError(getActivity(), caught);
-            return;
         }
 
         hidePageContent();
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
+        if (getActivity() != null) {
+            refreshView.setEnabled(ThrowableUtil.isRetryable(getActivity(), caught));
+        }
         errorState = true;
     }
 
@@ -847,7 +843,19 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }.execute();
     }
 
+    public void refreshPage() {
+        refreshPage(pageSaved);
+    }
+
     public void refreshPage(boolean saveOnComplete) {
+        if (pageLoadStrategy.isLoading() || !savedPageCheckComplete) {
+            refreshView.setRefreshing(false);
+            return;
+        }
+
+        errorView.setVisibility(View.GONE);
+        errorState = false;
+
         this.saveOnComplete = saveOnComplete;
         if (saveOnComplete) {
             FeedbackUtil.showMessage(getActivity(), R.string.snackbar_refresh_saved_page);

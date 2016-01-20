@@ -13,6 +13,8 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static org.wikipedia.util.ThrowableUtil.isRetryable;
+
 public class WikiErrorView extends FrameLayout {
     @Bind(R.id.error_text) TextView errorTextView;
     @Bind(R.id.retry_button) Button button;
@@ -47,7 +49,7 @@ public class WikiErrorView extends FrameLayout {
         ThrowableUtil.AppError error = ThrowableUtil.getAppError(getContext(), e);
         errorTextView.setText(error.getError());
         messageTextView.setText(error.getDetail());
-        updateButton(isErrorRetryable(error));
+        updateButton(isRetryable(error));
     }
 
     private void updateButton(boolean retryable) {
@@ -55,9 +57,5 @@ public class WikiErrorView extends FrameLayout {
         button.setVisibility(listener == null ? GONE : VISIBLE);
         button.setText(retryable ? R.string.page_error_retry : R.string.page_error_back_to_main);
         button.setOnClickListener(listener);
-    }
-
-    private boolean isErrorRetryable(@NonNull ThrowableUtil.AppError error) {
-        return !error.getDetail().contains("404");
     }
 }
