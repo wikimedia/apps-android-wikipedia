@@ -15,6 +15,7 @@
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.
 {{Identical|Retry}}</string>
+  <string name="page_error_back_to_main">Text for the back button that goes to the last page visited when tapped.</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.
 {{Identical|Clear history}}</string>
   <string name="menu_clear_all_saved_pages">Clear is an imperative verb. This is an action that clears all saved pages.</string>
