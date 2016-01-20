@@ -495,7 +495,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         sendDecorOffsetMessage();
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
-        if (!pageLoadStrategy.isLoading()) {
+        if (!pageLoadStrategy.isLoading() && !errorState) {
             pageLoadStrategy.layoutLeadImage();
         }
         tabsProvider.onConfigurationChanged();
