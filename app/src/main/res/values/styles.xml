@@ -163,6 +163,10 @@
         <!-- parent="@android:style/Preference.DialogPreference.EditTextPreference" is not exposed. -->
     </style>
 
+    <style name="DataStringPreference" parent="EditTextAutoSummarizePreference">
+        <item name="android:inputType">textVisiblePassword</item>
+    </style>
+
     <style name="LongPreference" parent="EditTextAutoSummarizePreference">
         <item name="android:inputType">number</item>
         <item name="android:maxLength">20</item>
