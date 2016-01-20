@@ -12,7 +12,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        android:src="@drawable/about_logo"
+        android:src="@drawable/w_nav_mark"
         android:contentDescription="@null"
         android:layout_gravity="center_vertical"/>
     <LinearLayout

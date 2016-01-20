@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.style.URLSpan;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -78,6 +80,26 @@ public final class RichTextUtil {
 
     public static boolean isFlaggedSpan(@NonNull Spanned spanned, Object span, int flags) {
         return (spanned.getSpanFlags(span) & flags) == flags;
+    }
+
+    public static void removeUnderlinesFromLinks(@NonNull TextView textView) {
+        CharSequence text = textView.getText();
+        if (text instanceof Spanned) {
+            Spannable spannable = new SpannableString(text);
+            removeUnderlinesFromLinks(spannable, spannable.getSpans(0, spannable.length(), URLSpan.class));
+            textView.setText(spannable);
+        }
+    }
+
+    public static void removeUnderlinesFromLinks(@NonNull Spannable spannable,
+                                                 @NonNull URLSpan[] spans) {
+        for (URLSpan span: spans) {
+            int start = spannable.getSpanStart(span);
+            int end = spannable.getSpanEnd(span);
+            spannable.removeSpan(span);
+            span = new URLSpanNoUnderline(span.getURL());
+            spannable.setSpan(span, start, end, 0);
+        }
     }
 
     private RichTextUtil() { }
