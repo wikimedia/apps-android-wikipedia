@@ -3,6 +3,7 @@ package org.wikipedia.server.restbase;
 import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.server.Protection;
 import org.wikipedia.settings.Prefs;
 
 import com.google.gson.GsonBuilder;
@@ -58,8 +59,7 @@ public final class RbEndpointsCache {
                         // following is only needed for the hacky PageLead.Protection deserialization
                         // remove once our service handles this better (see T111131)
                 .setConverter(new GsonConverter(new GsonBuilder()
-                        .registerTypeAdapter(RbPageLead.Protection.class,
-                                new RbPageLead.Protection.Deserializer())
+                        .registerTypeAdapter(Protection.class, new Protection.Deserializer())
                         .create()))
 
                 .build();

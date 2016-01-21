@@ -1,6 +1,7 @@
 package org.wikipedia.server.restbase;
 
 import org.wikipedia.server.BasePageLeadTest;
+import org.wikipedia.server.Protection;
 import org.wikipedia.server.mwapi.MwPageLead;
 import org.wikipedia.test.TestRunner;
 
@@ -22,7 +23,7 @@ public class RbPageLeadTest extends BasePageLeadTest {
     @Before
     public void setUp() throws Exception {
         gson = new GsonBuilder()
-                .registerTypeAdapter(RbPageLead.Protection.class, new RbPageLead.Protection.Deserializer())
+                .registerTypeAdapter(Protection.class, new Protection.Deserializer())
                 .create();
     }
 

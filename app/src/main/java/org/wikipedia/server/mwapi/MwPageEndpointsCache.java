@@ -3,6 +3,7 @@ package org.wikipedia.server.mwapi;
 import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.server.Protection;
 import org.wikipedia.settings.Prefs;
 
 import com.google.gson.GsonBuilder;
@@ -55,8 +56,7 @@ public final class MwPageEndpointsCache {
                         // following is only needed for the hacky PageLead.Protection deserialization
                         // remove once https://phabricator.wikimedia.org/T69054 is resolved
                 .setConverter(new GsonConverter(new GsonBuilder()
-                        .registerTypeAdapter(MwPageLead.Protection.class,
-                                new MwPageLead.Protection.Deserializer())
+                        .registerTypeAdapter(Protection.class, new Protection.Deserializer())
                         .create()))
 
                 .build();
