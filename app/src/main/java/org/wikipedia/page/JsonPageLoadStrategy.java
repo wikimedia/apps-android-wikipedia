@@ -1,6 +1,20 @@
 package org.wikipedia.page;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Build;
+import android.support.annotation.DimenRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.mediawiki.api.json.ApiException;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -11,40 +25,21 @@ import org.wikipedia.history.SaveHistoryTask;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
-import org.wikipedia.pageimages.PageImagePersistenceHelper;
-import org.wikipedia.server.PageLead;
-import org.wikipedia.server.PageRemaining;
-import org.wikipedia.server.ServiceError;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.pageimages.PageImagePersistenceHelper;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.server.ContentServiceFactory;
+import org.wikipedia.server.PageLead;
+import org.wikipedia.server.PageRemaining;
+import org.wikipedia.server.ServiceError;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.PageLoadUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
-
-import org.mediawiki.api.json.ApiException;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-
-import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Build;
-import android.support.annotation.DimenRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,8 +47,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
+import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
 
 /**
  * Our old page load strategy, which uses the JSON MW API directly and loads a page in multiple steps:
@@ -271,7 +269,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
-        PageLoadUtil.getApiService(model.getTitle().getSite()).pageLead(
+        ContentServiceFactory.create(model.getTitle().getSite()).pageLead(
                 model.getTitle().getPrefixedText(),
                 calculateLeadImageWidth(),
                 !app.isImageDownloadEnabled(),
@@ -801,7 +799,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private void loadRemainingSections(final int startSequenceNum) {
         app.getSessionFunnel().restSectionsFetchStart();
-        PageLoadUtil.getApiService(model.getTitle().getSite()).pageRemaining(
+        ContentServiceFactory.create(model.getTitle().getSite()).pageRemaining(
                 model.getTitle().getPrefixedText(),
                 !app.isImageDownloadEnabled(),
                 new PageRemaining.Callback() {
