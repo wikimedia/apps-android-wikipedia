@@ -96,7 +96,7 @@ public class ToCHandler {
 
         // create a dummy funnel, in case the drawer is pulled out before a page is loaded.
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(),
-                WikipediaApp.getInstance().getPrimarySite(), 0, 0);
+                WikipediaApp.getInstance().getSite(), 0, 0);
 
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private boolean sectionRequested = false;

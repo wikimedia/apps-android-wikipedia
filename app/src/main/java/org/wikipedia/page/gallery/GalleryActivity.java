@@ -320,7 +320,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         public void onUrlClick(String url) {
             Log.v(TAG, "Link clicked was " + url);
             url = resolveProtocolRelativeUrl(url);
-            Site site = app.getPrimarySite();
+            Site site = app.getSite();
             if (url.startsWith("/wiki/")) {
                 PageTitle title = site.titleForInternalLink(url);
                 finishWithPageResult(title);

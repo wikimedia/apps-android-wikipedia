@@ -212,7 +212,7 @@ public class SearchResultsFragment extends Fragment {
     private void doTitlePrefixSearch(final String searchTerm) {
         // Use nanoTime to measure the time the search was started.
         final long startTime = System.nanoTime();
-        TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(), searchTerm) {
+        TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getSite()), app.getSite(), searchTerm) {
             @Override
             public void onBeforeExecute() {
                 getPageActivity().updateProgressBar(true, true, 0);
@@ -309,7 +309,7 @@ public class SearchResultsFragment extends Fragment {
                                   final boolean clearOnSuccess) {
         // Use nanoTime to measure the time the search was started.
         final long startTime = System.nanoTime();
-        new FullSearchArticlesTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite(),
+        new FullSearchArticlesTask(app.getAPIForSite(app.getSite()), app.getSite(),
                                    searchTerm, BATCH_SIZE, continueOffset, false) {
             @Override
             public void onBeforeExecute() {

@@ -100,7 +100,7 @@ public class WikipediaApp extends Application {
     private EditTokenStorage editTokenStorage;
     private SharedPreferenceCookieManager cookieManager;
     private String userAgent;
-    private Site primarySite;
+    private Site site;
 
     private CrashReporter crashReporter;
 
@@ -249,24 +249,25 @@ public class WikipediaApp extends Application {
     }
 
     /**
-     * Default site of the application
-     * You should use PageTitle.getSite() to get the currently browsed site
+     * Default site for the app
+     * You should use PageTitle.getSite() to get the article site
      */
-    public Site getPrimarySite() {
-        if (primarySite == null) {
-            primarySite = Site.forLanguage(getAppOrSystemLanguageCode());
+    public Site getSite() {
+        // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
+        if (site == null) {
+            site = Site.forLanguage(getAppOrSystemLanguageCode());
         }
 
-        return primarySite;
+        return site;
     }
 
     /**
-     * Convenience method to get an API object for the primary site.
+     * Convenience method to get an API object for the app site.
      *
-     * @return An API object that is equivalent to calling getAPIForSite(getPrimarySite)
+     * @return An API object that is equivalent to calling getAPIForSite(getSite)
      */
-    public Api getPrimarySiteApi() {
-        return getAPIForSite(getPrimarySite());
+    public Api getSiteApi() {
+        return getAPIForSite(getSite());
     }
 
     @Nullable
@@ -515,7 +516,7 @@ public class WikipediaApp extends Application {
     }
 
     public void resetSite() {
-        primarySite = null;
+        site = null;
     }
 
     public OnboardingStateMachine getOnboardingStateMachine() {

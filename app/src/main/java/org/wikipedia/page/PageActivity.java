@@ -421,7 +421,7 @@ public class PageActivity extends ThemedActionBarActivity {
             loadPage(title, historyEntry);
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            PageTitle title = new PageTitle(query, app.getPrimarySite());
+            PageTitle title = new PageTitle(query, app.getSite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
             loadPageInForegroundTab(title, historyEntry);
         } else if (Intent.ACTION_SEND.equals(intent.getAction())
@@ -659,7 +659,7 @@ public class PageActivity extends ThemedActionBarActivity {
      * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
     public void loadMainPage(boolean allowStateLoss, TabPosition position, boolean mustBeEmpty) {
-        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getPrimarySite());
+        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getSite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position, allowStateLoss, mustBeEmpty);
     }

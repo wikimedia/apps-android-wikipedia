@@ -147,7 +147,7 @@ import java.util.UUID;
                 new EventLoggingEvent(
                         schemaName,
                         revision,
-                        getDBNameForSite(site == null ? getApp().getPrimarySite() : site),
+                        getDBNameForSite(site == null ? getApp().getSite() : site),
                         app.getUserAgent(),
                         preprocessData(eventData)
                 ).log();
