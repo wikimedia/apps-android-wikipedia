@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 
 import net.hockeyapp.android.CrashManager;
 import net.hockeyapp.android.ExceptionHandler;
-import net.hockeyapp.android.LocaleManager;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.BaseCrashReporter;
@@ -38,7 +37,6 @@ public class HockeyAppCrashReporter extends BaseCrashReporter {
     @Override
     public void checkCrashes(@NonNull Activity activity) {
         L.v("Checking for HockeyApp crashes.");
-        LocaleManager.initialize(activity.getApplicationContext());
         CrashManager.register(activity, appId, crashListener);
     }
 

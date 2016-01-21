@@ -45,7 +45,8 @@
         Set "value" to "Google Play" for Google Play Store.
         -->
         <meta-data android:name="@string/preference_key_app_channel" android:value="@string/channel" />
-        <!-- Don't delete the meta-data field above -->
+        <meta-data android:name="net.hockeyapp.android.appIdentifier"
+            android:value="@string/hockeyapp_app_id" />
 
         <activity android:name=".page.PageActivity"
                   android:theme="@style/PageTheme"

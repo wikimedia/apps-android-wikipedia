@@ -63,7 +63,7 @@ public class LoginActivity extends ThemedActionBarActivity {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp)getApplicationContext();
 
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_wiki_login);
 
         usernameText = (EditText) findViewById(R.id.login_username_text);
         passwordText = ((PasswordTextInput) findViewById(R.id.login_password_input)).getEditText();
