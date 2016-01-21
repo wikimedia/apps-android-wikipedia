@@ -4,11 +4,14 @@ import android.annotation.TargetApi;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.view.ActionMode;
 import android.view.View;
 import android.view.ViewManager;
 import android.view.animation.Animation;
 
 import org.wikipedia.util.ApiUtil;
+
+import java.lang.reflect.Field;
 
 public final class ViewUtil {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -40,6 +43,19 @@ public final class ViewUtil {
         view.clearAnimation();
         animation.setDuration(0);
         view.setAnimation(animation);
+    }
+
+    /**
+     * Find the originating view of an ActionMode.
+     * @param mode The ActionMode in question.
+     * @return The view from which the ActionMode originated.
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static View getOriginatingView(ActionMode mode) throws NoSuchFieldException, IllegalAccessException {
+        Field originatingView = mode.getClass().getDeclaredField("mOriginatingView");
+        originatingView.setAccessible(true);
+        return (View) originatingView.get(mode);
     }
 
     private ViewUtil() { }

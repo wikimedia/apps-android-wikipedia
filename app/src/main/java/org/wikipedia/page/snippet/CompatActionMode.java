@@ -10,7 +10,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.log.L;
 
-import static org.wikipedia.util.ViewUtil.getOriginatingView;
+import static org.wikipedia.views.ViewUtil.getOriginatingView;
 
 public class CompatActionMode {
 
