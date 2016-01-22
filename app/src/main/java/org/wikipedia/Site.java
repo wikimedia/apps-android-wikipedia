@@ -42,7 +42,7 @@ public class Site implements Parcelable {
     }
 
     public String getApiDomain() {
-        return urlToMobileSite(domain);
+        return domain;
     }
 
     public boolean getUseSecure() {
@@ -158,10 +158,6 @@ public class Site implements Parcelable {
 
     private String urlToDesktopSite(String url) {
         return url.replaceFirst("\\.m\\.", ".");
-    }
-
-    private String urlToMobileSite(String url) {
-        return url.replaceFirst("\\.", ".m.");
     }
 
     private static String languageToWikiSubdomain(String language) {
