@@ -152,7 +152,7 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         LinearLayout fullDefinitionsList = (LinearLayout) rootView.findViewById(R.id.wiktionary_definitions_by_part_of_speech);
 
-        RbDefinition.Usage[] usageList = currentDefinition.getUsages();
+        RbDefinition.Usage[] usageList = currentDefinition.getUsagesForLang("en");
         if (usageList.length == 0) {
             displayNoDefinitionsFound();
         }

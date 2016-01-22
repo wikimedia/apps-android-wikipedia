@@ -7,16 +7,27 @@ import com.google.gson.annotations.Expose;
 
 import org.wikipedia.util.log.L;
 
+import java.util.Map;
+
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 public class RbDefinition {
+
+    @Expose @NonNull private Map<String, Usage[]> usagesByLang;
+
     @Expose @Nullable private RbServiceError error;
 
-    @Expose @NonNull private Usage[] usages;
+    public RbDefinition(Map<String, RbDefinition.Usage[]> usages) {
+        usagesByLang = usages;
+    }
 
-    @NonNull public Usage[] getUsages() {
-        return usages;
+    public Map<String, Usage[]> getUsagesByLang() {
+        return usagesByLang;
+    }
+
+    public Usage[] getUsagesForLang(String langCode) {
+        return usagesByLang.get(langCode);
     }
 
     public boolean hasError() {
