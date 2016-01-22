@@ -10,6 +10,8 @@ import org.wikipedia.server.PageSummary;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
+import java.util.Map;
+
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -102,11 +104,11 @@ public class RbContentService implements PageService {
      * of a wiki page.
      */
     public void define(String title, final RbDefinition.Callback cb) {
-        webService.define(title, new Callback<RbDefinition>() {
+        webService.define(title, new Callback<Map<String, RbDefinition.Usage[]>>() {
             @Override
-            public void success(RbDefinition definition, Response response) {
+            public void success(Map<String, RbDefinition.Usage[]> definition, Response response) {
                 responseHeaderHandler.onHeaderCheck(response);
-                cb.success(definition, response);
+                cb.success(new RbDefinition(definition), response);
             }
 
             @Override
@@ -183,6 +185,6 @@ public class RbContentService implements PageService {
          * @param title the Wiktionary page title derived from user-selected Wikipedia article text
          */
         @GET("/page/definition/{title}")
-        void define(@Path("title") String title, Callback<RbDefinition> cb);
+        void define(@Path("title") String title, Callback<Map<String, RbDefinition.Usage[]>> cb);
     }
 }
