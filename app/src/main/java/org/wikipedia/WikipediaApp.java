@@ -378,8 +378,14 @@ public class WikipediaApp extends Application {
     }
 
     /**
-     * Get an integer-valued random ID for event log sampling. This value will persist for the
-     * lifetime of the app.
+     * Get an integer-valued random ID. This is typically used to determine global EventLogging
+     * sampling, that is, whether the user's instance of the app sends any events or not. This is a
+     * pure technical measure which is necessary to prevent overloading EventLogging with too many
+     * events. This value will persist for the lifetime of the app.
+     *
+     * Don't use this method when running to determine whether or not the user falls into a control
+     * or test group in any kind of tests (such as A/B tests), as that would introduce sampling
+     * biases which would invalidate the test.
      * @return Integer ID for event log sampling.
      */
     @IntRange(from = 0)
