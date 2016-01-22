@@ -34,6 +34,10 @@ public class LoginTask extends SaneAsyncTask<LoginResult> {
 
     @Override
     public LoginResult performTask() throws Throwable {
+        // HACK: T124384
+        app.getEditTokenStorage().clearAllTokens();
+        app.getCookieManager().clearAllCookies();
+
         ApiResult preReq = api.action("login")
                 .param("lgname", username)
                 .param("lgpassword", password)

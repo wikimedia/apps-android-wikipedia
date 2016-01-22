@@ -76,7 +76,14 @@ public class SharedPreferenceCookieManager extends CookieManager {
                         if (!cookieJar.containsKey(domainSpec)) {
                             cookieJar.put(domainSpec, new HashMap<String, String>());
                         }
-                        cookieJar.get(domainSpec).put(cookie.getName(), cookie.getValue());
+
+                        if ("deleted".equals(cookie.getValue())) {
+                            // HACK: T124384
+                            cookieJar.get(domainSpec).remove(cookie.getValue());
+                        } else {
+                            cookieJar.get(domainSpec).put(cookie.getName(), cookie.getValue());
+                        }
+
                         domainsModified.add(domainSpec);
                     }
                 } catch (IllegalArgumentException e) {
