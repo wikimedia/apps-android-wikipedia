@@ -36,7 +36,7 @@ public final class MwPageEndpointsCache {
 
     private MwPageService.MwPageEndpoints createMwService(final Site site) {
         MwPageService.MwPageEndpoints webService;
-        final String domain = site.getApiDomain();
+        final String domain = site.getDomain();
         final WikipediaApp app = WikipediaApp.getInstance();
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setLogLevel(Prefs.getRetrofitLogLevel())

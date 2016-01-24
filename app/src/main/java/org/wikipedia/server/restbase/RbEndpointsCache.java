@@ -38,7 +38,7 @@ public final class RbEndpointsCache {
 
     private RbContentService.RbEndpoints createRbService(final Site site) {
         RbContentService.RbEndpoints webService;
-        final String domain = site.getApiDomain();
+        final String domain = site.getDomain();
         final WikipediaApp app = WikipediaApp.getInstance();
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setLogLevel(Prefs.getRetrofitLogLevel())
