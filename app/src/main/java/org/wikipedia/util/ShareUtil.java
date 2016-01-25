@@ -50,7 +50,7 @@ public final class ShareUtil {
     }
 
     public static void shareText(final Context context, final PageTitle title) {
-        shareText(context, title.getDisplayText(), title.getCanonicalUri());
+        shareText(context, title.getDisplayText(), UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link));
     }
 
     /**

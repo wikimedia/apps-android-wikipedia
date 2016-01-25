@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.location.Location;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 
 import java.io.UnsupportedEncodingException;
@@ -110,6 +112,10 @@ public final class UriUtil {
         } catch (ActivityNotFoundException e) {
             FeedbackUtil.showMessage(activity, R.string.error_no_maps_app);
         }
+    }
+
+    public static String getUrlWithProvenance(Context context, PageTitle title, @StringRes int provId) {
+        return title.getCanonicalUri() + "?wprov=" + context.getString(provId);
     }
 
     private UriUtil() {

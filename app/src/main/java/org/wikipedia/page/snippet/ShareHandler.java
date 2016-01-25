@@ -38,6 +38,7 @@ import org.wikipedia.util.ShareUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
@@ -147,9 +148,6 @@ public class ShareHandler {
 
         final String selectedText = sanitizeText(input.toString());
         final PageTitle title = curPageFragment.getTitle();
-        final String introText = activity.getString(R.string.snippet_share_intro,
-                title.getDisplayText(),
-                title.getCanonicalUri() + "?wprov=sfia1"); // See https://wikitech.wikimedia.org/wiki/Provenance;
 
         (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getSite()),
                     title.getSite(),
@@ -171,8 +169,7 @@ public class ShareHandler {
                 if (shareDialog != null) {
                     shareDialog.dismiss();
                 }
-                shareDialog = new PreviewDialog(activity, snippetBitmap, title.getDisplayText(), introText,
-                        selectedText, funnel);
+                shareDialog = new PreviewDialog(activity, snippetBitmap, title, selectedText, funnel);
                 shareDialog.show();
             }
 
@@ -321,9 +318,8 @@ public class ShareHandler {
 class PreviewDialog extends BottomDialog {
     private boolean completed = false;
 
-    PreviewDialog(final PageActivity activity, final Bitmap resultBitmap,
-                  final String title, final String introText, final String selectedText,
-                  final ShareAFactFunnel funnel) {
+    PreviewDialog(final PageActivity activity, final Bitmap resultBitmap, final PageTitle title,
+                  final String selectedText, final ShareAFactFunnel funnel) {
         super(activity, R.layout.dialog_share_preview);
         ImageView previewImage = (ImageView) getDialogLayout().findViewById(R.id.preview_img);
         previewImage.setImageBitmap(resultBitmap);
@@ -331,7 +327,11 @@ class PreviewDialog extends BottomDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ShareUtil.shareImage(activity, resultBitmap, title, title, introText, false);
+                        String introText = activity.getString(R.string.snippet_share_intro,
+                                title.getDisplayText(),
+                                UriUtil.getUrlWithProvenance(activity, title, R.string.prov_share_image));
+                        ShareUtil.shareImage(activity, resultBitmap, title.getDisplayText(),
+                                title.getDisplayText(), introText, false);
                         funnel.logShareIntent(selectedText, ShareMode.image);
                         completed = true;
                     }
@@ -340,7 +340,11 @@ class PreviewDialog extends BottomDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ShareUtil.shareText(activity, title, constructShareText(selectedText, introText));
+                        String introText = activity.getString(R.string.snippet_share_intro,
+                                title.getDisplayText(),
+                                UriUtil.getUrlWithProvenance(activity, title, R.string.prov_share_text));
+                        ShareUtil.shareText(activity, title.getDisplayText(),
+                                constructShareText(selectedText, introText));
                         funnel.logShareIntent(selectedText, ShareMode.text);
                         completed = true;
                     }
@@ -350,7 +354,7 @@ class PreviewDialog extends BottomDialog {
             public void onDismiss(DialogInterface dialog) {
                 resultBitmap.recycle();
                 if (!completed) {
-                    funnel.logAbandoned(title);
+                    funnel.logAbandoned(title.getDisplayText());
                 }
             }
         });
