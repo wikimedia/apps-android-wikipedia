@@ -1,40 +1,56 @@
-
 package org.wikipedia.test;
 
-import org.wikipedia.page.PageTitle;
+import android.support.annotation.NonNull;
+import android.support.test.runner.AndroidJUnit4;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.Site;
 import org.wikipedia.editing.EditPreviewTask;
-import android.test.ActivityUnitTestCase;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.testlib.TestLatch;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import static android.support.test.InstrumentationRegistry.getTargetContext;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
-public class PreviewTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 20000;
-
-    public PreviewTaskTests() {
-        super(TestDummyActivity.class);
-    }
-
+@RunWith(AndroidJUnit4.class)
+public class PreviewTaskTests {
+    @Test
     public void testPreview() throws Throwable {
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
         long randomTime = System.currentTimeMillis();
-        final String wikitext = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + randomTime;
+        final String wikiText = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + randomTime;
         final String expected = "<div></div><h2><span class=\"mw-headline\" id=\"Section_2\">Section 2</span><span><a href=\"#/editor/1\" title=\"Edit section: Section 2\" data-section=\"1\" class=\"mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page icon-32px\">Edit</a></span></h2><div>\n<p>Editing section INSERT RANDOM &amp; HERE test at " + randomTime + "</p>\n\n\n\n\n\n</div>";
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        runTestOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                new EditPreviewTask(getInstrumentation().getTargetContext(), wikitext, title) {
-                    @Override
-                    public void onFinish(String result) {
-                        assertNotNull(result);
-                        assertEquals(result, expected);
-                        completionLatch.countDown();
-                    }
-                }.execute();
-            }
-        });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+
+        String result = Subject.execute(wikiText, title);
+        assertThat(result, is(expected));
+    }
+
+    private static class Subject extends EditPreviewTask {
+        public static String execute(String wikiText, PageTitle title) {
+            Subject subject = new Subject(wikiText, title);
+            subject.execute();
+            return subject.await();
+        }
+
+        @NonNull private final TestLatch latch = new TestLatch();
+        private String result;
+
+        Subject(String wikiText, PageTitle title) {
+            super(getTargetContext(), wikiText, title);
+        }
+
+        @Override
+        public void onFinish(String result) {
+            super.onFinish(result);
+            this.result = result;
+            latch.countDown();
+        }
+
+        public String await() {
+            latch.await();
+            return result;
+        }
     }
 }
