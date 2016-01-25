@@ -12,7 +12,7 @@ import org.wikipedia.testlib.TestLatch;
 
 import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.Matchers.containsString;
 
 @RunWith(AndroidJUnit4.class)
 public class PreviewTaskTests {
@@ -21,10 +21,9 @@ public class PreviewTaskTests {
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
         long randomTime = System.currentTimeMillis();
         final String wikiText = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + randomTime;
-        final String expected = "<div></div><h2><span class=\"mw-headline\" id=\"Section_2\">Section 2</span><span><a href=\"#/editor/1\" title=\"Edit section: Section 2\" data-section=\"1\" class=\"mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page icon-32px\">Edit</a></span></h2><div>\n<p>Editing section INSERT RANDOM &amp; HERE test at " + randomTime + "</p>\n\n\n\n\n\n</div>";
 
         String result = Subject.execute(wikiText, title);
-        assertThat(result, is(expected));
+        assertThat(result, containsString(String.valueOf(randomTime)));
     }
 
     private static class Subject extends EditPreviewTask {
