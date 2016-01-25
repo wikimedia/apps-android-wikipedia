@@ -24,12 +24,12 @@ public class MccMncStateHandler {
      */
     public Api makeApiWithMccMncHeaderEnrichment(WikipediaApp app, Site site,
                                                  HashMap<String, String> customHeaders) {
-        if (shouldSendHeader(app, site.getApiDomain())) {
+        if (shouldSendHeader(app, site.getDomain())) {
             String mccMnc = NetworkUtil.getMccMnc(app);
             if (mccMnc != null) {
                 customHeaders.put("X-MCCMNC", mccMnc);
                 this.mccMncSent = true;
-                return new Api(site.getApiDomain(), customHeaders);
+                return new Api(site.getDomain(), customHeaders);
             }
         }
         return null;

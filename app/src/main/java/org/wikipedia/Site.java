@@ -41,10 +41,6 @@ public class Site implements Parcelable {
         return "/w/" + script;
     }
 
-    public String getApiDomain() {
-        return domain;
-    }
-
     public boolean getUseSecure() {
         return true;
     }

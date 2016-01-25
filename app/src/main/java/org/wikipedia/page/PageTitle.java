@@ -227,7 +227,7 @@ public class PageTitle implements Parcelable {
     }
 
     public String getMobileUri() {
-        return getUriForDomain(getSite().getApiDomain());
+        return getUriForDomain(getSite().getDomain());
     }
 
     public String getUriForAction(String action) {
@@ -235,7 +235,7 @@ public class PageTitle implements Parcelable {
             return String.format(
                     "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
                     WikipediaApp.getInstance().getNetworkProtocol(),
-                    getSite().getApiDomain(),
+                    getSite().getDomain(),
                     URLEncoder.encode(getPrefixedText(), "utf-8"),
                     action
             );
