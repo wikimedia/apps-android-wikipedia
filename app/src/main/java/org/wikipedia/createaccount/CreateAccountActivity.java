@@ -16,7 +16,6 @@ import android.widget.EditText;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
-import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 import org.mediawiki.api.json.Api;
@@ -52,7 +51,9 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     private EditText passwordEdit;
     @ConfirmPassword(messageResId = R.string.create_account_passwords_mismatch_error)
     private EditText passwordRepeatEdit;
-    @Email(messageResId = R.string.create_account_email_error)
+    // TODO: remove and replace with @Optional annotation once it's available in the library
+    // https://github.com/ragunathjawahar/android-saripaar/issues/102
+    @OptionalEmail(messageResId = R.string.create_account_email_error)
     private EditText emailEdit;
 
     private Button createAccountButton;
@@ -98,6 +99,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         // We enable the menu item as soon as the username and password fields are filled
         // Tapping does further validation
         validator = new Validator(this);
+        Validator.registerAnnotation(OptionalEmail.class);
         validator.setValidationListener(new Validator.ValidationListener() {
             @Override
             public void onValidationSucceeded() {
