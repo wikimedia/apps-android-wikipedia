@@ -1,6 +1,10 @@
 package org.wikipedia.settings;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import org.wikipedia.R;
+import org.wikipedia.SharedPreferenceCookieManager;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
@@ -11,13 +15,10 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.StringUtil;
 
-import retrofit.RestAdapter;
-
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.util.Collections;
 import java.util.List;
+
+import retrofit.RestAdapter;
 
 import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
@@ -77,6 +78,11 @@ public final class Prefs {
     @NonNull
     public static String getCookieDomains() {
         return getString(R.string.preference_key_cookie_domains, "");
+    }
+
+    @NonNull
+    public static List<String> getCookieDomainsAsList() {
+        return SharedPreferenceCookieManager.makeList(getCookieDomains());
     }
 
     public static void setCookieDomains(@Nullable String domains) {
@@ -352,7 +358,7 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_show_images, true);
     }
 
-    private static String getCookiesForDomainKey(@NonNull String domain) {
+    public static String getCookiesForDomainKey(@NonNull String domain) {
         return getKey(R.string.preference_key_cookies_for_domain_format, domain);
     }
 

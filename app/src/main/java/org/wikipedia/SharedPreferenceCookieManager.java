@@ -1,5 +1,7 @@
 package org.wikipedia;
 
+import android.support.annotation.NonNull;
+
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
@@ -21,7 +23,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
     private final Map<String, Map<String, String>> cookieJar = new HashMap<>();
 
     public SharedPreferenceCookieManager() {
-        List<String> domains = makeList(Prefs.getCookieDomains());
+        List<String> domains = Prefs.getCookieDomainsAsList();
         for (String domain: domains) {
             String cookies = Prefs.getCookiesForDomain(domain);
             cookieJar.put(domain, makeCookieMap(makeList(cookies)));
@@ -77,9 +79,8 @@ public class SharedPreferenceCookieManager extends CookieManager {
                             cookieJar.put(domainSpec, new HashMap<String, String>());
                         }
 
-                        if ("deleted".equals(cookie.getValue())) {
-                            // HACK: T124384
-                            cookieJar.get(domainSpec).remove(cookie.getValue());
+                        if (cookie.hasExpired() || "deleted".equals(cookie.getValue())) {
+                            cookieJar.get(domainSpec).remove(cookie.getName());
                         } else {
                             cookieJar.get(domainSpec).put(cookie.getName(), cookie.getValue());
                         }
@@ -121,7 +122,11 @@ public class SharedPreferenceCookieManager extends CookieManager {
         cookieJar.clear();
     }
 
-    private Map<String, String> makeCookieMap(List<String> cookies) {
+    public static List<String> makeList(String str) {
+        return StringUtil.delimiterStringToList(str, DELIMITER);
+    }
+
+    private Map<String, String> makeCookieMap(@NonNull List<String> cookies) {
         Map<String, String> cookiesMap = new HashMap<>();
         for (String cookie : cookies) {
             if (!cookie.contains("=")) {
@@ -143,9 +148,5 @@ public class SharedPreferenceCookieManager extends CookieManager {
 
     private String makeString(Iterable<String> list) {
         return StringUtil.listToDelimitedString(list, DELIMITER);
-    }
-
-    private List<String> makeList(String str) {
-        return StringUtil.delimiterStringToList(str, DELIMITER);
     }
 }
