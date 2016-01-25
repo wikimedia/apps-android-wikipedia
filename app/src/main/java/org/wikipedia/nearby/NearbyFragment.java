@@ -59,7 +59,7 @@ public class NearbyFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        site = WikipediaApp.getInstance().getPrimarySite();
+        site = WikipediaApp.getInstance().getSite();
     }
 
     @Override

@@ -27,7 +27,7 @@ public class ThemeChooserDialog extends BottomDialog {
     public ThemeChooserDialog(Context context) {
         super(context, R.layout.dialog_themechooser);
         app = WikipediaApp.getInstance();
-        funnel = new AppearanceChangeFunnel(app, app.getPrimarySite());
+        funnel = new AppearanceChangeFunnel(app, app.getSite());
 
         buttonDecreaseTextSize = (Button) getDialogLayout().findViewById(R.id.buttonDecreaseTextSize);
         buttonDecreaseTextSize.setOnClickListener(new View.OnClickListener() {

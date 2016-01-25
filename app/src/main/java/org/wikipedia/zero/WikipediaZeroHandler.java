@@ -177,7 +177,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
                 Handler wikipediaZeroRandomHandler = new Handler(new Handler.Callback() {
                     @Override
                     public boolean handleMessage(Message msg) {
-                        RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getPrimarySite()), app.getPrimarySite()) {
+                        RandomArticleIdTask randomTask = new RandomArticleIdTask(app.getAPIForSite(app.getSite()), app.getSite()) {
                             @Override
                             public void onCatch(Throwable caught) {
                                 // oh snap
@@ -211,7 +211,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
 
             @Override
             public boolean handleMessage(Message msg) {
-                WikipediaZeroTask zeroTask = new WikipediaZeroTask(app.getAPIForSite(app.getPrimarySite()), app.getUserAgent()) {
+                WikipediaZeroTask zeroTask = new WikipediaZeroTask(app.getAPIForSite(app.getSite()), app.getUserAgent()) {
                     @Override
                     public void onFinish(ZeroMessage message) {
                         Log.d("Wikipedia", "Wikipedia Zero message: " + message);

@@ -174,7 +174,7 @@ public class LoginActivity extends ThemedActionBarActivity {
     private void doLogin() {
         final String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();
-        new LoginTask(this, app.getPrimarySite(), username, password) {
+        new LoginTask(this, app.getSite(), username, password) {
             @Override
             public void onBeforeExecute() {
                 progressDialog.show();

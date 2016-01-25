@@ -41,7 +41,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         this.activity = activity;
         this.items = items;
         app = (WikipediaApp) getContext().getApplicationContext();
-        site = app.getPrimarySite();
+        site = app.getSite();
         requestPageImages();
         fetchDescriptions();
     }
@@ -95,7 +95,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        new GetDescriptionsTask(app.getPrimarySiteApi(), site, titleList) {
+        new GetDescriptionsTask(app.getSiteApi(), site, titleList) {
             @Override
             public void onFinish(Map<PageTitle, Void> result) {
                 notifyDataSetChanged();
