@@ -473,7 +473,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                                     loadSavedPage(new ErrorCallback() {
                                         @Override
                                         public void call(Throwable savedError) {
-                                            fragment.commonSectionFetchOnCatch(networkError);
+                                            fragment.onPageLoadError(networkError);
                                         }
                                     });
                                 }
@@ -491,7 +491,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                                     loadSavedPage(new ErrorCallback() {
                                         @Override
                                         public void call(Throwable savedError) {
-                                            fragment.commonSectionFetchOnCatch(networkError);
+                                            fragment.onPageLoadError(networkError);
                                         }
                                     });
                                 }
@@ -505,7 +505,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     loadFromNetwork(new ErrorCallback() {
                         @Override
                         public void call(Throwable networkError) {
-                            fragment.commonSectionFetchOnCatch(networkError);
+                            fragment.onPageLoadError(networkError);
                         }
                     });
                     break;
