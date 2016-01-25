@@ -14,7 +14,7 @@ public class PageLoadTest extends BasePageLoadTest {
     public void testPageFetch() throws Throwable {
 //        final int expectedNumberOfSections = 4;
         // TODO: verify num sections
-        loadPageSync("Test_page_for_app_testing/Section1", TEST_SITE);
+        loadPageSync("Test_page_for_app_testing/Section1");
     }
 
     /** Inspired by https://bugzilla.wikimedia.org/show_bug.cgi?id=66152 */
@@ -22,7 +22,7 @@ public class PageLoadTest extends BasePageLoadTest {
     public void testPageFetchWithAmpersand() throws Throwable {
 //        final int expectedNumberOfSections = 1;
         // TODO: verify num sections
-        loadPageSync("Ampersand & title", TEST_SITE);
+        loadPageSync("Simon & Garfunkel", EN_SITE);
     }
 
     @Test
