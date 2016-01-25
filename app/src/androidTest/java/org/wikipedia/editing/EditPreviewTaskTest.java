@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.editing;
 
 import android.support.annotation.NonNull;
 import android.support.test.runner.AndroidJUnit4;
@@ -6,7 +6,6 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.Site;
-import org.wikipedia.editing.EditPreviewTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
 
@@ -15,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
 @RunWith(AndroidJUnit4.class)
-public class PreviewTaskTests {
+public class EditPreviewTaskTest {
     @Test
     public void testPreview() throws Throwable {
         final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
