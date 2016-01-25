@@ -5,12 +5,16 @@
     <string name="show_developer_settings_enabled">You are now a Wikipedia developer!</string>
     <string name="show_developer_settings_already_enabled">You are already a Wikipedia developer!</string>
     <string name="menu_developer_settings">@string/developer_settings_activity_title</string>
+    <string name="preferences_developer_cookies_heading">Cookies</string>
+    <string name="preferences_developer_edit_tokens_heading">Edit tokens</string>
     <string name="preferences_developer_misc_heading">Miscellaneous</string>
     <string name="preferences_developer_onboarding_heading">Onboarding</string>
     <string name="preferences_developer_feature_testing_heading">A/B feature testing</string>
     <string name="preferences_developer_restbase_heading">RESTBase access</string>
     <string name="preferences_developer_logging_heading">Logging</string>
     <string name="preferences_developer_retrofit_log_level">Retrofit Log Level (restart required)</string>
+    <string name="preferences_developer_cookies_key">cookies</string>
+    <string name="preferences_developer_edit_tokens_key">edit_tokens</string>
     <string name="preferences_developer_crash_key">crash</string>
     <string name="preferences_developer_crash_title">Crash</string>
     <string name="preferences_developer_crash_summary">Tap here to crash the app</string>

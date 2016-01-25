@@ -358,16 +358,16 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_show_images, true);
     }
 
+    public static String getEditTokenForWikiKey(String wiki) {
+        return getKey(R.string.preference_key_edittoken_for_wiki_format, wiki);
+    }
+
     public static String getCookiesForDomainKey(@NonNull String domain) {
         return getKey(R.string.preference_key_cookies_for_domain_format, domain);
     }
 
     private static String getLastRunTimeKey(@NonNull String task) {
         return getKey(R.string.preference_key_last_run_time_format, task);
-    }
-
-    private static String getEditTokenForWikiKey(String wiki) {
-        return getKey(R.string.preference_key_edittoken_for_wiki_format, wiki);
     }
 
     public static boolean isLinkPreviewEnabled() {

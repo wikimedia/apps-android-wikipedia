@@ -133,4 +133,31 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/preferences_developer_cookies_heading"
+        android:key="@string/preferences_developer_cookies_key">
+
+        <!--suppress AndroidUnknownAttribute -->
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_cookie_domains"
+            android:title="@string/preference_key_cookie_domains" />
+
+        <!-- dynamically added site entries -->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/preferences_developer_edit_tokens_heading"
+        android:key="@string/preferences_developer_edit_tokens_key">
+
+        <!--suppress AndroidUnknownAttribute -->
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_edittoken_wikis"
+            android:title="@string/preference_key_edittoken_wikis" />
+
+        <!-- dynamically added site entries -->
+
+    </PreferenceCategory>
 </PreferenceScreen>

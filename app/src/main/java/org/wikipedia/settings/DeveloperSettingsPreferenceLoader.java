@@ -3,6 +3,7 @@ package org.wikipedia.settings;
 import android.content.Context;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 
@@ -10,6 +11,8 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.util.log.L;
+
+import java.util.List;
 
 /*package*/ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
     @NonNull private final Context context;
@@ -35,18 +38,20 @@ import org.wikipedia.util.log.L;
     /*package*/
     DeveloperSettingsPreferenceLoader(@NonNull PreferenceFragment fragment) {
         super(fragment);
-        this.context = fragment.getActivity().getApplicationContext();
+        this.context = fragment.getActivity();
     }
 
     @Override
     public void loadPreferences() {
         loadPreferences(R.xml.developer_preferences);
-        setupRestBaseCheckboxes();
-        setupCrashButton(findPreference(getCrashButtonKey()));
-        setupRemoteLogButton(findPreference(R.string.preference_key_remote_log));
+        setUpRestBaseCheckboxes();
+        setUpCookies((PreferenceCategory) findPreference(R.string.preferences_developer_cookies_key));
+        setUpEditTokens((PreferenceCategory) findPreference(R.string.preferences_developer_edit_tokens_key));
+        setUpCrashButton(findPreference(getCrashButtonKey()));
+        setUpRemoteLogButton(findPreference(R.string.preference_key_remote_log));
     }
 
-    private void setupRestBaseCheckboxes() {
+    private void setUpRestBaseCheckboxes() {
         CheckBoxPreference manualPreference = (CheckBoxPreference) findPreference(getManualKey());
         manualPreference.setOnPreferenceChangeListener(setRestBaseManuallyChangeListener);
         setUseRestBasePreference(manualPreference.isChecked());
@@ -75,7 +80,7 @@ import org.wikipedia.util.log.L;
         return context.getString(R.string.preferences_developer_crash_key);
     }
 
-    private void setupCrashButton(Preference button) {
+    private void setUpCrashButton(Preference button) {
         button.setOnPreferenceClickListener(buildCrashButtonClickListener());
     }
 
@@ -88,7 +93,7 @@ import org.wikipedia.util.log.L;
         };
     }
 
-    private void setupRemoteLogButton(Preference button) {
+    private void setUpRemoteLogButton(Preference button) {
         button.setOnPreferenceChangeListener(buildRemoteLogPreferenceChangeListener());
     }
 
@@ -101,6 +106,32 @@ import org.wikipedia.util.log.L;
                 return true;
             }
         };
+    }
+
+    private void setUpCookies(@NonNull PreferenceCategory cat) {
+        List<String> domains = Prefs.getCookieDomainsAsList();
+        for (String domain : domains) {
+            String key = Prefs.getCookiesForDomainKey(domain);
+            Preference pref = newDataStringPref(key, domain);
+            cat.addPreference(pref);
+        }
+    }
+
+    private void setUpEditTokens(@NonNull PreferenceCategory cat) {
+        List<String> domains = Prefs.getCookieDomainsAsList();
+        for (String domain : domains) {
+            String key = Prefs.getEditTokenForWikiKey(domain);
+            Preference pref = newDataStringPref(key, domain);
+            cat.addPreference(pref);
+        }
+    }
+
+    private EditTextAutoSummarizePreference newDataStringPref(String key, String title) {
+        EditTextAutoSummarizePreference pref = new EditTextAutoSummarizePreference(context, null,
+                android.R.attr.editTextPreferenceStyle);
+        pref.setKey(key);
+        pref.setTitle(title);
+        return pref;
     }
 
     private static class TestException extends RuntimeException {
