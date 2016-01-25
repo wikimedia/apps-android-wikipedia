@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
   <string name="menu_text_select_copy">Kopírovať</string>
+  <string name="menu_text_select_define">Definícia</string>
   <string name="menu_text_select_share">Zdieľať</string>
   <string name="nav_item_nearby">V okolí</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -202,6 +203,7 @@
   <string name="widget_name_featured_page">Odporúčaný článok na Wikipédii</string>
   <string name="widget_title_featured_page">Odporúčaný článok:</string>
   <string name="widget_name_search">Hľadať vo Wikipédii</string>
+  <string name="wiktionary_no_definitions_found">Neboli nájdené žiadne definície.</string>
   <string name="app_store_description" fuzzy="true">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
 
 Funkcie:
@@ -253,6 +255,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="button_continue_to_article">Prečítať si článok</string>
   <string name="button_get_directions">Nájsť trasu</string>
   <string name="error_no_maps_app">Nenašli sme žiadne aplikácie poskytujúce navigáciu.</string>
+  <string name="preference_title_show_link_previews">Zobrazovať náhľady odkazov</string>
   <string name="nav_item_donate">Podporte Wikipédiu</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>

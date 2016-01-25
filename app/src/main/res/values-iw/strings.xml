@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
   <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
   <string name="menu_text_select_copy">העתקה</string>
+  <string name="menu_text_select_define">הגדרה</string>
   <string name="menu_text_select_share">שיתוף</string>
   <string name="nav_item_nearby">בסביבה</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">ערך מומלץ בוויקיפדיה</string>
   <string name="widget_title_featured_page">הערך המומלץ של היום:</string>
   <string name="widget_name_search">חיפוש בוויקיפדיה</string>
+  <string name="wiktionary_no_definitions_found">לא נמצאו הגדרות</string>
   <string name="app_store_description">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, והיא יצירת העיון המקיפה והנפוצה ביותר שאנשים כתבו אי־פעם.
 
 אפשרויות:

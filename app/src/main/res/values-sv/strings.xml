@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
   <string name="menu_text_select_copy">Kopiera</string>
+  <string name="menu_text_select_define">Definera</string>
   <string name="menu_text_select_share">Dela</string>
   <string name="nav_item_nearby">I närheten</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
   <string name="widget_name_search">Wikipedia-sök</string>
+  <string name="wiktionary_no_definitions_found">Inga definitioner hittades.</string>
   <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt.
 
 Funktioner:

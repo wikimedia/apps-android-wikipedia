@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">Ouvrir dans un nouvel onglet</string>
   <string name="menu_long_press_copy_page">Copier l’adresse du lien</string>
   <string name="menu_text_select_copy">Copier</string>
+  <string name="menu_text_select_define">Définir</string>
   <string name="menu_text_select_share">Partager</string>
   <string name="nav_item_nearby">À proximité</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">Page mise en avant de Wikipédia</string>
   <string name="widget_title_featured_page">Page mise en avant aujourd’hui :</string>
   <string name="widget_name_search">Recherche Wikipédia</string>
+  <string name="wiktionary_no_definitions_found">Aucune définition trouvée.</string>
   <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée.
 
 Fonctionnalités :

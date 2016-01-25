@@ -7,13 +7,14 @@
   <string name="no">नहीं</string>
   <string name="search_hint">विकिपीडिया खोज</string>
   <string name="nav_item_history">इतिहास</string>
-  <string name="error_network_error" fuzzy="true">आप नेटवर्क से जुड़े हुये नहीं हैं :(</string>
+  <string name="error_network_error">इंटरनेट से जुड़ा नहीं है।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
   <string name="menu_clear_all_saved_pages">संरक्षित पृष्ठों को हटायें</string>
   <string name="page_does_not_exist_error">यह पृष्ठ अस्तित्व में नहीं है।</string>
   <string name="nav_item_today">आज</string>
   <string name="dialog_title_clear_history" fuzzy="true">ब्राउज़िंग का इतिहास साफ़ करें?</string>
+  <string name="dialog_message_clear_history">यह आपके विचरण किए सभी इतिहास हटा देगा, और यह सभी खुला टैब को भी बन्द कर देगा। क्या आप करेंगे?</string>
   <string name="nav_item_saved_pages">सहेजे गये पृष्ठ</string>
   <string name="menu_update_all_saved_pages">सहेजे गए पृष्ठों को अद्यतन करें</string>
   <string name="menu_update_selected_saved_pages">संरक्षित पृष्ठों को अद्यतन करें</string>
@@ -28,10 +29,13 @@
   <string name="snackbar_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
   <string name="saved_pages_search_list_hint" fuzzy="true">खोज</string>
   <string name="saved_pages_search_empty_message">आपकी आवश्यकता से मिलता कोई पृष्ठ नहीं पाया गया।</string>
+  <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages" fuzzy="true">अन्य भाषा में पढ़ें</string>
   <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
+  <string name="menu_page_similar_titles">मिलते शीर्षक</string>
   <string name="menu_page_save">पृष्ठ सहेजें</string>
   <string name="menu_page_share" fuzzy="true">साझा करें</string>
+  <string name="menu_long_press_copy_page">पते की नकल करें</string>
   <string name="nav_item_nearby">निकट</string>
   <string name="nearby_distance_in_meters">%d मी॰</string>
   <string name="nearby_distance_in_kilometers">%.2f किमी</string>
@@ -62,7 +66,7 @@
   <string name="title_captcha">कॅप्चा डालें</string>
   <string name="edit_section_captcha_reload">कॅप्चा को पुनः लाने के लिए यहाँ दबायें</string>
   <string name="edit_saved_page_refresh">यह संरक्षित पृष्ठ बहुत पुराना हो सकता है और सम्पादन आरम्भ करने के लिए पुनः ताज़ा करना चाहिए। क्या आप पृष्ठ को ताज़ा करना चाहेंगे?</string>
-  <string name="nav_item_login">प्रवेश</string>
+  <string name="nav_item_login">विकिपीडिया में प्रवेश करें</string>
   <string name="login_username_hint">सदस्य नाम</string>
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
   <string name="login_password_show_check">पासवर्ड को प्रदर्शित करें।</string>
@@ -71,11 +75,11 @@
   <string name="login_in_progress_dialog_message">आप्को प्रवेश कर रहे है</string>
   <string name="login_error_wrong_password">कुटशब्द गलत है</string>
   <string name="login_error_wrong_username">गलत उपयोगकर्ता नाम</string>
-  <string name="login_success_toast" fuzzy="true">भर्ती सफल्</string>
+  <string name="login_success_toast" fuzzy="true">प्रवेश करने में सफल रहे!</string>
   <string name="login_error_blocked">यह सदस्य अवरोधित किया गया है।</string>
   <string name="login_error_throttled">बहुत अधिक लॉग-इन प्रयास। कुछ क्षण प्रतीक्षा के बाद पुनः प्रयास करें।</string>
   <string name="login_error_unknown">लॉग-इन असफल रहा :(</string>
-  <string name="preference_title_logout">सत्रान्त</string>
+  <string name="preference_title_logout">प्रस्थान</string>
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
   <string name="saved_pages_empty_title">यहाँ कोई पृष्ठ नहीं सहेजा गया।</string>
   <string name="saved_pages_empty_message">सरंक्षित पृष्ठ बहुत आश्चर्यजनक हैं। उन्हें इस तरह के पुस्तक-चिह्न समझें कि आप उन्हें तब भी पढ़ सकते हो जब आप ऑफ़लाइन हो।</string>
@@ -105,6 +109,7 @@
   <string name="create_account_next">अगला</string>
   <string name="create_account_button">खाता बनायें</string>
   <string name="preferences_general_heading">सामान्य</string>
+  <string name="wikipedia_app_faq">विकिपीडिया अनुप्रयोग प्रश्नोत्तर</string>
   <string name="zero_charged_verbiage">विकिपीडिया शून्य बन्द है</string>
   <string name="zero_charged_verbiage_extended">अन्य पृष्ठों को लोड कर रहा है जिसके कारण अतिरिक्त डाटा शुल्क लग सकता है।</string>
   <string name="zero_search_hint">विकिपीडिया शून्य खोजें</string>
@@ -117,6 +122,7 @@
   <string name="zero_learn_more_dismiss">हटायें</string>
   <string name="nav_item_random">यादृच्छिक</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
+  <string name="preferences_privacy_settings_heading">गोपनियता</string>
   <string name="history_search_list_hint" fuzzy="true">खोजें</string>
   <string name="history_search_empty_message">खोज परिणाम में कोई पृष्ठ नहीं मिले।</string>
   <string name="error_can_not_process_link">यह लिंक दिखाया नहीं जा सका</string>

@@ -39,6 +39,7 @@
   <string name="menu_long_press_open_page">ਖੋਲ੍ਹੋ</string>
   <string name="menu_long_press_open_in_new_tab">ਨਵੇਂ ਟੈਬ \'ਚ ਖੋਲ੍ਹੋ</string>
   <string name="menu_long_press_copy_page">ਕੜੀ ਦਾ ਪਤਾ ੳੁਤਾਰੋ</string>
+  <string name="menu_text_select_define">ਪਰਿਭਾਸ਼ਿਤ ਕਰੋ</string>
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="nearby_distance_in_meters">%d ਮੀਟਰ</string>
   <string name="nearby_distance_in_kilometers">%.2f ਕਿ.ਮੀ.</string>
@@ -189,6 +190,7 @@
   <string name="table_other">ਹੋਰ ਜਾਣਕਾਰੀ</string>
   <string name="table_close">ਬੰਦ ਕਰੋ</string>
   <string name="widget_name_search">ਵਿਕੀਪੀਡੀਆ ਖੋਜ</string>
+  <string name="wiktionary_no_definitions_found">ਕੋਈ ਪਰਿਭਾਸ਼ਾ ਨਹੀਂ।</string>
   <string name="app_store_description">ਐਡ੍ਰਾਇਡ ਵਾਸਤੇ ਦਫ਼ਤਰੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰੇ \'ਤੋਂ ਲਿਖੀ ਗਈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ ਬਣਾੲੀ ਗੲੀ ਹੈ।
 
 ਗੁਣ:

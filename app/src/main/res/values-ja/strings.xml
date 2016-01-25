@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
   <string name="menu_text_select_copy">コピー</string>
+  <string name="menu_text_select_define">語釈</string>
   <string name="menu_text_select_share">共有</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">選り抜き記事</string>
   <string name="widget_title_featured_page">今日の選り抜き記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
+  <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。
 
 機能:

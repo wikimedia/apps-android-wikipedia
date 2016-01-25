@@ -25,6 +25,7 @@
   <string name="menu_page_share" fuzzy="true">Екха</string>
   <string name="menu_long_press_open_page" fuzzy="true">Хьажорг схьаелла</string>
   <string name="menu_text_select_copy">Копиян</string>
+  <string name="menu_text_select_define">Къастам</string>
   <string name="nav_item_nearby">Уллехь</string>
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
@@ -106,6 +107,7 @@
   <string name="color_theme_dark">Бодане</string>
   <string name="page_similar_titles">Тера агӀонаш</string>
   <string name="table_close">ДӀачӀагӀа</string>
+  <string name="wiktionary_no_definitions_found">Цхьаа къастам цакарий.</string>
   <string name="dialog_close_description">ДӀачӀагӀа</string>
   <string name="menu_gallery_visit_page">Файлан агӀонг гӀо</string>
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>

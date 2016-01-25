@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">In neuer Registerkarte öffnen</string>
   <string name="menu_long_press_copy_page">Link-Adresse kopieren</string>
   <string name="menu_text_select_copy">Kopieren</string>
+  <string name="menu_text_select_define">Definieren</string>
   <string name="menu_text_select_share">Teilen</string>
   <string name="nav_item_nearby">In der Nähe</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">Lesenswerte Wikipedia-Seite</string>
   <string name="widget_title_featured_page">Seite des Tages:</string>
   <string name="widget_name_search">Wikipedia-Suche</string>
+  <string name="wiktionary_no_definitions_found">Keine Definitionen gefunden.</string>
   <string name="app_store_description">Offizielle Wikipedia-App für Android. Wikipedia ist die freie Enzyklopädie mit mehr als 32 Millionen Artikeln in 280 Sprachen und ist das umfangreichste und am meisten genutzte Nachschlagewerk, das von Menschen zusammengestellt wurde.
 
 Funktionen:

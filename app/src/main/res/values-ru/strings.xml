@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">Открыть в новой вкладке</string>
   <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>
   <string name="menu_text_select_copy">Копировать</string>
+  <string name="menu_text_select_define">Определение</string>
   <string name="menu_text_select_share">Поделиться</string>
   <string name="nav_item_nearby">Поблизости</string>
   <string name="nearby_distance_in_meters">%d м</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">Избранная страница Википедии</string>
   <string name="widget_title_featured_page">Избранная страница дня:</string>
   <string name="widget_name_search">Поиск по Википедии</string>
+  <string name="wiktionary_no_definitions_found">Никаких определений не найдено.</string>
   <string name="app_store_description">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали.
 
 Особенности:

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name_prod">ویکی‌پدیا</string>
-  <string name="app_name_beta">ویکی‌پدیای بتا</string>
+  <string name="app_name_beta">ویکی‌پدیا بتا</string>
   <string name="app_name_alpha">ویکی‌پدیا آلفا</string>
   <string name="yes">بله</string>
   <string name="no">خیر</string>
@@ -18,7 +18,7 @@
   <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
   <string name="menu_update_all_saved_pages">به‌روزرسانی صفحات ذخیره‌شده</string>
   <string name="menu_update_selected_saved_pages">به‌روزرسانی صفحه‌های ذخیره‌شده</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">به‌روزرسانی همه صفحه‌های ذخیره‌شده</string>
+  <string name="dialog_prompt_refresh_all_saved_pages">به‌روزرسانی همه صفحه‌های ذخیره‌شده؟</string>
   <string name="share_via">اشتراک با</string>
   <string name="dialog_title_clear_saved_pages">پاک کردن همهٔ صفحه‌های  ذخیره‌شده؟</string>
   <string name="snackbar_saving_page">ذخیره کردن صفحه…</string>
@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">باز کردن در برگهٔ جدید</string>
   <string name="menu_long_press_copy_page">کپی نشانی پیوند</string>
   <string name="menu_text_select_copy">کپى</string>
+  <string name="menu_text_select_define">معنی</string>
   <string name="menu_text_select_share">به‌اشتراک‌گذاشتن</string>
   <string name="nav_item_nearby">در نزدیکی</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">صفحهٔ برگزیدهٔ ویکی‌پدیا</string>
   <string name="widget_title_featured_page">مطلب برگزیدهٔ امروز:</string>
   <string name="widget_name_search">جستجوی ویکی‌پدیا</string>
+  <string name="wiktionary_no_definitions_found">معنایی یافت نشد</string>
   <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در اندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و گسترده‌ترین مرجع کار انسان تا کنون است.
 
 ویژگی‌ها:
@@ -265,11 +267,11 @@
   <string name="address_copied">نشانی در حافظه موقت ذخیره شد</string>
   <string name="text_copied">متن در حافظهٔ موقت ذخیره شد.</string>
   <string name="button_continue_to_article">مطالعهٔ مقاله</string>
-  <string name="button_get_directions">دریافت تغییرمسیر</string>
+  <string name="button_get_directions">دریافت مسیر</string>
   <string name="error_no_maps_app">نمی تواند اپلیکیشنی برای یافتن جهت پیدا کند.</string>
-  <string name="preference_title_show_link_previews">نمایش پیوند پی‌نمایش‌ها</string>
+  <string name="preference_title_show_link_previews">نمایش پیوند پیش‌نمایش‌ها</string>
   <string name="preference_summary_show_link_previews">نمایش سریع مقاله زمانی که بر روی لینک‌ها تپ می‌کنید.</string>
-  <string name="nav_item_donate">حمایت از ویکی‌مدیا</string>
+  <string name="nav_item_donate">حمایت از ویکی‌پدیا</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
   <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
   <string name="crash_report_dialog_dont_send_button">رها کردن</string>

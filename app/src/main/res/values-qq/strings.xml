@@ -70,7 +70,8 @@ See also:
   <string name="menu_long_press_copy_page">Menu item for copying a link to the system clipboard for pasting later.</string>
   <string name="menu_text_select_copy">Menu item caption for copying text to the system clipboard for pasting later.
 {{Identical|Copy}}</string>
-  <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.</string>
+  <string name="menu_text_select_define">Menu item caption for launching a dialog containing Wiktionary definitions for the selected text.
+{{Identical|Define}}</string>
   <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.
 {{Identical|Share}}</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature

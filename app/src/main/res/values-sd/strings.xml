@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">نئين ٽيب ۾ کوليو</string>
   <string name="menu_long_press_copy_page">ڳنڍڻو نقل ڪريو</string>
   <string name="menu_text_select_copy">پرت</string>
+  <string name="menu_text_select_define">وصف ٻڌايو</string>
   <string name="menu_text_select_share">ونڊيو</string>
   <string name="nav_item_nearby">ويجھڙو</string>
   <string name="nearby_distance_in_meters">%d ميٽر</string>
@@ -230,6 +231,8 @@
   <string name="address_copied">پتي جو پرت ڪلپ بورڊ تي رکيو ويو.</string>
   <string name="text_copied">ٽيڪسٽ جو پرت ڪلپو بورڊ تي رکيو ويو.</string>
   <string name="button_continue_to_article">مضمون پڙهو</string>
+  <string name="button_get_directions">ھدايتون حاصل ڪريو</string>
+  <string name="error_no_maps_app">ھدايتون مھيا ڪندڙ ڪي بہ ايپس لڀجي نہ سگھيون.</string>
   <string name="preference_title_show_link_previews">ڳنڍڻن تي پيش نگاهہ وجھو</string>
   <string name="preference_summary_show_link_previews">ڳنڍڻن تي رڪڻ وقت صفحن تي تڪڙي پيش نگاهہ ظاهر ڪريو.</string>
   <string name="nav_item_donate">وڪيپيڊيا کي سوورٽ ڪريو</string>

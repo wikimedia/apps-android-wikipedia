@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">在新标签页打开链接</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
   <string name="menu_text_select_copy">复制</string>
+  <string name="menu_text_select_define">定义</string>
   <string name="menu_text_select_share">分享</string>
   <string name="nav_item_nearby">附近</string>
   <string name="nearby_distance_in_meters">%d米</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">维基百科特色页面</string>
   <string name="widget_title_featured_page">今日特色页面：</string>
   <string name="widget_name_search">维基百科搜索</string>
+  <string name="wiktionary_no_definitions_found">找不到定义。</string>
   <string name="app_store_description">维基百科官方Android应用。维基百科是拥有以280种语言撰写的超过3200万个条目的自由的百科全书，是人类已编纂的最综合并最为广泛使用的参考著作。
 
 功能：

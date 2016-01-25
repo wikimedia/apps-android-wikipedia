@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="menu_long_press_copy_page">Copia l\'indirizzo del collegamento</string>
   <string name="menu_text_select_copy">Copia</string>
+  <string name="menu_text_select_define">Definisci</string>
   <string name="menu_text_select_share">Condividi</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">Pagina di Wikipedia in primo piano</string>
   <string name="widget_title_featured_page">Pagina di oggi in primo piano:</string>
   <string name="widget_name_search">Ricerca di Wikipedia</string>
+  <string name="wiktionary_no_definitions_found">Nessuna definizione trovata.</string>
   <string name="app_store_description">App ufficiale di Wikipedia per Android.
 Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato.
 

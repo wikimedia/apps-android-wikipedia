@@ -41,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">Abrir en una pestaña nueva</string>
   <string name="menu_long_press_copy_page">Copiar dirección del enlace</string>
   <string name="menu_text_select_copy">Copiar</string>
+  <string name="menu_text_select_define">Definir</string>
   <string name="menu_text_select_share">Compartir</string>
   <string name="nav_item_nearby">Cercanos</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +205,7 @@
   <string name="widget_name_featured_page">Página destacada de Wikipedia</string>
   <string name="widget_title_featured_page">Página destacada del día:</string>
   <string name="widget_name_search">Búsqueda en Wikipedia</string>
+  <string name="wiktionary_no_definitions_found">No se encontraron definiciones.</string>
   <string name="app_store_description">Aplicación oficial de Wikipedia para Android. Wikipedia es la enciclopedia libre que contiene más de 32 millones de artículos en 280 idiomas y es el trabajo de referencia más completo y ampliamente usado que los humanos hayan recopilado. 
 
 Características:

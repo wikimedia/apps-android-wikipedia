@@ -7,13 +7,14 @@
   <string name="no">မလုပ်ပါ</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
-  <string name="error_network_error" fuzzy="true">လတ်တစ်လော အင်တာနက်ချိတ်ဆက်မှု မရှိ :(</string>
+  <string name="error_network_error">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
   <string name="menu_clear_all_history">မှတ်တမ်းအားရှင်းမည်</string>
   <string name="menu_clear_all_saved_pages">သိမ်းထားသော စာမျက်နှာများ အားရှင်းပါ</string>
   <string name="page_does_not_exist_error">ဤစာမျက်နှာ မရှိပါ</string>
   <string name="nav_item_today">ယနေ့</string>
-  <string name="dialog_title_clear_history" fuzzy="true">သုံးဆွဲမှု မှတ်တမ်းအား ရှင်းမလား ?</string>
+  <string name="dialog_title_clear_history">အသုံးပြုမှတ်တမ်း ရှင်းလင်းရန်</string>
+  <string name="dialog_message_clear_history">သင်၏ အသုံးပြုမှတ်တမ်းများ အားလုံးကို ဖျက်ပြီး လက်ရှိဖွင့်ထားသမျှကို ပိတ်ပါမည်။ သင်သေချာပြီလား?</string>
   <string name="nav_item_saved_pages">သိမ်းထားသော စာမျက်နှာများ</string>
   <string name="menu_update_all_saved_pages">သိမ်းထားသော စာမျက်နှာများအား ပြောင်းလဲမည်။</string>
   <string name="menu_update_selected_saved_pages">သိမ်းထားသော စာမျက်နှာများအား ပြောင်းလဲမည်။</string>
@@ -21,21 +22,30 @@
   <string name="share_via">မှမျှဝေ</string>
   <string name="dialog_title_clear_saved_pages">သိမ်းထားသော စာမျက်နှာများ အား ရှင်းမည်</string>
   <string name="snackbar_saving_page">စာမျက်နှာအားသိမ်းနေသည်…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">စာမျက်နှာအား အောင်မြင်စွာ သိမ်းပြီး</string>
+  <string name="snackbar_saved_page_format">\"%s\" ကို အော့ဖ်လိုင်းဖတ်ရှုနိုင်ရန် သိမ်းပြီးပြီ</string>
   <string name="snackbar_saved_page_missing_images">ပုံများအားလုံးအား မသိမ်းနိုင်ပါ</string>
   <string name="snackbar_refresh_saved_page">သိမ်းထားသော စာမျက်နှာမှ အသစ်ဆွဲကြည့်နေသည်…</string>
   <string name="delete_selected_saved_pages">ဖျက်</string>
   <string name="snackbar_saved_page_deleted">သိမ်းဆည်း စာမျက်နှာ(များ) ဖျက်ပြီး</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">ရှာဖွေ</string>
+  <string name="saved_pages_search_list_hint">သိမ်းထားသော စာမျက်နှာများကို ရှာဖွေရန်</string>
   <string name="saved_pages_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိ</string>
+  <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
+  <string name="menu_page_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
+  <string name="menu_page_similar_titles">ဆင်တူခေါင်းစဉ်များ</string>
+  <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
   <string name="menu_page_save">စာမျက်နှာကိုသိမ်း</string>
-  <string name="menu_page_share" fuzzy="true">မျှဝေ</string>
+  <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
+  <string name="menu_long_press_open_in_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
+  <string name="menu_long_press_copy_page">ဝက်ဘ်လိပ်စာကို ကူးယူရန်</string>
   <string name="menu_text_select_copy">မိတ္တူကူး</string>
+  <string name="menu_text_select_define">အဓိပ္ပာယ်ဖွင့်ရန်</string>
+  <string name="menu_text_select_share">မျှဝေ</string>
   <string name="nav_item_nearby">အနီးအနား</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_zoom_to_location">မြေပုံပေါ်တွင် တည်နေရာကို ဆွဲယူကြည့်ရန်</string>
   <string name="last_updated_text">နောက်ဆုံးပြင်ခဲ့ချိန် %s</string>
   <string name="content_license_html">အထူးသတိပေးမထားပါက အချက်အလက်များအား &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; အနေဖြင့် ရယူသုံးဆွဲ နိုင်သည်။</string>
   <string name="edit_save_action_license_logged_in">သိမ်းဆည်းလိုက် ခြင်းအားဖြင့် သင်သည် &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;သုံးဆွဲမှု သဘောတူညီချက်&lt;/a&gt; အား သဘောတူပြီးဖြစ်ပြီး သင်၏ မျှဝေမှုအား &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; လိုင်စင် ဖြင့်ဖြန့်ချီမည်ဖြစ်ကြောင်း သိရှိပြီးဖြစ်ရမည်။</string>
@@ -53,26 +63,41 @@
   <string name="dialog_message_edit_failed">တည်းဖြတ်မှု မအောင်မြင်!</string>
   <string name="dialog_message_edit_failed_retry">ပြန်လုပ်</string>
   <string name="dialog_message_edit_failed_cancel">မလုပ်တော့ပါ</string>
+  <string name="dialog_message_leaving_edit">သင့်ပြောင်းလဲမှုများအား မသိမ်းရသေးပါ။ ဤစာမျက်နှာမှ ထွက်ခွာမည်ဆိုတာ သေချာပါသလား?</string>
+  <string name="dialog_message_leaving_edit_leave">ထွက်ခွာရန်</string>
+  <string name="dialog_message_leaving_edit_stay">နေရန်</string>
   <string name="menu_show_toc">မာတိကာ</string>
   <string name="search_no_results_found">မည်သည့်ရလဒ်မျှ မရပါ</string>
   <string name="edit_section_captcha_message">အလိုအလျောက်ပေးပို့နေသော မေလ်းများရန်မှ ကာကွယ်ရန် အောက်ပါ စာလုံးများကို လိုက်ရိုက်ကြည့်ပါ။</string>
   <string name="edit_section_captcha_hint">အထက်မှ စာလုံးအား ထပ်ရိုက်ပါ</string>
   <string name="title_captcha">CAPTCHA ဖြည့်ပါ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ကိုထိပြီးအသစ်ထပ်ယူပါ</string>
-  <string name="nav_item_login" fuzzy="true">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
+  <string name="edit_saved_page_refresh">ဤသိမ်းဆည်းထားသော စာမျက်နှာသည် ဟောင်းနွမ်းနေနိုင်ပါသည်။ တည်းဖြတ်နိုင်ရန်အတွက် ရှင်းသန့်ရန် လိုအပ်ပါသည်။ စာမျက်နှာကို ရှင်းသန့်လိုပါသလား?</string>
+  <string name="nav_item_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
   <string name="login_username_hint">အသုံးပြုသူအမည်</string>
   <string name="login_password_hint">စကားဝှက်</string>
   <string name="login_password_show_check">စကားဝှက်ကို ပြပါ။</string>
   <string name="menu_login">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
-  <string name="login_activity_title" fuzzy="true">ဝီကီပီဒီးယားသို့ အကောင့်ဝင်ပါ</string>
+  <string name="login_activity_title">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
+  <string name="login_in_progress_dialog_message">လော့ဂ်အင်ဝင်နေသည် ...</string>
   <string name="login_error_wrong_password">မှားယွင်းသော စကားဝှက်</string>
   <string name="login_error_wrong_username">မှားယွင်းသော အသုံးပြုသူအမည်</string>
-  <string name="login_success_toast" fuzzy="true">မှတ်တမ်းဖြင့် ဝင်​ခြင်း အောင်မြင်သည်။</string>
+  <string name="login_error_illegal">အသုံးပြုသူအမည် မမှန်ကန်ပါ</string>
+  <string name="login_success_toast">လော့ဂ်အင်ဝင်ခြင်း အောင်မြင်သည်!</string>
   <string name="login_error_blocked">အသုံးပြုသူကို တားမြစ်ထားသည်။</string>
+  <string name="login_error_throttled">လော့ဂ်အင်ဝင်ရန် ကြိုးပမ်းမှု များပြားနေသည်။ မိနစ်အနည်းငယ်စောင့်ပြီးမှ တဖန်ပြန်ကြိုးစားပါ။</string>
+  <string name="login_error_unknown">လော့ဂ်အင် မအောင်မြင်ပါ :(</string>
   <string name="preference_title_logout">မှတ်တမ်းဖြင့် ထွက်ရန်</string>
+  <string name="toast_logout_complete">လော့ဂ်အောက်ထွက်ပြီးပြီ</string>
+  <string name="saved_pages_empty_title">သိမ်းထားသော စာမျက်နှာများ မရှိပါ!</string>
+  <string name="saved_pages_empty_message">စာမျက်နှာများ သိမ်းဆည်းခြင်းသည် အလွန်ကောင်းမွန်ပါသည်။ ယင်းတို့ကို စာညှပ်များအနေဖြင့် ယူဆနိုင်ပြီး အော့ဖ်လိုင်းဖြစ်နေချိန်တွင် ဖတ်ရှုနိုင်ပါသည်။</string>
+  <string name="history_empty_title">လတ်တလော စာမျက်နှာများ ဤနေရာတွင် မရှိပါ!</string>
+  <string name="history_empty_message">အားလုံးကို သင် ဖျက်ပစ်လိုက်တာ ဖြစ်နိုင်သည်။ နောင်တွင် သင်သွားရောက်သည့် စာမျက်နှာအား ဤနေရာတွင် ပြန်ရယူနိုင်ပါသည်။</string>
   <string name="delete_selected_history">ဖျက်​ပါ​</string>
+  <string name="wp_stylized">&lt;big&gt;ဝီ&lt;/big&gt;ကီပီးဒီး&lt;big&gt;ယား&lt;/big&gt;</string>
   <string name="create_account_username_hint">အသုံးပြုသူအမည်</string>
   <string name="login_create_account_link">အကောင့် မရှိဘူးလား? ဝီကီပီဒီးယားနဲ့ ချိတ်ဆက်လိုက်ပါ</string>
+  <string name="create_account_login_link">အကောင့် ရှိပြီးသားလား? မှတ်တမ်းဖြင့် ဝင်ပါ</string>
   <string name="create_account_activity_title">အကောင့်လုပ်ရန်</string>
   <string name="dialog_create_account_checking_progress">စိစစ်နေသည်။</string>
   <string name="create_account_email_hint">အီးမေးလ် (ရှိပါက)</string>
@@ -81,28 +106,44 @@
   <string name="create_account_email_error">အီးမေးလ်လိပ်စာ မမှန်ဘူး</string>
   <string name="create_account_username_exists_error">အသုံးပြုသူအမည်က သုံးပြီးသား</string>
   <string name="create_account_ip_throttle_error">အိုင်ပီလိပ်စာက အများကြီးအသုံးပြုနေတယ်။ ထပ်ကြိုးစားကြည့်ပါဦး</string>
+  <string name="create_account_open_proxy_error">ဤအိုင်ပီလိပ်စာအား အကောင့်ဖန်တီးခြင်း ပိတ်ပင်ထားပါသည်။</string>
+  <string name="create_account_noname_error">သင်ထည့်သွင်းသော အသုံးပြုသူအမည် မှားယွင်းနေပါသည်။ ကျေးဇူးပြု၍ အခြားအသုံးပြုသူအမည် ထည့်သွင်းပါ။</string>
+  <string name="create_account_invalid_email_error">သင်ထည့်သွင်းသော အီးမေးလ်လိပ်စာ မှားယွင်းနေသည်။</string>
+  <string name="create_account_password_too_short_error">စကားဝှက်သည် အရမ်းတိုတောင်းလွန်းသည်။</string>
+  <string name="create_account_blocked_anon_error">သင့်အိုင်ပီလိပ်စာအား ပိတ်ပင်ထားသောကြောင့် အကောင့်ဖန်တီးမရနိုင်ပါ။</string>
+  <string name="create_account_blocked_error">သင့်အကောင့်အား ပိတ်ပင်ထားသောကြောင့် အကောင့်ဖန်တီးမရနိုင်ပါ။</string>
+  <string name="create_account_password_name_match_error">သင့်အသုံးပြုသူအမည်နှင့် စကားဝှက်တို့သည် မတူညီရပါ။</string>
+  <string name="create_account_generic_error">အကောင့်ဖန်တီးမရနိုင်ပါ</string>
   <string name="create_account_next">ရှေ့</string>
   <string name="create_account_button">အကောင့်လုပ်ရန်</string>
   <string name="preferences_general_heading">အထွေထွေ</string>
   <string name="wikipedia_app_faq">ဝီကီပီဒီးယား App အမေးအဖြေကဏ္ဍ</string>
   <string name="zero_charged_verbiage">အခမဲ့ ဝီကီးပီးဒီးယားကို ပိတ်ပေးပါ။</string>
+  <string name="zero_charged_verbiage_extended">အခြားဆောင်းပါးများ ရယူခြင်းသည် ဒေတာအသုံးစရိတ် ကျခံနိုင်ပါသည်။</string>
   <string name="zero_search_hint">အခမဲ့ ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="zero_warn_when_leaving">အခမဲ့ ဝီကီပီးဒီးယားမှ ထွက်ခဲ့ပါက ပြောကြားရန်</string>
   <string name="zero_warn_when_leaving_summary">သင့်ရဲ့ မိုဘိုင်းဝန်ဆောင်မှုကုမ္ပဏီမှ ဝီကီပီဒီးယား အခမဲ့စေရေး ပူးပေါင်းပါဝင်မှုကြောင့် အင်တာနက် သုံးစွဲခကောက်ခံခြင်း မပြုလျှင် ဒီနေရာမှာ အမှန်ခြစ်ခဲ့ပါက သင် ဝီကီးပီဒီယားအက်ပ်မှ ထွက်သွားတဲ့အချိန်မှာ အင်တာနက် သုံးစွဲခ ဆက်လက် ကောက်ခံနိုင်ကြောင်း သတိပေးခြင်းဖြင့် ကူညီနိုင်ပါသည်။</string>
   <string name="zero_webpage_title">အခမဲ့ ဝီကီးပီးဒီးယားနှင့် ပတ်သက်သော မေးခွန်းများ</string>
   <string name="zero_wikipedia_zero_heading">အခမဲ့ ဝီကီပီးဒီးယား</string>
   <string name="zero_interstitial_title">အခမဲ့ ဝီကီးပီးဒီးယားမှ ထွက်ခွာရန်</string>
+  <string name="zero_interstitial_leave_app">ဒေတာအသုံးစရိတ် ပေးရပါမည်။ ပြင်ပဆိုဒ်သို့ သွားလိုပါသလား?</string>
   <string name="zero_interstitial_continue">ထွက်ခွာရန်</string>
   <string name="zero_interstitial_cancel">ဆက်နေမြဲ</string>
   <string name="zero_learn_more">ဝီကီပီဒီးယားအက်ပ်အတွက် အင်တာနက်အသုံးပြုခကို ကောက်ခံခြင်း မရှိပါ။</string>
   <string name="zero_learn_more_learn_more">ဆက်ဖတ်ပါ</string>
+  <string name="zero_learn_more_dismiss">ဖြုတ်ရန်</string>
+  <string name="edit_preview_fetching_dialog_message">နမူနာအား ပြင်ဆင်နေသည်...</string>
+  <string name="send_feedback">app အကြံပြုချက် ပို့ရန်</string>
   <string name="nav_item_random">ကျပန်း</string>
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>
-  <string name="history_search_list_hint" fuzzy="true">ရှာ​ဖွေ​ရန်​</string>
+  <string name="preferences_privacy_settings_heading">ကိုယ်ရေးမူဝါဒ</string>
+  <string name="preference_title_eventlogging_opt_in">အသုံးပြုမှု အစီရင်ခံချက်များအား ပို့ရန်</string>
+  <string name="history_search_list_hint">မှတ်တမ်းများ ရှာဖွေရန်</string>
   <string name="history_search_empty_message">သင့်ရှာဖွေမှု စကားလုံးဖြင့် မည်သည့်စာမျက်နှာမျှမတွေ့ရှိပါ။</string>
-  <string name="settings_activity_title" fuzzy="true">အပြင်အဆင်များ</string>
+  <string name="settings_activity_title">အပြင်အဆင်များ</string>
   <string name="about_description">ဝီကီပီဒီးယားအက်ပ် အကြောင်း</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
+  <string name="terms_of_use_description">အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ</string>
   <string name="about_contributors_heading">ပံ့ပိုးထားသူများ</string>
   <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
   <string name="about_activity_title">အကြောင်း</string>
@@ -116,8 +157,14 @@
   <string name="text_size_select">စာလုံး အရွယ်အစား</string>
   <string name="color_theme_light">အလင်း</string>
   <string name="color_theme_dark">အမှောင်</string>
+  <string name="page_similar_titles">ဆင်တူစာမျက်နှာများ</string>
+  <string name="search_recent_header">လတ်တလော ရှာဖွေမှုများ -</string>
+  <string name="table_other">နောက်ထပ် အချက်အလက်များ</string>
+  <string name="table_close">ပိတ်ရန်</string>
   <string name="widget_name_featured_page">ဝီကီပီဒီယား မျက်နှာဖုံးဆောင်းပါး</string>
   <string name="widget_name_search">ဝီကီပီဒီးယားမှာ ရှာဖွေ</string>
   <string name="alpha_update_notification_title">စမ်းသပ်သုံးစွဲမှု အသစ်ရယူနိုင်ပါပြီ</string>
   <string name="alpha_update_notification_text">တို့ထိခြင်းဖြင့် ရယူပါ</string>
+  <string name="dialog_close_description">ပိတ်ရန်</string>
+  <string name="preference_title_show_images">ပုံများ ပြသရန်</string>
 </resources>

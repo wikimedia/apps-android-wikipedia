@@ -40,6 +40,7 @@
   <string name="menu_long_press_open_in_new_tab">An engem neien Tab opmaachen</string>
   <string name="menu_long_press_copy_page">Adress vum Link kopéieren</string>
   <string name="menu_text_select_copy">Kopéieren</string>
+  <string name="menu_text_select_define">Definéieren</string>
   <string name="menu_text_select_share">Deelen</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
@@ -199,6 +200,7 @@
   <string name="widget_name_featured_page">Liesenswäert Säit op Wikipedia</string>
   <string name="widget_title_featured_page">Säit vum Dag:</string>
   <string name="widget_name_search">Op Wikipedia sichen</string>
+  <string name="wiktionary_no_definitions_found">Keng Definitioune fonnt.</string>
   <string name="alpha_update_notification_title">Nei alpha-Versioun disponibel</string>
   <string name="alpha_update_notification_text">Tippe fir erofzelueden</string>
   <string name="dialog_close_description">Zoumaachen</string>
