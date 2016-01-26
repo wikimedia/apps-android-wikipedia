@@ -8,8 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.util.StringUtil;
 
-import com.google.gson.annotations.Expose;
-
 import static org.wikipedia.util.StringUtil.compareStrings;
 
 /**
@@ -17,11 +15,11 @@ import static org.wikipedia.util.StringUtil.compareStrings;
  */
 public class Section {
 
-    @Expose private int id;
-    @Expose private int toclevel = 1;
-    @Expose private String line;
-    @Expose private String anchor;
-    @Expose private String text;
+    private int id;
+    private int toclevel = 1;
+    private String line;
+    private String anchor;
+    private String text;
 
     // TODO: can we get rid of this? It's not efficient to
     public static Section fromJson(JSONObject json) {

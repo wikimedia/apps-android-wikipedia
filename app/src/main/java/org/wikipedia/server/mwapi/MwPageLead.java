@@ -5,8 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import com.google.gson.annotations.Expose;
-
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -24,8 +22,8 @@ import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
  * Gson POJO for loading the first stage of page content.
  */
 public class MwPageLead implements PageLead {
-    @Expose private MwServiceError error;
-    @Expose private Mobileview mobileview;
+    private MwServiceError error;
+    private Mobileview mobileview;
 
     @Override
     public boolean hasError() {
@@ -97,21 +95,21 @@ public class MwPageLead implements PageLead {
      * Almost everything is in this inner class.
      */
     public static class Mobileview implements PageLeadProperties {
-        @Expose private int id;
-        @Expose private long revision;
-        @Expose @Nullable private String lastmodified;
-        @Expose @Nullable private String displaytitle;
-        @Expose @Nullable private String redirected;
-        @Expose @Nullable private String normalizedtitle;
-        @Expose private int languagecount;
-        @Expose private boolean editable;
-        @Expose private boolean mainpage;
-        @Expose private boolean disambiguation;
-        @Expose @Nullable private String description;
-        @Expose @Nullable private Image image;
-        @Expose @Nullable private Thumb thumb;
-        @Expose @Nullable private Protection protection;
-        @Expose @Nullable private List<Section> sections;
+        private int id;
+        private long revision;
+        @Nullable private String lastmodified;
+        @Nullable private String displaytitle;
+        @Nullable private String redirected;
+        @Nullable private String normalizedtitle;
+        private int languagecount;
+        private boolean editable;
+        private boolean mainpage;
+        private boolean disambiguation;
+        @Nullable private String description;
+        @Nullable private Image image;
+        @Nullable private Thumb thumb;
+        @Nullable private Protection protection;
+        @Nullable private List<Section> sections;
 
         /** Converter */
         public PageProperties toPageProperties() {
@@ -205,7 +203,7 @@ public class MwPageLead implements PageLead {
      * For the lead image File: page name
      */
     public static class Image {
-        @Expose private String file;
+        private String file;
 
         public String getFile() {
             return file;
@@ -216,7 +214,7 @@ public class MwPageLead implements PageLead {
      * For the lead image URL
      */
     public static class Thumb {
-        @Expose private String url;
+        private String url;
 
         public String getUrl() {
             return url;
