@@ -1114,6 +1114,10 @@ th .sortkey {
   margin-left: auto;
   margin-right: auto;
 }
+.image_overflow_x_container {
+  max-width: 100%;
+  overflow: auto;
+}
 
 .content figcaption {
   margin: .5em 0 0;
