@@ -777,7 +777,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void commonSectionFetchOnCatch(Throwable caught) {
+    public void onPageLoadError(Throwable caught) {
         if (!isAdded()) {
             return;
         }
@@ -798,6 +798,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             refreshView.setEnabled(ThrowableUtil.isRetryable(getActivity(), caught));
         }
         errorState = true;
+
+        if (pageLoadCallbacks != null) {
+            pageLoadCallbacks.onLoadError(caught);
+        }
     }
 
     public void savePage() {
