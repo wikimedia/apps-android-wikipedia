@@ -3,8 +3,6 @@ package org.wikipedia.server.restbase;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.google.gson.annotations.Expose;
-
 import org.wikipedia.util.log.L;
 
 import java.util.Map;
@@ -14,9 +12,9 @@ import retrofit.client.Response;
 
 public class RbDefinition {
 
-    @Expose @NonNull private Map<String, Usage[]> usagesByLang;
+    @NonNull private Map<String, Usage[]> usagesByLang;
 
-    @Expose @Nullable private RbServiceError error;
+    @Nullable private RbServiceError error;
 
     public RbDefinition(Map<String, RbDefinition.Usage[]> usages) {
         usagesByLang = usages;
@@ -48,8 +46,8 @@ public class RbDefinition {
     }
 
     public static class Usage {
-        @Expose @NonNull private String partOfSpeech;
-        @Expose @NonNull private Definition[] definitions;
+        @NonNull private String partOfSpeech;
+        @NonNull private Definition[] definitions;
 
         public Usage(@NonNull String partOfSpeech, @NonNull Definition[] definitions) {
             this.partOfSpeech = partOfSpeech;
@@ -66,8 +64,8 @@ public class RbDefinition {
     }
 
     public static class Definition {
-        @Expose @NonNull private String definition;
-        @Expose @Nullable private String[] examples;
+        @NonNull private String definition;
+        @Nullable private String[] examples;
 
         public Definition(@NonNull String definition, @Nullable String[] examples) {
             this.definition = definition;

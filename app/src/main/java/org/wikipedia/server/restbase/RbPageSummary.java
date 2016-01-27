@@ -3,15 +3,13 @@ package org.wikipedia.server.restbase;
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.log.L;
 
-import com.google.gson.annotations.Expose;
-
 import android.support.annotation.Nullable;
 
 /**
  * Useful for link previews coming from RESTBase.
  */
 public class RbPageSummary implements PageSummary {
-    @Expose private RbServiceError error;
+    private RbServiceError error;
 
     @Override
     public boolean hasError() {
@@ -31,11 +29,11 @@ public class RbPageSummary implements PageSummary {
         L.e(message);
     }
 
-    @Expose @Nullable private String title;
+    @Nullable private String title;
 
-    @Expose @Nullable private String extract;
+    @Nullable private String extract;
 
-    @Expose @Nullable private Thumb thumbnail;
+    @Nullable private Thumb thumbnail;
 
     @Override @Nullable
     public String getTitle() {
@@ -56,7 +54,7 @@ public class RbPageSummary implements PageSummary {
      * For the thumbnail URL of the page
      */
     public static class Thumb {
-        @Expose private String source;
+        private String source;
 
         public String getUrl() {
             return source;

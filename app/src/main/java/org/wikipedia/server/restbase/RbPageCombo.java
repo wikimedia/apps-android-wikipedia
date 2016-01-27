@@ -6,8 +6,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.PageCombo;
 import org.wikipedia.util.log.L;
 
-import com.google.gson.annotations.Expose;
-
 import android.location.Location;
 import android.support.annotation.Nullable;
 
@@ -18,9 +16,9 @@ import android.support.annotation.Nullable;
  * remaining.
  */
 public class RbPageCombo implements PageCombo {
-    @Expose @Nullable private RbServiceError error;
-    @Expose @Nullable private RbPageLead lead;
-    @Expose @Nullable private RbPageRemaining remaining;
+    @Nullable private RbServiceError error;
+    @Nullable private RbPageLead lead;
+    @Nullable private RbPageRemaining remaining;
 
 
     @Override

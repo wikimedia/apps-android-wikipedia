@@ -7,7 +7,6 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
-import com.google.gson.annotations.Expose;
 
 import org.wikipedia.util.log.L;
 
@@ -15,7 +14,6 @@ import java.lang.reflect.Type;
 
 /** Protection settings for a page */
 public class Protection {
-    @Expose
     private String[] edit;
 
     public Protection() {

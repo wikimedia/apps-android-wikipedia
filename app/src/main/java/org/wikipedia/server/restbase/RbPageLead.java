@@ -4,7 +4,6 @@ import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
@@ -27,23 +26,23 @@ import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
  * Gson POJO for loading the first stage of page content.
  */
 public class RbPageLead implements PageLead, PageLeadProperties {
-    @Expose private RbServiceError error;
-    @Expose private int id;
-    @Expose private long revision;
-    @Expose @Nullable private String lastmodified;
-    @Expose @Nullable private String displaytitle;
-    @Expose @Nullable private String redirected;
-    @Expose @Nullable private String normalizedtitle;
-    @Expose @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
-    @Expose @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location geo;
-    @Expose private int languagecount;
-    @Expose private boolean editable;
-    @Expose private boolean mainpage;
-    @Expose private boolean disambiguation;
-    @Expose @Nullable private String description;
-    @Expose @Nullable private Image image;
-    @Expose @Nullable private Protection protection;
-    @Expose @Nullable private List<Section> sections;
+    private RbServiceError error;
+    private int id;
+    private long revision;
+    @Nullable private String lastmodified;
+    @Nullable private String displaytitle;
+    @Nullable private String redirected;
+    @Nullable private String normalizedtitle;
+    @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
+    @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location geo;
+    private int languagecount;
+    private boolean editable;
+    private boolean mainpage;
+    private boolean disambiguation;
+    @Nullable private String description;
+    @Nullable private Image image;
+    @Nullable private Protection protection;
+    @Nullable private List<Section> sections;
 
     private transient int leadImageThumbWidth;
 
@@ -188,7 +187,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
      * For the lead image File: page name
      */
     public static class TitlePronunciation {
-        @Expose @NonNull private String url;
+        @NonNull private String url;
 
         @NonNull
         public String getUrl() {
@@ -200,8 +199,8 @@ public class RbPageLead implements PageLead, PageLeadProperties {
      * For the lead image File: page name
      */
     public static class Image {
-        @Expose private String file;
-        @Expose private ThumbUrls urls;
+        private String file;
+        private ThumbUrls urls;
 
         public String getFile() {
             return file;
@@ -220,9 +219,9 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         private static final int SMALL = 640;
         private static final int MEDIUM = 800;
         private static final int LARGE = 1024;
-        @Expose @SerializedName("640") private String small;
-        @Expose @SerializedName("800") private String medium;
-        @Expose @SerializedName("1024") private String large;
+        @SerializedName("640") private String small;
+        @SerializedName("800") private String medium;
+        @SerializedName("1024") private String large;
 
         @Nullable
         public String get(int leadImageThumbWidth) {
