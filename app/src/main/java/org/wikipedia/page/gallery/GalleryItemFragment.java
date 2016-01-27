@@ -31,7 +31,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.VideoView;
@@ -65,7 +64,7 @@ public class GalleryItemFragment extends Fragment {
 
     private View videoContainer;
     private VideoView videoView;
-    private ImageView videoThumbnail;
+    private SimpleDraweeView videoThumbnail;
     private View videoPlayButton;
     private MediaController mediaController;
 
@@ -110,7 +109,7 @@ public class GalleryItemFragment extends Fragment {
         progressBar = (ProgressBar) rootView.findViewById(R.id.gallery_item_progress_bar);
         videoContainer = rootView.findViewById(R.id.gallery_video_container);
         videoView = (VideoView) rootView.findViewById(R.id.gallery_video);
-        videoThumbnail = (ImageView) rootView.findViewById(R.id.gallery_video_thumbnail);
+        videoThumbnail = (SimpleDraweeView) rootView.findViewById(R.id.gallery_video_thumbnail);
         videoPlayButton = rootView.findViewById(R.id.gallery_video_play_button);
         imageView = (SimpleDraweeView) rootView.findViewById(R.id.gallery_image);
         return rootView;
@@ -322,7 +321,7 @@ public class GalleryItemFragment extends Fragment {
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
-            imageView.setController(Fresco.newDraweeControllerBuilder()
+            videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
                     .setUri(galleryItem.getThumbUrl())
                     .setAutoPlayAnimations(true)
                     .setControllerListener(new BaseControllerListener<ImageInfo>() {
