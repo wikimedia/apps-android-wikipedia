@@ -15,11 +15,10 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +41,7 @@ import org.wikipedia.views.ConfigurableListView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ConfigurableTextView;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.List;
 
@@ -438,20 +438,7 @@ public class BottomContentHandler implements BottomContentInterface,
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
             descriptionText.setText(result.getDescription());
 
-            ImageView imageView = (ImageView) convertView.findViewById(R.id.page_list_item_image);
-            String thumbnail = result.getThumbUrl();
-            if (!app.isImageDownloadEnabled() || thumbnail == null) {
-                Picasso.with(parent.getContext())
-                        .load(R.drawable.ic_pageimage_placeholder)
-                        .into(imageView);
-            } else {
-                Picasso.with(parent.getContext())
-                        .load(thumbnail)
-                        .placeholder(R.drawable.ic_pageimage_placeholder)
-                        .error(R.drawable.ic_pageimage_placeholder)
-                        .into(imageView);
-            }
-
+            ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image), result.getThumbUrl());
             return convertView;
         }
     }

@@ -14,6 +14,7 @@ import android.support.annotation.Nullable;
 import android.view.Window;
 import android.webkit.WebView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.otto.Bus;
 
 import org.mediawiki.api.json.Api;
@@ -171,6 +172,7 @@ public class WikipediaApp extends Application {
         super.onCreate();
         initExceptionHandling();
 
+        Fresco.initialize(this);
         bus = new Bus();
 
         final Resources resources = getResources();

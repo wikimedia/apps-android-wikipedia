@@ -1,14 +1,13 @@
 package org.wikipedia.page.gallery;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.views.ViewUtil;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -16,9 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 public class GalleryThumbnailScrollView extends RecyclerView {
     @NonNull private final Context mContext;
@@ -56,26 +54,19 @@ public class GalleryThumbnailScrollView extends RecyclerView {
     }
 
     private class GalleryItemHolder extends ViewHolder implements OnClickListener, OnTouchListener {
-        private final ImageView mImageView;
+        private final SimpleDraweeView mImageView;
         private GalleryItem mGalleryItem;
 
         GalleryItemHolder(View itemView) {
             super(itemView);
-            mImageView = (ImageView) itemView.findViewById(R.id.gallery_thumbnail_image);
+            mImageView = (SimpleDraweeView) itemView.findViewById(R.id.gallery_thumbnail_image);
         }
 
         public void bindItem(GalleryItem item) {
             mGalleryItem = item;
             mImageView.setOnClickListener(this);
             mImageView.setOnTouchListener(this);
-            if (WikipediaApp.getInstance().isImageDownloadEnabled()
-                    && !TextUtils.isEmpty(mGalleryItem.getThumbUrl())) {
-                Picasso.with(mContext)
-                        .load(mGalleryItem.getThumbUrl())
-                        .placeholder(R.drawable.checkerboard)
-                        .error(R.drawable.checkerboard)
-                        .into(mImageView);
-            }
+            ViewUtil.loadImageUrlInto(mImageView, mGalleryItem.getThumbUrl());
         }
 
         @Override

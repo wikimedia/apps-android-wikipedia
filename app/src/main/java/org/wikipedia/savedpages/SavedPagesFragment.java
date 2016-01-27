@@ -29,7 +29,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
@@ -38,6 +38,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -290,22 +291,11 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.page_list_item_title);
-            ImageView thumbnail = (ImageView) view.findViewById(R.id.page_list_item_image);
             SavedPage entry = SavedPage.PERSISTENCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
-
-            if (app.isImageDownloadEnabled()) {
-                Picasso.with(getActivity())
-                       .load(cursor.getString(SavedPageContentProvider.COL_INDEX_IMAGE))
-                       .placeholder(R.drawable.ic_pageimage_placeholder)
-                       .error(R.drawable.ic_pageimage_placeholder)
-                       .into(thumbnail);
-            } else {
-                Picasso.with(getActivity())
-                       .load(R.drawable.ic_pageimage_placeholder)
-                       .into(thumbnail);
-            }
+            ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
+                    cursor.getString(SavedPageContentProvider.COL_INDEX_IMAGE));
         }
     }
 

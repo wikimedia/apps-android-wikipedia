@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/captcha_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,22 +21,26 @@
             style="?android:textAppearanceMedium"
             android:layout_margin="0dp"
             />
-    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-        <ImageView
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/captcha_image"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="240dp"
-                android:scaleType="fitCenter"
                 android:layout_height="80dp"
+                app:actualImageScaleType="fitCenter"
                 android:contentDescription="@string/captcha_image"
                 />
         <ProgressBar
                 android:id="@+id/captcha_image_progress"
-                android:indeterminate="true"
-                android:visibility="gone"
-                tools:visibility="visible"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:indeterminate="true"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:visibility="gone"
+                tools:visibility="visible" />
     </FrameLayout>
     <TextView
             android:layout_width="match_parent"

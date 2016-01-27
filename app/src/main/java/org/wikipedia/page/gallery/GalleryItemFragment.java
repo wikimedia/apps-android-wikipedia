@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.content.ContentValues;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -34,9 +35,11 @@ import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.VideoView;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
-import uk.co.senab.photoview.PhotoViewAttacher;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -58,9 +61,7 @@ public class GalleryItemFragment extends Fragment {
     private String mimeType;
     private ProgressBar progressBar;
 
-    private View containerView;
-    private PhotoViewAttacher attacher;
-    private ImageView imageView;
+    private SimpleDraweeView imageView;
 
     private View videoContainer;
     private VideoView videoView;
@@ -99,7 +100,7 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
-        containerView = rootView.findViewById(R.id.gallery_item_container);
+        View containerView = rootView.findViewById(R.id.gallery_item_container);
         containerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,14 +112,7 @@ public class GalleryItemFragment extends Fragment {
         videoView = (VideoView) rootView.findViewById(R.id.gallery_video);
         videoThumbnail = (ImageView) rootView.findViewById(R.id.gallery_video_thumbnail);
         videoPlayButton = rootView.findViewById(R.id.gallery_video_play_button);
-        imageView = (ImageView) rootView.findViewById(R.id.gallery_image);
-        attacher = new PhotoViewAttacher(imageView);
-        attacher.setOnViewTapListener(new PhotoViewAttacher.OnViewTapListener() {
-            @Override
-            public void onViewTap(View view, float v, float v2) {
-                parentActivity.toggleControls();
-            }
-        });
+        imageView = (SimpleDraweeView) rootView.findViewById(R.id.gallery_image);
         return rootView;
     }
 
@@ -134,13 +128,6 @@ public class GalleryItemFragment extends Fragment {
         } else {
             loadMedia();
         }
-    }
-
-    @Override
-    public void onDestroyView() {
-        attacher.cleanup();
-        attacher = null;
-        super.onDestroyView();
     }
 
     private void updateProgressBar(boolean visible, boolean indeterminate, int value) {
@@ -335,19 +322,21 @@ public class GalleryItemFragment extends Fragment {
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
-            Picasso.with(parentActivity)
-                    .load(galleryItem.getThumbUrl())
-                    .into(videoThumbnail, new Callback() {
+            imageView.setController(Fresco.newDraweeControllerBuilder()
+                    .setUri(galleryItem.getThumbUrl())
+                    .setAutoPlayAnimations(true)
+                    .setControllerListener(new BaseControllerListener<ImageInfo>() {
                         @Override
-                        public void onSuccess() {
+                        public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
                             updateProgressBar(false, true, 0);
                         }
 
                         @Override
-                        public void onError() {
+                        public void onFailure(String id, Throwable throwable) {
                             updateProgressBar(false, true, 0);
                         }
-                    });
+                    })
+                    .build());
         }
         videoThumbnail.setOnClickListener(videoThumbnailClickListener);
     }
@@ -355,11 +344,13 @@ public class GalleryItemFragment extends Fragment {
     private void loadImage(String url) {
         imageView.setVisibility(View.VISIBLE);
         Log.d(TAG, "Loading image from url: " + url);
-        Picasso.with(parentActivity)
-                .load(url)
-                .into(imageView, new Callback() {
+
+        imageView.setController(Fresco.newDraweeControllerBuilder()
+                .setUri(url)
+                .setAutoPlayAnimations(true)
+                .setControllerListener(new BaseControllerListener<ImageInfo>() {
                     @Override
-                    public void onSuccess() {
+                    public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
                         if (!isAdded()) {
                             return;
                         }
@@ -370,44 +361,19 @@ public class GalleryItemFragment extends Fragment {
                                 || galleryItem.getMimeType().contains("png")) {
                             imageView.setBackgroundColor(Color.WHITE);
                         }
-                        attacher.update();
-                        attacher.setZoomable(true);
-                        scaleImageToWindow();
                         parentActivity.supportInvalidateOptionsMenu();
                     }
 
                     @Override
-                    public void onError() {
+                    public void onFailure(String id, Throwable throwable) {
                         if (!isAdded()) {
                             return;
                         }
                         updateProgressBar(false, true, 0);
                         FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
                     }
-                });
-    }
-
-    /**
-     * If the aspect ratio of the image is *almost* the same as the aspect ratio of our window,
-     * then just scale the image to fit, so that we won't see gray bars around the image upon
-     * first loading it!
-     */
-    private void scaleImageToWindow() {
-        if (galleryItem.getWidth() == 0 || galleryItem.getHeight() == 0) {
-            return;
-        }
-        final float scaleThreshold = 0.25f;
-        float windowAspect = (float) containerView.getWidth()
-                / (float) containerView.getHeight();
-        float imageAspect = (float) galleryItem.getWidth()
-                / (float) galleryItem.getHeight();
-        if (Math.abs(1.0f - imageAspect / windowAspect) < scaleThreshold) {
-            if (windowAspect > imageAspect) {
-                attacher.setScale(windowAspect / imageAspect);
-            } else {
-                attacher.setScale(imageAspect / windowAspect);
-            }
-        }
+                })
+                .build());
     }
 
     /**

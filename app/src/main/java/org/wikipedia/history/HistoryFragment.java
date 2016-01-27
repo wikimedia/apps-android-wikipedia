@@ -24,13 +24,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -262,22 +263,11 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.page_list_item_title);
-            ImageView thumbnail = (ImageView) view.findViewById(R.id.page_list_item_image);
             HistoryEntry entry = HistoryEntry.PERSISTENCE_HELPER.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
-
-            if (app.isImageDownloadEnabled()) {
-                Picasso.with(getActivity())
-                       .load(cursor.getString(HistoryEntryContentProvider.COL_INDEX_IMAGE))
-                       .placeholder(R.drawable.ic_pageimage_placeholder)
-                       .error(R.drawable.ic_pageimage_placeholder)
-                       .into(thumbnail);
-            } else {
-                Picasso.with(getActivity())
-                       .load(R.drawable.ic_pageimage_placeholder)
-                       .into(thumbnail);
-            }
+            ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
+                    cursor.getString(HistoryEntryContentProvider.COL_INDEX_IMAGE));
 
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.

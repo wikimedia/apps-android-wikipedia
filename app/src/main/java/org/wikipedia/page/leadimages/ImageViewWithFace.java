@@ -7,28 +7,33 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.media.FaceDetector;
+import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.request.BasePostprocessor;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import org.wikipedia.R;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.log.L;
 
-public class ImageViewWithFace extends ImageView implements Target {
+public class ImageViewWithFace extends SimpleDraweeView {
+    private static final int BITMAP_COPY_WIDTH = 200;
+
     public interface OnImageLoadListener {
-        void onImageLoaded(Bitmap bitmap, @Nullable PointF faceLocation, @ColorInt int mainColor);
+        void onImageLoaded(int bmpHeight, @Nullable PointF faceLocation, @ColorInt int mainColor);
         void onImageFailed();
     }
 
+    private FacePostprocessor facePostprocessor = new FacePostprocessor();
     @NonNull private OnImageLoadListener listener = new DefaultListener();
 
     public ImageViewWithFace(Context context) {
@@ -47,123 +52,86 @@ public class ImageViewWithFace extends ImageView implements Target {
         this.listener = listener == null ? new DefaultListener() : listener;
     }
 
-    @Override
-    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-        if (isBitmapEligibleForImageProcessing(bitmap)) {
-            spawnImageProcessingTask(bitmap);
-        } else {
-            listener.onImageFailed();
+    public void loadImage(String url) {
+        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url))
+                .setPostprocessor(facePostprocessor)
+                .build();
+        PipelineDraweeController controller = (PipelineDraweeController)
+                Fresco.newDraweeControllerBuilder()
+                        .setImageRequest(request)
+                        .setAutoPlayAnimations(true)
+                        .build();
+        setController(controller);
+    }
+
+    @Nullable private PointF detectFace(Bitmap testBitmap) {
+        long millis = System.currentTimeMillis();
+        // initialize the face detector, and look for only one face...
+        FaceDetector fd = new FaceDetector(testBitmap.getWidth(), testBitmap.getHeight(), 1);
+        FaceDetector.Face[] faces = new FaceDetector.Face[1];
+        int numFound = fd.findFaces(testBitmap, faces);
+        PointF facePos = null;
+        if (numFound > 0) {
+            facePos = new PointF();
+            faces[0].getMidPoint(facePos);
+            // normalize the position to [0, 1]
+            facePos.x /= testBitmap.getWidth();
+            facePos.y /= testBitmap.getHeight();
+            L.d("Found face at " + facePos.x + ", " + facePos.y);
         }
-
-        // and, of course, set the original bitmap as our image
-        setImageBitmap(bitmap);
+        L.d("Face detection took " + (System.currentTimeMillis() - millis) + "ms");
+        return facePos;
     }
 
-    @Override
-    public void onBitmapFailed(Drawable errorDrawable) {
-        listener.onImageFailed();
+    @NonNull private Bitmap new565ScaledBitmap(Bitmap src) {
+        Bitmap copy =  Bitmap.createBitmap(BITMAP_COPY_WIDTH,
+                (src.getHeight() * BITMAP_COPY_WIDTH) / src.getWidth(), Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(copy);
+        Rect srcRect = new Rect(0, 0, src.getWidth(), src.getHeight());
+        Rect destRect = new Rect(0, 0, BITMAP_COPY_WIDTH, copy.getHeight());
+        Paint paint = new Paint();
+        paint.setColor(Color.BLACK);
+        canvas.drawBitmap(src, srcRect, destRect, paint);
+        return copy;
     }
 
-    @Override public void onPrepareLoad(Drawable placeHolderDrawable) { }
+    @ColorInt private int extractMainColor(Palette colorPalette, @ColorInt int defaultColor) {
+        int mainColor = defaultColor;
+        if (colorPalette.getDarkMutedSwatch() != null) {
+            mainColor = colorPalette.getDarkMutedSwatch().getRgb();
+        } else if (colorPalette.getDarkVibrantSwatch() != null) {
+            mainColor = colorPalette.getDarkVibrantSwatch().getRgb();
+        }
+        return mainColor;
+    }
 
     private boolean isBitmapEligibleForImageProcessing(Bitmap bitmap) {
         final int minSize = 64;
         return bitmap.getWidth() >= minSize && bitmap.getHeight() >= minSize;
     }
 
-    private void spawnImageProcessingTask(@NonNull final Bitmap bitmap) {
-        new ImageProcessingTask(bitmap) {
-            @Override
-            public PointF performTask() {
-                PointF facePos = super.performTask();
-                int defaultColor = getContext().getResources().getColor(R.color.grey_700);
-                listener.onImageLoaded(bitmap, facePos, extractMainColor(defaultColor));
-                return facePos;
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                // it's not super important to do anything if face detection fails,
-                // but let our listener know about it anyway:
-                listener.onImageFailed();
-            }
-        }.execute();
-    }
-
-    private static class ImageProcessingTask extends SaneAsyncTask<PointF> {
-        // Width to which to reduce image copy on which face detection is performed in onBitMapLoaded()
-        // (with height reduced proportionally there).  Performing face detection on a scaled-down
-        // image copy improves speed and memory use.
-        //
-        // Also, note that the face detector requires that the image width be even.
-        private static final int BITMAP_COPY_WIDTH = 200;
-
-        @NonNull private final Bitmap srcBitmap;
-        private Palette colorPalette;
-
-        ImageProcessingTask(@NonNull Bitmap bitmap) {
-            srcBitmap = bitmap;
+    private class FacePostprocessor extends BasePostprocessor {
+        @Override
+        public String getName() {
+            return "FacePostprocessor";
         }
 
         @Override
-        @Nullable
-        public PointF performTask() {
-            // boost this thread's priority a bit
-            Thread.currentThread().setPriority(Thread.MAX_PRIORITY - 1);
-            long millis = System.currentTimeMillis();
-            // create a new bitmap onto which we'll draw the original bitmap,
-            // because the FaceDetector requires it to be a 565 bitmap, and it
-            // must also be even width. Reduce size of copy for performance.
-            Bitmap testBmp = new565ScaledBitmap(srcBitmap);
-            colorPalette = Palette.from(testBmp).generate();
-
-            // initialize the face detector, and look for only one face...
-            FaceDetector fd = new FaceDetector(testBmp.getWidth(), testBmp.getHeight(), 1);
-            FaceDetector.Face[] faces = new FaceDetector.Face[1];
-            int numFound = fd.findFaces(testBmp, faces);
-
-            PointF facePos = null;
-            if (numFound > 0) {
-                facePos = new PointF();
-                faces[0].getMidPoint(facePos);
-                // scale back to proportions of original image
-                facePos.x = (facePos.x * srcBitmap.getWidth() / BITMAP_COPY_WIDTH);
-                facePos.y = (facePos.y * srcBitmap.getHeight() / testBmp.getHeight());
-                L.d("Found face at " + facePos.x + ", " + facePos.y);
+        public void process(Bitmap bitmap) {
+            if (isBitmapEligibleForImageProcessing(bitmap)) {
+                Bitmap testBmp = new565ScaledBitmap(bitmap);
+                Palette colorPalette = Palette.from(testBmp).generate();
+                PointF facePos = detectFace(testBmp);
+                int defaultColor = getContext().getResources().getColor(R.color.grey_700);
+                listener.onImageLoaded(bitmap.getHeight(), facePos, extractMainColor(colorPalette, defaultColor));
+            } else {
+                listener.onImageFailed();
             }
-            // free our temporary bitmap
-            testBmp.recycle();
-
-            L.d("Face detection took " + (System.currentTimeMillis() - millis) + "ms");
-
-            return facePos;
-        }
-
-        @ColorInt protected int extractMainColor(@ColorInt int defaultColor) {
-            int mainColor = defaultColor;
-            if (colorPalette.getDarkMutedSwatch() != null) {
-                mainColor = colorPalette.getDarkMutedSwatch().getRgb();
-            } else if (colorPalette.getDarkVibrantSwatch() != null) {
-                mainColor = colorPalette.getDarkVibrantSwatch().getRgb();
-            }
-            return mainColor;
-        }
-
-        @NonNull private Bitmap new565ScaledBitmap(Bitmap src) {
-            Bitmap copy =  Bitmap.createBitmap(BITMAP_COPY_WIDTH,
-                    (src.getHeight() * BITMAP_COPY_WIDTH) / src.getWidth(), Bitmap.Config.RGB_565);
-            Canvas canvas = new Canvas(copy);
-            Rect srcRect = new Rect(0, 0, src.getWidth(), src.getHeight());
-            Rect destRect = new Rect(0, 0, BITMAP_COPY_WIDTH, copy.getHeight());
-            Paint paint = new Paint();
-            paint.setColor(Color.BLACK);
-            canvas.drawBitmap(src, srcRect, destRect, paint);
-            return copy;
         }
     }
 
     private static class DefaultListener implements OnImageLoadListener {
-        @Override public void onImageLoaded(Bitmap bitmap, PointF faceLocation, @ColorInt int mainColor) { }
+        @Override public void onImageLoaded(int bmpHeight, PointF faceLocation, @ColorInt int mainColor) { }
         @Override public void onImageFailed() { }
     }
 }

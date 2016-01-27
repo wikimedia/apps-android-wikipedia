@@ -3,7 +3,6 @@ package org.wikipedia.page.leadimages;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
-import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DimenRes;
@@ -109,22 +108,13 @@ public class LeadImagesHandler {
     }
 
     @Nullable public Bitmap getLeadImageBitmap() {
-        return isLeadImageEnabled() && articleHeaderView.getImage().getDrawable() != null
-                ? ((BitmapDrawable) articleHeaderView.getImage().getDrawable()).getBitmap()
-                : null;
+        return isLeadImageEnabled() ? articleHeaderView.copyBitmap() : null;
     }
 
     public boolean isLeadImageEnabled() {
-        String thumbUrl = getLeadImageUrl();
-        if (!WikipediaApp.getInstance().isImageDownloadEnabled() || displayHeightDp < MIN_SCREEN_HEIGHT_DP) {
-            // disable the lead image completely
-            return false;
-        } else {
-            // Enable only if the image is not a GIF, since GIF images are usually mathematical
-            // diagrams or animations that won't look good as a lead image.
-            // TODO: retrieve the MIME type of the lead image, instead of relying on file name.
-            return thumbUrl != null && !thumbUrl.endsWith(".gif");
-        }
+        return WikipediaApp.getInstance().isImageDownloadEnabled()
+                && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
+                && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
     public void updateBookmark(boolean bookmarkSaved) {
@@ -133,6 +123,10 @@ public class LeadImagesHandler {
 
     public void updateNavigate(@Nullable Location geo) {
         articleHeaderView.updateNavigate(geo != null);
+    }
+
+    public void setAnimationPaused(boolean paused) {
+        articleHeaderView.setAnimationPaused(paused);
     }
 
     /**
@@ -490,14 +484,14 @@ public class LeadImagesHandler {
 
     private class ImageLoadListener implements ImageViewWithFace.OnImageLoadListener {
         @Override
-        public void onImageLoaded(Bitmap bitmap, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
-            final int bmpHeight = bitmap.getHeight();
+        public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
             articleHeaderView.post(new Runnable() {
                 @Override
                 public void run() {
                     if (isFragmentAdded()) {
-                        detectFace(bmpHeight, faceLocation);
+                        applyFaceLocationOffset(bmpHeight, faceLocation);
                         articleHeaderView.setMenuBarColor(mainColor);
+                        startKenBurnsAnimation();
                     }
                 }
             });
@@ -508,17 +502,9 @@ public class LeadImagesHandler {
             articleHeaderView.resetMenuBarColor();
         }
 
-        private void detectFace(int bmpHeight, @Nullable PointF faceLocation) {
+        private void applyFaceLocationOffset(int bmpHeight, @Nullable PointF faceLocation) {
             faceYOffsetNormalized = faceYScalar(bmpHeight, faceLocation);
-
-            float scalar = constrainScalar(faceYOffsetNormalized);
-
-            articleHeaderView.setImageYScalar(scalar);
-
-            // fade in the new image!
-            articleHeaderView.crossFadeImage();
-
-            startKenBurnsAnimation();
+            articleHeaderView.setImageYScalar(constrainScalar(faceYOffsetNormalized));
         }
 
         private float constrainScalar(float scalar) {
@@ -531,12 +517,12 @@ public class LeadImagesHandler {
             final float defaultOffsetScalar = .25f;
             float scalar = defaultOffsetScalar;
             if (faceLocation != null) {
-                scalar = faceLocation.y / bmpHeight;
+                scalar = faceLocation.y;
                 // TODO: if it is desirable to offset to the nose, replace this arbitrary hardcoded
                 //       value with a proportion. FaceDetector.eyesDistance() presumably provides
                 //       the interpupillary distance in pixels. We can multiply this measurement by
                 //       the proportion of the length of the nose to the IPD.
-                scalar += getDimension(R.dimen.face_detection_nose_y_offset) / bmpHeight;
+                scalar -= getDimension(R.dimen.face_detection_nose_y_offset) / bmpHeight;
             }
             return scalar;
         }

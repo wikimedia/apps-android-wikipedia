@@ -2,27 +2,18 @@ package org.wikipedia.page.leadimages;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
+import android.graphics.PointF;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ArticleHeaderImageView extends FrameLayout {
-    @Bind(R.id.view_article_header_image_placeholder) ImageView placeholder;
     @Bind(R.id.view_article_header_image_image) ImageViewWithFace image;
 
     public ArticleHeaderImageView(Context context) {
@@ -55,73 +46,31 @@ public class ArticleHeaderImageView extends FrameLayout {
             setVisibility(GONE);
         } else {
             setVisibility(VISIBLE);
-            image.setVisibility(INVISIBLE);
-            placeholder.setVisibility(VISIBLE);
-            Picasso.with(getContext())
-                    .load(url)
-                    .noFade()
-                    .into((Target) image);
+            image.loadImage(url);
         }
     }
 
-    public void crossFade() {
-        ViewAnimations.crossFade(placeholder, image);
+    public void setAnimationPaused(boolean paused) {
+        if (image.getController() != null && image.getController().getAnimatable() != null) {
+            if (paused) {
+                image.getController().getAnimatable().stop();
+            } else {
+                image.getController().getAnimatable().start();
+            }
+        }
     }
 
     public boolean hasImage() {
         return getVisibility() != GONE;
     }
 
-    public ImageView getImage() {
+    public ImageViewWithFace getImage() {
         return image;
     }
 
-    public void setParallax(float imageYScalar, int yOffset) {
-        if (image.getDrawable() != null) {
-            updateImageViewParallax(image, imageYScalar, yOffset);
-        }
-        updateImageViewParallax(placeholder, 0, yOffset);
-    }
-
-    private void updateImageViewParallax(ImageView view, float scalar, int offset) {
-        Matrix matrix = centerCropWithOffsetScalar(view, view.getDrawable(), view.getImageMatrix(), scalar);
-        matrix.postTranslate(0, offset);
-        view.setImageMatrix(matrix);
-    }
-
-    // See ImageView
-    private Matrix centerCropWithOffsetScalar(@NonNull View view,
-                                              @NonNull Drawable drawable,
-                                              @NonNull Matrix initial,
-                                              float offsetScalar) {
-        final float halfScalar = .5f;
-
-        Matrix matrix = new Matrix(initial);
-
-        int drawableWidth = drawable.getIntrinsicWidth();
-        int drawableHeight = drawable.getIntrinsicHeight();
-
-        int canvasWidth = view.getWidth() - view.getPaddingLeft() - view.getPaddingRight();
-        int canvasHeight = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
-
-        float scale;
-        float dx = 0;
-        float dy = 0;
-        if (drawableWidth * canvasHeight > canvasWidth * drawableHeight) {
-            scale = (float) canvasHeight / (float) drawableHeight;
-            dx = (canvasWidth - drawableWidth * scale) * halfScalar;
-        } else {
-            scale = (float) canvasWidth / (float) drawableWidth;
-            dy = (canvasHeight - drawableHeight * scale) * halfScalar;
-        }
-
-        matrix.setScale(scale, scale);
-        matrix.postTranslate(dx, dy);
-
-        float y = (canvasHeight - drawableHeight * scale) * (offsetScalar - halfScalar);
-        matrix.postTranslate(0, y);
-
-        return matrix;
+    public void setFocusOffset(float verticalOffset) {
+        final float centerHorizontal = 0.5f;
+        image.getHierarchy().setActualImageFocusPoint(new PointF(centerHorizontal, verticalOffset));
     }
 
     private void init() {
