@@ -355,10 +355,7 @@ public class GalleryItemFragment extends Fragment {
                             return;
                         }
                         updateProgressBar(false, true, 0);
-                        // if it's an SVG or PNG, give it a white background, since most
-                        // images with transparency were intended to be viewed on white.
-                        if (galleryItem.getMimeType().contains("svg")
-                                || galleryItem.getMimeType().contains("png")) {
+                        if (shouldHaveWhiteBackground(galleryItem.getMimeType())) {
                             imageView.setBackgroundColor(Color.WHITE);
                         }
                         parentActivity.supportInvalidateOptionsMenu();
@@ -489,5 +486,9 @@ public class GalleryItemFragment extends Fragment {
         values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
         values.put(MediaStore.Images.Media.DATA, path);
         parentActivity.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+    }
+
+    private boolean shouldHaveWhiteBackground(String mimeType) {
+        return mimeType.contains("svg") || mimeType.contains("png") || mimeType.contains("gif");
     }
 }
