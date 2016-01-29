@@ -32,7 +32,6 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.activity.ActivityUtil;
-import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
@@ -54,7 +53,6 @@ public class ShareHandler {
     public static final String TAG = "ShareHandler";
     private static final String PAYLOAD_PURPOSE_KEY = "purpose";
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
-    private static final String PAYLOAD_PURPOSE_COPY = "copy";
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
     private static final String PAYLOAD_TEXT_KEY = "text";
     private static final String WIKTIONARY_DEFINITION_TAG = "wiktionary_definition_dialog";
@@ -88,9 +86,6 @@ public class ShareHandler {
                     case PAYLOAD_PURPOSE_SHARE:
                         onSharePayload(text);
                         break;
-                    case PAYLOAD_PURPOSE_COPY:
-                        onCopyPayload(text);
-                        break;
                     case PAYLOAD_PURPOSE_DEFINE:
                         onDefinePayload(text);
                         break;
@@ -115,17 +110,8 @@ public class ShareHandler {
         funnel.logShareTap(text);
     }
 
-    private void onCopyPayload(String text) {
-        copyText(text);
-        showCopySnackbar();
-    }
-
     private void onDefinePayload(String text) {
         showWiktionaryDefinition(text.toLowerCase());
-    }
-
-    private void copyText(String text) {
-        ClipboardUtil.setPlainText(activity, text, text);
     }
 
     private void showCopySnackbar() {
@@ -207,7 +193,15 @@ public class ShareHandler {
         // Provide our own listeners for the copy, define, and share buttons.
         shareItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_SHARE));
         MenuItem copyItem = menu.findItem(R.id.menu_text_select_copy);
-        copyItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_COPY));
+        copyItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                activity.getCurPageFragment().getWebView().copyToClipboard();
+                showCopySnackbar();
+                leaveActionMode();
+                return true;
+            }
+        });
         MenuItem defineItem = menu.findItem(R.id.menu_text_select_define);
         if (shouldEnableWiktionaryDialog()) {
             defineItem.setVisible(true);
@@ -267,6 +261,13 @@ public class ShareHandler {
         return activity.getResources();
     }
 
+    private void leaveActionMode() {
+        if (hasWebViewActionMode()) {
+            finishWebViewActionMode();
+            nullifyWebViewActionMode();
+        }
+    }
+
     private boolean hasWebViewActionMode() {
         return webViewActionMode != null;
     }
@@ -288,12 +289,7 @@ public class ShareHandler {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             requestTextSelection(purpose);
-
-            // leave context mode...
-            if (hasWebViewActionMode()) {
-                finishWebViewActionMode();
-                nullifyWebViewActionMode();
-            }
+            leaveActionMode();
             return true;
         }
 
