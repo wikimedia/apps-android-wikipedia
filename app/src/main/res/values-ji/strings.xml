@@ -9,6 +9,7 @@
   <string name="nav_item_history">היסטאריע</string>
   <string name="error_network_error">מין קען נישט פארבינדן מיט דער אינטערנעץ.א.</string>
   <string name="page_error_retry">פרובירן ווידער</string>
+  <string name="page_error_back_to_main">צוריקגיין</string>
   <string name="menu_clear_all_history">אפראמען היסטאריע</string>
   <string name="menu_clear_all_saved_pages">אפראמען געשפייכלערטע בלעטער</string>
   <string name="page_does_not_exist_error">דער בלאט עקזיסטירט נישט.</string>
@@ -38,12 +39,14 @@
   <string name="menu_long_press_open_in_new_tab">עפֿענען אין נײַעם טאב</string>
   <string name="menu_long_press_copy_page">קאפירן לינק אדרעס</string>
   <string name="menu_text_select_copy">קאפירן</string>
+  <string name="menu_text_select_define">דעפֿינירן</string>
   <string name="menu_text_select_share">טיילן</string>
   <string name="nav_item_nearby">דערבײַ</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_zoom_to_location">פֿארגרעסערן צו א לאקאציע אויף דער מאפע</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
+  <string name="content_license_html">אינהאלט איז פֿאראן אונטער &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; אחוץ ווען געוויזן אנדערשט</string>
   <string name="preference_title_language">וויקיפעדיע־שפראך</string>
   <string name="preference_languages_filter_hint">זוכן</string>
   <string name="langlinks_filter_hint">זוכן</string>
@@ -195,7 +198,7 @@
   <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="format_error_server_code">קאד: \"%s\"</string>
-  <string name="button_continue_to_article" fuzzy="true">ווײטער צום ארטיקל</string>
+  <string name="button_continue_to_article">לייענען דעם ארטיקל</string>
   <string name="nav_item_donate">שטיצן וויקיפעדיע</string>
   <string name="crash_report_dialog_dont_send_button">איבערהיפן</string>
   <string name="crash_report_dialog_always_send_button">אלעמאל שיקן</string>

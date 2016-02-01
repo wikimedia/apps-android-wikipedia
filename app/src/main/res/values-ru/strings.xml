@@ -9,6 +9,7 @@
   <string name="nav_item_history">История</string>
   <string name="error_network_error">Не удаётся подключиться к Интернету.</string>
   <string name="page_error_retry">Повторить</string>
+  <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Очистить историю</string>
   <string name="menu_clear_all_saved_pages">Очистить сохранённые страницы</string>
   <string name="page_does_not_exist_error">Такой страницы не существует.</string>

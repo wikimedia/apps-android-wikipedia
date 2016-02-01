@@ -9,6 +9,7 @@
   <string name="nav_item_history">Versiounen</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
+  <string name="page_error_back_to_main">Zréck goen</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="menu_clear_all_saved_pages">Gespäichert Säite läschen</string>
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>

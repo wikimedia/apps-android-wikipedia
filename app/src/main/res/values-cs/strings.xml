@@ -9,6 +9,7 @@
   <string name="nav_item_history">Historie</string>
   <string name="error_network_error">Nelze se připojit k Internetu.</string>
   <string name="page_error_retry">Zkusit znovu</string>
+  <string name="page_error_back_to_main">Vrátit se</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
   <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
   <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>

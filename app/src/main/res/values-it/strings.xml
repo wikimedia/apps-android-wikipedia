@@ -9,6 +9,7 @@
   <string name="nav_item_history">Cronologia</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
+  <string name="page_error_back_to_main">Indietro</string>
   <string name="menu_clear_all_history">Cancella la cronologia</string>
   <string name="menu_clear_all_saved_pages">Cancella pagine salvate</string>
   <string name="page_does_not_exist_error">Questa pagina non esiste.</string>

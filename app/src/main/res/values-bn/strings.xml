@@ -9,6 +9,7 @@
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
+  <string name="page_error_back_to_main">ফিরে যাও</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
   <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
   <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
@@ -30,7 +31,7 @@
   <string name="saved_pages_search_list_hint">সংরক্ষিত পাতা অনুসন্ধান</string>
   <string name="saved_pages_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
   <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
-  <string name="menu_page_other_languages" fuzzy="true">অন্য ভাষায় পড়ুন</string>
+  <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
   <string name="menu_page_similar_titles">অনুরূপ শিরোনাম</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
@@ -40,6 +41,7 @@
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
   <string name="menu_text_select_copy">অনুলিপি</string>
+  <string name="menu_text_select_define">সংজ্ঞা</string>
   <string name="menu_text_select_share">বণ্টন</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="nearby_distance_in_meters">%d মি</string>
@@ -203,6 +205,7 @@
   <string name="widget_name_featured_page">উইকিপিডিয়া নির্বাচিত পাতা</string>
   <string name="widget_title_featured_page">আজকের নির্বাচিত পাতা:</string>
   <string name="widget_name_search">উইকিপিডিয়া অনুসন্ধান</string>
+  <string name="wiktionary_no_definitions_found">কোন সংজ্ঞা পাওয়া যায়নি</string>
   <string name="app_store_description">এন্ড্রয়েডের জন্য অফিসিয়াল উইকিপিডিয়া অ্যাপ। উইকিপিডিয়া মুক্ত বিশ্বকোষটিতে ২৮০টি ভাষায় ৩২০ লক্ষের অধিক নিবন্ধ রয়েছে, এবং মানুষের তৈরি সবচেয়ে ব্যাপক ও বহুল ব্যবহৃত একটি তথ্যসূত্র।
 
 বৈশিষ্ট্যসমূহ:

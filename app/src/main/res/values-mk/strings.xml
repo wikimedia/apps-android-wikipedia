@@ -9,6 +9,7 @@
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
+  <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="menu_clear_all_saved_pages">Исчисти ги сите зачувани страници</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>

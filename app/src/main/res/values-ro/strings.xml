@@ -9,6 +9,7 @@
   <string name="nav_item_history">Istoric</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
   <string name="page_error_retry">Reîncercare</string>
+  <string name="page_error_back_to_main">Înapoi</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
   <string name="menu_clear_all_saved_pages">Șterge paginile salvate</string>
   <string name="page_does_not_exist_error">Această pagină nu există.</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">Deschide în filă nouă</string>
   <string name="menu_long_press_copy_page">Copiază adresa legăturii</string>
   <string name="menu_text_select_copy">Copiază</string>
+  <string name="menu_text_select_define">Definire</string>
   <string name="menu_text_select_share">Distribuie</string>
   <string name="nav_item_nearby">În apropiere</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +206,7 @@
   <string name="widget_name_featured_page">Articol de calitate la Wikipedia</string>
   <string name="widget_title_featured_page">Articolul de calitate al zilei:</string>
   <string name="widget_name_search">Căutare Wikipedia</string>
+  <string name="wiktionary_no_definitions_found">Nicio definiție găsită.</string>
   <string name="app_store_description">Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire.
 
 Caracteristici:

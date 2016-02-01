@@ -9,6 +9,7 @@
   <string name="nav_item_history">Historik</string>
   <string name="error_network_error">Kan ikke oprette forbindelse til internettet.</string>
   <string name="page_error_retry">Prøv igen</string>
+  <string name="page_error_back_to_main">Gå tilbage</string>
   <string name="menu_clear_all_history">Ryd historik</string>
   <string name="menu_clear_all_saved_pages">Ryd gemte sider</string>
   <string name="page_does_not_exist_error">Denne side findes ikke.</string>
@@ -39,6 +40,7 @@
   <string name="menu_long_press_open_in_new_tab">Åbn i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier link-adresse</string>
   <string name="menu_text_select_copy">Kopier</string>
+  <string name="menu_text_select_define">Beskriv</string>
   <string name="menu_text_select_share">Del</string>
   <string name="nav_item_nearby">I nærheden</string>
   <string name="nearby_distance_in_meters">%d m</string>

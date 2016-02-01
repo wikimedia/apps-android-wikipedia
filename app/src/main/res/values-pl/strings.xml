@@ -9,6 +9,7 @@
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Nie można nawiązać połączenia z Internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
+  <string name="page_error_back_to_main">Wróć</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="menu_clear_all_saved_pages">Wyczyść listę zapisanych stron</string>
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>

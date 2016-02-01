@@ -9,6 +9,7 @@
   <string name="nav_item_history">历史</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
+  <string name="page_error_back_to_main">返回</string>
   <string name="menu_clear_all_history">清除历史</string>
   <string name="menu_clear_all_saved_pages">清除保存的页面</string>
   <string name="page_does_not_exist_error">该页面不存在。</string>

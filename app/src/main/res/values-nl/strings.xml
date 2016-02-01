@@ -9,6 +9,7 @@
   <string name="nav_item_history">Geschiedenis</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
+  <string name="page_error_back_to_main">Terug</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
   <string name="menu_clear_all_saved_pages">Opgeslagen pagina\'s verwijderen</string>
   <string name="page_does_not_exist_error">Deze pagina bestaat niet.</string>
@@ -242,6 +243,7 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_image_saved_notification_title">Afbeelding opgeslagen.</string>
   <string name="gallery_image_saved_notification_text">Raak aan om te bekijken.</string>
   <string name="gallery_error_video_failed">De video kan niet afgespeeld worden.</string>
+  <string name="gallery_save_image_write_permission_rationale">Er is toestemming vereist om naar de opslagmedia op je apparaat te mogen schrijven. Probeer het nogmaals, en geef a.u.b. de vereiste toestemming.</string>
   <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="expand_refs">Aantikken om te vergroten</string>

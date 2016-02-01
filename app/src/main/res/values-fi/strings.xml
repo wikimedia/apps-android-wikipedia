@@ -9,6 +9,7 @@
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
+  <string name="page_error_back_to_main">Takaisin</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
   <string name="menu_clear_all_saved_pages">Tyhjennä tallennetut sivut</string>
   <string name="page_does_not_exist_error">Tätä sivua ei ole.</string>

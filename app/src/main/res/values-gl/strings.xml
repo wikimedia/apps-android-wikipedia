@@ -9,6 +9,7 @@
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
+  <string name="page_error_back_to_main">Volver</string>
   <string name="menu_clear_all_history">Limpar o historial</string>
   <string name="menu_clear_all_saved_pages">Limpar as páxinas gardadas</string>
   <string name="page_does_not_exist_error">Esta páxina non existe.</string>

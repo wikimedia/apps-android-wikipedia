@@ -9,6 +9,7 @@
   <string name="nav_item_history">Historik</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
+  <string name="page_error_back_to_main">Gå tillbaka</string>
   <string name="menu_clear_all_history">Rensa historik</string>
   <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
   <string name="page_does_not_exist_error">Denna sida finns inte!</string>

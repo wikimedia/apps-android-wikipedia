@@ -9,6 +9,7 @@
   <string name="nav_item_history">歷史</string>
   <string name="error_network_error">無法與網際網路連線。</string>
   <string name="page_error_retry">重試</string>
+  <string name="page_error_back_to_main">返回</string>
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="menu_clear_all_saved_pages">清除已儲存的頁面</string>
   <string name="page_does_not_exist_error">此頁面不存在！</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">在新分頁開啟</string>
   <string name="menu_long_press_copy_page">複製連結網址</string>
   <string name="menu_text_select_copy">複製</string>
+  <string name="menu_text_select_define">定義</string>
   <string name="menu_text_select_share">分享</string>
   <string name="nav_item_nearby">附近</string>
   <string name="nearby_distance_in_meters">%d 公尺</string>
@@ -204,6 +206,7 @@
   <string name="widget_name_featured_page">維基百科焦點頁面</string>
   <string name="widget_title_featured_page">今日特色頁面：</string>
   <string name="widget_name_search">維基百科搜尋</string>
+  <string name="wiktionary_no_definitions_found">找不到定義。</string>
   <string name="app_store_description">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled.
 
 Features:
