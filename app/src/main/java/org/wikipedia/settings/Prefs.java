@@ -346,6 +346,18 @@ public final class Prefs {
         return contains(R.string.preference_key_feature_select_text_and_share_tutorials_enabled);
     }
 
+    public static boolean isFeatureReadMoreSearchOpeningTextEnabled() {
+        return getBoolean(R.string.preference_key_feature_read_more_search_opening_text, true);
+    }
+
+    public static void setFeatureReadMoreSearchOpeningTextEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_feature_read_more_search_opening_text, enabled);
+    }
+
+    public static boolean hasFeatureReadMoreSearchOpeningText() {
+        return contains(R.string.preference_key_feature_read_more_search_opening_text);
+    }
+
     public static boolean isTocTutorialEnabled() {
         return getBoolean(R.string.preference_key_toc_tutorial_enabled, true);
     }

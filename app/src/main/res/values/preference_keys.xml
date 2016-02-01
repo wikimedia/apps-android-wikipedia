@@ -16,6 +16,7 @@
     <string name="preference_key_select_text_tutorial_enabled">selectTextTutorialEnabled</string>
     <string name="preference_key_share_tutorial_enabled">shareTutorialEnabled</string>
     <string name="preference_key_feature_select_text_and_share_tutorials_enabled">featureSelectTextAndShareTutorialsEnabled</string>
+    <string name="preference_key_feature_read_more_search_opening_text">readMoreSearchOpeningText</string>
     <string name="preference_key_toc_tutorial_enabled">tocTutorialEnabled</string>
     <string name="preference_key_show_images">showImages</string>
     <string name="preference_key_use_restbase">useRestbase</string>
