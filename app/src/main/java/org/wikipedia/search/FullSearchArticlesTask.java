@@ -64,6 +64,11 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 .param("piprop", "thumbnail") // for thumbnail URLs
                 .param("pithumbsize", Integer.toString(thumbSize))
                 .param("pilimit", maxResultsString);
+        if (WikipediaApp.getInstance().isFeatureReadMoreSearchOpeningTextEnabled()) {
+            req.param("cirrusMltUseFields", "yes")
+                    .param("cirrusMltFields", "opening_text")
+                    .param("cirrusBoostLinks", "no");
+        }
         if (continueOffset != null) {
             req.param("continue", continueOffset.cont);
             if (continueOffset.gsroffset > 0) {

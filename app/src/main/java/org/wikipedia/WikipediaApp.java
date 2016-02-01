@@ -407,6 +407,17 @@ public class WikipediaApp extends Application {
         return enabled;
     }
 
+    public boolean isFeatureReadMoreSearchOpeningTextEnabled() {
+        boolean enabled;
+        if (Prefs.hasFeatureReadMoreSearchOpeningText()) {
+            enabled = Prefs.isFeatureReadMoreSearchOpeningTextEnabled();
+        } else {
+            enabled = new Random().nextInt(2) == 0;
+            Prefs.setFeatureReadMoreSearchOpeningTextEnabled(enabled);
+        }
+        return enabled;
+    }
+
     /**
      * Gets the currently-selected theme for the app.
      * @return Theme that is currently selected, which is the actual theme ID that can

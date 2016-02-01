@@ -312,11 +312,13 @@ public class BottomContentHandler implements BottomContentInterface,
         }
         final int maxResultItems = 3;
         final int numRequestItems = 5;
+        final long timeMillis = System.currentTimeMillis();
         new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
                 myTitle.getPrefixedText(), numRequestItems, maxResultItems,
                 (int)(parentFragment.getActivity().getResources().getDimension(R.dimen.leadImageWidth) / displayDensity), false) {
             @Override
             public void onFinish(SearchResults results) {
+                funnel.setLatency(System.currentTimeMillis() - timeMillis);
                 readMoreItems = results;
                 if (!readMoreItems.getPageTitles().isEmpty()) {
                     // If there are results, set up section and make sure it's visible
@@ -358,7 +360,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     public void setTitle(PageTitle newTitle) {
         pageTitle = newTitle;
-        funnel = new SuggestedPagesFunnel(app, true);
+        funnel = new SuggestedPagesFunnel(app);
     }
 
     private void setUpReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
