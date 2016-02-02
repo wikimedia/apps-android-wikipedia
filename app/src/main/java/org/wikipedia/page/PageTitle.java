@@ -177,7 +177,6 @@ public class PageTitle implements Parcelable {
             json.put("site", site.getDomain());
             return json;
         } catch (JSONException e) {
-            // This will also never happen
             throw new RuntimeException(e);
         }
     }
@@ -192,7 +191,6 @@ public class PageTitle implements Parcelable {
             json.put("description", getDescription());
             return json;
         } catch (JSONException e) {
-            // This will also never happen
             throw new RuntimeException(e);
         }
     }
@@ -217,7 +215,6 @@ public class PageTitle implements Parcelable {
                     (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
             );
         } catch (UnsupportedEncodingException e) {
-            // This shouldn't happen
             throw new RuntimeException(e);
         }
     }
@@ -240,7 +237,6 @@ public class PageTitle implements Parcelable {
                     action
             );
         } catch (UnsupportedEncodingException e) {
-            // This shouldn't happen
             throw new RuntimeException(e);
         }
     }

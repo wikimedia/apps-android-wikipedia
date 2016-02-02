@@ -38,7 +38,6 @@ public class Section {
             data.put("text", text);
             return data;
         } catch (JSONException e) {
-            // This should never happen
             throw new RuntimeException(e);
         }
     }

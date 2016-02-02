@@ -159,7 +159,6 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                             mode.finish();
                             return true;
                         } else {
-                            // This can't happen
                             throw new RuntimeException("Unknown context menu item clicked");
                         }
                     }

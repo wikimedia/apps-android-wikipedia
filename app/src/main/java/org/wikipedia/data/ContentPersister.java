@@ -19,7 +19,6 @@ public abstract class ContentPersister<T> {
         try {
             client.insert(uri, persistenceHelper.toContentValues(obj));
         } catch (RemoteException e) {
-            // This shouldn't happen
             throw new RuntimeException(e);
         }
     }
@@ -30,7 +29,6 @@ public abstract class ContentPersister<T> {
         try {
             c = client.query(uri, null, selection, selectionArgs, sortOrder);
         } catch (RemoteException e) {
-            // This shouldn't happen
             throw new RuntimeException(e);
         }
         return c;
@@ -45,7 +43,6 @@ public abstract class ContentPersister<T> {
         try {
             client.delete(uri, selection, selectionArgs);
         } catch (RemoteException e) {
-            // This also shouldn't happen
             throw new RuntimeException(e);
         }
     }

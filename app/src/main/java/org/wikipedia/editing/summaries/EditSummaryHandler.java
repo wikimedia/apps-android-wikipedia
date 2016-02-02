@@ -51,7 +51,6 @@ public class EditSummaryHandler {
                             new String[] {charSequence + "%"},
                             "lastUsed DESC");
                 } catch (RemoteException e) {
-                    // This shouldn't really be happening
                     throw new RuntimeException(e);
                 } finally {
                     client.release();

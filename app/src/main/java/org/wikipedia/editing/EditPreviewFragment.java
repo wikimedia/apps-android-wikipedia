@@ -276,7 +276,6 @@ public class EditPreviewFragment extends Fragment {
         try {
             payload.put("html", html);
         } catch (JSONException e) {
-            // Not happening
             throw new RuntimeException(e);
         }
         bridge.sendMessage("displayPreviewHTML", payload);

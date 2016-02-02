@@ -128,7 +128,6 @@ public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
             json.put("site", page.getTitle().getSite().getDomain());
             return StringUtil.md5string(json.toString());
         } catch (JSONException e) {
-            // This will also never happen
             throw new RuntimeException(e);
         }
     }

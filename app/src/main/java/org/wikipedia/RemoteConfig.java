@@ -22,7 +22,6 @@ public class RemoteConfig {
                 // If there's no pref set, just give back the empty JSON Object
                 curConfig = new JSONObject(Prefs.getRemoteConfigJson());
             } catch (JSONException e) {
-                // This shouldn't be happening, and if it does I'd like a crash report
                 throw new RuntimeException(e);
             }
         }

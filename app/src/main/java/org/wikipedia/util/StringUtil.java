@@ -118,11 +118,7 @@ public final class StringUtil {
             for (byte b : messageDigest) {
                 hexStr.append(Integer.toHexString(maxByteVal & b));
             }
-        } catch (NoSuchAlgorithmException e) {
-            // This will never happen, yes.
-            throw new RuntimeException(e);
-        } catch (UnsupportedEncodingException e) {
-            // This will never happen, yes.
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
         return hexStr.toString();

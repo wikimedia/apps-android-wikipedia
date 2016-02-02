@@ -61,7 +61,7 @@ public final class ImageUrlMap {
             json.put("img_map", mapJSON);
             return json;
         } catch (JSONException e) {
-            throw new RuntimeException(e); // never
+            throw new RuntimeException(e);
         }
     }
 

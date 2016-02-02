@@ -55,7 +55,6 @@ public class StyleBundle {
             json.put("style_paths", stylesJSON);
             return json;
         } catch (JSONException e) {
-            // This never happens
             throw new RuntimeException(e);
         }
     }

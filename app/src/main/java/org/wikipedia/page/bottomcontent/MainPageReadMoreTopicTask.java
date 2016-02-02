@@ -43,7 +43,6 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
                             Integer.toString(HistoryEntry.SOURCE_RANDOM)},
                     "timestamp DESC");
         } catch (RemoteException e) {
-            // This shouldn't really be happening
             throw new RuntimeException(e);
         } finally {
             client.release();

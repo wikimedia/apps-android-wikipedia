@@ -30,7 +30,6 @@ public class NightModeHandler {
             payload.put("nightStyleBundle",
                     StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_NIGHT_MODE).toJSON());
         } catch (JSONException e) {
-            // This shouldn't happen
             throw new RuntimeException(e);
         }
         return payload;

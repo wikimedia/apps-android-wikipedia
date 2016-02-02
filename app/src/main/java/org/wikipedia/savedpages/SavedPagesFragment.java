@@ -127,7 +127,6 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                                 actionMode.finish();
                                 return true;
                             default:
-                                // This can't happen
                                 throw new RuntimeException("Unknown context menu item clicked");
                         }
                     }

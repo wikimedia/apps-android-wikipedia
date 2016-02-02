@@ -47,7 +47,6 @@ public class AlphaUpdateChecker extends RecurringTask {
         try {
             meta = new JSONObject(responseJSON);
         } catch (JSONException e) {
-            // This never happens
             throw new RuntimeException(e);
         }
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

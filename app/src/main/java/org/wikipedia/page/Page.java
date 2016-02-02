@@ -169,7 +169,6 @@ public class Page {
             }
             return json;
         } catch (JSONException e) {
-            // This will never happen. Java stinks.
             throw new RuntimeException(e);
         }
     }
