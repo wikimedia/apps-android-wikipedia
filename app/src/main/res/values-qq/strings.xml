@@ -326,9 +326,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
 {{Identical|Share}}</string>
   <string name="gallery_share_error">Error message shown when there was a problem with sharing the image. The \"%s\" symbol is replaced with the actual error message from the system.</string>
   <string name="gallery_menu_save">Label for menu item to save the current image to the Media collection on the local device.</string>
-  <string name="gallery_save_success">Toast message shown when the current image was saved successfully to the local device.</string>
-  <string name="gallery_image_saved_notification_title">Message shown when an image is saved to the device.</string>
-  <string name="gallery_image_saved_notification_text">Message inviting the user to touch the notification to view the saved image.</string>
+  <string name="gallery_save_progress">Message shown when the current media item is being downloaded.</string>
+  <string name="gallery_save_success">Message shown when the current media item was saved successfully to the local device.</string>
   <string name="gallery_error_video_failed">Error message displayed when a video fails to be played on the device.</string>
   <string name="gallery_save_image_write_permission_rationale">Message shown to explain that an extra write permission is needed to save an image.</string>
   <string name="err_cannot_save_file">Error message when we detect that a file cannot be written to storage.</string>

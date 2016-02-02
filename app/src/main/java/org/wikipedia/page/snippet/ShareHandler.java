@@ -327,7 +327,7 @@ class PreviewDialog extends BottomDialog {
                                 title.getDisplayText(),
                                 UriUtil.getUrlWithProvenance(activity, title, R.string.prov_share_image));
                         ShareUtil.shareImage(activity, resultBitmap, title.getDisplayText(),
-                                title.getDisplayText(), introText, false);
+                                title.getDisplayText(), introText);
                         funnel.logShareIntent(selectedText, ShareMode.image);
                         completed = true;
                     }

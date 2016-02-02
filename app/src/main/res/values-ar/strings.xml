@@ -228,8 +228,6 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_menu_save">الحفظ في الجهاز</string>
   <string name="gallery_save_success">حُفظت الصورة بنجاح.</string>
-  <string name="gallery_image_saved_notification_title">حُفظت الصورة.</string>
-  <string name="gallery_image_saved_notification_text">اضغط للعرض.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">مطلوب إذن الكتابة في ذاكرة التخزين على جهازك لحفظ الصور. يرجى المحاولة مرة أخرى، مع منح الإذن المطلوب.</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>

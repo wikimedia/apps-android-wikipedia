@@ -3,7 +3,6 @@ package org.wikipedia.page.leadimages;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -133,10 +132,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     public Bitmap copyBitmap() {
-        Bitmap returnedBitmap = Bitmap.createBitmap(image.getWidth(), image.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(returnedBitmap);
-        image.draw(canvas);
-        return returnedBitmap;
+        return ViewUtil.getBitmapFromView(image);
     }
 
     public void setImageYScalar(float offset) {

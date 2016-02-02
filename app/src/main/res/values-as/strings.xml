@@ -231,8 +231,6 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_share_error">ছবিখন শ্বেয়াৰ কৰিব পৰা নগ\'ল: %s</string>
   <string name="gallery_menu_save">সঁজুলিত সাঁচি থওক</string>
   <string name="gallery_save_success">ছবিখন সফলতাৰে সঞ্চিত হ\'ল।</string>
-  <string name="gallery_image_saved_notification_title">ছবিখন সঞ্চিত হ\'ল।</string>
-  <string name="gallery_image_saved_notification_text">চাবলৈ স্পৰ্শ কৰক।</string>
   <string name="gallery_error_video_failed">ভিডিঅ\'টো চলাব পৰা নগ\'ল।</string>
   <string name="err_cannot_save_file">ফাইল সাঁচিব পৰা নগ\'ল</string>
   <string name="expand_refs">বহলাবলৈ টেপ্‌ কৰক</string>

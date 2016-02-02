@@ -226,7 +226,5 @@ Felhasználási feltételek: https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="gallery_menu_share">Megosztás</string>
   <string name="gallery_menu_save">Mentés az eszközre</string>
   <string name="gallery_save_success">A kép sikeresen mentve.</string>
-  <string name="gallery_image_saved_notification_title">A kép eltárolva.</string>
-  <string name="gallery_image_saved_notification_text">Érintse meg a megtekintéshez.</string>
   <string name="error_unknown">Ismeretlen hiba történt.</string>
 </resources>

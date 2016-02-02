@@ -240,8 +240,6 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
   <string name="gallery_share_error">Kunde inte dela bilden: %s</string>
   <string name="gallery_menu_save">Spara till enheten</string>
   <string name="gallery_save_success">Bilden har sparats.</string>
-  <string name="gallery_image_saved_notification_title">Bilden sparades.</string>
-  <string name="gallery_image_saved_notification_text">Tryck för att visa.</string>
   <string name="gallery_error_video_failed">Kan inte spela upp video.</string>
   <string name="gallery_save_image_write_permission_rationale">Behörighet för att skriva till lagringsutrymmet på din enhet krävs för att spara bilder. Försök igen och bevilja behörigheten.</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>

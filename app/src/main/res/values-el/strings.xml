@@ -223,7 +223,6 @@
   <string name="gallery_menu_share">Κοινοποίηση</string>
   <string name="gallery_menu_save">Αποθήκευση στη συσκευή</string>
   <string name="gallery_save_success">Η εικόνα αποθηκεύτηκε επιτυχώς</string>
-  <string name="gallery_image_saved_notification_title">Η εικόνα αποθηκεύτηκε</string>
   <string name="snippet_share_intro">\"%1$s\" στη @Wikipedia: %2$s</string>
   <string name="expand_refs">Πατήστε για να επεκτείνετε</string>
   <string name="share_snippet_button">Μοιραστείτε ως εικόνα</string>

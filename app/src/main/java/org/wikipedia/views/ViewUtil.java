@@ -1,6 +1,8 @@
 package org.wikipedia.views;
 
 import android.annotation.TargetApi;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -72,6 +74,13 @@ public final class ViewUtil {
                         ? Uri.parse(url) : null)
                 .setAutoPlayAnimations(true)
                 .build());
+    }
+
+    public static Bitmap getBitmapFromView(View view) {
+        Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(returnedBitmap);
+        view.draw(canvas);
+        return returnedBitmap;
     }
 
     private ViewUtil() { }

@@ -3,7 +3,6 @@ package org.wikipedia.page.gallery;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -11,15 +10,12 @@ import org.wikipedia.util.ShareUtil;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.content.ContentValues;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Animatable;
-import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -40,8 +36,6 @@ import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.util.Map;
 
 public class GalleryItemFragment extends Fragment {
@@ -49,7 +43,6 @@ public class GalleryItemFragment extends Fragment {
     public static final String ARG_PAGETITLE = "pageTitle";
     public static final String ARG_MEDIATITLE = "imageTitle";
     public static final String ARG_MIMETYPE = "mimeType";
-    private static final String FILE_NAMESPACE = "File:";
     private static final int WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST = 44;
 
 
@@ -178,11 +171,6 @@ public class GalleryItemFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean isVideo() {
-        return (mimeType.contains("ogg")
-                || mimeType.contains("video"));
-    }
-
     /**
      * Notifies this fragment that the current position of its containing ViewPager has changed.
      *
@@ -214,7 +202,7 @@ public class GalleryItemFragment extends Fragment {
     private void loadGalleryItem() {
         updateProgressBar(true, true, 0);
         new GalleryItemFetchTask(app.getAPIForSite(pageTitle.getSite()),
-                pageTitle.getSite(), imageTitle, isVideo()) {
+                pageTitle.getSite(), imageTitle, FileUtil.isVideo(mimeType)) {
             @Override
             public void onFinish(Map<PageTitle, GalleryItem> result) {
                 if (!isAdded()) {
@@ -247,7 +235,7 @@ public class GalleryItemFragment extends Fragment {
      * Load the actual media associated with our gallery item into the UI.
      */
     private void loadMedia() {
-        if (isVideo()) {
+        if (FileUtil.isVideo(mimeType)) {
             loadVideo();
         } else {
             // it's actually OK to use the thumbUrl in all cases, and here's why:
@@ -385,12 +373,19 @@ public class GalleryItemFragment extends Fragment {
             return;
         }
         parentActivity.getFunnel().logGalleryShare(pageTitle, galleryItem.getName());
-        ShareUtil.shareImage(parentActivity,
-                ((BitmapDrawable) imageView.getDrawable()).getBitmap(),
-                new java.io.File(galleryItem.getUrl()).getName(),
-                pageTitle.getDisplayText(),
-                "",
-                false);
+        new ImagePipelineBitmapGetter(getActivity(), galleryItem.getThumbUrl()){
+            @Override
+            public void onSuccess(Bitmap bitmap) {
+                if (!isAdded()) {
+                    return;
+                }
+                ShareUtil.shareImage(parentActivity,
+                        bitmap,
+                        new java.io.File(galleryItem.getUrl()).getName(),
+                        pageTitle.getDisplayText(),
+                        imageTitle.getCanonicalUri());
+            }
+        }.get();
     }
 
     /**
@@ -430,61 +425,12 @@ public class GalleryItemFragment extends Fragment {
         }
     }
 
-    /**
-     * Save the current image to the MediaStore of the local device ("Photos" / "Gallery" / etc).
-     */
     private void saveImage() {
         if (galleryItem == null) {
             return;
         }
         parentActivity.getFunnel().logGallerySave(pageTitle, galleryItem.getName());
-
-        final Bitmap savedImageBitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-
-        new SaneAsyncTask<Uri>() {
-            @Override
-            public Uri performTask() throws Throwable {
-                String saveFilename = trimFileNamespace(galleryItem.getName().replace(' ', '_'));
-                ByteArrayOutputStream bytes = FileUtil.compressBmpToJpg(savedImageBitmap);
-                File savedImageFile = FileUtil.writeToFile(bytes,
-                        new File(FileUtil.getWikipediaImagesDirectory(), saveFilename));
-                notifyContentResolver(savedImageFile.getAbsolutePath(), saveFilename);
-                return Uri.fromFile(savedImageFile);
-            }
-
-            @Override
-            public void onFinish(Uri contentUri) {
-                if (!isAdded()) {
-                    return;
-                }
-                FeedbackUtil.showMessage(parentActivity, R.string.gallery_save_success);
-                SavedImageNotificationHelper.displayImageSavedNotification(imageTitle.getText(),
-                        imageTitle.getCanonicalUri(),
-                        savedImageBitmap,
-                        contentUri);
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                if (!isAdded()) {
-                    return;
-                }
-                FeedbackUtil.showError(parentActivity, caught);
-            }
-        }.execute();
-    }
-
-    private String trimFileNamespace(String filename) {
-        return filename.startsWith(FILE_NAMESPACE) ? filename.substring(FILE_NAMESPACE.length()) : filename;
-    }
-
-    private void notifyContentResolver(String path, String filename) {
-        ContentValues values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE, filename);
-        values.put(MediaStore.Images.Media.DISPLAY_NAME, imageTitle.getText());
-        values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
-        values.put(MediaStore.Images.Media.DATA, path);
-        parentActivity.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        ((GalleryActivity) getActivity()).getDownloadReceiver().download(galleryItem);
     }
 
     private boolean shouldHaveWhiteBackground(String mimeType) {

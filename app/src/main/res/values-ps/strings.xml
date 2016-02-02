@@ -145,7 +145,6 @@
   <string name="gallery_menu_share">شريکول</string>
   <string name="gallery_menu_save">وزلې کې خوندي کول</string>
   <string name="gallery_save_success">انځور برياليتوب سره خوندي شو.</string>
-  <string name="gallery_image_saved_notification_title">مخ خوندي شو.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
   <string name="err_cannot_save_file">دوتنه د خوندي کولو وړ نه ده</string>
   <string name="snippet_share_intro">\"%1$s\" په @Wikipedia: %2$s</string>

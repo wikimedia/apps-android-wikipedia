@@ -239,8 +239,6 @@
   <string name="gallery_share_error">امکان به اشتراک‌گذاری تصویر نیست: %s</string>
   <string name="gallery_menu_save">ذخیره در ابزار</string>
   <string name="gallery_save_success">صفحه با موفقیت ذخیره‌شده‌است</string>
-  <string name="gallery_image_saved_notification_title">تصویر ذخیره شده</string>
-  <string name="gallery_image_saved_notification_text">برای دیدن لمس کنید.</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است. بعد از اعطای دسترسی‌های مورد درخواست از نو تلاش کنید.</string>
   <string name="err_cannot_save_file">امکان ذخیره پرونده وجود ندارد</string>

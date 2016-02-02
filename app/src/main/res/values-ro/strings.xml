@@ -240,8 +240,6 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
   <string name="gallery_menu_save">Salvează în dispozitiv</string>
   <string name="gallery_save_success">Imagine salvată cu succes.</string>
-  <string name="gallery_image_saved_notification_title">Imagine salvată.</string>
-  <string name="gallery_image_saved_notification_text">Atingeți pentru a vizualiza.</string>
   <string name="gallery_error_video_failed">Filmul nu a putut fi redat.</string>
   <string name="gallery_save_image_write_permission_rationale">Pentru salvarea imaginilor este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului. Încercați din nou și oferiți permisiunea solicitată.</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>

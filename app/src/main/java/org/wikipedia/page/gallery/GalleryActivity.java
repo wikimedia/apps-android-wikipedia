@@ -19,7 +19,9 @@ import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ViewUtil;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -65,6 +67,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
     private ViewPager galleryPager;
     private GalleryItemAdapter galleryAdapter;
+    private MediaDownloadReceiver downloadReceiver;
 
     /**
      * Cache that stores GalleryItem information for each corresponding media item in
@@ -115,11 +118,13 @@ public class GalleryActivity extends ThemedActionBarActivity {
         }
     };
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // force the theme to dark...
         setTheme(Theme.DARK.getResourceId());
         app = (WikipediaApp)getApplicationContext();
+        downloadReceiver = new MediaDownloadReceiver(this);
 
         setContentView(R.layout.activity_gallery);
         final Toolbar toolbar = (Toolbar) findViewById(R.id.gallery_toolbar);
@@ -215,6 +220,18 @@ public class GalleryActivity extends ThemedActionBarActivity {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        registerReceiver(downloadReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unregisterReceiver(downloadReceiver);
+    }
+
     /**
      * Launch the image gallery activity, and start with the provided image.
      * @param imageTitle Image with which to begin the gallery.
@@ -285,6 +302,10 @@ public class GalleryActivity extends ThemedActionBarActivity {
             funnel.logGalleryClose(pageTitle, getCurrentItem().getName());
         }
         super.onBackPressed();
+    }
+
+    public MediaDownloadReceiver getDownloadReceiver() {
+        return downloadReceiver;
     }
 
     /**

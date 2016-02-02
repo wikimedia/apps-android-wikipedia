@@ -237,8 +237,6 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
   <string name="gallery_menu_save">Lagre på enheten</string>
   <string name="gallery_save_success">Bildet ble lagret.</string>
-  <string name="gallery_image_saved_notification_title">Bilde ble lagret.</string>
-  <string name="gallery_image_saved_notification_text">Trykk for å vise.</string>
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilgang til lagring på enheten trengs for å lagre bilder. Vennligst prøv igjen og gi den nødvendige autorisasjonen.</string>
   <string name="err_cannot_save_file">Kunne ikke lagre filen</string>

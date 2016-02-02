@@ -210,8 +210,6 @@
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
   <string name="gallery_save_success">სურათი წარმატებით შეინახა.</string>
-  <string name="gallery_image_saved_notification_title">სურათი შენახულია.</string>
-  <string name="gallery_image_saved_notification_text">სანახავად შეეხეთ.</string>
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
   <string name="gallery_save_image_write_permission_rationale">თქვენი მოწყობილობის მეხსიერებაში ჩასაწერად საჭიროა ნებართვა. გთხოვთ სცადეთ კიდევ, და მიანიჭეთ მოთხოვნილი ნებართვა.</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>

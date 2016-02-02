@@ -199,8 +199,6 @@
   <string name="gallery_menu_share">सहभाग करा</string>
   <string name="gallery_menu_save">उपकरणात जतन करा</string>
   <string name="gallery_save_success">चित्र यशस्वीरित्या जतन केले आहे.</string>
-  <string name="gallery_image_saved_notification_title">चित्र जतन केले आहे.</string>
-  <string name="gallery_image_saved_notification_text">दिसण्यासाठी स्पर्श करा.</string>
   <string name="gallery_error_video_failed">व्हिडिओ चालवता आला नाही.</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रे जतन करण्यास, आपल्या उपकरणावर, भांडार-लेखन परवानगी आवश्यक आहे. पुन्हा प्रयत्न करा व विनंती केलेली परवानगी द्या.</string>
   <string name="err_cannot_save_file">संचिका जतन करता येत नाही.</string>

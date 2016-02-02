@@ -213,7 +213,6 @@
   <string name="gallery_share_error">చిత్రాన్ని భాగ్యపరచలేకపోయాము : %s</string>
   <string name="gallery_menu_save">పరికరానికి భద్రపరుచు</string>
   <string name="gallery_save_success">బొమ్మ విజయవంతంగా భద్రపరచబడింది.</string>
-  <string name="gallery_image_saved_notification_text">చూడడానికి తాకండి.</string>
   <string name="gallery_error_video_failed">దృశ్యకాన్ని ప్రదర్శించలేకపోతున్నాము.</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
   <string name="snippet_share_intro">\@Wikipedia పై \"%1$s\" : %2$s</string>

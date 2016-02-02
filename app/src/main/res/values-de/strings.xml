@@ -240,8 +240,6 @@ Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</str
   <string name="gallery_share_error">Bild konnte nicht geteilt werden: %s</string>
   <string name="gallery_menu_save">In Gerät speichern</string>
   <string name="gallery_save_success">Bild erfolgreich gespeichert.</string>
-  <string name="gallery_image_saved_notification_title">Bild gespeichert.</string>
-  <string name="gallery_image_saved_notification_text">Berühren zum Ansehen.</string>
   <string name="gallery_error_video_failed">Das Video konnte nicht abgespielt werden.</string>
   <string name="gallery_save_image_write_permission_rationale">Zum Speichern von Bildern ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich. Bitte versuche es erneut und gewähre die geforderte Berechtigung.</string>
   <string name="err_cannot_save_file">Datei konnte nicht gespeichert werden</string>

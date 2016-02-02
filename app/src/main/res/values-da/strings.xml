@@ -236,8 +236,6 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_menu_save">Gem til enhed</string>
   <string name="gallery_save_success">Billedet er gemt med succes.</string>
-  <string name="gallery_image_saved_notification_title">Billede gemt.</string>
-  <string name="gallery_image_saved_notification_text">Tryk for at vise.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
   <string name="err_cannot_save_file">Kan ikke gemme filen</string>
   <string name="snippet_share_intro">«%1$s» på @Wikipedia: %2$s</string>

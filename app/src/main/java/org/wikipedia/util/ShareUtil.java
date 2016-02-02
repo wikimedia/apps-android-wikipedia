@@ -63,11 +63,11 @@ public final class ShareUtil {
      */
     public static void shareImage(final Context context, final Bitmap bmp,
                                   final String imageFileName, final String subject,
-                                  final String text, final boolean recycleBmp) {
+                                  final String text) {
         new SaneAsyncTask<Uri>() {
             @Override
             public Uri performTask() throws Throwable {
-                File processedBitmap = processBitmapForSharing(context, bmp, imageFileName, recycleBmp);
+                File processedBitmap = processBitmapForSharing(context, bmp, imageFileName);
                 return getUri(context, processedBitmap);
             }
 
@@ -102,20 +102,13 @@ public final class ShareUtil {
     }
 
     private static File processBitmapForSharing(final Context context, final Bitmap bmp,
-                                                final String imageFileName, final boolean recycleBmp)
-                                                                throws IOException {
+                                                final String imageFileName) throws IOException {
         File shareFolder = getClearShareFolder(context);
         if (shareFolder == null) {
             return null;
         }
         shareFolder.mkdirs();
-
         ByteArrayOutputStream bytes = FileUtil.compressBmpToJpg(bmp);
-
-        if (recycleBmp) {
-            bmp.recycle();
-        }
-
         return FileUtil.writeToFile(bytes, new File(shareFolder, cleanFileName(imageFileName)));
     }
 

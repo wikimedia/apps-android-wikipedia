@@ -240,8 +240,6 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="gallery_share_error">Impossible de partager l’image : %s</string>
   <string name="gallery_menu_save">Enregistrer sur l’appareil</string>
   <string name="gallery_save_success">Image bien enregistrée.</string>
-  <string name="gallery_image_saved_notification_title">Image enregistrée.</string>
-  <string name="gallery_image_saved_notification_text">Toucher pour afficher.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
   <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans le stockage de votre appareil est nécessaire pour enregistrer des images. Veuillez réessayer, et accorder la permission demandée.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>

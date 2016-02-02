@@ -197,7 +197,6 @@
   <string name="gallery_share_error">%s படிமத்தை பகிர இயலவில்லை</string>
   <string name="gallery_menu_save">கைபேசியில் சேமி</string>
   <string name="gallery_save_success">அமைகை வெற்றிகரமாக சேமிக்கப்பட்டது</string>
-  <string name="gallery_image_saved_notification_title">அமைகை சேமிக்கப்பட்டது.</string>
   <string name="gallery_error_video_failed">காணொளியை இயக்க இயலவில்லை.</string>
   <string name="err_cannot_save_file">ஆவணத்தை சேமிக்க முடியாது.</string>
   <string name="share_snippet_button">அமைகையாக பகிர்.</string>
