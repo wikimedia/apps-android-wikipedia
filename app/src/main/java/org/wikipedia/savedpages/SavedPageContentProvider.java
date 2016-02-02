@@ -4,6 +4,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+
 import org.wikipedia.data.SQLiteContentProvider;
 import org.wikipedia.pageimages.PageImage;
 
@@ -27,7 +29,7 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         if (projection != null) {
             throw new UnsupportedOperationException("Projection is pre-set, must always be null");
         }
@@ -61,7 +63,7 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
                 return super.query(uri, projection, selection, selectionArgs, sortOrder);
         }
 
-        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        cursor.setNotificationUri(getContentResolver(), uri);
         return cursor;
     }
 }

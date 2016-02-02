@@ -92,7 +92,7 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
     }
 
     @Override
-    protected String getPrimaryKeySelection(@NonNull PageImage obj, String[] selectionArgs) {
+    protected String getPrimaryKeySelection(@NonNull PageImage obj, @NonNull String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 

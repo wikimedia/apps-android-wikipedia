@@ -1,13 +1,16 @@
 package org.wikipedia.data;
 
 import android.content.ContentProvider;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.UriMatcher;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.WikipediaApp;
@@ -33,11 +36,12 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     @Override
     public boolean onCreate() {
         uriMatcher.addURI(getAuthority(), getTableName(), MATCH_ALL);
-        return false;
+        return true;
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection,
+                        String[] selectionArgs, String sortOrder) {
         SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
         queryBuilder.setTables(getTableName());
 
@@ -54,18 +58,20 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
                 throw new IllegalArgumentException("Uri " + uri + " does not match any matcher!");
         }
 
-        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        cursor.setNotificationUri(getContentResolver(), uri);
 
         return cursor;
     }
 
+    @Nullable
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         return null;
     }
 
+    @Nullable
     @Override
-    public Uri insert(Uri uri, ContentValues values) {
+    public Uri insert(@NonNull Uri uri, ContentValues values) {
         int uriType = uriMatcher.match(uri);
         SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
         switch (uriType) {
@@ -75,12 +81,12 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
-        getContext().getContentResolver().notifyChange(uri, null);
+        notifyChange(uri, null);
         return uri;
     }
 
     @Override
-    public int delete(Uri uri, String selection, String[] selectionArgs) {
+    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
         int rows = 0;
         int uriType = uriMatcher.match(uri);
 
@@ -96,12 +102,12 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI" + uri);
         }
-        getContext().getContentResolver().notifyChange(uri, null);
+        notifyChange(uri, null);
         return rows;
     }
 
     @Override
-    public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+    public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         int uriType = uriMatcher.match(uri);
         SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
         int modifiedRows;
@@ -112,12 +118,12 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
-        getContext().getContentResolver().notifyChange(uri, null);
+        notifyChange(uri, null);
         return modifiedRows;
     }
 
     @Override
-    public int bulkInsert(Uri uri, @NonNull ContentValues[] values) {
+    public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
         int uriType = uriMatcher.match(uri);
         SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
         sqlDB.beginTransaction();
@@ -132,7 +138,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         }
         sqlDB.setTransactionSuccessful();
         sqlDB.endTransaction();
-        getContext().getContentResolver().notifyChange(uri, null);
+        notifyChange(uri, null);
         return values.length;
     }
 
@@ -146,5 +152,16 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
 
     public static String getAuthorityForTable(String table) {
         return BuildConfig.APPLICATION_ID + "." + table;
+    }
+
+    protected void notifyChange(@NonNull Uri uri, @Nullable ContentObserver observer) {
+        if (getContentResolver() != null) {
+            getContentResolver().notifyChange(uri, observer);
+        }
+    }
+
+    @Nullable
+    protected ContentResolver getContentResolver() {
+        return getContext() == null ? null : getContext().getContentResolver();
     }
 }

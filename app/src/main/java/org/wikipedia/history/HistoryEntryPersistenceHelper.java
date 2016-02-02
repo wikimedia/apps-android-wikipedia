@@ -75,7 +75,8 @@ public class HistoryEntryPersistenceHelper extends PersistenceHelper<HistoryEntr
     }
 
     @Override
-    protected String getPrimaryKeySelection(@NonNull HistoryEntry obj, String[] selectionArgs) {
+    protected String getPrimaryKeySelection(@NonNull HistoryEntry obj,
+                                            @NonNull String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 

@@ -59,7 +59,7 @@ public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary>
     }
 
     @Override
-    protected String getPrimaryKeySelection(@NonNull EditSummary obj, String[] selectionArgs) {
+    protected String getPrimaryKeySelection(@NonNull EditSummary obj, @NonNull String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 

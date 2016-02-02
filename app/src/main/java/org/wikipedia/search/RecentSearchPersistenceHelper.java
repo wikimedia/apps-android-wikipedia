@@ -59,7 +59,7 @@ public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearc
     }
 
     @Override
-    protected String getPrimaryKeySelection(@NonNull RecentSearch obj, String[] selectionArgs) {
+    protected String getPrimaryKeySelection(@NonNull RecentSearch obj, @NonNull String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
