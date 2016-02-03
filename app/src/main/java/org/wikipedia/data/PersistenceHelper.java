@@ -15,7 +15,7 @@ import java.util.List;
 import static org.wikipedia.util.StringUtil.removeNulls;
 
 public abstract class PersistenceHelper<T> {
-
+    protected static final int INITIAL_DB_VERSION = 1;
     private static final int MIN_VERSION_NORMALIZED_TITLES = 8;
 
     public static class Column{
@@ -85,9 +85,7 @@ public abstract class PersistenceHelper<T> {
      */
     protected abstract String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull T obj);
 
-    protected int getDBVersionIntroducedAt() {
-        return 1;
-    }
+    protected abstract int getDBVersionIntroducedAt();
 
     public List<Column> getElements(int fromVersion, int toVersion) {
          List<Column> columns = new ArrayList<>();
