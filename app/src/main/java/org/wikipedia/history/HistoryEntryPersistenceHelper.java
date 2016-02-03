@@ -1,6 +1,8 @@
 package org.wikipedia.history;
 
+import android.content.ContentProviderClient;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -72,6 +74,11 @@ public class HistoryEntryPersistenceHelper extends PersistenceHelper<HistoryEntr
             default:
                 return new Column[0];
         }
+    }
+
+    @Override
+    public ContentProviderClient acquireClient(@NonNull Context context) {
+        return acquireTableNameClient(context);
     }
 
     @Override

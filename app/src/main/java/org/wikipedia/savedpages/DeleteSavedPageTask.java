@@ -1,8 +1,10 @@
 package org.wikipedia.savedpages;
 
 import android.content.Context;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.data.ContentPersister;
 
 public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
     private final WikipediaApp app;
@@ -16,7 +18,7 @@ public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
     @Override
     public Boolean performTask() throws Throwable {
         savedPage.deleteFromFileSystem();
-        SavedPagePersister persister = (SavedPagePersister) app.getPersister(SavedPage.class);
+        ContentPersister<SavedPage> persister = app.getPersister(SavedPage.class);
         persister.delete(savedPage, SavedPagePersistenceHelper.SELECTION_KEYS);
         WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(savedPage.getTitle().getSite()).logDelete();
         return true;

@@ -1,5 +1,6 @@
 package org.wikipedia.savedpages;
 
+import org.wikipedia.data.ContentPersister;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -29,7 +30,7 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
     public Boolean performTask() throws Throwable {
         SavedPage savedPage = new SavedPage(title);
         savedPage.writeToFileSystem(page);
-        SavedPagePersister persister = (SavedPagePersister) app.getPersister(SavedPage.class);
+        ContentPersister<SavedPage> persister = app.getPersister(SavedPage.class);
         persister.upsert(savedPage, SavedPagePersistenceHelper.SELECTION_KEYS);
 
         final ImageUrlMap imageUrlMap = new ImageUrlMap.Builder(savedPage.getBaseDir()).extractUrls(page).build();

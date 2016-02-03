@@ -7,20 +7,13 @@ import android.net.Uri;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
 
-public abstract class ContentPersister<T> {
+public class ContentPersister<T> {
     @NonNull private final ContentProviderClient client;
     @NonNull private final PersistenceHelper<T> persistenceHelper;
 
     public ContentPersister(@NonNull Context context,
-                            @NonNull PersistenceHelper<T> persistenceHelper,
-                            String tableName) {
-        this(acquireClient(context, tableName), persistenceHelper);
-    }
-
-    public ContentPersister(@NonNull Context context,
-                            @NonNull PersistenceHelper<T> persistenceHelper,
-                            Uri uri) {
-        this(acquireClient(context, uri), persistenceHelper);
+                            @NonNull PersistenceHelper<T> persistenceHelper) {
+        this(persistenceHelper.acquireClient(context), persistenceHelper);
     }
 
     public ContentPersister(@NonNull ContentProviderClient client,
@@ -40,13 +33,11 @@ public abstract class ContentPersister<T> {
 
     public Cursor select(String selection, String[] selectionArgs, String sortOrder) {
         Uri uri = persistenceHelper.getBaseContentURI();
-        Cursor c;
         try {
-            c = client.query(uri, null, selection, selectionArgs, sortOrder);
+            return client.query(uri, null, selection, selectionArgs, sortOrder);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
-        return c;
     }
 
     public void deleteAll() {
@@ -91,15 +82,5 @@ public abstract class ContentPersister<T> {
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    private static <T> ContentProviderClient acquireClient(@NonNull Context context,
-                                                           String tableName) {
-        String authority = SQLiteContentProvider.getAuthorityForTable(tableName);
-        return context.getContentResolver().acquireContentProviderClient(authority);
-    }
-
-    private static <T> ContentProviderClient acquireClient(@NonNull Context context, Uri uri) {
-        return context.getContentResolver().acquireContentProviderClient(uri);
     }
 }

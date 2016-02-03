@@ -1,6 +1,8 @@
 package org.wikipedia.data;
 
+import android.content.ContentProviderClient;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -48,6 +50,19 @@ public abstract class PersistenceHelper<T> {
     public abstract String getTableName();
 
     public abstract Column[] getColumnsAdded(int version);
+
+    public ContentProviderClient acquireClient(@NonNull Context context) {
+        return acquireUriClient(context);
+    }
+
+    protected ContentProviderClient acquireUriClient(@NonNull Context context) {
+        return context.getContentResolver().acquireContentProviderClient(getBaseContentURI());
+    }
+
+    protected ContentProviderClient acquireTableNameClient(@NonNull Context context) {
+        String authority = SQLiteContentProvider.getAuthorityForTable(getTableName());
+        return context.getContentResolver().acquireContentProviderClient(authority);
+    }
 
     /**
      * Get the db query string to be passed to the content provider where selecting for a null
