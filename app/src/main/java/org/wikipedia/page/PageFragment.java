@@ -1108,9 +1108,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void checkAndShowSelectTextOnboarding() {
-        if (app.isFeatureSelectTextAndShareTutorialEnabled()
-        &&  model.getPage().isArticle()
-        &&  app.getOnboardingStateMachine().isSelectTextTutorialEnabled()) {
+        if (model.getPage().isArticle()
+                &&  app.getOnboardingStateMachine().isSelectTextTutorialEnabled()) {
             showSelectTextOnboarding();
         }
     }

@@ -184,8 +184,7 @@ public class ShareHandler {
     }
 
     private void handleSelection(Menu menu, MenuItem shareItem) {
-        if (WikipediaApp.getInstance().isFeatureSelectTextAndShareTutorialEnabled()
-                && WikipediaApp.getInstance().getOnboardingStateMachine().isShareTutorialEnabled()) {
+        if (WikipediaApp.getInstance().getOnboardingStateMachine().isShareTutorialEnabled()) {
             showShareOnboarding(shareItem);
             WikipediaApp.getInstance().getOnboardingStateMachine().setShareTutorial();
         }

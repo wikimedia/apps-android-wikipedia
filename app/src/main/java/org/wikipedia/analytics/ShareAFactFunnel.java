@@ -31,7 +31,7 @@ public class ShareAFactFunnel extends Funnel {
 
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        preprocessData(eventData, "tutorialFeatureEnabled", Prefs.isFeatureSelectTextAndShareTutorialEnabled());
+        preprocessData(eventData, "tutorialFeatureEnabled", true);
         preprocessData(eventData, "tutorialShown", calculateTutorialsShown());
         return super.preprocessData(eventData);
     }
@@ -89,14 +89,6 @@ public class ShareAFactFunnel extends Funnel {
     }
 
     private int calculateTutorialsShown() {
-        if (Prefs.isFeatureSelectTextAndShareTutorialEnabled()) {
-            if (!Prefs.isShareTutorialEnabled()) {
-                return 2;
-            }
-            if (!Prefs.isSelectTextTutorialEnabled()) {
-                return 1;
-            }
-        }
-        return 0;
+        return !Prefs.isShareTutorialEnabled() ? 2 : !Prefs.isSelectTextTutorialEnabled() ? 1 : 0;
     }
 }

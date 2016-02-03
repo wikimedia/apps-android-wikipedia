@@ -396,17 +396,6 @@ public class WikipediaApp extends Application {
         return EVENT_LOG_TESTING_ID;
     }
 
-    public boolean isFeatureSelectTextAndShareTutorialEnabled() {
-        boolean enabled;
-        if (Prefs.hasFeatureSelectTextAndShareTutorial()) {
-            enabled = Prefs.isFeatureSelectTextAndShareTutorialEnabled();
-        } else {
-            enabled = new Random().nextInt(2) == 0;
-            Prefs.setFeatureSelectTextAndShareTutorialEnabled(enabled);
-        }
-        return enabled;
-    }
-
     public boolean isFeatureReadMoreSearchOpeningTextEnabled() {
         boolean enabled;
         if (Prefs.hasFeatureReadMoreSearchOpeningText()) {
