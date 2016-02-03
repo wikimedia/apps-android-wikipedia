@@ -84,7 +84,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         }
         return new CursorLoader(
                 getActivity(),
-                RecentSearch.PERSISTENCE_HELPER.getBaseContentURI(),
+                RecentSearch.DATABASE_TABLE.getBaseContentURI(),
                 null,
                 null,
                 null,
@@ -135,7 +135,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         }
 
         public RecentSearch getEntry(Cursor cursor) {
-            return RecentSearch.PERSISTENCE_HELPER.fromCursor(cursor);
+            return RecentSearch.DATABASE_TABLE.fromCursor(cursor);
         }
     }
 }

@@ -12,13 +12,13 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.data.PersistenceHelper;
+import org.wikipedia.data.DatabaseTable;
 import org.wikipedia.util.StringUtil;
 
 import java.io.File;
 import java.util.Date;
 
-public class SavedPagePersistenceHelper extends PersistenceHelper<SavedPage> {
+public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
 
     private static final int DB_VER_INTRODUCED = 4;
     private static final int DB_VER_NAMESPACE_ADDED = 6;

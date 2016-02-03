@@ -324,15 +324,15 @@ public class WikipediaApp extends Application {
         if (!persisters.containsKey(cls.getCanonicalName())) {
             ContentPersister persister;
             if (cls.equals(HistoryEntry.class)) {
-                persister = new ContentPersister<>(this, HistoryEntry.PERSISTENCE_HELPER);
+                persister = new ContentPersister<>(this, HistoryEntry.DATABASE_TABLE);
             } else if (cls.equals(PageImage.class)) {
-                persister = new ContentPersister<>(this, PageImage.PERSISTENCE_HELPER);
+                persister = new ContentPersister<>(this, PageImage.DATABASE_TABLE);
             } else if (cls.equals(RecentSearch.class)) {
-                persister = new ContentPersister<>(this, RecentSearch.PERSISTENCE_HELPER);
+                persister = new ContentPersister<>(this, RecentSearch.DATABASE_TABLE);
             } else if (cls.equals(SavedPage.class)) {
-                persister = new ContentPersister<>(this, SavedPage.PERSISTENCE_HELPER);
+                persister = new ContentPersister<>(this, SavedPage.DATABASE_TABLE);
             } else if (cls.equals(EditSummary.class)) {
-                persister = new ContentPersister<>(this, EditSummary.PERSISTENCE_HELPER);
+                persister = new ContentPersister<>(this, EditSummary.DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }

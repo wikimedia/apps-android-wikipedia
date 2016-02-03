@@ -3,7 +3,7 @@ package org.wikipedia.editing.summaries;
 import java.util.Date;
 
 public class EditSummary {
-    public static final EditSummaryPersistenceHelper PERSISTENCE_HELPER = new EditSummaryPersistenceHelper();
+    public static final EditSummaryDatabaseTable DATABASE_TABLE = new EditSummaryDatabaseTable();
     private final String summary;
     private final Date lastUsed;
 

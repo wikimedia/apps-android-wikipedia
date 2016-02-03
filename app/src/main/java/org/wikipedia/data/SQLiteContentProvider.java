@@ -16,10 +16,10 @@ import org.wikipedia.BuildConfig;
 import org.wikipedia.WikipediaApp;
 
 public abstract class SQLiteContentProvider<T> extends ContentProvider {
-    private final PersistenceHelper<T> persistenceHelper;
+    private final DatabaseTable<T> databaseTable;
 
-    protected SQLiteContentProvider(PersistenceHelper<T> persistenceHelper) {
-        this.persistenceHelper = persistenceHelper;
+    protected SQLiteContentProvider(DatabaseTable<T> databaseTable) {
+        this.databaseTable = databaseTable;
     }
 
     protected DBOpenHelper getDbOpenHelper() {
@@ -143,7 +143,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     }
 
     protected String getTableName() {
-        return persistenceHelper.getTableName();
+        return databaseTable.getTableName();
     }
 
     protected String getAuthority() {

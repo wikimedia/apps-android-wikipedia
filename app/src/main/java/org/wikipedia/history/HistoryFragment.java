@@ -149,8 +149,8 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                             for (int i = 0; i < checkedItems.size(); i++) {
                                 if (checkedItems.valueAt(i)) {
                                     app.getPersister(HistoryEntry.class).delete(
-                                            HistoryEntry.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i))),
-                                                    HistoryEntryPersistenceHelper.SELECTION_KEYS);
+                                            HistoryEntry.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i))),
+                                                    HistoryEntryDatabaseTable.SELECTION_KEYS);
                                 }
                             }
                             if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {
@@ -213,7 +213,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         }
         return new CursorLoader(
                 getActivity(),
-                Uri.parse(HistoryEntry.PERSISTENCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTENCE_HELPER
+                Uri.parse(HistoryEntry.DATABASE_TABLE.getBaseContentURI().toString() + "/" + PageImage.DATABASE_TABLE
 
                         .getTableName()),
                 null,
@@ -262,7 +262,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.page_list_item_title);
-            HistoryEntry entry = HistoryEntry.PERSISTENCE_HELPER.fromCursor(cursor);
+            HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
@@ -274,7 +274,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             String curTime, prevTime = "";
             if (cursor.getPosition() != 0) {
                 Cursor prevCursor = (Cursor) getItem(cursor.getPosition() - 1);
-                HistoryEntry prevEntry = HistoryEntry.PERSISTENCE_HELPER.fromCursor(prevCursor);
+                HistoryEntry prevEntry = HistoryEntry.DATABASE_TABLE.fromCursor(prevCursor);
                 prevTime = getDateString(prevEntry.getTimestamp());
             }
             curTime = getDateString(entry.getTimestamp());

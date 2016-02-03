@@ -31,7 +31,7 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
         SavedPage savedPage = new SavedPage(title);
         savedPage.writeToFileSystem(page);
         ContentPersister<SavedPage> persister = app.getPersister(SavedPage.class);
-        persister.upsert(savedPage, SavedPagePersistenceHelper.SELECTION_KEYS);
+        persister.upsert(savedPage, SavedPageDatabaseTable.SELECTION_KEYS);
 
         final ImageUrlMap imageUrlMap = new ImageUrlMap.Builder(savedPage.getBaseDir()).extractUrls(page).build();
         final int numImagesAttempts = imageUrlMap.size();

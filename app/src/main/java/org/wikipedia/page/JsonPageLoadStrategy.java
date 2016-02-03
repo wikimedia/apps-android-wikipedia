@@ -26,7 +26,7 @@ import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImagePersistenceHelper;
+import org.wikipedia.pageimages.PageImageDatabaseTable;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.search.SearchBarHideHandler;
@@ -530,7 +530,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                             model.setCurEntry(
                                     new HistoryEntry(model.getTitle(), curEntry.getSource()));
                             // load the current title's thumbnail from sqlite
-                            updateThumbnail(PageImage.PERSISTENCE_HELPER.getImageUrlForTitle(app, model.getTitle()));
+                            updateThumbnail(PageImage.DATABASE_TABLE.getImageUrlForTitle(app, model.getTitle()));
                             // Save history entry...
                             new SaveHistoryTask(model.getCurEntry(), app).execute();
                             // don't re-cache the page after loading.
@@ -785,7 +785,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             public void onFinish(Map<PageTitle, String> result) {
                 if (result.containsKey(model.getTitle())) {
                     PageImage pi = new PageImage(model.getTitle(), result.get(model.getTitle()));
-                    app.getPersister(PageImage.class).upsert(pi, PageImagePersistenceHelper.SELECTION_KEYS);
+                    app.getPersister(PageImage.class).upsert(pi, PageImageDatabaseTable.SELECTION_KEYS);
                     updateThumbnail(result.get(model.getTitle()));
                 }
             }

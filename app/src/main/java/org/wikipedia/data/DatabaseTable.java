@@ -16,11 +16,11 @@ import java.util.List;
 
 import static org.wikipedia.util.StringUtil.removeNulls;
 
-public abstract class PersistenceHelper<T> {
+public abstract class DatabaseTable<T> {
     protected static final int INITIAL_DB_VERSION = 1;
     private static final int MIN_VERSION_NORMALIZED_TITLES = 8;
 
-    public static class Column{
+    public static class Column {
         private final String name;
         private final String type;
 
@@ -42,6 +42,8 @@ public abstract class PersistenceHelper<T> {
             return getName() + " " + getType();
         }
     }
+
+    private Uri baseContentURI;
 
     public abstract T fromCursor(Cursor c);
 
@@ -110,11 +112,11 @@ public abstract class PersistenceHelper<T> {
          return columns;
      }
 
-    public void createTables(SQLiteDatabase db, int version) {
+    public void createTables(@NonNull SQLiteDatabase db, int version) {
         db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", getElements(1, version)) + " );");
     }
 
-    public void upgradeSchema(SQLiteDatabase db, int fromVersion, int toVersion) {
+    public void upgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
         if (fromVersion < getDBVersionIntroducedAt()) {
             createTables(db, toVersion);
             return;
@@ -147,7 +149,6 @@ public abstract class PersistenceHelper<T> {
         // Default implementation is empty, since not every table needs to deal with titles
     }
 
-    private Uri baseContentURI;
     public Uri getBaseContentURI() {
         if (baseContentURI == null) {
             baseContentURI = Uri.parse("content://" + SQLiteContentProvider.getAuthorityForTable(getTableName()) + "/" + getTableName());

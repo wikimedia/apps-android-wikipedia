@@ -26,7 +26,7 @@ public class SaveHistoryTask extends SaneAsyncTask<Void> {
         // that all previous instances will be deleted, and then only the most recent instance
         // will be placed at the top.
         final ContentPersister persister = app.getPersister(HistoryEntry.class);
-        persister.delete(entry, HistoryEntryPersistenceHelper.SELECTION_KEYS);
+        persister.delete(entry, HistoryEntryDatabaseTable.SELECTION_KEYS);
         persister.persist(entry);
         return null;
     }

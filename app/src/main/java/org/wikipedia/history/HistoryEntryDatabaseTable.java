@@ -1,24 +1,28 @@
-package org.wikipedia.pageimages;
+package org.wikipedia.history;
 
+import android.content.ContentProviderClient;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
+
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import org.wikipedia.WikipediaApp;
+
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.data.PersistenceHelper;
+import org.wikipedia.data.DatabaseTable;
 
-public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
+import java.util.Date;
 
-    private static final int DB_VER_NAMESPACE_ADDED = 7;
+public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
+
+    private static final int DB_VER_NAMESPACE_ADDED = 6;
 
     private static final String COL_SITE = "site";
-    private static final String COL_NAMESPACE = "namespace";
     private static final String COL_TITLE = "title";
-    private static final String COL_IMAGE_NAME = "imageName";
+    private static final String COL_NAMESPACE = "namespace";
+    private static final String COL_TIMESTAMP = "timestamp";
+    private static final String COL_SOURCE = "source";
 
     public static final String[] SELECTION_KEYS = {
             COL_SITE,
@@ -27,49 +31,29 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
     };
 
     @Override
-    public PageImage fromCursor(Cursor c) {
+    public HistoryEntry fromCursor(Cursor c) {
         Site site = new Site(c.getString(c.getColumnIndex(COL_SITE)));
-        PageTitle title = new PageTitle(c.getString(c.getColumnIndex(COL_NAMESPACE)), c.getString(c.getColumnIndex(COL_TITLE)), site);
-        String imageName = c.getString(c.getColumnIndex(COL_IMAGE_NAME));
-        return new PageImage(title, imageName);
+        PageTitle title = new PageTitle(c.getString(c.getColumnIndex(COL_NAMESPACE)),
+                c.getString(c.getColumnIndex(COL_TITLE)), site);
+        Date timestamp = new Date(c.getLong(c.getColumnIndex(COL_TIMESTAMP)));
+        int source = c.getInt(c.getColumnIndex(COL_SOURCE));
+        return new HistoryEntry(title, timestamp, source);
     }
 
     @Override
-    protected ContentValues toContentValues(PageImage obj) {
+    protected ContentValues toContentValues(HistoryEntry obj) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_SITE, obj.getTitle().getSite().getDomain());
+        contentValues.put(COL_TITLE, obj.getTitle().getText());
         contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
-        contentValues.put(COL_TITLE, obj.getTitle().getPrefixedText());
-        contentValues.put(COL_IMAGE_NAME, obj.getImageName());
+        contentValues.put(COL_TIMESTAMP, obj.getTimestamp().getTime());
+        contentValues.put(COL_SOURCE, obj.getSource());
         return contentValues;
-    }
-
-    @Nullable
-    public String getImageUrlForTitle(WikipediaApp app, PageTitle title) {
-        Cursor c = null;
-        String thumbnail = null;
-        try {
-            String searchStr = title.getPrefixedText().replace("'", "''");
-            String selection = getTableName() + "." + COL_TITLE + "='" + searchStr + "'";
-            c = app.getPersister(PageImage.class).select(
-                    selection, new String[] {}, "");
-            if (c.getCount() > 0) {
-                c.moveToFirst();
-                thumbnail = c.getString(c.getColumnIndex("imageName"));
-            }
-        } catch (SQLiteException e) {
-            // page title doesn't exist in database... no problem if it fails.
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-        }
-        return thumbnail;
     }
 
     @Override
     public String getTableName() {
-        return "pageimages";
+        return "history";
     }
 
     @Override
@@ -80,7 +64,8 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
                         new Column("_id", "integer primary key"),
                         new Column(COL_SITE, "string"),
                         new Column(COL_TITLE, "string"),
-                        new Column(COL_IMAGE_NAME, "string"),
+                        new Column(COL_TIMESTAMP, "integer"),
+                        new Column(COL_SOURCE, "integer")
                 };
             case DB_VER_NAMESPACE_ADDED:
                 return new Column[] {
@@ -92,12 +77,18 @@ public class PageImagePersistenceHelper extends PersistenceHelper<PageImage> {
     }
 
     @Override
-    protected String getPrimaryKeySelection(@NonNull PageImage obj, @NonNull String[] selectionArgs) {
+    public ContentProviderClient acquireClient(@NonNull Context context) {
+        return acquireTableNameClient(context);
+    }
+
+    @Override
+    protected String getPrimaryKeySelection(@NonNull HistoryEntry obj,
+                                            @NonNull String[] selectionArgs) {
         return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
     }
 
     @Override
-    protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull PageImage obj) {
+    protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull HistoryEntry obj) {
         return new String[] {
                 obj.getTitle().getSite().getDomain(),
                 obj.getTitle().getNamespace(),

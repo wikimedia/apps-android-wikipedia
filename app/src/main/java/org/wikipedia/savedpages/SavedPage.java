@@ -16,7 +16,7 @@ import static org.wikipedia.util.FileUtil.writeToFile;
 import static org.wikipedia.util.FileUtil.readJSONFile;
 
 public class SavedPage implements Parcelable {
-    public static final SavedPagePersistenceHelper PERSISTENCE_HELPER = new SavedPagePersistenceHelper();
+    public static final SavedPageDatabaseTable DATABASE_TABLE = new SavedPageDatabaseTable();
 
     private final PageTitle title;
     private final Date timestamp;
