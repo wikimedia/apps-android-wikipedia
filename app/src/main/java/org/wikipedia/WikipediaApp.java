@@ -18,20 +18,18 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.otto.Bus;
 
 import org.mediawiki.api.json.Api;
-import org.wikipedia.crash.CrashReporter;
-import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
+import org.wikipedia.crash.CrashReporter;
+import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.data.ContentPersister;
 import org.wikipedia.data.DBOpenHelper;
 import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
-import org.wikipedia.editing.summaries.EditSummaryPersister;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.history.HistoryEntryPersister;
 import org.wikipedia.interlanguage.AcceptLanguageUtil;
 import org.wikipedia.interlanguage.AppLanguageState;
 import org.wikipedia.login.UserInfoStorage;
@@ -40,19 +38,14 @@ import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImagePersister;
 import org.wikipedia.savedpages.SavedPage;
-import org.wikipedia.savedpages.SavedPagePersister;
 import org.wikipedia.search.RecentSearch;
-import org.wikipedia.search.RecentSearchPersister;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
-
-import retrofit.RequestInterceptor;
 
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -64,9 +57,11 @@ import java.util.Random;
 import java.util.TimeZone;
 import java.util.UUID;
 
+import retrofit.RequestInterceptor;
+
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
+import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class WikipediaApp extends Application {
     private static final String HTTPS_PROTOCOL = "https";
@@ -91,7 +86,7 @@ public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final UserInfoStorage userInfoStorage = new UserInfoStorage();
     private final MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
-    private final Map<String, ContentPersister> persisters = Collections.synchronizedMap(new HashMap<String, ContentPersister>());
+    private final Map<String, ContentPersister<?>> persisters = Collections.synchronizedMap(new HashMap<String, ContentPersister<?>>());
     private final Map<String, Api> apis = new HashMap<>();
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
@@ -325,25 +320,26 @@ public class WikipediaApp extends Application {
         return dbOpenHelper;
     }
 
-    public ContentPersister getPersister(Class cls) {
+    public <T> ContentPersister<T> getPersister(Class<T> cls) {
         if (!persisters.containsKey(cls.getCanonicalName())) {
             ContentPersister persister;
             if (cls.equals(HistoryEntry.class)) {
-                persister = new HistoryEntryPersister(this);
+                persister = new ContentPersister<>(this, HistoryEntry.PERSISTENCE_HELPER);
             } else if (cls.equals(PageImage.class)) {
-                persister = new PageImagePersister(this);
+                persister = new ContentPersister<>(this, PageImage.PERSISTENCE_HELPER);
             } else if (cls.equals(RecentSearch.class)) {
-                persister = new RecentSearchPersister(this);
+                persister = new ContentPersister<>(this, RecentSearch.PERSISTENCE_HELPER);
             } else if (cls.equals(SavedPage.class)) {
-                persister = new SavedPagePersister(this);
+                persister = new ContentPersister<>(this, SavedPage.PERSISTENCE_HELPER);
             } else if (cls.equals(EditSummary.class)) {
-                persister = new EditSummaryPersister(this);
+                persister = new ContentPersister<>(this, EditSummary.PERSISTENCE_HELPER);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }
             persisters.put(cls.getCanonicalName(), persister);
         }
-        return persisters.get(cls.getCanonicalName());
+        //noinspection unchecked
+        return (ContentPersister<T>) persisters.get(cls.getCanonicalName());
     }
 
     public RemoteConfig getRemoteConfig() {

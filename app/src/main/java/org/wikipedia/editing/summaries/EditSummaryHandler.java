@@ -40,9 +40,7 @@ public class EditSummaryHandler {
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             @Override
             public Cursor runQuery(CharSequence charSequence) {
-                ContentProviderClient client = activity.getContentResolver()
-                                       .acquireContentProviderClient(EditSummary.PERSISTENCE_HELPER
-                                                                             .getBaseContentURI());
+                ContentProviderClient client = EditSummary.PERSISTENCE_HELPER.acquireClient(activity);
                 try {
                     return client.query(
                             EditSummary.PERSISTENCE_HELPER.getBaseContentURI(),

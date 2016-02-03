@@ -2,7 +2,9 @@ package org.wikipedia.search;
 
 import org.wikipedia.data.PersistenceHelper;
 
+import android.content.ContentProviderClient;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
@@ -56,6 +58,11 @@ public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearc
             default:
                 return new Column[0];
         }
+    }
+
+    @Override
+    public ContentProviderClient acquireClient(@NonNull Context context) {
+        return acquireTableNameClient(context);
     }
 
     @Override

@@ -32,8 +32,7 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
     }
 
     private android.database.Cursor getInterestedHistoryEntry() {
-        ContentProviderClient client = context.getContentResolver()
-                .acquireContentProviderClient(HistoryEntry.PERSISTENCE_HELPER.getBaseContentURI());
+        ContentProviderClient client = HistoryEntry.PERSISTENCE_HELPER.acquireClient(context);
         try {
             return client.query(
                     HistoryEntry.PERSISTENCE_HELPER.getBaseContentURI(),
