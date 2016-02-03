@@ -90,6 +90,11 @@ public class HistoryEntryPersistenceHelper extends PersistenceHelper<HistoryEntr
     }
 
     @Override
+    protected int getDBVersionIntroducedAt() {
+        return INITIAL_DB_VERSION;
+    }
+
+    @Override
     protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
         int idIndex = cursor.getColumnIndex("_id");
