@@ -1,6 +1,6 @@
 package org.wikipedia.savedpages;
 
-import org.wikipedia.data.DatabaseClient;
+import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;

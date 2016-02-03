@@ -1,6 +1,6 @@
 package org.wikipedia.editing.summaries;
 
-import org.wikipedia.data.SQLiteContentProvider;
+import org.wikipedia.database.SQLiteContentProvider;
 
 public class EditSummaryContentProvider extends SQLiteContentProvider<EditSummary> {
     public EditSummaryContentProvider() {

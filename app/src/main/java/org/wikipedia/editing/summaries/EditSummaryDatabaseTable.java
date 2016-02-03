@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.data.DatabaseTable;
+import org.wikipedia.database.DatabaseTable;
 
 import java.util.Date;
 

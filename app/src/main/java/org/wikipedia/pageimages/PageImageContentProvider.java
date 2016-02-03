@@ -1,6 +1,6 @@
 package org.wikipedia.pageimages;
 
-import org.wikipedia.data.SQLiteContentProvider;
+import org.wikipedia.database.SQLiteContentProvider;
 
 public class PageImageContentProvider extends SQLiteContentProvider<PageImage> {
     public PageImageContentProvider() {

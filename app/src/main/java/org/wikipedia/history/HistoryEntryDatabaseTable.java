@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.data.DatabaseTable;
+import org.wikipedia.database.DatabaseTable;
 
 import java.util.Date;
 

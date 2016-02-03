@@ -1,4 +1,4 @@
-package org.wikipedia.data;
+package org.wikipedia.json;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

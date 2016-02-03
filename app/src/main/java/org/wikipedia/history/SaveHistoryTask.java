@@ -2,7 +2,7 @@ package org.wikipedia.history;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.data.DatabaseClient;
+import org.wikipedia.database.DatabaseClient;
 
 import android.util.Log;
 

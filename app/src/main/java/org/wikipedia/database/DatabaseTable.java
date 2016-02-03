@@ -1,4 +1,4 @@
-package org.wikipedia.data;
+package org.wikipedia.database;
 
 import android.content.ContentProviderClient;
 import android.content.ContentValues;
