@@ -1,15 +1,30 @@
 package org.wikipedia.data;
 
 import android.content.ContentProviderClient;
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
+import android.support.annotation.NonNull;
 
 public abstract class ContentPersister<T> {
-    private final ContentProviderClient client;
-    private final PersistenceHelper<T> persistenceHelper;
+    @NonNull private final ContentProviderClient client;
+    @NonNull private final PersistenceHelper<T> persistenceHelper;
 
-    public ContentPersister(ContentProviderClient client, PersistenceHelper<T> persistenceHelper) {
+    public ContentPersister(@NonNull Context context,
+                            @NonNull PersistenceHelper<T> persistenceHelper,
+                            String tableName) {
+        this(acquireClient(context, tableName), persistenceHelper);
+    }
+
+    public ContentPersister(@NonNull Context context,
+                            @NonNull PersistenceHelper<T> persistenceHelper,
+                            Uri uri) {
+        this(acquireClient(context, uri), persistenceHelper);
+    }
+
+    public ContentPersister(@NonNull ContentProviderClient client,
+                            @NonNull PersistenceHelper<T> persistenceHelper) {
         this.client = client;
         this.persistenceHelper = persistenceHelper;
     }
@@ -76,6 +91,15 @@ public abstract class ContentPersister<T> {
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    private static <T> ContentProviderClient acquireClient(@NonNull Context context,
+                                                           String tableName) {
+        String authority = SQLiteContentProvider.getAuthorityForTable(tableName);
+        return context.getContentResolver().acquireContentProviderClient(authority);
+    }
+
+    private static <T> ContentProviderClient acquireClient(@NonNull Context context, Uri uri) {
+        return context.getContentResolver().acquireContentProviderClient(uri);
     }
 }
