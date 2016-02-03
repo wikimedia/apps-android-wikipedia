@@ -51,7 +51,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         try {
             String searchStr = title.getPrefixedText().replace("'", "''");
             String selection = getTableName() + "." + COL_TITLE + "='" + searchStr + "'";
-            c = app.getPersister(PageImage.class).select(
+            c = app.getDatabaseClient(PageImage.class).select(
                     selection, new String[] {}, "");
             if (c.getCount() > 0) {
                 c.moveToFirst();

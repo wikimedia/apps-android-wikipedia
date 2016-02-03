@@ -428,7 +428,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
         @Override
         public Void performTask() throws Throwable {
-            app.getPersister(RecentSearch.class).upsert(entry, HistoryEntryDatabaseTable.SELECTION_KEYS);
+            app.getDatabaseClient(RecentSearch.class).upsert(entry, HistoryEntryDatabaseTable.SELECTION_KEYS);
             return null;
         }
 

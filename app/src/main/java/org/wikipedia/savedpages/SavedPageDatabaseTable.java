@@ -58,7 +58,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             SavedPage savedPage = new SavedPage(title);
             String[] args = getPrimaryKeySelectionArgs(savedPage);
             String selection = getPrimaryKeySelection(savedPage, args);
-            c = app.getPersister(SavedPage.class).select(selection, args, "");
+            c = app.getDatabaseClient(SavedPage.class).select(selection, args, "");
             if (c.getCount() > 0) {
                 exists = true;
             }

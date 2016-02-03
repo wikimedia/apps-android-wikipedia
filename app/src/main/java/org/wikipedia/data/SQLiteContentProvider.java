@@ -22,8 +22,8 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         this.databaseTable = databaseTable;
     }
 
-    protected DBOpenHelper getDbOpenHelper() {
-        return WikipediaApp.getInstance().getDbOpenHelper();
+    protected Database getDatabase() {
+        return WikipediaApp.getInstance().getDatabase();
     }
 
     private final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -47,7 +47,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
 
         int uriType = uriMatcher.match(uri);
 
-        SQLiteDatabase db = getDbOpenHelper().getReadableDatabase();
+        SQLiteDatabase db = getDatabase().getReadableDatabase();
         Cursor cursor;
 
         switch (uriType) {
@@ -73,7 +73,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     @Override
     public Uri insert(@NonNull Uri uri, ContentValues values) {
         int uriType = uriMatcher.match(uri);
-        SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
+        SQLiteDatabase sqlDB = getDatabase().getWritableDatabase();
         switch (uriType) {
             case MATCH_ALL:
                 sqlDB.insert(getTableName(), null, values);
@@ -90,7 +90,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
         int rows = 0;
         int uriType = uriMatcher.match(uri);
 
-        SQLiteDatabase db = getDbOpenHelper().getReadableDatabase();
+        SQLiteDatabase db = getDatabase().getReadableDatabase();
 
         switch(uriType) {
             case MATCH_ALL:
@@ -109,7 +109,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     @Override
     public int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         int uriType = uriMatcher.match(uri);
-        SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
+        SQLiteDatabase sqlDB = getDatabase().getWritableDatabase();
         int modifiedRows;
         switch (uriType) {
             case MATCH_ALL:
@@ -125,7 +125,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
     @Override
     public int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) {
         int uriType = uriMatcher.match(uri);
-        SQLiteDatabase sqlDB = getDbOpenHelper().getWritableDatabase();
+        SQLiteDatabase sqlDB = getDatabase().getWritableDatabase();
         sqlDB.beginTransaction();
         switch (uriType) {
             case MATCH_ALL:

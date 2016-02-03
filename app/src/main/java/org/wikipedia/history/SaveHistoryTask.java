@@ -2,7 +2,7 @@ package org.wikipedia.history;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.data.ContentPersister;
+import org.wikipedia.data.DatabaseClient;
 
 import android.util.Log;
 
@@ -25,9 +25,9 @@ public class SaveHistoryTask extends SaneAsyncTask<Void> {
         // and won't collapse them into a single entry at the top. Deleting it will ensure
         // that all previous instances will be deleted, and then only the most recent instance
         // will be placed at the top.
-        final ContentPersister persister = app.getPersister(HistoryEntry.class);
-        persister.delete(entry, HistoryEntryDatabaseTable.SELECTION_KEYS);
-        persister.persist(entry);
+        DatabaseClient client = app.getDatabaseClient(HistoryEntry.class);
+        client.delete(entry, HistoryEntryDatabaseTable.SELECTION_KEYS);
+        client.persist(entry);
         return null;
     }
 

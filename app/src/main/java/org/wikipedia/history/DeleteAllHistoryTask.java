@@ -15,7 +15,7 @@ public class DeleteAllHistoryTask extends SaneAsyncTask<Void> {
 
     @Override
     public Void performTask() throws Throwable {
-        app.getPersister(HistoryEntry.class).deleteAll();
+        app.getDatabaseClient(HistoryEntry.class).deleteAll();
         return null;
     }
 }
