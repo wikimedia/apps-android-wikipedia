@@ -19,7 +19,6 @@ import org.wikipedia.views.ObservableWebView;
 public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeListener,
         ObservableWebView.OnUpOrCancelMotionEventListener,
         ObservableWebView.OnDownMotionEventListener {
-    private static final int HUMAN_SCROLL_THRESHOLD = 200;
     private static final int FULL_OPACITY = 255;
     @NonNull private final View quickReturnView;
     private final float displayDensity;
@@ -112,7 +111,7 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         } else {
             // scroll down!
             int scrollDelta = scrollY - oldScrollY;
-            if (scrollDelta > (int) (HUMAN_SCROLL_THRESHOLD * displayDensity)) {
+            if (!isHumanScroll) {
                 // we've been scrolled programmatically, probably to go to
                 // a specific section, so keep the toolbar shown.
                 animMargin = 0;
