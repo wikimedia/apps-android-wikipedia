@@ -37,7 +37,7 @@ public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {
 
         int uriType = getUriMatcher().match(uri);
 
-        SQLiteDatabase db = getDbOpenHelper().getReadableDatabase();
+        SQLiteDatabase db = getDatabase().getReadableDatabase();
         Cursor cursor;
 
         switch (uriType) {

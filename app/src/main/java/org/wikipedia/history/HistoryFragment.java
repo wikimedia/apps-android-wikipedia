@@ -148,7 +148,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                             SparseBooleanArray checkedItems = historyEntryList.getCheckedItemPositions();
                             for (int i = 0; i < checkedItems.size(); i++) {
                                 if (checkedItems.valueAt(i)) {
-                                    app.getPersister(HistoryEntry.class).delete(
+                                    app.getDatabaseClient(HistoryEntry.class).delete(
                                             HistoryEntry.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i))),
                                                     HistoryEntryDatabaseTable.SELECTION_KEYS);
                                 }

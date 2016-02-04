@@ -9,7 +9,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.search.RecentSearch;
 
-public class DBOpenHelper extends SQLiteOpenHelper {
+public class Database extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "wikipedia.db";
     private static final int DATABASE_VERSION = 8;
@@ -22,7 +22,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             EditSummary.DATABASE_TABLE
     };
 
-    public DBOpenHelper(Context context) {
+    public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

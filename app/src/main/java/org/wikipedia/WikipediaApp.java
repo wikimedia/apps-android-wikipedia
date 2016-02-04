@@ -22,8 +22,8 @@ import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
-import org.wikipedia.data.ContentPersister;
-import org.wikipedia.data.DBOpenHelper;
+import org.wikipedia.data.DatabaseClient;
+import org.wikipedia.data.Database;
 import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
@@ -86,13 +86,13 @@ public class WikipediaApp extends Application {
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final UserInfoStorage userInfoStorage = new UserInfoStorage();
     private final MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
-    private final Map<String, ContentPersister<?>> persisters = Collections.synchronizedMap(new HashMap<String, ContentPersister<?>>());
+    private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
     private final Map<String, Api> apis = new HashMap<>();
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
 
-    private DBOpenHelper dbOpenHelper;
+    private Database database;
     private EditTokenStorage editTokenStorage;
     private SharedPreferenceCookieManager cookieManager;
     private String userAgent;
@@ -180,7 +180,7 @@ public class WikipediaApp extends Application {
         sessionFunnel = new SessionFunnel(this);
         editTokenStorage = new EditTokenStorage(this);
         cookieManager = new SharedPreferenceCookieManager();
-        dbOpenHelper = new DBOpenHelper(this);
+        database = new Database(this);
 
         enableWebViewDebugging();
 
@@ -316,30 +316,30 @@ public class WikipediaApp extends Application {
         return appLanguageState.getAppLanguageCanonicalName(code);
     }
 
-    public DBOpenHelper getDbOpenHelper() {
-        return dbOpenHelper;
+    public Database getDatabase() {
+        return database;
     }
 
-    public <T> ContentPersister<T> getPersister(Class<T> cls) {
-        if (!persisters.containsKey(cls.getCanonicalName())) {
-            ContentPersister persister;
+    public <T> DatabaseClient<T> getDatabaseClient(Class<T> cls) {
+        if (!databaseClients.containsKey(cls)) {
+            DatabaseClient client;
             if (cls.equals(HistoryEntry.class)) {
-                persister = new ContentPersister<>(this, HistoryEntry.DATABASE_TABLE);
+                client = new DatabaseClient<>(this, HistoryEntry.DATABASE_TABLE);
             } else if (cls.equals(PageImage.class)) {
-                persister = new ContentPersister<>(this, PageImage.DATABASE_TABLE);
+                client = new DatabaseClient<>(this, PageImage.DATABASE_TABLE);
             } else if (cls.equals(RecentSearch.class)) {
-                persister = new ContentPersister<>(this, RecentSearch.DATABASE_TABLE);
+                client = new DatabaseClient<>(this, RecentSearch.DATABASE_TABLE);
             } else if (cls.equals(SavedPage.class)) {
-                persister = new ContentPersister<>(this, SavedPage.DATABASE_TABLE);
+                client = new DatabaseClient<>(this, SavedPage.DATABASE_TABLE);
             } else if (cls.equals(EditSummary.class)) {
-                persister = new ContentPersister<>(this, EditSummary.DATABASE_TABLE);
+                client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }
-            persisters.put(cls.getCanonicalName(), persister);
+            databaseClients.put(cls, client);
         }
         //noinspection unchecked
-        return (ContentPersister<T>) persisters.get(cls.getCanonicalName());
+        return (DatabaseClient<T>) databaseClients.get(cls);
     }
 
     public RemoteConfig getRemoteConfig() {

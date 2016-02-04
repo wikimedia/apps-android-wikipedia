@@ -66,7 +66,7 @@ public class EditSummaryHandler {
     public void persistSummary() {
         WikipediaApp app = (WikipediaApp)container.getContext().getApplicationContext();
         EditSummary summary = new EditSummary(summaryEdit.getText().toString(), new Date());
-        app.getPersister(EditSummary.class).upsert(summary, EditSummaryDatabaseTable.SELECTION_KEYS);
+        app.getDatabaseClient(EditSummary.class).upsert(summary, EditSummaryDatabaseTable.SELECTION_KEYS);
     }
 
     public boolean handleBackPressed() {

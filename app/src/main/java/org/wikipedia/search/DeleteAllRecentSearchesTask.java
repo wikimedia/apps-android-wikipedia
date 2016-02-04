@@ -14,7 +14,7 @@ public class DeleteAllRecentSearchesTask extends SaneAsyncTask<Void> {
 
     @Override
     public Void performTask() throws Throwable {
-        app.getPersister(RecentSearch.class).deleteAll();
+        app.getDatabaseClient(RecentSearch.class).deleteAll();
         return null;
     }
 }

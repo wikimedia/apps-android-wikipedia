@@ -7,17 +7,17 @@ import android.net.Uri;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
 
-public class ContentPersister<T> {
+public class DatabaseClient<T> {
     @NonNull private final ContentProviderClient client;
     @NonNull private final DatabaseTable<T> databaseTable;
 
-    public ContentPersister(@NonNull Context context,
-                            @NonNull DatabaseTable<T> databaseTable) {
+    public DatabaseClient(@NonNull Context context,
+                          @NonNull DatabaseTable<T> databaseTable) {
         this(databaseTable.acquireClient(context), databaseTable);
     }
 
-    public ContentPersister(@NonNull ContentProviderClient client,
-                            @NonNull DatabaseTable<T> databaseTable) {
+    public DatabaseClient(@NonNull ContentProviderClient client,
+                          @NonNull DatabaseTable<T> databaseTable) {
         this.client = client;
         this.databaseTable = databaseTable;
     }
