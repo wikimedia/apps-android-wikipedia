@@ -135,7 +135,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
                         SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
                         for (int i = 0; i < checkedItems.size(); i++) {
                             if (checkedItems.valueAt(i)) {
-                                final SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                                final SavedPage page = SavedPage.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
                                 new DeleteSavedPageTask(getActivity(), page) {
                                     @Override
                                     public void onFinish(Boolean result) {
@@ -245,7 +245,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         }
         return new CursorLoader(
                 getActivity(),
-                Uri.parse(SavedPage.PERSISTENCE_HELPER.getBaseContentURI().toString() + "/" + PageImage.PERSISTENCE_HELPER
+                Uri.parse(SavedPage.DATABASE_TABLE.getBaseContentURI().toString() + "/" + PageImage.DATABASE_TABLE
 
                         .getTableName()),
                 null,
@@ -290,7 +290,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.page_list_item_title);
-            SavedPage entry = SavedPage.PERSISTENCE_HELPER.fromCursor(cursor);
+            SavedPage entry = SavedPage.DATABASE_TABLE.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
@@ -375,7 +375,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         List<SavedPage> savedPages = new ArrayList<>();
         for (int i = 0; i < checkedItems.size(); i++) {
             if (checkedItems.valueAt(i)) {
-                SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                SavedPage page = SavedPage.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
                 savedPages.add(page);
             }
         }
@@ -386,7 +386,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     private void refreshAll() {
         List<SavedPage> savedPages = new ArrayList<>();
         for (int i = 0; i < adapter.getCount(); i++) {
-            SavedPage page = SavedPage.PERSISTENCE_HELPER.fromCursor((Cursor) adapter.getItem(i));
+            SavedPage page = SavedPage.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(i));
             savedPages.add(page);
         }
         refreshHandler = new RefreshPagesHandler(getActivity(), savedPages);

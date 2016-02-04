@@ -1,6 +1,6 @@
 package org.wikipedia.search;
 
-import org.wikipedia.data.PersistenceHelper;
+import org.wikipedia.data.DatabaseTable;
 
 import android.content.ContentProviderClient;
 import android.content.ContentValues;
@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 
 import java.util.Date;
 
-public class RecentSearchPersistenceHelper extends PersistenceHelper<RecentSearch> {
+public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
 
     private static final int DB_VER_INTRODUCED = 5;
 

@@ -25,17 +25,17 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
         Cursor c = getInterestedHistoryEntry();
         if (c.getCount() > 0) {
             c.moveToFirst();
-            final HistoryEntry historyEntry = HistoryEntry.PERSISTENCE_HELPER.fromCursor(c);
+            final HistoryEntry historyEntry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
             return historyEntry.getTitle();
         }
         return null;
     }
 
     private android.database.Cursor getInterestedHistoryEntry() {
-        ContentProviderClient client = HistoryEntry.PERSISTENCE_HELPER.acquireClient(context);
+        ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context);
         try {
             return client.query(
-                    HistoryEntry.PERSISTENCE_HELPER.getBaseContentURI(),
+                    HistoryEntry.DATABASE_TABLE.getBaseContentURI(),
                     null,
                     "source != ? AND source != ? ",
                     new String[] {Integer.toString(HistoryEntry.SOURCE_MAIN_PAGE),

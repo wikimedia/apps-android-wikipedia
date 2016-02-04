@@ -17,7 +17,7 @@ public class SavedPageCheckTask extends SaneAsyncTask<Boolean> {
 
     @Override
     public Boolean performTask() throws Throwable {
-        return SavedPage.PERSISTENCE_HELPER.savedPageExists(app, title);
+        return SavedPage.DATABASE_TABLE.savedPageExists(app, title);
     }
 
     @Override

@@ -9,30 +9,30 @@ import android.support.annotation.NonNull;
 
 public class ContentPersister<T> {
     @NonNull private final ContentProviderClient client;
-    @NonNull private final PersistenceHelper<T> persistenceHelper;
+    @NonNull private final DatabaseTable<T> databaseTable;
 
     public ContentPersister(@NonNull Context context,
-                            @NonNull PersistenceHelper<T> persistenceHelper) {
-        this(persistenceHelper.acquireClient(context), persistenceHelper);
+                            @NonNull DatabaseTable<T> databaseTable) {
+        this(databaseTable.acquireClient(context), databaseTable);
     }
 
     public ContentPersister(@NonNull ContentProviderClient client,
-                            @NonNull PersistenceHelper<T> persistenceHelper) {
+                            @NonNull DatabaseTable<T> databaseTable) {
         this.client = client;
-        this.persistenceHelper = persistenceHelper;
+        this.databaseTable = databaseTable;
     }
 
     public void persist(T obj) {
-        Uri uri = persistenceHelper.getBaseContentURI();
+        Uri uri = databaseTable.getBaseContentURI();
         try {
-            client.insert(uri, persistenceHelper.toContentValues(obj));
+            client.insert(uri, databaseTable.toContentValues(obj));
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
     }
 
     public Cursor select(String selection, String[] selectionArgs, String sortOrder) {
-        Uri uri = persistenceHelper.getBaseContentURI();
+        Uri uri = databaseTable.getBaseContentURI();
         try {
             return client.query(uri, null, selection, selectionArgs, sortOrder);
         } catch (RemoteException e) {
@@ -45,7 +45,7 @@ public class ContentPersister<T> {
     }
 
     public void deleteWhere(String selection, String[] selectionArgs) {
-        Uri uri = persistenceHelper.getBaseContentURI();
+        Uri uri = databaseTable.getBaseContentURI();
         try {
             client.delete(uri, selection, selectionArgs);
         } catch (RemoteException e) {
@@ -54,12 +54,12 @@ public class ContentPersister<T> {
     }
 
     public void delete(T obj, String[] selectionArgs) {
-        Uri uri = persistenceHelper.getBaseContentURI();
+        Uri uri = databaseTable.getBaseContentURI();
         try {
             client.delete(
                     uri,
-                    persistenceHelper.getPrimaryKeySelection(obj, selectionArgs),
-                    persistenceHelper.getPrimaryKeySelectionArgs(obj)
+                    databaseTable.getPrimaryKeySelection(obj, selectionArgs),
+                    databaseTable.getPrimaryKeySelectionArgs(obj)
             );
         } catch (RemoteException e) {
             throw new RuntimeException(e);
@@ -67,13 +67,13 @@ public class ContentPersister<T> {
     }
 
     public void upsert(T obj, String[] selectionArgs) {
-        Uri uri = persistenceHelper.getBaseContentURI();
+        Uri uri = databaseTable.getBaseContentURI();
         try {
             int rowsUpdated = client.update(
                     uri,
-                    persistenceHelper.toContentValues(obj),
-                    persistenceHelper.getPrimaryKeySelection(obj, selectionArgs),
-                    persistenceHelper.getPrimaryKeySelectionArgs(obj)
+                    databaseTable.toContentValues(obj),
+                    databaseTable.getPrimaryKeySelection(obj, selectionArgs),
+                    databaseTable.getPrimaryKeySelectionArgs(obj)
             );
             if (rowsUpdated == 0) {
                 // Insert!

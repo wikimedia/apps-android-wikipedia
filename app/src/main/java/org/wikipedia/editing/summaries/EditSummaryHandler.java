@@ -40,10 +40,10 @@ public class EditSummaryHandler {
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             @Override
             public Cursor runQuery(CharSequence charSequence) {
-                ContentProviderClient client = EditSummary.PERSISTENCE_HELPER.acquireClient(activity);
+                ContentProviderClient client = EditSummary.DATABASE_TABLE.acquireClient(activity);
                 try {
                     return client.query(
-                            EditSummary.PERSISTENCE_HELPER.getBaseContentURI(),
+                            EditSummary.DATABASE_TABLE.getBaseContentURI(),
                             null,
                             "summary LIKE ?",
                             new String[] {charSequence + "%"},
@@ -66,7 +66,7 @@ public class EditSummaryHandler {
     public void persistSummary() {
         WikipediaApp app = (WikipediaApp)container.getContext().getApplicationContext();
         EditSummary summary = new EditSummary(summaryEdit.getText().toString(), new Date());
-        app.getPersister(EditSummary.class).upsert(summary, EditSummaryPersistenceHelper.SELECTION_KEYS);
+        app.getPersister(EditSummary.class).upsert(summary, EditSummaryDatabaseTable.SELECTION_KEYS);
     }
 
     public boolean handleBackPressed() {
@@ -94,7 +94,7 @@ public class EditSummaryHandler {
 
         @Override
         public CharSequence convertToString(Cursor cursor) {
-            return EditSummary.PERSISTENCE_HELPER.fromCursor(cursor).getSummary();
+            return EditSummary.DATABASE_TABLE.fromCursor(cursor).getSummary();
         }
     }
 }

@@ -4,11 +4,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.data.PersistenceHelper;
+import org.wikipedia.data.DatabaseTable;
 
 import java.util.Date;
 
-public class EditSummaryPersistenceHelper extends PersistenceHelper<EditSummary> {
+public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
 
     private static final int DB_VER_INTRODUCED = 2;
 

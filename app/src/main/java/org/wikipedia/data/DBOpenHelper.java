@@ -14,28 +14,29 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "wikipedia.db";
     private static final int DATABASE_VERSION = 8;
 
+    private final DatabaseTable[] databaseTables = {
+            HistoryEntry.DATABASE_TABLE,
+            PageImage.DATABASE_TABLE,
+            RecentSearch.DATABASE_TABLE,
+            SavedPage.DATABASE_TABLE,
+            EditSummary.DATABASE_TABLE
+    };
+
     public DBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    private PersistenceHelper[] persistenceHelpers = {
-            HistoryEntry.PERSISTENCE_HELPER,
-            PageImage.PERSISTENCE_HELPER,
-            RecentSearch.PERSISTENCE_HELPER,
-            SavedPage.PERSISTENCE_HELPER,
-            EditSummary.PERSISTENCE_HELPER
-    };
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        for (PersistenceHelper ph : persistenceHelpers) {
-            ph.createTables(sqLiteDatabase, DATABASE_VERSION);
+        for (DatabaseTable table : databaseTables) {
+            table.createTables(sqLiteDatabase, DATABASE_VERSION);
         }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int from, int to) {
-        for (PersistenceHelper ph : persistenceHelpers) {
-            ph.upgradeSchema(sqLiteDatabase, from, to);
+        for (DatabaseTable table : databaseTables) {
+            table.upgradeSchema(sqLiteDatabase, from, to);
         }
     }
 }

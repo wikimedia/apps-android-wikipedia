@@ -16,14 +16,14 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
     public static final int COL_INDEX_IMAGE = 6;
 
     public HistoryEntryContentProvider() {
-        super(HistoryEntry.PERSISTENCE_HELPER);
+        super(HistoryEntry.DATABASE_TABLE);
     }
 
     @Override
     public boolean onCreate() {
         boolean ret = super.onCreate();
         getUriMatcher().addURI(getAuthority(),
-                          getTableName() + "/" + PageImage.PERSISTENCE_HELPER.getTableName(),
+                          getTableName() + "/" + PageImage.DATABASE_TABLE.getTableName(),
                           MATCH_WITH_PAGEIMAGES);
         return ret;
     }
@@ -44,7 +44,7 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEn
             case MATCH_WITH_PAGEIMAGES:
                 queryBuilder.setTables(
                         String.format("%1$s LEFT OUTER JOIN %2$s ON (%1$s.site = %2$s.site and %1$s.title = %2$s.title)",
-                                HistoryEntry.PERSISTENCE_HELPER.getTableName(), PageImage.PERSISTENCE_HELPER
+                                HistoryEntry.DATABASE_TABLE.getTableName(), PageImage.DATABASE_TABLE
 
                                 .getTableName()
                                 )
