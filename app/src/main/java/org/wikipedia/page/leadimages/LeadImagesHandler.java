@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -44,23 +43,6 @@ public class LeadImagesHandler {
      * the page title.
      */
     private static final int MIN_SCREEN_HEIGHT_DP = 480;
-
-    /**
-     * Maximum height of the page title text. If the text overflows this size, then the
-     * font size of the title will be automatically reduced to fit.
-     */
-    private static final int TITLE_MAX_HEIGHT_DP = 256;
-
-    /**
-     * Minimum font size of the page title. Will not be reduced any further than this.
-     */
-    private static final int TITLE_MIN_TEXT_SIZE_SP = 12;
-
-    /**
-     * Amount by which the page title font will be reduced, for each step of the
-     * reduction process.
-     */
-    private static final int TITLE_TEXT_SIZE_DECREMENT_SP = 4;
 
     public interface OnLeadImageLayoutListener {
         void onLayoutComplete(int sequence);
@@ -179,60 +161,7 @@ public class LeadImagesHandler {
         articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
         // Set the subtitle, too, so text measurements are accurate.
         layoutWikiDataDescription(getTitle().getDescription());
-
-        // kick off the (asynchronous) laying out of the page title text
-        layoutPageTitle((int) (getDimension(R.dimen.titleTextSize)
-                / displayDensity), listener, sequence);
-    }
-
-    /**
-     * Intermediate step in the layout process:
-     * Recursive function that will dynamically size down the page title TextView if the page title
-     * is too long. Since it's assumed that the overall lead image view is hidden at this stage,
-     * this process will be invisible to the user, and will not appear jarring. Once the optimal
-     * font size is reached, the next step in the layout process is triggered.
-     *
-     * @param fontSizeSp Font size to be tested.
-     * @param listener   Listener that will receive an event when the layout is completed.
-     */
-    private void layoutPageTitle(final int fontSizeSp, final OnLeadImageLayoutListener listener, final int sequence) {
-        if (!isFragmentAdded()) {
-            return;
-        }
-        // set the font size of the title
-        articleHeaderView.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSizeSp);
-        // if we're still not being shown (if the fragment is still being created),
-        // then retry after a delay.
-        if (articleHeaderView.getTextHeight() == 0) {
-            final int postDelay = 50;
-            articleHeaderView.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    layoutPageTitle(fontSizeSp, listener, sequence);
-                }
-            }, postDelay);
-        } else {
-            // give it a chance to redraw, and then see if it fits
-            articleHeaderView.post(new Runnable() {
-                @Override
-                public void run() {
-                    if (!isFragmentAdded()) {
-                        return;
-                    }
-                    if (((int) (articleHeaderView.getTextHeight() / displayDensity) > TITLE_MAX_HEIGHT_DP)
-                            && (fontSizeSp > TITLE_MIN_TEXT_SIZE_SP)) {
-                        int newSize = fontSizeSp - TITLE_TEXT_SIZE_DECREMENT_SP;
-                        if (newSize < TITLE_MIN_TEXT_SIZE_SP) {
-                            newSize = TITLE_MIN_TEXT_SIZE_SP;
-                        }
-                        layoutPageTitle(newSize, listener, sequence);
-                    } else {
-                        // we're done!
-                        layoutViews(listener, sequence);
-                    }
-                }
-            });
-        }
+        layoutViews(listener, sequence);
     }
 
     /**

@@ -22,8 +22,10 @@ import android.text.style.AbsoluteSizeSpan;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -91,6 +93,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
         setTextColor(getColor(getThemedAttributeId(getContext(),
                 R.attr.lead_disabled_text_color)));
+        setTextHeightUnconstrained();
         clearTextDropShadow();
         clearTextGradient();
     }
@@ -101,6 +104,8 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         updateText();
 
         setTextColor(getColor(R.color.lead_text_color));
+        setImageHeight((int) (DimenUtil.getDisplayHeightPx() * getScreenHeightRatio()));
+        setTextHeightConstrained();
         setTextDropShadow();
         setTextGradient();
     }
@@ -171,7 +176,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     public int getTextHeight() {
-        return text.getHeight();
+        return text.getMeasuredHeight();
     }
 
     public void setTextSize(int unit, float size) {
@@ -216,14 +221,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         avPlayer.init();
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int maxHeight = (int) (DimenUtil.getDisplayHeightPx() * getScreenHeightRatio());
-        heightMeasureSpec = MeasureSpec.makeMeasureSpec(Math.min(MeasureSpec.getSize(heightMeasureSpec),
-                        maxHeight), MeasureSpec.AT_MOST);
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
@@ -306,6 +303,22 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         Drawable gradient = GradientUtil.getCubicGradient(getColor(R.color.lead_gradient_start),
                 Gravity.BOTTOM);
         ViewUtil.setBackgroundDrawable(text, gradient);
+    }
+
+    private void setImageHeight(int height) {
+        ViewGroup.LayoutParams params = image.getLayoutParams();
+        params.height = height;
+        image.setLayoutParams(params);
+    }
+
+    private void setTextHeightConstrained() {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f);
+        text.setLayoutParams(params);
+    }
+
+    private void setTextHeightUnconstrained() {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        text.setLayoutParams(params);
     }
 
     private void init() {
