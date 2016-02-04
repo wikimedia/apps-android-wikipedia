@@ -22,7 +22,7 @@ public class PageLoadTest extends BasePageLoadTest {
     public void testPageFetchWithAmpersand() throws Throwable {
 //        final int expectedNumberOfSections = 1;
         // TODO: verify num sections
-        loadPageSync("Simon & Garfunkel", EN_SITE);
+        loadPageSync("Ampersand & title", TEST_SITE);
     }
 
     @Test
