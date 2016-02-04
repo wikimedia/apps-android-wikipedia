@@ -15,10 +15,10 @@ import android.support.annotation.Nullable;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.WikipediaApp;
 
-public abstract class SQLiteContentProvider<T> extends ContentProvider {
-    private final DatabaseTable<T> databaseTable;
+public abstract class SQLiteContentProvider extends ContentProvider {
+    private final DatabaseTable<?> databaseTable;
 
-    protected SQLiteContentProvider(DatabaseTable<T> databaseTable) {
+    protected SQLiteContentProvider(DatabaseTable<?> databaseTable) {
         this.databaseTable = databaseTable;
     }
 
@@ -87,7 +87,7 @@ public abstract class SQLiteContentProvider<T> extends ContentProvider {
 
     @Override
     public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
-        int rows = 0;
+        int rows;
         int uriType = uriMatcher.match(uri);
 
         SQLiteDatabase db = getDatabase().getReadableDatabase();
