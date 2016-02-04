@@ -1,6 +1,7 @@
 package org.wikipedia.database;
 
 import android.content.ContentProviderClient;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -45,6 +46,14 @@ public abstract class DatabaseTable<T> {
 
     private Uri baseContentURI;
 
+    public DatabaseTable() {
+        baseContentURI = new Uri.Builder()
+                .scheme(ContentResolver.SCHEME_CONTENT)
+                .authority(SQLiteContentProvider.getAuthorityForTable(getTableName()))
+                .path(getTableName())
+                .build();
+    }
+
     public abstract T fromCursor(Cursor c);
 
     protected abstract ContentValues toContentValues(T obj);
@@ -54,16 +63,7 @@ public abstract class DatabaseTable<T> {
     public abstract Column[] getColumnsAdded(int version);
 
     public ContentProviderClient acquireClient(@NonNull Context context) {
-        return acquireUriClient(context);
-    }
-
-    protected ContentProviderClient acquireUriClient(@NonNull Context context) {
         return context.getContentResolver().acquireContentProviderClient(getBaseContentURI());
-    }
-
-    protected ContentProviderClient acquireTableNameClient(@NonNull Context context) {
-        String authority = SQLiteContentProvider.getAuthorityForTable(getTableName());
-        return context.getContentResolver().acquireContentProviderClient(authority);
     }
 
     /**
@@ -150,9 +150,6 @@ public abstract class DatabaseTable<T> {
     }
 
     public Uri getBaseContentURI() {
-        if (baseContentURI == null) {
-            baseContentURI = Uri.parse("content://" + SQLiteContentProvider.getAuthorityForTable(getTableName()) + "/" + getTableName());
-        }
         return baseContentURI;
     }
 }

@@ -1,16 +1,13 @@
 package org.wikipedia.history;
 
-import android.content.ContentProviderClient;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
-
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.database.DatabaseTable;
+import org.wikipedia.page.PageTitle;
 
 import java.util.Date;
 
@@ -74,11 +71,6 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
             default:
                 return new Column[0];
         }
-    }
-
-    @Override
-    public ContentProviderClient acquireClient(@NonNull Context context) {
-        return acquireTableNameClient(context);
     }
 
     @Override

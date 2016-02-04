@@ -1,12 +1,10 @@
 package org.wikipedia.search;
 
-import org.wikipedia.database.DatabaseTable;
-
-import android.content.ContentProviderClient;
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
+
+import org.wikipedia.database.DatabaseTable;
 
 import java.util.Date;
 
@@ -58,11 +56,6 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
             default:
                 return new Column[0];
         }
-    }
-
-    @Override
-    public ContentProviderClient acquireClient(@NonNull Context context) {
-        return acquireTableNameClient(context);
     }
 
     @Override
