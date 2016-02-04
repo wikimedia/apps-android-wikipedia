@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.data.DatabaseTable;
+import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.util.StringUtil;
 
 import java.io.File;

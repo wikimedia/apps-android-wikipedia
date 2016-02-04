@@ -2,7 +2,7 @@ package org.wikipedia.page;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.data.GsonUtil;
+import org.wikipedia.json.GsonUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;

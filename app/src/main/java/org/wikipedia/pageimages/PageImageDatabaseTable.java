@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.data.DatabaseTable;
+import org.wikipedia.database.DatabaseTable;
 
 public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
 

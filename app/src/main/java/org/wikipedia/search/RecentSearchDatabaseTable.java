@@ -1,6 +1,6 @@
 package org.wikipedia.search;
 
-import org.wikipedia.data.DatabaseTable;
+import org.wikipedia.database.DatabaseTable;
 
 import android.content.ContentProviderClient;
 import android.content.ContentValues;

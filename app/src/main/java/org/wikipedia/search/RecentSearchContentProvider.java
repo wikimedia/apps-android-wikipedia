@@ -1,6 +1,6 @@
 package org.wikipedia.search;
 
-import org.wikipedia.data.SQLiteContentProvider;
+import org.wikipedia.database.SQLiteContentProvider;
 
 public class RecentSearchContentProvider extends SQLiteContentProvider<RecentSearch> {
     public RecentSearchContentProvider() {

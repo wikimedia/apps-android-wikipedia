@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.data.SQLiteContentProvider;
+import org.wikipedia.database.SQLiteContentProvider;
 import org.wikipedia.pageimages.PageImage;
 
 public class SavedPageContentProvider extends SQLiteContentProvider<SavedPage> {

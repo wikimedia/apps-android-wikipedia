@@ -4,7 +4,7 @@ import android.content.Context;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.data.DatabaseClient;
+import org.wikipedia.database.DatabaseClient;
 
 public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
     private final WikipediaApp app;
