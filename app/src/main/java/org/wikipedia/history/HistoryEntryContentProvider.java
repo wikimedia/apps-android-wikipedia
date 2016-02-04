@@ -9,7 +9,7 @@ import android.support.annotation.NonNull;
 import org.wikipedia.database.SQLiteContentProvider;
 import org.wikipedia.pageimages.PageImage;
 
-public class HistoryEntryContentProvider extends SQLiteContentProvider<HistoryEntry> {
+public class HistoryEntryContentProvider extends SQLiteContentProvider {
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
     /** column index of pageimages.imageName in the MATCH_WITH_PAGEIMAGES case */
