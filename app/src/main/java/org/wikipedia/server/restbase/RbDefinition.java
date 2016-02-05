@@ -24,7 +24,7 @@ public class RbDefinition {
         return usagesByLang;
     }
 
-    public Usage[] getUsagesForLang(String langCode) {
+    @Nullable public Usage[] getUsagesForLang(String langCode) {
         return usagesByLang.get(langCode);
     }
 
