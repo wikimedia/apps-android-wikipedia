@@ -17,6 +17,8 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import org.wikipedia.util.log.L;
+
 public abstract class ImagePipelineBitmapGetter {
     private Context context;
     private String imageUrl;
@@ -42,10 +44,15 @@ public abstract class ImagePipelineBitmapGetter {
     private class BitmapDataSubscriber extends BaseBitmapDataSubscriber {
         @Override
         protected void onNewResultImpl(Bitmap tempBitmap) {
-            Bitmap bitmap = Bitmap.createBitmap(tempBitmap.getWidth(), tempBitmap.getHeight(), Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap);
-            canvas.drawBitmap(tempBitmap, 0f, 0f, new Paint());
-            onSuccess(bitmap);
+            try {
+                Bitmap bitmap = Bitmap.createBitmap(tempBitmap.getWidth(), tempBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                canvas.drawBitmap(tempBitmap, 0f, 0f, new Paint());
+                onSuccess(bitmap);
+            } catch (Throwable t) {
+                L.logRemoteErrorIfProd(t);
+                onError(t);
+            }
         }
 
         @Override
