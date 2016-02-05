@@ -153,12 +153,13 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
         LinearLayout fullDefinitionsList = (LinearLayout) rootView.findViewById(R.id.wiktionary_definitions_by_part_of_speech);
 
         RbDefinition.Usage[] usageList = currentDefinition.getUsagesForLang("en");
-        if (usageList.length == 0) {
+        if (usageList == null || usageList.length == 0) {
             displayNoDefinitionsFound();
+            return;
         }
-        for (int i = 0; i < usageList.length; i++) {
+        for (RbDefinition.Usage usage : usageList) {
             View usageView = inflater.inflate(R.layout.item_wiktionary_definitions_list, (ViewGroup) rootView, false);
-            layOutUsage(usageList[i], usageView, inflater);
+            layOutUsage(usage, usageView, inflater);
             fullDefinitionsList.addView(usageView);
         }
     }
