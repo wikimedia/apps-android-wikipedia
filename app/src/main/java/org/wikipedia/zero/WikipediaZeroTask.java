@@ -7,8 +7,9 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
+import org.wikipedia.WikipediaApp;
 
-public class WikipediaZeroTask extends ApiTask<ZeroMessage> {
+public class WikipediaZeroTask extends ApiTask<ZeroConfig> {
     private String userAgent;
 
     // TODO: should user agent be exposed from Api?
@@ -26,17 +27,23 @@ public class WikipediaZeroTask extends ApiTask<ZeroMessage> {
     public RequestBuilder buildRequest(Api api) {
         return api.action("zeroconfig")
                 .param("type", "message")
-                .param("agent", userAgent);
+                .param("agent", userAgent)
+                .param("uselang", WikipediaApp.getInstance().getAppOrSystemLanguageCode());
     }
 
     @Override
-    public ZeroMessage processResult(ApiResult result) throws Throwable {
+    public ZeroConfig processResult(ApiResult result) throws Throwable {
         try {
             JSONObject results = result.asObject();
-            String msg = results.getString("message");
-            String fg = results.getString("foreground");
-            String bg = results.getString("background");
-            return new ZeroMessage(msg, fg, bg);
+            String message = results.getString("message");
+            String foreground = results.getString("foreground");
+            String background = results.getString("background");
+            String exitTitle = results.optString("exitTitle");
+            String exitWarning = results.optString("exitWarning");
+            String partnerInfoText = results.optString("partnerInfoText");
+            String partnerInfoUrl = results.optString("partnerInfoUrl");
+            return new ZeroConfig(message, foreground, background, exitTitle, exitWarning,
+                    partnerInfoText, partnerInfoUrl);
         } catch (Exception e) {
             return null;
         }

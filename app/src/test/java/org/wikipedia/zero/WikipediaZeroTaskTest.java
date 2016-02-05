@@ -39,11 +39,11 @@ public class WikipediaZeroTaskTest {
     @Test
     public void testOnFinishEligible() throws Exception {
         testOnFinish(TestFileUtil.readRawFile("wikipedia_zero_task_test_eligible.json"),
-                new ZeroMessage("Overstay your stay!", "#FFFFFF", "#00FFFF"));
+                new ZeroConfig("Overstay your stay!", "#FFFFFF", "#00FFFF", "", "", "", ""));
     }
 
     private void testOnFinish(String responseBody,
-                              @Nullable ZeroMessage expected) throws Exception {
+                              @Nullable ZeroConfig expected) throws Exception {
         TestLatch latch = new TestLatch();
         Subject subject = new Subject(latch, expected);
 
@@ -60,16 +60,16 @@ public class WikipediaZeroTaskTest {
         private final TestLatch latch;
 
         @Nullable
-        private final ZeroMessage expected;
+        private final ZeroConfig expected;
 
-        Subject(@NonNull TestLatch latch, @Nullable ZeroMessage expected) {
+        Subject(@NonNull TestLatch latch, @Nullable ZeroConfig expected) {
             super(new TestApi(server), "userAgent");
             this.latch = latch;
             this.expected = expected;
         }
 
         @Override
-        public void onFinish(ZeroMessage result) {
+        public void onFinish(ZeroConfig result) {
             super.onFinish(result);
             assertThat(result, is(expected));
             latch.countDown();

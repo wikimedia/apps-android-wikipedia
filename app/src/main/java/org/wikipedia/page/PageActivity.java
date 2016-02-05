@@ -32,7 +32,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.zero.WikipediaZeroHandler;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
-import org.wikipedia.zero.ZeroMessage;
+import org.wikipedia.zero.ZeroConfig;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
@@ -118,8 +118,8 @@ public class PageActivity extends ThemedActionBarActivity {
     private CompatActionMode currentActionMode;
     private ActionBarDrawerToggle mDrawerToggle;
     private SearchBarHideHandler searchBarHideHandler;
-    private boolean pausedStateOfZero;
-    private ZeroMessage pausedMessageOfZero;
+    private boolean isZeroEnabled;
+    private ZeroConfig currentZeroConfig;
     private ThemeChooserDialog themeChooser;
     private RandomHandler randomHandler;
     private NavDrawerHelper navDrawerHelper;
@@ -244,8 +244,8 @@ public class PageActivity extends ThemedActionBarActivity {
 
         boolean languageChanged = false;
         if (savedInstanceState != null) {
-            pausedStateOfZero = savedInstanceState.getBoolean("pausedStateOfZero");
-            pausedMessageOfZero = savedInstanceState.getParcelable("pausedMessageOfZero");
+            isZeroEnabled = savedInstanceState.getBoolean("pausedZeroEnabledState");
+            currentZeroConfig = savedInstanceState.getParcelable("pausedZeroConfig");
             if (savedInstanceState.containsKey("themeChooserShowing")) {
                 if (savedInstanceState.getBoolean("themeChooserShowing")) {
                     showThemeChooser();
@@ -261,7 +261,7 @@ public class PageActivity extends ThemedActionBarActivity {
             // the app, MRU languages are not updated. There's no harm in doing that here but since
             // the user didin't choose that language in app, it may be unexpected.
         }
-        searchHintText.setText(getString(pausedStateOfZero ? R.string.zero_search_hint : R.string.search_hint));
+        searchHintText.setText(getString(isZeroEnabled ? R.string.zero_search_hint : R.string.search_hint));
 
         if (languageChanged) {
             app.resetSite();
@@ -749,9 +749,9 @@ public class PageActivity extends ThemedActionBarActivity {
         @Subscribe
         public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
             boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
-            ZeroMessage latestCarrierMessage = app.getWikipediaZeroHandler().getCarrierMessage();
+            ZeroConfig latestZeroConfig = app.getWikipediaZeroHandler().getZeroConfig();
 
-            if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
+            if (isZeroEnabled && !latestWikipediaZeroDisposition) {
                 String title = getString(R.string.zero_charged_verbiage);
                 String verbiage = getString(R.string.zero_charged_verbiage_extended);
                 WikipediaZeroHandler.showZeroBanner(PageActivity.this, title,
@@ -759,17 +759,17 @@ public class PageActivity extends ThemedActionBarActivity {
                         getResources().getColor(R.color.holo_red_dark));
                 navDrawerHelper.setupDynamicNavDrawerItems();
                 showDialogAboutZero(null, title, verbiage);
-            } else if ((!pausedStateOfZero || !pausedMessageOfZero.equals(latestCarrierMessage))
+            } else if ((!isZeroEnabled || !currentZeroConfig.equals(latestZeroConfig))
                        && latestWikipediaZeroDisposition) {
-                String title = latestCarrierMessage.getMsg();
+                String title = latestZeroConfig.getMessage();
                 String verbiage = getString(R.string.zero_learn_more);
                 WikipediaZeroHandler.showZeroBanner(PageActivity.this, title,
-                        latestCarrierMessage.getFg(), latestCarrierMessage.getBg());
+                        latestZeroConfig.getForeground(), latestZeroConfig.getBackground());
                 navDrawerHelper.setupDynamicNavDrawerItems();
                 showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
             }
-            pausedStateOfZero = latestWikipediaZeroDisposition;
-            pausedMessageOfZero = latestCarrierMessage;
+            isZeroEnabled = latestWikipediaZeroDisposition;
+            currentZeroConfig = latestZeroConfig;
             searchHintText.setText(getString(
                     latestWikipediaZeroDisposition
                             ? R.string.zero_search_hint
@@ -817,7 +817,7 @@ public class PageActivity extends ThemedActionBarActivity {
         app.resetSite();
         app.getSessionFunnel().touchSession();
         boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
-        if (pausedStateOfZero && !latestWikipediaZeroDisposition) {
+        if (isZeroEnabled && !latestWikipediaZeroDisposition) {
             bus.post(new WikipediaZeroStateChangeEvent());
         }
         navDrawerHelper.setupDynamicNavDrawerItems();
@@ -826,8 +826,8 @@ public class PageActivity extends ThemedActionBarActivity {
     @Override
     public void onPause() {
         super.onPause();
-        pausedStateOfZero = app.getWikipediaZeroHandler().isZeroEnabled();
-        pausedMessageOfZero = app.getWikipediaZeroHandler().getCarrierMessage();
+        isZeroEnabled = app.getWikipediaZeroHandler().isZeroEnabled();
+        currentZeroConfig = app.getWikipediaZeroHandler().getZeroConfig();
     }
 
     @Override
@@ -841,8 +841,8 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     private void saveState(Bundle outState) {
-        outState.putBoolean("pausedStateOfZero", pausedStateOfZero);
-        outState.putParcelable("pausedMessageOfZero", pausedMessageOfZero);
+        outState.putBoolean("pausedZeroEnabledState", isZeroEnabled);
+        outState.putParcelable("pausedZeroConfig", currentZeroConfig);
         if (themeChooser != null) {
             outState.putBoolean("themeChooserShowing", themeChooser.isShowing());
         }

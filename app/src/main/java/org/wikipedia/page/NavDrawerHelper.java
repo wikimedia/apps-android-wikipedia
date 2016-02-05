@@ -206,7 +206,7 @@ public class NavDrawerHelper {
     private void updateWikipediaZeroStatus() {
         MenuItem wikipediaZeroText = activity.getNavMenu().findItem(R.id.nav_item_zero);
         if (app.getWikipediaZeroHandler().isZeroEnabled()) {
-            wikipediaZeroText.setTitle(app.getWikipediaZeroHandler().getCarrierMessage().getMsg());
+            wikipediaZeroText.setTitle(app.getWikipediaZeroHandler().getZeroConfig().getMessage());
             wikipediaZeroText.setVisible(true);
         } else {
             wikipediaZeroText.setVisible(false);
