@@ -225,6 +225,6 @@ Felhasználási feltételek: https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="gallery_error_draw_failed">Nem tudta megrajzolni a képet.</string>
   <string name="gallery_menu_share">Megosztás</string>
   <string name="gallery_menu_save">Mentés az eszközre</string>
-  <string name="gallery_save_success">A kép sikeresen mentve.</string>
+  <string name="gallery_save_success" fuzzy="true">A kép sikeresen mentve.</string>
   <string name="error_unknown">Ismeretlen hiba történt.</string>
 </resources>

@@ -223,7 +223,7 @@ Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Deel</string>
   <string name="gallery_share_error">Kon nie beeld deel nie: %s</string>
   <string name="gallery_menu_save">Stoor na toestel</string>
-  <string name="gallery_save_success">Beeld suksesvol gestoor.</string>
+  <string name="gallery_save_success" fuzzy="true">Beeld suksesvol gestoor.</string>
   <string name="gallery_error_video_failed">Kon nie die video speel nie.</string>
   <string name="err_cannot_save_file">Kan nie die lêer stoor nie</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>

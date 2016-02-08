@@ -169,7 +169,7 @@
   <string name="gallery_menu_share">Divider</string>
   <string name="gallery_share_error">Non poteva divider imagine: %s</string>
   <string name="gallery_menu_save">Salveguardar in apparato</string>
-  <string name="gallery_save_success">Imagine salveguardate correctemente.</string>
+  <string name="gallery_save_success" fuzzy="true">Imagine salveguardate correctemente.</string>
   <string name="err_cannot_save_file">Impossibile salvar le file</string>
   <string name="snippet_share_intro">\"%1$s\" sur @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca pro expander</string>

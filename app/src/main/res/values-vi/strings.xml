@@ -236,7 +236,7 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="gallery_menu_share">Chia sẻ</string>
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
   <string name="gallery_menu_save">Lưu vào thiết bị</string>
-  <string name="gallery_save_success">Đã lưu hình thành công.</string>
+  <string name="gallery_save_success" fuzzy="true">Đã lưu hình thành công.</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Để lưu ảnh, bạn cần cho phép ghi dữ liệu vào bộ nhớ thiết bị. Xin hãy thử lại và đồng ý cấp phép cho yêu cầu.</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>

@@ -15,6 +15,7 @@
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
   <string name="nav_item_today">Dzisiaj</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
+  <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="nav_item_saved_pages">Zapisane strony</string>
   <string name="menu_update_all_saved_pages">Odśwież zapisane strony</string>
   <string name="menu_update_selected_saved_pages">Odśwież zapisane strony</string>
@@ -30,7 +31,7 @@
   <string name="saved_pages_search_list_hint">Wyszukiwanie zapisanych stron</string>
   <string name="saved_pages_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
-  <string name="menu_page_other_languages" fuzzy="true">Czytaj w innych językach</string>
+  <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_similar_titles">Podobne tytuły</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
@@ -139,6 +140,7 @@
   <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
   <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
   <string name="preference_title_auto_upload_crash_reports">Wysyłaj raporty o awariach</string>
+  <string name="preference_summary_auto_upload_crash_reports">Pozwól automatycznie wysyłać raporty o błędach do platformy HockeyApp / zewnętrznego usługodawcy, abyśmy mogli szybciej i łatwiej analizować informacje o zgłoszonych awariach oraz naprawiać błędy.</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
   <string name="history_search_list_hint">Historia wyszukiwania</string>
   <string name="history_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
@@ -224,7 +226,7 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="gallery_menu_share">Udostępnij</string>
   <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
   <string name="gallery_menu_save">Zapisz na urządzeniu</string>
-  <string name="gallery_save_success">Obraz pomyślnie zapisany.</string>
+  <string name="gallery_save_success" fuzzy="true">Obraz pomyślnie zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów. Proszę, spróbuj jeszcze raz i przyznaj poproszone uprawnienia.</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
@@ -251,6 +253,8 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="address_copied">Adres skopiowany do schowka.</string>
   <string name="text_copied">Tekst skopiowany do schowka.</string>
   <string name="button_continue_to_article">Przeczytaj artykuł</string>
+  <string name="button_get_directions">Wyznacz trasę</string>
+  <string name="error_no_maps_app">Nie udało się znaleźć aplikacji do nawigacji.</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="nav_item_donate">Wspomóż Wikipedię</string>
@@ -264,4 +268,7 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
 Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
   <string name="crash_report_quit">Wyjście</string>
+  <string name="article_menu_bar_bookmark">Zapisz artykuł do późniejszego odczytu w trybie offline</string>
+  <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
+  <string name="article_menu_bar_navigate">Przejdź do lokalizacji artykułu</string>
 </resources>

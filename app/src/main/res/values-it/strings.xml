@@ -241,7 +241,7 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Condividi</string>
   <string name="gallery_share_error">Impossibile condividere l\'immagine: %s</string>
   <string name="gallery_menu_save">Salva sul dispositivo</string>
-  <string name="gallery_save_success">Immagine salvata con successo.</string>
+  <string name="gallery_save_success" fuzzy="true">Immagine salvata con successo.</string>
   <string name="gallery_error_video_failed">Impossibile riprodurre il video.</string>
   <string name="gallery_save_image_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio delle immagini. Prova di nuovo, e concedi l\'autorizzazione richiesta.</string>
   <string name="err_cannot_save_file">Impossibile salvare il file</string>

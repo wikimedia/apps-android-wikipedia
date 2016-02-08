@@ -186,7 +186,7 @@
   <string name="gallery_error_draw_failed">Ezin da irudia marraztu.</string>
   <string name="gallery_menu_share">Partekatu</string>
   <string name="gallery_menu_save">Gailuan gorde</string>
-  <string name="gallery_save_success">Irudia ondo gorde da.</string>
+  <string name="gallery_save_success" fuzzy="true">Irudia ondo gorde da.</string>
   <string name="gallery_error_video_failed">Ezin da bideoa ikusi.</string>
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
   <string name="share_snippet_button">Irudi bezala partekatu</string>

@@ -9,6 +9,7 @@
   <string name="nav_item_history">پېښليک</string>
   <string name="error_network_error">انټرنټ سره نه شي تړل کېدای.</string>
   <string name="page_error_retry">بياآزمويل</string>
+  <string name="page_error_back_to_main">پر شا تلل</string>
   <string name="menu_clear_all_history">پېښليک پاکول</string>
   <string name="menu_clear_all_saved_pages">خوندي مخونه سپينول</string>
   <string name="page_does_not_exist_error">پدې نوم مخ نشته.</string>
@@ -144,7 +145,7 @@
   <string name="license_title">د %s کتابتون لپاره د منښتليک متن</string>
   <string name="gallery_menu_share">شريکول</string>
   <string name="gallery_menu_save">وزلې کې خوندي کول</string>
-  <string name="gallery_save_success">انځور برياليتوب سره خوندي شو.</string>
+  <string name="gallery_save_success" fuzzy="true">انځور برياليتوب سره خوندي شو.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
   <string name="err_cannot_save_file">دوتنه د خوندي کولو وړ نه ده</string>
   <string name="snippet_share_intro">\"%1$s\" په @Wikipedia: %2$s</string>

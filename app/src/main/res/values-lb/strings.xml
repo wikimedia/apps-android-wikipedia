@@ -214,7 +214,7 @@
   <string name="gallery_menu_share">Deelen</string>
   <string name="gallery_share_error">Bild konnt net gedeelt ginn: %s</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>
-  <string name="gallery_save_success">Bild gespäichert.</string>
+  <string name="gallery_save_success" fuzzy="true">Bild gespäichert.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>

@@ -156,7 +156,7 @@
   <string name="gallery_menu_share">Partejar</string>
   <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
   <string name="gallery_menu_save">Enregistrar sus l’aparelh</string>
-  <string name="gallery_save_success">Imatge enregistrat corrèctament.</string>
+  <string name="gallery_save_success" fuzzy="true">Imatge enregistrat corrèctament.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrar lo fichièr</string>
   <string name="snippet_share_intro">Fach interessant sus @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Tustar per desvolopar</string>

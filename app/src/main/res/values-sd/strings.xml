@@ -206,7 +206,7 @@
   <string name="gallery_menu_share">ونڊيو</string>
   <string name="gallery_share_error">عڪس بنام %s ونڊجي نہ سگھيو</string>
   <string name="gallery_menu_save">آلي ۾ سانڍيو</string>
-  <string name="gallery_save_success">عڪس ڪاميابيءَ سان سانڍجي ويو.</string>
+  <string name="gallery_save_success" fuzzy="true">عڪس ڪاميابيءَ سان سانڍجي ويو.</string>
   <string name="gallery_error_video_failed">وڊيو هلي نہ سگھي.</string>
   <string name="err_cannot_save_file">فائيل سانڍي نہ ٿو سگھجي.</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia تي: %2$s</string>

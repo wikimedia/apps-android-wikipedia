@@ -31,8 +31,10 @@
   <string name="saved_pages_search_list_hint">Søg i Gemte sider</string>
   <string name="saved_pages_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="menu_page_show_tabs">Vis faner</string>
-  <string name="menu_page_other_languages" fuzzy="true">Læs på andre sprog</string>
+  <string name="menu_page_other_languages">Skift sprog</string>
   <string name="menu_page_find_in_page">Søg på siden</string>
+  <string name="menu_page_content_issues">Indholdsproblemer</string>
+  <string name="menu_page_similar_titles">Lignende artikler</string>
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
   <string name="menu_page_save">Gem side</string>
   <string name="menu_page_share">Del link</string>
@@ -45,6 +47,7 @@
   <string name="nav_item_nearby">I nærheden</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_zoom_to_location">Zoom til et sted på kortet</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
   <string name="edit_save_action_license_logged_in">Ved at gemme, accepterer du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
@@ -77,7 +80,7 @@
   <string name="login_password_hint">Adgangskode</string>
   <string name="login_password_show_check">Vis adgangskode</string>
   <string name="menu_login">Log på</string>
-  <string name="login_activity_title" fuzzy="true">Log på Wikipedia</string>
+  <string name="login_activity_title">Log på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
   <string name="login_error_wrong_password">Forkert adgangskode</string>
   <string name="login_error_wrong_username">Forkert brugernavn</string>
@@ -203,6 +206,7 @@
   <string name="widget_name_featured_page">Udvalgt Wikipedia-side</string>
   <string name="widget_title_featured_page">Dagens udvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søgning</string>
+  <string name="wiktionary_no_definitions_found">Ingen definitioner fundet.</string>
   <string name="app_store_description">Officiel Wikipedia App til Android. Wikipedia er en fri encyklopædi der indeholder mere end 32 millioner artikler på 280 sprog, og er den mest omfattende og udbredte referenceværk mennesker nogensinde har samlet.
 
 Funktioner:
@@ -235,8 +239,9 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_menu_save">Gem til enhed</string>
-  <string name="gallery_save_success">Billedet er gemt med succes.</string>
+  <string name="gallery_save_success" fuzzy="true">Billedet er gemt med succes.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
+  <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder. Prøv venligst igen, og giv den ønskede tilladelse.</string>
   <string name="err_cannot_save_file">Kan ikke gemme filen</string>
   <string name="snippet_share_intro">«%1$s» på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryk for at udvide</string>
@@ -260,9 +265,12 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="format_error_server_code">Kode: \"%s\"</string>
   <string name="address_copied">Adressen er kopieret til udklipsholder.</string>
   <string name="text_copied">Tekst kopieret til udklipsholder.</string>
-  <string name="button_continue_to_article" fuzzy="true">Fortsæt til artikel</string>
+  <string name="button_continue_to_article">Læs artiklen</string>
+  <string name="button_get_directions">Få rutevejledninger</string>
+  <string name="error_no_maps_app">Kunne ikke finde nogen apps, der giver rutevejledninger.</string>
   <string name="preference_title_show_link_previews">Vis forhåndsvisning af links</string>
   <string name="preference_summary_show_link_previews">Viser en kort forhåndsvisning af artikler når du trykker på links.</string>
+  <string name="nav_item_donate">Støt Wikipedia</string>
   <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
   <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
   <string name="crash_report_dialog_dont_send_button">Spring over</string>
@@ -274,4 +282,7 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
 Vil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
   <string name="crash_report_quit">Afslut</string>
+  <string name="article_menu_bar_bookmark">Gemme artiklen til læsning offline senere</string>
+  <string name="article_menu_bar_share">Del link til artiklen</string>
+  <string name="article_menu_bar_navigate">Naviger til det omtalte sted</string>
 </resources>

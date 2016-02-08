@@ -172,7 +172,7 @@
   <string name="edit_next">পরবর্তী</string>
   <string name="edit_done">সংরক্ষণ</string>
   <string name="edit_preview">প্রাকদর্শন</string>
-  <string name="edit_summary_tag_typo">টাইপো ঠিক করা হয়েছে</string>
+  <string name="edit_summary_tag_typo">বানান ঠিক করা হয়েছে</string>
   <string name="edit_summary_tag_grammar">ব্যাকরণ ঠিক করা হয়েছে</string>
   <string name="edit_summary_tag_links">লিংক সংযোজন</string>
   <string name="edit_summary_tag_other">অন্যান্য</string>
@@ -238,7 +238,7 @@
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
   <string name="gallery_menu_save">ডিভাইসে সংরক্ষণ করুন</string>
-  <string name="gallery_save_success">ছবিটি সফলভাবে সংরক্ষণ করা হয়েছে।</string>
+  <string name="gallery_save_success" fuzzy="true">ছবিটি সফলভাবে সংরক্ষণ করা হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন। দয়া করে আবার চেষ্টা করুন, এবং অনুরোধকৃত অনুমতি মঞ্জুর করুন।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>

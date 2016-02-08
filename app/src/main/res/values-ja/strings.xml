@@ -9,6 +9,7 @@
   <string name="nav_item_history">履歴</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
+  <string name="page_error_back_to_main">戻る</string>
   <string name="menu_clear_all_history">履歴を消去</string>
   <string name="menu_clear_all_saved_pages">保存したページをすべて消去</string>
   <string name="page_does_not_exist_error">このページは存在しません。</string>
@@ -239,7 +240,7 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="gallery_menu_share">シェア</string>
   <string name="gallery_share_error">画像がシェアできませんでした: %s</string>
   <string name="gallery_menu_save">デバイスに保存</string>
-  <string name="gallery_save_success">画像を保存しました</string>
+  <string name="gallery_save_success" fuzzy="true">画像を保存しました</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込むパーミッションは画像の保存に必要になります。もう一度やり直して、このパーミッションを許可してください。</string>
   <string name="err_cannot_save_file">ファイルを保存できません。</string>

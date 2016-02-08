@@ -144,7 +144,7 @@
   <string name="menu_gallery_visit_page">फाइल पृष्ठमा जानुहोस्</string>
   <string name="gallery_menu_share">बाड्ने</string>
   <string name="gallery_menu_save">डिभाइसमा संग्रह गर्ने</string>
-  <string name="gallery_save_success">चित्र संग्रह सम्पन्न भयो ।</string>
+  <string name="gallery_save_success" fuzzy="true">चित्र संग्रह सम्पन्न भयो ।</string>
   <string name="err_cannot_save_file">फाइल संग्रह भएन</string>
   <string name="share_snippet_button">चित्रको रूपमा बाड्नुहोस्</string>
   <string name="share_normal_button">अक्षरको रूपमा बाड्नुहोस्</string>

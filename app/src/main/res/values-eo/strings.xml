@@ -222,7 +222,7 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Kundividi</string>
   <string name="gallery_share_error">Ne eblis kundividi la bildon: %s</string>
   <string name="gallery_menu_save">Konservi en la aparato</string>
-  <string name="gallery_save_success">Bildo sukcese konservita</string>
+  <string name="gallery_save_success" fuzzy="true">Bildo sukcese konservita</string>
   <string name="gallery_error_video_failed">Ne eblis ludi la videon</string>
   <string name="err_cannot_save_file">Ne eblis konservi la dosieron</string>
   <string name="snippet_share_intro">\"%1$s\" ĉe @Wikipedia: %2$s</string>

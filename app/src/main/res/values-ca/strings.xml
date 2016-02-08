@@ -232,7 +232,7 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Comparteix</string>
   <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
   <string name="gallery_menu_save">Desar al dispositiu</string>
-  <string name="gallery_save_success">La imatge s\'ha desat correctament.</string>
+  <string name="gallery_save_success" fuzzy="true">La imatge s\'ha desat correctament.</string>
   <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Cal tenir permís d\'escriptura en el vostre dispositiu per a poder desar imatges. Torneu-ho a provar, donant el permís demanat.</string>
   <string name="err_cannot_save_file">No es pot desar el fitxer</string>

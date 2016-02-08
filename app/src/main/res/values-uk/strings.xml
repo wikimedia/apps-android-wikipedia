@@ -246,7 +246,7 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Поділитися</string>
   <string name="gallery_share_error">Не вдалось поділитися зображенням: %s</string>
   <string name="gallery_menu_save">Зберегти на пристрій</string>
-  <string name="gallery_save_success">Зображення успішно збережено!</string>
+  <string name="gallery_save_success" fuzzy="true">Зображення успішно збережено!</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
   <string name="gallery_save_image_write_permission_rationale">Для збереження зображень потрібен дозвіл на запис у сховищі вашого пристрою. Будь ласка, спробуйте ще раз і дайте запитуваний дозвіл.</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>

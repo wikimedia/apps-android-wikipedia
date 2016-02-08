@@ -183,7 +183,7 @@
   <string name="menu_gallery_visit_page">גיין צו טעקע־בלאט</string>
   <string name="gallery_error_draw_failed">מען קען נישט צייכענען דאס בילד</string>
   <string name="gallery_menu_share">טיילן</string>
-  <string name="gallery_save_success">בילד דערפאלגרייך געשפייכלערט.</string>
+  <string name="gallery_save_success" fuzzy="true">בילד דערפאלגרייך געשפייכלערט.</string>
   <string name="gallery_error_video_failed">קען נישט שפילן ווידעא.</string>
   <string name="err_cannot_save_file">קען נישט אויפהיטן טעקע</string>
   <string name="snippet_share_intro">\"%1$s\" ביי @Wikipedia: %2$s</string>

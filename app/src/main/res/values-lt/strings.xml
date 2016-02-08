@@ -183,7 +183,7 @@
   <string name="gallery_menu_share">Dalintis</string>
   <string name="gallery_share_error">Negalima pasidalinti vaizdu: %s</string>
   <string name="gallery_menu_save">Išsaugoti prietaise</string>
-  <string name="gallery_save_success">Vaizdas išsaugotas sėkmingai.</string>
+  <string name="gallery_save_success" fuzzy="true">Vaizdas išsaugotas sėkmingai.</string>
   <string name="gallery_error_video_failed">Negalima paleisti filmuko.</string>
   <string name="err_cannot_save_file">Negalima įrašyti failų</string>
   <string name="expand_refs">Bakstelėkite plėsti</string>

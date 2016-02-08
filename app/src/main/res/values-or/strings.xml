@@ -7,13 +7,14 @@
   <string name="no">ନାହିଁ</string>
   <string name="search_hint">ଉଇକିପିଡ଼ିଆରେ ଖୋଜନ୍ତୁ</string>
   <string name="nav_item_history">ଇତିହାସ</string>
-  <string name="error_network_error" fuzzy="true">ନେଟୱର୍କ ସହ ସଯୋଗ ହୋଇ ନାହିଁ :(</string>
+  <string name="error_network_error">ନେଟୱର୍କ ସହ ସଯୋଗ ହୋଇ ନାହିଁ :(</string>
   <string name="page_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
+  <string name="page_error_back_to_main">ପଛକୁ ଫେରିବେ</string>
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="menu_clear_all_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠା</string>
   <string name="page_does_not_exist_error">ଏହି ପୃଷ୍ଠାଟି ନାହିଁ ।</string>
   <string name="nav_item_today">ଆଜି</string>
-  <string name="dialog_title_clear_history" fuzzy="true">ଇତିହାସ ଲିଭାଇବେ?</string>
+  <string name="dialog_title_clear_history">ଇତିହାସ ଲିଭାଇବେ?</string>
   <string name="dialog_message_clear_history" fuzzy="true">ସମସ୍ତ ପୃଷ୍ଠା ଲିଭାଇବା ବାବଦରେ ଆପଣ ନିଶ୍ଚିତ ତ?</string>
   <string name="nav_item_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
   <string name="menu_update_all_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>
@@ -30,7 +31,7 @@
   <string name="saved_pages_search_list_hint" fuzzy="true">ଖୋଜିବେ</string>
   <string name="saved_pages_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
   <string name="menu_page_other_languages" fuzzy="true">ଅନ୍ୟ ଭାଷାରେ ପଢିବେ</string>
-  <string name="menu_page_save">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
+  <string name="menu_page_save">ପୃଷ୍ଠା ସାଇତିବା</string>
   <string name="menu_page_share" fuzzy="true">ବାଣ୍ଟିବେ</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
   <string name="nearby_distance_in_meters">%d ମି</string>

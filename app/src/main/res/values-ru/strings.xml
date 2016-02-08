@@ -240,7 +240,7 @@
   <string name="gallery_menu_share">Поделиться</string>
   <string name="gallery_share_error">Не удалось поделиться изображением: %s</string>
   <string name="gallery_menu_save">Сохранить на устройство</string>
-  <string name="gallery_save_success">Изображение успешно сохранено.</string>
+  <string name="gallery_save_success" fuzzy="true">Изображение успешно сохранено.</string>
   <string name="gallery_error_video_failed">Не удаётся воспроизвести видео.</string>
   <string name="gallery_save_image_write_permission_rationale">Для сохранения изображений требуется разрешение на запись в хранилище вашего устройства. Пожалуйста, попробуйте ещё раз и дайте запрашиваемое разрешение.</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>

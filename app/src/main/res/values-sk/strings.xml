@@ -9,6 +9,7 @@
   <string name="nav_item_history">História</string>
   <string name="error_network_error">Nie ste pripojení na sieť.</string>
   <string name="page_error_retry">Obnoviť</string>
+  <string name="page_error_back_to_main">Späť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="menu_clear_all_saved_pages">Vymazať uložené stránky</string>
   <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
@@ -228,7 +229,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_menu_share">Zdieľať</string>
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
   <string name="gallery_menu_save">Uložiť v zariadení</string>
-  <string name="gallery_save_success">Obrázok bol úspešne uložený.</string>
+  <string name="gallery_save_success" fuzzy="true">Obrázok bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>

@@ -239,7 +239,7 @@
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图像：%s</string>
   <string name="gallery_menu_save">保存至设备</string>
-  <string name="gallery_save_success">图像保存成功。</string>
+  <string name="gallery_save_success" fuzzy="true">图像保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
   <string name="gallery_save_image_write_permission_rationale">需要写入您设备存储的权限才能保存图片。请重试，并授予请求的权限。</string>
   <string name="err_cannot_save_file">无法保存文件</string>

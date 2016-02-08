@@ -9,6 +9,7 @@
   <string name="nav_item_history">Logg</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
+  <string name="page_error_back_to_main">Gå tilbake</string>
   <string name="menu_clear_all_history">Tøm logg</string>
   <string name="menu_clear_all_saved_pages">Fjern alle lagrede sider</string>
   <string name="page_does_not_exist_error">Denne siden eksisterer ikke.</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">Åpne i ny arkfane</string>
   <string name="menu_long_press_copy_page">Kopier lenkeadresse</string>
   <string name="menu_text_select_copy">Kopier</string>
+  <string name="menu_text_select_define">Definer</string>
   <string name="menu_text_select_share">Del</string>
   <string name="nav_item_nearby">I nærheten</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +206,7 @@
   <string name="widget_name_featured_page">Utvalgt WIkipedia-side</string>
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
+  <string name="wiktionary_no_definitions_found">Ingen definisjoner funnet.</string>
   <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som noensinne har blitt sammenstilt av mennesker.
 
 Funksjonalitet:
@@ -236,7 +239,7 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
   <string name="gallery_menu_save">Lagre på enheten</string>
-  <string name="gallery_save_success">Bildet ble lagret.</string>
+  <string name="gallery_save_success" fuzzy="true">Bildet ble lagret.</string>
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilgang til lagring på enheten trengs for å lagre bilder. Vennligst prøv igjen og gi den nødvendige autorisasjonen.</string>
   <string name="err_cannot_save_file">Kunne ikke lagre filen</string>

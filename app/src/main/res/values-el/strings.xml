@@ -222,7 +222,7 @@
   <string name="license_title">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>
   <string name="gallery_menu_share">Κοινοποίηση</string>
   <string name="gallery_menu_save">Αποθήκευση στη συσκευή</string>
-  <string name="gallery_save_success">Η εικόνα αποθηκεύτηκε επιτυχώς</string>
+  <string name="gallery_save_success" fuzzy="true">Η εικόνα αποθηκεύτηκε επιτυχώς</string>
   <string name="snippet_share_intro">\"%1$s\" στη @Wikipedia: %2$s</string>
   <string name="expand_refs">Πατήστε για να επεκτείνετε</string>
   <string name="share_snippet_button">Μοιραστείτε ως εικόνα</string>

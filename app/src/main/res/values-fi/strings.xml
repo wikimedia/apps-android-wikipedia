@@ -236,7 +236,7 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
   <string name="gallery_menu_save">Tallenna laitteeseen</string>
-  <string name="gallery_save_success">Kuva tallennettu onnistuneesti.</string>
+  <string name="gallery_save_success" fuzzy="true">Kuva tallennettu onnistuneesti.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten. Yritä uudelleen ja anna pyydetty käyttöoikeus.</string>
   <string name="err_cannot_save_file">Tiedostoa ei voi tallentaa</string>

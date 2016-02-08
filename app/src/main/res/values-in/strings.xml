@@ -9,6 +9,7 @@
   <string name="nav_item_history">Riwayat</string>
   <string name="error_network_error">Tidak dapat terhubung ke Internet.</string>
   <string name="page_error_retry">Coba lagi</string>
+  <string name="page_error_back_to_main">Kembali</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
   <string name="menu_clear_all_saved_pages">Hapus semua halaman tersimpan</string>
   <string name="page_does_not_exist_error">Halaman ini tidak ada.</string>
@@ -238,7 +239,7 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
-  <string name="gallery_save_success">Penyimpanan gambar berhasil.</string>
+  <string name="gallery_save_success" fuzzy="true">Penyimpanan gambar berhasil.</string>
   <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>
   <string name="gallery_save_image_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda dibutuhkan untuk menyimpan gambar. Silakan coba lagi, dan bolehkan izin yang diminta.</string>
   <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
