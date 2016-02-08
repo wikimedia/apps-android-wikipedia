@@ -6,6 +6,8 @@ import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import javax.net.ssl.SSLException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
@@ -65,7 +67,7 @@ public final class ThrowableUtil {
     }
 
     public static boolean isRetryable(@NonNull ThrowableUtil.AppError e) {
-        return !e.getDetail().contains("404");
+        return !(e.getDetail() != null && e.getDetail().contains("404"));
     }
 
     private static boolean isNetworkError(@NonNull Throwable e) {
@@ -106,13 +108,15 @@ public final class ThrowableUtil {
     public static class AppError {
         private String error;
         private String detail;
-        public AppError(String error, String detail) {
+        public AppError(@NonNull String error, @Nullable String detail) {
             this.error = error;
             this.detail = detail;
         }
+        @NonNull
         public String getError() {
             return error;
         }
+        @Nullable
         public String getDetail() {
             return detail;
         }
