@@ -436,6 +436,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             if (position != tabList.size() - 1) {
                 Tab tab = tabList.remove(position);
                 tabList.add(tab);
+                tabsProvider.invalidate();
                 pageLoadStrategy.updateCurrentBackStackItem();
                 pageLoadStrategy.setBackStack(tab.getBackStack());
                 pageLoadStrategy.loadFromBackStack();
@@ -462,18 +463,15 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
             tabList.remove(position);
             tabFunnel.logClose(tabList.size(), position);
-            if (position < tabList.size()) {
-                // if it's not the topmost tab, then just delete it and update the tab list...
-                tabsProvider.invalidate();
-            } else if (tabList.size() > 0) {
-                tabsProvider.invalidate();
-                // but if it's the topmost tab, then load the topmost page in the next tab.
-                pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
-                pageLoadStrategy.loadFromBackStack();
-            } else {
+            tabsProvider.invalidate();
+            if (tabList.size() == 0) {
                 tabFunnel.logCancel(tabList.size());
                 // and if the last tab was closed, then finish the activity!
                 getActivity().finish();
+            } else if (position == tabList.size()) {
+                // if it's the topmost tab, then load the topmost page in the next tab.
+                pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
+                pageLoadStrategy.loadFromBackStack();
             }
         }
     };
@@ -948,6 +946,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
             // put this tab in the requested position
             tabList.add(position, tab);
+            tabsProvider.invalidate();
             // add the requested page to its backstack
             tab.getBackStack().add(new PageBackStackItem(title, entry));
         } else {
@@ -1080,6 +1079,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (tabList.size() > 1) {
             // if we're at the end of the current tab's backstack, then pop the current tab.
             tabList.remove(tabList.size() - 1);
+            tabsProvider.invalidate();
         }
         return false;
     }
