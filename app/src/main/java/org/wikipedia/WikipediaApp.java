@@ -217,21 +217,30 @@ public class WikipediaApp extends Application {
     }
 
     public Api getAPIForSite(Site site) {
+        return getAPIForSite(site, false);
+    }
+
+    public Api getAPIForSite(Site site, boolean mobile) {
+        String domain = mobile ? site.getMobileDomain() : site.getDomain();
         String acceptLanguage = getAcceptLanguage(site);
         Map<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
         Api api;
 
-        String cachedApiKey = site.getDomain() + "-" + acceptLanguage;
+        String cachedApiKey = domain + "-" + acceptLanguage;
         if (apis.containsKey(cachedApiKey)) {
             api = apis.get(cachedApiKey);
         } else {
-            api = new Api(site.getDomain(), site.getUseSecure(),
+            api = new Api(domain, site.getUseSecure(),
                     site.getScriptPath("api.php"), customHeaders);
             apis.put(cachedApiKey, api);
         }
 
         api.setHeaderCheckListener(zeroHandler);
         return api;
+    }
+
+    public Api getApiForMobileSite(Site site) {
+        return getAPIForSite(site, true);
     }
 
     /**

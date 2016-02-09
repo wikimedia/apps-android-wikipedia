@@ -49,6 +49,10 @@ public class Site implements Parcelable {
         return domain;
     }
 
+    public String getMobileDomain() {
+        return urlToMobileSite(domain);
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -154,6 +158,10 @@ public class Site implements Parcelable {
 
     private String urlToDesktopSite(String url) {
         return url.replaceFirst("\\.m\\.", ".");
+    }
+
+    private String urlToMobileSite(String url) {
+        return url.replaceFirst("\\.", ".m.");
     }
 
     private static String languageToWikiSubdomain(String language) {
