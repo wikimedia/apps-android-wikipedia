@@ -48,7 +48,6 @@ public final class RbEndpointsCache {
                 .setRequestInterceptor(new RequestInterceptor() {
                     @Override
                     public void intercept(RequestFacade request) {
-                        app.getMccMncStateHandler().injectMccMncHeader(app, domain, request);
                         app.injectCustomHeaders(request, site);
                     }
                 })

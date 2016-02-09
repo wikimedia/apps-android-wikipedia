@@ -33,7 +33,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.AcceptLanguageUtil;
 import org.wikipedia.interlanguage.AppLanguageState;
 import org.wikipedia.login.UserInfoStorage;
-import org.wikipedia.networking.MccMncStateHandler;
 import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.PageCache;
@@ -85,7 +84,6 @@ public class WikipediaApp extends Application {
 
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final UserInfoStorage userInfoStorage = new UserInfoStorage();
-    private final MccMncStateHandler mccMncStateHandler = new MccMncStateHandler();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
     private final Map<String, Api> apis = new HashMap<>();
     private AppLanguageState appLanguageState;
@@ -218,27 +216,18 @@ public class WikipediaApp extends Application {
                 emptyIfNull(getAppLanguageCode()), appLanguageState.getSystemLanguageCode());
     }
 
-    public MccMncStateHandler getMccMncStateHandler() {
-        return mccMncStateHandler;
-    }
     public Api getAPIForSite(Site site) {
         String acceptLanguage = getAcceptLanguage(site);
         Map<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
+        Api api;
 
-        // Because the mccMnc enrichment is a one-time thing, we don't need to have a complex hash key
-        // for the apis HashMap<String, Api> like we do below. It naturally gets the correct
-        // Accept-Language header from above, when applicable.
-        Api api = mccMncStateHandler.makeApiWithMccMncHeaderEnrichment(this, site, customHeaders);
-        if (api == null) {
-            String domainAndApiAndVariantKey = site.getDomain() + "-" + site.getDomain()
-                    + "-" + acceptLanguage + "-" + isEventLoggingEnabled();
-            if (apis.containsKey(domainAndApiAndVariantKey)) {
-                api = apis.get(domainAndApiAndVariantKey);
-            } else {
-                api = new Api(site.getDomain(), site.getUseSecure(),
-                        site.getScriptPath("api.php"), customHeaders);
-                apis.put(domainAndApiAndVariantKey, api);
-            }
+        String cachedApiKey = site.getDomain() + "-" + acceptLanguage;
+        if (apis.containsKey(cachedApiKey)) {
+            api = apis.get(cachedApiKey);
+        } else {
+            api = new Api(site.getDomain(), site.getUseSecure(),
+                    site.getScriptPath("api.php"), customHeaders);
+            apis.put(cachedApiKey, api);
         }
 
         api.setHeaderCheckListener(zeroHandler);
