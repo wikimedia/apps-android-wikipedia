@@ -33,8 +33,12 @@ import android.widget.VideoView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.samples.zoomable.ZoomableDraweeView;
 
 import java.util.Map;
 
@@ -53,7 +57,7 @@ public class GalleryItemFragment extends Fragment {
     private String mimeType;
     private ProgressBar progressBar;
 
-    private SimpleDraweeView imageView;
+    private ZoomableDraweeView imageView;
 
     private View videoContainer;
     private VideoView videoView;
@@ -92,19 +96,22 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
-        View containerView = rootView.findViewById(R.id.gallery_item_container);
-        containerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                parentActivity.toggleControls();
-            }
-        });
         progressBar = (ProgressBar) rootView.findViewById(R.id.gallery_item_progress_bar);
         videoContainer = rootView.findViewById(R.id.gallery_video_container);
         videoView = (VideoView) rootView.findViewById(R.id.gallery_video);
         videoThumbnail = (SimpleDraweeView) rootView.findViewById(R.id.gallery_video_thumbnail);
         videoPlayButton = rootView.findViewById(R.id.gallery_video_play_button);
-        imageView = (SimpleDraweeView) rootView.findViewById(R.id.gallery_image);
+        imageView = (ZoomableDraweeView) rootView.findViewById(R.id.gallery_image);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                parentActivity.toggleControls();
+            }
+        });
+        GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
+                .setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER)
+                .build();
+        imageView.setHierarchy(hierarchy);
         return rootView;
     }
 
