@@ -386,11 +386,15 @@ public class GalleryItemFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                ShareUtil.shareImage(parentActivity,
-                        bitmap,
-                        new java.io.File(galleryItem.getUrl()).getName(),
-                        pageTitle.getDisplayText(),
-                        imageTitle.getCanonicalUri());
+                if (bitmap != null) {
+                    ShareUtil.shareImage(parentActivity,
+                            bitmap,
+                            new java.io.File(galleryItem.getUrl()).getName(),
+                            pageTitle.getDisplayText(),
+                            imageTitle.getCanonicalUri());
+                } else {
+                    ShareUtil.shareText(parentActivity, imageTitle);
+                }
             }
         }.get();
     }

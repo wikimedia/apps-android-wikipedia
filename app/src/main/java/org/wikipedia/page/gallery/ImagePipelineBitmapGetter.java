@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.net.Uri;
+import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
@@ -17,8 +18,6 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
-import org.wikipedia.util.log.L;
-
 public abstract class ImagePipelineBitmapGetter {
     private Context context;
     private String imageUrl;
@@ -28,7 +27,7 @@ public abstract class ImagePipelineBitmapGetter {
         this.imageUrl = imageUrl;
     }
 
-    public abstract void onSuccess(Bitmap bitmap);
+    public abstract void onSuccess(@Nullable Bitmap bitmap);
 
     public void onError(Throwable t) {
         Toast.makeText(context, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
@@ -43,16 +42,14 @@ public abstract class ImagePipelineBitmapGetter {
 
     private class BitmapDataSubscriber extends BaseBitmapDataSubscriber {
         @Override
-        protected void onNewResultImpl(Bitmap tempBitmap) {
-            try {
-                Bitmap bitmap = Bitmap.createBitmap(tempBitmap.getWidth(), tempBitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        protected void onNewResultImpl(@Nullable Bitmap tempBitmap) {
+            Bitmap bitmap = null;
+            if (tempBitmap != null) {
+                bitmap = Bitmap.createBitmap(tempBitmap.getWidth(), tempBitmap.getHeight(), Bitmap.Config.ARGB_8888);
                 Canvas canvas = new Canvas(bitmap);
                 canvas.drawBitmap(tempBitmap, 0f, 0f, new Paint());
-                onSuccess(bitmap);
-            } catch (Throwable t) {
-                L.logRemoteErrorIfProd(t);
-                onError(t);
             }
+            onSuccess(bitmap);
         }
 
         @Override
