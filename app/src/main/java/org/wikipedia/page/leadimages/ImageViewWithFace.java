@@ -117,16 +117,25 @@ public class ImageViewWithFace extends SimpleDraweeView {
         }
 
         @Override
-        public void process(Bitmap bitmap) {
-            if (isBitmapEligibleForImageProcessing(bitmap)) {
-                Bitmap testBmp = new565ScaledBitmap(bitmap);
+        public void process(Bitmap destBitmap, Bitmap sourceBitmap) {
+            if (isBitmapEligibleForImageProcessing(sourceBitmap)) {
+                copyWithWhiteBackground(destBitmap, sourceBitmap);
+                Bitmap testBmp = new565ScaledBitmap(sourceBitmap);
                 Palette colorPalette = Palette.from(testBmp).generate();
                 PointF facePos = detectFace(testBmp);
                 int defaultColor = getContext().getResources().getColor(R.color.grey_700);
-                listener.onImageLoaded(bitmap.getHeight(), facePos, extractMainColor(colorPalette, defaultColor));
+                listener.onImageLoaded(destBitmap.getHeight(), facePos, extractMainColor(colorPalette, defaultColor));
             } else {
                 listener.onImageFailed();
             }
+        }
+
+        private void copyWithWhiteBackground(Bitmap destBitmap, Bitmap sourceBitmap) {
+            Canvas canvas = new Canvas(destBitmap);
+            Paint backgroundPaint = new Paint();
+            backgroundPaint.setColor(Color.WHITE);
+            canvas.drawRect(0f, 0f, destBitmap.getWidth(), destBitmap.getHeight(), backgroundPaint);
+            canvas.drawBitmap(sourceBitmap, 0f, 0f, backgroundPaint);
         }
     }
 
