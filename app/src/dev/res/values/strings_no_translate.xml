@@ -3,4 +3,8 @@
     <string name="app_name">Wikipedia Dev</string>
     <string name="channel">Developer Channel</string>
     <string name="hockeyapp_app_id">2e2ab1b0c8404fbc6dfa97741dd8f0a6</string>
+
+    <!-- TODO: remove and use the same account as alpha when tokens are stored. -->
+    <string name="account_name">Wikimedia (Dev)</string>
+    <string name="account_type">org.wikimedia.dev</string>
 </resources>

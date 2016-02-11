@@ -11,6 +11,7 @@ import android.view.ViewConfiguration;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.util.ApiUtil;
 
 import java.lang.reflect.Field;
@@ -30,6 +31,12 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         forceOverflowMenuIcon(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AccountUtil.logOutIfAccountRemoved();
     }
 
     @Override

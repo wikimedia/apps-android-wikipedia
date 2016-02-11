@@ -1,5 +1,7 @@
 package org.wikipedia.login;
 
+import android.accounts.AccountAuthenticatorResponse;
+import android.accounts.AccountManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +19,7 @@ import org.wikipedia.*;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.PasswordTextInput;
@@ -201,6 +204,12 @@ public class LoginActivity extends ThemedActionBarActivity {
                 progressDialog.dismiss();
                 if (result.getCode().equals("Success")) {
                     funnel.logSuccess();
+
+                    Bundle extras = getIntent().getExtras();
+                    AccountAuthenticatorResponse response = extras == null
+                            ? null
+                            : extras.<AccountAuthenticatorResponse>getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
+                    AccountUtil.createAccount(response, username, password);
 
                     hideSoftKeyboard(LoginActivity.this);
                     setResult(RESULT_LOGIN_SUCCESS);

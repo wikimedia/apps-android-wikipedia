@@ -8,6 +8,11 @@ public final class ApiUtil {
         return has(Build.VERSION_CODES.M);
     }
 
+    /** @return True if SDK API level is greater than or equal to 22. */
+    public static boolean hasLollipopMr1() {
+        return has(Build.VERSION_CODES.LOLLIPOP_MR1);
+    }
+
     /** @return True if SDK API level is greater than or equal to 21. */
     public static boolean hasLollipop() {
         return has(Build.VERSION_CODES.LOLLIPOP);

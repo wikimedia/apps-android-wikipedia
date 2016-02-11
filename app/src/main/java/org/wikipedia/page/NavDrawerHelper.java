@@ -90,7 +90,7 @@ public class NavDrawerHelper {
                         funnel.logMore();
                         break;
                     case R.id.nav_item_logout:
-                        logout();
+                        logOut();
                         break;
                     case R.id.nav_item_random:
                         activity.getRandomHandler().doVisitRandomArticle();
@@ -234,10 +234,8 @@ public class NavDrawerHelper {
                 LoginActivity.REQUEST_LOGIN);
     }
 
-    private void logout() {
-        app.getEditTokenStorage().clearAllTokens();
-        app.getCookieManager().clearAllCookies();
-        app.getUserInfoStorage().clearUser();
+    private void logOut() {
+        app.logOut();
         activity.closeNavDrawer();
         FeedbackUtil.showMessage(activity, R.string.toast_logout_complete);
     }

@@ -4,6 +4,8 @@
     <string name="app_name_beta" tools:ignore="UnusedResources">Wikipedia Beta</string>
     <string name="app_name_alpha" tools:ignore="UnusedResources">Wikipedia Alpha</string>
 
+    <string name="wikimedia">Wikimedia</string>
+
     <string name="yes">Yes</string>
     <string name="no">No</string>
 

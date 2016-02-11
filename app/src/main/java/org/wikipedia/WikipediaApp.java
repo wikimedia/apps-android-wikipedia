@@ -20,6 +20,7 @@ import com.squareup.otto.Bus;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.analytics.FunnelManager;
 import org.wikipedia.analytics.SessionFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.DatabaseClient;
@@ -186,6 +187,9 @@ public class WikipediaApp extends Application {
 
         zeroHandler = new WikipediaZeroHandler(this);
         pageCache = new PageCache(this);
+
+        // TODO: remove this code after all logged in users also have a system account or August 2016.
+        AccountUtil.createAccountForLoggedInUser();
     }
 
     public Bus getBus() {
@@ -354,6 +358,14 @@ public class WikipediaApp extends Application {
 
     public UserInfoStorage getUserInfoStorage() {
         return userInfoStorage;
+    }
+
+    public void logOut() {
+        L.v("logging out");
+        AccountUtil.removeAccount();
+        getEditTokenStorage().clearAllTokens();
+        getCookieManager().clearAllCookies();
+        getUserInfoStorage().clearUser();
     }
 
     public FunnelManager getFunnelManager() {
