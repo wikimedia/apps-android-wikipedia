@@ -118,6 +118,7 @@
                   android:exported="false"
                 />
         <activity android:name=".page.gallery.GalleryActivity"
+                  android:configChanges="orientation|screenSize"
                   android:theme="@style/FullScreen"
                   android:exported="false"
                 />
