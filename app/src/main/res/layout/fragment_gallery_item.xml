@@ -35,7 +35,7 @@
             android:contentDescription="@null"
             />
     </FrameLayout>
-    <com.facebook.drawee.view.SimpleDraweeView
+    <com.facebook.samples.zoomable.ZoomableDraweeView
         android:id="@+id/gallery_image"
         android:visibility="gone"
         android:layout_width="match_parent"
