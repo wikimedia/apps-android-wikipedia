@@ -43,9 +43,11 @@ public class SharedPreferenceCookieManager extends CookieManager {
 
         for (String domainSpec: cookieJar.keySet()) {
             // Very weak domain matching.
-            // Primarily to make sure that cookies set for .wikipedia.org are sent for en.wikipedia.org
+            // Primarily to make sure that cookies set for .wikipedia.org are sent for
+            // en.wikipedia.org and *.wikimedia.org
             // FIXME: Whitelist the domains we accept cookies from/send cookies to. SECURITY!!!1
-            if (domain.endsWith(domainSpec)) {
+            if (domain.endsWith(domainSpec)
+                    || (domain.endsWith(".wikimedia.org") && domainSpec.endsWith(".wikipedia.org"))) {
                 cookiesList.addAll(makeCookieList(cookieJar.get(domainSpec)));
             }
         }

@@ -215,9 +215,11 @@ public class WikipediaApp extends Application {
      */
     @NonNull
     public String getAcceptLanguage(@Nullable Site site) {
-        return AcceptLanguageUtil.getAcceptLanguage(
-                site == null ? "" : emptyIfNull(site.getLanguageCode()),
-                emptyIfNull(getAppLanguageCode()), appLanguageState.getSystemLanguageCode());
+        String siteLang = site == null || "meta".equals(site.getLanguageCode())
+                ? ""
+                : emptyIfNull(site.getLanguageCode());
+        return AcceptLanguageUtil.getAcceptLanguage(siteLang, emptyIfNull(getAppLanguageCode()),
+                appLanguageState.getSystemLanguageCode());
     }
 
     public Api getAPIForSite(Site site) {

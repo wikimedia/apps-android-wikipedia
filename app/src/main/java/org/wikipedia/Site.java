@@ -16,7 +16,7 @@ import java.util.Locale;
 public class Site implements Parcelable {
     private final String domain;
 
-    private final String languageCode;
+    private final String languageCode; // or meta
 
     public Site(String domain) {
         this(domain, urlToLanguage(domain));
