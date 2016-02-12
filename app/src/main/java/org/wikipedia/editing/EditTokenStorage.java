@@ -2,6 +2,8 @@ package org.wikipedia.editing;
 
 import android.content.Context;
 import android.os.Looper;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.Site;
 import org.wikipedia.settings.Prefs;
@@ -30,11 +32,19 @@ public class EditTokenStorage {
         }
     }
 
-    public void get(final Site site, final TokenRetrievedCallback callback) {
+    @Nullable public String token(@NonNull Site site) {
+        return tokenJar.get(site.getDomain());
+    }
+
+    public void token(@NonNull Site site, String token) {
+        updatePrefs(site.getDomain(), token);
+    }
+
+    public void get(@NonNull final Site site, final TokenRetrievedCallback callback) {
         // This might run an AsyncTask, and hence must be called from main thread
         ensureMainThread();
 
-        String curToken = tokenJar.get(site.getDomain());
+        String curToken = token(site);
         if (curToken != null) {
             callback.onTokenRetrieved(curToken);
             return;
@@ -43,7 +53,7 @@ public class EditTokenStorage {
         new FetchEditTokenTask(context, site) {
             @Override
             public void onFinish(String result) {
-                updatePrefs(site.getDomain(), result);
+                token(site, result);
                 callback.onTokenRetrieved(result);
             }
 
