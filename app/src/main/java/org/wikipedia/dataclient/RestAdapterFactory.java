@@ -12,7 +12,6 @@ import org.wikipedia.settings.Prefs;
 
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
-import retrofit.client.OkClient;
 import retrofit.converter.GsonConverter;
 
 public final class RestAdapterFactory {
@@ -25,7 +24,7 @@ public final class RestAdapterFactory {
         final WikipediaApp app = WikipediaApp.getInstance();
         return new RestAdapter.Builder()
                 .setLogLevel(Prefs.getRetrofitLogLevel())
-                .setClient(new OkClient(OkHttpConnectionFactory.createClient(app)))
+                .setClient(new NullBodyAwareOkClient(OkHttpConnectionFactory.createClient(app)))
                 .setRequestInterceptor(new RequestInterceptor() {
                     @Override
                     public void intercept(RequestFacade request) {
