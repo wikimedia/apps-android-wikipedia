@@ -14,10 +14,14 @@ import android.widget.TextView;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 import static org.wikipedia.util.DeviceUtil.mailAppExists;
 
@@ -26,27 +30,36 @@ public class AboutActivity extends ThemedActionBarActivity {
     private static final String KEY_SCROLL_Y = "KEY_SCROLL_Y";
 
     private ScrollView mScrollView;
+    @Bind(R.id.about_translators) TextView translatorsTextView;
+    @Bind(R.id.activity_about_libraries) TextView librariesTextView;
+    @Bind(R.id.send_feedback_text) TextView feedbackTextView;
+    @Bind(R.id.about_wmf) TextView wmfTextView;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        ButterKnife.bind(this);
 
         mScrollView = (ScrollView) findViewById(R.id.about_scrollview);
-        ((TextView) findViewById(R.id.about_translators)).setText(Html.fromHtml(getString(R.string.about_translators_translatewiki)));
-        ((TextView) findViewById(R.id.about_wmf)).setText(Html.fromHtml(getString(R.string.about_wmf)));
+        translatorsTextView.setText(Html.fromHtml(getString(R.string.about_translators_translatewiki)));
+        RichTextUtil.removeUnderlinesFromLinks(translatorsTextView);
+        wmfTextView.setText(Html.fromHtml(getString(R.string.about_wmf)));
+        RichTextUtil.removeUnderlinesFromLinks(wmfTextView);
         ((TextView) findViewById(R.id.about_version_text)).setText(BuildConfig.VERSION_NAME);
-        ((TextView) findViewById(R.id.send_feedback_text)).setText(Html.fromHtml(
+        feedbackTextView.setText(Html.fromHtml(
                 "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "
                 + BuildConfig.VERSION_NAME
                 + " Feedback\">"
                 + getString(R.string.send_feedback)
                 + "</a>"));
+        RichTextUtil.removeUnderlinesFromLinks(feedbackTextView);
+        RichTextUtil.removeUnderlinesFromLinks(librariesTextView);
 
         findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener(this));
 
         //if there's no Email app, hide the Feedback link.
         if (!mailAppExists(this)) {
-            findViewById(R.id.send_feedback_text).setVisibility(View.GONE);
+            feedbackTextView.setVisibility(View.GONE);
         }
 
         WikipediaApp.getInstance().adjustDrawableToTheme(((ImageView) findViewById(R.id.about_logo_image)).getDrawable());

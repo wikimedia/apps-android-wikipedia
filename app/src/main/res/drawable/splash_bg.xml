@@ -4,7 +4,7 @@
     <item>
         <!-- Use a bitmap element with centered gravity to prevent scaling. -->
         <bitmap
-            android:src="@drawable/about_logo"
+            android:src="@drawable/w_nav_mark"
             android:antialias="true"
             android:gravity="center" />
     </item>
