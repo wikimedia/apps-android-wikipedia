@@ -229,7 +229,8 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_menu_share">Zdieľať</string>
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
   <string name="gallery_menu_save">Uložiť v zariadení</string>
-  <string name="gallery_save_success" fuzzy="true">Obrázok bol úspešne uložený.</string>
+  <string name="gallery_save_progress">Preberanie súboru...</string>
+  <string name="gallery_save_success">Súbor bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>
@@ -261,6 +262,11 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="crash_report_dialog_always_send_button">Vždy odoslať</string>
   <string name="crash_report_dialog_send_button">Odoslať</string>
   <string name="crash_report_activity_title">Chyba aplikácie</string>
+  <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.
+
+Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
+  <string name="crash_report_relaunch">Začať odznova</string>
+  <string name="crash_report_quit">Ukončiť</string>
   <string name="article_menu_bar_bookmark">Uložiť článok na offline čítanie</string>
   <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
 </resources>

@@ -225,6 +225,29 @@ Felhasználási feltételek: https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="gallery_error_draw_failed">Nem tudta megrajzolni a képet.</string>
   <string name="gallery_menu_share">Megosztás</string>
   <string name="gallery_menu_save">Mentés az eszközre</string>
-  <string name="gallery_save_success" fuzzy="true">A kép sikeresen mentve.</string>
+  <string name="gallery_save_success">A fájl sikeresen mentve.</string>
+  <string name="share_snippet_button">Megosztás képként</string>
+  <string name="share_normal_button">Megosztás szövegként</string>
+  <string name="snippet_share_preview_image_desc">Előnézeti kép</string>
+  <string name="cc_logo">Creative Commons licenc</string>
+  <string name="captcha_image">Captcha kép</string>
+  <string name="gallery_uploader_unknown">Feltöltő ismeretlen</string>
+  <string name="menu_new_tab">Új lap</string>
+  <string name="button_close_tab">Lap bezárása</string>
+  <string name="page_view_in_browser">Lap megtekintés böngészőben</string>
+  <string name="error_server_response">A kiszolgáló nem tudta befejezni a kérést.</string>
+  <string name="error_response_malformed">Válasz a kiszolgálótól nincs megfelelően formázva.</string>
   <string name="error_unknown">Ismeretlen hiba történt.</string>
+  <string name="format_error_server_message">Üzenet: \"%s\"</string>
+  <string name="format_error_server_code">Kód: \"%s\"</string>
+  <string name="address_copied">Cím másolva a vágólapra.</string>
+  <string name="text_copied">Szöveg másolva a vágólapra.</string>
+  <string name="button_continue_to_article">Olvasd el a cikket</string>
+  <string name="crash_report_dialog_dont_send_button">Kihagy</string>
+  <string name="crash_report_dialog_always_send_button">Mindig küld</string>
+  <string name="crash_report_dialog_send_button">Küldés</string>
+  <string name="crash_report_activity_title">Alkalmazás hiba</string>
+  <string name="crash_report_quit">Kilépés</string>
+  <string name="article_menu_bar_bookmark">Cikk mentése a későbbi offline olvasáshoz</string>
+  <string name="article_menu_bar_share">Ossza meg a cikk linkjét</string>
 </resources>

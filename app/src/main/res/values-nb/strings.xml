@@ -23,14 +23,14 @@
   <string name="share_via">Del via</string>
   <string name="dialog_title_clear_saved_pages">Fjern alle lagrede sider?</string>
   <string name="snackbar_saving_page">Lagrer side…</string>
-  <string name="snackbar_saved_page_format">%s lagret for frakoblet lesing</string>
+  <string name="snackbar_saved_page_format">\"%s\" er lagret for frakoblet lesing</string>
   <string name="snackbar_saved_page_missing_images">Kunne ikke lagre alle bilder</string>
   <string name="snackbar_refresh_saved_page">Gjenoppfrisker lagret side…</string>
   <string name="delete_selected_saved_pages">Fjern</string>
   <string name="snackbar_saved_page_deleted">Siden(e) ble fjernet</string>
   <string name="saved_pages_search_list_hint">Søk i lagrede sider</string>
   <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
-  <string name="menu_page_show_tabs">Vis arkfaner</string>
+  <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
   <string name="menu_page_find_in_page">Søk i siden</string>
   <string name="menu_page_content_issues">Innholdsproblemer</string>
@@ -39,7 +39,7 @@
   <string name="menu_page_save">Lagre side</string>
   <string name="menu_page_share">Del lenke</string>
   <string name="menu_long_press_open_page">Åpne</string>
-  <string name="menu_long_press_open_in_new_tab">Åpne i ny arkfane</string>
+  <string name="menu_long_press_open_in_new_tab">Åpne i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier lenkeadresse</string>
   <string name="menu_text_select_copy">Kopier</string>
   <string name="menu_text_select_define">Definer</string>
@@ -48,7 +48,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoom til et sted på kartet</string>
-  <string name="last_updated_text">Sist oppdatert %1$s</string>
+  <string name="last_updated_text">Sist oppdatert %s</string>
   <string name="content_license_html">Innholdet er tilgjengelig under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om ikke annet er angitt</string>
   <string name="edit_save_action_license_logged_in">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
   <string name="edit_save_action_license_anon">Ved å lagre samtykker du til &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen. Redigeringer vil bli tilskrevet IP-adressen for enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
@@ -239,7 +239,8 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
   <string name="gallery_menu_save">Lagre på enheten</string>
-  <string name="gallery_save_success" fuzzy="true">Bildet ble lagret.</string>
+  <string name="gallery_save_progress">Laster ned fil...</string>
+  <string name="gallery_save_success">Filen ble lagret.</string>
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilgang til lagring på enheten trengs for å lagre bilder. Vennligst prøv igjen og gi den nødvendige autorisasjonen.</string>
   <string name="err_cannot_save_file">Kunne ikke lagre filen</string>

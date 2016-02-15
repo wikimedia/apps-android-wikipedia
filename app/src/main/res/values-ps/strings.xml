@@ -37,6 +37,7 @@
   <string name="menu_long_press_open_page">پرانيستل</string>
   <string name="menu_long_press_copy_page">د تړنې پته لمېسل</string>
   <string name="menu_text_select_copy">لمېسل</string>
+  <string name="menu_text_select_define">تعريفول</string>
   <string name="menu_text_select_share">شريکول</string>
   <string name="nav_item_nearby">نژدې</string>
   <string name="nearby_distance_in_meters">%d متر</string>
@@ -145,7 +146,7 @@
   <string name="license_title">د %s کتابتون لپاره د منښتليک متن</string>
   <string name="gallery_menu_share">شريکول</string>
   <string name="gallery_menu_save">وزلې کې خوندي کول</string>
-  <string name="gallery_save_success" fuzzy="true">انځور برياليتوب سره خوندي شو.</string>
+  <string name="gallery_save_success">دوتنه برياليتوب سره خوندي شوه.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
   <string name="err_cannot_save_file">دوتنه د خوندي کولو وړ نه ده</string>
   <string name="snippet_share_intro">\"%1$s\" په @Wikipedia: %2$s</string>

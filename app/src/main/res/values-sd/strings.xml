@@ -9,7 +9,8 @@
   <string name="nav_item_history">سوانح</string>
   <string name="error_network_error">انٽرنيٽ سان ڳنڍجي نٿو سگھجي.</string>
   <string name="page_error_retry">ٻيهر ڪوشش ڪريو</string>
-  <string name="menu_clear_all_history">سواح ڊاهيو</string>
+  <string name="page_error_back_to_main">واپس وڃو</string>
+  <string name="menu_clear_all_history">سوانح ڊاهيو</string>
   <string name="menu_clear_all_saved_pages">سانڍيل صفحا ڊاهيو</string>
   <string name="page_does_not_exist_error">اهو صفحو وجود نہ ٿو رکي.</string>
   <string name="nav_item_today">اڄ</string>
@@ -71,7 +72,8 @@
   <string name="search_no_results_found">ڪجھہ بہ نہ لڌو</string>
   <string name="edit_section_captcha_hint">مٿي ڏنل لفظ ورجايو</string>
   <string name="title_captcha">ڪيپچا ڄاڻايو</string>
-  <string name="nav_item_login">وڪي‌پيڊيا ۾ لاگ اِن ٿيو</string>
+  <string name="edit_section_captcha_reload">ٻيھر اتارڻ لاءِ CAPTCHA تي ٽيپ ڪريو</string>
+  <string name="nav_item_login">وڪيپيڊيا ۾ لاگ اِن ٿيو</string>
   <string name="login_username_hint">يُوزرنانءُ</string>
   <string name="login_password_hint">ڳجھو لفظ</string>
   <string name="login_password_show_check">ڳجھو لفظ ڏيکاريو</string>
@@ -93,7 +95,7 @@
   <string name="delete_selected_history">ڊاهيو</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">يُوزرنانءُ</string>
-  <string name="login_create_account_link">پنهنجو کاتو نہ ٿا رکو؟ وڪي‌پيڊيا جو حصو بڻجو</string>
+  <string name="login_create_account_link">پنهنجو کاتو نہ ٿا رکو؟ وڪيپيڊيا ۾ شامل ٿيو</string>
   <string name="create_account_login_link">اڳ ۾ ئي کاتيدار آهيو؟ لاگ اِن ٿيو</string>
   <string name="create_account_activity_title">کاتو کوليو</string>
   <string name="dialog_create_account_checking_progress">تصديق ڪندي</string>
@@ -194,6 +196,7 @@
   <string name="widget_name_featured_page">وڪيپيڊيا نمايان صفحو</string>
   <string name="widget_title_featured_page">ااڄ جو نمايان صفحو:</string>
   <string name="widget_name_search">وڪي‌پيڊيا ڳولا</string>
+  <string name="wiktionary_no_definitions_found">ڪي بہ اطلاع نہ لڌا.</string>
   <string name="alpha_update_notification_title">نئين الفا جدت موجود آهي</string>
   <string name="alpha_update_notification_text">اتارڻ لاءِ ڪلڪ ڪريو</string>
   <string name="dialog_close_description">بند ڪريو</string>
@@ -206,7 +209,8 @@
   <string name="gallery_menu_share">ونڊيو</string>
   <string name="gallery_share_error">عڪس بنام %s ونڊجي نہ سگھيو</string>
   <string name="gallery_menu_save">آلي ۾ سانڍيو</string>
-  <string name="gallery_save_success" fuzzy="true">عڪس ڪاميابيءَ سان سانڍجي ويو.</string>
+  <string name="gallery_save_progress">فائيل ڊائونلوڊ ڪندي...</string>
+  <string name="gallery_save_success">فائيل ڪاميابيءَ سان سانڍجي ويو.</string>
   <string name="gallery_error_video_failed">وڊيو هلي نہ سگھي.</string>
   <string name="err_cannot_save_file">فائيل سانڍي نہ ٿو سگھجي.</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia تي: %2$s</string>
@@ -222,7 +226,9 @@
   <string name="button_close_tab">ٽيب بنديو</string>
   <string name="tool_tip_select_text">متن ۾ ڪنهن به جڳھ تي زور ڏيو يا جهلي بيهو ته جيئن ان جو نقل ڪرڻ ۽ ونڊڻ جي لاءِ نمايان ٿي سگهي.</string>
   <string name="page_view_in_browser">صفحي کي جھانگُوءَ ۾ ڏسو</string>
+  <string name="tool_tip_toc_button">ڪنھن بہ وقت عنوانن جي فھرست ڏسو ھن بٽڻ تي ٽيپ ڪرڻ سان، يا پردي جي ساڄي پاسي کان آڱر گھمائڻ سان.</string>
   <string name="error_server_response">سَروَر درخواست تي عمل ڪري نہ سگھيو.</string>
+  <string name="error_response_malformed">سرور جي جواب کي درست نموني منھن نہ ڏنو ويو.</string>
   <string name="error_unknown">اڻجاتل چُڪَ واقع ٿي.</string>
   <string name="format_error_server_message">نياپو: %s</string>
   <string name="format_error_server_code">ڪوڊ: %s</string>

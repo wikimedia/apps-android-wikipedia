@@ -20,7 +20,7 @@
   <string name="menu_update_all_saved_pages">保存したページを更新</string>
   <string name="menu_update_selected_saved_pages">保存したページを更新</string>
   <string name="dialog_prompt_refresh_all_saved_pages">保存したページをすべて更新しますか?</string>
-  <string name="share_via">シェアする</string>
+  <string name="share_via">共有する</string>
   <string name="dialog_title_clear_saved_pages">保存したページをすべて消去しますか?</string>
   <string name="snackbar_saving_page">ページを保存中…</string>
   <string name="snackbar_saved_page_format">オフラインでの読みのため、ページ「%s」を保存しました</string>
@@ -37,7 +37,7 @@
   <string name="menu_page_similar_titles">類似したタイトル</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_save">ページを保存</string>
-  <string name="menu_page_share">リンクをシェア</string>
+  <string name="menu_page_share">リンクを共有</string>
   <string name="menu_long_press_open_page">開く</string>
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
@@ -64,7 +64,7 @@
   <string name="edit_saved_successfully">保存しました!</string>
   <string name="dialog_message_edit_failed">編集の保存に失敗しました!</string>
   <string name="dialog_message_edit_failed_retry">再試行</string>
-  <string name="dialog_message_edit_failed_cancel">キャンセル</string>
+  <string name="dialog_message_edit_failed_cancel">中止</string>
   <string name="dialog_message_leaving_edit">あなたの変更はまだ保存されていません。このページを離れますか？</string>
   <string name="dialog_message_leaving_edit_leave">離れる</string>
   <string name="dialog_message_leaving_edit_stay">留まる</string>
@@ -82,18 +82,18 @@
   <string name="menu_login">ログイン</string>
   <string name="login_activity_title">ウィキペディアへのログイン</string>
   <string name="login_in_progress_dialog_message">ログイン中…</string>
-  <string name="login_error_wrong_password">パスワードが違います</string>
+  <string name="login_error_wrong_password">パスワードが正しくありません</string>
   <string name="login_error_wrong_username">利用者名が正しくありません</string>
   <string name="login_error_illegal">無効な利用者名です</string>
-  <string name="login_success_toast">ログインに成功!</string>
+  <string name="login_success_toast">ログインに成功しました!</string>
   <string name="login_error_blocked">この利用者はブロックされています</string>
   <string name="login_error_throttled">ログイン失敗が多すぎます。しばらくしてからもう一度やり直してください。</string>
   <string name="login_error_unknown">ログイン失敗</string>
   <string name="preference_title_logout">ログアウト</string>
   <string name="toast_logout_complete">ログアウトしました</string>
   <string name="saved_pages_empty_title">保存したページはありません。</string>
-  <string name="saved_pages_empty_message">保存したページは素晴らしい機能です!　オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
-  <string name="history_empty_title">履歴はまだありません！</string>
+  <string name="saved_pages_empty_message">保存したページは素晴らしい機能です! オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
+  <string name="history_empty_title">履歴はまだありません!</string>
   <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
   <string name="delete_selected_history">削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
@@ -107,8 +107,8 @@
   <string name="create_account_passwords_mismatch_error">パスワードが一致しません</string>
   <string name="create_account_email_error">無効なメールアドレスです</string>
   <string name="create_account_username_exists_error">既に使用されている利用者名です</string>
-  <string name="create_account_ip_throttle_error">この IP アドレスからのアカウント作成が多すぎます。しばらくしてから再試行してください</string>
-  <string name="create_account_open_proxy_error">この IP アドレスはアカウント作成についてはブロックされています</string>
+  <string name="create_account_ip_throttle_error">この IP アドレスからのアカウント作成が多すぎます。しばらくしてから再試行してください。</string>
+  <string name="create_account_open_proxy_error">この IP アドレスからのアカウント作成はブロックされています。</string>
   <string name="create_account_noname_error">入力した利用者名は無効です。別の利用者名を入力してください。</string>
   <string name="create_account_invalid_email_error">入力したメールアドレスは無効です。</string>
   <string name="create_account_password_too_short_error">パスワードが短すぎます。</string>
@@ -131,13 +131,13 @@
   <string name="zero_interstitial_leave_app">データ料金がかかるかもしれません。外部サイトへ接続しますか?</string>
   <string name="zero_interstitial_continue">離れる</string>
   <string name="zero_interstitial_cancel">留まる</string>
-  <string name="zero_learn_more">このウィキペディアアプリではデータ料金が免除されます</string>
+  <string name="zero_learn_more">このウィキペディアアプリでは、データ料金が免除されます。</string>
   <string name="zero_learn_more_learn_more">続きを読む</string>
   <string name="zero_learn_more_dismiss">非表示</string>
   <string name="edit_preview_fetching_dialog_message">プレビューを取得中…</string>
   <string name="send_feedback">フィードバックを送る</string>
   <string name="nav_item_random">おまかせ表示</string>
-  <string name="create_account_account_created_toast">アカウントを作成しました</string>
+  <string name="create_account_account_created_toast">アカウントを作成しました!</string>
   <string name="preferences_privacy_settings_heading">プライバシー</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
@@ -146,7 +146,7 @@
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索履歴</string>
   <string name="history_search_empty_message">キーワードに一致するページが見つかりません。</string>
-  <string name="error_can_not_process_link">このリンクを表示できませんでした。</string>
+  <string name="error_can_not_process_link">このリンクを表示できませんでした</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
   <string name="page_protected_other">このページは %s レベルに保護されています。</string>
@@ -180,31 +180,31 @@
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
-  <string name="error_network_error_try_again">ネットワークに接続できませんでした。やり直してください</string>
+  <string name="error_network_error_try_again">ネットワークに接続できませんでした。もう一度お試しください。</string>
   <string name="saved_pages_update_all_error_retry">再試行</string>
   <string name="saved_pages_update_all_error_message">保存したページを更新する際にエラーが発生しました</string>
   <string name="saved_pages_progress_title">保存したページを更新しています</string>
   <string name="abusefilter_title_warn">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
   <string name="abusefilter_title_disallow">この編集は保存できません。戻って変更してください。</string>
-  <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;すべて大文字で書かれている&lt;br /&gt;記事が白紙化されているか、スパムである&lt;br /&gt;文字の繰り返し</string>
+  <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;すべて大文字で書かれている&lt;br /&gt;記事が白紙化されている、もしくはスパムである&lt;br /&gt;関係のない外部リンクや画像が挿入されている&lt;br /&gt;一定の文字が繰り返されている</string>
   <string name="abusefilter_text_disallow">自動フィルターによって、この編集が建設的でないか、荒らしである可能性があると判断されました。&lt;br /&gt;&lt;br /&gt;ウィキペディアは百科事典であり、中立的で特筆性のあるコンテンツのみを記載する必要があります。</string>
-  <string name="dialog_page_issues">ページの問題</string>
+  <string name="dialog_page_issues">ページの問題点</string>
   <string name="button_page_issues">ページの問題点</string>
   <string name="text_size_select">フォントサイズ</string>
   <string name="color_theme_select">テーマ</string>
-  <string name="color_theme_light">明るめ</string>
-  <string name="color_theme_dark">暗め</string>
+  <string name="color_theme_light">明るい</string>
+  <string name="color_theme_dark">暗い</string>
   <string name="page_similar_titles">類似したページ</string>
-  <string name="search_did_you_mean">\"%s\"で良いですか?</string>
-  <string name="search_recent_header">最近の検索：</string>
+  <string name="search_did_you_mean">もしかして: 「%s」</string>
+  <string name="search_recent_header">最近の検索:</string>
   <string name="button_clear_all_recent_searches">最近の検索を消去</string>
   <string name="clear_recent_searches_confirm">本当に検索履歴を消去しますか?</string>
-  <string name="error_browser_not_found">Webページを開くことができませんでした。(ブラウザアプリが見つかりません)</string>
+  <string name="error_browser_not_found">ウェブページを開くことができませんでした。(ブラウザアプリが見つかりません)</string>
   <string name="table_infobox">基本データ</string>
   <string name="table_other">さらに見る</string>
   <string name="table_close">閉じる</string>
-  <string name="widget_name_featured_page">選り抜き記事</string>
-  <string name="widget_title_featured_page">今日の選り抜き記事</string>
+  <string name="widget_name_featured_page">今日の秀逸な記事</string>
+  <string name="widget_title_featured_page">今日の秀逸な記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
   <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
   <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。
@@ -214,15 +214,15 @@
  - 画像ギャラリー: 画像をタップすると高解像度で全画面で見られます。左右にスワイプして他の画像も見られます
  - Wikidataからの説明: 検索した際に、検索結果の中に、その結果がどんなふうに出てくるか簡単に文脈が表示されるようになりました。この説明はアプリの別のところ、例えば付近のスポットにも出てきます。
  - 保存したページ: オフラインで読みたいページを保存しておくと、ネットワーク接続がないところでも閲覧できます
- - シェア: お持ちのSNSアプリで人類の知識をシェアしましょう
+ - 共有: お持ちのSNSアプリで人類の知識を共有しましょう
  - 付近のスポット: 現在地の近くにある場所の記事で、周囲について学びましょう
  - 言語サポート: どの言語で書かれたページにもシームレスに切り替えできます
  - 目次: どの記事でも左にスワイプすれば目次が表示され、記事のどの部分にも簡単にアクセスできます
  - ウィキペディアゼロ: ウィキペディアゼロのプログラムに参加している携帯電話会社においては、データ通信料金がかかりません
 
-このアプリについてのフィードバックをお寄せください！　アプリのメニューで「その他」を押し、「ウィキペディアアプリについて」を選択し、「フィードバックを送る」から送ることができます。
+このアプリについてのフィードバックをお寄せください! アプリのメニューで「その他」を押し、「ウィキペディアアプリについて」を選択し、「フィードバックを送る」から送ることができます。
 
-コードは100%オープンソースです。JavaとAndroid SDKの経験をお持ちでしたら、あなたの貢献をお待ちしています！
+コードは100%オープンソースです。JavaとAndroid SDKの経験をお持ちでしたら、あなたの貢献をお待ちしています!
 https://github.com/wikimedia/apps-android-wikipedia
 
 プライバシーポリシー: https://m.wikimediafoundation.org/wiki/Privacy_policy
@@ -235,35 +235,36 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にします。インターネット接続が遅い時や、データ通信契約に上限があるときには、このチェックを外してください。</string>
   <string name="read_more_section">続きを読む</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
-  <string name="gallery_error_draw_failed">画像が描画できませんでした</string>
+  <string name="gallery_error_draw_failed">画像を表示できませんでした</string>
   <string name="license_title">%s ライブラリのライセンス文</string>
-  <string name="gallery_menu_share">シェア</string>
-  <string name="gallery_share_error">画像がシェアできませんでした: %s</string>
+  <string name="gallery_menu_share">共有</string>
+  <string name="gallery_share_error">画像が共有できませんでした: %s</string>
   <string name="gallery_menu_save">デバイスに保存</string>
-  <string name="gallery_save_success" fuzzy="true">画像を保存しました</string>
+  <string name="gallery_save_progress">ファイルをダウンロードしています...</string>
+  <string name="gallery_save_success">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込むパーミッションは画像の保存に必要になります。もう一度やり直して、このパーミッションを許可してください。</string>
-  <string name="err_cannot_save_file">ファイルを保存できません。</string>
-  <string name="snippet_share_intro">\"%1$s\" の記事を @Wikipedia で読む: %2$s</string>
+  <string name="err_cannot_save_file">ファイルを保存できません</string>
+  <string name="snippet_share_intro">「%1$s」の記事を @Wikipedia で読む: %2$s</string>
   <string name="expand_refs">タップして開く</string>
-  <string name="share_snippet_button">画像をシェア</string>
-  <string name="share_normal_button">テキストとしてシェア</string>
+  <string name="share_snippet_button">画像を共有</string>
+  <string name="share_normal_button">テキストとして共有</string>
   <string name="snippet_share_preview_image_desc">画像をプレビュー</string>
   <string name="cc_logo">クリエイティブ・コモンズ・ライセンス</string>
-  <string name="captcha_image">CAPTCHA画像</string>
+  <string name="captcha_image">CAPTCHA 画像</string>
   <string name="gallery_fair_use_license">フェアユース</string>
-  <string name="gallery_uploader_unknown">不明なアップローダー</string>
+  <string name="gallery_uploader_unknown">アップロード者不明</string>
   <string name="menu_new_tab">新規タブ</string>
   <string name="button_close_tab">タブを閉じる</string>
-  <string name="tool_tip_select_text">コピーとシェアのためにテキストを選択するには、テキストのどこかを長押ししてください。</string>
-  <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSでシェアしましょう！</string>
+  <string name="tool_tip_select_text">コピーと共有のためにテキストを選択するには、テキストのどこかを長押ししてください。</string>
+  <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSで共有しましょう!</string>
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
   <string name="tool_tip_toc_button">このボタンをタップするか、画面右側からスライドすると、いつでも目次が呼び出せます。</string>
   <string name="error_server_response">サーバーがリクエストを完了できませんでした。</string>
   <string name="error_response_malformed">サーバーからのレスポンスが正しく整形されていませんでした。</string>
   <string name="error_unknown">不明なエラーが発生しました。</string>
-  <string name="format_error_server_message">メッセージ: \"%s\"</string>
-  <string name="format_error_server_code">コード: \"%s\"</string>
+  <string name="format_error_server_message">メッセージ: 「%s」</string>
+  <string name="format_error_server_code">コード: 「%s」</string>
   <string name="address_copied">アドレスがクリップボードにコピーされました。</string>
   <string name="text_copied">テキストがクリップボードにコピーされました。</string>
   <string name="button_continue_to_article">記事を読む</string>
@@ -277,10 +278,10 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="crash_report_dialog_dont_send_button">スキップ</string>
   <string name="crash_report_dialog_always_send_button">常に送信</string>
   <string name="crash_report_dialog_send_button">送信</string>
-  <string name="crash_report_activity_title">アプリケーション・エラー</string>
+  <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。
 
-アプリを再起動しますか?　終了しますか?</string>
+アプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
   <string name="article_menu_bar_bookmark">オフラインでも閲読できるように記事を保存します</string>

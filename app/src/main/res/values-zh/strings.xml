@@ -120,14 +120,14 @@
   <string name="create_account_button">创建账户</string>
   <string name="preferences_general_heading">常规</string>
   <string name="wikipedia_app_faq">维基百科应用程序常见问题</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero已关闭</string>
+  <string name="zero_charged_verbiage">维基百科零已关闭</string>
   <string name="zero_charged_verbiage_extended">载入其他条目可能产生数据费用。</string>
-  <string name="zero_search_hint">搜索Wikipedia Zero</string>
-  <string name="zero_warn_when_leaving">离开Wikipedia Zero时警告</string>
-  <string name="zero_warn_when_leaving_summary">如果您的移动运营商是Wikipedia Zero的合作伙伴，并免除维基百科应用的数据费用，请选择该设置以帮助您知晓您正在离开维基百科应用并可能被收费。</string>
-  <string name="zero_webpage_title">Wikipedia Zero常见问题</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
-  <string name="zero_interstitial_title">离开Wikipedia Zero</string>
+  <string name="zero_search_hint">搜索维基百科零</string>
+  <string name="zero_warn_when_leaving">离开维基百科零时警告</string>
+  <string name="zero_warn_when_leaving_summary">如果您的移动运营商是维基百科零的合作伙伴，并免除维基百科应用的数据费用，请勾选该设置，以帮助您了解您是否要离开维基百科应用程序，并因此计费。</string>
+  <string name="zero_webpage_title">维基百科零常见问题</string>
+  <string name="zero_wikipedia_zero_heading">维基百科零</string>
+  <string name="zero_interstitial_title">离开维基百科零</string>
   <string name="zero_interstitial_leave_app">可能会收取数据费用。继续前往外部网站？</string>
   <string name="zero_interstitial_continue">离开</string>
   <string name="zero_interstitial_cancel">留在这里</string>
@@ -218,7 +218,7 @@
 - 周边条目：通过获取关于您当前位置附近事物的条目的链接来了解它们
 - 语言支持：无缝切换阅读各种语言撰写的维基百科
 - 目录选单：在任何条目上向左滑动可以打开目录，使您轻松跳转至条目各节
-- Wikipedia Zero：部分移动运营商减免浏览维基百科的数据费用
+- 维基百科零：部分移动运营商减免浏览维基百科的数据费用
 
 请向我们发送您有关应用的反馈！在菜单上，点击“更多”，然后点击“关于维基百科应用”，之后点击“发送应用反馈”。
 
@@ -239,7 +239,8 @@
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">无法分享图像：%s</string>
   <string name="gallery_menu_save">保存至设备</string>
-  <string name="gallery_save_success" fuzzy="true">图像保存成功。</string>
+  <string name="gallery_save_progress">下载文件…</string>
+  <string name="gallery_save_success">文件保存成功。</string>
   <string name="gallery_error_video_failed">无法播放视频。</string>
   <string name="gallery_save_image_write_permission_rationale">需要写入您设备存储的权限才能保存图片。请重试，并授予请求的权限。</string>
   <string name="err_cannot_save_file">无法保存文件</string>

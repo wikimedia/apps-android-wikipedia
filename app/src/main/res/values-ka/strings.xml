@@ -9,6 +9,7 @@
   <string name="nav_item_history">ისტორია</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>
+  <string name="page_error_back_to_main">უკან</string>
   <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
   <string name="menu_clear_all_saved_pages">გაასუფთავეთ შენახული გვერდები</string>
   <string name="page_does_not_exist_error">ეს გვერდი არ არსებობს.</string>
@@ -209,7 +210,8 @@
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
-  <string name="gallery_save_success" fuzzy="true">სურათი წარმატებით შეინახა.</string>
+  <string name="gallery_save_progress">ფაილის ჩამოტვირთვა...</string>
+  <string name="gallery_save_success">ფაილი წარმატებით შეინახა.</string>
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
   <string name="gallery_save_image_write_permission_rationale">თქვენი მოწყობილობის მეხსიერებაში ჩასაწერად საჭიროა ნებართვა. გთხოვთ სცადეთ კიდევ, და მიანიჭეთ მოთხოვნილი ნებართვა.</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>

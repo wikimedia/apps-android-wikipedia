@@ -7,13 +7,13 @@
   <string name="no">No</string>
   <string name="search_hint">Cercar in Wikipedia</string>
   <string name="nav_item_history">Historico</string>
-  <string name="error_network_error" fuzzy="true">Il non ha connexion con le rete :(</string>
+  <string name="error_network_error">Il non es possibile connecter se a Internet.</string>
   <string name="page_error_retry">Reprobar</string>
   <string name="menu_clear_all_history">Rader historico</string>
   <string name="menu_clear_all_saved_pages">Rader paginas salveguardate</string>
   <string name="page_does_not_exist_error">Iste pagina non existe.</string>
   <string name="nav_item_today">Hodie</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Rader le historico de navigation?</string>
+  <string name="dialog_title_clear_history">Rader le historico de navigation</string>
   <string name="nav_item_saved_pages">Paginas salveguardate</string>
   <string name="menu_update_all_saved_pages">Actualisar paginas salveguardate</string>
   <string name="menu_update_selected_saved_pages">Actualisar paginas salveguardate</string>
@@ -29,7 +29,7 @@
   <string name="saved_pages_search_list_hint">Cercar paginas salvate</string>
   <string name="saved_pages_search_empty_message">Necun pagina trovate que corresponde a tu recerca</string>
   <string name="menu_page_show_tabs">Monstrar tabellas</string>
-  <string name="menu_page_other_languages" fuzzy="true">Leger in altere linguas</string>
+  <string name="menu_page_other_languages">Cambiar lingua</string>
   <string name="menu_page_find_in_page">Cerca in le pagina</string>
   <string name="menu_page_font_and_theme">Characteres e themas</string>
   <string name="menu_page_save">Salveguardar pagina</string>
@@ -65,16 +65,16 @@
   <string name="edit_section_captcha_message">Pro adjutar a proteger del spam automatic, per favor insere le parolas que compare infra</string>
   <string name="edit_section_captcha_hint">Ripete le parolas ex le alto</string>
   <string name="title_captcha">Inserer le captcha</string>
-  <string name="nav_item_login" fuzzy="true">Aperir session</string>
+  <string name="nav_item_login">Aperir session in Wikipedia</string>
   <string name="login_username_hint">Nomine del usator</string>
   <string name="login_password_hint">Contrasigno</string>
   <string name="login_password_show_check">Monstrar le contrasigno</string>
   <string name="menu_login">Aperir session</string>
-  <string name="login_activity_title" fuzzy="true">Aperir session a Wikipedia</string>
+  <string name="login_activity_title">Aperir session in Wikipedia</string>
   <string name="login_in_progress_dialog_message">Tu accesso es in corso…</string>
   <string name="login_error_wrong_password">Contrasigno incorrecte</string>
   <string name="login_error_wrong_username">Nomine del usator incorrecte</string>
-  <string name="login_success_toast" fuzzy="true">Session aperite!</string>
+  <string name="login_success_toast">Session aperite con successo!</string>
   <string name="login_error_blocked">Iste usator ha essite serrate.</string>
   <string name="login_error_throttled">Assatis tentativas de accesso. Attender alique minutas e reprobar.</string>
   <string name="login_error_unknown">Session fallite :(</string>
@@ -116,7 +116,7 @@
   <string name="send_feedback">Inviar commentario re le application</string>
   <string name="nav_item_random">Aleatori</string>
   <string name="create_account_account_created_toast">Conto create!</string>
-  <string name="history_search_list_hint" fuzzy="true">Cercar</string>
+  <string name="history_search_list_hint">Cercar in le historia</string>
   <string name="history_search_empty_message">Necun pagina trovate que corresponde a tu recerca.</string>
   <string name="page_protected_can_not_edit_title">Iste pagina es protegite</string>
   <string name="about_description">Re le le application Wikipedia</string>
@@ -169,7 +169,7 @@
   <string name="gallery_menu_share">Divider</string>
   <string name="gallery_share_error">Non poteva divider imagine: %s</string>
   <string name="gallery_menu_save">Salveguardar in apparato</string>
-  <string name="gallery_save_success" fuzzy="true">Imagine salveguardate correctemente.</string>
+  <string name="gallery_save_success">File salveguardate correctemente.</string>
   <string name="err_cannot_save_file">Impossibile salvar le file</string>
   <string name="snippet_share_intro">\"%1$s\" sur @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca pro expander</string>

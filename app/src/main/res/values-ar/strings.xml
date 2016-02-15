@@ -9,6 +9,7 @@
   <string name="nav_item_history">التاريخ</string>
   <string name="error_network_error">لا يوجد اتصال بالشبكة</string>
   <string name="page_error_retry">إعادة المحاولة</string>
+  <string name="page_error_back_to_main">عد إلى الخلف</string>
   <string name="menu_clear_all_history">مسح التاريخ</string>
   <string name="menu_clear_all_saved_pages">إفراغ الصفحات المحفوظة</string>
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">افتح في لسان جديد</string>
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
   <string name="menu_text_select_copy">نسخ</string>
+  <string name="menu_text_select_define">عرّف</string>
   <string name="menu_text_select_share">شارك</string>
   <string name="nav_item_nearby">بالقرب من هنا</string>
   <string name="nearby_distance_in_meters">%d م</string>
@@ -202,6 +204,7 @@
   <string name="widget_name_featured_page">صفحة ويكيبيديا المختارة</string>
   <string name="widget_title_featured_page">صفحة اليوم المختارة:</string>
   <string name="widget_name_search">بحث ويكيبيديا</string>
+  <string name="wiktionary_no_definitions_found">لم يتم العثور على تعريفات.</string>
   <string name="app_store_description">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تمت إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
 
 المميزات:
@@ -227,7 +230,8 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_menu_save">الحفظ في الجهاز</string>
-  <string name="gallery_save_success" fuzzy="true">حُفظت الصورة بنجاح.</string>
+  <string name="gallery_save_progress">جارٍ تنزيل الملف...</string>
+  <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">مطلوب إذن الكتابة في ذاكرة التخزين على جهازك لحفظ الصور. يرجى المحاولة مرة أخرى، مع منح الإذن المطلوب.</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>

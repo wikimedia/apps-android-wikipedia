@@ -9,6 +9,7 @@
   <string name="nav_item_history">Lịch sử</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
   <string name="page_error_retry">Thử lại</string>
+  <string name="page_error_back_to_main">Quay lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
   <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">Mở trong thẻ mới</string>
   <string name="menu_long_press_copy_page">Chép địa chỉ liên kết</string>
   <string name="menu_text_select_copy">Chép</string>
+  <string name="menu_text_select_define">Định nghĩa</string>
   <string name="menu_text_select_share">Chia sẻ</string>
   <string name="nav_item_nearby">Lân cận</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +206,7 @@
   <string name="widget_name_featured_page">Bài viết chọn lọc Wikipedia</string>
   <string name="widget_title_featured_page">Bài viết chọn lọc hôm nay:</string>
   <string name="widget_name_search">Tìm kiếm Wikipedia</string>
+  <string name="wiktionary_no_definitions_found">Không tìm thấy định nghĩa nào.</string>
   <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở có hơn 32 triệu bài viết trong 280 ngôn ngữ. Nó là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên.
 
 Tính năng:
@@ -236,7 +239,8 @@ Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_U
   <string name="gallery_menu_share">Chia sẻ</string>
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
   <string name="gallery_menu_save">Lưu vào thiết bị</string>
-  <string name="gallery_save_success" fuzzy="true">Đã lưu hình thành công.</string>
+  <string name="gallery_save_progress">Đang tải tập tin xuống…</string>
+  <string name="gallery_save_success">Đã lưu tập tin thành công.</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Để lưu ảnh, bạn cần cho phép ghi dữ liệu vào bộ nhớ thiết bị. Xin hãy thử lại và đồng ý cấp phép cho yêu cầu.</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>

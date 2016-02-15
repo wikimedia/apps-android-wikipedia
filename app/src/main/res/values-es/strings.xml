@@ -239,7 +239,8 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">No se pudo compartir la imagen: %s</string>
   <string name="gallery_menu_save">Guardar en dispositivo</string>
-  <string name="gallery_save_success" fuzzy="true">Imagen guardada correctamente.</string>
+  <string name="gallery_save_progress">Descargando archivo…</string>
+  <string name="gallery_save_success">Archivo guardado correctamente.</string>
   <string name="gallery_error_video_failed">No se pudo reproducir el vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Para guardar imágenes se necesita el permiso para escribir en el almacenamiento. Inténtalo de nuevo y otorga el permiso solicitado.</string>
   <string name="err_cannot_save_file">No se puede guardar el archivo</string>

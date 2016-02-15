@@ -9,6 +9,7 @@
   <string name="nav_item_history">Historial</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Tornar a provar</string>
+  <string name="page_error_back_to_main">Vés enrere</string>
   <string name="menu_clear_all_history">Esborra l\'historial</string>
   <string name="menu_clear_all_saved_pages">Esborra les pàgines desades</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">Obre en una pestanya nova</string>
   <string name="menu_long_press_copy_page">Copia l\'adreça de l\'enllaç</string>
   <string name="menu_text_select_copy">Copia</string>
+  <string name="menu_text_select_define">Defineix</string>
   <string name="menu_text_select_share">Comparteix</string>
   <string name="nav_item_nearby">A prop</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -204,6 +206,7 @@
   <string name="widget_name_featured_page">Pàgina destacada de la Viquipèdia</string>
   <string name="widget_title_featured_page">Pàgina destacada del dia:</string>
   <string name="widget_name_search">Cerca a la Viquipèdia</string>
+  <string name="wiktionary_no_definitions_found">No s\'han trobat definicions.</string>
   <string name="app_store_description">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta de l\'obra de referència més completa i usada que mai s\'hagi compilat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
 
 Característiques:
@@ -232,7 +235,8 @@ Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Comparteix</string>
   <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
   <string name="gallery_menu_save">Desar al dispositiu</string>
-  <string name="gallery_save_success" fuzzy="true">La imatge s\'ha desat correctament.</string>
+  <string name="gallery_save_progress">S\'està baixant el fitxer…</string>
+  <string name="gallery_save_success">La imatge s\'ha desat correctament.</string>
   <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Cal tenir permís d\'escriptura en el vostre dispositiu per a poder desar imatges. Torneu-ho a provar, donant el permís demanat.</string>
   <string name="err_cannot_save_file">No es pot desar el fitxer</string>
