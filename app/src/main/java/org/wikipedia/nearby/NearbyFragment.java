@@ -1,24 +1,8 @@
 package org.wikipedia.nearby;
 
-import org.wikipedia.R;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.PermissionUtil;
-import org.wikipedia.util.log.L;
-
-import com.mapbox.mapboxsdk.annotations.Marker;
-import com.mapbox.mapboxsdk.annotations.MarkerOptions;
-import com.mapbox.mapboxsdk.annotations.Sprite;
-import com.mapbox.mapboxsdk.constants.MyLocationTracking;
-import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapbox.mapboxsdk.geometry.LatLngZoom;
-import com.mapbox.mapboxsdk.views.MapView;
-
 import android.Manifest;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.PointF;
 import android.location.Location;
@@ -30,6 +14,31 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.mapbox.mapboxsdk.annotations.Icon;
+import com.mapbox.mapboxsdk.annotations.IconFactory;
+import com.mapbox.mapboxsdk.annotations.Marker;
+import com.mapbox.mapboxsdk.annotations.MarkerOptions;
+import com.mapbox.mapboxsdk.camera.CameraPosition;
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
+import com.mapbox.mapboxsdk.constants.MapboxConstants;
+import com.mapbox.mapboxsdk.constants.MyLocationTracking;
+import com.mapbox.mapboxsdk.geometry.LatLng;
+import com.mapbox.mapboxsdk.maps.MapView;
+import com.mapbox.mapboxsdk.maps.MapboxMap;
+import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.maps.Projection;
+import com.mapbox.mapboxsdk.telemetry.MapboxEventManager;
+
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +56,9 @@ public class NearbyFragment extends Fragment {
     private final List<Marker> mMarkerList = new ArrayList<>();
 
     private MapView mapView;
+    @Nullable private MapboxMap mapboxMap;
 
-    private Sprite markerIconPassive;
+    private Icon markerIconPassive;
 
     private Site site;
     private NearbyResult lastResult;
@@ -60,6 +70,8 @@ public class NearbyFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         site = WikipediaApp.getInstance().getSite();
+
+        disableTelemetry();
     }
 
     @Override
@@ -68,14 +80,9 @@ public class NearbyFragment extends Fragment {
         rootView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
 
         mapView = (MapView) rootView.findViewById(R.id.mapview);
-        mapView.setAccessToken(getString(R.string.mapbox_public_token));
-        markerIconPassive = mapView.getSpriteFactory().fromResource(R.drawable.ic_map_marker);
+        markerIconPassive = IconFactory.getInstance(getActivity()).fromResource(R.drawable.ic_map_marker);
 
-        // TODO: pass savedInstanceState into mapView.onCreate once the MapView starts managing
-        // runtime permissions in a better way. This way, the MapView will start uninitialized
-        // so that we get a chance to query for runtime permissions before enabling the user's
-        // location in the MapView.
-        mapView.onCreate(null);
+        mapView.onCreate(savedInstanceState);
 
         rootView.findViewById(R.id.user_location_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,27 +91,25 @@ public class NearbyFragment extends Fragment {
             }
         });
 
-        return rootView;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
 
-        if (lastResult != null) {
-            showNearbyPages(lastResult);
-        } else if (savedInstanceState != null) {
+        if (savedInstanceState != null) {
             currentLocation = savedInstanceState.getParcelable(NEARBY_CURRENT_LOCATION);
             if (currentLocation != null) {
                 lastResult = savedInstanceState.getParcelable(NEARBY_LAST_RESULT);
-                showNearbyPages(lastResult);
             }
         }
 
         setRefreshingState(true);
         initializeMap();
-        checkLocationPermissionsToGoToUserLocation();
+
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        mapboxMap = null;
+        super.onDestroyView();
     }
 
     @Override
@@ -118,12 +123,6 @@ public class NearbyFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        mapView.onStart();
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
         mapView.onResume();
@@ -133,12 +132,6 @@ public class NearbyFragment extends Fragment {
     public void onPause() {
         super.onPause();
         mapView.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mapView.onStop();
     }
 
     @Override
@@ -155,38 +148,49 @@ public class NearbyFragment extends Fragment {
 
     private void initializeMap() {
         mapView.setStyleUrl("asset://mapstyle.json");
-        mapView.setMyLocationTrackingMode(MyLocationTracking.TRACKING_NONE);
-        mapView.setLogoVisibility(View.GONE);
-        mapView.setAttributionVisibility(View.GONE);
 
-        mapView.setOnMyLocationChangeListener(new MapView.OnMyLocationChangeListener() {
+        mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            public void onMyLocationChange(@Nullable Location location) {
-                makeUseOfNewLocation(location);
-                if (!firstLocationLock) {
-                    goToUserLocation();
-                    firstLocationLock = true;
-                }
-            }
-        });
+            public void onMapReady(@NonNull MapboxMap mapboxMap) {
+                NearbyFragment.this.mapboxMap = mapboxMap;
 
-        mapView.setOnScrollListener(new MapView.OnScrollListener() {
-            @Override
-            public void onScroll() {
-                fetchNearbyPages();
-            }
-        });
+                mapboxMap.getTrackingSettings().setMyLocationTrackingMode(MyLocationTracking.TRACKING_NONE);
 
-        mapView.setOnMarkerClickListener(new MapView.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(@NonNull Marker marker) {
-                NearbyPage page = findNearbyPageFromMarker(marker);
-                if (page != null) {
-                    PageTitle title = new PageTitle(page.getTitle(), site, page.getThumblUrl());
-                    ((PageActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
-                    return true;
-                } else {
-                    return false;
+                mapboxMap.setOnMyLocationChangeListener(new MapboxMap.OnMyLocationChangeListener() {
+                    @Override
+                    public void onMyLocationChange(@Nullable Location location) {
+                        makeUseOfNewLocation(location);
+                        if (!firstLocationLock) {
+                            goToUserLocation();
+                            firstLocationLock = true;
+                        }
+                    }
+                });
+
+                mapboxMap.setOnScrollListener(new MapboxMap.OnScrollListener() {
+                    @Override
+                    public void onScroll() {
+                        fetchNearbyPages();
+                    }
+                });
+                mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(@NonNull Marker marker) {
+                        NearbyPage page = findNearbyPageFromMarker(marker);
+                        if (page != null) {
+                            PageTitle title = new PageTitle(page.getTitle(), site, page.getThumblUrl());
+                            ((PageActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                });
+
+                checkLocationPermissionsToGoToUserLocation();
+
+                if (currentLocation != null && lastResult != null) {
+                    showNearbyPages(lastResult);
                 }
             }
         });
@@ -206,8 +210,8 @@ public class NearbyFragment extends Fragment {
         if (ContextCompat.checkSelfPermission(getActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestLocationRuntimePermissions(GO_TO_LOCATION_PERMISSION_REQUEST);
-        } else {
-            mapView.setMyLocationEnabled(true);
+        } else if (mapboxMap != null) {
+            mapboxMap.setMyLocationEnabled(true);
             goToUserLocation();
         }
     }
@@ -223,8 +227,8 @@ public class NearbyFragment extends Fragment {
                                            @NonNull int[] grantResults) {
         switch (requestCode) {
             case GO_TO_LOCATION_PERMISSION_REQUEST:
-                if (PermissionUtil.isPermitted(grantResults)) {
-                    mapView.setMyLocationEnabled(true);
+                if (PermissionUtil.isPermitted(grantResults) && mapboxMap != null) {
+                    mapboxMap.setMyLocationEnabled(true);
                     goToUserLocation();
                 } else {
                     setRefreshingState(false);
@@ -237,11 +241,17 @@ public class NearbyFragment extends Fragment {
     }
 
     private void goToUserLocation() {
-        Location location = mapView.getMyLocation();
+        if (mapboxMap == null) {
+            return;
+        }
+
+        Location location = mapboxMap.getMyLocation();
         if (location != null) {
-            LatLngZoom pos = new LatLngZoom(location.getLatitude(), location.getLongitude(),
-                    getResources().getInteger(R.integer.map_default_zoom));
-            mapView.setCenterCoordinate(pos, true);
+            CameraPosition pos = new CameraPosition.Builder()
+                    .target(new LatLng(location))
+                    .zoom(getResources().getInteger(R.integer.map_default_zoom))
+                    .build();
+            mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(pos));
         }
         fetchNearbyPages();
     }
@@ -262,11 +272,11 @@ public class NearbyFragment extends Fragment {
     private Runnable fetchTaskRunnable = new Runnable() {
         @Override
         public void run() {
-            if (!isResumed()) {
+            if (!isResumed() || mapboxMap == null) {
                 return;
             }
 
-            LatLng latLng = mapView.getCenterCoordinate();
+            LatLng latLng = mapboxMap.getCameraPosition().target;
             setRefreshingState(true);
             new NearbyFetchTask(getActivity(), site, latLng.getLatitude(), latLng.getLongitude(), getMapRadius()) {
                 @Override
@@ -293,9 +303,14 @@ public class NearbyFragment extends Fragment {
     };
 
     private double getMapRadius() {
-        LatLng leftTop = mapView.fromScreenLocation(new PointF(0.0f, 0.0f));
-        LatLng rightTop = mapView.fromScreenLocation(new PointF(mapView.getWidth(), 0.0f));
-        LatLng leftBottom = mapView.fromScreenLocation(new PointF(0.0f, mapView.getHeight()));
+        if (mapboxMap == null) {
+            return 0;
+        }
+
+        Projection proj = mapboxMap.getProjection();
+        LatLng leftTop = proj.fromScreenLocation(new PointF(0.0f, 0.0f));
+        LatLng rightTop = proj.fromScreenLocation(new PointF(mapView.getWidth(), 0.0f));
+        LatLng leftBottom = proj.fromScreenLocation(new PointF(0.0f, mapView.getHeight()));
         double width = leftTop.distanceTo(rightTop);
         double height = leftTop.distanceTo(leftBottom);
         return Math.max(width, height) / 2;
@@ -359,10 +374,14 @@ public class NearbyFragment extends Fragment {
     }
 
     private void showNearbyPages(NearbyResult result) {
+        if (mapboxMap == null) {
+            return;
+        }
+
         getActivity().invalidateOptionsMenu();
         mMarkerList.clear();
         // Since Marker is a descendant of Annotation, this will remove all Markers.
-        mapView.removeAllAnnotations();
+        mapboxMap.removeAnnotations();
 
         List<MarkerOptions> optionsList = new ArrayList<>();
         for (NearbyPage item : result.getList()) {
@@ -370,7 +389,7 @@ public class NearbyFragment extends Fragment {
                 optionsList.add(createMarkerOptions(item));
             }
         }
-        mMarkerList.addAll(mapView.addMarkers(optionsList));
+        mMarkerList.addAll(mapboxMap.addMarkers(optionsList));
     }
 
     @NonNull
@@ -380,6 +399,22 @@ public class NearbyFragment extends Fragment {
                 .position(new LatLng(location.getLatitude(), location.getLongitude()))
                 .title(page.getTitle())
                 .icon(markerIconPassive);
+    }
+
+    private void disableTelemetry() {
+        // setTelemetryEnabled() does not write to shared prefs unless a change is detected.
+        // However, it is initialized to false and then defaulted to true when retrieving from
+        // shared prefs later. This means either calling setTelemetryEnabled(true) first or writing
+        // to Mapbox's private shared prefs directly. setTelemetryEnabled(true) would start the
+        // service at least briefly so the latter approach is used.
+
+        SharedPreferences prefs = getContext().getSharedPreferences(MapboxConstants.MAPBOX_SHARED_PREFERENCES_FILE,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(MapboxConstants.MAPBOX_SHARED_PREFERENCE_KEY_TELEMETRY_ENABLED, false);
+        editor.commit();
+
+        MapboxEventManager.getMapboxEventManager().setTelemetryEnabled(false);
     }
 
     private void setRefreshingState(boolean isRefreshing) {

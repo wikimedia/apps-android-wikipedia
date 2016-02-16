@@ -63,12 +63,6 @@
 -keep class sun.misc.Unsafe { *; }
 # --- /Gson ---
 
-# --- Mapbox ---
-# TODO: remove when upstream patch is merged: https://phabricator.wikimedia.org/T120388
--keep class com.mapbox.mapboxsdk.views.** { *; }
-
-# --- /Mapbox ---
-
 # --- Wikipedia ---
 -keep class org.wikipedia.** { <init>(...); *; }
 -keep enum org.wikipedia.** { <init>(...); *; }
