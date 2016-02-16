@@ -9,6 +9,10 @@
         <!-- https://github.com/JakeWharton/DiskLruCache/blob/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/DiskLruCache">license</a>),
 
+        <a href="https://github.com/facebook/fresco">Fresco</a>
+        <!-- https://raw.githubusercontent.com/facebook/fresco/master/LICENSE -->
+        (<a href="file:///android_asset/licenses/Fresco">license</a>),
+
         <a href="https://github.com/bitstadium/HockeySDK-Android">HockeySDK-Android</a>
         <!-- https://raw.githubusercontent.com/bitstadium/HockeySDK-Android/develop/LICENSE -->
         (<a href="file:///android_asset/licenses/HockeySDK-Android">license</a>),
@@ -32,14 +36,6 @@
         <a href="https://square.github.io/otto/">Otto</a>
         <!-- end of http://square.github.io/otto -->
         (<a href="file:///android_asset/licenses/Otto">license</a>),
-
-        <a href="https://github.com/chrisbanes/PhotoView">PhotoView</a>
-        <!-- end of https://github.com/chrisbanes/PhotoView -->
-        (<a href="file:///android_asset/licenses/PhotoView">license</a>),
-
-        <a href="https://square.github.io/picasso/">Picasso</a>
-        <!-- end of http://square.github.io/picasso -->
-        (<a href="file:///android_asset/licenses/Picasso">license</a>),
 
         <a href="https://square.github.io/retrofit/">Retrofit</a>
         <!-- end of http://square.github.io/retrofit/ -->
