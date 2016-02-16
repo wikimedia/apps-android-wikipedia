@@ -79,6 +79,11 @@ public final class UriUtil {
                 .getWikipediaZeroHandler();
 
         if (!zeroHandler.isZeroEnabled()) {
+            if (!StringUtil.emptyIfNull(zeroHandler.getXCarrier()).equals("")) {
+                // User is potentially zero-rated based on IP, but not on a whitelisted site
+                // (this is rare)
+                zeroHandler.getZeroFunnel().logExtLink();
+            }
             visitInExternalBrowser(context, uri);
             return;
         }
