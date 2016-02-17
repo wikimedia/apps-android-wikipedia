@@ -1,11 +1,13 @@
 package org.wikipedia.database;
 
 import android.content.ContentProviderClient;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 public class DatabaseClient<T> {
     @NonNull private final ContentProviderClient client;
@@ -23,18 +25,17 @@ public class DatabaseClient<T> {
     }
 
     public void persist(T obj) {
-        Uri uri = databaseTable.getBaseContentURI();
         try {
-            client.insert(uri, databaseTable.toContentValues(obj));
+            client.insert(uri(), toContentValues(obj));
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public Cursor select(String selection, String[] selectionArgs, String sortOrder) {
-        Uri uri = databaseTable.getBaseContentURI();
+    public Cursor select(@Nullable String selection, @Nullable String[] selectionArgs,
+                         @Nullable String sortOrder) {
         try {
-            return client.query(uri, null, selection, selectionArgs, sortOrder);
+            return client.query(uri(), null, selection, selectionArgs, sortOrder);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -45,42 +46,55 @@ public class DatabaseClient<T> {
     }
 
     public void deleteWhere(String selection, String[] selectionArgs) {
-        Uri uri = databaseTable.getBaseContentURI();
         try {
-            client.delete(uri, selection, selectionArgs);
+            client.delete(uri(), selection, selectionArgs);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void delete(T obj, String[] selectionArgs) {
-        Uri uri = databaseTable.getBaseContentURI();
+    public void delete(@NonNull T obj, @NonNull String[] selectionArgs) {
         try {
             client.delete(
-                    uri,
-                    databaseTable.getPrimaryKeySelection(obj, selectionArgs),
-                    databaseTable.getPrimaryKeySelectionArgs(obj)
+                    uri(),
+                    getPrimaryKeySelection(obj, selectionArgs),
+                    getPrimaryKeySelectionArgs(obj)
             );
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void upsert(T obj, String[] selectionArgs) {
-        Uri uri = databaseTable.getBaseContentURI();
+    public void upsert(@NonNull T obj, @NonNull String[] selectionArgs) {
         try {
             int rowsUpdated = client.update(
-                    uri,
-                    databaseTable.toContentValues(obj),
-                    databaseTable.getPrimaryKeySelection(obj, selectionArgs),
-                    databaseTable.getPrimaryKeySelectionArgs(obj)
+                    uri(),
+                    toContentValues(obj),
+                    getPrimaryKeySelection(obj, selectionArgs),
+                    getPrimaryKeySelectionArgs(obj)
             );
             if (rowsUpdated == 0) {
-                // Insert!
+                // TODO: synchronize with other writes. There are two operations performed.
                 persist(obj);
             }
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private ContentValues toContentValues(T obj) {
+        return databaseTable.toContentValues(obj);
+    }
+
+    private String getPrimaryKeySelection(@NonNull T obj, @NonNull String[] selectionArgs) {
+        return databaseTable.getPrimaryKeySelection(obj, selectionArgs);
+    }
+
+    private String[] getPrimaryKeySelectionArgs(@NonNull T obj) {
+        return databaseTable.getPrimaryKeySelectionArgs(obj);
+    }
+
+    private Uri uri() {
+        return databaseTable.getBaseContentURI();
     }
 }

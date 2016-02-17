@@ -37,8 +37,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     /** Requires database of version {@link #DB_VER_NAMESPACE_ADDED} or greater. */
     @Override
     public SavedPage fromCursor(Cursor cursor) {
-        return fromPreNamespaceCursor(cursor,
-                cursor.getString(cursor.getColumnIndex(COL_NAMESPACE)));
+        return fromPreNamespaceCursor(cursor, getString(cursor, COL_NAMESPACE));
     }
 
     @Override
@@ -85,8 +84,8 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     @Override
     protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
-        int idIndex = cursor.getColumnIndex("_id");
-        int titleIndex = cursor.getColumnIndex(COL_TITLE);
+        int idIndex = cursor.getColumnIndexOrThrow("_id");
+        int titleIndex = cursor.getColumnIndexOrThrow(COL_TITLE);
         ContentValues values = new ContentValues();
         while (cursor.moveToNext()) {
             String title = cursor.getString(titleIndex);
@@ -112,10 +111,9 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     }
 
     private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace) {
-        Site site = new Site(cursor.getString(cursor.getColumnIndex(COL_SITE)));
-        PageTitle title = new PageTitle(namespace,
-                cursor.getString(cursor.getColumnIndex(COL_TITLE)), site);
-        Date timestamp = new Date(cursor.getLong(cursor.getColumnIndex(COL_TIMESTAMP)));
+        Site site = new Site(getString(cursor, COL_SITE));
+        PageTitle title = new PageTitle(namespace, getString(cursor, COL_TITLE), site);
+        Date timestamp = new Date(getLong(cursor, COL_TIMESTAMP));
         return new SavedPage(title, timestamp);
     }
 

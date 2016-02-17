@@ -21,8 +21,8 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
 
     @Override
     public RecentSearch fromCursor(Cursor c) {
-        String title = c.getString(c.getColumnIndex(COL_TEXT));
-        Date timestamp = new Date(c.getLong(c.getColumnIndex(COL_TIMESTAMP)));
+        String title = getString(c, COL_TEXT);
+        Date timestamp = new Date(getLong(c, COL_TIMESTAMP));
         return new RecentSearch(title, timestamp);
     }
 

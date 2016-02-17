@@ -21,8 +21,8 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
 
     @Override
     public EditSummary fromCursor(Cursor c) {
-        String summary = c.getString(c.getColumnIndex(COL_SUMMARY));
-        Date lastUsed = new Date(c.getLong(c.getColumnIndex(COL_LAST_USED)));
+        String summary = getString(c, COL_SUMMARY);
+        Date lastUsed = new Date(getLong(c, COL_LAST_USED));
         return new EditSummary(summary, lastUsed);
     }
 
