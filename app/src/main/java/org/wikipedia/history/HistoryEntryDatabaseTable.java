@@ -29,11 +29,10 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
 
     @Override
     public HistoryEntry fromCursor(Cursor c) {
-        Site site = new Site(c.getString(c.getColumnIndex(COL_SITE)));
-        PageTitle title = new PageTitle(c.getString(c.getColumnIndex(COL_NAMESPACE)),
-                c.getString(c.getColumnIndex(COL_TITLE)), site);
-        Date timestamp = new Date(c.getLong(c.getColumnIndex(COL_TIMESTAMP)));
-        int source = c.getInt(c.getColumnIndex(COL_SOURCE));
+        Site site = new Site(getString(c, COL_SITE));
+        PageTitle title = new PageTitle(getString(c, COL_NAMESPACE), getString(c, COL_TITLE), site);
+        Date timestamp = new Date(getLong(c, COL_TIMESTAMP));
+        int source = getInt(c, COL_SOURCE);
         return new HistoryEntry(title, timestamp, source);
     }
 
@@ -96,8 +95,8 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     @Override
     protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
-        int idIndex = cursor.getColumnIndex("_id");
-        int titleIndex = cursor.getColumnIndex(COL_TITLE);
+        int idIndex = cursor.getColumnIndexOrThrow("_id");
+        int titleIndex = cursor.getColumnIndexOrThrow(COL_TITLE);
         ContentValues values = new ContentValues();
         while (cursor.moveToNext()) {
             String title = cursor.getString(titleIndex);

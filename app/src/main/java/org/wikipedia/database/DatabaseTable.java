@@ -105,12 +105,12 @@ public abstract class DatabaseTable<T> {
     protected abstract int getDBVersionIntroducedAt();
 
     public List<Column> getElements(int fromVersion, int toVersion) {
-         List<Column> columns = new ArrayList<>();
-         for (int i = fromVersion; i <= toVersion; i++) {
-             columns.addAll(Arrays.asList(getColumnsAdded(i)));
-         }
-         return columns;
-     }
+        List<Column> columns = new ArrayList<>();
+        for (int i = fromVersion; i <= toVersion; i++) {
+            columns.addAll(Arrays.asList(getColumnsAdded(i)));
+        }
+        return columns;
+    }
 
     public void createTables(@NonNull SQLiteDatabase db, int version) {
         db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", getElements(1, version)) + " );");
@@ -138,6 +138,26 @@ public abstract class DatabaseTable<T> {
         db.execSQL(alterTableString);
     }
 
+    public Uri getBaseContentURI() {
+        return baseContentURI;
+    }
+
+    protected String getString(@NonNull Cursor cursor, @NonNull String col) {
+        return cursor.getString(getCol(cursor, col));
+    }
+
+    protected long getLong(@NonNull Cursor cursor, @NonNull String col) {
+        return cursor.getLong(getCol(cursor, col));
+    }
+
+    protected int getInt(@NonNull Cursor cursor, @NonNull String col) {
+        return cursor.getInt(getCol(cursor, col));
+    }
+
+    protected int getCol(@NonNull Cursor cursor, @NonNull String col) {
+        return cursor.getColumnIndexOrThrow(col);
+    }
+
     /**
      * One-time fix for the inconsistencies in title formats all over the database. This migration will enforce
      * all titles stored in the database to follow the "Underscore_format" instead of the "Human readable form"
@@ -147,9 +167,5 @@ public abstract class DatabaseTable<T> {
      */
     protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
         // Default implementation is empty, since not every table needs to deal with titles
-    }
-
-    public Uri getBaseContentURI() {
-        return baseContentURI;
     }
 }
