@@ -1,5 +1,6 @@
 package org.wikipedia.zero;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -39,7 +40,13 @@ public class WikipediaZeroTaskTest {
     @Test
     public void testOnFinishEligible() throws Exception {
         testOnFinish(TestFileUtil.readRawFile("wikipedia_zero_task_test_eligible.json"),
-                new ZeroConfig("Overstay your stay!", "#FFFFFF", "#00FFFF", "", "", "", ""));
+                new ZeroConfig.Builder("Overstay your stay!", Color.parseColor("#FFFFFF"), Color.parseColor("#00FFFF"))
+                        .exitTitle("")
+                        .exitWarning("")
+                        .partnerInfoText("")
+                        .partnerInfoUrl("")
+                        .bannerUrl("")
+                        .build());
     }
 
     private void testOnFinish(String responseBody,

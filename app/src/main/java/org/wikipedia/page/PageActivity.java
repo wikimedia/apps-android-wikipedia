@@ -8,6 +8,7 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.IntentFunnel;
+import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
@@ -30,7 +31,6 @@ import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
-import org.wikipedia.zero.WikipediaZeroHandler;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.zero.ZeroConfig;
 
@@ -43,7 +43,6 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.location.Location;
 import android.net.Uri;
@@ -124,6 +123,7 @@ public class PageActivity extends ThemedActionBarActivity {
     private RandomHandler randomHandler;
     private NavDrawerHelper navDrawerHelper;
     private boolean navItemSelected;
+    private WikipediaZeroUsageFunnel zeroFunnel;
 
     public View getContentView() {
         return fragmentContainerView;
@@ -243,6 +243,8 @@ public class PageActivity extends ThemedActionBarActivity {
         searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
 
         boolean languageChanged = false;
+
+        zeroFunnel = app.getWikipediaZeroHandler().getZeroFunnel();
         if (savedInstanceState != null) {
             isZeroEnabled = savedInstanceState.getBoolean("pausedZeroEnabledState");
             currentZeroConfig = savedInstanceState.getParcelable("pausedZeroConfig");
@@ -748,59 +750,83 @@ public class PageActivity extends ThemedActionBarActivity {
 
         @Subscribe
         public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-            boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
+            boolean latestZeroEnabledState = app.getWikipediaZeroHandler().isZeroEnabled();
             ZeroConfig latestZeroConfig = app.getWikipediaZeroHandler().getZeroConfig();
 
-            if (isZeroEnabled && !latestWikipediaZeroDisposition) {
-                String title = getString(R.string.zero_charged_verbiage);
-                String verbiage = getString(R.string.zero_charged_verbiage_extended);
-                WikipediaZeroHandler.showZeroBanner(PageActivity.this, title,
-                        getResources().getColor(android.R.color.white),
-                        getResources().getColor(R.color.holo_red_dark));
+            if (leftZeroRatedNetwork(latestZeroEnabledState)) {
+                app.getWikipediaZeroHandler().showZeroOffBanner(PageActivity.this,
+                        getString(R.string.zero_charged_verbiage),
+                        getResources().getColor(R.color.holo_red_dark),
+                        getResources().getColor(android.R.color.white));
                 navDrawerHelper.setupDynamicNavDrawerItems();
-                showDialogAboutZero(null, title, verbiage);
-            } else if ((!isZeroEnabled || !currentZeroConfig.equals(latestZeroConfig))
-                       && latestWikipediaZeroDisposition) {
-                String title = latestZeroConfig.getMessage();
-                String verbiage = getString(R.string.zero_learn_more);
-                WikipediaZeroHandler.showZeroBanner(PageActivity.this, title,
-                        latestZeroConfig.getForeground(), latestZeroConfig.getBackground());
-                navDrawerHelper.setupDynamicNavDrawerItems();
-                showDialogAboutZero(ZERO_ON_NOTICE_PRESENTED, title, verbiage);
             }
-            isZeroEnabled = latestWikipediaZeroDisposition;
+
+            if (enteredNewZeroRatedNetwork(latestZeroConfig, latestZeroEnabledState)) {
+                app.getWikipediaZeroHandler().showZeroBanner(PageActivity.this, latestZeroConfig);
+                if (!hasSeenZeroInfoDialog()) {
+                    showZeroInfoDialog(latestZeroConfig);
+                    setZeroInfoDialogSeen();
+                }
+                navDrawerHelper.setupDynamicNavDrawerItems();
+            }
+
+            isZeroEnabled = latestZeroEnabledState;
             currentZeroConfig = latestZeroConfig;
             searchHintText.setText(getString(
-                    latestWikipediaZeroDisposition
+                    latestZeroEnabledState
                             ? R.string.zero_search_hint
                             : R.string.search_hint));
         }
     }
 
-    private void showDialogAboutZero(final String prefsKey, String title, String message) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(app);
-        if (prefsKey == null || !prefs.getBoolean(prefsKey, false)) {
-            if (prefsKey != null) {
-                prefs.edit().putBoolean(prefsKey, true).apply();
-            }
+    private void showZeroInfoDialog(ZeroConfig zeroConfig) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                .setMessage(buildZeroDialogMessage(zeroConfig.getMessage(), getString(R.string.zero_learn_more)))
+                .setPositiveButton(getString(R.string.zero_learn_more_learn_more), getZeroMoreInfoListener())
+                .setNegativeButton(getString(R.string.zero_learn_more_dismiss), getDismissClickListener());
+        AlertDialog dialog = alert.create();
+        dialog.show();
+    }
 
-            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-            alert.setMessage(Html.fromHtml("<b>" + title + "</b><br/><br/>" + message));
-            if (prefsKey != null) {
-                alert.setPositiveButton(getString(R.string.zero_learn_more_learn_more), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        visitInExternalBrowser(PageActivity.this, Uri.parse(getString(R.string.zero_webpage_url)));
-                    }
-                });
+    private CharSequence buildZeroDialogMessage(String title, String warning) {
+        return Html.fromHtml("<b>" + title + "</b><br/><br/>" + warning);
+    }
+
+    private DialogInterface.OnClickListener getZeroMoreInfoListener() {
+        return new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                visitInExternalBrowser(PageActivity.this, (Uri.parse(getString(R.string.zero_webpage_url))));
+                zeroFunnel.logExtLinkMore();
             }
-            alert.setNegativeButton(getString(R.string.zero_learn_more_dismiss), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.dismiss();
-                }
-            });
-            AlertDialog ad = alert.create();
-            ad.show();
-        }
+        };
+    }
+
+    private DialogInterface.OnClickListener getDismissClickListener() {
+        return new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        };
+    }
+
+    private boolean hasSeenZeroInfoDialog() {
+        return PreferenceManager.getDefaultSharedPreferences(app).getBoolean(ZERO_ON_NOTICE_PRESENTED, false);
+    }
+
+    private void setZeroInfoDialogSeen() {
+        PreferenceManager.getDefaultSharedPreferences(app).edit().putBoolean(ZERO_ON_NOTICE_PRESENTED, true).apply();
+    }
+
+    private boolean leftZeroRatedNetwork(boolean newZeroEnabledState) {
+        return !newZeroEnabledState && isZeroEnabled;
+    }
+
+    private boolean enteredNewZeroRatedNetwork(ZeroConfig newZeroConfig, boolean newZeroEnabledState) {
+        return newZeroEnabledState && (!isZeroEnabled || zeroConfigChanged(newZeroConfig));
+    }
+
+    private boolean zeroConfigChanged(ZeroConfig newConfig) {
+        return !currentZeroConfig.equals(newConfig);
     }
 
     @Override
