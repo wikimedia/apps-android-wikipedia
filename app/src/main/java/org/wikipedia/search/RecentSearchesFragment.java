@@ -1,6 +1,5 @@
 package org.wikipedia.search;
 
-import org.wikipedia.R;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -18,11 +17,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.wikipedia.R;
+
+import static org.wikipedia.Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID;
+
 /** Displays a list of recent searches */
 public class RecentSearchesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    // make sure this number is unique among other fragments that use a loader
-    private static final int LOADER_ID = 102;
-
     private SearchArticlesFragment searchFragment;
     private View container;
     private ListView recentSearchesList;
@@ -68,13 +68,13 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             }
         });
 
-        getActivity().getSupportLoaderManager().initLoader(LOADER_ID, null, this);
-        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().initLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().restartLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
     }
 
     @Override
     public void onDestroyView() {
-        getActivity().getSupportLoaderManager().destroyLoader(LOADER_ID);
+        getActivity().getSupportLoaderManager().destroyLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID);
         super.onDestroyView();
     }
 

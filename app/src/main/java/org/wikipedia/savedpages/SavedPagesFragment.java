@@ -44,11 +44,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.wikipedia.Constants.SAVED_PAGES_FRAGMENT_LOADER_ID;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class SavedPagesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
-    // make sure this number is unique among other fragments that use a loader
-    private static final int LOADER_ID = 101;
 
     private ListView savedPagesList;
     private View savedPagesEmptyContainer;
@@ -182,13 +181,13 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-                        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, SavedPagesFragment.this);
+                        getActivity().getSupportLoaderManager().restartLoader(SAVED_PAGES_FRAGMENT_LOADER_ID, null, SavedPagesFragment.this);
                         if (editable.length() == 0) {
                             savedPagesEmptyTitle.setText(R.string.saved_pages_empty_title);
                             savedPagesEmptyImage.setVisibility(View.VISIBLE);
                             savedPagesEmptyMessage.setVisibility(View.VISIBLE);
                         } else {
-                            savedPagesEmptyTitle.setText(getString(R.string.saved_pages_search_empty_message, editable.toString()));
+                            savedPagesEmptyTitle.setText(getString(R.string.saved_pages_search_empty_message));
                             savedPagesEmptyImage.setVisibility(View.GONE);
                             savedPagesEmptyMessage.setVisibility(View.GONE);
                         }
@@ -209,13 +208,13 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
         app.adjustDrawableToTheme(savedPagesEmptyImage.getDrawable());
 
-        getActivity().getSupportLoaderManager().initLoader(LOADER_ID, null, this);
-        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().initLoader(SAVED_PAGES_FRAGMENT_LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().restartLoader(SAVED_PAGES_FRAGMENT_LOADER_ID, null, this);
     }
 
     @Override
     public void onDestroyView() {
-        getActivity().getSupportLoaderManager().destroyLoader(LOADER_ID);
+        getActivity().getSupportLoaderManager().destroyLoader(SAVED_PAGES_FRAGMENT_LOADER_ID);
         super.onDestroyView();
     }
 
