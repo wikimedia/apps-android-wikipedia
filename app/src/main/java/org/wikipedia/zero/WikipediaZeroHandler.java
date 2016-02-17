@@ -61,8 +61,14 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     private ZeroConfig zeroConfig;
     private WikipediaZeroUsageFunnel zeroFunnel;
 
-    private String carrierString = "";
-    private String carrierMetaString = "";
+    private String zeroCarrierString = "";
+    private String zeroCarrierMetaString = "";
+
+    // Tracks the X-Carrier header (if any) outside of the Zero state machine.
+    // This is for reference in the rare cases where a user is potentially eligible
+    // for zero-rating based on IP, only certain language wikis are whitelisted and
+    // the user isn't visiting one of them.
+    private String xCarrier = "";
 
     private RandomArticleIdTask curRandomArticleIdTask;
 
@@ -83,6 +89,10 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
 
     public WikipediaZeroUsageFunnel getZeroFunnel() {
         return zeroFunnel;
+    }
+
+    public String getXCarrier() {
+        return xCarrier;
     }
 
     public void showZeroBanner(@NonNull final Activity activity, @NonNull ZeroConfig zeroConfig) {
@@ -131,13 +141,13 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
             public void run() {
                 boolean hasZeroHeader = result.getHeaders().containsKey("X-Carrier");
                 if (hasZeroHeader) {
-                    String xCarrier = result.getHeaders().get("X-Carrier").get(0);
-                    String xCarrierMeta = "";
+                    String xCarrierFromHeader = result.getHeaders().get("X-Carrier").get(0);
+                    String xCarrierMetaFromHeader = "";
                     if (result.getHeaders().containsKey("X-Carrier-Meta")) {
-                        xCarrierMeta = result.getHeaders().get("X-Carrier-Meta").get(0);
+                        xCarrierMetaFromHeader = result.getHeaders().get("X-Carrier-Meta").get(0);
                     }
-                    if (!(xCarrier.equals(carrierString) && xCarrierMeta.equals(carrierMetaString))) {
-                        identifyZeroCarrier(xCarrier, xCarrierMeta);
+                    if (!(xCarrierFromHeader.equals(zeroCarrierString) && xCarrierMetaFromHeader.equals(zeroCarrierMetaString))) {
+                        identifyZeroCarrier(xCarrierFromHeader, xCarrierMetaFromHeader);
                     }
                 } else if (zeroEnabled) {
                     zeroOff();
@@ -155,14 +165,14 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
             @Override
             public void run() {
                 try {
-                    String xCarrier = getHeader(response, "X-Carrier");
-                    String xCarrierMeta = "";
+                    String xCarrierFromHeader = getHeader(response, "X-Carrier");
+                    String xCarrierMetaFromHeader = "";
                     if (getHeader(response, "X-Carrier-Meta") != null) {
-                        xCarrierMeta = getHeader(response, "X-Carrier-Meta");
+                        xCarrierMetaFromHeader = getHeader(response, "X-Carrier-Meta");
                     }
-                    if (xCarrier != null) {
-                        if (!(xCarrier.equals(carrierString) && xCarrierMeta.equals(carrierMetaString))) {
-                            identifyZeroCarrier(xCarrier, xCarrierMeta);
+                    if (xCarrierFromHeader != null) {
+                        if (!(xCarrierFromHeader.equals(zeroCarrierString) && xCarrierMetaFromHeader.equals(zeroCarrierMetaString))) {
+                            identifyZeroCarrier(xCarrierFromHeader, xCarrierMetaFromHeader);
                         }
                     } else if (zeroEnabled) {
                         zeroOff();
@@ -264,7 +274,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
         }
     }
 
-    private void identifyZeroCarrier(final String xCarrier, final String xCarrierMeta) {
+    private void identifyZeroCarrier(final String xCarrierFromHeader, final String xCarrierMetaFromHeader) {
         Handler wikipediaZeroHandler = new Handler(new Handler.Callback() {
             private WikipediaZeroTask curZeroTask;
 
@@ -274,14 +284,15 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
                     @Override
                     public void onFinish(ZeroConfig config) {
                         L.d("New Wikipedia Zero config: " + config);
+                        xCarrier = xCarrierFromHeader; // ex. "123-45"
 
                         if (config != null) {
-                            carrierString = xCarrier;
-                            carrierMetaString = xCarrierMeta;
-                            zeroConfig = config;
+                            zeroCarrierString = xCarrierFromHeader;
+                            zeroCarrierMetaString = xCarrierMetaFromHeader; // ex. "wap"; usually empty (the default case)
+                                zeroConfig = config;
                             zeroEnabled = true;
-                            zeroFunnel = new WikipediaZeroUsageFunnel(app, carrierString,
-                                    StringUtil.emptyIfNull(carrierMetaString));
+                            zeroFunnel = new WikipediaZeroUsageFunnel(app, zeroCarrierString,
+                                    StringUtil.emptyIfNull(zeroCarrierMetaString));
                             app.getBus().post(new WikipediaZeroStateChangeEvent());
                             curZeroTask = null;
                         }
@@ -315,8 +326,8 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     }
 
     private void zeroOff() {
-        carrierString = "";
-        carrierMetaString = "";
+        zeroCarrierString = "";
+        zeroCarrierMetaString = "";
         zeroConfig = null;
         zeroEnabled = false;
         app.getBus().post(new WikipediaZeroStateChangeEvent());
