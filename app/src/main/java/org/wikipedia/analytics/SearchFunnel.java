@@ -39,7 +39,7 @@ public class SearchFunnel extends Funnel {
     public void searchResults(boolean fullText, int numResults, int delayMillis) {
         log(
                 "action", "results",
-                "typeOfSearch", fullText ? "full" : "prefix",
+                "typeOfSearch", fullText ? "full" : WikipediaApp.getInstance().isFeatureSearchAutoCompleteEnabled() ? "autocomplete" : "prefix",
                 "numberOfResults", numResults,
                 "timeToDisplayResults", delayMillis
         );
@@ -48,7 +48,7 @@ public class SearchFunnel extends Funnel {
     public void searchError(boolean fullText, int delayMillis) {
         log(
                 "action", "error",
-                "typeOfSearch", fullText ? "full" : "prefix",
+                "typeOfSearch", fullText ? "full" : WikipediaApp.getInstance().isFeatureSearchAutoCompleteEnabled() ? "autocomplete" : "prefix",
                 "timeToDisplayResults", delayMillis
         );
     }
