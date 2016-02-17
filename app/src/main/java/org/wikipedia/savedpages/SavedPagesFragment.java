@@ -230,9 +230,6 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        if (!isAdded()) {
-            return null;
-        }
         String selection = null;
         String[] selectionArgs = null;
         savedPagesEmptyContainer.setVisibility(View.GONE);
@@ -243,15 +240,12 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             selection =  "UPPER(savedpages.title) LIKE UPPER(?) ESCAPE '\\'";
             selectionArgs = new String[]{"%" + searchStr + "%"};
         }
-        return new CursorLoader(
-                getActivity(),
-                Uri.parse(SavedPage.DATABASE_TABLE.getBaseContentURI().toString() + "/" + PageImage.DATABASE_TABLE
 
-                        .getTableName()),
-                null,
-                selection,
-                selectionArgs,
-                "savedpages.title ASC");
+        Uri uri = Uri.parse(SavedPage.DATABASE_TABLE.getBaseContentURI().toString()
+                + "/" + PageImage.DATABASE_TABLE.getTableName());
+        String[] projection = null;
+        String order = "savedpages.title ASC";
+        return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
 
     @Override

@@ -3,6 +3,7 @@ package org.wikipedia.search;
 import org.wikipedia.R;
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -79,16 +80,12 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        if (!isAdded()) {
-            return null;
-        }
-        return new CursorLoader(
-                getActivity(),
-                RecentSearch.DATABASE_TABLE.getBaseContentURI(),
-                null,
-                null,
-                null,
-                "timestamp DESC");
+        Uri uri = RecentSearch.DATABASE_TABLE.getBaseContentURI();
+        String[] projection = null;
+        String selection = null;
+        String[] selectionArgs = null;
+        String order = "timestamp DESC";
+        return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
 
     @Override
