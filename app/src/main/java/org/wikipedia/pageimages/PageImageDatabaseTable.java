@@ -72,6 +72,10 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         return "pageimages";
     }
 
+    public String getImageColumnName() {
+        return COL_IMAGE_NAME;
+    }
+
     @Override
     public Column[] getColumnsAdded(int version) {
         switch (version) {

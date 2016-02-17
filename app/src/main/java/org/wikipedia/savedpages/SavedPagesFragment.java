@@ -237,7 +237,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         if (searchStr.length() != 0) {
             // FIXME: Find ways to not have to hard code column names
             searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
-            selection =  "UPPER(savedpages.title) LIKE UPPER(?) ESCAPE '\\'";
+            selection = "UPPER(savedpages.title) LIKE UPPER(?) ESCAPE '\\'";
             selectionArgs = new String[]{"%" + searchStr + "%"};
         }
 
@@ -288,7 +288,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
-                    cursor.getString(SavedPageContentProvider.COL_INDEX_IMAGE));
+                    cursor.getString(cursor.getColumnIndex(PageImage.DATABASE_TABLE.getImageColumnName())));
         }
     }
 

@@ -12,9 +12,6 @@ import org.wikipedia.pageimages.PageImage;
 public class SavedPageContentProvider extends SQLiteContentProvider {
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
-    /** column index of pageimages.imageName in the MATCH_WITH_PAGEIMAGES case */
-    public static final int COL_INDEX_IMAGE = 5;
-
     public SavedPageContentProvider() {
         super(SavedPage.DATABASE_TABLE);
     }
@@ -44,18 +41,16 @@ public class SavedPageContentProvider extends SQLiteContentProvider {
             case MATCH_WITH_PAGEIMAGES:
                 queryBuilder.setTables(
                         String.format("%1$s LEFT OUTER JOIN %2$s ON (%1$s.site = %2$s.site and %1$s.title = %2$s.title)",
-                                SavedPage.DATABASE_TABLE.getTableName(), PageImage.DATABASE_TABLE
-
-                                .getTableName()
-                                )
+                                SavedPage.DATABASE_TABLE.getTableName(), PageImage.DATABASE_TABLE.getTableName()
+                        )
                 );
-                String[] actualProjection = new String[] {
+                String[] actualProjection = new String[]{
                         "savedpages._id",
                         "savedpages.site",
                         "savedpages.title",
                         "savedpages.namespace",
                         "savedpages.timestamp",
-                        "pageimages.imageName"
+                        PageImage.DATABASE_TABLE.getTableName() + "." + PageImage.DATABASE_TABLE.getImageColumnName()
                 };
                 cursor = queryBuilder.query(db, actualProjection, selection, selectionArgs, null, null, sortOrder);
                 break;
