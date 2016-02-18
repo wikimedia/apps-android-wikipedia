@@ -98,7 +98,6 @@ public class PageActivity extends ThemedActionBarActivity {
     public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
     public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
 
-    private static final String ZERO_ON_NOTICE_PRESENTED = "org.wikipedia.zero.zeroOnNoticePresented";
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
     private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
     private static final String LINK_PREVIEW_FRAGMENT_TAG = "link_preview_dialog";
@@ -763,9 +762,9 @@ public class PageActivity extends ThemedActionBarActivity {
 
             if (enteredNewZeroRatedNetwork(latestZeroConfig, latestZeroEnabledState)) {
                 app.getWikipediaZeroHandler().showZeroBanner(PageActivity.this, latestZeroConfig);
-                if (!hasSeenZeroInfoDialog()) {
+                if (Prefs.isShowZeroInfoDialogEnabled()) {
                     showZeroInfoDialog(latestZeroConfig);
-                    setZeroInfoDialogSeen();
+                    Prefs.setShowZeroInfoDialogEnable(false);
                 }
                 navDrawerHelper.setupDynamicNavDrawerItems();
             }
@@ -807,14 +806,6 @@ public class PageActivity extends ThemedActionBarActivity {
                 dialog.dismiss();
             }
         };
-    }
-
-    private boolean hasSeenZeroInfoDialog() {
-        return PreferenceManager.getDefaultSharedPreferences(app).getBoolean(ZERO_ON_NOTICE_PRESENTED, false);
-    }
-
-    private void setZeroInfoDialogSeen() {
-        PreferenceManager.getDefaultSharedPreferences(app).edit().putBoolean(ZERO_ON_NOTICE_PRESENTED, true).apply();
     }
 
     private boolean leftZeroRatedNetwork(boolean newZeroEnabledState) {
