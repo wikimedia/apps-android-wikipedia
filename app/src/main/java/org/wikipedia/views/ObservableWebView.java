@@ -74,6 +74,15 @@ public class ObservableWebView extends WebView {
         this.onFastScrollListener = onFastScrollListener;
     }
 
+    public void clearAllListeners() {
+        onClickListeners.clear();
+        onScrollChangeListeners.clear();
+        onDownMotionEventListeners.clear();
+        onUpOrCancelMotionEventListeners.clear();
+        onContentHeightChangedListeners.clear();
+        onFastScrollListener = null;
+    }
+
     public interface OnClickListener {
         boolean onClick(float x, float y);
     }

@@ -8,6 +8,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
 
@@ -24,7 +25,7 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
     private final float displayDensity;
 
     @NonNull private final Context context;
-    private ObservableWebView webview;
+    @Nullable private ObservableWebView webview;
     private boolean fadeEnabled;
     private boolean forceNoFade;
     @NonNull private final Drawable toolbarBackground;
@@ -50,11 +51,13 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
      * Update the WebView based on whose scroll position the search bar will hide itself.
      * @param webView The WebView against which scrolling will be tracked.
      */
-    public void setScrollView(ObservableWebView webView) {
+    public void setScrollView(@Nullable ObservableWebView webView) {
         webview = webView;
-        webview.addOnScrollChangeListener(this);
-        webview.addOnDownMotionEventListener(this);
-        webview.addOnUpOrCancelMotionEventListener(this);
+        if (webview != null) {
+            webview.addOnScrollChangeListener(this);
+            webview.addOnDownMotionEventListener(this);
+            webview.addOnUpOrCancelMotionEventListener(this);
+        }
     }
 
     /**
@@ -91,6 +94,9 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
 
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
+        if (webview == null) {
+            return;
+        }
         int opacity = calculateScrollOpacity(scrollY);
         toolbarBackground.setAlpha(opacity);
         toolbarShadow.setAlpha(opacity);
