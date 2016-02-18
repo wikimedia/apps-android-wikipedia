@@ -29,9 +29,6 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     private RecentSearchesAdapter adapter;
     private ImageView deleteButton;
 
-    public RecentSearchesFragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_recent, container, false);

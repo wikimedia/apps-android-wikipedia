@@ -288,7 +288,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
-                    cursor.getString(cursor.getColumnIndex(PageImage.DATABASE_TABLE.getImageColumnName())));
+                    cursor.getString(cursor.getColumnIndexOrThrow(PageImage.DATABASE_TABLE.getImageColumnName())));
         }
     }
 

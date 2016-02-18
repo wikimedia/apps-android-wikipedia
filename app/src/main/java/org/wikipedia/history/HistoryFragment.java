@@ -265,7 +265,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
-                    cursor.getString(cursor.getColumnIndex(PageImage.DATABASE_TABLE.getImageColumnName())));
+                    cursor.getString(cursor.getColumnIndexOrThrow(PageImage.DATABASE_TABLE.getImageColumnName())));
 
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
