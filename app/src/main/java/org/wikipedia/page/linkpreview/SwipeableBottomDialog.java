@@ -144,6 +144,13 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        listView.setAdapter(null);
+        listView.setOnScrollListener(null);
+        super.onDestroyView();
+    }
+
     public void setContentPeekHeight(int height) {
         contentPeekHeight = height;
 
@@ -173,7 +180,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     }
 
     private View makeDummyView(int width, int height) {
-        View view = new View(getActivity());
+        View view = new View(getContext());
         view.setLayoutParams(new ListView.LayoutParams(width, height));
         view.setClickable(true);
         view.setOnTouchListener(new View.OnTouchListener() {

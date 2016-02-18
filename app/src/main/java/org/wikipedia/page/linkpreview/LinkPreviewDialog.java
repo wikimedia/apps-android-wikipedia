@@ -54,6 +54,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     private TextView extractText;
     private SimpleDraweeView thumbnailView;
     private GalleryThumbnailScrollView thumbnailGallery;
+    private View toolbarView;
+    private View overflowButton;
 
     private PageTitle pageTitle;
     private int entrySource;
@@ -117,7 +119,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
         progressBar = (ProgressBar) rootView.findViewById(R.id.link_preview_progress);
-        rootView.findViewById(R.id.link_preview_toolbar).setOnClickListener(goToPageListener);
+        toolbarView = rootView.findViewById(R.id.link_preview_toolbar);
+        toolbarView.setOnClickListener(goToPageListener);
 
         View overlayRootView = addOverlay(inflater, R.layout.dialog_link_preview_overlay);
         Button goButton = (Button) overlayRootView.findViewById(R.id.link_preview_go_button);
@@ -154,7 +157,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             thumbnailGallery.setGalleryViewListener(galleryViewListener);
         }
 
-        final View overflowButton = rootView.findViewById(R.id.link_preview_overflow_button);
+        overflowButton = rootView.findViewById(R.id.link_preview_overflow_button);
         overflowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,6 +199,14 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     public void onStart() {
         super.onStart();
         overflowMenuHandler = new LongPressHandler(getPageActivity());
+    }
+
+    @Override
+    public void onDestroyView() {
+        thumbnailGallery.setGalleryViewListener(null);
+        toolbarView.setOnClickListener(null);
+        overflowButton.setOnClickListener(null);
+        super.onDestroyView();
     }
 
     @Override
