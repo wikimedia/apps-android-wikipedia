@@ -61,6 +61,9 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     private WikipediaApp app;
 
     private ActionMode actionMode;
+    private SavedPageSearchTextWatcher textWatcher = new SavedPageSearchTextWatcher();
+    private SavedPageItemClickListener itemClickListener = new SavedPageItemClickListener();
+    private SavedPageItemLongClickListener itemLongClickListener = new SavedPageItemLongClickListener();
 
     private boolean firstRun = true;
 
@@ -69,6 +72,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         app = WikipediaApp.getInstance();
+        adapter = new SavedPagesAdapter(getActivity(), null, true);
     }
 
     @Override
@@ -82,6 +86,12 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
         savedPagesEmptyMessage = (TextView) rootView.findViewById(R.id.saved_pages_empty_message);
         entryFilter = (EditText) rootView.findViewById(R.id.saved_pages_search_list);
         savedPagesEmptyImage = (ImageView) rootView.findViewById(R.id.saved_pages_empty_image);
+        app.adjustDrawableToTheme(savedPagesEmptyImage.getDrawable());
+
+        entryFilter.addTextChangedListener(textWatcher);
+        savedPagesList.setAdapter(adapter);
+        savedPagesList.setOnItemClickListener(itemClickListener);
+        savedPagesList.setOnItemLongClickListener(itemLongClickListener);
         return rootView;
     }
 
@@ -89,125 +99,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        adapter = new SavedPagesAdapter(getActivity(), null, true);
-        savedPagesList.setAdapter(adapter);
         savedPagesList.setEmptyView(savedPagesEmptyContainer);
-
-        savedPagesList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (actionMode != null) {
-                    return false;
-                }
-                savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-                actionMode = ((AppCompatActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
-                    private final String actionModeTag = "actionModeSavedPages";
-                    @Override
-                    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                        mode.getMenuInflater().inflate(R.menu.menu_saved_pages_context, menu);
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                        mode.setTag(actionModeTag);
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.menu_refresh_selected_saved_pages:
-                                refreshSelected();
-                                actionMode.finish();
-                                return true;
-                            case R.id.menu_delete_selected_saved_pages:
-                                deleteSelected();
-                                actionMode.finish();
-                                return true;
-                            default:
-                                throw new RuntimeException("Unknown context menu item clicked");
-                        }
-                    }
-
-                    private void deleteSelected() {
-                        SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
-                        for (int i = 0; i < checkedItems.size(); i++) {
-                            if (checkedItems.valueAt(i)) {
-                                final SavedPage page = SavedPage.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
-                                new DeleteSavedPageTask(getActivity(), page) {
-                                    @Override
-                                    public void onFinish(Boolean result) {
-                                        if (!isAdded()) {
-                                            return;
-                                        }
-                                        FeedbackUtil.showMessage(getActivity(),
-                                                R.string.snackbar_saved_page_deleted);
-                                    }
-                                }.execute();
-                            }
-                        }
-                        if (checkedItems.size() == savedPagesList.getAdapter().getCount()) {
-                            entryFilter.setVisibility(View.GONE);
-                        }
-                    }
-
-                    @Override
-                    public void onDestroyActionMode(ActionMode mode) {
-                        savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
-                        actionMode = null;
-                        // Clear all selections
-                        savedPagesList.clearChoices();
-                        savedPagesList.requestLayout(); // Required to immediately redraw unchecked states
-
-                    }
-                });
-                savedPagesList.setItemChecked(position, true);
-                return true;
-            }
-        });
-
-        entryFilter.addTextChangedListener(
-                new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                        // Do nothing
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                        // Do nothing
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-                        getActivity().getSupportLoaderManager().restartLoader(SAVED_PAGES_FRAGMENT_LOADER_ID, null, SavedPagesFragment.this);
-                        if (editable.length() == 0) {
-                            savedPagesEmptyTitle.setText(R.string.saved_pages_empty_title);
-                            savedPagesEmptyImage.setVisibility(View.VISIBLE);
-                            savedPagesEmptyMessage.setVisibility(View.VISIBLE);
-                        } else {
-                            savedPagesEmptyTitle.setText(getString(R.string.saved_pages_search_empty_message));
-                            savedPagesEmptyImage.setVisibility(View.GONE);
-                            savedPagesEmptyMessage.setVisibility(View.GONE);
-                        }
-                    }
-                });
-
-        savedPagesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // We shouldn't do anything if the user is multi-selecting things
-                if (actionMode == null) {
-                    SavedPage savedPage = (SavedPage) view.getTag();
-                    HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
-                    ((PageActivity)getActivity()).loadPage(savedPage.getTitle(), newEntry);
-                }
-            }
-        });
-
-        app.adjustDrawableToTheme(savedPagesEmptyImage.getDrawable());
-
         getActivity().getSupportLoaderManager().initLoader(SAVED_PAGES_FRAGMENT_LOADER_ID, null, this);
         getActivity().getSupportLoaderManager().restartLoader(SAVED_PAGES_FRAGMENT_LOADER_ID, null, this);
     }
@@ -215,6 +107,10 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
     @Override
     public void onDestroyView() {
         getActivity().getSupportLoaderManager().destroyLoader(SAVED_PAGES_FRAGMENT_LOADER_ID);
+        entryFilter.removeTextChangedListener(textWatcher);
+        savedPagesList.setAdapter(null);
+        savedPagesList.setOnItemClickListener(null);
+        savedPagesList.setOnItemLongClickListener(null);
         super.onDestroyView();
     }
 
@@ -392,5 +288,118 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             refreshHandler.onStop();
         }
         super.onStop();
+    }
+
+    private class SavedPageItemClickListener implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            // We shouldn't do anything if the user is multi-selecting things
+            if (actionMode == null) {
+                SavedPage savedPage = (SavedPage) view.getTag();
+                HistoryEntry newEntry = new HistoryEntry(savedPage.getTitle(), HistoryEntry.SOURCE_SAVED_PAGE);
+                ((PageActivity)getActivity()).loadPage(savedPage.getTitle(), newEntry);
+            }
+        }
+    }
+
+    private class SavedPageItemLongClickListener implements AdapterView.OnItemLongClickListener {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            if (actionMode != null) {
+                return false;
+            }
+            savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+            actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(new ActionMode.Callback() {
+                private final String actionModeTag = "actionModeSavedPages";
+
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                    mode.getMenuInflater().inflate(R.menu.menu_saved_pages_context, menu);
+                    return true;
+                }
+
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    mode.setTag(actionModeTag);
+                    return false;
+                }
+
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.id.menu_refresh_selected_saved_pages:
+                            refreshSelected();
+                            actionMode.finish();
+                            return true;
+                        case R.id.menu_delete_selected_saved_pages:
+                            deleteSelected();
+                            actionMode.finish();
+                            return true;
+                        default:
+                            throw new RuntimeException("Unknown context menu item clicked");
+                    }
+                }
+
+                private void deleteSelected() {
+                    SparseBooleanArray checkedItems = savedPagesList.getCheckedItemPositions();
+                    for (int i = 0; i < checkedItems.size(); i++) {
+                        if (checkedItems.valueAt(i)) {
+                            final SavedPage page = SavedPage.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i)));
+                            new DeleteSavedPageTask(getActivity(), page) {
+                                @Override
+                                public void onFinish(Boolean result) {
+                                    if (!isAdded()) {
+                                        return;
+                                    }
+                                    FeedbackUtil.showMessage(getActivity(),
+                                            R.string.snackbar_saved_page_deleted);
+                                }
+                            }.execute();
+                        }
+                    }
+                    if (checkedItems.size() == savedPagesList.getAdapter().getCount()) {
+                        entryFilter.setVisibility(View.GONE);
+                    }
+                }
+
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+                    savedPagesList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+                    actionMode = null;
+                    // Clear all selections
+                    savedPagesList.clearChoices();
+                    savedPagesList.requestLayout(); // Required to immediately redraw unchecked states
+
+                }
+            });
+            savedPagesList.setItemChecked(position, true);
+            return true;
+        }
+    }
+
+    private class SavedPageSearchTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            // Do nothing
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            // Do nothing
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            getActivity().getSupportLoaderManager().restartLoader(SAVED_PAGES_FRAGMENT_LOADER_ID, null, SavedPagesFragment.this);
+            if (editable.length() == 0) {
+                savedPagesEmptyTitle.setText(R.string.saved_pages_empty_title);
+                savedPagesEmptyImage.setVisibility(View.VISIBLE);
+                savedPagesEmptyMessage.setVisibility(View.VISIBLE);
+            } else {
+                savedPagesEmptyTitle.setText(getString(R.string.saved_pages_search_empty_message, editable.toString()));
+                savedPagesEmptyImage.setVisibility(View.GONE);
+                savedPagesEmptyMessage.setVisibility(View.GONE);
+            }
+        }
     }
 }

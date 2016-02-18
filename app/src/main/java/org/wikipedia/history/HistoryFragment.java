@@ -55,6 +55,9 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     private WikipediaApp app;
 
     private ActionMode actionMode;
+    private HistorySearchTextWatcher textWatcher = new HistorySearchTextWatcher();
+    private HistoryItemClickListener itemClickListener = new HistoryItemClickListener();
+    private HistoryItemLongClickListener itemLongClickListener = new HistoryItemLongClickListener();
 
     private boolean firstRun = true;
 
@@ -63,20 +66,24 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         app = WikipediaApp.getInstance();
+        adapter = new HistoryEntryAdapter(getContext(), null, true);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
         rootView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
-
         historyEntryList = (ListView) rootView.findViewById(R.id.history_entry_list);
         historyEmptyContainer = rootView.findViewById(R.id.history_empty_container);
         historyEmptyTitle = (TextView) rootView.findViewById(R.id.history_empty_title);
         historyEmptyMessage = (TextView) rootView.findViewById(R.id.history_empty_message);
         entryFilter = (EditText) rootView.findViewById(R.id.history_search_list);
-
         app.adjustDrawableToTheme(((ImageView) rootView.findViewById(R.id.history_empty_image)).getDrawable());
+
+        entryFilter.addTextChangedListener(textWatcher);
+        historyEntryList.setAdapter(adapter);
+        historyEntryList.setOnItemClickListener(itemClickListener);
+        historyEntryList.setOnItemLongClickListener(itemLongClickListener);
         return rootView;
     }
 
@@ -84,102 +91,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        adapter = new HistoryEntryAdapter(getActivity(), null, true);
-        historyEntryList.setAdapter(adapter);
         historyEntryList.setEmptyView(historyEmptyContainer);
-
-        entryFilter.addTextChangedListener(
-                new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                        // Do nothing
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                        // Do nothing
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-                        getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, HistoryFragment.this);
-                        if (editable.length() == 0) {
-                            historyEmptyTitle.setText(R.string.history_empty_title);
-                            historyEmptyMessage.setVisibility(View.VISIBLE);
-                        } else {
-                            historyEmptyTitle.setText(getString(R.string.history_search_empty_message));
-                            historyEmptyMessage.setVisibility(View.GONE);
-                        }
-                    }
-                });
-
-        historyEntryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (actionMode == null) {
-                    HistoryEntry oldEntry = (HistoryEntry) view.getTag();
-                    HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
-                    ((PageActivity) getActivity()).loadPage(oldEntry.getTitle(), newEntry);
-                }
-            }
-        });
-
-        historyEntryList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                if (actionMode != null) {
-                    return false;
-                }
-                historyEntryList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-                actionMode = ((AppCompatActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
-                    private final String actionModeTag = "actionModeHistory";
-                    @Override
-                    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                        mode.getMenuInflater().inflate(R.menu.menu_history_context, menu);
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                        mode.setTag(actionModeTag);
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                        if (item.getItemId() == R.id.menu_delete_selected_history) {
-                            SparseBooleanArray checkedItems = historyEntryList.getCheckedItemPositions();
-                            for (int i = 0; i < checkedItems.size(); i++) {
-                                if (checkedItems.valueAt(i)) {
-                                    app.getDatabaseClient(HistoryEntry.class).delete(
-                                            HistoryEntry.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i))),
-                                                    HistoryEntryDatabaseTable.SELECTION_KEYS);
-                                }
-                            }
-                            if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {
-                                entryFilter.setVisibility(View.GONE);
-                            }
-                            mode.finish();
-                            return true;
-                        } else {
-                            throw new RuntimeException("Unknown context menu item clicked");
-                        }
-                    }
-
-                    @Override
-                    public void onDestroyActionMode(ActionMode mode) {
-                        historyEntryList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
-                        actionMode = null;
-                        // Clear all selections
-                        historyEntryList.clearChoices();
-                        historyEntryList.requestLayout(); // Required to immediately redraw unchecked states
-                    }
-                });
-                historyEntryList.setItemChecked(position, true);
-                return true;
-            }
-        });
-
         getActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, this);
         getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, this);
     }
@@ -187,6 +99,10 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onDestroyView() {
         getActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
+        entryFilter.removeTextChangedListener(textWatcher);
+        historyEntryList.setOnItemClickListener(null);
+        historyEntryList.setOnItemLongClickListener(null);
+        historyEntryList.setAdapter(null);
         super.onDestroyView();
     }
 
@@ -329,6 +245,97 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private class HistoryItemClickListener implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            if (actionMode == null) {
+                HistoryEntry oldEntry = (HistoryEntry) view.getTag();
+                HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
+                ((PageActivity) getActivity()).loadPage(oldEntry.getTitle(), newEntry);
+            }
+        }
+    }
+
+    private class HistoryItemLongClickListener implements AdapterView.OnItemLongClickListener {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            if (actionMode != null) {
+                return false;
+            }
+            historyEntryList.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
+            actionMode = ((AppCompatActivity)getActivity()).startSupportActionMode(new ActionMode.Callback() {
+                private final String actionModeTag = "actionModeHistory";
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                    mode.getMenuInflater().inflate(R.menu.menu_history_context, menu);
+                    return true;
+                }
+
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    mode.setTag(actionModeTag);
+                    return false;
+                }
+
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    if (item.getItemId() == R.id.menu_delete_selected_history) {
+                        SparseBooleanArray checkedItems = historyEntryList.getCheckedItemPositions();
+                        for (int i = 0; i < checkedItems.size(); i++) {
+                            if (checkedItems.valueAt(i)) {
+                                app.getDatabaseClient(HistoryEntry.class).delete(
+                                        HistoryEntry.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i))),
+                                        HistoryEntryDatabaseTable.SELECTION_KEYS);
+                            }
+                        }
+                        if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {
+                            entryFilter.setVisibility(View.GONE);
+                        }
+                        mode.finish();
+                        return true;
+                    } else {
+                        throw new RuntimeException("Unknown context menu item clicked");
+                    }
+                }
+
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+                    historyEntryList.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+                    actionMode = null;
+                    // Clear all selections
+                    historyEntryList.clearChoices();
+                    historyEntryList.requestLayout(); // Required to immediately redraw unchecked states
+                }
+            });
+            historyEntryList.setItemChecked(position, true);
+            return true;
+        }
+    }
+
+    private class HistorySearchTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            // Do nothing
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            // Do nothing
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, HistoryFragment.this);
+            if (editable.length() == 0) {
+                historyEmptyTitle.setText(R.string.history_empty_title);
+                historyEmptyMessage.setVisibility(View.VISIBLE);
+            } else {
+                historyEmptyTitle.setText(getString(R.string.history_search_empty_message, editable.toString()));
+                historyEmptyMessage.setVisibility(View.GONE);
+            }
         }
     }
 }
