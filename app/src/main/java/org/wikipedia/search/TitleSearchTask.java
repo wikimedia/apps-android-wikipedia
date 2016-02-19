@@ -33,7 +33,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
 
     @Override
     public RequestBuilder buildRequest(Api api) {
-        return api.action("query")
+        final RequestBuilder req = api.action("query")
                 .param("generator", "prefixsearch")
                 .param("redirects", "true")
                 .param("gpssearch", prefix)
@@ -55,6 +55,10 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
                 .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
                 .param("pilimit", NUM_RESULTS_PER_QUERY)
                 .param("continue", ""); // to avoid warning about new continuation syntax
+        if (WikipediaApp.getInstance().isFeatureSearchAutoCompleteEnabled()) {
+            req.param("cirrusUseCompletionSuggester", "yes");
+        }
+        return req;
     }
 
     @Override
