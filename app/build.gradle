@@ -93,30 +93,34 @@ android {
 
     productFlavors {
         dev {
-            versionName computeVersionName("dev")
+            versionName computeVersionName('dev')
             applicationId 'org.wikipedia.dev'
             signingConfig signingConfigs.debug
         }
         prod {
-            versionName computeVersionName("r")
+            versionName computeVersionName('r')
             signingConfig signingConfigs.prod
         }
         releasesprod {
-            versionName computeVersionName("releasesprod")
+            versionName computeVersionName('releasesprod')
             signingConfig signingConfigs.prod
         }
         alpha {
-            versionName computeVersionName("alpha")
+            versionName computeVersionName('alpha')
             applicationId 'org.wikipedia.alpha'
             signingConfig signingConfigs.debug
         }
         beta {
-            versionName computeVersionName("beta")
+            versionName computeVersionName('beta')
             applicationId 'org.wikipedia.beta'
             signingConfig signingConfigs.prod
         }
         amazon {
-            versionName computeVersionName("amazon")
+            versionName computeVersionName('amazon')
+            signingConfig signingConfigs.prod
+        }
+        fdroid {
+            versionName computeVersionName('fdroid')
             signingConfig signingConfigs.prod
         }
         custom {
