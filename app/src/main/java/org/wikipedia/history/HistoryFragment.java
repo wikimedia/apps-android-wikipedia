@@ -41,12 +41,10 @@ import org.wikipedia.views.ViewUtil;
 import java.text.DateFormat;
 import java.util.Date;
 
+import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class HistoryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
-    // make sure this number is unique among other fragments that use a loader
-    private static final int LOADER_ID = 100;
-
     private ListView historyEntryList;
     private View historyEmptyContainer;
     private TextView historyEmptyTitle;
@@ -104,12 +102,12 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
                     @Override
                     public void afterTextChanged(Editable editable) {
-                        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, HistoryFragment.this);
+                        getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, HistoryFragment.this);
                         if (editable.length() == 0) {
                             historyEmptyTitle.setText(R.string.history_empty_title);
                             historyEmptyMessage.setVisibility(View.VISIBLE);
                         } else {
-                            historyEmptyTitle.setText(getString(R.string.history_search_empty_message, editable.toString()));
+                            historyEmptyTitle.setText(getString(R.string.history_search_empty_message));
                             historyEmptyMessage.setVisibility(View.GONE);
                         }
                     }
@@ -182,13 +180,13 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             }
         });
 
-        getActivity().getSupportLoaderManager().initLoader(LOADER_ID, null, this);
-        getActivity().getSupportLoaderManager().restartLoader(LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, this);
+        getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, this);
     }
 
     @Override
     public void onDestroyView() {
-        getActivity().getSupportLoaderManager().destroyLoader(LOADER_ID);
+        getActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         super.onDestroyView();
     }
 
