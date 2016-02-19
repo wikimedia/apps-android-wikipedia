@@ -318,6 +318,14 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_zero_interstitial, true);
     }
 
+    public static boolean isShowZeroInfoDialogEnabled() {
+        return !getBoolean(R.string.preference_key_zero_show_notice, false);
+    }
+
+    public static void setShowZeroInfoDialogEnable(boolean enabled) {
+        setBoolean(R.string.preference_key_zero_show_notice, !enabled);
+    }
+
     public static boolean isSelectTextTutorialEnabled() {
         return getBoolean(R.string.preference_key_select_text_tutorial_enabled, true);
     }

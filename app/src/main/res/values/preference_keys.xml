@@ -6,6 +6,7 @@
     <string name="preference_key_edittoken_wikis">edittoken_wikis</string>
     <string name="preference_key_edittoken_for_wiki_format">edittoken_for_wiki_%1$s</string>
     <string name="preference_key_zero_interstitial">zero_warn_when_leaving</string>
+    <string name="preference_key_zero_show_notice">org.wikipedia.zero.zeroOnNoticePresented</string>
     <string name="preference_key_remote_config">remote_config</string>
     <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
     <string name="preference_key_reading_app_install_id">readingAppInstallID</string>
