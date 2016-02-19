@@ -170,6 +170,7 @@
 
             <!-- Testing -->
             <property name="ignoreAnnotationCanonicalNames" value="Rule" />
+            <property name="ignoreAnnotationCanonicalNames" value="VisibleForTesting" />
         </module>
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->

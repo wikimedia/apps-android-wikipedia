@@ -1,0 +1,8 @@
+{
+  "servedby": "mw1205",
+  "error": {
+    "code": "lstnotloggedin",
+    "info": "You must be logged-in or use owner and/or ids parameters",
+    "*": "See https://en.wikipedia.org/w/api.php for API usage"
+  }
+}

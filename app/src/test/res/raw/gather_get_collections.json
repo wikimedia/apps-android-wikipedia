@@ -1,0 +1,31 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "lists": [
+      {
+        "id": 0,
+        "watchlist": true,
+        "label": "Watchlist",
+        "owner": "someUser",
+        "perm": "private",
+        "description": "",
+        "image": false,
+        "updated": "2016-02-19T00:05:07Z",
+        "count": 1
+      },
+      {
+        "id": 11,
+        "label": "firstlist",
+        "owner": "someUser",
+        "perm": "public",
+        "description": "a simple test list",
+        "image": "sample_picture",
+        "imageurl": "//upload.wikimedia.org/wikipedia/commons/7/79/sample_picture.jpg",
+        "imagewidth": 1402,
+        "imageheight": 830,
+        "updated": "2016-01-06T20:19:58Z",
+        "count": 4
+      }
+    ]
+  }
+}
