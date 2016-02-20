@@ -82,15 +82,19 @@ public class DatabaseClient<T> {
         }
     }
 
-    private ContentValues toContentValues(T obj) {
+    public T fromCursor(Cursor cursor) {
+        return databaseTable.fromCursor(cursor);
+    }
+
+    public ContentValues toContentValues(T obj) {
         return databaseTable.toContentValues(obj);
     }
 
-    private String getPrimaryKeySelection(@NonNull T obj, @NonNull String[] selectionArgs) {
+    public String getPrimaryKeySelection(@NonNull T obj, @NonNull String[] selectionArgs) {
         return databaseTable.getPrimaryKeySelection(obj, selectionArgs);
     }
 
-    private String[] getPrimaryKeySelectionArgs(@NonNull T obj) {
+    public String[] getPrimaryKeySelectionArgs(@NonNull T obj) {
         return databaseTable.getPrimaryKeySelectionArgs(obj);
     }
 

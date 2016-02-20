@@ -31,7 +31,7 @@ public abstract class SQLiteContentProvider extends ContentProvider {
         return uriMatcher;
     }
 
-    private static final int MATCH_ALL = 1;
+    protected static final int MATCH_ALL = 1;
 
     @Override
     public boolean onCreate() {

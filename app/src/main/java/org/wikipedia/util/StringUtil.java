@@ -9,6 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -168,6 +169,15 @@ public final class StringUtil {
 
     public static String removeSectionAnchor(String text) {
         return text.substring(0, text.indexOf("#"));
+    }
+
+    @NonNull public static Collection<? extends CharSequence> prefix(@Nullable String prefix,
+                                                                     @NonNull Collection<? extends CharSequence> strs) {
+        List<CharSequence> ret = new ArrayList<>(strs.size());
+        for (CharSequence str : strs) {
+            ret.add(prefix + str);
+        }
+        return ret;
     }
 
     private StringUtil() { }

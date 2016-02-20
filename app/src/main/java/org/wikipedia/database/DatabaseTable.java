@@ -21,7 +21,7 @@ public abstract class DatabaseTable<T> {
     protected static final int INITIAL_DB_VERSION = 1;
     private static final int MIN_VERSION_NORMALIZED_TITLES = 8;
 
-    public static class Column {
+    public static class Column<T> {
         private final String name;
         private final String type;
 
@@ -33,6 +33,11 @@ public abstract class DatabaseTable<T> {
             return type;
         }
 
+        public T val(@NonNull Cursor cursor) {
+            // TODO: update all subclasses and make this method abstract.
+            throw new UnsupportedOperationException();
+        }
+
         public Column(String name, String type) {
             this.name = name;
             this.type = type;
@@ -41,6 +46,22 @@ public abstract class DatabaseTable<T> {
         @Override
         public String toString() {
             return getName() + " " + getType();
+        }
+
+        protected String getString(@NonNull Cursor cursor) {
+            return cursor.getString(getIndex(cursor));
+        }
+
+        protected long getLong(@NonNull Cursor cursor) {
+            return cursor.getLong(getIndex(cursor));
+        }
+
+        protected int getInt(@NonNull Cursor cursor) {
+            return cursor.getInt(getIndex(cursor));
+        }
+
+        private int getIndex(@NonNull Cursor cursor) {
+            return cursor.getColumnIndexOrThrow(getName());
         }
     }
 
@@ -142,6 +163,7 @@ public abstract class DatabaseTable<T> {
         return baseContentURI;
     }
 
+    // TODO: convert these helper methods in subclasses to use the Column variety.
     protected String getString(@NonNull Cursor cursor, @NonNull String col) {
         return cursor.getString(getCol(cursor, col));
     }

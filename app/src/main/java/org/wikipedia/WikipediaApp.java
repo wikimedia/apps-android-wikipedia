@@ -23,8 +23,8 @@ import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
-import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.Database;
+import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
@@ -42,6 +42,7 @@ import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -337,6 +338,8 @@ public class WikipediaApp extends Application {
                 client = new DatabaseClient<>(this, SavedPage.DATABASE_TABLE);
             } else if (cls.equals(EditSummary.class)) {
                 client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
+            } else if (cls.equals(UserOptionRow.class)) {
+                client = new DatabaseClient<>(this, UserOptionRow.DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }

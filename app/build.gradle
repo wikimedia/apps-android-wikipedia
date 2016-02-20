@@ -2,6 +2,7 @@ apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
 apply from: '../config/quality.gradle'
 
+import com.android.build.gradle.internal.dsl.ProductFlavor;
 import com.android.ddmlib.DdmPreferences
 
 import java.util.concurrent.TimeUnit
@@ -125,12 +126,12 @@ android {
         }
         custom {
             versionName computeVersionName(customChannel)
-            applicationId getProperty('customApplicationId')
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
         }
     }
+
     // while we still have lint errors; remove once those are fixed
     lintOptions {
         disable 'MissingTranslation'
@@ -235,4 +236,16 @@ private setSigningConfigKey(config, Properties props) {
         System.err.println "\"${file}\" not found"
     }
     return props
+}
+
+addSQLiteProviderStrings 'useroption', 'user_option'
+// TODO: generate other providers as above.
+
+private void addSQLiteProviderStrings(String table, String namePrefix) {
+    android.productFlavors.all { ProductFlavor flavor ->
+        String authority = (flavor.applicationId ?: android.defaultConfig.applicationId) + '.' + table
+        resValue 'string', "${namePrefix.toLowerCase()}_authority", authority
+        buildConfigField 'String', "${namePrefix.toUpperCase()}_TABLE", "\"$table\""
+        buildConfigField 'String', "${namePrefix.toUpperCase()}_AUTHORITY", "\"$authority\""
+    }
 }
