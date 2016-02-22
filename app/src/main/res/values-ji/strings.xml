@@ -32,6 +32,7 @@
   <string name="menu_page_show_tabs">ווײַזן טאבן</string>
   <string name="menu_page_other_languages">ענדערן שפראך</string>
   <string name="menu_page_find_in_page">טרעפן אין בלאט</string>
+  <string name="menu_page_content_issues">אינהאלט פֿראגעס</string>
   <string name="menu_page_font_and_theme">פאנט און טעמע</string>
   <string name="menu_page_save">אױפֿהיטן בלאַט</string>
   <string name="menu_page_share">טיילן לינק</string>
@@ -139,9 +140,9 @@
   <string name="about_description">וועגן דעם וויקימעדיע־אפ</string>
   <string name="privacy_policy_description">פּריוואַטקייט פּאליסי</string>
   <string name="terms_of_use_description">ניצבאדינגונגען</string>
-  <string name="about_libraries_heading">געניצטע ביבליאטעקן</string>
-  <string name="about_contributors_heading">בײַשטײַערער</string>
-  <string name="about_translators_heading">איבערזעצער</string>
+  <string name="about_libraries_heading" fuzzy="true">געניצטע ביבליאטעקן</string>
+  <string name="about_contributors_heading" fuzzy="true">בײַשטײַערער</string>
+  <string name="about_translators_heading" fuzzy="true">איבערזעצער</string>
   <string name="about_translators_translatewiki">דער אפ איז געווארן איבערגעזעצט דורך די וואלונטיר איבערזעצער בײַ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">א פרא דוקו פון דער &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;וויקימעדיע פונדאציע&lt;/a&gt;</string>
   <string name="about_activity_title">וועגן</string>
@@ -183,7 +184,7 @@
   <string name="menu_gallery_visit_page">גיין צו טעקע־בלאט</string>
   <string name="gallery_error_draw_failed">מען קען נישט צייכענען דאס בילד</string>
   <string name="gallery_menu_share">טיילן</string>
-  <string name="gallery_save_success" fuzzy="true">בילד דערפאלגרייך געשפייכלערט.</string>
+  <string name="gallery_save_success">טעקע דערפאלגרייך געשפייכלערט.</string>
   <string name="gallery_error_video_failed">קען נישט שפילן ווידעא.</string>
   <string name="err_cannot_save_file">קען נישט אויפהיטן טעקע</string>
   <string name="snippet_share_intro">\"%1$s\" ביי @Wikipedia: %2$s</string>
@@ -194,10 +195,12 @@
   <string name="cc_logo">קריעטיוו־קאמאנס ליצענץ</string>
   <string name="gallery_fair_use_license">געהעריגער באניץ</string>
   <string name="gallery_uploader_unknown">ארויפלאדיר אומבאקאנט</string>
+  <string name="menu_new_tab">נייער טאב</string>
   <string name="page_view_in_browser">באקוקן בלאט אין בלעטערער</string>
   <string name="format_error_server_message">מעלדונג: \"%s\"</string>
   <string name="format_error_server_code">קאד: \"%s\"</string>
   <string name="button_continue_to_article">לייענען דעם ארטיקל</string>
+  <string name="button_get_directions">באקומען ריכטונגען</string>
   <string name="nav_item_donate">שטיצן וויקיפעדיע</string>
   <string name="crash_report_dialog_dont_send_button">איבערהיפן</string>
   <string name="crash_report_dialog_always_send_button">אלעמאל שיקן</string>

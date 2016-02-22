@@ -123,9 +123,9 @@ Oldindan yoqimli ...</string>
   <string name="about_description">«Vikipediya» dasturi haqida</string>
   <string name="privacy_policy_description">Maxfiylik siyosati</string>
   <string name="terms_of_use_description">Foydalanish shartlari</string>
-  <string name="about_libraries_heading">ishlatilgan kutubxonalar</string>
-  <string name="about_contributors_heading">mualliflar</string>
-  <string name="about_translators_heading">tarjimonlar</string>
+  <string name="about_libraries_heading" fuzzy="true">ishlatilgan kutubxonalar</string>
+  <string name="about_contributors_heading" fuzzy="true">mualliflar</string>
+  <string name="about_translators_heading" fuzzy="true">tarjimonlar</string>
   <string name="about_translators_translatewiki">Dastur &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;da koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimediya Fondi&lt;/a&gt;ning maxsuloti</string>
   <string name="about_activity_title">Dastur haqida</string>

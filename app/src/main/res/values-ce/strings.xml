@@ -92,7 +92,7 @@
   <string name="terms_of_use_description">Лелоран хьал</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Къайлаха_политика</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Лелоран_хьал</string>
-  <string name="about_translators_heading">гочдархой</string>
+  <string name="about_translators_heading" fuzzy="true">гочдархой</string>
   <string name="about_translators_translatewiki">ХӀара тӀетохар гочйина &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чура шен лаамернигаш.</string>
   <string name="edit_next">Кхин дӀа</string>
   <string name="edit_done">Ӏалашдан</string>

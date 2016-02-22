@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">Condicions d’ús</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">biblioteques utilitzades</string>
-  <string name="about_contributors_heading">col·laboradors</string>
-  <string name="about_translators_heading">traductors</string>
+  <string name="about_libraries_heading" fuzzy="true">biblioteques utilitzades</string>
+  <string name="about_contributors_heading" fuzzy="true">col·laboradors</string>
+  <string name="about_translators_heading" fuzzy="true">traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Un producte de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>

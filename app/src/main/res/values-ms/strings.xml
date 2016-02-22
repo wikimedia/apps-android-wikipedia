@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">perpustakaan yang digunakan</string>
-  <string name="about_contributors_heading">penyumbang</string>
-  <string name="about_translators_heading">penterjemah</string>
+  <string name="about_libraries_heading" fuzzy="true">perpustakaan yang digunakan</string>
+  <string name="about_contributors_heading" fuzzy="true">penyumbang</string>
+  <string name="about_translators_heading" fuzzy="true">penterjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini diterjemah oleh para penterjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Keluaran &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Yayasan Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Perihal</string>

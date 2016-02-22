@@ -113,10 +113,10 @@
   <string name="about_description">A prepaus de l’aplicacion Wikipèdia</string>
   <string name="privacy_policy_description">Politica de confidencialitat</string>
   <string name="terms_of_use_description">Condicions d\'utilizacion</string>
-  <string name="about_libraries_heading">bibliotècas utilizadas</string>
-  <string name="about_contributors_heading">contributors</string>
-  <string name="about_translators_heading">traductors</string>
-  <string name="about_translators_translatewiki">Aquesta aplicacion es estada tradusida pels traductors volontaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_libraries_heading" fuzzy="true">bibliotècas utilizadas</string>
+  <string name="about_contributors_heading" fuzzy="true">contributors</string>
+  <string name="about_translators_heading" fuzzy="true">traductors</string>
+  <string name="about_translators_translatewiki">Aquesta aplicacion es estada traducha pels traductors volontaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Un produch de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondacion Wikimèdia&lt;/a&gt;</string>
   <string name="about_activity_title">A prepaus</string>
   <string name="user_blocked_from_editing_title">Blocat</string>

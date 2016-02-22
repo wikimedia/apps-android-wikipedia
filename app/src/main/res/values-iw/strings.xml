@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">ספריות בשימוש</string>
-  <string name="about_contributors_heading">תורמים</string>
-  <string name="about_translators_heading">מתרגמים</string>
+  <string name="about_libraries_heading" fuzzy="true">ספריות בשימוש</string>
+  <string name="about_contributors_heading" fuzzy="true">תורמים</string>
+  <string name="about_translators_heading" fuzzy="true">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>

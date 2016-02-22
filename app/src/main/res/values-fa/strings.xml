@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">شرایط استفاده</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">کتابخانه‌ها استفاده‌شده</string>
-  <string name="about_contributors_heading">مشارکت‌کنندگان</string>
-  <string name="about_translators_heading">مترجم‌ها</string>
+  <string name="about_libraries_heading" fuzzy="true">کتابخانه‌ها استفاده‌شده</string>
+  <string name="about_contributors_heading" fuzzy="true">مشارکت‌کنندگان</string>
+  <string name="about_translators_heading" fuzzy="true">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_wmf">محصول &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>

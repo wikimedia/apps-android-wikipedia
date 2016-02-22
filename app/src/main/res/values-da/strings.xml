@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">anvendte biblioteker</string>
-  <string name="about_contributors_heading">bidragsydere</string>
-  <string name="about_translators_heading">oversættere</string>
+  <string name="about_libraries_heading" fuzzy="true">anvendte biblioteker</string>
+  <string name="about_contributors_heading" fuzzy="true">bidragsydere</string>
+  <string name="about_translators_heading" fuzzy="true">oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>

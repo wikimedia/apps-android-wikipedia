@@ -151,9 +151,9 @@
   <string name="about_description">وڪي‌پيڊيا ايپ بابت</string>
   <string name="privacy_policy_description">ذاتيات پاليسي</string>
   <string name="terms_of_use_description">استعمال جا شرط شروط</string>
-  <string name="about_libraries_heading">مستعمل لائبريري</string>
-  <string name="about_contributors_heading">ڀاڱيدار</string>
-  <string name="about_translators_heading">ترجميڪار</string>
+  <string name="about_libraries_heading" fuzzy="true">مستعمل لائبريري</string>
+  <string name="about_contributors_heading" fuzzy="true">ڀاڱيدار</string>
+  <string name="about_translators_heading" fuzzy="true">ترجميڪار</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;وڪي‌ذريعات پيڙهڪا&lt;/a&gt; جي مصنوعات</string>
   <string name="about_activity_title">بابت</string>

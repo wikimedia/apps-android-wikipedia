@@ -107,9 +107,9 @@
   <string name="about_description">विकिपीडिया एप्पको बारेमा</string>
   <string name="privacy_policy_description">गोप्नियता नीति</string>
   <string name="terms_of_use_description">प्रयोगका शर्तहरू</string>
-  <string name="about_libraries_heading">प्रयोग भएको पुस्तकालयहरू</string>
-  <string name="about_contributors_heading">योगदानकर्ताहरू</string>
-  <string name="about_translators_heading">अनुवादकहरू</string>
+  <string name="about_libraries_heading" fuzzy="true">प्रयोग भएको पुस्तकालयहरू</string>
+  <string name="about_contributors_heading" fuzzy="true">योगदानकर्ताहरू</string>
+  <string name="about_translators_heading" fuzzy="true">अनुवादकहरू</string>
   <string name="about_activity_title">बारेमा</string>
   <string name="user_blocked_from_editing_title">प्रतिबन्धित</string>
   <string name="edit_how_page_improved">पृष्ठलाई कसरी सुधार गर्न सकिन्छ?</string>

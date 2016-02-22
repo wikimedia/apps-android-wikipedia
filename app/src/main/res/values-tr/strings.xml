@@ -9,6 +9,7 @@
   <string name="nav_item_history">Geçmiş</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
+  <string name="page_error_back_to_main">Geri git</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">Yeni sekmede aç</string>
   <string name="menu_long_press_copy_page">Bağlantı adresini kopyala</string>
   <string name="menu_text_select_copy">Kopyala</string>
+  <string name="menu_text_select_define">Tanımla</string>
   <string name="menu_text_select_share">Paylaş</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -157,9 +159,9 @@
   <string name="terms_of_use_description">Kullanım koşulları</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">kullanılan kütüphaneler</string>
-  <string name="about_contributors_heading">katkıda bulunanlar</string>
-  <string name="about_translators_heading">çevirmenler</string>
+  <string name="about_libraries_heading" fuzzy="true">kullanılan kütüphaneler</string>
+  <string name="about_contributors_heading" fuzzy="true">katkıda bulunanlar</string>
+  <string name="about_translators_heading" fuzzy="true">çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
@@ -204,6 +206,7 @@
   <string name="widget_name_featured_page">Vikipedi seçkin sayfalar</string>
   <string name="widget_title_featured_page">Haftanın seçkin maddesi:</string>
   <string name="widget_name_search">Vikipedi arama</string>
+  <string name="wiktionary_no_definitions_found">Herhangi bir tanım bulunamadı.</string>
   <string name="app_store_description">Android için resmi Wikipedia Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır.
 Özellikler:
 - Başlık resimleri: Maddelerin en üstündeki, konuyla alakalı, öne çıkan bir resim ve tanımla, Vikipedi\'yi daha önce hiç görmediğiniz şekilde tecrübe edin.
@@ -234,7 +237,8 @@ Kullanım koşulları: https://meta.wikimedia.org/wiki/Terms_of_use/tr</string>
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
   <string name="gallery_menu_save">Cihaza kaydet</string>
-  <string name="gallery_save_success" fuzzy="true">Resim başarıyla kaydedildi.</string>
+  <string name="gallery_save_progress">Dosya indiriliyor...</string>
+  <string name="gallery_save_success">Dosya başarıyla kaydedildi.</string>
   <string name="gallery_error_video_failed">Video oynatılamadı.</string>
   <string name="gallery_save_image_write_permission_rationale">Görselleri kaydetmek için, cihaz hafızasına kaydetme izni gerekmektedir. Lütfen tekrar deneyin ve istenen izni verin.</string>
   <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>

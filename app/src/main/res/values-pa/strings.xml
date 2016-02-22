@@ -148,9 +148,9 @@
   <string name="terms_of_use_description">ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਈਬਰੇਰੀਆਂ</string>
-  <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
-  <string name="about_translators_heading">ਤਰਜਮਾਕਾਰ</string>
+  <string name="about_libraries_heading" fuzzy="true">ਵਰਤੀਆਂ ਲਾਈਬਰੇਰੀਆਂ</string>
+  <string name="about_contributors_heading" fuzzy="true">ਯੋਗਦਾਨੀ</string>
+  <string name="about_translators_heading" fuzzy="true">ਤਰਜਮਾਕਾਰ</string>
   <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਵਿਖੇ ਸਵੈਇੱਛਕ ਤਰਜਮਾਕਾਰਾਂ ਨੇ ਕੀਤਾ ਸੀ।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ&lt;/a&gt; ਦੀ ਇੱਕ ਉਪਜ</string>
   <string name="about_activity_title">ਬਾਬਤ</string>

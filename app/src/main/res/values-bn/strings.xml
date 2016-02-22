@@ -33,6 +33,7 @@
   <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
+  <string name="menu_page_content_issues">বিষয়বস্তুর সমস্যা</string>
   <string name="menu_page_similar_titles">অনুরূপ শিরোনাম</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_save">পাতা সংরক্ষণ করুন</string>
@@ -158,9 +159,9 @@
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/bn</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">ব্যবহৃত লাইব্রেরীসমূহ</string>
-  <string name="about_contributors_heading">অবদানকারীগণ</string>
-  <string name="about_translators_heading">অনুবাদকগণ</string>
+  <string name="about_libraries_heading" fuzzy="true">ব্যবহৃত লাইব্রেরীসমূহ</string>
+  <string name="about_contributors_heading" fuzzy="true">অবদানকারীগণ</string>
+  <string name="about_translators_heading" fuzzy="true">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
@@ -238,7 +239,8 @@
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
   <string name="gallery_menu_save">ডিভাইসে সংরক্ষণ করুন</string>
-  <string name="gallery_save_success" fuzzy="true">ছবিটি সফলভাবে সংরক্ষণ করা হয়েছে।</string>
+  <string name="gallery_save_progress">ফাইল ডাউনলোড হচ্ছে...</string>
+  <string name="gallery_save_success">ফাইল সফলভাবে সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন। দয়া করে আবার চেষ্টা করুন, এবং অনুরোধকৃত অনুমতি মঞ্জুর করুন।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
@@ -282,4 +284,6 @@
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>
   <string name="article_menu_bar_bookmark">পরে অফলাইনে পড়ার জন্য নিবন্ধটি সংরক্ষণ করুন</string>
+  <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
+  <string name="article_menu_bar_navigate">নিবন্ধের অবস্থান থেকে পরিভ্রমণ করুন</string>
 </resources>

@@ -144,9 +144,9 @@
   <string name="about_description">Aangaande Wikipedia toep</string>
   <string name="privacy_policy_description">Privaatheidsbeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaardes</string>
-  <string name="about_libraries_heading">biblioteke gebruik</string>
-  <string name="about_contributors_heading">bydraers</string>
-  <string name="about_translators_heading">vertalers</string>
+  <string name="about_libraries_heading" fuzzy="true">biblioteke gebruik</string>
+  <string name="about_contributors_heading" fuzzy="true">bydraers</string>
+  <string name="about_translators_heading" fuzzy="true">vertalers</string>
   <string name="about_translators_translatewiki">Hierdie toep is vertaal deur vrywillge vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">\'n Produk van die &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Aangaande</string>

@@ -104,9 +104,9 @@
   <string name="about_description">Kuhusu programu tumizi ya Wikimedia</string>
   <string name="privacy_policy_description">Sera ya faragha</string>
   <string name="terms_of_use_description">Masharti ya matumizi</string>
-  <string name="about_libraries_heading">maktaba yanayotumiwa</string>
-  <string name="about_contributors_heading">wachangiaji</string>
-  <string name="about_translators_heading">wafasiri</string>
+  <string name="about_libraries_heading" fuzzy="true">maktaba yanayotumiwa</string>
+  <string name="about_contributors_heading" fuzzy="true">wachangiaji</string>
+  <string name="about_translators_heading" fuzzy="true">wafasiri</string>
   <string name="about_translators_translatewiki">Programu tumizi hii imetafsiriwa na wahnga katika &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Bidhaa ya &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wakfu wa Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Kuhusu</string>

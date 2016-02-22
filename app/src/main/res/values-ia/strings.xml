@@ -122,9 +122,9 @@
   <string name="about_description">Re le le application Wikipedia</string>
   <string name="privacy_policy_description">Politica de confidentialitate</string>
   <string name="terms_of_use_description">Conditiones de uso</string>
-  <string name="about_libraries_heading">librarias usate</string>
-  <string name="about_contributors_heading">contributores</string>
-  <string name="about_translators_heading">traductores</string>
+  <string name="about_libraries_heading" fuzzy="true">librarias usate</string>
+  <string name="about_contributors_heading" fuzzy="true">contributores</string>
+  <string name="about_translators_heading" fuzzy="true">traductores</string>
   <string name="about_activity_title">A proposito</string>
   <string name="user_blocked_from_editing_title">Blocate</string>
   <string name="edit_how_page_improved">Como ha tu ameliorate le pagina?</string>

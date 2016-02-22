@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">使用條款</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">使用的函式庫</string>
-  <string name="about_contributors_heading">貢獻者</string>
-  <string name="about_translators_heading">翻譯人員</string>
+  <string name="about_libraries_heading" fuzzy="true">使用的函式庫</string>
+  <string name="about_contributors_heading" fuzzy="true">貢獻者</string>
+  <string name="about_translators_heading" fuzzy="true">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>

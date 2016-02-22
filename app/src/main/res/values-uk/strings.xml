@@ -9,6 +9,7 @@
   <string name="nav_item_history">Історія</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
+  <string name="page_error_back_to_main">Повернутися</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
   <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
   <string name="page_does_not_exist_error">Ця сторінка не існує.</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
   <string name="menu_long_press_copy_page">Копіювати адресу посилання</string>
   <string name="menu_text_select_copy">Скопіювати</string>
+  <string name="menu_text_select_define">Визначення</string>
   <string name="menu_text_select_share">Поділитися</string>
   <string name="nav_item_nearby">Неподалік</string>
   <string name="nearby_distance_in_meters">%d м</string>
@@ -157,9 +159,9 @@
   <string name="terms_of_use_description">Умови використання</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/uk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">використовувані бібліотеки</string>
-  <string name="about_contributors_heading">співавтори</string>
-  <string name="about_translators_heading">перекладачі</string>
+  <string name="about_libraries_heading" fuzzy="true">використовувані бібліотеки</string>
+  <string name="about_contributors_heading" fuzzy="true">співавтори</string>
+  <string name="about_translators_heading" fuzzy="true">перекладачі</string>
   <string name="about_translators_translatewiki">Цю програмку переклали добровольці на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про программу</string>
@@ -204,6 +206,7 @@
   <string name="widget_name_featured_page">Вікіпедія - вибрані сторінки</string>
   <string name="widget_title_featured_page">Сьогоднішня вибрана сторінка:</string>
   <string name="widget_name_search">Пошук в Вікіпедії</string>
+  <string name="wiktionary_no_definitions_found">Визначень не знайдено.</string>
   <string name="app_store_description">Офіційний додаток Вікіпедії для Андроїд. Вікіпедія — це вільна енциклопедія, з понад 32 мільйонами статей на 280-ти мовах. Наразі це найбільш доступна і використовувана реферативна робота, яку люди будь-коли писали.
 
 Характеристики:
@@ -246,7 +249,8 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Поділитися</string>
   <string name="gallery_share_error">Не вдалось поділитися зображенням: %s</string>
   <string name="gallery_menu_save">Зберегти на пристрій</string>
-  <string name="gallery_save_success" fuzzy="true">Зображення успішно збережено!</string>
+  <string name="gallery_save_progress">Завантаження файлу...</string>
+  <string name="gallery_save_success">Файл успішно збережено!</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
   <string name="gallery_save_image_write_permission_rationale">Для збереження зображень потрібен дозвіл на запис у сховищі вашого пристрою. Будь ласка, спробуйте ще раз і дайте запитуваний дозвіл.</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>

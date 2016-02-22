@@ -142,9 +142,9 @@
   <string name="about_description">Wikipediaren aplikazioari buruz</string>
   <string name="privacy_policy_description">Pribatutasun politika</string>
   <string name="terms_of_use_description">Erabilera-baldintzak</string>
-  <string name="about_libraries_heading">erabilitako liburutegiak</string>
-  <string name="about_contributors_heading">ekarleak</string>
-  <string name="about_translators_heading">itzultzaileak</string>
+  <string name="about_libraries_heading" fuzzy="true">erabilitako liburutegiak</string>
+  <string name="about_contributors_heading" fuzzy="true">ekarleak</string>
+  <string name="about_translators_heading" fuzzy="true">itzultzaileak</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
   <string name="about_activity_title">Honi buruz</string>
   <string name="user_blocked_from_editing_title">Blokeatua</string>

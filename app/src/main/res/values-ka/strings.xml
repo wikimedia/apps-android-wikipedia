@@ -152,9 +152,9 @@
   <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>
   <string name="privacy_policy_description">კონფიდენციალურობის პოლიტიკა</string>
   <string name="terms_of_use_description">გამოყენების პირობები</string>
-  <string name="about_libraries_heading">გამოყენებული მასალები</string>
-  <string name="about_contributors_heading">ავტორები</string>
-  <string name="about_translators_heading">მთარგმნელები</string>
+  <string name="about_libraries_heading" fuzzy="true">გამოყენებული მასალები</string>
+  <string name="about_contributors_heading" fuzzy="true">ავტორები</string>
+  <string name="about_translators_heading" fuzzy="true">მთარგმნელები</string>
   <string name="about_translators_translatewiki">ეს აპლიკაცია თარგმნილია მოხალისე მთარგმნელთა მიერ აქ: &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ფონდ ვიკიმედიის&lt;/a&gt; პროდუქტი</string>
   <string name="about_activity_title">შესახებ</string>

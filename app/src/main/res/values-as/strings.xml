@@ -152,9 +152,9 @@
   <string name="about_description">ৱিকিপিডিয়া এপ্‌টোৰ বিষয়ে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যৱহাৰৰ চৰ্তাৱলী</string>
-  <string name="about_libraries_heading">ব্যৱহৃত পুথিভঁৰাল</string>
-  <string name="about_contributors_heading">অৱদানকাৰীসমূহ</string>
-  <string name="about_translators_heading">অনুবাদকসকল</string>
+  <string name="about_libraries_heading" fuzzy="true">ব্যৱহৃত পুথিভঁৰাল</string>
+  <string name="about_contributors_heading" fuzzy="true">অৱদানকাৰীসমূহ</string>
+  <string name="about_translators_heading" fuzzy="true">অনুবাদকসকল</string>
   <string name="about_translators_translatewiki">এই এপ্‌টো স্বেচ্ছাসেৱক অনুবাদকে &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ত অনুবাদ কৰিছে।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ৱিকিমিডিয়া ফাউণ্ডেছন&lt;/a&gt;ৰ এটা সামগ্ৰী</string>
   <string name="about_activity_title">বিষয়ে</string>

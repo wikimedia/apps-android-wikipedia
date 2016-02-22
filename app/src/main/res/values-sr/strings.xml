@@ -133,8 +133,8 @@
   <string name="settings_activity_title">Подешавања</string>
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
-  <string name="about_contributors_heading">Доприносиоци</string>
-  <string name="about_translators_heading">преводиоци</string>
+  <string name="about_contributors_heading" fuzzy="true">Доприносиоци</string>
+  <string name="about_translators_heading" fuzzy="true">преводиоци</string>
   <string name="about_translators_translatewiki">Ову апликацију су превели волонтери сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Производ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Задужбине Викимедије&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>

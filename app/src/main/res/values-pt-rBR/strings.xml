@@ -9,6 +9,7 @@
   <string name="nav_item_history">Histórico</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
+  <string name="page_error_back_to_main">Voltar</string>
   <string name="menu_clear_all_history">Apagar histórico</string>
   <string name="menu_clear_all_saved_pages">Apagar páginas salvas</string>
   <string name="page_does_not_exist_error">Esta página não existe.</string>
@@ -158,9 +159,9 @@
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Termos_de_Uso</string>
-  <string name="about_libraries_heading">bibliotecas usadas</string>
-  <string name="about_contributors_heading">colaboradores</string>
-  <string name="about_translators_heading">tradutores</string>
+  <string name="about_libraries_heading" fuzzy="true">bibliotecas usadas</string>
+  <string name="about_contributors_heading" fuzzy="true">colaboradores</string>
+  <string name="about_translators_heading" fuzzy="true">tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundação Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
@@ -238,7 +239,8 @@ Termos de Uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/pt-br</string
   <string name="gallery_menu_share">Compartilhar</string>
   <string name="gallery_share_error">Não foi possível compartilhar a imagem: %s</string>
   <string name="gallery_menu_save">Salvar no dispositivo</string>
-  <string name="gallery_save_success" fuzzy="true">Imagem salva com sucesso.</string>
+  <string name="gallery_save_progress">Baixando arquivo</string>
+  <string name="gallery_save_success">Arquivo salvo com sucesso.</string>
   <string name="gallery_error_video_failed">Não foi possível reproduzir o vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Para salver imagens, você deve permitir o uso do armazenamento do seu dispositivo. Tente novamente e conceda a permissão solicitada.</string>
   <string name="err_cannot_save_file">Não foi possível salvar o arquivo</string>

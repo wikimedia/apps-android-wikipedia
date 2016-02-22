@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">Условия использования</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Политика_конфиденциальности</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Условия_использования</string>
-  <string name="about_libraries_heading">использованые библиотеки</string>
-  <string name="about_contributors_heading">авторы</string>
-  <string name="about_translators_heading">переводчики</string>
+  <string name="about_libraries_heading" fuzzy="true">использованые библиотеки</string>
+  <string name="about_contributors_heading" fuzzy="true">авторы</string>
+  <string name="about_translators_heading" fuzzy="true">переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>

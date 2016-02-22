@@ -152,9 +152,9 @@
   <string name="terms_of_use_description">Termenoù implijout</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading">levraouegoù implijet</string>
-  <string name="about_contributors_heading">kenlabourerien</string>
-  <string name="about_translators_heading">troerien</string>
+  <string name="about_libraries_heading" fuzzy="true">levraouegoù implijet</string>
+  <string name="about_contributors_heading" fuzzy="true">kenlabourerien</string>
+  <string name="about_translators_heading" fuzzy="true">troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Ur produ gant &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>

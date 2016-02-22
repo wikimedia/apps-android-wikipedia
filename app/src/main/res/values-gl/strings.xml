@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/gl</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/gl</string>
-  <string name="about_libraries_heading">bibliotecas empregadas</string>
-  <string name="about_contributors_heading">colaboradores</string>
-  <string name="about_translators_heading">tradutores</string>
+  <string name="about_libraries_heading" fuzzy="true">bibliotecas empregadas</string>
+  <string name="about_contributors_heading" fuzzy="true">colaboradores</string>
+  <string name="about_translators_heading" fuzzy="true">tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicación foi traducida polos tradutores voluntarios de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Un produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>

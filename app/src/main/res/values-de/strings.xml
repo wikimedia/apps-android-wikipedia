@@ -159,9 +159,9 @@
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/de</string>
-  <string name="about_libraries_heading">Verwendete Bibliotheken</string>
-  <string name="about_contributors_heading">Mitwirkende</string>
-  <string name="about_translators_heading">Übersetzer</string>
+  <string name="about_libraries_heading" fuzzy="true">Verwendete Bibliotheken</string>
+  <string name="about_contributors_heading" fuzzy="true">Mitwirkende</string>
+  <string name="about_translators_heading" fuzzy="true">Übersetzer</string>
   <string name="about_translators_translatewiki">Diese App wurde von freiwilligen Übersetzern auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
   <string name="about_wmf">Ein Produkt der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Über</string>

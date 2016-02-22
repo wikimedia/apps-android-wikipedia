@@ -133,9 +133,9 @@
   <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
   <string name="privacy_policy_description">സ്വകാര്യതാനയം</string>
   <string name="terms_of_use_description">ഉപയോഗനിബന്ധനകൾ</string>
-  <string name="about_libraries_heading">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
-  <string name="about_contributors_heading">സംഭാവകർ</string>
-  <string name="about_translators_heading">പരിഭാഷകർ</string>
+  <string name="about_libraries_heading" fuzzy="true">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
+  <string name="about_contributors_heading" fuzzy="true">സംഭാവകർ</string>
+  <string name="about_translators_heading" fuzzy="true">പരിഭാഷകർ</string>
   <string name="about_wmf">ഒരു &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;വിക്കിമീഡിയ ഫൗണ്ടേഷൻ&lt;/a&gt; ഉത്പന്നം</string>
   <string name="about_activity_title">വിവരണം</string>
   <string name="edit_abandon_confirm">താളിൽ മാറ്റങ്ങളുണ്ട്. താങ്കൾ വരുത്തിയ മാറ്റങ്ങൾ സേവ് ചെയ്യാതെ പുറത്ത് പോകണം എന്നുറപ്പാണോ?</string>

@@ -143,9 +143,9 @@
   <string name="about_description">Pri la Vikipedia aplikaĵo</string>
   <string name="privacy_policy_description">Politiko pri privateco</string>
   <string name="terms_of_use_description">Uzkondiĉoj</string>
-  <string name="about_libraries_heading">bibliotekoj uzataj</string>
-  <string name="about_contributors_heading">Kontribuantoj</string>
-  <string name="about_translators_heading">tradukantoj</string>
+  <string name="about_libraries_heading" fuzzy="true">bibliotekoj uzataj</string>
+  <string name="about_contributors_heading" fuzzy="true">Kontribuantoj</string>
+  <string name="about_translators_heading" fuzzy="true">tradukantoj</string>
   <string name="about_translators_translatewiki">Ĉi tiu aplikaĵo estis tradukita de volontulaj tradukantoj ĉe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produktaĵo de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimedia Fondaĵo&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>

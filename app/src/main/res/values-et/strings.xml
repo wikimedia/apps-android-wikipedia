@@ -113,8 +113,8 @@
   <string name="page_protected_can_not_edit_title">See lehekülg on kaitstud</string>
   <string name="settings_activity_title" fuzzy="true">Eelistused</string>
   <string name="about_description">Teave Vikipeedia rakenduse kohta</string>
-  <string name="about_libraries_heading">kasutatud raamatukogud</string>
-  <string name="about_contributors_heading">kaastöölised</string>
+  <string name="about_libraries_heading" fuzzy="true">kasutatud raamatukogud</string>
+  <string name="about_contributors_heading" fuzzy="true">kaastöölised</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationi&lt;/a&gt; toode</string>
   <string name="about_activity_title">Teave</string>
   <string name="edit_abandon_confirm">Lehekülg on muudetud. Kas oled kindel, et soovid väljuda muudatusi salvestamata?</string>

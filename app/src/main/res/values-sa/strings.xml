@@ -153,9 +153,9 @@
   <string name="about_description">विकिपीडिया-अनुप्रयोगस्य विवरणम्</string>
   <string name="privacy_policy_description">गोपनीयतानीतिः</string>
   <string name="terms_of_use_description">प्रयोगस्य नियमाः</string>
-  <string name="about_libraries_heading">प्रयुक्ताः सङ्ग्रहालयाः</string>
-  <string name="about_contributors_heading">योगदानानि</string>
-  <string name="about_translators_heading">अनुवादकाः</string>
+  <string name="about_libraries_heading" fuzzy="true">प्रयुक्ताः सङ्ग्रहालयाः</string>
+  <string name="about_contributors_heading" fuzzy="true">योगदानानि</string>
+  <string name="about_translators_heading" fuzzy="true">अनुवादकाः</string>
   <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; इत्यस्मिन् जाले एतस्य अनुप्रयोगस्य अनुवादः स्वयंसेव्यनुवादकेन कृतः ।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउण्डेशन्&lt;/a&gt;-संस्थायाः उत्पादनम् अस्ति ।</string>
   <string name="about_activity_title">विवरणम्</string>

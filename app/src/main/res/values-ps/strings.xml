@@ -111,9 +111,9 @@
   <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
   <string name="privacy_policy_description">د پټنتيا تگلاره</string>
   <string name="terms_of_use_description">د کارولو شرطونه</string>
-  <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
-  <string name="about_contributors_heading">ونډه وال</string>
-  <string name="about_translators_heading">ژباړنان</string>
+  <string name="about_libraries_heading" fuzzy="true">کارېدلي کتابتونونه</string>
+  <string name="about_contributors_heading" fuzzy="true">ونډه وال</string>
+  <string name="about_translators_heading" fuzzy="true">ژباړنان</string>
   <string name="about_activity_title">په اړه</string>
   <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
   <string name="edit_next">راتلونکی</string>

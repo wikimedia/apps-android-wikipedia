@@ -153,9 +153,9 @@
   <string name="about_description">వికీపీడియా అనువర్తనం గురించి</string>
   <string name="privacy_policy_description">గోప్యతా విధానం</string>
   <string name="terms_of_use_description">వాడుక నియమాలు</string>
-  <string name="about_libraries_heading">ఉపోయగించబడిన లైబ్రరీలు</string>
-  <string name="about_contributors_heading">సహాయకులు</string>
-  <string name="about_translators_heading">అనువాదకులు</string>
+  <string name="about_libraries_heading" fuzzy="true">ఉపోయగించబడిన లైబ్రరీలు</string>
+  <string name="about_contributors_heading" fuzzy="true">సహాయకులు</string>
+  <string name="about_translators_heading" fuzzy="true">అనువాదకులు</string>
   <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>

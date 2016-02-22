@@ -147,9 +147,9 @@
   <string name="terms_of_use_description">பயன்பாட்டு விதிமுறைகள்</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/ta</string>
   <string name="terms_of_use_url">https://meta.wikimedia.org/wiki/Terms_of_use/ta</string>
-  <string name="about_libraries_heading">பயன்படுத்தும் நிரலகங்கள்</string>
-  <string name="about_contributors_heading">பங்களிப்பாளர்கள்</string>
-  <string name="about_translators_heading">மொழிபெயர்ப்பாளர்கள்</string>
+  <string name="about_libraries_heading" fuzzy="true">பயன்படுத்தும் நிரலகங்கள்</string>
+  <string name="about_contributors_heading" fuzzy="true">பங்களிப்பாளர்கள்</string>
+  <string name="about_translators_heading" fuzzy="true">மொழிபெயர்ப்பாளர்கள்</string>
   <string name="about_translators_translatewiki">இந்த நிரல் &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-இல் உள்ள தன்னார்வ மொழிபெயர்ப்பாளர்களால் மொழிபெயர்க்கப்பட்டது.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;விக்கிமீடியா நிறுவனத்தின்&lt;/a&gt; உருவாக்கம்</string>
   <string name="about_activity_title">இதுபற்றி</string>

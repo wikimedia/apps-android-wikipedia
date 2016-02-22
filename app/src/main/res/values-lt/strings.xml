@@ -135,9 +135,9 @@
   <string name="about_description">Apie Vikipedijos programėlę</string>
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
-  <string name="about_libraries_heading">naudotos bibliotekos</string>
-  <string name="about_contributors_heading">autoriai</string>
-  <string name="about_translators_heading">vertėjai</string>
+  <string name="about_libraries_heading" fuzzy="true">naudotos bibliotekos</string>
+  <string name="about_contributors_heading" fuzzy="true">autoriai</string>
+  <string name="about_translators_heading" fuzzy="true">vertėjai</string>
   <string name="about_translators_translatewiki">Ši programėlė buvo išversta savanorių vertėjų &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; produktas</string>
   <string name="about_activity_title">Apie</string>

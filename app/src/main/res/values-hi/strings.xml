@@ -133,8 +133,8 @@
   <string name="settings_activity_title" fuzzy="true">जड़ाई</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
-  <string name="about_contributors_heading">योगदानकर्ताएँ</string>
-  <string name="about_translators_heading">अनुवादक</string>
+  <string name="about_contributors_heading" fuzzy="true">योगदानकर्ताएँ</string>
+  <string name="about_translators_heading" fuzzy="true">अनुवादक</string>
   <string name="edit_abandon_confirm">पृष्ठ को संशोधित किया गया है। क्या आप अपने परिवर्तन को सहेजने के बिना निकास करना चाहते है?</string>
   <string name="user_blocked_from_editing_title">अवरुद्ध</string>
   <string name="user_logged_in_blocked_from_editing">आपके उपयोगकर्ता खाते को इस विकि पर संपादन करने से अवरुद्ध कर दिया गया है</string>

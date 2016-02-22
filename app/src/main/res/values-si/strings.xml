@@ -109,8 +109,8 @@
   <string name="settings_activity_title">සැකසුම්</string>
   <string name="privacy_policy_description">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
   <string name="terms_of_use_description">භාවිතයේ කොන්දේසි</string>
-  <string name="about_contributors_heading">දායකයින්</string>
-  <string name="about_translators_heading">පරිවර්තකයෝ</string>
+  <string name="about_contributors_heading" fuzzy="true">දායකයින්</string>
+  <string name="about_translators_heading" fuzzy="true">පරිවර්තකයෝ</string>
   <string name="about_activity_title">පිළිබඳ</string>
   <string name="user_anon_blocked_from_editing">ඔබගේ IP ලිපිනය සංස්කරණයන් සිදුකිරීමට නොහැකි අයුරින් වාරණය කර ඇත.</string>
   <string name="edit_next">මීළඟ</string>

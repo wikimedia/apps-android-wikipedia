@@ -154,9 +154,9 @@
   <string name="about_description">A Wikipédia appról</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
-  <string name="about_libraries_heading">felhasznált könyvtárak</string>
-  <string name="about_contributors_heading">közreműködők</string>
-  <string name="about_translators_heading">fordítók</string>
+  <string name="about_libraries_heading" fuzzy="true">felhasznált könyvtárak</string>
+  <string name="about_contributors_heading" fuzzy="true">közreműködők</string>
+  <string name="about_translators_heading" fuzzy="true">fordítók</string>
   <string name="about_translators_translatewiki">Ez az alkalmazást önkéntesek fordítótták a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_wmf">A &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>

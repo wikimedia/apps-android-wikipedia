@@ -104,8 +104,8 @@
   <string name="settings_activity_title" fuzzy="true">ગોઠવણીઓ</string>
   <string name="privacy_policy_description">ગોપનિયતા નીતિ</string>
   <string name="terms_of_use_description">વપરાશની શરતો</string>
-  <string name="about_contributors_heading">યોગદાનકર્તાઓ</string>
-  <string name="about_translators_heading">ભાષાંતરકર્તાઓ</string>
+  <string name="about_contributors_heading" fuzzy="true">યોગદાનકર્તાઓ</string>
+  <string name="about_translators_heading" fuzzy="true">ભાષાંતરકર્તાઓ</string>
   <string name="about_activity_title">વિષે</string>
   <string name="user_blocked_from_editing_title">પ્રતિબંધીત</string>
   <string name="edit_next">આગળ</string>

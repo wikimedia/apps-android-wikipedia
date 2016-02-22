@@ -144,8 +144,8 @@
   <string name="about_description">ဝီကီပီဒီးယားအက်ပ် အကြောင်း</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="terms_of_use_description">အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ</string>
-  <string name="about_contributors_heading">ပံ့ပိုးထားသူများ</string>
-  <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
+  <string name="about_contributors_heading" fuzzy="true">ပံ့ပိုးထားသူများ</string>
+  <string name="about_translators_heading" fuzzy="true">ဘာသာပြန်သူများ</string>
   <string name="about_activity_title">အကြောင်း</string>
   <string name="edit_next">ရှေ့</string>
   <string name="edit_done">သိမ်းရန်</string>
