@@ -130,6 +130,15 @@ public class GalleryItemFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        imageView.setController(null);
+        imageView.setOnClickListener(null);
+        videoThumbnail.setController(null);
+        videoThumbnail.setOnClickListener(null);
+    }
+
     private void updateProgressBar(boolean visible, boolean indeterminate, int value) {
         progressBar.setIndeterminate(indeterminate);
         if (!indeterminate) {
