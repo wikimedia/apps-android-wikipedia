@@ -381,4 +381,5 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_navigate">Describes the action performed when pressing the navigate button in the page toolbar underneath the leading image.</string>
+  <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.</string>
 </resources>

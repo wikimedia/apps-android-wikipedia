@@ -7,4 +7,6 @@
     <!-- The alpha build uses a different signature than beta and prod. -->
     <string name="account_name">Wikimedia (Alpha)</string>
     <string name="account_type">org.wikimedia.alpha</string>
+
+    <string name="user_option_sync_label">Preferences (Alpha)</string>
 </resources>

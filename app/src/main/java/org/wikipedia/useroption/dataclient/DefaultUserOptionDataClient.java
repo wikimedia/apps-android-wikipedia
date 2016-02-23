@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.RestAdapterFactory;
+import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.editing.FetchEditTokenTask;
 import org.wikipedia.useroption.UserOption;
@@ -38,12 +39,12 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
     @Override
     public void post(@NonNull UserOption option) {
-        client.post(getToken(), option.key(), option.val()).check();
+        client.post(getToken(), option.key(), option.val()).check(site);
     }
 
     @Override
     public void delete(@NonNull UserOption option) {
-        client.delete(getToken(), option.key()).check();
+        client.delete(getToken(), option.key()).check(site);
     }
 
     @NonNull private String getToken() {
@@ -72,7 +73,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         }.execute();
     }
 
-    private WikipediaApp app() {
+    private static WikipediaApp app() {
         return WikipediaApp.getInstance();
     }
 
@@ -101,22 +102,21 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
                                      @Query("change") @NonNull String key);
     }
 
-    private static class PostResponse {
+    private static class PostResponse extends MwPostResponse {
         private String options;
-
-        public boolean success() {
-            return "success".equals(options);
-        }
 
         public String result() {
             return options;
         }
 
-        public void check() {
-            if (!success()) {
-                // TODO: pass actual URL (here and elsewhere). This class is populated by Retrofit and
-                //       doesn't seem to be able to hold references to the outter class' instance members.
-                throw RetrofitError.unexpectedError("", new RuntimeException("Bad response=" + result()));
+        public void check(@NonNull Site site) {
+            if (!success(options)) {
+                if (badToken()) {
+                    app().getEditTokenStorage().token(site, null);
+                }
+
+                throw RetrofitError.unexpectedError(site.host(),
+                        new RuntimeException("Bad response=" + result()));
             }
         }
     }

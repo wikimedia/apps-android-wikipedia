@@ -7,4 +7,6 @@
     <!-- TODO: remove and use the same account as prod when tokens are stored. -->
     <string name="account_name">Wikimedia (Beta)</string>
     <string name="account_type">org.wikimedia.beta</string>
+
+    <string name="user_option_sync_label">Preferences (Beta)</string>
 </resources>

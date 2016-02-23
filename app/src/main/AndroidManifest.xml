@@ -181,6 +181,13 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <provider
+            android:authorities="@string/user_option_authority"
+            android:name=".useroption.database.UserOptionContentProvider"
+            android:exported="false"
+            android:syncable="true"
+            android:label="@string/user_option_sync_label" />
+
         <receiver
             android:icon="@mipmap/launcher"
             android:label="@string/widget_name_search"
@@ -219,6 +226,20 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".useroption.sync.UserOptionSyncService"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/user_option_sync_adapter" />
+
+        </service>
 
         <service
             android:name=".auth.AuthenticatorService"
