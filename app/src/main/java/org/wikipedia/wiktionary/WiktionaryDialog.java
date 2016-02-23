@@ -21,7 +21,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.SwipeableBottomDialog;
 import org.wikipedia.server.ContentServiceFactory;
 import org.wikipedia.server.PageService;
-import org.wikipedia.server.restbase.RbContentService;
+import org.wikipedia.server.restbase.RbPageService;
 import org.wikipedia.server.restbase.RbDefinition;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.AppTextView;
@@ -106,8 +106,8 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
         }
 
         PageService contentService = ContentServiceFactory.create(new Site(pageTitle.getSite().getLanguageCode() + WIKTIONARY_DOMAIN));
-        if (contentService instanceof RbContentService) {
-            ((RbContentService) contentService).define(
+        if (contentService instanceof RbPageService) {
+            ((RbPageService) contentService).define(
                     addUnderscores(selectedText),
                     definitionOnLoadCallback);
         } else {

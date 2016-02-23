@@ -22,13 +22,13 @@ import retrofit.http.Query;
 /**
  * Retrofit web service client for RESTBase Nodejs API.
  */
-public class RbContentService implements PageService {
+public class RbPageService implements PageService {
     private final RbEndpoints webService;
     private WikipediaZeroHandler responseHeaderHandler;
 
-    public RbContentService(final Site site) {
+    public RbPageService(final Site site) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        webService = RbEndpointsCache.INSTANCE.getRbEndpoints(site);
+        webService = RbPageEndpointsCache.INSTANCE.getRbEndpoints(site);
     }
 
     @Override
