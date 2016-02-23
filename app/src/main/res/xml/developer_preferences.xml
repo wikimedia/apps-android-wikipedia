@@ -106,6 +106,10 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
 
+        <Preference android:key="@string/preferences_developer_user_option_key"
+            android:title="@string/preferences_developer_user_option_title"
+            android:summary="@string/preferences_developer_user_option_summary" />
+
         <!--suppress AndroidUnknownAttribute -->
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"

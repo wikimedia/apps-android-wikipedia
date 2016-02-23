@@ -140,6 +140,9 @@
                 <data android:pathPrefix="/android_asset/licenses/" android:scheme="file" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".useroption.ui.UserOptionRowActivity"
+            android:label="@string/user_option_activity_title" />
 
         <provider
                 android:authorities="@string/history_authority"
