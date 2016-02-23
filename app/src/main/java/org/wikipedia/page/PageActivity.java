@@ -821,14 +821,6 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (bus == null) {
-            registerBus();
-        }
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         app.resetSite();
@@ -869,9 +861,6 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
-        if (bus == null) {
-            registerBus();
-        }
         if (settingsActivityRequested(requestCode)) {
             handleSettingsActivityResult(resultCode);
         } else if (loginActivityRequested(requestCode)) {
@@ -900,7 +889,12 @@ public class PageActivity extends ThemedActionBarActivity {
         app.getSessionFunnel().persistSession();
 
         super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
         unregisterBus();
+        super.onDestroy();
     }
 
     /**
