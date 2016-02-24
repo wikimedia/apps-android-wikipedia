@@ -2,7 +2,7 @@ package org.wikipedia.server;
 
 import org.wikipedia.Site;
 import org.wikipedia.server.mwapi.MwPageService;
-import org.wikipedia.server.restbase.RbContentService;
+import org.wikipedia.server.restbase.RbPageService;
 import org.wikipedia.settings.RbSwitch;
 
 /**
@@ -13,7 +13,7 @@ import org.wikipedia.settings.RbSwitch;
 public final class ContentServiceFactory {
     public static PageService create(Site site) {
         if (RbSwitch.INSTANCE.isRestBaseEnabled(site)) {
-            return new RbContentService(site);
+            return new RbPageService(site);
         } else {
             return new MwPageService(site);
         }
