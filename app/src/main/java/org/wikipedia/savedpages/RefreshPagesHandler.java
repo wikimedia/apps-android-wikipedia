@@ -4,7 +4,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.PageService;
-import org.wikipedia.server.ContentServiceFactory;
+import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.util.log.L;
 
 import android.app.ProgressDialog;
@@ -106,7 +106,7 @@ public class RefreshPagesHandler {
     }
 
     private PageService getApiService(PageTitle title) {
-        return ContentServiceFactory.create(title.getSite());
+        return PageServiceFactory.create(title.getSite());
     }
 
     private AlertDialog errorDialog;

@@ -19,7 +19,7 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.SwipeableBottomDialog;
-import org.wikipedia.server.ContentServiceFactory;
+import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.restbase.RbPageService;
 import org.wikipedia.server.restbase.RbDefinition;
@@ -105,9 +105,9 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
             return;
         }
 
-        PageService contentService = ContentServiceFactory.create(new Site(pageTitle.getSite().getLanguageCode() + WIKTIONARY_DOMAIN));
-        if (contentService instanceof RbPageService) {
-            ((RbPageService) contentService).define(
+        PageService pageService = PageServiceFactory.create(new Site(pageTitle.getSite().getLanguageCode() + WIKTIONARY_DOMAIN));
+        if (pageService instanceof RbPageService) {
+            ((RbPageService) pageService).define(
                     addUnderscores(selectedText),
                     definitionOnLoadCallback);
         } else {
