@@ -69,6 +69,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private PageProperties pageProps;
 
     private String sectionWikitext;
+    private SyntaxHighlighter syntaxHighlighter;
 
     private EditText sectionText;
     private boolean sectionTextModified = false;
@@ -119,7 +120,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
         sectionText = (EditText) findViewById(R.id.edit_section_text);
 
-        new SyntaxHighlighter(this, sectionText);
+        syntaxHighlighter = new SyntaxHighlighter(this, sectionText);
 
         sectionProgress = findViewById(R.id.edit_section_load_progress);
         sectionContainer = findViewById(R.id.edit_section_container);
@@ -677,6 +678,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             bus = null;
             Log.d("Wikipedia", "Deregistering bus");
         }
+        syntaxHighlighter.cleanup();
         super.onStop();
     }
 }
