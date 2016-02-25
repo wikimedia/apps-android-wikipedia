@@ -30,7 +30,7 @@ import org.wikipedia.pageimages.PageImageDatabaseTable;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.search.SearchBarHideHandler;
-import org.wikipedia.server.ContentServiceFactory;
+import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.ServiceError;
@@ -269,7 +269,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
-        ContentServiceFactory.create(model.getTitle().getSite()).pageLead(
+        PageServiceFactory.create(model.getTitle().getSite()).pageLead(
                 model.getTitle().getPrefixedText(),
                 calculateLeadImageWidth(),
                 !app.isImageDownloadEnabled(),
@@ -799,7 +799,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private void loadRemainingSections(final int startSequenceNum) {
         app.getSessionFunnel().restSectionsFetchStart();
-        ContentServiceFactory.create(model.getTitle().getSite()).pageRemaining(
+        PageServiceFactory.create(model.getTitle().getSite()).pageRemaining(
                 model.getTitle().getPrefixedText(),
                 !app.isImageDownloadEnabled(),
                 new PageRemaining.Callback() {

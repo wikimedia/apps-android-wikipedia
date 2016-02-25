@@ -20,7 +20,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageService;
-import org.wikipedia.server.ContentServiceFactory;
+import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.util.log.L;
 
@@ -130,7 +130,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
     }
 
     private PageService getApiService(PageTitle title) {
-        return ContentServiceFactory.create(title.getSite());
+        return PageServiceFactory.create(title.getSite());
     }
 
     private interface Callback {

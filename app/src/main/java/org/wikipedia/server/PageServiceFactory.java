@@ -10,7 +10,7 @@ import org.wikipedia.settings.RbSwitch;
  * MediaWiki PHP API and the new Nodejs Mobile Content Service hosted in the RESTBase
  * infrastructure.
  */
-public final class ContentServiceFactory {
+public final class PageServiceFactory {
     public static PageService create(Site site) {
         if (RbSwitch.INSTANCE.isRestBaseEnabled(site)) {
             return new RbPageService(site);
@@ -19,6 +19,6 @@ public final class ContentServiceFactory {
         }
     }
 
-    private ContentServiceFactory() {
+    private PageServiceFactory() {
     }
 }

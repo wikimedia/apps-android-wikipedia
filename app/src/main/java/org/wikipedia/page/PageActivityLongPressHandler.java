@@ -6,7 +6,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.server.PageService;
-import org.wikipedia.server.ContentServiceFactory;
+import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.savedpages.SaveOtherPageCallback;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -72,6 +72,6 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
     }
 
     private PageService getApiService(PageTitle title) {
-        return ContentServiceFactory.create(title.getSite());
+        return PageServiceFactory.create(title.getSite());
     }
 }
