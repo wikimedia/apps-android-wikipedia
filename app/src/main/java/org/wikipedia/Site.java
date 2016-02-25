@@ -11,7 +11,16 @@ import org.wikipedia.page.PageTitle;
 import java.util.Locale;
 
 /**
- * Represents a particular wiki.
+ * The host domain and Wikipedia language code for a wiki site. Examples:
+ *
+ * <ul>
+ *     <lh>Name: host / language code</lh>
+ *     <li>English Wikipedia: en.wikipedia.org / en</li>
+ *     <li>Chinese Wikipedia: zh.wikipedia.org / zh-hans or zh-hant</li>
+ *     <li>Meta-Wiki: meta.wikimedia.org / meta</li>
+ *     <li>Test Wikipedia: test.wikipedia.org / test</li>
+ *     <li>Võro Wikipedia: fiu-vro.wikipedia.org / fiu-vro</li>
+ * </ul>
  */
 public class Site implements Parcelable {
     private final String domain;
@@ -37,18 +46,48 @@ public class Site implements Parcelable {
         dest.writeString(languageCode);
     }
 
+    /**
+     * @return A hostless path for the segment including a leading "/".
+     */
     public String getScriptPath(String script) {
         return "/w/" + script;
     }
 
+    /**
+     * @return True if the URL scheme is secure. Examples:
+     *
+     * <ul>
+     *     <lh>Scheme: return value</lh>
+     *     <li>HTTPS: true</li>
+     *     <li>HTTP: false</li>
+     * </ul>
+     */
     public boolean getUseSecure() {
         return true;
     }
 
+    /**
+     * @return The complete wiki host domain including language subdomain but not including scheme,
+     *         authentication, port, nor trailing slash.
+     *
+     * @see <a href='https://en.wikipedia.org/wiki/Uniform_Resource_Locator#Syntax'>URL syntax</a>
+     */
     public String getDomain() {
         return domain;
     }
 
+    /**
+     * Like {@link #getDomain} but with a "m." between the language subdomain and the rest of the
+     * host. Examples:
+     *
+     * <ul>
+     *     <li>English Wikipedia: en.m.wikipedia.org</li>
+     *     <li>Chinese Wikipedia: zh.m.wikipedia.org</li>
+     *     <li>Meta-Wiki: meta.m.wikimedia.org</li>
+     *     <li>Test Wikipedia: test.m.wikipedia.org</li>
+     *     <li>Võro Wikipedia: fiu-vro.m.wikipedia.org</li>
+     * </ul>
+     */
     public String getMobileDomain() {
         return urlToMobileSite(domain);
     }
@@ -105,6 +144,9 @@ public class Site implements Parcelable {
                 + '}';
     }
 
+    /**
+     * @return The canonical URL for segment.
+     */
     public String getFullUrl(String script) {
         return WikipediaApp.getInstance().getNetworkProtocol() + "://" + getDomain() + getScriptPath(script);
     }
@@ -135,6 +177,12 @@ public class Site implements Parcelable {
         return titleForInternalLink(path);
     }
 
+    /**
+     * @return The wiki language code, possibly a non-language such as meta or test, which may
+     *         differ from the language subdomain.
+     *
+     * @see AppLanguageLookUpTable
+     */
     public String getLanguageCode() {
         return languageCode;
     }
@@ -144,9 +192,7 @@ public class Site implements Parcelable {
     }
 
     /**
-     * Returns if the site is supported
-     * @param domain the site domain
-     * @return boolean
+     * @return True if the host is supported by the app.
      */
     public static boolean isSupportedSite(String domain) {
         return domain.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
