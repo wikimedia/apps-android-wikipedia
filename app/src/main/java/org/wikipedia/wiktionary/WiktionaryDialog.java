@@ -84,7 +84,7 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
 
         TextView titleText = (TextView) rootView.findViewById(R.id.wiktionary_definition_dialog_title);
         titleText.setText(sanitizeForDialogTitle(selectedText));
-        setConditionalLayoutDirection(rootView, pageTitle.getSite().getLanguageCode());
+        setConditionalLayoutDirection(rootView, pageTitle.getSite().languageCode());
 
         loadDefinitions();
 
@@ -105,7 +105,7 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
             return;
         }
 
-        PageService pageService = PageServiceFactory.create(new Site(pageTitle.getSite().getLanguageCode() + WIKTIONARY_DOMAIN));
+        PageService pageService = PageServiceFactory.create(new Site(pageTitle.getSite().languageCode() + WIKTIONARY_DOMAIN));
         if (pageService instanceof RbPageService) {
             ((RbPageService) pageService).define(
                     addUnderscores(selectedText),

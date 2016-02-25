@@ -170,7 +170,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         });
 
 
-        setConditionalTextDirection(sectionText, title.getSite().getLanguageCode());
+        setConditionalTextDirection(sectionText, title.getSite().languageCode());
 
         fetchSectionText();
 

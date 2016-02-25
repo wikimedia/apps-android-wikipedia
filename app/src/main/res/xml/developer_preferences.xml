@@ -43,7 +43,7 @@
             android:dialogMessage="Prod: %1$s://%2$s/api/rest_v1
             \nDev: http://host:6927/%2$s/v1
             \n%1$s &#10139; protocol (https if omitted)
-            \n%2$s &#10139; WP domain
+            \n%2$s &#10139; WP host
             \nNote: change requires restart." />
 
     </PreferenceCategory>

@@ -136,7 +136,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
         TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
-        setConditionalLayoutDirection(rootView, pageTitle.getSite().getLanguageCode());
+        setConditionalLayoutDirection(rootView, pageTitle.getSite().languageCode());
         if (!ApiUtil.hasKitKat()) {
             // for oldish devices, reset line spacing to 1, since it truncates the descenders.
             titleText.setLineSpacing(0, 1.0f);

@@ -443,7 +443,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
 
-        L10nUtil.setupDirectionality(model.getTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(),
+        L10nUtil.setupDirectionality(model.getTitle().getSite().languageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
         // TODO: Fix possible race condition when navigating from history fragment
@@ -643,7 +643,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     .put("string_table_close", localizedStrings.get(R.string.table_close))
                     .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
                     .put("isBeta", app.isPreProdRelease()) // True for any non-production release type
-                    .put("siteLanguage", model.getTitle().getSite().getLanguageCode())
+                    .put("siteLanguage", model.getTitle().getSite().languageCode())
                     .put("isMainPage", page.isMainPage())
                     .put("fromRestBase", page.isFromRestBase())
                     .put("apiLevel", Build.VERSION.SDK_INT);

@@ -80,7 +80,7 @@ public class PageTitle implements Parcelable {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         if (TextUtils.isEmpty(text)) {
             // If empty, this refers to the main page.
-            text = MainPageNameData.valueFor(site.getLanguageCode());
+            text = MainPageNameData.valueFor(site.languageCode());
         }
 
         String[] fragParts = text.split("#", -1);
@@ -174,7 +174,7 @@ public class PageTitle implements Parcelable {
             json.put("namespace", getNamespace());
             json.put("text", getText());
             json.put("fragment", getFragment());
-            json.put("site", site.getDomain());
+            json.put("site", site.host());
             return json;
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -220,11 +220,11 @@ public class PageTitle implements Parcelable {
     }
 
     public String getCanonicalUri() {
-        return getUriForDomain(getSite().getDomain());
+        return getUriForDomain(getSite().host());
     }
 
     public String getMobileUri() {
-        return getUriForDomain(getSite().getDomain());
+        return getUriForDomain(getSite().host());
     }
 
     public String getUriForAction(String action) {
@@ -232,7 +232,7 @@ public class PageTitle implements Parcelable {
             return String.format(
                     "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
                     WikipediaApp.getInstance().getNetworkProtocol(),
-                    getSite().getDomain(),
+                    getSite().host(),
                     URLEncoder.encode(getPrefixedText(), "utf-8"),
                     action
             );
@@ -254,7 +254,7 @@ public class PageTitle implements Parcelable {
      */
     public boolean isFilePage() {
         if (isFilePage == null) {
-            String filePageAlias = FileAliasData.valueFor(getSite().getLanguageCode());
+            String filePageAlias = FileAliasData.valueFor(getSite().languageCode());
             isFilePage = getNamespace() != null
                     && filePageAlias != null // If langcode, for some reason, isn't in FileAlias
                     && filePageAlias.equals(getNamespace());
@@ -271,7 +271,7 @@ public class PageTitle implements Parcelable {
      */
     public boolean isSpecial() {
         if (isSpecial == null) {
-            String specialPageAlias = SpecialAliasData.valueFor(getSite().getLanguageCode());
+            String specialPageAlias = SpecialAliasData.valueFor(getSite().languageCode());
             isSpecial = getNamespace() != null
                     && specialPageAlias != null // If langcode, for some reason, isn't in SpecialPageAlias
                     && specialPageAlias.equals(getNamespace());

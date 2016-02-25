@@ -171,7 +171,7 @@ public class ToCHandler {
             }
         });
 
-        tocList.setAdapter(new ToCAdapter(page), site.getLanguageCode());
+        tocList.setAdapter(new ToCAdapter(page), site.languageCode());
         tocList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

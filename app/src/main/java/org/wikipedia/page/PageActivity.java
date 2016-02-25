@@ -592,7 +592,7 @@ public class PageActivity extends ThemedActionBarActivity {
         // Close the link preview, if one is open.
         hideLinkPreview();
 
-        app.putCrashReportProperty("api", title.getSite().getDomain());
+        app.putCrashReportProperty("api", title.getSite().host());
         app.putCrashReportProperty("title", title.toString());
 
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

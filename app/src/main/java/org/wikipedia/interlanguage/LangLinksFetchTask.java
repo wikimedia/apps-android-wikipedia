@@ -47,7 +47,7 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
             JSONObject langlinkJSON = langlinksJSON.optJSONObject(i);
             PageTitle linkTitle = new PageTitle(
                     langlinkJSON.optString("*"),
-                    Site.forLanguage(langlinkJSON.optString("lang")));
+                    Site.forLanguageCode(langlinkJSON.optString("lang")));
             linkTitles.add(linkTitle);
         }
 

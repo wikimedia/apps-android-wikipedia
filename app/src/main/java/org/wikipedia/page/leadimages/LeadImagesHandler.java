@@ -157,7 +157,7 @@ public class LeadImagesHandler {
         // set the page title text, and honor any HTML formatting in the title
         loadLeadImage();
         articleHeaderView.setTitle(Html.fromHtml(getPage().getDisplayTitle()));
-        articleHeaderView.setLocale(getPage().getTitle().getSite().getLanguageCode());
+        articleHeaderView.setLocale(getPage().getTitle().getSite().languageCode());
         articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
         // Set the subtitle, too, so text measurements are accurate.
         layoutWikiDataDescription(getTitle().getDescription());

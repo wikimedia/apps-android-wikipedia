@@ -56,7 +56,7 @@ public class EditSummaryHandler {
             }
         });
 
-        setConditionalTextDirection(summaryEdit, title.getSite().getLanguageCode());
+        setConditionalTextDirection(summaryEdit, title.getSite().languageCode());
     }
 
     public void show() {

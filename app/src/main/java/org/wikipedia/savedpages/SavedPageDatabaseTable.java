@@ -43,7 +43,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     @Override
     protected ContentValues toContentValues(SavedPage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_SITE, obj.getTitle().getSite().getDomain());
+        contentValues.put(COL_SITE, obj.getTitle().getSite().host());
         contentValues.put(COL_TITLE, obj.getTitle().getText());
         contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
         contentValues.put(COL_TIMESTAMP, obj.getTimestamp().getTime());
@@ -123,7 +123,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             json.put("namespace", page.getTitle().getNamespace());
             json.put("text", originalTitleText);
             json.put("fragment", page.getTitle().getFragment());
-            json.put("site", page.getTitle().getSite().getDomain());
+            json.put("site", page.getTitle().getSite().host());
             return StringUtil.md5string(json.toString());
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -157,7 +157,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull SavedPage obj) {
         return new String[] {
-                obj.getTitle().getSite().getDomain(),
+                obj.getTitle().getSite().host(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()
         };

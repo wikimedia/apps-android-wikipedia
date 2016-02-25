@@ -20,8 +20,8 @@ import org.wikipedia.history.HistoryEntry;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public abstract class BasePageLoadTest {
-    protected static final Site TEST_SITE = Site.forLanguage("test");
-    protected static final Site EN_SITE = Site.forLanguage("en");
+    protected static final Site TEST_SITE = Site.forLanguageCode("test");
+    protected static final Site EN_SITE = Site.forLanguageCode("en");
 
     @Rule
     @NonNull

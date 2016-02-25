@@ -37,7 +37,7 @@ public final class RbSwitch {
     public boolean isRestBaseEnabled(Site site) {
         return isRestBaseEnabled()
                 && Prefs.isImageDownloadEnabled()
-                && !site.getLanguageCode().startsWith("zh");
+                && !site.languageCode().startsWith("zh");
     }
 
     public boolean isRestBaseEnabled() {

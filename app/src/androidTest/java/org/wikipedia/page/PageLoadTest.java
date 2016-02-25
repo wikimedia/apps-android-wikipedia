@@ -78,7 +78,7 @@ public class PageLoadTest extends BasePageLoadTest {
 
     private void testPagesRtl() throws Throwable {
         List<String> pages = Arrays.asList("Algebra", "Water", "Dinosaur", "Helium");
-        testPages(pages, Site.forLanguage("ar"));
+        testPages(pages, Site.forLanguageCode("ar"));
     }
 
     private void testPages(@NonNull List<String> titles) throws Throwable {

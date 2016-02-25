@@ -349,7 +349,7 @@ public class BottomContentHandler implements BottomContentInterface,
         if (parentFragment.isAdded()) {
             ((ConfigurableTextView) readMoreContainer.findViewById(R.id.read_more_header))
                     .setText(getStringForArticleLanguage(parentFragment.getTitle(), R.string.read_more_section),
-                                     pageTitle.getSite().getLanguageCode());
+                                     pageTitle.getSite().languageCode());
         }
         readMoreContainer.setVisibility(View.VISIBLE);
     }
@@ -365,7 +365,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private void setUpReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
         final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getPageTitles());
-        readMoreList.setAdapter(adapter, pageTitle.getSite().getLanguageCode());
+        readMoreList.setAdapter(adapter, pageTitle.getSite().languageCode());
         readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

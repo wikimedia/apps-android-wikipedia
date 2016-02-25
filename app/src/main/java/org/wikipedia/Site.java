@@ -5,13 +5,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.wikipedia.interlanguage.AppLanguageLookUpTable;
 import org.wikipedia.page.PageTitle;
 
 import java.util.Locale;
 
 /**
- * The host domain and Wikipedia language code for a wiki site. Examples:
+ * The host host and Wikipedia language code for a wiki site. Examples:
  *
  * <ul>
  *     <lh>Name: host / language code</lh>
@@ -23,16 +25,17 @@ import java.util.Locale;
  * </ul>
  */
 public class Site implements Parcelable {
-    private final String domain;
+    @SerializedName("domain")
+    private final String host;
 
     private final String languageCode; // or meta
 
-    public Site(String domain) {
-        this(domain, urlToLanguage(domain));
+    public Site(String host) {
+        this(host, hostToLanguageCode(host));
     }
 
-    public Site(String domain, String languageCode) {
-        this.domain = urlToDesktopSite(domain);
+    public Site(String host, String languageCode) {
+        this.host = hostToDesktop(host);
         this.languageCode = languageCode;
     }
 
@@ -42,15 +45,15 @@ public class Site implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(domain);
+        dest.writeString(host);
         dest.writeString(languageCode);
     }
 
     /**
      * @return A hostless path for the segment including a leading "/".
      */
-    public String getScriptPath(String script) {
-        return "/w/" + script;
+    public String path(String segment) {
+        return "/w/" + segment;
     }
 
     /**
@@ -62,23 +65,24 @@ public class Site implements Parcelable {
      *     <li>HTTP: false</li>
      * </ul>
      */
-    public boolean getUseSecure() {
+    public boolean secureScheme() {
+        // TODO: unify with WikipediaApp.getNetworkProtocol().
         return true;
     }
 
     /**
-     * @return The complete wiki host domain including language subdomain but not including scheme,
+     * @return The complete wiki host host including language subdomain but not including scheme,
      *         authentication, port, nor trailing slash.
      *
      * @see <a href='https://en.wikipedia.org/wiki/Uniform_Resource_Locator#Syntax'>URL syntax</a>
      */
-    public String getDomain() {
-        return domain;
+    public String host() {
+        return host;
     }
 
     /**
-     * Like {@link #getDomain} but with a "m." between the language subdomain and the rest of the
-     * host. Examples:
+     * Like {@link #host} but with a "m." between the language subdomain and the rest of the host.
+     * Examples:
      *
      * <ul>
      *     <li>English Wikipedia: en.m.wikipedia.org</li>
@@ -88,8 +92,8 @@ public class Site implements Parcelable {
      *     <li>Võro Wikipedia: fiu-vro.m.wikipedia.org</li>
      * </ul>
      */
-    public String getMobileDomain() {
-        return urlToMobileSite(domain);
+    public String mobileHost() {
+        return hostToMobile(host);
     }
 
     @Override
@@ -120,7 +124,7 @@ public class Site implements Parcelable {
 
         Site site = (Site) o;
 
-        if (domain != null ? !domain.equals(site.domain) : site.domain != null) {
+        if (host != null ? !host.equals(site.host) : site.host != null) {
             return false;
         }
         return !(languageCode != null ? !languageCode.equals(site.languageCode) : site.languageCode != null);
@@ -130,7 +134,7 @@ public class Site implements Parcelable {
     // Auto-generated
     @Override
     public int hashCode() {
-        int result = domain != null ? domain.hashCode() : 0;
+        int result = host != null ? host.hashCode() : 0;
         result = 31 * result + (languageCode != null ? languageCode.hashCode() : 0);
         return result;
     }
@@ -139,7 +143,7 @@ public class Site implements Parcelable {
     @Override
     public String toString() {
         return "Site{"
-                + "domain='" + domain + '\''
+                + "host='" + host + '\''
                 + ", languageCode='" + languageCode + '\''
                 + '}';
     }
@@ -147,10 +151,11 @@ public class Site implements Parcelable {
     /**
      * @return The canonical URL for segment.
      */
-    public String getFullUrl(String script) {
-        return WikipediaApp.getInstance().getNetworkProtocol() + "://" + getDomain() + getScriptPath(script);
+    public String url(String segment) {
+        return WikipediaApp.getInstance().getNetworkProtocol() + "://" + host() + path(segment);
     }
 
+    // TODO: this method doesn't have much to do with Site. Move to PageTitle?
     /**
      * Create a PageTitle object from an internal link string.
      *
@@ -164,6 +169,7 @@ public class Site implements Parcelable {
         return new PageTitle(internalLink.replaceFirst("/wiki/", ""), this);
     }
 
+    // TODO: this method doesn't have much to do with Site. Move to PageTitle?
     /**
      * Create a PageTitle object from a Uri, taking into account any fragment (section title) in the link.
      * @param uri Uri object to be turned into a PageTitle.
@@ -183,40 +189,44 @@ public class Site implements Parcelable {
      *
      * @see AppLanguageLookUpTable
      */
-    public String getLanguageCode() {
+    public String languageCode() {
         return languageCode;
     }
 
-    public static Site forLanguage(String language) {
-        return new Site(languageToWikiSubdomain(language) + ".wikipedia.org", language);
+    public static Site forLanguageCode(String languageCode) {
+        // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
+        //       cluster, and Vagrant instances.
+        return new Site(languageCodeToSubdomain(languageCode) + ".wikipedia.org", languageCode);
     }
 
     /**
      * @return True if the host is supported by the app.
      */
-    public static boolean isSupportedSite(String domain) {
-        return domain.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
+    public static boolean supportedHost(String host) {
+        // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
+        //       cluster, and Vagrant instances.
+        return host.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
     }
 
-    private static String urlToLanguage(String url) {
-        return url.split("\\.")[0];
+    private static String hostToLanguageCode(String host) {
+        return host.split("\\.")[0];
     }
 
-    private String urlToDesktopSite(String url) {
-        return url.replaceFirst("\\.m\\.", ".");
+    private String hostToDesktop(String host) {
+        return host.replaceFirst("\\.m\\.", ".");
     }
 
-    private String urlToMobileSite(String url) {
-        return url.replaceFirst("\\.", ".m.");
+    private String hostToMobile(String host) {
+        return host.replaceFirst("\\.", ".m.");
     }
 
-    private static String languageToWikiSubdomain(String language) {
-        switch (language) {
+    private static String languageCodeToSubdomain(String languageCode) {
+        switch (languageCode) {
             case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
             case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
                 return Locale.CHINA.getLanguage();
             default:
-                return language;
+                return languageCode;
         }
     }
 }

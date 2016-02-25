@@ -30,7 +30,7 @@ public class LanguageVariantTests extends InstrumentationTestCase {
                 Locale.SIMPLIFIED_CHINESE);
         testDefaultLocaleAndAcceptLanguageAgree("es,zh-hans;q=0.9,zh-hant;q=0.8",
                 AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
-                Locale.TRADITIONAL_CHINESE, Site.forLanguage("es"));
+                Locale.TRADITIONAL_CHINESE, Site.forLanguageCode("es"));
         testDefaultLocaleAndAcceptLanguageAgree("zh-hant",
                 AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
                 Locale.TRADITIONAL_CHINESE);

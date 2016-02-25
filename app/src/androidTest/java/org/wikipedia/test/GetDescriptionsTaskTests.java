@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 200000;
-    private static final Site SITE = Site.forLanguage("en");
+    private static final Site SITE = Site.forLanguageCode("en");
 
     public GetDescriptionsTaskTests() {
         super(TestDummyActivity.class);

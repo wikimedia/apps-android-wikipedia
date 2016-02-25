@@ -91,7 +91,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
-                app.setMruLanguageCode(langLink.getSite().getLanguageCode());
+                app.setMruLanguageCode(langLink.getSite().languageCode());
                 HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
                 Intent intent = new Intent()
                         .setClass(LangLinksActivity.this, PageActivity.class)
@@ -187,7 +187,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                 private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
                     for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
                         PageTitle link = it.next();
-                        String languageCode = link.getSite().getLanguageCode();
+                        String languageCode = link.getSite().languageCode();
 
                         if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
                             // Remove Gothic since it causes Android to segfault.
@@ -197,7 +197,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                             it.remove();
                             for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                                     AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-                                it.add(new PageTitle(link.getText(), Site.forLanguage(dialect)));
+                                it.add(new PageTitle(link.getText(), Site.forLanguageCode(dialect)));
                             }
                         }
                     }
@@ -207,7 +207,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                     int addIndex = 0;
                     for (String language : app.getMruLanguageCodes()) {
                         for (int i = 0; i < entries.size(); i++) {
-                            if (entries.get(i).getSite().getLanguageCode().equals(language)) {
+                            if (entries.get(i).getSite().languageCode().equals(language)) {
                                 PageTitle entry = entries.remove(i);
                                 entries.add(addIndex++, entry);
                                 break;
@@ -236,7 +236,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             languageEntries.clear();
             filter = filter.toLowerCase();
             for (PageTitle entry : originalLanguageEntries) {
-                String languageCode = entry.getSite().getLanguageCode();
+                String languageCode = entry.getSite().languageCode();
                 String canonicalName = emptyIfNull(app.getAppLanguageCanonicalName(languageCode));
                 String localizedName = emptyIfNull(app.getAppLanguageLocalizedName(languageCode));
                 if (canonicalName.toLowerCase().contains(filter)
@@ -269,7 +269,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             }
 
             PageTitle item = getItem(position);
-            String languageCode = item.getSite().getLanguageCode();
+            String languageCode = item.getSite().languageCode();
             String localizedLanguageName = app.getAppLanguageLocalizedName(languageCode);
             if (localizedLanguageName == null && languageCode.equals(Locale.CHINA.getLanguage())) {
                 localizedLanguageName = Locale.CHINA.getDisplayName(Locale.CHINA);

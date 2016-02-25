@@ -216,9 +216,9 @@ public class WikipediaApp extends Application {
      */
     @NonNull
     public String getAcceptLanguage(@Nullable Site site) {
-        String siteLang = site == null || "meta".equals(site.getLanguageCode())
+        String siteLang = site == null || "meta".equals(site.languageCode())
                 ? ""
-                : emptyIfNull(site.getLanguageCode());
+                : emptyIfNull(site.languageCode());
         return AcceptLanguageUtil.getAcceptLanguage(siteLang, emptyIfNull(getAppLanguageCode()),
                 appLanguageState.getSystemLanguageCode());
     }
@@ -228,7 +228,7 @@ public class WikipediaApp extends Application {
     }
 
     public Api getAPIForSite(Site site, boolean mobile) {
-        String domain = mobile ? site.getMobileDomain() : site.getDomain();
+        String domain = mobile ? site.mobileHost() : site.host();
         String acceptLanguage = getAcceptLanguage(site);
         Map<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
         Api api;
@@ -237,8 +237,8 @@ public class WikipediaApp extends Application {
         if (apis.containsKey(cachedApiKey)) {
             api = apis.get(cachedApiKey);
         } else {
-            api = new Api(domain, site.getUseSecure(),
-                    site.getScriptPath("api.php"), customHeaders);
+            api = new Api(domain, site.secureScheme(),
+                    site.path("api.php"), customHeaders);
             apis.put(cachedApiKey, api);
         }
 
@@ -257,7 +257,7 @@ public class WikipediaApp extends Application {
     public Site getSite() {
         // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
         if (site == null) {
-            site = Site.forLanguage(getAppOrSystemLanguageCode());
+            site = Site.forLanguageCode(getAppOrSystemLanguageCode());
         }
 
         return site;

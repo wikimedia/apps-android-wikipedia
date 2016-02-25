@@ -37,7 +37,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     @Override
     protected ContentValues toContentValues(PageImage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_SITE, obj.getTitle().getSite().getDomain());
+        contentValues.put(COL_SITE, obj.getTitle().getSite().host());
         contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
         contentValues.put(COL_TITLE, obj.getTitle().getPrefixedText());
         contentValues.put(COL_IMAGE_NAME, obj.getImageName());
@@ -103,7 +103,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull PageImage obj) {
         return new String[] {
-                obj.getTitle().getSite().getDomain(),
+                obj.getTitle().getSite().host(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()
         };

@@ -218,7 +218,7 @@ public class ShareHandler {
 
     private boolean isWiktionaryDialogEnabledForArticleLanguage() {
         return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
-                .contains(activity.getCurPageFragment().getTitle().getSite().getLanguageCode());
+                .contains(activity.getCurPageFragment().getTitle().getSite().languageCode());
     }
 
     private void showShareOnboarding(MenuItem shareItem) {

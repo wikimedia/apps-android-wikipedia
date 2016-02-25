@@ -31,7 +31,7 @@ public final class RbPageEndpointsCache {
     private RbPageService.RbEndpoints createRbService(Site site) {
         RbPageService.RbEndpoints webService = RestAdapterFactory.newInstance(site,
                 String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(),
-                        WikipediaApp.getInstance().getNetworkProtocol(), site.getDomain()))
+                        WikipediaApp.getInstance().getNetworkProtocol(), site.host()))
                 .create(RbPageService.RbEndpoints.class);
         return webService;
     }

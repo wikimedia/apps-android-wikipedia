@@ -33,11 +33,11 @@ public class EditTokenStorage {
     }
 
     @Nullable public String token(@NonNull Site site) {
-        return tokenJar.get(site.getDomain());
+        return tokenJar.get(site.host());
     }
 
     public void token(@NonNull Site site, String token) {
-        updatePrefs(site.getDomain(), token);
+        updatePrefs(site.host(), token);
     }
 
     public void get(@NonNull final Site site, final TokenRetrievedCallback callback) {

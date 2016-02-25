@@ -85,7 +85,7 @@ public class EditPreviewFragment extends Fragment {
         AssetManager assets = oldResources.getAssets();
         DisplayMetrics metrics = oldResources.getDisplayMetrics();
         Locale oldLocale = oldResources.getConfiguration().locale;
-        Locale newLocale = new Locale(pageTitle.getSite().getLanguageCode());
+        Locale newLocale = new Locale(pageTitle.getSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
         if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
@@ -175,7 +175,7 @@ public class EditPreviewFragment extends Fragment {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
             bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PREVIEW));
-            L10nUtil.setupDirectionality(parentActivity.getPageTitle().getSite().getLanguageCode(), Locale.getDefault().getLanguage(), bridge);
+            L10nUtil.setupDirectionality(parentActivity.getPageTitle().getSite().languageCode(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().isCurrentThemeDark()) {
                 new NightModeHandler(bridge).turnOn(false);
             }

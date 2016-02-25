@@ -193,6 +193,6 @@ import java.util.UUID;
      * @return dbname for given site object
      */
     private String getDBNameForSite(Site site) {
-        return site.getLanguageCode() + "wiki";
+        return site.languageCode() + "wiki";
     }
 }
