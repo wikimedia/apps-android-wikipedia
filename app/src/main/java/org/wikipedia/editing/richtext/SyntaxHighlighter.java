@@ -1,5 +1,6 @@
 package org.wikipedia.editing.richtext;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
@@ -10,7 +11,6 @@ import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
-import android.view.ContextThemeWrapper;
 import android.widget.EditText;
 import org.wikipedia.R;
 import org.wikipedia.concurrency.SaneAsyncTask;
@@ -28,21 +28,23 @@ public class SyntaxHighlighter {
         void syntaxHighlightResults(List<SpanExtents> spanExtents);
     }
 
+    private Context context;
     private EditText textBox;
     private List<SyntaxRule> syntaxRules;
 
     private SyntaxHighlightTask currentTask = null;
     private Handler handler;
 
-    private OnSyntaxHighlightListener syntaxHighlightListener;
+    @Nullable private OnSyntaxHighlightListener syntaxHighlightListener;
 
-    public SyntaxHighlighter(ContextThemeWrapper context, EditText textBox) {
+    public SyntaxHighlighter(Context context, EditText textBox) {
         this(context, textBox, null);
     }
 
-    public SyntaxHighlighter(final ContextThemeWrapper context,
-                             final EditText textBox,
+    public SyntaxHighlighter(Context parentContext,
+                             EditText textBox,
                              @Nullable OnSyntaxHighlightListener listener) {
+        this.context = parentContext;
         this.textBox = textBox;
         this.syntaxHighlightListener = listener;
         syntaxRules = new ArrayList<>();
@@ -165,6 +167,13 @@ public class SyntaxHighlighter {
         });
     }
 
+    public void cleanup() {
+        handler.removeCallbacks(syntaxHighlightCallback);
+        textBox.getText().clearSpans();
+        textBox = null;
+        context = null;
+    }
+
     private Runnable syntaxHighlightCallback = new Runnable() {
         @Override
         public void run() {
@@ -270,6 +279,9 @@ public class SyntaxHighlighter {
 
         @Override
         public void onFinish(List<SpanExtents> result) {
+            if (context == null) {
+                return;
+            }
             if (syntaxHighlightListener != null) {
                 syntaxHighlightListener.syntaxHighlightResults(result);
             }
