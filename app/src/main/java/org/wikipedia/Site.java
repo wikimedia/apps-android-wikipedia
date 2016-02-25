@@ -25,10 +25,34 @@ import java.util.Locale;
  * </ul>
  */
 public class Site implements Parcelable {
+    public static final Parcelable.Creator<Site> CREATOR = new Parcelable.Creator<Site>() {
+        public Site createFromParcel(Parcel in) {
+            return new Site(in);
+        }
+
+        public Site[] newArray(int size) {
+            return new Site[size];
+        }
+    };
+
     @SerializedName("domain")
     private final String host;
+    private final String languageCode;
 
-    private final String languageCode; // or meta
+    /**
+     * @return True if the host is supported by the app.
+     */
+    public static boolean supportedHost(String host) {
+        // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
+        //       cluster, and Vagrant instances.
+        return host.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
+    }
+
+    public static Site forLanguageCode(String languageCode) {
+        // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
+        //       cluster, and Vagrant instances.
+        return new Site(languageCodeToSubdomain(languageCode) + ".wikipedia.org", languageCode);
+    }
 
     public Site(String host) {
         this(host, hostToLanguageCode(host));
@@ -41,19 +65,6 @@ public class Site implements Parcelable {
 
     public Site(Parcel in) {
         this(in.readString(), in.readString());
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(host);
-        dest.writeString(languageCode);
-    }
-
-    /**
-     * @return A hostless path for the segment including a leading "/".
-     */
-    public String path(String segment) {
-        return "/w/" + segment;
     }
 
     /**
@@ -96,56 +107,11 @@ public class Site implements Parcelable {
         return hostToMobile(host);
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Parcelable.Creator<Site> CREATOR
-            = new Parcelable.Creator<Site>() {
-        public Site createFromParcel(Parcel in) {
-            return new Site(in);
-        }
-
-        public Site[] newArray(int size) {
-            return new Site[size];
-        }
-    };
-
-    // Auto-generated
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        Site site = (Site) o;
-
-        if (host != null ? !host.equals(site.host) : site.host != null) {
-            return false;
-        }
-        return !(languageCode != null ? !languageCode.equals(site.languageCode) : site.languageCode != null);
-
-    }
-
-    // Auto-generated
-    @Override
-    public int hashCode() {
-        int result = host != null ? host.hashCode() : 0;
-        result = 31 * result + (languageCode != null ? languageCode.hashCode() : 0);
-        return result;
-    }
-
-    // Auto-generated
-    @Override
-    public String toString() {
-        return "Site{"
-                + "host='" + host + '\''
-                + ", languageCode='" + languageCode + '\''
-                + '}';
+    /**
+     * @return A hostless path for the segment including a leading "/".
+     */
+    public String path(String segment) {
+        return "/w/" + segment;
     }
 
     /**
@@ -153,6 +119,16 @@ public class Site implements Parcelable {
      */
     public String url(String segment) {
         return WikipediaApp.getInstance().getNetworkProtocol() + "://" + host() + path(segment);
+    }
+
+    /**
+     * @return The wiki language code, possibly a non-language such as meta or test, which may
+     *         differ from the language subdomain.
+     *
+     * @see AppLanguageLookUpTable
+     */
+    public String languageCode() {
+        return languageCode;
     }
 
     // TODO: this method doesn't have much to do with Site. Move to PageTitle?
@@ -183,29 +159,60 @@ public class Site implements Parcelable {
         return titleForInternalLink(path);
     }
 
-    /**
-     * @return The wiki language code, possibly a non-language such as meta or test, which may
-     *         differ from the language subdomain.
-     *
-     * @see AppLanguageLookUpTable
-     */
-    public String languageCode() {
-        return languageCode;
+    // Auto-generated
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Site site = (Site) o;
+
+        if (host != null ? !host.equals(site.host) : site.host != null) {
+            return false;
+        }
+        return !(languageCode != null ? !languageCode.equals(site.languageCode) : site.languageCode != null);
     }
 
-    public static Site forLanguageCode(String languageCode) {
-        // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
-        //       cluster, and Vagrant instances.
-        return new Site(languageCodeToSubdomain(languageCode) + ".wikipedia.org", languageCode);
+    // Auto-generated
+    @Override
+    public int hashCode() {
+        int result = host != null ? host.hashCode() : 0;
+        result = 31 * result + (languageCode != null ? languageCode.hashCode() : 0);
+        return result;
     }
 
-    /**
-     * @return True if the host is supported by the app.
-     */
-    public static boolean supportedHost(String host) {
-        // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
-        //       cluster, and Vagrant instances.
-        return host.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
+    // Auto-generated
+    @Override
+    public String toString() {
+        return "Site{"
+                + "host='" + host + '\''
+                + ", languageCode='" + languageCode + '\''
+                + '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(host);
+        dest.writeString(languageCode);
+    }
+
+    private static String languageCodeToSubdomain(String languageCode) {
+        switch (languageCode) {
+            case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
+            case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
+                return Locale.CHINA.getLanguage();
+            default:
+                return languageCode;
+        }
     }
 
     private static String hostToLanguageCode(String host) {
@@ -218,15 +225,5 @@ public class Site implements Parcelable {
 
     private String hostToMobile(String host) {
         return host.replaceFirst("\\.", ".m.");
-    }
-
-    private static String languageCodeToSubdomain(String languageCode) {
-        switch (languageCode) {
-            case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
-            case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
-                return Locale.CHINA.getLanguage();
-            default:
-                return languageCode;
-        }
     }
 }
