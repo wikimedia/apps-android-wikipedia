@@ -17,12 +17,14 @@ import java.util.Locale;
  * The host host and Wikipedia language code for a wiki site. Examples:
  *
  * <ul>
- *     <lh>Name: host / language code</lh>
- *     <li>English Wikipedia: en.wikipedia.org / en</li>
- *     <li>Chinese Wikipedia: zh.wikipedia.org / zh-hans or zh-hant</li>
- *     <li>Meta-Wiki: meta.wikimedia.org / meta</li>
- *     <li>Test Wikipedia: test.wikipedia.org / test</li>
- *     <li>Võro Wikipedia: fiu-vro.wikipedia.org / fiu-vro</li>
+ *     <lh>Name: scheme / host / language code</lh>
+ *     <li>English Wikipedia: HTTPS / en.wikipedia.org / en</li>
+ *     <li>Chinese Wikipedia: HTTPS / zh.wikipedia.org / zh-hans or zh-hant</li>
+ *     <li>Meta-Wiki: HTTPS / meta.wikimedia.org / meta</li>
+ *     <li>Test Wikipedia: HTTPS / test.wikipedia.org / test</li>
+ *     <li>Võro Wikipedia: HTTPS / fiu-vro.wikipedia.org / fiu-vro</li>
+ *     <li>Simple English Wikipedia: HTTPS / simple.wikipedia.org / simple</li>
+ *     <li>Simple English Wikipedia (beta cluster mirror): HTTP / simple.wikipedia.beta.wmflabs.org / simple</li>
  * </ul>
  */
 public class Site implements Parcelable {
@@ -35,7 +37,10 @@ public class Site implements Parcelable {
             return new Site[size];
         }
     };
+    private static final int FALSE = 0;
 
+    // TODO: remove default value and make final once all Gson has had a chance to deserialize, Sep 2016.
+    private boolean secureScheme = true;
     @SerializedName("domain")
     @NonNull private final String host;
     @NonNull private final String languageCode;
@@ -60,12 +65,17 @@ public class Site implements Parcelable {
     }
 
     public Site(@NonNull String host, @NonNull String languageCode) {
+        this(true, host, languageCode);
+    }
+
+    public Site(boolean secureScheme, @NonNull String host, @NonNull String languageCode) {
+        this.secureScheme = secureScheme;
         this.host = hostToDesktop(host);
         this.languageCode = languageCode;
     }
 
     public Site(@NonNull Parcel in) {
-        this(in.readString(), in.readString());
+        this(in.readInt() != FALSE, in.readString(), in.readString());
     }
 
     /**
@@ -78,8 +88,12 @@ public class Site implements Parcelable {
      * </ul>
      */
     public boolean secureScheme() {
-        // TODO: unify with WikipediaApp.getNetworkProtocol().
-        return true;
+        return secureScheme;
+    }
+
+    @NonNull
+    public String scheme() {
+        return secureScheme ? "https" : "http";
     }
 
     /**
@@ -103,6 +117,8 @@ public class Site implements Parcelable {
      *     <li>Meta-Wiki: meta.m.wikimedia.org</li>
      *     <li>Test Wikipedia: test.m.wikipedia.org</li>
      *     <li>Võro Wikipedia: fiu-vro.m.wikipedia.org</li>
+     *     <li>Simple English Wikipedia: simple.m.wikipedia.org</li>
+     *     <li>Simple English Wikipedia (beta cluster mirror): simple.m.wikipedia.beta.wmflabs.org</li>
      * </ul>
      */
     @NonNull
@@ -122,7 +138,7 @@ public class Site implements Parcelable {
      * @return The canonical URL for segment.
      */
     public String url(@NonNull String segment) {
-        return WikipediaApp.getInstance().getNetworkProtocol() + "://" + host() + path(segment);
+        return scheme() + "://" + host() + path(segment);
     }
 
     /**
@@ -176,6 +192,9 @@ public class Site implements Parcelable {
 
         Site site = (Site) o;
 
+        if (secureScheme != site.secureScheme) {
+            return false;
+        }
         if (!host.equals(site.host)) {
             return false;
         }
@@ -186,16 +205,17 @@ public class Site implements Parcelable {
     // Auto-generated
     @Override
     public int hashCode() {
-        int result = host.hashCode();
+        int result = (secureScheme ? 1 : 0);
+        result = 31 * result + host.hashCode();
         result = 31 * result + languageCode.hashCode();
         return result;
     }
 
-    // Auto-generated
     @Override
     public String toString() {
         return "Site{"
-                + "host='" + host + '\''
+                + "secureScheme=" + secureScheme
+                + ", host='" + host + '\''
                 + ", languageCode='" + languageCode + '\''
                 + '}';
     }
@@ -207,6 +227,7 @@ public class Site implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(secureScheme ? ~FALSE : FALSE);
         dest.writeString(host);
         dest.writeString(languageCode);
     }
