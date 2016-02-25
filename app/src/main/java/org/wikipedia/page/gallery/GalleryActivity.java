@@ -355,7 +355,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 } else {
                     // if it's a /w/ URI, turn it into a full URI and go external
                     if (url.startsWith("/w/")) {
-                        url = String.format("%1$s://%2$s", WikipediaApp.getInstance().getNetworkProtocol(), site.host()) + url;
+                        url = String.format("%1$s://%2$s", site.scheme(), site.host()) + url;
                     }
                     handleExternalLink(GalleryActivity.this, Uri.parse(url));
                 }

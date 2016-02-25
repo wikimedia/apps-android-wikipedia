@@ -65,7 +65,7 @@ public final class UriUtil {
      * @return A fully qualified, protocol specified URL
      */
     public static String resolveProtocolRelativeUrl(String url) {
-        return (url.startsWith("//") ? WikipediaApp.getInstance().getNetworkProtocol() + ":" + url
+        return (url.startsWith("//") ? WikipediaApp.getInstance().getSite().scheme() + ":" + url
                 : url);
     }
 

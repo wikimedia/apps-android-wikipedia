@@ -254,7 +254,7 @@ public class LeadImagesHandler {
      */
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
-            String fullUrl = WikipediaApp.getInstance().getNetworkProtocol() + ":" + url;
+            String fullUrl = getTitle().getSite().scheme() + ":" + url;
             articleHeaderView.setImageYScalar(0);
             articleHeaderView.loadImage(fullUrl);
         } else {

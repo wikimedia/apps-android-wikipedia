@@ -65,17 +65,11 @@ import static org.wikipedia.util.ReleaseUtil.getChannel;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class WikipediaApp extends Application {
-    private static final String HTTPS_PROTOCOL = "https";
     private static final int EVENT_LOG_TESTING_ID = new Random().nextInt(Integer.MAX_VALUE);
 
     private float screenDensity;
     public float getScreenDensity() {
         return screenDensity;
-    }
-
-    // Reload in onCreate to override
-    public String getNetworkProtocol() {
-        return HTTPS_PROTOCOL;
     }
 
     public static final int FONT_SIZE_MULTIPLIER_MIN = -5;

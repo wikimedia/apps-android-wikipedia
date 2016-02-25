@@ -4,10 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.staticdata.SpecialAliasData;
@@ -209,7 +209,7 @@ public class PageTitle implements Parcelable {
         try {
             return String.format(
                     "%1$s://%2$s/wiki/%3$s%4$s",
-                    WikipediaApp.getInstance().getNetworkProtocol(),
+                    getSite().scheme(),
                     domain,
                     URLEncoder.encode(getPrefixedText(), "utf-8"),
                     (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
@@ -231,7 +231,7 @@ public class PageTitle implements Parcelable {
         try {
             return String.format(
                     "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
-                    WikipediaApp.getInstance().getNetworkProtocol(),
+                    getSite().scheme(),
                     getSite().host(),
                     URLEncoder.encode(getPrefixedText(), "utf-8"),
                     action

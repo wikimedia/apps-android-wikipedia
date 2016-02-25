@@ -3,10 +3,10 @@ package org.wikipedia.page;
 import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
@@ -69,7 +69,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             } else {
                 // if it's a /w/ URI, turn it into a full URI and go external
                 if (href.startsWith("/w/")) {
-                    href = String.format("%1$s://%2$s", WikipediaApp.getInstance().getNetworkProtocol(), getSite().host()) + href;
+                    href = String.format("%1$s://%2$s", getSite().scheme(), getSite().host()) + href;
                 }
                 handleExternalLink(context, Uri.parse(href));
             }

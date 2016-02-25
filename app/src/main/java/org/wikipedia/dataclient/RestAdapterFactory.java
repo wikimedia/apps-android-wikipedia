@@ -16,8 +16,7 @@ import retrofit.converter.GsonConverter;
 
 public final class RestAdapterFactory {
     public static RestAdapter newInstance(@NonNull Site site) {
-        return newInstance(site,
-                WikipediaApp.getInstance().getNetworkProtocol() + "://" + site.host());
+        return newInstance(site, site.scheme() + "://" + site.host());
     }
 
     public static RestAdapter newInstance(@NonNull final Site site, @NonNull String endpoint) {

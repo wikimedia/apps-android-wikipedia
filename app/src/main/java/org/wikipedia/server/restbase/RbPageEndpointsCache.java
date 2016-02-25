@@ -1,7 +1,6 @@
 package org.wikipedia.server.restbase;
 
 import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.RestAdapterFactory;
 import org.wikipedia.settings.Prefs;
 
@@ -29,10 +28,8 @@ public final class RbPageEndpointsCache {
     }
 
     private RbPageService.RbEndpoints createRbService(Site site) {
-        RbPageService.RbEndpoints webService = RestAdapterFactory.newInstance(site,
-                String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(),
-                        WikipediaApp.getInstance().getNetworkProtocol(), site.host()))
+        return RestAdapterFactory.newInstance(site,
+                String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(), site.host()))
                 .create(RbPageService.RbEndpoints.class);
-        return webService;
     }
 }

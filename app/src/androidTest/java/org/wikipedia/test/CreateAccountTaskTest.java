@@ -42,7 +42,7 @@ public class CreateAccountTaskTest {
             assertThat(captchaResult, notNullValue());
             assertThat(captchaResult.getCaptchaId(), not(isEmptyOrNullString()));
 
-            String expectedCaptchaUrlPrefix = WikipediaApp.getInstance().getNetworkProtocol()
+            String expectedCaptchaUrlPrefix = WikipediaApp.getInstance().getSite().scheme()
                     + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image";
             assertThat(captchaResult.getCaptchaUrl(testWiki), startsWith(expectedCaptchaUrlPrefix));
         }

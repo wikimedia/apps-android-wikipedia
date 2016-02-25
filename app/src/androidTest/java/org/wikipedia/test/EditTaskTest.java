@@ -131,7 +131,7 @@ public class EditTaskTest {
     }
 
     private String getNetworkProtocol() {
-        return app().getNetworkProtocol();
+        return app().getSite().scheme();
     }
 
     private WikipediaApp app() {
