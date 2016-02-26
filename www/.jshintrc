@@ -1,0 +1,18 @@
+{
+	"globals": {
+		"console": true,
+        "require": true,
+        "module": true,
+        "marshaller": true
+	},
+
+	"browser": true,
+	"curly": true,
+	"eqeqeq": true,
+	"forin": false,
+	"onevar": false,
+	"trailing": true,
+	"undef" : true,
+	"unused": true,
+	"supernew": true
+}

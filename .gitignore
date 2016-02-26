@@ -28,7 +28,8 @@ scripts/apps
 scripts/backup.ab
 
 # Node modules for the js
-www/node_modules
+node_modules/
+www/node_modules/
 www/bundle*.js
 www/abusefilter.js
 www/preview.js
