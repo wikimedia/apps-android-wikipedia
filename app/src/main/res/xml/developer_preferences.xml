@@ -46,6 +46,16 @@
             \n%2$s &#10139; WP host
             \nNote: change requires restart." />
 
+        <!--suppress AndroidUnknownAttribute -->
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_mediawiki_base_uri"
+            android:title="@string/preference_key_mediawiki_base_uri"
+            android:dialogMessage="Prod (default if blank): https://wikipedia.org
+            \nDev: http://host:8080
+            \nBeta cluster (switch app language to Simple English): http://wikipedia.beta.wmflabs.org
+            \nNote: change requires restart." />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_onboarding_heading">

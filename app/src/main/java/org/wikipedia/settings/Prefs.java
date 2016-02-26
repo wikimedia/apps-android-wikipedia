@@ -1,5 +1,6 @@
 package org.wikipedia.settings;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -304,6 +305,12 @@ public final class Prefs {
     public static String getRestbaseUriFormat() {
         return StringUtil.defaultIfBlank(getString(R.string.preference_key_restbase_uri_format, null),
                 "%1$s://%2$s/api/rest_v1");
+    }
+
+    @NonNull
+    public static Uri getMediaWikiBaseUri() {
+        return Uri.parse(StringUtil.defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null),
+                "https://wikipedia.org"));
     }
 
     public static long getLastRunTime(@NonNull String task) {

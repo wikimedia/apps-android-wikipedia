@@ -1,5 +1,7 @@
 package org.wikipedia.server.mwapi;
 
+import android.support.annotation.Nullable;
+
 import org.wikipedia.Site;
 import org.wikipedia.dataclient.RestAdapterFactory;
 
@@ -10,7 +12,7 @@ import org.wikipedia.dataclient.RestAdapterFactory;
 public final class MwPageEndpointsCache {
     public static final MwPageEndpointsCache INSTANCE = new MwPageEndpointsCache();
 
-    private Site site;
+    @Nullable private Site site;
     private MwPageService.MwPageEndpoints cachedWebService;
 
     private MwPageEndpointsCache() {
@@ -25,8 +27,6 @@ public final class MwPageEndpointsCache {
     }
 
     private MwPageService.MwPageEndpoints createMwService(Site site) {
-        MwPageService.MwPageEndpoints webService = RestAdapterFactory.newInstance(site)
-                .create(MwPageService.MwPageEndpoints.class);
-        return webService;
+        return RestAdapterFactory.newInstance(site).create(MwPageService.MwPageEndpoints.class);
     }
 }

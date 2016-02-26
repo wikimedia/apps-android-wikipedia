@@ -10,11 +10,12 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.interlanguage.AppLanguageLookUpTable;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.Prefs;
 
 import java.util.Locale;
 
 /**
- * The host host and Wikipedia language code for a wiki site. Examples:
+ * The base URL and Wikipedia language code for a wiki site. Examples:
  *
  * <ul>
  *     <lh>Name: scheme / host / language code</lh>
@@ -37,12 +38,9 @@ public class Site implements Parcelable {
             return new Site[size];
         }
     };
-    private static final int FALSE = 0;
 
-    // TODO: remove default value and make final once all Gson has had a chance to deserialize, Sep 2016.
-    private boolean secureScheme = true;
     @SerializedName("domain")
-    @NonNull private final String host;
+    @NonNull private final Uri uri;
     @NonNull private final String languageCode;
 
     /**
@@ -51,13 +49,16 @@ public class Site implements Parcelable {
     public static boolean supportedHost(@NonNull String host) {
         // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
         //       cluster, and Vagrant instances.
-        return host.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
+        return host.matches("[a-z\\-]+\\.(m\\.)?" + Prefs.getMediaWikiBaseUri().getHost());
     }
 
     public static Site forLanguageCode(@NonNull String languageCode) {
         // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
         //       cluster, and Vagrant instances.
-        return new Site(languageCodeToSubdomain(languageCode) + ".wikipedia.org", languageCode);
+        Uri uri = Prefs.getMediaWikiBaseUri();
+        boolean secureSchema = uri.getScheme().equals("https");
+        return new Site(secureSchema, languageCodeToSubdomain(languageCode) + "." + uri.getHost(),
+                languageCode);
     }
 
     public Site(@NonNull String host) {
@@ -69,13 +70,14 @@ public class Site implements Parcelable {
     }
 
     public Site(boolean secureScheme, @NonNull String host, @NonNull String languageCode) {
-        this.secureScheme = secureScheme;
-        this.host = hostToDesktop(host);
-        this.languageCode = languageCode;
+        this(new Uri.Builder()
+                .scheme(secureScheme ? "https" : "http")
+                .encodedAuthority(hostToDesktop(host))
+                .build(), languageCode);
     }
 
     public Site(@NonNull Parcel in) {
-        this(in.readInt() != FALSE, in.readString(), in.readString());
+        this(in.<Uri>readParcelable(Uri.class.getClassLoader()), in.readString());
     }
 
     /**
@@ -88,12 +90,12 @@ public class Site implements Parcelable {
      * </ul>
      */
     public boolean secureScheme() {
-        return secureScheme;
+        return uri.getScheme().equals("https");
     }
 
     @NonNull
     public String scheme() {
-        return secureScheme ? "https" : "http";
+        return uri.getScheme();
     }
 
     /**
@@ -104,7 +106,7 @@ public class Site implements Parcelable {
      */
     @NonNull
     public String host() {
-        return host;
+        return uri.getHost();
     }
 
     /**
@@ -123,7 +125,7 @@ public class Site implements Parcelable {
      */
     @NonNull
     public String mobileHost() {
-        return hostToMobile(host);
+        return hostToMobile(host());
     }
 
     /**
@@ -192,30 +194,25 @@ public class Site implements Parcelable {
 
         Site site = (Site) o;
 
-        if (secureScheme != site.secureScheme) {
-            return false;
-        }
-        if (!host.equals(site.host)) {
+        if (!uri.equals(site.uri)) {
             return false;
         }
         return languageCode.equals(site.languageCode);
-
     }
 
     // Auto-generated
     @Override
     public int hashCode() {
-        int result = (secureScheme ? 1 : 0);
-        result = 31 * result + host.hashCode();
+        int result = uri.hashCode();
         result = 31 * result + languageCode.hashCode();
         return result;
     }
 
+    // Auto-generated
     @Override
     public String toString() {
         return "Site{"
-                + "secureScheme=" + secureScheme
-                + ", host='" + host + '\''
+                + "uri=" + uri
                 + ", languageCode='" + languageCode + '\''
                 + '}';
     }
@@ -227,8 +224,7 @@ public class Site implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(secureScheme ? ~FALSE : FALSE);
-        dest.writeString(host);
+        dest.writeParcelable(uri, 0);
         dest.writeString(languageCode);
     }
 
@@ -249,12 +245,17 @@ public class Site implements Parcelable {
     }
 
     @NonNull
-    private String hostToDesktop(@NonNull String host) {
+    private static String hostToDesktop(@NonNull String host) {
         return host.replaceFirst("\\.m\\.", ".");
     }
 
     @NonNull
     private String hostToMobile(@NonNull String host) {
         return host.replaceFirst("\\.", ".m.");
+    }
+
+    private Site(@NonNull Uri uri, @NonNull String languageCode) {
+        this.uri = uri;
+        this.languageCode = languageCode;
     }
 }
