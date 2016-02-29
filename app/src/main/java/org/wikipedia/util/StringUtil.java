@@ -46,8 +46,8 @@ public final class StringUtil {
         return value == null ? defaultValue : value;
     }
 
-    public static boolean equals(CharSequence lhs, CharSequence rhs) {
-        return emptyIfNull(lhs).equals(emptyIfNull(rhs));
+    public static boolean equals(@Nullable CharSequence lhs, @Nullable CharSequence rhs) {
+        return lhs == rhs || lhs != null && lhs.equals(rhs);
     }
 
     @NonNull

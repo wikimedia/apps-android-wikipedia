@@ -293,6 +293,7 @@
     <item>hz</item>
     <item>kr</item>
     <item>test</item>
+    <item></item>
   </string-array>
   <string-array name="preference_language_local_names">
     <item>English</item>
@@ -587,6 +588,7 @@
     <item>Otsiherero</item>
     <item>Kanuri</item>
     <item>Test</item>
+    <item>None (development)</item>
   </string-array>
   <string-array name="preference_language_canonical_names">
     <item>English</item>
@@ -881,5 +883,6 @@
     <item>Herero</item>
     <item>Kanuri</item>
     <item>Test</item>
+    <item>None (development)</item>
   </string-array>
 </resources>

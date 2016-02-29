@@ -39,6 +39,7 @@ for row in islice(data, 1, None):
                  eng_name=row[1].replace("'", "\\'"))
 
 add_lang(key='test', local_name='Test', eng_name='Test')
+add_lang(key='', local_name='None', eng_name='None (development)')
 
 # Generate the XML, for Android
 NAMESPACE = 'http://schemas.android.com/tools'

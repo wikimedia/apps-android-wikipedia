@@ -26,6 +26,7 @@ import java.util.Locale;
  *     <li>Võro Wikipedia: HTTPS / fiu-vro.wikipedia.org / fiu-vro</li>
  *     <li>Simple English Wikipedia: HTTPS / simple.wikipedia.org / simple</li>
  *     <li>Simple English Wikipedia (beta cluster mirror): HTTP / simple.wikipedia.beta.wmflabs.org / simple</li>
+ *     <li>Development: HTTP / 192.168.1.11:8080 / (none)</li>
  * </ul>
  */
 public class Site implements Parcelable {
@@ -41,26 +42,26 @@ public class Site implements Parcelable {
 
     @SerializedName("domain")
     @NonNull private final Uri uri;
-    @NonNull private final String languageCode;
+    @NonNull private final String languageCode; // possibly empty
 
     /**
      * @return True if the host is supported by the app.
      */
     public static boolean supportedHost(@NonNull String host) {
-        // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
-        //       cluster, and Vagrant instances.
+        // endswith?
         return host.matches("[a-z\\-]+\\.(m\\.)?" + Prefs.getMediaWikiBaseUri().getHost());
     }
 
     public static Site forLanguageCode(@NonNull String languageCode) {
-        // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
-        //       cluster, and Vagrant instances.
         Uri uri = Prefs.getMediaWikiBaseUri();
         boolean secureSchema = uri.getScheme().equals("https");
-        return new Site(secureSchema, languageCodeToSubdomain(languageCode) + "." + uri.getHost(),
+        return new Site(secureSchema, (languageCode.isEmpty() ? "" : (languageCodeToSubdomain(languageCode) + ".")) + uri.getHost(),
                 languageCode);
     }
 
+    // TODO: remove method.
+    // Not recommended. This method cannot resolve multi-dialect wikis like Simplified and
+    // Traditional Chinese.
     public Site(@NonNull String host) {
         this(host, hostToLanguageCode(host));
     }
@@ -72,6 +73,7 @@ public class Site implements Parcelable {
     public Site(boolean secureScheme, @NonNull String host, @NonNull String languageCode) {
         this(new Uri.Builder()
                 .scheme(secureScheme ? "https" : "http")
+                // TODO: verify no one is passing in mobile hosts and remove hostToDesktop().
                 .encodedAuthority(hostToDesktop(host))
                 .build(), languageCode);
     }
@@ -121,11 +123,13 @@ public class Site implements Parcelable {
      *     <li>Võro Wikipedia: fiu-vro.m.wikipedia.org</li>
      *     <li>Simple English Wikipedia: simple.m.wikipedia.org</li>
      *     <li>Simple English Wikipedia (beta cluster mirror): simple.m.wikipedia.beta.wmflabs.org</li>
+     *     <li>Development: m.192.168.1.11:8080</li>
      * </ul>
      */
     @NonNull
     public String mobileHost() {
-        return hostToMobile(host());
+        String subdomain = languageCodeToSubdomain(languageCode);
+        return host().replaceFirst("^" + subdomain + "\\.?", "$0m.");
     }
 
     /**
@@ -247,11 +251,6 @@ public class Site implements Parcelable {
     @NonNull
     private static String hostToDesktop(@NonNull String host) {
         return host.replaceFirst("\\.m\\.", ".");
-    }
-
-    @NonNull
-    private String hostToMobile(@NonNull String host) {
-        return host.replaceFirst("\\.", ".m.");
     }
 
     private Site(@NonNull Uri uri, @NonNull String languageCode) {
