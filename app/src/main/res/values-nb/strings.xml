@@ -3,6 +3,7 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Ja</string>
   <string name="no">Nei</string>
   <string name="search_hint">Søk i Wikipedia</string>
@@ -159,9 +160,9 @@
   <string name="terms_of_use_description">Bruksvilkår</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading" fuzzy="true">bibliotek brukt</string>
-  <string name="about_contributors_heading" fuzzy="true">bidragsytere</string>
-  <string name="about_translators_heading" fuzzy="true">oversettere</string>
+  <string name="about_libraries_heading">Bibliotek brukt</string>
+  <string name="about_contributors_heading">Bidragsytere</string>
+  <string name="about_translators_heading">Oversettere</string>
   <string name="about_translators_translatewiki">Appen ble oversatt av frivillige oversettere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>

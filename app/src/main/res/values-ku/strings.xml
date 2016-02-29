@@ -101,7 +101,7 @@
   <string name="about_description">Di derbarê sepana Wîkîpediyayê de</string>
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>
-  <string name="about_translators_heading" fuzzy="true">wergêr</string>
+  <string name="about_translators_heading">Wergêr</string>
   <string name="about_activity_title">Derbarê</string>
   <string name="edit_next">Pêşve</string>
   <string name="edit_done">Tomar bike</string>
@@ -122,7 +122,7 @@
   <string name="preference_title_show_images">Wêneyan nîşan bide</string>
   <string name="read_more_section">Zêdetir bixwîne</string>
   <string name="gallery_menu_share">Parve bike</string>
-  <string name="gallery_save_success" fuzzy="true">Wêne bi awayekî serkeftî hate tomarkirin.</string>
+  <string name="gallery_save_success">Pel bi awayekî serkeftî hate tomarkirin.</string>
   <string name="err_cannot_save_file">Dosye nikare bê tomarkirin</string>
   <string name="share_snippet_button">Wek wêne parve bike</string>
   <string name="share_normal_button">Wek nivîs parve bike</string>

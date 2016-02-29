@@ -3,6 +3,7 @@
   <string name="app_name_prod">Vikipedi</string>
   <string name="app_name_beta">Vikipedi Beta</string>
   <string name="app_name_alpha">Vikipedi Alfa</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Evet</string>
   <string name="no">Hayır</string>
   <string name="search_hint">Vikipedi\'de Ara</string>
@@ -159,9 +160,9 @@
   <string name="terms_of_use_description">Kullanım koşulları</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading" fuzzy="true">kullanılan kütüphaneler</string>
-  <string name="about_contributors_heading" fuzzy="true">katkıda bulunanlar</string>
-  <string name="about_translators_heading" fuzzy="true">çevirmenler</string>
+  <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
+  <string name="about_contributors_heading">Katkıda bulunanlar</string>
+  <string name="about_translators_heading">Çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>

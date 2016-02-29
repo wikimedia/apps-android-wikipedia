@@ -3,17 +3,19 @@
   <string name="app_name_prod">Vikipedija</string>
   <string name="app_name_beta">Vikipedija Beta</string>
   <string name="app_name_alpha">Vikipedija Alfa</string>
+  <string name="wikimedia">Vikimedija</string>
   <string name="yes">Taip</string>
   <string name="no">Ne</string>
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="nav_item_history">Istorija</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
+  <string name="page_error_back_to_main">Grįžti atgal</string>
   <string name="menu_clear_all_history">Valyti istoriją</string>
   <string name="menu_clear_all_saved_pages">Valyti įrašytus puslapius</string>
   <string name="page_does_not_exist_error">Šis puslapis neegzistuoja.</string>
   <string name="nav_item_today">Šiandien</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Valyti naršymo istoriją?</string>
+  <string name="dialog_title_clear_history">Išvalyti naršymo istoriją</string>
   <string name="dialog_message_clear_history" fuzzy="true">Ar tikrai norite išvalyti visą istoriją?</string>
   <string name="nav_item_saved_pages">Įrašyti puslapiai</string>
   <string name="menu_update_all_saved_pages">Atnaujinti įrašytus puslapius</string>
@@ -41,6 +43,7 @@
   <string name="menu_long_press_open_in_new_tab">Atidaryti naujame skirtuke</string>
   <string name="menu_long_press_copy_page">Kopijuoti nuorodos adresą</string>
   <string name="menu_text_select_copy">Kopijuoti</string>
+  <string name="menu_text_select_define">Nustatyti</string>
   <string name="menu_text_select_share">Dalintis</string>
   <string name="nav_item_nearby">Šalia</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -183,6 +186,7 @@
   <string name="gallery_menu_share">Dalintis</string>
   <string name="gallery_share_error">Negalima pasidalinti vaizdu: %s</string>
   <string name="gallery_menu_save">Išsaugoti prietaise</string>
+  <string name="gallery_save_progress">Siunčiamas failas...</string>
   <string name="gallery_save_success" fuzzy="true">Vaizdas išsaugotas sėkmingai.</string>
   <string name="gallery_error_video_failed">Negalima paleisti filmuko.</string>
   <string name="err_cannot_save_file">Negalima įrašyti failų</string>

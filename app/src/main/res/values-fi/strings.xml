@@ -3,6 +3,7 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Kyllä</string>
   <string name="no">Ei</string>
   <string name="search_hint">Wikipedia-haku</string>
@@ -42,6 +43,7 @@
   <string name="menu_long_press_open_in_new_tab">Avaa uudessa välilehdessä</string>
   <string name="menu_long_press_copy_page">Kopioi linkin osoite</string>
   <string name="menu_text_select_copy">Kopioi</string>
+  <string name="menu_text_select_define">Määritelmä</string>
   <string name="menu_text_select_share">Jaa</string>
   <string name="nav_item_nearby">Lähistöllä</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -158,9 +160,9 @@
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/fi</string>
-  <string name="about_libraries_heading" fuzzy="true">käytetyt kirjastot</string>
-  <string name="about_contributors_heading" fuzzy="true">tekijät</string>
-  <string name="about_translators_heading" fuzzy="true">kääntäjät</string>
+  <string name="about_libraries_heading">Käytetyt kirjastot</string>
+  <string name="about_contributors_heading">Tekijät</string>
+  <string name="about_translators_heading">Kääntäjät</string>
   <string name="about_translators_translatewiki">Tämän sovelluksen ovat kääntäneet &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netin&lt;/a&gt; vapaaehtoiset kääntäjät.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundationin&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
@@ -205,6 +207,7 @@
   <string name="widget_name_featured_page">Wikipedian suositeltu sivu</string>
   <string name="widget_title_featured_page">Päivän suositeltu sivu:</string>
   <string name="widget_name_search">Wikipedia-haku</string>
+  <string name="wiktionary_no_definitions_found">Määritelmiä ei löytynyt.</string>
   <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut.
 
 Ominaisuudet:
@@ -236,7 +239,8 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
   <string name="gallery_menu_save">Tallenna laitteeseen</string>
-  <string name="gallery_save_success" fuzzy="true">Kuva tallennettu onnistuneesti.</string>
+  <string name="gallery_save_progress">Ladataan tiedostoa…</string>
+  <string name="gallery_save_success">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten. Yritä uudelleen ja anna pyydetty käyttöoikeus.</string>
   <string name="err_cannot_save_file">Tiedostoa ei voi tallentaa</string>

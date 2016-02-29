@@ -3,6 +3,7 @@
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>
   <string name="app_name_alpha">Wikipédia Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Sim</string>
   <string name="no">Não</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
@@ -159,9 +160,9 @@
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Termos_de_Uso</string>
-  <string name="about_libraries_heading" fuzzy="true">bibliotecas usadas</string>
-  <string name="about_contributors_heading" fuzzy="true">colaboradores</string>
-  <string name="about_translators_heading" fuzzy="true">tradutores</string>
+  <string name="about_libraries_heading">Bibliotecas usadas</string>
+  <string name="about_contributors_heading">Colaboradores</string>
+  <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundação Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>

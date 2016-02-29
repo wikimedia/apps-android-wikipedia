@@ -3,6 +3,7 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Sì</string>
   <string name="no">No</string>
   <string name="search_hint">Cerca su Wikipedia</string>
@@ -15,7 +16,7 @@
   <string name="page_does_not_exist_error">Questa pagina non esiste.</string>
   <string name="nav_item_today">Oggi</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
-  <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione, e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
+  <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="nav_item_saved_pages">Pagine salvate</string>
   <string name="menu_update_all_saved_pages">Aggiorna pagine salvate</string>
   <string name="menu_update_selected_saved_pages">Aggiorna pagine salvate</string>
@@ -159,9 +160,9 @@
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading" fuzzy="true">librerie usate</string>
-  <string name="about_contributors_heading" fuzzy="true">contributori</string>
-  <string name="about_translators_heading" fuzzy="true">traduttori</string>
+  <string name="about_libraries_heading">Librerie usate</string>
+  <string name="about_contributors_heading">Collaboratori</string>
+  <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>

@@ -108,7 +108,7 @@
   <string name="terms_of_use_description">Termini ta\' użu</string>
   <string name="about_libraries_heading" fuzzy="true">libreriji wżati</string>
   <string name="about_contributors_heading" fuzzy="true">kontributuri</string>
-  <string name="about_translators_heading" fuzzy="true">tradutturi</string>
+  <string name="about_translators_heading">Tradutturi</string>
   <string name="about_translators_translatewiki">Din l-app ġiet tradotta minn tradutturi voluntiera fuq &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Prodott tal-&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondazzjoni Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Dwar</string>

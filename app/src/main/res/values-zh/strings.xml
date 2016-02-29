@@ -3,6 +3,7 @@
   <string name="app_name_prod">维基百科</string>
   <string name="app_name_beta">维基百科测试版</string>
   <string name="app_name_alpha">维基百科内测版</string>
+  <string name="wikimedia">维基媒体</string>
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="search_hint">搜索维基百科</string>
@@ -159,9 +160,9 @@
   <string name="terms_of_use_description">使用条款</string>
   <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_Policy</string>
   <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading" fuzzy="true">使用的库</string>
-  <string name="about_contributors_heading" fuzzy="true">贡献者</string>
-  <string name="about_translators_heading" fuzzy="true">翻译者</string>
+  <string name="about_libraries_heading">使用的库</string>
+  <string name="about_contributors_heading">贡献者</string>
+  <string name="about_translators_heading">翻译者</string>
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>

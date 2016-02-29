@@ -3,6 +3,7 @@
   <string name="app_name_prod">উইকিপিডিয়া</string>
   <string name="app_name_beta">উইকিপিডিয়া বেটা</string>
   <string name="app_name_alpha">উইকিপিডিয়া আলফা</string>
+  <string name="wikimedia">উইকিমিডিয়া</string>
   <string name="yes">হ্যাঁ</string>
   <string name="no">না</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
@@ -160,8 +161,8 @@
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/bn</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading" fuzzy="true">ব্যবহৃত লাইব্রেরীসমূহ</string>
-  <string name="about_contributors_heading" fuzzy="true">অবদানকারীগণ</string>
-  <string name="about_translators_heading" fuzzy="true">অনুবাদকগণ</string>
+  <string name="about_contributors_heading">অবদানকারীগণ</string>
+  <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
