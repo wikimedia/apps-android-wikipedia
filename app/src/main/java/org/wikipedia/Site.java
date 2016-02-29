@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
@@ -36,34 +37,34 @@ public class Site implements Parcelable {
     };
 
     @SerializedName("domain")
-    private final String host;
-    private final String languageCode;
+    @NonNull private final String host;
+    @NonNull private final String languageCode;
 
     /**
      * @return True if the host is supported by the app.
      */
-    public static boolean supportedHost(String host) {
+    public static boolean supportedHost(@NonNull String host) {
         // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
         //       cluster, and Vagrant instances.
         return host.matches("[a-z\\-]+\\.(m\\.)?wikipedia\\.org");
     }
 
-    public static Site forLanguageCode(String languageCode) {
+    public static Site forLanguageCode(@NonNull String languageCode) {
         // TODO: this host assumption won't work for custom domains like meta, the Wikipedia beta
         //       cluster, and Vagrant instances.
         return new Site(languageCodeToSubdomain(languageCode) + ".wikipedia.org", languageCode);
     }
 
-    public Site(String host) {
+    public Site(@NonNull String host) {
         this(host, hostToLanguageCode(host));
     }
 
-    public Site(String host, String languageCode) {
+    public Site(@NonNull String host, @NonNull String languageCode) {
         this.host = hostToDesktop(host);
         this.languageCode = languageCode;
     }
 
-    public Site(Parcel in) {
+    public Site(@NonNull Parcel in) {
         this(in.readString(), in.readString());
     }
 
@@ -87,6 +88,7 @@ public class Site implements Parcelable {
      *
      * @see <a href='https://en.wikipedia.org/wiki/Uniform_Resource_Locator#Syntax'>URL syntax</a>
      */
+    @NonNull
     public String host() {
         return host;
     }
@@ -103,6 +105,7 @@ public class Site implements Parcelable {
      *     <li>Võro Wikipedia: fiu-vro.m.wikipedia.org</li>
      * </ul>
      */
+    @NonNull
     public String mobileHost() {
         return hostToMobile(host);
     }
@@ -110,14 +113,15 @@ public class Site implements Parcelable {
     /**
      * @return A hostless path for the segment including a leading "/".
      */
-    public String path(String segment) {
+    @NonNull
+    public String path(@NonNull String segment) {
         return "/w/" + segment;
     }
 
     /**
      * @return The canonical URL for segment.
      */
-    public String url(String segment) {
+    public String url(@NonNull String segment) {
         return WikipediaApp.getInstance().getNetworkProtocol() + "://" + host() + path(segment);
     }
 
@@ -127,6 +131,7 @@ public class Site implements Parcelable {
      *
      * @see AppLanguageLookUpTable
      */
+    @NonNull
     public String languageCode() {
         return languageCode;
     }
@@ -171,17 +176,18 @@ public class Site implements Parcelable {
 
         Site site = (Site) o;
 
-        if (host != null ? !host.equals(site.host) : site.host != null) {
+        if (!host.equals(site.host)) {
             return false;
         }
-        return !(languageCode != null ? !languageCode.equals(site.languageCode) : site.languageCode != null);
+        return languageCode.equals(site.languageCode);
+
     }
 
     // Auto-generated
     @Override
     public int hashCode() {
-        int result = host != null ? host.hashCode() : 0;
-        result = 31 * result + (languageCode != null ? languageCode.hashCode() : 0);
+        int result = host.hashCode();
+        result = 31 * result + languageCode.hashCode();
         return result;
     }
 
@@ -200,12 +206,13 @@ public class Site implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeString(host);
         dest.writeString(languageCode);
     }
 
-    private static String languageCodeToSubdomain(String languageCode) {
+    @NonNull
+    private static String languageCodeToSubdomain(@NonNull String languageCode) {
         switch (languageCode) {
             case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
             case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
@@ -215,15 +222,18 @@ public class Site implements Parcelable {
         }
     }
 
-    private static String hostToLanguageCode(String host) {
+    @NonNull
+    private static String hostToLanguageCode(@NonNull String host) {
         return host.split("\\.")[0];
     }
 
-    private String hostToDesktop(String host) {
+    @NonNull
+    private String hostToDesktop(@NonNull String host) {
         return host.replaceFirst("\\.m\\.", ".");
     }
 
-    private String hostToMobile(String host) {
+    @NonNull
+    private String hostToMobile(@NonNull String host) {
         return host.replaceFirst("\\.", ".m.");
     }
 }
