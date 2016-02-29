@@ -3,11 +3,12 @@
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Beta</string>
   <string name="app_name_alpha">Wikipédia Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Áno</string>
   <string name="no">Nie</string>
   <string name="search_hint">Hľadať</string>
   <string name="nav_item_history">História</string>
-  <string name="error_network_error">Nie ste pripojení na sieť.</string>
+  <string name="error_network_error">Nie ste pripojení na internet.</string>
   <string name="page_error_retry">Obnoviť</string>
   <string name="page_error_back_to_main">Späť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
@@ -157,9 +158,9 @@
   <string name="terms_of_use_description">Podmienky používania</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/sk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/sk</string>
-  <string name="about_libraries_heading" fuzzy="true">Použité knižnice</string>
-  <string name="about_contributors_heading" fuzzy="true">Prispievatelia</string>
-  <string name="about_translators_heading" fuzzy="true">Prekladatelia</string>
+  <string name="about_libraries_heading">Použité knižnice</string>
+  <string name="about_contributors_heading">Prispievatelia</string>
+  <string name="about_translators_heading">Prekladatelia</string>
   <string name="about_translators_translatewiki">Táto aplikácia bola preložená s pomocou dobrovoľných prekladateľov na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Nadácie WMF&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikácii</string>
@@ -245,6 +246,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="menu_new_tab">Nová karta</string>
   <string name="button_close_tab">Zavrieť kartu</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
+  <string name="tool_tip_toc_button">Obsah môžete zobraziť kedykoľvek ťuknutím na toto tlačidlo alebo posunutím obrazovky z pravého rohu vľavo.</string>
   <string name="error_server_response">Server nemohol dokončiť požiadavku.</string>
   <string name="error_response_malformed">Odpoveď zo servera nebola správne naformátovaná.</string>
   <string name="error_unknown">Vyskytla sa neznáma chyba.</string>
@@ -256,6 +258,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="button_get_directions">Nájsť trasu</string>
   <string name="error_no_maps_app">Nenašli sme žiadne aplikácie poskytujúce navigáciu.</string>
   <string name="preference_title_show_link_previews">Zobrazovať náhľady odkazov</string>
+  <string name="preference_summary_show_link_previews">Po kliknutí na odkaz zobraziť rýchly náhľad článkov.</string>
   <string name="nav_item_donate">Podporte Wikipédiu</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
@@ -269,4 +272,5 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="crash_report_quit">Ukončiť</string>
   <string name="article_menu_bar_bookmark">Uložiť článok na offline čítanie</string>
   <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
+  <string name="article_menu_bar_navigate">Prejsť na umiestnenie článku</string>
 </resources>

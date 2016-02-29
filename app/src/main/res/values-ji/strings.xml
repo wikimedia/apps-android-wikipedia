@@ -3,6 +3,7 @@
   <string name="app_name_prod">וויקיפעדיע</string>
   <string name="app_name_beta">וויקיפעדיע בעטא</string>
   <string name="app_name_alpha">וויקיפעדיע אלפא</string>
+  <string name="wikimedia">וויקימעדיע</string>
   <string name="yes">יא</string>
   <string name="no">ניין</string>
   <string name="search_hint">זוכן וויקיפעדיע</string>
@@ -140,9 +141,9 @@
   <string name="about_description">וועגן דעם וויקימעדיע־אפ</string>
   <string name="privacy_policy_description">פּריוואַטקייט פּאליסי</string>
   <string name="terms_of_use_description">ניצבאדינגונגען</string>
-  <string name="about_libraries_heading" fuzzy="true">געניצטע ביבליאטעקן</string>
-  <string name="about_contributors_heading" fuzzy="true">בײַשטײַערער</string>
-  <string name="about_translators_heading" fuzzy="true">איבערזעצער</string>
+  <string name="about_libraries_heading">געניצטע ביבליאטעקן</string>
+  <string name="about_contributors_heading">בײַשטײַערער</string>
+  <string name="about_translators_heading">איבערזעצער</string>
   <string name="about_translators_translatewiki">דער אפ איז געווארן איבערגעזעצט דורך די וואלונטיר איבערזעצער בײַ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">א פרא דוקו פון דער &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;וויקימעדיע פונדאציע&lt;/a&gt;</string>
   <string name="about_activity_title">וועגן</string>

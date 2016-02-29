@@ -138,7 +138,7 @@
   <string name="send_feedback">앱 피드백 보내기</string>
   <string name="nav_item_random">임의</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
-  <string name="preferences_privacy_settings_heading">개인 정보 정책</string>
+  <string name="preferences_privacy_settings_heading">개인정보</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
   <string name="preference_summary_eventlogging_opt_in">위키미디어가 더 나은 앱을 만들기 위해 당신이 어떻게 앱을 사용하는지에 대한 정보를 모을 수 있습니다</string>
   <string name="preference_title_auto_upload_crash_reports">충돌 보고서 보내기</string>
@@ -155,7 +155,7 @@
   <string name="settings_item_preferences">설정</string>
   <string name="settings_activity_title">설정</string>
   <string name="about_description">위키백과 앱 정보</string>
-  <string name="privacy_policy_description">개인 정보 정책</string>
+  <string name="privacy_policy_description">개인정보 정책</string>
   <string name="terms_of_use_description">이용 약관</string>
   <string name="about_libraries_heading" fuzzy="true">사용된 라이브러리</string>
   <string name="about_contributors_heading" fuzzy="true">기여자</string>

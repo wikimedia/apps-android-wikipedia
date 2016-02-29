@@ -3,6 +3,7 @@
   <string name="app_name_prod">Википедија</string>
   <string name="app_name_beta">Википедија Бета</string>
   <string name="app_name_alpha">Википедија Алфа</string>
+  <string name="wikimedia">Викимедија</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
   <string name="search_hint">Пребарај ја Википедија</string>
@@ -159,9 +160,9 @@
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy/mk?uselang=mk</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk</string>
-  <string name="about_libraries_heading" fuzzy="true">користени библиотеки</string>
-  <string name="about_contributors_heading" fuzzy="true">учесници</string>
-  <string name="about_translators_heading" fuzzy="true">преведувачи</string>
+  <string name="about_libraries_heading">Користени библиотеки</string>
+  <string name="about_contributors_heading">Учесници</string>
+  <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>

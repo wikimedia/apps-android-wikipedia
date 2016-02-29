@@ -3,6 +3,7 @@
   <string name="app_name_prod">ويكيبيديا</string>
   <string name="app_name_beta">ويكيبيديا بيتا</string>
   <string name="app_name_alpha">ويكيبيديا ألفا</string>
+  <string name="wikimedia">ويكيميديا</string>
   <string name="yes">نعم</string>
   <string name="no">لا</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
@@ -157,9 +158,9 @@
   <string name="about_description">حول تطبيق ويكيبيديا</string>
   <string name="privacy_policy_description">سياسة الخصوصية</string>
   <string name="terms_of_use_description">شروط الاستخدام</string>
-  <string name="about_libraries_heading" fuzzy="true">المكتبات المستخدمة</string>
-  <string name="about_contributors_heading" fuzzy="true">المساهمون</string>
-  <string name="about_translators_heading" fuzzy="true">المترجمون</string>
+  <string name="about_libraries_heading">المكتبات المستخدمة</string>
+  <string name="about_contributors_heading">المساهمون</string>
+  <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">عن</string>

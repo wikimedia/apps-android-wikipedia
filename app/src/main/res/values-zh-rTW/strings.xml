@@ -3,6 +3,7 @@
   <string name="app_name_prod">維基百科</string>
   <string name="app_name_beta">維基百科公測版</string>
   <string name="app_name_alpha">維基百科封測版</string>
+  <string name="wikimedia">維基媒體</string>
   <string name="yes">是</string>
   <string name="no">否</string>
   <string name="search_hint">搜尋維基百科</string>

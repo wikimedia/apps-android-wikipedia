@@ -3,6 +3,7 @@
   <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta">Википедия (бета)</string>
   <string name="app_name_alpha">Википедия (альфа)</string>
+  <string name="wikimedia">Викимедиа</string>
   <string name="yes">Да</string>
   <string name="no">Нет</string>
   <string name="search_hint">Поиск по Википедии</string>
@@ -159,9 +160,9 @@
   <string name="terms_of_use_description">Условия использования</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Политика_конфиденциальности</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Условия_использования</string>
-  <string name="about_libraries_heading" fuzzy="true">использованые библиотеки</string>
-  <string name="about_contributors_heading" fuzzy="true">авторы</string>
-  <string name="about_translators_heading" fuzzy="true">переводчики</string>
+  <string name="about_libraries_heading">Используемые библиотеки</string>
+  <string name="about_contributors_heading">Авторы</string>
+  <string name="about_translators_heading">Переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
