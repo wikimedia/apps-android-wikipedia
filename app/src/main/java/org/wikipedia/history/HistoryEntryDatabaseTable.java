@@ -41,7 +41,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     @Override
     protected ContentValues toContentValues(HistoryEntry obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_SITE, obj.getTitle().getSite().host());
+        contentValues.put(COL_SITE, obj.getTitle().getSite().authority());
         contentValues.put(COL_LANG, obj.getTitle().getSite().languageCode());
         contentValues.put(COL_TITLE, obj.getTitle().getText());
         contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
@@ -88,7 +88,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull HistoryEntry obj) {
         return new String[] {
-                obj.getTitle().getSite().host(),
+                obj.getTitle().getSite().authority(),
                 obj.getTitle().getSite().languageCode(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()

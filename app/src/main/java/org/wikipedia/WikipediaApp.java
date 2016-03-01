@@ -222,16 +222,16 @@ public class WikipediaApp extends Application {
     }
 
     public Api getAPIForSite(Site site, boolean mobile) {
-        String domain = mobile ? site.mobileHost() : site.host();
+        String host = mobile ? site.mobileHost() : site.host();
         String acceptLanguage = getAcceptLanguage(site);
         Map<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
         Api api;
 
-        String cachedApiKey = domain + "-" + acceptLanguage;
+        String cachedApiKey = host + "-" + acceptLanguage;
         if (apis.containsKey(cachedApiKey)) {
             api = apis.get(cachedApiKey);
         } else {
-            api = new Api(domain, site.secureScheme(),
+            api = new Api(host, site.port(), site.secureScheme(),
                     site.path("api.php"), customHeaders);
             apis.put(cachedApiKey, api);
         }

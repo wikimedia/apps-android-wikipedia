@@ -45,7 +45,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     @Override
     protected ContentValues toContentValues(SavedPage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_SITE, obj.getTitle().getSite().host());
+        contentValues.put(COL_SITE, obj.getTitle().getSite().authority());
         contentValues.put(COL_LANG, obj.getTitle().getSite().languageCode());
         contentValues.put(COL_TITLE, obj.getTitle().getText());
         contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
@@ -126,7 +126,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             json.put("namespace", page.getTitle().getNamespace());
             json.put("text", originalTitleText);
             json.put("fragment", page.getTitle().getFragment());
-            json.put("site", page.getTitle().getSite().host());
+            json.put("site", page.getTitle().getSite().authority());
             return StringUtil.md5string(json.toString());
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -164,7 +164,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull SavedPage obj) {
         return new String[] {
-                obj.getTitle().getSite().host(),
+                obj.getTitle().getSite().authority(),
                 obj.getTitle().getSite().languageCode(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()

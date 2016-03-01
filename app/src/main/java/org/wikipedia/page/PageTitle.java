@@ -176,7 +176,7 @@ public class PageTitle implements Parcelable {
             json.put("namespace", getNamespace());
             json.put("text", getText());
             json.put("fragment", getFragment());
-            json.put("site", site.host());
+            json.put("site", site.authority());
             return json;
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -232,11 +232,11 @@ public class PageTitle implements Parcelable {
     }
 
     public String getCanonicalUri() {
-        return getUriForDomain(getSite().host());
+        return getUriForDomain(getSite().authority());
     }
 
     public String getMobileUri() {
-        return getUriForDomain(getSite().host());
+        return getUriForDomain(getSite().authority());
     }
 
     public String getUriForAction(String action) {
@@ -244,7 +244,7 @@ public class PageTitle implements Parcelable {
             return String.format(
                     "%1$s://%2$s/w/index.php?title=%3$s&action=%4$s",
                     getSite().scheme(),
-                    getSite().host(),
+                    getSite().authority(),
                     URLEncoder.encode(getPrefixedText(), "utf-8"),
                     action
             );

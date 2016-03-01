@@ -62,14 +62,14 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             Uri uri = Uri.parse(href);
             String authority = uri.getAuthority();
             // FIXME: Make this more complete, only to not handle URIs that contain unsupported actions
-            if (authority != null && Site.supportedHost(authority) && uri.getPath().startsWith("/wiki/")) {
+            if (authority != null && Site.supportedAuthority(authority) && uri.getPath().startsWith("/wiki/")) {
                 Site site = new Site(authority, getSite().languageCode());
                 PageTitle title = site.titleForUri(uri);
                 onInternalLinkClicked(title);
             } else {
                 // if it's a /w/ URI, turn it into a full URI and go external
                 if (href.startsWith("/w/")) {
-                    href = String.format("%1$s://%2$s", getSite().scheme(), getSite().host()) + href;
+                    href = String.format("%1$s://%2$s", getSite().scheme(), getSite().authority()) + href;
                 }
                 handleExternalLink(context, Uri.parse(href));
             }

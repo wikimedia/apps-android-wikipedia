@@ -18,7 +18,7 @@ import java.util.Locale;
  * The base URL and Wikipedia language code for a wiki site. Examples:
  *
  * <ul>
- *     <lh>Name: scheme / host / language code</lh>
+ *     <lh>Name: scheme / authority / language code</lh>
  *     <li>English Wikipedia: HTTPS / en.wikipedia.org / en</li>
  *     <li>Chinese Wikipedia: HTTPS / zh.wikipedia.org / zh-hans or zh-hant</li>
  *     <li>Meta-Wiki: HTTPS / meta.wikimedia.org / (none)</li>
@@ -45,34 +45,34 @@ public class Site implements Parcelable {
     @NonNull private final String languageCode; // possibly empty
 
     /**
-     * @return True if the host is supported by the app.
+     * @return True if the authority is supported by the app.
      */
-    public static boolean supportedHost(@NonNull String host) {
-        // endswith?
-        return host.matches("[a-z\\-]+\\.(m\\.)?" + Prefs.getMediaWikiBaseUri().getHost());
+    public static boolean supportedAuthority(@NonNull String authority) {
+        return authority.endsWith(Prefs.getMediaWikiBaseUri().getAuthority());
     }
 
     public static Site forLanguageCode(@NonNull String languageCode) {
         Uri uri = Prefs.getMediaWikiBaseUri();
         boolean secureSchema = uri.getScheme().equals("https");
-        return new Site(secureSchema, (languageCode.isEmpty() ? "" : (languageCodeToSubdomain(languageCode) + ".")) + uri.getHost(),
+        return new Site(secureSchema,
+                (languageCode.isEmpty() ? "" : (languageCodeToSubdomain(languageCode) + ".")) + uri.getAuthority(),
                 languageCode);
     }
 
     /** This method cannot resolve multi-dialect wikis like Simplified and Traditional Chinese. */
-    public Site(@NonNull String host) {
-        this(host, hostToLanguageCode(host));
+    public Site(@NonNull String authority) {
+        this(authority, authorityToLanguageCode(authority));
     }
 
-    public Site(@NonNull String host, @NonNull String languageCode) {
-        this(true, host, languageCode);
+    public Site(@NonNull String authority, @NonNull String languageCode) {
+        this(true, authority, languageCode);
     }
 
-    public Site(boolean secureScheme, @NonNull String host, @NonNull String languageCode) {
+    public Site(boolean secureScheme, @NonNull String authority, @NonNull String languageCode) {
         this(new Uri.Builder()
                 .scheme(secureScheme ? "https" : "http")
-                // TODO: verify no one is passing in mobile hosts and remove hostToDesktop().
-                .encodedAuthority(hostToDesktop(host))
+                // TODO: verify no one is passing in mobile authorities and remove authorityToDesktop().
+                .encodedAuthority(authorityToDesktop(authority))
                 .build(), languageCode);
     }
 
@@ -104,11 +104,16 @@ public class Site implements Parcelable {
     }
 
     /**
-     * @return The complete wiki host host including language subdomain but not including scheme,
+     * @return The complete wiki authority including language subdomain but not including scheme,
      *         authentication, port, nor trailing slash.
      *
      * @see <a href='https://en.wikipedia.org/wiki/Uniform_Resource_Locator#Syntax'>URL syntax</a>
      */
+    @NonNull
+    public String authority() {
+        return uri.getAuthority();
+    }
+
     @NonNull
     public String host() {
         return uri.getHost();
@@ -135,8 +140,12 @@ public class Site implements Parcelable {
         return host().replaceFirst("^" + subdomain + "\\.?", "$0m.");
     }
 
+    public int port() {
+        return uri.getPort();
+    }
+
     /**
-     * @return A hostless path for the segment including a leading "/".
+     * @return A path without an authority for the segment including a leading "/".
      */
     @NonNull
     public String path(@NonNull String segment) {
@@ -147,7 +156,7 @@ public class Site implements Parcelable {
      * @return The canonical URL for segment.
      */
     public String url(@NonNull String segment) {
-        return scheme() + "://" + host() + path(segment);
+        return scheme() + "://" + authority() + path(segment);
     }
 
     /**
@@ -246,12 +255,12 @@ public class Site implements Parcelable {
     }
 
     @NonNull
-    private static String hostToLanguageCode(@NonNull String host) {
-        return host.split("\\.")[0];
+    private static String authorityToLanguageCode(@NonNull String authority) {
+        return authority.split("\\.")[0];
     }
 
     @NonNull
-    private static String hostToDesktop(@NonNull String host) {
-        return host.replaceFirst("\\.m\\.", ".");
+    private static String authorityToDesktop(@NonNull String authority) {
+        return authority.replaceFirst("\\.m\\.", ".");
     }
 }

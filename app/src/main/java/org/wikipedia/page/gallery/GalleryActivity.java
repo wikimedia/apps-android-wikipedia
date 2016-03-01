@@ -348,14 +348,14 @@ public class GalleryActivity extends ThemedActionBarActivity {
             } else {
                 Uri uri = Uri.parse(url);
                 String authority = uri.getAuthority();
-                if (authority != null && Site.supportedHost(authority)
+                if (authority != null && Site.supportedAuthority(authority)
                     && uri.getPath().startsWith("/wiki/")) {
                     PageTitle title = site.titleForUri(uri);
                     finishWithPageResult(title);
                 } else {
                     // if it's a /w/ URI, turn it into a full URI and go external
                     if (url.startsWith("/w/")) {
-                        url = String.format("%1$s://%2$s", site.scheme(), site.host()) + url;
+                        url = String.format("%1$s://%2$s", site.scheme(), site.authority()) + url;
                     }
                     handleExternalLink(GalleryActivity.this, Uri.parse(url));
                 }

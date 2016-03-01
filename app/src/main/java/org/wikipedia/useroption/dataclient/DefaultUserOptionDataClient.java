@@ -53,7 +53,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
         String token = app().getEditTokenStorage().token(site);
         if (token == null) {
-            throw RetrofitError.unexpectedError(site.host(), new RuntimeException("No token"));
+            throw RetrofitError.unexpectedError(site.authority(), new RuntimeException("No token"));
         }
         return token;
     }

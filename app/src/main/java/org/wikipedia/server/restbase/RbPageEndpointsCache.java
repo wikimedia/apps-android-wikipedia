@@ -29,7 +29,7 @@ public final class RbPageEndpointsCache {
 
     private RbPageService.RbEndpoints createRbService(Site site) {
         return RestAdapterFactory.newInstance(site,
-                String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(), site.host()))
+                String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(), site.authority()))
                 .create(RbPageService.RbEndpoints.class);
     }
 }

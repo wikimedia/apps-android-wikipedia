@@ -15,15 +15,15 @@ public class SiteTests extends TestCase {
 
     public void testNormalization() throws Exception {
         assertEquals(new Site("en.wikipedia.org"), new Site("en.m.wikipedia.org"));
-        assertEquals("bm.wikipedia.org", (new Site("bm.wikipedia.org")).host());
+        assertEquals("bm.wikipedia.org", new Site("bm.wikipedia.org").authority());
     }
 
     public void testIsSupportedSite() throws Exception {
-        assertTrue(Site.supportedHost("fr.wikipedia.org"));
-        assertTrue(Site.supportedHost("fr.m.wikipedia.org"));
-        assertTrue(Site.supportedHost("roa-rup.wikipedia.org"));
+        assertTrue(Site.supportedAuthority("fr.wikipedia.org"));
+        assertTrue(Site.supportedAuthority("fr.m.wikipedia.org"));
+        assertTrue(Site.supportedAuthority("roa-rup.wikipedia.org"));
 
-        assertFalse(Site.supportedHost("google.com"));
+        assertFalse(Site.supportedAuthority("google.com"));
     }
 
     public void testTitleForInternalLink() {
