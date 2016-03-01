@@ -105,6 +105,8 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
             return;
         }
 
+        // TODO: centralize the Wiktionary domain better. Maybe a SharedPreference that defaults to
+        //       https://wiktionary.org.
         PageService pageService = PageServiceFactory.create(new Site(pageTitle.getSite().languageCode() + WIKTIONARY_DOMAIN));
         if (pageService instanceof RbPageService) {
             ((RbPageService) pageService).define(

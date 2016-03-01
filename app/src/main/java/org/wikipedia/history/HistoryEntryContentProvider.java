@@ -46,6 +46,7 @@ public class HistoryEntryContentProvider extends SQLiteContentProvider {
                 String[] actualProjection = new String[]{
                         "history._id",
                         "history.site",
+                        HistoryEntry.DATABASE_TABLE.getTableName() + "." + HistoryEntryDatabaseTable.COL_LANG,
                         "history.title",
                         "history.namespace",
                         "history.timestamp",

@@ -11,6 +11,8 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
+import org.wikipedia.util.log.L;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +22,7 @@ import static org.wikipedia.util.StringUtil.removeNulls;
 public abstract class DatabaseTable<T> {
     protected static final int INITIAL_DB_VERSION = 1;
     private static final int MIN_VERSION_NORMALIZED_TITLES = 8;
+    private static final int MIN_VERSION_NORMALIZED_LANGS = 10;
 
     public static class Column<T> {
         private final String name;
@@ -134,6 +137,7 @@ public abstract class DatabaseTable<T> {
     }
 
     public void createTables(@NonNull SQLiteDatabase db, int version) {
+        L.i("Creating table=" + getTableName());
         db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", getElements(1, version)) + " );");
     }
 
@@ -157,6 +161,9 @@ public abstract class DatabaseTable<T> {
         String alterTableString = "ALTER TABLE " + tableName + " " + TextUtils.join(", ", columnCommands) + ";";
         Log.d("Wikipedia", alterTableString);
         db.execSQL(alterTableString);
+        if (fromVersion < MIN_VERSION_NORMALIZED_LANGS) {
+            addLangToAllSites(db);
+        }
     }
 
     public Uri getBaseContentURI() {
@@ -189,5 +196,10 @@ public abstract class DatabaseTable<T> {
      */
     protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
         // Default implementation is empty, since not every table needs to deal with titles
+    }
+
+    // TODO: remove in September 2016.
+    protected void addLangToAllSites(@NonNull SQLiteDatabase db) {
+        L.d("Adding language codes to " + getTableName());
     }
 }

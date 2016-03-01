@@ -13,7 +13,7 @@ public final class UserOptionDataClientSingleton {
         private static final UserOptionDataClient INSTANCE = instance();
 
         private static UserOptionDataClient instance() {
-            Site site = new Site("meta.wikimedia.org");
+            Site site = new Site("meta.wikimedia.org", "");
             return new DefaultUserOptionDataClient(site);
         }
     }
