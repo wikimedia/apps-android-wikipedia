@@ -12,23 +12,25 @@ import org.wikipedia.Site;
 import org.wikipedia.database.DatabaseTable;
 
 public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
-
     private static final int DB_VER_NAMESPACE_ADDED = 7;
+    private static final int DB_VER_LANG_ADDED = 10;
 
     private static final String COL_SITE = "site";
+    private static final String COL_LANG = "lang";
     private static final String COL_NAMESPACE = "namespace";
     private static final String COL_TITLE = "title";
     private static final String COL_IMAGE_NAME = "imageName";
 
     public static final String[] SELECTION_KEYS = {
             COL_SITE,
+            COL_LANG,
             COL_NAMESPACE,
             COL_TITLE
     };
 
     @Override
     public PageImage fromCursor(Cursor c) {
-        Site site = new Site(getString(c, COL_SITE));
+        Site site = new Site(getString(c, COL_SITE), getString(c, COL_LANG));
         PageTitle title = new PageTitle(getString(c, COL_NAMESPACE), getString(c, COL_TITLE), site);
         String imageName = getString(c, COL_IMAGE_NAME);
         return new PageImage(title, imageName);
@@ -38,6 +40,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     protected ContentValues toContentValues(PageImage obj) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_SITE, obj.getTitle().getSite().host());
+        contentValues.put(COL_LANG, obj.getTitle().getSite().languageCode());
         contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
         contentValues.put(COL_TITLE, obj.getTitle().getPrefixedText());
         contentValues.put(COL_IMAGE_NAME, obj.getImageName());
@@ -90,6 +93,10 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
                 return new Column[] {
                         new Column(COL_NAMESPACE, "string")
                 };
+            case DB_VER_LANG_ADDED:
+                return new Column[] {
+                        new Column(COL_LANG, "text")
+                };
             default:
                 return new Column[0];
         }
@@ -104,6 +111,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull PageImage obj) {
         return new String[] {
                 obj.getTitle().getSite().host(),
+                obj.getTitle().getSite().languageCode(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()
         };
@@ -129,5 +137,24 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
             }
         }
         cursor.close();
+    }
+
+    @Override
+    protected void addLangToAllSites(@NonNull SQLiteDatabase db) {
+        super.addLangToAllSites(db);
+        Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
+        try {
+            int idIndex = cursor.getColumnIndexOrThrow("_id");
+            int siteIndex = cursor.getColumnIndexOrThrow(COL_SITE);
+            while (cursor.moveToNext()) {
+                String site = cursor.getString(siteIndex);
+                ContentValues values = new ContentValues();
+                values.put(COL_LANG, site.split("\\.")[0]);
+                String id = Long.toString(cursor.getLong(idIndex));
+                db.updateWithOnConflict(getTableName(), values, "_id = ?", new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
+            }
+        } finally {
+            cursor.close();
+        }
     }
 }

@@ -30,6 +30,8 @@ import static org.wikipedia.util.UriUtil.decodeURL;
  * of a PageTitle to remain constant for the lifetime of the object.
  */
 public class PageTitle implements Parcelable {
+    private static final String LANGUAGE_CODE_KEY = "languageCode";
+
     /**
      * The localised namespace of the page as a string, or null if the page is in mainspace.
      *
@@ -184,6 +186,7 @@ public class PageTitle implements Parcelable {
     public JSONObject toJSON() {
         try {
             JSONObject json = toIdentifierJSON();
+            json.put(LANGUAGE_CODE_KEY, site.languageCode());
             if (hasProperties()) {
                 json.put("properties", getProperties().toJSON());
             }
@@ -199,7 +202,16 @@ public class PageTitle implements Parcelable {
         this.namespace = json.optString("namespace", null);
         this.text = json.optString("text", null);
         this.fragment = json.optString("fragment", null);
-        this.site = json.has("site") ? new Site(json.optString("site")) : null;
+        if (json.has("site")) {
+            if (json.has(LANGUAGE_CODE_KEY)) {
+                site = new Site(json.optString("site"), json.optString(LANGUAGE_CODE_KEY));
+            } else {
+                // TODO: remove in September 2016.
+                site = new Site(json.optString("site"));
+            }
+        } else {
+            site = null;
+        }
         this.properties = json.has("properties") ? new PageProperties(json.optJSONObject("properties")) : null;
         this.thumbUrl = json.optString("thumbUrl", null);
         this.description = json.optString("description", null);

@@ -47,6 +47,7 @@ public class SavedPageContentProvider extends SQLiteContentProvider {
                 String[] actualProjection = new String[]{
                         "savedpages._id",
                         "savedpages.site",
+                        SavedPage.DATABASE_TABLE.getTableName() + "." + SavedPageDatabaseTable.COL_LANG,
                         "savedpages.title",
                         "savedpages.namespace",
                         "savedpages.timestamp",

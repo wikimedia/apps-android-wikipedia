@@ -21,7 +21,7 @@ import java.util.Locale;
  *     <lh>Name: scheme / host / language code</lh>
  *     <li>English Wikipedia: HTTPS / en.wikipedia.org / en</li>
  *     <li>Chinese Wikipedia: HTTPS / zh.wikipedia.org / zh-hans or zh-hant</li>
- *     <li>Meta-Wiki: HTTPS / meta.wikimedia.org / meta</li>
+ *     <li>Meta-Wiki: HTTPS / meta.wikimedia.org / (none)</li>
  *     <li>Test Wikipedia: HTTPS / test.wikipedia.org / test</li>
  *     <li>Võro Wikipedia: HTTPS / fiu-vro.wikipedia.org / fiu-vro</li>
  *     <li>Simple English Wikipedia: HTTPS / simple.wikipedia.org / simple</li>
@@ -59,9 +59,7 @@ public class Site implements Parcelable {
                 languageCode);
     }
 
-    // TODO: remove method.
-    // Not recommended. This method cannot resolve multi-dialect wikis like Simplified and
-    // Traditional Chinese.
+    /** This method cannot resolve multi-dialect wikis like Simplified and Traditional Chinese. */
     public Site(@NonNull String host) {
         this(host, hostToLanguageCode(host));
     }
@@ -80,6 +78,11 @@ public class Site implements Parcelable {
 
     public Site(@NonNull Parcel in) {
         this(in.<Uri>readParcelable(Uri.class.getClassLoader()), in.readString());
+    }
+
+    public Site(@NonNull Uri uri, @NonNull String languageCode) {
+        this.uri = uri;
+        this.languageCode = languageCode;
     }
 
     /**
@@ -148,8 +151,7 @@ public class Site implements Parcelable {
     }
 
     /**
-     * @return The wiki language code, possibly a non-language such as meta or test, which may
-     *         differ from the language subdomain.
+     * @return The wiki language code which may differ from the language subdomain.
      *
      * @see AppLanguageLookUpTable
      */
@@ -251,10 +253,5 @@ public class Site implements Parcelable {
     @NonNull
     private static String hostToDesktop(@NonNull String host) {
         return host.replaceFirst("\\.m\\.", ".");
-    }
-
-    private Site(@NonNull Uri uri, @NonNull String languageCode) {
-        this.uri = uri;
-        this.languageCode = languageCode;
     }
 }

@@ -63,7 +63,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             String authority = uri.getAuthority();
             // FIXME: Make this more complete, only to not handle URIs that contain unsupported actions
             if (authority != null && Site.supportedHost(authority) && uri.getPath().startsWith("/wiki/")) {
-                Site site = new Site(authority);
+                Site site = new Site(authority, getSite().languageCode());
                 PageTitle title = site.titleForUri(uri);
                 onInternalLinkClicked(title);
             } else {

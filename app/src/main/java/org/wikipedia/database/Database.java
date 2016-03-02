@@ -10,11 +10,12 @@ import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.useroption.database.UserOptionRow;
+import org.wikipedia.util.log.L;
 
 public class Database extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 10;
 
     private final DatabaseTable[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
@@ -38,6 +39,7 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int from, int to) {
+        L.i("Upgrading from=" + from + " to=" + to);
         for (DatabaseTable table : databaseTables) {
             table.upgradeSchema(sqLiteDatabase, from, to);
         }
