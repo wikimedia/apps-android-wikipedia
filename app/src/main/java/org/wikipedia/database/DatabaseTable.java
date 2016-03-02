@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
+import org.wikipedia.database.column.Column;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -23,50 +24,6 @@ public abstract class DatabaseTable<T> {
     protected static final int INITIAL_DB_VERSION = 1;
     private static final int MIN_VERSION_NORMALIZED_TITLES = 8;
     private static final int MIN_VERSION_NORMALIZED_LANGS = 10;
-
-    public static class Column<T> {
-        private final String name;
-        private final String type;
-
-        public String getName() {
-            return name;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public T val(@NonNull Cursor cursor) {
-            // TODO: update all subclasses and make this method abstract.
-            throw new UnsupportedOperationException();
-        }
-
-        public Column(String name, String type) {
-            this.name = name;
-            this.type = type;
-        }
-
-        @Override
-        public String toString() {
-            return getName() + " " + getType();
-        }
-
-        protected String getString(@NonNull Cursor cursor) {
-            return cursor.getString(getIndex(cursor));
-        }
-
-        protected long getLong(@NonNull Cursor cursor) {
-            return cursor.getLong(getIndex(cursor));
-        }
-
-        protected int getInt(@NonNull Cursor cursor) {
-            return cursor.getInt(getIndex(cursor));
-        }
-
-        private int getIndex(@NonNull Cursor cursor) {
-            return cursor.getColumnIndexOrThrow(getName());
-        }
-    }
 
     private Uri baseContentURI;
 

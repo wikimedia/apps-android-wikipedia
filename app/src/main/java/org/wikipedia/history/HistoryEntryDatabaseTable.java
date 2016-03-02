@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.Site;
 import org.wikipedia.database.DatabaseTable;
+import org.wikipedia.database.column.Column;
 import org.wikipedia.page.PageTitle;
 
 import java.util.Date;

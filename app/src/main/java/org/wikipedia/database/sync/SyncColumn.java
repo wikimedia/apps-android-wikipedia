@@ -3,7 +3,8 @@ package org.wikipedia.database.sync;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.database.DatabaseTable.Column;
+import org.wikipedia.database.column.Column;
+import org.wikipedia.database.column.LongColumn;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,20 +20,10 @@ public interface SyncColumn {
     };
 
     /** A unique identification for a synchronization in progress or 0 for not in progress. */
-    Column<Long> SYNC_TRANSACTION_ID = new Column<Long>("syncTransactionId", "integer not null") {
-        @Override
-        public Long val(@NonNull Cursor cursor) {
-            return getLong(cursor);
-        }
-    };
+    LongColumn SYNC_TRANSACTION_ID = new LongColumn("syncTransactionId", "integer not null");
 
     /** The timestamp for the last successful synchronization in milliseconds or 0 for never synchronized. */
-    Column<Long> SYNC_TIMESTAMP = new Column<Long>("syncTimestamp", "integer not null") {
-        @Override
-        public Long val(@NonNull Cursor cursor) {
-            return getLong(cursor);
-        }
-    };
+    LongColumn SYNC_TIMESTAMP = new LongColumn("syncTimestamp", "integer not null");
 
-    List<? extends Column> ALL = Arrays.asList(SYNC_STATUS, SYNC_TRANSACTION_ID, SYNC_TIMESTAMP);
+    List<? extends Column<?>> ALL = Arrays.<Column<?>>asList(SYNC_STATUS, SYNC_TRANSACTION_ID, SYNC_TIMESTAMP);
 }

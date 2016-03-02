@@ -2,11 +2,13 @@ package org.wikipedia.useroption.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.database.DatabaseTable;
+import org.wikipedia.database.column.Column;
+import org.wikipedia.database.column.IdColumn;
+import org.wikipedia.database.column.StrColumn;
 import org.wikipedia.database.sync.SyncColumn;
 import org.wikipedia.database.sync.SyncStatus;
 
@@ -16,37 +18,21 @@ import java.util.List;
 
 public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     public static final class Col implements SyncColumn {
-        public static final Column<Long> ID = new Column<Long>(BaseColumns._ID, "integer primary key autoincrement") {
-            @Override
-            public Long val(@NonNull Cursor cursor) {
-                return getLong(cursor);
-            }
-        };
+        public static final IdColumn ID = new IdColumn();
+        public static final StrColumn KEY = new StrColumn("key", "text not null unique");
+        public static final StrColumn VAL = new StrColumn("val", "text");
 
-        public static final Column<String> KEY = new Column<String>("key", "text not null unique") {
-            @Override
-            public String val(@NonNull Cursor cursor) {
-                return getString(cursor);
-            }
-        };
-        public static final Column<String> VAL = new Column<String>("val", "text") {
-            @Override
-            public String val(@NonNull Cursor cursor) {
-                return getString(cursor);
-            }
-        };
-
-        public static final List<Column> ALL;
-        public static final List<Column> CONTENT;
-        public static final Column SELECTION = KEY;
+        public static final List<? extends Column<?>> ALL;
+        public static final List<? extends Column<?>> CONTENT;
+        public static final Column<?> SELECTION = KEY;
         static {
-            List<Column> content = new ArrayList<>();
+            List<Column<?>> content = new ArrayList<>();
             content.add(KEY);
             content.add(VAL);
             content.addAll(SyncColumn.ALL);
             CONTENT = Collections.unmodifiableList(content);
 
-            List<Column> all = new ArrayList<>();
+            List<Column<?>> all = new ArrayList<>();
             all.add(ID);
             all.addAll(content);
             ALL = Collections.unmodifiableList(all);
@@ -79,10 +65,10 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     }
 
     @Override
-    public Column[] getColumnsAdded(int version) {
+    public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case INTRODUCED_AT_DATABASE_VERSION:
-                return new Column[] {Col.ID, Col.KEY, Col.VAL, Col.SYNC_STATUS,
+                return new Column<?>[] {Col.ID, Col.KEY, Col.VAL, Col.SYNC_STATUS,
                         Col.SYNC_TRANSACTION_ID, SyncColumn.SYNC_TIMESTAMP};
             default:
                 return new Column[0];

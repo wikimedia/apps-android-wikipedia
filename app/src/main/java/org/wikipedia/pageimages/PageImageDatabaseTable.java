@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.column.Column;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.database.DatabaseTable;
