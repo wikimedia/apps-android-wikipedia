@@ -13,25 +13,10 @@ public class UserOptionRow extends UserOption implements SyncRow {
 
     private SyncRow sync;
 
-    public UserOptionRow(@NonNull String key) {
-        super(key);
-        init();
-    }
-
-    public UserOptionRow(@NonNull UserOption option) {
-        super(option);
-        init();
-    }
-
-    public UserOptionRow(@NonNull String key, @Nullable String val) {
-        super(key, val);
-        init();
-    }
-
     public UserOptionRow(@NonNull String key, @Nullable String val, @NonNull SyncStatus status,
                          long transactionId, long timestamp) {
         super(key, val);
-        init(status, transactionId, timestamp);
+        sync = new DefaultSyncRow(status, transactionId, timestamp);
     }
 
     @NonNull
@@ -68,15 +53,5 @@ public class UserOptionRow extends UserOption implements SyncRow {
     @Override
     public void completeTransaction(long timestamp) {
         sync.completeTransaction(timestamp);
-    }
-
-    private void init() {
-        init(null, 0, 0);
-    }
-
-    private void init(@Nullable SyncStatus status, long transactionId, long timestamp) {
-        sync = status == null
-                ? new DefaultSyncRow()
-                : new DefaultSyncRow(status, transactionId, timestamp);
     }
 }
