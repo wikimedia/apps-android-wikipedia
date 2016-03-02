@@ -41,7 +41,9 @@ public abstract class DatabaseTable<T> {
 
     public abstract String getTableName();
 
-    public abstract Column[] getColumnsAdded(int version);
+    public Column<?>[] getColumnsAdded(int version) {
+        return new Column<?>[0];
+    }
 
     public ContentProviderClient acquireClient(@NonNull Context context) {
         return context.getContentResolver().acquireContentProviderClient(getBaseContentURI());
@@ -85,8 +87,8 @@ public abstract class DatabaseTable<T> {
 
     protected abstract int getDBVersionIntroducedAt();
 
-    public List<Column> getElements(int fromVersion, int toVersion) {
-        List<Column> columns = new ArrayList<>();
+    public List<? extends Column<?>> getElements(int fromVersion, int toVersion) {
+        List<Column<?>> columns = new ArrayList<>();
         for (int i = fromVersion; i <= toVersion; i++) {
             columns.addAll(Arrays.asList(getColumnsAdded(i)));
         }
@@ -107,12 +109,12 @@ public abstract class DatabaseTable<T> {
             convertAllTitlesToUnderscores(db);
         }
         String tableName = getTableName();
-        List<Column> columns = getElements(fromVersion + 1, toVersion);
+        List<? extends Column<?>> columns = getElements(fromVersion + 1, toVersion);
         if (columns.size() == 0) {
             return;
         }
         List<String> columnCommands = new ArrayList<>(columns.size());
-        for (Column column : columns) {
+        for (Column<?> column : columns) {
             columnCommands.add("ADD COLUMN " + column);
         }
         String alterTableString = "ALTER TABLE " + tableName + " " + TextUtils.join(", ", columnCommands) + ";";

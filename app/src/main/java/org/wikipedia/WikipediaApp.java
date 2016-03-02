@@ -321,7 +321,7 @@ public class WikipediaApp extends Application {
 
     public <T> DatabaseClient<T> getDatabaseClient(Class<T> cls) {
         if (!databaseClients.containsKey(cls)) {
-            DatabaseClient client;
+            DatabaseClient<?> client;
             if (cls.equals(HistoryEntry.class)) {
                 client = new DatabaseClient<>(this, HistoryEntry.DATABASE_TABLE);
             } else if (cls.equals(PageImage.class)) {

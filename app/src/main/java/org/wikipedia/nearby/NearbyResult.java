@@ -31,9 +31,9 @@ class NearbyResult implements Parcelable {
         }
 
         JSONObject pagesMap = query.optJSONObject("pages");
-        Iterator iterator = pagesMap.keys();
+        Iterator<String> iterator = pagesMap.keys();
         while (iterator.hasNext()) {
-            NearbyPage newPage = new NearbyPage(pagesMap.getJSONObject((String) iterator.next()));
+            NearbyPage newPage = new NearbyPage(pagesMap.getJSONObject(iterator.next()));
             if (newPage.getLocation() != null) {
                 list.add(newPage);
             }

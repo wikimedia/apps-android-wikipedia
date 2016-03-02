@@ -71,7 +71,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
                 return new Column<?>[] {Col.ID, Col.KEY, Col.VAL, Col.SYNC_STATUS,
                         Col.SYNC_TRANSACTION_ID, SyncColumn.SYNC_TIMESTAMP};
             default:
-                return new Column[0];
+                return super.getColumnsAdded(version);
         }
     }
 

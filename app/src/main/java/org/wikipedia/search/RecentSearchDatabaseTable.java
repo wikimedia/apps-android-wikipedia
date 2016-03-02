@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
+import org.wikipedia.database.column.LongColumn;
+import org.wikipedia.database.column.StrColumn;
 
 import java.util.Date;
 
@@ -46,16 +48,16 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
     }
 
     @Override
-    public Column[] getColumnsAdded(int version) {
+    public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case DB_VER_INTRODUCED:
-                return new Column[] {
-                        new Column("_id", "integer primary key"),
-                        new Column(COL_TEXT, "string"),
-                        new Column(COL_TIMESTAMP, "integer"),
+                return new Column<?>[] {
+                        new LongColumn("_id", "integer primary key"),
+                        new StrColumn(COL_TEXT, "string"),
+                        new LongColumn(COL_TIMESTAMP, "integer"),
                 };
             default:
-                return new Column[0];
+                return super.getColumnsAdded(version);
         }
     }
 

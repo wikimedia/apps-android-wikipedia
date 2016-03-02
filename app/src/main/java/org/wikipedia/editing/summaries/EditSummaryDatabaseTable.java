@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
+import org.wikipedia.database.column.LongColumn;
+import org.wikipedia.database.column.StrColumn;
 
 import java.util.Date;
 
@@ -46,16 +48,16 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     }
 
     @Override
-    public Column[] getColumnsAdded(int version) {
+    public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case DB_VER_INTRODUCED:
-                return new Column[] {
-                        new Column("_id", "integer primary key"),
-                        new Column(COL_SUMMARY, "string"),
-                        new Column(COL_LAST_USED, "integer")
+                return new Column<?>[] {
+                        new LongColumn("_id", "integer primary key"),
+                        new StrColumn(COL_SUMMARY, "string"),
+                        new LongColumn(COL_LAST_USED, "integer")
                 };
             default:
-                return new Column[0];
+                return super.getColumnsAdded(version);
         }
     }
 

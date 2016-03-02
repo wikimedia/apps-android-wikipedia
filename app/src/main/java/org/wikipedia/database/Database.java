@@ -17,7 +17,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "wikipedia.db";
     private static final int DATABASE_VERSION = 10;
 
-    private final DatabaseTable[] databaseTables = {
+    private final DatabaseTable<?>[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
             PageImage.DATABASE_TABLE,
             RecentSearch.DATABASE_TABLE,
@@ -32,7 +32,7 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        for (DatabaseTable table : databaseTables) {
+        for (DatabaseTable<?> table : databaseTables) {
             table.createTables(sqLiteDatabase, DATABASE_VERSION);
         }
     }
@@ -40,7 +40,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int from, int to) {
         L.i("Upgrading from=" + from + " to=" + to);
-        for (DatabaseTable table : databaseTables) {
+        for (DatabaseTable<?> table : databaseTables) {
             table.upgradeSchema(sqLiteDatabase, from, to);
         }
     }

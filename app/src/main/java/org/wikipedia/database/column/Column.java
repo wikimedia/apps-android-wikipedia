@@ -3,7 +3,7 @@ package org.wikipedia.database.column;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
-public class Column<T> {
+public abstract class Column<T> {
     @NonNull private final String name;
     @NonNull private final String type;
 
@@ -26,10 +26,7 @@ public class Column<T> {
         return type;
     }
 
-    public T val(@NonNull Cursor cursor) {
-        // TODO: update all subclasses and make this method abstract. Also update type params.
-        throw new UnsupportedOperationException();
-    }
+    public abstract T val(@NonNull Cursor cursor);
 
     @Override
     public String toString() {

@@ -9,11 +9,13 @@ import android.support.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.database.column.Column;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
+import org.wikipedia.database.column.Column;
+import org.wikipedia.database.column.LongColumn;
+import org.wikipedia.database.column.StrColumn;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 
 import java.io.File;
@@ -135,25 +137,25 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     }
 
     @Override
-    public Column[] getColumnsAdded(int version) {
+    public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case 1:
-                return new Column[] {
-                        new Column("_id", "integer primary key"),
-                        new Column(COL_SITE, "string"),
-                        new Column(COL_TITLE, "string"),
-                        new Column(COL_TIMESTAMP, "integer")
+                return new Column<?>[] {
+                        new LongColumn("_id", "integer primary key"),
+                        new StrColumn(COL_SITE, "string"),
+                        new StrColumn(COL_TITLE, "string"),
+                        new LongColumn(COL_TIMESTAMP, "integer")
                 };
             case DB_VER_NAMESPACE_ADDED:
-                return new Column[] {
-                        new Column(COL_NAMESPACE, "string")
+                return new Column<?>[] {
+                        new StrColumn(COL_NAMESPACE, "string")
                 };
             case DB_VER_LANG_ADDED:
-                return new Column[] {
-                        new Column(COL_LANG, "text")
+                return new Column<?>[] {
+                        new StrColumn(COL_LANG, "text")
                 };
             default:
-                return new Column[0];
+                return super.getColumnsAdded(version);
         }
     }
 
