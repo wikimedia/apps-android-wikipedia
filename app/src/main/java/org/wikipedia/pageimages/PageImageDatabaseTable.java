@@ -85,7 +85,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
-            case 1:
+            case INITIAL_DB_VERSION:
                 return new Column<?>[] {
                         new LongColumn("_id", "integer primary key"),
                         new StrColumn(COL_SITE, "string"),

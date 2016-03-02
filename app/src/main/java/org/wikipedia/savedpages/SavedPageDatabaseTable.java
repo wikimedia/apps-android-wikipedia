@@ -139,7 +139,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
-            case 1:
+            case DB_VER_INTRODUCED:
                 return new Column<?>[] {
                         new LongColumn("_id", "integer primary key"),
                         new StrColumn(COL_SITE, "string"),
