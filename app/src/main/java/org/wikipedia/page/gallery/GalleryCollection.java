@@ -1,11 +1,11 @@
 package org.wikipedia.page.gallery;
 
-import org.wikipedia.page.PageTitle;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.page.PageTitle;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -49,9 +49,8 @@ public class GalleryCollection {
 
     public GalleryCollection(Map<PageTitle, GalleryItem> galleryMap) {
         itemList = new ArrayList<>();
-        Iterator iterator = galleryMap.keySet().iterator();
-        while (iterator.hasNext()) {
-            GalleryItem item = galleryMap.get(iterator.next());
+        for (PageTitle title : galleryMap.keySet()) {
+            GalleryItem item = galleryMap.get(title);
             if (item.getWidth() < MIN_IMAGE_SIZE || item.getHeight() < MIN_IMAGE_SIZE) {
                 // reject gallery items if they're too small
                 continue;
