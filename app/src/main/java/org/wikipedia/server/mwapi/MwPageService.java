@@ -14,6 +14,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.http.GET;
+import retrofit.http.Headers;
 import retrofit.http.Query;
 
 /**
@@ -127,6 +128,7 @@ public class MwPageService implements PageService {
           it's liable to return content that lies beyond the lead section, which might include
           unparsed wikitext, which we certainly don't want.
         */
+        @Headers("x-analytics: preview=1")
         @GET("/w/api.php?action=query&format=json&formatversion=2&prop=extracts%7Cpageimages"
                 + "&redirects=true&exsentences=5&explaintext=true&piprop=thumbnail%7Cname"
                 + "&pithumbsize=" + WikipediaApp.PREFERRED_THUMB_SIZE)
@@ -140,6 +142,7 @@ public class MwPageService implements PageService {
          * @param noImages add the noimages flag to the request if true
          * @param cb a Retrofit callback which provides the populated MwPageLead object in #success
          */
+        @Headers("x-analytics: pageview=1")
         @GET("/w/api.php?action=mobileview&format=json&formatversion=2&prop="
                 + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
                 + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
