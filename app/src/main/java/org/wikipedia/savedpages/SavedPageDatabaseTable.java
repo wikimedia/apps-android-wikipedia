@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.BuildConfig;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
@@ -53,6 +54,10 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         }
     }
 
+    public SavedPageDatabaseTable() {
+        super(BuildConfig.SAVED_PAGES_TABLE);
+    }
+
     /** Requires database of version {@link #DB_VER_NAMESPACE_ADDED} or greater. */
     @Override
     public SavedPage fromCursor(Cursor cursor) {
@@ -89,11 +94,6 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             }
         }
         return exists;
-    }
-
-    @Override
-    public String getTableName() {
-        return "savedpages";
     }
 
     @Override
@@ -149,6 +149,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         }
     }
 
+    @NonNull
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {

@@ -36,6 +36,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.pageimages.PageImageDatabaseTable;
 import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
@@ -117,21 +118,22 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        String tblName = HistoryEntry.DATABASE_TABLE.getTableName();
+        String titleCol = HistoryEntryDatabaseTable.Col.TITLE.getName();
         String selection = null;
         String[] selectionArgs = null;
         historyEmptyContainer.setVisibility(View.GONE);
         String searchStr = entryFilter.getText().toString();
         if (searchStr.length() != 0) {
-            // FIXME: Find ways to not have to hard code column names
             searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
-            selection = "UPPER(history.title) LIKE UPPER(?) ESCAPE '\\'";
+            selection = "UPPER(" + tblName + "." + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
             selectionArgs = new String[]{"%" + searchStr + "%"};
         }
 
         Uri uri = Uri.parse(HistoryEntry.DATABASE_TABLE.getBaseContentURI().toString()
                 + "/" + PageImage.DATABASE_TABLE.getTableName());
         String[] projection = null;
-        String order = "timestamp DESC";
+        String order = HistoryEntryDatabaseTable.Col.TIMESTAMP.getName() + " DESC";
         return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
 
@@ -179,7 +181,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
-                    cursor.getString(cursor.getColumnIndexOrThrow(PageImage.DATABASE_TABLE.getImageColumnName())));
+                    cursor.getString(cursor.getColumnIndexOrThrow(PageImageDatabaseTable.Col.IMAGE_NAME.getName())));
 
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.

@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.column.Column;
@@ -37,6 +38,10 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
         }
     }
 
+    public RecentSearchDatabaseTable() {
+        super(BuildConfig.RECENT_SEARCHES_TABLE);
+    }
+
     @Override
     public RecentSearch fromCursor(Cursor cursor) {
         String title = Col.TEXT.val(cursor);
@@ -53,15 +58,11 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
     }
 
     @Override
-    public String getTableName() {
-        return "recentsearches";
-    }
-
-    @Override
     protected int getDBVersionIntroducedAt() {
         return DB_VER_INTRODUCED;
     }
 
+    @NonNull
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {

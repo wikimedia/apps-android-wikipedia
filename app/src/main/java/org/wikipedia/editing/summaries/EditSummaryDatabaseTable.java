@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.column.Column;
@@ -37,6 +38,10 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
         }
     }
 
+    public EditSummaryDatabaseTable() {
+        super(BuildConfig.EDIT_SUMMARIES_TABLE);
+    }
+
     @Override
     public EditSummary fromCursor(Cursor cursor) {
         String summary = Col.SUMMARY.val(cursor);
@@ -53,15 +58,11 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     }
 
     @Override
-    public String getTableName() {
-        return "editsummaries";
-    }
-
-    @Override
     protected int getDBVersionIntroducedAt() {
         return DB_VER_INTRODUCED;
     }
 
+    @NonNull
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
@@ -79,8 +80,6 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
 
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull EditSummary obj) {
-        return new String[] {
-                obj.getSummary()
-        };
+        return new String[] {obj.getSummary()};
     }
 }

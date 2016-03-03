@@ -142,31 +142,31 @@
         </activity>
 
         <provider
-                android:authorities="${applicationId}.history"
+                android:authorities="@string/history_authority"
                 android:name=".history.HistoryEntryContentProvider"
                 android:exported="false"
                 />
 
         <provider
-                android:authorities="${applicationId}.editsummaries"
+                android:authorities="@string/edit_summaries_authority"
                 android:name=".editing.summaries.EditSummaryContentProvider"
                 android:exported="false"
                 />
 
         <provider
-                android:authorities="${applicationId}.pageimages"
+                android:authorities="@string/page_images_authority"
                 android:name=".pageimages.PageImageContentProvider"
                 android:exported="false"
                 />
 
         <provider
-                android:authorities="${applicationId}.recentsearches"
+                android:authorities="@string/recent_searches_authority"
                 android:name=".search.RecentSearchContentProvider"
                 android:exported="false"
                 />
 
         <provider
-                android:authorities="${applicationId}.savedpages"
+                android:authorities="@string/saved_pages_authority"
                 android:name=".savedpages.SavedPageContentProvider"
                 android:exported="false"
                 />
@@ -180,7 +180,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
 
         <receiver
             android:icon="@mipmap/launcher"
