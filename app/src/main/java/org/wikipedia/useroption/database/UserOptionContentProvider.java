@@ -27,7 +27,7 @@ public class UserOptionContentProvider extends SQLiteContentProvider {
                     .replaceAll(":idCol", Col.ID.getName())
                     .replaceAll("(\\S*):contentCols", TextUtils.join(",", StringUtil.prefix("$1", DbUtil.names(Col.CONTENT))))
                     .replaceAll(":contentVals", TextUtils.join(",", StringUtil.prefix("? as ", DbUtil.names(Col.CONTENT))))
-                    .replaceAll("(\\S*):selectionCol", "$1" + Col.SELECTION.getName());
+                    .replaceAll("(\\S*):selectionCol", "$1" + Col.SELECTION);
 
     public UserOptionContentProvider() {
         super(UserOptionRow.DATABASE_TABLE);

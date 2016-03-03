@@ -785,7 +785,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             public void onFinish(Map<PageTitle, String> result) {
                 if (result.containsKey(model.getTitle())) {
                     PageImage pi = new PageImage(model.getTitle(), result.get(model.getTitle()));
-                    app.getDatabaseClient(PageImage.class).upsert(pi, PageImageDatabaseTable.SELECTION_KEYS);
+                    app.getDatabaseClient(PageImage.class).upsert(pi, PageImageDatabaseTable.Col.SELECTION);
                     updateThumbnail(result.get(model.getTitle()));
                 }
             }

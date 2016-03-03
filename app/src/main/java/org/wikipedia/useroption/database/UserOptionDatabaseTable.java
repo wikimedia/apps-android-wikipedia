@@ -24,7 +24,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
 
         public static final List<? extends Column<?>> ALL;
         public static final List<? extends Column<?>> CONTENT;
-        public static final Column<?> SELECTION = KEY;
+        public static final String SELECTION = KEY.getName();
         static {
             List<Column<?>> content = new ArrayList<>();
             content.add(KEY);
@@ -89,7 +89,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     @Override
     protected String getPrimaryKeySelection(@NonNull UserOptionRow option,
                                             @NonNull String[] selectionArgs) {
-        return super.getPrimaryKeySelection(option, new String[] {Col.SELECTION.getName()});
+        return super.getPrimaryKeySelection(option, new String[] {Col.SELECTION});
     }
 
     @Override
