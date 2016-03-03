@@ -16,6 +16,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.http.GET;
+import retrofit.http.Headers;
 import retrofit.http.Path;
 import retrofit.http.Query;
 
@@ -141,6 +142,7 @@ public class RbPageService implements PageService {
          * @param title the page title to be used including prefix
          * @param cb a Retrofit callback which provides the populated RbPageCombo object in #success
          */
+        @Headers("x-analytics: preview=1")
         @GET("/page/summary/{title}")
         void pageSummary(@Path("title") String title, Callback<RbPageSummary> cb);
 
@@ -151,6 +153,7 @@ public class RbPageService implements PageService {
          * @param noImages add the noimages flag to the request if true
          * @param cb a Retrofit callback which provides the populated RbPageLead object in #success
          */
+        @Headers("x-analytics: pageview=1")
         @GET("/page/mobile-sections-lead/{title}")
         void pageLead(@Path("title") String title, @Query("noimages") Boolean noImages,
                       Callback<RbPageLead> cb);
