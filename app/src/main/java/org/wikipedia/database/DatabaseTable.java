@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.wikipedia.database.column.Column;
 import org.wikipedia.util.log.L;
@@ -118,13 +117,11 @@ public abstract class DatabaseTable<T> {
         if (columns.size() == 0) {
             return;
         }
-        List<String> columnCommands = new ArrayList<>(columns.size());
         for (Column<?> column : columns) {
-            columnCommands.add("ADD COLUMN " + column);
+            String alterTableString = "ALTER TABLE " + tableName + " ADD COLUMN " + column + ";";
+            L.d(alterTableString);
+            db.execSQL(alterTableString);
         }
-        String alterTableString = "ALTER TABLE " + tableName + " " + TextUtils.join(", ", columnCommands) + ";";
-        Log.d("Wikipedia", alterTableString);
-        db.execSQL(alterTableString);
         if (fromVersion < MIN_VERSION_NORMALIZED_LANGS) {
             addLangToAllSites(db);
         }
