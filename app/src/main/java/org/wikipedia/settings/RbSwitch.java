@@ -62,7 +62,7 @@ public final class RbSwitch {
         }
 
         if (WikipediaApp.getInstance().isProdRelease()) {
-            return isAdmitted(ticket, "restbasePercent");
+            return isAdmitted(ticket, "restbaseProdPercent");
         } else {
             return isAdmitted(ticket, "restbaseBetaPercent");
         }
