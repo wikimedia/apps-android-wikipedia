@@ -58,10 +58,10 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         super(BuildConfig.SAVED_PAGES_TABLE);
     }
 
-    /** Requires database of version {@link #DB_VER_NAMESPACE_ADDED} or greater. */
+    /** Requires database of version {@link #DB_VER_LANG_ADDED} or greater. */
     @Override
     public SavedPage fromCursor(Cursor cursor) {
-        return fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor));
+        return fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), Col.LANG.val(cursor));
     }
 
     @Override
@@ -126,11 +126,13 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     }
 
     private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor) {
-        return fromPreNamespaceCursor(cursor, null);
+        return fromPreNamespaceCursor(cursor, null, null);
     }
 
-    private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace) {
-        Site site = new Site(Col.SITE.val(cursor), Col.LANG.val(cursor));
+    private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
+                                             @Nullable String lang) {
+        String authority = Col.SITE.val(cursor);
+        Site site = lang == null ? new Site(authority) : new Site(authority, lang);
         PageTitle title = new PageTitle(namespace, Col.TITLE.val(cursor), site);
         Date timestamp = Col.TIMESTAMP.val(cursor);
         return new SavedPage(title, timestamp);
