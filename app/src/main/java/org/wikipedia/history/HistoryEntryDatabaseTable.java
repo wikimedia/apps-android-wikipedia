@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.Site;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.DbUtil;
@@ -47,6 +48,10 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         }
     }
 
+    public HistoryEntryDatabaseTable() {
+        super(BuildConfig.HISTORY_TABLE);
+    }
+
     @Override
     public HistoryEntry fromCursor(Cursor cursor) {
         Site site = new Site(Col.SITE.val(cursor), Col.LANG.val(cursor));
@@ -68,11 +73,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         return contentValues;
     }
 
-    @Override
-    public String getTableName() {
-        return "history";
-    }
-
+    @NonNull
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {

@@ -238,8 +238,12 @@ private setSigningConfigKey(config, Properties props) {
     return props
 }
 
+addSQLiteProviderStrings 'history', 'history'
+addSQLiteProviderStrings 'editsummaries', 'edit_summaries'
+addSQLiteProviderStrings 'pageimages', 'page_images'
+addSQLiteProviderStrings 'recentsearches', 'recent_searches'
+addSQLiteProviderStrings 'savedpages', 'saved_pages'
 addSQLiteProviderStrings 'useroption', 'user_option'
-// TODO: generate other providers as above.
 
 private void addSQLiteProviderStrings(String table, String namePrefix) {
     android.productFlavors.all { ProductFlavor flavor ->

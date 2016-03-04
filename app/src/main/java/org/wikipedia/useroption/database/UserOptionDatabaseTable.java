@@ -41,6 +41,10 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
 
     private static final int INTRODUCED_AT_DATABASE_VERSION = 9;
 
+    public UserOptionDatabaseTable() {
+        super(BuildConfig.USER_OPTION_TABLE);
+    }
+
     @Override
     public UserOptionRow fromCursor(Cursor cursor) {
         String key = Col.KEY.val(cursor);
@@ -59,11 +63,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
         return args;
     }
 
-    @Override
-    public String getTableName() {
-        return BuildConfig.USER_OPTION_TABLE;
-    }
-
+    @NonNull
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {

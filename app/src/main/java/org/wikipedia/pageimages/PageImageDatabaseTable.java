@@ -8,6 +8,7 @@ import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
@@ -46,6 +47,10 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         }
     }
 
+    public PageImageDatabaseTable() {
+        super(BuildConfig.PAGE_IMAGES_TABLE);
+    }
+
     @Override
     public PageImage fromCursor(Cursor cursor) {
         Site site = new Site(Col.SITE.val(cursor), Col.LANG.val(cursor));
@@ -76,7 +81,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
                     selection, new String[] {}, "");
             if (c.getCount() > 0) {
                 c.moveToFirst();
-                thumbnail = getString(c, Col.IMAGE_NAME.getName());
+                thumbnail = Col.IMAGE_NAME.val(c);
             }
         } catch (SQLiteException e) {
             // page title doesn't exist in database... no problem if it fails.
@@ -88,15 +93,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         return thumbnail;
     }
 
-    @Override
-    public String getTableName() {
-        return "pageimages";
-    }
-
-    public String getImageColumnName() {
-        return Col.IMAGE_NAME.getName();
-    }
-
+    @NonNull
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {

@@ -37,6 +37,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.pageimages.PageImageDatabaseTable;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.ViewUtil;
 
@@ -47,8 +48,8 @@ import java.util.List;
 import static org.wikipedia.Constants.SAVED_PAGES_FRAGMENT_LOADER_ID;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
-public class SavedPagesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
-
+public class SavedPagesFragment extends Fragment
+        implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
     private ListView savedPagesList;
     private View savedPagesEmptyContainer;
     private TextView savedPagesEmptyTitle;
@@ -125,21 +126,22 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        String tblName = SavedPage.DATABASE_TABLE.getTableName();
+        String titleCol = SavedPageDatabaseTable.Col.TITLE.getName();
         String selection = null;
         String[] selectionArgs = null;
         savedPagesEmptyContainer.setVisibility(View.GONE);
         String searchStr = entryFilter.getText().toString();
         if (searchStr.length() != 0) {
-            // FIXME: Find ways to not have to hard code column names
             searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
-            selection = "UPPER(savedpages.title) LIKE UPPER(?) ESCAPE '\\'";
+            selection = "UPPER(" + tblName + "." + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
             selectionArgs = new String[]{"%" + searchStr + "%"};
         }
 
         Uri uri = Uri.parse(SavedPage.DATABASE_TABLE.getBaseContentURI().toString()
                 + "/" + PageImage.DATABASE_TABLE.getTableName());
         String[] projection = null;
-        String order = "savedpages.title ASC";
+        String order = tblName + "." + titleCol + " ASC";
         return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
 
@@ -183,7 +185,7 @@ public class SavedPagesFragment extends Fragment implements LoaderManager.Loader
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
-                    cursor.getString(cursor.getColumnIndexOrThrow(PageImage.DATABASE_TABLE.getImageColumnName())));
+                    cursor.getString(cursor.getColumnIndexOrThrow(PageImageDatabaseTable.Col.IMAGE_NAME.getName())));
         }
     }
 

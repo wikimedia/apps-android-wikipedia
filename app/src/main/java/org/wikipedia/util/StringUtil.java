@@ -171,9 +171,10 @@ public final class StringUtil {
         return text.substring(0, text.indexOf("#"));
     }
 
-    @NonNull public static Collection<? extends CharSequence> prefix(@Nullable String prefix,
-                                                                     @NonNull Collection<? extends CharSequence> strs) {
-        List<CharSequence> ret = new ArrayList<>(strs.size());
+    @NonNull
+    public static Collection<String> prefix(@Nullable String prefix,
+                                            @NonNull Collection<? extends CharSequence> strs) {
+        List<String> ret = new ArrayList<>(strs.size());
         for (CharSequence str : strs) {
             ret.add(prefix + str);
         }

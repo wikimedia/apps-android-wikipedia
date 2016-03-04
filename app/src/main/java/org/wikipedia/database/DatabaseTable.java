@@ -25,13 +25,15 @@ public abstract class DatabaseTable<T> {
     private static final int MIN_VERSION_NORMALIZED_TITLES = 8;
     private static final int MIN_VERSION_NORMALIZED_LANGS = 10;
 
-    private Uri baseContentURI;
+    @NonNull private final String tableName;
+    @NonNull private final Uri baseContentURI;
 
-    public DatabaseTable() {
+    public DatabaseTable(@NonNull String tableName) {
+        this.tableName = tableName;
         baseContentURI = new Uri.Builder()
                 .scheme(ContentResolver.SCHEME_CONTENT)
-                .authority(SQLiteContentProvider.getAuthorityForTable(getTableName()))
-                .path(getTableName())
+                .authority(SQLiteContentProvider.getAuthorityForTable(tableName))
+                .path(tableName)
                 .build();
     }
 
@@ -39,8 +41,12 @@ public abstract class DatabaseTable<T> {
 
     protected abstract ContentValues toContentValues(T obj);
 
-    public abstract String getTableName();
+    @NonNull
+    public String getTableName() {
+        return tableName;
+    }
 
+    @NonNull
     public Column<?>[] getColumnsAdded(int version) {
         return new Column<?>[0];
     }
@@ -108,7 +114,6 @@ public abstract class DatabaseTable<T> {
         if (fromVersion < MIN_VERSION_NORMALIZED_TITLES) {
             convertAllTitlesToUnderscores(db);
         }
-        String tableName = getTableName();
         List<? extends Column<?>> columns = getElements(fromVersion + 1, toVersion);
         if (columns.size() == 0) {
             return;
@@ -125,25 +130,9 @@ public abstract class DatabaseTable<T> {
         }
     }
 
+    @NonNull
     public Uri getBaseContentURI() {
         return baseContentURI;
-    }
-
-    // TODO: convert these helper methods in subclasses to use the Column variety.
-    protected String getString(@NonNull Cursor cursor, @NonNull String col) {
-        return cursor.getString(getCol(cursor, col));
-    }
-
-    protected long getLong(@NonNull Cursor cursor, @NonNull String col) {
-        return cursor.getLong(getCol(cursor, col));
-    }
-
-    protected int getInt(@NonNull Cursor cursor, @NonNull String col) {
-        return cursor.getInt(getCol(cursor, col));
-    }
-
-    protected int getCol(@NonNull Cursor cursor, @NonNull String col) {
-        return cursor.getColumnIndexOrThrow(col);
     }
 
     /**
