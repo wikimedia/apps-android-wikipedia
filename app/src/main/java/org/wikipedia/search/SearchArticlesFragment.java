@@ -1,19 +1,5 @@
 package org.wikipedia.search;
 
-import org.wikipedia.BackPressedHandler;
-import org.wikipedia.history.HistoryEntryDatabaseTable;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.SearchFunnel;
-import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.settings.LanguagePreferenceDialog;
-
-import com.squareup.otto.Subscribe;
-
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -32,8 +18,22 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import com.squareup.otto.Subscribe;
+
+import org.wikipedia.BackPressedHandler;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.SearchFunnel;
+import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.HistoryEntryDatabaseTable;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.LanguagePreferenceDialog;
+
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class SearchArticlesFragment extends Fragment implements BackPressedHandler {
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
@@ -428,7 +428,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
         @Override
         public Void performTask() throws Throwable {
-            app.getDatabaseClient(RecentSearch.class).upsert(entry, HistoryEntryDatabaseTable.SELECTION_KEYS);
+            app.getDatabaseClient(RecentSearch.class).upsert(entry, HistoryEntryDatabaseTable.Col.SELECTION);
             return null;
         }
 

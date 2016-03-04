@@ -4,49 +4,64 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.provider.BaseColumns;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.DatabaseTable;
+import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.column.LongColumn;
 import org.wikipedia.database.column.StrColumn;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
-import org.wikipedia.database.DatabaseTable;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     private static final int DB_VER_NAMESPACE_ADDED = 7;
     private static final int DB_VER_LANG_ADDED = 10;
 
-    private static final String COL_SITE = "site";
-    private static final String COL_LANG = "lang";
-    private static final String COL_NAMESPACE = "namespace";
-    private static final String COL_TITLE = "title";
-    private static final String COL_IMAGE_NAME = "imageName";
+    public static class Col {
+        public static final LongColumn ID = new LongColumn(BaseColumns._ID, "integer primary key");
+        public static final StrColumn SITE = new StrColumn("site", "string");
+        public static final StrColumn LANG = new StrColumn("lang", "text");
+        public static final StrColumn TITLE = new StrColumn("title", "string");
+        public static final StrColumn NAMESPACE = new StrColumn("namespace", "string");
+        public static final StrColumn IMAGE_NAME = new StrColumn("imageName", "string");
 
-    public static final String[] SELECTION_KEYS = {
-            COL_SITE,
-            COL_LANG,
-            COL_NAMESPACE,
-            COL_TITLE
-    };
+        public static final List<? extends Column<?>> ALL;
+        public static final List<? extends Column<?>> CONTENT = Arrays.<Column<?>>asList(SITE, LANG,
+                TITLE, NAMESPACE, IMAGE_NAME);
+        public static final String[] SELECTION = DbUtil.names(SITE, LANG, NAMESPACE, TITLE);
+        static {
+            List<Column<?>> all = new ArrayList<>();
+            all.add(ID);
+            all.addAll(CONTENT);
+            ALL = Collections.unmodifiableList(all);
+        }
+    }
 
     @Override
-    public PageImage fromCursor(Cursor c) {
-        Site site = new Site(getString(c, COL_SITE), getString(c, COL_LANG));
-        PageTitle title = new PageTitle(getString(c, COL_NAMESPACE), getString(c, COL_TITLE), site);
-        String imageName = getString(c, COL_IMAGE_NAME);
+    public PageImage fromCursor(Cursor cursor) {
+        Site site = new Site(Col.SITE.val(cursor), Col.LANG.val(cursor));
+        PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), site);
+        String imageName = Col.IMAGE_NAME.val(cursor);
         return new PageImage(title, imageName);
     }
 
     @Override
     protected ContentValues toContentValues(PageImage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_SITE, obj.getTitle().getSite().authority());
-        contentValues.put(COL_LANG, obj.getTitle().getSite().languageCode());
-        contentValues.put(COL_NAMESPACE, obj.getTitle().getNamespace());
-        contentValues.put(COL_TITLE, obj.getTitle().getPrefixedText());
-        contentValues.put(COL_IMAGE_NAME, obj.getImageName());
+        contentValues.put(Col.SITE.getName(), obj.getTitle().getSite().authority());
+        contentValues.put(Col.LANG.getName(), obj.getTitle().getSite().languageCode());
+        contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
+        contentValues.put(Col.TITLE.getName(), obj.getTitle().getPrefixedText());
+        contentValues.put(Col.IMAGE_NAME.getName(), obj.getImageName());
         return contentValues;
     }
 
@@ -56,12 +71,12 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         String thumbnail = null;
         try {
             String searchStr = title.getPrefixedText().replace("'", "''");
-            String selection = getTableName() + "." + COL_TITLE + "='" + searchStr + "'";
+            String selection = getTableName() + "." + Col.TITLE.getName() + "='" + searchStr + "'";
             c = app.getDatabaseClient(PageImage.class).select(
                     selection, new String[] {}, "");
             if (c.getCount() > 0) {
                 c.moveToFirst();
-                thumbnail = getString(c, COL_IMAGE_NAME);
+                thumbnail = getString(c, Col.IMAGE_NAME.getName());
             }
         } catch (SQLiteException e) {
             // page title doesn't exist in database... no problem if it fails.
@@ -79,27 +94,18 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     }
 
     public String getImageColumnName() {
-        return COL_IMAGE_NAME;
+        return Col.IMAGE_NAME.getName();
     }
 
     @Override
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case INITIAL_DB_VERSION:
-                return new Column<?>[] {
-                        new LongColumn("_id", "integer primary key"),
-                        new StrColumn(COL_SITE, "string"),
-                        new StrColumn(COL_TITLE, "string"),
-                        new StrColumn(COL_IMAGE_NAME, "string"),
-                };
+                return new Column<?>[] {Col.ID, Col.SITE, Col.TITLE, Col.IMAGE_NAME};
             case DB_VER_NAMESPACE_ADDED:
-                return new Column<?>[] {
-                        new StrColumn(COL_NAMESPACE, "string")
-                };
+                return new Column<?>[] {Col.NAMESPACE};
             case DB_VER_LANG_ADDED:
-                return new Column<?>[] {
-                        new StrColumn(COL_LANG, "text")
-                };
+                return new Column<?>[] {Col.LANG};
             default:
                 return super.getColumnsAdded(version);
         }
@@ -107,7 +113,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
 
     @Override
     protected String getPrimaryKeySelection(@NonNull PageImage obj, @NonNull String[] selectionArgs) {
-        return super.getPrimaryKeySelection(obj, SELECTION_KEYS);
+        return super.getPrimaryKeySelection(obj, Col.SELECTION);
     }
 
     @Override
@@ -128,15 +134,14 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     @Override
     protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
-        int idIndex = cursor.getColumnIndexOrThrow("_id");
-        int titleIndex = cursor.getColumnIndexOrThrow(COL_TITLE);
         ContentValues values = new ContentValues();
         while (cursor.moveToNext()) {
-            String title = cursor.getString(titleIndex);
+            String title = Col.TITLE.val(cursor);
             if (title.contains(" ")) {
-                values.put(COL_TITLE, title.replace(" ", "_"));
-                String id = Long.toString(cursor.getLong(idIndex));
-                db.updateWithOnConflict(getTableName(), values, "_id = ?", new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
+                values.put(Col.TITLE.getName(), title.replace(" ", "_"));
+                String id = Long.toString(Col.ID.val(cursor));
+                db.updateWithOnConflict(getTableName(), values, Col.ID.getName() + " = ?",
+                        new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
             }
         }
         cursor.close();
@@ -147,13 +152,11 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         super.addLangToAllSites(db);
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
         try {
-            int idIndex = cursor.getColumnIndexOrThrow("_id");
-            int siteIndex = cursor.getColumnIndexOrThrow(COL_SITE);
             while (cursor.moveToNext()) {
-                String site = cursor.getString(siteIndex);
+                String site = Col.SITE.val(cursor);
                 ContentValues values = new ContentValues();
-                values.put(COL_LANG, site.split("\\.")[0]);
-                String id = Long.toString(cursor.getLong(idIndex));
+                values.put(Col.LANG.getName(), site.split("\\.")[0]);
+                String id = Long.toString(Col.ID.val(cursor));
                 db.updateWithOnConflict(getTableName(), values, "_id = ?", new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
             }
         } finally {

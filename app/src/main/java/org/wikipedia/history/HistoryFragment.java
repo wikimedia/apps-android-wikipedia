@@ -288,7 +288,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                             if (checkedItems.valueAt(i)) {
                                 app.getDatabaseClient(HistoryEntry.class).delete(
                                         HistoryEntry.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i))),
-                                        HistoryEntryDatabaseTable.SELECTION_KEYS);
+                                        HistoryEntryDatabaseTable.Col.SELECTION);
                             }
                         }
                         if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {

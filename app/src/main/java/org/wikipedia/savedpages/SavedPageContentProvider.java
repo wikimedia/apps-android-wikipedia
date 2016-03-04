@@ -44,10 +44,11 @@ public class SavedPageContentProvider extends SQLiteContentProvider {
                                 SavedPage.DATABASE_TABLE.getTableName(), PageImage.DATABASE_TABLE.getTableName()
                         )
                 );
-                String[] actualProjection = new String[]{
+                // TODO: clean up
+                String[] actualProjection = new String[] {
                         "savedpages._id",
                         "savedpages.site",
-                        SavedPage.DATABASE_TABLE.getTableName() + "." + SavedPageDatabaseTable.COL_LANG,
+                        SavedPage.DATABASE_TABLE.getTableName() + "." + SavedPageDatabaseTable.Col.LANG.getName(),
                         "savedpages.title",
                         "savedpages.namespace",
                         "savedpages.timestamp",

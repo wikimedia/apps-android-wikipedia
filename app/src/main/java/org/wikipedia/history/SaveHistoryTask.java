@@ -26,7 +26,7 @@ public class SaveHistoryTask extends SaneAsyncTask<Void> {
         // that all previous instances will be deleted, and then only the most recent instance
         // will be placed at the top.
         DatabaseClient<HistoryEntry> client = app.getDatabaseClient(HistoryEntry.class);
-        client.delete(entry, HistoryEntryDatabaseTable.SELECTION_KEYS);
+        client.delete(entry, HistoryEntryDatabaseTable.Col.SELECTION);
         client.persist(entry);
         return null;
     }
