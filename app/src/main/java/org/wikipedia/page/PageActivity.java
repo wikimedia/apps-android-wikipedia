@@ -27,6 +27,7 @@ import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
@@ -277,6 +278,8 @@ public class PageActivity extends ThemedActionBarActivity {
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(app).run();
+
+        UserOptionContentResolver.requestManualSync();
     }
 
     private void finishActionMode() {
