@@ -57,7 +57,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 141
+        versionCode 142
         ndk {
             // TODO: remove when updated Mapbox SDK starts shipping arm64 libraries.
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
