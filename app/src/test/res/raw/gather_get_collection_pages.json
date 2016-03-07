@@ -1,0 +1,15 @@
+{
+  "batchcomplete": "",
+  "query": {
+    "listpages": [
+      {
+        "ns": 0,
+        "title": "Test"
+      },
+      {
+        "ns": 1,
+        "title": "Talk:Test"
+      }
+    ]
+  }
+}
