@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
+import org.wikipedia.useroption.ui.UserOptionRowActivity;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
@@ -48,6 +49,7 @@ import java.util.List;
         setUpCookies((PreferenceCategory) findPreference(R.string.preferences_developer_cookies_key));
         setUpEditTokens((PreferenceCategory) findPreference(R.string.preferences_developer_edit_tokens_key));
         setUpCrashButton(findPreference(getCrashButtonKey()));
+        setUpUserOptionButton(findPreference(getUserOptionButtonKey()));
         setUpRemoteLogButton(findPreference(R.string.preference_key_remote_log));
     }
 
@@ -80,8 +82,16 @@ import java.util.List;
         return context.getString(R.string.preferences_developer_crash_key);
     }
 
+    private String getUserOptionButtonKey() {
+        return context.getString(R.string.preferences_developer_user_option_key);
+    }
+
     private void setUpCrashButton(Preference button) {
         button.setOnPreferenceClickListener(buildCrashButtonClickListener());
+    }
+
+    private void setUpUserOptionButton(Preference button) {
+        button.setOnPreferenceClickListener(buildUserOptionButtonClickListener());
     }
 
     private Preference.OnPreferenceClickListener buildCrashButtonClickListener() {
@@ -89,6 +99,16 @@ import java.util.List;
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 throw new TestException("User tested crash functionality.");
+            }
+        };
+    }
+
+    private Preference.OnPreferenceClickListener buildUserOptionButtonClickListener() {
+        return new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                context.startActivity(UserOptionRowActivity.newIntent(context));
+                return true;
             }
         };
     }
