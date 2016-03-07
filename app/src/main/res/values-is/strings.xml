@@ -3,6 +3,7 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alfa</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Já</string>
   <string name="no">Nei</string>
   <string name="search_hint">Leita á Wikipedia</string>
@@ -51,6 +52,7 @@
   <string name="last_updated_text">Síðast uppfært %s</string>
   <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
   <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
+  <string name="edit_save_action_license_anon">Með því að vista samþykkir þú &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
   <string name="preference_title_language">Tungumál Wikipediu</string>
   <string name="preference_languages_filter_hint">Leita</string>
   <string name="langlinks_filter_hint">Leita</string>
@@ -64,11 +66,16 @@
   <string name="dialog_message_edit_failed">Breytingin mistókst!</string>
   <string name="dialog_message_edit_failed_retry">Reyna aftur</string>
   <string name="dialog_message_edit_failed_cancel">Hætta við</string>
+  <string name="dialog_message_leaving_edit">Breytingarnar þínar hafa ekki enn verið vistaðar. Ertu viss um að þú viljir fara af síðunni ?</string>
   <string name="dialog_message_leaving_edit_leave">Fara</string>
   <string name="dialog_message_leaving_edit_stay">Vera hér</string>
   <string name="menu_show_toc">Efnisyfirlit</string>
   <string name="search_no_results_found">Engar niðurstöður fundust</string>
+  <string name="edit_section_captcha_message">Sem hjálp við að berjast á móti sjálfvirkum ruslpóstsendingum, skaltu setja inn orðin sem birtast hér fyrir neðan</string>
+  <string name="edit_section_captcha_hint">Endurtaktu orðin fyrir að ofan</string>
   <string name="title_captcha">Settu inn CAPTCHA</string>
+  <string name="edit_section_captcha_reload">Sláðu á CAPTCHA til að endurhlaða</string>
+  <string name="edit_saved_page_refresh">Þessi vistaða síða gæti verið úreld og þyrfti að endurlesa hana svo að breytingar verði virkar. Viltu uppfæra síðuna ?</string>
   <string name="nav_item_login">Skrá inn á Wikipedia</string>
   <string name="login_username_hint">Notandanafn</string>
   <string name="login_password_hint">Lykilorð</string>
@@ -86,7 +93,9 @@
   <string name="preference_title_logout">Skrá út</string>
   <string name="toast_logout_complete">Skráður út</string>
   <string name="saved_pages_empty_title">Engar vistaðar síður hér!</string>
+  <string name="saved_pages_empty_message">Vistaðar síður eru ansi sniðugar. Ímyndaðu þér þær sem eins konar bókamerki sem þú getur lesið jafnvel þótt þú sért ekki nettengdur.</string>
   <string name="history_empty_title">Engar nýlegar síður hér!</string>
+  <string name="history_empty_message">Líklega eyddirðu þeim öllum. Næst þegar þú ferð á síðu, geturðu komist til baka á hana hér.</string>
   <string name="delete_selected_history">Eyða</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Notandanafn</string>
@@ -99,6 +108,9 @@
   <string name="create_account_passwords_mismatch_error">Lykilorðin samsvara ekki</string>
   <string name="create_account_email_error">Ógilt tölvupóstfang</string>
   <string name="create_account_username_exists_error">Notandanafn er þegar í notkun</string>
+  <string name="create_account_ip_throttle_error">Of margir notandaaðgangar stofnaðir af þessu IP-vistfangi. Reyndu aftur síðar.</string>
+  <string name="create_account_open_proxy_error">Þetta IP-vistfang er útilokað frá því á búa til notendaaðganga.</string>
+  <string name="create_account_noname_error">Notandanafnið sem þú gafst upp er ógilt. Settu inn annað notandanafn.</string>
   <string name="create_account_invalid_email_error">Netfangið sem þú gafst upp er ógilt.</string>
   <string name="create_account_password_too_short_error">Lykilorðið sem þú gafst upp er of stutt.</string>
   <string name="create_account_blocked_anon_error">Þú getur ekki búið til aðgang vegna þess að IP-vistfangið þitt er bannfært.</string>
@@ -129,8 +141,11 @@
   <string name="preferences_privacy_settings_heading">Gagnaleynd</string>
   <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
   <string name="preference_summary_eventlogging_opt_in">Leyfa Wikimedia til að safna upplýsingum um hvernig þú notar appið, til að gera það betra</string>
+  <string name="preference_title_auto_upload_crash_reports">Senda hrunskýrslur</string>
+  <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
   <string name="history_search_list_hint">Leitarferill</string>
   <string name="history_search_empty_message">Engar síður fundust sem samsvara leitarskilyrðunum.</string>
+  <string name="error_can_not_process_link">Gat ekki birt þennan tengil</string>
   <string name="page_protected_autoconfirmed">Þessi síða er varin að hluta til.</string>
   <string name="page_protected_sysop">Þessi síða er varin í heild.</string>
   <string name="page_protected_other">Þessi síða er varin upp á eftirfarandi stig: %s</string>
@@ -141,11 +156,18 @@
   <string name="about_description">Um Wikipedia-appið</string>
   <string name="privacy_policy_description">Meðferð persónuupplýsinga</string>
   <string name="terms_of_use_description">Notkunarskilmálar</string>
+  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">notuð söfn</string>
-  <string name="about_contributors_heading" fuzzy="true">framlög frá</string>
-  <string name="about_translators_heading" fuzzy="true">þýðendur</string>
-  <string name="about_activity_title">Um</string>
+  <string name="about_contributors_heading">framlög frá</string>
+  <string name="about_translators_heading">þýðendur</string>
+  <string name="about_translators_translatewiki">Þetta forrit/app var þýtt af sjálfboðaliðum á &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_wmf">Í boði &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+  <string name="about_activity_title">Um hugbúnaðinn</string>
+  <string name="edit_abandon_confirm">Síðunni hefur verið breytt. Ertu viss um að þú viljir hætta án þess að vista breytingarnar þínar ?</string>
   <string name="user_blocked_from_editing_title">Bannaður</string>
+  <string name="user_logged_in_blocked_from_editing">Aðgangurinn þinn hefur verið útilokaður frá því að breyta nokkru á þessu wiki.</string>
+  <string name="user_anon_blocked_from_editing">IP-vistfangið þitt hefur verið útilokað frá breytingum.</string>
   <string name="edit_how_page_improved">Hvernig bættirðu síðuna?</string>
   <string name="edit_next">Næsta</string>
   <string name="edit_done">Vista</string>
@@ -157,6 +179,7 @@
   <string name="edit_summary_tag_other_hint">Aðrar leiðir sem þú notaðir til að bæta síðuna</string>
   <string name="find_next">Finna næsta</string>
   <string name="find_previous">Finna fyrra</string>
+  <string name="error_network_error_try_again">Ekki tókst að tengjast netinu, reyndu aftur síðar.</string>
   <string name="saved_pages_update_all_error_retry">Reyna aftur</string>
   <string name="saved_pages_update_all_error_message">Villa við uppfærslu á vistuðum síðum</string>
   <string name="saved_pages_progress_title">Hressi vistaðar síður...</string>
@@ -172,6 +195,8 @@
   <string name="search_did_you_mean">Áttir þú við \"%s\"?</string>
   <string name="search_recent_header">Nýlegar leitir:</string>
   <string name="button_clear_all_recent_searches">Hreinsa nýlegar leitir</string>
+  <string name="clear_recent_searches_confirm">Ertu viss um að þú viljir eyða leitarferlinum þínum?</string>
+  <string name="error_browser_not_found">Gat ekki opnað vefsíðu (fann ekkert vafraforrit).</string>
   <string name="table_infobox">Staðreyndir í einum hvelli</string>
   <string name="table_other">Meiri upplýsingar</string>
   <string name="table_close">Loka</string>
@@ -180,8 +205,10 @@
   <string name="widget_name_search">Wikipedia-leit</string>
   <string name="wiktionary_no_definitions_found">Engar skilgreiningar fundust.</string>
   <string name="alpha_update_notification_title">Ný alfa-uppfærsla tiltæk</string>
+  <string name="alpha_update_notification_text">Sláðu létt til að sækja</string>
   <string name="dialog_close_description">Loka</string>
   <string name="preference_title_show_images">Birta myndir</string>
+  <string name="preference_summary_show_images">Virkja eða afvirkja hleðslu mynda í síðum. Taktu hakið úr þessu ef nettengingin þín er hægvirk, eða ef þú þarft að borga aukalega fyrir gagnamagnið.</string>
   <string name="read_more_section">Lesa meira</string>
   <string name="menu_gallery_visit_page">Fara á síðu skráarinnar</string>
   <string name="gallery_error_draw_failed">Gat ekki dregið upp myndina.</string>
@@ -194,6 +221,7 @@
   <string name="gallery_error_video_failed">Tókst ekki að spila myndskeiðið.</string>
   <string name="err_cannot_save_file">Gat ekki vistað skrá</string>
   <string name="snippet_share_intro">\"%1$s\" á @Wikipedia: %2$s</string>
+  <string name="expand_refs">Sláðu létt til að stækka</string>
   <string name="share_snippet_button">Deila sem mynd</string>
   <string name="share_normal_button">Deila sem texta</string>
   <string name="snippet_share_preview_image_desc">Forskoða mynd</string>
@@ -205,6 +233,7 @@
   <string name="button_close_tab">Loka flipa</string>
   <string name="page_view_in_browser">Opna síðu í vafra</string>
   <string name="error_server_response">Netþjónninn gat ekki uppfyllt fyrirspurnina.</string>
+  <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
   <string name="error_unknown">Óþekkt villa kom upp.</string>
   <string name="format_error_server_message">Skilaboð: \"%s\"</string>
   <string name="format_error_server_code">Kóði: \"%s\"</string>

@@ -83,7 +83,7 @@
   <string name="dialog_create_account_checking_progress">ପରଖାଯାଉଛି</string>
   <string name="create_account_email_hint">ଇମେଲ (ଇଚ୍ଛାଧୀନ)</string>
   <string name="create_account_password_repeat_hint">ପାସୱାର୍ଡ଼ଟି ଆଉଥରେ ଦିଅନ୍ତୁ</string>
-  <string name="create_account_passwords_mismatch_error">ପାସୱର୍ଡ଼ ଦୁଇଟି ସମାନ ନୁହଁନ୍ତି</string>
+  <string name="create_account_passwords_mismatch_error">ପାସୱାର୍ଡ଼ ଦୁଇଟି ସମାନ ନୁହଁନ୍ତି</string>
   <string name="create_account_email_error">ଭୁଲ ଇମେଲ ଠିକଣା</string>
   <string name="create_account_username_exists_error">ଏହି ସଭ୍ୟ ନାମଟି ଆଗରୁ ଅଛି</string>
   <string name="create_account_ip_throttle_error">ଏହି IP ଠିକଣାରୁ ଖୁବ ଅଧିକ ଖାତା ଖୋଲାଯାଇଛି । ପରେ ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>

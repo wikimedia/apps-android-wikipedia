@@ -10,10 +10,10 @@
   <string name="nav_item_history">ইতিহাস</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
-  <string name="page_error_back_to_main">ফিরে যাও</string>
+  <string name="page_error_back_to_main">ফিরে যান</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
   <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
-  <string name="page_does_not_exist_error">এই শিরোনামে কোন পাতা নেই।</string>
+  <string name="page_does_not_exist_error">এই পাতার অস্তিত্ব নেই।</string>
   <string name="nav_item_today">আজ</string>
   <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এই আপনার সব ব্রাউজ করা ইতিহাস সব মুছে দিন, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
@@ -160,7 +160,7 @@
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/bn</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading" fuzzy="true">ব্যবহৃত লাইব্রেরীসমূহ</string>
+  <string name="about_libraries_heading">ব্যবহৃত গ্রন্থাগারগুলি</string>
   <string name="about_contributors_heading">অবদানকারীগণ</string>
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>

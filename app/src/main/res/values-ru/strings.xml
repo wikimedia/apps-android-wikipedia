@@ -201,7 +201,7 @@
   <string name="button_clear_all_recent_searches">Очистить список последних поисковых запросов</string>
   <string name="clear_recent_searches_confirm">Вы уверены, что хотите стереть историю поисковых запросов?</string>
   <string name="error_browser_not_found">Не удалось открыть веб-страницу (приложение браузера не найдено).</string>
-  <string name="table_infobox">Короткие факты</string>
+  <string name="table_infobox">Краткие факты</string>
   <string name="table_other">Дополнительная информация</string>
   <string name="table_close">Закрыть</string>
   <string name="widget_name_featured_page">Избранная страница Википедии</string>

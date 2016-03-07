@@ -3,6 +3,7 @@
   <string name="app_name_prod">Wikipedie</string>
   <string name="app_name_beta">Wikipedie Beta</string>
   <string name="app_name_alpha">Wikipedie Alfa</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Ano</string>
   <string name="no">Ne</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
@@ -155,9 +156,9 @@
   <string name="terms_of_use_description">Podmínky užití</string>
   <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/cs</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/cs</string>
-  <string name="about_libraries_heading" fuzzy="true">použité knihovny</string>
-  <string name="about_contributors_heading" fuzzy="true">přispěvatelé</string>
-  <string name="about_translators_heading" fuzzy="true">překladatelé</string>
+  <string name="about_libraries_heading">Použité knihovny</string>
+  <string name="about_contributors_heading">Přispěvatelé</string>
+  <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci</string>

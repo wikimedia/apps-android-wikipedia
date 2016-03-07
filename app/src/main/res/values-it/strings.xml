@@ -70,7 +70,7 @@
   <string name="dialog_message_leaving_edit_leave">Lascia</string>
   <string name="dialog_message_leaving_edit_stay">Rimani</string>
   <string name="menu_show_toc">Sommario</string>
-  <string name="search_no_results_found">Nessun risultato</string>
+  <string name="search_no_results_found">Nessun risultato trovato</string>
   <string name="edit_section_captcha_message">Per aiutare a combattere lo spam automatico, inseririsci per favore le parole che compaiono sotto</string>
   <string name="edit_section_captcha_hint">Ripeti le parole dall\'alto</string>
   <string name="title_captcha">Inserisci il captcha</string>
