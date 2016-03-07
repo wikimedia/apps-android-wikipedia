@@ -349,18 +349,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_share_tutorial_enabled, enabled);
     }
 
-    public static boolean isFeatureReadMoreSearchOpeningTextEnabled() {
-        return getBoolean(R.string.preference_key_feature_read_more_search_opening_text, true);
-    }
-
-    public static void setFeatureReadMoreSearchOpeningTextEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_feature_read_more_search_opening_text, enabled);
-    }
-
-    public static boolean hasFeatureReadMoreSearchOpeningText() {
-        return contains(R.string.preference_key_feature_read_more_search_opening_text);
-    }
-
     public static boolean isFeatureSearchAutoCompleteEnabled() {
         return getBoolean(R.string.preference_key_feature_search_autocomplete, true);
     }

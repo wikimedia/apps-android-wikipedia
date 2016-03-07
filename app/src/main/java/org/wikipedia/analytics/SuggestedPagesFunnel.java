@@ -14,14 +14,13 @@ public class SuggestedPagesFunnel extends Funnel {
     private static final int REV_ID = 15302212;
     private static final int READ_MORE_SOURCE_FULL_TEXT = 0;
     private static final int READ_MORE_SOURCE_MORELIKE = 1;
-    private static final int READ_MORE_SOURCE_OPENING_TEXT = 2;
 
     private int readMoreSource;
     private long latency;
 
     public SuggestedPagesFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100);
-        this.readMoreSource = app.isFeatureReadMoreSearchOpeningTextEnabled() ? READ_MORE_SOURCE_OPENING_TEXT : READ_MORE_SOURCE_MORELIKE;
+        this.readMoreSource = READ_MORE_SOURCE_MORELIKE;
     }
 
     @Override

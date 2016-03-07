@@ -407,17 +407,6 @@ public class WikipediaApp extends Application {
         return EVENT_LOG_TESTING_ID;
     }
 
-    public boolean isFeatureReadMoreSearchOpeningTextEnabled() {
-        boolean enabled;
-        if (Prefs.hasFeatureReadMoreSearchOpeningText()) {
-            enabled = Prefs.isFeatureReadMoreSearchOpeningTextEnabled();
-        } else {
-            enabled = new Random().nextInt(2) == 0;
-            Prefs.setFeatureReadMoreSearchOpeningTextEnabled(enabled);
-        }
-        return enabled;
-    }
-
     public boolean isFeatureSearchAutoCompleteEnabled() {
         // Only enable for pre-production builds/releases, since the feature itself is in beta.
         if (ReleaseUtil.isProdRelease()) {
