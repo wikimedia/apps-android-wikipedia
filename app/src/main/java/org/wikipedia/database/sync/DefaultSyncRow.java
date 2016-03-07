@@ -1,6 +1,7 @@
 package org.wikipedia.database.sync;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 public class DefaultSyncRow implements SyncRow {
     public static final int NO_TRANSACTION_ID = 0;
@@ -47,8 +48,11 @@ public class DefaultSyncRow implements SyncRow {
     }
 
     @Override
-    public boolean isTransaction(@NonNull SyncRow row) {
-        return transactionId() == row.transactionId();
+    public boolean completeable(@Nullable SyncRow old) {
+        boolean newer = old == null || transactionId() == NO_TRANSACTION_ID;
+        boolean response = old != null && transactionId() == old.transactionId();
+        boolean recordable = !(old == null && status() == SyncStatus.DELETED);
+        return (newer || response) && recordable;
     }
 
     @Override

@@ -22,6 +22,10 @@ public class MwServiceError implements ServiceError {
         return docref;
     }
 
+    public boolean badToken() {
+        return "badtoken".equals(code);
+    }
+
     @Override
     public String toString() {
         return "MwServiceError{"

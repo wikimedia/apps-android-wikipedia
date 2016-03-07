@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.login.User;
+import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.log.L;
 
@@ -39,6 +40,8 @@ public final class AccountUtil {
 
                 response.onResult(bundle);
             }
+
+            UserOptionContentResolver.requestManualSync();
         } else {
             if (response != null) {
                 response.onError(AccountManager.ERROR_CODE_REMOTE_EXCEPTION, "");
@@ -65,6 +68,10 @@ public final class AccountUtil {
                 accountManager().removeAccount(account, null, null);
             }
         }
+    }
+
+    public static boolean supported(@NonNull Account account) {
+        return account.equals(AccountUtil.account());
     }
 
     @Nullable

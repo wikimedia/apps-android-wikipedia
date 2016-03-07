@@ -42,7 +42,9 @@ import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.useroption.database.UserOptionRow;
+import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -185,6 +187,9 @@ public class WikipediaApp extends Application {
 
         // TODO: remove this code after all logged in users also have a system account or August 2016.
         AccountUtil.createAccountForLoggedInUser();
+
+        UserOptionContentResolver.requestManualSync();
+        UserOptionContentResolver.registerAppSyncObserver(this);
     }
 
     public Bus getBus() {
@@ -362,6 +367,7 @@ public class WikipediaApp extends Application {
     public void logOut() {
         L.v("logging out");
         AccountUtil.removeAccount();
+        UserOptionDao.instance().clear();
         getEditTokenStorage().clearAllTokens();
         getCookieManager().clearAllCookies();
         getUserInfoStorage().clearUser();
@@ -458,6 +464,7 @@ public class WikipediaApp extends Application {
         if (theme != currentTheme) {
             currentTheme = theme;
             Prefs.setThemeId(currentTheme.getMarshallingId());
+            UserOptionDao.instance().theme(theme);
             bus.post(new ThemeChangeEvent());
         }
     }
@@ -503,8 +510,11 @@ public class WikipediaApp extends Application {
         } else if (multiplier > FONT_SIZE_MULTIPLIER_MAX) {
             multiplier = FONT_SIZE_MULTIPLIER_MAX;
         }
-        Prefs.setTextSizeMultiplier(multiplier);
-        bus.post(new ChangeTextSizeEvent());
+        if (multiplier != Prefs.getTextSizeMultiplier()) {
+            Prefs.setTextSizeMultiplier(multiplier);
+            UserOptionDao.instance().fontSize(multiplier);
+            bus.post(new ChangeTextSizeEvent());
+        }
     }
 
     public void putCrashReportProperty(String key, String value) {

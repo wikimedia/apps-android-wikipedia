@@ -307,4 +307,8 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="article_menu_bar_share">Share the article link</string>
     <string name="article_menu_bar_navigate">Navigate to the location of the article</string>
     <!-- /Article menu bar -->
+
+    <!-- User options -->
+    <string name="user_option_sync_label">Preferences</string>
+    <!-- /User options -->
 </resources>

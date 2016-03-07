@@ -5,17 +5,21 @@ import android.accounts.Account;
 import android.accounts.AccountAuthenticatorResponse;
 import android.accounts.AccountManager;
 import android.accounts.NetworkErrorException;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.login.LoginActivity;
 
 public class WikimediaAuthenticator extends AbstractAccountAuthenticator {
+    private static final String[] SYNC_AUTHORITIES = {BuildConfig.USER_OPTION_AUTHORITY};
+
     @NonNull private final Context context;
 
     public WikimediaAuthenticator(@NonNull Context context) {
@@ -103,5 +107,24 @@ public class WikimediaAuthenticator extends AbstractAccountAuthenticator {
         bundle.putString(AccountManager.KEY_ERROR_MESSAGE, "");
 
         return bundle;
+    }
+
+    @Override
+    public Bundle getAccountRemovalAllowed(AccountAuthenticatorResponse response,
+                                           Account account) throws NetworkErrorException {
+        Bundle result = super.getAccountRemovalAllowed(response, account);
+
+        if (result.containsKey(AccountManager.KEY_BOOLEAN_RESULT)
+                && !result.containsKey(AccountManager.KEY_INTENT)) {
+            boolean allowed = result.getBoolean(AccountManager.KEY_BOOLEAN_RESULT);
+
+            if (allowed) {
+                for (String auth : SYNC_AUTHORITIES) {
+                    ContentResolver.cancelSync(account, auth);
+                }
+            }
+        }
+
+        return result;
     }
 }

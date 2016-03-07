@@ -61,8 +61,8 @@ public class UserOptionRow extends UserOption implements SyncRow {
     }
 
     @Override
-    public boolean isTransaction(@NonNull SyncRow row) {
-        return sync.isTransaction(row);
+    public boolean completeable(@NonNull SyncRow row) {
+        return sync.completeable(row);
     }
 
     @Override
