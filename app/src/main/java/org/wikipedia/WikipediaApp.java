@@ -188,7 +188,6 @@ public class WikipediaApp extends Application {
         // TODO: remove this code after all logged in users also have a system account or August 2016.
         AccountUtil.createAccountForLoggedInUser();
 
-        UserOptionContentResolver.requestManualSync();
         UserOptionContentResolver.registerAppSyncObserver(this);
     }
 
