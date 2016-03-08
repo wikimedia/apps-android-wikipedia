@@ -32,6 +32,7 @@ public class AboutActivity extends ThemedActionBarActivity {
     private ScrollView mScrollView;
     @Bind(R.id.about_translators) TextView translatorsTextView;
     @Bind(R.id.activity_about_libraries) TextView librariesTextView;
+    @Bind(R.id.about_app_license) TextView appLicenseTextView;
     @Bind(R.id.send_feedback_text) TextView feedbackTextView;
     @Bind(R.id.about_wmf) TextView wmfTextView;
 
@@ -45,6 +46,8 @@ public class AboutActivity extends ThemedActionBarActivity {
         RichTextUtil.removeUnderlinesFromLinks(translatorsTextView);
         wmfTextView.setText(Html.fromHtml(getString(R.string.about_wmf)));
         RichTextUtil.removeUnderlinesFromLinks(wmfTextView);
+        appLicenseTextView.setText(Html.fromHtml(getString(R.string.about_app_license)));
+        RichTextUtil.removeUnderlinesFromLinks(appLicenseTextView);
         ((TextView) findViewById(R.id.about_version_text)).setText(BuildConfig.VERSION_NAME);
         feedbackTextView.setText(Html.fromHtml(
                 "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "

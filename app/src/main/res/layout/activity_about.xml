@@ -118,6 +118,27 @@
                 />
 
         <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:textAppearanceSmall"
+                android:text="@string/about_app_license_heading"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
+        <TextView
+                android:id="@+id/about_app_license"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/RtlAwareTextView"
+                android:text="@string/about_app_license"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textIsSelectable="true"
+                android:lineSpacingMultiplier="1.2"
+                android:textColor="#555"
+                android:textColorLink="?attr/link_color"
+                android:layout_marginBottom="8dp"
+                />
+
+        <TextView
                 android:id="@+id/send_feedback_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
