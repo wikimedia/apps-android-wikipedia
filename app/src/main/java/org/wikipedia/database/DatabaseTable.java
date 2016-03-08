@@ -21,8 +21,6 @@ import static org.wikipedia.util.StringUtil.removeNulls;
 
 public abstract class DatabaseTable<T> {
     protected static final int INITIAL_DB_VERSION = 1;
-    private static final int MIN_VERSION_NORMALIZED_TITLES = 8;
-    private static final int MIN_VERSION_NORMALIZED_LANGS = 10;
 
     @NonNull private final String tableName;
     @NonNull private final Uri baseContentURI;
@@ -110,20 +108,18 @@ public abstract class DatabaseTable<T> {
             createTables(db, toVersion);
             return;
         }
-        if (fromVersion < MIN_VERSION_NORMALIZED_TITLES) {
-            convertAllTitlesToUnderscores(db);
-        }
-        List<? extends Column<?>> columns = getElements(fromVersion + 1, toVersion);
-        if (columns.size() == 0) {
-            return;
-        }
-        for (Column<?> column : columns) {
-            String alterTableString = "ALTER TABLE " + tableName + " ADD COLUMN " + column + ";";
-            L.d(alterTableString);
-            db.execSQL(alterTableString);
-        }
-        if (fromVersion < MIN_VERSION_NORMALIZED_LANGS) {
-            addLangToAllSites(db);
+
+        for (int ver = fromVersion + 1; ver <= toVersion; ++ver) {
+            L.i("ver=" + ver);
+
+            List<? extends Column<?>> columns = getElements(ver, ver);
+            for (Column<?> column : columns) {
+                String alterTableString = "ALTER TABLE " + tableName + " ADD COLUMN " + column + ";";
+                L.i(alterTableString);
+                db.execSQL(alterTableString);
+            }
+
+            upgradeSchema(db, ver);
         }
     }
 
@@ -132,19 +128,6 @@ public abstract class DatabaseTable<T> {
         return baseContentURI;
     }
 
-    /**
-     * One-time fix for the inconsistencies in title formats all over the database. This migration will enforce
-     * all titles stored in the database to follow the "Underscore_format" instead of the "Human readable form"
-     * TODO: Delete this code after April 2016
-     *
-     * @param db Database object
-     */
-    protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
-        // Default implementation is empty, since not every table needs to deal with titles
-    }
-
-    // TODO: remove in September 2016.
-    protected void addLangToAllSites(@NonNull SQLiteDatabase db) {
-        L.d("Adding language codes to " + getTableName());
+    protected void upgradeSchema(@NonNull SQLiteDatabase db, int toVersion) {
     }
 }

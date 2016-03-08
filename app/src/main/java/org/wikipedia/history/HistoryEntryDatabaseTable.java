@@ -16,6 +16,7 @@ import org.wikipedia.database.column.IntColumn;
 import org.wikipedia.database.column.LongColumn;
 import org.wikipedia.database.column.StrColumn;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +26,7 @@ import java.util.List;
 
 public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     private static final int DB_VER_NAMESPACE_ADDED = 6;
+    private static final int DB_VER_NORMALIZED_TITLES = 8;
     private static final int DB_VER_LANG_ADDED = 10;
 
     public static class Col {
@@ -110,7 +112,27 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     }
 
     @Override
-    protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
+    protected void upgradeSchema(@NonNull SQLiteDatabase db, int toVersion) {
+        switch (toVersion) {
+            case DB_VER_NORMALIZED_TITLES:
+                convertAllTitlesToUnderscores(db);
+                break;
+            case DB_VER_LANG_ADDED:
+                addLangToAllSites(db);
+                break;
+            default:
+                super.upgradeSchema(db, toVersion);
+        }
+    }
+
+    /**
+     * One-time fix for the inconsistencies in title formats all over the database. This migration will enforce
+     * all titles stored in the database to follow the "Underscore_format" instead of the "Human readable form"
+     * TODO: Delete this code after April 2016
+     *
+     * @param db Database object
+     */
+    private void convertAllTitlesToUnderscores(SQLiteDatabase db) {
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
         ContentValues values = new ContentValues();
         while (cursor.moveToNext()) {
@@ -125,9 +147,9 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         cursor.close();
     }
 
-    @Override
-    protected void addLangToAllSites(@NonNull SQLiteDatabase db) {
-        super.addLangToAllSites(db);
+    // TODO: remove in September 2016.
+    private void addLangToAllSites(@NonNull SQLiteDatabase db) {
+        L.i("Adding language codes to " + getTableName());
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
         try {
             while (cursor.moveToNext()) {
