@@ -168,20 +168,24 @@ public class SyntaxHighlighter {
     }
 
     public void cleanup() {
-        handler.removeCallbacks(syntaxHighlightCallback);
-        textBox.getText().clearSpans();
-        textBox = null;
-        context = null;
+        if (context != null) {
+            handler.removeCallbacks(syntaxHighlightCallback);
+            textBox.getText().clearSpans();
+            textBox = null;
+            context = null;
+        }
     }
 
     private Runnable syntaxHighlightCallback = new Runnable() {
         @Override
         public void run() {
-            if (currentTask != null) {
-                currentTask.cancel();
+            if (context != null) {
+                if (currentTask != null) {
+                    currentTask.cancel();
+                }
+                currentTask = new SyntaxHighlightTask(textBox.getText());
+                currentTask.execute();
             }
-            currentTask = new SyntaxHighlightTask(textBox.getText());
-            currentTask.execute();
         }
     };
 
