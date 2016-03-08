@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.editing.summaries.EditSummary;
@@ -40,6 +41,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int from, int to) {
         L.i("Upgrading from=" + from + " to=" + to);
+        WikipediaApp.getInstance().putCrashReportProperty("fromDatabaseVersion", String.valueOf(from));
         for (DatabaseTable<?> table : databaseTables) {
             table.upgradeSchema(sqLiteDatabase, from, to);
         }
