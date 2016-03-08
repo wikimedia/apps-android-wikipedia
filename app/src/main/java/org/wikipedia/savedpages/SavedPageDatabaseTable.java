@@ -113,7 +113,16 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
                 db.updateWithOnConflict(getTableName(), values, Col.ID.getName() + " = ?",
                         new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
 
-                SavedPage obj = hasNamespace(db) ? fromCursor(cursor) : fromPreNamespaceCursor(cursor);
+                SavedPage obj;
+                if (hasNamespace(db)) {
+                    if (hasLang(db)) {
+                        obj = fromCursor(cursor);
+                    } else {
+                        obj = fromPreLangCursor(cursor);
+                    }
+                } else {
+                    obj = fromPreNamespaceCursor(cursor);
+                }
                 File newDir = new File(SavedPage.getSavedPagesDir() + "/" + obj.getTitle().getIdentifier());
                 new File(SavedPage.getSavedPagesDir() + "/" + getSavedPageDir(obj, title)).renameTo(newDir);
             }
@@ -125,11 +134,19 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         return db.getVersion() >= DB_VER_NAMESPACE_ADDED;
     }
 
+    private boolean hasLang(@NonNull SQLiteDatabase db) {
+        return db.getVersion() >= DB_VER_LANG_ADDED;
+    }
+
     private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor) {
         return fromPreNamespaceCursor(cursor, null, null);
     }
 
-    private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
+    private SavedPage fromPreLangCursor(@NonNull Cursor cursor) {
+        return fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), null);
+    }
+
+    private SavedPage  fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
                                              @Nullable String lang) {
         String authority = Col.SITE.val(cursor);
         Site site = lang == null ? new Site(authority) : new Site(authority, lang);
@@ -161,7 +178,6 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
                 return new Column<?>[] {Col.NAMESPACE};
             case DB_VER_LANG_ADDED:
                 return new Column<?>[] {Col.LANG};
-
             default:
                 return super.getColumnsAdded(version);
         }
