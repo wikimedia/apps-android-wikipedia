@@ -25,25 +25,16 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
     private final String searchTerm;
     private final int maxResults;
     private final FTContinueOffset continueOffset;
-    private final int thumbSize;
     private final boolean getMoreLike;
 
     public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults,
                                   SearchResults.ContinueOffset continueOffset,
                                   boolean getMoreLike) {
-        this(api, site, searchTerm, maxResults, continueOffset, getMoreLike,
-             WikipediaApp.PREFERRED_THUMB_SIZE);
-    }
-
-    public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults,
-                                  SearchResults.ContinueOffset continueOffset, boolean getMoreLike,
-                                  int thumbSize) {
         super(api);
         this.site = site;
         this.searchTerm = searchTerm;
         this.maxResults = maxResults;
         this.continueOffset = (FTContinueOffset) continueOffset;
-        this.thumbSize = thumbSize;
         this.getMoreLike = getMoreLike;
     }
 
@@ -62,7 +53,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 .param("gsrprop", "redirecttitle")
                 .param("gsrlimit", maxResultsString)
                 .param("piprop", "thumbnail") // for thumbnail URLs
-                .param("pithumbsize", Integer.toString(thumbSize))
+                .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
                 .param("pilimit", maxResultsString);
         if (continueOffset != null) {
             req.param("continue", continueOffset.cont);

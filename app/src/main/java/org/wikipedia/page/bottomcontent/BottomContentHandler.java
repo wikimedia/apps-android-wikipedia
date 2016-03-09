@@ -314,8 +314,7 @@ public class BottomContentHandler implements BottomContentInterface,
         final int numRequestItems = 5;
         final long timeMillis = System.currentTimeMillis();
         new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
-                myTitle.getPrefixedText(), numRequestItems, maxResultItems,
-                (int)(parentFragment.getActivity().getResources().getDimension(R.dimen.leadImageWidth) / displayDensity), false) {
+                            myTitle.getPrefixedText(), numRequestItems, maxResultItems, false) {
             @Override
             public void onFinish(SearchResults results) {
                 funnel.setLatency(System.currentTimeMillis() - timeMillis);

@@ -20,10 +20,9 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     private final int maxItems;
     private final boolean requireThumbnail;
 
-    public SuggestionsTask(Api api, Site site, String title,
-                           int numRequestItems, int maxResultItems,
-                           int thumbSize, boolean requireThumbnail) {
-        super(api, site, title, numRequestItems, null, true, thumbSize);
+    public SuggestionsTask(Api api, Site site, String title, int numRequestItems,
+                           int maxResultItems, boolean requireThumbnail) {
+        super(api, site, title, numRequestItems, null, true);
         this.title = title;
         this.maxItems = maxResultItems;
         this.requireThumbnail = requireThumbnail;
