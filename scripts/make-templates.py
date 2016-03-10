@@ -134,9 +134,9 @@ def populate_main_pages(wikis):
     for wiki in wikis.wikis:
         print(u"Fetching Main Page for %s" % wiki.lang)
         url = u"https://%s.wikipedia.org/w/api.php" % wiki.lang + \
-              u"?action=query&meta=allmessages&format=json&ammessages=Mainpage"
+              u"?action=query&meta=siteinfo&format=json&siprop=general"
         data = json.load(urlopen(url))
-        wiki.props[u"main_page_name"] = data[u"query"][u"allmessages"][0][u"*"]
+        wiki.props[u"main_page_name"] = data[u"query"][u"general"][u"mainpage"]
     return wikis
 
 
