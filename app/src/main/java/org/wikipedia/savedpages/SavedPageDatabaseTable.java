@@ -21,6 +21,7 @@ import org.wikipedia.database.column.LongColumn;
 import org.wikipedia.database.column.StrColumn;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ import java.util.List;
 public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     private static final int DB_VER_INTRODUCED = 4;
     private static final int DB_VER_NAMESPACE_ADDED = 6;
+    private static final int DB_VER_NORMALIZED_TITLES = 8;
     private static final int DB_VER_LANG_ADDED = 10;
 
     public static class Col {
@@ -102,7 +104,27 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     }
 
     @Override
-    protected void convertAllTitlesToUnderscores(SQLiteDatabase db) {
+    protected void upgradeSchema(@NonNull SQLiteDatabase db, int toVersion) {
+        switch (toVersion) {
+            case DB_VER_NORMALIZED_TITLES:
+                convertAllTitlesToUnderscores(db);
+                break;
+            case DB_VER_LANG_ADDED:
+                addLangToAllSites(db);
+                break;
+            default:
+                super.upgradeSchema(db, toVersion);
+        }
+    }
+
+    /**
+     * One-time fix for the inconsistencies in title formats all over the database. This migration will enforce
+     * all titles stored in the database to follow the "Underscore_format" instead of the "Human readable form"
+     * TODO: Delete this code after April 2016
+     *
+     * @param db Database object
+     */
+    private void convertAllTitlesToUnderscores(SQLiteDatabase db) {
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
         ContentValues values = new ContentValues();
         while (cursor.moveToNext()) {
@@ -113,16 +135,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
                 db.updateWithOnConflict(getTableName(), values, Col.ID.getName() + " = ?",
                         new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
 
-                SavedPage obj;
-                if (hasNamespace(db)) {
-                    if (hasLang(db)) {
-                        obj = fromCursor(cursor);
-                    } else {
-                        obj = fromPreLangCursor(cursor);
-                    }
-                } else {
-                    obj = fromPreNamespaceCursor(cursor);
-                }
+                SavedPage obj = fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), null);
                 File newDir = new File(SavedPage.getSavedPagesDir() + "/" + obj.getTitle().getIdentifier());
                 new File(SavedPage.getSavedPagesDir() + "/" + getSavedPageDir(obj, title)).renameTo(newDir);
             }
@@ -130,23 +143,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         cursor.close();
     }
 
-    private boolean hasNamespace(@NonNull SQLiteDatabase db) {
-        return db.getVersion() >= DB_VER_NAMESPACE_ADDED;
-    }
-
-    private boolean hasLang(@NonNull SQLiteDatabase db) {
-        return db.getVersion() >= DB_VER_LANG_ADDED;
-    }
-
-    private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor) {
-        return fromPreNamespaceCursor(cursor, null, null);
-    }
-
-    private SavedPage fromPreLangCursor(@NonNull Cursor cursor) {
-        return fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), null);
-    }
-
-    private SavedPage  fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
+    private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
                                              @Nullable String lang) {
         String authority = Col.SITE.val(cursor);
         Site site = lang == null ? new Site(authority) : new Site(authority, lang);
@@ -178,6 +175,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
                 return new Column<?>[] {Col.NAMESPACE};
             case DB_VER_LANG_ADDED:
                 return new Column<?>[] {Col.LANG};
+
             default:
                 return super.getColumnsAdded(version);
         }
@@ -198,9 +196,9 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         };
     }
 
-    @Override
-    protected void addLangToAllSites(@NonNull SQLiteDatabase db) {
-        super.addLangToAllSites(db);
+    // TODO: remove in September 2016.
+    private void addLangToAllSites(@NonNull SQLiteDatabase db) {
+        L.i("Adding language codes to " + getTableName());
         Cursor cursor = db.query(getTableName(), null, null, null, null, null, null);
         try {
             while (cursor.moveToNext()) {
