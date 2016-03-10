@@ -5,14 +5,14 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.database.sync.SyncRowDao;
+import org.wikipedia.database.http.HttpRowDao;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 
 import java.util.Collection;
 
-public final class UserOptionDao extends SyncRowDao<UserOptionRow> {
+public final class UserOptionDao extends HttpRowDao<UserOptionRow> {
     public interface Callback<T> {
         void success(@Nullable T item);
     }

@@ -1,4 +1,4 @@
-package org.wikipedia.database.sync;
+package org.wikipedia.database.http;
 
 import android.database.Cursor;
 import android.support.annotation.NonNull;
@@ -10,19 +10,19 @@ import org.wikipedia.useroption.database.UserOptionDatabaseTable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public abstract class SyncRowDao<T extends SyncRow> {
+public abstract class HttpRowDao<T extends HttpRow> {
     @NonNull private final DatabaseClient<T> client;
     /**
      * @param client Database client singleton. No writes should be performed to the table outside
-     *               of SyncRowDao.
+     *               of HttpRowDao.
      */
-    public SyncRowDao(@NonNull DatabaseClient<T> client) {
+    public HttpRowDao(@NonNull DatabaseClient<T> client) {
         this.client = client;
     }
 
     protected synchronized void upsert(@NonNull T item) {
         T local = queryItem(item);
-        switch (local == null ? SyncStatus.ADDED : local.status()) {
+        switch (local == null ? HttpStatus.ADDED : local.status()) {
             case SYNCHRONIZED:
             case OUTDATED:
             case MODIFIED:
@@ -39,12 +39,12 @@ public abstract class SyncRowDao<T extends SyncRow> {
 
     protected synchronized void update(@NonNull T item) {
         T local = queryItem(item);
-        switch (local == null ? SyncStatus.SYNCHRONIZED : local.status()) {
+        switch (local == null ? HttpStatus.SYNCHRONIZED : local.status()) {
             case SYNCHRONIZED:
             case MODIFIED:
             case ADDED:
             case DELETED:
-                insertTransaction(item, SyncStatus.OUTDATED);
+                insertTransaction(item, HttpStatus.OUTDATED);
                 break;
             case OUTDATED:
                 break;
@@ -55,7 +55,7 @@ public abstract class SyncRowDao<T extends SyncRow> {
 
     protected synchronized void delete(@NonNull T item) {
         T local = queryItem(item);
-        switch (local == null ? SyncStatus.DELETED : local.status()) {
+        switch (local == null ? HttpStatus.DELETED : local.status()) {
             case SYNCHRONIZED:
             case OUTDATED:
             case MODIFIED:
@@ -137,8 +137,8 @@ public abstract class SyncRowDao<T extends SyncRow> {
 
     @NonNull private Collection<T> querySyncable() {
         String[] selectionArgs = null;
-        String selection = UserOptionDatabaseTable.Col.SYNC_STATUS.getName() + " != " + SyncStatus.SYNCHRONIZED.code() + " and "
-                + UserOptionDatabaseTable.Col.SYNC_TRANSACTION_ID.getName() + " == " + DefaultSyncRow.NO_TRANSACTION_ID;
+        String selection = UserOptionDatabaseTable.Col.SYNC_STATUS.getName() + " != " + HttpStatus.SYNCHRONIZED.code() + " and "
+                + UserOptionDatabaseTable.Col.SYNC_TRANSACTION_ID.getName() + " == " + DefaultHttpRow.NO_TRANSACTION_ID;
         String sortOrder = null;
         Cursor cursor = client.select(selection, selectionArgs, sortOrder);
         return cursorToCollection(cursor);
@@ -153,14 +153,14 @@ public abstract class SyncRowDao<T extends SyncRow> {
     }
 
     private void addTransaction(@NonNull T item) {
-        insertTransaction(item, SyncStatus.ADDED);
+        insertTransaction(item, HttpStatus.ADDED);
     }
 
     private void modifyTransaction(@NonNull T item) {
-        insertTransaction(item, SyncStatus.MODIFIED);
+        insertTransaction(item, HttpStatus.MODIFIED);
     }
 
-    private void insertTransaction(@NonNull T item, @NonNull SyncStatus status) {
+    private void insertTransaction(@NonNull T item, @NonNull HttpStatus status) {
         item.resetTransaction(status);
         insertItem(item);
     }

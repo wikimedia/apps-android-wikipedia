@@ -1,20 +1,20 @@
-package org.wikipedia.database.sync;
+package org.wikipedia.database.http;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public class DefaultSyncRow implements SyncRow {
+public class DefaultHttpRow implements HttpRow {
     public static final int NO_TRANSACTION_ID = 0;
 
-    @NonNull private SyncStatus status;
+    @NonNull private HttpStatus status;
     private long transactionId;
     private long timestamp;
 
-    public DefaultSyncRow() {
-        this(SyncStatus.SYNCHRONIZED, NO_TRANSACTION_ID, 0);
+    public DefaultHttpRow() {
+        this(HttpStatus.SYNCHRONIZED, NO_TRANSACTION_ID, 0);
     }
 
-    public DefaultSyncRow(@NonNull SyncStatus status, long transactionId, long timestamp) {
+    public DefaultHttpRow(@NonNull HttpStatus status, long transactionId, long timestamp) {
         this.status = status;
         this.transactionId = transactionId;
         this.timestamp = timestamp;
@@ -22,7 +22,7 @@ public class DefaultSyncRow implements SyncRow {
 
     @Override
     @NonNull
-    public SyncStatus status() {
+    public HttpStatus status() {
         return status;
     }
 
@@ -37,7 +37,7 @@ public class DefaultSyncRow implements SyncRow {
     }
 
     @Override
-    public void resetTransaction(@NonNull SyncStatus status) {
+    public void resetTransaction(@NonNull HttpStatus status) {
         this.status = status;
         this.transactionId = NO_TRANSACTION_ID;
     }
@@ -48,17 +48,17 @@ public class DefaultSyncRow implements SyncRow {
     }
 
     @Override
-    public boolean completeable(@Nullable SyncRow old) {
+    public boolean completeable(@Nullable HttpRow old) {
         boolean newer = old == null || transactionId() == NO_TRANSACTION_ID;
         boolean response = old != null && transactionId() == old.transactionId();
-        boolean recordable = !(old == null && status() == SyncStatus.DELETED);
+        boolean recordable = !(old == null && status() == HttpStatus.DELETED);
         return (newer || response) && recordable;
     }
 
     @Override
     public void completeTransaction(long timestamp) {
         this.timestamp = timestamp;
-        resetTransaction(SyncStatus.SYNCHRONIZED);
+        resetTransaction(HttpStatus.SYNCHRONIZED);
     }
 
     private long newTransactionId() {

@@ -1,9 +1,9 @@
-package org.wikipedia.database.sync;
+package org.wikipedia.database.http;
 
 import android.support.annotation.NonNull;
 import android.util.SparseArray;
 
-public enum SyncStatus {
+public enum HttpStatus {
     /** Row exists and no synchronization is requested. */
     SYNCHRONIZED(0),
 
@@ -19,13 +19,13 @@ public enum SyncStatus {
     /** Row exists remotely and should be deleted. */
     DELETED(4);
 
-    private static final SparseArray<SyncStatus> CODE_TO_ENUM = codeToEnum();
+    private static final SparseArray<HttpStatus> CODE_TO_ENUM = codeToEnum();
 
     private final int code;
 
     @NonNull
-    public static SyncStatus of(int code) {
-        SyncStatus status = CODE_TO_ENUM.get(code);
+    public static HttpStatus of(int code) {
+        HttpStatus status = CODE_TO_ENUM.get(code);
         if (status == null) {
             throw new IllegalArgumentException("code=" + code);
         }
@@ -40,13 +40,13 @@ public enum SyncStatus {
         return this == SYNCHRONIZED;
     }
 
-    SyncStatus(int code) {
+    HttpStatus(int code) {
         this.code = code;
     }
 
-    private static SparseArray<SyncStatus> codeToEnum() {
-        SparseArray<SyncStatus> ret = new SparseArray<>();
-        for (SyncStatus value : values()) {
+    private static SparseArray<HttpStatus> codeToEnum() {
+        SparseArray<HttpStatus> ret = new SparseArray<>();
+        for (HttpStatus value : values()) {
             ret.put(value.code(), value);
         }
         return ret;
