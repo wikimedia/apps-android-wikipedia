@@ -5,16 +5,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.database.DatabaseClient;
+import org.wikipedia.database.async.DefaultAsyncRow;
+import org.wikipedia.database.async.AsyncRow;
 import org.wikipedia.useroption.database.UserOptionDatabaseTable;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public abstract class HttpRowDao<T extends HttpRow> {
+public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
     @NonNull private final DatabaseClient<T> client;
     /**
      * @param client Database client singleton. No writes should be performed to the table outside
-     *               of HttpRowDao.
+     *               of SyncRowDao.
      */
     public HttpRowDao(@NonNull DatabaseClient<T> client) {
         this.client = client;
@@ -137,8 +139,8 @@ public abstract class HttpRowDao<T extends HttpRow> {
 
     @NonNull private Collection<T> querySyncable() {
         String[] selectionArgs = null;
-        String selection = UserOptionDatabaseTable.Col.SYNC_STATUS.getName() + " != " + HttpStatus.SYNCHRONIZED.code() + " and "
-                + UserOptionDatabaseTable.Col.SYNC_TRANSACTION_ID.getName() + " == " + DefaultHttpRow.NO_TRANSACTION_ID;
+        String selection = UserOptionDatabaseTable.Col.HTTP.status() + " != " + HttpStatus.SYNCHRONIZED.code() + " and "
+                + UserOptionDatabaseTable.Col.HTTP.transactionId() + " == " + DefaultAsyncRow.NO_TRANSACTION_ID;
         String sortOrder = null;
         Cursor cursor = client.select(selection, selectionArgs, sortOrder);
         return cursorToCollection(cursor);
