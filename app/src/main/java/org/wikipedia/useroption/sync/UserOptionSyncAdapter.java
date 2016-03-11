@@ -9,7 +9,7 @@ import android.content.SyncResult;
 import android.os.Bundle;
 
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.database.sync.SyncStatus;
+import org.wikipedia.database.http.HttpStatus;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.useroption.database.UserOptionRow;
@@ -60,7 +60,7 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
         L.i("uploading " + options.size() + " option(s)");
         for (UserOptionRow option : options) {
             try {
-                if (option.status() == SyncStatus.DELETED) {
+                if (option.status() == HttpStatus.DELETED) {
                     UserOptionDataClientSingleton.instance().delete(option);
                 } else {
                     UserOptionDataClientSingleton.instance().post(option);

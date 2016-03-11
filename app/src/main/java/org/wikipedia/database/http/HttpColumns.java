@@ -1,4 +1,4 @@
-package org.wikipedia.database.sync;
+package org.wikipedia.database.http;
 
 import android.database.Cursor;
 import android.support.annotation.NonNull;
@@ -10,12 +10,12 @@ import java.util.Arrays;
 import java.util.List;
 
 @SuppressWarnings("checkstyle:interfaceistype")
-public interface SyncColumn {
-    /** The {@link SyncStatus} code indicating pending synchronization. */
-    Column<SyncStatus> SYNC_STATUS = new Column<SyncStatus>("syncStatus", "integer not null") {
+public interface HttpColumns {
+    /** The {@link HttpStatus} code indicating pending synchronization. */
+    Column<HttpStatus> SYNC_STATUS = new Column<HttpStatus>("syncStatus", "integer not null") {
         @Override
-        public SyncStatus val(@NonNull Cursor cursor) {
-            return SyncStatus.of(getInt(cursor));
+        public HttpStatus val(@NonNull Cursor cursor) {
+            return HttpStatus.of(getInt(cursor));
         }
     };
 

@@ -1,15 +1,16 @@
-package org.wikipedia.database.sync;
+package org.wikipedia.database.http;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public interface SyncRow {
-    @NonNull SyncStatus status();
+public interface HttpRow {
+    @NonNull
+    HttpStatus status();
     long transactionId();
     long timestamp();
 
-    void resetTransaction(@NonNull SyncStatus status);
+    void resetTransaction(@NonNull HttpStatus status);
     void startTransaction();
-    boolean completeable(@Nullable SyncRow old);
+    boolean completeable(@Nullable HttpRow old);
     void completeTransaction(long timestamp);
 }

@@ -3,15 +3,15 @@ package org.wikipedia.useroption.database;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.database.sync.DefaultSyncRow;
-import org.wikipedia.database.sync.SyncRow;
-import org.wikipedia.database.sync.SyncStatus;
+import org.wikipedia.database.http.DefaultHttpRow;
+import org.wikipedia.database.http.HttpRow;
+import org.wikipedia.database.http.HttpStatus;
 import org.wikipedia.useroption.UserOption;
 
-public class UserOptionRow extends UserOption implements SyncRow {
+public class UserOptionRow extends UserOption implements HttpRow {
     public static final UserOptionDatabaseTable DATABASE_TABLE = new UserOptionDatabaseTable();
 
-    private SyncRow sync;
+    private HttpRow sync;
 
     public UserOptionRow(@NonNull String key) {
         super(key);
@@ -28,7 +28,7 @@ public class UserOptionRow extends UserOption implements SyncRow {
         init();
     }
 
-    public UserOptionRow(@NonNull String key, @Nullable String val, @NonNull SyncStatus status,
+    public UserOptionRow(@NonNull String key, @Nullable String val, @NonNull HttpStatus status,
                          long transactionId, long timestamp) {
         super(key, val);
         init(status, transactionId, timestamp);
@@ -36,7 +36,7 @@ public class UserOptionRow extends UserOption implements SyncRow {
 
     @NonNull
     @Override
-    public SyncStatus status() {
+    public HttpStatus status() {
         return sync.status();
     }
 
@@ -51,7 +51,7 @@ public class UserOptionRow extends UserOption implements SyncRow {
     }
 
     @Override
-    public void resetTransaction(@NonNull SyncStatus status) {
+    public void resetTransaction(@NonNull HttpStatus status) {
         sync.resetTransaction(status);
     }
 
@@ -61,7 +61,7 @@ public class UserOptionRow extends UserOption implements SyncRow {
     }
 
     @Override
-    public boolean completeable(@NonNull SyncRow row) {
+    public boolean completeable(@NonNull HttpRow row) {
         return sync.completeable(row);
     }
 
@@ -74,9 +74,9 @@ public class UserOptionRow extends UserOption implements SyncRow {
         init(null, 0, 0);
     }
 
-    private void init(@Nullable SyncStatus status, long transactionId, long timestamp) {
+    private void init(@Nullable HttpStatus status, long transactionId, long timestamp) {
         sync = status == null
-                ? new DefaultSyncRow()
-                : new DefaultSyncRow(status, transactionId, timestamp);
+                ? new DefaultHttpRow()
+                : new DefaultHttpRow(status, transactionId, timestamp);
     }
 }
