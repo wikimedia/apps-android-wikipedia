@@ -1,5 +1,6 @@
 package org.wikipedia.database.sync;
 
+import android.support.annotation.NonNull;
 import android.util.SparseArray;
 
 public enum SyncStatus {
@@ -22,8 +23,13 @@ public enum SyncStatus {
 
     private final int code;
 
+    @NonNull
     public static SyncStatus of(int code) {
-        return CODE_TO_ENUM.get(code);
+        SyncStatus status = CODE_TO_ENUM.get(code);
+        if (status == null) {
+            throw new IllegalArgumentException("code=" + code);
+        }
+        return status;
     }
 
     public int code() {
