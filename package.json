@@ -1,0 +1,8 @@
+{
+  "name": "wikipedia-android",
+  "description": "This file exists only as workaround for CI",
+  "private": true,
+  "scripts": {
+    "test": "cd www/ && npm install && npm test"
+  }
+}
