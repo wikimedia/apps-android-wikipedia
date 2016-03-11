@@ -1,36 +1,41 @@
 #!/usr/bin/env python
 """
-Script which creates a commit that increments the versionCode
-in the build.gradle file. We usually run this before releasing
-a new beta version to the store.
+Creates a commit that increments the versionCode in the build.gradle file.
+We usually run this before releasing a new beta version to the store.
 
 Does the following things:
-Step 1: (run without arguments):
+Step 1: (run without arguments)
     - Bump versionCode
     - Make a new commit
 
 After this run 'git review' and + the commit.
 
-Requires the python module 'sh' to run.
+Requires the Python module 'sh' to run.
 """
 import sh
 import os
 import re
+import sys
 
-PATH_PREFIX = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-versionCode_regex = re.compile(r'versionCode (\d+)', re.MULTILINE)
+VERSION_CODE_REGEX = r'(?P<key>versionCode) (?P<value>\d+)'
+
+script_dir = sys.path[0]
+parent_dir = os.path.join(script_dir, os.pardir)
+path_prefix = os.path.abspath(parent_dir)
+
+version_code_pattern = re.compile(VERSION_CODE_REGEX, re.MULTILINE)
 
 
 def set_version_code(data):
     """
     Utility function to set new versionCode
     """
-    version_code = int(versionCode_regex.search(data).groups()[0])
-    data = versionCode_regex.sub(
-        'versionCode %d' % (version_code + 1),
-        data
-    )
-    return data
+    match = version_code_pattern.search(data)
+    if not match:
+        raise ValueError('Version code not found')
+    version_code = int(match.group('value'))
+    next_version_code = '\g<key> {}'.format(version_code + 1)
+    return version_code_pattern.sub(next_version_code, data)
 
 
 def transform_file(file_path, *funcs):
@@ -39,19 +44,18 @@ def transform_file(file_path, *funcs):
     serially through all the functions in *func and then
     writing it back out to file_path
     """
-    f = open(file_path, 'r+')
-    data = f.read()
-    f.seek(0)
-    for func in funcs:
-        data = func(data)
-    f.write(data)
-    f.close()
-    print(file_path)
+    with open(file_path, 'r+') as f:
+        data = f.read()
+        f.seek(0)
+        for func in funcs:
+            data = func(data)
+        f.write(data)
+        print(file_path)
 
 
 def bump(file_path):
     transform_file(file_path, set_version_code)
-    sh.cd(PATH_PREFIX)
+    sh.cd(path_prefix)
     sh.git.add('-u', file_path)
     sh.git.commit('-m', 'Bump versionCode')
 
