@@ -1,9 +1,11 @@
 package org.wikipedia.database.http;
 
 import android.support.annotation.NonNull;
-import android.util.SparseArray;
 
-public enum HttpStatus {
+import org.wikipedia.model.EnumCode;
+import org.wikipedia.model.EnumCodeMap;
+
+public enum HttpStatus implements EnumCode {
     /** Row exists and no synchronization is requested. */
     SYNCHRONIZED(0),
 
@@ -19,19 +21,16 @@ public enum HttpStatus {
     /** Row exists remotely and should be deleted. */
     DELETED(4);
 
-    private static final SparseArray<HttpStatus> CODE_TO_ENUM = codeToEnum();
+    private static final EnumCodeMap<HttpStatus> MAP = new EnumCodeMap<>(HttpStatus.class);
 
     private final int code;
 
     @NonNull
     public static HttpStatus of(int code) {
-        HttpStatus status = CODE_TO_ENUM.get(code);
-        if (status == null) {
-            throw new IllegalArgumentException("code=" + code);
-        }
-        return status;
+        return MAP.get(code);
     }
 
+    @Override
     public int code() {
         return code;
     }
@@ -42,13 +41,5 @@ public enum HttpStatus {
 
     HttpStatus(int code) {
         this.code = code;
-    }
-
-    private static SparseArray<HttpStatus> codeToEnum() {
-        SparseArray<HttpStatus> ret = new SparseArray<>();
-        for (HttpStatus value : values()) {
-            ret.put(value.code(), value);
-        }
-        return ret;
     }
 }
