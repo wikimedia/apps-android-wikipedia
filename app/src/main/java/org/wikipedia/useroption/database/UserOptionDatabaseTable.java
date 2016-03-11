@@ -17,10 +17,11 @@ import java.util.Collections;
 import java.util.List;
 
 public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
-    public static final class Col implements HttpColumns {
+    public static final class Col {
         public static final IdColumn ID = new IdColumn();
         public static final StrColumn KEY = new StrColumn("key", "text not null unique");
         public static final StrColumn VAL = new StrColumn("val", "text");
+        public static final HttpColumns HTTP = new HttpColumns("sync");
 
         public static final List<? extends Column<?>> ALL;
         public static final List<? extends Column<?>> CONTENT;
@@ -29,7 +30,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
             List<Column<?>> content = new ArrayList<>();
             content.add(KEY);
             content.add(VAL);
-            content.addAll(HttpColumns.ALL);
+            content.addAll(HTTP.all());
             CONTENT = Collections.unmodifiableList(content);
 
             List<Column<?>> all = new ArrayList<>();
@@ -49,10 +50,10 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     public UserOptionRow fromCursor(Cursor cursor) {
         String key = Col.KEY.val(cursor);
         String val = Col.VAL.val(cursor);
-        HttpStatus status = Col.SYNC_STATUS.val(cursor);
-        long transactionId = Col.SYNC_TRANSACTION_ID.val(cursor);
-        long timestamp = Col.SYNC_TIMESTAMP.val(cursor);
-        return new UserOptionRow(key, val, status, transactionId, timestamp);
+        HttpStatus status = Col.HTTP.status(cursor);
+        long timestamp = Col.HTTP.timestamp(cursor);
+        long transactionId = Col.HTTP.transactionId(cursor);
+        return new UserOptionRow(key, val, status, timestamp, transactionId);
     }
 
     @NonNull public Object[] toBindArgs(ContentValues values) {
@@ -68,8 +69,12 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     public Column<?>[] getColumnsAdded(int version) {
         switch (version) {
             case INTRODUCED_AT_DATABASE_VERSION:
-                return new Column<?>[] {Col.ID, Col.KEY, Col.VAL, Col.SYNC_STATUS,
-                        Col.SYNC_TRANSACTION_ID, HttpColumns.SYNC_TIMESTAMP};
+                List<Column<?>> cols = new ArrayList<>();
+                cols.add(Col.ID);
+                cols.add(Col.KEY);
+                cols.add(Col.VAL);
+                cols.addAll(Col.HTTP.all());
+                return cols.toArray(new Column<?>[cols.size()]);
             default:
                 return super.getColumnsAdded(version);
         }
@@ -80,9 +85,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col.KEY.getName(), option.key());
         contentValues.put(Col.VAL.getName(), option.val());
-        contentValues.put(Col.SYNC_STATUS.getName(), option.status().code());
-        contentValues.put(Col.SYNC_TRANSACTION_ID.getName(), option.transactionId());
-        contentValues.put(Col.SYNC_TIMESTAMP.getName(), option.timestamp());
+        Col.HTTP.put(contentValues, option);
         return contentValues;
     }
 

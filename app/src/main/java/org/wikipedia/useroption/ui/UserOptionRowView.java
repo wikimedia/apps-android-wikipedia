@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.database.http.DefaultHttpRow;
+import org.wikipedia.database.async.DefaultAsyncRow;
 import org.wikipedia.useroption.database.UserOptionRow;
 
 import java.util.concurrent.TimeUnit;
@@ -22,8 +22,8 @@ public class UserOptionRowView extends LinearLayout {
     @Bind(R.id.view_user_option_key) TextView key;
     @Bind(R.id.view_user_option_value) TextView value;
     @Bind(R.id.view_user_option_status) TextView status;
-    @Bind(R.id.view_user_option_transaction_id) TextView transactionId;
     @Bind(R.id.view_user_option_timestamp) TextView timestamp;
+    @Bind(R.id.view_user_option_transaction_id) TextView transactionId;
 
     public UserOptionRowView(Context context) {
         super(context);
@@ -52,11 +52,11 @@ public class UserOptionRowView extends LinearLayout {
         value.setText(String.valueOf(option.val()));
         status.setText(option.status().toString());
         status.setVisibility(option.status().synced() ? GONE : VISIBLE);
-        transactionId.setText(String.valueOf(option.transactionId()));
-        transactionId.setVisibility(option.transactionId() == DefaultHttpRow.NO_TRANSACTION_ID ? GONE : VISIBLE);
         long age = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - option.timestamp());
         timestamp.setText(String.valueOf(age));
         timestamp.setVisibility(option.timestamp() == 0 ? GONE : VISIBLE);
+        transactionId.setText(String.valueOf(option.transactionId()));
+        transactionId.setVisibility(option.transactionId() == DefaultAsyncRow.NO_TRANSACTION_ID ? GONE : VISIBLE);
     }
 
     private void init() {
