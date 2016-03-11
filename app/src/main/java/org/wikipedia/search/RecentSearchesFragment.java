@@ -65,8 +65,9 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             }
         });
 
-        getActivity().getSupportLoaderManager().initLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
-        getActivity().getSupportLoaderManager().restartLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
+        LoaderManager supportLoaderManager = getActivity().getSupportLoaderManager();
+        supportLoaderManager.initLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
+        supportLoaderManager.restartLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
     }
 
     @Override
@@ -81,7 +82,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         String[] projection = null;
         String selection = null;
         String[] selectionArgs = null;
-        String order = "timestamp DESC";
+        String order = RecentSearchDatabaseTable.Col.TIMESTAMP.getName() + " DESC";
         return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
 

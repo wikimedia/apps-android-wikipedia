@@ -43,7 +43,7 @@ public class SearchResultsFragment extends Fragment {
     /**
      * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
      */
-    private static final int NANO_TO_MILLI = 1000000;
+    private static final int NANO_TO_MILLI = 1_000_000;
 
     private SearchArticlesFragment searchFragment;
     private View searchResultsDisplay;

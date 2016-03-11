@@ -124,7 +124,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         String[] selectionArgs = null;
         historyEmptyContainer.setVisibility(View.GONE);
         String searchStr = entryFilter.getText().toString();
-        if (searchStr.length() != 0) {
+        if (!searchStr.isEmpty()) {
             searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
             selection = "UPPER(" + tblName + "." + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
             selectionArgs = new String[]{"%" + searchStr + "%"};
@@ -205,7 +205,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
+        if (!isMenuToBeSetUp()) {
             return;
         }
         inflater.inflate(R.menu.menu_history, menu);
@@ -214,12 +214,13 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (!isAdded() || ((PageActivity)getActivity()).isSearching()) {
+        if (!isMenuToBeSetUp()) {
             return;
         }
+        boolean isHistoryAvailable = historyEntryList.getCount() > 0;
         menu.findItem(R.id.menu_clear_all_history)
-            .setVisible(historyEntryList.getCount() > 0)
-            .setEnabled(historyEntryList.getCount() > 0);
+                .setVisible(isHistoryAvailable)
+                .setEnabled(isHistoryAvailable);
     }
 
     @Override
@@ -259,6 +260,10 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 ((PageActivity) getActivity()).loadPage(oldEntry.getTitle(), newEntry);
             }
         }
+    }
+
+    private boolean isMenuToBeSetUp() {
+        return isAdded() && !((PageActivity)getActivity()).isSearching();
     }
 
     private class HistoryItemLongClickListener implements AdapterView.OnItemLongClickListener {

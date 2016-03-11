@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,6 +33,7 @@ import org.wikipedia.history.HistoryEntryDatabaseTable;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.LanguagePreferenceDialog;
+import org.wikipedia.util.FeedbackUtil;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
@@ -113,25 +116,36 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
             }
         });
 
-        View deleteButton = parentLayout.findViewById(R.id.recent_searches_delete_button);
+        final View deleteButton = parentLayout.findViewById(R.id.recent_searches_delete_button);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                alert.setMessage(getString(R.string.clear_recent_searches_confirm));
-                alert.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        new DeleteAllRecentSearchesTask(app).execute();
-                    }
-                });
-                alert.setNegativeButton(getString(R.string.no), null);
-                alert.create().show();
+                new AlertDialog.Builder(getActivity())
+                        .setMessage(getString(R.string.clear_recent_searches_confirm))
+                        .setPositiveButton(
+                                getString(R.string.yes),
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        new DeleteAllRecentSearchesTask(app).execute();
+                                    }
+                                })
+                        .setNegativeButton(getString(R.string.no), null)
+                        .create().show();
+            }
+        });
+        deleteButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                FeedbackUtil.showToolbarButtonToast(deleteButton);
+                return true;
             }
         });
 
-        recentSearchesFragment = (RecentSearchesFragment)getChildFragmentManager().findFragmentById(R.id.search_panel_recent);
-
-        searchResultsFragment = (SearchResultsFragment)getChildFragmentManager().findFragmentById(R.id.fragment_search_results);
+        FragmentManager childFragmentManager = getChildFragmentManager();
+        recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
+                R.id.search_panel_recent);
+        searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
+                R.id.fragment_search_results);
 
         // make sure we're hidden by default
         searchContainerView.setVisibility(View.GONE);
@@ -305,7 +319,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
             // set up the SearchView
             if (searchView == null) {
-                searchView = (SearchView)getActivity().findViewById(R.id.main_search_view);
+                searchView = (SearchView) getActivity().findViewById(R.id.main_search_view);
                 searchView.setOnQueryTextListener(searchQueryListener);
                 searchView.setOnCloseListener(searchCloseListener);
 
@@ -328,6 +342,17 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                 View searchEditPlate = searchView
                         .findViewById(android.support.v7.appcompat.R.id.search_plate);
                 searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
+
+                final ImageView searchClose = (ImageView) searchView.findViewById(
+                        android.support.v7.appcompat.R.id.search_close_btn);
+                searchClose.setOnLongClickListener(
+                        new View.OnLongClickListener() {
+                            @Override
+                            public boolean onLongClick(View v) {
+                                FeedbackUtil.showToolbarButtonToast(searchClose);
+                                return true;
+                            }
+                        });
             }
 
             updateZeroChrome();

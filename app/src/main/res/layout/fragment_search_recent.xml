@@ -29,7 +29,8 @@
             android:src="@drawable/ic_delete_grey"
             android:scaleType="centerInside"
             android:contentDescription="@string/button_clear_all_recent_searches"
-            android:background="?attr/actionBarItemBackground"/>
+            android:background="?attr/actionBarItemBackground"
+            android:longClickable="true" />
 
     </FrameLayout>
 
