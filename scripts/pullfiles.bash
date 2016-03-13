@@ -1,3 +1,20 @@
-#!/usr/bin/env bash
+#! /usr/bin/env bash
+
 # Pulls all files from the device and extracts them under app/
-adb backup -noapk org.wikipedia && dd if=backup.ab bs=1 skip=24 | python -c "import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" | tar -xvf -
+#
+# Allows specifying a device serial number or qualifier
+
+# Python-based decompression, to avoid binary dependencies
+read -r -d '' python_commands <<- 'EOF'
+	import zlib
+	import sys
+	sys.stdout.write(zlib.decompress(sys.stdin.read()))
+EOF
+
+adb "$@" backup -noapk org.wikipedia \
+    && \
+dd if=backup.ab bs=1 skip=24 \
+\
+| python -c "$python_commands" \
+\
+| tar -xvf -
