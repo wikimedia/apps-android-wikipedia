@@ -1,17 +1,21 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from urllib2 import urlopen
-import unicodecsv as csv
-from itertools import islice
+import itertools
+import urllib
+import urllib2
 import json
+import lxml
 import lxml.builder as lb
-from lxml import etree
+import unicodecsv
+
 
 # Returns CSV of all wikipedias, ordered by number of 'good' articles
-URL = "https://wikistats.wmflabs.org/api.php?action=dump&table=wikipedias&format=csv&s=good"
+QUERY_API_URL = ('https://' 'wikistats.wmflabs.org' '/' 'api.php' '?')
+QUERY_PARAMS = [('action', 'dump'), ('table', 'wikipedias'),
+                ('format', 'csv'), ('s', 'good')]
+RESULT_COLUMN = {'english_name': 1, 'language_code': 2, 'local_name': 10}
 
-data = csv.reader(urlopen(URL))
 
 lang_keys = []
 lang_local_names = []
@@ -23,20 +27,34 @@ def add_lang(key, local_name, eng_name):
     lang_local_names.append(local_name)
     lang_eng_names.append(eng_name)
 
-for row in islice(data, 1, None):
-    if row[2] == 'got':
+
+def escape(s):
+    return s.replace("'", "\\'")
+
+
+QUERY_URL = QUERY_API_URL + urllib.urlencode(QUERY_PARAMS)
+response_file = urllib2.urlopen(QUERY_URL)
+csv_data = unicodecsv.reader(response_file)
+
+start_at_row = 1
+end_at_row = None
+for row in itertools.islice(csv_data, start_at_row, end_at_row):
+    language_code = row[RESULT_COLUMN['language_code']]
+    if language_code == 'got':
         # 'got' is Gothic Runes, which lie outside the Basic Multilingual Plane
-        # < https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane >
         # Android segfaults on these. So let's ignore those.
         # What's good for Android is also good for iOS :P
-        pass
-    elif row[2] == 'zh':
-        add_lang(key='zh-hans', local_name=u'简体', eng_name='Simplified Chinese')
-        add_lang(key='zh-hant', local_name=u'繁體', eng_name='Traditional Chinese')
-    else:
-        add_lang(key=row[2].replace("'", "\\'"),
-                 local_name=row[10].replace("'", "\\'"),
-                 eng_name=row[1].replace("'", "\\'"))
+        continue
+    if language_code == 'zh':
+        add_lang(key='zh-hans', local_name=u'简体',
+                 eng_name='Simplified Chinese')
+        add_lang(key='zh-hant', local_name=u'繁體',
+                 eng_name='Traditional Chinese')
+        continue
+    local_name = row[RESULT_COLUMN['local_name']]
+    english_name = row[RESULT_COLUMN['english_name']]
+    add_lang(key=escape(language_code), local_name=escape(local_name),
+             eng_name=escape(english_name))
 
 add_lang(key='test', local_name='Test', eng_name='Test')
 add_lang(key='', local_name='None', eng_name='None (development)')
@@ -51,25 +69,24 @@ local_names = [x.item(k) for k in lang_local_names]
 eng_names = [x.item(k) for k in lang_eng_names]
 
 resources = x.resources(
-    getattr(x, 'string-array')(*keys, name="preference_language_keys"),
-    getattr(x, 'string-array')(*local_names, name="preference_language_local_names"),
-    getattr(x, 'string-array')(*eng_names, name="preference_language_canonical_names")
-)
+    getattr(x, 'string-array')(*keys, name='preference_language_keys'),
+    getattr(x, 'string-array')(*local_names,
+                               name='preference_language_local_names'),
+    getattr(x, 'string-array')(*eng_names,
+                               name='preference_language_canonical_names'))
 resources.set(TOOLS + 'ignore', 'MissingTranslation')
 
-open("languages_list.xml", "w").write(
-    etree.tostring(resources, pretty_print=True, xml_declaration=True, encoding='utf-8')
-)
+with open('languages_list.xml', 'w') as f:
+    f.write(lxml.etree.tostring(resources, pretty_print=True,
+                                xml_declaration=True, encoding='utf-8'))
 
 # Generate the JSON, for iOS
 langs_json = []
 
 # Start from 1, to skip the headers
 for i in xrange(1, len(lang_keys)):
-    langs_json.append({
-        "code": lang_keys[i],
-        "name": lang_local_names[i],
-        "canonical_name": lang_eng_names[i]
-    })
+    langs_json.append({'code': lang_keys[i],
+                       'name': lang_local_names[i],
+                       'canonical_name': lang_eng_names[i]})
 
 open("languages_list.json", "w").write(json.dumps(langs_json, indent=4))
