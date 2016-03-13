@@ -1,16 +1,16 @@
 package org.wikipedia.settings;
 
 import android.app.Activity;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.annotation.XmlRes;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragmentCompat;
 
 /*package*/ abstract class BasePreferenceLoader implements PreferenceLoader {
-    @NonNull private final PreferenceFragment preferenceHost;
+    @NonNull private final PreferenceFragmentCompat preferenceHost;
 
-    /*package*/ BasePreferenceLoader(@NonNull PreferenceFragment fragment) {
+    /*package*/ BasePreferenceLoader(@NonNull PreferenceFragmentCompat fragment) {
         preferenceHost = fragment;
     }
 

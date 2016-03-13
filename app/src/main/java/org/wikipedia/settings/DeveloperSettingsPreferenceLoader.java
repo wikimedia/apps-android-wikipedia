@@ -1,11 +1,11 @@
 package org.wikipedia.settings;
 
 import android.content.Context;
-import android.preference.CheckBoxPreference;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
+import android.support.v7.preference.PreferenceFragmentCompat;
+import android.support.v7.preference.TwoStatePreference;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -37,7 +37,7 @@ import java.util.List;
     };
 
     /*package*/
-    DeveloperSettingsPreferenceLoader(@NonNull PreferenceFragment fragment) {
+    DeveloperSettingsPreferenceLoader(@NonNull PreferenceFragmentCompat fragment) {
         super(fragment);
         this.context = fragment.getActivity();
     }
@@ -54,7 +54,7 @@ import java.util.List;
     }
 
     private void setUpRestBaseCheckboxes() {
-        CheckBoxPreference manualPreference = (CheckBoxPreference) findPreference(getManualKey());
+        TwoStatePreference manualPreference = (TwoStatePreference) findPreference(getManualKey());
         manualPreference.setOnPreferenceChangeListener(setRestBaseManuallyChangeListener);
         setUseRestBasePreference(manualPreference.isChecked());
     }
@@ -65,13 +65,13 @@ import java.util.List;
 
     private void setUseRestBasePreference(boolean manualMode) {
         RbSwitch.INSTANCE.update();
-        CheckBoxPreference useRestBasePref = getUseRestBasePreference();
+        TwoStatePreference useRestBasePref = getUseRestBasePreference();
         useRestBasePref.setEnabled(manualMode);
         useRestBasePref.setChecked(RbSwitch.INSTANCE.isRestBaseEnabled());
     }
 
-    private CheckBoxPreference getUseRestBasePreference() {
-        return (CheckBoxPreference) findPreference(getUseRestBaseKey());
+    private TwoStatePreference getUseRestBasePreference() {
+        return (TwoStatePreference) findPreference(getUseRestBaseKey());
     }
 
     private String getUseRestBaseKey() {
@@ -148,7 +148,7 @@ import java.util.List;
 
     private EditTextAutoSummarizePreference newDataStringPref(String key, String title) {
         EditTextAutoSummarizePreference pref = new EditTextAutoSummarizePreference(context, null,
-                android.R.attr.editTextPreferenceStyle);
+                R.attr.editTextAutoSummarizePreferenceStyle);
         pref.setKey(key);
         pref.setTitle(title);
         return pref;

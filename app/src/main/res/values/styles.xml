@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.Light">
+        <item name="preferenceTheme">@style/AppPreferenceTheme</item>
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
@@ -159,8 +160,19 @@
 
     <!-- Preferences -->
 
-    <style name="EditTextAutoSummarizePreference">
-        <!-- parent="@android:style/Preference.DialogPreference.EditTextPreference" is not exposed. -->
+    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay.v14.Material">
+        <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragment</item>
+        <item name="android:listPreferredItemPaddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:listPreferredItemPaddingStart">@dimen/activity_horizontal_margin</item>
+        <item name="android:listPreferredItemPaddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:listPreferredItemPaddingEnd">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="AppPreferenceFragment" parent="PreferenceFragment.Material">
+        <item name="android:divider">@null</item>
+    </style>
+
+    <style name="EditTextAutoSummarizePreference" parent="Preference.DialogPreference.EditTextPreference.Material">
     </style>
 
     <style name="DataStringPreference" parent="EditTextAutoSummarizePreference">

@@ -3,10 +3,10 @@ package org.wikipedia.settings;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceFragmentCompat;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
@@ -17,7 +17,7 @@ import org.wikipedia.util.StringUtil;
 public class SettingsPreferenceLoader extends BasePreferenceLoader {
     private final Activity activity;
 
-    /*package*/ SettingsPreferenceLoader(@NonNull PreferenceFragment fragment) {
+    /*package*/ SettingsPreferenceLoader(@NonNull PreferenceFragmentCompat fragment) {
         super(fragment);
         activity = fragment.getActivity();
     }

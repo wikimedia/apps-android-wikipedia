@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/preferences_general_heading">
+<android.support.v7.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/preferences_general_heading">
         <org.wikipedia.settings.PreferenceMultiLine
                 android:key="@string/preference_key_language"
                 android:title="@string/preference_title_language">
         </org.wikipedia.settings.PreferenceMultiLine>
-        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_show_images"
             android:defaultValue="true"
             android:title="@string/preference_title_show_images"
             android:summary="@string/preference_summary_show_images"
             />
-        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_show_link_previews"
             android:defaultValue="true"
             android:title="@string/preference_title_show_link_previews"
@@ -20,13 +22,13 @@
             />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/preferences_privacy_settings_heading">
-        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_eventlogging_opt_in"
             android:defaultValue="true"
             android:title="@string/preference_title_eventlogging_opt_in"
             android:summary="@string/preference_summary_eventlogging_opt_in"
             />
-        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_auto_upload_crash_reports"
             android:defaultValue="true"
             android:title="@string/preference_title_auto_upload_crash_reports"
@@ -34,7 +36,7 @@
             />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/zero_wikipedia_zero_heading">
-        <org.wikipedia.settings.CheckBoxPreferenceMultiLine
+        <SwitchPreferenceCompat
                 android:key="zero_warn_when_leaving"
                 android:title="@string/zero_warn_when_leaving"
                 android:defaultValue="true"
@@ -77,4 +79,4 @@
                     />
         </org.wikipedia.settings.PreferenceMultiLine>
     </PreferenceCategory>
-</PreferenceScreen>
+</android.support.v7.preference.PreferenceScreen>

@@ -4,18 +4,13 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.preference.EditTextPreference;
+import android.support.v7.preference.EditTextPreference;
 import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
 
 import org.wikipedia.R;
 
 public class EditTextAutoSummarizePreference extends EditTextPreference {
-    // A custom style attribute is not possible because
-    // @android:style/Preference.DialogPreference.EditTextPreference is not exposed. Use the super
-    // style attribute instead and put the onus on the client.
-    protected static final int DEFAULT_STYLE_ATTR = android.R.attr.editTextPreferenceStyle;
+    protected static final int DEFAULT_STYLE_ATTR = R.attr.editTextAutoSummarizePreferenceStyle;
     private static final int[] DEFAULT_STYLEABLE = R.styleable.EditTextAutoSummarizePreference;
     private static final int DEFAULT_STYLE = R.style.EditTextAutoSummarizePreference;
     private static final boolean DEFAULT_AUTO_SUMMARIZE = true;
@@ -52,10 +47,9 @@ public class EditTextAutoSummarizePreference extends EditTextPreference {
     }
 
     @Override
-    protected View onCreateView(ViewGroup parent) {
-        View view = super.onCreateView(parent);
+    public void onAttached() {
+        super.onAttached();
         updateAutoSummary();
-        return view;
     }
 
     @Override

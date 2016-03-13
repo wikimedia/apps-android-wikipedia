@@ -19,6 +19,10 @@ public class SettingsFragment extends PreferenceLoaderFragment {
     }
 
     @Override
+    public void onCreatePreferences(Bundle bundle, String s) {
+    }
+
+    @Override
     public void loadPreferences() {
         SettingsPreferenceLoader preferenceLoader = new SettingsPreferenceLoader(this);
         preferenceLoader.loadPreferences();
@@ -62,6 +66,6 @@ public class SettingsFragment extends PreferenceLoaderFragment {
     }
 
     private void invalidateOptionsMenu() {
-        getFragmentManager().invalidateOptionsMenu();
+        getActivity().supportInvalidateOptionsMenu();
     }
 }
