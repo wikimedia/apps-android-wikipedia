@@ -362,7 +362,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         }
 
         public void onGalleryResult(GalleryCollection result) {
-            if (result.getItemList().size() > 2) {
+            if (!result.getItemList().isEmpty()) {
                 thumbnailGallery.setGalleryCollection(result);
 
                 // When the visibility is immediately changed, the images flicker. Add a short delay.
