@@ -164,7 +164,7 @@ dependencies {
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
     String okHttpVersion = '2.7.0'
-    String supportVersion = '23.1.1'
+    String supportVersion = '23.2.1'
     String espressoVersion = '2.2.1'
 
     compile "com.android.support:appcompat-v7:$supportVersion" // includes support-v4

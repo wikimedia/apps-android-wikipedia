@@ -72,6 +72,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -189,6 +190,10 @@ public class PageActivity extends ThemedActionBarActivity {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
         app.checkCrashes(this);
+
+        if (ApiUtil.hasKitKat()) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         setContentView(R.layout.activity_page);

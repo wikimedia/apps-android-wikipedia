@@ -205,7 +205,9 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     }
 
     protected DisplayMetrics getDisplayMetrics() {
-        return getResources().getDisplayMetrics();
+        DisplayMetrics metrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return metrics;
     }
 
     private static final class SwipeableAdapter extends BaseAdapter {
