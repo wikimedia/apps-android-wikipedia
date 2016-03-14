@@ -56,6 +56,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     private GalleryThumbnailScrollView thumbnailGallery;
     private View toolbarView;
     private View overflowButton;
+    private Button goButton;
 
     private PageTitle pageTitle;
     private int entrySource;
@@ -123,7 +124,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         toolbarView.setOnClickListener(goToPageListener);
 
         View overlayRootView = addOverlay(inflater, R.layout.dialog_link_preview_overlay);
-        Button goButton = (Button) overlayRootView.findViewById(R.id.link_preview_go_button);
+        goButton = (Button) overlayRootView.findViewById(R.id.link_preview_go_button);
         goButton.setOnClickListener(goToPageListener);
         goButton.setText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
 
@@ -206,6 +207,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         thumbnailGallery.setGalleryViewListener(null);
         toolbarView.setOnClickListener(null);
         overflowButton.setOnClickListener(null);
+        goButton.setOnClickListener(null);
         super.onDestroyView();
     }
 
