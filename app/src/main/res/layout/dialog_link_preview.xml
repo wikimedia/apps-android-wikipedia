@@ -96,9 +96,10 @@
 
             <org.wikipedia.page.gallery.GalleryThumbnailScrollView
                 android:id="@+id/link_preview_thumbnail_gallery"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/linkPreviewImageSize"
                 android:layout_marginTop="12dp"
+                android:layout_gravity="center_horizontal"
                 android:visibility="gone" />
 
             <View
