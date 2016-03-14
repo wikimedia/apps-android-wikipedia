@@ -7,13 +7,13 @@
   <string name="no">Ne</string>
   <string name="search_hint">Serĉu en Vikipedio</string>
   <string name="nav_item_history">Historio</string>
-  <string name="error_network_error" fuzzy="true">Ne estas ret-aliro</string>
+  <string name="error_network_error">Ne eblas konektiĝi al Interreto.</string>
   <string name="page_error_retry">Reprovi</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
   <string name="menu_clear_all_saved_pages">Malplenigi ĉiujn konservitajn paĝojn</string>
   <string name="page_does_not_exist_error">Ĉi tiu paĝo ne ekzistas.</string>
   <string name="nav_item_today">Hodiaŭ</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Ĉu malplenigi la navigadan historion?</string>
+  <string name="dialog_title_clear_history">Malplenigi la retuman historion</string>
   <string name="nav_item_saved_pages">Konservitaj paĝoj</string>
   <string name="menu_update_all_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
   <string name="menu_update_selected_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
@@ -21,18 +21,18 @@
   <string name="share_via">Kundividi per</string>
   <string name="dialog_title_clear_saved_pages">Ĉu Malplenigi ĉiujn konservitajn paĝojn?</string>
   <string name="snackbar_saving_page">Konservante paĝon…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Paĝo sukcese konservita</string>
+  <string name="snackbar_saved_page_format">\"%s\" konservita por senreta legado</string>
   <string name="snackbar_saved_page_missing_images">Ne eblas konservi ĉiuj bildojn</string>
   <string name="snackbar_refresh_saved_page">Ĝisdatigante konservitajn paĝojn</string>
   <string name="delete_selected_saved_pages">Forigi</string>
   <string name="snackbar_saved_page_deleted">Konservita(j) paĝo(j) forigita(j)</string>
   <string name="saved_pages_search_list_hint">Serĉi konservitajn paĝojn</string>
   <string name="saved_pages_search_empty_message">Neniu paĝo kongruas kun via serĉo.</string>
-  <string name="menu_page_other_languages" fuzzy="true">Legi en alia lingvo</string>
+  <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
   <string name="menu_page_find_in_page">Trovi en la paĝo</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
   <string name="menu_page_save">Konservi paĝon</string>
-  <string name="menu_page_share" fuzzy="true">Kundividi</string>
+  <string name="menu_page_share">Diskonigi ligilon</string>
   <string name="menu_long_press_open_page">Malfermi</string>
   <string name="menu_long_press_open_in_new_tab">Malfermi en nova langeto</string>
   <string name="menu_long_press_copy_page">Kopii ligilan adreson</string>
@@ -68,17 +68,17 @@
   <string name="title_captcha">Enigu CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tuŝu la CAPTCHA-n por reprovi</string>
   <string name="edit_saved_page_refresh">Ĉi tiu konservita paĝo eble estas ne ĝisdatigita, kaj ĝisdatigendas por ebligi la modifadon. Ĉu vi volas ĝisdatigi ĝin nun?</string>
-  <string name="nav_item_login" fuzzy="true">Ensaluti</string>
+  <string name="nav_item_login">Ensaluti en Vikipedion</string>
   <string name="login_username_hint">Uzantnomo</string>
   <string name="login_password_hint">Pasvorto</string>
   <string name="login_password_show_check">Montri pasvorton</string>
   <string name="menu_login">Ensaluti</string>
-  <string name="login_activity_title" fuzzy="true">Ensaluti en Vikipedio</string>
+  <string name="login_activity_title">Ensaluti en Vikipedion</string>
   <string name="login_in_progress_dialog_message">Ensalutante…</string>
   <string name="login_error_wrong_password">Neĝusta pasvorto</string>
   <string name="login_error_wrong_username">Neĝusta uzantnomo</string>
   <string name="login_error_illegal">Nevalida uzantonomo</string>
-  <string name="login_success_toast" fuzzy="true">Ensalutado sukcesis</string>
+  <string name="login_success_toast">Ensaluto sukcesis!</string>
   <string name="login_error_blocked">Ĉi tiu uzanto estis forbarita</string>
   <string name="login_error_throttled">Tro multaj ensalutaj provoj. Atendu kelkaj minutoj kaj reprovu tiam.</string>
   <string name="login_error_unknown">Ensalutado malsukcesis</string>
@@ -214,7 +214,7 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_text">Klaku por elŝuti</string>
   <string name="dialog_close_description">Fermi</string>
   <string name="preference_title_show_images">Montri bildojn</string>
-  <string name="preference_summary_show_images" fuzzy="true">Ŝaltigi aŭ malŝaltigi la ŝarĝadon de bildoj en paĝoj. Malŝaltu ĉi tiun agordon se via reta konekto estas malrapida, aŭ via poŝtelefonaj datumoj estas limigitaj.</string>
+  <string name="preference_summary_show_images">Ŝalti aŭ malŝalti la ŝarĝadon de bildoj en paĝoj. Malŝaltu ĉi tiun agordon se via reta konekto estas malrapida, aŭ viaj datumaj transigoj estas limigitaj.</string>
   <string name="read_more_section">Legi plu</string>
   <string name="menu_gallery_visit_page">Iru al la dosiera paĝo</string>
   <string name="gallery_error_draw_failed">Ne eblis montri la bildon.</string>
@@ -222,7 +222,7 @@ Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Kundividi</string>
   <string name="gallery_share_error">Ne eblis kundividi la bildon: %s</string>
   <string name="gallery_menu_save">Konservi en la aparato</string>
-  <string name="gallery_save_success" fuzzy="true">Bildo sukcese konservita</string>
+  <string name="gallery_save_success">Dosiero sukcese konservita.</string>
   <string name="gallery_error_video_failed">Ne eblis ludi la videon</string>
   <string name="err_cannot_save_file">Ne eblis konservi la dosieron</string>
   <string name="snippet_share_intro">\"%1$s\" ĉe @Wikipedia: %2$s</string>
