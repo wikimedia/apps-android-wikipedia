@@ -5,9 +5,9 @@ import android.os.Bundle;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
-import org.wikipedia.activity.CompatSingleFragmentActivity;
+import org.wikipedia.activity.SingleFragmentActivity;
 
-public class CrashReportActivity extends CompatSingleFragmentActivity<CrashReportFragment>
+public class CrashReportActivity extends SingleFragmentActivity<CrashReportFragment>
         implements CrashReportFragmentCallback {
     @Override
     protected CrashReportFragment createFragment() {
