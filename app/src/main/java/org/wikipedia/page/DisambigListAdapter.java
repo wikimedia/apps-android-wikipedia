@@ -5,6 +5,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.pageimages.PageImagesTask;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.wikidata.GetDescriptionsTask;
@@ -63,7 +64,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
                 app.getAPIForSite(site),
                 site,
                 titleList,
-                (int)(WikipediaApp.PREFERRED_THUMB_SIZE * WikipediaApp.getInstance().getScreenDensity())) {
+                (int)(WikipediaApp.PREFERRED_THUMB_SIZE * DimenUtil.getDensityScalar())) {
             @Override
             public void onFinish(Map<PageTitle, String> result) {
                 for (Map.Entry<PageTitle, String> entry : result.entrySet()) {

@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.DimenUtil;
 
 public class PageScrollFunnel extends TimedFunnel {
     private static final String SCHEMA_NAME = "MobileWikiAppPageScroll";
     private static final int REV_ID = 14591606;
 
-    private final WikipediaApp app;
     private final int pageId;
     private int viewportHeight;
     private int pageHeight;
@@ -19,7 +19,6 @@ public class PageScrollFunnel extends TimedFunnel {
 
     public PageScrollFunnel(WikipediaApp app, int pageId) {
         super(app, SCHEMA_NAME, REV_ID, app.isProdRelease() ? Funnel.SAMPLE_LOG_100 : Funnel.SAMPLE_LOG_ALL);
-        this.app = app;
         this.pageId = pageId;
     }
 
@@ -37,7 +36,7 @@ public class PageScrollFunnel extends TimedFunnel {
     }
 
     public void setPageHeight(int height) {
-        this.pageHeight = (int) (height * app.getScreenDensity());
+        this.pageHeight = (int) (height * DimenUtil.getDensityScalar());
     }
 
     public void setViewportHeight(int height) {
@@ -47,9 +46,9 @@ public class PageScrollFunnel extends TimedFunnel {
     public void logDone() {
         log(
                 "pageID", pageId,
-                "pageHeight", (int) (pageHeight / app.getScreenDensity()),
-                "scrollFluxDown", (int) (scrollFluxDown / app.getScreenDensity()),
-                "scrollFluxUp", (int) (scrollFluxUp / app.getScreenDensity()),
+                "pageHeight", (int) (pageHeight / DimenUtil.getDensityScalar()),
+                "scrollFluxDown", (int) (scrollFluxDown / DimenUtil.getDensityScalar()),
+                "scrollFluxUp", (int) (scrollFluxUp / DimenUtil.getDensityScalar()),
                 "maxPercentViewed", getMaxPercentViewed()
         );
     }

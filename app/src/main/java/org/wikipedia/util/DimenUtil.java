@@ -60,13 +60,13 @@ public final class DimenUtil {
     // TODO: use getResources().getDimensionPixelSize()?  Define leadImageWidth with px, not dp?
     public static int calculateLeadImageWidth() {
         Resources res = WikipediaApp.getInstance().getResources();
-        return (int) (res.getDimension(R.dimen.leadImageWidth) / res.getDisplayMetrics().density);
+        return (int) (res.getDimension(R.dimen.leadImageWidth) / getDensityScalar());
     }
 
-    /**
-     * Gets the screen height in pixels.
-     * @return screen height in pixels
-     */
+    public static int getDisplayWidthPx() {
+        return getDisplayMetrics().widthPixels;
+    }
+
     public static int getDisplayHeightPx() {
         return getDisplayMetrics().heightPixels;
     }

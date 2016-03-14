@@ -726,7 +726,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             }
             //give it our expected scroll position, in case we need the page to be pre-scrolled upon loading.
             wrapper.put("scrollY",
-                    (int) (stagedScrollY / activity.getResources().getDisplayMetrics().density));
+                    (int) (stagedScrollY / DimenUtil.getDensityScalar()));
             bridge.sendMessage("displaySection", wrapper);
 
             if (savedPage && lastSection) {

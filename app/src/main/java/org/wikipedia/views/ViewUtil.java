@@ -19,6 +19,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.DimenUtil;
 
 import java.lang.reflect.Field;
 
@@ -43,7 +44,7 @@ public final class ViewUtil {
 
     public static void setBottomPaddingDp(View view, int padding) {
         view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(),
-                (int) (padding * view.getContext().getResources().getDisplayMetrics().density));
+                (int) (padding * DimenUtil.getDensityScalar()));
     }
 
     public static void setAnimationMatrix(View view, Animation animation) {

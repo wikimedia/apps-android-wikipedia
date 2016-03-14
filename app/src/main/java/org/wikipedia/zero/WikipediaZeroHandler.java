@@ -7,6 +7,7 @@ import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.random.RandomArticleIdTask;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
@@ -52,7 +53,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     /**
      * Height of the Zero banner, in pixels, that will pop up from the bottom of the screen.
      */
-    private static final int BANNER_HEIGHT = (int) (120 * WikipediaApp.getInstance().getScreenDensity());
+    private static final int BANNER_HEIGHT = (int) (120 * DimenUtil.getDensityScalar());
 
     private WikipediaApp app;
 

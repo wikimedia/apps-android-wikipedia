@@ -63,6 +63,7 @@ import org.wikipedia.savedpages.SavedPageCheckTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
@@ -94,7 +95,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private boolean errorState = false;
 
     private static final int TOC_BUTTON_HIDE_DELAY = 2000;
-    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * WikipediaApp.getInstance().getScreenDensity());
+    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * DimenUtil.getDensityScalar());
 
     private PageLoadStrategy pageLoadStrategy;
     private PageViewModel model;

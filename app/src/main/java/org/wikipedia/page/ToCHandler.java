@@ -6,6 +6,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ConfigurableListView;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
@@ -253,7 +254,7 @@ public class ToCHandler {
             View sectionFiller = convertView.findViewById(R.id.page_toc_filler);
 
             LinearLayout.LayoutParams indentLayoutParameters = new LinearLayout.LayoutParams(sectionFiller.getLayoutParams());
-            indentLayoutParameters.width = (section.getLevel() - 1) * (int) (INDENTATION_WIDTH_DP * WikipediaApp.getInstance().getScreenDensity());
+            indentLayoutParameters.width = (section.getLevel() - 1) * (int) (INDENTATION_WIDTH_DP * DimenUtil.getDensityScalar());
             sectionFiller.setLayoutParams(indentLayoutParameters);
 
             sectionHeading.setText(Html.fromHtml(section.getHeading()));

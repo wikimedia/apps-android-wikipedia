@@ -23,6 +23,7 @@ import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.restbase.RbPageService;
 import org.wikipedia.server.restbase.RbDefinition;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.AppTextView;
 
@@ -70,7 +71,7 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(STYLE_NO_TITLE, R.style.LinkPreviewDialog);
-        int peekHeight = getDisplayMetrics().heightPixels / PEEK_HEIGHT_DIVISOR;
+        int peekHeight = DimenUtil.getDisplayHeightPx() / PEEK_HEIGHT_DIVISOR;
         setContentPeekHeight(peekHeight);
     }
 

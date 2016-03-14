@@ -4,6 +4,7 @@ import org.wikipedia.R;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ViewUtil;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -38,7 +39,6 @@ public class TabsProvider {
     }
 
     private PageActivity parentActivity;
-    private float displayDensity;
 
     private View pageContentView;
     private View tabContainerView;
@@ -61,7 +61,6 @@ public class TabsProvider {
     public TabsProvider(PageActivity parentActivity, List<Tab> tabList) {
         this.parentActivity = parentActivity;
         this.tabList = tabList;
-        displayDensity = parentActivity.getResources().getDisplayMetrics().density;
 
         pageContentView = parentActivity.getContentView();
         tabContainerView = parentActivity.getTabsContainerView();
@@ -295,7 +294,7 @@ public class TabsProvider {
         int contentOffset = getContentTopOffsetPx(parentActivity);
         int maxHeight = (int) (pageContentView.getHeight() * proportionVert
                 + pageContentView.getHeight() * proportionHorz
-                - contentOffset - heightOffset * displayDensity);
+                - contentOffset - heightOffset * DimenUtil.getDensityScalar());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, maxHeight);
         float margin = pageContentView.getWidth() * proportionHorz / 2f;
         params.leftMargin = (int) margin;

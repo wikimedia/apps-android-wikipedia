@@ -9,6 +9,8 @@ import android.view.ViewConfiguration;
 import android.webkit.WebView;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WebViewInvalidateEvent;
+import org.wikipedia.util.DimenUtil;
+
 import android.graphics.Canvas;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +36,13 @@ public class ObservableWebView extends WebView {
     /**
     * Threshold (in pixels) of continuous scrolling, to be considered "fast" scrolling.
     */
-    private static final int FAST_SCROLL_THRESHOLD = (int) (1000 * WikipediaApp.getInstance().getScreenDensity());
+    private static final int FAST_SCROLL_THRESHOLD = (int) (1000 * DimenUtil.getDensityScalar());
 
     /**
     * Maximum single scroll amount (in pixels) to be considered a "human" scroll.
     * Otherwise it's probably a programmatic scroll, which we won't count.
     */
-    private static final int MAX_HUMAN_SCROLL = (int) (500 * WikipediaApp.getInstance().getScreenDensity());
+    private static final int MAX_HUMAN_SCROLL = (int) (500 * DimenUtil.getDensityScalar());
 
     /**
      * Maximum amount of time that needs to elapse before the previous scroll amount

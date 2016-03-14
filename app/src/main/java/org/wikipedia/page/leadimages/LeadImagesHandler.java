@@ -57,7 +57,6 @@ public class LeadImagesHandler {
 
     private int displayHeightDp;
     private float faceYOffsetNormalized;
-    private float displayDensity;
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
@@ -193,9 +192,9 @@ public class LeadImagesHandler {
     private void updatePadding() {
         int padding;
         if (isMainPage()) {
-            padding = Math.round(getContentTopOffsetPx(getActivity()) / displayDensity);
+            padding = Math.round(getContentTopOffsetPx(getActivity()) / DimenUtil.getDensityScalar());
         } else {
-            padding = Math.round(articleHeaderView.getHeight() / displayDensity);
+            padding = Math.round(articleHeaderView.getHeight() / DimenUtil.getDensityScalar());
         }
 
         setWebViewPaddingTop(padding);
@@ -233,15 +232,10 @@ public class LeadImagesHandler {
     }
 
     /**
-     * Determines and sets displayDensity and displayHeightDp for the lead images layout.
+     * Determines and sets displayHeightDp for the lead images layout.
      */
     private void initDisplayDimensions() {
-        // preload the display density, since it will be used in a lot of places
-        displayDensity = DimenUtil.getDensityScalar();
-
-        int displayHeightPx = DimenUtil.getDisplayHeightPx();
-
-        displayHeightDp = (int) (displayHeightPx / displayDensity);
+        displayHeightDp = (int) (DimenUtil.getDisplayHeightPx() / DimenUtil.getDensityScalar());
     }
 
     private void loadLeadImage() {

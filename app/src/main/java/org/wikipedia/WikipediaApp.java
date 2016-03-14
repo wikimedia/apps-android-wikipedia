@@ -3,7 +3,6 @@ package org.wikipedia;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -68,11 +67,6 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class WikipediaApp extends Application {
     private static final int EVENT_LOG_TESTING_ID = new Random().nextInt(Integer.MAX_VALUE);
-
-    private float screenDensity;
-    public float getScreenDensity() {
-        return screenDensity;
-    }
 
     public static final int FONT_SIZE_MULTIPLIER_MIN = -5;
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
@@ -166,9 +160,7 @@ public class WikipediaApp extends Application {
         Fresco.initialize(this);
         bus = new Bus();
 
-        final Resources resources = getResources();
-        ViewAnimations.init(resources);
-        screenDensity = resources.getDisplayMetrics().density;
+        ViewAnimations.init(getResources());
         currentTheme = unmarshalCurrentTheme();
 
         appLanguageState = new AppLanguageState(this);

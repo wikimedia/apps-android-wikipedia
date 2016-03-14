@@ -22,6 +22,7 @@ import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
 import retrofit.RetrofitError;
@@ -126,7 +127,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
 
     private int calculateLeadImageWidth() {
         Resources res = WikipediaApp.getInstance().getResources();
-        return (int) (res.getDimension(R.dimen.leadImageWidth) / res.getDisplayMetrics().density);
+        return (int) (res.getDimension(R.dimen.leadImageWidth) / DimenUtil.getDensityScalar());
     }
 
     private PageService getApiService(PageTitle title) {

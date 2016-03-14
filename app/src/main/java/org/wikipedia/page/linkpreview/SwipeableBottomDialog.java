@@ -1,6 +1,7 @@
 package org.wikipedia.page.linkpreview;
 
 import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 
 import android.app.Dialog;
 import android.content.res.Configuration;
@@ -10,7 +11,6 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -196,18 +196,12 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     }
 
     protected int dialogWidthPx() {
-        return Math.min(getDisplayMetrics().widthPixels,
+        return Math.min(DimenUtil.getDisplayWidthPx(),
                 (int) getResources().getDimension(R.dimen.swipeableDialogMaxWidth));
     }
 
     private int dialogHeightPx() {
-        return getDisplayMetrics().heightPixels - getStatusBarHeightPx(getActivity());
-    }
-
-    protected DisplayMetrics getDisplayMetrics() {
-        DisplayMetrics metrics = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        return metrics;
+        return DimenUtil.getDisplayHeightPx() - getStatusBarHeightPx(getActivity());
     }
 
     private static final class SwipeableAdapter extends BaseAdapter {

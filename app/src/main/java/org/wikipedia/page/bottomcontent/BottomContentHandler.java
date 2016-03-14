@@ -37,6 +37,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResults;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ConfigurableListView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ObservableWebView;
@@ -60,7 +61,6 @@ public class BottomContentHandler implements BottomContentInterface,
     private PageTitle pageTitle;
     private final PageActivity activity;
     private final WikipediaApp app;
-    private float displayDensity;
     private boolean firstTimeShown = false;
 
     private View bottomContentContainer;
@@ -81,7 +81,6 @@ public class BottomContentHandler implements BottomContentInterface,
         this.linkHandler = linkHandler;
         activity = (PageActivity) parentFragment.getActivity();
         app = (WikipediaApp) activity.getApplicationContext();
-        displayDensity = activity.getResources().getDisplayMetrics().density;
 
         bottomContentContainer = hidingView;
         webview.addOnScrollChangeListener(this);
@@ -125,7 +124,7 @@ public class BottomContentHandler implements BottomContentInterface,
                         break;
                     case MotionEvent.ACTION_MOVE:
                         if (isPressed && !doingSlopEvent) {
-                            int contentHeight = (int)(webView.getContentHeight() * displayDensity);
+                            int contentHeight = (int)(webView.getContentHeight() * DimenUtil.getDensityScalar());
                             int maxScroll = contentHeight - webView.getScrollY()
                                             - webView.getHeight();
                             int scrollAmount = Math.min((int) (startY - event.getY()), maxScroll);
@@ -156,8 +155,6 @@ public class BottomContentHandler implements BottomContentInterface,
             }
         });
 
-        // preload the display density, since it will be used in a lot of places
-        displayDensity = activity.getResources().getDisplayMetrics().density;
         // hide ourselves by default
         hide();
     }
@@ -167,7 +164,7 @@ public class BottomContentHandler implements BottomContentInterface,
         if (bottomContentContainer.getVisibility() == View.GONE) {
             return;
         }
-        int contentHeight = (int)(webView.getContentHeight() * displayDensity);
+        int contentHeight = (int)(webView.getContentHeight() * DimenUtil.getDensityScalar());
         int bottomOffset = contentHeight - scrollY - webView.getHeight();
         int bottomHeight = bottomContentContainer.getHeight();
         CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) bottomContentContainer.getLayoutParams();
@@ -254,7 +251,7 @@ public class BottomContentHandler implements BottomContentInterface,
         int totalHeight = bottomContentContainer.getMeasuredHeight();
         JSONObject payload = new JSONObject();
         try {
-            payload.put("paddingBottom", (int)(totalHeight / displayDensity));
+            payload.put("paddingBottom", (int)(totalHeight / DimenUtil.getDensityScalar()));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

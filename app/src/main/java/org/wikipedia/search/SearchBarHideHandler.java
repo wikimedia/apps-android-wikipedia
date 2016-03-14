@@ -14,6 +14,7 @@ import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.ViewAnimations;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.views.ObservableWebView;
 
@@ -22,7 +23,6 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         ObservableWebView.OnDownMotionEventListener {
     private static final int FULL_OPACITY = 255;
     @NonNull private final View quickReturnView;
-    private final float displayDensity;
 
     @NonNull private final Context context;
     @Nullable private ObservableWebView webview;
@@ -36,7 +36,6 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
     public SearchBarHideHandler(@NonNull Activity activity, @NonNull View quickReturnView) {
         context = activity;
         this.quickReturnView = quickReturnView;
-        this.displayDensity = getResources().getDisplayMetrics().density;
 
         LayerDrawable toolbarBackgroundLayers = (LayerDrawable) quickReturnView
                 .findViewById(R.id.main_toolbar_background_container).getBackground();
@@ -161,7 +160,7 @@ public class SearchBarHideHandler implements ObservableWebView.OnScrollChangeLis
         final int fadeHeight = 256;
         int opacity = FULL_OPACITY;
         if (fadeEnabled && !forceNoFade) {
-            opacity = scrollY * FULL_OPACITY / (int) (fadeHeight * displayDensity);
+            opacity = scrollY * FULL_OPACITY / (int) (fadeHeight * DimenUtil.getDensityScalar());
         }
         opacity = Math.max(0, opacity);
         opacity = Math.min(FULL_OPACITY, opacity);
