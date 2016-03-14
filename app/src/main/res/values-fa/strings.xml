@@ -51,15 +51,15 @@
   <string name="nearby_zoom_to_location">بزرگنمایی مکان در نقشه</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
-  <string name="edit_save_action_license_logged_in">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
-  <string name="edit_save_action_license_anon">با ذخیره‌کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید. ویرایش‌ها به نشانی آی‌پی دستگاه‌تان نسبت داده خواهد شد. اگر &lt;a href=\"https://#login\"&gt;وارد شوید&lt;/a&gt;، حریم خصوصی بیشتری دارید.</string>
+  <string name="edit_save_action_license_logged_in">با ذخیره کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
+  <string name="edit_save_action_license_anon">با ذخیره کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید. ویرایش‌ها به نشانی آی‌پی دستگاه‌تان نسبت داده خواهد شد. اگر &lt;a href=\"https://#login\"&gt;وارد شوید&lt;/a&gt;، حریم خصوصی بیشتری دارید.</string>
   <string name="preference_title_language">زبان</string>
   <string name="preference_languages_filter_hint">جستجو</string>
   <string name="langlinks_filter_hint">جستجو</string>
   <string name="langlinks_empty">این صفحه به زبان های دیگر در دسترس نمی‌باشد.</string>
   <string name="langlinks_no_match">هیچ زبانی برای درخواست شما یافت نشد</string>
   <string name="langlinks_activity_title">زبان‌های دیگر</string>
-  <string name="menu_save_changes">ذخیره‌کردن تغییرات</string>
+  <string name="menu_save_changes">ذخیره کردن تغییرات</string>
   <string name="edit_section_error_retry">تلاش مجدد</string>
   <string name="dialog_saving_in_progress">در حال ذخیره‌سازی…</string>
   <string name="edit_saved_successfully">ویرایش ذخیره شد!</string>

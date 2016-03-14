@@ -74,7 +74,7 @@
   <string name="edit_section_captcha_message">Sem hjálp við að berjast á móti sjálfvirkum ruslpóstsendingum, skaltu setja inn orðin sem birtast hér fyrir neðan</string>
   <string name="edit_section_captcha_hint">Endurtaktu orðin fyrir að ofan</string>
   <string name="title_captcha">Settu inn CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Sláðu á CAPTCHA til að endurhlaða</string>
+  <string name="edit_section_captcha_reload">Banka á CAPTCHA til að endurhlaða</string>
   <string name="edit_saved_page_refresh">Þessi vistaða síða gæti verið úreld og þyrfti að endurlesa hana svo að breytingar verði virkar. Viltu uppfæra síðuna ?</string>
   <string name="nav_item_login">Skrá inn á Wikipedia</string>
   <string name="login_username_hint">Notandanafn</string>
@@ -125,6 +125,7 @@
   <string name="zero_charged_verbiage_extended">Að hlaða inn aðrar greinar gæti stofnað til gagnakostnaðar.</string>
   <string name="zero_search_hint">Leita í Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Áminna mig ef ég fer burt af Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Ef símafyrirtækið þitt krefst greiðslu vegna gagnanotkunar í Wikipedia-appinu á Wikipedia Zero, ef þú hakar við þennan reit hjálpar það til að vita þegar þú ferð af síðum Wikipedia-appsins og átt á hættu að fá bakreikninga.</string>
   <string name="zero_webpage_title">Algengar spurningar um Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Fer burt af Wikipedia Zero</string>
@@ -142,6 +143,7 @@
   <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
   <string name="preference_summary_eventlogging_opt_in">Leyfa Wikimedia til að safna upplýsingum um hvernig þú notar appið, til að gera það betra</string>
   <string name="preference_title_auto_upload_crash_reports">Senda hrunskýrslur</string>
+  <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
   <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
   <string name="history_search_list_hint">Leitarferill</string>
   <string name="history_search_empty_message">Engar síður fundust sem samsvara leitarskilyrðunum.</string>
@@ -185,6 +187,8 @@
   <string name="saved_pages_progress_title">Hressi vistaðar síður...</string>
   <string name="abusefilter_title_warn">Þetta lítur ekki út fyrir að vera uppbyggileg breyting, ert þú viss um að þú viljir vista hana?</string>
   <string name="abusefilter_title_disallow">Þú getur ekki vistað þessa breytingu. Vinsamlegast breyttu henni.</string>
+  <string name="abusefilter_text_warn">Sjálfvirk sía hefur greint þessa breytingu sem mögulega eyðileggjandi. Hún gæti innihaldið eitt af eftirtöldu:&lt;br /&gt;&lt;br /&gt;· Eintómir hástafir&lt;br /&gt;· Tæming greina eða þvaður&lt;br /&gt;· Óviðeigandi ytri tenglar eða myndir&lt;br /&gt;· Endurteknir stafir</string>
+  <string name="abusefilter_text_disallow">Sjálfvirk sía hefur greint þessa breytingu sem eyðileggjandi eða sem tilraun til skemmdarverks. &lt;br /&gt;&lt;br /&gt;Wikipedia er alfræðirit og því tilheyrir aðeins hlutlaust og markvert efni.</string>
   <string name="dialog_page_issues">Vandamál varðandi síðu</string>
   <string name="button_page_issues">Vandamál varðandi síðu</string>
   <string name="text_size_select">Leturstærð</string>
@@ -205,7 +209,7 @@
   <string name="widget_name_search">Wikipedia-leit</string>
   <string name="wiktionary_no_definitions_found">Engar skilgreiningar fundust.</string>
   <string name="alpha_update_notification_title">Ný alfa-uppfærsla tiltæk</string>
-  <string name="alpha_update_notification_text">Sláðu létt til að sækja</string>
+  <string name="alpha_update_notification_text">Banka til að sækja</string>
   <string name="dialog_close_description">Loka</string>
   <string name="preference_title_show_images">Birta myndir</string>
   <string name="preference_summary_show_images">Virkja eða afvirkja hleðslu mynda í síðum. Taktu hakið úr þessu ef nettengingin þín er hægvirk, eða ef þú þarft að borga aukalega fyrir gagnamagnið.</string>
@@ -219,9 +223,10 @@
   <string name="gallery_save_progress">Sæki skrá…</string>
   <string name="gallery_save_success">Tókst að vista skrána.</string>
   <string name="gallery_error_video_failed">Tókst ekki að spila myndskeiðið.</string>
+  <string name="gallery_save_image_write_permission_rationale">Til að vista myndir er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins. Reyndu aftur og gefðu umbeðna heimild.</string>
   <string name="err_cannot_save_file">Gat ekki vistað skrá</string>
   <string name="snippet_share_intro">\"%1$s\" á @Wikipedia: %2$s</string>
-  <string name="expand_refs">Sláðu létt til að stækka</string>
+  <string name="expand_refs">Banka til að stækka</string>
   <string name="share_snippet_button">Deila sem mynd</string>
   <string name="share_normal_button">Deila sem texta</string>
   <string name="snippet_share_preview_image_desc">Forskoða mynd</string>
@@ -231,6 +236,8 @@
   <string name="gallery_uploader_unknown">Sendandi óþekktur</string>
   <string name="menu_new_tab">Nýr flipi</string>
   <string name="button_close_tab">Loka flipa</string>
+  <string name="tool_tip_select_text">Ýttu og haltu einhversstaðar í textanum til að ljóma hann svo hægt sé að afrita og deila.</string>
+  <string name="tool_tip_share">Þegar áhugavert atriði hefur verið ljómað, prófaðu að deila því á uppáhalds-netinu þínu!</string>
   <string name="page_view_in_browser">Opna síðu í vafra</string>
   <string name="error_server_response">Netþjónninn gat ekki uppfyllt fyrirspurnina.</string>
   <string name="error_response_malformed">Svar frá vefþjóni var ekki rétt formað.</string>
@@ -238,18 +245,25 @@
   <string name="format_error_server_message">Skilaboð: \"%s\"</string>
   <string name="format_error_server_code">Kóði: \"%s\"</string>
   <string name="address_copied">Vistfang afritað á klippispjaldið.</string>
-  <string name="text_copied">Texti afritaður á klippipjaldið.</string>
+  <string name="text_copied">Texti afritaður á klippispjaldið.</string>
   <string name="button_continue_to_article">Lesa grein</string>
   <string name="button_get_directions">Fá leiðsögn</string>
+  <string name="error_no_maps_app">Gat ekki fundið nein forrit fyrir kortaleiðsögn.</string>
   <string name="preference_title_show_link_previews">Birta forskoðun tengla</string>
+  <string name="preference_summary_show_link_previews">Birta flýtiforskoðun greina þegar bankað er á tengla.</string>
   <string name="nav_item_donate">Styðja Wikipedia</string>
   <string name="crash_report_dialog_title">Því miður, appið hrundi síðast</string>
+  <string name="crash_report_dialog_text">Viltu senda tilkynningu um hrunið til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis?</string>
   <string name="crash_report_dialog_dont_send_button">Sleppa</string>
   <string name="crash_report_dialog_always_send_button">Alltaf senda</string>
   <string name="crash_report_dialog_send_button">Senda</string>
   <string name="crash_report_activity_title">Villa í forriti</string>
+  <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.
+
+Viltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
   <string name="crash_report_quit">Hætta</string>
   <string name="article_menu_bar_bookmark">Vista greinina fyrir síðari tíma tengingarlausan lestur</string>
   <string name="article_menu_bar_share">Deila tengli á greinina</string>
+  <string name="article_menu_bar_navigate">Fara á staðsetningu greinarinnar</string>
 </resources>

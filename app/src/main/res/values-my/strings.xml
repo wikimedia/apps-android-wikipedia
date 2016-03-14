@@ -3,12 +3,14 @@
   <string name="app_name_prod">ဝီကီပီးဒီးယား</string>
   <string name="app_name_beta">ဝီကီပီးဒီးယား ဘီတာ</string>
   <string name="app_name_alpha">ဝီကီပီးဒီးယားအယ်လဖာ</string>
+  <string name="wikimedia">ဝီကီမီဒီယာ</string>
   <string name="yes">လုပ်မည်</string>
   <string name="no">မလုပ်ပါ</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="error_network_error">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
+  <string name="page_error_back_to_main">နောက်သို့ ပြန်သွားရန်</string>
   <string name="menu_clear_all_history">မှတ်တမ်းအားရှင်းမည်</string>
   <string name="menu_clear_all_saved_pages">သိမ်းထားသော စာမျက်နှာများ အားရှင်းပါ</string>
   <string name="page_does_not_exist_error">ဤစာမျက်နှာ မရှိပါ</string>
@@ -144,12 +146,15 @@
   <string name="about_description">ဝီကီပီဒီးယားအက်ပ် အကြောင်း</string>
   <string name="privacy_policy_description">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</string>
   <string name="terms_of_use_description">အသုံးပြုခြင်းဆိုင်ရာ သတ်မှတ်ချက်များ</string>
-  <string name="about_contributors_heading" fuzzy="true">ပံ့ပိုးထားသူများ</string>
-  <string name="about_translators_heading" fuzzy="true">ဘာသာပြန်သူများ</string>
+  <string name="about_contributors_heading">ဆောင်ရွက်ပေးထားသူများ</string>
+  <string name="about_translators_heading">ဘာသာပြန်သူများ</string>
   <string name="about_activity_title">အကြောင်း</string>
   <string name="edit_next">ရှေ့</string>
   <string name="edit_done">သိမ်းရန်</string>
   <string name="edit_preview">နမူနာ</string>
+  <string name="edit_summary_tag_typo">စာလုံးပေါင်း ပြင်ခဲ့သည်</string>
+  <string name="edit_summary_tag_grammar">သဒ္ဒါပြင်ခဲ့သည်</string>
+  <string name="edit_summary_tag_links">လင့်ခ်များပေါင်းထည့်ခဲ့သည်</string>
   <string name="edit_summary_tag_other">အခြား</string>
   <string name="find_next">ရှေ့တွင် ရှာရန်</string>
   <string name="find_previous">နောက်တွင် ရှာရန်</string>
@@ -158,7 +163,10 @@
   <string name="color_theme_light">အလင်း</string>
   <string name="color_theme_dark">အမှောင်</string>
   <string name="page_similar_titles">ဆင်တူစာမျက်နှာများ</string>
+  <string name="search_did_you_mean">\"%s\" ဟု ဆိုလိုပါသလား?</string>
   <string name="search_recent_header">လတ်တလော ရှာဖွေမှုများ -</string>
+  <string name="button_clear_all_recent_searches">မကြာမီက ရှာဖွေမှုများကို ရှင်းရန်</string>
+  <string name="clear_recent_searches_confirm">သင့်ရှာဖွေမှု ရာဇဝင်ကို ရှင်းလင်းမည်မှာ သေချာပါသလား?</string>
   <string name="table_other">နောက်ထပ် အချက်အလက်များ</string>
   <string name="table_close">ပိတ်ရန်</string>
   <string name="widget_name_featured_page">ဝီကီပီဒီယား မျက်နှာဖုံးဆောင်းပါး</string>

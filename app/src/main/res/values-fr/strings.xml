@@ -16,7 +16,7 @@
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="nav_item_today">Aujourd’hui</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
-  <string name="dialog_message_clear_history">Cela supprimera tout l’historique de votre navigateur, et fermera tous els onglets ouverts. Êtes-vous sûr ?</string>
+  <string name="dialog_message_clear_history">Cela supprimera tout l’historique de votre navigateur, et fermera tous les onglets ouverts. Êtes-vous sûr ?</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
   <string name="menu_update_all_saved_pages">Mettre à jour les pages enregistrées</string>
   <string name="menu_update_selected_saved_pages">Mettre à jour les pages enregistrées</string>
@@ -36,7 +36,7 @@
   <string name="menu_page_find_in_page">Rechercher dans la page</string>
   <string name="menu_page_content_issues">Problèmes de contenu</string>
   <string name="menu_page_similar_titles">Titres similaires</string>
-  <string name="menu_page_font_and_theme">Modifier la police et le thème</string>
+  <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_save">Enregistrer la page</string>
   <string name="menu_page_share">Partager le lien</string>
   <string name="menu_long_press_open_page">Ouvrir</string>

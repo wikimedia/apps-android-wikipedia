@@ -11,17 +11,24 @@
   <string name="menu_clear_all_history">Notīrīt vēsturi</string>
   <string name="page_does_not_exist_error">Šī lapa neeksistē.</string>
   <string name="nav_item_today">Šodien</string>
-  <string name="dialog_title_clear_history">Dzēst pārlūkošanas vēsturi?</string>
+  <string name="dialog_title_clear_history" fuzzy="true">Dzēst pārlūkošanas vēsturi?</string>
+  <string name="dialog_message_clear_history" fuzzy="true">Vai tiešām vēlaties notīrīt visu vēsturi?</string>
   <string name="nav_item_saved_pages">Saglabātās lapas</string>
   <string name="share_via">Dalīties, izmantojot</string>
   <string name="dialog_title_clear_saved_pages" fuzzy="true">Notīrīt grāmatzīmes</string>
   <string name="snackbar_saving_page">Saglabā lapu...</string>
   <string name="delete_selected_saved_pages">Dzēst</string>
-  <string name="menu_page_other_languages">Lasīt citās valodās</string>
+  <string name="menu_page_other_languages">Mainīt valodu</string>
+  <string name="menu_page_find_in_page">Atrast lapā</string>
+  <string name="menu_page_content_issues">Satura problēmas</string>
+  <string name="menu_page_similar_titles">Līdzīgi nosaukumi</string>
   <string name="menu_page_save">Saglabāt lapu</string>
   <string name="menu_page_share">Dalīties ar saiti</string>
   <string name="menu_long_press_open_page">Atvērt</string>
+  <string name="menu_long_press_open_in_new_tab">Atvērt jaunā cilnē</string>
   <string name="menu_long_press_copy_page">Kopēt saites adresi</string>
+  <string name="menu_text_select_copy">Kopēt</string>
+  <string name="menu_text_select_share">Dalīties</string>
   <string name="nav_item_nearby">Tuvumā</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -46,6 +53,7 @@
   <string name="menu_login">Pieslēgties</string>
   <string name="login_error_wrong_password">Kļūdaina parole</string>
   <string name="login_error_wrong_username">Nepareizs lietotājvārds</string>
+  <string name="login_error_illegal">Nederīgs lietotājvārds</string>
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
   <string name="login_error_blocked">Šis lietotājs ir bloķēts</string>
   <string name="preference_title_logout">Iziet</string>
@@ -66,17 +74,25 @@
   <string name="create_account_button">Izveidot kontu</string>
   <string name="zero_interstitial_continue">Pamest</string>
   <string name="zero_interstitial_cancel">Palikt šeit</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Uzzināt vairāk</string>
-  <string name="settings_activity_title" fuzzy="true">Iestatījumi</string>
+  <string name="zero_learn_more_learn_more">Lasīt vairāk</string>
+  <string name="nav_item_random">Nejaušs raksts</string>
+  <string name="create_account_account_created_toast">Konts izveidots!</string>
+  <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
+  <string name="page_protected_can_not_edit_title">Šī lapa ir aizsargāta</string>
+  <string name="settings_item_preferences">Iestatījumi</string>
+  <string name="settings_activity_title">Iestatījumi</string>
   <string name="privacy_policy_description">Privātuma politika</string>
   <string name="terms_of_use_description">Lietošanas noteikumi</string>
-  <string name="about_libraries_heading">izmantotās bibliotēkas</string>
-  <string name="about_translators_heading">tulkotāji</string>
+  <string name="about_libraries_heading">Izmantotās bibliotēkas</string>
+  <string name="about_translators_heading">Tulkotāji</string>
   <string name="about_translators_translatewiki">Šo lietotni iztulkoja brīvprātīgie tulkotāji no &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_activity_title">Par</string>
+  <string name="edit_how_page_improved">Kā tu uzlaboji lapu?</string>
   <string name="edit_next">Tālāk</string>
   <string name="edit_done">Saglabāt</string>
   <string name="edit_preview">Pirmskats</string>
+  <string name="find_next">Atrast nākamo</string>
+  <string name="find_previous">Atrast iepriekšējo</string>
   <string name="saved_pages_update_all_error_retry">Mēģināt vēlreiz</string>
   <string name="search_did_you_mean">Vai jūs domājāt \"%s\"?</string>
   <string name="table_infobox">Ātrie fakti</string>
@@ -85,9 +101,10 @@
   <string name="dialog_close_description">Aizvērt</string>
   <string name="preference_title_show_images">Rādīt attēlus</string>
   <string name="read_more_section">Lasīt vairāk</string>
+  <string name="gallery_menu_share">Dalīties</string>
   <string name="err_cannot_save_file">Nevar saglabāt failu</string>
   <string name="format_error_server_message">Ziņojums: \"%s\"</string>
   <string name="format_error_server_code">Kods: \"%s\"</string>
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
-  <string name="button_continue_to_article" fuzzy="true">Turpināt uz lapu</string>
+  <string name="button_continue_to_article">Lasīt rakstu</string>
 </resources>
