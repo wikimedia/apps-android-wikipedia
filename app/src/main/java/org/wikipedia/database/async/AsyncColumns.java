@@ -65,5 +65,7 @@ public abstract class AsyncColumns<T> {
         values.put(transactionId.getName(), row.transactionId());
     }
 
+    @NonNull public abstract AsyncRow<T> val(@NonNull Cursor cursor);
+
     @NonNull protected abstract T statusOf(int code);
 }
