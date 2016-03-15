@@ -3,13 +3,17 @@ package org.wikipedia.activity;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
+import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import org.wikipedia.R;
 
-/** Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
- *  Fragments. */
-public abstract class BaseSingleFragmentActivity<T> extends ThemedActionBarActivity {
+/**
+ * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
+ * Fragments.
+ */
+public abstract class SingleFragmentActivity<T extends Fragment & CallbackFragment<? extends FragmentCallback>>
+        extends ThemedActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +29,17 @@ public abstract class BaseSingleFragmentActivity<T> extends ThemedActionBarActiv
         return ActivityUtil.defaultOnOptionsItemSelected(this, item)
                 || super.onOptionsItemSelected(item);
     }
-
-    protected abstract void addFragment(T fragment);
+    protected void addFragment(T fragment) {
+        getSupportFragmentManager().beginTransaction().add(getContainerId(), fragment).commit();
+    }
 
     protected abstract T createFragment();
 
     /** @return The Fragment added to the stack. */
-    protected abstract T getFragment();
+    protected T getFragment() {
+        //noinspection unchecked
+        return (T) getSupportFragmentManager().findFragmentById(getContainerId());
+    }
 
     /** @return The resource layout to inflate which must contain a {@link android.view.ViewGroup}
      * whose ID is {@link #getContainerId()}. */

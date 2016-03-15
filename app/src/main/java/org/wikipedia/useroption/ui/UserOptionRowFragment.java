@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
@@ -20,6 +21,7 @@ import android.widget.ListView;
 import org.wikipedia.R;
 import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentCallback;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.useroption.database.UserOptionDatabaseTable;
 import org.wikipedia.useroption.database.UserOptionRow;
@@ -30,7 +32,7 @@ import butterknife.ButterKnife;
 
 import static org.wikipedia.Constants.USER_OPTION_ROW_FRAGMENT_LOADER_ID;
 
-public class UserOptionRowFragment extends CallbackFragment<FragmentCallback> {
+public class UserOptionRowFragment extends Fragment implements CallbackFragment<FragmentCallback> {
     @Bind(R.id.fragment_user_option_list) ListView list;
 
     public static UserOptionRowFragment newInstance() {
@@ -71,6 +73,10 @@ public class UserOptionRowFragment extends CallbackFragment<FragmentCallback> {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Nullable @Override public FragmentCallback getCallback() {
+        return FragmentUtil.getCallback(this);
     }
 
     private static class LoaderCallback extends CursorAdapterLoaderCallback {

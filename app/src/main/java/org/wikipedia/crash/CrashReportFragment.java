@@ -6,6 +6,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,11 @@ import android.view.ViewGroup;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.CallbackFragment;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.drawable.DrawableUtil;
 
-public class CrashReportFragment extends CallbackFragment<CrashReportFragmentCallback> {
+public class CrashReportFragment extends Fragment
+        implements CallbackFragment<CrashReportFragmentCallback> {
     public static CrashReportFragment newInstance() {
         return new CrashReportFragment();
     }
@@ -34,6 +37,10 @@ public class CrashReportFragment extends CallbackFragment<CrashReportFragmentCal
                 getContrastingThemeColor());
 
         return view;
+    }
+
+    @Override @Nullable public CrashReportFragmentCallback getCallback() {
+        return FragmentUtil.getCallback(this, CrashReportFragmentCallback.class);
     }
 
     private void setIconColor(@NonNull Drawable icon, @ColorInt int color) {

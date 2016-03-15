@@ -6,8 +6,8 @@ import android.util.SparseArray;
 public class EnumCodeMap<T extends Enum<T> & EnumCode> {
     @NonNull private final SparseArray<T> map;
 
-    public EnumCodeMap(Class<T> clazz) {
-        map = codeToEnumMap(clazz);
+    public EnumCodeMap(@NonNull Class<T> enumeration) {
+        map = codeToEnumMap(enumeration);
     }
 
     @NonNull public T get(int code) {
@@ -18,7 +18,7 @@ public class EnumCodeMap<T extends Enum<T> & EnumCode> {
         return status;
     }
 
-    private SparseArray<T> codeToEnumMap(Class<T> enumeration) {
+    @NonNull private SparseArray<T> codeToEnumMap(@NonNull Class<T> enumeration) {
         SparseArray<T> ret = new SparseArray<>();
         for (T value : enumeration.getEnumConstants()) {
             ret.put(value.code(), value);

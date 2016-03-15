@@ -1,8 +1,8 @@
 package org.wikipedia.settings;
 
-import org.wikipedia.activity.PlatformSingleFragmentActivity;
+import org.wikipedia.activity.SingleFragmentActivity;
 
-public class SettingsActivity extends PlatformSingleFragmentActivity<SettingsFragment> {
+public class SettingsActivity extends SingleFragmentActivity<SettingsFragment> {
     public static final int ACTIVITY_REQUEST_SHOW_SETTINGS = 1;
     public static final int ACTIVITY_RESULT_LANGUAGE_CHANGED = 1;
 
