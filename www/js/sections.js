@@ -119,6 +119,8 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     transformer.transform("displayDisambigLink", content);
     transformer.transform("displayIssuesLink", content);
 
+    document.getElementById( "loading_sections").className = "loading";
+
     bridge.sendMessage( "pageInfo", {
       "issues" : collectIssues(),
       "disambiguations" : collectDisambig()
@@ -128,7 +130,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         document.getElementById( "content" ).removeChild(issuesContainer);
     }
 
-    document.getElementById( "loading_sections").className = "loading";
     scrolledOnLoad = false;
 });
 
