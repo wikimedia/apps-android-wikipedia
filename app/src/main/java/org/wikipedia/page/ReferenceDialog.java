@@ -3,25 +3,21 @@ package org.wikipedia.page;
 import org.wikipedia.R;
 import android.content.Context;
 import android.text.Html;
-import android.text.Spanned;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.TextView;
 
 /**
  * A dialog that displays the currently clicked reference.
  */
-public class ReferenceDialog extends BottomDialog {
-    private final LinkHandler linkHandler;
-    private final TextView referenceText;
+public class ReferenceDialog extends NoDimBottomSheetDialog {
+    public ReferenceDialog(Context context, LinkHandler linkHandler, String html) {
+        super(context);
+        View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_reference, null);
+        setContentView(rootView);
 
-    public ReferenceDialog(Context context, LinkHandler linkHandler) {
-        super(context, R.layout.dialog_reference);
-        this.linkHandler = linkHandler;
-        referenceText = (TextView) getDialogLayout().findViewById(R.id.reference_text);
-    }
-
-    void updateReference(String refHtml) {
-        Spanned html = Html.fromHtml(refHtml);
-        referenceText.setText(html);
+        TextView referenceText = (TextView) rootView.findViewById(R.id.reference_text);
+        referenceText.setText(Html.fromHtml(html));
         referenceText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
     }
 }

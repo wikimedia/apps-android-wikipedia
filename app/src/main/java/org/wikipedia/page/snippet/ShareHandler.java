@@ -1,6 +1,5 @@
 package org.wikipedia.page.snippet;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -9,6 +8,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,11 +20,11 @@ import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.page.NoDimBottomSheetDialog;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ShareAFactFunnel;
-import org.wikipedia.page.BottomDialog;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageProperties;
@@ -62,7 +62,6 @@ public class ShareHandler {
     private final PageActivity activity;
     private final CommunicationBridge bridge;
     private CompatActionMode webViewActionMode;
-    private Dialog shareDialog;
     private ShareAFactFunnel funnel;
 
     private void createFunnel() {
@@ -118,13 +117,6 @@ public class ShareHandler {
         FeedbackUtil.showMessage(activity, R.string.text_copied);
     }
 
-    public void onDestroy() {
-        if (shareDialog != null) {
-            shareDialog.dismiss();
-            shareDialog = null;
-        }
-    }
-
     /** Call #setFunnel before #shareSnippet. */
     private void shareSnippet(CharSequence input) {
         final PageFragment curPageFragment = activity.getCurPageFragment();
@@ -152,11 +144,8 @@ public class ShareHandler {
                         leadImageLicense);
 
                 final Bitmap snippetBitmap = snippetImage.drawBitmap();
-                if (shareDialog != null) {
-                    shareDialog.dismiss();
-                }
-                shareDialog = new PreviewDialog(activity, snippetBitmap, title, selectedText, funnel);
-                shareDialog.show();
+
+                activity.showBottomSheet(new PreviewDialog(activity, snippetBitmap, title, selectedText, funnel));
             }
 
             @Override
@@ -310,15 +299,17 @@ public class ShareHandler {
  * A dialog to be displayed before sharing with two action buttons:
  * "Share as image", "Share as text".
  */
-class PreviewDialog extends BottomDialog {
+class PreviewDialog extends NoDimBottomSheetDialog {
     private boolean completed = false;
 
     PreviewDialog(final PageActivity activity, final Bitmap resultBitmap, final PageTitle title,
                   final String selectedText, final ShareAFactFunnel funnel) {
-        super(activity, R.layout.dialog_share_preview);
-        ImageView previewImage = (ImageView) getDialogLayout().findViewById(R.id.preview_img);
+        super(activity);
+        View rootView = LayoutInflater.from(activity).inflate(R.layout.dialog_share_preview, null);
+        setContentView(rootView);
+        ImageView previewImage = (ImageView) rootView.findViewById(R.id.preview_img);
         previewImage.setImageBitmap(resultBitmap);
-        getDialogLayout().findViewById(R.id.share_as_image_button)
+        rootView.findViewById(R.id.share_as_image_button)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -331,7 +322,7 @@ class PreviewDialog extends BottomDialog {
                         completed = true;
                     }
                 });
-        getDialogLayout().findViewById(R.id.share_as_text_button)
+        rootView.findViewById(R.id.share_as_text_button)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -353,6 +344,7 @@ class PreviewDialog extends BottomDialog {
                 }
             }
         });
+        startExpanded();
     }
 
     private String constructShareText(String selectedText, String introText) {

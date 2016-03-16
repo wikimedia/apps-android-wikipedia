@@ -139,7 +139,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
-    private ReferenceDialog referenceDialog;
     private EditHandler editHandler;
     private ActionMode findInPageActionMode;
     @NonNull private ShareHandler shareHandler;
@@ -247,7 +246,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void onDestroyView() {
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
-        shareHandler.onDestroy();
         tabsProvider.setTabsProviderListener(null);
         searchBarHideHandler.setScrollView(null);
         webView.clearAllListeners();
@@ -274,9 +272,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         linkHandler = new LinkHandler(getActivity(), bridge) {
             @Override
             public void onPageLinkClicked(String anchor) {
-                if (referenceDialog != null && referenceDialog.isShowing()) {
-                    referenceDialog.dismiss();
-                }
+                getPageActivity().dismissBottomSheet();
                 JSONObject payload = new JSONObject();
                 try {
                     payload.put("anchor", anchor);
@@ -301,16 +297,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @Override
             protected void onReferenceClicked(String refHtml) {
                 if (!isAdded()) {
-                    Log.d("PageFragment",
-                          "Detached from activity, so stopping reference click.");
+                    Log.d("PageFragment", "Detached from activity, so stopping reference click.");
                     return;
                 }
-
-                if (referenceDialog == null) {
-                    referenceDialog = new ReferenceDialog(getActivity(), linkHandler);
-                }
-                referenceDialog.updateReference(refHtml);
-                referenceDialog.show();
+                getPageActivity().showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml));
             }
         };
 
@@ -406,9 +396,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             visitInExternalBrowser(getActivity(), Uri.parse(title.getMobileUri()));
             return;
         }
-        if (referenceDialog != null && referenceDialog.isShowing()) {
-            referenceDialog.dismiss();
-        }
+        getPageActivity().dismissBottomSheet();
         if (!TextUtils.isEmpty(title.getNamespace()) || !app.isLinkPreviewEnabled()) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             getPageActivity().loadPage(title, historyEntry);
@@ -930,22 +918,15 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void showContentIssues() {
-        showPageInfoDialog().showIssues();
+        showPageInfoDialog(false);
     }
 
     private void showSimilarTitles() {
-        showPageInfoDialog().showDisambig();
+        showPageInfoDialog(true);
     }
 
-    private PageInfoDialog showPageInfoDialog() {
-        PageInfoDialog dialog = new PageInfoDialog((PageActivity) getActivity(), pageInfo, pageInfoDialogHeight());
-        dialog.show();
-        return dialog;
-    }
-
-    private int pageInfoDialogHeight() {
-        // could have scrolled up a bit but the page info links must still be visible else they couldn't have been clicked
-        return webView.getHeight() + webView.getScrollY() - articleHeaderView.getHeight();
+    private void showPageInfoDialog(boolean startAtDisambig) {
+        getPageActivity().showBottomSheet(new PageInfoDialog((PageActivity) getActivity(), pageInfo, startAtDisambig));
     }
 
     private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
