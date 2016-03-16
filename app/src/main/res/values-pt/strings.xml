@@ -164,6 +164,7 @@
   <string name="about_contributors_heading">Contribuidores</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida por voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Licença</string>
   <string name="about_wmf">Um produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
@@ -287,4 +288,5 @@ Gostaria de recomeçar ou sair?</string>
   <string name="article_menu_bar_bookmark">Guardar o artigo para ler off-line mais tarde</string>
   <string name="article_menu_bar_share">Partilhar a ligação do artigo</string>
   <string name="article_menu_bar_navigate">Navegar ao local do artigo</string>
+  <string name="user_option_sync_label">Preferências</string>
 </resources>

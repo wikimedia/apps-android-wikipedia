@@ -3,12 +3,14 @@
   <string name="app_name_prod">Википедија</string>
   <string name="app_name_beta">Википедија Бета</string>
   <string name="app_name_alpha">Википедија Алфа</string>
+  <string name="wikimedia">Викимедија</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
   <string name="search_hint">Претрага Википедије</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Није могуће успоставити везу са интернетом.</string>
   <string name="page_error_retry">Пробај опет</string>
+  <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Очисти историју</string>
   <string name="menu_clear_all_saved_pages">Очисти сачуване странице</string>
   <string name="page_does_not_exist_error">Ова страница не постоји.</string>
@@ -30,8 +32,9 @@
   <string name="saved_pages_search_list_hint">Претрага сачуваних страница</string>
   <string name="saved_pages_search_empty_message">Нема пронађених страница које одговарају вашем упиту.</string>
   <string name="menu_page_show_tabs">Прикажи језичке</string>
-  <string name="menu_page_other_languages" fuzzy="true">Читај на осталим језици</string>
+  <string name="menu_page_other_languages">Промени језик</string>
   <string name="menu_page_find_in_page">Пронађи на страници</string>
+  <string name="menu_page_similar_titles">Слични наслови</string>
   <string name="menu_page_font_and_theme">Фонт и тема</string>
   <string name="menu_page_save">Сачувај страницу</string>
   <string name="menu_page_share">Дели</string>
@@ -133,9 +136,10 @@
   <string name="settings_activity_title">Подешавања</string>
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
-  <string name="about_contributors_heading" fuzzy="true">Доприносиоци</string>
-  <string name="about_translators_heading" fuzzy="true">преводиоци</string>
+  <string name="about_contributors_heading">Доприносиоци</string>
+  <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Ову апликацију су превели волонтери сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Лиценца</string>
   <string name="about_wmf">Производ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Задужбине Викимедије&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Да ли сигурно желите да је напустите?</string>
@@ -178,7 +182,7 @@
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_menu_save">Сачувај на уређај</string>
-  <string name="gallery_save_success" fuzzy="true">Слика успешно сачувана.</string>
+  <string name="gallery_save_success">Датотека успешно сачувана.</string>
   <string name="gallery_error_video_failed">Не могу да пустим видео.</string>
   <string name="err_cannot_save_file">Не могу да сачувам датотеку</string>
   <string name="expand_refs">Тапните да раширите</string>
@@ -197,4 +201,5 @@
   <string name="crash_report_dialog_dont_send_button">Прескочи</string>
   <string name="crash_report_dialog_send_button">Пошаљи</string>
   <string name="crash_report_quit">Изађи</string>
+  <string name="user_option_sync_label">Подешавања</string>
 </resources>

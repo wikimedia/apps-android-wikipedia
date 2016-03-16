@@ -246,7 +246,8 @@ Please test the URL to make sure it works</string>
   <string name="about_translators_translatewiki">Credit given to translatewiki translators.
 
 {{doc-important|Please don\'t translate the link and the site title.}}</string>
-  <string name="about_app_license_heading">Heading for section that describes the license for the app itself.</string>
+  <string name="about_app_license_heading">Heading for section that describes the license for the app itself.
+{{Identical|License}}</string>
   <string name="about_app_license">Description of the license for the app, as well as links for finding our source code.
 
   {{doc-important|Please don\'t translate links and link titles.}}</string>
@@ -385,5 +386,6 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_navigate">Describes the action performed when pressing the navigate button in the page toolbar underneath the leading image.</string>
-  <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.</string>
+  <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
+{{Identical|Preferences}}</string>
 </resources>

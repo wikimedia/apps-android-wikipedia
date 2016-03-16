@@ -120,17 +120,22 @@
   <string name="wikipedia_app_faq">\"Wikipedia\" App DUK</string>
   <string name="zero_charged_verbiage">Wikipedia Zero yra išjungtas</string>
   <string name="zero_search_hint">Ieškoti Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Įspėti paliekant „Vikipedija Zero“</string>
   <string name="zero_webpage_title">Vikipedija Zero DUK</string>
   <string name="zero_wikipedia_zero_heading">Vikipedija Zero</string>
+  <string name="zero_interstitial_title">Paliekama „Vikipedija Zero“</string>
+  <string name="zero_interstitial_leave_app">Gali būti taikomi duomenų mokesčiai. Tęsti išorinėje svetainėje?</string>
   <string name="zero_interstitial_continue">Išeiti</string>
   <string name="zero_interstitial_cancel">Likti čia</string>
   <string name="zero_learn_more_learn_more">Skaityti daugiau</string>
   <string name="zero_learn_more_dismiss">Atmesti</string>
+  <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra...</string>
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>
   <string name="nav_item_random">Atsitiktinis</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
   <string name="preferences_privacy_settings_heading">Privatumas</string>
   <string name="preference_title_eventlogging_opt_in">Siųsti naudojimo ataskaitas</string>
+  <string name="preference_summary_eventlogging_opt_in">Leisti Vikimedijai rinkti informaciją apie programėlės naudojimą, taip ją tobulinant</string>
   <string name="preference_title_auto_upload_crash_reports">Siųsti strigčių ataskaitas</string>
   <string name="history_search_list_hint">Paieškos istorija</string>
   <string name="history_search_empty_message">Nerasta puslapių, atitinkančių jūsų užklausą.</string>
@@ -148,6 +153,7 @@
   <string name="about_contributors_heading">Autoriai</string>
   <string name="about_translators_heading">Vertėjai</string>
   <string name="about_translators_translatewiki">Ši programėlė buvo išversta savanorių vertėjų &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Licencija</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; produktas</string>
   <string name="about_activity_title">Apie</string>
   <string name="edit_abandon_confirm">Puslapis buvo keistas. Ar tikrai norite išeiti neįrašydami pakeitimų?</string>
@@ -181,6 +187,7 @@
   <string name="search_recent_header">Naujausios paieškos:</string>
   <string name="button_clear_all_recent_searches">Išvalyti naujausias paieškas</string>
   <string name="clear_recent_searches_confirm">Ar tikrai norite išvalyti paieškos istoriją?</string>
+  <string name="error_browser_not_found">Nepavyko atidaryti tinklalapio (nerasta naršyklės programėlė).</string>
   <string name="table_infobox">Trumpi faktai</string>
   <string name="table_other">Daugiau informacijos</string>
   <string name="table_close">Uždaryti</string>
@@ -214,6 +221,7 @@
   <string name="gallery_uploader_unknown">Talpintojas nežinomas</string>
   <string name="menu_new_tab">Naujas skirtukas</string>
   <string name="button_close_tab">Uždaryti skirtuką</string>
+  <string name="tool_tip_select_text">Paspauskite ir palaikykite bet kur tekste, taip pažymėsite jį kopijavimui arba dalinimuisi.</string>
   <string name="tool_tip_share">Pažymėję įdomų faktą, pabandykite juo pasidalinti savo socialiniuose tinkluose!</string>
   <string name="page_view_in_browser">Peržiūra naršyklėje</string>
   <string name="error_server_response">Serveris negalėjo užbaigti prašymo.</string>
@@ -224,16 +232,22 @@
   <string name="text_copied">Tekstas nukopijuotas į iškarpinę.</string>
   <string name="button_continue_to_article">Skaityti straipsnį</string>
   <string name="button_get_directions">Gauti kryptis</string>
+  <string name="error_no_maps_app">Nepavyko rasti jokių programėlių, kurios suteikia kryptis.</string>
   <string name="preference_title_show_link_previews">Rodyti nuorodos peržiūras</string>
+  <string name="preference_summary_show_link_previews">Palietus ant nuorodos rodyti greitos peržiūros straipsnius.</string>
   <string name="nav_item_donate">Paremti Vikipediją</string>
   <string name="crash_report_dialog_title">Atleiskite, programėlė praeitą kartą užlūžo</string>
   <string name="crash_report_dialog_dont_send_button">Praleisti</string>
   <string name="crash_report_dialog_always_send_button">Siųsti visada</string>
   <string name="crash_report_dialog_send_button">Siųsti</string>
   <string name="crash_report_activity_title">Aplikacijos klaida</string>
+  <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.
+
+Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="crash_report_relaunch">Pradėti iš naujo</string>
   <string name="crash_report_quit">Išeiti</string>
   <string name="article_menu_bar_bookmark">Išsaugoti straipsnį skaitymui neprisijungus</string>
   <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_menu_bar_navigate">Eiti į straipsnį</string>
+  <string name="user_option_sync_label">Nustatymai</string>
 </resources>

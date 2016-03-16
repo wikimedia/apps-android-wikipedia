@@ -162,6 +162,7 @@
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">الرخصة</string>
   <string name="about_wmf">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">عن</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
@@ -278,4 +279,5 @@ https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="article_menu_bar_bookmark">احفظ المقالة لقراءتها دون اتصال لاحقًا</string>
   <string name="article_menu_bar_share">شارك وصلة المقالة</string>
   <string name="article_menu_bar_navigate">انتقل إلى موقع هذه المقالة</string>
+  <string name="user_option_sync_label">تفضيلات</string>
 </resources>

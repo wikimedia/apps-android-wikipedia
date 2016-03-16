@@ -160,6 +160,7 @@
   <string name="about_contributors_heading">Auteuren</string>
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
+  <string name="about_app_license_heading">Lizenz</string>
   <string name="about_wmf">E Produkt vun der &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Iwwer</string>
   <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd dir sécher datt Dir erausgoe wëllt ouni Är Ännerungen ze späicheren?</string>
@@ -252,4 +253,5 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="article_menu_bar_bookmark">Den Artikel späichere fir en duerno offline ze liesen</string>
   <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
   <string name="article_menu_bar_navigate">Op d\'Plaz vum Artikel navigéieren</string>
+  <string name="user_option_sync_label">Astellungen</string>
 </resources>

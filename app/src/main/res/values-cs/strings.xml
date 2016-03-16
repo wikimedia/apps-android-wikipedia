@@ -32,8 +32,9 @@
   <string name="saved_pages_search_list_hint">Hledat uložené stránky</string>
   <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
-  <string name="menu_page_other_languages" fuzzy="true">Číst v jiných jazycích</string>
+  <string name="menu_page_other_languages">Změnit jazyk</string>
   <string name="menu_page_find_in_page">Najít na stránce</string>
+  <string name="menu_page_similar_titles">Podobné názvy</string>
   <string name="menu_page_font_and_theme">Písmo a vzhled</string>
   <string name="menu_page_save">Uložit stránku</string>
   <string name="menu_page_share">Sdílet odkaz</string>
@@ -41,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
   <string name="menu_long_press_copy_page">Zkopírovat adresu odkazu</string>
   <string name="menu_text_select_copy">Kopírovat</string>
+  <string name="menu_text_select_define">Definovat</string>
   <string name="menu_text_select_share">Sdílet</string>
   <string name="nav_item_nearby">Poblíž</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -160,6 +162,8 @@
   <string name="about_contributors_heading">Přispěvatelé</string>
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Licence</string>
+  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, je obsah dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora-Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
@@ -203,6 +207,7 @@
   <string name="widget_name_featured_page">Doporučený článek na Wikipedii</string>
   <string name="widget_title_featured_page">Dnešní doporučený článek:</string>
   <string name="widget_name_search">Vyhledávání na Wikipedii</string>
+  <string name="wiktionary_no_definitions_found">Žádná definice nenalezena.</string>
   <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
 
 Funkce:
@@ -235,8 +240,10 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Sdílet</string>
   <string name="gallery_share_error">Není možno sdílet obrázek: %s</string>
   <string name="gallery_menu_save">Uložit na zařízení</string>
-  <string name="gallery_save_success" fuzzy="true">Obrázek úspěšně uložen.</string>
+  <string name="gallery_save_progress">Stahování souboru…</string>
+  <string name="gallery_save_success">Soubor úspěšně uložen.</string>
   <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>
+  <string name="gallery_save_image_write_permission_rationale">Pro ukládání obrázků je nutné oprávnění zapisovat na úložiště vašeho zařízení. Zkuste to prosím znovu a povolte potřebné oprávnění.</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
   <string name="snippet_share_intro">„%1$s“ na @Wikipedia: %2$s</string>
   <string name="expand_refs">Klepnutím rozbalte</string>
@@ -260,10 +267,13 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="format_error_server_code">Kód: „%s“</string>
   <string name="address_copied">Adresu zkopírována do schránky.</string>
   <string name="text_copied">Text zkopírován do schránky.</string>
-  <string name="button_continue_to_article" fuzzy="true">Pokračovat na článek</string>
+  <string name="button_continue_to_article">Číst článek</string>
+  <string name="button_get_directions">Najít trasu</string>
+  <string name="error_no_maps_app">Nepodařilo se najít žádnou aplikaci, která poskytuje navigaci.</string>
   <string name="preference_title_show_link_previews">Zobrazovat náhledy odkazů</string>
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
   <string name="nav_item_donate">Podpořte Wikipedii</string>
+  <string name="crash_report_dialog_title">Omlouváme se, aplikace minule spadla</string>
   <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
   <string name="crash_report_dialog_dont_send_button">Přeskočit</string>
   <string name="crash_report_dialog_always_send_button">Vždy posílat</string>
@@ -274,4 +284,8 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
 Chcete začít znovu, nebo skončit?</string>
   <string name="crash_report_relaunch">Začít znovu</string>
   <string name="crash_report_quit">Skončit</string>
+  <string name="article_menu_bar_bookmark">Uložit článek pro pozdější čtení offline</string>
+  <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
+  <string name="article_menu_bar_navigate">Navigovat na místo článku</string>
+  <string name="user_option_sync_label">Nastavení</string>
 </resources>

@@ -164,6 +164,7 @@
   <string name="about_contributors_heading">অবদানকারীগণ</string>
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
+  <string name="about_app_license_heading">লাইসেন্স</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
   <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
@@ -287,4 +288,5 @@
   <string name="article_menu_bar_bookmark">পরে অফলাইনে পড়ার জন্য নিবন্ধটি সংরক্ষণ করুন</string>
   <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
   <string name="article_menu_bar_navigate">নিবন্ধের অবস্থান থেকে পরিভ্রমণ করুন</string>
+  <string name="user_option_sync_label">পছন্দসমূহ</string>
 </resources>
