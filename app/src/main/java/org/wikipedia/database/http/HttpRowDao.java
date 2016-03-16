@@ -143,7 +143,11 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
                 + UserOptionDatabaseTable.Col.HTTP.transactionId() + " == " + DefaultAsyncRow.NO_TRANSACTION_ID;
         String sortOrder = null;
         Cursor cursor = client.select(selection, selectionArgs, sortOrder);
-        return cursorToCollection(cursor);
+        try {
+            return cursorToCollection(cursor);
+        } finally {
+            cursor.close();
+        }
     }
 
     @NonNull private Collection<T> cursorToCollection(@NonNull Cursor cursor) {
@@ -172,7 +176,11 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
         String selection = client.getPrimaryKeySelection(item, selectionArgs);
         String sortOrder = null;
         Cursor cursor = client.select(selection, selectionArgs, sortOrder);
-        return cursor.moveToNext() ? client.fromCursor(cursor) : null;
+        try {
+            return cursor.moveToNext() ? client.fromCursor(cursor) : null;
+        } finally {
+            cursor.close();
+        }
     }
 
     private synchronized void removeItem(@NonNull T item) {

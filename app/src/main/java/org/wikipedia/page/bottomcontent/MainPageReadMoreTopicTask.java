@@ -23,12 +23,16 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
     @Override
     public PageTitle performTask() throws Throwable {
         Cursor c = getInterestedHistoryEntry();
-        if (c.getCount() > 0) {
-            c.moveToFirst();
-            final HistoryEntry historyEntry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
-            return historyEntry.getTitle();
+        try {
+            if (c.getCount() > 0) {
+                c.moveToFirst();
+                final HistoryEntry historyEntry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
+                return historyEntry.getTitle();
+            }
+            return null;
+        } finally {
+            c.close();
         }
-        return null;
     }
 
     private android.database.Cursor getInterestedHistoryEntry() {
