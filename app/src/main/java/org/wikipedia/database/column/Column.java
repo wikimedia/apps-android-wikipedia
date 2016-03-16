@@ -2,12 +2,10 @@ package org.wikipedia.database.column;
 
 import android.database.Cursor;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 public abstract class Column<T> {
     @NonNull private final String name;
     @NonNull private final String type;
-    @Nullable private Integer index;
 
     /**
      * @param name Column name.
@@ -48,9 +46,6 @@ public abstract class Column<T> {
     }
 
     protected int getIndex(@NonNull Cursor cursor) {
-        if (index == null) {
-            index = cursor.getColumnIndexOrThrow(getName());
-        }
-        return index;
+        return cursor.getColumnIndexOrThrow(getName());
     }
 }
