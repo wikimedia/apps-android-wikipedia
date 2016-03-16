@@ -56,14 +56,18 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             DownloadManager.Query query = new DownloadManager.Query();
             query.setFilterById(downloadId);
             Cursor c = downloadManager.query(query);
-            if (c.moveToFirst()) {
-                int statusIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS);
-                int pathIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_FILENAME);
-                int mimeIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_MEDIA_TYPE);
-                if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(statusIndex)) {
-                    notifyContentResolver(c.getString(pathIndex), c.getString(mimeIndex));
-                    FeedbackUtil.showMessage(activity, R.string.gallery_save_success);
+            try {
+                if (c.moveToFirst()) {
+                    int statusIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS);
+                    int pathIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_FILENAME);
+                    int mimeIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_MEDIA_TYPE);
+                    if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(statusIndex)) {
+                        notifyContentResolver(c.getString(pathIndex), c.getString(mimeIndex));
+                        FeedbackUtil.showMessage(activity, R.string.gallery_save_success);
+                    }
                 }
+            } finally {
+                c.close();
             }
         }
     }
