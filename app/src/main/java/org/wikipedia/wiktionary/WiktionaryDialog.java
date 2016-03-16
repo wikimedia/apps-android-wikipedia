@@ -15,15 +15,14 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.WiktionaryDialogFunnel;
+import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.linkpreview.SwipeableBottomDialog;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.restbase.RbPageService;
 import org.wikipedia.server.restbase.RbDefinition;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.AppTextView;
 
@@ -36,12 +35,11 @@ import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.hasSectionAnchor;
 import static org.wikipedia.util.StringUtil.removeSectionAnchor;
 
-public class WiktionaryDialog extends SwipeableBottomDialog {
+public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     private static final String WIKTIONARY_DOMAIN = ".wiktionary.org";
     private static final String TITLE = "title";
     private static final String SELECTED_TEXT = "selected_text";
     private static final String PATH_WIKI = "/wiki/";
-    private static final int PEEK_HEIGHT_DIVISOR = 3;
 
     private static String[] ENABLED_LANGUAGES = {
             "en" // English
@@ -70,16 +68,13 @@ public class WiktionaryDialog extends SwipeableBottomDialog {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(STYLE_NO_TITLE, R.style.LinkPreviewDialog);
-        int peekHeight = DimenUtil.getDisplayHeightPx() / PEEK_HEIGHT_DIVISOR;
-        setContentPeekHeight(peekHeight);
+        pageTitle = getArguments().getParcelable(TITLE);
+        selectedText = getArguments().getString(SELECTED_TEXT);
     }
 
     @Override
-    protected View inflateDialogView(LayoutInflater inflater, ViewGroup container) {
-        pageTitle = getArguments().getParcelable(TITLE);
-        selectedText = getArguments().getString(SELECTED_TEXT);
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.dialog_wiktionary, container);
         progressBar = (ProgressBar) rootView.findViewById(R.id.dialog_wiktionary_progress);
 

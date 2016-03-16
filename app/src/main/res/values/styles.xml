@@ -3,6 +3,7 @@
 
     <style name="AppTheme" parent="Theme.Light">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="editTextAutoSummarizePreferenceStyle">@style/EditTextAutoSummarizePreference</item>
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
@@ -148,6 +149,14 @@
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlActivated">@color/link_preview_button_background_light_highlight</item>
         <item name="colorControlHighlight">@color/link_preview_button_background_light_highlight</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppBottomSheetModalStyle</item>
+    </style>
+
+    <style name="AppBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
     </style>
 
     <!-- Default style for floating action buttons -->

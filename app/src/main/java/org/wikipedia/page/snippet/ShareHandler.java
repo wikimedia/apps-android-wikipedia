@@ -55,7 +55,6 @@ public class ShareHandler {
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
     private static final String PAYLOAD_TEXT_KEY = "text";
-    private static final String WIKTIONARY_DEFINITION_TAG = "wiktionary_definition_dialog";
 
     @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_liberal;
 
@@ -97,8 +96,7 @@ public class ShareHandler {
 
     public void showWiktionaryDefinition(String text) {
         PageTitle title = activity.getCurPageFragment().getTitle();
-        WiktionaryDialog dialog = WiktionaryDialog.newInstance(title, text);
-        dialog.show(activity.getSupportFragmentManager(), WIKTIONARY_DEFINITION_TAG);
+        activity.showBottomSheet(WiktionaryDialog.newInstance(title, text));
     }
 
     private void onSharePayload(String text) {

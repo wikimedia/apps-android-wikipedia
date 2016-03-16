@@ -197,7 +197,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
 
     protected int dialogWidthPx() {
         return Math.min(DimenUtil.getDisplayWidthPx(),
-                (int) getResources().getDimension(R.dimen.swipeableDialogMaxWidth));
+                (int) getResources().getDimension(R.dimen.bottomSheetMaxWidth));
     }
 
     private int dialogHeightPx() {

@@ -1,7 +1,6 @@
 package org.wikipedia.theme;
 
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,10 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
+import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.settings.Prefs;
 
-public class ThemeChooserDialog extends BottomSheetDialogFragment {
+public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private WikipediaApp app;
     private Button buttonDefaultTextSize;
     private Button buttonDecreaseTextSize;
@@ -77,6 +77,7 @@ public class ThemeChooserDialog extends BottomSheetDialogFragment {
         fontChangeProgressBar = (ProgressBar) rootView.findViewById(R.id.font_change_progress_bar);
 
         updateButtonState();
+        disableBackgroundDim();
         return rootView;
     }
 

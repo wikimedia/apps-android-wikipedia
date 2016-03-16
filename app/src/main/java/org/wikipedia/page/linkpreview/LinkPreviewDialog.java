@@ -107,7 +107,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(STYLE_NO_TITLE, R.style.LinkPreviewDialog);
-        setContentPeekHeight((int) getResources().getDimension(R.dimen.linkPreviewPeekHeight));
+        setContentPeekHeight((int) getResources().getDimension(R.dimen.bottomSheetPeekHeight));
     }
 
     @Override

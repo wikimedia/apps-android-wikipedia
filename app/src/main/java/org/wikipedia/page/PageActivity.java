@@ -54,6 +54,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -688,6 +689,10 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void showBottomSheet(BottomSheetDialog dialog) {
+        bottomSheetPresenter.show(dialog);
+    }
+
+    public void showBottomSheet(BottomSheetDialogFragment dialog) {
         bottomSheetPresenter.show(dialog);
     }
 

@@ -39,12 +39,12 @@
     <!-- Tool tips -->
     <dimen name="tool_tip_max_width">250dp</dimen>
 
-    <!-- Default width of swipeable bottom dialogs. -->
-    <dimen name="swipeableDialogMaxWidth">480dp</dimen>
+    <!-- Default maximum width of bottom sheets. -->
+    <dimen name="bottomSheetMaxWidth">480dp</dimen>
+    <!-- Default height with which bottom sheets peek out from the bottom -->
+    <dimen name="bottomSheetPeekHeight">320dp</dimen>
     <!-- Default size of images in Link Preview thumbnail gallery -->
     <dimen name="linkPreviewImageSize">112dp</dimen>
-    <!-- Default height with which the Link Preview peeks out from the bottom -->
-    <dimen name="linkPreviewPeekHeight">320dp</dimen>
 
     <item type="dimen" format="float" name="linkPreviewThumbPressScale">1.03</item>
     <item type="dimen" format="float" name="linkPreviewThumbPressOverScale">1.05</item>

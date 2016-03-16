@@ -20,7 +20,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:minHeight="@dimen/linkPreviewPeekHeight"
+            android:minHeight="@dimen/bottomSheetPeekHeight"
             android:orientation="vertical"
             android:background="?attr/link_preview_background_color"
             android:animateLayoutChanges="true">
