@@ -56,6 +56,7 @@
         <item name="nav_item_color">@color/nav_item_selector_light</item>
         <item name="list_item_text_primary_color">@color/list_item_text_primary_light</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_light</item>
+        <item name="reading_list_menu_background_color">@color/reading_list_menu_background_light</item>
 
         <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
         <item name="android:listViewStyle">@style/ListView</item>

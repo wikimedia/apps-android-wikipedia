@@ -20,16 +20,19 @@ import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.savedpages.DeleteSavedPageTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -346,11 +349,15 @@ public class LeadImagesHandler {
             if (getPage() == null) {
                 return;
             }
-
-            if (bookmarkSaved) {
-                saveBookmark();
+            // TODO: resolve when Saved Pages is removed
+            if (ReleaseUtil.isProdRelease()) {
+                if (bookmarkSaved) {
+                    saveBookmark();
+                } else {
+                    deleteBookmark();
+                }
             } else {
-                deleteBookmark();
+                ((PageActivity) getActivity()).showBottomSheet(AddToReadingListDialog.newInstance(getTitle()));
             }
         }
 

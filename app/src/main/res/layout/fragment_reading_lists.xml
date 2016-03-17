@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/window_background_color">
+    <LinearLayout
+        android:id="@+id/empty_container"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/empty_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/savedpages"
+            android:contentDescription="@null"/>
+        <TextView
+            android:id="@+id/empty_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/reading_lists_empty"
+            />
+        <TextView
+            android:id="@+id/empty_message"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="@string/reading_lists_empty_message"
+            />
+    </LinearLayout>
+
+    <org.wikipedia.readinglist.NoSwipeViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/list_of_lists_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/reading_list_menu_background_color"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/list_item_horizontal_padding"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/nav_item_reading_lists"
+                    android:textColor="?attr/list_item_text_primary_color"
+                    android:textStyle="bold" />
+                <ImageButton
+                    style="@style/ArticleMenuBarViewButton"
+                    android:id="@+id/button_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_sort_white_24dp"
+                    android:tint="?attr/list_item_text_primary_color"
+                    android:visibility="gone"
+                    android:contentDescription="@string/reading_list_sort" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/reading_list_list"
+                android:scrollbars="vertical"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/list_detail_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <org.wikipedia.readinglist.ReadingListDetailView
+                android:id="@+id/list_detail_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </org.wikipedia.readinglist.NoSwipeViewPager>
+
+</FrameLayout>
