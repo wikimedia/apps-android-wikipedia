@@ -15,6 +15,6 @@ adb "$@" backup -noapk org.wikipedia \
     && \
 dd if=backup.ab bs=1 skip=24 \
 \
-| python -c "$python_commands" \
+| python2 -c "$python_commands" \
 \
 | tar -xvf -
