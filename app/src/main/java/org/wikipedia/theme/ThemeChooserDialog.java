@@ -1,7 +1,10 @@
 package org.wikipedia.theme;
 
-import android.content.Context;
+import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialogFragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import com.squareup.otto.Subscribe;
@@ -10,10 +13,9 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
 import org.wikipedia.events.WebViewInvalidateEvent;
-import org.wikipedia.page.BottomDialog;
 import org.wikipedia.settings.Prefs;
 
-public class ThemeChooserDialog extends BottomDialog {
+public class ThemeChooserDialog extends BottomSheetDialogFragment {
     private WikipediaApp app;
     private Button buttonDefaultTextSize;
     private Button buttonDecreaseTextSize;
@@ -24,75 +26,78 @@ public class ThemeChooserDialog extends BottomDialog {
     private boolean updatingFont = false;
     private AppearanceChangeFunnel funnel;
 
-    public ThemeChooserDialog(Context context) {
-        super(context, R.layout.dialog_themechooser);
-        app = WikipediaApp.getInstance();
-        funnel = new AppearanceChangeFunnel(app, app.getSite());
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.dialog_themechooser, container);
 
-        buttonDecreaseTextSize = (Button) getDialogLayout().findViewById(R.id.buttonDecreaseTextSize);
+        buttonDecreaseTextSize = (Button) rootView.findViewById(R.id.buttonDecreaseTextSize);
         buttonDecreaseTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatingFont = true;
-                float currentSize = app.getFontSize(getWindow());
+                float currentSize = app.getFontSize(getDialog().getWindow());
                 app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() - 1);
                 updateButtonState();
-                funnel.logFontSizeChange(currentSize, app.getFontSize(getWindow()));
+                funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
             }
         });
 
-        buttonDefaultTextSize = (Button) getDialogLayout().findViewById(R.id.buttonDefaultTextSize);
+        buttonDefaultTextSize = (Button) rootView.findViewById(R.id.buttonDefaultTextSize);
         buttonDefaultTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatingFont = true;
-                float currentSize = app.getFontSize(getWindow());
+                float currentSize = app.getFontSize(getDialog().getWindow());
                 app.setFontSizeMultiplier(0);
                 updateButtonState();
-                funnel.logFontSizeChange(currentSize, app.getFontSize(getWindow()));
+                funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
             }
         });
 
-        buttonIncreaseTextSize = (Button) getDialogLayout().findViewById(R.id.buttonIncreaseTextSize);
+        buttonIncreaseTextSize = (Button) rootView.findViewById(R.id.buttonIncreaseTextSize);
         buttonIncreaseTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updatingFont = true;
-                float currentSize = app.getFontSize(getWindow());
+                float currentSize = app.getFontSize(getDialog().getWindow());
                 app.setFontSizeMultiplier(Prefs.getTextSizeMultiplier() + 1);
                 updateButtonState();
-                funnel.logFontSizeChange(currentSize, app.getFontSize(getWindow()));
+                funnel.logFontSizeChange(currentSize, app.getFontSize(getDialog().getWindow()));
             }
         });
 
         ThemeOnClickListener themeOnClickListener = new ThemeOnClickListener();
-        buttonThemeLight = (Button) getDialogLayout().findViewById(R.id.buttonColorsLight);
+        buttonThemeLight = (Button) rootView.findViewById(R.id.buttonColorsLight);
         buttonThemeLight.setOnClickListener(themeOnClickListener);
 
-        buttonThemeDark = (Button) getDialogLayout().findViewById(R.id.buttonColorsDark);
+        buttonThemeDark = (Button) rootView.findViewById(R.id.buttonColorsDark);
         buttonThemeDark.setOnClickListener(themeOnClickListener);
 
-        fontChangeProgressBar = (ProgressBar) getDialogLayout().findViewById(R.id.font_change_progress_bar);
+        fontChangeProgressBar = (ProgressBar) rootView.findViewById(R.id.font_change_progress_bar);
 
         updateButtonState();
+        return rootView;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        app = WikipediaApp.getInstance();
+        app.getBus().register(this);
+        funnel = new AppearanceChangeFunnel(app, app.getSite());
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        app.getBus().unregister(this);
     }
 
     @Subscribe
     public void onWebViewInvalidated(WebViewInvalidateEvent event) {
         updatingFont = false;
         updateButtonState();
-    }
-
-    @Override
-    public void show() {
-        app.getBus().register(this);
-        super.show();
-    }
-
-    @Override
-    public void dismiss() {
-        app.getBus().unregister(this);
-        super.dismiss();
     }
 
     private void updateButtonState() {

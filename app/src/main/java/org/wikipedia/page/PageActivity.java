@@ -54,7 +54,6 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -102,7 +101,6 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
     private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
-    private static final String LINK_PREVIEW_FRAGMENT_TAG = "link_preview_dialog";
 
     private Bus bus;
     private EventBusMethods busMethods;
@@ -120,11 +118,11 @@ public class PageActivity extends ThemedActionBarActivity {
     private SearchBarHideHandler searchBarHideHandler;
     private boolean isZeroEnabled;
     private ZeroConfig currentZeroConfig;
-    private ThemeChooserDialog themeChooser;
     private RandomHandler randomHandler;
     private NavDrawerHelper navDrawerHelper;
     private boolean navItemSelected;
     private WikipediaZeroUsageFunnel zeroFunnel;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this);
 
     public View getContentView() {
         return fragmentContainerView;
@@ -253,11 +251,6 @@ public class PageActivity extends ThemedActionBarActivity {
         if (savedInstanceState != null) {
             isZeroEnabled = savedInstanceState.getBoolean("pausedZeroEnabledState");
             currentZeroConfig = savedInstanceState.getParcelable("pausedZeroConfig");
-            if (savedInstanceState.containsKey("themeChooserShowing")) {
-                if (savedInstanceState.getBoolean("themeChooserShowing")) {
-                    showThemeChooser();
-                }
-            }
             if (savedInstanceState.getBoolean("isSearching")) {
                 searchFragment.openSearch();
             }
@@ -678,27 +671,15 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void showLinkPreview(PageTitle title, int entrySource, @Nullable Location location) {
-        if (getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG) == null) {
-            DialogFragment linkPreview = LinkPreviewDialog.newInstance(title, entrySource, location);
-            linkPreview.show(getSupportFragmentManager(), LINK_PREVIEW_FRAGMENT_TAG);
-        }
+        bottomSheetPresenter.show(LinkPreviewDialog.newInstance(title, entrySource, location));
     }
 
-    /**
-     * Dismiss the current link preview, if one is open.
-     */
     private void hideLinkPreview() {
-        DialogFragment linkPreview = (DialogFragment) getSupportFragmentManager().findFragmentByTag(LINK_PREVIEW_FRAGMENT_TAG);
-        if (linkPreview != null) {
-            linkPreview.dismiss();
-        }
+        bottomSheetPresenter.dismiss();
     }
 
     public void showThemeChooser() {
-        if (themeChooser == null) {
-            themeChooser = new ThemeChooserDialog(this);
-        }
-        themeChooser.show();
+        bottomSheetPresenter.show(new ThemeChooserDialog());
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
@@ -860,9 +841,6 @@ public class PageActivity extends ThemedActionBarActivity {
     private void saveState(Bundle outState) {
         outState.putBoolean("pausedZeroEnabledState", isZeroEnabled);
         outState.putParcelable("pausedZeroConfig", currentZeroConfig);
-        if (themeChooser != null) {
-            outState.putBoolean("themeChooserShowing", themeChooser.isShowing());
-        }
         outState.putBoolean("isSearching", isSearching());
         outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.getAppOrSystemLanguageCode());
     }
@@ -891,11 +869,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     @Override
     protected void onStop() {
-        if (themeChooser != null && themeChooser.isShowing()) {
-            themeChooser.dismiss();
-        }
         app.getSessionFunnel().persistSession();
-
         super.onStop();
     }
 
