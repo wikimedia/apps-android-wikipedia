@@ -23,7 +23,7 @@ public class UserOptionContentProvider extends SQLiteContentProvider {
             + "from (select :contentVals) as new "
             + "left join (select :idCol, :selectionCol from :tbl) as old on new.:selectionCol = old.:selectionCol;")
                     .replaceAll(":tbl", BuildConfig.USER_OPTION_TABLE)
-                    .replaceAll(":cols", TextUtils.join(",", DbUtil.names(Col.ALL)))
+                    .replaceAll(":cols", DbUtil.namesCsv(Col.ALL))
                     .replaceAll(":idCol", Col.ID.getName())
                     .replaceAll("(\\S*):contentCols", TextUtils.join(",", StringUtil.prefix("$1", DbUtil.names(Col.CONTENT))))
                     .replaceAll(":contentVals", TextUtils.join(",", StringUtil.prefix("? as ", DbUtil.names(Col.CONTENT))))
