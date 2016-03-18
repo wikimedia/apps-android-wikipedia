@@ -5,10 +5,10 @@ import org.wikipedia.history.HistoryEntry;
 
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ViewFlipper;
 
@@ -17,16 +17,17 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 /**
  * A dialog to host page issues and disambig information.
  */
-public class PageInfoDialog extends BottomDialog {
+public class PageInfoDialog extends NoDimBottomSheetDialog {
     private final ViewFlipper flipper;
     private final Button disambigHeading;
     private final Button issuesHeading;
     private final ListView disambigList;
 
-    public PageInfoDialog(final PageActivity activity, PageInfo pageInfo, int height) {
-        super(activity, R.layout.dialog_page_info);
+    public PageInfoDialog(final PageActivity activity, PageInfo pageInfo, boolean startAtDisambig) {
+        super(activity);
+        View parentView = LayoutInflater.from(activity).inflate(R.layout.dialog_page_info, null);
+        setContentView(parentView);
 
-        View parentView = getDialogLayout();
         flipper = (ViewFlipper) parentView.findViewById(R.id.page_info_flipper);
         disambigList = (ListView) parentView.findViewById(R.id.disambig_list);
         ListView issuesList = (ListView) parentView.findViewById(R.id.page_issues_list);
@@ -44,8 +45,6 @@ public class PageInfoDialog extends BottomDialog {
                 dismiss();
             }
         });
-
-        parentView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, height));
 
         issuesList.setAdapter(new IssuesListAdapter(activity, pageInfo.getContentIssues()));
         disambigList.setAdapter(new DisambigListAdapter(activity, pageInfo.getSimilarTitles()));
@@ -84,9 +83,16 @@ public class PageInfoDialog extends BottomDialog {
             issuesHeading.setVisibility(View.GONE);
             separatorHeading.setVisibility(View.GONE);
         }
+
+        if (startAtDisambig) {
+            showDisambig();
+        } else {
+            showIssues();
+        }
     }
 
-    public void showDisambig() {
+    private void showDisambig() {
+        startExpanded();
         if (flipper.getCurrentView() != flipper.getChildAt(0)) {
             flipper.setInAnimation(getContext(), R.anim.slide_in_left);
             flipper.setOutAnimation(getContext(), R.anim.slide_out_right);
@@ -99,7 +105,7 @@ public class PageInfoDialog extends BottomDialog {
         issuesHeading.setEnabled(true);
     }
 
-    public void showIssues() {
+    private void showIssues() {
         if (flipper.getCurrentView() != flipper.getChildAt(1)) {
             flipper.setInAnimation(getContext(), R.anim.slide_in_right);
             flipper.setOutAnimation(getContext(), R.anim.slide_out_left);
