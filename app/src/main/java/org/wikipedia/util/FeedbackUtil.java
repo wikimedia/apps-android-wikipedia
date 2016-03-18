@@ -22,6 +22,13 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
     private static final int SNACKBAR_MAX_LINES = 5;
+    private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            showToolbarButtonToast(v);
+            return true;
+        }
+    };
 
     public static Snackbar makeSnackbar(View view, CharSequence text, int duration) {
         Snackbar snackbar = Snackbar.make(view, text, duration);
@@ -86,7 +93,13 @@ public final class FeedbackUtil {
         textView.setError(error);
     }
 
-    public static void showToolbarButtonToast(View view) {
+    public static void setToolbarButtonLongPressToast(View... views) {
+        for (View v : views) {
+            v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);
+        }
+    }
+
+    private static void showToolbarButtonToast(View view) {
         Toast toast = Toast.makeText(view.getContext(), view.getContentDescription(), Toast.LENGTH_SHORT);
         int[] location = new int[2];
         view.getLocationOnScreen(location);

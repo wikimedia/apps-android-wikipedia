@@ -129,6 +129,7 @@
                                     android:layout_marginEnd="8dp"
                                     android:id="@+id/search_lang_button_container"
                                     android:background="?attr/actionBarItemBackground"
+                                    android:contentDescription="@string/preference_title_language"
                                     android:clickable="true">
                                     <TextView
                                         android:id="@+id/search_lang_button"
