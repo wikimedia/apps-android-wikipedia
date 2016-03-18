@@ -8,7 +8,6 @@ import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,7 +21,6 @@ import org.wikipedia.util.log.L;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnLongClick;
 
 public class ArticleMenuBarView extends LinearLayout {
     public interface Callback {
@@ -39,6 +37,7 @@ public class ArticleMenuBarView extends LinearLayout {
 
     @Bind(R.id.view_article_menu_bar_bookmark) ImageView bookmark;
     @Bind(R.id.view_article_menu_bar_navigate) ImageView navigate;
+    @Bind(R.id.view_article_menu_bar_share) ImageView share;
 
     @NonNull private Callback callback = new DefaultCallback();
 
@@ -108,20 +107,10 @@ public class ArticleMenuBarView extends LinearLayout {
         }
     }
 
-    @OnLongClick({R.id.view_article_menu_bar_bookmark,
-            R.id.view_article_menu_bar_share,
-            R.id.view_article_menu_bar_navigate})
-    public boolean onLongClick(View view) {
-        if (!TextUtils.isEmpty(view.getContentDescription())) {
-            FeedbackUtil.showToolbarButtonToast(view);
-            return true;
-        }
-        return false;
-    }
-
     private void init() {
         inflate();
         bind();
+        FeedbackUtil.setToolbarButtonLongPressToast(bookmark, navigate, share);
     }
 
     private void inflate() {

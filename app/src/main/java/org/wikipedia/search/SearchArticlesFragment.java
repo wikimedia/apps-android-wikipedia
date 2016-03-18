@@ -133,13 +133,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                         .create().show();
             }
         });
-        deleteButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                FeedbackUtil.showToolbarButtonToast(deleteButton);
-                return true;
-            }
-        });
+        FeedbackUtil.setToolbarButtonLongPressToast(deleteButton);
 
         FragmentManager childFragmentManager = getChildFragmentManager();
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
@@ -316,6 +310,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                     showLangPreferenceDialog();
                 }
             });
+            FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);
 
             // set up the SearchView
             if (searchView == null) {
@@ -343,16 +338,9 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                         .findViewById(android.support.v7.appcompat.R.id.search_plate);
                 searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
 
-                final ImageView searchClose = (ImageView) searchView.findViewById(
+                ImageView searchClose = (ImageView) searchView.findViewById(
                         android.support.v7.appcompat.R.id.search_close_btn);
-                searchClose.setOnLongClickListener(
-                        new View.OnLongClickListener() {
-                            @Override
-                            public boolean onLongClick(View v) {
-                                FeedbackUtil.showToolbarButtonToast(searchClose);
-                                return true;
-                            }
-                        });
+                FeedbackUtil.setToolbarButtonLongPressToast(searchClose);
             }
 
             updateZeroChrome();
