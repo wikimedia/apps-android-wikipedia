@@ -11,27 +11,26 @@ import org.wikipedia.useroption.UserOption;
 public class UserOptionRow extends UserOption implements AsyncRow<HttpStatus> {
     public static final UserOptionDatabaseTable DATABASE_TABLE = new UserOptionDatabaseTable();
 
-    private HttpRow http;
+    @NonNull private final HttpRow http;
 
     public UserOptionRow(@NonNull String key) {
         super(key);
-        init();
+        this.http = new HttpRow();
     }
 
     public UserOptionRow(@NonNull UserOption option) {
         super(option);
-        init();
+        this.http = new HttpRow();
     }
 
     public UserOptionRow(@NonNull String key, @Nullable String val) {
         super(key, val);
-        init();
+        this.http = new HttpRow();
     }
 
-    public UserOptionRow(@NonNull String key, @Nullable String val, @NonNull HttpStatus status,
-                         long timestamp, long transactionId) {
+    public UserOptionRow(@NonNull String key, @Nullable String val, @NonNull HttpRow http) {
         super(key, val);
-        init(status, timestamp, transactionId);
+        this.http = http;
     }
 
     @NonNull @Override public HttpStatus status() {
@@ -71,15 +70,5 @@ public class UserOptionRow extends UserOption implements AsyncRow<HttpStatus> {
     @Override
     public void completeTransaction(long timestamp) {
         http.completeTransaction(timestamp);
-    }
-
-    private void init() {
-        init(null, HttpRow.NO_TIMESTAMP, HttpRow.NO_TRANSACTION_ID);
-    }
-
-    private void init(@Nullable HttpStatus status, long timestamp, long transactionId) {
-        http = status == null
-                ? new HttpRow()
-                : new HttpRow(status, timestamp, transactionId);
     }
 }

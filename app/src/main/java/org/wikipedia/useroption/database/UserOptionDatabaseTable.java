@@ -10,7 +10,6 @@ import org.wikipedia.database.column.Column;
 import org.wikipedia.database.column.IdColumn;
 import org.wikipedia.database.column.StrColumn;
 import org.wikipedia.database.http.HttpColumns;
-import org.wikipedia.database.http.HttpStatus;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,10 +49,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     public UserOptionRow fromCursor(Cursor cursor) {
         String key = Col.KEY.val(cursor);
         String val = Col.VAL.val(cursor);
-        HttpStatus status = Col.HTTP.status(cursor);
-        long timestamp = Col.HTTP.timestamp(cursor);
-        long transactionId = Col.HTTP.transactionId(cursor);
-        return new UserOptionRow(key, val, status, timestamp, transactionId);
+        return new UserOptionRow(key, val, Col.HTTP.val(cursor));
     }
 
     @NonNull public Object[] toBindArgs(ContentValues values) {
