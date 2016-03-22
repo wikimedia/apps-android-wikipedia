@@ -147,6 +147,7 @@
   <string name="about_contributors_heading">Kontribuantoj</string>
   <string name="about_translators_heading">Tradukantoj</string>
   <string name="about_translators_translatewiki">Ĉi tiu aplikaĵo estis tradukita de volontulaj tradukantoj ĉe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Permesilo</string>
   <string name="about_wmf">Produktaĵo de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Vikimedia Fondaĵo&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ĉi tiu paĝo estis modifita. Ĉu vi certas ke vi volas eliri sen konservi viajn modifojn?</string>

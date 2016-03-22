@@ -162,6 +162,7 @@
   <string name="about_contributors_heading">Autorzy</string>
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Licencja</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>

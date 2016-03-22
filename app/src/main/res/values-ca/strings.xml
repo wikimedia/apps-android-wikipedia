@@ -163,6 +163,7 @@
   <string name="about_contributors_heading">Col·laboradors</string>
   <string name="about_translators_heading">Traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Llicència</string>
   <string name="about_wmf">Un producte de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
@@ -282,4 +283,5 @@ Voleu començar de nou o sortir?</string>
   <string name="article_menu_bar_bookmark">Desa l\'article per poder-lo llegir sense connexió</string>
   <string name="article_menu_bar_share">Comparteix l\'enllaç a l\'article</string>
   <string name="article_menu_bar_navigate">Navega a la ubicació de l\'article</string>
+  <string name="user_option_sync_label">Preferències</string>
 </resources>

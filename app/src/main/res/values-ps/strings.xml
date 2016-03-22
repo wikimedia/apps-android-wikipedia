@@ -114,6 +114,7 @@
   <string name="about_libraries_heading" fuzzy="true">کارېدلي کتابتونونه</string>
   <string name="about_contributors_heading" fuzzy="true">ونډه وال</string>
   <string name="about_translators_heading" fuzzy="true">ژباړنان</string>
+  <string name="about_app_license_heading">منښتليک</string>
   <string name="about_activity_title">په اړه</string>
   <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
   <string name="edit_next">راتلونکی</string>
@@ -167,4 +168,5 @@
   <string name="crash_report_activity_title">د کاريال تېروتنه</string>
   <string name="crash_report_relaunch">سر له نوي پيلول</string>
   <string name="crash_report_quit">بندول</string>
+  <string name="user_option_sync_label">غوره توبونه</string>
 </resources>

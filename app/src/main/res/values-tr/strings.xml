@@ -164,6 +164,8 @@
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
   <string name="about_translators_heading">Çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
+  <string name="about_app_license_heading">Lisans</string>
+  <string name="about_app_license" fuzzy="true">Kaynak koduna &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ve &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
   <string name="edit_abandon_confirm">Sayfada değişiklikler yapıldı. Kaydetmeden çıkmak istediğinizden emin misiniz?</string>
@@ -283,4 +285,5 @@ Kullanım koşulları: https://meta.wikimedia.org/wiki/Terms_of_use/tr</string>
   <string name="article_menu_bar_bookmark">Maddeyi daha sonra çevrimdışı okuma için kaydet</string>
   <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
   <string name="article_menu_bar_navigate">Makale konumuna gidin</string>
+  <string name="user_option_sync_label">Ayarlar</string>
 </resources>

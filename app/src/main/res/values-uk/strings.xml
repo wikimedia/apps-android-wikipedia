@@ -164,6 +164,7 @@
   <string name="about_contributors_heading">Співавтори</string>
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цю програмку переклали добровольці на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Ліцензія</string>
   <string name="about_wmf">Продукт &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про программу</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
@@ -297,4 +298,5 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="article_menu_bar_bookmark">Зберегти статті для читання в автономному режимі пізніше</string>
   <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
   <string name="article_menu_bar_navigate">Перейти до розташування статті</string>
+  <string name="user_option_sync_label">Налаштування</string>
 </resources>

@@ -164,6 +164,8 @@
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
+  <string name="about_app_license_heading">ライセンス</string>
+  <string name="about_app_license" fuzzy="true">&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; と &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; のソースコードは &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0 ライセンス&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;クリエイティブ・コモンズ表示 - 継承ライセンス&lt;/a&gt; の下で提供されます。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ウィキメディア財団&lt;/a&gt;の製品です</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
@@ -288,4 +290,5 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="article_menu_bar_bookmark">オフラインでも閲読できるように記事を保存します</string>
   <string name="article_menu_bar_share">記事のリンクを共有します</string>
   <string name="article_menu_bar_navigate">記事の場所に移動します</string>
+  <string name="user_option_sync_label">個人設定</string>
 </resources>

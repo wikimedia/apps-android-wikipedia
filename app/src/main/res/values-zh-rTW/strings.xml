@@ -160,10 +160,12 @@
   <string name="terms_of_use_description">使用條款</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading" fuzzy="true">使用的函式庫</string>
-  <string name="about_contributors_heading" fuzzy="true">貢獻者</string>
-  <string name="about_translators_heading" fuzzy="true">翻譯人員</string>
+  <string name="about_libraries_heading">使用的函式庫</string>
+  <string name="about_contributors_heading">貢獻者</string>
+  <string name="about_translators_heading">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
+  <string name="about_app_license_heading">授權條款</string>
+  <string name="about_app_license" fuzzy="true">源代碼位於&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;授權。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_abandon_confirm">頁面已被修改。你確定你想要離開而不存儲您的更改？</string>
@@ -287,4 +289,5 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="article_menu_bar_bookmark">儲存條目以便日後離線閱讀</string>
   <string name="article_menu_bar_share">分享條目連結</string>
   <string name="article_menu_bar_navigate">導覽至條目的位置</string>
+  <string name="user_option_sync_label">偏好設定</string>
 </resources>
