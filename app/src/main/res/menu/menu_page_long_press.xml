@@ -15,6 +15,10 @@
         android:title="@string/menu_long_press_save_page"
         app:showAsAction="ifRoom" />
 
+    <item android:id="@+id/menu_long_press_add_to_list"
+        android:title="@string/menu_long_press_add_to_list"
+        app:showAsAction="ifRoom" />
+
     <item android:id="@+id/menu_long_press_share_page"
         android:title="@string/menu_long_press_share_page"
         app:showAsAction="ifRoom" />

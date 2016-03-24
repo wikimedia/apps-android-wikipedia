@@ -168,7 +168,7 @@ public class ReadingListDetailView extends LinearLayout {
         }
     }
 
-    private class ReadingListPageItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener, OnLongClickListener {
+    private class ReadingListPageItemHolder extends RecyclerView.ViewHolder implements OnClickListener, OnLongClickListener {
         private PageTitle pageTitle;
         private View containerView;
         private TextView titleView;

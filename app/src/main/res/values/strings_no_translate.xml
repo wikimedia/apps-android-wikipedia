@@ -24,11 +24,13 @@
     <!-- Long press menu -->
     <string name="menu_long_press_share_page">@string/menu_page_share</string>
     <string name="menu_long_press_save_page">@string/menu_page_save</string>
+    <string name="menu_long_press_add_to_list">@string/menu_page_add_to_list</string>
 
     <!-- Link preview menu -->
     <string name="menu_link_preview_copy_link">@string/menu_long_press_copy_page</string>
     <string name="menu_link_preview_share_page">@string/menu_page_share</string>
     <string name="menu_link_preview_save_page">@string/menu_page_save</string>
+    <string name="menu_link_preview_add_to_list">@string/menu_page_add_to_list</string>
 
     <!-- Crash reporter -->
     <!-- Do not change these names. These values override those in the HockeyApp SDK which has no

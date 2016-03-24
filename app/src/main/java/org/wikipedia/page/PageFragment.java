@@ -595,6 +595,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         leadImagesHandler.updateBookmark(pageSaved);
     }
 
+    public void updateBookmark() {
+        leadImagesHandler.updateBookmark();
+    }
+
     public void onActionModeShown(CompatActionMode mode) {
         // make sure we have a page loaded, since shareHandler makes references to it.
         if (model.getPage() != null) {

@@ -26,10 +26,10 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.savedpages.DeleteSavedPageTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.savedpages.SavedPage;
+import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
@@ -105,6 +105,13 @@ public class LeadImagesHandler {
         articleHeaderView.updateBookmark(bookmarkSaved);
     }
 
+    public void updateBookmark() {
+
+        // TODO: DAO interaction (does this page exist in one or more lists?)
+
+        articleHeaderView.updateBookmark(ReadingList.DAO.anyListContainsTitle(getTitle()));
+    }
+
     public void updateNavigate(@Nullable Location geo) {
         articleHeaderView.updateNavigate(geo != null);
     }
@@ -164,6 +171,7 @@ public class LeadImagesHandler {
         // Set the subtitle, too, so text measurements are accurate.
         layoutWikiDataDescription(getTitle().getDescription());
         layoutViews(listener, sequence);
+        updateBookmark();
     }
 
     /**
@@ -357,7 +365,7 @@ public class LeadImagesHandler {
                     deleteBookmark();
                 }
             } else {
-                ((PageActivity) getActivity()).showBottomSheet(AddToReadingListDialog.newInstance(getTitle()));
+                ((PageActivity) getActivity()).showAddToListDialog(getTitle());
             }
         }
 

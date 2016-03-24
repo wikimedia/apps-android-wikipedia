@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +24,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private ReadingListAdapter adapter;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private List<ReadingList> readingLists = new ArrayList<>();
+    private DialogInterface.OnDismissListener dismissListener;
 
     public static AddToReadingListDialog newInstance(PageTitle title) {
         AddToReadingListDialog dialog = new AddToReadingListDialog();
@@ -61,6 +63,18 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
 
         updateLists();
         return rootView;
+    }
+
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        if (dismissListener != null) {
+            dismissListener.onDismiss(null);
+        }
+    }
+
+    public void setOnDismissListener(DialogInterface.OnDismissListener listener) {
+        dismissListener = listener;
     }
 
     private void updateLists() {

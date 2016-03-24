@@ -158,5 +158,10 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
             super.onSavePage(title);
             dismiss();
         }
+
+        @Override
+        public void onAddToList(PageTitle title) {
+            super.onAddToList(title);
+        }
     }
 }
