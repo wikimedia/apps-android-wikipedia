@@ -62,6 +62,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                 .putExtra(EDIT_SESSION_TOKEN, token);
     }
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp)getApplicationContext();

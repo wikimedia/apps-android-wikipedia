@@ -299,10 +299,12 @@ public class PageTitle implements Parcelable {
 
     public static final Parcelable.Creator<PageTitle> CREATOR
             = new Parcelable.Creator<PageTitle>() {
+        @Override
         public PageTitle createFromParcel(Parcel in) {
             return new PageTitle(in);
         }
 
+        @Override
         public PageTitle[] newArray(int size) {
             return new PageTitle[size];
         }

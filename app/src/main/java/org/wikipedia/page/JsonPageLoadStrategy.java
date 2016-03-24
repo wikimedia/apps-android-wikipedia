@@ -223,6 +223,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         this.backStack = backStack;
     }
 
+    @Override
     public boolean popBackStack() {
         if (!backStack.isEmpty()) {
             backStack.remove(backStack.size() - 1);

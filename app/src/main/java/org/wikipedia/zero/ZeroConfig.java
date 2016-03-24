@@ -193,10 +193,12 @@ public class ZeroConfig implements Parcelable {
     @NonNull
     public static final Parcelable.Creator<ZeroConfig> CREATOR
             = new Parcelable.Creator<ZeroConfig>() {
+        @Override
         public ZeroConfig createFromParcel(Parcel in) {
             return new ZeroConfig(in);
         }
 
+        @Override
         public ZeroConfig[] newArray(int size) {
             return new ZeroConfig[size];
         }

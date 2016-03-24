@@ -92,10 +92,12 @@ public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parce
 
     public static final Parcelable.Creator<ParcelableLruCache> CREATOR
             = new Parcelable.Creator<ParcelableLruCache>() {
+        @Override
         public ParcelableLruCache createFromParcel(Parcel in) {
             return new ParcelableLruCache(in);
         }
 
+        @Override
         public ParcelableLruCache[] newArray(int size) {
             return new ParcelableLruCache[size];
         }

@@ -8,6 +8,7 @@ public class IntColumn extends Column<Integer> {
         super(name, type);
     }
 
+    @Override
     public Integer val(@NonNull Cursor cursor) {
         return getInt(cursor);
     }

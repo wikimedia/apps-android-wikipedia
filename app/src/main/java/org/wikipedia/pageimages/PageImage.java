@@ -66,10 +66,12 @@ public class PageImage implements Parcelable {
 
     public static final Parcelable.Creator<PageImage> CREATOR
             = new Parcelable.Creator<PageImage>() {
+        @Override
         public PageImage createFromParcel(Parcel in) {
             return new PageImage(in);
         }
 
+        @Override
         public PageImage[] newArray(int size) {
             return new PageImage[size];
         }

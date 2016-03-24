@@ -12,10 +12,12 @@ public class RbServiceError implements ServiceError {
     private String method;
     private String uri;
 
+    @Override
     public String getTitle() {
         return title;
     }
 
+    @Override
     public String getDetails() {
         return detail;
     }

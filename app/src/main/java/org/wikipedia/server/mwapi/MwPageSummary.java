@@ -17,11 +17,13 @@ public class MwPageSummary implements PageSummary {
         return error != null || getFirstPage() == null;
     }
 
+    @Override
     @Nullable
     public MwServiceError getError() {
         return error;
     }
 
+    @Override
     public void logError(String message) {
         if (error != null) {
             message += ": " + error.toString();

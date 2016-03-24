@@ -20,6 +20,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
         client = createClient(context);
     }
 
+    @Override
     public HttpURLConnection create(URL url) throws IOException {
         return new OkUrlFactory(client).open(url);
     }

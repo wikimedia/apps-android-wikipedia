@@ -94,10 +94,12 @@ public class HistoryEntry implements Parcelable {
 
     public static final Parcelable.Creator<HistoryEntry> CREATOR
             = new Parcelable.Creator<HistoryEntry>() {
+        @Override
         public HistoryEntry createFromParcel(Parcel in) {
             return new HistoryEntry(in);
         }
 
+        @Override
         public HistoryEntry[] newArray(int size) {
             return new HistoryEntry[size];
         }

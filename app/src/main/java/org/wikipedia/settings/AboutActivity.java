@@ -36,6 +36,7 @@ public class AboutActivity extends ThemedActionBarActivity {
     @Bind(R.id.send_feedback_text) TextView feedbackTextView;
     @Bind(R.id.about_wmf) TextView wmfTextView;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);

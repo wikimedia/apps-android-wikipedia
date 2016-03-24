@@ -30,10 +30,12 @@ public class CreateAccountResult implements Parcelable {
 
     public static final Parcelable.Creator<CreateAccountResult> CREATOR
             = new Parcelable.Creator<CreateAccountResult>() {
+        @Override
         public CreateAccountResult createFromParcel(Parcel in) {
             return new CreateAccountResult(in);
         }
 
+        @Override
         public CreateAccountResult[] newArray(int size) {
             return new CreateAccountResult[size];
         }

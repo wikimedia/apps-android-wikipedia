@@ -218,10 +218,12 @@ public class PageProperties implements Parcelable {
 
     public static final Parcelable.Creator<PageProperties> CREATOR
             = new Parcelable.Creator<PageProperties>() {
+        @Override
         public PageProperties createFromParcel(Parcel in) {
             return new PageProperties(in);
         }
 
+        @Override
         public PageProperties[] newArray(int size) {
             return new PageProperties[size];
         }

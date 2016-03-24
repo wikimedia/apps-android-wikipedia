@@ -115,6 +115,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         private TextView description;
     }
 
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
         ViewHolder holder;

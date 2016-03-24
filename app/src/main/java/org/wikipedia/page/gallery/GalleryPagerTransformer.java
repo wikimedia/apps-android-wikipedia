@@ -7,6 +7,7 @@ public class GalleryPagerTransformer implements ViewPager.PageTransformer {
     private static final float MIN_SCALE = 0.5f;
     private static final float ROTATION_DEGREES = 30.0f;
 
+    @Override
     public void transformPage(View view, float position) {
         if (position < -1) { // [-Infinity,-1)
             // This page is way off-screen to the left.

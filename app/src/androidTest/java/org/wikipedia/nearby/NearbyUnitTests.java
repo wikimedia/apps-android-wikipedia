@@ -100,6 +100,7 @@ public class NearbyUnitTests extends AndroidTestCase {
     }
 
     private class NearbyDistanceComparator implements Comparator<NearbyPage> {
+        @Override
         public int compare(NearbyPage a, NearbyPage b) {
             return a.getDistance() - b.getDistance();
         }

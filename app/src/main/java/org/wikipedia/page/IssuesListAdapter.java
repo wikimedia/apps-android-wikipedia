@@ -44,6 +44,7 @@ class IssuesListAdapter extends ArrayAdapter<String> {
         return false; // don't make it appear clickable
     }
 
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
         if (convertView == null) {

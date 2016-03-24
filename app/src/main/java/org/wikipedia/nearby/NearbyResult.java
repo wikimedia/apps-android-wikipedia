@@ -65,6 +65,7 @@ class NearbyResult implements Parcelable {
     }
 
     public static final Parcelable.Creator<NearbyResult> CREATOR = new Parcelable.Creator<NearbyResult>() {
+        @Override
         public NearbyResult createFromParcel(Parcel in) {
             try {
                 return new NearbyResult(in);
@@ -73,6 +74,7 @@ class NearbyResult implements Parcelable {
             }
         }
 
+        @Override
         public NearbyResult[] newArray(int size) {
             return new NearbyResult[size];
         }

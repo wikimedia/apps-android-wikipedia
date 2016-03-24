@@ -58,6 +58,7 @@ public class GetLegacyReadingListsTest extends RetrofitClientBaseTest {
             this.expected = expected;
         }
 
+        @Override
         public void execute() {
             LegacyReadingListsResponse actual = getClient().getReadingLists();
             if (expected != null) {
@@ -100,6 +101,7 @@ public class GetLegacyReadingListsTest extends RetrofitClientBaseTest {
             this.mockList = list;
         }
 
+        @Override
         public List<LegacyReadingList> getLists() {
             return mockList;
         }

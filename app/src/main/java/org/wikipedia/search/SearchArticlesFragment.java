@@ -125,6 +125,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                         .setPositiveButton(
                                 getString(R.string.yes),
                                 new DialogInterface.OnClickListener() {
+                                    @Override
                                     public void onClick(DialogInterface dialog, int id) {
                                         new DeleteAllRecentSearchesTask(app).execute();
                                     }
@@ -285,6 +286,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         return isSearchActive;
     }
 
+    @Override
     public boolean onBackPressed() {
         if (isSearchActive) {
             closeSearch();

@@ -659,6 +659,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.homeAsUp:

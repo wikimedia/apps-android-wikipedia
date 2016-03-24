@@ -78,10 +78,12 @@ public class SavedPage implements Parcelable {
 
     public static final Creator<SavedPage> CREATOR
             = new Creator<SavedPage>() {
+        @Override
         public SavedPage createFromParcel(Parcel in) {
             return new SavedPage(in);
         }
 
+        @Override
         public SavedPage[] newArray(int size) {
             return new SavedPage[size];
         }

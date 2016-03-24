@@ -33,10 +33,12 @@ public class CreateAccountSuccessResult extends CreateAccountResult implements P
 
     public static final Creator<CreateAccountSuccessResult> CREATOR
             = new Creator<CreateAccountSuccessResult>() {
+        @Override
         public CreateAccountSuccessResult createFromParcel(Parcel in) {
             return new CreateAccountSuccessResult(in);
         }
 
+        @Override
         public CreateAccountSuccessResult[] newArray(int size) {
             return new CreateAccountSuccessResult[size];
         }

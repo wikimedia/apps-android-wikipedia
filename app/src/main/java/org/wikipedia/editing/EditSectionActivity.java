@@ -96,6 +96,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private ProgressDialog progressDialog;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_section);
@@ -652,12 +653,14 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setMessage(getString(R.string.edit_abandon_confirm));
             alert.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+                @Override
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();
                     finish();
                 }
             });
             alert.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+                @Override
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.dismiss();
                 }

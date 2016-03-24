@@ -79,6 +79,7 @@ public class PasswordTextInput extends FrameLayout {
     }
 
     private class OnShowPasswordClickListener implements OnClickListener {
+        @Override
         public void onClick(View v) {
             boolean passwordVisible = isPasswordVisible();
             passwordVisible = !passwordVisible;

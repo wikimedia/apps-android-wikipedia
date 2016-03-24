@@ -34,10 +34,12 @@ public class CaptchaResult extends EditingResult {
 
     public static final Parcelable.Creator<CaptchaResult> CREATOR
             = new Parcelable.Creator<CaptchaResult>() {
+        @Override
         public CaptchaResult createFromParcel(Parcel in) {
             return new CaptchaResult(in);
         }
 
+        @Override
         public CaptchaResult[] newArray(int size) {
             return new CaptchaResult[size];
         }

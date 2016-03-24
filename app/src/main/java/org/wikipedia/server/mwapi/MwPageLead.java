@@ -31,11 +31,13 @@ public class MwPageLead implements PageLead {
         return error != null || mobileview == null;
     }
 
+    @Override
     @Nullable
     public MwServiceError getError() {
         return error;
     }
 
+    @Override
     public void logError(String message) {
         if (error != null) {
             message += ": " + error.toString();
@@ -65,6 +67,7 @@ public class MwPageLead implements PageLead {
         return title;
     }
 
+    @Override
     public String getLeadSectionContent() {
         if (mobileview != null) {
             return mobileview.getSections().get(0).getContent();
@@ -116,23 +119,28 @@ public class MwPageLead implements PageLead {
             return new PageProperties(this);
         }
 
+        @Override
         public int getId() {
             return id;
         }
 
+        @Override
         public long getRevision() {
             return revision;
         }
 
+        @Override
         @Nullable
         public String getLastModified() {
             return lastmodified;
         }
 
+        @Override
         public int getLanguageCount() {
             return languagecount;
         }
 
+        @Override
         @Nullable
         public String getDisplayTitle() {
             return displaytitle;
@@ -150,48 +158,58 @@ public class MwPageLead implements PageLead {
             return null;
         }
 
+        @Override
         @Nullable
         public String getRedirected() {
             return redirected;
         }
 
+        @Override
         @Nullable
         public String getNormalizedTitle() {
             return normalizedtitle;
         }
 
+        @Override
         @Nullable
         public String getDescription() {
             return description != null ? capitalizeFirstChar(description) : null;
         }
 
+        @Override
         @Nullable
         public String getLeadImageUrl() {
             return thumb != null ? thumb.getUrl() : null;
         }
 
+        @Override
         @Nullable
         public String getLeadImageName() {
             return image != null ? image.getFile() : null;
         }
 
+        @Override
         @Nullable
         public String getFirstAllowedEditorRole() {
             return protection != null ? protection.getFirstAllowedEditorRole() : null;
         }
 
+        @Override
         public boolean isEditable() {
             return editable;
         }
 
+        @Override
         public boolean isMainPage() {
             return mainpage;
         }
 
+        @Override
         public boolean isDisambiguation() {
             return disambiguation;
         }
 
+        @Override
         @Nullable
         public List<Section> getSections() {
             return sections;

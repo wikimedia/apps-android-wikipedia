@@ -23,6 +23,7 @@ public class ImageLicenseFetchTask extends PageQueryTask<ImageLicense> {
         builder.param("prop", "imageinfo").param("iiprop", "extmetadata");
     }
 
+    @Override
     public ImageLicense processPage(int pageId, PageTitle pageTitle, JSONObject result) {
         ImageLicense license = new ImageLicense("", "", "");
         try {

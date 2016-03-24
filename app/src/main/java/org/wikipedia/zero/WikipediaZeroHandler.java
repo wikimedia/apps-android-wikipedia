@@ -201,6 +201,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
         alert.setMessage(!(StringUtil.emptyIfNull(customExitWarning).equals("")) ? customExitWarning
                 : context.getString(R.string.zero_interstitial_leave_app));
         alert.setPositiveButton(context.getString(R.string.zero_interstitial_continue), new DialogInterface.OnClickListener() {
+            @Override
             public void onClick(DialogInterface dialog, int id) {
                 visitInExternalBrowser(context, uri);
                 zeroHandler.getZeroFunnel().logExtLinkConf();
@@ -215,6 +216,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
             });
         }
         alert.setNegativeButton(context.getString(R.string.zero_interstitial_cancel), new DialogInterface.OnClickListener() {
+            @Override
             public void onClick(DialogInterface dialog, int id) {
                 zeroHandler.getZeroFunnel().logExtLinkBack();
             }
@@ -224,6 +226,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
         zeroHandler.getZeroFunnel().logExtLinkWarn();
     }
 
+    @Override
     public void onReceive(final Context context, Intent intent) {
         ConnectivityManager conn = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = conn.getActiveNetworkInfo();

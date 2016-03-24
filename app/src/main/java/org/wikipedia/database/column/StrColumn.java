@@ -8,6 +8,7 @@ public class StrColumn extends Column<String> {
         super(name, type);
     }
 
+    @Override
     public String val(@NonNull Cursor cursor) {
         return getString(cursor);
     }

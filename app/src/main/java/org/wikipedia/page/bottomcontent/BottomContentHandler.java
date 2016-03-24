@@ -202,10 +202,12 @@ public class BottomContentHandler implements BottomContentInterface,
      * Hide the bottom content entirely.
      * It can only be shown again by calling beginLayout()
      */
+    @Override
     public void hide() {
         bottomContentContainer.setVisibility(View.GONE);
     }
 
+    @Override
     public void beginLayout() {
         firstTimeShown = false;
         setupAttribution();
@@ -350,10 +352,12 @@ public class BottomContentHandler implements BottomContentInterface,
         readMoreContainer.setVisibility(View.VISIBLE);
     }
 
+    @Override
     public PageTitle getTitle() {
         return pageTitle;
     }
 
+    @Override
     public void setTitle(PageTitle newTitle) {
         pageTitle = newTitle;
         funnel = new SuggestedPagesFunnel(app);

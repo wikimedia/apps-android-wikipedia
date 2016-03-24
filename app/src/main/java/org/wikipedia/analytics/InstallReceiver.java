@@ -17,6 +17,7 @@ public final class InstallReceiver extends BroadcastReceiver {
     private static final String INSTALL_ACTION = "com.android.vending.INSTALL_REFERRER";
     private static final String REFERRER_KEY = "referrer";
 
+    @Override
     public void onReceive(Context ctx, Intent intent) {
         String action = intent.getAction();
         switch (action) {

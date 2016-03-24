@@ -67,10 +67,12 @@ public class RecentSearch implements Parcelable {
 
     public static final Creator<RecentSearch> CREATOR
             = new Creator<RecentSearch>() {
+        @Override
         public RecentSearch createFromParcel(Parcel in) {
             return new RecentSearch(in);
         }
 
+        @Override
         public RecentSearch[] newArray(int size) {
             return new RecentSearch[size];
         }

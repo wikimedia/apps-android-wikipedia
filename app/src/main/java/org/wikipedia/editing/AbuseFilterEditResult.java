@@ -66,10 +66,12 @@ public class AbuseFilterEditResult extends EditingResult {
 
     public static final Parcelable.Creator<AbuseFilterEditResult> CREATOR
             = new Parcelable.Creator<AbuseFilterEditResult>() {
+        @Override
         public AbuseFilterEditResult createFromParcel(Parcel in) {
             return new AbuseFilterEditResult(in);
         }
 
+        @Override
         public AbuseFilterEditResult[] newArray(int size) {
             return new AbuseFilterEditResult[size];
         }

@@ -10,10 +10,12 @@ public class MwServiceError implements ServiceError {
     private String info;
     private String docref;
 
+    @Override
     public String getTitle() {
         return code;
     }
 
+    @Override
     public String getDetails() {
         return info;
     }

@@ -791,6 +791,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private DialogInterface.OnClickListener getZeroMoreInfoListener() {
         return new DialogInterface.OnClickListener() {
+            @Override
             public void onClick(DialogInterface dialog, int id) {
                 visitInExternalBrowser(PageActivity.this, (Uri.parse(getString(R.string.zero_webpage_url))));
                 zeroFunnel.logExtLinkMore();
@@ -800,6 +801,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private DialogInterface.OnClickListener getDismissClickListener() {
         return new DialogInterface.OnClickListener() {
+            @Override
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
             }

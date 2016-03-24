@@ -51,6 +51,7 @@ public class GetLegacyReadingListPageTitlesTest extends RetrofitClientBaseTest {
             this.expected = expected;
         }
 
+        @Override
         public void execute() {
             LegacyReadingListPageTitlesResponse actual = getClient().getMemberPages(WATCHLIST_ID);
             if (expected != null) {
@@ -92,6 +93,7 @@ public class GetLegacyReadingListPageTitlesTest extends RetrofitClientBaseTest {
             this.mockList = list;
         }
 
+        @Override
         public List<LegacyReadingListPageTitle> getMemberPages() {
             return mockList;
         }

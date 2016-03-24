@@ -53,6 +53,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     private View langLinksNoMatch;
     private WikiErrorView langLinksError;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();

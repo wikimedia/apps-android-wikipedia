@@ -8,6 +8,7 @@ public class LongColumn extends Column<Long> {
         super(name, type);
     }
 
+    @Override
     public Long val(@NonNull Cursor cursor) {
         return getLong(cursor);
     }

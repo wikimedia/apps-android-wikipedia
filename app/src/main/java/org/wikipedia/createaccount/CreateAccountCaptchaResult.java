@@ -29,10 +29,12 @@ public class CreateAccountCaptchaResult extends CreateAccountResult {
 
     public static final Parcelable.Creator<CreateAccountCaptchaResult> CREATOR
             = new Parcelable.Creator<CreateAccountCaptchaResult>() {
+        @Override
         public CreateAccountCaptchaResult createFromParcel(Parcel in) {
             return new CreateAccountCaptchaResult(in);
         }
 
+        @Override
         public CreateAccountCaptchaResult[] newArray(int size) {
             return new CreateAccountCaptchaResult[size];
         }

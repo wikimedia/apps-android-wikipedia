@@ -51,11 +51,13 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         return error != null || sections == null;
     }
 
+    @Override
     @Nullable
     public RbServiceError getError() {
         return error;
     }
 
+    @Override
     public void logError(String message) {
         if (error != null) {
             message += ": " + error.toString();
@@ -83,6 +85,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         return title;
     }
 
+    @Override
     public String getLeadSectionContent() {
         if (sections != null) {
             return sections.get(0).getContent();
@@ -96,14 +99,17 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         return new PageProperties(this);
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public long getRevision() {
         return revision;
     }
 
+    @Override
     @Nullable
     public String getLastModified() {
         return lastmodified;
@@ -123,57 +129,69 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         return geo;
     }
 
+    @Override
     public int getLanguageCount() {
         return languagecount;
     }
 
+    @Override
     @Nullable
     public String getDisplayTitle() {
         return displaytitle;
     }
 
+    @Override
     @Nullable
     public String getRedirected() {
         return redirected;
     }
 
+    @Override
     @Nullable
     public String getNormalizedTitle() {
         return normalizedtitle;
     }
 
+    @Override
     @Nullable
     public String getDescription() {
         return description != null ? capitalizeFirstChar(description) : null;
     }
 
+    @Override
     @Nullable
     public String getLeadImageUrl() {
         return image != null ? image.getUrl(leadImageThumbWidth) : null;
     }
 
+    @Override
     @Nullable
     public String getLeadImageName() {
         return image != null ? image.getFile() : null;
     }
 
+    @Override
     @Nullable
     public String getFirstAllowedEditorRole() {
         return protection != null ? protection.getFirstAllowedEditorRole() : null;
     }
 
+    @Override
     public boolean isEditable() {
         return editable;
     }
 
+    @Override
     public boolean isMainPage() {
         return mainpage;
     }
 
+    @Override
     public boolean isDisambiguation() {
         return disambiguation;
     }
 
+    @Override
     @Nullable
     public List<Section> getSections() {
         return sections;

@@ -17,11 +17,13 @@ public class RbPageSummary implements PageSummary {
         return error != null || title == null || extract == null;
     }
 
+    @Override
     @Nullable
     public RbServiceError getError() {
         return error;
     }
 
+    @Override
     public void logError(String message) {
         if (error != null) {
             message += ": " + error.toString();

@@ -31,10 +31,12 @@ import java.util.Locale;
  */
 public class Site implements Parcelable {
     public static final Parcelable.Creator<Site> CREATOR = new Parcelable.Creator<Site>() {
+        @Override
         public Site createFromParcel(Parcel in) {
             return new Site(in);
         }
 
+        @Override
         public Site[] newArray(int size) {
             return new Site[size];
         }

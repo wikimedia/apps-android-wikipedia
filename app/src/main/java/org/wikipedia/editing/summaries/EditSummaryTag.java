@@ -66,6 +66,7 @@ public class EditSummaryTag extends TextView {
         return selected;
     }
 
+    @Override
     public void setSelected(boolean selected) {
         this.selected = selected;
         updateState();

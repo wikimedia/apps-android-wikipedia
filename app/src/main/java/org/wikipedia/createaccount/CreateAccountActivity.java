@@ -71,6 +71,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     private CreateAccountFunnel funnel;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
@@ -178,6 +179,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
         // Add listener so that when the user taps enter, it submits the captcha
         captchaText.setOnKeyListener(new OnKeyListener() {
+            @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_UP) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     validator.validate();

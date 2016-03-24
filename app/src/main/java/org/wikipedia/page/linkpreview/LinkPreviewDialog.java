@@ -363,6 +363,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
                     true);
         }
 
+        @Override
         public void onGalleryResult(GalleryCollection result) {
             if (!result.getItemList().isEmpty()) {
                 thumbnailGallery.setGalleryCollection(result);

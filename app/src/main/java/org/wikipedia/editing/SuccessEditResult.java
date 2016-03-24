@@ -21,10 +21,12 @@ public class SuccessEditResult extends EditingResult {
 
     public static final Parcelable.Creator<SuccessEditResult> CREATOR
             = new Parcelable.Creator<SuccessEditResult>() {
+        @Override
         public SuccessEditResult createFromParcel(Parcel in) {
             return new SuccessEditResult(in);
         }
 
+        @Override
         public SuccessEditResult[] newArray(int size) {
             return new SuccessEditResult[size];
         }

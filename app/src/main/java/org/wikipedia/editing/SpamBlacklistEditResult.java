@@ -27,10 +27,12 @@ public class SpamBlacklistEditResult extends EditingResult {
 
     public static final Parcelable.Creator<SpamBlacklistEditResult> CREATOR
             = new Parcelable.Creator<SpamBlacklistEditResult>() {
+        @Override
         public SpamBlacklistEditResult createFromParcel(Parcel in) {
             return new SpamBlacklistEditResult(in);
         }
 
+        @Override
         public SpamBlacklistEditResult[] newArray(int size) {
             return new SpamBlacklistEditResult[size];
         }
