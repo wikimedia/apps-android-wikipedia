@@ -17,7 +17,9 @@ import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
 import org.wikipedia.util.log.L;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import retrofit.RetrofitError;
 
@@ -56,9 +58,11 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     private void upload() {
-        Collection<UserOptionRow> options = UserOptionDao.instance().startTransaction();
+        List<UserOptionRow> options = new ArrayList<>(UserOptionDao.instance().startTransaction());
         L.i("uploading " + options.size() + " option(s)");
-        for (UserOptionRow option : options) {
+        while (!options.isEmpty()) {
+            UserOptionRow option = options.get(0);
+
             try {
                 if (option.status() == HttpStatus.DELETED) {
                     UserOptionDataClientSingleton.instance().delete(option);
@@ -66,11 +70,12 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
                     UserOptionDataClientSingleton.instance().post(option);
                 }
             } catch (RetrofitError e) {
-                UserOptionDao.instance().resetTransaction(option);
+                UserOptionDao.instance().failTransaction(options);
                 throw e;
             }
 
             UserOptionDao.instance().completeTransaction(option);
+            options.remove(0);
         }
     }
 }

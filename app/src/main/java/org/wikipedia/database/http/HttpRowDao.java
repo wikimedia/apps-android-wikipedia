@@ -97,15 +97,6 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
         return items;
     }
 
-    public synchronized void resetTransaction(@NonNull T item) {
-        if (!completable(item)) {
-            return;
-        }
-
-        item.resetTransaction(item.status());
-        insertItem(item);
-    }
-
     public void completeTransaction(@NonNull T item) {
         long timestamp = System.currentTimeMillis();
         completeTransaction(item, timestamp);
@@ -132,9 +123,24 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
         }
     }
 
+    public void failTransaction(@NonNull Collection<T> items) {
+        for (T item : items) {
+            failTransaction(item);
+        }
+    }
+
+    public synchronized void failTransaction(@NonNull T item) {
+        if (!completable(item)) {
+            return;
+        }
+
+        item.resetTransaction(item.status());
+        insertItem(item);
+    }
+
     private boolean completable(@NonNull T item) {
         T local = queryItem(item);
-        return item.completeable(local);
+        return item.completable(local);
     }
 
     @NonNull private Collection<T> querySyncable() {

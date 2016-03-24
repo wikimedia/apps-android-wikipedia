@@ -34,9 +34,9 @@ public class HttpRow extends DefaultAsyncRow<HttpStatus> {
     }
 
     @Override
-    public boolean completeable(@Nullable AsyncRow<HttpStatus> old) {
-        boolean recordable = !(old == null && status() == HttpStatus.DELETED);
-        return super.completeable(old) && recordable;
+    public boolean completable(@Nullable AsyncRow<HttpStatus> query) {
+        boolean recordable = !(query == null && status() == HttpStatus.DELETED);
+        return super.completable(query) && recordable;
     }
 
     @Override
