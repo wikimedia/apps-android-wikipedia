@@ -417,5 +417,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list.</string>
   <string name="reading_lists_empty">Title message shown when there are no reading lists.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists.</string>
+  <string name="reading_lists_onboarding_intro">Short introductory statement about reading lists to be shown in the onboarding screen.</string>
+  <string name="reading_lists_onboarding_examples">A few examples of reading list names, separated by newline characters.</string>
+  <string name="reading_lists_onboarding_got_it">Button label to acknowledge and dismiss the onboarding screen.</string>
 
 </resources>

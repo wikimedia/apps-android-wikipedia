@@ -310,6 +310,7 @@ public class PageActivity extends ThemedActionBarActivity {
             if (!wasNavItemSelected()) {
                 navDrawerHelper.getFunnel().logCancel();
             }
+            navDrawerHelper.clearTempExplicitHighlight();
             setNavItemSelected(false);
         }
 
@@ -712,13 +713,18 @@ public class PageActivity extends ThemedActionBarActivity {
         bottomSheetPresenter.show(dialog);
     }
 
-    public void showReadingListAddedSnackbar(String message) {
+    public void showReadingListAddedSnackbar(String message, final boolean isOnboarding) {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(fragmentContainerView, message,
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pushFragment(new ReadingListsFragment());
+                if (isOnboarding) {
+                    navDrawerHelper.setTempExplicitHighlight(ReadingListsFragment.class);
+                    drawerLayout.openDrawer(GravityCompat.START);
+                } else {
+                    pushFragment(new ReadingListsFragment());
+                }
             }
         });
         snackbar.show();

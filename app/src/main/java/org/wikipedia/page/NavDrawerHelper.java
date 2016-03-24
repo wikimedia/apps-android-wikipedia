@@ -38,6 +38,7 @@ public class NavDrawerHelper {
     private TextView accountNameView;
     private ImageView accountNameArrow;
     private boolean accountToggle;
+    private boolean isTempExplicitHighlight;
 
     public NavDrawerHelper(@NonNull PageActivity activity, View navDrawerHeader) {
         this.funnel = new NavMenuFunnel();
@@ -136,11 +137,23 @@ public class NavDrawerHelper {
                 });
     }
 
-    public void updateItemSelection(Fragment fragment) {
-        @IdRes Integer id = fragmentToMenuId(fragment);
+    public void updateItemSelection(@Nullable Fragment fragment) {
+        @IdRes Integer id = fragment == null ? null : fragmentToMenuId(fragment.getClass());
+        if (id != null && !isTempExplicitHighlight) {
+            setMenuItemSelection(id);
+        }
+    }
+
+    public void setTempExplicitHighlight(Class<? extends Fragment> fragmentClass) {
+        @IdRes Integer id = fragmentToMenuId(fragmentClass);
         if (id != null) {
             setMenuItemSelection(id);
         }
+        isTempExplicitHighlight = true;
+    }
+
+    public void clearTempExplicitHighlight() {
+        isTempExplicitHighlight = false;
     }
 
     private void setMenuItemSelection(@IdRes int id) {
@@ -187,14 +200,16 @@ public class NavDrawerHelper {
                 && activity.getCurPageFragment().getPage().isMainPage();
     }
 
-    @Nullable @IdRes private Integer fragmentToMenuId(Fragment fragment) {
-        if (fragment instanceof PageFragment) {
+    @Nullable @IdRes private Integer fragmentToMenuId(Class<? extends Fragment> fragment) {
+        if (fragment == PageFragment.class) {
             return R.id.nav_item_today;
-        } else if (fragment instanceof HistoryFragment) {
+        } else if (fragment == HistoryFragment.class) {
             return R.id.nav_item_history;
-        } else if (fragment instanceof ReadingListsFragment) {
+        } else if (fragment == SavedPagesFragment.class) {
+            return R.id.nav_item_saved_pages;
+        } else if (fragment == ReadingListsFragment.class) {
             return R.id.nav_item_reading_lists;
-        } else if (fragment instanceof NearbyFragment) {
+        } else if (fragment == NearbyFragment.class) {
             return R.id.nav_item_nearby;
         }
         return null;

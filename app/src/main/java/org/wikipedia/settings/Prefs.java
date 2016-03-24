@@ -349,6 +349,14 @@ public final class Prefs {
         setBoolean(R.string.preference_key_share_tutorial_enabled, enabled);
     }
 
+    public static boolean isReadingListTutorialEnabled() {
+        return getBoolean(R.string.preference_key_reading_list_tutorial_enabled, true);
+    }
+
+    public static void setReadingListTutorialEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_reading_list_tutorial_enabled, enabled);
+    }
+
     public static boolean isFeatureSearchAutoCompleteEnabled() {
         return getBoolean(R.string.preference_key_feature_search_autocomplete, true);
     }
