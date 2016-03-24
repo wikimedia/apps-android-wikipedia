@@ -3,7 +3,7 @@ package org.wikipedia.database.async;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public interface AsyncRow<T> {
+public interface  AsyncRow<T> {
     @NonNull T status();
     int statusCode();
     long timestamp();
@@ -11,6 +11,7 @@ public interface AsyncRow<T> {
 
     void resetTransaction(@NonNull T status);
     void startTransaction();
-    boolean completeable(@Nullable AsyncRow<T> old);
+    boolean completable(@Nullable AsyncRow<T> query);
     void completeTransaction(long timestamp);
+    void failTransaction();
 }

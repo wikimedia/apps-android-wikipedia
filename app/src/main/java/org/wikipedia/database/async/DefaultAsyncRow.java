@@ -40,15 +40,20 @@ public abstract class DefaultAsyncRow<T> implements AsyncRow<T> {
     }
 
     @Override
-    public boolean completeable(@Nullable AsyncRow<T> old) {
-        boolean newer = old == null || transactionId() == NO_TRANSACTION_ID;
-        boolean response = old != null && transactionId() == old.transactionId();
+    public boolean completable(@Nullable AsyncRow<T> query) {
+        boolean newer = query == null || transactionId() == NO_TRANSACTION_ID;
+        boolean response = query != null && transactionId() == query.transactionId();
         return newer || response;
     }
 
     @Override
     public void completeTransaction(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    @Override
+    public void failTransaction() {
+        resetTransaction(status());
     }
 
     private long newTransactionId() {

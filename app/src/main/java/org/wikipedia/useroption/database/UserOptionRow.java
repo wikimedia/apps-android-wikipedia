@@ -63,12 +63,17 @@ public class UserOptionRow extends UserOption implements AsyncRow<HttpStatus> {
     }
 
     @Override
-    public boolean completeable(@Nullable AsyncRow<HttpStatus> old) {
-        return http.completeable(old);
+    public boolean completable(@Nullable AsyncRow<HttpStatus> query) {
+        return http.completable(query);
     }
 
     @Override
     public void completeTransaction(long timestamp) {
         http.completeTransaction(timestamp);
+    }
+
+    @Override
+    public void failTransaction() {
+        http.failTransaction();
     }
 }
