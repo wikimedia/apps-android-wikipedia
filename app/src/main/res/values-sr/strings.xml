@@ -140,6 +140,7 @@
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Ову апликацију су превели волонтери сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
+  <string name="about_app_license">Изворни код је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 лиценцом&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Ауторство-Делити под истим условима&lt;/a&gt; осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Задужбине Викимедије&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Да ли сигурно желите да је напустите?</string>

@@ -3,17 +3,19 @@
   <string name="app_name_prod">Βικιπαίδεια</string>
   <string name="app_name_beta">Βικιπαίδεια Beta</string>
   <string name="app_name_alpha">Βικιπαίδεια Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Ναι</string>
   <string name="no">Όχι</string>
   <string name="search_hint">Αναζήτηση στη Βικιπαίδεια</string>
   <string name="nav_item_history">Ιστορικό</string>
   <string name="error_network_error">Δεν υπάρχει σύνδεση με το Διαδίκτυο.</string>
   <string name="page_error_retry">Ξαναπροσπαθήστε</string>
+  <string name="page_error_back_to_main">Επιστροφή</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
   <string name="menu_clear_all_saved_pages">Εκκαθάριση αποθηκευμένων σελίδων</string>
   <string name="page_does_not_exist_error">Αυτή η σελίδα δεν υπάρχει!</string>
   <string name="nav_item_today">Σήμερα</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Εκκαθάριση ιστορικού περιήγησης;</string>
+  <string name="dialog_title_clear_history">Εκκαθάριση ιστορικού περιήγησης</string>
   <string name="nav_item_saved_pages">Αποθηκευμένες σελίδες</string>
   <string name="menu_update_all_saved_pages">Ενημέρωση αποθηκευμένων σελίδων</string>
   <string name="menu_update_selected_saved_pages">Να ενημερωθούν όλες οι αποθηκευμένες σελίδες;</string>
@@ -29,7 +31,7 @@
   <string name="saved_pages_search_list_hint">Αναζήτηση αποθηκευμένων σελίδων</string>
   <string name="saved_pages_search_empty_message">Δεν βρέθηκαν σελίδες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
-  <string name="menu_page_other_languages" fuzzy="true">Διαβάστε σε άλλες γλώσσες</string>
+  <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
   <string name="menu_page_find_in_page">Βρείτε στην σελίδα</string>
   <string name="menu_page_font_and_theme">Γραμματοσειρά και θέμα</string>
   <string name="menu_page_save">Αποθήκευση σελίδας</string>
@@ -154,9 +156,10 @@
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading" fuzzy="true">βιβλιοθήκες που χρησιμοποιούνται</string>
-  <string name="about_contributors_heading" fuzzy="true">Συνεισφέροντες</string>
-  <string name="about_translators_heading" fuzzy="true">μεταφραστές</string>
+  <string name="about_contributors_heading">Συνεισφέροντες</string>
+  <string name="about_translators_heading">Μεταφραστές</string>
   <string name="about_translators_translatewiki">Η εφαρμογή αυτή έχει μεταφραστεί από τους εθελοντές μεταφραστές στο &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Άδεια</string>
   <string name="about_wmf">Ένα προϊόν του &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Σχετικά</string>
   <string name="edit_abandon_confirm">Η σελίδα έχει τροποποιηθεί. Είστε βέβαιοι ότι θέλετε να πραγματοποιήσετε έξοδο χωρίς να αποθηκεύσετε τις αλλαγές σας;</string>
@@ -237,5 +240,5 @@
   <string name="tool_tip_share">Μετά την επισήμανση ενός ενδιαφέροντος γεγονός, προσπαθήστε να την μοιραστείτε στα αγαπημένα σας δίκτυα!</string>
   <string name="page_view_in_browser">Προβολή σελίδας στον περιηγητή</string>
   <string name="tool_tip_toc_button">Δείτε τον πίνακα περιεχομένων ανά πάσα στιγμή πατώντας αυτό το κουμπί, ή σέρνοντας από τη δεξιά άκρη της οθόνης.</string>
-  <string name="button_continue_to_article" fuzzy="true">Συνεχίστε στο άρθρο</string>
+  <string name="button_continue_to_article">Πλήρες άρθρο</string>
 </resources>

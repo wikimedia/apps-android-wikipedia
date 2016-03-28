@@ -3,12 +3,14 @@
   <string name="app_name_prod">விக்கிப்பீடியா</string>
   <string name="app_name_beta">விக்கிப்பீடியா பீட்டா</string>
   <string name="app_name_alpha">விக்கிப்பீடியா ஆல்பா</string>
+  <string name="wikimedia">விக்கிமீடியா</string>
   <string name="yes">ஆம்</string>
   <string name="no">இல்லை</string>
   <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
   <string name="nav_item_history">வரலாறு</string>
   <string name="error_network_error">இணைய தொடர்பு இல்லை :(</string>
   <string name="page_error_retry">மறு முயற்சி செய்</string>
+  <string name="page_error_back_to_main">பின் செல்</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
   <string name="menu_clear_all_saved_pages">சேமித்தப் பக்கங்களை நீக்கு</string>
   <string name="page_does_not_exist_error">இந்தப் பக்கம் இல்லை!</string>
@@ -29,8 +31,9 @@
   <string name="saved_pages_search_list_hint">சேமித்த பக்கங்களில் தேடுக</string>
   <string name="saved_pages_search_empty_message">உங்கள் வினவலுடன் பொருந்தக்கூடிய எந்தவொரு பக்கமும் காணப்படவில்லை.</string>
   <string name="menu_page_show_tabs">தத்தல்களை காண்பி</string>
-  <string name="menu_page_other_languages" fuzzy="true">மற்ற மொழிகளில் படிக்க</string>
+  <string name="menu_page_other_languages">மொழியை மாற்று</string>
   <string name="menu_page_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
+  <string name="menu_page_content_issues">உள்ளடக்க வெளியீடு</string>
   <string name="menu_page_similar_titles">ஒத்த(ஒப்பான) தலைப்பு</string>
   <string name="menu_page_font_and_theme">எழுத்துரு மற்றும் பிற</string>
   <string name="menu_page_save">பக்கத்தைச் சேமி</string>
@@ -39,6 +42,7 @@
   <string name="menu_long_press_open_in_new_tab">புதிய தத்ததில் திற</string>
   <string name="menu_long_press_copy_page">இணைப்பு முகவரியை நகலெடு</string>
   <string name="menu_text_select_copy">நகல்</string>
+  <string name="menu_text_select_define">விளக்கு</string>
   <string name="menu_text_select_share">பகிர்</string>
   <string name="nav_item_nearby">அருகில்</string>
   <string name="nearby_distance_in_meters">%d மீ</string>

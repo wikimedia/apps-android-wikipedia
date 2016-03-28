@@ -163,6 +163,7 @@
   <string name="about_contributors_heading" fuzzy="true">bidragsydere</string>
   <string name="about_translators_heading" fuzzy="true">oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Licens</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
@@ -239,6 +240,7 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_menu_save">Gem til enhed</string>
+  <string name="gallery_save_progress">Downloader fil...</string>
   <string name="gallery_save_success" fuzzy="true">Billedet er gemt med succes.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder. Prøv venligst igen, og giv den ønskede tilladelse.</string>

@@ -48,6 +48,7 @@
   <string name="nav_item_nearby">V okolí</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_zoom_to_location">Priblížte sa k polohe na mape</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -140,8 +141,9 @@
   <string name="create_account_account_created_toast">Účet bol vytvorený!</string>
   <string name="preferences_privacy_settings_heading">Súkromie</string>
   <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>
-  <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimédii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
+  <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimedii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="preference_title_auto_upload_crash_reports">Odosielať správu o zlyhaní</string>
+  <string name="preference_summary_auto_upload_crash_reports">Povoliť aplikácii automaticky odosielať správu o zlyhaní HockeyApp. HockeyApp je tretia strana (poskytovateľ služieb). Pomôže nám to rýchlejšie preskúmať zlyhanie a opraviť chyby.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
   <string name="history_search_list_hint">História vyhľadávania</string>
   <string name="history_search_empty_message">Nenašli sa žiadne stránky zodpovedajúce týmto kritériám.</string>
@@ -164,7 +166,7 @@
   <string name="about_translators_translatewiki">Táto aplikácia bola preložená s pomocou dobrovoľných prekladateľov na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
   <string name="about_app_license">Zdrojový kód dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrite&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHube&lt;/a&gt; na základe &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licencie Apache 2.0&lt;/a&gt;. Pokiaľ nie je uvedené inak, je obsah dostupný pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; licenciou Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
-  <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Nadácie WMF&lt;/a&gt;</string>
+  <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Nadácie Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikácii</string>
   <string name="edit_abandon_confirm">Na stránke boli vykonané úpravy. Naozaj chcete opustiť stránku bez uloženia úprav?</string>
   <string name="user_blocked_from_editing_title">Zablokované</string>
@@ -208,18 +210,26 @@
   <string name="widget_title_featured_page">Odporúčaný článok:</string>
   <string name="widget_name_search">Hľadať vo Wikipédii</string>
   <string name="wiktionary_no_definitions_found">Neboli nájdené žiadne definície.</string>
-  <string name="app_store_description" fuzzy="true">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia obsahujúca viac ako 32 miliónov článkov v 280 jazykoch, je to najrozsiahlejšie a naviac používané referenčné dielo, ktoré ľudstvo kedy vytvorilo. Aplikácia bola od základov prebudovaná a je lepšia ako kedykoľvek predtým.
+  <string name="app_store_description">Oficiálna aplikácia Wikipédie pre Android. Wikipédia je slobodná encyklopédia, ktorá obsahuje viac ako 32 miliónov článkov v 280 jazykoch. Je to najčastejšie citované dielo, aké kedy ľudstvo vytvorilo.
 
 Funkcie:
-   - Rýchlosť: Naša nová aplikácia vám umožňuje čítať a upravovať Wikipédiu rýchlejšie ako kedykoľvek predtým.
-   - Upravovanie: Wikipédiu môžete upravovať! Či už ste prihlásený alebo neprihlásený, ďakujeme za všetky vaše príspevky. 
-   - Nedávne stránky: Ponúkame vám históriu toho čo ste čítali, takže sa môžete preklikávať ľubovoľným množstvom článkov bez toho, aby ste sa stratili.
-   - Uložené stránky: Môžete si uložiť vybrané stránky na offline čítanie a čítať si ich aj bez dátového pripojenie..
-   - Zdieľanie: Zdieľajte množstvo ľudských znalostí pomocou existujúcich aplikácií sociálnych sietí.
-   - Podpora jazykov: Aplikácia vám umožňuje ľahko prechádzať medzi rôznymi jazykovými mutáciami článkov na Wikipédii.
-   - Wikipédia Zero: Bezplatné dátové pripojenie od vybraných mobilných operátorov.
+- Hlavné obrázky: zažite Wikipédiu ako nikdy predtým so špeciálnych, relevantným obrázkom vo vrchnej časti článkov
+- Galéria obrázkov: po kliknutí na obrázok sa vám tento zobrazí na celú obrazovku, pričom si posúvaním vľavo alebo vpravo môžete pozerať ďalšie obrázky
+- Popis z Wikiúdajov: každé vyhľadávanie odteraz obsahuje rýchly popis, ktorý vám pomôže zaradiť si výsledok vyhľadávania do kontextu. Tieto popisy sú dostupné aj v iných častiach aplikácie, napríklad vo funkcii V okolí
+- Návrhy článkov: na spodnej strane článku nájdete návrhy na ďalšie čítanie
+- Uložené stránky: uložte si vybrané stránky a prezerajte si ich aj bez dátového pripojenia
+- V okolí: zistite viac o svete okolo vás získaním odkazov na články, ktoré sú o miestach vo vašom okolí
+- Podpora jazykov: jednoducho prepínajte medzi rôznymi jazykovými verziami článkov
+- Obsah: potiahnutím vľavo na akomkoľvek článku zobrazíte obsah, vďaka ktorému sa môžete ľahšie dostať do požadovanej sekcie
+- Wikipédia Zero: u spolupracujúcich operátorov nemusíte za dátové pripojenie platiť
 
-Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti s Javou a SDK Androidu! https://github.com/wikimedia/apps-android-wikipedia</string>
+Povedzte nám svoj názor na aplikáciu! V ponuke zvoľte \"Nastavenia\", potom \"O aplikácii\" a nakoniec ťuknite na \"Odoslať spätnú väzbu\".
+
+Kód je 100% open source. Pokiaľ máte skúsenosti s Javou a SDK Androidu, tešíme sa na vaše príspevky! https://github.com/wikimedia/apps-android-wikipedia
+
+Pravidlá ochrany osobných údajov: https://m.wikimediafoundation.org/wiki/Privacy_policy
+
+Podmienky používania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">K dispozícii je nová alfa verzia.</string>
   <string name="alpha_update_notification_text">Ťuknutím ju stiahnete.</string>
   <string name="dialog_close_description">Zatvoriť</string>
@@ -235,6 +245,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_save_progress">Preberanie súboru...</string>
   <string name="gallery_save_success">Súbor bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
+  <string name="gallery_save_image_write_permission_rationale">Na uloženie obrázkov je nutné povolenie na zápis údajov do zariadenia. Skúste to prosím znova a udeľte požadované povolenie.</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
   <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>
   <string name="expand_refs">Ťuknutím rozšírite</string>
@@ -247,6 +258,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="gallery_uploader_unknown">Uploader neznámy</string>
   <string name="menu_new_tab">Nová karta</string>
   <string name="button_close_tab">Zavrieť kartu</string>
+  <string name="tool_tip_select_text">Text môžete kopírovať a zdielať. Stačí ak ho stlačíte a podržíte pokým sa nezvýrazní.</string>
   <string name="tool_tip_share">Po zvýraznení zaujímavej skutočnosti ju môžete zdieľať na vašich obľúbených sietiach!</string>
   <string name="page_view_in_browser">Zobraziť stránku v prehliadači</string>
   <string name="tool_tip_toc_button">Obsah môžete zobraziť kedykoľvek ťuknutím na toto tlačidlo alebo posunutím obrazovky z pravého rohu vľavo.</string>
@@ -264,6 +276,7 @@ Používame otvorený zdrojový kód. Pomôžte nám, pokiaľ máte skúsenosti 
   <string name="preference_summary_show_link_previews">Po kliknutí na odkaz zobraziť rýchly náhľad článkov.</string>
   <string name="nav_item_donate">Podporte Wikipédiu</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
+  <string name="crash_report_dialog_text">Chcete odoslať správu o zlyhaní HockeyApp? Wikimedia tak bude môcť toto zlyhanie preskúmať a opraviť chybu, ktorá toto zlyhanie spôsobila. HockeyApp je poskytovateľ služieb (tretia strana).</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
   <string name="crash_report_dialog_always_send_button">Vždy odoslať</string>
   <string name="crash_report_dialog_send_button">Odoslať</string>
