@@ -1,0 +1,103 @@
+package org.wikipedia.database;
+
+import android.content.ContentProvider;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import org.wikipedia.WikipediaApp;
+
+public class AppContentProvider extends ContentProvider {
+    @Override public boolean onCreate() {
+        final boolean loaded = true;
+        return loaded;
+    }
+
+    @Nullable @Override public Cursor query(@NonNull Uri uri, @Nullable String[] projection,
+                                            @Nullable String selection,
+                                            @Nullable String[] selectionArgs,
+                                            @Nullable String sortOrder) {
+        AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
+
+        SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
+        builder.setTables(endpoint.tables());
+
+        SQLiteDatabase db = readableDatabase();
+        final String groupBy = null;
+        final String having = null;
+        Cursor cursor = builder.query(db, projection == null ? endpoint.projection() : projection,
+                selection, selectionArgs, groupBy, having, sortOrder);
+
+        if (cursor != null) {
+            cursor.setNotificationUri(getContentResolver(), uri);
+        }
+        return cursor;
+    }
+
+    @Nullable @Override public String getType(@NonNull Uri uri) {
+        AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
+        return endpoint.type();
+    }
+
+    @Nullable @Override public Uri insert(@NonNull Uri uri, ContentValues values) {
+        AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
+
+        SQLiteDatabase db = writableDatabase();
+        final String nullColumnHack = null;
+        db.insertWithOnConflict(endpoint.tables(), nullColumnHack, values,
+                SQLiteDatabase.CONFLICT_REPLACE);
+
+        notifyChange(uri);
+
+        Uri itemUri = endpoint.itemUri(values);
+        if (itemUri != null) {
+            notifyChange(itemUri);
+        }
+        return itemUri;
+    }
+
+    @Override public int delete(@NonNull Uri uri, @Nullable String selection,
+                                @Nullable String[] selectionArgs) {
+        AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
+
+        SQLiteDatabase db = writableDatabase();
+        int rows = db.delete(endpoint.tables(), selection, selectionArgs);
+
+        notifyChange(uri);
+        return rows;
+    }
+
+    @Override public int update(@NonNull Uri uri, @Nullable ContentValues values,
+                                @Nullable String selection, @Nullable String[] selectionArgs) {
+        AppContentProviderEndpoint endpoint = AppContentProviderEndpoint.of(uri);
+
+        SQLiteDatabase db = writableDatabase();
+        int rows = db.update(endpoint.tables(), values, selection, selectionArgs);
+
+        notifyChange(uri);
+        return rows;
+    }
+
+    private void notifyChange(@NonNull Uri uri) {
+        if (getContentResolver() != null) {
+            getContentResolver().notifyChange(uri, null);
+        }
+    }
+
+    @Nullable private ContentResolver getContentResolver() {
+        return getContext() == null ? null : getContext().getContentResolver();
+    }
+
+    private SQLiteDatabase readableDatabase() {
+        return WikipediaApp.getInstance().getDatabase().getReadableDatabase();
+    }
+
+    private SQLiteDatabase writableDatabase() {
+        return WikipediaApp.getInstance().getDatabase().getWritableDatabase();
+    }
+}
