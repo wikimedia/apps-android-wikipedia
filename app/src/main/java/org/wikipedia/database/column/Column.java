@@ -4,14 +4,20 @@ import android.database.Cursor;
 import android.support.annotation.NonNull;
 
 public abstract class Column<T> {
+    private final String tbl;
     @NonNull private final String name;
     @NonNull private final String type;
+
+    @Deprecated public Column(@NonNull String name, @NonNull String type) {
+        this(null, name, type);
+    }
 
     /**
      * @param name Column name.
      * @param type SQLite datatype and constraints.
      */
-    public Column(@NonNull String name, @NonNull String type) {
+    public Column(@NonNull String tbl, @NonNull String name, @NonNull String type) {
+        this.tbl = tbl;
         this.name = name;
         this.type = type;
     }
@@ -21,13 +27,22 @@ public abstract class Column<T> {
         return name;
     }
 
+    @NonNull public String qualifiedName() {
+        return tbl + '.' + name;
+    }
+
     @NonNull
     public String getType() {
         return type;
     }
 
+    // TODO: add ContentValues marshalling method and hide getName().
     public abstract T val(@NonNull Cursor cursor);
 
+    // TODO: it would be more convenient in more places to just return the qualified name. It's
+    //       easy to accidentally implicitly convert a Column to a String with `+ ""` and it's only
+    //       appropriate to do so when creating or altering tables which occurs less frequently than
+    //       actually using them.
     @Override
     public String toString() {
         return getName() + " " + getType();

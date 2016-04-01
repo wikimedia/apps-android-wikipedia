@@ -7,10 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.database.contract.AppContentProviderContract;
+import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 
-public enum AppContentProviderEndpoint implements EnumCode {;
+public enum AppContentProviderEndpoint implements EnumCode {
+    HISTORY_PAGE(100, PageHistoryContract.Page.PATH, PageHistoryContract.Page.TABLES,
+            PageHistoryContract.Page.PROJECTION),
+    HISTORY_PAGE_WITH_IMAGE(102, PageHistoryContract.PageWithImage.PATH,
+            PageHistoryContract.PageWithImage.TABLES, PageHistoryContract.PageWithImage.PROJECTION);
 
     private static final EnumCodeMap<AppContentProviderEndpoint> CODE_TO_ENUM = new EnumCodeMap<>(AppContentProviderEndpoint.class);
     private static final UriMatcher URI_TO_CODE = newUriToCode();

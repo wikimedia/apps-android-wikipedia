@@ -87,9 +87,9 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
             Uri uri = UserOptionRow.DATABASE_TABLE.getBaseContentURI();
-            String[] projection = null;
-            String selection = null;
-            String[] selectionArgs = null;
+            final String[] projection = null;
+            final String selection = null;
+            final String[] selectionArgs = null;
             String order = UserOptionDatabaseTable.Col.ID.getName() + " desc";
             return new CursorLoader(context(), uri, projection, selection, selectionArgs, order);
         }

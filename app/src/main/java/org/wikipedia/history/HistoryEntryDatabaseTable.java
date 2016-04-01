@@ -3,55 +3,26 @@ package org.wikipedia.history;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.BaseColumns;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.BuildConfig;
 import org.wikipedia.Site;
 import org.wikipedia.database.DatabaseTable;
-import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.column.Column;
-import org.wikipedia.database.column.DateColumn;
-import org.wikipedia.database.column.IntColumn;
-import org.wikipedia.database.column.LongColumn;
-import org.wikipedia.database.column.StrColumn;
+import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.database.contract.PageHistoryContract.Col;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     private static final int DB_VER_NAMESPACE_ADDED = 6;
     private static final int DB_VER_NORMALIZED_TITLES = 8;
     private static final int DB_VER_LANG_ADDED = 10;
 
-    public static class Col {
-        public static final LongColumn ID = new LongColumn(BaseColumns._ID, "integer primary key");
-        public static final StrColumn SITE = new StrColumn("site", "string");
-        public static final StrColumn LANG = new StrColumn("lang", "text");
-        public static final StrColumn TITLE = new StrColumn("title", "string");
-        public static final StrColumn NAMESPACE = new StrColumn("namespace", "string");
-        public static final DateColumn TIMESTAMP = new DateColumn("timestamp", "integer");
-        public static final IntColumn SOURCE = new IntColumn("source", "integer");
-
-        public static final List<? extends Column<?>> ALL;
-        public static final List<? extends Column<?>> CONTENT = Arrays.<Column<?>>asList(SITE, LANG,
-                TITLE, NAMESPACE, TIMESTAMP, SOURCE);
-        public static final String[] SELECTION = DbUtil.names(SITE, LANG, NAMESPACE, TITLE);
-        static {
-            List<Column<?>> all = new ArrayList<>();
-            all.add(ID);
-            all.addAll(CONTENT);
-            ALL = Collections.unmodifiableList(all);
-        }
-    }
-
     public HistoryEntryDatabaseTable() {
-        super(BuildConfig.HISTORY_TABLE);
+        super(PageHistoryContract.TABLE);
     }
 
     @Override
@@ -93,7 +64,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     @Override
     protected String getPrimaryKeySelection(@NonNull HistoryEntry obj,
                                             @NonNull String[] selectionArgs) {
-        return super.getPrimaryKeySelection(obj, Col.SELECTION);
+        return super.getPrimaryKeySelection(obj, PageHistoryContract.Col.SELECTION);
     }
 
     @Override
@@ -123,6 +94,10 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
             default:
                 super.upgradeSchema(db, toVersion);
         }
+    }
+
+    @NonNull @Override public Uri getBaseContentURI() {
+        return PageHistoryContract.Page.URI;
     }
 
     /**

@@ -98,7 +98,7 @@ public class DatabaseClient<T> {
         return databaseTable.getPrimaryKeySelectionArgs(obj);
     }
 
-    private Uri uri() {
+    protected Uri uri() {
         return databaseTable.getBaseContentURI();
     }
 }

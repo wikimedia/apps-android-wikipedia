@@ -29,7 +29,6 @@ import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.history.HistoryEntryDatabaseTable;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.LanguagePreferenceDialog;
@@ -443,7 +442,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
         @Override
         public Void performTask() throws Throwable {
-            app.getDatabaseClient(RecentSearch.class).upsert(entry, HistoryEntryDatabaseTable.Col.SELECTION);
+            app.getDatabaseClient(RecentSearch.class).upsert(entry, RecentSearchDatabaseTable.Col.SELECTION);
             return null;
         }
 

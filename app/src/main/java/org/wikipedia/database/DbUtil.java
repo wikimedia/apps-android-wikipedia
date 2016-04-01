@@ -29,5 +29,17 @@ public final class DbUtil {
         return strs;
     }
 
+    public static String[] qualifiedNames(Column<?>... cols) {
+        return qualifiedNames(Arrays.asList(cols)).toArray(new String[cols.length]);
+    }
+
+    public static Collection<String> qualifiedNames(Collection<? extends Column<?>> cols) {
+        Collection<String> strs = new ArrayList<>(cols.size());
+        for (Column<?> col : cols) {
+            strs.add(col.qualifiedName());
+        }
+        return strs;
+    }
+
     private DbUtil() { }
 }

@@ -150,12 +150,6 @@
                 android:exported="false" />
 
         <provider
-                android:authorities="@string/history_authority"
-                android:name=".history.HistoryEntryContentProvider"
-                android:exported="false"
-                />
-
-        <provider
                 android:authorities="@string/edit_summaries_authority"
                 android:name=".editing.summaries.EditSummaryContentProvider"
                 android:exported="false"

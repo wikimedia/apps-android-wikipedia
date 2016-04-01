@@ -1,10 +1,11 @@
 package org.wikipedia.history;
 
+import android.util.Log;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.DatabaseClient;
-
-import android.util.Log;
+import org.wikipedia.database.contract.PageHistoryContract;
 
 /**
  * Save the history entry for the specified page.
@@ -26,7 +27,7 @@ public class SaveHistoryTask extends SaneAsyncTask<Void> {
         // that all previous instances will be deleted, and then only the most recent instance
         // will be placed at the top.
         DatabaseClient<HistoryEntry> client = app.getDatabaseClient(HistoryEntry.class);
-        client.delete(entry, HistoryEntryDatabaseTable.Col.SELECTION);
+        client.delete(entry, PageHistoryContract.Page.SELECTION);
         client.persist(entry);
         return null;
     }

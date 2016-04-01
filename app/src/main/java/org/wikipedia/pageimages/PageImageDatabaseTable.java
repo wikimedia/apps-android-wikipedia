@@ -30,12 +30,12 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     private static final int DB_VER_LANG_ADDED = 10;
 
     public static class Col {
-        public static final LongColumn ID = new LongColumn(BaseColumns._ID, "integer primary key");
-        public static final StrColumn SITE = new StrColumn("site", "string");
-        public static final StrColumn LANG = new StrColumn("lang", "text");
-        public static final StrColumn TITLE = new StrColumn("title", "string");
-        public static final StrColumn NAMESPACE = new StrColumn("namespace", "string");
-        public static final StrColumn IMAGE_NAME = new StrColumn("imageName", "string");
+        public static final LongColumn ID = new LongColumn(BuildConfig.PAGE_IMAGES_TABLE, BaseColumns._ID, "integer primary key");
+        public static final StrColumn SITE = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "site", "string");
+        public static final StrColumn LANG = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "lang", "text");
+        public static final StrColumn TITLE = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "title", "string");
+        public static final StrColumn NAMESPACE = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "namespace", "string");
+        public static final StrColumn IMAGE_NAME = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "imageName", "string");
 
         public static final List<? extends Column<?>> ALL;
         public static final List<? extends Column<?>> CONTENT = Arrays.<Column<?>>asList(SITE, LANG,

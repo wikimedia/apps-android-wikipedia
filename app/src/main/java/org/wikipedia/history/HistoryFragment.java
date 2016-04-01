@@ -34,9 +34,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImageDatabaseTable;
 import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
@@ -118,22 +117,20 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        String tblName = HistoryEntry.DATABASE_TABLE.getTableName();
-        String titleCol = HistoryEntryDatabaseTable.Col.TITLE.getName();
+        String titleCol = PageHistoryContract.PageWithImage.TITLE.qualifiedName();
         String selection = null;
         String[] selectionArgs = null;
         historyEmptyContainer.setVisibility(View.GONE);
         String searchStr = entryFilter.getText().toString();
         if (!searchStr.isEmpty()) {
             searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
-            selection = "UPPER(" + tblName + "." + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
+            selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
             selectionArgs = new String[]{"%" + searchStr + "%"};
         }
 
-        Uri uri = Uri.parse(HistoryEntry.DATABASE_TABLE.getBaseContentURI().toString()
-                + "/" + PageImage.DATABASE_TABLE.getTableName());
-        String[] projection = null;
-        String order = HistoryEntryDatabaseTable.Col.TIMESTAMP.getName() + " DESC";
+        Uri uri = PageHistoryContract.PageWithImage.URI;
+        final String[] projection = null;
+        String order = PageHistoryContract.PageWithImage.ORDER_MRU;
         return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
 
@@ -181,7 +178,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
-                    cursor.getString(cursor.getColumnIndexOrThrow(PageImageDatabaseTable.Col.IMAGE_NAME.getName())));
+                    PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor));
 
             // Check the previous item, see if the times differ enough
             // If they do, display the section header.
@@ -239,12 +236,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                                 ((PageActivity) getActivity()).resetAfterClearHistory();
                             }
                         })
-                        .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // Uh, do nothing?
-                            }
-                        }).create().show();
+                        .setNegativeButton(R.string.no, null).create().show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -295,7 +287,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                             if (checkedItems.valueAt(i)) {
                                 app.getDatabaseClient(HistoryEntry.class).delete(
                                         HistoryEntry.DATABASE_TABLE.fromCursor((Cursor) adapter.getItem(checkedItems.keyAt(i))),
-                                        HistoryEntryDatabaseTable.Col.SELECTION);
+                                        PageHistoryContract.PageWithImage.SELECTION);
                             }
                         }
                         if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {

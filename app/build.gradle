@@ -239,7 +239,6 @@ private setSigningConfigKey(config, Properties props) {
     return props
 }
 
-addSQLiteProviderStrings 'history', 'history'
 addSQLiteProviderStrings 'editsummaries', 'edit_summaries'
 addSQLiteProviderStrings 'pageimages', 'page_images'
 addSQLiteProviderStrings 'recentsearches', 'recent_searches'
