@@ -32,6 +32,7 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.activity.ActivityUtil;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
@@ -54,6 +55,7 @@ public class ShareHandler {
     private static final String PAYLOAD_PURPOSE_KEY = "purpose";
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
+    private static final String PAYLOAD_PURPOSE_EDIT_HERE = "edit_here";
     private static final String PAYLOAD_TEXT_KEY = "text";
 
     @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_liberal;
@@ -87,6 +89,9 @@ public class ShareHandler {
                     case PAYLOAD_PURPOSE_DEFINE:
                         onDefinePayload(text);
                         break;
+                    case PAYLOAD_PURPOSE_EDIT_HERE:
+                        onEditHerePayload(messagePayload.optInt("sectionID", 0), text);
+                        break;
                     default:
                         L.d("Unknown purpose=" + purpose);
                 }
@@ -109,6 +114,10 @@ public class ShareHandler {
 
     private void onDefinePayload(String text) {
         showWiktionaryDefinition(text.toLowerCase());
+    }
+
+    private void onEditHerePayload(int sectionID, String text) {
+        activity.getCurPageFragment().getEditHandler().startEditingSection(sectionID, text);
     }
 
     private void showCopySnackbar() {
@@ -192,6 +201,11 @@ public class ShareHandler {
         if (shouldEnableWiktionaryDialog()) {
             defineItem.setVisible(true);
             defineItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_DEFINE));
+        }
+        MenuItem editItem = menu.findItem(R.id.menu_text_edit_here);
+        editItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_EDIT_HERE));
+        if (!ApiUtil.hasJellyBean() || !activity.getCurPageFragment().getPage().isArticle()) {
+            editItem.setVisible(false);
         }
 
         createFunnel();

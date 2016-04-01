@@ -77,6 +77,7 @@ See also:
 {{Identical|Define}}</string>
   <string name="menu_text_select_share">Menu item caption for sharing text and images with other apps such as Email and Twitter.
 {{Identical|Share}}</string>
+  <string name="menu_text_select_edit_here">Menu item caption for editing the current section at the currently highlighted word.</string>
   <string name="nav_item_nearby">Entry in nav drawer for Nearby feature
 {{Identical|Nearby}}</string>
   <string name="nearby_distance_in_meters">Distance to the place mentioned in the nearby page in meters. Please leave the %d as is. It represents an integer decimal number up to 999.</string>

@@ -204,6 +204,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         savedPageCheckComplete = complete;
     }
 
+    public EditHandler getEditHandler() {
+        return editHandler;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
