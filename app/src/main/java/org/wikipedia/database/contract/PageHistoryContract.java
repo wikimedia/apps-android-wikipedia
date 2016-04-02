@@ -8,8 +8,6 @@ import org.wikipedia.database.column.DateColumn;
 import org.wikipedia.database.column.IntColumn;
 import org.wikipedia.database.column.LongColumn;
 import org.wikipedia.database.column.StrColumn;
-import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImageDatabaseTable;
 
 @SuppressWarnings("checkstyle:interfaceistype")
 public final class PageHistoryContract {
@@ -38,18 +36,18 @@ public final class PageHistoryContract {
 
     public interface PageWithImage extends Page {
         String TABLES = (":tbl left outer join :pageImagesTbl "
-                + "on (:tbl.site = :pageImagesTbl.:site and :tbl.title = :pageImagesTbl.:title)")
+                      + "on (:tbl.site = :pageImagesTbl.site and :tbl.title = :pageImagesTbl.title)")
                 .replaceAll(":tbl.site", SITE.qualifiedName())
-                .replaceAll("(:pageImagesTbl.):site", "$1" + PageImageDatabaseTable.Col.SITE.getName())
+                .replaceAll(":pageImagesTbl.site", PageImageHistoryContract.Col.SITE.qualifiedName())
                 .replaceAll(":tbl.title", TITLE.qualifiedName())
-                .replaceAll("(:pageImagesTbl.):title", "$1" + PageImageDatabaseTable.Col.TITLE.getName())
+                .replaceAll(":pageImagesTbl.title", PageImageHistoryContract.Col.TITLE.qualifiedName())
                 .replaceAll(":tbl", PageHistoryContract.TABLE)
-                .replaceAll(":pageImagesTbl", PageImage.DATABASE_TABLE.getTableName());
+                .replaceAll(":pageImagesTbl", PageImageHistoryContract.TABLE);
 
         String PATH = Page.PATH + "/with_image";
         Uri URI = Uri.withAppendedPath(AppContentProviderContract.AUTHORITY_BASE, PATH);
 
-        StrColumn IMAGE_NAME = PageImageDatabaseTable.Col.IMAGE_NAME;
+        StrColumn IMAGE_NAME = PageImageHistoryContract.Col.IMAGE_NAME;
 
         String[] PROJECTION = DbUtil.qualifiedNames(ID, SITE, LANG, TITLE, NAMESPACE, TIMESTAMP,
                 SOURCE, IMAGE_NAME);

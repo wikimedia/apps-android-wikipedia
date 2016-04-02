@@ -156,12 +156,6 @@
                 />
 
         <provider
-                android:authorities="@string/page_images_authority"
-                android:name=".pageimages.PageImageContentProvider"
-                android:exported="false"
-                />
-
-        <provider
                 android:authorities="@string/recent_searches_authority"
                 android:name=".search.RecentSearchContentProvider"
                 android:exported="false"

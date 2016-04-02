@@ -100,7 +100,7 @@ public abstract class DatabaseTable<T> {
 
     public void createTables(@NonNull SQLiteDatabase db, int version) {
         L.i("Creating table=" + getTableName());
-        db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", getElements(1, version)) + " );");
+        db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", getElements(1, version)) + " )");
     }
 
     public void upgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
@@ -114,7 +114,7 @@ public abstract class DatabaseTable<T> {
 
             List<? extends Column<?>> columns = getElements(ver, ver);
             for (Column<?> column : columns) {
-                String alterTableString = "ALTER TABLE " + tableName + " ADD COLUMN " + column + ";";
+                String alterTableString = "ALTER TABLE " + tableName + " ADD COLUMN " + column;
                 L.i(alterTableString);
                 db.execSQL(alterTableString);
             }

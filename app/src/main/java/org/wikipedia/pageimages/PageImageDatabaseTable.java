@@ -4,53 +4,26 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.provider.BaseColumns;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.BuildConfig;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
-import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.column.Column;
-import org.wikipedia.database.column.LongColumn;
-import org.wikipedia.database.column.StrColumn;
+import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.database.contract.PageImageHistoryContract.Col;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     private static final int DB_VER_NAMESPACE_ADDED = 7;
     private static final int DB_VER_NORMALIZED_TITLES = 8;
     private static final int DB_VER_LANG_ADDED = 10;
 
-    public static class Col {
-        public static final LongColumn ID = new LongColumn(BuildConfig.PAGE_IMAGES_TABLE, BaseColumns._ID, "integer primary key");
-        public static final StrColumn SITE = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "site", "string");
-        public static final StrColumn LANG = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "lang", "text");
-        public static final StrColumn TITLE = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "title", "string");
-        public static final StrColumn NAMESPACE = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "namespace", "string");
-        public static final StrColumn IMAGE_NAME = new StrColumn(BuildConfig.PAGE_IMAGES_TABLE, "imageName", "string");
-
-        public static final List<? extends Column<?>> ALL;
-        public static final List<? extends Column<?>> CONTENT = Arrays.<Column<?>>asList(SITE, LANG,
-                TITLE, NAMESPACE, IMAGE_NAME);
-        public static final String[] SELECTION = DbUtil.names(SITE, LANG, NAMESPACE, TITLE);
-        static {
-            List<Column<?>> all = new ArrayList<>();
-            all.add(ID);
-            all.addAll(CONTENT);
-            ALL = Collections.unmodifiableList(all);
-        }
-    }
-
     public PageImageDatabaseTable() {
-        super(BuildConfig.PAGE_IMAGES_TABLE);
+        super(PageImageHistoryContract.TABLE);
     }
 
     @Override
@@ -72,6 +45,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
         return contentValues;
     }
 
+    // TODO: move to JsonPageLoadStrategy.
     @Nullable
     public String getImageUrlForTitle(WikipediaApp app, PageTitle title) {
         Cursor c = null;
@@ -142,6 +116,10 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
             default:
                 super.upgradeSchema(db, toVersion);
         }
+    }
+
+    @NonNull @Override public Uri getBaseContentURI() {
+        return PageImageHistoryContract.Image.URI;
     }
 
     /**

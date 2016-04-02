@@ -18,6 +18,7 @@ import org.mediawiki.api.json.ApiException;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -26,13 +27,12 @@ import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImageDatabaseTable;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.search.SearchBarHideHandler;
-import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
+import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.ServiceError;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
@@ -786,7 +786,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             public void onFinish(Map<PageTitle, String> result) {
                 if (result.containsKey(model.getTitle())) {
                     PageImage pi = new PageImage(model.getTitle(), result.get(model.getTitle()));
-                    app.getDatabaseClient(PageImage.class).upsert(pi, PageImageDatabaseTable.Col.SELECTION);
+                    app.getDatabaseClient(PageImage.class).upsert(pi, PageImageHistoryContract.Image.SELECTION);
                     updateThumbnail(result.get(model.getTitle()));
                 }
             }

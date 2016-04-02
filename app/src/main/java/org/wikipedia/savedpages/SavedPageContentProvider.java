@@ -8,8 +8,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.SQLiteContentProvider;
-import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImageDatabaseTable;
+import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.util.StringUtil;
 
 import java.util.Collection;
@@ -18,20 +17,20 @@ public class SavedPageContentProvider extends SQLiteContentProvider {
     private static final int MATCH_WITH_PAGEIMAGES =  64;
 
     private static final String SET_TBL_SQL = (":savedPagesTbl left outer join :pageImagesTbl on ("
-                                            +  ":savedPagesTbl.:site = :pageImagesTbl.:site "
-                                            +  "and :savedPagesTbl.:title = :pageImagesTbl.:title)")
+                                            +  ":savedPagesTbl.:site = :pageImagesTbl.site "
+                                            +  "and :savedPagesTbl.:title = :pageImagesTbl.title)")
             .replaceAll("(:savedPagesTbl.):site", "$1" + SavedPageDatabaseTable.Col.SITE.getName())
-            .replaceAll("(:pageImagesTbl.):site", "$1" + PageImageDatabaseTable.Col.SITE.getName())
+            .replaceAll(":pageImagesTbl.site", PageImageHistoryContract.Col.SITE.qualifiedName())
             .replaceAll("(:savedPagesTbl.):title", "$1" + SavedPageDatabaseTable.Col.TITLE.getName())
-            .replaceAll("(:pageImagesTbl.):title", "$1" + PageImageDatabaseTable.Col.TITLE.getName())
+            .replaceAll(":pageImagesTbl.title", PageImageHistoryContract.Col.TITLE.qualifiedName())
             .replaceAll(":savedPagesTbl", SavedPage.DATABASE_TABLE.getTableName())
-            .replaceAll(":pageImagesTbl", PageImage.DATABASE_TABLE.getTableName());
+            .replaceAll(":pageImagesTbl", PageImageHistoryContract.TABLE);
     private static final String[] PROJECTION;
     static {
         Collection<String> savedPagesCols = StringUtil.prefix(SavedPage.DATABASE_TABLE.getTableName() + ".",
                 DbUtil.names(SavedPageDatabaseTable.Col.ALL));
         PROJECTION = savedPagesCols.toArray(new String[savedPagesCols.size() + 1]);
-        PROJECTION[savedPagesCols.size()] = PageImage.DATABASE_TABLE.getTableName() + "." + PageImageDatabaseTable.Col.IMAGE_NAME.getName();
+        PROJECTION[savedPagesCols.size()] = PageImageHistoryContract.Col.IMAGE_NAME.qualifiedName();
     }
 
     public SavedPageContentProvider() {
@@ -42,7 +41,7 @@ public class SavedPageContentProvider extends SQLiteContentProvider {
     public boolean onCreate() {
         boolean ret = super.onCreate();
         getUriMatcher().addURI(getAuthority(),
-                          getTableName() + "/" + PageImage.DATABASE_TABLE.getTableName(),
+                          getTableName() + "/" + PageImageHistoryContract.TABLE,
                           MATCH_WITH_PAGEIMAGES);
         return ret;
     }

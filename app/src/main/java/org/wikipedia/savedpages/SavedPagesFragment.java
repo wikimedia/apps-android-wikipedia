@@ -34,10 +34,9 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
-import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.pageimages.PageImageDatabaseTable;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.ViewUtil;
 
@@ -139,8 +138,8 @@ public class SavedPagesFragment extends Fragment
         }
 
         Uri uri = Uri.parse(SavedPage.DATABASE_TABLE.getBaseContentURI().toString()
-                + "/" + PageImage.DATABASE_TABLE.getTableName());
-        String[] projection = null;
+                + "/" + PageImageHistoryContract.TABLE);
+        final String[] projection = null;
         String order = tblName + "." + titleCol + " ASC";
         return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
@@ -185,7 +184,7 @@ public class SavedPagesFragment extends Fragment
             title.setText(entry.getTitle().getDisplayText());
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
-                    cursor.getString(cursor.getColumnIndexOrThrow(PageImageDatabaseTable.Col.IMAGE_NAME.getName())));
+                    PageImageHistoryContract.Image.IMAGE_NAME.val(cursor));
         }
     }
 

@@ -8,12 +8,15 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 
 public enum AppContentProviderEndpoint implements EnumCode {
     HISTORY_PAGE(100, PageHistoryContract.Page.PATH, PageHistoryContract.Page.TABLES,
             PageHistoryContract.Page.PROJECTION),
+    HISTORY_PAGE_IMAGE(101, PageImageHistoryContract.Image.PATH,
+            PageImageHistoryContract.Image.TABLES, PageImageHistoryContract.Image.PROJECTION),
     HISTORY_PAGE_WITH_IMAGE(102, PageHistoryContract.PageWithImage.PATH,
             PageHistoryContract.PageWithImage.TABLES, PageHistoryContract.PageWithImage.PROJECTION);
 
