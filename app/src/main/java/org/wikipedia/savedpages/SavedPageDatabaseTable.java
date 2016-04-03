@@ -4,31 +4,24 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.provider.BaseColumns;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.BuildConfig;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
-import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.column.Column;
-import org.wikipedia.database.column.DateColumn;
-import org.wikipedia.database.column.LongColumn;
-import org.wikipedia.database.column.StrColumn;
+import org.wikipedia.database.contract.SavedPageContract;
+import org.wikipedia.database.contract.SavedPageContract.Col;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     private static final int DB_VER_INTRODUCED = 4;
@@ -36,28 +29,8 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     private static final int DB_VER_NORMALIZED_TITLES = 8;
     private static final int DB_VER_LANG_ADDED = 10;
 
-    public static class Col {
-        public static final LongColumn ID = new LongColumn(BaseColumns._ID, "integer primary key");
-        public static final StrColumn SITE = new StrColumn("site", "string");
-        public static final StrColumn LANG = new StrColumn("lang", "text");
-        public static final StrColumn TITLE = new StrColumn("title", "string");
-        public static final StrColumn NAMESPACE = new StrColumn("namespace", "string");
-        public static final DateColumn TIMESTAMP = new DateColumn("timestamp", "integer");
-
-        public static final List<? extends Column<?>> ALL;
-        public static final List<? extends Column<?>> CONTENT = Arrays.<Column<?>>asList(SITE, LANG,
-                TITLE, NAMESPACE, TIMESTAMP);
-        public static final String[] SELECTION = DbUtil.names(SITE, LANG, NAMESPACE, TITLE);
-        static {
-            List<Column<?>> all = new ArrayList<>();
-            all.add(ID);
-            all.addAll(CONTENT);
-            ALL = Collections.unmodifiableList(all);
-        }
-    }
-
     public SavedPageDatabaseTable() {
-        super(BuildConfig.SAVED_PAGES_TABLE);
+        super(SavedPageContract.TABLE);
     }
 
     /** Requires database of version {@link #DB_VER_LANG_ADDED} or greater. */
@@ -77,6 +50,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         return contentValues;
     }
 
+    // TODO: move.
     public boolean savedPageExists(WikipediaApp app, PageTitle title) {
         Cursor c = null;
         boolean exists = false;
@@ -84,7 +58,8 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             SavedPage savedPage = new SavedPage(title);
             String[] args = getPrimaryKeySelectionArgs(savedPage);
             String selection = getPrimaryKeySelection(savedPage, args);
-            c = app.getDatabaseClient(SavedPage.class).select(selection, args, "");
+            final String order = null;
+            c = app.getDatabaseClient(SavedPage.class).select(selection, args, order);
             if (c.getCount() > 0) {
                 exists = true;
             }
@@ -115,6 +90,10 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             default:
                 super.upgradeSchema(db, toVersion);
         }
+    }
+
+    @NonNull @Override public Uri getBaseContentURI() {
+        return SavedPageContract.Page.URI;
     }
 
     /**

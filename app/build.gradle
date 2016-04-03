@@ -239,7 +239,6 @@ private setSigningConfigKey(config, Properties props) {
     return props
 }
 
-addSQLiteProviderStrings 'savedpages', 'saved_pages'
 addSQLiteProviderStrings 'useroption', 'user_option'
 
 private void addSQLiteProviderStrings(String table, String namePrefix) {

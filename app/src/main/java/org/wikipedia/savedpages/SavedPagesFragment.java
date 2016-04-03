@@ -35,6 +35,7 @@ import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.FeedbackUtil;
@@ -125,22 +126,20 @@ public class SavedPagesFragment extends Fragment
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        String tblName = SavedPage.DATABASE_TABLE.getTableName();
-        String titleCol = SavedPageDatabaseTable.Col.TITLE.getName();
+        String titleCol = SavedPageContract.PageWithImage.TITLE.qualifiedName();
         String selection = null;
         String[] selectionArgs = null;
         savedPagesEmptyContainer.setVisibility(View.GONE);
         String searchStr = entryFilter.getText().toString();
         if (searchStr.length() != 0) {
             searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
-            selection = "UPPER(" + tblName + "." + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
+            selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
             selectionArgs = new String[]{"%" + searchStr + "%"};
         }
 
-        Uri uri = Uri.parse(SavedPage.DATABASE_TABLE.getBaseContentURI().toString()
-                + "/" + PageImageHistoryContract.TABLE);
+        Uri uri = SavedPageContract.PageWithImage.URI;
         final String[] projection = null;
-        String order = tblName + "." + titleCol + " ASC";
+        String order = SavedPageContract.PageWithImage.ORDER_ALPHABETICAL;
         return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
 

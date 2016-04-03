@@ -5,6 +5,7 @@ import android.content.Context;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.DatabaseClient;
+import org.wikipedia.database.contract.SavedPageContract;
 
 public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
     private final WikipediaApp app;
@@ -19,7 +20,7 @@ public class DeleteSavedPageTask extends SaneAsyncTask<Boolean> {
     public Boolean performTask() throws Throwable {
         savedPage.deleteFromFileSystem();
         DatabaseClient<SavedPage> client = app.getDatabaseClient(SavedPage.class);
-        client.delete(savedPage, SavedPageDatabaseTable.Col.SELECTION);
+        client.delete(savedPage, SavedPageContract.Page.SELECTION);
         WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(savedPage.getTitle().getSite()).logDelete();
         return true;
     }

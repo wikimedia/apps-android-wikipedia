@@ -1,10 +1,11 @@
 package org.wikipedia.savedpages;
 
-import org.wikipedia.database.DatabaseClient;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.database.DatabaseClient;
+import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageTitle;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
         SavedPage savedPage = new SavedPage(title);
         savedPage.writeToFileSystem(page);
         DatabaseClient<SavedPage> client = app.getDatabaseClient(SavedPage.class);
-        client.upsert(savedPage, SavedPageDatabaseTable.Col.SELECTION);
+        client.upsert(savedPage, SavedPageContract.Page.SELECTION);
 
         final ImageUrlMap imageUrlMap = new ImageUrlMap.Builder(savedPage.getBaseDir()).extractUrls(page).build();
         final int numImagesAttempts = imageUrlMap.size();

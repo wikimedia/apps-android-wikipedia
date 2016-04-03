@@ -26,6 +26,7 @@ import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
@@ -332,7 +333,12 @@ public class WikipediaApp extends Application {
             } else if (cls.equals(RecentSearch.class)) {
                 client = new DatabaseClient<>(this, RecentSearch.DATABASE_TABLE);
             } else if (cls.equals(SavedPage.class)) {
-                client = new DatabaseClient<>(this, SavedPage.DATABASE_TABLE);
+                client = new DatabaseClient<SavedPage>(this, SavedPage.DATABASE_TABLE) {
+                    @Override
+                    protected Uri uri() {
+                        return SavedPageContract.Page.URI;
+                    }
+                };
             } else if (cls.equals(EditSummary.class)) {
                 client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
             } else if (cls.equals(UserOptionRow.class)) {
