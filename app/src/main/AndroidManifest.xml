@@ -150,12 +150,6 @@
                 android:exported="false" />
 
         <provider
-                android:authorities="@string/edit_summaries_authority"
-                android:name=".editing.summaries.EditSummaryContentProvider"
-                android:exported="false"
-                />
-
-        <provider
                 android:authorities="@string/recent_searches_authority"
                 android:name=".search.RecentSearchContentProvider"
                 android:exported="false"

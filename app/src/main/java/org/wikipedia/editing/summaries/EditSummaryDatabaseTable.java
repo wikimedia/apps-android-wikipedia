@@ -2,44 +2,22 @@ package org.wikipedia.editing.summaries;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.provider.BaseColumns;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.BuildConfig;
 import org.wikipedia.database.DatabaseTable;
-import org.wikipedia.database.DbUtil;
 import org.wikipedia.database.column.Column;
-import org.wikipedia.database.column.DateColumn;
-import org.wikipedia.database.column.LongColumn;
-import org.wikipedia.database.column.StrColumn;
+import org.wikipedia.database.contract.EditHistoryContract;
+import org.wikipedia.database.contract.EditHistoryContract.Col;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 
 public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     private static final int DB_VER_INTRODUCED = 2;
 
-    public static class Col {
-        public static final LongColumn ID = new LongColumn(BaseColumns._ID, "integer primary key");
-        public static final StrColumn SUMMARY = new StrColumn("summary", "string");
-        public static final DateColumn LAST_USED = new DateColumn("lastUsed", "integer");
-
-        public static final List<? extends Column<?>> ALL;
-        public static final List<? extends Column<?>> CONTENT = Arrays.<Column<?>>asList(SUMMARY, LAST_USED);
-        public static final String[] SELECTION = DbUtil.names(SUMMARY);
-        static {
-            List<Column<?>> all = new ArrayList<>();
-            all.add(ID);
-            all.addAll(CONTENT);
-            ALL = Collections.unmodifiableList(all);
-        }
-    }
 
     public EditSummaryDatabaseTable() {
-        super(BuildConfig.EDIT_SUMMARIES_TABLE);
+        super(EditHistoryContract.TABLE);
     }
 
     @Override
@@ -73,9 +51,13 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
         }
     }
 
+    @NonNull @Override public Uri getBaseContentURI() {
+        return EditHistoryContract.Summary.URI;
+    }
+
     @Override
     protected String getPrimaryKeySelection(@NonNull EditSummary obj, @NonNull String[] selectionArgs) {
-        return super.getPrimaryKeySelection(obj, Col.SELECTION);
+        return super.getPrimaryKeySelection(obj, EditHistoryContract.Summary.SELECTION);
     }
 
     @Override

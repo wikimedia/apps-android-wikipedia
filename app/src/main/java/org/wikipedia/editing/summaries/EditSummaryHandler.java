@@ -4,18 +4,21 @@ import android.app.Activity;
 import android.content.ContentProviderClient;
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.RemoteException;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.FilterQueryProvider;
 import android.widget.TextView;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.WikipediaApp;
 
-import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.contract.EditHistoryContract;
+import org.wikipedia.page.PageTitle;
 
 import java.util.Date;
+
+import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 
 public class EditSummaryHandler {
     private final Activity activity;
@@ -41,13 +44,13 @@ public class EditSummaryHandler {
             @Override
             public Cursor runQuery(CharSequence charSequence) {
                 ContentProviderClient client = EditSummary.DATABASE_TABLE.acquireClient(activity);
+                Uri uri = EditHistoryContract.Summary.URI;
+                final String[] projection = null;
+                String selection = EditHistoryContract.Summary.SUMMARY.qualifiedName() + " like ?";
+                String[] selectionArgs = new String[] {charSequence + "%"};
+                String order = EditHistoryContract.Summary.ORDER_MRU;
                 try {
-                    return client.query(
-                            EditSummary.DATABASE_TABLE.getBaseContentURI(),
-                            null,
-                            "summary LIKE ?",
-                            new String[] {charSequence + "%"},
-                            "lastUsed DESC");
+                    return client.query(uri, projection, selection, selectionArgs, order);
                 } catch (RemoteException e) {
                     throw new RuntimeException(e);
                 } finally {
@@ -66,7 +69,7 @@ public class EditSummaryHandler {
     public void persistSummary() {
         WikipediaApp app = (WikipediaApp)container.getContext().getApplicationContext();
         EditSummary summary = new EditSummary(summaryEdit.getText().toString(), new Date());
-        app.getDatabaseClient(EditSummary.class).upsert(summary, EditSummaryDatabaseTable.Col.SELECTION);
+        app.getDatabaseClient(EditSummary.class).upsert(summary, EditHistoryContract.Summary.SELECTION);
     }
 
     public boolean handleBackPressed() {

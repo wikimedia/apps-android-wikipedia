@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.database.contract.AppContentProviderContract;
+import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.model.EnumCode;
@@ -18,7 +19,9 @@ public enum AppContentProviderEndpoint implements EnumCode {
     HISTORY_PAGE_IMAGE(101, PageImageHistoryContract.Image.PATH,
             PageImageHistoryContract.Image.TABLES, PageImageHistoryContract.Image.PROJECTION),
     HISTORY_PAGE_WITH_IMAGE(102, PageHistoryContract.PageWithImage.PATH,
-            PageHistoryContract.PageWithImage.TABLES, PageHistoryContract.PageWithImage.PROJECTION);
+            PageHistoryContract.PageWithImage.TABLES, PageHistoryContract.PageWithImage.PROJECTION),
+    HISTORY_EDIT_SUMMARY(103, EditHistoryContract.Summary.PATH, EditHistoryContract.Summary.TABLES,
+            EditHistoryContract.Summary.PROJECTION);
 
     private static final EnumCodeMap<AppContentProviderEndpoint> CODE_TO_ENUM = new EnumCodeMap<>(AppContentProviderEndpoint.class);
     private static final UriMatcher URI_TO_CODE = newUriToCode();
