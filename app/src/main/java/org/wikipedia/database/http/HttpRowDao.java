@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.database.DatabaseClient;
-import org.wikipedia.database.async.DefaultAsyncRow;
 import org.wikipedia.database.async.AsyncRow;
-import org.wikipedia.useroption.database.UserOptionDatabaseTable;
+import org.wikipedia.database.async.DefaultAsyncRow;
+import org.wikipedia.database.contract.UserOptionContract;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -144,10 +144,10 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
     }
 
     @NonNull private Collection<T> querySyncable() {
-        String[] selectionArgs = null;
-        String selection = UserOptionDatabaseTable.Col.HTTP.status() + " != " + HttpStatus.SYNCHRONIZED.code() + " and "
-                + UserOptionDatabaseTable.Col.HTTP.transactionId() + " == " + DefaultAsyncRow.NO_TRANSACTION_ID;
-        String sortOrder = null;
+        final String[] selectionArgs = null;
+        String selection = UserOptionContract.Option.HTTP.status() + " != " + HttpStatus.SYNCHRONIZED.code() + " and "
+                + UserOptionContract.Option.HTTP.transactionId() + " == " + DefaultAsyncRow.NO_TRANSACTION_ID;
+        final String sortOrder = null;
         Cursor cursor = client.select(selection, selectionArgs, sortOrder);
         try {
             return cursorToCollection(cursor);
@@ -180,7 +180,7 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
     @Nullable protected T queryItem(@NonNull T item) {
         String[] selectionArgs = client.getPrimaryKeySelectionArgs(item);
         String selection = client.getPrimaryKeySelection(item, selectionArgs);
-        String sortOrder = null;
+        final String sortOrder = null;
         Cursor cursor = client.select(selection, selectionArgs, sortOrder);
         try {
             return cursor.moveToNext() ? client.fromCursor(cursor) : null;

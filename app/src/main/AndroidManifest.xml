@@ -150,6 +150,13 @@
                 android:exported="false" />
 
         <provider
+            android:authorities="@string/user_option_authority"
+            android:name=".database.UserOptionContentProvider"
+            android:exported="false"
+            android:syncable="true"
+            android:label="@string/user_option_sync_label" />
+
+        <provider
                 android:name="android.support.v4.content.FileProvider"
                 android:authorities="${applicationId}.fileprovider"
                 android:exported="false"
@@ -158,13 +165,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <provider
-            android:authorities="@string/user_option_authority"
-            android:name=".useroption.database.UserOptionContentProvider"
-            android:exported="false"
-            android:syncable="true"
-            android:label="@string/user_option_sync_label" />
 
         <receiver
             android:icon="@mipmap/launcher"

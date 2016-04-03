@@ -12,6 +12,7 @@ import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.database.contract.SearchHistoryContract;
+import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 
@@ -29,7 +30,9 @@ public enum AppContentProviderEndpoint implements EnumCode {
     SAVED_PAGE(200, SavedPageContract.Page.PATH, SavedPageContract.Page.TABLES,
             SavedPageContract.Page.PROJECTION),
     SAVED_PAGE_WITH_IMAGE(201, SavedPageContract.PageWithImage.PATH,
-            SavedPageContract.PageWithImage.TABLES, SavedPageContract.PageWithImage.PROJECTION);
+            SavedPageContract.PageWithImage.TABLES, SavedPageContract.PageWithImage.PROJECTION),
+    USER_OPTION(300, UserOptionContract.Option.AUTHORITY, UserOptionContract.Option.PATH,
+            UserOptionContract.Option.TABLES, UserOptionContract.Option.PROJECTION);
 
     private static final EnumCodeMap<AppContentProviderEndpoint> CODE_TO_ENUM = new EnumCodeMap<>(AppContentProviderEndpoint.class);
     private static final UriMatcher URI_TO_CODE = newUriToCode();

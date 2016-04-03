@@ -6,8 +6,8 @@ import android.support.annotation.NonNull;
 import org.wikipedia.database.async.AsyncColumns;
 
 public class HttpColumns extends AsyncColumns<HttpStatus> {
-    public HttpColumns(@NonNull String namePrefix) {
-        super(namePrefix);
+    public HttpColumns(@NonNull String tbl, @NonNull String namePrefix) {
+        super(tbl, namePrefix);
     }
 
     @NonNull @Override public HttpRow val(@NonNull Cursor cursor) {

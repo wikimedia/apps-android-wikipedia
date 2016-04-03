@@ -8,10 +8,6 @@ public abstract class Column<T> {
     @NonNull private final String name;
     @NonNull private final String type;
 
-    @Deprecated public Column(@NonNull String name, @NonNull String type) {
-        this(null, name, type);
-    }
-
     /**
      * @param name Column name.
      * @param type SQLite datatype and constraints.

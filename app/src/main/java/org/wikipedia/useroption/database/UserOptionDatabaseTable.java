@@ -2,47 +2,31 @@ package org.wikipedia.useroption.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.BuildConfig;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
-import org.wikipedia.database.column.IdColumn;
-import org.wikipedia.database.column.StrColumn;
-import org.wikipedia.database.http.HttpColumns;
+import org.wikipedia.database.contract.UserOptionContract;
+import org.wikipedia.database.contract.UserOptionContract.Col;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
-    public static final class Col {
-        public static final IdColumn ID = new IdColumn();
-        public static final StrColumn KEY = new StrColumn("key", "text not null unique");
-        public static final StrColumn VAL = new StrColumn("val", "text");
-        public static final HttpColumns HTTP = new HttpColumns("sync");
-
-        public static final List<? extends Column<?>> ALL;
-        public static final List<? extends Column<?>> CONTENT;
-        public static final String SELECTION = KEY.getName();
-        static {
-            List<Column<?>> content = new ArrayList<>();
-            content.add(KEY);
-            content.add(VAL);
-            content.addAll(HTTP.all());
-            CONTENT = Collections.unmodifiableList(content);
-
-            List<Column<?>> all = new ArrayList<>();
-            all.add(ID);
-            all.addAll(content);
-            ALL = Collections.unmodifiableList(all);
-        }
+    private static final int INTRODUCED_AT_DATABASE_VERSION = 9;
+    private static final List<? extends Column<?>> CONTENT_COLS;
+    static {
+        List<Column<?>> cols = new ArrayList<>();
+        cols.add(Col.KEY);
+        cols.add(Col.VAL);
+        cols.addAll(Col.HTTP.all());
+        CONTENT_COLS = Collections.unmodifiableList(cols);
     }
 
-    private static final int INTRODUCED_AT_DATABASE_VERSION = 9;
-
     public UserOptionDatabaseTable() {
-        super(BuildConfig.USER_OPTION_TABLE);
+        super(UserOptionContract.TABLE);
     }
 
     @Override
@@ -55,7 +39,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     @NonNull public Object[] toBindArgs(ContentValues values) {
         Object[] args = new Object[values.size()];
         for (int i = 0; i < values.size(); ++i) {
-            args[i] = values.get(Col.CONTENT.get(i).getName());
+            args[i] = values.get(CONTENT_COLS.get(i).getName());
         }
         return args;
     }
@@ -76,6 +60,10 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
         }
     }
 
+    @NonNull @Override public Uri getBaseContentURI() {
+        return UserOptionContract.Option.URI;
+    }
+
     @Override
     protected ContentValues toContentValues(UserOptionRow option) {
         ContentValues contentValues = new ContentValues();
@@ -88,7 +76,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     @Override
     protected String getPrimaryKeySelection(@NonNull UserOptionRow option,
                                             @NonNull String[] selectionArgs) {
-        return super.getPrimaryKeySelection(option, new String[] {Col.SELECTION});
+        return super.getPrimaryKeySelection(option, Col.SELECTION);
     }
 
     @Override

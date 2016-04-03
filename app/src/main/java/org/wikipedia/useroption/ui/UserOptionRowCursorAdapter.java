@@ -6,8 +6,8 @@ import android.support.v4.widget.CursorAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.useroption.database.UserOptionRow;
-import org.wikipedia.useroption.database.UserOptionDatabaseTable;
 
 public class UserOptionRowCursorAdapter extends CursorAdapter {
     public UserOptionRowCursorAdapter(Context context, Cursor cursor, boolean autoRequery) {
@@ -23,6 +23,6 @@ public class UserOptionRowCursorAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
         UserOptionRow item = UserOptionRow.DATABASE_TABLE.fromCursor(cursor);
         UserOptionRowView v = (UserOptionRowView) view;
-        v.set(UserOptionDatabaseTable.Col.ID.val(cursor), item);
+        v.set(UserOptionContract.Option.ID.val(cursor), item);
     }
 }

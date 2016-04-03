@@ -23,8 +23,7 @@ import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentCallback;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
-import org.wikipedia.useroption.database.UserOptionDatabaseTable;
-import org.wikipedia.useroption.database.UserOptionRow;
+import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 
 import butterknife.Bind;
@@ -86,11 +85,11 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            Uri uri = UserOptionRow.DATABASE_TABLE.getBaseContentURI();
+            Uri uri = UserOptionContract.Option.URI;
             final String[] projection = null;
             final String selection = null;
             final String[] selectionArgs = null;
-            String order = UserOptionDatabaseTable.Col.ID.getName() + " desc";
+            String order = UserOptionContract.Option.ID.getName() + " desc";
             return new CursorLoader(context(), uri, projection, selection, selectionArgs, order);
         }
     }

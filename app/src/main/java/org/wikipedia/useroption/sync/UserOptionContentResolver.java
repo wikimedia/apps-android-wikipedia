@@ -13,9 +13,9 @@ import android.support.annotation.Nullable;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.useroption.database.UserOptionDao;
-import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.util.log.L;
 
 public final class UserOptionContentResolver {
@@ -37,7 +37,7 @@ public final class UserOptionContentResolver {
     }
 
     public static void registerAppSyncObserver(@NonNull Context context) {
-        Uri uri = UserOptionRow.DATABASE_TABLE.getBaseContentURI();
+        Uri uri = UserOptionContract.Option.URI;
         UserOptionContentObserver observer = new UserOptionContentObserver();
         context.getContentResolver().registerContentObserver(uri, true, observer);
     }

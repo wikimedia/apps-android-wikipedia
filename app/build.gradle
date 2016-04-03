@@ -239,13 +239,16 @@ private setSigningConfigKey(config, Properties props) {
     return props
 }
 
-addSQLiteProviderStrings 'useroption', 'user_option'
+addSyncContentProviderAuthority 'useroption', 'user_option'
 
-private void addSQLiteProviderStrings(String table, String namePrefix) {
+private void addSyncContentProviderAuthority(String path, String name) {
     android.productFlavors.all { ProductFlavor flavor ->
-        String authority = (flavor.applicationId ?: android.defaultConfig.applicationId) + '.' + table
-        resValue 'string', "${namePrefix.toLowerCase()}_authority", authority
-        buildConfigField 'String', "${namePrefix.toUpperCase()}_TABLE", "\"$table\""
-        buildConfigField 'String', "${namePrefix.toUpperCase()}_AUTHORITY", "\"$authority\""
+        String authority = "${appId(flavor)}.sync.${path}"
+        resValue 'string', "${name.toLowerCase()}_authority", authority
+        buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""
     }
+}
+
+private String appId(ProductFlavor flavor) {
+    return flavor.applicationId ?: android.defaultConfig.applicationId
 }

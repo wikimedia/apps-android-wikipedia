@@ -20,15 +20,15 @@ public abstract class AsyncColumns<T> {
     /** A unique identification for a transaction in progress or 0 for not in progress. */
     @NonNull private final LongColumn transactionId;
 
-    protected AsyncColumns(@NonNull String namePrefix) {
-        status = new Column<T>(namePrefix + "Status", "integer not null") {
+    protected AsyncColumns(@NonNull String tbl, @NonNull String namePrefix) {
+        status = new Column<T>(tbl, namePrefix + "Status", "integer not null") {
             @Override
             public T val(@NonNull Cursor cursor) {
                 return statusOf(getInt(cursor));
             }
         };
-        timestamp = new LongColumn(namePrefix + "Timestamp", "integer not null");
-        transactionId = new LongColumn(namePrefix + "TransactionId", "integer not null");
+        timestamp = new LongColumn(tbl, namePrefix + "Timestamp", "integer not null");
+        transactionId = new LongColumn(tbl, namePrefix + "TransactionId", "integer not null");
     }
 
     @NonNull public List<? extends Column<?>> all() {
