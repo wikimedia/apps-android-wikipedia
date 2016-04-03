@@ -1,9 +1,9 @@
 package org.wikipedia.util;
 
 import android.app.Activity;
-import android.support.annotation.StringRes;
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.text.Html;
 import android.view.Gravity;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
 
 import java.util.concurrent.TimeUnit;
@@ -73,13 +72,6 @@ public final class FeedbackUtil {
 
     public static void showPrivacyPolicy(Context context) {
         visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)));
-    }
-
-    /**
-     * Ask user to try connecting again upon (hopefully) recoverable network failure.
-     */
-    public static void toastNetworkFail() {
-        Toast.makeText(WikipediaApp.getInstance(), R.string.error_network_error_try_again, Toast.LENGTH_LONG).show();
     }
 
     /**

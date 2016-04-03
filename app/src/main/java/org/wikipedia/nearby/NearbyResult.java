@@ -40,10 +40,6 @@ class NearbyResult implements Parcelable {
         }
     }
 
-    public JSONObject toJSON() {
-        return jsonObject;
-    }
-
     public ArrayList<NearbyPage> getList() {
         return list;
     }

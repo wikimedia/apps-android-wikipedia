@@ -26,12 +26,6 @@ public class SavedPagesFunnel extends Funnel {
         );
     }
 
-    public void logImport() {
-        log(
-                "action", "import"
-        );
-    }
-
     public void logDelete() {
         log(
                 "action", "delete"

@@ -51,8 +51,4 @@ public class NonEmptyValidator {
             validationChanged.onValidationChanged(isValid);
         }
     }
-
-    public boolean isValid() {
-        return lastIsValidValue;
-    }
 }

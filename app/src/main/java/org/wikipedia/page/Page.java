@@ -1,15 +1,14 @@
 package org.wikipedia.page;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.page.gallery.GalleryCollection;
 import org.wikipedia.settings.RbSwitch;
-
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,14 +67,6 @@ public class Page {
         this.title = title;
         this.sections = sections;
         this.pageProperties = pageProperties;
-    }
-
-    /** Copy constructor */
-    public Page(@NonNull Page orig) {
-        this.version = orig.version;
-        this.title = orig.title;
-        this.sections = orig.sections;
-        this.pageProperties = orig.pageProperties;
     }
 
     /**

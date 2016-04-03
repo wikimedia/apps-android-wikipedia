@@ -175,14 +175,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         text.setTextColor(color);
     }
 
-    public int getTextHeight() {
-        return text.getMeasuredHeight();
-    }
-
-    public void setTextSize(int unit, float size) {
-        text.setTextSize(unit, size);
-    }
-
     public void setPronunciation(@Nullable String url) {
         pronunciationUrl = url;
         updateText();

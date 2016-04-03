@@ -48,10 +48,6 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         container.setVisibility(View.GONE);
     }
 
-    public boolean isShowing() {
-        return container.getVisibility() == View.VISIBLE;
-    }
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

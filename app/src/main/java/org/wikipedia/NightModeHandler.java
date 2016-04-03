@@ -42,12 +42,4 @@ public class NightModeHandler {
     public void turnOn(boolean hasPageLoaded) {
         bridge.sendMessage("toggleNightMode", getPayload(hasPageLoaded));
     }
-
-    /**
-     * Turn off Night Mode
-     * @param hasPageLoaded Specify is the page has already been loaded or not.
-     */
-    public void turnOff(boolean hasPageLoaded) {
-        bridge.sendMessage("toggleNightMode", getPayload(hasPageLoaded));
-    }
 }

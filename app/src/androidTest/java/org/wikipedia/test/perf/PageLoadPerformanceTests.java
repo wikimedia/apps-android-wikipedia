@@ -26,7 +26,7 @@ public class PageLoadPerformanceTests extends BasePageLoadTest {
         loadPageSync(title, new Callback(title));
     }
 
-    private void loadPageMultipleTimes(String title) throws Throwable {
+    private void loadPageMultipleTimes(String title) {
         for (int i = 0; i < NUM_RUNS; i++) {
             loadPageSync(title);
         }

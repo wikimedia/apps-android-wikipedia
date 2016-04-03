@@ -3,6 +3,7 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.support.annotation.AnyRes;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.IdRes;
 import android.util.TypedValue;
@@ -33,7 +34,7 @@ public final class ResourceUtil {
      * @param id Theme-dependent attribute ID to be resolved.
      * @return The actual resource ID of the requested theme-dependent attribute.
      */
-    public static int getThemedAttributeId(Context context, int id) {
+    @AnyRes public static int getThemedAttributeId(Context context, int id) {
         TypedValue tv = new TypedValue();
         context.getTheme().resolveAttribute(id, tv, true);
         return tv.resourceId;

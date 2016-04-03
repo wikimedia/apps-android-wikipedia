@@ -1,5 +1,7 @@
 package org.wikipedia.page;
 
+import android.support.annotation.DrawableRes;
+
 import org.wikipedia.R;
 import org.wikipedia.util.StringUtil;
 
@@ -56,7 +58,7 @@ public class ImageLicense {
      * under which the specified Gallery item is provided.
      * @return Resource ID of the icon to display.
      */
-    public int getLicenseIcon() {
+    @DrawableRes public int getLicenseIcon() {
         if (isLicensePD()) {
             return R.drawable.ic_license_pd;
         }
