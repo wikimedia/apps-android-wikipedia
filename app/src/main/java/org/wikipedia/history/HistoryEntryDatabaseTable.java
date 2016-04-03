@@ -3,7 +3,6 @@ package org.wikipedia.history;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.Site;
@@ -22,7 +21,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     private static final int DB_VER_LANG_ADDED = 10;
 
     public HistoryEntryDatabaseTable() {
-        super(PageHistoryContract.TABLE);
+        super(PageHistoryContract.TABLE, PageHistoryContract.Page.URI);
     }
 
     @Override
@@ -94,10 +93,6 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
             default:
                 super.upgradeSchema(db, toVersion);
         }
-    }
-
-    @NonNull @Override public Uri getBaseContentURI() {
-        return PageHistoryContract.Page.URI;
     }
 
     /**

@@ -1,7 +1,6 @@
 package org.wikipedia.database;
 
 import android.content.ContentProviderClient;
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -25,13 +24,9 @@ public abstract class DatabaseTable<T> {
     @NonNull private final String tableName;
     @NonNull private final Uri baseContentURI;
 
-    public DatabaseTable(@NonNull String tableName) {
+    public DatabaseTable(@NonNull String tableName, @NonNull Uri baseContentURI) {
         this.tableName = tableName;
-        baseContentURI = new Uri.Builder()
-                .scheme(ContentResolver.SCHEME_CONTENT)
-                .authority(SQLiteContentProvider.getAuthorityForTable(tableName))
-                .path(tableName)
-                .build();
+        this.baseContentURI = baseContentURI;
     }
 
     public abstract T fromCursor(Cursor c);

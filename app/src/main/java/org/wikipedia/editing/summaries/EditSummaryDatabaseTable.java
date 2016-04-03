@@ -2,7 +2,6 @@ package org.wikipedia.editing.summaries;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
@@ -17,7 +16,7 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
 
 
     public EditSummaryDatabaseTable() {
-        super(EditHistoryContract.TABLE);
+        super(EditHistoryContract.TABLE, EditHistoryContract.Summary.URI);
     }
 
     @Override
@@ -49,10 +48,6 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
             default:
                 return super.getColumnsAdded(version);
         }
-    }
-
-    @NonNull @Override public Uri getBaseContentURI() {
-        return EditHistoryContract.Summary.URI;
     }
 
     @Override

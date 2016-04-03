@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -30,7 +29,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     private static final int DB_VER_LANG_ADDED = 10;
 
     public SavedPageDatabaseTable() {
-        super(SavedPageContract.TABLE);
+        super(SavedPageContract.TABLE, SavedPageContract.Page.URI);
     }
 
     /** Requires database of version {@link #DB_VER_LANG_ADDED} or greater. */
@@ -90,10 +89,6 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             default:
                 super.upgradeSchema(db, toVersion);
         }
-    }
-
-    @NonNull @Override public Uri getBaseContentURI() {
-        return SavedPageContract.Page.URI;
     }
 
     /**

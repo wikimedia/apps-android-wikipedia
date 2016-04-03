@@ -65,6 +65,7 @@ public class DatabaseClient<T> {
         }
     }
 
+    // TODO: migrate old tables to use unique constraints and just call insertWithOnConflict.
     public void upsert(@NonNull T obj, @NonNull String[] selectionArgs) {
         try {
             int rowsUpdated = client.update(

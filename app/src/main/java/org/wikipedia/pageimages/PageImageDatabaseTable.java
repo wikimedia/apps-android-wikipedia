@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -23,7 +22,7 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     private static final int DB_VER_LANG_ADDED = 10;
 
     public PageImageDatabaseTable() {
-        super(PageImageHistoryContract.TABLE);
+        super(PageImageHistoryContract.TABLE, PageImageHistoryContract.Image.URI);
     }
 
     @Override
@@ -116,10 +115,6 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
             default:
                 super.upgradeSchema(db, toVersion);
         }
-    }
-
-    @NonNull @Override public Uri getBaseContentURI() {
-        return PageImageHistoryContract.Image.URI;
     }
 
     /**

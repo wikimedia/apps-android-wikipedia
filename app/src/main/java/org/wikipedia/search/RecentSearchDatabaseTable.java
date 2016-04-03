@@ -2,7 +2,6 @@ package org.wikipedia.search;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
@@ -16,7 +15,7 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
     private static final int DB_VER_INTRODUCED = 5;
 
     public RecentSearchDatabaseTable() {
-        super(SearchHistoryContract.TABLE);
+        super(SearchHistoryContract.TABLE, SearchHistoryContract.Query.URI);
     }
 
     @Override
@@ -48,10 +47,6 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
             default:
                 return super.getColumnsAdded(version);
         }
-    }
-
-    @NonNull @Override public Uri getBaseContentURI() {
-        return SearchHistoryContract.Query.URI;
     }
 
     @Override

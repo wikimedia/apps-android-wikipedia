@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
@@ -25,8 +24,6 @@ import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
-import org.wikipedia.database.contract.PageHistoryContract;
-import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
@@ -322,23 +319,13 @@ public class WikipediaApp extends Application {
         if (!databaseClients.containsKey(cls)) {
             DatabaseClient<?> client;
             if (cls.equals(HistoryEntry.class)) {
-                client = new DatabaseClient<HistoryEntry>(this, HistoryEntry.DATABASE_TABLE) {
-                    @Override
-                    protected Uri uri() {
-                        return PageHistoryContract.Page.URI;
-                    }
-                };
+                client = new DatabaseClient<>(this, HistoryEntry.DATABASE_TABLE);
             } else if (cls.equals(PageImage.class)) {
                 client = new DatabaseClient<>(this, PageImage.DATABASE_TABLE);
             } else if (cls.equals(RecentSearch.class)) {
                 client = new DatabaseClient<>(this, RecentSearch.DATABASE_TABLE);
             } else if (cls.equals(SavedPage.class)) {
-                client = new DatabaseClient<SavedPage>(this, SavedPage.DATABASE_TABLE) {
-                    @Override
-                    protected Uri uri() {
-                        return SavedPageContract.Page.URI;
-                    }
-                };
+                client = new DatabaseClient<>(this, SavedPage.DATABASE_TABLE);
             } else if (cls.equals(EditSummary.class)) {
                 client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
             } else if (cls.equals(UserOptionRow.class)) {

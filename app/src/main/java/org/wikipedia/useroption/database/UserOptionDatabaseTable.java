@@ -2,7 +2,6 @@ package org.wikipedia.useroption.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.database.DatabaseTable;
@@ -26,7 +25,7 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
     }
 
     public UserOptionDatabaseTable() {
-        super(UserOptionContract.TABLE);
+        super(UserOptionContract.TABLE, UserOptionContract.Option.URI);
     }
 
     @Override
@@ -58,10 +57,6 @@ public class UserOptionDatabaseTable extends DatabaseTable<UserOptionRow> {
             default:
                 return super.getColumnsAdded(version);
         }
-    }
-
-    @NonNull @Override public Uri getBaseContentURI() {
-        return UserOptionContract.Option.URI;
     }
 
     @Override
