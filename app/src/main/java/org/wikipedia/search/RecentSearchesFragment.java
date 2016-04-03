@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.database.contract.SearchHistoryContract;
 
 import static org.wikipedia.Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID;
 
@@ -78,11 +79,11 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        Uri uri = RecentSearch.DATABASE_TABLE.getBaseContentURI();
-        String[] projection = null;
-        String selection = null;
-        String[] selectionArgs = null;
-        String order = RecentSearchDatabaseTable.Col.TIMESTAMP.getName() + " DESC";
+        Uri uri = SearchHistoryContract.Query.URI;
+        final String[] projection = null;
+        final String selection = null;
+        final String[] selectionArgs = null;
+        String order = SearchHistoryContract.Query.ORDER_MRU;
         return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
     }
 

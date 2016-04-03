@@ -150,12 +150,6 @@
                 android:exported="false" />
 
         <provider
-                android:authorities="@string/recent_searches_authority"
-                android:name=".search.RecentSearchContentProvider"
-                android:exported="false"
-                />
-
-        <provider
                 android:authorities="@string/saved_pages_authority"
                 android:name=".savedpages.SavedPageContentProvider"
                 android:exported="false"
