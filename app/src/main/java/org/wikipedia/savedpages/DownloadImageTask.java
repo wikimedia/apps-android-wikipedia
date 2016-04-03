@@ -46,9 +46,11 @@ public class DownloadImageTask extends SaneAsyncTask<Boolean> {
         if (request.ok()) {
             writeFile(request.stream(), file);
             Log.d(TAG, "downloaded image " + url + " to " + file.getAbsolutePath());
+            request.stream().close();
             return true;
         } else {
             Log.e(TAG, "could not download image " + url + " to " + file.getAbsolutePath());
+            request.stream().close();
             return false;
         }
     }
