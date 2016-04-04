@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.database.DatabaseClient;
+import org.wikipedia.database.async.AsyncConstant;
 import org.wikipedia.database.async.AsyncRow;
-import org.wikipedia.database.async.DefaultAsyncRow;
 import org.wikipedia.database.contract.UserOptionContract;
 
 import java.util.ArrayList;
@@ -146,7 +146,7 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
     @NonNull private Collection<T> querySyncable() {
         final String[] selectionArgs = null;
         String selection = UserOptionContract.Option.HTTP.status() + " != " + HttpStatus.SYNCHRONIZED.code() + " and "
-                + UserOptionContract.Option.HTTP.transactionId() + " == " + DefaultAsyncRow.NO_TRANSACTION_ID;
+                + UserOptionContract.Option.HTTP.transactionId() + " == " + AsyncConstant.NO_TRANSACTION_ID;
         final String sortOrder = null;
         Cursor cursor = client.select(selection, selectionArgs, sortOrder);
         try {

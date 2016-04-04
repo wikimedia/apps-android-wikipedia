@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.database.async.DefaultAsyncRow;
+import org.wikipedia.database.async.AsyncConstant;
 import org.wikipedia.useroption.database.UserOptionRow;
 
 import java.util.concurrent.TimeUnit;
@@ -56,7 +56,7 @@ public class UserOptionRowView extends LinearLayout {
         timestamp.setText(String.valueOf(age));
         timestamp.setVisibility(option.timestamp() == 0 ? GONE : VISIBLE);
         transactionId.setText(String.valueOf(option.transactionId()));
-        transactionId.setVisibility(option.transactionId() == DefaultAsyncRow.NO_TRANSACTION_ID ? GONE : VISIBLE);
+        transactionId.setVisibility(option.transactionId() == AsyncConstant.NO_TRANSACTION_ID ? GONE : VISIBLE);
     }
 
     private void init() {
