@@ -117,6 +117,11 @@ public class Site implements Parcelable {
     }
 
     @NonNull
+    public String mobileAuthority() {
+        return authorityToMobile(authority());
+    }
+
+    @NonNull
     public String host() {
         return uri.getHost();
     }
@@ -264,5 +269,11 @@ public class Site implements Parcelable {
     @NonNull
     private static String authorityToDesktop(@NonNull String authority) {
         return authority.replaceFirst("\\.m\\.", ".");
+    }
+
+    @NonNull
+    private String authorityToMobile(@NonNull String authority) {
+        String subdomain = languageCodeToSubdomain(languageCode);
+        return authority.replaceFirst("^" + subdomain + "\\.?", "$0m.");
     }
 }
