@@ -51,6 +51,7 @@
   <string name="nearby_zoom_to_location">Картала урынды күрһәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
   <string name="content_license_html">Эстәлек &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһына ярашлы ҡулланыла</string>
+  <string name="edit_save_action_license_logged_in">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru ҡулланыу шарттарына ризалыҡ бирәһегеҙ\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Википедия теле</string>
   <string name="preference_languages_filter_hint">Эҙләү</string>
   <string name="langlinks_filter_hint">Эҙләү</string>
@@ -147,6 +148,7 @@
   <string name="error_can_not_process_link">Был һылтанманы күрһәтеп булманы</string>
   <string name="page_protected_autoconfirmed">Был бит өлөшләтә һаҡланған ине</string>
   <string name="page_protected_sysop">Был бит тулыһынса һаҡланған ине</string>
+  <string name="page_protected_other">Был бит түбәндәге кимәлдәр буйынса һаҡланған ине: %s</string>
   <string name="page_protected_can_not_edit">Һеҙҙең был битте мөхәррирләргә хоҡуғығыҙ юҡ</string>
   <string name="page_protected_can_not_edit_title">Был бит һаҡланған</string>
   <string name="settings_item_preferences">Көйләүҙәр</string>
@@ -158,8 +160,8 @@
   <string name="about_contributors_heading">Авторҙар</string>
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license" fuzzy="true">&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0&lt;/a&gt; лицензияһы буйынса
-башланғыс код бында &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt; алырға мөмкин. Әгәр ҙә башҡа күрһәтмә булмаһа, йөкмәтке &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; лицезияһына ярашлы алына.</string>
+  <string name="about_app_license">&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0&lt;/a&gt; лицензияһы буйынса
+башланғыс код бында &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt; алырға мөмкин. Әгәр ҙә башҡа күрһәтмә булмаһа, йөкмәтке &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; лицезияһына ярашлы алына.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt; Викимедиа фонды &lt;/a&gt;-ның продукты</string>
   <string name="about_activity_title">Ҡушымта тураһында</string>
   <string name="edit_abandon_confirm">
@@ -170,6 +172,7 @@
   <string name="edit_how_page_improved">Битте яҡшыға үҙгәртеүҙе Һеҙ нисек башҡарҙығыҙ?</string>
   <string name="edit_next">Артабан</string>
   <string name="edit_done">Һаҡларға</string>
+  <string name="edit_preview">Ҡарап сығырға</string>
   <string name="edit_summary_tag_typo">Баҫылған хата төҙәтелде</string>
   <string name="edit_summary_tag_grammar">Дөрөҫ яҙыу ҡағиҙәһенә ярашлы төҙәтелде</string>
   <string name="edit_summary_tag_links"> Һылтанмалар өҫтәлгән</string>
@@ -222,6 +225,7 @@
   <string name="gallery_save_image_write_permission_rationale">Һүрәтте һаҡлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт талап ителә. Тағы бер тапҡыр ҡабатлап ҡарағыҙ һәм һоралған рөхсәт бирегеҙ</string>
   <string name="err_cannot_save_file">
 Файлды һаҡлап булмай</string>
+  <string name="snippet_share_intro">«%1$s» @Wikipedia сайтында: %2$s</string>
   <string name="expand_refs">Асыр өсөн баҫығыҙ</string>
   <string name="share_snippet_button">Һүрәтләмәһе менән  уртаҡлашығыҙ</string>
   <string name="share_normal_button">Текст кеүек уртаҡлашығыҙ</string>
@@ -255,6 +259,7 @@
   <string name="crash_report_dialog_always_send_button">Һәр саҡ ебәрергә</string>
   <string name="crash_report_dialog_send_button">Ебәрергә</string>
   <string name="crash_report_activity_title">Ҡушымта хатаһы</string>
+  <string name="crash_report_relaunch_or_quit">Һеҙ яңынан башларға йәки сығырға теләйһегеҙме?</string>
   <string name="crash_report_relaunch">Яңынан ебәреү</string>
   <string name="crash_report_quit">Сығырға</string>
   <string name="article_menu_bar_bookmark">Мәҡәләне икенсе артабан автоном режимды уҡыу өсөн һаҡларға</string>

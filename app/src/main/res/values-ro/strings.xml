@@ -3,6 +3,7 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Da</string>
   <string name="no">Nu</string>
   <string name="search_hint">Căutare în Wikipedia</string>
@@ -163,6 +164,8 @@
   <string name="about_contributors_heading">Contribuitori</string>
   <string name="about_translators_heading">Traducători</string>
   <string name="about_translators_translatewiki">Această aplicație a fost tradusă de către traducători voluntari la &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Licență</string>
+  <string name="about_app_license">Codul sursă este disponibil la &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; și &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licența Apache 2.0&lt;/a&gt;. Dacă nu se specifică altfel, conținutul este disponibil sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licența Creative Commons Atribuire și distribuire în condiții identice&lt;/a&gt;.</string>
   <string name="about_wmf">Un produs al &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundației Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Despre</string>
   <string name="edit_abandon_confirm">Pagina a fost modificată. Sigur doriți să ieșiți fără a vă salva modificările?</string>
@@ -286,4 +289,5 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="article_menu_bar_bookmark">Salvează articolul pentru lecturare off-line ulterioară</string>
   <string name="article_menu_bar_share">Distribuie legătura către articol</string>
   <string name="article_menu_bar_navigate">Navighează către locul din articol</string>
+  <string name="user_option_sync_label">Preferințe</string>
 </resources>

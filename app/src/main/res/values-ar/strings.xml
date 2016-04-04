@@ -8,11 +8,11 @@
   <string name="no">لا</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="nav_item_history">التاريخ</string>
-  <string name="error_network_error">لا يوجد اتصال بالشبكة</string>
-  <string name="page_error_retry">إعادة المحاولة</string>
-  <string name="page_error_back_to_main">عد إلى الخلف</string>
-  <string name="menu_clear_all_history">مسح التاريخ</string>
-  <string name="menu_clear_all_saved_pages">إفراغ الصفحات المحفوظة</string>
+  <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
+  <string name="page_error_retry">أعد المحاولة</string>
+  <string name="page_error_back_to_main">ارجع إلى الخلف</string>
+  <string name="menu_clear_all_history">امسح التاريخ</string>
+  <string name="menu_clear_all_saved_pages">امسح الصفحات المحفوظة</string>
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
   <string name="nav_item_today">اليوم</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
@@ -24,7 +24,7 @@
   <string name="share_via">مشاركة عبر</string>
   <string name="dialog_title_clear_saved_pages">مسح كل الصفحات المحفوظة؟</string>
   <string name="snackbar_saving_page">جارٍ حفظ الصفحة…</string>
-  <string name="snackbar_saved_page_format">\"%s\" تم حفظ الصفحة للقراءة بدون اتصال انترنت</string>
+  <string name="snackbar_saved_page_format">حُفظت \"%s\" للقراءة بدون اتصال انترنت</string>
   <string name="snackbar_saved_page_missing_images">تعذّر حفظ جميع الصور</string>
   <string name="snackbar_refresh_saved_page">جارٍ تحديث الصفحة المحفوظة</string>
   <string name="delete_selected_saved_pages">حذف</string>
@@ -39,7 +39,7 @@
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
   <string name="menu_page_save">حفظ الصفحة</string>
   <string name="menu_page_share">شارك الوصلة</string>
-  <string name="menu_long_press_open_page">مفتوح</string>
+  <string name="menu_long_press_open_page">افتح</string>
   <string name="menu_long_press_open_in_new_tab">افتح في لسان جديد</string>
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
   <string name="menu_text_select_copy">نسخ</string>
@@ -162,16 +162,17 @@
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_app_license_heading">الرخصة</string>
+  <string name="about_app_license_heading">الترخيص</string>
+  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من منتجات &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">عن</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
   <string name="user_blocked_from_editing_title">ممنوع</string>
   <string name="user_logged_in_blocked_from_editing">تم منع حسابك من تعديل هذه الويكي.</string>
   <string name="user_anon_blocked_from_editing">تم منع عنوان الآي بي الخاص بك من التعديل.</string>
-  <string name="edit_how_page_improved">كيف قمت بتحسين الصفحة؟</string>
+  <string name="edit_how_page_improved">كيف حسّنت الصفحة؟</string>
   <string name="edit_next">التالي</string>
-  <string name="edit_done">حفظ</string>
+  <string name="edit_done">احفظ</string>
   <string name="edit_preview">معاينة</string>
   <string name="edit_summary_tag_typo">تم تصحيح خطأ مطبعي</string>
   <string name="edit_summary_tag_grammar">تم إصلاح النحو</string>
