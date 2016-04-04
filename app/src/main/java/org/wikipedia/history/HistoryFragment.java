@@ -5,8 +5,8 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
@@ -34,6 +34,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.views.ViewUtil;
@@ -44,7 +45,7 @@ import java.util.Date;
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
-public class HistoryFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, BackPressedHandler {
+public class HistoryFragment extends Fragment implements BackPressedHandler {
     private ListView historyEntryList;
     private View historyEmptyContainer;
     private TextView historyEmptyTitle;
@@ -53,6 +54,8 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
     private EditText entryFilter;
 
     private WikipediaApp app;
+
+    private LoaderCallback callback;
 
     private ActionMode actionMode;
     private HistorySearchTextWatcher textWatcher = new HistorySearchTextWatcher();
@@ -84,6 +87,10 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         historyEntryList.setAdapter(adapter);
         historyEntryList.setOnItemClickListener(itemClickListener);
         historyEntryList.setOnItemLongClickListener(itemLongClickListener);
+
+        callback = new LoaderCallback(getContext(), adapter);
+        getActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, callback);
+
         return rootView;
     }
 
@@ -92,8 +99,6 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
         historyEntryList.setEmptyView(historyEmptyContainer);
-        getActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, this);
-        getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, this);
     }
 
     @Override
@@ -113,46 +118,6 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
             return true;
         }
         return false;
-    }
-
-    @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
-        String titleCol = PageHistoryContract.PageWithImage.TITLE.qualifiedName();
-        String selection = null;
-        String[] selectionArgs = null;
-        historyEmptyContainer.setVisibility(View.GONE);
-        String searchStr = entryFilter.getText().toString();
-        if (!searchStr.isEmpty()) {
-            searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
-            selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
-            selectionArgs = new String[]{"%" + searchStr + "%"};
-        }
-
-        Uri uri = PageHistoryContract.PageWithImage.URI;
-        final String[] projection = null;
-        String order = PageHistoryContract.PageWithImage.ORDER_MRU;
-        return new CursorLoader(getContext(), uri, projection, selection, selectionArgs, order);
-    }
-
-    @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        if (!isAdded() || cursor == null) {
-            return;
-        }
-
-        // Hide search bar if history is empty, but not when a search turns up no results
-        if (firstRun && cursor.getCount() == 0) {
-            entryFilter.setVisibility(View.GONE);
-        }
-        firstRun = false;
-
-        adapter.swapCursor(cursor);
-        getActivity().supportInvalidateOptionsMenu();
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> cursorLoader) {
-        adapter.changeCursor(null);
     }
 
     private class HistoryEntryAdapter extends CursorAdapter {
@@ -327,7 +292,7 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
 
         @Override
         public void afterTextChanged(Editable editable) {
-            getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, HistoryFragment.this);
+            getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, callback);
             if (editable.length() == 0) {
                 historyEmptyTitle.setText(R.string.history_empty_title);
                 historyEmptyMessage.setVisibility(View.VISIBLE);
@@ -335,6 +300,48 @@ public class HistoryFragment extends Fragment implements LoaderManager.LoaderCal
                 historyEmptyTitle.setText(getString(R.string.history_search_empty_message, editable.toString()));
                 historyEmptyMessage.setVisibility(View.GONE);
             }
+        }
+    }
+
+    private class LoaderCallback extends CursorAdapterLoaderCallback {
+        LoaderCallback(@NonNull Context context, @NonNull CursorAdapter adapter) {
+            super(context, adapter);
+        }
+
+        @Override
+        public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+            String titleCol = PageHistoryContract.PageWithImage.TITLE.qualifiedName();
+            String selection = null;
+            String[] selectionArgs = null;
+            historyEmptyContainer.setVisibility(View.GONE);
+            String searchStr = entryFilter.getText().toString();
+            if (!searchStr.isEmpty()) {
+                searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
+                selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
+                selectionArgs = new String[]{"%" + searchStr + "%"};
+            }
+
+            Uri uri = PageHistoryContract.PageWithImage.URI;
+            final String[] projection = null;
+            String order = PageHistoryContract.PageWithImage.ORDER_MRU;
+            return new CursorLoader(context(), uri, projection, selection, selectionArgs, order);
+        }
+
+        @Override
+        public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
+            super.onLoadFinished(cursorLoader, cursor);
+
+            if (!isAdded()) {
+                return;
+            }
+
+            // Hide search bar if history is empty, but not when a search turns up no results
+            if (firstRun && cursor.getCount() == 0) {
+                entryFilter.setVisibility(View.GONE);
+            }
+            firstRun = false;
+
+            getActivity().supportInvalidateOptionsMenu();
         }
     }
 }
