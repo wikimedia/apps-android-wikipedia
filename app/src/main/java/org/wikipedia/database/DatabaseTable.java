@@ -12,10 +12,6 @@ import android.text.TextUtils;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.util.log.L;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import static org.wikipedia.util.StringUtil.removeNulls;
 
 public abstract class DatabaseTable<T> {
@@ -85,30 +81,15 @@ public abstract class DatabaseTable<T> {
 
     protected abstract int getDBVersionIntroducedAt();
 
-    public List<? extends Column<?>> getElements(int fromVersion, int toVersion) {
-        List<Column<?>> columns = new ArrayList<>();
-        for (int i = fromVersion; i <= toVersion; i++) {
-            columns.addAll(Arrays.asList(getColumnsAdded(i)));
-        }
-        return columns;
-    }
-
-    public void createTables(@NonNull SQLiteDatabase db, int version) {
-        L.i("Creating table=" + getTableName());
-        db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", getElements(1, version)) + " )");
-    }
-
     public void upgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
         if (fromVersion < getDBVersionIntroducedAt()) {
-            createTables(db, toVersion);
-            return;
+            createTables(db);
         }
 
-        for (int ver = fromVersion + 1; ver <= toVersion; ++ver) {
+        for (int ver = Math.max(getDBVersionIntroducedAt(), fromVersion) + 1; ver <= toVersion; ++ver) {
             L.i("ver=" + ver);
 
-            List<? extends Column<?>> columns = getElements(ver, ver);
-            for (Column<?> column : columns) {
+            for (Column<?> column : getColumnsAdded(ver)) {
                 String alterTableString = "ALTER TABLE " + tableName + " ADD COLUMN " + column;
                 L.i(alterTableString);
                 db.execSQL(alterTableString);
@@ -124,5 +105,11 @@ public abstract class DatabaseTable<T> {
     }
 
     protected void upgradeSchema(@NonNull SQLiteDatabase db, int toVersion) {
+    }
+
+    private void createTables(@NonNull SQLiteDatabase db) {
+        L.i("Creating table=" + getTableName());
+        Column<?>[] cols = getColumnsAdded(getDBVersionIntroducedAt());
+        db.execSQL("CREATE TABLE " + getTableName() + " ( " + TextUtils.join(", ", cols) + " )");
     }
 }

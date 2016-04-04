@@ -34,7 +34,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         for (DatabaseTable<?> table : databaseTables) {
-            table.createTables(sqLiteDatabase, DATABASE_VERSION);
+            table.upgradeSchema(sqLiteDatabase, 0, DATABASE_VERSION);
         }
     }
 
