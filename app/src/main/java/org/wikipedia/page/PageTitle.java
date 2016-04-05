@@ -236,7 +236,7 @@ public class PageTitle implements Parcelable {
     }
 
     public String getMobileUri() {
-        return getUriForDomain(getSite().authority());
+        return getUriForDomain(getSite().mobileAuthority());
     }
 
     public String getUriForAction(String action) {
