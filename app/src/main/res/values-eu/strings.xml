@@ -24,7 +24,7 @@
   <string name="snackbar_saving_page">Orrialdea gordetzen…</string>
   <string name="snackbar_saved_page_format">\"%s\" gordea lineaz kanpoko irakurketarako</string>
   <string name="snackbar_saved_page_missing_images">Ezin izan dira irudi guztiak gorde</string>
-  <string name="snackbar_refresh_saved_page">Gordetako orria eguneratzen...</string>
+  <string name="snackbar_refresh_saved_page">Gordetako orria eguneratzen…</string>
   <string name="delete_selected_saved_pages">Ezabatu</string>
   <string name="snackbar_saved_page_deleted">Gordetako orrialdea(k) ezabatu d(ir)a</string>
   <string name="saved_pages_search_list_hint">Bilatu gordetako orriak</string>
@@ -76,7 +76,7 @@
   <string name="login_password_show_check">Pasahitza erakutsi</string>
   <string name="menu_login">Saioa hasi</string>
   <string name="login_activity_title">Saioa hasi Wikipedian</string>
-  <string name="login_in_progress_dialog_message">Saioa hasten...</string>
+  <string name="login_in_progress_dialog_message">Saioa hasten…</string>
   <string name="login_error_wrong_password">Pasahitz okerra</string>
   <string name="login_error_wrong_username">Erabiltzaile izen okerra</string>
   <string name="login_error_illegal">Erabiltzaile izen baliogabea</string>
@@ -124,7 +124,7 @@
   <string name="zero_learn_more">Datuengatik kobratzen da Wikipedia aplikazio honetan.</string>
   <string name="zero_learn_more_learn_more">Irakurri gehiago</string>
   <string name="zero_learn_more_dismiss">Utzi</string>
-  <string name="edit_preview_fetching_dialog_message">Aurreikuspena eskuratzen...</string>
+  <string name="edit_preview_fetching_dialog_message">Aurreikuspena eskuratzen…</string>
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
   <string name="nav_item_random">Ausazkoa</string>
   <string name="create_account_account_created_toast">Kontua sortua!</string>

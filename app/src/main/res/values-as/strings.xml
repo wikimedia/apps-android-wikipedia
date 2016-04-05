@@ -21,10 +21,10 @@
   <string name="dialog_prompt_refresh_all_saved_pages">সকলো সংৰক্ষিত পৃষ্ঠা নবীকৰণ কৰিব?</string>
   <string name="share_via">শ্বেয়াৰ</string>
   <string name="dialog_title_clear_saved_pages">সকলো সাঁচি থোৱা পৃষ্ঠা মচি পেলাওক?</string>
-  <string name="snackbar_saving_page">পৃষ্ঠা সাঁচি থোৱা হৈছে...</string>
+  <string name="snackbar_saving_page">পৃষ্ঠা সাঁচি থোৱা হৈছে…</string>
   <string name="snackbar_saved_page_format">অফলাইন পঢ়িবৰ বাবে \"%s\" সাঁচি থোৱা হ\'ল</string>
   <string name="snackbar_saved_page_missing_images">সকলো ছবি সাঁচিব পৰা নগ\'ল</string>
-  <string name="snackbar_refresh_saved_page">সঞ্চিত পৃষ্ঠা পুনঃসতেজ কৰা হৈছে...</string>
+  <string name="snackbar_refresh_saved_page">সঞ্চিত পৃষ্ঠা পুনঃসতেজ কৰা হৈছে…</string>
   <string name="delete_selected_saved_pages">বিলোপ</string>
   <string name="snackbar_saved_page_deleted">সঞ্চিত পৃষ্ঠা(সমূহ) মচি পেলোৱা হৈছে</string>
   <string name="saved_pages_search_list_hint">সঞ্চিত পৃষ্ঠাসমূহ সন্ধান কৰক</string>
@@ -56,7 +56,7 @@
   <string name="langlinks_activity_title">আন ভাষাসমূহ</string>
   <string name="menu_save_changes">সালসলনি সাঁচি থওক</string>
   <string name="edit_section_error_retry">পুনৰ চেষ্টা কৰক</string>
-  <string name="dialog_saving_in_progress">সাঁচি থোৱা হৈছে...</string>
+  <string name="dialog_saving_in_progress">সাঁচি থোৱা হৈছে…</string>
   <string name="edit_saved_successfully">সম্পাদনা সাঁচি থোৱা হৈছে!</string>
   <string name="dialog_message_edit_failed">সম্পাদনা ব্যৰ্থ হৈছে!</string>
   <string name="dialog_message_edit_failed_retry">পুনৰ চেষ্টা কৰক</string>
@@ -77,7 +77,7 @@
   <string name="login_password_show_check">গুপ্তশব্দ দেখুৱাওক</string>
   <string name="menu_login">প্ৰৱেশ</string>
   <string name="login_activity_title" fuzzy="true">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
-  <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে...</string>
+  <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
   <string name="login_error_wrong_password">ভুল গুপ্তশব্দ</string>
   <string name="login_error_wrong_username">ভুল সদস্যনাম</string>
   <string name="login_error_illegal">অগ্ৰহণযোগ্য সদস্যনাম</string>
@@ -130,7 +130,7 @@
   <string name="zero_learn_more">এই ৱিকিপিডিয়া এপৰ বাবে ডে\'টা মূল্য ৰেহাই দিয়া হৈছে।</string>
   <string name="zero_learn_more_learn_more">আৰু পঢ়ক</string>
   <string name="zero_learn_more_dismiss">বাতিল কৰক</string>
-  <string name="edit_preview_fetching_dialog_message">প্ৰাক্‌দৰ্শন অনা হৈছে...</string>
+  <string name="edit_preview_fetching_dialog_message">প্ৰাক্‌দৰ্শন অনা হৈছে…</string>
   <string name="send_feedback">এপ্‌ প্ৰতিক্ৰিয়া জনাওক</string>
   <string name="nav_item_random">যিকোনো</string>
   <string name="create_account_account_created_toast">একাউণ্ট সৃষ্টি হ\'ল!</string>

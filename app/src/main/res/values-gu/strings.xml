@@ -20,10 +20,10 @@
   <string name="dialog_prompt_refresh_all_saved_pages">બધા સાચવેલા પાનાંઓ અદ્યતન કરવા છે ?</string>
   <string name="share_via">આના માધ્યમથી વહેંચો</string>
   <string name="dialog_title_clear_saved_pages">બધા સાચવેલા પાનાં કાઢી નાખવા છે ?</string>
-  <string name="snackbar_saving_page">પાનું સચવાય છે...</string>
+  <string name="snackbar_saving_page">પાનું સચવાય છે…</string>
   <string name="snackbar_saved_page_format" fuzzy="true">પાનું સફળતાપૂર્વક સચવાયું</string>
   <string name="snackbar_saved_page_missing_images">બધાં ચિત્રો સચવાયા નહીં</string>
-  <string name="snackbar_refresh_saved_page">સચવાયેલું પાનું તાજું થાય છે...</string>
+  <string name="snackbar_refresh_saved_page">સચવાયેલું પાનું તાજું થાય છે…</string>
   <string name="delete_selected_saved_pages">દૂર કરો</string>
   <string name="snackbar_saved_page_deleted">સચવાયેલું પાનું (પાના) હટાવાયું</string>
   <string name="saved_pages_search_list_hint">સંગ્રહેલ પાનાંઓમાં શોધો</string>
@@ -63,7 +63,7 @@
   <string name="login_password_show_check">પાસવર્ડ દર્શાવો</string>
   <string name="menu_login">પ્રવેશ</string>
   <string name="login_activity_title" fuzzy="true">વિકિપીડિયા પર લોગીન કરો</string>
-  <string name="login_in_progress_dialog_message">તમે લોગઈન થઈ રહ્યા છો...</string>
+  <string name="login_in_progress_dialog_message">તમે લોગઈન થઈ રહ્યા છો…</string>
   <string name="login_error_wrong_password">અયોગ્ય પાસવર્ડ</string>
   <string name="login_error_wrong_username">અયોગ્ય સભ્યનામ</string>
   <string name="login_error_illegal">અમાન્ય સભ્યનામ</string>

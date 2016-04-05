@@ -242,7 +242,7 @@
   <string name="gallery_menu_share">Сподели</string>
   <string name="gallery_share_error">Не можев да ја споделам сликата: %s</string>
   <string name="gallery_menu_save">Зачувај на уредот</string>
-  <string name="gallery_save_progress">Ја преземам податотеката...</string>
+  <string name="gallery_save_progress">Ја преземам податотеката…</string>
   <string name="gallery_save_success">Податотекта е успешно зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
   <string name="gallery_save_image_write_permission_rationale">Дозвола за зачувување слики на вашиот уред. Обидете се повторно и дајте ја побараната дозвола.</string>

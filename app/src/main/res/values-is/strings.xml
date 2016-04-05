@@ -26,7 +26,7 @@
   <string name="snackbar_saving_page">Vista síðu…</string>
   <string name="snackbar_saved_page_format">\"%s\" var vistað fyrir tengingarlausan lestur</string>
   <string name="snackbar_saved_page_missing_images">Gat ekki vistað allar myndir</string>
-  <string name="snackbar_refresh_saved_page">Hressi vistaða síðu...</string>
+  <string name="snackbar_refresh_saved_page">Hressi vistaða síðu…</string>
   <string name="delete_selected_saved_pages">Eyða</string>
   <string name="snackbar_saved_page_deleted">Vistuðum síðum var eytt</string>
   <string name="saved_pages_search_list_hint">Leita í  vistuðum síðum</string>
@@ -61,7 +61,7 @@
   <string name="langlinks_activity_title">Önnur tungumál</string>
   <string name="menu_save_changes">Vista breytingar</string>
   <string name="edit_section_error_retry">Reyna aftur</string>
-  <string name="dialog_saving_in_progress">Vista...</string>
+  <string name="dialog_saving_in_progress">Vista…</string>
   <string name="edit_saved_successfully">Breytingin vistuð!</string>
   <string name="dialog_message_edit_failed">Breytingin mistókst!</string>
   <string name="dialog_message_edit_failed_retry">Reyna aftur</string>
@@ -184,7 +184,7 @@
   <string name="error_network_error_try_again">Ekki tókst að tengjast netinu, reyndu aftur síðar.</string>
   <string name="saved_pages_update_all_error_retry">Reyna aftur</string>
   <string name="saved_pages_update_all_error_message">Villa við uppfærslu á vistuðum síðum</string>
-  <string name="saved_pages_progress_title">Hressi vistaðar síður...</string>
+  <string name="saved_pages_progress_title">Hressi vistaðar síður…</string>
   <string name="abusefilter_title_warn">Þetta lítur ekki út fyrir að vera uppbyggileg breyting, ert þú viss um að þú viljir vista hana?</string>
   <string name="abusefilter_title_disallow">Þú getur ekki vistað þessa breytingu. Vinsamlegast breyttu henni.</string>
   <string name="abusefilter_text_warn">Sjálfvirk sía hefur greint þessa breytingu sem mögulega eyðileggjandi. Hún gæti innihaldið eitt af eftirtöldu:&lt;br /&gt;&lt;br /&gt;· Eintómir hástafir&lt;br /&gt;· Tæming greina eða þvaður&lt;br /&gt;· Óviðeigandi ytri tenglar eða myndir&lt;br /&gt;· Endurteknir stafir</string>

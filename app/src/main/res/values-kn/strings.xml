@@ -20,7 +20,7 @@
   <string name="dialog_prompt_refresh_all_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲಾ ಪುಟಗಳನ್ನು ನವೀಕರಿಸುವಿರಾ?</string>
   <string name="share_via">ಮೂಲಕ ಹಂಚು</string>
   <string name="dialog_title_clear_saved_pages">ಉಳಿಸಿದ ಎಲ್ಲ ಪುಟಗಳನ್ನು ಅಳಿಸಬೇಕೆ?</string>
-  <string name="snackbar_saving_page">ಪುಟವನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ...</string>
+  <string name="snackbar_saving_page">ಪುಟವನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ…</string>
   <string name="snackbar_saved_page_format" fuzzy="true">ಪುಟವನ್ನು ಉಳಿಸಲಾಗಿದೆ</string>
   <string name="snackbar_saved_page_missing_images">ಎಲ್ಲಾ ಚಿತ್ರಗಳನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ.</string>
   <string name="snackbar_refresh_saved_page">ಉಳಿಸಿದ ಪುಟವನ್ನು ಮತ್ತೆ ತೆರೆಯಿರಿ.</string>
@@ -62,7 +62,7 @@
   <string name="login_password_show_check">ಪ್ರದೇಶಪದವನ್ನು ಪ್ರದರ್ಶಿಸು</string>
   <string name="menu_login">ಲಾಗ್ ಇನ್</string>
   <string name="login_activity_title" fuzzy="true">ವಿಕಿಪೀಡಿಯಾಕ್ಕೆ ಲಾಗಿನ್ ಆಗು</string>
-  <string name="login_in_progress_dialog_message">ನೀವು ಲಾಗ್-ಇನ್ ಆಗುತ್ತಿದ್ದೀರಿ...</string>
+  <string name="login_in_progress_dialog_message">ನೀವು ಲಾಗ್-ಇನ್ ಆಗುತ್ತಿದ್ದೀರಿ…</string>
   <string name="login_error_wrong_password">ಅಸಮರ್ಪಕ ಪ್ರವೇಶಪದ</string>
   <string name="login_error_wrong_username">ಅಸಮರ್ಪಕ ಬಳಕೆದಾರ ಹೆಸರು</string>
   <string name="login_error_illegal">ಅಮಾನ್ಯವಾದ ಬಳಕೆದಾರಹೆಸರು</string>

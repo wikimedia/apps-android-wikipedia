@@ -129,7 +129,7 @@
   <string name="zero_interstitial_cancel">Likti čia</string>
   <string name="zero_learn_more_learn_more">Skaityti daugiau</string>
   <string name="zero_learn_more_dismiss">Atmesti</string>
-  <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra...</string>
+  <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra…</string>
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>
   <string name="nav_item_random">Atsitiktinis</string>
   <string name="create_account_account_created_toast">Paskyra sukurta!</string>
@@ -206,7 +206,7 @@
   <string name="gallery_menu_share">Dalintis</string>
   <string name="gallery_share_error">Negalima pasidalinti vaizdu: %s</string>
   <string name="gallery_menu_save">Išsaugoti prietaise</string>
-  <string name="gallery_save_progress">Siunčiamas failas...</string>
+  <string name="gallery_save_progress">Siunčiamas failas…</string>
   <string name="gallery_save_success">Failas išsaugotas sėkmingai.</string>
   <string name="gallery_error_video_failed">Negalima paleisti filmuko.</string>
   <string name="err_cannot_save_file">Negalima įrašyti failų</string>

@@ -23,7 +23,7 @@
   <string name="snackbar_saving_page">Io es salvante le pagina</string>
   <string name="snackbar_saved_page_format">\"%s\" salvate pro le lectura foras linea.</string>
   <string name="snackbar_saved_page_missing_images">Il non esseva possibile salveguardar tote le imagines</string>
-  <string name="snackbar_refresh_saved_page">Ajornamento del pagina salvate...</string>
+  <string name="snackbar_refresh_saved_page">Ajornamento del pagina salvate…</string>
   <string name="delete_selected_saved_pages">Deler</string>
   <string name="snackbar_saved_page_deleted">Pagina(s) salveguardate delite</string>
   <string name="saved_pages_search_list_hint">Cercar paginas salvate</string>

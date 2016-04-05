@@ -242,7 +242,7 @@ Ketentuan penggunaan https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
-  <string name="gallery_save_progress">Mengunduh berkas...</string>
+  <string name="gallery_save_progress">Mengunduh berkas…</string>
   <string name="gallery_save_success">Berkas berhasil disimpan.</string>
   <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>
   <string name="gallery_save_image_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda dibutuhkan untuk menyimpan gambar. Silakan coba lagi, dan bolehkan izin yang diminta.</string>

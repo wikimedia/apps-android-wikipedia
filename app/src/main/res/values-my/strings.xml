@@ -81,7 +81,7 @@
   <string name="login_password_show_check">စကားဝှက်ကို ပြပါ။</string>
   <string name="menu_login">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
   <string name="login_activity_title">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
-  <string name="login_in_progress_dialog_message">လော့ဂ်အင်ဝင်နေသည် ...</string>
+  <string name="login_in_progress_dialog_message">လော့ဂ်အင်ဝင်နေသည် …</string>
   <string name="login_error_wrong_password">မှားယွင်းသော စကားဝှက်</string>
   <string name="login_error_wrong_username">မှားယွင်းသော အသုံးပြုသူအမည်</string>
   <string name="login_error_illegal">အသုံးပြုသူအမည် မမှန်ကန်ပါ</string>
@@ -134,7 +134,7 @@
   <string name="zero_learn_more">ဝီကီပီဒီးယားအက်ပ်အတွက် အင်တာနက်အသုံးပြုခကို ကောက်ခံခြင်း မရှိပါ။</string>
   <string name="zero_learn_more_learn_more">ဆက်ဖတ်ပါ</string>
   <string name="zero_learn_more_dismiss">ဖြုတ်ရန်</string>
-  <string name="edit_preview_fetching_dialog_message">နမူနာအား ပြင်ဆင်နေသည်...</string>
+  <string name="edit_preview_fetching_dialog_message">နမူနာအား ပြင်ဆင်နေသည်…</string>
   <string name="send_feedback">app အကြံပြုချက် ပို့ရန်</string>
   <string name="nav_item_random">ကျပန်း</string>
   <string name="create_account_account_created_toast">အကောင့်ဖန်တီးပြီးပါပြီ</string>

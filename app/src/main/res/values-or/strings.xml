@@ -22,7 +22,7 @@
   <string name="dialog_prompt_refresh_all_saved_pages">ସବୁ ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକୁ ଅପଡେଟ କରିବେ କି ?</string>
   <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
   <string name="dialog_title_clear_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ ଲିଭାଇବେ?</string>
-  <string name="snackbar_saving_page">ପୃଷ୍ଠାଟିକୁ ସାଇତା ଯାଉଛି...</string>
+  <string name="snackbar_saving_page">ପୃଷ୍ଠାଟିକୁ ସାଇତା ଯାଉଛି…</string>
   <string name="snackbar_saved_page_format" fuzzy="true">ପୃଷ୍ଠାଟି ସଫଳତା ପୁର୍ବକ ସାଇତା ଗଲା ।</string>
   <string name="snackbar_saved_page_missing_images">ସବୁ ଛବି ସାଇତା ଯାଇ ପାରିଲା ନାହିଁ</string>
   <string name="snackbar_refresh_saved_page">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଅଦ୍ଯତନ କରାଯାଊଛି ।</string>
@@ -46,7 +46,7 @@
   <string name="langlinks_activity_title">ଅନ୍ୟ ଭାଷା</string>
   <string name="menu_save_changes">ବଦଳଗୁଡ଼ିକୁ ସାଇତିବେ</string>
   <string name="edit_section_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
-  <string name="dialog_saving_in_progress">ସଞ୍ଚୁଛି...</string>
+  <string name="dialog_saving_in_progress">ସଞ୍ଚୁଛି…</string>
   <string name="edit_saved_successfully">ସମ୍ପାଦନା ସାଇତାଗଲା!</string>
   <string name="dialog_message_edit_failed">ସମ୍ପାଦନା କରିବାରେ ବିଫଳ!</string>
   <string name="dialog_message_edit_failed_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
