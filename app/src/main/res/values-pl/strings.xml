@@ -228,7 +228,7 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
   <string name="gallery_menu_share">Udostępnij</string>
   <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
   <string name="gallery_menu_save">Zapisz na urządzeniu</string>
-  <string name="gallery_save_progress">Pobieranie pliku...</string>
+  <string name="gallery_save_progress">Pobieranie pliku…</string>
   <string name="gallery_save_success">Plik pomyślnie zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów. Proszę, spróbuj jeszcze raz i przyznaj poproszone uprawnienia.</string>

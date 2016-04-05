@@ -20,10 +20,10 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Opdateer alle gestoorde bladsye?</string>
   <string name="share_via">Deel deur</string>
   <string name="dialog_title_clear_saved_pages">Verwyder alle gestoorde bladsye?</string>
-  <string name="snackbar_saving_page">Besig om blad te stoor...</string>
+  <string name="snackbar_saving_page">Besig om blad te stoor…</string>
   <string name="snackbar_saved_page_format">\"%s\" suksesvol gestoor vir aflyn lees</string>
   <string name="snackbar_saved_page_missing_images">Kon nie alle beelde stoor nie</string>
-  <string name="snackbar_refresh_saved_page">Herlaai gestoorde blad...</string>
+  <string name="snackbar_refresh_saved_page">Herlaai gestoorde blad…</string>
   <string name="delete_selected_saved_pages">Skrap</string>
   <string name="snackbar_saved_page_deleted">Gestoorde blad(sye) geskrap</string>
   <string name="saved_pages_search_list_hint">Soek gestoorde bladsye</string>
@@ -52,7 +52,7 @@
   <string name="langlinks_activity_title">Ander tale</string>
   <string name="menu_save_changes">Stoor wysigings</string>
   <string name="edit_section_error_retry">Probeer weer</string>
-  <string name="dialog_saving_in_progress">Besig om te stoor...</string>
+  <string name="dialog_saving_in_progress">Besig om te stoor…</string>
   <string name="edit_saved_successfully">Wysiging gestoor!</string>
   <string name="dialog_message_edit_failed">Wysiging het misluk!</string>
   <string name="dialog_message_edit_failed_retry">Probeer weer</string>
@@ -73,7 +73,7 @@
   <string name="login_password_show_check">Vertoon wagwoord</string>
   <string name="menu_login">Meld aan</string>
   <string name="login_activity_title" fuzzy="true">Meld aan by Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Meld u aan...</string>
+  <string name="login_in_progress_dialog_message">Meld u aan…</string>
   <string name="login_error_wrong_password">Verkeerde wagwoord</string>
   <string name="login_error_wrong_username">Verkeerde gebruikersnaam</string>
   <string name="login_error_illegal">Ongeldige gebruikersnaam</string>
@@ -126,7 +126,7 @@
   <string name="zero_learn_more">Datakostes is kwytgeskeld vir hierdie Wikipedia toep.</string>
   <string name="zero_learn_more_learn_more">Lees meer</string>
   <string name="zero_learn_more_dismiss">Sluit</string>
-  <string name="edit_preview_fetching_dialog_message">Verkry voorskou...</string>
+  <string name="edit_preview_fetching_dialog_message">Verkry voorskou…</string>
   <string name="send_feedback">Stuur toep terugvoer</string>
   <string name="nav_item_random">Willekeurig</string>
   <string name="create_account_account_created_toast">Gebruiker geskep!</string>

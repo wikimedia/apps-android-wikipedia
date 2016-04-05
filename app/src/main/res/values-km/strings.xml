@@ -21,7 +21,7 @@
   <string name="dialog_prompt_refresh_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុកទាំងអស់ឬ?</string>
   <string name="share_via">ចែក​រំលែក​តាម…</string>
   <string name="dialog_title_clear_saved_pages">ជម្រះទំព័រ​ដែល​បាន​រក្សា​ទុកទាំងអស់ឬ?</string>
-  <string name="snackbar_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ...</string>
+  <string name="snackbar_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ…</string>
   <string name="snackbar_saved_page_format" fuzzy="true">បាន​រក្សា​ទំព័របានសម្រេច</string>
   <string name="snackbar_saved_page_missing_images">មិនអាចរក្សាទុករូបភាពទាំងអស់</string>
   <string name="snackbar_refresh_saved_page">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី…</string>
@@ -115,7 +115,7 @@
   <string name="zero_interstitial_cancel">មិនចាកចេញ</string>
   <string name="zero_learn_more_learn_more">អានបន្ថែម</string>
   <string name="zero_learn_more_dismiss">លាក់</string>
-  <string name="edit_preview_fetching_dialog_message">កំពុងផ្ទុកការមើលមុន...</string>
+  <string name="edit_preview_fetching_dialog_message">កំពុងផ្ទុកការមើលមុន…</string>
   <string name="send_feedback">ផ្ញើមតិយោបល់អំពីកម្មវិធីនេះ</string>
   <string name="nav_item_random">ចៃដន្យ</string>
   <string name="create_account_account_created_toast">គណនីបានបង្កើតហើយ!</string>

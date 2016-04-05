@@ -23,10 +23,10 @@
   <string name="dialog_prompt_refresh_all_saved_pages">सर्वाणि रक्षितानि पृष्ठानि अपाकर्त्तव्यानि वा?</string>
   <string name="share_via">द्वारा वितरतु</string>
   <string name="dialog_title_clear_saved_pages">सर्वाणि रक्षितानि पृष्ठानि अपाकर्त्तव्यानि वा?</string>
-  <string name="snackbar_saving_page">पृष्ठं रक्षति...</string>
+  <string name="snackbar_saving_page">पृष्ठं रक्षति…</string>
   <string name="snackbar_saved_page_format">\"%s\" वियुक्ततया पठितुं रक्ष्यताम्</string>
   <string name="snackbar_saved_page_missing_images">सर्वाणि चित्राणि रक्षितुं न शक्तवान्</string>
-  <string name="snackbar_refresh_saved_page">रक्षितपृष्ठानां प्रत्यवस्थापनम्...</string>
+  <string name="snackbar_refresh_saved_page">रक्षितपृष्ठानां प्रत्यवस्थापनम्…</string>
   <string name="delete_selected_saved_pages">अपाक्रियताम्</string>
   <string name="snackbar_saved_page_deleted">रक्षितपृष्ठानि अपाकृतानि</string>
   <string name="saved_pages_search_list_hint">रक्षितानि पृष्ठानि अन्विष्यन्ताम्</string>
@@ -62,7 +62,7 @@
   <string name="langlinks_activity_title">अन्यभाषाः</string>
   <string name="menu_save_changes">परिवर्तनानि रक्ष्यन्ताम्</string>
   <string name="edit_section_error_retry">पुनःप्रयासः</string>
-  <string name="dialog_saving_in_progress">रक्षति...</string>
+  <string name="dialog_saving_in_progress">रक्षति…</string>
   <string name="edit_saved_successfully">सम्पादितं रक्षितम् !</string>
   <string name="dialog_message_edit_failed">सम्पादनम् असफलम् !</string>
   <string name="dialog_message_edit_failed_retry">पुनःप्रयासः</string>
@@ -83,7 +83,7 @@
   <string name="login_password_show_check">कूटशब्दः दृश्यताम्</string>
   <string name="menu_login">प्रविश्यताम्</string>
   <string name="login_activity_title">विकिपीडिया-जालं प्रविश्यताम्</string>
-  <string name="login_in_progress_dialog_message">प्रविशति...</string>
+  <string name="login_in_progress_dialog_message">प्रविशति…</string>
   <string name="login_error_wrong_password">मिथ्या कूटशब्दः</string>
   <string name="login_error_wrong_username">मिथ्या सदस्यनाम</string>
   <string name="login_error_illegal">अमान्यं सदस्यनाम</string>
@@ -136,7 +136,7 @@
   <string name="zero_learn_more">एतस्मै विकिपीडिया-अनुप्रयोगाय सूचनायाः परिवर्तनानि अवगण्यन्ते ।</string>
   <string name="zero_learn_more_learn_more">अधिकं पठ्यताम्</string>
   <string name="zero_learn_more_dismiss">अपनीयताम्</string>
-  <string name="edit_preview_fetching_dialog_message">प्राग्दृश्यम् आवहति...</string>
+  <string name="edit_preview_fetching_dialog_message">प्राग्दृश्यम् आवहति…</string>
   <string name="send_feedback">अनुप्रयोगप्रतिक्रियां प्रेषयतु</string>
   <string name="nav_item_random">यादृच्छिकम्</string>
   <string name="create_account_account_created_toast">सदस्यता प्राप्ता !</string>

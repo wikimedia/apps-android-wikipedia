@@ -26,7 +26,7 @@
   <string name="snackbar_saving_page">Чување странице…</string>
   <string name="snackbar_saved_page_format">„%s“ сачувана за ванмрежно читање</string>
   <string name="snackbar_saved_page_missing_images">Не могу да сачувам све слике</string>
-  <string name="snackbar_refresh_saved_page">Освежавам сачуване странице...</string>
+  <string name="snackbar_refresh_saved_page">Освежавам сачуване странице…</string>
   <string name="delete_selected_saved_pages">Обриши</string>
   <string name="snackbar_saved_page_deleted">Сачуване странице обрисане</string>
   <string name="saved_pages_search_list_hint">Претрага сачуваних страница</string>

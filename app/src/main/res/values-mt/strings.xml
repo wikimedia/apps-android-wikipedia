@@ -18,7 +18,7 @@
   <string name="menu_update_all_saved_pages">Aġġorna l-paġni ssejvjati</string>
   <string name="menu_update_selected_saved_pages">Aġġorna l-paġni ssejvjati</string>
   <string name="dialog_prompt_refresh_all_saved_pages">Trid taġġorna l-paġna kollha salvati?</string>
-  <string name="share_via">Aqsam permezz...</string>
+  <string name="share_via">Aqsam permezz…</string>
   <string name="dialog_title_clear_saved_pages">Trid tħassar il-paġna kollha salvati?</string>
   <string name="snackbar_saved_page_missing_images">Ma kienx possibbli li l-istampi kollha jiġu ssejvjati.</string>
   <string name="delete_selected_saved_pages">Ħassar</string>
@@ -59,7 +59,7 @@
   <string name="login_password_show_check">Uri l-password</string>
   <string name="menu_login">Idħol</string>
   <string name="login_activity_title" fuzzy="true">Idħol fil-Wikipedija</string>
-  <string name="login_in_progress_dialog_message">Dieħel...</string>
+  <string name="login_in_progress_dialog_message">Dieħel…</string>
   <string name="login_error_wrong_password">Password ħażina</string>
   <string name="login_error_wrong_username">Isem l-utent ħażin</string>
   <string name="login_error_illegal">Isem l-utent invalidu</string>

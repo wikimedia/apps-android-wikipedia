@@ -240,7 +240,7 @@ Kullanım koşulları: https://meta.wikimedia.org/wiki/Terms_of_use/tr</string>
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
   <string name="gallery_menu_save">Cihaza kaydet</string>
-  <string name="gallery_save_progress">Dosya indiriliyor...</string>
+  <string name="gallery_save_progress">Dosya indiriliyor…</string>
   <string name="gallery_save_success">Dosya başarıyla kaydedildi.</string>
   <string name="gallery_error_video_failed">Video oynatılamadı.</string>
   <string name="gallery_save_image_write_permission_rationale">Görselleri kaydetmek için, cihaz hafızasına kaydetme izni gerekmektedir. Lütfen tekrar deneyin ve istenen izni verin.</string>

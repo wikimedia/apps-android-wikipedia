@@ -21,10 +21,10 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Bila hemû rûpelên tomarkirî bên rojanekirin?</string>
   <string name="share_via">Bi awayê $ parve bike</string>
   <string name="dialog_title_clear_saved_pages">Bila hemû rûpelên tomarkirî bên jêbirin?</string>
-  <string name="snackbar_saving_page">Rûpel tê tomarkirin...</string>
+  <string name="snackbar_saving_page">Rûpel tê tomarkirin…</string>
   <string name="snackbar_saved_page_format">\"%s\" ji bo xwendina offline hatiye tomarkirin</string>
   <string name="snackbar_saved_page_missing_images">Hemû wêne nikaribûn bên tomarkirin</string>
-  <string name="snackbar_refresh_saved_page">Rûpelên tomarkirî tên nûkirin...</string>
+  <string name="snackbar_refresh_saved_page">Rûpelên tomarkirî tên nûkirin…</string>
   <string name="delete_selected_saved_pages">Jê bibe</string>
   <string name="snackbar_saved_page_deleted">Rûpela(ên) hate(in) jêbirin</string>
   <string name="saved_pages_search_list_hint">Li rûpelên tomarkirî bigere</string>
@@ -49,7 +49,7 @@
   <string name="langlinks_activity_title">Zimanên din</string>
   <string name="menu_save_changes">Guhertinan tomar bike</string>
   <string name="edit_section_error_retry">Dîsa hewl bide</string>
-  <string name="dialog_saving_in_progress">Tê tomarkirin...</string>
+  <string name="dialog_saving_in_progress">Tê tomarkirin…</string>
   <string name="edit_saved_successfully">Guherandin hate tomarkirin!</string>
   <string name="dialog_message_edit_failed">Guherandin biser neket!</string>
   <string name="dialog_message_edit_failed_retry">Dîsa hewl bide</string>

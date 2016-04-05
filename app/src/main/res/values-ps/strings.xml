@@ -25,7 +25,7 @@
   <string name="snackbar_saving_page">مخ خوندي کېدو کې دی…</string>
   <string name="snackbar_saved_page_format">\"%s\" د پرې ليکې لوستنې لپاره خوندي شوی</string>
   <string name="snackbar_saved_page_missing_images">ټول انځورونه خوندي نه شول</string>
-  <string name="snackbar_refresh_saved_page">بياتاندېدنې او مخ خوندي کېدنې کې دی...</string>
+  <string name="snackbar_refresh_saved_page">بياتاندېدنې او مخ خوندي کېدنې کې دی…</string>
   <string name="delete_selected_saved_pages">ړنگول</string>
   <string name="snackbar_saved_page_deleted">خوندي مخ(مخونه) ړنگ شو(شول)</string>
   <string name="saved_pages_search_list_hint">خوندي مخونه پلټل</string>
@@ -50,7 +50,7 @@
   <string name="langlinks_activity_title">نورې ژبې</string>
   <string name="menu_save_changes">بدلونونه خوندي کول</string>
   <string name="edit_section_error_retry">بياآزمويل</string>
-  <string name="dialog_saving_in_progress">خوندي کېدنې کې دی...</string>
+  <string name="dialog_saving_in_progress">خوندي کېدنې کې دی…</string>
   <string name="dialog_message_edit_failed_retry">بياآزمويل</string>
   <string name="dialog_message_edit_failed_cancel">ناگارل</string>
   <string name="dialog_message_leaving_edit_leave">وتل</string>
@@ -64,7 +64,7 @@
   <string name="login_password_show_check">پټنوم ښکاره کول</string>
   <string name="menu_login">ننوتل</string>
   <string name="login_activity_title">ويکيپېډيا کې ننوتل</string>
-  <string name="login_in_progress_dialog_message">په ننوتلو کې دی...</string>
+  <string name="login_in_progress_dialog_message">په ننوتلو کې دی…</string>
   <string name="login_error_wrong_password">ناسم پټنوم</string>
   <string name="login_error_wrong_username">ناسم کارن-نوم</string>
   <string name="login_error_illegal">ناسم کارن-نوم</string>

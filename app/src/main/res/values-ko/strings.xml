@@ -236,7 +236,7 @@
   <string name="gallery_menu_share">공유</string>
   <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>
   <string name="gallery_menu_save">장치에 저장</string>
-  <string name="gallery_save_progress">파일 내려받기...</string>
+  <string name="gallery_save_progress">파일 내려받기…</string>
   <string name="gallery_save_success">파일 저장에 성공했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
   <string name="gallery_save_image_write_permission_rationale">디바이스 공간을 쓰는 권한은 이미지 저장을 위해서 입니다. 다시 시도해 주시고, 이 권한을 허용해 주십시오.</string>

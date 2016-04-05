@@ -92,7 +92,7 @@
   <string name="zero_learn_more">यो विकिपीडिया एप्पको लागी डाटा शुल्क मिनाहा गरिएको छ ।</string>
   <string name="zero_learn_more_learn_more">थप पढ्ने</string>
   <string name="zero_learn_more_dismiss">खारेज</string>
-  <string name="edit_preview_fetching_dialog_message">पूर्वावलोकन तयार गरिदै...</string>
+  <string name="edit_preview_fetching_dialog_message">पूर्वावलोकन तयार गरिदै…</string>
   <string name="send_feedback">एप्प प्रतिक्रिया पठाउनुहोस्</string>
   <string name="nav_item_random">अनियमित</string>
   <string name="create_account_account_created_toast">खाता खोलियो !</string>

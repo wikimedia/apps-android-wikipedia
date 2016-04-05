@@ -20,7 +20,7 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Panguza kurasa zote zilizohifadhiwa?</string>
   <string name="share_via">Shiriki kupitia</string>
   <string name="dialog_title_clear_saved_pages">Panguza kurasa zote zilizohifadhiwa?</string>
-  <string name="snackbar_saving_page">Inahifadhi ukurasa...</string>
+  <string name="snackbar_saving_page">Inahifadhi ukurasa…</string>
   <string name="snackbar_saved_page_format" fuzzy="true">Ukurasa umehifadhiwa</string>
   <string name="snackbar_saved_page_missing_images">Haingehifadhi picha zote</string>
   <string name="delete_selected_saved_pages">Futa</string>
@@ -42,7 +42,7 @@
   <string name="langlinks_activity_title">Lugha zingine</string>
   <string name="menu_save_changes">Hifadhi mabadiliko</string>
   <string name="edit_section_error_retry">Jaribu tena</string>
-  <string name="dialog_saving_in_progress">Inahifadhi...</string>
+  <string name="dialog_saving_in_progress">Inahifadhi…</string>
   <string name="edit_saved_successfully">Hariri imehifadhiwa!</string>
   <string name="dialog_message_edit_failed_retry">Jaribu tena</string>
   <string name="dialog_message_edit_failed_cancel">Ghairi</string>
@@ -58,7 +58,7 @@
   <string name="login_password_show_check">Onyesha neno la siri</string>
   <string name="menu_login">Ingia</string>
   <string name="login_activity_title" fuzzy="true">Ingia katika Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Inakuingiza...</string>
+  <string name="login_in_progress_dialog_message">Inakuingiza…</string>
   <string name="login_error_wrong_password">Neno la siri batili</string>
   <string name="login_error_wrong_username">Jina la mtumiaji batili</string>
   <string name="login_error_illegal">Jina la mtumiaji lisilo halali</string>
@@ -91,7 +91,7 @@
   <string name="zero_interstitial_cancel">Kaa Hapa</string>
   <string name="zero_learn_more_learn_more">Soma zaidi</string>
   <string name="zero_learn_more_dismiss">Futilia mbali</string>
-  <string name="edit_preview_fetching_dialog_message">Inapakia mtazamo...</string>
+  <string name="edit_preview_fetching_dialog_message">Inapakia mtazamo…</string>
   <string name="send_feedback">Toa maoni ya programu timizi</string>
   <string name="nav_item_random">Bahatisha</string>
   <string name="create_account_account_created_toast">Akaunti imeundwa!</string>

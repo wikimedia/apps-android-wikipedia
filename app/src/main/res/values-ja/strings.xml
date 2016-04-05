@@ -243,7 +243,7 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="gallery_menu_share">共有</string>
   <string name="gallery_share_error">画像が共有できませんでした: %s</string>
   <string name="gallery_menu_save">デバイスに保存</string>
-  <string name="gallery_save_progress">ファイルをダウンロードしています...</string>
+  <string name="gallery_save_progress">ファイルをダウンロードしています…</string>
   <string name="gallery_save_success">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込むパーミッションは画像の保存に必要になります。もう一度やり直して、このパーミッションを許可してください。</string>

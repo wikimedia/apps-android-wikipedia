@@ -242,7 +242,7 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
   <string name="gallery_menu_save">Lagre på enheten</string>
-  <string name="gallery_save_progress">Laster ned fil...</string>
+  <string name="gallery_save_progress">Laster ned fil…</string>
   <string name="gallery_save_success">Filen ble lagret.</string>
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilgang til lagring på enheten trengs for å lagre bilder. Vennligst prøv igjen og gi den nødvendige autorisasjonen.</string>

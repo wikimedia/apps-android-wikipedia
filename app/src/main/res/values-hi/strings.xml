@@ -26,7 +26,7 @@
   <string name="snackbar_saving_page">पृष्ठ सहेजा जा रहा है…</string>
   <string name="snackbar_saved_page_format">%s ऑफलाइन पढ़ने के लिए सहेजा गया</string>
   <string name="snackbar_saved_page_missing_images">सभी चित्र सहेजे नहीं गये</string>
-  <string name="snackbar_refresh_saved_page">सहेजे गये पृष्ठ को पुनः रिफ्रेश किया जा रहा है...</string>
+  <string name="snackbar_refresh_saved_page">सहेजे गये पृष्ठ को पुनः रिफ्रेश किया जा रहा है…</string>
   <string name="delete_selected_saved_pages">मिटाएँ</string>
   <string name="snackbar_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
   <string name="saved_pages_search_list_hint">सहेजे गए पेज खोजें</string>
@@ -61,7 +61,7 @@
   <string name="langlinks_activity_title">अन्य भाषाएँ</string>
   <string name="menu_save_changes">परिवर्तन सहेजें</string>
   <string name="edit_section_error_retry">पुन: प्रयास</string>
-  <string name="dialog_saving_in_progress">सहेजा जा रहा है...</string>
+  <string name="dialog_saving_in_progress">सहेजा जा रहा है…</string>
   <string name="edit_saved_successfully">सम्पादन सहेजा गया!</string>
   <string name="dialog_message_edit_failed">सम्पादन असफल रहा!</string>
   <string name="dialog_message_edit_failed_retry">पुन: प्रयास करें</string>
@@ -82,7 +82,7 @@
   <string name="login_password_show_check">पासवर्ड को प्रदर्शित करें।</string>
   <string name="menu_login">प्रवेश</string>
   <string name="login_activity_title">विकिपीडिया में लॉगिन करें</string>
-  <string name="login_in_progress_dialog_message">आपको लॉगिन किया जा रहा है...</string>
+  <string name="login_in_progress_dialog_message">आपको लॉगिन किया जा रहा है…</string>
   <string name="login_error_wrong_password">कूटशब्द (पासवर्ड) गलत है</string>
   <string name="login_error_wrong_username">गलत उपयोगकर्ता नाम</string>
   <string name="login_error_illegal">अमान्य यूज़रनेम</string>
@@ -135,7 +135,7 @@
   <string name="zero_learn_more">इस विकिपीडिया एप के लिए डेटा शुल्क नहीं लिया जाता।</string>
   <string name="zero_learn_more_learn_more">और पढ़ें</string>
   <string name="zero_learn_more_dismiss">हटायें</string>
-  <string name="edit_preview_fetching_dialog_message">प्रीव्यू लिया जा रहा है...</string>
+  <string name="edit_preview_fetching_dialog_message">प्रीव्यू लिया जा रहा है…</string>
   <string name="send_feedback">एप फीडबैक भेजें</string>
   <string name="nav_item_random">कोई भी</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
@@ -235,7 +235,7 @@
   <string name="gallery_menu_share">साझा करें</string>
   <string name="gallery_share_error">%s चित्र की साँझा नहीं किया जा सका</string>
   <string name="gallery_menu_save">डिवाइस पर सहेजें</string>
-  <string name="gallery_save_progress">फ़ाइल को डाउनलोड किया जा रहा है...</string>
+  <string name="gallery_save_progress">फ़ाइल को डाउनलोड किया जा रहा है…</string>
   <string name="gallery_save_success">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
   <string name="gallery_error_video_failed">वीडियो को चलाया नहीं जा सका।</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रों को सहेजने के लिए आपके स्टोरेज पर लिखने की अनुमति की आवश्यकता है। कृपया दोबारा प्रयास करें, और मांगी गयी अनुमति प्रदान करें।</string>

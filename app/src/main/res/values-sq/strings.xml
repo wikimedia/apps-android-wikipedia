@@ -21,10 +21,10 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Përditëso të gjitha faqet e ruajtura?</string>
   <string name="share_via">Shpërndaj nëpërmjet</string>
   <string name="dialog_title_clear_saved_pages">Pastro të gjitha faqet e ruajtura?</string>
-  <string name="snackbar_saving_page">Duke ruajtur faqet...</string>
+  <string name="snackbar_saving_page">Duke ruajtur faqet…</string>
   <string name="snackbar_saved_page_format">\"%s\" u ruajt për lexim \'\'offline\'\'</string>
   <string name="snackbar_saved_page_missing_images">Nuk mund të ruhen të gjitha figurat</string>
-  <string name="snackbar_refresh_saved_page">Duke rifreksuar faqen e ruajtur...</string>
+  <string name="snackbar_refresh_saved_page">Duke rifreksuar faqen e ruajtur…</string>
   <string name="delete_selected_saved_pages">Fshij</string>
   <string name="snackbar_saved_page_deleted">Faqet e ruajtura u fshinë</string>
   <string name="saved_pages_search_list_hint">Kërko faqet e ruajtura</string>
@@ -49,7 +49,7 @@
   <string name="langlinks_activity_title">Gjuhët e tjera</string>
   <string name="menu_save_changes">Ruaj ndryshimet</string>
   <string name="edit_section_error_retry">Riprovo</string>
-  <string name="dialog_saving_in_progress">Duke ruajtur...</string>
+  <string name="dialog_saving_in_progress">Duke ruajtur…</string>
   <string name="edit_saved_successfully">Redaktimi u shpëtua!</string>
   <string name="dialog_message_edit_failed">Redaktimi dështoi!</string>
   <string name="dialog_message_edit_failed_retry">Riprovo</string>
@@ -69,7 +69,7 @@
   <string name="login_password_show_check">Shfaq fjalëkalimin</string>
   <string name="menu_login">Hyni</string>
   <string name="login_activity_title">Hyni në Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Duke hyrë...</string>
+  <string name="login_in_progress_dialog_message">Duke hyrë…</string>
   <string name="login_error_wrong_password">Fjalëkalim i gabuar</string>
   <string name="login_error_wrong_username">Emri i përdoruesit është I pasaktë</string>
   <string name="login_error_illegal">Emër përdoruesi i pavlefshëm</string>

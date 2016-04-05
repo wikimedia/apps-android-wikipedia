@@ -16,7 +16,7 @@
   <string name="nav_item_saved_pages">Saglabātās lapas</string>
   <string name="share_via">Dalīties, izmantojot</string>
   <string name="dialog_title_clear_saved_pages" fuzzy="true">Notīrīt grāmatzīmes</string>
-  <string name="snackbar_saving_page">Saglabā lapu...</string>
+  <string name="snackbar_saving_page">Saglabā lapu…</string>
   <string name="delete_selected_saved_pages">Dzēst</string>
   <string name="menu_page_other_languages">Mainīt valodu</string>
   <string name="menu_page_find_in_page">Atrast lapā</string>
@@ -39,7 +39,7 @@
   <string name="langlinks_activity_title">Citas valodas</string>
   <string name="menu_save_changes">Saglabāt izmaiņas</string>
   <string name="edit_section_error_retry">Mēģināt vēlreiz</string>
-  <string name="dialog_saving_in_progress">Saglabā...</string>
+  <string name="dialog_saving_in_progress">Saglabā…</string>
   <string name="edit_saved_successfully">Labojums saglabāts!</string>
   <string name="dialog_message_edit_failed">Neizdevās labot!</string>
   <string name="dialog_message_edit_failed_retry">Mēģināt vēlreiz</string>

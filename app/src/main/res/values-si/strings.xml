@@ -20,7 +20,7 @@
   <string name="dialog_prompt_refresh_all_saved_pages">සියලුම සුරක්ෂිත පිටු යාවත්කාලීන කරනවද?</string>
   <string name="share_via">මගින් හුවමාරු කරන්න</string>
   <string name="dialog_title_clear_saved_pages">සියලුම සුරක්ෂිත පිටු හිස් කරනවද?</string>
-  <string name="snackbar_saving_page">පිටුව සුරකිමින්...</string>
+  <string name="snackbar_saving_page">පිටුව සුරකිමින්…</string>
   <string name="snackbar_saved_page_format">\"%s\" පිටුව අන්තර්ජාල සබඳතාව නොමැතිව කියවීම සඳහා සුරකින ලදී</string>
   <string name="snackbar_saved_page_missing_images">සියලු ඡායාරූප සුරැකීමට නොහැකි විය</string>
   <string name="delete_selected_saved_pages">මකන්න</string>
@@ -49,7 +49,7 @@
   <string name="langlinks_activity_title">වෙනත් භාෂාවන්</string>
   <string name="menu_save_changes">වෙනස්කම් සුරකින්න</string>
   <string name="edit_section_error_retry">නැවත උත්සහ කරන්න</string>
-  <string name="dialog_saving_in_progress">සුරැකෙමින් පවතී...</string>
+  <string name="dialog_saving_in_progress">සුරැකෙමින් පවතී…</string>
   <string name="edit_saved_successfully">සංස්කරණය සුරකින ලදී!</string>
   <string name="dialog_message_edit_failed">සංස්කරණය අසාර්ථකයි!</string>
   <string name="dialog_message_edit_failed_retry">නැවත උත්සහ කරන්න</string>
@@ -67,7 +67,7 @@
   <string name="login_password_show_check">මුරපදය පෙන්වන්න</string>
   <string name="menu_login">පිවිසෙන්න</string>
   <string name="login_activity_title" fuzzy="true">විකිපීඩියාවට පිවිසෙන්න</string>
-  <string name="login_in_progress_dialog_message">ඔබව ඇතුළු කරමින්...</string>
+  <string name="login_in_progress_dialog_message">ඔබව ඇතුළු කරමින්…</string>
   <string name="login_error_wrong_password">වැරදි මුරපදය</string>
   <string name="login_error_wrong_username">වැරදි පරිශීලක නාමය</string>
   <string name="login_error_illegal">පරිශීලක නාමය වළංගු නොවේ</string>
