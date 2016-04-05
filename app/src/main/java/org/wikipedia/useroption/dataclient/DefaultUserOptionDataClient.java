@@ -43,8 +43,8 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     }
 
     @Override
-    public void delete(@NonNull UserOption option) {
-        client.delete(getToken(), option.key()).check(site);
+    public void delete(@NonNull String key) {
+        client.delete(getToken(), key).check(site);
     }
 
     @NonNull private String getToken() {

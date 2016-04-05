@@ -3,34 +3,18 @@ package org.wikipedia.database.http;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.database.async.DefaultAsyncRow;
 import org.wikipedia.database.async.AsyncRow;
 
-public class HttpRow extends DefaultAsyncRow<HttpStatus> {
-    @NonNull private HttpStatus status;
+public class HttpRow extends AsyncRow<HttpStatus> {
+    private static final HttpStatus DEFAULT_STATUS = HttpStatus.SYNCHRONIZED;
 
-    public HttpRow() {
-        status = HttpStatus.SYNCHRONIZED;
+    public HttpRow(@NonNull String key) {
+        super(key, DEFAULT_STATUS);
     }
 
-    public HttpRow(@NonNull HttpStatus status, long timestamp, long transactionId) {
-        super(timestamp, transactionId);
-        this.status = status;
-    }
-
-    @NonNull @Override public HttpStatus status() {
-        return status;
-    }
-
-    @Override
-    public int statusCode() {
-        return status().code();
-    }
-
-    @Override
-    public void resetTransaction(@NonNull HttpStatus status) {
-        this.status = status;
-        super.resetTransaction(status);
+    public HttpRow(@NonNull String key, @NonNull HttpStatus status, long timestamp,
+                   long transactionId) {
+        super(key, status, timestamp, transactionId);
     }
 
     @Override
@@ -42,6 +26,6 @@ public class HttpRow extends DefaultAsyncRow<HttpStatus> {
     @Override
     public void completeTransaction(long timestamp) {
         super.completeTransaction(timestamp);
-        resetTransaction(HttpStatus.SYNCHRONIZED);
+        resetTransaction(DEFAULT_STATUS);
     }
 }

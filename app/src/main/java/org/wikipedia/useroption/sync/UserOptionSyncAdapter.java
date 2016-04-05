@@ -54,28 +54,29 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
         UserInfo info = UserOptionDataClientSingleton.instance().get();
         Collection<UserOption> options = info.userjsOptions();
         L.i("downloaded " + options.size() + " option(s)");
-        UserOptionDao.instance().reconcileOptions(options);
+        UserOptionDao.instance().reconcileTransaction(options);
     }
 
     private void upload() {
-        List<UserOptionRow> options = new ArrayList<>(UserOptionDao.instance().startTransaction());
-        L.i("uploading " + options.size() + " option(s)");
-        while (!options.isEmpty()) {
-            UserOptionRow option = options.get(0);
+        List<UserOptionRow> rows = new ArrayList<>(UserOptionDao.instance().startTransaction());
+        L.i("uploading " + rows.size() + " option(s)");
+        while (!rows.isEmpty()) {
+            UserOptionRow row = rows.get(0);
 
             try {
-                if (option.status() == HttpStatus.DELETED) {
-                    UserOptionDataClientSingleton.instance().delete(option);
+                if (row.status() == HttpStatus.DELETED) {
+                    UserOptionDataClientSingleton.instance().delete(row.key());
                 } else {
-                    UserOptionDataClientSingleton.instance().post(option);
+                    //noinspection ConstantConditions
+                    UserOptionDataClientSingleton.instance().post(row.option());
                 }
             } catch (RetrofitError e) {
-                UserOptionDao.instance().failTransaction(options);
+                UserOptionDao.instance().failTransaction(rows);
                 throw e;
             }
 
-            UserOptionDao.instance().completeTransaction(option);
-            options.remove(0);
+            UserOptionDao.instance().completeTransaction(row);
+            rows.remove(0);
         }
     }
 }

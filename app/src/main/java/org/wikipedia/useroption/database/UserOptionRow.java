@@ -1,79 +1,37 @@
 package org.wikipedia.useroption.database;
 
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.database.async.AsyncRow;
+import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.database.http.HttpRow;
-import org.wikipedia.database.http.HttpStatus;
 import org.wikipedia.useroption.UserOption;
 
-public class UserOptionRow extends UserOption implements AsyncRow<HttpStatus> {
+public class UserOptionRow extends HttpRow {
     public static final UserOptionDatabaseTable DATABASE_TABLE = new UserOptionDatabaseTable();
+    public static final UserOptionHttpDatabaseTable HTTP_DATABASE_TABLE = new UserOptionHttpDatabaseTable();
 
-    @NonNull private final HttpRow http;
+    @Nullable private UserOption option;
 
-    public UserOptionRow(@NonNull String key) {
-        super(key);
-        this.http = new HttpRow();
+    public static UserOptionRow fromCursor(@NonNull Cursor cursor) {
+        HttpRow httpRow = HTTP_DATABASE_TABLE.fromCursor(cursor);
+        boolean hasOption = cursor.getColumnIndex(UserOptionContract.OptionWithHttp.KEY.getName()) != -1;
+        UserOption option = hasOption ? DATABASE_TABLE.fromCursor(cursor) : null;
+        return new UserOptionRow(httpRow, option);
     }
 
     public UserOptionRow(@NonNull UserOption option) {
-        super(option);
-        this.http = new HttpRow();
+        super(option.key());
+        this.option = option;
     }
 
-    public UserOptionRow(@NonNull String key, @Nullable String val) {
-        super(key, val);
-        this.http = new HttpRow();
+    public UserOptionRow(@NonNull HttpRow httpRow, @Nullable UserOption option) {
+        super(httpRow.key(), httpRow.status(), httpRow.timestamp(), httpRow.transactionId());
+        this.option = option;
     }
 
-    public UserOptionRow(@NonNull String key, @Nullable String val, @NonNull HttpRow http) {
-        super(key, val);
-        this.http = http;
-    }
-
-    @NonNull @Override public HttpStatus status() {
-        return http.status();
-    }
-
-    @Override
-    public int statusCode() {
-        return http.statusCode();
-    }
-
-    @Override
-    public long timestamp() {
-        return http.timestamp();
-    }
-
-    @Override
-    public long transactionId() {
-        return http.transactionId();
-    }
-
-    @Override
-    public void resetTransaction(@NonNull HttpStatus status) {
-        http.resetTransaction(status);
-    }
-
-    @Override
-    public void startTransaction() {
-        http.startTransaction();
-    }
-
-    @Override
-    public boolean completable(@Nullable AsyncRow<HttpStatus> query) {
-        return http.completable(query);
-    }
-
-    @Override
-    public void completeTransaction(long timestamp) {
-        http.completeTransaction(timestamp);
-    }
-
-    @Override
-    public void failTransaction() {
-        http.failTransaction();
+    @Nullable public UserOption option() {
+        return option;
     }
 }

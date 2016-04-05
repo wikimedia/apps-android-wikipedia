@@ -21,7 +21,7 @@ public class UserOptionRowCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        UserOptionRow item = UserOptionRow.DATABASE_TABLE.fromCursor(cursor);
+        UserOptionRow item = UserOptionRow.fromCursor(cursor);
         UserOptionRowView v = (UserOptionRowView) view;
         v.set(UserOptionContract.Option.ID.val(cursor), item);
     }

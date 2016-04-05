@@ -1,5 +1,8 @@
 package org.wikipedia.database;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import org.wikipedia.database.column.Column;
@@ -39,6 +42,27 @@ public final class DbUtil {
             strs.add(col.qualifiedName());
         }
         return strs;
+    }
+
+    public static void execSqlTransaction(@NonNull SQLiteDatabase db, @NonNull String statements) {
+        try {
+            db.beginTransaction();
+            for (String statement : statements.split(";")) {
+                db.execSQL(statement);
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    @NonNull public static <T> Collection<T> cursorToCollection(@NonNull DatabaseClient<T> client,
+                                                                @NonNull Cursor cursor) {
+        Collection<T> ret = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            ret.add(client.fromCursor(cursor));
+        }
+        return ret;
     }
 
     private DbUtil() { }

@@ -14,9 +14,8 @@ import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.util.log.L;
 
 public class Database extends SQLiteOpenHelper {
-
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
 
     private final DatabaseTable<?>[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
@@ -24,6 +23,11 @@ public class Database extends SQLiteOpenHelper {
             RecentSearch.DATABASE_TABLE,
             SavedPage.DATABASE_TABLE,
             EditSummary.DATABASE_TABLE,
+
+            // Order matters. UserOptionDatabaseTable has a dependency on this table when upgrading
+            // so this table must appear before it.
+            UserOptionRow.HTTP_DATABASE_TABLE,
+
             UserOptionRow.DATABASE_TABLE
     };
 

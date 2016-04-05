@@ -2,6 +2,7 @@ package org.wikipedia.database.http;
 
 import android.support.annotation.NonNull;
 
+import org.wikipedia.model.CodeEnum;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 
@@ -20,6 +21,12 @@ public enum HttpStatus implements EnumCode {
 
     /** Row exists remotely and should be deleted. */
     DELETED(4);
+
+    public static final CodeEnum<HttpStatus> CODE_ENUM = new CodeEnum<HttpStatus>() {
+        @NonNull @Override public HttpStatus enumeration(int code) {
+            return of(code);
+        }
+    };
 
     private static final EnumCodeMap<HttpStatus> MAP = new EnumCodeMap<>(HttpStatus.class);
 

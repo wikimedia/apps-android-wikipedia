@@ -41,6 +41,7 @@ import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
@@ -328,8 +329,10 @@ public class WikipediaApp extends Application {
                 client = new DatabaseClient<>(this, SavedPage.DATABASE_TABLE);
             } else if (cls.equals(EditSummary.class)) {
                 client = new DatabaseClient<>(this, EditSummary.DATABASE_TABLE);
-            } else if (cls.equals(UserOptionRow.class)) {
+            } else if (cls.equals(UserOption.class)) {
                 client = new DatabaseClient<>(this, UserOptionRow.DATABASE_TABLE);
+            } else if (cls.equals(UserOptionRow.class)) {
+                client = new DatabaseClient<>(this, UserOptionRow.HTTP_DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }

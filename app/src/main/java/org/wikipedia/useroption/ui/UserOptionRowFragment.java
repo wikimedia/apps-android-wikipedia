@@ -90,11 +90,11 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            Uri uri = UserOptionContract.Option.URI;
+            Uri uri = UserOptionContract.OptionWithHttp.URI;
             final String[] projection = null;
             final String selection = null;
             final String[] selectionArgs = null;
-            String order = UserOptionContract.Option.ID.getName() + " desc";
+            String order = UserOptionContract.Option.ID.qualifiedName() + " desc";
             return new CursorLoader(context(), uri, projection, selection, selectionArgs, order);
         }
     }

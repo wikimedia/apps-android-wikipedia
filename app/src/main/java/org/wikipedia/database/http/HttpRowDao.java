@@ -1,52 +1,47 @@
 package org.wikipedia.database.http;
 
-import android.database.Cursor;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.database.DatabaseClient;
-import org.wikipedia.database.async.AsyncConstant;
-import org.wikipedia.database.async.AsyncRow;
-import org.wikipedia.database.contract.UserOptionContract;
+import org.wikipedia.database.async.AsyncDao;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
-public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
-    @NonNull private final DatabaseClient<T> client;
+public class HttpRowDao<T extends HttpRow> extends AsyncDao<HttpStatus, T> {
     /**
      * @param client Database client singleton. No writes should be performed to the table outside
      *               of SyncRowDao.
      */
     public HttpRowDao(@NonNull DatabaseClient<T> client) {
-        this.client = client;
+        super(client);
     }
 
-    protected synchronized void upsert(@NonNull T item) {
-        T local = queryItem(item);
-        switch (local == null ? HttpStatus.ADDED : local.status()) {
+    public synchronized void upsertTransaction(@NonNull T item) {
+        T query = queryPrimaryKey(item);
+        switch (query == null ? HttpStatus.DELETED : query.status()) {
             case SYNCHRONIZED:
             case OUTDATED:
             case MODIFIED:
-                modifyTransaction(item);
+                resetTransaction(item, HttpStatus.MODIFIED);
+                break;
+            case DELETED:
+                resetTransaction(item, HttpStatus.ADDED);
                 break;
             case ADDED:
-            case DELETED:
-                addTransaction(item);
                 break;
             default:
                 throw new RuntimeException("status=" + item.status());
         }
     }
 
-    protected synchronized void update(@NonNull T item) {
-        T local = queryItem(item);
-        switch (local == null ? HttpStatus.SYNCHRONIZED : local.status()) {
+    public synchronized void updateTransaction(@NonNull T item) {
+        T query = queryPrimaryKey(item);
+        switch (query == null ? HttpStatus.SYNCHRONIZED : query.status()) {
             case SYNCHRONIZED:
             case MODIFIED:
             case ADDED:
             case DELETED:
-                insertTransaction(item, HttpStatus.OUTDATED);
+                resetTransaction(item, HttpStatus.OUTDATED);
                 break;
             case OUTDATED:
                 break;
@@ -55,14 +50,14 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
         }
     }
 
-    protected synchronized void delete(@NonNull T item) {
-        T local = queryItem(item);
-        switch (local == null ? HttpStatus.DELETED : local.status()) {
+    public synchronized void deleteTransaction(@NonNull T item) {
+        T query = queryPrimaryKey(item);
+        switch (query == null ? HttpStatus.DELETED : query.status()) {
             case SYNCHRONIZED:
             case OUTDATED:
             case MODIFIED:
             case ADDED:
-                delete(item);
+                resetTransaction(item, HttpStatus.DELETED);
                 break;
             case DELETED:
                 break;
@@ -71,30 +66,14 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
         }
     }
 
-    /**
-     * Delete all table rows but don't update service state. For example, a user logs out and all
-     * private data stored locally should be removed. If the sync adapter account is not removed,
-     * the data may be repopulated.
-     */
-    public synchronized void clear() {
-        client.deleteAll();
-    }
-
-    public synchronized void reconcile(@NonNull T item) {
-        completeTransaction(item, System.currentTimeMillis());
+    public void reconcileTransaction(@NonNull Collection<T> items) {
+        for (T item : items) {
+            completeTransaction(item);
+        }
 
         // TODO: delete items no longer present in the database. The passed in list of items is
         //       expected to be the full list of items available on the service. After upserting,
         //       delete anything older than the current timestamp.
-    }
-
-    @NonNull public synchronized Collection<T> startTransaction() {
-        Collection<T> items = querySyncable();
-        for (T item : items) {
-            item.startTransaction();
-            insertItem(item);
-        }
-        return items;
     }
 
     public void completeTransaction(@NonNull T item) {
@@ -102,99 +81,14 @@ public abstract class HttpRowDao<T extends AsyncRow<HttpStatus>> {
         completeTransaction(item, timestamp);
     }
 
-    public synchronized void completeTransaction(@NonNull T item, long timestamp) {
-        if (!completable(item)) {
-            return;
+    @Override
+    public synchronized boolean completeTransaction(@NonNull T item, long timestamp) {
+        if (super.completeTransaction(item, timestamp)) {
+            if (item.status() == HttpStatus.DELETED) {
+                delete(item);
+            }
+            return true;
         }
-
-        switch (item.status()) {
-            case SYNCHRONIZED:
-            case OUTDATED:
-            case MODIFIED:
-            case ADDED:
-                item.completeTransaction(timestamp);
-                insertItem(item);
-                break;
-            case DELETED:
-                removeItem(item);
-                break;
-            default:
-                throw new RuntimeException("status=" + item.status());
-        }
-    }
-
-    public void failTransaction(@NonNull Collection<T> items) {
-        for (T item : items) {
-            failTransaction(item);
-        }
-    }
-
-    public synchronized void failTransaction(@NonNull T item) {
-        if (!completable(item)) {
-            return;
-        }
-
-        item.resetTransaction(item.status());
-        insertItem(item);
-    }
-
-    private boolean completable(@NonNull T item) {
-        T local = queryItem(item);
-        return item.completable(local);
-    }
-
-    @NonNull private Collection<T> querySyncable() {
-        final String[] selectionArgs = null;
-        String selection = UserOptionContract.Option.HTTP.status() + " != " + HttpStatus.SYNCHRONIZED.code() + " and "
-                + UserOptionContract.Option.HTTP.transactionId() + " == " + AsyncConstant.NO_TRANSACTION_ID;
-        final String sortOrder = null;
-        Cursor cursor = client.select(selection, selectionArgs, sortOrder);
-        try {
-            return cursorToCollection(cursor);
-        } finally {
-            cursor.close();
-        }
-    }
-
-    @NonNull private Collection<T> cursorToCollection(@NonNull Cursor cursor) {
-        Collection<T> ret = new ArrayList<>();
-        while (cursor.moveToNext()) {
-            ret.add(client.fromCursor(cursor));
-        }
-        return ret;
-    }
-
-    private void addTransaction(@NonNull T item) {
-        insertTransaction(item, HttpStatus.ADDED);
-    }
-
-    private void modifyTransaction(@NonNull T item) {
-        insertTransaction(item, HttpStatus.MODIFIED);
-    }
-
-    private void insertTransaction(@NonNull T item, @NonNull HttpStatus status) {
-        item.resetTransaction(status);
-        insertItem(item);
-    }
-
-    @Nullable protected T queryItem(@NonNull T item) {
-        String[] selectionArgs = client.getPrimaryKeySelectionArgs(item);
-        String selection = client.getPrimaryKeySelection(item, selectionArgs);
-        final String sortOrder = null;
-        Cursor cursor = client.select(selection, selectionArgs, sortOrder);
-        try {
-            return cursor.moveToNext() ? client.fromCursor(cursor) : null;
-        } finally {
-            cursor.close();
-        }
-    }
-
-    private synchronized void removeItem(@NonNull T item) {
-        String[] selectionArgs = client.getPrimaryKeySelectionArgs(item);
-        client.delete(item, selectionArgs);
-    }
-
-    protected synchronized void insertItem(@NonNull T item) {
-        client.persist(item);
+        return false;
     }
 }

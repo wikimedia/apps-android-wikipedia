@@ -31,8 +31,12 @@ public enum AppContentProviderEndpoint implements EnumCode {
             SavedPageContract.Page.PROJECTION),
     SAVED_PAGE_WITH_IMAGE(201, SavedPageContract.PageWithImage.PATH,
             SavedPageContract.PageWithImage.TABLES, SavedPageContract.PageWithImage.PROJECTION),
-    USER_OPTION(300, UserOptionContract.Option.AUTHORITY, UserOptionContract.Option.PATH,
-            UserOptionContract.Option.TABLES, UserOptionContract.Option.PROJECTION);
+    USER_OPTION(300, UserOptionContract.AUTHORITY, UserOptionContract.Option.PATH,
+            UserOptionContract.Option.TABLES, UserOptionContract.Option.PROJECTION),
+    USER_OPTION_HTTP(301, UserOptionContract.AUTHORITY, UserOptionContract.Http.PATH,
+            UserOptionContract.Http.TABLES, UserOptionContract.Http.PROJECTION),
+    USER_OPTION_WITH_HTTP(302, UserOptionContract.AUTHORITY, UserOptionContract.OptionWithHttp.PATH,
+            UserOptionContract.OptionWithHttp.TABLES, UserOptionContract.OptionWithHttp.PROJECTION);
 
     private static final EnumCodeMap<AppContentProviderEndpoint> CODE_TO_ENUM = new EnumCodeMap<>(AppContentProviderEndpoint.class);
     private static final UriMatcher URI_TO_CODE = newUriToCode();

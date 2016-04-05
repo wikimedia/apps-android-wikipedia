@@ -34,8 +34,13 @@ public class DatabaseClient<T> {
 
     public Cursor select(@Nullable String selection, @Nullable String[] selectionArgs,
                          @Nullable String sortOrder) {
+        return select(uri(), selection, selectionArgs, sortOrder);
+    }
+
+    public Cursor select(@NonNull Uri uri, @Nullable String selection,
+                         @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         try {
-            return client.query(uri(), null, selection, selectionArgs, sortOrder);
+            return client.query(uri, null, selection, selectionArgs, sortOrder);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

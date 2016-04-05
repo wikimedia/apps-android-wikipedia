@@ -46,17 +46,17 @@ public class UserOptionRowView extends LinearLayout {
         init();
     }
 
-    public void set(long id, UserOptionRow option) {
+    public void set(long id, UserOptionRow row) {
         this.id.setText(String.valueOf(id));
-        key.setText(option.key());
-        value.setText(String.valueOf(option.val()));
-        status.setText(option.status().toString());
-        status.setVisibility(option.status().synced() ? GONE : VISIBLE);
-        long age = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - option.timestamp());
+        key.setText(row.key());
+        value.setText(row.option() == null ? "DEL" : row.option().val());
+        status.setText(row.status().toString());
+        status.setVisibility(row.status().synced() ? GONE : VISIBLE);
+        long age = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - row.timestamp());
         timestamp.setText(String.valueOf(age));
-        timestamp.setVisibility(option.timestamp() == 0 ? GONE : VISIBLE);
-        transactionId.setText(String.valueOf(option.transactionId()));
-        transactionId.setVisibility(option.transactionId() == AsyncConstant.NO_TRANSACTION_ID ? GONE : VISIBLE);
+        timestamp.setVisibility(row.timestamp() == 0 ? GONE : VISIBLE);
+        transactionId.setText(String.valueOf(row.transactionId()));
+        transactionId.setVisibility(row.transactionId() == AsyncConstant.NO_TRANSACTION_ID ? GONE : VISIBLE);
     }
 
     private void init() {

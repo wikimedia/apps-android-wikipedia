@@ -5,16 +5,12 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.database.async.AsyncColumns;
 
-public class HttpColumns extends AsyncColumns<HttpStatus> {
-    public HttpColumns(@NonNull String tbl, @NonNull String namePrefix) {
-        super(tbl, namePrefix);
+public class HttpColumns extends AsyncColumns<HttpStatus, HttpRow> {
+    public HttpColumns(@NonNull String tbl) {
+        super(tbl, "http", HttpStatus.CODE_ENUM);
     }
 
     @NonNull @Override public HttpRow val(@NonNull Cursor cursor) {
-        return new HttpRow(status(cursor), timestamp(cursor), transactionId(cursor));
-    }
-
-    @NonNull @Override protected HttpStatus statusOf(int code) {
-        return HttpStatus.of(code);
+        return new HttpRow(key(cursor), status(cursor), timestamp(cursor), transactionId(cursor));
     }
 }

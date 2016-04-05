@@ -7,5 +7,5 @@ import org.wikipedia.useroption.UserOption;
 public interface UserOptionDataClient {
     @NonNull UserInfo get();
     void post(@NonNull UserOption option);
-    void delete(@NonNull UserOption option);
+    void delete(@NonNull String key);
 }
