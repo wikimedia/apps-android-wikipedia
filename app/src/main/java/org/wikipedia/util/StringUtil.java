@@ -77,7 +77,7 @@ public final class StringUtil {
     @NonNull
     public static String[] removeNulls(@NonNull String[] args) {
         List<String> list = new ArrayList<>(Arrays.asList(args));
-        list.removeAll(Collections.singleton(null));
+        list.removeAll(Collections.<String>singleton(null));
         return list.toArray(new String[list.size()]);
     }
 
