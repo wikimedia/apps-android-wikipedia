@@ -37,8 +37,8 @@ module.exports = function ( grunt ) {
 				jshintrc: true
 			},
 			all: [
-				'../*.js',
-				'**/*.js',
+				'js/*.js',
+				'js/transforms/*.js',
 				'!node_modules/**',
 				'!lib/**'
 			]
