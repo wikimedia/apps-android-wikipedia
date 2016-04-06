@@ -34,6 +34,7 @@ import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.ServiceError;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -623,6 +624,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     .put("siteLanguage", model.getTitle().getSite().languageCode())
                     .put("isMainPage", page.isMainPage())
                     .put("fromRestBase", page.isFromRestBase())
+                    .put("isNetworkMetered", DeviceUtil.isNetworkMetered(app))
                     .put("apiLevel", Build.VERSION.SDK_INT);
         } catch (JSONException e) {
             throw new RuntimeException(e);

@@ -464,6 +464,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     window.fromRestBase = payload.fromRestBase;
     window.isBeta = payload.isBeta;
     window.siteLanguage = payload.siteLanguage;
+    window.isNetworkMetered = payload.isNetworkMetered;
 
     // append the content to the DOM now, so that we can obtain
     // dimension measurements for items.
@@ -488,7 +489,10 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
         transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
-        transformer.transform( "widenImages", content ); // offsetWidth
+
+        if (!window.isNetworkMetered) {
+            transformer.transform( "widenImages", content ); // offsetWidth
+        }
     }
 
     // insert the edit pencil
@@ -560,7 +564,10 @@ function elementsForSection( section ) {
     if (!window.isMainPage) {
         transformer.transform( "hideTables", content ); // clickHandler
         transformer.transform( "addImageOverflowXContainers", content ); // offsetWidth
-        transformer.transform( "widenImages", content ); // offsetWidth
+
+        if (!window.isNetworkMetered) {
+            transformer.transform( "widenImages", content ); // offsetWidth
+        }
     }
 
     return [ heading, content ];
