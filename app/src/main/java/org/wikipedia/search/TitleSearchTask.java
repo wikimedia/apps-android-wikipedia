@@ -105,7 +105,9 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
         }
 
         // Go through the redirects array (if any), and transfer any "tofragment" items to
-        // the original results.
+        // the original results. "tofragment", if it exists, contains a link to a particular
+        // section of the page, which is important to preserve so the user gets redirected to the
+        // correct section.
         if (queryResult.has("redirects")) {
             JSONArray redirs = queryResult.getJSONArray("redirects");
             for (int i = 0; i < redirs.length(); i++) {
