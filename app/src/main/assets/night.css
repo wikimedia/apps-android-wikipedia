@@ -1,5 +1,3 @@
-/* Same specificity as in MFE/less/content/hacks.less */
-/* Same specificity as in MFE/less/content/hacks.less */
 body {
   color: #999;
   background: #000;
@@ -9,16 +7,18 @@ a {
 }
 a.external {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAGJJREFUKFN1jdENgCAMBYmJn47Bak7DZrhTpc/XIm34OAjXA4qIgHI/dSBbLGTcOKjBryFlinGmjDQGiOF0MQkxI3v5wq6L38qR7SnsAx8ul37igPjAd+o5Oz2MRA+xY4ZSXuaW6wYouOLpAAAAAElFTkSuQmCC);
-  background-image: url(http://127.0.0.1:8080/w/extensions/MobileApp/images/external-link-ltr.png?36384)!ie;
+  background-image: url(/w/extensions/MobileApp/images/external-link-ltr.png?36384)!ie;
 }
+/* Same specificity as in MFE/less/content/hacks.less */
 .stable .content table.infobox {
   background: #000;
 }
+/* Same specificity as in MFE/less/content/hacks.less */
 .content table td,
 .content table th,
 .content table.infobox th,
 .content table.infobox td {
-  border-color: rgba(128,128,128,0.12);
+  border-color: rgba(128, 128, 128, 0.12);
 }
 .app_table_container {
   box-shadow: none;
