@@ -5,87 +5,73 @@ import android.support.annotation.NonNull;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.async.AsyncDao;
 
-import java.util.Collection;
-
-public class HttpRowDao<T extends HttpRow> extends AsyncDao<HttpStatus, T> {
+public class HttpRowDao<Dat, Row extends HttpRow<Dat>> extends AsyncDao<HttpStatus, Dat, Row> {
     /**
      * @param client Database client singleton. No writes should be performed to the table outside
      *               of SyncRowDao.
      */
-    public HttpRowDao(@NonNull DatabaseClient<T> client) {
+    public HttpRowDao(@NonNull DatabaseClient<Row> client) {
         super(client);
     }
 
-    public synchronized void upsertTransaction(@NonNull T item) {
-        T query = queryPrimaryKey(item);
+    // TODO: most clients just have a Dat. Should the input be that instead?
+    public synchronized void markUpserted(@NonNull Row row) {
+        Row query = queryPrimaryKey(row);
         switch (query == null ? HttpStatus.DELETED : query.status()) {
             case SYNCHRONIZED:
             case OUTDATED:
             case MODIFIED:
-                resetTransaction(item, HttpStatus.MODIFIED);
+                resetTransaction(row, HttpStatus.MODIFIED);
                 break;
             case DELETED:
-                resetTransaction(item, HttpStatus.ADDED);
+                resetTransaction(row, HttpStatus.ADDED);
                 break;
             case ADDED:
                 break;
             default:
-                throw new RuntimeException("status=" + item.status());
+                throw new RuntimeException("status=" + row.status());
         }
     }
 
-    public synchronized void updateTransaction(@NonNull T item) {
-        T query = queryPrimaryKey(item);
+    public synchronized void markOutdated(@NonNull Row row) {
+        Row query = queryPrimaryKey(row);
         switch (query == null ? HttpStatus.SYNCHRONIZED : query.status()) {
             case SYNCHRONIZED:
             case MODIFIED:
             case ADDED:
             case DELETED:
-                resetTransaction(item, HttpStatus.OUTDATED);
+                resetTransaction(row, HttpStatus.OUTDATED);
                 break;
             case OUTDATED:
                 break;
             default:
-                throw new RuntimeException("status=" + item.status());
+                throw new RuntimeException("status=" + row.status());
         }
     }
 
-    public synchronized void deleteTransaction(@NonNull T item) {
-        T query = queryPrimaryKey(item);
+    public synchronized void markDeleted(@NonNull Row row) {
+        Row query = queryPrimaryKey(row);
         switch (query == null ? HttpStatus.DELETED : query.status()) {
             case SYNCHRONIZED:
             case OUTDATED:
             case MODIFIED:
             case ADDED:
-                resetTransaction(item, HttpStatus.DELETED);
+                resetTransaction(row, HttpStatus.DELETED);
                 break;
             case DELETED:
                 break;
             default:
-                throw new RuntimeException("status=" + item.status());
+                throw new RuntimeException("status=" + row.status());
         }
-    }
-
-    public void reconcileTransaction(@NonNull Collection<T> items) {
-        for (T item : items) {
-            completeTransaction(item);
-        }
-
-        // TODO: delete items no longer present in the database. The passed in list of items is
-        //       expected to be the full list of items available on the service. After upserting,
-        //       delete anything older than the current timestamp.
-    }
-
-    public void completeTransaction(@NonNull T item) {
-        long timestamp = System.currentTimeMillis();
-        completeTransaction(item, timestamp);
     }
 
     @Override
-    public synchronized boolean completeTransaction(@NonNull T item, long timestamp) {
-        if (super.completeTransaction(item, timestamp)) {
-            if (item.status() == HttpStatus.DELETED) {
-                delete(item);
+    public synchronized boolean completeTransaction(@NonNull Row row, long timestamp) {
+        if (super.completeTransaction(row, timestamp)) {
+            if (row.status() == HttpStatus.DELETED) {
+                delete(row);
+            } else {
+                upsert(row);
             }
             return true;
         }

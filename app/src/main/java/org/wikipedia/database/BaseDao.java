@@ -17,7 +17,8 @@ public abstract class BaseDao<T> {
         client.deleteAll();
     }
 
-    protected synchronized void insert(@NonNull T row) {
+    protected synchronized void upsert(@NonNull T row) {
+        // Implemented by AppContentProvider as an upsert.
         client.persist(row);
     }
 

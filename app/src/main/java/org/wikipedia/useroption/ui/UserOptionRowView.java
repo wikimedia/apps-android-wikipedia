@@ -49,7 +49,7 @@ public class UserOptionRowView extends LinearLayout {
     public void set(long id, UserOptionRow row) {
         this.id.setText(String.valueOf(id));
         key.setText(row.key());
-        value.setText(row.option() == null ? "DEL" : row.option().val());
+        value.setText(row.dat() == null ? "DEL" : row.dat().val());
         status.setText(row.status().toString());
         status.setVisibility(row.status().synced() ? GONE : VISIBLE);
         long age = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - row.timestamp());

@@ -10,16 +10,19 @@ public enum HttpStatus implements EnumCode {
     /** Row exists and no synchronization is requested. */
     SYNCHRONIZED(0),
 
-    /** Row exists remotely and should be updated locally. */
+    /** Row exists remotely and should be updated locally. When complete, status is
+     * {@link #SYNCHRONIZED}. */
     OUTDATED(1),
 
-    /** Row exists remotely and should be modified. */
+    /** Row exists remotely and should be modified. When complete, status is
+     * {@link #SYNCHRONIZED}. */
     MODIFIED(2),
 
-    /** Row does not exist remotely and should be added. */
+    /** Row does not exist remotely and should be added. When complete, status is
+     * {@link #SYNCHRONIZED}. */
     ADDED(3),
 
-    /** Row exists remotely and should be deleted. */
+    /** Row exists remotely and should be deleted. When complete, row is removed. */
     DELETED(4);
 
     public static final CodeEnum<HttpStatus> CODE_ENUM = new CodeEnum<HttpStatus>() {

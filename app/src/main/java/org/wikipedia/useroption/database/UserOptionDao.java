@@ -10,14 +10,12 @@ import org.wikipedia.database.BaseDao;
 import org.wikipedia.database.async.AsyncConstant;
 import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.database.http.HttpRowDao;
-import org.wikipedia.database.http.HttpStatus;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public final class UserOptionDao extends BaseDao<UserOption> {
     public interface Callback<T> {
@@ -29,7 +27,7 @@ public final class UserOptionDao extends BaseDao<UserOption> {
 
     @NonNull private static UserOptionDao INSTANCE = new UserOptionDao();
 
-    @NonNull private final HttpRowDao<UserOptionRow> httpDao;
+    @NonNull private final HttpRowDao<UserOption, UserOptionRow> httpDao;
 
     public static UserOptionDao instance() {
         return INSTANCE;
@@ -65,13 +63,14 @@ public final class UserOptionDao extends BaseDao<UserOption> {
     }
 
     public synchronized void reconcileTransaction(@NonNull Collection<UserOption> rows) {
-        Collection<UserOptionRow> httpRows = rowToHttpRow(rows);
-        httpDao.reconcileTransaction(httpRows);
         for (UserOption row : rows) {
-            insert(row);
+            httpDao.completeTransaction(new UserOptionRow(row));
+            upsert(row);
         }
 
-        // TODO: remove missing options.
+        // TODO: the user option sync adapter downloads all options from the service and should
+        //       delete rows deleted and synchronized rows present in the database but not in the
+        //       service. Alternatively, delete anything older than the service's oldest timestamp.
     }
 
     @NonNull public synchronized Collection<UserOptionRow> startTransaction() {
@@ -94,16 +93,16 @@ public final class UserOptionDao extends BaseDao<UserOption> {
         super.clear();
     }
 
-    private synchronized void upsertTransaction(@NonNull UserOption row) {
-        httpDao.upsertTransaction(new UserOptionRow(row));
-        insert(row);
+    private synchronized void markUpserted(@NonNull UserOption row) {
+        httpDao.markUpserted(new UserOptionRow(row));
+        upsert(row);
     }
 
-    @NonNull protected Collection<UserOptionRow> queryPendingTransactions() {
+    @NonNull private Collection<UserOptionRow> queryPendingTransactions() {
         String selection = Sql.SELECT_ROWS_PENDING_TRANSACTION;
         final String[] selectionArgs = null;
         final String order = null;
-        Cursor cursor = client().select(UserOptionContract.OptionWithHttp.URI, selection,
+        Cursor cursor = client().select(UserOptionContract.HttpWithOption.URI, selection,
                 selectionArgs, order);
 
         Collection<UserOptionRow> rows = new ArrayList<>();
@@ -117,14 +116,6 @@ public final class UserOptionDao extends BaseDao<UserOption> {
         return rows;
     }
 
-    private Collection<UserOptionRow> rowToHttpRow(@NonNull Collection<UserOption> rows) {
-        List<UserOptionRow> httpRows = new ArrayList<>();
-        for (UserOption row : rows) {
-            httpRows.add(new UserOptionRow(row));
-        }
-        return httpRows;
-    }
-
     private UserOptionDao() {
         super(WikipediaApp.getInstance().getDatabaseClient(UserOption.class));
         httpDao = new HttpRowDao<>(WikipediaApp.getInstance().getDatabaseClient(UserOptionRow.class));
@@ -132,10 +123,8 @@ public final class UserOptionDao extends BaseDao<UserOption> {
 
     private static class Sql {
         private static String SELECT_ROWS_PENDING_TRANSACTION =
-            ":statusCol != :synced and :transactionIdCol == :noTransactionId"
-            .replaceAll(":statusCol", UserOptionContract.OptionWithHttp.HTTP_STATUS.qualifiedName())
-            .replaceAll(":synced", String.valueOf(HttpStatus.SYNCHRONIZED.code()))
-            .replaceAll(":transactionIdCol", UserOptionContract.OptionWithHttp.HTTP_TRANSACTION_ID.qualifiedName())
+            ":transactionIdCol == :noTransactionId"
+            .replaceAll(":transactionIdCol", UserOptionContract.HttpWithOption.HTTP_TRANSACTION_ID.qualifiedName())
             .replaceAll(":noTransactionId", String.valueOf(AsyncConstant.NO_TRANSACTION_ID));
     }
 
@@ -150,7 +139,7 @@ public final class UserOptionDao extends BaseDao<UserOption> {
 
         @Override
         public Void performTask() throws Throwable {
-            upsertTransaction(row);
+            markUpserted(row);
             return null;
         }
 

@@ -12,6 +12,7 @@ import org.wikipedia.database.column.LongColumn;
 import org.wikipedia.database.column.StrColumn;
 import org.wikipedia.database.http.HttpColumns;
 import org.wikipedia.database.http.HttpStatus;
+import org.wikipedia.useroption.UserOption;
 
 @SuppressWarnings("checkstyle:interfaceistype")
 public interface UserOptionContract {
@@ -38,8 +39,7 @@ public interface UserOptionContract {
         String[] SELECTION = DbUtil.qualifiedNames(KEY);
     }
 
-    HttpColumns HTTP_COLS = new HttpColumns(TABLE_HTTP);
-
+    HttpColumns<UserOption> HTTP_COLS = new HttpColumns<>(TABLE_HTTP);
     interface HttpCol {
         IdColumn ID = HTTP_COLS.id();
         StrColumn KEY = HTTP_COLS.key();
@@ -60,9 +60,9 @@ public interface UserOptionContract {
     interface Http extends HttpCol {
         String TABLES = TABLE_HTTP;
 
-        // HACK: Http has no real dependency on Option. However, OptionWithHttp is a composite of
+        // HACK: Http has no real dependency on Option. However, HttpWithOption is a composite of
         //       Option and Http and observers expect to be notified when _either_ change. Making
-        //       this path hierarchical allows OptionWithHttp to also be hierarchical but needlessly
+        //       this path hierarchical allows HttpWithOption to also be hierarchical but needlessly
         //       notifies Http clients when Option changes. More here:
         //       - http://chalup.github.io/blog/2014/09/14/contentprovider-series-uris/
         //       - https://gist.github.com/chalup/4201307da02b9cfe4f40
@@ -72,7 +72,7 @@ public interface UserOptionContract {
         String[] PROJECTION = null;
     }
 
-    interface OptionWithHttp extends Option {
+    interface HttpWithOption extends Option {
         String TABLES = ":httpTbl join :tbl on (:tbl.keyCol = :httpTbl.keyCol)"
                 .replaceAll(":tbl.keyCol", KEY.qualifiedName())
                 .replaceAll(":httpTbl.keyCol", HttpCol.KEY.qualifiedName())

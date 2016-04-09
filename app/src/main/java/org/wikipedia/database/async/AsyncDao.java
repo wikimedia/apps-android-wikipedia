@@ -8,7 +8,8 @@ import org.wikipedia.model.EnumCode;
 
 import java.util.Collection;
 
-public abstract class AsyncDao<Status extends EnumCode, Row extends AsyncRow<Status>> extends BaseDao<Row> {
+public abstract class AsyncDao<Status extends EnumCode, Dat, Row extends AsyncRow<Status, Dat>>
+        extends BaseDao<Row> {
     protected AsyncDao(@NonNull DatabaseClient<Row> client) {
         super(client);
     }
@@ -19,11 +20,15 @@ public abstract class AsyncDao<Status extends EnumCode, Row extends AsyncRow<Sta
         }
     }
 
+    public void completeTransaction(@NonNull Row row) {
+        long timestamp = System.currentTimeMillis();
+        completeTransaction(row, timestamp);
+    }
+
     /** @return true if completable. */
     public synchronized boolean completeTransaction(@NonNull Row row, long timestamp) {
         if (completableTransaction(row)) {
             row.completeTransaction(timestamp);
-            upsert(row);
             return true;
         }
         return false;
@@ -55,9 +60,5 @@ public abstract class AsyncDao<Status extends EnumCode, Row extends AsyncRow<Sta
     private boolean completableTransaction(@NonNull Row row) {
         Row query = queryPrimaryKey(row);
         return row.completable(query);
-    }
-
-    private synchronized void upsert(@NonNull Row row) {
-        insert(row);
     }
 }
