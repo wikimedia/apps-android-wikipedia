@@ -467,6 +467,88 @@ FIXME: Review all of these hacks to see if they still apply.
     display: block !important;
     width: auto !important;
   }
+}/* CSS for Parsoid Cite extension */
+
+/* Style for <ref>s */
+span.mw-ref {
+	vertical-align: super;
+	line-height: 1;
+	font-size: smaller;
+	/* Make sure the brackets and the numbers aren't jumbled after LTR words in RTL wikis */
+	unicode-bidi: embed;
+}
+
+/* With a group set */
+span.mw-ref a[data-mw-group]::after {
+	content: "[" attr(data-mw-group) " " counter(mw-Ref, decimal) "]"}
+
+/* Groups with special appearance */
+span.mw-ref a[data-mw-group="decimal"]::after {
+	content: "[" counter(mw-Ref, decimal) "]";
+}
+span.mw-ref a[data-mw-group="lower-alpha"]::after {
+	content: "[" counter(mw-Ref, lower-alpha) "]";
+}
+span.mw-ref a[data-mw-group="upper-alpha"]::after {
+	content: "[" counter(mw-Ref, upper-alpha) "]";
+}
+span.mw-ref a[data-mw-group="lower-greek"]::after {
+	content: "[" counter(mw-Ref, lower-greek) "]";
+}
+span.mw-ref a[data-mw-group="lower-roman"]::after {
+	content: "[" counter(mw-Ref, lower-roman) "]";
+}
+span.mw-ref a[data-mw-group="upper-roman"]::after {
+	content: "[" counter(mw-Ref, upper-roman) "]";
+}
+span.mw-ref a[data-mw-group="error-test"]::after {
+	content: "[" counter(mw-Ref, symbols(cyclic "first" "second" "last!")) "]";
+}
+
+/* Without a group */
+span.mw-ref a::after {
+	content: "[" counter(mw-Ref, decimal) "]";
+}
+
+/* Hide the default rendering in browsers that support content
+ * generation by selecting for ::after pseudo-element.*/
+x-thereisnoelementwiththisname::after, span.mw-reflink-text {
+	display: none;
+}
+
+/* Style for linkbacks from <references> to <ref>s */
+ol.mw-references {
+	counter-reset: mw-ref-linkback;
+}
+
+ol.mw-references li {
+	counter-increment: mw-ref-linkback;
+}
+
+[rel="mw:referencedBy"] {
+	counter-reset: mw-ref-linkback -1;
+}
+
+[rel="mw:referencedBy"]::before {
+	content: "↑ ";
+}
+
+span[rel="mw:referencedBy"] a::before {
+	counter-increment: mw-ref-linkback;
+	content: counters(mw-ref-linkback, ".", decimal);
+	vertical-align: super;
+	line-height: 1;
+	font-size: smaller;
+}
+
+span[rel="mw:referencedBy"] a::after {
+	content: " ";
+}
+
+/* Hide the default rendering in browsers that support content
+ * generation by selecting for ::after pseudo-element.*/
+x-thereisnoelementwiththisname[rel="mw:referencedBy"]::before, span.mw-linkback-text {
+	display: none;
 }/* Hide the stupid editlink */
 .edit-page {
   display: none;
