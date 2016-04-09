@@ -49,8 +49,7 @@ public class AppContentProvider extends ContentProvider {
 
         SQLiteDatabase db = writableDatabase();
         final String nullColumnHack = null;
-        db.insertWithOnConflict(endpoint.tables(), nullColumnHack, values,
-                SQLiteDatabase.CONFLICT_REPLACE);
+        db.replaceOrThrow(endpoint.tables(), nullColumnHack, values);
 
         notifyChange(uri);
 
