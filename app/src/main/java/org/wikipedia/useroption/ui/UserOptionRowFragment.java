@@ -57,6 +57,11 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
         return view;
     }
 
+    @Override public void onDestroyView() {
+        getActivity().getSupportLoaderManager().destroyLoader(USER_OPTION_ROW_FRAGMENT_LOADER_ID);
+        super.onDestroyView();
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
