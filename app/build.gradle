@@ -58,10 +58,6 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 143
-        ndk {
-            // TODO: remove when updated Mapbox SDK starts shipping arm64 libraries.
-            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
-        }
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
@@ -183,7 +179,7 @@ dependencies {
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton:disklrucache:2.0.2'
-    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:2.3.0@aar') {
+    compile('com.mapbox.mapboxsdk:mapbox-android-sdk:4.0.0@aar') {
         transitive = true
     }
     compile 'net.hockeyapp.android:HockeySDK:3.7.0'
