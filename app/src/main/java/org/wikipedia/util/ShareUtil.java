@@ -194,7 +194,11 @@ public final class ShareUtil {
                                             @NonNull Intent targetIntent,
                                             String packageNameBlacklistRegex) {
         List<Intent> intents = new ArrayList<>();
-        for (ResolveInfo intentActivity : queryIntentActivities(targetIntent, context)) {
+        Intent queryIntent = new Intent(targetIntent);
+        if (targetIntent.getAction().equals(Intent.ACTION_VIEW)) {
+            queryIntent.setData(Uri.parse("http://example.com"));
+        }
+        for (ResolveInfo intentActivity : queryIntentActivities(queryIntent, context)) {
             if (!isIntentActivityBlacklisted(intentActivity, packageNameBlacklistRegex)) {
                 intents.add(buildLabeledIntent(targetIntent, intentActivity));
             }
