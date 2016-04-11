@@ -21,13 +21,13 @@ import java.util.Set;
  *
  * V can either be a String, Parcelable or a List<Parcelable>
  */
-public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parcelable {
+public class ParcelableLruCache<V> extends LruCache<String, V> implements Parcelable {
     private static final int TYPE_LIST = 1;
     private static final int TYPE_PARCELABLE = 2;
     private static final int TYPE_STRING = 3;
 
     private final int type;
-    public ParcelableLruCache(int maxSize, Class valueClass) {
+    public ParcelableLruCache(int maxSize, Class<?> valueClass) {
         super(maxSize);
         if (valueClass.equals(String.class)) {
             type = TYPE_STRING;
@@ -47,12 +47,15 @@ public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parce
         for (String key : keys) {
             switch (type) {
                 case TYPE_LIST:
+                    //noinspection unchecked
                     put(key, (V) contents.getParcelableArrayList(key));
                     break;
                 case TYPE_PARCELABLE:
+                    //noinspection unchecked
                     put(key, (V) contents.getParcelable(key));
                     break;
                 case TYPE_STRING:
+                    //noinspection unchecked
                     put(key, (V) contents.getString(key));
                     break;
                 default:
@@ -75,7 +78,9 @@ public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parce
         for (Map.Entry<String, V> entry : snapshot.entrySet()) {
             switch (type) {
                 case TYPE_LIST:
-                    bundle.putParcelableArrayList(entry.getKey(), (ArrayList)entry.getValue());
+                    //noinspection unchecked
+                    bundle.putParcelableArrayList(entry.getKey(),
+                            (ArrayList<? extends Parcelable>) entry.getValue());
                     break;
                 case TYPE_PARCELABLE:
                     bundle.putParcelable(entry.getKey(), (Parcelable) entry.getValue());
@@ -90,16 +95,16 @@ public class ParcelableLruCache<V> extends LruCache<String, V>  implements Parce
         dest.writeBundle(bundle);
     }
 
-    public static final Parcelable.Creator<ParcelableLruCache> CREATOR
-            = new Parcelable.Creator<ParcelableLruCache>() {
+    public static final Parcelable.Creator<ParcelableLruCache<?>> CREATOR
+            = new Parcelable.Creator<ParcelableLruCache<?>>() {
         @Override
-        public ParcelableLruCache createFromParcel(Parcel in) {
-            return new ParcelableLruCache(in);
+        public ParcelableLruCache<?> createFromParcel(Parcel in) {
+            return new ParcelableLruCache<>(in);
         }
 
         @Override
-        public ParcelableLruCache[] newArray(int size) {
-            return new ParcelableLruCache[size];
+        public ParcelableLruCache<?>[] newArray(int size) {
+            return new ParcelableLruCache<?>[size];
         }
     };
 }
