@@ -2,8 +2,8 @@
 <resources>
   <string name="app_name_prod">Википедия</string>
   <string name="app_name_beta">Википедия (бета)</string>
-  <string name="app_name_alpha">Википедия (бета)</string>
-  <string name="wikimedia">Википедия</string>
+  <string name="app_name_alpha">Википедия (альфа)</string>
+  <string name="wikimedia">Викимедиа</string>
   <string name="yes">Эйе</string>
   <string name="no">Юҡ</string>
   <string name="search_hint">Википедияла эҙләү</string>
@@ -23,15 +23,15 @@
   <string name="dialog_prompt_refresh_all_saved_pages">Бөтә һаҡланған биттәрҙе яңыртырғамы?</string>
   <string name="share_via">Уртаҡлашырға</string>
   <string name="dialog_title_clear_saved_pages">Бөтә һаҡланған биттәрҙе таҙартырғамы?</string>
-  <string name="snackbar_saving_page">Битәрҙе һаҡлау</string>
-  <string name="snackbar_saved_page_format">\"%s\" оффлайм режимында уҡыу өсөн һаҡланған</string>
+  <string name="snackbar_saving_page">Биттәрҙе һаҡлау</string>
+  <string name="snackbar_saved_page_format">\"%s\" оффлайн режимында уҡыу өсөн һаҡланған</string>
   <string name="snackbar_saved_page_missing_images">Бөтә рәсемдәрҙе лә һаҡлап булманы</string>
   <string name="snackbar_refresh_saved_page">Һаҡланған бит яңыртыла</string>
   <string name="delete_selected_saved_pages">Юйырға</string>
   <string name="snackbar_saved_page_deleted">Һаҡланған бит(тәр) юйылды</string>
   <string name="saved_pages_search_list_hint">Юйылған биттәр эсендә эҙләү</string>
   <string name="saved_pages_search_empty_message">Һеҙҙең һорау буйынса бит табылманы.</string>
-  <string name="menu_page_show_tabs">Ҡушымтараҙы күрһәтергә</string>
+  <string name="menu_page_show_tabs">Ҡушымтаны күрһәтергә</string>
   <string name="menu_page_other_languages">Телде һайларға</string>
   <string name="menu_page_find_in_page">Был биттә табырға</string>
   <string name="menu_page_content_issues">Һорауҙар йөкмәткеһе</string>
@@ -61,7 +61,7 @@
   <string name="menu_save_changes">Үҙгәрештәрҙе һаҡларға</string>
   <string name="edit_section_error_retry">Ҡабатлау</string>
   <string name="dialog_saving_in_progress">Һаҡлау</string>
-  <string name="edit_saved_successfully">Үҙгәртеүҙәр һаҡланған!</string>
+  <string name="edit_saved_successfully">Үҙгәртеүҙәр һаҡланды!</string>
   <string name="dialog_message_edit_failed">Мөхәррирләү хатаһы!</string>
   <string name="dialog_message_edit_failed_retry">Ҡабатлау</string>
   <string name="dialog_message_edit_failed_cancel">Кире алырға</string>
@@ -70,84 +70,84 @@
   <string name="dialog_message_leaving_edit_stay">Ҡалырға</string>
   <string name="menu_show_toc">Эстәлеге</string>
   <string name="search_no_results_found">Бер нимә лә табылманы</string>
-  <string name="edit_section_captcha_message">Автоматлаштырылған спамдан һаҡланыу өсөн, зинһар өсөн, түбәндәге һүҙҙе яҙығыҙ.</string>
+  <string name="edit_section_captcha_message">Автоматлаштырылған спамдан һаҡланыу өсөн түбәндәге һүҙҙе яҙығыҙ.</string>
   <string name="edit_section_captcha_hint">Өҫтәге һүҙҙе ҡабатлағыҙ.</string>
   <string name="title_captcha">CAPTCHA-ны индерегеҙ</string>
   <string name="edit_section_captcha_reload">Яңыртыу өсөн CAPTCHA-ға тейеп алығыҙ.</string>
   <string name="edit_saved_page_refresh">Был һаҡланған бит иҫкергән булыуы мөмкин, шуға мөхәррирләнергә тейеш. Битте яңыртырға теләйһегеҙме?</string>
   <string name="nav_item_login">Википедияға керергә</string>
   <string name="login_username_hint">Ҡулланыусы исеме</string>
-  <string name="login_password_hint">Пароль</string>
-  <string name="login_password_show_check">Парольде күрһәтергә</string>
+  <string name="login_password_hint">Серһүҙ</string>
+  <string name="login_password_show_check">Серһүҙҙе күрһәтергә</string>
   <string name="menu_login">Танылыу</string>
   <string name="login_activity_title">Википедияға керергә</string>
   <string name="login_in_progress_dialog_message">Системаға керергә</string>
   <string name="login_error_wrong_password">Пароль дөрөҫ түгел</string>
   <string name="login_error_wrong_username">Исем дөрөҫ түгел</string>
   <string name="login_error_illegal">Ҡатнашыусы исеме дөрөҫ түгел</string>
-  <string name="login_success_toast">Докуметацияны һаҡлау</string>
-  <string name="login_error_blocked">Был ҡатнашыусы бмкләнгән</string>
-  <string name="login_error_throttled">Керергә маташыу күп тапҡыр булды. Зинһар өсөн, бер нисә минут көтөгөҙ.</string>
+  <string name="login_success_toast">Документацияны һаҡлау</string>
+  <string name="login_error_blocked">Был ҡатнашыусы бикләнгән</string>
+  <string name="login_error_throttled">Керергә маташыу күп тапҡыр булды. Бер нисә минут көтөгөҙ.</string>
   <string name="login_error_unknown">Кереп булманы :(</string>
-  <string name="preference_title_logout">Сығырға</string>
+  <string name="preference_title_logout">Тамамлау</string>
   <string name="toast_logout_complete">Тамам</string>
   <string name="saved_pages_empty_title">Бында һаҡланмаған биттәр юҡ</string>
-  <string name="saved_pages_empty_message">Һаҡланған биттәр- был бик шәп. Улар тураһында оффлайнда булғанда ла уҡырлыҡ билдә булараҡ уйлағыҙ</string>
-  <string name="history_empty_title">Яңыраҡ ҡаралған биттәр юҡ</string>
-  <string name="history_empty_message">Һеҙ. моғайын, уларҙың бөтәһен дә юйғанһығыҙ. Икенсе тапҡыр, биткә инһәгеҙ, уға ошо урындан кире әйләнеп ҡайта алаһығыҙ</string>
+  <string name="saved_pages_empty_message">Һаҡланған биттәр- был бик шәп. Улар тураһында оффлайн булғанда ла уҡырлыҡ билдә булараҡ уйлағыҙ</string>
+  <string name="history_empty_title">Яңыраҡ ҡаралған биттәр юҡ!</string>
+  <string name="history_empty_message">Һеҙ, моғайын, уларҙың бөтәһен дә юйғанһығыҙ. Икенсе тапҡыр, биткә инһәгеҙ, уға ошо урындан кире әйләнеп ҡайта алаһығыҙ.</string>
   <string name="delete_selected_history">Юйырға</string>
   <string name="create_account_username_hint">Ҡатнашыусы исеме.</string>
-  <string name="login_create_account_link">һеҙҙең иҫәп яҙыуығыҙ юҡ. Википедияға ҡушылығыҙ</string>
+  <string name="login_create_account_link">Һеҙҙең иҫәп яҙыуығыҙ юҡ. Википедияға ҡушылығыҙ</string>
   <string name="create_account_login_link">Һеҙ теркәлдегеҙме? Инегеҙ</string>
   <string name="create_account_activity_title">Иҫәп яҙмаһын булдырырға</string>
-  <string name="dialog_create_account_checking_progress">тикшереү</string>
-  <string name="create_account_email_hint">электрон почта адресы  (мотлаҡ түгел)</string>
+  <string name="dialog_create_account_checking_progress">Тикшереү</string>
+  <string name="create_account_email_hint">Электрон почта адресы (мотлаҡ түгел)</string>
   <string name="create_account_password_repeat_hint">Серһүҙҙе ҡабатлау</string>
-  <string name="create_account_passwords_mismatch_error">серһүҙ тура килмәй</string>
+  <string name="create_account_passwords_mismatch_error">Серһүҙ тура килмәй</string>
   <string name="create_account_email_error">IP адрес дөрөҫ түгел</string>
   <string name="create_account_username_exists_error">Ундай исем бар инде</string>
-  <string name="create_account_ip_throttle_error"> Был IP-адрестан бик күп иҫәп яҙмалары булдырылған. Һуңғараҡ тағы берҙе ҡабатлап ҡарағыҙ</string>
-  <string name="create_account_open_proxy_error">Иҫәп яҙмалары булдырыу арҡаһында был  IP-адресҡа блок ҡуйылған</string>
-  <string name="create_account_noname_error">һеҙ ҡатнашыусының  дөрөҫ булмаған исемен күрһәткәнһегеҙ. Икенсе тапҡыр эшләп ҡарағыҙ.</string>
-  <string name="create_account_invalid_email_error">һеҙ дөрөҫ булмаған электрон адрес күрһәткәһегеҙ</string>
-  <string name="create_account_password_too_short_error">һеҙ күрһәткән серһүҙ үтә ҡыҫҡа</string>
+  <string name="create_account_ip_throttle_error">Был IP-адрестан бик күп иҫәп яҙмалары булдырылған. Һуңғараҡ тағы берҙе ҡабатлап ҡарағыҙ</string>
+  <string name="create_account_open_proxy_error">Иҫәп яҙмалары булдырыу арҡаһында был IP-адресҡа блок ҡуйылған.</string>
+  <string name="create_account_noname_error">һеҙ ҡатнашыусының дөрөҫ булмаған исемен күрһәткәнһегеҙ. Икенсе исемде яҙып ҡарағыҙ.</string>
+  <string name="create_account_invalid_email_error">Һеҙ дөрөҫ булмаған электрон адресты күрһәткәнһегеҙ.</string>
+  <string name="create_account_password_too_short_error">Һеҙ күрһәткән серһүҙ үтә ҡыҫҡа.</string>
   <string name="create_account_blocked_anon_error">Һеҙ иҫәп яҙмаһын булдыра алмайһығыҙ, сөнки һеҙҙең IP-адресығыҙға блок ҡуйылған.</string>
-  <string name="create_account_blocked_error">Һеҙ иҫәп яҙмаһын булдыра алмайһығыҙ, сөнки иҫәп уға блок ҡуйылған</string>
-  <string name="create_account_password_name_match_error">һеҙҙең ҡатнашыусы исемгеҙ менән серһүҙегеҙ тура килмәҫкә тейеш</string>
-  <string name="create_account_generic_error">Иҫәп яҙмаһын булдырып  булмай</string>
+  <string name="create_account_blocked_error">Һеҙ иҫәп яҙмаһын булдыра алмайһығыҙ, сөнки һеҙҙең иҫәм яҙмаға блок ҡуйылған.</string>
+  <string name="create_account_password_name_match_error">һеҙҙең ҡатнашыусы исемегеҙ менән серһүҙегеҙ тура килмәҫкә тейеш</string>
+  <string name="create_account_generic_error">Иҫәп яҙмаһын булдырып булмай</string>
   <string name="create_account_next">Артабан</string>
   <string name="create_account_button">Иҫәп яҙмаһын булдырырға</string>
   <string name="preferences_general_heading">Дөйөм</string>
-  <string name="wikipedia_app_faq">википедия ҡушымтаһы буйынса йыш бирелгән һорауҙар</string>
-  <string name="zero_charged_verbiage">Zero википедияһы һүндерелгән</string>
-  <string name="zero_charged_verbiage_extended">башҡа мәҡәләлрҙе күсергәндә мәғлүмәт ебәргән өсөн хаҡ алыныуы ихтимал</string>
-  <string name="zero_search_hint"> Zero википедияһында эҙләү</string>
-  <string name="zero_warn_when_leaving"> Zero википедияһынан сыҡҡанда -иҫкәртергә</string>
-  <string name="zero_warn_when_leaving_summary">һеҙҙең мобиль оператор Wikipedia Zero менән хеҙмәттәтәшлек аша Википедия ҡушымтаһы мәғлүмәттәренә  ингән өсөн  хаҡ алмаһа,был параметрҙы керетеүтрафик өсөн түләү башланыуын белергә ярҙам итә</string>
-  <string name="zero_webpage_title">Zero википедияһы буйынса йыш бирелгән һорауҙар</string>
+  <string name="wikipedia_app_faq">Википедия ҡушымтаһы буйынса йыш бирелгән һорауҙар</string>
+  <string name="zero_charged_verbiage">Zero Википедияһы һүндерелгән</string>
+  <string name="zero_charged_verbiage_extended">Башҡа мәҡәләләрҙе күсергәндә, мәғлүмәт ебәргән өсөн хаҡ алыныуы ихтимал</string>
+  <string name="zero_search_hint">Zero Википедияһында эҙләү</string>
+  <string name="zero_warn_when_leaving">Zero Википедияһынан сыҡҡанда, иҫкәртергә</string>
+  <string name="zero_warn_when_leaving_summary">Һеҙҙең мобиль оператор Wikipedia Zero менән хеҙмәттәшлек аша Википедия ҡушымтаһы мәғлүмәттәренә ингән өсөн хаҡ алмаһа, был параметрҙы керетеү трафик өсөн түләү башланыуын, ҡушымтанан сығыуҙы белергә ярҙам итә</string>
+  <string name="zero_webpage_title">Zero Википедияһы буйынса йыш бирелгән һорауҙар</string>
   <string name="zero_wikipedia_zero_heading">Zero Википедияһы</string>
-  <string name="zero_interstitial_title"> Zero википедияһынан сығыу</string>
-  <string name="zero_interstitial_leave_app">Мәғлүмәт ебәргән өсөн стандарт хаҡ алыныуы ихтимал. Тышҡа сайтҡа күсеүҙе дауам итергәме?</string>
+  <string name="zero_interstitial_title">Zero Википедияһынан сығыу</string>
+  <string name="zero_interstitial_leave_app">Мәғлүмәт ебәргән өсөн стандарт хаҡ алыныуы ихтимал. Тышҡы сайтҡа күсеүҙе дауам итергәме?</string>
   <string name="zero_interstitial_continue">Китергә</string>
-  <string name="zero_interstitial_cancel">ҡалырға</string>
-  <string name="zero_learn_more">Википедия ҡушымтаһын файҙаланғанда мәғлүмәт өсөн хаҡ алынмай</string>
+  <string name="zero_interstitial_cancel">Ҡалырға</string>
+  <string name="zero_learn_more">Википедия ҡушымтаһын файҙаланғанда, мәғлүмәт өсөн хаҡ алынмай</string>
   <string name="zero_learn_more_learn_more">Тулыраҡ уҡырға</string>
-  <string name="zero_learn_more_dismiss">ябырға</string>
-  <string name="edit_preview_fetching_dialog_message">Алдан ҡарауҙы алыу</string>
-  <string name="send_feedback">ҡушымта тураһында баһалама ебәрергә</string>
+  <string name="zero_learn_more_dismiss">Ябырға</string>
+  <string name="edit_preview_fetching_dialog_message">Алдан ҡарауҙы алыу...</string>
+  <string name="send_feedback">Ҡушымта тураһында баһалама ебәрергә</string>
   <string name="nav_item_random">Осраҡлы</string>
-  <string name="create_account_account_created_toast">Иҫәп яҙмаһы  булдырылды</string>
+  <string name="create_account_account_created_toast">Иҫәп яҙмаһы  булдырылды!</string>
   <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>
-  <string name="preference_title_eventlogging_opt_in">файҙаланыу тураһында отчет ебәреү</string>
-  <string name="preference_summary_eventlogging_opt_in">Викимедиаға һеҙҙең ҡушымтаны нисек файҙаланыуығыҙ тураһында мәғлүмәт бирергә рөхсәт итеү.Был уны тағы ла яҡшыраҡ итергә мөмкинселек бирәсәк</string>
+  <string name="preference_title_eventlogging_opt_in">Файҙаланыу тураһында отчет ебәреү</string>
+  <string name="preference_summary_eventlogging_opt_in">Викимедиаға һеҙҙең ҡушымтаны нисек файҙаланыуығыҙ тураһында мәғлүмәт бирергә рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинселек бирәсәк</string>
   <string name="preference_title_auto_upload_crash_reports">Өҙөклөк тураһында отчет ебәрергә</string>
-  <string name="preference_summary_auto_upload_crash_reports">Беҙгә авария тураһындағы мәғлүмәтте ҡарап сығыу өсөн, HockeyApp/ сит сервис-провайдерҙа хаталар тураһындағы   отчеттарҙы автоматик ебәреүҙе рөхсәт итергәме? Был юл хаталарҙы тиҙ һәм еңел төҙәтеүгә ярҙам итә.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Беҙгә авария тураһындағы мәғлүмәтте ҡарап сығыу өсөн, HockeyApp/ сит сервис-провайдерҙа хаталар тураһындағы отчеттарҙы автоматик ебәреүҙе рөхсәт итергәме? Был хаталарҙы тиҙ һәм еңел төҙәтергә ярҙам итә.</string>
   <string name="editing_error_spamblacklist">Бикләнгән домендарға (%s) һылтанмалар барлығы асыҡланды. Уларҙы юҡ итегеҙ һәм яңынан эшләп ҡарағыҙ.</string>
   <string name="history_search_list_hint">Эҙләү тарихы</string>
-  <string name="history_search_empty_message">Һеҙҙең һорауға ярашлы биттәр табылманы</string>
+  <string name="history_search_empty_message">Һеҙҙең һорауға ярашлы биттәр табылманы.</string>
   <string name="error_can_not_process_link">Был һылтанманы күрһәтеп булманы</string>
-  <string name="page_protected_autoconfirmed">Был бит өлөшләтә һаҡланған ине</string>
-  <string name="page_protected_sysop">Был бит тулыһынса һаҡланған ине</string>
+  <string name="page_protected_autoconfirmed">Был бит өлөшләтә һаҡланған ине.</string>
+  <string name="page_protected_sysop">Был бит тулыһынса һаҡланған ине.</string>
   <string name="page_protected_other">Был бит түбәндәге кимәлдәр буйынса һаҡланған ине: %s</string>
   <string name="page_protected_can_not_edit">Һеҙҙең был битте мөхәррирләргә хоҡуғығыҙ юҡ</string>
   <string name="page_protected_can_not_edit_title">Был бит һаҡланған</string>
@@ -156,7 +156,7 @@
   <string name="about_description"> «Википедия» ҡушымтаһы тураһында</string>
   <string name="privacy_policy_description">Сер һаҡлау сәйәсәте</string>
   <string name="terms_of_use_description">Ҡулланыу шарттары</string>
-  <string name="about_libraries_heading">файҙаланған китапханалар</string>
+  <string name="about_libraries_heading">Файҙаланған китапханалар</string>
   <string name="about_contributors_heading">Авторҙар</string>
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_app_license_heading">Лицензия</string>
@@ -165,10 +165,10 @@
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt; Викимедиа фонды &lt;/a&gt;-ның продукты</string>
   <string name="about_activity_title">Ҡушымта тураһында</string>
   <string name="edit_abandon_confirm">
-Бит үҙгәртелгән. Ысынлап, үҙгәртеүҙәрҙе һаҡламайса сығырға уйлайһығыҙмы?</string>
+Бит үҙгәртелде. Үҙгәртеүҙәрҙе һаҡламайынса сығырға уйлайһығыҙмы?</string>
   <string name="user_blocked_from_editing_title">Блок ҡуйылған</string>
-  <string name="user_logged_in_blocked_from_editing">Һеҙҙең  иҫәп яҙмағыҙҙың был вики-проектта мөхәррирләнеүенә бик ҡуйылған</string>
-  <string name="user_anon_blocked_from_editing">Һеҙҙең IP-адрестан мөхәррирләү тыйылған</string>
+  <string name="user_logged_in_blocked_from_editing">Һеҙҙең иҫәп яҙмағыҙ был вики-проектта мөхәррирләү өсөн бикле.</string>
+  <string name="user_anon_blocked_from_editing">Һеҙҙең IP-адрестан мөхәррирләү тыйылған.</string>
   <string name="edit_how_page_improved">Битте яҡшыға үҙгәртеүҙе Һеҙ нисек башҡарҙығыҙ?</string>
   <string name="edit_next">Артабан</string>
   <string name="edit_done">Һаҡларға</string>
@@ -177,15 +177,15 @@
   <string name="edit_summary_tag_grammar">Дөрөҫ яҙыу ҡағиҙәһенә ярашлы төҙәтелде</string>
   <string name="edit_summary_tag_links"> Һылтанмалар өҫтәлгән</string>
   <string name="edit_summary_tag_other">Башҡалары, башҡаһы</string>
-  <string name="edit_summary_tag_other_hint">Битегеҙҙе яҡшыртҡан башҡа төрлө алымдар</string>
+  <string name="edit_summary_tag_other_hint">Битте яҡшыртҡан башҡа төрлө алымдар</string>
   <string name="find_next">Артабан эҙләп табырға</string>
   <string name="find_previous">Тәүгеләрҙе эҙләү</string>
   <string name="error_network_error_try_again">Селтәргә инеп булманы, тағы берҙе тырышып ҡарағыҙ.</string>
   <string name="saved_pages_update_all_error_retry">Ҡабатларға</string>
   <string name="saved_pages_update_all_error_message">Һаҡланған битте яңыртыу хатаһы сыҡты</string>
-  <string name="saved_pages_progress_title">Refreshing saved pages</string>
+  <string name="saved_pages_progress_title">Һаҡланған бит яңыртыла</string>
   <string name="abusefilter_title_warn">Был төҙәтеү хаталы. Һеҙ ысынлап та уны һаҡларға теләйһегеҙме?</string>
-  <string name="abusefilter_title_disallow">Һеҙ был битте һаҡлай алмайһығыҙ, кире артҡа ҡайтып уны үҙгәртегеҙ</string>
+  <string name="abusefilter_title_disallow">Һеҙ был битте һаҡлай алмайһығыҙ, кире ҡайтып, уны үҙгәртегеҙ</string>
   <string name="abusefilter_text_warn">Автоматлаштырылған фильтр был төҙәтеүҙе конструктив түгел тип һанай. Ул түбәндәге бер нисә ғәмәлде үҙ эсенә ала: :&lt;br /&gt;&lt;br /&gt;·Баш хәреф менән баҫырға. Мәҡәләләрҙе мисәтләү йәки спам&lt;br /&gt;· Тура килмәгән тышҡы һылтанмалар йәки һүрәттәр&lt;br /&gt;· Ҡабатланған символдар</string>
   <string name="abusefilter_text_disallow">Автоматлаштырылған фильтр был төҙәтеүҙе хаталы йәки емереү теләге кеүек билдәләне..&lt;br /&gt;&lt;br /&gt;Википедия - ул энциклопедия, бында нейтраль йәки әһәмиәтле  нәмәләр генә ҡабул ителә</string>
   <string name="dialog_page_issues">Бит буйынса һорауҙар</string>
@@ -207,8 +207,29 @@
   <string name="widget_title_featured_page">Бөгөнгө көн өсөн әһәмиәтле бит:</string>
   <string name="widget_name_search"> Википедия буйынса эҙләү</string>
   <string name="wiktionary_no_definitions_found">Бер ниндәй аңлатма табылманы.</string>
-  <string name="alpha_update_notification_title">Альфа-версияның яңыртылғаны асыҡ</string>
-  <string name="alpha_update_notification_text">Күсереү өсөн баҫығыҙ.</string>
+  <string name="app_store_description">«Википедияның» Android өсөн махсус ҡушымтаһы. Википедия — 280 телдә 32 миллиондан ашыу мәҡәләнән торған ирекле энциклопедия. Кешеләр төҙөгән иң тулы һәм киң ҡулланған белешмә.
+
+Үҙенсәлектәр:
+— Төп һүрәт: Википедия менән бер ҡасан да эшләмәгән кеүек эш итегеҙ, айырымланған, контекст-релевантлы һүрәттәр һәм мәҡәләнең өҫкө яғында һүрәтләмәһе менән 
+— Һүрәттәр галереяһы: һүрәткә баҫҡас, юғары сифатта бөтә экранда күренә, өҫтәмә һүрәттәрҙе ҡарау өсөн өҫкә/аҫҡа шылдырырға була
+— Викимәғлүмәттәрҙән һүрәтләмәләр: эҙләгәндә, һәр бер һөҙөмтәлә ҡыҫҡа йөкмәтке бар. Шул уҡ һүрәтләмә ҡушымтаның башҡа урындарында, мәҫәлән, «Яҡында» тигәнендә күренә 
+— Тәҡдим ителгән мәҡәләләр: һеҙ артабан уҡыр өсөн тәҡдим ителгән мәҡәләләрҙе күрер өсөн, битте аҫҡы яғына тиклем күсерәһегеҙ
+— Һаҡланған биттәр: интернетҡа тоташып булмағанда да, һайланған мәҡәләләрҙе уҡырға һәм ҡарап сығыр өсөн, уларҙы һаҡлағыҙ 
+— Яҡында: һеҙҙең эргәлә булған объекттар хаҡында мәҡәләләргә һылтанма алып,күберәк белегеҙ
+— Телдәрҙе яҡлау: Википедияла башҡа телдәрҙә яҙылған мәҡәләләрҙе уҡырға ҡыйынлыҡһыҙ күсегеҙ
+— Эстәлек: бармағығыҙ менән мәҡәләнең һул яғына баҫып, эстәлеген асырға, еңел генә бүлекте һайларға була
+— Википедия Zero: ҡатнашҡан мобиль операторҙар трафик өсөн түләүҙе алмай
+
+Ҡушымта тураһындағы фекерегеҙҙе беҙгә ебәрегеҙ! Менюла «Өҫтәмә» төймәһенә, унан — «„Википедия“ ҡушымтаһы тураһында», аҙаҡ «Ҡушымта тураһында фекер ебәрергә» төймәһенә баҫаһығыҙ.
+
+
+Баштағы 100 % коды асыҡ. Java һәм Android SDK менән эш тәжрибәһе бар икән, беҙ түҙемһеҙлек менән һеҙҙең ярҙамды көтәбеҙ! https://github.com/wikimedia/apps-android-wikipedia
+
+Сер һаҡлау сәйәсәте: https://m.wikimediafoundation.org/wiki/Политика_конфиденциальности
+
+Файҙаланыу шарттары: https://m.wikimediafoundation.org/wiki/Условия_использования</string>
+  <string name="alpha_update_notification_title">Альфа-версияның яңы яңыртылыуы асыҡ</string>
+  <string name="alpha_update_notification_text">Күсереү өсөн баҫығыҙ</string>
   <string name="dialog_close_description">Ябырға</string>
   <string name="preference_title_show_images">Һүрәтләмәһен күрһәтергә</string>
   <string name="preference_summary_show_images">Биттәрҙәге һүрәттәрҙе ҡабыҙырға, йәки һүндерергә. Әгәр Интернетҡа тоташыу яй барһа,  йәки тариф планында трафик  сикләнгән икән, был флагты алығыҙ</string>
@@ -220,7 +241,7 @@
   <string name="gallery_share_error">%s һүрәте менән  уртаҡлашып булманы</string>
   <string name="gallery_menu_save">Ҡорамалда һаҡлау</string>
   <string name="gallery_save_progress">Файл күсереү</string>
-  <string name="gallery_save_success">фвңайл уңышлы һаҡланды</string>
+  <string name="gallery_save_success">Файл уңышлы һаҡланды.</string>
   <string name="gallery_error_video_failed">Видеоны күрһәтеп булмай</string>
   <string name="gallery_save_image_write_permission_rationale">Һүрәтте һаҡлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт талап ителә. Тағы бер тапҡыр ҡабатлап ҡарағыҙ һәм һоралған рөхсәт бирегеҙ</string>
   <string name="err_cannot_save_file">
@@ -236,7 +257,7 @@
   <string name="gallery_uploader_unknown">Күсерелгән файл билдәһеҙ</string>
   <string name="menu_new_tab">Яңы ҡушымта</string>
   <string name="button_close_tab">Ҡушымтаны ябыу</string>
-  <string name="tool_tip_select_text">Күсерергә билдәләү һәм бүлешеү өсөн текстың теләгән урынына баҫығыҙ һәм тотоп тороғоҙ</string>
+  <string name="tool_tip_select_text">Күсерергә билдәләү һәм бүлешеү өсөн текстың теләгән урынына баҫығыҙ һәм тотоп тороғоҙ.</string>
   <string name="tool_tip_share">Ҡыҙыҡлы фактты билдәләгәндән һуң, уның менән яратҡан социаль селтәрҙәрегеҙҙә уртаҡлашығыҙ</string>
   <string name="page_view_in_browser">Браузерҙа битте ҡарау</string>
   <string name="tool_tip_toc_button">Был төймәгә баҫып йәки экрандың уң ситенән бармаҡ менән йөрөтөп йөкмәткене теләгән ваҡытта ҡарарға була</string>

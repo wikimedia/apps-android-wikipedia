@@ -57,7 +57,7 @@
   <string name="edit_section_captcha_hint">ಮೇಲಿನ ಪದಗಳನ್ನು ಪುನರಾವರ್ತಿಸಿ</string>
   <string name="title_captcha">CAPTCHA ನಮೂದಿಸಿ</string>
   <string name="nav_item_login" fuzzy="true">ಲಾಗ್ ಇನ್</string>
-  <string name="login_username_hint">ಬಳಕೆದಾರ ಹೆಸರು</string>
+  <string name="login_username_hint">ಬಳಕೆದಾರರ ಹೆಸರು</string>
   <string name="login_password_hint">ಪ್ರವೇಶಪದ</string>
   <string name="login_password_show_check">ಪ್ರದೇಶಪದವನ್ನು ಪ್ರದರ್ಶಿಸು</string>
   <string name="menu_login">ಲಾಗ್ ಇನ್</string>
@@ -76,7 +76,7 @@
   <string name="history_empty_title">ಇಲ್ಲಿ ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ</string>
   <string name="history_empty_message" fuzzy="true">ನಿಮ್ಮ ಇತಿಹಾಸಪುಟ ಖಾಲಿಯಾಗಿದೆ.</string>
   <string name="delete_selected_history">ಅಳಿಸಿ</string>
-  <string name="create_account_username_hint">ಬಳಕೆದಾರ ಹೆಸರು</string>
+  <string name="create_account_username_hint">ಬಳಕೆದಾರರ ಹೆಸರು</string>
   <string name="login_create_account_link">ಖಾತೆಯಿಲ್ಲವೇ?ವಿಕಿಪೀಡಿಯ ಸೇರಿ</string>
   <string name="create_account_login_link">ಈಗಾಗಲೇ ಖಾತೆಯಿದೆಯೇ?ಲಾಗಿನ್ ಆಗಿ</string>
   <string name="create_account_activity_title">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>
