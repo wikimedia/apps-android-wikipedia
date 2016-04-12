@@ -28,7 +28,6 @@ public abstract class SaneAsyncTask<T> extends AsyncTask<Void, Void, T> {
         try {
             return performTask();
         } catch (Throwable t) {
-            L.d(t);
             thrown = t;
             return null;
         }
@@ -41,11 +40,13 @@ public abstract class SaneAsyncTask<T> extends AsyncTask<Void, Void, T> {
             return;
         }
         if (thrown != null) {
+            L.i(thrown);
             onCatch(thrown);
         } else {
             try {
                 onFinish(result);
             } catch (Exception e) {
+                L.i(e);
                 onCatch(e);
             }
         }

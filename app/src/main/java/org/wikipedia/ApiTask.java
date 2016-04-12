@@ -9,7 +9,6 @@ import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import org.wikipedia.util.log.L;
 
 import java.util.Map;
 
@@ -44,7 +43,6 @@ public abstract class ApiTask<T> extends SaneAsyncTask<T> {
      */
     @Override
     public void onCatch(Throwable caught) {
-        L.d(caught);
         throw new RuntimeException(caught);
     }
 
