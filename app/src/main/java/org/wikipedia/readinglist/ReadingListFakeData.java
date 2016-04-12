@@ -13,7 +13,7 @@ public final class ReadingListFakeData implements ReadingListData.ReadingListDao
 
     @Override
     @NonNull
-    public List<ReadingList> queryLists(int sortType) {
+    public List<ReadingList> queryMruLists() {
         return LISTS;
     }
 
@@ -67,17 +67,4 @@ public final class ReadingListFakeData implements ReadingListData.ReadingListDao
         }
         return false;
     }
-
-    @Override
-    @NonNull
-    public List<PageTitle> getTitlesForSavingOffline() {
-        List<PageTitle> titles = new ArrayList<>();
-        for (ReadingList list : LISTS) {
-            if (list.getSaveOffline()) {
-                titles.addAll(list.getPages());
-            }
-        }
-        return titles;
-    }
-
 }

@@ -86,7 +86,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     private void updateLists() {
-        readingLists = ReadingList.DAO.queryLists(ReadingListData.SORT_BY_RECENT);
+        readingLists = ReadingList.DAO.queryMruLists();
         adapter.notifyDataSetChanged();
         updateEmptyMessage();
     }

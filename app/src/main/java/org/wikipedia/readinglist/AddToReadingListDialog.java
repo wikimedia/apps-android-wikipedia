@@ -103,7 +103,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateLists() {
-        readingLists = ReadingList.DAO.queryLists(ReadingListData.SORT_BY_RECENT);
+        readingLists = ReadingList.DAO.queryMruLists();
         adapter.notifyDataSetChanged();
     }
 
