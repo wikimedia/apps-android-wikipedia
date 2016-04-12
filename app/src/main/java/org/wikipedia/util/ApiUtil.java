@@ -2,6 +2,9 @@ package org.wikipedia.util;
 
 import android.os.Build;
 
+// TODO: replace usage of this class with inline checks. The IDE omits warnings when these methods
+//       are inlined.
+@Deprecated
 public final class ApiUtil {
     /** @return True if SDK API level is greater than or equal to 23. */
     public static boolean hasMarshmallow() {
