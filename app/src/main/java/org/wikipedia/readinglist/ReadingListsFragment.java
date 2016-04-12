@@ -71,11 +71,6 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
     public void onDestroyView() {
         readingListView.setAdapter(null);
         super.onDestroyView();
@@ -116,6 +111,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     class ReadingListPagerAdapter extends PagerAdapter {
+        @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             int resId = 0;
             switch (position) {
