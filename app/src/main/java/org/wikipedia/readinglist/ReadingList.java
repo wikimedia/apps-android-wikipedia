@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadingList {
-    public static final ReadingListData DAO = new ReadingListFakeData();
+    public static final ReadingListData.ReadingListDao DAO = new ReadingListFakeData();
 
     private String title;
     private String description;

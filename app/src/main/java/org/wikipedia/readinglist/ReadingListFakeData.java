@@ -7,7 +7,7 @@ import org.wikipedia.page.PageTitle;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ReadingListFakeData implements ReadingListData {
+public final class ReadingListFakeData implements ReadingListData.ReadingListDao {
 
     private static final List<ReadingList> LISTS = new ArrayList<>();
 
