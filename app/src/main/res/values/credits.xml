@@ -5,6 +5,10 @@
         <!-- https://github.com/JakeWharton/ButterKnife/blob/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/ButterKnife">license</a>),
 
+        <a href="https://commons.apache.org/proper/commons-lang/">Commons Lang</a>
+        <!-- https://git-wip-us.apache.org/repos/asf?p=commons-lang.git;a=blob_plain;f=LICENSE.txt;hb=HEAD -->
+        (<a href="file:///android_asset/licenses/CommonsLang3">license</a>),
+
         <a href="https://github.com/JakeWharton/DiskLruCache">DiskLruCache</a>
         <!-- https://github.com/JakeWharton/DiskLruCache/blob/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/DiskLruCache">license</a>),
