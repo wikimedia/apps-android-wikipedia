@@ -4,6 +4,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 
 import android.content.Context;
 import android.net.Uri;
@@ -92,7 +93,8 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
                 contextMenuListener.onSavePage(title);
                 return true;
             case R.id.menu_long_press_add_to_list:
-                contextMenuListener.onAddToList(title);
+                contextMenuListener.onAddToList(title,
+                        AddToReadingListDialog.InvokeSource.CONTEXT_MENU);
                 return true;
             default:
             return false;
@@ -105,7 +107,7 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
         void onCopyLink(PageTitle title);
         void onShareLink(PageTitle title);
         void onSavePage(PageTitle title);
-        void onAddToList(PageTitle title);
+        void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source);
     }
 
     public interface ListViewContextMenuListener extends ContextMenuListener {

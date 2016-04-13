@@ -8,6 +8,7 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.IntentFunnel;
+import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
@@ -700,8 +701,8 @@ public class PageActivity extends ThemedActionBarActivity {
         bottomSheetPresenter.show(dialog);
     }
 
-    public void showAddToListDialog(PageTitle title) {
-        AddToReadingListDialog dialog = AddToReadingListDialog.newInstance(title);
+    public void showAddToListDialog(PageTitle title, AddToReadingListDialog.InvokeSource source) {
+        AddToReadingListDialog dialog = AddToReadingListDialog.newInstance(title, source);
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
@@ -711,6 +712,7 @@ public class PageActivity extends ThemedActionBarActivity {
             }
         });
         bottomSheetPresenter.show(dialog);
+        new ReadingListsFunnel(title.getSite()).logAddClick(source);
     }
 
     public void showReadingListAddedSnackbar(String message, final boolean isOnboarding) {

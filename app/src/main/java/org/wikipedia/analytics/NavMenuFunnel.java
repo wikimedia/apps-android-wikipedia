@@ -9,6 +9,7 @@ public class NavMenuFunnel extends Funnel {
     private static final String NAV_MENU_TODAY = "Today";
     private static final String NAV_MENU_HISTORY = "Recent";
     private static final String NAV_MENU_SAVED_PAGES = "SavedPages";
+    private static final String NAV_MENU_READING_LISTS = "ReadingLists";
     private static final String NAV_MENU_NEARBY = "Nearby";
     private static final String NAV_MENU_MORE = "More";
     private static final String NAV_MENU_LOGIN = "Login";
@@ -28,6 +29,10 @@ public class NavMenuFunnel extends Funnel {
 
     public void logSavedPages() {
         logSelect(NAV_MENU_SAVED_PAGES);
+    }
+
+    public void logReadingLists() {
+        logSelect(NAV_MENU_READING_LISTS);
     }
 
     public void logNearby() {

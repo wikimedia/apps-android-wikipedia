@@ -14,6 +14,7 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.gallery.GalleryCollection;
 import org.wikipedia.page.gallery.GalleryCollectionFetchTask;
 import org.wikipedia.page.gallery.GalleryThumbnailScrollView;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageSummary;
@@ -329,7 +330,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
                     dismiss();
                     return true;
                 case R.id.menu_link_preview_add_to_list:
-                    overflowMenuHandler.onAddToList(pageTitle);
+                    overflowMenuHandler.onAddToList(pageTitle,
+                            AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU);
                     return true;
                 case R.id.menu_link_preview_share_page:
                     overflowMenuHandler.onShareLink(pageTitle);
