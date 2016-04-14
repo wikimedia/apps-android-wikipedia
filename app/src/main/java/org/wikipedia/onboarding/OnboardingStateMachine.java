@@ -7,4 +7,6 @@ public interface OnboardingStateMachine {
     void setSelectTextTutorial();
     boolean isShareTutorialEnabled();
     void setShareTutorial();
+    boolean isReadingListTutorialEnabled();
+    void setReadingListTutorial();
 }

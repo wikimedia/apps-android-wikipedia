@@ -339,6 +339,9 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete this reading list?</string>
     <string name="reading_lists_empty">No reading lists here.</string>
     <string name="reading_lists_empty_message">Organize the articles you browse into reading lists! When browsing an article, tap the bookmark icon at the top of the article to add it to a reading list.</string>
+    <string name="reading_lists_onboarding_intro">New: Organize articles that you want to read later into reading lists.</string>
+    <string name="reading_lists_onboarding_examples">Places I want to visit\nStudy topics\nTV show trivia</string>
+    <string name="reading_lists_onboarding_got_it">Got it</string>
     <!-- /Reading lists -->
 
     <!-- User options -->

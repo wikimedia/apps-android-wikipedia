@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -22,6 +23,10 @@ import java.util.List;
 public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private PageTitle pageTitle;
     private ReadingListAdapter adapter;
+    private View listsContainer;
+    private View onboardingContainer;
+    private View onboardingButton;
+    private boolean isOnboarding;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private List<ReadingList> readingLists = new ArrayList<>();
     private DialogInterface.OnDismissListener dismissListener;
@@ -45,6 +50,12 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_add_to_reading_list, container);
+
+        listsContainer = rootView.findViewById(R.id.lists_container);
+        onboardingContainer = rootView.findViewById(R.id.onboarding_container);
+        onboardingButton = rootView.findViewById(R.id.onboarding_button);
+        checkAndShowOnboarding();
+
         RecyclerView readingListView = (RecyclerView) rootView.findViewById(R.id.list_of_lists);
         readingListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         readingListView.setAdapter(adapter);
@@ -77,6 +88,20 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         dismissListener = listener;
     }
 
+    private void checkAndShowOnboarding() {
+        isOnboarding = WikipediaApp.getInstance().getOnboardingStateMachine().isReadingListTutorialEnabled();
+        onboardingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onboardingContainer.setVisibility(View.GONE);
+                listsContainer.setVisibility(View.VISIBLE);
+                WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
+            }
+        });
+        listsContainer.setVisibility(isOnboarding ? View.GONE : View.VISIBLE);
+        onboardingContainer.setVisibility(isOnboarding ? View.VISIBLE : View.GONE);
+    }
+
     private void updateLists() {
         readingLists = ReadingList.DAO.queryLists(ReadingListData.SORT_BY_RECENT);
         adapter.notifyDataSetChanged();
@@ -100,13 +125,13 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private void addAndDismiss(ReadingList readingList) {
         if (ReadingList.DAO.listContainsTitle(readingList, pageTitle)) {
             ((PageActivity) getActivity())
-                    .showReadingListAddedSnackbar(getString(R.string.reading_list_already_exists));
+                    .showReadingListAddedSnackbar(getString(R.string.reading_list_already_exists), isOnboarding);
         } else {
             ((PageActivity) getActivity())
                     .showReadingListAddedSnackbar(TextUtils.isEmpty(readingList.getTitle())
                             ? getString(R.string.reading_list_added_to_unnamed)
                             : String.format(getString(R.string.reading_list_added_to_named),
-                            readingList.getTitle()));
+                            readingList.getTitle()), isOnboarding);
 
             ReadingList.DAO.addTitleToList(readingList, pageTitle);
         }

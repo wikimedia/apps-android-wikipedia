@@ -53,6 +53,16 @@ public final class PrefsOnboardingStateMachine implements OnboardingStateMachine
         updateTimeSinceLastTutorial();
     }
 
+    @Override
+    public boolean isReadingListTutorialEnabled() {
+        return Prefs.isReadingListTutorialEnabled();
+    }
+
+    @Override
+    public void setReadingListTutorial() {
+        Prefs.setReadingListTutorialEnabled(false);
+    }
+
     private void updateTimeSinceLastTutorial() {
         millisSinceLastTutorial = System.currentTimeMillis();
     }
