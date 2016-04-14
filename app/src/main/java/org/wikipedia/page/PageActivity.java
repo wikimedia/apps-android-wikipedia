@@ -19,6 +19,7 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.random.RandomHandler;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
@@ -695,6 +696,19 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     public void showBottomSheet(BottomSheetDialogFragment dialog) {
+        bottomSheetPresenter.show(dialog);
+    }
+
+    public void showAddToListDialog(PageTitle title) {
+        AddToReadingListDialog dialog = AddToReadingListDialog.newInstance(title);
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                if (getCurPageFragment() != null) {
+                    getCurPageFragment().updateBookmark();
+                }
+            }
+        });
         bottomSheetPresenter.show(dialog);
     }
 

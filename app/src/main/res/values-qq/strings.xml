@@ -65,6 +65,7 @@ See also:
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
   <string name="menu_page_save">Menu item for saving a page for later reading.
 {{Identical|Save page}}</string>
+  <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
 {{Identical|Share}}</string>
   <string name="menu_long_press_open_page">Menu item for opening a link in the current tab.

@@ -328,6 +328,9 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
                     overflowMenuHandler.onSavePage(pageTitle);
                     dismiss();
                     return true;
+                case R.id.menu_link_preview_add_to_list:
+                    overflowMenuHandler.onAddToList(pageTitle);
+                    return true;
                 case R.id.menu_link_preview_share_page:
                     overflowMenuHandler.onShareLink(pageTitle);
                     return true;

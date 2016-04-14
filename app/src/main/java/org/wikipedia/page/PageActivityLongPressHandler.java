@@ -5,15 +5,16 @@ import android.support.annotation.NonNull;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.savedpages.SaveOtherPageCallback;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageServiceFactory;
-import org.wikipedia.savedpages.SaveOtherPageCallback;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
 public abstract class PageActivityLongPressHandler implements PageLongPressHandler.ContextMenuListener {
-    @NonNull private final PageActivity activity;
+    @NonNull
+    private final PageActivity activity;
 
     public PageActivityLongPressHandler(@NonNull PageActivity activity) {
         this.activity = activity;
@@ -43,6 +44,11 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
     @Override
     public void onSavePage(PageTitle title) {
         saveOtherPage(title);
+    }
+
+    @Override
+    public void onAddToList(PageTitle title) {
+        activity.showAddToListDialog(title);
     }
 
     private void copyLink(String url) {
