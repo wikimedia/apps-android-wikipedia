@@ -11,12 +11,12 @@ import org.wikipedia.model.EnumCode;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AsyncTable<Status extends EnumCode, Row extends AsyncRow<Status>>
+public abstract class AsyncTable<Status extends EnumCode, Dat, Row extends AsyncRow<Status, Dat>>
         extends DatabaseTable<Row> {
-    @NonNull private final AsyncColumns<Status, Row> cols;
+    @NonNull private final AsyncColumns<Status, Dat, Row> cols;
 
     public AsyncTable(@NonNull String tbl, @NonNull Uri baseUri,
-                      @NonNull AsyncColumns<Status, Row> cols) {
+                      @NonNull AsyncColumns<Status, Dat, Row> cols) {
         super(tbl, baseUri);
         this.cols = cols;
     }

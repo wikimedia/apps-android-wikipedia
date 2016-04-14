@@ -5,28 +5,39 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.model.EnumCode;
 
-public class AsyncRow<T extends EnumCode> {
+public class AsyncRow<Status extends EnumCode, Dat> {
+    @Nullable private final Dat dat;
     @NonNull private final String key;
-    @NonNull private T status;
+    @NonNull private Status status;
     private long timestamp;
     private long transactionId;
 
-    public AsyncRow(@NonNull String key, @NonNull T status) {
-        this(key, status, AsyncConstant.NO_TIMESTAMP, AsyncConstant.NO_TRANSACTION_ID);
+    public AsyncRow(@NonNull String key, @NonNull Status status, @Nullable Dat dat) {
+        this(key, status, AsyncConstant.NO_TIMESTAMP, AsyncConstant.NO_TRANSACTION_ID, dat);
     }
 
-    public AsyncRow(@NonNull String key, @NonNull T status, long timestamp, long transactionId) {
+    public AsyncRow(@NonNull AsyncRow<Status, Dat> row, @Nullable Dat dat) {
+        this(row.key, row.status, row.timestamp, row.transactionId, dat);
+    }
+
+    public AsyncRow(@NonNull String key, @NonNull Status status, long timestamp, long transactionId) {
+        this(key, status, timestamp, transactionId, null);
+    }
+
+    public AsyncRow(@NonNull String key, @NonNull Status status, long timestamp, long transactionId,
+                    @Nullable Dat dat) {
         this.key = key;
         this.status = status;
         this.timestamp = timestamp;
         this.transactionId = transactionId;
+        this.dat = dat;
     }
 
     @NonNull public String key() {
         return key;
     }
 
-    @NonNull public T status() {
+    @NonNull public Status status() {
         return status;
     }
 
@@ -42,7 +53,11 @@ public class AsyncRow<T extends EnumCode> {
         return transactionId;
     }
 
-    public void resetTransaction(@NonNull T status) {
+    @Nullable public Dat dat() {
+        return dat;
+    }
+
+    public void resetTransaction(@NonNull Status status) {
         this.status = status;
         this.transactionId = AsyncConstant.NO_TRANSACTION_ID;
     }
@@ -51,7 +66,7 @@ public class AsyncRow<T extends EnumCode> {
         transactionId = newTransactionId();
     }
 
-    public boolean completable(@Nullable AsyncRow<T> query) {
+    public boolean completable(@Nullable AsyncRow<Status, Dat> query) {
         boolean newer = query == null || transactionId() == AsyncConstant.NO_TRANSACTION_ID;
         boolean response = query != null && transactionId() == query.transactionId();
         return newer || response;

@@ -5,17 +5,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.editing.summaries.EditSummary;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.util.log.L;
 
 public class Database extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 12;
 
     private final DatabaseTable<?>[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
@@ -24,11 +25,14 @@ public class Database extends SQLiteOpenHelper {
             SavedPage.DATABASE_TABLE,
             EditSummary.DATABASE_TABLE,
 
-            // Order matters. UserOptionDatabaseTable has a dependency on this table when upgrading
-            // so this table must appear before it.
+            // Order matters. UserOptionDatabaseTable has a dependency on
+            // UserOptionHttpDatabaseTable table when upgrading so this table must appear before it.
             UserOptionRow.HTTP_DATABASE_TABLE,
+            UserOptionRow.DATABASE_TABLE,
 
-            UserOptionRow.DATABASE_TABLE
+            ReadingListPage.DISK_DATABASE_TABLE,
+            ReadingListPage.HTTP_DATABASE_TABLE,
+            ReadingListPage.DATABASE_TABLE
     };
 
     public Database(Context context) {

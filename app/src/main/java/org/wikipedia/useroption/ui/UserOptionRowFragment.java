@@ -50,7 +50,8 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
         list.setAdapter(listAdapter);
 
         LoaderCallback callback = new LoaderCallback(getContext(), listAdapter);
-        getActivity().getSupportLoaderManager().initLoader(USER_OPTION_ROW_FRAGMENT_LOADER_ID, null, callback);
+        getActivity().getSupportLoaderManager().initLoader(USER_OPTION_ROW_FRAGMENT_LOADER_ID, null,
+                callback);
 
         setHasOptionsMenu(true);
 
@@ -90,7 +91,7 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            Uri uri = UserOptionContract.OptionWithHttp.URI;
+            Uri uri = UserOptionContract.HttpWithOption.URI;
             final String[] projection = null;
             final String selection = null;
             final String[] selectionArgs = null;

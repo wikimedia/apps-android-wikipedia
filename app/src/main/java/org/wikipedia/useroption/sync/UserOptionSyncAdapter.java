@@ -68,7 +68,7 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
                     UserOptionDataClientSingleton.instance().delete(row.key());
                 } else {
                     //noinspection ConstantConditions
-                    UserOptionDataClientSingleton.instance().post(row.option());
+                    UserOptionDataClientSingleton.instance().post(row.dat());
                 }
             } catch (RetrofitError e) {
                 UserOptionDao.instance().failTransaction(rows);

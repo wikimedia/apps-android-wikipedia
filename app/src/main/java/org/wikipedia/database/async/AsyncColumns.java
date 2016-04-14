@@ -12,7 +12,7 @@ import org.wikipedia.database.column.StrColumn;
 import org.wikipedia.model.CodeEnum;
 import org.wikipedia.model.EnumCode;
 
-public abstract class AsyncColumns<Status extends EnumCode, Row extends AsyncRow<Status>> {
+public abstract class AsyncColumns<Status extends EnumCode, Dat, Row extends AsyncRow<Status, Dat>> {
     @NonNull private final IdColumn id;
 
     /** A key used to uniquely identify a row and often to associate a row with a row in another
@@ -32,6 +32,8 @@ public abstract class AsyncColumns<Status extends EnumCode, Row extends AsyncRow
 
     @NonNull private final String[] selection;
 
+    @NonNull private final String[] content;
+
     public AsyncColumns(@NonNull String tbl, @NonNull String namePrefix,
                         @NonNull CodeEnum<Status> codeEnum) {
         id = new IdColumn(tbl);
@@ -40,6 +42,7 @@ public abstract class AsyncColumns<Status extends EnumCode, Row extends AsyncRow
         timestamp = new LongColumn(tbl, namePrefix + "Timestamp", "integer not null");
         transactionId = new LongColumn(tbl, namePrefix + "TransactionId", "integer not null");
         selection = DbUtil.qualifiedNames(key);
+        content = DbUtil.qualifiedNames(key, status, timestamp, transactionId);
     }
 
     @NonNull public IdColumn id() {
@@ -64,6 +67,10 @@ public abstract class AsyncColumns<Status extends EnumCode, Row extends AsyncRow
 
     @NonNull public String[] selection() {
         return selection;
+    }
+
+    @NonNull public String[] content() {
+        return content;
     }
 
     @NonNull public String key(@NonNull Cursor cursor) {

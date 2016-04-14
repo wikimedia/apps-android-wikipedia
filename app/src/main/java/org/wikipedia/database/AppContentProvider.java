@@ -14,7 +14,7 @@ import org.wikipedia.WikipediaApp;
 
 public class AppContentProvider extends ContentProvider {
     @Override public boolean onCreate() {
-        final boolean loaded = true;
+        @SuppressWarnings("UnnecessaryLocalVariable") final boolean loaded = true;
         return loaded;
     }
 
