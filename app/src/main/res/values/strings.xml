@@ -310,6 +310,36 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="article_menu_bar_navigate">Navigate to the location of the article</string>
     <!-- /Article menu bar -->
 
+    <!-- Reading lists -->
+    <string name="nav_item_reading_lists">Reading lists</string>
+    <string name="reading_list_untitled">Untitled</string>
+    <string name="reading_list_save_to">Save to reading list</string>
+    <string name="reading_list_create_new">Create a new reading list</string>
+    <string name="reading_list_added_to_named">Added to %s.</string>
+    <string name="reading_list_added_to_unnamed">Added to reading list.</string>
+    <string name="reading_list_already_exists">This article is already in that list.</string>
+    <string name="reading_list_added_view_button">View</string>
+    <string name="reading_list_item_count_singular">1 article</string>
+    <string name="reading_list_item_count_plural">%s articles</string>
+    <string name="reading_list_sort">Sort</string>
+    <string name="reading_list_sort_by_name">By name</string>
+    <string name="reading_list_sort_by_recent">By recent</string>
+    <string name="reading_list_menu_edit">Edit reading list details</string>
+    <string name="reading_list_menu_delete">Delete reading list</string>
+    <string name="reading_list_name_sample">My reading list</string>
+    <string name="reading_list_name_hint">Name of this list</string>
+    <string name="reading_list_description_hint">Description (optional)</string>
+    <string name="reading_list_save_for_offline">Save for offline reading</string>
+    <string name="reading_list_item_deleted">%s removed from list</string>
+    <string name="reading_list_item_delete_undo">Undo</string>
+    <string name="reading_list_deleted">%s deleted</string>
+    <string name="reading_list_edit_ok">OK</string>
+    <string name="reading_list_edit_cancel">Cancel</string>
+    <string name="reading_list_delete_confirm">Are you sure you want to delete this reading list?</string>
+    <string name="reading_lists_empty">No reading lists here.</string>
+    <string name="reading_lists_empty_message">Organize the articles you browse into reading lists! When browsing an article, tap the bookmark icon at the top of the article to add it to a reading list.</string>
+    <!-- /Reading lists -->
+
     <!-- User options -->
     <string name="user_option_sync_label">Preferences</string>
     <!-- /User options -->

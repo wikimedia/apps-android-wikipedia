@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:padding="16dp"
+    android:background="?attr/window_background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/reading_list_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:textAppearanceMedium"
+                android:hint="@string/reading_list_name_hint"
+                android:imeOptions="flagNoExtractUi"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+            <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/reading_list_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:textAppearanceMedium"
+                android:hint="@string/reading_list_description_hint"
+                android:imeOptions="flagNoExtractUi"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/reading_list_offline_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="end"
+            android:text="@string/reading_list_save_for_offline"/>
+
+        <TextView
+            android:id="@+id/reading_list_delete_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/reading_list_delete_link"
+            android:layout_gravity="end"
+            android:clickable="true"
+            android:text="@string/reading_list_menu_delete"/>
+    </LinearLayout>
+</ScrollView>

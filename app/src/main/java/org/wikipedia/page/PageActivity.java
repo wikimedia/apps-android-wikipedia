@@ -19,6 +19,7 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.random.RandomHandler;
+import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
@@ -56,6 +57,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -694,6 +696,18 @@ public class PageActivity extends ThemedActionBarActivity {
 
     public void showBottomSheet(BottomSheetDialogFragment dialog) {
         bottomSheetPresenter.show(dialog);
+    }
+
+    public void showReadingListAddedSnackbar(String message) {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(fragmentContainerView, message,
+                FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pushFragment(new ReadingListsFragment());
+            }
+        });
+        snackbar.show();
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};

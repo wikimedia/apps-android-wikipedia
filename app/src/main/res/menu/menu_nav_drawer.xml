@@ -18,6 +18,11 @@
             android:icon="@drawable/ic_turned_in_black_24dp"
             android:checkable="true"
             />
+        <item android:id="@+id/nav_item_reading_lists"
+            android:title="@string/nav_item_reading_lists"
+            android:icon="@drawable/ic_turned_in_black_24dp"
+            android:checkable="true"
+            />
         <item android:id="@+id/nav_item_nearby"
             android:title="@string/nav_item_nearby"
             android:icon="@drawable/ic_explore_black_24dp"

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -92,7 +93,10 @@ public class ArticleMenuBarView extends LinearLayout {
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.view_article_menu_bar_bookmark:
-                view.setActivated(!view.isActivated());
+                // TODO: resolve when Saved Pages is removed
+                if (ReleaseUtil.isProdRelease()) {
+                    view.setActivated(!view.isActivated());
+                }
                 callback.onBookmarkClick(view.isActivated());
                 break;
             case R.id.view_article_menu_bar_share:

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?attr/window_background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/list_item_horizontal_padding"
+            android:layout_marginStart="@dimen/list_item_horizontal_padding"
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:tint="?attr/list_item_text_secondary_color"
+            android:src="@drawable/ic_bookmark"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            style="@style/RtlAwareTextView"
+            android:textColor="?attr/link_preview_text_color"
+            android:textSize="16sp"
+            android:text="@string/reading_list_save_to" />
+
+        <ImageButton
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            style="@style/ArticleMenuBarViewButton"
+            android:tint="@color/gray_highlight"
+            android:src="@drawable/ic_close_white"
+            android:contentDescription="@string/dialog_close_description"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/list_separator_light"/>
+
+    <LinearLayout
+        android:id="@+id/create_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="@dimen/list_item_horizontal_padding"
+        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/readingListItemSize"
+            android:layout_height="@dimen/readingListItemSize"
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            android:background="@color/reading_list_add_background"
+            android:tint="?attr/list_item_text_secondary_color"
+            android:src="@drawable/ic_add_box_white_24dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            style="@style/RtlAwareTextView"
+            android:textColor="?attr/link_preview_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/reading_list_create_new" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="@dimen/readingListDividerMargin"
+        android:layout_marginStart="@dimen/readingListDividerMargin"
+        android:background="?attr/list_separator_color"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_of_lists"
+        android:scrollbars="vertical"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
