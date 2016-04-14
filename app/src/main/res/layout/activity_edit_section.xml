@@ -37,7 +37,8 @@
             android:id="@+id/edit_section_container"
             android:visibility="gone"
             tools:visibility="visible"
-            android:layout_width="match_parent" android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/edit_section_text"
                 android:layout_width="match_parent"

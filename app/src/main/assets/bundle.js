@@ -422,7 +422,13 @@ bridge.registerListener( "getTextSelection", function( payload ) {
     if (text.length > 250) {
         text = text.substring(0, 249);
     }
-    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text } );
+    if (payload.purpose === "edit_here") {
+        var range = window.getSelection().getRangeAt(0);
+        var newRangeStart = Math.max(0, range.startOffset - 20);
+        range.setStart(range.startContainer, newRangeStart);
+        text = range.toString();
+    }
+    bridge.sendMessage( "onGetTextSelection", { "purpose" : payload.purpose, "text" : text, "sectionID" : getCurrentSection() } );
 });
 
 bridge.registerListener( "displayLeadSection", function( payload ) {

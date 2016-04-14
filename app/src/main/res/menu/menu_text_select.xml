@@ -18,4 +18,9 @@
           android:visible="false"
           app:showAsAction="ifRoom" />
 
+    <item android:id="@+id/menu_text_edit_here"
+        android:title="@string/menu_text_select_edit_here"
+        android:icon="@drawable/ic_mode_edit_white_24dp"
+        app:showAsAction="ifRoom" />
+
 </menu>

@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import com.squareup.otto.Bus;
 import org.mediawiki.api.json.Api;
@@ -55,6 +56,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid";
     public static final String EXTRA_SECTION_HEADING = "org.wikipedia.edit_section.sectionheading";
     public static final String EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops";
+    public static final String EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight";
 
     private WikipediaApp app;
     private Bus bus;
@@ -67,6 +69,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private int sectionID;
     private String sectionHeading;
     private PageProperties pageProps;
+    private String textToHighlight;
 
     private String sectionWikitext;
     private SyntaxHighlighter syntaxHighlighter;
@@ -76,7 +79,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private boolean sectionTextFirstLoad = true;
 
     private View sectionProgress;
-    private View sectionContainer;
+    private ScrollView sectionContainer;
     private View sectionError;
 
     private View abusefilterContainer;
@@ -111,6 +114,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         sectionID = getIntent().getIntExtra(EXTRA_SECTION_ID, 0);
         sectionHeading = getIntent().getStringExtra(EXTRA_SECTION_HEADING);
         pageProps = getIntent().getParcelableExtra(EXTRA_PAGE_PROPS);
+        textToHighlight = getIntent().getStringExtra(EXTRA_HIGHLIGHT_TEXT);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
@@ -124,7 +128,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         syntaxHighlighter = new SyntaxHighlighter(this, sectionText);
 
         sectionProgress = findViewById(R.id.edit_section_load_progress);
-        sectionContainer = findViewById(R.id.edit_section_container);
+        sectionContainer = (ScrollView) findViewById(R.id.edit_section_container);
+        sectionContainer.setSmoothScrollingEnabled(false);
         sectionError = findViewById(R.id.edit_section_error);
         Button sectionErrorRetry = (Button) findViewById(R.id.edit_section_error_retry);
 
@@ -602,6 +607,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         sectionText.setText(sectionWikitext);
         ViewAnimations.crossFade(sectionProgress, sectionContainer);
         supportInvalidateOptionsMenu();
+        scrollToHighlight(textToHighlight);
 
         if (pageProps != null && pageProps.getEditProtectionStatus() != null) {
             String message;
@@ -617,6 +623,44 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     break;
             }
             FeedbackUtil.showMessage(this, message);
+        }
+    }
+
+    private void scrollToHighlight(final String highlightText) {
+        if (!TextUtils.isGraphic(highlightText)) {
+            return;
+        }
+        sectionText.post(new Runnable() {
+            @Override
+            public void run() {
+                sectionContainer.fullScroll(View.FOCUS_DOWN);
+                final int scrollDelayMs = 500;
+                sectionText.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        setHighlight(highlightText);
+                    }
+                }, scrollDelayMs);
+            }
+        });
+    }
+
+    private void setHighlight(String highlightText) {
+        String[] words = highlightText.split("\\s+");
+        int pos = 0;
+        for (String word : words) {
+            pos = sectionWikitext.indexOf(word, pos);
+            if (pos == -1) {
+                break;
+            }
+        }
+        if (pos == -1) {
+            pos = sectionWikitext.indexOf(words[words.length - 1]);
+        }
+        if (pos > 0) {
+            // TODO: Programmatic selection doesn't seem to work with RTL content...
+            sectionText.setSelection(pos, pos + words[words.length - 1].length());
+            sectionText.performLongClick();
         }
     }
 

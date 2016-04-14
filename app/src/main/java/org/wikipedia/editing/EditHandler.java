@@ -2,6 +2,7 @@ package org.wikipedia.editing;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import org.json.JSONObject;
 import org.wikipedia.R;
@@ -30,6 +31,18 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     public void setPage(Page page) {
         this.currentPage = page;
         this.funnel = new ProtectedEditAttemptFunnel(WikipediaApp.getInstance(), page.getTitle().getSite());
+    }
+
+    public void startEditingSection(int sectionID, @Nullable String highlightText) {
+        Section section = currentPage.getSections().get(sectionID);
+        Intent intent = new Intent(fragment.getActivity(), EditSectionActivity.class);
+        intent.setAction(EditSectionActivity.ACTION_EDIT_SECTION);
+        intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.getId());
+        intent.putExtra(EditSectionActivity.EXTRA_SECTION_HEADING, section.getHeading());
+        intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
+        intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, currentPage.getPageProperties());
+        intent.putExtra(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT, highlightText);
+        fragment.startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_EDIT_SECTION);
     }
 
     private void showUneditableDialog() {
@@ -85,15 +98,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 showUneditableDialog();
                 return;
             }
-            int id = messagePayload.optInt("sectionID");
-            Section section = currentPage.getSections().get(id);
-            Intent intent = new Intent(fragment.getActivity(), EditSectionActivity.class);
-            intent.setAction(EditSectionActivity.ACTION_EDIT_SECTION);
-            intent.putExtra(EditSectionActivity.EXTRA_SECTION_ID, section.getId());
-            intent.putExtra(EditSectionActivity.EXTRA_SECTION_HEADING, section.getHeading());
-            intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
-            intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, currentPage.getPageProperties());
-            fragment.startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_EDIT_SECTION);
+            startEditingSection(messagePayload.optInt("sectionID"), null);
             if (wasRefreshed) {
                 savedPagesFunnel.logEditAfterRefresh();
             }
