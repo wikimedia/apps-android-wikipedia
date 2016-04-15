@@ -42,7 +42,6 @@ import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
-import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleBundle;
@@ -59,14 +58,11 @@ import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
-import org.wikipedia.savedpages.SavePageTask;
-import org.wikipedia.savedpages.SavedPageCheckTask;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
@@ -92,9 +88,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public static final int TOC_ACTION_HIDE = 1;
     public static final int TOC_ACTION_TOGGLE = 2;
 
-    private boolean pageSaved;
     private boolean pageRefreshed;
-    private boolean savedPageCheckComplete;
     private boolean errorState = false;
 
     private static final int TOC_BUTTON_HIDE_DELAY = 2000;
@@ -118,18 +112,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Nullable
     private PageScrollFunnel pageScrollFunnel;
 
-    /**
-     * Whether to save the full page content as soon as it's loaded.
-     * Used in the following cases:
-     * - Stored page content is corrupted
-     * - Page bookmarks are imported from the old app.
-     * In the above cases, loading of the saved page will "fail", and will
-     * automatically bounce to the online version of the page. Once the online page
-     * loads successfully, the content will be saved, thereby reconstructing the
-     * stored version of the page.
-     */
-    private boolean saveOnComplete = false;
-
     private ArticleHeaderView articleHeaderView;
     private LeadImagesHandler leadImagesHandler;
     private SearchBarHideHandler searchBarHideHandler;
@@ -148,8 +130,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private TabsProvider tabsProvider;
 
     private WikipediaApp app;
-
-    private SavedPagesFunnel savedPagesFunnel;
 
     @NonNull
     private final SwipeRefreshLayout.OnRefreshListener pageRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
@@ -201,10 +181,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public HistoryEntry getHistoryEntry() {
         return model.getCurEntry();
-    }
-
-    public void setSavedPageCheckComplete(boolean complete) {
-        savedPageCheckComplete = complete;
     }
 
     public EditHandler getEditHandler() {
@@ -562,15 +538,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         model.setTitle(title);
         model.setTitleOriginal(title);
         model.setCurEntry(entry);
-        savedPagesFunnel = app.getFunnelManager().getSavedPagesFunnel(title.getSite());
 
         getPageActivity().updateProgressBar(true, true, 0);
 
         this.pageRefreshed = pageRefreshed;
-        if (!pageRefreshed) {
-            savedPageCheckComplete = false;
-            checkIfPageIsSaved();
-        }
 
         closePageScrollFunnel();
         pageLoadStrategy.load(pushBackStack, cachePreference, stagedScrollY);
@@ -595,11 +566,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      */
     public void updateFontSize() {
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
-    }
-
-    public void setPageSaved(boolean saved) {
-        pageSaved = saved;
-        leadImagesHandler.updateBookmark(pageSaved);
     }
 
     public void updateBookmark() {
@@ -647,9 +613,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
         MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
         MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
-
-        // TODO: resolve when Reading Lists are promoted to production
-        addToListItem.setVisible(ReleaseUtil.isPreProdRelease());
 
         if (otherLangItem == null) {
             // On API <= 19, it looks like onPrepareOptionsMenu can be called before the menu
@@ -800,11 +763,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         editHandler.setPage(model.getPage());
         initPageScrollFunnel();
 
-        if (saveOnComplete) {
-            saveOnComplete = false;
-            savedPagesFunnel.logUpdate();
-            savePage();
-        }
+        // TODO: update this title in the db to be queued for saving by the service.
 
         checkAndShowSelectTextOnboarding();
 
@@ -842,27 +801,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void savePage() {
-        if (model.getPage() == null) {
-            return;
-        }
-
-        FeedbackUtil.showMessage(getActivity(), R.string.snackbar_saving_page);
-        new SavePageTask(app, model.getTitle(), model.getPage()) {
-            @Override
-            public void onFinish(Boolean success) {
-                if (!isAdded()) {
-                    Log.d("PageFragment", "Detached from activity, no snackbar.");
-                    return;
-                }
-                setPageSaved(true);
-                getPageActivity().showPageSavedMessage(model.getTitle().getDisplayText(), success);
-            }
-        }.execute();
-        // Not technically a refresh but this will prevent needless immediate refreshing
-        pageRefreshed = true;
-    }
-
     /**
      * Read URL mappings from the saved page specific file
      */
@@ -889,17 +827,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 back to the online version of the page, and re-save the page contents locally when it's done.
                  */
                 L.d(e);
-                refreshPage(true);
+                refreshPage();
             }
         }.execute();
     }
 
     public void refreshPage() {
-        refreshPage(pageSaved);
-    }
-
-    public void refreshPage(boolean saveOnComplete) {
-        if (pageLoadStrategy.isLoading() || !savedPageCheckComplete) {
+        if (pageLoadStrategy.isLoading()) {
             refreshView.setRefreshing(false);
             return;
         }
@@ -907,10 +841,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorView.setVisibility(View.GONE);
         errorState = false;
 
-        this.saveOnComplete = saveOnComplete;
-        if (saveOnComplete) {
-            FeedbackUtil.showMessage(getActivity(), R.string.snackbar_refresh_saved_page);
-        }
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
         loadPage(model.getTitle(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false, true);
     }
@@ -1122,18 +1052,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         this.pageInfo = pageInfo;
         if (getActivity() != null) {
             getActivity().supportInvalidateOptionsMenu();
-        }
-    }
-
-    private void checkIfPageIsSaved() {
-        if (getActivity() != null && getTitle() != null) {
-            new SavedPageCheckTask(getTitle(), app) {
-                @Override
-                public void onFinish(Boolean exists) {
-                    setPageSaved(exists);
-                    setSavedPageCheckComplete(true);
-                }
-            }.execute();
         }
     }
 

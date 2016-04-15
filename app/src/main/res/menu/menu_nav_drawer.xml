@@ -13,11 +13,6 @@
             android:icon="@drawable/ic_restore_black_24dp"
             android:checkable="true"
             />
-        <item android:id="@+id/nav_item_saved_pages"
-            android:title="@string/nav_item_saved_pages"
-            android:icon="@drawable/ic_bookmark_black_24dp"
-            android:checkable="true"
-            />
         <item android:id="@+id/nav_item_reading_lists"
             android:title="@string/nav_item_reading_lists"
             android:icon="@drawable/ic_bookmark_black_24dp"

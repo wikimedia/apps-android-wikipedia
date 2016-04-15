@@ -3,11 +3,7 @@ package org.wikipedia.page;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.savedpages.SaveOtherPageCallback;
-import org.wikipedia.server.PageService;
-import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -43,11 +39,6 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
     }
 
     @Override
-    public void onSavePage(PageTitle title) {
-        saveOtherPage(title);
-    }
-
-    @Override
     public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
         activity.showAddToListDialog(title, source);
     }
@@ -58,27 +49,5 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
 
     private void showCopySuccessMessage() {
         FeedbackUtil.showMessage(activity, R.string.address_copied);
-    }
-
-    private void saveOtherPage(@NonNull final PageTitle title) {
-        getApiService(title).pageCombo(title.getPrefixedText(),
-                !WikipediaApp.getInstance().isImageDownloadEnabled(),
-                new SaveOtherPageCallback(title) {
-                    @Override
-                    protected void onComplete() {
-                        if (!activity.isDestroyed()) {
-                            activity.showPageSavedMessage(title.getDisplayText(), true);
-                        }
-                    }
-
-                    @Override
-                    protected void onError() {
-                        FeedbackUtil.showMessage(activity, R.string.error_network_error_try_again);
-                    }
-                });
-    }
-
-    private PageService getApiService(PageTitle title) {
-        return PageServiceFactory.create(title.getSite());
     }
 }

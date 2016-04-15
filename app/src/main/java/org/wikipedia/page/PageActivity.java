@@ -763,12 +763,6 @@ public class PageActivity extends ThemedActionBarActivity {
         finish();
     }
 
-    /*package*/ void showPageSavedMessage(@NonNull String title, boolean success) {
-        FeedbackUtil.showMessage(this, getString(success
-                ? R.string.snackbar_saved_page_format
-                : R.string.snackbar_saved_page_missing_images, title));
-    }
-
     private void loadMainPageIfNoTabs() {
         loadMainPage(false, TabPosition.CURRENT_TAB, true);
     }

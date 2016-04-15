@@ -24,10 +24,8 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.readinglist.ReadingListsFragment;
-import org.wikipedia.savedpages.SavedPagesFragment;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.UriUtil;
 
 public class NavDrawerHelper {
@@ -65,11 +63,6 @@ public class NavDrawerHelper {
         updateWikipediaZeroStatus();
         accountToggle = false;
         updateMenuGroupToggle();
-
-        // TODO: resolve when Saved Pages is removed
-        if (ReleaseUtil.isProdRelease()) {
-            activity.getNavMenu().findItem(R.id.nav_item_reading_lists).setVisible(false);
-        }
     }
 
     public NavigationView.OnNavigationItemSelectedListener getNewListener() {
@@ -84,10 +77,6 @@ public class NavDrawerHelper {
                     case R.id.nav_item_history:
                         activity.pushFragment(new HistoryFragment());
                         funnel.logHistory();
-                        break;
-                    case R.id.nav_item_saved_pages:
-                        activity.pushFragment(new SavedPagesFragment());
-                        funnel.logSavedPages();
                         break;
                     case R.id.nav_item_reading_lists:
                         activity.pushFragment(new ReadingListsFragment());
@@ -204,8 +193,6 @@ public class NavDrawerHelper {
             return R.id.nav_item_today;
         } else if (fragment == HistoryFragment.class) {
             return R.id.nav_item_history;
-        } else if (fragment == SavedPagesFragment.class) {
-            return R.id.nav_item_saved_pages;
         } else if (fragment == ReadingListsFragment.class) {
             return R.id.nav_item_reading_lists;
         } else if (fragment == NearbyFragment.class) {

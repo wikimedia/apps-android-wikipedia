@@ -8,7 +8,6 @@ import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
-import org.wikipedia.analytics.SavedPagesFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
@@ -60,29 +59,20 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         funnel.log(currentPage.getPageProperties().getEditProtectionStatus());
     }
 
-    /**
-     * Variable indicating whether the current page was refreshed (by clicking on edit
-     * when it was a saved page and choosing to refresh. Used for accurate event logging
-     */
-    private boolean wasRefreshed = false;
     @Override
     public void onMessage(String messageType, JSONObject messagePayload) {
         if (!fragment.isAdded()) {
             return;
         }
         if (messageType.equals("editSectionClicked")) {
-            final SavedPagesFunnel savedPagesFunnel = WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(currentPage.getTitle().getSite());
             if (fragment.getHistoryEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
-                savedPagesFunnel.logEditAttempt();
                 new AlertDialog.Builder(fragment.getActivity())
                         .setCancelable(false)
                         .setMessage(R.string.edit_saved_page_refresh)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                fragment.refreshPage(true);
-                                savedPagesFunnel.logEditRefresh();
-                                wasRefreshed = true;
+                                fragment.refreshPage();
                             }
                         })
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -99,9 +89,6 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                 return;
             }
             startEditingSection(messagePayload.optInt("sectionID"), null);
-            if (wasRefreshed) {
-                savedPagesFunnel.logEditAfterRefresh();
-            }
         }
     }
 }

@@ -29,12 +29,7 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
-import org.wikipedia.savedpages.DeleteSavedPageTask;
-import org.wikipedia.savedpages.SavePageTask;
-import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
 
@@ -100,10 +95,6 @@ public class LeadImagesHandler {
         return WikipediaApp.getInstance().isImageDownloadEnabled()
                 && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
                 && !TextUtils.isEmpty(getLeadImageUrl());
-    }
-
-    public void updateBookmark(boolean bookmarkSaved) {
-        articleHeaderView.updateBookmark(bookmarkSaved);
     }
 
     public void updateBookmark() {
@@ -356,20 +347,11 @@ public class LeadImagesHandler {
 
     private class MenuBarCallback extends ArticleMenuBarView.DefaultCallback {
         @Override
-        public void onBookmarkClick(boolean bookmarkSaved) {
+        public void onBookmarkClick() {
             if (getPage() == null) {
                 return;
             }
-            // TODO: resolve when Saved Pages is removed
-            if (ReleaseUtil.isProdRelease()) {
-                if (bookmarkSaved) {
-                    saveBookmark();
-                } else {
-                    deleteBookmark();
-                }
-            } else {
-                parentFragment.addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
-            }
+            parentFragment.addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
         }
 
         @Override
@@ -380,38 +362,6 @@ public class LeadImagesHandler {
         @Override
         public void onNavigateClick() {
             openGeoIntent();
-        }
-
-        private void saveBookmark() {
-            WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(getTitle().getSite()).logSaveNew();
-            FeedbackUtil.showMessage(getActivity(), R.string.snackbar_saving_page);
-            new SavePageTask(WikipediaApp.getInstance(), getTitle(), getPage()) {
-                @Override
-                public void onFinish(Boolean success) {
-                    if (parentFragment.isAdded() && getTitle() != null) {
-                        parentFragment.setPageSaved(success);
-                        FeedbackUtil.showMessage(getActivity(), getActivity().getString(success
-                                ? R.string.snackbar_saved_page_format
-                                : R.string.snackbar_saved_page_missing_images, getTitle().getDisplayText()));
-                    }
-                }
-            }.execute();
-        }
-
-        private void deleteBookmark() {
-            new DeleteSavedPageTask(getActivity(), new SavedPage(getTitle())) {
-                @Override
-                public void onFinish(Boolean success) {
-                    WikipediaApp.getInstance().getFunnelManager().getSavedPagesFunnel(getTitle().getSite()).logDelete();
-                    if (parentFragment.isAdded()) {
-                        parentFragment.setPageSaved(!success);
-                        if (success) {
-                            FeedbackUtil.showMessage(getActivity(),
-                                    R.string.snackbar_saved_page_deleted);
-                        }
-                    }
-                }
-            }.execute();
         }
 
         private void openGeoIntent() {

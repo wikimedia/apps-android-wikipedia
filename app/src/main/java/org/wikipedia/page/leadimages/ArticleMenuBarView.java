@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -25,13 +24,13 @@ import butterknife.OnClick;
 
 public class ArticleMenuBarView extends LinearLayout {
     public interface Callback {
-        void onBookmarkClick(boolean bookmarkSaved);
+        void onBookmarkClick();
         void onShareClick();
         void onNavigateClick();
     }
 
     public static class DefaultCallback implements Callback {
-        @Override public void onBookmarkClick(boolean bookmarkSaved) { }
+        @Override public void onBookmarkClick() { }
         @Override public void onShareClick() { }
         @Override public void onNavigateClick() { }
     }
@@ -94,11 +93,7 @@ public class ArticleMenuBarView extends LinearLayout {
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.view_article_menu_bar_bookmark:
-                // TODO: resolve when Saved Pages is removed
-                if (ReleaseUtil.isProdRelease()) {
-                    view.setActivated(!view.isActivated());
-                }
-                callback.onBookmarkClick(view.isActivated());
+                callback.onBookmarkClick();
                 break;
             case R.id.view_article_menu_bar_share:
                 callback.onShareClick();

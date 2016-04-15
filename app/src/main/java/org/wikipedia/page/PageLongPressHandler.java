@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 
 import android.content.Context;
@@ -66,11 +65,6 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
             for (int i = 0; i < menu.size(); i++) {
                 menu.getItem(i).setOnMenuItemClickListener(this);
             }
-
-            // TODO: resolve when Saved Pages is removed.
-            if (ReleaseUtil.isProdRelease()) {
-                menu.findItem(R.id.menu_long_press_add_to_list).setVisible(false);
-            }
         }
     }
 
@@ -89,9 +83,6 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
             case R.id.menu_long_press_share_page:
                 contextMenuListener.onShareLink(title);
                 return true;
-            case R.id.menu_long_press_save_page:
-                contextMenuListener.onSavePage(title);
-                return true;
             case R.id.menu_long_press_add_to_list:
                 contextMenuListener.onAddToList(title,
                         AddToReadingListDialog.InvokeSource.CONTEXT_MENU);
@@ -106,7 +97,6 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
         void onOpenInNewTab(PageTitle title, HistoryEntry entry);
         void onCopyLink(PageTitle title);
         void onShareLink(PageTitle title);
-        void onSavePage(PageTitle title);
         void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source);
     }
 

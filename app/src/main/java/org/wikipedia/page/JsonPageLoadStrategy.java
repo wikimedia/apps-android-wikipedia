@@ -164,7 +164,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             loadOnWebViewReady(cachePreference);
         } else {
             fragment.updatePageInfo(null);
-            fragment.setPageSaved(false);
             leadImagesHandler.updateNavigate(null);
 
             // kick off an event to the WebView that will cause it to clear its contents,
@@ -318,8 +317,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     @Override
                     public void run() {
                         displayNonLeadSectionForSavedPage(1);
-                        fragment.setPageSaved(true);
-
                         setState(STATE_COMPLETE_FETCH);
                     }
                 });
@@ -443,70 +440,53 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         L10nUtil.setupDirectionality(model.getTitle().getSite().languageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
-        // TODO: Fix possible race condition when navigating from history fragment
-        if (model.getCurEntry().getSource() == HistoryEntry.SOURCE_SAVED_PAGE) {
-            state = STATE_NO_FETCH;
-            loadSavedPage(new ErrorCallback() {
-                @Override
-                public void call(Throwable error) {
-                    /*
-                    If anything bad happens during loading of a saved page, then simply bounce it
-                    back to the online version of the page, and re-save the page contents locally when it's done.
-                     */
-                    L.d("Error loading saved page: ", error);
-                    error.printStackTrace();
-                    fragment.refreshPage(true);
-                }
-            });
-        } else {
-            switch (cachePreference) {
-                case PREFERRED:
-                    loadFromCache(new ErrorCallback() {
-                        @Override
-                        public void call(Throwable cacheError) {
-                            loadFromNetwork(new ErrorCallback() {
-                                @Override
-                                public void call(final Throwable networkError) {
-                                    loadSavedPage(new ErrorCallback() {
-                                        @Override
-                                        public void call(Throwable savedError) {
-                                            fragment.onPageLoadError(networkError);
-                                        }
-                                    });
-                                }
-                            });
-                        }
-                    });
-                    break;
-                case FALLBACK:
-                    loadFromNetwork(new ErrorCallback() {
-                        @Override
-                        public void call(final Throwable networkError) {
-                            loadFromCache(new ErrorCallback() {
-                                @Override
-                                public void call(Throwable cacheError) {
-                                    loadSavedPage(new ErrorCallback() {
-                                        @Override
-                                        public void call(Throwable savedError) {
-                                            fragment.onPageLoadError(networkError);
-                                        }
-                                    });
-                                }
-                            });
-                        }
-                    });
-                    break;
-                case NONE:
-                default:
-                    // This is a refresh, don't clear contents in this case
-                    loadFromNetwork(new ErrorCallback() {
-                        @Override
-                        public void call(Throwable networkError) {
-                            fragment.onPageLoadError(networkError);
-                        }
-                    });
-                    break;
-            }
+        switch (cachePreference) {
+            case PREFERRED:
+                loadFromCache(new ErrorCallback() {
+                    @Override
+                    public void call(Throwable cacheError) {
+                        loadFromNetwork(new ErrorCallback() {
+                            @Override
+                            public void call(final Throwable networkError) {
+                                loadSavedPage(new ErrorCallback() {
+                                    @Override
+                                    public void call(Throwable savedError) {
+                                        fragment.onPageLoadError(networkError);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+                break;
+            case FALLBACK:
+                loadFromNetwork(new ErrorCallback() {
+                    @Override
+                    public void call(final Throwable networkError) {
+                        loadFromCache(new ErrorCallback() {
+                            @Override
+                            public void call(Throwable cacheError) {
+                                loadSavedPage(new ErrorCallback() {
+                                    @Override
+                                    public void call(Throwable savedError) {
+                                        fragment.onPageLoadError(networkError);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+                break;
+            case NONE:
+            default:
+                // This is a refresh, don't clear contents in this case
+                loadFromNetwork(new ErrorCallback() {
+                    @Override
+                    public void call(Throwable networkError) {
+                        fragment.onPageLoadError(networkError);
+                    }
+                });
+                break;
         }
     }
 

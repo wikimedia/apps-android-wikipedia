@@ -155,12 +155,6 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         }
 
         @Override
-        public void onSavePage(PageTitle title) {
-            super.onSavePage(title);
-            dismiss();
-        }
-
-        @Override
         public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
             super.onAddToList(title, source);
         }
