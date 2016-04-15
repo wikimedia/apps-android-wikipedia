@@ -3,14 +3,14 @@ package org.wikipedia.readinglist.page;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.readinglist.page.database.disk.DiskRow;
 import org.wikipedia.readinglist.page.database.disk.DiskStatus;
+import org.wikipedia.readinglist.page.database.disk.ReadingListDiskRow;
 
 public final class ReadingListPage extends ReadingListPageRow {
     @NonNull private final DiskStatus diskStatus;
 
     public static ReadingListPage fromCursor(@NonNull Cursor cursor) {
-        DiskRow<ReadingListPageRow> diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
+        ReadingListDiskRow diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
         ReadingListPageRow row = ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
         return builder()
                 .copy(row)

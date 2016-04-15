@@ -78,15 +78,21 @@ public final class ReadingListPageContract {
     }
 
     public static final DiskColumns<ReadingListPageRow> DISK_COLS = new DiskColumns<>(TABLE_DISK);
-    public interface DiskCol {
-        IdColumn ID = DISK_COLS.id();
-        StrColumn KEY = DISK_COLS.key();
-        CodeEnumColumn<DiskStatus> STATUS = DISK_COLS.status();
-        LongColumn TIMESTAMP = DISK_COLS.timestamp();
-        LongColumn TRANSACTION_ID = DISK_COLS.transactionId();
+    public static class DiskCol {
+        public static final IdColumn ID = DISK_COLS.id();
+        public static final StrColumn KEY = DISK_COLS.key();
+        public static final CodeEnumColumn<DiskStatus> STATUS = DISK_COLS.status();
+        public static final LongColumn TIMESTAMP = DISK_COLS.timestamp();
+        public static final LongColumn TRANSACTION_ID = DISK_COLS.transactionId();
+        public static final StrColumn FILENAME = new StrColumn(TABLE_DISK, "filename", "text");
 
-        String[] SELECTION = DISK_COLS.selection();
-        String[] CONTENT = DISK_COLS.content();
+        public static final String[] SELECTION = DISK_COLS.selection();
+        public static final String[] CONTENT;
+        static {
+            CONTENT = new String[DISK_COLS.content().length + 1];
+            System.arraycopy(DISK_COLS.content(), 0, CONTENT, 0, DISK_COLS.content().length);
+            CONTENT[DISK_COLS.content().length] = FILENAME.qualifiedName();
+        }
     }
 
     public interface Page extends PageCol {
@@ -114,8 +120,8 @@ public final class ReadingListPageContract {
         String[] PROJECTION = null;
     }
 
-    public interface Disk extends DiskCol {
-        String TABLES = TABLE_DISK;
+    public static final class Disk extends DiskCol {
+        public static final String TABLES = TABLE_DISK;
 
         // HACK: Http has no real dependency on Option. However, HttpWithOption is a composite of
         //       Option and Http and observers expect to be notified when _either_ change. Making
@@ -123,10 +129,12 @@ public final class ReadingListPageContract {
         //       notifies Http clients when Option changes. More here:
         //       - http://chalup.github.io/blog/2014/09/14/contentprovider-series-uris/
         //       - https://gist.github.com/chalup/4201307da02b9cfe4f40
-        String PATH = Page.PATH + "/disk";
+        public static final String PATH = Page.PATH + "/disk";
 
-        Uri URI = Uri.withAppendedPath(AppContentProviderContract.AUTHORITY_BASE, PATH);
-        String[] PROJECTION = null;
+        public static final Uri URI = Uri.withAppendedPath(AppContentProviderContract.AUTHORITY_BASE, PATH);
+        public static final String[] PROJECTION = null;
+
+        private Disk() { }
     }
 
     public static final class HttpWithPage implements Page {
@@ -168,6 +176,7 @@ public final class ReadingListPageContract {
         public static final CodeEnumColumn<DiskStatus> DISK_STATUS = DiskCol.STATUS;
         public static final LongColumn DISK_TIMESTAMP = DiskCol.TIMESTAMP;
         public static final LongColumn DISK_TRANSACTION_ID = DiskCol.TRANSACTION_ID;
+        public static final StrColumn DISK_FILENAME = DiskCol.FILENAME;
 
         public static final String[] PROJECTION;
         static {
@@ -193,6 +202,7 @@ public final class ReadingListPageContract {
         public static final CodeEnumColumn<DiskStatus> DISK_STATUS = DiskCol.STATUS;
         public static final LongColumn DISK_TIMESTAMP = DiskCol.TIMESTAMP;
         public static final LongColumn DISK_TRANSACTION_ID = DiskCol.TRANSACTION_ID;
+        public static final StrColumn DISK_FILENAME = DiskCol.FILENAME;
 
         public static final String[] PROJECTION;
         static {

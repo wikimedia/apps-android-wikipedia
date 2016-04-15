@@ -3,9 +3,10 @@ package org.wikipedia.database.async;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.model.BaseModel;
 import org.wikipedia.model.EnumCode;
 
-public class AsyncRow<Status extends EnumCode, Dat> {
+public class AsyncRow<Status extends EnumCode, Dat> extends BaseModel {
     @Nullable private final Dat dat;
     @NonNull private final String key;
     @NonNull private Status status;

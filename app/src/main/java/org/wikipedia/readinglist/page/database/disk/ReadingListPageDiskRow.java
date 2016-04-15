@@ -9,8 +9,10 @@ import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 
 public class ReadingListPageDiskRow extends DiskRow<ReadingListPageRow> {
+    @Nullable private final String filename;
+
     public static ReadingListPageDiskRow fromCursor(@NonNull Cursor cursor) {
-        DiskRow<ReadingListPageRow> diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
+        ReadingListDiskRow diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
         boolean hasRow = cursor.getColumnIndex(ReadingListPageContract.DiskWithPage.KEY.getName()) != -1;
         ReadingListPageRow row = hasRow ? ReadingListPage.DATABASE_TABLE.fromCursor(cursor) : null;
         return new ReadingListPageDiskRow(diskRow, row);
@@ -18,10 +20,16 @@ public class ReadingListPageDiskRow extends DiskRow<ReadingListPageRow> {
 
     public ReadingListPageDiskRow(@NonNull ReadingListPage row) {
         super(row.key(), row);
+        filename = null;
     }
 
-    public ReadingListPageDiskRow(@NonNull DiskRow<ReadingListPageRow> diskRow,
+    public ReadingListPageDiskRow(@NonNull ReadingListDiskRow diskRow,
                                   @Nullable ReadingListPageRow row) {
         super(diskRow, row);
+        filename = diskRow.filename();
+    }
+
+    @Nullable public String filename() {
+        return filename;
     }
 }

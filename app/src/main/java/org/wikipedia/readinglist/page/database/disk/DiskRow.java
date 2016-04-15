@@ -12,8 +12,8 @@ public class DiskRow<T> extends AsyncRow<DiskStatus, T> {
         super(key, DEFAULT_STATUS, dat);
     }
 
-    public DiskRow(@NonNull DiskRow<T> httpRow, @Nullable T dat) {
-        super(httpRow, dat);
+    public DiskRow(@NonNull DiskRow<T> diskRow, @Nullable T dat) {
+        super(diskRow, dat);
     }
 
     public DiskRow(@NonNull String key, @NonNull DiskStatus status, long timestamp,
