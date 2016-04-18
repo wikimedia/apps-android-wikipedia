@@ -2,17 +2,28 @@ package org.wikipedia.readinglist.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.ReadingListContract;
+import org.wikipedia.database.contract.SavedPageContract;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.savedpages.SavedPage;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReadingListTable extends DatabaseTable<ReadingListRow> {
     private static final int DB_VER_INTRODUCED = 13;
+    private static final int DB_VER_SAVED_PAGES_MIGRATED = 14;
 
     public ReadingListTable() {
         super(ReadingListContract.TABLE, ReadingListContract.List.URI);
@@ -45,6 +56,14 @@ public class ReadingListTable extends DatabaseTable<ReadingListRow> {
         }
     }
 
+    @Override
+    public void upgradeSchema(@NonNull SQLiteDatabase db, int fromVersion, int toVersion) {
+        super.upgradeSchema(db, fromVersion, toVersion);
+        if (toVersion == DB_VER_SAVED_PAGES_MIGRATED) {
+            migrateSavedPages(db);
+        }
+    }
+
     @Override protected ContentValues toContentValues(@NonNull ReadingListRow row) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(ReadingListContract.List.KEY.getName(), row.key());
@@ -66,5 +85,47 @@ public class ReadingListTable extends DatabaseTable<ReadingListRow> {
 
     @Override protected int getDBVersionIntroducedAt() {
         return DB_VER_INTRODUCED;
+    }
+
+    private void migrateSavedPages(@NonNull SQLiteDatabase db) {
+        Cursor cursor = SavedPage.DATABASE_TABLE.queryAll(db);
+        try {
+            if (cursor.getCount() == 0) {
+                return;
+            }
+
+            String readingListTitle = WikipediaApp.getInstance().getString(R.string.nav_item_saved_pages);
+            long now = System.currentTimeMillis();
+
+            final ReadingList list = ReadingList
+                    .builder()
+                    .key(ReadingListDaoProxy.listKey(readingListTitle))
+                    .title(readingListTitle)
+                    .mtime(now)
+                    .atime(now)
+                    .description(null)
+                    .pages(new ArrayList<ReadingListPage>())
+                    .build();
+
+            while (cursor.moveToNext()) {
+                String title = SavedPageContract.Col.TITLE.val(cursor);
+                String authority = SavedPageContract.Col.SITE.val(cursor);
+                String lang = SavedPageContract.Col.LANG.val(cursor);
+                String namespace = SavedPageContract.Col.NAMESPACE.val(cursor);
+                Site site = new Site(authority, lang);
+                PageTitle pageTitle = new PageTitle(namespace, title, null, null, site);
+
+                list.add(ReadingListDaoProxy.page(list, pageTitle));
+            }
+            WikipediaApp.getInstance().runOnMainThread(new Runnable() {
+                @Override
+                public void run() {
+                    ReadingList.DAO.addList(list);
+                }
+            });
+
+        } finally {
+            cursor.close();
+        }
     }
 }

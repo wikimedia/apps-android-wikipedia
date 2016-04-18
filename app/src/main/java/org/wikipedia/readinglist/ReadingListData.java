@@ -57,6 +57,14 @@ public final class ReadingListData {
         });
     }
 
+    public synchronized void addList(@NonNull ReadingList list) {
+        listClient().persist(list);
+        for (ReadingListPage page : list.getPages()) {
+            page.addListKey(list.key());
+            ReadingListPageDao.instance().upsert(page);
+        }
+    }
+
     public void removeListAsync(@NonNull final ReadingList list) {
         CallbackTask.execute(new CallbackTask.Task<Void>() {
             @Override public Void execute() {
@@ -148,14 +156,6 @@ public final class ReadingListData {
     private synchronized void saveListInfo(@NonNull ReadingList list, @NonNull ReadingListPage page) {
         listClient().persist(list);
         ReadingListPageDao.instance().upsert(page);
-    }
-
-    private synchronized void addList(@NonNull ReadingList list) {
-        listClient().persist(list);
-        for (ReadingListPage page : list.getPages()) {
-            page.addListKey(list.key());
-            ReadingListPageDao.instance().upsert(page);
-        }
     }
 
     private synchronized void removeList(@NonNull ReadingList list) {

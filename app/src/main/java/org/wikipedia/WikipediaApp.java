@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -478,6 +479,10 @@ public class WikipediaApp extends Application {
 
     public void checkCrashes(@NonNull Activity activity) {
         crashReporter.checkCrashes(activity);
+    }
+
+    public void runOnMainThread(Runnable runnable) {
+        new Handler(getMainLooper()).post(runnable);
     }
 
     /**
