@@ -203,7 +203,7 @@
   <string name="button_clear_all_recent_searches">پاک‌کردن جستجوهای اخیر</string>
   <string name="clear_recent_searches_confirm">آیا مطمئنید که می‌خواهید تاریخچهٔ جستجوهای اخیر را حذف کنید؟</string>
   <string name="error_browser_not_found">قادر به گشودن صفحهٔ وب نیست  (ببرنامهٔ مرورگر یافت نشد)</string>
-  <string name="table_infobox">واقعیت‌های سریع</string>
+  <string name="table_infobox">اطلاعات اجمالی</string>
   <string name="table_other">اطلاعات بیشتر</string>
   <string name="table_close">بستن</string>
   <string name="widget_name_featured_page">صفحهٔ برگزیدهٔ ویکی‌پدیا</string>

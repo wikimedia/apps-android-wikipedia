@@ -3,6 +3,7 @@
   <string name="app_name_prod">위키백과</string>
   <string name="app_name_beta">위키백과 베타</string>
   <string name="app_name_alpha">위키백과 알파</string>
+  <string name="wikimedia">위키미디어</string>
   <string name="yes">예</string>
   <string name="no">아니오</string>
   <string name="search_hint">위키백과 검색</string>
@@ -157,10 +158,12 @@
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인정보 정책</string>
   <string name="terms_of_use_description">이용 약관</string>
-  <string name="about_libraries_heading" fuzzy="true">사용된 라이브러리</string>
-  <string name="about_contributors_heading" fuzzy="true">기여자</string>
-  <string name="about_translators_heading" fuzzy="true">번역자</string>
+  <string name="about_libraries_heading">사용된 라이브러리</string>
+  <string name="about_contributors_heading">기여자</string>
+  <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
+  <string name="about_app_license_heading">라이선스</string>
+  <string name="about_app_license">소스 코드는 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 있으며, &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;에서 찾아볼 수 있습니다. 별도로 명시하지 않는 한 컨텐츠는 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락&lt;/a&gt;에 따라 이용할 수 있습니다.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
   <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀜을 저장하지 않고 빠져나가겠습니까?</string>
@@ -283,4 +286,5 @@
   <string name="article_menu_bar_bookmark">오프라인에서 읽기 위하여 이 문서를 저장하기</string>
   <string name="article_menu_bar_share">문서 링크 공유</string>
   <string name="article_menu_bar_navigate">문서의 위치 찾기</string>
+  <string name="user_option_sync_label">환경 설정</string>
 </resources>

@@ -388,9 +388,6 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_navigate">Describes the action performed when pressing the navigate button in the page toolbar underneath the leading image.</string>
-  <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
-{{Identical|Preferences}}</string>
-
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
   <string name="reading_list_untitled">Name for a reading list that has an empty title.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
@@ -421,5 +418,6 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_lists_onboarding_intro">Short introductory statement about reading lists to be shown in the onboarding screen.</string>
   <string name="reading_lists_onboarding_examples">A few examples of reading list names, separated by newline characters.</string>
   <string name="reading_lists_onboarding_got_it">Button label to acknowledge and dismiss the onboarding screen.</string>
-
+  <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
+{{Identical|Preferences}}</string>
 </resources>

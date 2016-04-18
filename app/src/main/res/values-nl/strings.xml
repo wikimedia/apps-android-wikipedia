@@ -164,6 +164,7 @@
   <string name="about_contributors_heading">Bijdragers</string>
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Licentie</string>
   <string name="about_wmf">Een product van de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
@@ -285,4 +286,5 @@ Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string
   <string name="article_menu_bar_bookmark">Pagina opslaan voor offline lezen</string>
   <string name="article_menu_bar_share">Koppeling naar pagina delen</string>
   <string name="article_menu_bar_navigate">Naar de locatie van de pagina navigeren</string>
+  <string name="user_option_sync_label">Voorkeuren</string>
 </resources>

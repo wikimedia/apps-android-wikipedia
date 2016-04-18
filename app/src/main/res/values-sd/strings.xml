@@ -3,6 +3,7 @@
   <string name="app_name_prod">وڪيپيڊيا</string>
   <string name="app_name_beta">وڪيپيڊيا بيٽا</string>
   <string name="app_name_alpha">وڪيپيڊيا الفا</string>
+  <string name="wikimedia">وڪيميڊيا</string>
   <string name="yes">ها</string>
   <string name="no">نہ</string>
   <string name="search_hint">وڪيپيڊيا ۾ ڳوليو</string>
@@ -151,10 +152,11 @@
   <string name="about_description">وڪي‌پيڊيا ايپ بابت</string>
   <string name="privacy_policy_description">ذاتيات پاليسي</string>
   <string name="terms_of_use_description">استعمال جا شرط شروط</string>
-  <string name="about_libraries_heading" fuzzy="true">مستعمل لائبريري</string>
-  <string name="about_contributors_heading" fuzzy="true">ڀاڱيدار</string>
-  <string name="about_translators_heading" fuzzy="true">ترجميڪار</string>
+  <string name="about_libraries_heading">مستعمل لائبريريون</string>
+  <string name="about_contributors_heading">ڀاڱيدارَ</string>
+  <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
+  <string name="about_app_license_heading">لائسنس</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;وڪي‌ذريعات پيڙهڪا&lt;/a&gt; جي مصنوعات</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو ترميم ٿي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
@@ -253,4 +255,5 @@
   <string name="article_menu_bar_bookmark">مضمون کي بعد ۾ آف لائين پڙهائي لاءِ سانڍيو</string>
   <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
   <string name="article_menu_bar_navigate">مضمون جي مڪانيت ڏانهن وڃو</string>
+  <string name="user_option_sync_label">ترجيحات</string>
 </resources>

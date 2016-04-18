@@ -104,7 +104,7 @@
   <string name="create_account_password_repeat_hint">Pakartokite slaptažodį</string>
   <string name="create_account_passwords_mismatch_error">Slaptažodžiai nesutampa</string>
   <string name="create_account_email_error">Neteisingas el. pašto adresas</string>
-  <string name="create_account_username_exists_error">Naudotojo vardas jau yra užimtas</string>
+  <string name="create_account_username_exists_error">Toks naudotojo vardas yra užimtas</string>
   <string name="create_account_ip_throttle_error">Per daug paskyrų sukurta iš šio IP adreso. Bandykite dar kartą vėliau.</string>
   <string name="create_account_open_proxy_error">Šis IP adresas yra užblokuotas nuo paskyrų kūrimo.</string>
   <string name="create_account_noname_error">Naudotojo vardas, kurį pateikėte, yra neteisingas. Prašome pateikti kitą naudotojo vardą.</string>
