@@ -55,10 +55,10 @@ android {
     }
     defaultConfig {
         applicationId 'org.wikipedia'
+        testApplicationId applicationId.toString() + '.test'
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 143
-        testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
@@ -92,6 +92,7 @@ android {
         dev {
             versionName computeVersionName('dev')
             applicationId 'org.wikipedia.dev'
+            testApplicationId applicationId.toString() + '.test'
             signingConfig signingConfigs.debug
         }
         prod {
@@ -105,11 +106,13 @@ android {
         alpha {
             versionName computeVersionName('alpha')
             applicationId 'org.wikipedia.alpha'
+            testApplicationId applicationId.toString() + '.test'
             signingConfig signingConfigs.debug
         }
         beta {
             versionName computeVersionName('beta')
             applicationId 'org.wikipedia.beta'
+            testApplicationId applicationId.toString() + '.test'
             signingConfig signingConfigs.prod
         }
         amazon {
