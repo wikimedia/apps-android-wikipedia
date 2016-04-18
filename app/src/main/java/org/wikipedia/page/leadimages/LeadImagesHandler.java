@@ -29,6 +29,7 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.savedpages.DeleteSavedPageTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.savedpages.SavedPage;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -365,7 +366,8 @@ public class LeadImagesHandler {
                     deleteBookmark();
                 }
             } else {
-                ((PageActivity) getActivity()).showAddToListDialog(getTitle());
+                ((PageActivity) getActivity()).showAddToListDialog(getTitle(),
+                        AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
             }
         }
 

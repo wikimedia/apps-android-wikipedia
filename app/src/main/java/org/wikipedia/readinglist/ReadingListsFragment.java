@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -30,6 +31,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private View emptyContainer;
     private ViewPager pager;
     private List<ReadingList> readingLists = new ArrayList<>();
+    private ReadingListsFunnel funnel = new ReadingListsFunnel();
 
     private ReadingListDetailView listDetailView;
     private ReadingListAdapter adapter = new ReadingListAdapter();
@@ -99,12 +101,14 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         @Override
         public void onUpdate(ReadingList readingList) {
             ReadingList.DAO.saveListInfo(readingList);
+            funnel.logModifyList(readingList, readingLists.size());
         }
 
         @Override
         public void onDelete(ReadingList readingList) {
             showDeleteListUndoSnackbar(readingList);
             ReadingList.DAO.removeList(readingList);
+            funnel.logDeleteList(readingList, readingLists.size());
             pager.setCurrentItem(0);
             updateLists();
         }
@@ -195,6 +199,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         public void onDelete(ReadingList readingList, PageTitle title) {
             showDeleteItemUndoSnackbar(readingList, title);
             ReadingList.DAO.removeTitleFromList(readingList, title);
+            funnel.logDeleteItem(readingList, readingLists.size());
             updateLists();
         }
     }

@@ -18,7 +18,7 @@ public class SessionFunnel extends Funnel {
     public static final int MIN_SESSION_TIMEOUT = 1;
 
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
-    private static final int REVISION = 14031591;
+    private static final int REVISION = 15522505;
 
     private SessionData sessionData;
     private long leadSectionStartTime;
@@ -103,7 +103,7 @@ public class SessionFunnel extends Funnel {
                 "fromInternal", sessionData.getPagesFromInternal(),
                 "fromExternal", sessionData.getPagesFromExternal(),
                 "fromHistory", sessionData.getPagesFromHistory(),
-                "fromSaved", sessionData.getPagesFromSaved(),
+                "fromReadingList", sessionData.getPagesFromReadingList(),
                 "fromNearby", sessionData.getPagesFromNearby(),
                 "fromDisambig", sessionData.getPagesFromDisambig(),
                 "fromBack", sessionData.getPagesFromBack(),

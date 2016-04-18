@@ -2,6 +2,7 @@ package org.wikipedia.page;
 
 import org.wikipedia.R;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -160,8 +161,8 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         }
 
         @Override
-        public void onAddToList(PageTitle title) {
-            super.onAddToList(title);
+        public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
+            super.onAddToList(title, source);
         }
     }
 }

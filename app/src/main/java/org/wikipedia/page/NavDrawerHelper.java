@@ -91,7 +91,7 @@ public class NavDrawerHelper {
                         break;
                     case R.id.nav_item_reading_lists:
                         activity.pushFragment(new ReadingListsFragment());
-                        funnel.logSavedPages();
+                        funnel.logReadingLists();
                         break;
                     case R.id.nav_item_nearby:
                         activity.pushFragment(new NearbyFragment());

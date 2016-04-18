@@ -8,6 +8,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.savedpages.SaveOtherPageCallback;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageServiceFactory;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
@@ -47,8 +48,8 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
     }
 
     @Override
-    public void onAddToList(PageTitle title) {
-        activity.showAddToListDialog(title);
+    public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
+        activity.showAddToListDialog(title, source);
     }
 
     private void copyLink(String url) {

@@ -15,6 +15,7 @@ public class SessionData {
     private int pagesFromExternal;
     private int pagesFromHistory;
     private int pagesFromSaved;
+    private int pagesFromReadingList;
     private int pagesFromNearby;
     private int pagesFromDisambig;
     private int pagesFromBack;
@@ -38,6 +39,9 @@ public class SessionData {
                 break;
             case HistoryEntry.SOURCE_SAVED_PAGE:
                 pagesFromSaved++;
+                break;
+            case HistoryEntry.SOURCE_READING_LIST:
+                pagesFromReadingList++;
                 break;
             case HistoryEntry.SOURCE_NEARBY:
                 pagesFromNearby++;
@@ -110,6 +114,10 @@ public class SessionData {
         return pagesFromSaved;
     }
 
+    public int getPagesFromReadingList() {
+        return pagesFromReadingList;
+    }
+
     public int getPagesFromNearby() {
         return pagesFromNearby;
     }
@@ -128,7 +136,7 @@ public class SessionData {
 
     public int getTotalPages() {
         return pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal
-                + pagesFromExternal + pagesFromHistory + pagesFromSaved + pagesFromNearby
-                + pagesFromDisambig;
+                + pagesFromExternal + pagesFromHistory + pagesFromSaved + pagesFromReadingList
+                + pagesFromNearby + pagesFromDisambig;
     }
 }
