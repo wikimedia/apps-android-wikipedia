@@ -42,7 +42,6 @@
         <item name="list_separator_color">@color/list_separator_dark</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_dark</item>
         <item name="subtle_gray_color">@color/subtle_gray_dark</item>
-        <item name="nearby_marker_drawable">@drawable/ic_place_dark</item>
         <item name="tab_item_selector">@drawable/tab_item_selector_dark</item>
         <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="tab_shadow_color">@color/tab_shadow_dark</item>

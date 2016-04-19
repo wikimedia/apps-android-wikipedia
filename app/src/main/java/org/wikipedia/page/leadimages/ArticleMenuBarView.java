@@ -68,7 +68,8 @@ public class ArticleMenuBarView extends LinearLayout {
     }
 
     public void updateBookmark(boolean bookmarkSaved) {
-        bookmark.setActivated(bookmarkSaved);
+        bookmark.setImageResource(bookmarkSaved ? R.drawable.ic_bookmark_black_24dp
+                : R.drawable.ic_bookmark_border_black_24dp);
     }
 
     public void updateNavigate(boolean geolocated) {

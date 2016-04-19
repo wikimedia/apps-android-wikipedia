@@ -60,6 +60,7 @@ android {
         versionCode 143
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+        vectorDrawables.useSupportLibrary = true
     }
 
     sourceSets {

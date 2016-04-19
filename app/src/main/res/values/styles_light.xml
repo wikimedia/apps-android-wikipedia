@@ -43,7 +43,6 @@
         <item name="list_separator_color">@color/list_separator_light</item>
         <item name="syntax_highlight_template_color">@color/syntax_highlight_template_light</item>
         <item name="subtle_gray_color">@color/subtle_gray_light</item>
-        <item name="nearby_marker_drawable">@drawable/ic_place</item>
         <item name="tab_item_selector">@drawable/tab_item_selector_light</item>
         <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="tab_shadow_color">@color/tab_shadow_light</item>

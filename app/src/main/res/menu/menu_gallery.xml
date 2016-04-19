@@ -5,7 +5,7 @@
         >
     <item android:id="@+id/menu_gallery_share"
         android:title="@string/gallery_menu_share"
-        android:icon="@drawable/ic_share_dark"
+        android:icon="?actionModeShareDrawable"
         app:showAsAction="ifRoom"/>
     <item android:id="@+id/menu_gallery_save"
         android:title="@string/gallery_menu_save"
