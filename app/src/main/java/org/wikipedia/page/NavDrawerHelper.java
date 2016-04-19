@@ -175,9 +175,8 @@ public class NavDrawerHelper {
         activity.getNavMenu().setGroupVisible(R.id.group_main, !accountToggle);
         activity.getNavMenu().setGroupVisible(R.id.group_user, accountToggle);
         accountNameArrow.setVisibility(app.getUserInfoStorage().isLoggedIn() ? View.VISIBLE : View.INVISIBLE);
-        accountNameArrow.setImageDrawable(accountToggle
-                ? activity.getResources().getDrawable(R.drawable.ic_arrow_drop_up_white_24dp)
-                : activity.getResources().getDrawable(R.drawable.ic_arrow_drop_down_white_24dp));
+        accountNameArrow.setImageResource(accountToggle ? R.drawable.ic_arrow_drop_up_white_24dp
+                : R.drawable.ic_arrow_drop_down_white_24dp);
     }
 
     private void setLoginOnClick(View view) {

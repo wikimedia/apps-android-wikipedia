@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <item android:id="@+id/menu_delete_selected_history"
-        android:icon="@drawable/ic_delete"
+        android:icon="@drawable/ic_delete_white_24dp"
         android:title="@string/delete_selected_history"
         app:showAsAction="always" />
 </menu>

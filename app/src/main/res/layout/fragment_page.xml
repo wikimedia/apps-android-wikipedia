@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     style="@style/FloatingActionButton"
                     android:layout_gravity="bottom|end"
-                    android:src="@drawable/ic_toc"
+                    app:srcCompat="@drawable/ic_list_white_24dp"
                     android:contentDescription="@string/menu_show_toc"
                     app:fabSize="mini"
                     app:elevation="4sp"

@@ -3,13 +3,14 @@ package org.wikipedia.readinglist;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -40,7 +41,6 @@ public class ReadingListDetailView extends LinearLayout {
     @Bind(R.id.reading_list_count) TextView countView;
     @Bind(R.id.reading_list_description) TextView descriptionView;
     @Bind(R.id.contents_list) RecyclerView contentsListView;
-
     @Bind(R.id.button_edit) ImageButton editButton;
 
     @Nullable private ReadingList readingList;
@@ -50,6 +50,7 @@ public class ReadingListDetailView extends LinearLayout {
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
     private EditButtonClickListener editButtonListener = new EditButtonClickListener();
     private ItemTouchHelper itemTouchHelper;
+    private Bitmap deleteIcon = getDeleteBitmap();
 
     public interface ReadingListItemActionListener {
         void onClick(ReadingList readingList, PageTitle title);
@@ -238,14 +239,12 @@ public class ReadingListDetailView extends LinearLayout {
         private Paint deleteBackgroundPaint = new Paint();
         private Paint deleteIconPaint = new Paint();
         private Paint itemBackgroundPaint = new Paint();
-        private Bitmap deleteIcon;
 
         ReadingListItemTouchHelperCallback() {
             deleteBackgroundPaint.setStyle(Paint.Style.FILL);
             deleteBackgroundPaint.setColor(Color.RED);
             itemBackgroundPaint.setStyle(Paint.Style.FILL);
             itemBackgroundPaint.setColor(getResources().getColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.window_background_color)));
-            deleteIcon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_delete);
         }
 
         @Override
@@ -324,5 +323,16 @@ public class ReadingListDetailView extends LinearLayout {
                 //itemViewHolder.onItemClear();
             }
         }
+    }
+
+    private Bitmap getDeleteBitmap() {
+        Drawable vectorDrawable = VectorDrawableCompat.create(getResources(), R.drawable.ic_delete_white_24dp, null);
+        int width = vectorDrawable.getIntrinsicWidth();
+        int height = vectorDrawable.getIntrinsicHeight();
+        vectorDrawable.setBounds(0, 0, width, height);
+        Bitmap bm = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bm);
+        vectorDrawable.draw(canvas);
+        return bm;
     }
 }

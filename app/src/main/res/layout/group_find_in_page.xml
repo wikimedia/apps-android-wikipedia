@@ -42,7 +42,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:contentDescription="@string/find_previous"
-            android:src="@drawable/ic_expand_less_dark"/>
+            app:srcCompat="@drawable/ic_expand_less_white_24dp"/>
     <ImageButton
             android:id="@+id/find_in_page_next"
             android:layout_width="48dp"
@@ -53,5 +53,5 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:contentDescription="@string/find_next"
-            android:src="@drawable/ic_expand_more_dark"/>
+            app:srcCompat="@drawable/ic_expand_more_white_24dp"/>
 </LinearLayout>

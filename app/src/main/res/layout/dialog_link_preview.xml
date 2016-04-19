@@ -69,7 +69,7 @@
                     android:padding="12dp"
                     android:background="?attr/actionBarItemBackground"
                     android:contentDescription="@string/abc_action_menu_overflow_description"
-                    android:src="@drawable/ic_more_vert"
+                    app:srcCompat="@drawable/ic_more_vert_white_24dp"
                     android:tint="?attr/link_preview_text_color"/>
             </LinearLayout>
 

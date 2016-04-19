@@ -10,17 +10,17 @@
             />
         <item android:id="@+id/nav_item_history"
             android:title="@string/nav_item_history"
-            android:icon="@drawable/ic_history_black_24dp"
+            android:icon="@drawable/ic_restore_black_24dp"
             android:checkable="true"
             />
         <item android:id="@+id/nav_item_saved_pages"
             android:title="@string/nav_item_saved_pages"
-            android:icon="@drawable/ic_turned_in_black_24dp"
+            android:icon="@drawable/ic_bookmark_black_24dp"
             android:checkable="true"
             />
         <item android:id="@+id/nav_item_reading_lists"
             android:title="@string/nav_item_reading_lists"
-            android:icon="@drawable/ic_turned_in_black_24dp"
+            android:icon="@drawable/ic_bookmark_black_24dp"
             android:checkable="true"
             />
         <item android:id="@+id/nav_item_nearby"
@@ -30,7 +30,7 @@
             />
         <item android:id="@+id/nav_item_random"
             android:title="@string/nav_item_random"
-            android:icon="@drawable/ic_dice"
+            android:icon="@drawable/ic_dice_black_24dp"
             />
     </group>
     <group android:id="@+id/group_user">

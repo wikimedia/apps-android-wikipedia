@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         style="@style/FloatingActionButton"
         android:layout_gravity="bottom|end"
-        android:src="@drawable/ic_gps_fixed_white_24dp"
+        app:srcCompat="@drawable/ic_my_location_white_24dp"
         android:contentDescription="@string/menu_show_toc"
         app:elevation="4dp"
         app:borderWidth="0dp"

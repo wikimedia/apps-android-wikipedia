@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <style name="AppTheme" parent="Theme.Light">
         <item name="preferenceTheme">@style/AppPreferenceTheme</item>
@@ -44,10 +46,6 @@
         <item name="color">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.OverflowStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
-        <item name="android:src">@drawable/ic_more_vert</item>
-    </style>
-
     <style name="AppTheme.ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
         <item name="background">@color/actionbar_background</item>
         <item name="android:background">@color/actionbar_background</item>
@@ -65,7 +63,7 @@
     </style>
 
     <style name="AppTheme.SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="closeIcon">@drawable/ic_close_white</item>
+        <item name="closeIcon">@drawable/ic_close_white_24dp</item>
         <item name="searchIcon">@drawable/ic_search</item>
         <item name="searchHintIcon">@drawable/ic_search</item>
     </style>

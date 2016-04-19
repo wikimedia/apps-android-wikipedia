@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
               android:id="@+id/recent_searches_container"
               android:orientation="vertical"
               android:layout_width="match_parent"
@@ -26,7 +28,8 @@
             android:layout_height="48dp"
             android:layout_gravity="end"
             android:clickable="true"
-            android:src="@drawable/ic_delete_grey"
+            app:srcCompat="@drawable/ic_delete_white_24dp"
+            android:tint="@color/gray_highlight"
             android:scaleType="centerInside"
             android:contentDescription="@string/button_clear_all_recent_searches"
             android:background="?attr/actionBarItemBackground"

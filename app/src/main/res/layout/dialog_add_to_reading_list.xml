@@ -47,7 +47,7 @@
                 android:layout_gravity="center_vertical"
                 style="@style/ArticleMenuBarViewButton"
                 android:tint="@color/gray_highlight"
-                android:src="@drawable/ic_close_white"
+                app:srcCompat="@drawable/ic_close_white_24dp"
                 android:contentDescription="@string/dialog_close_description"/>
         </LinearLayout>
 
@@ -76,7 +76,7 @@
                 android:scaleType="centerInside"
                 android:background="@color/reading_list_add_background"
                 android:tint="?attr/list_item_text_secondary_color"
-                android:src="@drawable/ic_add_box_white_24dp"/>
+                app:srcCompat="@drawable/ic_add_box_white_24dp"/>
 
             <TextView
                 android:layout_width="match_parent"

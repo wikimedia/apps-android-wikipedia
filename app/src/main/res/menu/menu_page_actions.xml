@@ -5,7 +5,7 @@
 
     <item android:id="@+id/menu_page_show_tabs"
           android:title="@string/menu_page_show_tabs"
-          android:icon="@drawable/ic_tab_list"
+          android:icon="@drawable/ic_tab_list_white_24dp"
           app:showAsAction="ifRoom" />
     <item android:id="@+id/menu_page_other_languages"
           android:title="@string/menu_page_other_languages"
