@@ -25,7 +25,6 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -81,7 +80,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyEmptyTitle = (TextView) rootView.findViewById(R.id.history_empty_title);
         historyEmptyMessage = (TextView) rootView.findViewById(R.id.history_empty_message);
         entryFilter = (EditText) rootView.findViewById(R.id.history_search_list);
-        app.adjustDrawableToTheme(((ImageView) rootView.findViewById(R.id.history_empty_image)).getDrawable());
 
         entryFilter.addTextChangedListener(textWatcher);
         historyEntryList.setAdapter(adapter);

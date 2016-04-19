@@ -21,6 +21,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:src="@drawable/w_nav_mark"
+            android:tint="?attr/window_inverse_color"
             android:contentDescription="@null"
 
             />

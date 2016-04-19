@@ -10,11 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
@@ -52,7 +50,6 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         rootView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
         readingListView = (RecyclerView) rootView.findViewById(R.id.reading_list_list);
         emptyContainer = rootView.findViewById(R.id.empty_container);
-        WikipediaApp.getInstance().adjustDrawableToTheme(((ImageView) rootView.findViewById(R.id.empty_image)).getDrawable());
 
         pager = (ViewPager) rootView.findViewById(R.id.pager);
         listDetailView = (ReadingListDetailView) rootView.findViewById(R.id.list_detail_view);

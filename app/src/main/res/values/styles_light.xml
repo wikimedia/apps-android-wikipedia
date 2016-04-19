@@ -28,6 +28,7 @@
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:windowBackground">@color/window_background_light</item>
         <item name="window_background_color">@color/window_background_light</item>
+        <item name="window_inverse_color">@android:color/black</item>
         <item name="page_background_color">@color/page_background_light</item>
         <item name="search_background_color">@color/search_background_light</item>
         <item name="toc_background_color">@color/toc_background_light</item>

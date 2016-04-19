@@ -8,13 +8,11 @@ import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.richtext.RichTextUtil;
@@ -65,8 +63,6 @@ public class AboutActivity extends ThemedActionBarActivity {
         if (!mailAppExists(this)) {
             feedbackTextView.setVisibility(View.GONE);
         }
-
-        WikipediaApp.getInstance().adjustDrawableToTheme(((ImageView) findViewById(R.id.about_logo_image)).getDrawable());
 
         makeEverythingClickable((ViewGroup) findViewById(R.id.about_container));
     }

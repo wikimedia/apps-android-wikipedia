@@ -1,7 +1,6 @@
 package org.wikipedia.page;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import android.app.Activity;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -60,7 +59,6 @@ class IssuesListAdapter extends ArrayAdapter<String> {
         }
 
         updateText(position);
-        ((WikipediaApp) activity.getApplicationContext()).adjustLinkDrawableToTheme(holder.icon.getDrawable());
         return convertView;
     }
 

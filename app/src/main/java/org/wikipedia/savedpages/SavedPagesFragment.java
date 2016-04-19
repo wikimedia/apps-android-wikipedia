@@ -87,7 +87,6 @@ public class SavedPagesFragment extends Fragment
         savedPagesEmptyMessage = (TextView) rootView.findViewById(R.id.saved_pages_empty_message);
         entryFilter = (EditText) rootView.findViewById(R.id.saved_pages_search_list);
         savedPagesEmptyImage = (ImageView) rootView.findViewById(R.id.saved_pages_empty_image);
-        app.adjustDrawableToTheme(savedPagesEmptyImage.getDrawable());
 
         entryFilter.addTextChangedListener(textWatcher);
         savedPagesList.setAdapter(adapter);

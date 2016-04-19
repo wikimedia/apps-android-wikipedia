@@ -18,6 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_error_black"
+        android:tint="?attr/window_inverse_color"
         android:contentDescription="@null"
         android:alpha="@dimen/crash_report_icon_alpha" />
 

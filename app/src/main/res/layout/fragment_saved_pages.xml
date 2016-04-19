@@ -16,6 +16,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/savedpages"
+                android:tint="?attr/window_inverse_color"
                 android:contentDescription="@null"/>
         <TextView
                 android:id="@+id/saved_pages_empty_title"

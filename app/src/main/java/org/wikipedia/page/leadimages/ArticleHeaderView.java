@@ -28,7 +28,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
@@ -258,7 +257,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     private Spanned pronunciationSpanned() {
         AudioUrlSpan span = new AudioUrlSpan(text, avPlayer, pronunciationUrl,
                 AudioUrlSpan.ALIGN_BASELINE);
-        span.setTint(hasImage() ? Color.WHITE : getContrastingThemeColor());
+        span.setTint(hasImage() ? Color.WHITE : getColor(getThemedAttributeId(getContext(), R.attr.window_inverse_color)));
         return RichTextUtil.setSpans(new SpannableString(" "),
                 0,
                 1,
@@ -336,11 +335,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
     private float getScreenHeightRatio() {
         return DimenUtil.getFloat(R.dimen.articleHeaderViewScreenHeightRatio);
-    }
-
-    @ColorInt
-    private static int getContrastingThemeColor() {
-        return WikipediaApp.getInstance().getContrastingThemeColor();
     }
 
     @ColorInt

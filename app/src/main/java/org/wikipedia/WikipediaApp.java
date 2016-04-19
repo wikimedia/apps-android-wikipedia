@@ -3,10 +3,7 @@ package org.wikipedia;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,7 +21,6 @@ import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
-import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -443,11 +439,6 @@ public class WikipediaApp extends Application {
         return getCurrentTheme().isDark();
     }
 
-    @ColorInt
-    public int getContrastingThemeColor() {
-        return getCurrentTheme().getContrastingColor();
-    }
-
     /**
      * Sets the theme of the app. If the new theme is the same as the current theme, nothing happens.
      * Otherwise, an event is sent to notify of the theme change.
@@ -459,37 +450,6 @@ public class WikipediaApp extends Application {
             UserOptionDao.instance().theme(theme);
             bus.post(new ThemeChangeEvent());
         }
-    }
-
-    /**
-     * Apply a tint to the provided drawable.
-     * @param d Drawable to be tinted.
-     * @param tintColor Color of the tint. Setting to 0 will remove the tint.
-     */
-    public void setDrawableTint(Drawable d, int tintColor) {
-        if (tintColor == 0) {
-            d.clearColorFilter();
-        } else {
-            DrawableUtil.setTint(d, tintColor);
-        }
-    }
-
-    /**
-     * Make adjustments to a Drawable object to look better in the current theme.
-     * (e.g. apply a white color filter for night mode)
-     * @param d Drawable to be adjusted.
-     */
-    public void adjustDrawableToTheme(Drawable d) {
-        setDrawableTint(d, isCurrentThemeDark() ? Color.WHITE : Color.TRANSPARENT);
-    }
-
-    /**
-     * Make adjustments to a link or button Drawable object to look better in the current theme.
-     * (e.g. apply a blue color filter for night mode, )
-     * @param d Drawable to be adjusted.
-     */
-    public void adjustLinkDrawableToTheme(Drawable d) {
-        setDrawableTint(d, getResources().getColor(isCurrentThemeDark() ? R.color.button_dark : R.color.button_light));
     }
 
     public int getFontSizeMultiplier() {

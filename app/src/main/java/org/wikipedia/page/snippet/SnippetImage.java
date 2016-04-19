@@ -17,9 +17,9 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 
+import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.L10nUtil;
 
@@ -250,7 +250,7 @@ public final class SnippetImage {
         final int top = bottom - height;
 
         Drawable d = context.getResources().getDrawable(R.drawable.wp_wordmark);
-        WikipediaApp.getInstance().setDrawableTint(d, Color.LTGRAY);
+        DrawableUtil.setTint(d, Color.LTGRAY);
 
         int left = WIDTH - HORIZONTAL_PADDING - width;
         if (isArticleRTL) {

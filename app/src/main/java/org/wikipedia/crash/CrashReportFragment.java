@@ -1,10 +1,7 @@
 package org.wikipedia.crash;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.drawable.DrawableUtil;
 
 public class CrashReportFragment extends Fragment
         implements CallbackFragment<CrashReportFragmentCallback> {
@@ -32,24 +27,11 @@ public class CrashReportFragment extends Fragment
 
         setOnClickListener(view, R.id.crash_report_start_over, new StartOverOnClickListener());
         setOnClickListener(view, R.id.crash_report_quit, new QuitOnClickListener());
-
-        setIconColor(view.findViewById(R.id.crash_report_icon).getBackground().mutate(),
-                getContrastingThemeColor());
-
         return view;
     }
 
     @Override @Nullable public CrashReportFragmentCallback getCallback() {
         return FragmentUtil.getCallback(this, CrashReportFragmentCallback.class);
-    }
-
-    private void setIconColor(@NonNull Drawable icon, @ColorInt int color) {
-        DrawableUtil.setTint(icon, color);
-    }
-
-    @ColorInt
-    private int getContrastingThemeColor() {
-        return WikipediaApp.getInstance().getContrastingThemeColor();
     }
 
     private void setOnClickListener(View view, @IdRes int id, View.OnClickListener listener) {
