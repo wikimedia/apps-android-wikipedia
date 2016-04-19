@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.Html;
@@ -626,8 +627,8 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         }
     }
 
-    private void scrollToHighlight(final String highlightText) {
-        if (!TextUtils.isGraphic(highlightText)) {
+    private void scrollToHighlight(@Nullable final String highlightText) {
+        if (highlightText == null || !TextUtils.isGraphic(highlightText)) {
             return;
         }
         sectionText.post(new Runnable() {
@@ -645,7 +646,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         });
     }
 
-    private void setHighlight(String highlightText) {
+    private void setHighlight(@NonNull String highlightText) {
         String[] words = highlightText.split("\\s+");
         int pos = 0;
         for (String word : words) {
