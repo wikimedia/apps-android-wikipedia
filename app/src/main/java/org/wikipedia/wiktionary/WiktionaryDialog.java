@@ -40,6 +40,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     private static final String TITLE = "title";
     private static final String SELECTED_TEXT = "selected_text";
     private static final String PATH_WIKI = "/wiki/";
+    private static final String PATH_CURRENT = "./";
 
     private static String[] ENABLED_LANGUAGES = {
             "en" // English
@@ -203,7 +204,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
             new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
                 @Override
                 public void onUrlClick(String url) {
-                    if (url.startsWith(PATH_WIKI)) {
+                    if (url.startsWith(PATH_WIKI) || url.startsWith(PATH_CURRENT)) {
                         dismiss();
                         if (currentPageFragmentExists()) {
                             showNewDialogForLink(url);
@@ -218,7 +219,11 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private String getTermFromWikiLink(String url) {
-        return url.substring(url.lastIndexOf("/") + 1);
+        return removeLinkFragment(url.substring(url.lastIndexOf("/") + 1));
+    }
+
+    private String removeLinkFragment(String url) {
+        return url.split("#")[0];
     }
 
     private void showNewDialogForLink(String url) {
