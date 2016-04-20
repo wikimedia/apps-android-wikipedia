@@ -11,8 +11,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.log.L;
+
+import java.util.Arrays;
 
 public class AppContentProvider extends ContentProvider {
+    private static final boolean LOG = false;
+
     @Override public boolean onCreate() {
         @SuppressWarnings("UnnecessaryLocalVariable") final boolean loaded = true;
         return loaded;
@@ -30,10 +35,21 @@ public class AppContentProvider extends ContentProvider {
         SQLiteDatabase db = readableDatabase();
         final String groupBy = null;
         final String having = null;
+
+        if (LOG) {
+            L.d("selectionArgs=" + Arrays.toString(selectionArgs));
+            String sql = builder.buildQuery(projection, "(" + selection + ")", groupBy, having,
+                    sortOrder, null);
+            L.d("sql=" + sql);
+        }
+
         Cursor cursor = builder.query(db, projection == null ? endpoint.projection() : projection,
                 selection, selectionArgs, groupBy, having, sortOrder);
 
         if (cursor != null) {
+            if (LOG) {
+                L.d("count=" + cursor.getCount() + " columnNames=" + Arrays.toString(cursor.getColumnNames()));
+            }
             cursor.setNotificationUri(getContentResolver(), uri);
         }
         return cursor;
