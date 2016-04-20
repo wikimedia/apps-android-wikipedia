@@ -8,7 +8,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImage;
-import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.useroption.database.UserOptionRow;
@@ -30,9 +30,9 @@ public class Database extends SQLiteOpenHelper {
             UserOptionRow.HTTP_DATABASE_TABLE,
             UserOptionRow.DATABASE_TABLE,
 
-            ReadingListPage.DISK_DATABASE_TABLE,
-            ReadingListPage.HTTP_DATABASE_TABLE,
-            ReadingListPage.DATABASE_TABLE
+            ReadingListPageRow.DISK_DATABASE_TABLE,
+            ReadingListPageRow.HTTP_DATABASE_TABLE,
+            ReadingListPageRow.DATABASE_TABLE
     };
 
     public Database(Context context) {
