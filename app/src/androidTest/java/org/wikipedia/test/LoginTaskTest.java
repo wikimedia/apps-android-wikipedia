@@ -8,10 +8,16 @@ import org.junit.runner.RunWith;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.EditTokenStorage;
+import org.wikipedia.login.authmanager.AMLoginInfoResult;
+import org.wikipedia.login.authmanager.AMLoginInfoTask;
+import org.wikipedia.login.authmanager.AMLoginResult;
+import org.wikipedia.login.authmanager.AMLoginTask;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.LoginTask;
 import org.wikipedia.testlib.TestLatch;
+import org.wikipedia.util.log.L;
 
+import static junit.framework.Assert.fail;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,6 +26,7 @@ import static android.support.test.InstrumentationRegistry.getInstrumentation;
 @RunWith(AndroidJUnit4.class)
 public class LoginTaskTest {
     private static final Site TEST_WIKI_SITE = new Site("test.wikipedia.org");
+    private static final String PASS = "PASS";
     private static final String SUCCESS = "Success";
     private static final String USERNAME = getString(R.string.test_username);
     private static final String PASSWORD = getString(R.string.test_password);
@@ -32,17 +39,41 @@ public class LoginTaskTest {
         runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                loginTestTask.execute();
+                new AMLoginInfoTask() {
+                    @Override
+                    public void onCatch(Throwable caught) {
+                        L.e(caught);
+                        fail();
+                    }
+
+                    @Override
+                    public void onFinish(AMLoginInfoResult result) {
+                        if (result.getEnabled()) {
+                            amLoginTestTask.execute();
+                        } else {
+                            legacyLoginTestTask.execute();
+                        }
+                    }
+                }.execute();
             }
         });
         completionLatch.await();
     }
 
-    private LoginTask loginTestTask = new LoginTask(app, TEST_WIKI_SITE, USERNAME, PASSWORD) {
+    private LoginTask legacyLoginTestTask = new LoginTask(app, TEST_WIKI_SITE, USERNAME, PASSWORD) {
         @Override
         public void onFinish(LoginResult result) {
             super.onFinish(result);
             assertThat(result.getCode(), equalTo(SUCCESS));
+            app.getEditTokenStorage().get(TEST_WIKI_SITE, callback);
+        }
+    };
+
+    private AMLoginTask amLoginTestTask = new AMLoginTask(USERNAME, PASSWORD) {
+        @Override
+        public void onFinish(AMLoginResult result) {
+            super.onFinish(result);
+            assertThat(result.getStatus(), equalTo(PASS));
             app.getEditTokenStorage().get(TEST_WIKI_SITE, callback);
         }
     };

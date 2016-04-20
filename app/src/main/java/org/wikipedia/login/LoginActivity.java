@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +23,12 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.login.authmanager.AMLoginInfoResult;
+import org.wikipedia.login.authmanager.AMLoginInfoTask;
+import org.wikipedia.login.authmanager.AMLoginResult;
+import org.wikipedia.login.authmanager.AMLoginTask;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.PasswordTextInput;
 
 import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
@@ -179,6 +183,26 @@ public class LoginActivity extends ThemedActionBarActivity {
     }
 
     private void doLogin() {
+        new AMLoginInfoTask() {
+            @Override
+            public void onCatch(Throwable caught) {
+                L.e("AMLoginInfoTask failed: " + caught.getMessage());
+            }
+
+            @Override
+            public void onFinish(AMLoginInfoResult result) {
+                if (result.getEnabled()) {
+                    L.i("Logging in with AuthManager");
+                    doAuthManagerLogin();
+                } else {
+                    L.i("Logging in with legacy login");
+                    doLegacyLogin();
+                }
+            }
+        }.execute();
+    }
+
+    private void doLegacyLogin() {
         final String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();
         new LoginTask(this, app.getSite(), username, password) {
@@ -189,7 +213,7 @@ public class LoginActivity extends ThemedActionBarActivity {
 
             @Override
             public void onCatch(Throwable caught) {
-                Log.d("Wikipedia", "Caught " + caught.toString());
+                L.e("Caught " + caught.toString());
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
                     return;
@@ -221,7 +245,55 @@ public class LoginActivity extends ThemedActionBarActivity {
                     finish();
                 } else {
                     funnel.logError(result.getCode());
-                    handleError(result.getCode());
+                    handleLegacyError(result.getCode());
+                }
+            }
+        }.execute();
+    }
+
+    private void doAuthManagerLogin() {
+        final String username = usernameText.getText().toString();
+        final String password = passwordText.getText().toString();
+        new AMLoginTask(username, password) {
+            @Override
+            public void onBeforeExecute() {
+                progressDialog.show();
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
+                    return;
+                }
+                progressDialog.dismiss();
+                FeedbackUtil.showError(LoginActivity.this, caught);
+            }
+
+            @Override
+            public void onFinish(AMLoginResult result) {
+                super.onFinish(result);
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
+                    return;
+                }
+                progressDialog.dismiss();
+                if (result.pass()) {
+                    funnel.logSuccess();
+
+                    Bundle extras = getIntent().getExtras();
+                    AccountAuthenticatorResponse response = extras == null
+                            ? null
+                            : extras.<AccountAuthenticatorResponse>getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
+                    AccountUtil.createAccount(response, username, password);
+
+                    hideSoftKeyboard(LoginActivity.this);
+                    setResult(RESULT_LOGIN_SUCCESS);
+
+                    finish();
+                } else if (result.fail()) {
+                    funnel.logError(result.getMessage());
+                    handleAuthManagerError(result.getMessage());
                 }
             }
         }.execute();
@@ -239,7 +311,12 @@ public class LoginActivity extends ThemedActionBarActivity {
         super.onBackPressed();
     }
 
-    private void handleError(String result) {
+    private void handleAuthManagerError(String message) {
+        FeedbackUtil.showMessage(this, message);
+        L.e("Login failed with result " + message);
+    }
+
+    private void handleLegacyError(String result) {
         switch (result) {
             case "WrongPass":
             case "WrongPluginPass":
@@ -267,7 +344,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                 break;
             default:
                 FeedbackUtil.showMessage(this, R.string.login_error_unknown);
-                Log.d("Wikipedia", "Login failed with result " + result);
+                L.e("Login failed with result " + result);
                 break;
         }
     }

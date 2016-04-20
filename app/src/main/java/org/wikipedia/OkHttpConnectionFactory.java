@@ -64,4 +64,8 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .protocols(protocolList)
                 .addInterceptor(loggingInterceptor);
     }
+
+    public OkHttpClient client() {
+        return client;
+    }
 }

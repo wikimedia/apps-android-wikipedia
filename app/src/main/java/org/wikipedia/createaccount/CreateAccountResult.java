@@ -3,7 +3,7 @@ package org.wikipedia.createaccount;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class CreateAccountResult implements Parcelable {
+public class CreateAccountResult extends CompatCreateAccountResult {
     private final String result;
 
     public CreateAccountResult(String result) {
@@ -12,11 +12,6 @@ public class CreateAccountResult implements Parcelable {
 
     public String getResult() {
         return result;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
     }
 
     @Override

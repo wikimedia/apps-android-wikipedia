@@ -7,5 +7,7 @@ public final class Constants {
     public static final int RECENT_SEARCHES_FRAGMENT_LOADER_ID = 101;
     public static final int USER_OPTION_ROW_FRAGMENT_LOADER_ID = 102;
 
+    public static final String DEFAULT_AUTH_MANAGER_RETURN_URL = "https://www.wikipedia.org";
+
     private Constants() { }
 }

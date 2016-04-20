@@ -30,6 +30,10 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.activity.ActivityUtil;
+import org.wikipedia.login.LoginResult;
+import org.wikipedia.login.LoginTask;
+import org.wikipedia.login.authmanager.AMLoginInfoResult;
+import org.wikipedia.login.authmanager.AMLoginInfoTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.activity.ThemedActionBarActivity;
@@ -40,12 +44,13 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.editing.summaries.EditSummaryFragment;
 import org.wikipedia.editing.richtext.SyntaxHighlighter;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.login.LoginResult;
-import org.wikipedia.login.LoginTask;
+import org.wikipedia.login.authmanager.AMLoginResult;
+import org.wikipedia.login.authmanager.AMLoginTask;
 import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -388,18 +393,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             app.getCookieManager().clearAllCookies();
 
             User user = app.getUserInfoStorage().getUser();
-            new LoginTask(app, app.getSite(), user.getUsername(), user.getPassword()) {
-                @Override
-                public void onFinish(LoginResult result) {
-                    if (result.getCode().equals("Success")) {
-                        doSave();
-                    } else {
-                        progressDialog.dismiss();
-                        ViewAnimations.crossFade(sectionText, sectionError);
-                        sectionError.setVisibility(View.VISIBLE);
-                    }
-                }
-            }.execute();
+            attemptLoginAndSave(user);
         } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
@@ -440,6 +434,56 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             progressDialog.dismiss();
             FeedbackUtil.showError(this, e);
         }
+    }
+
+    private void attemptLoginAndSave(final User user) {
+        new AMLoginInfoTask() {
+            @Override
+            public void onCatch(Throwable caught) {
+                L.e("AMLoginInfoTask failed: " + caught.getMessage());
+            }
+
+            @Override
+            public void onFinish(AMLoginInfoResult result) {
+                if (result.getEnabled()) {
+                    L.i("Logging in with AuthManager");
+                    doAuthManagerLoginAndSave(user);
+                } else {
+                    L.i("Logging in with legacy login");
+                    doLegacyLoginAndSave(user);
+                }
+            }
+        }.execute();
+    }
+
+    private void doAuthManagerLoginAndSave(final User user) {
+        new AMLoginTask(user.getUsername(), user.getPassword()) {
+            @Override
+            public void onFinish(AMLoginResult result) {
+                if (result.pass()) {
+                    doSave();
+                } else {
+                    progressDialog.dismiss();
+                    ViewAnimations.crossFade(sectionText, sectionError);
+                    sectionError.setVisibility(View.VISIBLE);
+                }
+            }
+        }.execute();
+    }
+
+    private void doLegacyLoginAndSave(final User user) {
+        new LoginTask(app, app.getSite(), user.getUsername(), user.getPassword()) {
+            @Override
+            public void onFinish(LoginResult result) {
+                if ("Success".equals(result.getCode())) {
+                    doSave();
+                } else {
+                    progressDialog.dismiss();
+                    ViewAnimations.crossFade(sectionText, sectionError);
+                    sectionError.setVisibility(View.VISIBLE);
+                }
+            }
+        }.execute();
     }
 
     private void handleAbuseFilter() {

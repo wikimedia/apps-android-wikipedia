@@ -4,9 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
 import android.text.Html;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.KeyEvent;
 import android.view.View;
@@ -23,13 +21,19 @@ import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.NonEmptyValidator;
 import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
+import org.wikipedia.createaccount.authmanager.AMCreateAccountInfoResult;
+import org.wikipedia.createaccount.authmanager.AMCreateAccountInfoTask;
+import org.wikipedia.createaccount.authmanager.AMCreateAccountResult;
+import org.wikipedia.createaccount.authmanager.AMCreateAccountSuccessResult;
+import org.wikipedia.createaccount.authmanager.AMCreateAccountTask;
 import org.wikipedia.editing.CaptchaHandler;
+import org.wikipedia.editing.CaptchaResult;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.PasswordTextInput;
 
 import java.util.List;
@@ -68,7 +72,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     private CaptchaHandler captchaHandler;
 
-    private CreateAccountResult createAccountResult;
+    private CompatCreateAccountResult compatCreateAccountResult;
 
     private Validator validator;
 
@@ -107,7 +111,11 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         validator.setValidationListener(new Validator.ValidationListener() {
             @Override
             public void onValidationSucceeded() {
-                doCreateAccount();
+                if (captchaHandler.isActive() && captchaHandler.isAuthManagerRequest()) {
+                    doAMCreateAccount();
+                } else {
+                    doCreateAccount();
+                }
             }
 
             @Override
@@ -156,30 +164,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
         });
 
-        passwordInput.setOnShowPasswordListener(new PasswordTextInput.OnShowPasswordListener() {
-            @Override
-            public void onShowPasswordChecked(boolean checked) {
-                if (checked) {
-                    ViewAnimations.slideOutRight(passwordRepeatEdit, new ViewPropertyAnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(View view) {
-                            // give it nonempty text, to appease NonEmptyValidator
-                            passwordRepeatEdit.setText(" ");
-                            passwordRepeatEdit.setVisibility(View.GONE);
-                        }
-                    });
-                } else {
-                    ViewAnimations.slideIn(passwordRepeatEdit, new ViewPropertyAnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationStart(View view) {
-                            passwordRepeatEdit.setText("");
-                            passwordRepeatEdit.setVisibility(View.VISIBLE);
-                        }
-                    });
-                }
-            }
-        });
-
         // Add listener so that when the user taps enter, it submits the captcha
         captchaText.setOnKeyListener(new OnKeyListener() {
             @Override
@@ -193,9 +177,11 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         });
 
         if (savedInstanceState != null && savedInstanceState.containsKey("result")) {
-            createAccountResult = savedInstanceState.getParcelable("result");
-            if (createAccountResult instanceof CreateAccountCaptchaResult) {
-                captchaHandler.handleCaptcha(((CreateAccountCaptchaResult) createAccountResult).getCaptchaResult());
+            compatCreateAccountResult = savedInstanceState.getParcelable("result");
+            if (compatCreateAccountResult instanceof CreateAccountCaptchaResult) {
+                captchaHandler.handleCaptcha(
+                        ((CreateAccountCaptchaResult) compatCreateAccountResult)
+                                .getCaptchaResult());
             }
         }
 
@@ -225,14 +211,19 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable("result", createAccountResult);
+        outState.putParcelable("result", compatCreateAccountResult);
     }
 
     public void showPrivacyPolicy(View v) {
         FeedbackUtil.showPrivacyPolicy(this);
     }
 
-    public void handleError(@NonNull Throwable e) {
+    public void handleError(@NonNull String message) {
+        FeedbackUtil.showMessage(this, message);
+        L.w("Account creation failed with result " + message);
+    }
+
+    public void handleLegacyError(@NonNull Throwable e) {
         if (e instanceof ApiException && ((ApiException) e).getCode() != null) {
             String errorCode = ((ApiException) e).getCode();
             funnel.logError(errorCode);
@@ -283,6 +274,86 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     }
 
     public void doCreateAccount() {
+        new AMCreateAccountInfoTask() {
+            @Override
+            public void onCatch(Throwable caught) {
+                handleError(caught.getMessage());
+                L.e(caught);
+            }
+
+            @Override
+            public void onFinish(AMCreateAccountInfoResult result) {
+                if (result.getEnabled()) {
+                    L.i("Creating account with AuthManager");
+                    captchaHandler.handleCaptcha(new CaptchaResult(result.getCaptchaId()), true);
+                } else {
+                    L.i("Creating account with legacy API");
+                    doLegacyCreateAccount();
+                }
+            }
+        }.execute();
+    }
+
+    public void doAMCreateAccount() {
+        String email = null;
+        if (emailEdit.getText().length() != 0) {
+            email = emailEdit.getText().toString();
+        }
+        new AMCreateAccountTask(usernameEdit.getText().toString(),
+                              passwordEdit.getText().toString(),
+                              passwordRepeatEdit.getText().toString(),
+                              email) {
+            @Override
+            public void onBeforeExecute() {
+                progressDialog.show();
+            }
+
+            @Override
+            public RequestBuilder buildRequest(Api api) {
+                if (captchaHandler.isActive()) {
+                    return captchaHandler.populateBuilder(super.buildRequest(api));
+                }
+                return super.buildRequest(api);
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                L.d("Caught " + caught.toString());
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
+                    return;
+                }
+                progressDialog.dismiss();
+                FeedbackUtil.showError(CreateAccountActivity.this, caught);
+            }
+
+            @Override
+            public void onFinish(final AMCreateAccountResult result) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
+                    return;
+                }
+                compatCreateAccountResult = result;
+                if (result instanceof AMCreateAccountSuccessResult) {
+                    progressDialog.dismiss();
+                    captchaHandler.cancelCaptcha();
+                    funnel.logSuccess();
+                    hideSoftKeyboard(CreateAccountActivity.this);
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("username", ((AMCreateAccountSuccessResult) result).getUsername());
+                    resultIntent.putExtra("password", passwordEdit.getText().toString());
+                    setResult(RESULT_ACCOUNT_CREATED, resultIntent);
+                    finish();
+                } else if ("FAIL".equals(result.getStatus())) {
+                    progressDialog.dismiss();
+                    captchaHandler.cancelCaptcha();
+                    handleError(result.getMessage());
+                }
+            }
+        }.execute();
+    }
+
+    public void doLegacyCreateAccount() {
         String email = null;
         if (emailEdit.getText().length() != 0) {
             email = emailEdit.getText().toString();
@@ -295,21 +366,22 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
             @Override
             public RequestBuilder buildRequest(Api api) {
-                if (createAccountResult != null && createAccountResult instanceof CreateAccountCaptchaResult) {
-                   return captchaHandler.populateBuilder(super.buildRequest(api));
+                if (compatCreateAccountResult != null
+                        && compatCreateAccountResult instanceof CreateAccountCaptchaResult) {
+                    return captchaHandler.populateBuilder(super.buildRequest(api));
                 }
                 return super.buildRequest(api);
             }
 
             @Override
             public void onCatch(Throwable caught) {
-                Log.d("Wikipedia", "Caught " + caught.toString());
+                L.d("Caught " + caught.toString());
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
                     return;
                 }
                 progressDialog.dismiss();
-                handleError(caught);
+                handleLegacyError(caught);
             }
 
             @Override
@@ -318,7 +390,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                     // no longer attached to activity!
                     return;
                 }
-                createAccountResult = result;
+                compatCreateAccountResult = result;
                 if (result instanceof CreateAccountCaptchaResult) {
                     if (captchaHandler.isActive()) {
                         funnel.logCaptchaFailure();
@@ -342,7 +414,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                     if (result.getResult().equals("captcha-createaccount-fail")) {
                         // So for now we just need to do the entire set of requests again. sigh
                         // Eventually this should be fixed to have the new captcha info come back.
-                        createAccountResult = null;
+                        compatCreateAccountResult = null;
                         doCreateAccount();
                     }
                 }

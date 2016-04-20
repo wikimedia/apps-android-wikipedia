@@ -15,6 +15,8 @@ import android.view.Window;
 import android.webkit.WebView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.squareup.otto.Bus;
 
 import org.mediawiki.api.json.Api;
@@ -167,7 +169,6 @@ public class WikipediaApp extends Application {
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
-        Fresco.initialize(this);
         bus = new Bus();
 
         ViewAnimations.init(getResources());
@@ -182,7 +183,13 @@ public class WikipediaApp extends Application {
 
         enableWebViewDebugging();
 
-        Api.setConnectionFactory(new OkHttpConnectionFactory(this));
+        OkHttpConnectionFactory okHttpConnectionFactory = new OkHttpConnectionFactory(this);
+        Api.setConnectionFactory(okHttpConnectionFactory);
+
+        ImagePipelineConfig config = OkHttpImagePipelineConfigFactory
+                .newBuilder(this, okHttpConnectionFactory.client())
+                .build();
+        Fresco.initialize(this, config);
 
         zeroHandler = new WikipediaZeroHandler(this);
         pageCache = new PageCache(this);

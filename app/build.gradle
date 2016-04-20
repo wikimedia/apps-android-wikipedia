@@ -173,6 +173,7 @@ dependencies {
     compile "com.android.support:preference-v14:$supportVersion"
     compile "com.facebook.fresco:animated-gif:$frescoVersion"
     compile "com.facebook.fresco:fresco:$frescoVersion"
+    compile "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
     compile 'com.google.code.gson:gson:2.6.2'
     compile "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // for JavaNetCookieJar
     compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"

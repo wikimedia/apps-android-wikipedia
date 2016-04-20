@@ -32,6 +32,7 @@ public class CaptchaHandler {
     private final String prevTitle;
     private ProgressDialog progressDialog;
     private CaptchaResult captchaResult;
+    private boolean authManagerRequest;
 
     public CaptchaHandler(final Activity activity, final Site site, final ProgressDialog progressDialog,
                           final View primaryView, final String prevTitle, final String submitButtonText) {
@@ -89,12 +90,22 @@ public class CaptchaHandler {
         outState.putParcelable("captcha", captchaResult);
     }
 
+    public boolean isAuthManagerRequest() {
+        return authManagerRequest;
+    }
+
     public boolean isActive() {
         return captchaResult != null;
     }
 
     public void handleCaptcha(CaptchaResult captchaResult) {
         this.captchaResult = captchaResult;
+        handleCaptcha(false);
+    }
+
+    public void handleCaptcha(CaptchaResult captchaResult, boolean authManagerRequest) {
+        this.captchaResult = captchaResult;
+        this.authManagerRequest = authManagerRequest;
         handleCaptcha(false);
     }
 
@@ -153,11 +164,18 @@ public class CaptchaHandler {
     }
 
     public RequestBuilder populateBuilder(RequestBuilder builder) {
-        if (captchaResult != null) {
-            builder.param("captchaid", captchaResult.getCaptchaId())
-                    .param("captchaword", captchaText.getText().toString());
+        if (captchaResult == null) {
+            return builder;
         }
-        return builder;
+
+        if (authManagerRequest) {
+            authManagerRequest = false;
+            return builder.param("captchaId", captchaResult.getCaptchaId())
+                    .param("captchaWord", captchaText.getText().toString());
+        }
+
+        return builder.param("captchaid", captchaResult.getCaptchaId())
+                .param("captchaword", captchaText.getText().toString());
     }
 
 }
