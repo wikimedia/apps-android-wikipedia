@@ -140,7 +140,7 @@ public final class ReadingListPageContract {
     }
 
     public static final class HttpWithPage implements Page {
-        public static final String TABLES = ":httpTbl join :tbl on (:tbl.keyCol = :httpTbl.keyCol)"
+        public static final String TABLES = ":httpTbl left join :tbl on (:tbl.keyCol = :httpTbl.keyCol)"
                 .replaceAll(":tbl.keyCol", KEY.qualifiedName())
                 .replaceAll(":httpTbl.keyCol", HttpCol.KEY.qualifiedName())
                 .replaceAll(":httpTbl", TABLE_HTTP)
@@ -165,7 +165,7 @@ public final class ReadingListPageContract {
     }
 
     public static final class DiskWithPage implements Page {
-        public static final String TABLES = ":diskTbl join :tbl on (:tbl.keyCol = :diskTbl.keyCol)"
+        public static final String TABLES = ":diskTbl left join :tbl on (:tbl.keyCol = :diskTbl.keyCol)"
                 .replaceAll(":tbl.keyCol", KEY.qualifiedName())
                 .replaceAll(":diskTbl.keyCol", DiskCol.KEY.qualifiedName())
                 .replaceAll(":diskTbl", TABLE_DISK)

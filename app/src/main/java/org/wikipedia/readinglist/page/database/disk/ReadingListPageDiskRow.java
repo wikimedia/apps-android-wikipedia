@@ -13,7 +13,7 @@ public class ReadingListPageDiskRow extends DiskRow<ReadingListPageRow> {
 
     public static ReadingListPageDiskRow fromCursor(@NonNull Cursor cursor) {
         ReadingListDiskRow diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
-        boolean hasRow = cursor.getColumnIndex(ReadingListPageContract.DiskWithPage.KEY.getName()) != -1;
+        boolean hasRow = ReadingListPageContract.DiskWithPage.KEY.val(cursor) != null;
         ReadingListPageRow row = hasRow ? ReadingListPage.DATABASE_TABLE.fromCursor(cursor) : null;
         return new ReadingListPageDiskRow(diskRow, row);
     }

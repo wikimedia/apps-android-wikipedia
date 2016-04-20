@@ -47,6 +47,7 @@ public class PageTitle implements Parcelable {
      * * [[Utilisateur:Deskana]] on frwiki will have a namespace of "Utilisateur", even if you got
      *   to the page by going to [[User:Deskana]] and having MediaWiki automatically redirect you.
      */
+    // TODO: use Namespace. Clients shouldn't have to bear this knowledge to access a String.
     @Nullable private final String namespace;
     private final String text;
     private final String fragment;
