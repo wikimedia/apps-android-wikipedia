@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="?attr/window_background_color">
+        android:background="?attr/link_preview_background_color">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                android:tint="?attr/list_item_text_secondary_color"
+                android:tint="?attr/link_preview_text_color"
                 app:srcCompat="@drawable/ic_bookmark_border_black_24dp"/>
 
             <TextView
@@ -37,7 +37,7 @@
                 android:gravity="center_vertical"
                 style="@style/RtlAwareTextView"
                 android:textColor="?attr/link_preview_text_color"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:text="@string/reading_list_save_to" />
 
             <ImageButton
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 style="@style/ArticleMenuBarViewButton"
-                android:tint="@color/gray_highlight"
+                android:tint="?attr/link_preview_text_color"
                 app:srcCompat="@drawable/ic_close_white_24dp"
                 android:contentDescription="@string/dialog_close_description"/>
         </LinearLayout>
@@ -95,6 +95,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="@dimen/readingListDividerMargin"
             android:layout_marginStart="@dimen/readingListDividerMargin"
+            android:layout_marginRight="@dimen/list_item_horizontal_padding"
+            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:background="?attr/list_separator_color"/>
 
         <android.support.v7.widget.RecyclerView
@@ -110,13 +112,12 @@
         android:id="@+id/onboarding_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/list_item_horizontal_padding"
-        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:background="?attr/window_background_color">
+        android:background="?attr/link_preview_background_color">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -124,31 +125,32 @@
             android:layout_margin="16dp"
             android:layout_gravity="center_horizontal"
             app:srcCompat="@drawable/ic_bookmark_black_24dp"
-            android:tint="?attr/list_item_text_primary_color"
+            android:tint="?attr/link_preview_text_color"
             android:contentDescription="@null"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:textColor="?attr/link_preview_text_color"
             android:text="@string/reading_lists_onboarding_intro"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"
             android:textStyle="italic"
+            android:textColor="?attr/link_preview_text_color"
             android:text="@string/reading_lists_onboarding_examples"/>
 
         <Button
             android:id="@+id/onboarding_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="end"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:textColor="@color/blue_progressive"
             android:textSize="16sp"
