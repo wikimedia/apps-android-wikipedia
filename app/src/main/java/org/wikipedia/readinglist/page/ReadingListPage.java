@@ -3,6 +3,7 @@ package org.wikipedia.readinglist.page;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
+import org.apache.commons.lang3.Validate;
 import org.wikipedia.readinglist.page.database.disk.DiskStatus;
 import org.wikipedia.readinglist.page.database.disk.ReadingListDiskRow;
 
@@ -56,7 +57,7 @@ public final class ReadingListPage extends ReadingListPageRow {
 
         @Override protected void validate() {
             super.validate();
-            validateNotNull(diskStatus);
+            Validate.notNull(diskStatus);
         }
     }
 }

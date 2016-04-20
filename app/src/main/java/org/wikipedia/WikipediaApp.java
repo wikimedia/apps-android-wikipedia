@@ -33,6 +33,7 @@ import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.pageimages.PageImage;
+import org.wikipedia.readinglist.database.ReadingListRow;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageHttpRow;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
@@ -338,6 +339,8 @@ public class WikipediaApp extends Application {
                 client = new DatabaseClient<>(this, ReadingListPageRow.HTTP_DATABASE_TABLE);
             } else if (cls.equals(ReadingListPageDiskRow.class)) {
                 client = new DatabaseClient<>(this, ReadingListPageRow.DISK_DATABASE_TABLE);
+            } else if (cls.equals(ReadingListRow.class)) {
+                client = new DatabaseClient<>(this, ReadingListRow.DATABASE_TABLE);
             } else {
                 throw new RuntimeException("No persister found for class " + cls.getCanonicalName());
             }
