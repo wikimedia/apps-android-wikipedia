@@ -91,7 +91,7 @@
                                 android:shadowRadius="2"
                                 android:layout_gravity="center_vertical"
                                 android:drawableStart="@drawable/ic_search"
-                                android:drawableLeft="@drawable/ic_search"
+                                tools:ignore="RtlCompat"
                                 android:drawablePadding="4dp"/>
                             <LinearLayout
                                 android:id="@+id/search_bar_enabled"

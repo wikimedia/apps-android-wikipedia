@@ -20,7 +20,7 @@
         android:textIsSelectable="true"
         tools:text="Sample error description"
         android:drawableStart="@drawable/ic_error_gray"
-        android:drawableLeft="@drawable/ic_error_gray"
+        tools:ignore="RtlCompat"
         android:drawablePadding="8dp"
         />
 
