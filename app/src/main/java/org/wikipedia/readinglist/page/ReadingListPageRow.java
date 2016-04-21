@@ -9,6 +9,7 @@ import org.wikipedia.page.Namespace;
 import org.wikipedia.readinglist.page.database.ReadingListPageDiskTable;
 import org.wikipedia.readinglist.page.database.ReadingListPageHttpTable;
 import org.wikipedia.readinglist.page.database.ReadingListPageTable;
+import org.wikipedia.util.ValidateUtil;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -188,19 +189,7 @@ public class ReadingListPageRow extends BaseModel {
 
         // TODO: listKeys allows empty currently. Should we permit it? It means delete.
         protected void validate() {
-            validateNotNull(key, site, namespace, title, mtime, atime);
-        }
-
-        protected void validateNotNull(Object... objs) {
-            for (Object obj : objs) {
-                validate(obj != null);
-            }
-        }
-
-        protected void validate(boolean assertion) {
-            if (!assertion) {
-                throw new IllegalArgumentException();
-            }
+            ValidateUtil.noNullElements(key, site, namespace, title, mtime, atime);
         }
     }
 }
