@@ -10,6 +10,7 @@ import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
+import org.wikipedia.database.contract.ReadingListContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.database.contract.SearchHistoryContract;
@@ -55,7 +56,12 @@ public enum AppContentProviderEndpoint implements EnumCode {
             ReadingListPageContract.DiskWithPage.PROJECTION),
     READING_LIST_PAGE_WITH_DISK(405, ReadingListPageContract.PageWithDisk.PATH,
             ReadingListPageContract.PageWithDisk.TABLES,
-            ReadingListPageContract.PageWithDisk.PROJECTION);
+            ReadingListPageContract.PageWithDisk.PROJECTION),
+    READING_LIST(406, ReadingListContract.List.PATH, ReadingListContract.List.TABLES,
+            ReadingListContract.List.PROJECTION),
+    READING_LIST_WITH_PAGES_AND_DISK(407, ReadingListContract.ListWithPagesAndDisk.PATH,
+            ReadingListContract.ListWithPagesAndDisk.TABLES,
+            ReadingListContract.ListWithPagesAndDisk.PROJECTION);
 
     private static final EnumCodeMap<AppContentProviderEndpoint> CODE_TO_ENUM = new EnumCodeMap<>(AppContentProviderEndpoint.class);
     private static final UriMatcher URI_TO_CODE = newUriToCode();

@@ -63,6 +63,8 @@ public final class ReadingListPageContract {
         String[] SELECTION = DbUtil.qualifiedNames(KEY);
         String[] ALL = DbUtil.qualifiedNames(ID, KEY, LIST_KEYS, SITE, LANG, NAMESPACE, TITLE,
                 DISK_PAGE_REV, MTIME, ATIME, THUMBNAIL_URL, DESCRIPTION);
+        String[] CONTENT = DbUtil.qualifiedNames(KEY, LIST_KEYS, SITE, LANG, NAMESPACE, TITLE,
+                DISK_PAGE_REV, MTIME, ATIME, THUMBNAIL_URL, DESCRIPTION);
     }
 
     public static final HttpColumns<ReadingListPageRow> HTTP_COLS = new HttpColumns<>(TABLE_HTTP);
