@@ -1,25 +1,191 @@
 package org.wikipedia.readinglist;
 
+import android.database.Cursor;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.page.PageTitle;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.database.DatabaseClient;
+import org.wikipedia.database.contract.ReadingListContract;
+import org.wikipedia.readinglist.database.ReadingListRow;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 
-@SuppressWarnings("checkstyle:interfaceistype")
-public interface ReadingListData {
-    interface List {
-        @NonNull java.util.List<ReadingList> queryMruLists();
-        void addList(ReadingList list);
-        void removeList(ReadingList list);
-        void makeListMostRecent(ReadingList list);
-        void saveListInfo(ReadingList list);
+import java.util.ArrayList;
+import java.util.List;
+
+public final class ReadingListData {
+    private static final ReadingListData INSTANCE = new ReadingListData();
+
+    public static ReadingListData instance() {
+        return INSTANCE;
     }
 
-    interface Page {
-        void addTitleToList(ReadingList list, PageTitle title);
-        void removeTitleFromList(ReadingList list, PageTitle title);
-        boolean listContainsTitle(ReadingList list, PageTitle title);
-        boolean anyListContainsTitle(PageTitle title);
+    public void queryMruLists(@NonNull CallbackTask.Callback<List<ReadingList>> callback) {
+        CallbackTask.execute(new CallbackTask.Task<List<ReadingList>>() {
+            @Override public List<ReadingList> execute() {
+                List<ReadingList> rows = new ArrayList<>();
+                Cursor cursor = lists();
+                try {
+                    while (cursor.moveToNext()) {
+                        rows.add(ReadingList.fromCursor(cursor));
+                    }
+                } finally {
+                    cursor.close();
+                }
+                return rows;
+            }
+        }, callback);
     }
 
-    interface ReadingListDao extends List, Page {}
+    @NonNull public Cursor lists() {
+        Uri uri = ReadingListContract.ListWithPagesAndDisk.URI;
+        final String selection = null;
+        final String[] selectionArgs = null;
+        String order = ReadingListContract.ListWithPagesAndDisk.ORDER_KEY + ','
+                + ReadingListContract.ListWithPagesAndDisk.ORDER_MRU;
+        return listClient().select(uri, selection, selectionArgs, order);
+    }
+
+    public void addListAsync(@NonNull final ReadingList list) {
+        CallbackTask.execute(new CallbackTask.Task<Void>() {
+            @Override public Void execute() {
+                addList(list);
+                return null;
+            }
+        });
+    }
+
+    public void removeListAsync(@NonNull final ReadingList list) {
+        CallbackTask.execute(new CallbackTask.Task<Void>() {
+            @Override public Void execute() {
+                removeList(list);
+                return null;
+            }
+        });
+    }
+
+    public void makeListMostRecent(@NonNull final ReadingList list) {
+        long now = System.currentTimeMillis();
+        list.atime(now);
+
+        CallbackTask.execute(new CallbackTask.Task<Void>() {
+            @Override public Void execute() {
+                saveListInfo(list);
+                return null;
+            }
+        });
+    }
+
+    public void saveListInfoAsync(@NonNull final ReadingList list) {
+        CallbackTask.execute(new CallbackTask.Task<Void>() {
+            @Override public Void execute() {
+                saveListInfo(list);
+                return null;
+            }
+        });
+    }
+
+    public void addTitleToList(@NonNull final ReadingList list,
+                               @NonNull final ReadingListPage page) {
+        list.add(page);
+        page.addListKey(list.key());
+
+        CallbackTask.execute(new CallbackTask.Task<Void>() {
+            @Override public Void execute() {
+                saveListInfo(list, page);
+                return null;
+            }
+        });
+    }
+
+    public void removeTitleFromList(@NonNull final ReadingList list,
+                                    @NonNull final ReadingListPage page) {
+        list.remove(page);
+        page.removeListKey(list.key());
+
+        CallbackTask.execute(new CallbackTask.Task<Void>() {
+            @Override public Void execute() {
+                saveListInfo(list, page);
+                return null;
+            }
+        });
+    }
+
+    public void listContainsTitleAsync(@NonNull final ReadingList list,
+                                       @NonNull final ReadingListPage page,
+                                       @NonNull CallbackTask.Callback<Boolean> callback) {
+        CallbackTask.execute(new CallbackTask.Task<Boolean>() {
+            @Override public Boolean execute() {
+                return listContainsTitle(list.key(), page.key());
+            }
+        }, callback);
+    }
+
+    public void anyListContainsTitleAsync(@NonNull final String key,
+                                          @NonNull CallbackTask.Callback<Boolean> callback) {
+        CallbackTask.execute(new CallbackTask.Task<Boolean>() {
+            @Override public Boolean execute() {
+                return anyListContainsTitle(key);
+            }
+        }, callback);
+    }
+
+    private synchronized boolean anyListContainsTitle(String key) {
+        Cursor cursor = ReadingListPageDao.instance().page(key);
+        try {
+            return cursor.getCount() != 0;
+        } finally {
+            cursor.close();
+        }
+    }
+
+    private synchronized void saveListInfo(@NonNull ReadingList list) {
+        listClient().persist(list);
+    }
+
+    private synchronized void saveListInfo(@NonNull ReadingList list, @NonNull ReadingListPage page) {
+        listClient().persist(list);
+        ReadingListPageDao.instance().upsert(page);
+    }
+
+    private synchronized void addList(@NonNull ReadingList list) {
+        listClient().persist(list);
+        for (ReadingListPage page : list.getPages()) {
+            page.addListKey(list.key());
+            ReadingListPageDao.instance().upsert(page);
+        }
+    }
+
+    private synchronized void removeList(@NonNull ReadingList list) {
+        listClient().delete(list, listClient().getPrimaryKeySelectionArgs(list));
+        for (ReadingListPage page : list.getPages()) {
+            page.removeListKey(list.key());
+            ReadingListPageDao.instance().upsert(page);
+        }
+    }
+
+    private synchronized boolean listContainsTitle(@NonNull String listKey, @NonNull String key) {
+        Cursor cursor = ReadingListPageDao.instance().pages(listKey);
+        try {
+            while (cursor.moveToNext()) {
+                ReadingListPage page = ReadingListPage.fromCursor(cursor);
+                if (page.key().equals(key)) {
+                    return true;
+                }
+            }
+            return false;
+        } finally {
+            cursor.close();
+        }
+    }
+
+    private DatabaseClient<ReadingListRow> listClient() {
+        return client(ReadingListRow.class);
+    }
+
+    private <T> DatabaseClient<T> client(Class<T> clazz) {
+        return WikipediaApp.getInstance().getDatabaseClient(clazz);
+    }
 }

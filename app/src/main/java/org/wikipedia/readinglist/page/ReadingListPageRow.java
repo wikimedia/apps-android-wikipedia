@@ -49,6 +49,14 @@ public class ReadingListPageRow extends BaseModel {
         return Collections.unmodifiableSet(listKeys);
     }
 
+    public void addListKey(@NonNull String listKey) {
+        listKeys.add(listKey);
+    }
+
+    public void removeListKey(@NonNull String listKey) {
+        listKeys.remove(listKey);
+    }
+
     @NonNull public Namespace namespace() {
         return namespace;
     }

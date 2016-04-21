@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.CallbackTask;
-import org.wikipedia.concurrency.CallbackTask.Callback;
 import org.wikipedia.concurrency.CallbackTask.Task;
 import org.wikipedia.database.BaseDao;
 import org.wikipedia.database.async.AsyncConstant;
@@ -27,24 +26,8 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
     @NonNull private final HttpRowDao<ReadingListPageRow, ReadingListPageHttpRow> httpDao;
     @NonNull private final DiskRowDao<ReadingListPageRow, ReadingListPageDiskRow> diskDao;
 
-    // TODO: clients need the mechanism for generating page and list keys.
-
     public static ReadingListPageDao instance() {
         return INSTANCE;
-    }
-
-    // TODO: remove this method once client can consume Cursor form.
-    public void pageAsync(@NonNull final String key, @NonNull Callback<ReadingListPage> callback) {
-        CallbackTask.execute(new Task<ReadingListPage>() {
-            @Override public ReadingListPage execute() {
-                Cursor cursor = page(key);
-                try {
-                    return cursor.moveToNext() ? ReadingListPage.fromCursor(cursor) : null;
-                } finally {
-                    cursor.close();
-                }
-            }
-        }, callback);
     }
 
     @NonNull public Cursor page(@NonNull String key) {
@@ -53,25 +36,6 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         String[] selectionArgs = new String[] {key};
         String order = ReadingListPageContract.PageWithDisk.ORDER_ALPHABETICAL;
         return client().select(uri, selection, selectionArgs, order);
-    }
-
-    // TODO: remove this method once client can consume Cursor form.
-    public void pagesAsync(@NonNull final String listKey,
-                           @NonNull Callback<Collection<ReadingListPage>> callback) {
-        CallbackTask.execute(new Task<Collection<ReadingListPage>>() {
-            @Override public Collection<ReadingListPage> execute() {
-                Collection<ReadingListPage> rows = new ArrayList<>();
-                Cursor cursor = pages(listKey);
-                try {
-                    while (cursor.moveToNext()) {
-                        rows.add(ReadingListPage.fromCursor(cursor));
-                    }
-                } finally {
-                    cursor.close();
-                }
-                return rows;
-            }
-        }, callback);
     }
 
     @NonNull public Cursor pages(@NonNull String listKey) {

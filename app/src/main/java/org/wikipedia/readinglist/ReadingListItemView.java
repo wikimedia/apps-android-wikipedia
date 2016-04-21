@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
-import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
@@ -127,9 +127,9 @@ public class ReadingListItemView extends LinearLayout {
     private void updateThumbnails() {
         clearThumbnails();
         List<String> thumbUrls = new ArrayList<>();
-        for (PageTitle title : readingList.getPages()) {
-            if (!TextUtils.isEmpty(title.getThumbUrl())) {
-                thumbUrls.add(title.getThumbUrl());
+        for (ReadingListPage page : readingList.getPages()) {
+            if (!TextUtils.isEmpty(page.thumbnailUrl())) {
+                thumbUrls.add(page.thumbnailUrl());
             }
         }
         int thumbIndex = 0;

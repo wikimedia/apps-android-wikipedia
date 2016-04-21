@@ -8,7 +8,7 @@ import org.wikipedia.readinglist.page.database.disk.DiskStatus;
 import org.wikipedia.readinglist.page.database.disk.ReadingListDiskRow;
 
 public final class ReadingListPage extends ReadingListPageRow {
-    @NonNull private final DiskStatus diskStatus;
+    @NonNull private DiskStatus diskStatus;
 
     public static ReadingListPage fromCursor(@NonNull Cursor cursor) {
         ReadingListDiskRow diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
@@ -29,6 +29,14 @@ public final class ReadingListPage extends ReadingListPageRow {
 
     public boolean savedOrSaving() {
         return diskStatus.savedOrSaving();
+    }
+
+    public void savedOrSaving(boolean saved) {
+        if (saved) {
+            diskStatus = diskStatus == DiskStatus.SAVED ? DiskStatus.SAVED : DiskStatus.OUTDATED;
+        } else {
+            diskStatus = diskStatus == DiskStatus.ONLINE ? DiskStatus.ONLINE : DiskStatus.UNSAVED;
+        }
     }
 
     private ReadingListPage(@NonNull Builder builder) {

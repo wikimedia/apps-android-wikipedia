@@ -18,18 +18,20 @@ import android.view.animation.AnimationUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
-import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.concurrency.CallbackTask;
+import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.savedpages.DeleteSavedPageTask;
 import org.wikipedia.savedpages.SavePageTask;
 import org.wikipedia.savedpages.SavedPage;
-import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
@@ -105,10 +107,12 @@ public class LeadImagesHandler {
     }
 
     public void updateBookmark() {
-
-        // TODO: DAO interaction (does this page exist in one or more lists?)
-
-        articleHeaderView.updateBookmark(ReadingList.DAO.anyListContainsTitle(getTitle()));
+        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
+                new CallbackTask.Callback<Boolean>() {
+            @Override public void success(@NonNull Boolean bookmarked) {
+                articleHeaderView.updateBookmark(bookmarked);
+            }
+        });
     }
 
     public void updateNavigate(@Nullable Location geo) {

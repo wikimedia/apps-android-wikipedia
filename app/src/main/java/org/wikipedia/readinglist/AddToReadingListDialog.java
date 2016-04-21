@@ -15,9 +15,12 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
@@ -132,41 +135,63 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateLists() {
-        readingLists = ReadingList.DAO.queryMruLists();
-        adapter.notifyDataSetChanged();
+        ReadingList.DAO.queryMruLists(new CallbackTask.Callback<List<ReadingList>>() {
+            @Override
+            public void success(List<ReadingList> rows) {
+                readingLists = rows;
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private class CreateButtonClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            final ReadingList readingList = new ReadingList();
-            readingList.setTitle(getString(R.string.reading_list_name_sample));
-            AlertDialog dialog = ReadingListDialogs.createEditDialog(getContext(), readingList, false, new Runnable() {
+            String title = getString(R.string.reading_list_name_sample);
+            long now = System.currentTimeMillis();
+            final ReadingList list = ReadingList
+                    .builder()
+                    .key(ReadingListDaoProxy.listKey(title))
+                    .title(title)
+                    .mtime(now)
+                    .atime(now)
+                    .description(null)
+                    .pages(new ArrayList<ReadingListPage>())
+                    .build();
+            AlertDialog dialog = ReadingListDialogs.createEditDialog(getContext(), list, false, new Runnable() {
                 @Override
                 public void run() {
-                    addAndDismiss(readingList);
+                    ReadingList.DAO.addListAsync(list);
+                    addAndDismiss(list);
                 }
             }, null);
             dialog.show();
         }
     }
 
-    private void addAndDismiss(ReadingList readingList) {
-        if (ReadingList.DAO.listContainsTitle(readingList, pageTitle)) {
-            ((PageActivity) getActivity())
-                    .showReadingListAddedSnackbar(getString(R.string.reading_list_already_exists), isOnboarding);
-        } else {
-            ((PageActivity) getActivity())
-                    .showReadingListAddedSnackbar(TextUtils.isEmpty(readingList.getTitle())
-                            ? getString(R.string.reading_list_added_to_unnamed)
-                            : String.format(getString(R.string.reading_list_added_to_named),
-                            readingList.getTitle()), isOnboarding);
+    private void addAndDismiss(final ReadingList readingList) {
+        final ReadingListPage page = ReadingListDaoProxy.page(readingList, pageTitle);
+        ReadingList.DAO.listContainsTitleAsync(readingList, page, new CallbackTask.Callback<Boolean>() {
+            @Override
+            public void success(Boolean contains) {
+                if (isAdded()) {
+                    if (contains) {
+                        ((PageActivity) getActivity())
+                                .showReadingListAddedSnackbar(getString(R.string.reading_list_already_exists), isOnboarding);
+                    } else {
+                        ((PageActivity) getActivity())
+                                .showReadingListAddedSnackbar(TextUtils.isEmpty(readingList.getTitle())
+                                        ? getString(R.string.reading_list_added_to_unnamed)
+                                        : String.format(getString(R.string.reading_list_added_to_named),
+                                        readingList.getTitle()), isOnboarding);
 
-            new ReadingListsFunnel(pageTitle.getSite()).logAddToList(readingList, readingLists.size(), invokeSource);
-            ReadingList.DAO.addTitleToList(readingList, pageTitle);
-        }
-
-        ReadingList.DAO.makeListMostRecent(readingList);
+                        new ReadingListsFunnel(pageTitle.getSite()).logAddToList(readingList, readingLists.size(), invokeSource);
+                        ReadingList.DAO.makeListMostRecent(readingList);
+                    }
+                }
+            }
+        });
+        ReadingList.DAO.addTitleToList(readingList, page);
         dismiss();
     }
 

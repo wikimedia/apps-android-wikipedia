@@ -14,9 +14,12 @@ import android.view.ViewGroup;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
@@ -85,9 +88,14 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     private void updateLists() {
-        readingLists = ReadingList.DAO.queryMruLists();
-        adapter.notifyDataSetChanged();
-        updateEmptyMessage();
+        ReadingList.DAO.queryMruLists(new CallbackTask.Callback<List<ReadingList>>() {
+            @Override
+            public void success(List<ReadingList> rows) {
+                readingLists = rows;
+                adapter.notifyDataSetChanged();
+                updateEmptyMessage();
+            }
+        });
     }
 
     private void updateEmptyMessage() {
@@ -97,14 +105,14 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private class ReadingListActionListener implements ReadingListDetailView.ReadingListActionListener {
         @Override
         public void onUpdate(ReadingList readingList) {
-            ReadingList.DAO.saveListInfo(readingList);
+            ReadingList.DAO.saveListInfoAsync(readingList);
             funnel.logModifyList(readingList, readingLists.size());
         }
 
         @Override
         public void onDelete(ReadingList readingList) {
             showDeleteListUndoSnackbar(readingList);
-            ReadingList.DAO.removeList(readingList);
+            ReadingList.DAO.removeListAsync(readingList);
             funnel.logDeleteList(readingList, readingLists.size());
             pager.setCurrentItem(0);
             updateLists();
@@ -180,22 +188,24 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     private class ReadingListItemActionListener implements ReadingListDetailView.ReadingListItemActionListener {
         @Override
-        public void onClick(ReadingList readingList, PageTitle title) {
-            HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
+        public void onClick(ReadingList readingList, ReadingListPage page) {
+            PageTitle title = ReadingListDaoProxy.pageTitle(page);
+            HistoryEntry newEntry = new HistoryEntry(title,
+                    HistoryEntry.SOURCE_READING_LIST);
             ((PageActivity) getActivity()).loadPage(title, newEntry);
 
             ReadingList.DAO.makeListMostRecent(readingList);
         }
 
         @Override
-        public void onLongClick(ReadingList readingList, PageTitle title) {
+        public void onLongClick(ReadingList readingList, ReadingListPage page) {
             // TODO: implement integration with PageLongPressHandler
         }
 
         @Override
-        public void onDelete(ReadingList readingList, PageTitle title) {
-            showDeleteItemUndoSnackbar(readingList, title);
-            ReadingList.DAO.removeTitleFromList(readingList, title);
+        public void onDelete(ReadingList readingList, ReadingListPage page) {
+            showDeleteItemUndoSnackbar(readingList, page);
+            ReadingList.DAO.removeTitleFromList(readingList, page);
             funnel.logDeleteItem(readingList, readingLists.size());
             updateLists();
         }
@@ -208,22 +218,22 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReadingList.DAO.addList(readingList);
+                ReadingList.DAO.addListAsync(readingList);
                 updateLists();
             }
         });
         snackbar.show();
     }
 
-    private void showDeleteItemUndoSnackbar(final ReadingList readingList, final PageTitle title) {
+    private void showDeleteItemUndoSnackbar(final ReadingList readingList, final ReadingListPage page) {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getView(),
-                String.format(getString(R.string.reading_list_item_deleted), title.getDisplayText()),
+                String.format(getString(R.string.reading_list_item_deleted), page.title()),
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                ReadingList.DAO.addTitleToList(readingList, title);
+                ReadingList.DAO.addTitleToList(readingList, page);
                 listDetailView.updateDetails();
                 adapter.notifyDataSetChanged();
 

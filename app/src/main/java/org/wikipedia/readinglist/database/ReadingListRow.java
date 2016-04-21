@@ -4,16 +4,19 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.model.BaseModel;
+import org.wikipedia.readinglist.ReadingListData;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.util.ValidateUtil;
 
 public class ReadingListRow extends BaseModel {
+    public static final ReadingListData DAO = new ReadingListData();
     public static final ReadingListTable DATABASE_TABLE = new ReadingListTable();
 
-    @NonNull private final String key;
-    @NonNull private final String title;
+    @NonNull private String key;
+    @NonNull private String title;
     private final long mtime;
-    private final long atime;
-    @Nullable private final String description;
+    private long atime;
+    @Nullable private String description;
 
     public static Builder<?> builder() {
         //noinspection rawtypes
@@ -28,6 +31,11 @@ public class ReadingListRow extends BaseModel {
         return title;
     }
 
+    public void title(@NonNull String title) {
+        this.title = title;
+        key = ReadingListDaoProxy.listKey(title);
+    }
+
     public long mtime() {
         return mtime;
     }
@@ -36,8 +44,16 @@ public class ReadingListRow extends BaseModel {
         return atime;
     }
 
+    public void atime(long atime) {
+        this.atime = atime;
+    }
+
     @Nullable public String getDescription() {
         return description;
+    }
+
+    public void description(@Nullable String description) {
+        this.description = description;
     }
 
     protected ReadingListRow(@NonNull Builder<?> builder) {

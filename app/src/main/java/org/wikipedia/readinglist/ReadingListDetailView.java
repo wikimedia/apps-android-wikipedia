@@ -27,7 +27,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
-import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -53,9 +53,9 @@ public class ReadingListDetailView extends LinearLayout {
     private Bitmap deleteIcon = getDeleteBitmap();
 
     public interface ReadingListItemActionListener {
-        void onClick(ReadingList readingList, PageTitle title);
-        void onLongClick(ReadingList readingList, PageTitle title);
-        void onDelete(ReadingList readingList, PageTitle title);
+        void onClick(ReadingList readingList, ReadingListPage page);
+        void onLongClick(ReadingList readingList, ReadingListPage page);
+        void onDelete(ReadingList readingList, ReadingListPage page);
     }
 
     public interface ReadingListActionListener {
@@ -170,7 +170,7 @@ public class ReadingListDetailView extends LinearLayout {
     }
 
     private class ReadingListPageItemHolder extends RecyclerView.ViewHolder implements OnClickListener, OnLongClickListener {
-        private PageTitle pageTitle;
+        private ReadingListPage page;
         private View containerView;
         private TextView titleView;
         private SimpleDraweeView thumbnailView;
@@ -186,31 +186,31 @@ public class ReadingListDetailView extends LinearLayout {
             containerView.setOnClickListener(this);
         }
 
-        public void bindItem(PageTitle title) {
-            this.pageTitle = title;
-            titleView.setText(title.getDisplayText());
-            descriptionView.setText(title.getDescription());
-            ViewUtil.loadImageUrlInto(thumbnailView, title.getThumbUrl());
+        public void bindItem(ReadingListPage page) {
+            this.page = page;
+            titleView.setText(page.title());
+            descriptionView.setText(page.description());
+            ViewUtil.loadImageUrlInto(thumbnailView, page.thumbnailUrl());
         }
 
         @Override
         public void onClick(View v) {
             if (itemActionListener != null) {
-                itemActionListener.onClick(readingList, pageTitle);
+                itemActionListener.onClick(readingList, page);
             }
         }
 
         @Override
         public boolean onLongClick(View v) {
             if (itemActionListener != null) {
-                itemActionListener.onLongClick(readingList, pageTitle);
+                itemActionListener.onLongClick(readingList, page);
             }
             return true;
         }
 
         public void onDismiss() {
             if (itemActionListener != null) {
-                itemActionListener.onDelete(readingList, pageTitle);
+                itemActionListener.onDelete(readingList, page);
             }
             updateDetails();
         }
