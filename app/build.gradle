@@ -92,7 +92,7 @@ android {
     productFlavors {
         dev {
             versionName computeVersionName('dev')
-            applicationId 'org.wikipedia.dev'
+            applicationIdSuffix 'dev'
             signingConfig signingConfigs.debug
         }
         prod {
@@ -105,12 +105,12 @@ android {
         }
         alpha {
             versionName computeVersionName('alpha')
-            applicationId 'org.wikipedia.alpha'
+            applicationIdSuffix 'alpha'
             signingConfig signingConfigs.debug
         }
         beta {
             versionName computeVersionName('beta')
-            applicationId 'org.wikipedia.beta'
+            applicationIdSuffix 'beta'
             signingConfig signingConfigs.prod
         }
         amazon {
@@ -249,5 +249,7 @@ private void addSyncContentProviderAuthority(String path, String name) {
 }
 
 private String appId(ProductFlavor flavor) {
-    return flavor.applicationId ?: android.defaultConfig.applicationId
+    String suffix = flavor.applicationIdSuffix
+    String id = android.defaultConfig.applicationId + (suffix ? ".$suffix" : '')
+    return id
 }
