@@ -27,7 +27,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     public enum InvokeSource implements EnumCode {
         BOOKMARK_BUTTON(0),
         CONTEXT_MENU(1),
-        LINK_PREVIEW_MENU(2);
+        LINK_PREVIEW_MENU(2),
+        PAGE_OVERFLOW_MENU(3);
 
         private static final EnumCodeMap<InvokeSource> MAP = new EnumCodeMap<>(InvokeSource.class);
 

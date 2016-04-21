@@ -20,7 +20,6 @@ import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.page.Page;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -34,7 +33,6 @@ import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
 
@@ -366,16 +364,13 @@ public class LeadImagesHandler {
                     deleteBookmark();
                 }
             } else {
-                ((PageActivity) getActivity()).showAddToListDialog(getTitle(),
-                        AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+                parentFragment.addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
             }
         }
 
         @Override
         public void onShareClick() {
-            if (getPage() != null) {
-                ShareUtil.shareText(getActivity(), getPage().getTitle());
-            }
+            parentFragment.sharePageLink();
         }
 
         @Override
