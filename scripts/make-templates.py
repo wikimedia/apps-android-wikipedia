@@ -20,7 +20,7 @@ TRADITIONAL_CHINESE_LANG = "zh-hant"
 #   contains characters outside the Unicode BMP. Android
 #   hard crashes on these. Let's ignore these fellas
 #   for now.
-OSTRITCH_WIKIS = [u"got"]
+OSTRICH_WIKIS = [u"got"]
 
 
 # Represents a single wiki, along with arbitrary properties of that wiki
@@ -81,7 +81,7 @@ def list_from_wikistats():
 
 # Remove unsupported wikis.
 def filter_supported_wikis(wikis):
-    return [wiki for wiki in wikis if wiki.lang not in OSTRITCH_WIKIS]
+    return [wiki for wiki in wikis if wiki.lang not in OSTRICH_WIKIS]
 
 
 # Apply manual tweaks to the list of wikis before they're populated.
