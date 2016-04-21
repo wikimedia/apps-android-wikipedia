@@ -106,16 +106,15 @@ public class ReadingListPageRow extends BaseModel {
         private String description;
 
         public Clazz copy(@NonNull ReadingListPageRow copy) {
-            key = copy.key();
-            listKeys = copy.listKeys;
-            site = copy.site();
-            namespace = copy.namespace();
-            title = copy.title();
-            mtime = copy.mtime();
-            atime = copy.atime();
-            thumbnailUrl = copy.thumbnailUrl();
-            description = copy.description();
-            return (Clazz) this;
+            return key(copy.key)
+                    .listKeys(copy.listKeys)
+                    .site(copy.site)
+                    .namespace(copy.namespace)
+                    .title(copy.title)
+                    .mtime(copy.mtime)
+                    .atime(copy.atime)
+                    .thumbnailUrl(copy.thumbnailUrl)
+                    .description(copy.description);
         }
 
         public Clazz key(@NonNull String key) {
@@ -135,15 +134,7 @@ public class ReadingListPageRow extends BaseModel {
         }
 
         public Clazz site(@NonNull Site site) {
-            return site(site.authority(), site.languageCode());
-        }
-
-        /**
-         * @param authority {@link Site#authority()}
-         * @param lang {@link Site#languageCode()}
-         */
-        public Clazz site(@NonNull String authority, @NonNull String lang) {
-            this.site = new Site(authority, lang);
+            this.site = site;
             return (Clazz) this;
         }
 
