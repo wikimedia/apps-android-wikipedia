@@ -73,7 +73,7 @@ public interface UserOptionContract {
     }
 
     interface HttpWithOption extends Option {
-        String TABLES = ":httpTbl join :tbl on (:tbl.keyCol = :httpTbl.keyCol)"
+        String TABLES = ":httpTbl left join :tbl on (:tbl.keyCol = :httpTbl.keyCol)"
                 .replaceAll(":tbl.keyCol", KEY.qualifiedName())
                 .replaceAll(":httpTbl.keyCol", HttpCol.KEY.qualifiedName())
                 .replaceAll(":httpTbl", TABLE_HTTP)

@@ -14,7 +14,7 @@ public class UserOptionRow extends HttpRow<UserOption> {
 
     public static UserOptionRow fromCursor(@NonNull Cursor cursor) {
         HttpRow<UserOption> httpRow = HTTP_DATABASE_TABLE.fromCursor(cursor);
-        boolean hasRow = cursor.getColumnIndex(UserOptionContract.HttpWithOption.KEY.getName()) != -1;
+        boolean hasRow = UserOptionContract.HttpWithOption.KEY.val(cursor) != null;
         UserOption row = hasRow ? DATABASE_TABLE.fromCursor(cursor) : null;
         return new UserOptionRow(httpRow, row);
     }
