@@ -85,6 +85,12 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         }
     }
 
+    public synchronized void upsertAll(@NonNull Collection<ReadingListPage> rows) {
+        for (ReadingListPage row : rows) {
+            upsert(row);
+        }
+    }
+
     @NonNull public synchronized Collection<ReadingListPageDiskRow> startDiskTransaction() {
         Collection<ReadingListPageDiskRow> rows = queryPendingDiskTransactions();
         diskDao.startTransaction(rows);

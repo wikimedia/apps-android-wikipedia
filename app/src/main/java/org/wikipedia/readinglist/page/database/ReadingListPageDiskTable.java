@@ -11,6 +11,7 @@ import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.disk.DiskRow;
 import org.wikipedia.readinglist.page.database.disk.DiskStatus;
 import org.wikipedia.readinglist.page.database.disk.ReadingListDiskRow;
+import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 
 public class ReadingListPageDiskTable
         extends AsyncTable<DiskStatus, ReadingListPageRow, DiskRow<ReadingListPageRow>> {
@@ -42,8 +43,8 @@ public class ReadingListPageDiskTable
 
     @Override protected ContentValues toContentValues(@NonNull DiskRow<ReadingListPageRow> row) {
         ContentValues values = ReadingListPageContract.DISK_COLS.toContentValues(row);
-        if (row instanceof ReadingListDiskRow) {
-            ReadingListDiskRow diskRow = (ReadingListDiskRow) row;
+        if (row instanceof ReadingListPageDiskRow) {
+            ReadingListPageDiskRow diskRow = (ReadingListPageDiskRow) row;
             values.put(ReadingListPageContract.Disk.FILENAME.getName(), diskRow.filename());
         }
         return values;

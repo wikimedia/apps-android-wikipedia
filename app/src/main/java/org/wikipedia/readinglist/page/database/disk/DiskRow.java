@@ -35,9 +35,10 @@ public class DiskRow<T> extends AsyncRow<DiskStatus, T> {
         switch (current) {
             case ONLINE:
             case SAVED:
-            case OUTDATED:
             case UNSAVED:
                 return DiskStatus.ONLINE;
+            case OUTDATED:
+                return DiskStatus.SAVED;
             case DELETED:
                 return DiskStatus.DELETED;
             default:

@@ -29,6 +29,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -155,6 +156,9 @@ public class ReadingListDetailView extends LinearLayout {
                         actionListener.onUpdate(readingList, newTitle, newDescription, saveOffline);
                     }
                     updateDetails();
+                    if (readingList != null) {
+                        ReadingListPageDao.instance().upsertAll(readingList.getPages());
+                    }
                 }
 
                 @Override
@@ -164,6 +168,9 @@ public class ReadingListDetailView extends LinearLayout {
                         public void run() {
                             if (actionListener != null) {
                                 actionListener.onDelete(readingList);
+                            }
+                            if (readingList != null) {
+                                ReadingListPageDao.instance().upsertAll(readingList.getPages());
                             }
                         }
                     }).show();
