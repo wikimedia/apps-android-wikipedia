@@ -9,12 +9,13 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.server.PageLeadProperties;
 import org.wikipedia.util.StringUtil;
 
 import java.text.ParseException;
 import java.util.Date;
+
+import static org.wikipedia.util.DateUtil.getIso8601DateFormat;
 
 /**
  * Immutable class that contains metadata associated with a PageTitle.
@@ -61,8 +62,7 @@ public class PageProperties implements Parcelable {
         String lastModifiedText = core.getLastModified();
         if (lastModifiedText != null) {
             try {
-                lastModified.setTime(WikipediaApp.getInstance().getSimpleDateFormat()
-                        .parse(lastModifiedText).getTime());
+                lastModified.setTime(getIso8601DateFormat().parse(lastModifiedText).getTime());
             } catch (ParseException e) {
                 Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
             }
@@ -102,8 +102,7 @@ public class PageProperties implements Parcelable {
         lastModified = new Date();
         String lastModifiedText = json.optString("lastmodified");
         try {
-            lastModified.setTime(WikipediaApp.getInstance().getSimpleDateFormat()
-                    .parse(lastModifiedText).getTime());
+            lastModified.setTime(getIso8601DateFormat().parse(lastModifiedText).getTime());
         } catch (ParseException e) {
             Log.d("PageProperties", "Failed to parse date: " + lastModifiedText);
         }
@@ -283,8 +282,7 @@ public class PageProperties implements Parcelable {
         try {
             json.put("id", pageId);
             json.put("revision", revisionId);
-            json.put("lastmodified", WikipediaApp.getInstance().getSimpleDateFormat()
-                    .format(getLastModified()));
+            json.put("lastmodified", getIso8601DateFormat().format(getLastModified()));
             json.put("displaytitle", displayTitleText);
             json.put(JSON_NAME_TITLE_PRONUNCIATION_URL, titlePronunciationUrl);
             json.put(JSON_NAME_GEO, GeoMarshaller.marshal(geo));

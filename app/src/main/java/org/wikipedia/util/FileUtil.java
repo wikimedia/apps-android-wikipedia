@@ -69,6 +69,15 @@ public final class FileUtil {
         path.delete();
     }
 
+    public static void writeFile(InputStream inputStream, File file) throws IOException {
+        FileOutputStream outputStream = new FileOutputStream(file);
+        try {
+            copyStreams(inputStream, outputStream);
+        } finally {
+            outputStream.close();
+        }
+    }
+
     /**
      * Utility method to copy a stream into another stream.
      *

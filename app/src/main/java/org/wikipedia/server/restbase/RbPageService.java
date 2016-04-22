@@ -100,6 +100,11 @@ public class RbPageService implements PageService {
         });
     }
 
+    @Override
+    public RbPageCombo pageCombo(String title, boolean noImages) {
+        return webService.pageCombo(title, noImages);
+    }
+
     /* Not defined in the PageService interface since the Wiktionary definition endpoint exists only
      * in the mobile content service, and does not concern the wholesale retrieval of the contents
      * of a wiki page.
@@ -181,6 +186,14 @@ public class RbPageService implements PageService {
         void pageCombo(@Path("title") String title, @Query("noimages") Boolean noImages,
                        Callback<RbPageCombo> cb);
 
+        /**
+         * Gets all page content of a given title.  Used in the saved page sync background service.
+         *
+         * @param title the page title to be used including prefix
+         * @param noImages add the noimages flag to the request if true
+         */
+        @GET("/page/mobile-sections/{title}")
+        RbPageCombo pageCombo(@Path("title") String title, @Query("noimages") Boolean noImages);
 
         /**
          * Gets selected Wiktionary content for a given title derived from user-selected text

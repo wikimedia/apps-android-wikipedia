@@ -93,6 +93,11 @@ public class MwPageService implements PageService {
         });
     }
 
+    @Override
+    public MwPageCombo pageCombo(String title, boolean noImages) {
+        return webService.pageCombo(title, noImages);
+    }
+
     /**
      * Optional boolean Retrofit parameter.
      * We don't want to send the query parameter at all when it's false since the presence of the
@@ -179,5 +184,19 @@ public class MwPageService implements PageService {
                 + "&noheadings=true")
         void pageCombo(@Query("page") String title, @Query("noimages") Boolean noImages,
                        Callback<MwPageCombo> cb);
+
+        /**
+         * Gets all page content of a given title -- for refreshing a saved page
+         * Note: the only difference in the URL from #pageLead is the sections=all instead of 0.
+         *
+         * @param title the page title to be used including prefix
+         * @param noImages add the noimages flag to the request if true
+         */
+        @GET("/w/api.php?action=mobileview&format=json&formatversion=2&prop="
+                + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
+                + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
+                + "&onlyrequestedsections=1&sections=all&sectionprop=toclevel%7Cline%7Canchor"
+                + "&noheadings=true")
+        MwPageCombo pageCombo(@Query("page") String title, @Query("noimages") Boolean noImages);
     }
 }

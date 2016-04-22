@@ -1,10 +1,12 @@
 package org.wikipedia.page;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.model.CodeEnum;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
+import org.wikipedia.util.StringUtil;
 
 // https://en.wikipedia.org/wiki/Wikipedia:Namespace
 // https://www.mediawiki.org/wiki/Extension_default_namespaces
@@ -62,6 +64,15 @@ public enum Namespace implements EnumCode {
     private static final EnumCodeMap<Namespace> MAP = new EnumCodeMap<>(Namespace.class);
 
     private final int code;
+
+    @Nullable
+    public String toLegacyString() {
+        String string = this == MAIN ? null : this.name();
+        if (string != null) {
+            StringUtil.capitalizeFirstChar(string.toLowerCase());
+        }
+        return string;
+    }
 
     @NonNull
     public static Namespace of(int code) {

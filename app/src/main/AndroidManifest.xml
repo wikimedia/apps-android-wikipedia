@@ -235,5 +235,7 @@
 
         <service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />
 
+        <service android:name=".savedpages.SavedPageSyncService" />
+
     </application>
 </manifest>

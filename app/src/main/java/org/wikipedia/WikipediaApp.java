@@ -3,6 +3,8 @@ package org.wikipedia;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
+import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.IntRange;
@@ -22,6 +24,7 @@ import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
+import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -39,6 +42,7 @@ import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageHttpRow;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 import org.wikipedia.savedpages.SavedPage;
+import org.wikipedia.savedpages.ReadingListPageObserver;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
@@ -51,14 +55,11 @@ import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
-import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-import java.util.TimeZone;
 import java.util.UUID;
 
 import retrofit.RequestInterceptor;
@@ -76,6 +77,8 @@ public class WikipediaApp extends Application {
 
     public static final int PREFERRED_THUMB_SIZE = 320;
 
+    public static final String FROM_READING_LIST_PAGE_OBSERVER = "fromReadingListPageObserver";
+
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final UserInfoStorage userInfoStorage = new UserInfoStorage();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
@@ -83,6 +86,7 @@ public class WikipediaApp extends Application {
     private AppLanguageState appLanguageState;
     private FunnelManager funnelManager;
     private SessionFunnel sessionFunnel;
+    private ContentObserver readingListPageObserver;
 
     private Database database;
     private EditTokenStorage editTokenStorage;
@@ -183,6 +187,7 @@ public class WikipediaApp extends Application {
         AccountUtil.createAccountForLoggedInUser();
 
         UserOptionContentResolver.registerAppSyncObserver(this);
+        registerReadingListPageObserver();
     }
 
     public Bus getBus() {
@@ -311,6 +316,11 @@ public class WikipediaApp extends Application {
     @Nullable
     public String getAppLanguageCanonicalName(String code) {
         return appLanguageState.getAppLanguageCanonicalName(code);
+    }
+
+    @NonNull
+    public ContentObserver getReadingListPageObserver() {
+        return readingListPageObserver;
     }
 
     public Database getDatabase() {
@@ -521,12 +531,6 @@ public class WikipediaApp extends Application {
         return PrefsOnboardingStateMachine.getInstance();
     }
 
-    public SimpleDateFormat getSimpleDateFormat() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT);
-        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat;
-    }
-
     /** For Retrofit requests. Keep in sync with #buildCustomHeaders */
     public void injectCustomHeaders(RequestInterceptor.RequestFacade request, Site site) {
         Map<String, String> headers = buildCustomHeaders(getAcceptLanguage(site));
@@ -582,5 +586,15 @@ public class WikipediaApp extends Application {
             result = Theme.getFallback();
         }
         return result;
+    }
+
+    private void registerReadingListPageObserver() {
+        readingListPageObserver = new ReadingListPageObserver(null);
+        Uri readingListPageBaseUri = ReadingListPageContract.Disk.URI;
+        Uri uriWithQuery = readingListPageBaseUri.buildUpon()
+                .appendQueryParameter(FROM_READING_LIST_PAGE_OBSERVER, "false").build();
+        WikipediaApp.getInstance().getContentResolver()
+                .registerContentObserver(uriWithQuery, true, readingListPageObserver);
+        L.i("Registered reading list page observer");
     }
 }
