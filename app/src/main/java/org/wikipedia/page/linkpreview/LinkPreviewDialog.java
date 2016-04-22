@@ -20,6 +20,7 @@ import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ViewUtil;
 
@@ -165,6 +166,10 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(getActivity(), overflowButton);
                 popupMenu.inflate(R.menu.menu_link_preview);
+
+                // TODO: resolve when Reading Lists are promoted to production
+                popupMenu.getMenu().findItem(R.id.menu_link_preview_add_to_list).setVisible(ReleaseUtil.isPreProdRelease());
+
                 popupMenu.setOnMenuItemClickListener(menuListener);
                 popupMenu.show();
             }

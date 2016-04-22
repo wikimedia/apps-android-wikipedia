@@ -11,6 +11,14 @@
           android:title="@string/menu_page_other_languages"
           app:showAsAction="never"
           android:enabled="false" />
+    <item android:id="@+id/menu_page_share"
+          android:title="@string/menu_page_share"
+          app:showAsAction="never"
+          android:enabled="false" />
+    <item android:id="@+id/menu_page_add_to_list"
+          android:title="@string/menu_page_add_to_list"
+          app:showAsAction="never"
+          android:enabled="false" />
     <item android:id="@+id/menu_page_find_in_page"
           android:title="@string/menu_page_find_in_page"
           app:showAsAction="never"

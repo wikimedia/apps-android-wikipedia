@@ -56,6 +56,7 @@ import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.snippet.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.savedpages.SavePageTask;
@@ -65,6 +66,8 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
@@ -638,10 +641,15 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         MenuItem otherLangItem = menu.findItem(R.id.menu_page_other_languages);
+        MenuItem shareItem = menu.findItem(R.id.menu_page_share);
+        MenuItem addToListItem = menu.findItem(R.id.menu_page_add_to_list);
         MenuItem findInPageItem = menu.findItem(R.id.menu_page_find_in_page);
         MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
         MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
         MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
+
+        // TODO: resolve when Reading Lists are promoted to production
+        addToListItem.setVisible(ReleaseUtil.isPreProdRelease());
 
         if (otherLangItem == null) {
             // On API <= 19, it looks like onPrepareOptionsMenu can be called before the menu
@@ -653,6 +661,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         if (pageLoadStrategy.isLoading() || errorState) {
             otherLangItem.setEnabled(false);
+            shareItem.setEnabled(false);
+            addToListItem.setEnabled(false);
             findInPageItem.setEnabled(false);
             contentIssues.setEnabled(false);
             similarTitles.setEnabled(false);
@@ -661,6 +671,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             // Only display "Read in other languages" if the article is in other languages
             otherLangItem.setVisible(model.getPage() != null && model.getPage().getPageProperties().getLanguageCount() != 0);
             otherLangItem.setEnabled(true);
+            shareItem.setEnabled(model.getPage() != null && model.getPage().isArticle());
+            addToListItem.setEnabled(model.getPage() != null && model.getPage().isArticle());
             findInPageItem.setEnabled(true);
             updateMenuPageInfo(menu);
             themeChooserItem.setEnabled(true);
@@ -681,6 +693,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 getActivity().startActivityForResult(langIntent,
                                                      PageActivity.ACTIVITY_REQUEST_LANGLINKS);
                 return true;
+            case R.id.menu_page_share:
+                sharePageLink();
+                return true;
+            case R.id.menu_page_add_to_list:
+                addToReadingList(AddToReadingListDialog.InvokeSource.PAGE_OVERFLOW_MENU);
+                return true;
             case R.id.menu_page_find_in_page:
                 showFindInPage();
                 return true;
@@ -698,6 +716,16 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void addToReadingList(AddToReadingListDialog.InvokeSource source) {
+        getPageActivity().showAddToListDialog(getTitle(), source);
+    }
+
+    public void sharePageLink() {
+        if (getPage() != null) {
+            ShareUtil.shareText(getActivity(), getPage().getTitle());
         }
     }
 
