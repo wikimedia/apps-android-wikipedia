@@ -8,9 +8,7 @@ import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 
-public class ReadingListPageDiskRow extends DiskRow<ReadingListPageRow> {
-    @Nullable private final String filename;
-
+public class ReadingListPageDiskRow extends ReadingListDiskRow {
     public static ReadingListPageDiskRow fromCursor(@NonNull Cursor cursor) {
         ReadingListDiskRow diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
         boolean hasRow = ReadingListPageContract.DiskWithPage.KEY.val(cursor) != null;
@@ -19,17 +17,17 @@ public class ReadingListPageDiskRow extends DiskRow<ReadingListPageRow> {
     }
 
     public ReadingListPageDiskRow(@NonNull ReadingListPage row) {
-        super(row.key(), row);
-        filename = null;
+        super(row.key(), row, null);
     }
 
     public ReadingListPageDiskRow(@NonNull ReadingListDiskRow diskRow,
                                   @Nullable ReadingListPageRow row) {
-        super(diskRow, row);
-        filename = diskRow.filename();
+        this(diskRow, row, diskRow.filename());
     }
 
-    @Nullable public String filename() {
-        return filename;
+    public ReadingListPageDiskRow(@NonNull DiskRow<ReadingListPageRow> diskRow,
+                                  @Nullable ReadingListPageRow dat,
+                                  @Nullable String filename) {
+        super(diskRow, dat, filename);
     }
 }
