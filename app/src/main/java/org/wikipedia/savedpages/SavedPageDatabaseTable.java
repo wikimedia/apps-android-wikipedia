@@ -72,6 +72,10 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         return exists;
     }
 
+    public Cursor queryAll(SQLiteDatabase db) {
+        return db.query(getTableName(), null, null, null, null, null, null);
+    }
+
     @Override
     protected int getDBVersionIntroducedAt() {
         return DB_VER_INTRODUCED;
