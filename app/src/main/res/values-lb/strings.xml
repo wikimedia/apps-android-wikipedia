@@ -37,6 +37,7 @@
   <string name="menu_page_content_issues">Problemer mam Inhalt</string>
   <string name="menu_page_similar_titles">Ähnlech Titelen</string>
   <string name="menu_page_save">Säit späicheren</string>
+  <string name="menu_page_add_to_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="menu_page_share">Link deelen</string>
   <string name="menu_long_press_open_page">Opmaachen</string>
   <string name="menu_long_press_open_in_new_tab">An engem neien Tab opmaachen</string>
@@ -44,6 +45,7 @@
   <string name="menu_text_select_copy">Kopéieren</string>
   <string name="menu_text_select_define">Definéieren</string>
   <string name="menu_text_select_share">Deelen</string>
+  <string name="menu_text_select_edit_here">Hei änneren</string>
   <string name="nav_item_nearby">Nobäi</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
@@ -253,5 +255,25 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="article_menu_bar_bookmark">Den Artikel späichere fir en duerno offline ze liesen</string>
   <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
   <string name="article_menu_bar_navigate">Op d\'Plaz vum Artikel navigéieren</string>
+  <string name="nav_item_reading_lists">Lieslëschten</string>
+  <string name="reading_list_added_to_unnamed">Op d\'Lieslëscht derbäigesat.</string>
+  <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
+  <string name="reading_list_added_view_button">Weisen</string>
+  <string name="reading_list_item_count_singular">1 Artikel</string>
+  <string name="reading_list_item_count_plural">%s Artikelen</string>
+  <string name="reading_list_sort">Zortéieren</string>
+  <string name="reading_list_sort_by_name">Nom Numm</string>
+  <string name="reading_list_menu_delete">Lieslëscht läschen</string>
+  <string name="reading_list_name_sample">Meng Lieslëscht</string>
+  <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>
+  <string name="reading_list_description_hint">Beschreiwung (fakultativ):</string>
+  <string name="reading_list_item_deleted">%s vun der Lëscht erofhehuoll</string>
+  <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
+  <string name="reading_list_deleted">%s geläscht</string>
+  <string name="reading_list_edit_ok">OK</string>
+  <string name="reading_list_edit_cancel">Ofbriechen</string>
+  <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir dës Lieslëscht läsche wëllt?</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Nei: Organiséiert Artikelen déi Dir spéider liese wëllt a Lieslëschten.</string>
+  <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="user_option_sync_label">Astellungen</string>
 </resources>

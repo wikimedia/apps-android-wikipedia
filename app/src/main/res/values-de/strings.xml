@@ -38,6 +38,7 @@
   <string name="menu_page_similar_titles">Ähnliche Titel</string>
   <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
   <string name="menu_page_save">Seite speichern</string>
+  <string name="menu_page_add_to_list">Zur Leseliste hinzufügen</string>
   <string name="menu_page_share">Link teilen</string>
   <string name="menu_long_press_open_page">Öffnen</string>
   <string name="menu_long_press_open_in_new_tab">In neuer Registerkarte öffnen</string>
@@ -45,6 +46,7 @@
   <string name="menu_text_select_copy">Kopieren</string>
   <string name="menu_text_select_define">Definieren</string>
   <string name="menu_text_select_share">Teilen</string>
+  <string name="menu_text_select_edit_here">Hier bearbeiten</string>
   <string name="nav_item_nearby">In der Nähe</string>
   <string name="nearby_distance_in_meters">%d Meter</string>
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
@@ -289,5 +291,37 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="article_menu_bar_bookmark">Den Artikel zum späteren Offline-Lesen speichern</string>
   <string name="article_menu_bar_share">Artikellink teilen</string>
   <string name="article_menu_bar_navigate">Zum Standort des Artikels navigieren</string>
+  <string name="nav_item_reading_lists">Leselisten</string>
+  <string name="reading_list_untitled">Unbenannt</string>
+  <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
+  <string name="reading_list_create_new" fuzzy="true">Eine neue Leseliste erstellen</string>
+  <string name="reading_list_added_to_named">Zu %s hinzugefügt.</string>
+  <string name="reading_list_added_to_unnamed">Zur Leseliste hinzugefügt.</string>
+  <string name="reading_list_already_exists">Dieser Artikel ist bereits in dieser Liste.</string>
+  <string name="reading_list_added_view_button">Ansehen</string>
+  <string name="reading_list_item_count_singular">Ein Artikel</string>
+  <string name="reading_list_item_count_plural">%s Artikel</string>
+  <string name="reading_list_sort">Sortieren</string>
+  <string name="reading_list_sort_by_name">Nach Name</string>
+  <string name="reading_list_sort_by_recent">Nach zuletzt gelesen</string>
+  <string name="reading_list_menu_edit">Einzelheiten der Leseliste bearbeiten</string>
+  <string name="reading_list_menu_delete">Leseliste löschen</string>
+  <string name="reading_list_name_sample">Meine Leseliste</string>
+  <string name="reading_list_name_hint">Name dieser Liste</string>
+  <string name="reading_list_description_hint">Beschreibung (optional)</string>
+  <string name="reading_list_save_for_offline">Zum Offline-Lesen speichern</string>
+  <string name="reading_list_item_deleted">%s von der Liste entfernt</string>
+  <string name="reading_list_item_delete_undo">Rückgängig</string>
+  <string name="reading_list_deleted">%s gelöscht</string>
+  <string name="reading_list_edit_ok">Okay</string>
+  <string name="reading_list_edit_cancel">Abbrechen</string>
+  <string name="reading_list_delete_confirm">Bist du sicher, dass du diese Leseliste löschen möchtest?</string>
+  <string name="reading_lists_empty">Hier gibt es keine Leselisten.</string>
+  <string name="reading_lists_empty_message">Organisiere die aufgerufenen Artikel in Leselisten! Tippe beim Aufrufen eines Artikels auf das Lesezeichen-Symbol am Artikelanfang, um ihn zur Leseliste hinzuzufügen.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Neu: Organisiere Artikel in Leselisten, die du später lesen möchtest.</string>
+  <string name="reading_lists_onboarding_examples" fuzzy="true">Orte, die ich besuchen will
+Studienthemen
+Trivia zu Fernsehserien</string>
+  <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="user_option_sync_label">Einstellungen</string>
 </resources>

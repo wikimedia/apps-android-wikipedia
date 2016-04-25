@@ -37,6 +37,7 @@
   <string name="menu_page_similar_titles">Títols similars</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
   <string name="menu_page_save">Desa la pàgina</string>
+  <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
   <string name="menu_page_share">Comparteix l\'enllaç</string>
   <string name="menu_long_press_open_page">Obre</string>
   <string name="menu_long_press_open_in_new_tab">Obre en una pestanya nova</string>
@@ -283,5 +284,22 @@ Voleu començar de nou o sortir?</string>
   <string name="article_menu_bar_bookmark">Desa l\'article per poder-lo llegir sense connexió</string>
   <string name="article_menu_bar_share">Comparteix l\'enllaç a l\'article</string>
   <string name="article_menu_bar_navigate">Navega a la ubicació de l\'article</string>
+  <string name="nav_item_reading_lists">Llistes de lectura</string>
+  <string name="reading_list_untitled">Sense títol</string>
+  <string name="reading_list_save_to">Desa a la llista de lectura</string>
+  <string name="reading_list_added_to_named">Afegit a %s.</string>
+  <string name="reading_list_added_to_unnamed">Afegit a la llista de lectura.</string>
+  <string name="reading_list_already_exists">L\'article ja és a la llista.</string>
+  <string name="reading_list_added_view_button">Mostra</string>
+  <string name="reading_list_item_count_singular">1 article</string>
+  <string name="reading_list_item_count_plural">%s articles</string>
+  <string name="reading_list_sort">Ordena</string>
+  <string name="reading_list_sort_by_name">Per nom</string>
+  <string name="reading_list_sort_by_recent">Per més recent</string>
+  <string name="reading_list_item_delete_undo">Desfés</string>
+  <string name="reading_list_edit_ok">D\'acord</string>
+  <string name="reading_list_edit_cancel">Cancel·la</string>
+  <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir aquesta llista de lectura?</string>
+  <string name="reading_lists_onboarding_got_it">Entesos</string>
   <string name="user_option_sync_label">Preferències</string>
 </resources>

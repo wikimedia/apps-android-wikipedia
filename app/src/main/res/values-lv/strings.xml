@@ -118,4 +118,5 @@
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
   <string name="button_continue_to_article">Lasīt rakstu</string>
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
+  <string name="reading_list_item_delete_undo">Atsaukt</string>
 </resources>

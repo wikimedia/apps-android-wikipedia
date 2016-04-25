@@ -249,5 +249,11 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="article_menu_bar_bookmark">Išsaugoti straipsnį skaitymui neprisijungus</string>
   <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_menu_bar_navigate">Eiti į straipsnį</string>
+  <string name="reading_list_added_view_button">Žiūrėti</string>
+  <string name="reading_list_sort">Rūšiuoti</string>
+  <string name="reading_list_sort_by_name">Pagal pavadinimą</string>
+  <string name="reading_list_item_delete_undo">Anuliuoti</string>
+  <string name="reading_list_edit_ok">GERAI</string>
+  <string name="reading_list_edit_cancel">Atšaukti</string>
   <string name="user_option_sync_label">Nustatymai</string>
 </resources>

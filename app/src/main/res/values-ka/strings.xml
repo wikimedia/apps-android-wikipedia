@@ -3,6 +3,7 @@
   <string name="app_name_prod">ვიკიპედია</string>
   <string name="app_name_beta">ვიკიპედია ბეტა</string>
   <string name="app_name_alpha">ვიკიპედია ალფა</string>
+  <string name="wikimedia">ვიკიმედია</string>
   <string name="yes">დიახ</string>
   <string name="no">არა</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>

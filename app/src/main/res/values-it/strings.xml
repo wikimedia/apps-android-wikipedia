@@ -38,6 +38,7 @@
   <string name="menu_page_similar_titles">Titoli simili</string>
   <string name="menu_page_font_and_theme">Carattere e tema</string>
   <string name="menu_page_save">Salva la pagina</string>
+  <string name="menu_page_add_to_list">Aggiungi all\'elenco di lettura</string>
   <string name="menu_page_share">Condividi collegamento</string>
   <string name="menu_long_press_open_page">Apri</string>
   <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
@@ -45,6 +46,7 @@
   <string name="menu_text_select_copy">Copia</string>
   <string name="menu_text_select_define">Definisci</string>
   <string name="menu_text_select_share">Condividi</string>
+  <string name="menu_text_select_edit_here">Modifica qui</string>
   <string name="nav_item_nearby">Nelle vicinanze</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -291,5 +293,37 @@ Vuoi riavviarla o uscire?</string>
   <string name="article_menu_bar_bookmark">Salva la voce per la lettura senza connessione più tardi</string>
   <string name="article_menu_bar_share">Condividi il collegamento alla voce</string>
   <string name="article_menu_bar_navigate">Naviga verso la posizione della voce</string>
+  <string name="nav_item_reading_lists">Elenchi di lettura</string>
+  <string name="reading_list_untitled">Senza titolo</string>
+  <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
+  <string name="reading_list_create_new" fuzzy="true">Crea un nuovo elenco di lettura</string>
+  <string name="reading_list_added_to_named">Aggiunto a %s.</string>
+  <string name="reading_list_added_to_unnamed">Aggiunto all\'elenco di lettura</string>
+  <string name="reading_list_already_exists">Questa voce è già presente in questo elenco.</string>
+  <string name="reading_list_added_view_button">Visualizza</string>
+  <string name="reading_list_item_count_singular">1 voce</string>
+  <string name="reading_list_item_count_plural">%s voci</string>
+  <string name="reading_list_sort">Ordina</string>
+  <string name="reading_list_sort_by_name">Per nome</string>
+  <string name="reading_list_sort_by_recent">Per data di accesso</string>
+  <string name="reading_list_menu_edit">Modifica dettagli elenco di lettura</string>
+  <string name="reading_list_menu_delete">Cancella elenco di lettura</string>
+  <string name="reading_list_name_sample">Il mio elenco di lettura</string>
+  <string name="reading_list_name_hint">Nome di questo elenco</string>
+  <string name="reading_list_description_hint">Descrizione (opzionale)</string>
+  <string name="reading_list_save_for_offline">Salva per la lettura offline</string>
+  <string name="reading_list_item_deleted">%s rimosso dall\'elenco</string>
+  <string name="reading_list_item_delete_undo">Annulla</string>
+  <string name="reading_list_deleted">%s cancellato</string>
+  <string name="reading_list_edit_ok">OK</string>
+  <string name="reading_list_edit_cancel">Annulla</string>
+  <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare questo elenco di lettura?</string>
+  <string name="reading_lists_empty">Nessun elenco di lettura qui.</string>
+  <string name="reading_lists_empty_message">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in cima alla voce, per aggiungerla ad un elenco di lettura.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Nuovo: organizza le voci che vuoi leggere più tardi negli elenchi di lettura.</string>
+  <string name="reading_lists_onboarding_examples" fuzzy="true">Luoghi che vorrei visitare
+Argomenti di studio
+Curiosità su programmi TV</string>
+  <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="user_option_sync_label">Preferenze</string>
 </resources>

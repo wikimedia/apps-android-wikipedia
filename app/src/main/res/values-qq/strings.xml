@@ -395,10 +395,12 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_added_to_named">Message shown when an article is added to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_added_to_unnamed">Message shown when an article is added to an untitled reading list.</string>
   <string name="reading_list_already_exists">Message shown when an article already exists in the selected reading list.</string>
-  <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
+  <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.
+{{Identical|View}}</string>
   <string name="reading_list_item_count_singular">Label when a reading list contains one article (singular).</string>
   <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%s\" symbol is replaced with the number of articles.</string>
-  <string name="reading_list_sort">Button label to sort reading lists.</string>
+  <string name="reading_list_sort">Button label to sort reading lists.
+{{Identical|Sort}}</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>
   <string name="reading_list_sort_by_recent">Menu option to sort reading lists by last-accessed time.</string>
   <string name="reading_list_menu_edit">Button label to edit the details of the current reading list.</string>
@@ -408,10 +410,13 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
   <string name="reading_list_save_for_offline">Checkbox label for setting whether this list is saved for offline reading.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
-  <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.</string>
+  <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.
+{{Identical|Undo}}</string>
   <string name="reading_list_deleted">Message shown when a reading list is deleted. The \"%s\" symbol is replaced with the name of the list.</string>
-  <string name="reading_list_edit_ok">Button label to accept changes made when editing reading list details.</string>
-  <string name="reading_list_edit_cancel">Button label to cancel changes when editing reading list details.</string>
+  <string name="reading_list_edit_ok">Button label to accept changes made when editing reading list details.
+{{Identical|OK}}</string>
+  <string name="reading_list_edit_cancel">Button label to cancel changes when editing reading list details.
+{{Identical|Cancel}}</string>
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list.</string>
   <string name="reading_lists_empty">Title message shown when there are no reading lists.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists.</string>

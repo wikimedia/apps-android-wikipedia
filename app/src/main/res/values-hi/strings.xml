@@ -26,7 +26,7 @@
   <string name="snackbar_saving_page">पृष्ठ सहेजा जा रहा है…</string>
   <string name="snackbar_saved_page_format">%s ऑफलाइन पढ़ने के लिए सहेजा गया</string>
   <string name="snackbar_saved_page_missing_images">सभी चित्र सहेजे नहीं गये</string>
-  <string name="snackbar_refresh_saved_page">सहेजे गये पृष्ठ को पुनः रिफ्रेश किया जा रहा है…</string>
+  <string name="snackbar_refresh_saved_page">सहेजे गये पृष्ठ को पुनः ताज़ा किया जा रहा है…</string>
   <string name="delete_selected_saved_pages">मिटाएँ</string>
   <string name="snackbar_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
   <string name="saved_pages_search_list_hint">सहेजे गए पेज खोजें</string>
@@ -38,6 +38,7 @@
   <string name="menu_page_similar_titles">समान शीर्षक</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
   <string name="menu_page_save">पृष्ठ सहेजें</string>
+  <string name="menu_page_add_to_list">पठन सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
@@ -45,6 +46,7 @@
   <string name="menu_text_select_copy">कॉपी</string>
   <string name="menu_text_select_define">वर्णन करें</string>
   <string name="menu_text_select_share">साझा करें</string>
+  <string name="menu_text_select_edit_here">यहाँ सम्पादित करें</string>
   <string name="nav_item_nearby">निकट</string>
   <string name="nearby_distance_in_meters">%d मी॰</string>
   <string name="nearby_distance_in_kilometers">%.2f किमी</string>
@@ -135,7 +137,7 @@
   <string name="zero_learn_more">इस विकिपीडिया एप के लिए डेटा शुल्क नहीं लिया जाता।</string>
   <string name="zero_learn_more_learn_more">और पढ़ें</string>
   <string name="zero_learn_more_dismiss">हटायें</string>
-  <string name="edit_preview_fetching_dialog_message">प्रीव्यू लिया जा रहा है…</string>
+  <string name="edit_preview_fetching_dialog_message">प्रीव्यू लाया जा रहा है…</string>
   <string name="send_feedback">एप फीडबैक भेजें</string>
   <string name="nav_item_random">कोई भी</string>
   <string name="create_account_account_created_toast">खाता निर्मित!</string>
@@ -163,7 +165,7 @@
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
-  <string name="about_app_license" fuzzy="true">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0 License के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया तो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License के तहत है&lt;/a&gt;।</string>
+  <string name="about_app_license">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमीडिया फाउंडेशन&lt;/a&gt; का एक उत्पाद</string>
   <string name="about_activity_title">बारे में</string>
   <string name="edit_abandon_confirm">पृष्ठ को संशोधित किया गया है। क्या आप अपने परिवर्तन को सहेजने के बिना निकास करना चाहते है?</string>
@@ -282,5 +284,38 @@
   <string name="article_menu_bar_bookmark">इस आर्टिकल को बाद में ऑफलाइन पढ़ने के लिए सहेजें</string>
   <string name="article_menu_bar_share">आर्टिकल लिंक को साझा करें</string>
   <string name="article_menu_bar_navigate">लेख के स्थान पर जायें</string>
+  <string name="nav_item_reading_lists">पठन सूची</string>
+  <string name="reading_list_untitled">बिना शीर्षक</string>
+  <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
+  <string name="reading_list_create_new" fuzzy="true">नयी पठन सूची बनायें</string>
+  <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
+  <string name="reading_list_added_to_unnamed">पठन सूची में जोड़ा गया।</string>
+  <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
+  <string name="reading_list_added_view_button">देखें</string>
+  <string name="reading_list_item_count_singular">1 लेख</string>
+  <string name="reading_list_item_count_plural">%s लेख</string>
+  <string name="reading_list_sort">छांटें</string>
+  <string name="reading_list_sort_by_name">नाम से</string>
+  <string name="reading_list_sort_by_recent">पिछलों में से</string>
+  <string name="reading_list_menu_edit">पठन सूची विवरण सम्पादित करें</string>
+  <string name="reading_list_menu_delete">पठन सूची को मिटायें</string>
+  <string name="reading_list_name_sample">मेरी पठन सूची</string>
+  <string name="reading_list_name_hint">सूची का नाम</string>
+  <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
+  <string name="reading_list_save_for_offline">ऑफलाइन पढ़ने हेतु सहेजें</string>
+  <string name="reading_list_item_deleted">%s सूची में से हटाया गया</string>
+  <string name="reading_list_item_delete_undo">अनडू</string>
+  <string name="reading_list_deleted">%s मिटा दिया गया</string>
+  <string name="reading_list_edit_ok">ठीक है</string>
+  <string name="reading_list_edit_cancel">रद्द करें</string>
+  <string name="reading_list_delete_confirm">क्या आप पठन सूची को मिटाने हेतु निश्चित हैं?</string>
+  <string name="reading_lists_empty">यहाँ कोई पठन सूची नहीं।</string>
+  <string name="reading_lists_empty_message">आपके द्वारा ब्राउज़ किये जाने वाले लेखों को पठन सूची में लगाएं! लेख ब्राउज़ करते समय उसे पठन सूची में जोड़ने हेतु
+लेख के ऊपर बने बुकमार्क आइकॉन पर टैप करे ।</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">नया: जिन लेखों की आप बाद में पढ़ना चाहते हैं उन्हें पठन सूची में सुनियोजित करता है।</string>
+  <string name="reading_lists_onboarding_examples" fuzzy="true">स्थान जहाँ में जाना चाहता हूँ
+पढ़ाई सम्बंधित विषय
+टीवी कार्यक्रम में छोटा पात्र</string>
+  <string name="reading_lists_onboarding_got_it">समझ गया</string>
   <string name="user_option_sync_label">वरीयता</string>
 </resources>

@@ -274,5 +274,14 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="article_menu_bar_bookmark">Zapisz artykuł do późniejszego odczytu w trybie offline</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_menu_bar_navigate">Przejdź do lokalizacji artykułu</string>
+  <string name="reading_list_added_view_button">Zobacz</string>
+  <string name="reading_list_sort">Sortuj</string>
+  <string name="reading_list_sort_by_name">Według nazwy</string>
+  <string name="reading_list_name_hint">Nazwa tej listy</string>
+  <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
+  <string name="reading_list_item_delete_undo">Cofnij</string>
+  <string name="reading_list_edit_ok">OK</string>
+  <string name="reading_list_edit_cancel">Anuluj</string>
+  <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="user_option_sync_label">Preferencje</string>
 </resources>

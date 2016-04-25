@@ -290,5 +290,8 @@ https://github.com/wikimedia/apps-android-wikipedia
   <string name="article_menu_bar_bookmark">オフラインでも閲読できるように記事を保存します</string>
   <string name="article_menu_bar_share">記事のリンクを共有します</string>
   <string name="article_menu_bar_navigate">記事の場所に移動します</string>
+  <string name="reading_list_edit_ok">OK</string>
+  <string name="reading_list_edit_cancel">キャンセル</string>
+  <string name="reading_lists_onboarding_got_it">わかりました</string>
   <string name="user_option_sync_label">個人設定</string>
 </resources>

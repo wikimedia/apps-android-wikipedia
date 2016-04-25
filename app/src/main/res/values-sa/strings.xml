@@ -45,6 +45,7 @@
   <string name="menu_text_select_copy">प्रतिकृतिः</string>
   <string name="menu_text_select_define">परिभाष्यताम्</string>
   <string name="menu_text_select_share">वितरतु</string>
+  <string name="menu_text_select_edit_here">अत्र सम्पाद्यताम्</string>
   <string name="nav_item_nearby">निकटे</string>
   <string name="nearby_distance_in_meters">%d मीटर्</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>

@@ -38,6 +38,7 @@
   <string name="menu_page_similar_titles">Benzer başlıklar</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_save">Sayfayı kaydet</string>
+  <string name="menu_page_add_to_list">Okuma listesine ekle</string>
   <string name="menu_page_share">Bağlantı paylaş</string>
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_new_tab">Yeni sekmede aç</string>
@@ -45,6 +46,7 @@
   <string name="menu_text_select_copy">Kopyala</string>
   <string name="menu_text_select_define">Tanımla</string>
   <string name="menu_text_select_share">Paylaş</string>
+  <string name="menu_text_select_edit_here">Burayı düzenle</string>
   <string name="nav_item_nearby">Yakınındakiler</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -285,5 +287,37 @@ Kullanım koşulları: https://meta.wikimedia.org/wiki/Terms_of_use/tr</string>
   <string name="article_menu_bar_bookmark">Maddeyi daha sonra çevrimdışı okuma için kaydet</string>
   <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
   <string name="article_menu_bar_navigate">Makale konumuna gidin</string>
+  <string name="nav_item_reading_lists">Okuma listeleri</string>
+  <string name="reading_list_untitled">Başlıksız</string>
+  <string name="reading_list_save_to">Okuma listesine kaydet</string>
+  <string name="reading_list_create_new" fuzzy="true">Yeni bir okuma listesi oluştur</string>
+  <string name="reading_list_added_to_named">%s listesine eklendi.</string>
+  <string name="reading_list_added_to_unnamed">Okuma listesine eklendi.</string>
+  <string name="reading_list_already_exists">Bu madde, seçtiğiniz listede mevcut.</string>
+  <string name="reading_list_added_view_button">Görüntüle</string>
+  <string name="reading_list_item_count_singular">1 madde</string>
+  <string name="reading_list_item_count_plural">%s madde</string>
+  <string name="reading_list_sort">Sırala</string>
+  <string name="reading_list_sort_by_name">Ada göre</string>
+  <string name="reading_list_sort_by_recent">Son erişime göre</string>
+  <string name="reading_list_menu_edit">Okuma listesi ayrıntılarını düzenle</string>
+  <string name="reading_list_menu_delete">Okuma listesini sil</string>
+  <string name="reading_list_name_sample">Okuma listem</string>
+  <string name="reading_list_name_hint">Bu listenin adı</string>
+  <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>
+  <string name="reading_list_save_for_offline">Çevrim dışı okuma için kaydet</string>
+  <string name="reading_list_item_deleted">%s listeden çıkarıldı</string>
+  <string name="reading_list_item_delete_undo">Geri al</string>
+  <string name="reading_list_deleted">%s silindi</string>
+  <string name="reading_list_edit_ok">Tamam</string>
+  <string name="reading_list_edit_cancel">İptal</string>
+  <string name="reading_list_delete_confirm">Bu okuma listesini silmek istediğinizden emin misiniz?</string>
+  <string name="reading_lists_empty">Hiçbir okuma listesi yok.</string>
+  <string name="reading_lists_empty_message">Görüntülediğiniz maddeleri okuma listeleriyle organize edin! Okuduğunuz bir maddeyi, bir okuma listesine eklemek için maddenin üst bölümündeki yer imi simgesine dokunun.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Yenilik: Okumayı düşündüğünüz maddeleri okuma listelerine ekleyerek organize edin.</string>
+  <string name="reading_lists_onboarding_examples" fuzzy="true">Ziyaret etmek istediğim yerler
+Çalışma konuları
+TV programı bilgileri</string>
+  <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="user_option_sync_label">Ayarlar</string>
 </resources>
