@@ -40,11 +40,10 @@ public final class DeviceUtil {
      * Android should always show the keyboard at the appropriate time. This method allows you to display the keyboard
      * when Android fails to do so.
      *
-     * @param activity The current activity
      * @param view The currently focused view that will receive the keyboard input
      */
-    public static void showSoftKeyboard(Activity activity, View view) {
-        InputMethodManager keyboard = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+    public static void showSoftKeyboard(View view) {
+        InputMethodManager keyboard = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         keyboard.showSoftInput(view, InputMethodManager.SHOW_FORCED);
     }
 

@@ -29,7 +29,6 @@
     <attr name="nav_item_color" format="reference"/>
     <attr name="list_item_text_primary_color" format="reference"/>
     <attr name="list_item_text_secondary_color" format="reference"/>
-    <attr name="reading_list_menu_background_color" format="reference"/>
 
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />

@@ -319,9 +319,6 @@
   <string name="reading_lists_empty">אין כאן רשימות קריאה.</string>
   <string name="reading_lists_empty_message">ארגנו את הערכים שאתם גולשים בהם לרשימת קריאה! בעת קריאת ערך, לחצו על סמל הסימנייה בראש הערך כדי להוסיף אותו לרשימת קריאה.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">חדש: ארגנו ערכים שאתם רוצים לקרוא מאוחר יותר לרשימות קריאה.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">מקומות שאני רוצה לבקר בהם
-נושאי לימוד
-טריוויה על תכניות טלוויזיה</string>
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="user_option_sync_label">העדפות</string>
 </resources>

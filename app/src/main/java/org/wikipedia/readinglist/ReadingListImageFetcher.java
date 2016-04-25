@@ -1,17 +1,19 @@
 package org.wikipedia.readinglist;
 
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 
 import org.mediawiki.api.json.Api;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.readinglist.page.ReadingListPage;
-import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.util.log.L;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,30 +24,49 @@ public final class ReadingListImageFetcher {
         void onError(Throwable e);
     }
 
-    // TODO: clean up, and make interwiki
-    public static void getThumbnails(final ReadingList readingList, @NonNull final CompleteListener listener) {
-        if (readingList.getPages().isEmpty()) {
-            return;
+    public static void getThumbnails(final ReadingList readingList,
+                                     @NonNull final CompleteListener listener) {
+        Map<Site, List<PageTitle>> titlesPerSite = new HashMap<>();
+        for (ReadingListPage page : readingList.getPages()) {
+            if (TextUtils.isEmpty(page.thumbnailUrl()) || TextUtils.isEmpty(page.description())) {
+                PageTitle title = ReadingListDaoProxy.pageTitle(page);
+                Site siteKey = null;
+                for (Site site : titlesPerSite.keySet()) {
+                    if (site.equals(title.getSite())) {
+                        siteKey = site;
+                        break;
+                    }
+                }
+                if (siteKey == null) {
+                    siteKey = title.getSite();
+                    titlesPerSite.put(siteKey, new ArrayList<PageTitle>());
+                }
+                titlesPerSite.get(siteKey).add(title);
+            }
         }
-        Site site = readingList.getPages().get(0).site();
-        Api api = WikipediaApp.getInstance().getAPIForSite(site);
-        List<PageTitle> titles = ReadingListDaoProxy.pageTitles(readingList.getPages());
-        new PageImagesTask(api, site, titles, WikipediaApp.PREFERRED_THUMB_SIZE) {
+
+        for (Site site : titlesPerSite.keySet()) {
+            getThumbnailsForTitles(readingList, titlesPerSite.get(site), listener);
+        }
+    }
+
+    private static void getThumbnailsForTitles(final ReadingList readingList,
+                                               @NonNull final List<PageTitle> titles,
+                                               @NonNull final CompleteListener listener) {
+        Site site = titles.get(0).getSite();
+        Api api = WikipediaApp.getInstance().getAPIForSite(titles.get(0).getSite());
+        new ReadingListPageInfoTask(api, site, titles, WikipediaApp.PREFERRED_THUMB_SIZE) {
             @Override
-            public void onFinish(Map<PageTitle, String> result) {
-                for (ReadingListPage page : readingList.getPages()) {
-                    PageTitle title = ReadingListDaoProxy.pageTitle(page);
+            public void onFinish(Map<PageTitle, Void> result) {
+                for (PageTitle title : titles) {
                     if (result.containsKey(title)) {
-                        // update this thumbnail in the db?
-                        //PageImage pi = new PageImage(model.getTitle(), result.get(model.getTitle()));
-                        //app.getDatabaseClient(PageImage.class).upsert(pi, PageImageDatabaseTable.Col.SELECTION);
-                        //page.setThumbUrl(result.get(title));
-                        ReadingListPage copy = ReadingListPage
-                            .builder()
-                            .copy(page)
-                            .thumbnailUrl(result.get(title))
-                            .build();
-                        ReadingListPageDao.instance().upsertAsync(copy);
+                        for (ReadingListPage page : readingList.getPages()) {
+                            if (title.getDisplayText().equals(page.title())) {
+                                page.setThumbnailUrl(title.getThumbUrl());
+                                page.setDescription(title.getDescription());
+                                ReadingListPageDao.instance().upsert(page);
+                            }
+                        }
                     }
                 }
                 listener.onComplete();
@@ -58,7 +79,6 @@ public final class ReadingListImageFetcher {
             }
         }.execute();
     }
-
 
     private ReadingListImageFetcher() {
     }

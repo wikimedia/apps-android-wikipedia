@@ -319,9 +319,6 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_lists_empty">Inga läslistor här.</string>
   <string name="reading_lists_empty_message">Organisera artiklarna du läser i läslistor! Tryck på bokmärkesikonen längst upp i artikeln för att lägga in den i en läslista när du läser en artikel.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Nytt: Organisera artiklar du vill läsa senare i läslistor.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Platser jag vill besöka
-Studieämnen
-TV-programsfakta</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="user_option_sync_label">Inställningar</string>
 </resources>

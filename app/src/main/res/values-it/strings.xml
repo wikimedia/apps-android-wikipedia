@@ -321,9 +321,6 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_lists_empty">Nessun elenco di lettura qui.</string>
   <string name="reading_lists_empty_message">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in cima alla voce, per aggiungerla ad un elenco di lettura.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Nuovo: organizza le voci che vuoi leggere più tardi negli elenchi di lettura.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Luoghi che vorrei visitare
-Argomenti di studio
-Curiosità su programmi TV</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="user_option_sync_label">Preferenze</string>
 </resources>

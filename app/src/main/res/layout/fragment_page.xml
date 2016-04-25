@@ -123,7 +123,7 @@
                     app:srcCompat="@drawable/ic_list_white_24dp"
                     android:contentDescription="@string/menu_show_toc"
                     app:fabSize="mini"
-                    app:elevation="4sp"
+                    app:elevation="4dp"
                     app:borderWidth="0dp"
                     app:backgroundTint="?attr/toc_button_color"
                     app:layout_anchor="@id/bottom_content_container"

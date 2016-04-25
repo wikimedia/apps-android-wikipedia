@@ -307,7 +307,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <!-- /Crash reporter -->
 
     <!-- Article menu bar -->
-    <string name="article_menu_bar_bookmark">Save the article for offline reading later</string>
+    <string name="article_menu_bar_bookmark">Add this article to a reading list</string>
     <string name="article_menu_bar_share">Share the article link</string>
     <string name="article_menu_bar_navigate">Navigate to the location of the article</string>
     <!-- /Article menu bar -->
@@ -320,7 +320,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="reading_list_added_to_named">Added to %s.</string>
     <string name="reading_list_added_to_unnamed">Added to reading list.</string>
     <string name="reading_list_already_exists">This article is already in that list.</string>
-    <string name="reading_list_added_view_button">View</string>
+    <string name="reading_list_added_view_button">View list</string>
     <string name="reading_list_item_count_singular">1 article</string>
     <string name="reading_list_item_count_plural">%s articles</string>
     <string name="reading_list_sort">Sort</string>
@@ -331,7 +331,7 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="reading_list_name_sample">My reading list</string>
     <string name="reading_list_name_hint">Name of this list</string>
     <string name="reading_list_description_hint">Description (optional)</string>
-    <string name="reading_list_save_for_offline">Save for offline reading</string>
+    <string name="reading_list_save_for_offline">Available for offline reading</string>
     <string name="reading_list_item_deleted">%s removed from list</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
@@ -340,8 +340,11 @@ Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete this reading list?</string>
     <string name="reading_lists_empty">No reading lists here.</string>
     <string name="reading_lists_empty_message">Organize the articles you browse into reading lists! When browsing an article, tap the bookmark icon at the top of the article to add it to a reading list.</string>
-    <string name="reading_lists_onboarding_intro">Organize articles that you want to read later into reading lists.</string>
-    <string name="reading_lists_onboarding_examples">Places I want to visit • Study topics\nTV show trivia • Favorite actors</string>
+    <string name="reading_lists_onboarding_intro">Create reading lists from articles you want to read later, even when you\'re offline!</string>
+    <string name="reading_lists_onboarding_for_example">For example</string>
+    <string name="reading_lists_onboarding_example1">Places to visit</string>
+    <string name="reading_lists_onboarding_example2">Favorite animals</string>
+    <string name="reading_lists_onboarding_example3">Space!</string>
     <string name="reading_lists_onboarding_got_it">Got it</string>
     <!-- /Reading lists -->
 

@@ -28,8 +28,8 @@ public class ReadingListPageRow extends BaseModel {
     @Nullable private Long diskPageRevision;
     private final long mtime;
     private final long atime;
-    @Nullable private final String thumbnailUrl;
-    @Nullable private final String description;
+    @Nullable private String thumbnailUrl;
+    @Nullable private String description;
 
     public static Builder<?> builder() {
         //noinspection rawtypes
@@ -81,6 +81,14 @@ public class ReadingListPageRow extends BaseModel {
 
     @Nullable public String thumbnailUrl() {
         return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(@Nullable String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+    }
+
+    public void setDescription(@Nullable String description) {
+        this.description = description;
     }
 
     @Nullable public String description() {

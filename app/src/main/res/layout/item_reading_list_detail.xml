@@ -1,77 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/contents_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/details_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/reading_list_menu_background_color"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingTop="@dimen/list_item_vertical_padding"
-                android:paddingLeft="@dimen/list_item_horizontal_padding"
-                android:paddingRight="@dimen/list_item_horizontal_padding"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/reading_list_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="?attr/list_item_text_primary_color"
-                    tools:text="Lorem ipsum"/>
-                <TextView
-                    android:id="@+id/reading_list_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textColor="?attr/list_item_text_secondary_color"
-                    tools:text="3 articles"/>
-            </LinearLayout>
-
-            <ImageButton
-                style="@style/ArticleMenuBarViewButton"
-                android:id="@+id/button_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-                android:tint="?attr/list_item_text_primary_color"
-                android:contentDescription="@string/reading_list_menu_edit" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/reading_list_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/reading_list_menu_background_color"
-            android:paddingTop="6dp"
+            android:paddingTop="@dimen/list_item_vertical_padding"
+            android:paddingBottom="@dimen/list_item_vertical_padding"
             android:paddingLeft="@dimen/list_item_horizontal_padding"
             android:paddingRight="@dimen/list_item_horizontal_padding"
-            android:paddingBottom="@dimen/list_item_vertical_padding"
-            tools:text="Description"/>
+            android:background="@color/actionbar_background"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/reading_list_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                tools:text="Lorem ipsum"/>
+            <TextView
+                android:id="@+id/reading_list_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:textSize="14sp"
+                android:textColor="@color/list_item_text_primary_dark"
+                tools:text="3 articles"/>
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/reading_list_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="6dp"
+                android:textColor="@android:color/white"
+                tools:text="Description"/>
+        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/contents_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
 
     </LinearLayout>
-</LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_edit"
+        style="@style/FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/ic_mode_edit_white_24dp"
+        android:contentDescription="@string/reading_list_menu_edit"
+        app:fabSize="mini"
+        app:elevation="4dp"
+        app:borderWidth="0dp"
+        app:backgroundTint="#596e8e"
+        app:layout_anchor="@id/details_container"
+        app:layout_anchorGravity="bottom|right|end" />
+
+    <ImageView
+        android:id="@+id/indicator_offline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/list_item_horizontal_padding"
+        app:srcCompat="@drawable/ic_cloud_download_black_24dp"
+        android:tint="@color/list_item_text_secondary_dark"
+        android:alpha="0.5"
+        android:contentDescription="@null"
+        app:layout_anchor="@id/details_container"
+        app:layout_anchorGravity="top|right|end"/>
+
+</android.support.design.widget.CoordinatorLayout>

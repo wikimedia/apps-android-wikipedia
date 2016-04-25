@@ -319,9 +319,6 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="reading_lists_empty">No hay listas de lectura aquí.</string>
   <string name="reading_lists_empty_message">Organiza los artículos que navegas en listas de lectura Cuando la navegues por un artículo, pulsa el ícono de marcador en la parte superior del artículo para añadirlo a una lista de lectura.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Nuevo: organiza los artículos que quieres leer más tarde en listas de lectura.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Lugares que quiero visitar
-Temas de estudio
-Trivia de programas de TV</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="user_option_sync_label">Preferencias</string>
 </resources>

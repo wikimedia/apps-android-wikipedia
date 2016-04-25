@@ -16,24 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="@dimen/list_item_horizontal_padding"
-                android:layout_marginStart="@dimen/list_item_horizontal_padding"
-                android:layout_marginRight="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@null"
-                android:scaleType="fitCenter"
-                android:tint="?attr/link_preview_text_color"
-                app:srcCompat="@drawable/ic_bookmark_border_black_24dp"/>
-
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="48dp"
+                android:paddingLeft="@dimen/list_item_horizontal_padding"
+                android:paddingRight="@dimen/list_item_horizontal_padding"
                 android:layout_weight="1"
-                android:layout_margin="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
                 style="@style/RtlAwareTextView"
                 android:textColor="?attr/link_preview_text_color"
@@ -113,25 +103,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="32dp"
-        android:paddingRight="32dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:background="?attr/link_preview_background_color">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/ic_bookmark_black_24dp"
-            android:tint="?attr/link_preview_text_color"
-            android:contentDescription="@null"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:textSize="20sp"
             android:textColor="?attr/link_preview_text_color"
             android:text="@string/reading_lists_onboarding_intro"/>
@@ -140,20 +120,80 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:textSize="16sp"
-            android:textStyle="italic"
+            android:textAllCaps="true"
             android:textColor="?attr/link_preview_text_color"
-            android:text="@string/reading_lists_onboarding_examples"/>
+            android:text="@string/reading_lists_onboarding_for_example"/>
+
+        <!--
+        Not yet able to use vector drawables with compound TextView...
+        https://code.google.com/p/android/issues/detail?id=204183
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:srcCompat="@drawable/ic_grid_gray_24dp"
+                android:contentDescription="@null"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="?attr/link_preview_text_color"
+                android:text="@string/reading_lists_onboarding_example1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:srcCompat="@drawable/ic_grid_gray_24dp"
+                android:contentDescription="@null"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="?attr/link_preview_text_color"
+                android:text="@string/reading_lists_onboarding_example2"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                app:srcCompat="@drawable/ic_grid_gray_24dp"
+                android:contentDescription="@null"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="?attr/link_preview_text_color"
+                android:text="@string/reading_lists_onboarding_example3"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/onboarding_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:textColor="@color/blue_progressive"
+            android:layout_margin="0dp"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:textSize="16sp"
+            android:textAllCaps="true"
             android:text="@string/reading_lists_onboarding_got_it"/>
     </LinearLayout>
 </FrameLayout>

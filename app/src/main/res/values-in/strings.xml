@@ -319,9 +319,6 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_lists_empty">Tidak ada daftar bacaan di sini.</string>
   <string name="reading_lists_empty_message">Susun artikel yang Anda jelajah ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, sentuh ikon markah pada bagian atas artikel untuk menambahkannya ke daftar bacaan.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Baru: Menyusun artikel yang ingin Anda baca kemudian ke dalam daftar bacaan.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Tempat yang ingin saya kunjungi
-Bahan pelajaran
-Trivia acara TV</string>
   <string name="reading_lists_onboarding_got_it">Mengerti</string>
   <string name="user_option_sync_label">Preferensi</string>
 </resources>

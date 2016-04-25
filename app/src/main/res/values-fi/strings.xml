@@ -318,9 +318,6 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_lists_empty">Ei lukulistoja.</string>
   <string name="reading_lists_empty_message">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta artikkelin yläosassa lisätäksesi sen lukulistaan.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Uutta: Järjestä artikkelit, jotka haluat lukea myöhemmin, lukulistoiksi.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Paikkoja joissa haluan käydä
-Opiskeluaiheita
-TV-sarjatriviaa</string>
   <string name="reading_lists_onboarding_got_it">Selvä</string>
   <string name="user_option_sync_label">Asetukset</string>
 </resources>

@@ -319,9 +319,6 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_empty">Hier gibt es keine Leselisten.</string>
   <string name="reading_lists_empty_message">Organisiere die aufgerufenen Artikel in Leselisten! Tippe beim Aufrufen eines Artikels auf das Lesezeichen-Symbol am Artikelanfang, um ihn zur Leseliste hinzuzufügen.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Neu: Organisiere Artikel in Leselisten, die du später lesen möchtest.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Orte, die ich besuchen will
-Studienthemen
-Trivia zu Fernsehserien</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="user_option_sync_label">Einstellungen</string>
 </resources>

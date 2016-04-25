@@ -319,9 +319,6 @@
   <string name="reading_lists_empty">Тука нема списоци за читање.</string>
   <string name="reading_lists_empty_message">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување најгоре во статијата за да ја додадете во списокот.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Ново: Стокмете ги статиите што сакате да ги читате подоцна во списоци за читање.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Места што сакам да ги посетам
-Теми за изучување
-Занимливости за ТВ-емисии</string>
   <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="user_option_sync_label">Поставки</string>
 </resources>

@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class ReadingListItemView extends LinearLayout {
     @Bind(R.id.item_title) TextView titleView;
     @Bind(R.id.item_count) TextView countView;
     @Bind(R.id.item_description) TextView descriptionView;
+    @Bind(R.id.indicator_offline) ImageView offlineView;
 
     @Bind(R.id.item_image_row_1) View imageViewRow1;
     @Bind(R.id.item_image_row_2) View imageViewRow2;
@@ -97,6 +99,9 @@ public class ReadingListItemView extends LinearLayout {
         ReadingListImageFetcher.getThumbnails(readingList, new ReadingListImageFetcher.CompleteListener() {
             @Override
             public void onComplete() {
+                if (getWindowToken() == null) {
+                    return;
+                }
                 updateThumbnails();
             }
 
@@ -104,6 +109,7 @@ public class ReadingListItemView extends LinearLayout {
             public void onError(Throwable e) {
             }
         });
+        updateThumbnails();
     }
 
     private void updateDetails() {
@@ -114,6 +120,7 @@ public class ReadingListItemView extends LinearLayout {
                 ? getResources().getString(R.string.reading_list_untitled)
                 : readingList.getTitle());
         descriptionView.setText(readingList.getDescription());
+        offlineView.setImageResource(readingList.getSaveOffline() ? R.drawable.ic_cloud_download_black_24dp : R.drawable.ic_cloud_off_black_24dp);
     }
 
     private void clearThumbnails() {

@@ -99,26 +99,14 @@ public final class ReadingListData {
                                @NonNull final ReadingListPage page) {
         list.add(page);
         page.addListKey(list.key());
-
-        CallbackTask.execute(new CallbackTask.Task<Void>() {
-            @Override public Void execute() {
-                saveListInfo(list, page);
-                return null;
-            }
-        });
+        saveListInfo(list, page);
     }
 
     public void removeTitleFromList(@NonNull final ReadingList list,
                                     @NonNull final ReadingListPage page) {
         list.remove(page);
         page.removeListKey(list.key());
-
-        CallbackTask.execute(new CallbackTask.Task<Void>() {
-            @Override public Void execute() {
-                saveListInfo(list, page);
-                return null;
-            }
-        });
+        saveListInfo(list, page);
     }
 
     public void listContainsTitleAsync(@NonNull final ReadingList list,
@@ -140,6 +128,31 @@ public final class ReadingListData {
         }, callback);
     }
 
+    public synchronized void saveListInfo(@NonNull ReadingList list) {
+        listClient().persist(list);
+    }
+
+    public synchronized void renameAndSaveListInfo(@NonNull ReadingList list, String title) {
+        List<ReadingListPage> pages = list.getPages();
+        String oldKey = list.key();
+        listClient().delete(list, listClient().getPrimaryKeySelectionArgs(list));
+        list.setTitle(title);
+        listClient().persist(list);
+        for (ReadingListPage page : pages) {
+            page.removeListKey(oldKey);
+            page.addListKey(list.key());
+            ReadingListPageDao.instance().upsert(page);
+        }
+    }
+
+    public synchronized void removeList(@NonNull ReadingList list) {
+        listClient().delete(list, listClient().getPrimaryKeySelectionArgs(list));
+        for (ReadingListPage page : list.getPages()) {
+            page.removeListKey(list.key());
+            ReadingListPageDao.instance().upsert(page);
+        }
+    }
+
     private synchronized boolean anyListContainsTitle(String key) {
         Cursor cursor = ReadingListPageDao.instance().page(key);
         try {
@@ -149,21 +162,9 @@ public final class ReadingListData {
         }
     }
 
-    private synchronized void saveListInfo(@NonNull ReadingList list) {
-        listClient().persist(list);
-    }
-
     private synchronized void saveListInfo(@NonNull ReadingList list, @NonNull ReadingListPage page) {
         listClient().persist(list);
         ReadingListPageDao.instance().upsert(page);
-    }
-
-    private synchronized void removeList(@NonNull ReadingList list) {
-        listClient().delete(list, listClient().getPrimaryKeySelectionArgs(list));
-        for (ReadingListPage page : list.getPages()) {
-            page.removeListKey(list.key());
-            ReadingListPageDao.instance().upsert(page);
-        }
     }
 
     private synchronized boolean listContainsTitle(@NonNull String listKey, @NonNull String key) {

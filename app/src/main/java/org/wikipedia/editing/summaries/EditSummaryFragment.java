@@ -76,7 +76,7 @@ public class EditSummaryFragment extends Fragment {
             public void run() {
                 parentActivity.supportInvalidateOptionsMenu();
                 summaryText.requestFocus();
-                showSoftKeyboard(parentActivity, summaryText);
+                showSoftKeyboard(summaryText);
             }
         });
     }

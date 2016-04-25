@@ -128,6 +128,9 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 onboardingContainer.setVisibility(View.GONE);
                 listsContainer.setVisibility(View.VISIBLE);
                 WikipediaApp.getInstance().getOnboardingStateMachine().setReadingListTutorial();
+                if (readingLists.isEmpty()) {
+                    showCreateListDialog();
+                }
             }
         });
         listsContainer.setVisibility(isOnboarding ? View.GONE : View.VISIBLE);
@@ -147,26 +150,37 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private class CreateButtonClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            String title = getString(R.string.reading_list_name_sample);
-            long now = System.currentTimeMillis();
-            final ReadingList list = ReadingList
-                    .builder()
-                    .key(ReadingListDaoProxy.listKey(title))
-                    .title(title)
-                    .mtime(now)
-                    .atime(now)
-                    .description(null)
-                    .pages(new ArrayList<ReadingListPage>())
-                    .build();
-            AlertDialog dialog = ReadingListDialogs.createEditDialog(getContext(), list, false, new Runnable() {
-                @Override
-                public void run() {
-                    ReadingList.DAO.addListAsync(list);
-                    addAndDismiss(list);
-                }
-            }, null);
-            dialog.show();
+            showCreateListDialog();
         }
+    }
+
+    private void showCreateListDialog() {
+        String title = getString(R.string.reading_list_name_sample);
+        long now = System.currentTimeMillis();
+        final ReadingList list = ReadingList
+                .builder()
+                .key(ReadingListDaoProxy.listKey(title))
+                .title(title)
+                .mtime(now)
+                .atime(now)
+                .description(null)
+                .pages(new ArrayList<ReadingListPage>())
+                .build();
+        AlertDialog dialog = ReadingListDialogs.createEditDialog(getContext(), list, false,
+                new ReadingListDialogs.EditDialogListener() {
+                    @Override
+                    public void onModify(String newTitle, String newDescription, boolean saveOffline) {
+                        list.setTitle(newTitle);
+                        list.setDescription(newDescription);
+                        ReadingList.DAO.addList(list);
+                        addAndDismiss(list);
+                    }
+
+                    @Override
+                    public void onDelete() {
+                    }
+                });
+        dialog.show();
     }
 
     private void addAndDismiss(final ReadingList readingList) {
@@ -188,11 +202,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                         new ReadingListsFunnel(pageTitle.getSite()).logAddToList(readingList, readingLists.size(), invokeSource);
                         ReadingList.DAO.makeListMostRecent(readingList);
                     }
+                    ReadingList.DAO.addTitleToList(readingList, page);
+                    dismiss();
                 }
             }
         });
-        ReadingList.DAO.addTitleToList(readingList, page);
-        dismiss();
     }
 
     private class ReadingListItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

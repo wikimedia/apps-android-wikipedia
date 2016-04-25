@@ -408,7 +408,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_name_sample">Default name for a new reading list.</string>
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
-  <string name="reading_list_save_for_offline">Checkbox label for setting whether this list is saved for offline reading.</string>
+  <string name="reading_list_save_for_offline">Checkbox label for setting whether this list is available for offline reading.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.
 {{Identical|Undo}}</string>
@@ -420,9 +420,12 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list.</string>
   <string name="reading_lists_empty">Title message shown when there are no reading lists.</string>
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists.</string>
-  <string name="reading_lists_onboarding_intro">Short introductory statement about reading lists to be shown in the onboarding screen.</string>
-  <string name="reading_lists_onboarding_examples">A few examples of reading list names, separated by newline characters.</string>
-  <string name="reading_lists_onboarding_got_it">Button label to acknowledge and dismiss the onboarding screen.</string>
+  <string name="reading_lists_onboarding_intro">Short introductory statement about reading lists to be shown in the onboarding screen, emphasizing that reading lists are available for offline access.</string>
+  <string name="reading_lists_onboarding_for_example">Label stating that the items below are examples of reading list titles.</string>
+  <string name="reading_lists_onboarding_example1">First example of a reading list title</string>
+  <string name="reading_lists_onboarding_example2">Second example of a reading list title</string>
+  <string name="reading_lists_onboarding_example3">Third example of a reading list title</string>
+  <string name="reading_lists_onboarding_got_it">Button label to dismiss the onboarding screen.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>
 </resources>

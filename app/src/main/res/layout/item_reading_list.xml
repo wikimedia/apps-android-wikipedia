@@ -10,136 +10,150 @@
     android:paddingLeft="@dimen/list_item_horizontal_padding"
     android:paddingRight="@dimen/list_item_horizontal_padding">
 
-    <LinearLayout
-        android:id="@+id/item_container"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="@dimen/readingListItemSize"
-        android:orientation="horizontal"
-        android:clickable="true"
-        android:background="?attr/selectableItemBackground">
-
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_width="@dimen/readingListItemSize"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <LinearLayout
-                android:id="@+id/item_image_row_1"
-                android:layout_width="@dimen/readingListItemSize"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/item_image_1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@null"
-                    app:placeholderImage="@drawable/ic_pageimage_placeholder"
-                    app:placeholderImageScaleType="centerCrop"
-                    app:failureImage="@drawable/ic_pageimage_placeholder"
-                    app:failureImageScaleType="centerCrop"
-                    app:actualImageScaleType="centerCrop"
-                    android:background="@color/window_background_light"/>
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/item_image_2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@null"
-                    app:placeholderImage="@drawable/ic_pageimage_placeholder"
-                    app:placeholderImageScaleType="centerCrop"
-                    app:failureImage="@drawable/ic_pageimage_placeholder"
-                    app:failureImageScaleType="centerCrop"
-                    app:actualImageScaleType="centerCrop"
-                    android:background="@color/window_background_light"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/item_image_row_2"
-                android:layout_width="@dimen/readingListItemSize"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/item_image_3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@null"
-                    app:placeholderImage="@drawable/ic_pageimage_placeholder"
-                    app:placeholderImageScaleType="centerCrop"
-                    app:failureImage="@drawable/ic_pageimage_placeholder"
-                    app:failureImageScaleType="centerCrop"
-                    app:actualImageScaleType="centerCrop"
-                    android:background="@color/window_background_light"/>
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/item_image_4"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:contentDescription="@null"
-                    app:placeholderImage="@drawable/ic_pageimage_placeholder"
-                    app:placeholderImageScaleType="centerCrop"
-                    app:failureImage="@drawable/ic_pageimage_placeholder"
-                    app:failureImageScaleType="centerCrop"
-                    app:actualImageScaleType="centerCrop"
-                    android:background="@color/window_background_light"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
+            android:id="@+id/item_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/list_item_text_horizontal_padding"
-            android:layout_marginStart="@dimen/list_item_text_horizontal_padding"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="vertical">
+            android:minHeight="@dimen/readingListItemSize"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
-            <TextView
-                android:id="@+id/item_title"
+            <LinearLayout
+                android:layout_width="@dimen/readingListItemSize"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/item_image_row_1"
+                    android:layout_width="@dimen/readingListItemSize"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_image_1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@null"
+                        app:placeholderImage="@drawable/ic_pageimage_placeholder"
+                        app:placeholderImageScaleType="centerCrop"
+                        app:failureImage="@drawable/ic_pageimage_placeholder"
+                        app:failureImageScaleType="centerCrop"
+                        app:actualImageScaleType="centerCrop"
+                        android:background="@color/window_background_light"/>
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_image_2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@null"
+                        app:placeholderImage="@drawable/ic_pageimage_placeholder"
+                        app:placeholderImageScaleType="centerCrop"
+                        app:failureImage="@drawable/ic_pageimage_placeholder"
+                        app:failureImageScaleType="centerCrop"
+                        app:actualImageScaleType="centerCrop"
+                        android:background="@color/window_background_light"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/item_image_row_2"
+                    android:layout_width="@dimen/readingListItemSize"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_image_3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@null"
+                        app:placeholderImage="@drawable/ic_pageimage_placeholder"
+                        app:placeholderImageScaleType="centerCrop"
+                        app:failureImage="@drawable/ic_pageimage_placeholder"
+                        app:failureImageScaleType="centerCrop"
+                        app:actualImageScaleType="centerCrop"
+                        android:background="@color/window_background_light"/>
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/item_image_4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@null"
+                        app:placeholderImage="@drawable/ic_pageimage_placeholder"
+                        app:placeholderImageScaleType="centerCrop"
+                        app:failureImage="@drawable/ic_pageimage_placeholder"
+                        app:failureImageScaleType="centerCrop"
+                        app:actualImageScaleType="centerCrop"
+                        android:background="@color/window_background_light"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:textSize="16sp"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="?attr/list_item_text_primary_color"
-                android:textStyle="bold"
-                tools:text="Lorem ipsum" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/list_item_text_horizontal_padding"
+                android:layout_marginStart="@dimen/list_item_text_horizontal_padding"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/item_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="?attr/list_item_text_secondary_color"
-                tools:text="x items"
-                />
+                <TextView
+                    android:id="@+id/item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/RtlAwareTextView"
+                    android:textSize="16sp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="?attr/list_item_text_primary_color"
+                    android:textStyle="bold"
+                    tools:text="Lorem ipsum" />
 
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/item_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="4dp"
-                style="@style/RtlAwareTextView"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="?attr/list_item_text_primary_color"
-                tools:text="Sample description"
-                />
+                <TextView
+                    android:id="@+id/item_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/RtlAwareTextView"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="?attr/list_item_text_secondary_color"
+                    tools:text="x items"
+                    />
 
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/item_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    style="@style/RtlAwareTextView"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="?attr/list_item_text_primary_color"
+                    tools:text="Sample description"
+                    />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/indicator_offline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@drawable/ic_cloud_download_black_24dp"
+            android:tint="?attr/list_item_text_secondary_color"
+            android:alpha="0.5"
+            android:contentDescription="@null"/>
+    </FrameLayout>
 
     <View
         android:layout_width="match_parent"

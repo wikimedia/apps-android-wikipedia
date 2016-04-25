@@ -319,9 +319,6 @@
   <string name="reading_lists_empty">这里没有阅读列表。</string>
   <string name="reading_lists_empty_message">组织您您浏览的条目至阅读列表中！当浏览一个条目时，点按条目上方的书签图片以将其添加至阅读列表中。</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">新功能：将您希望稍后阅读的条目组织进阅读列表中。</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">我想访问的地点
-学习话题
-电视节目花絮</string>
   <string name="reading_lists_onboarding_got_it">明白了</string>
   <string name="user_option_sync_label">参数设置</string>
 </resources>

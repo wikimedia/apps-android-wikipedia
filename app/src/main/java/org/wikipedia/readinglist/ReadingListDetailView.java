@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.Bind;
@@ -39,9 +41,10 @@ import butterknife.ButterKnife;
 public class ReadingListDetailView extends LinearLayout {
     @Bind(R.id.reading_list_title) TextView titleView;
     @Bind(R.id.reading_list_count) TextView countView;
-    @Bind(R.id.reading_list_description) TextView descriptionView;
+    @Bind(R.id.reading_list_description) GoneIfEmptyTextView descriptionView;
     @Bind(R.id.contents_list) RecyclerView contentsListView;
     @Bind(R.id.button_edit) ImageButton editButton;
+    @Bind(R.id.indicator_offline) ImageView offlineView;
 
     @Nullable private ReadingList readingList;
     @Nullable private ReadingListItemActionListener itemActionListener;
@@ -59,7 +62,7 @@ public class ReadingListDetailView extends LinearLayout {
     }
 
     public interface ReadingListActionListener {
-        void onUpdate(ReadingList readingList);
+        void onUpdate(ReadingList readingList, String newTitle, String newDescription, boolean saveOffline);
         void onDelete(ReadingList readingList);
     }
 
@@ -113,6 +116,7 @@ public class ReadingListDetailView extends LinearLayout {
                 ? getResources().getString(R.string.reading_list_item_count_singular)
                 : String.format(getResources().getString(R.string.reading_list_item_count_plural), readingList.getPages().size()));
         descriptionView.setText(readingList.getDescription());
+        offlineView.setImageResource(readingList.getSaveOffline() ? R.drawable.ic_cloud_download_black_24dp : R.drawable.ic_cloud_off_black_24dp);
         adapter.notifyDataSetChanged();
     }
 
@@ -144,28 +148,27 @@ public class ReadingListDetailView extends LinearLayout {
     private class EditButtonClickListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            ReadingListDialogs.createEditDialog(getContext(), readingList, true,
-                    new Runnable() {
+            ReadingListDialogs.createEditDialog(getContext(), readingList, true, new ReadingListDialogs.EditDialogListener() {
+                @Override
+                public void onModify(String newTitle, String newDescription, boolean saveOffline) {
+                    if (actionListener != null) {
+                        actionListener.onUpdate(readingList, newTitle, newDescription, saveOffline);
+                    }
+                    updateDetails();
+                }
+
+                @Override
+                public void onDelete() {
+                    ReadingListDialogs.createDeleteDialog(getContext(), new Runnable() {
                         @Override
                         public void run() {
-                            updateDetails();
                             if (actionListener != null) {
-                                actionListener.onUpdate(readingList);
+                                actionListener.onDelete(readingList);
                             }
                         }
-                    }, new Runnable() {
-                        @Override
-                        public void run() {
-                            ReadingListDialogs.createDeleteDialog(getContext(), new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (actionListener != null) {
-                                        actionListener.onDelete(readingList);
-                                    }
-                                }
-                            }).show();
-                        }
                     }).show();
+                }
+            }).show();
         }
     }
 
@@ -174,13 +177,13 @@ public class ReadingListDetailView extends LinearLayout {
         private View containerView;
         private TextView titleView;
         private SimpleDraweeView thumbnailView;
-        private TextView descriptionView;
+        private GoneIfEmptyTextView descriptionView;
 
         ReadingListPageItemHolder(View itemView) {
             super(itemView);
             containerView = itemView.findViewById(R.id.page_list_item_container);
             titleView = (TextView) itemView.findViewById(R.id.page_list_item_title);
-            descriptionView = (TextView) itemView.findViewById(R.id.page_list_item_description);
+            descriptionView = (GoneIfEmptyTextView) itemView.findViewById(R.id.page_list_item_description);
             thumbnailView = (SimpleDraweeView) itemView.findViewById(R.id.page_list_item_image);
             containerView.setClickable(true);
             containerView.setOnClickListener(this);

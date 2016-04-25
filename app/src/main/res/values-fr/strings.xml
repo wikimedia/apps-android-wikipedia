@@ -319,9 +319,6 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_lists_empty">Aucune liste de lecture ici.</string>
   <string name="reading_lists_empty_message">Organiser les articles dans lesquels vous naviguez en listes de lecture ! En parcourant un article, cliquez sur l’icône en haut de l’article pour l’ajouter à une liste de lecture.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Nouveau: Organisez les articles que vous voulez lire plus tard en listes de lecture.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Endroits que je veux visiter
-Sujets à étudier
-Émissions TV de variétés</string>
   <string name="reading_lists_onboarding_got_it">L’obtenir</string>
   <string name="user_option_sync_label">Préférences</string>
 </resources>

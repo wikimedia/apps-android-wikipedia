@@ -319,9 +319,6 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_lists_empty">Non hai listas de lectura aquí.</string>
   <string name="reading_lists_empty_message">Organice os artigos nos que navega en listas de lectura! Cando lea un artigo, prema a icona de marcador na parte superior do artigo para engadilo a unha lista de lectura.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Novo: organice os artigos que quere ler máis tarde en listas de lectura.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Lugares que quero visitar
-Temas de estudo
-Trivia de programas de TV</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="user_option_sync_label">Preferencias</string>
 </resources>

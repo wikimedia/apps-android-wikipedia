@@ -82,6 +82,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     public boolean onBackPressed() {
         if (pager.getCurrentItem() > 0) {
             pager.setCurrentItem(0);
+            updateLists();
             return true;
         }
         return false;
@@ -104,15 +105,17 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     private class ReadingListActionListener implements ReadingListDetailView.ReadingListActionListener {
         @Override
-        public void onUpdate(ReadingList readingList) {
-            ReadingList.DAO.saveListInfoAsync(readingList);
+        public void onUpdate(ReadingList readingList, String newTitle, String newDescription, boolean saveOffline) {
+            readingList.setDescription(newDescription);
+            readingList.setSaveOffline(saveOffline);
+            ReadingList.DAO.renameAndSaveListInfo(readingList, newTitle);
             funnel.logModifyList(readingList, readingLists.size());
         }
 
         @Override
         public void onDelete(ReadingList readingList) {
             showDeleteListUndoSnackbar(readingList);
-            ReadingList.DAO.removeListAsync(readingList);
+            ReadingList.DAO.removeList(readingList);
             funnel.logDeleteList(readingList, readingLists.size());
             pager.setCurrentItem(0);
             updateLists();
@@ -218,7 +221,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReadingList.DAO.addListAsync(readingList);
+                ReadingList.DAO.addList(readingList);
                 updateLists();
             }
         });
@@ -232,11 +235,8 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         snackbar.setAction(R.string.reading_list_item_delete_undo, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 ReadingList.DAO.addTitleToList(readingList, page);
                 listDetailView.updateDetails();
-                adapter.notifyDataSetChanged();
-
             }
         });
         snackbar.show();

@@ -313,9 +313,6 @@
   <string name="reading_lists_empty_message">आपके द्वारा ब्राउज़ किये जाने वाले लेखों को पठन सूची में लगाएं! लेख ब्राउज़ करते समय उसे पठन सूची में जोड़ने हेतु
 लेख के ऊपर बने बुकमार्क आइकॉन पर टैप करे ।</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">नया: जिन लेखों की आप बाद में पढ़ना चाहते हैं उन्हें पठन सूची में सुनियोजित करता है।</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">स्थान जहाँ में जाना चाहता हूँ
-पढ़ाई सम्बंधित विषय
-टीवी कार्यक्रम में छोटा पात्र</string>
   <string name="reading_lists_onboarding_got_it">समझ गया</string>
   <string name="user_option_sync_label">वरीयता</string>
 </resources>

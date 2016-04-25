@@ -315,9 +315,6 @@ Kullanım koşulları: https://meta.wikimedia.org/wiki/Terms_of_use/tr</string>
   <string name="reading_lists_empty">Hiçbir okuma listesi yok.</string>
   <string name="reading_lists_empty_message">Görüntülediğiniz maddeleri okuma listeleriyle organize edin! Okuduğunuz bir maddeyi, bir okuma listesine eklemek için maddenin üst bölümündeki yer imi simgesine dokunun.</string>
   <string name="reading_lists_onboarding_intro" fuzzy="true">Yenilik: Okumayı düşündüğünüz maddeleri okuma listelerine ekleyerek organize edin.</string>
-  <string name="reading_lists_onboarding_examples" fuzzy="true">Ziyaret etmek istediğim yerler
-Çalışma konuları
-TV programı bilgileri</string>
   <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="user_option_sync_label">Ayarlar</string>
 </resources>
