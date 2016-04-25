@@ -135,8 +135,8 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         private static final String SELECT_ROWS_WITH_KEY = ":keyCol == ?"
             .replaceAll(":keyCol", ReadingListPageContract.Page.KEY.qualifiedName());
 
-        private static final String SELECT_ROWS_WITH_LIST_KEY = ":listKeyCol == ',' || ? || ','"
-            .replaceAll(":listKeyCol", ReadingListPageContract.Page.LIST_KEYS.qualifiedName());
+        private static final String SELECT_ROWS_WITH_LIST_KEY = "',' || :listKeyCol || ',' like '%,' || ? || ',%'"
+             .replaceAll(":listKeyCol", ReadingListPageContract.Page.LIST_KEYS.qualifiedName());
 
         private static String SELECT_ROWS_PENDING_DISK_TRANSACTION = ":transactionIdCol == :noTransactionId"
             .replaceAll(":transactionIdCol", ReadingListPageContract.DiskWithPage.DISK_TRANSACTION_ID.qualifiedName())
