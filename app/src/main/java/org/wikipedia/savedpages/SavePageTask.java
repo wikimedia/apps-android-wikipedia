@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
+import static org.wikipedia.util.FileUtil.getSavedPageDirFor;
+
 /** Actual work to save a page for offline reading. */
 public class SavePageTask extends SaneAsyncTask<Boolean> {
     private final WikipediaApp app;
@@ -34,7 +36,7 @@ public class SavePageTask extends SaneAsyncTask<Boolean> {
         DatabaseClient<SavedPage> client = app.getDatabaseClient(SavedPage.class);
         client.upsert(savedPage, SavedPageContract.Page.SELECTION);
 
-        final ImageUrlMap imageUrlMap = new ImageUrlMap.Builder(savedPage.getBaseDir()).extractUrls(page).build();
+        final ImageUrlMap imageUrlMap = new ImageUrlMap.Builder(getSavedPageDirFor(title)).extractUrls(page).build();
         final int numImagesAttempts = imageUrlMap.size();
 
         parallelDownload(imageUrlMap);

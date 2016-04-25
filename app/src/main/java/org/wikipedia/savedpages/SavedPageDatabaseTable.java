@@ -16,6 +16,7 @@ import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.database.contract.SavedPageContract.Col;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -114,8 +115,9 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
                         new String[]{id}, SQLiteDatabase.CONFLICT_REPLACE);
 
                 SavedPage obj = fromPreNamespaceCursor(cursor, Col.NAMESPACE.val(cursor), null);
-                File newDir = new File(SavedPage.getSavedPagesDir() + "/" + obj.getTitle().getIdentifier());
-                new File(SavedPage.getSavedPagesDir() + "/" + getSavedPageDir(obj, title)).renameTo(newDir);
+                String savedPageBaseDir = FileUtil.savedPageBaseDir();
+                File newDir = new File(savedPageBaseDir + "/" + obj.getTitle().getIdentifier());
+                new File(savedPageBaseDir + "/" + getSavedPageDir(obj, title)).renameTo(newDir);
             }
         }
         cursor.close();

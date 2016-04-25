@@ -19,7 +19,7 @@ public class ReadingListPageDiskRow extends DiskRow<ReadingListPageRow> {
     }
 
     public ReadingListPageDiskRow(@NonNull ReadingListPage dat) {
-        this(dat.key(), dat, null);
+        this(dat.key(), dat, dat.filename());
     }
 
     public ReadingListPageDiskRow(@NonNull ReadingListPageDiskRow diskRow,
