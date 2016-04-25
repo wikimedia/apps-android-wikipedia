@@ -121,7 +121,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             }
         });
         // and create our list of results from the now-sorted array
-        List<PageTitle> pageTitles = new ArrayList<>();
+        List<SearchResult> resultList = new ArrayList<>();
         for (JSONObject item : pageArray) {
             String thumbUrl = null;
             if (item.has("thumbnail")) {
@@ -138,9 +138,9 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             if (item.has("pageprops")) {
                 properties = new PageProperties(item.getJSONObject("pageprops"));
             }
-            pageTitles.add(new PageTitle(item.getString("title"), site, thumbUrl, description, properties));
+            resultList.add(new SearchResult(new PageTitle(item.getString("title"), site, thumbUrl, description, properties)));
         }
-        return new SearchResults(pageTitles, nextContinueOffset, null);
+        return new SearchResults(resultList, nextContinueOffset, null);
     }
 
     public final class FTContinueOffset extends SearchResults.ContinueOffset {

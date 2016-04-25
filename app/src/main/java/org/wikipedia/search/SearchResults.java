@@ -1,7 +1,5 @@
 package org.wikipedia.search;
 
-import org.wikipedia.page.PageTitle;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +7,7 @@ import java.util.List;
  * Simple Data Object to hold search result data for both prefix search and full text search.
  */
 public class SearchResults {
-    private List<PageTitle> pageTitles;
+    private List<SearchResult> results;
     private ContinueOffset continueOffset;
     private String suggestion;
 
@@ -17,27 +15,27 @@ public class SearchResults {
      * Empty results. Use for fallback when something goes wrong.
      */
     public SearchResults() {
-        pageTitles = new ArrayList<>();
+        results = new ArrayList<>();
         continueOffset = null;
         suggestion = "";
     }
 
     /**
      * Constructor for when we get results.
-     * @param pageTitles the actual results
+     * @param results the actual results
      * @param continueOffset for search continuation
      * @param suggestion a search suggestion to show to the user: "Did you mean ...?"
      */
-    public SearchResults(List<PageTitle> pageTitles,
+    public SearchResults(List<SearchResult> results,
                          ContinueOffset continueOffset,
                          String suggestion) {
-        this.pageTitles = pageTitles;
+        this.results = results;
         this.continueOffset = continueOffset;
         this.suggestion = suggestion;
     }
 
-    public List<PageTitle> getPageTitles() {
-        return pageTitles;
+    public List<SearchResult> getResults() {
+        return results;
     }
 
     public String getSuggestion() {

@@ -5,6 +5,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
+import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.log.L;
 
@@ -42,17 +43,17 @@ public class SuggestionsTask extends FullSearchArticlesTask {
      */
     public SearchResults filterResults(SearchResults searchResults) {
         final boolean verbose = WikipediaApp.getInstance().isDevRelease();
-        List<PageTitle> filteredResults = new ArrayList<>();
-        List<PageTitle> results = searchResults.getPageTitles();
+        List<SearchResult> filteredResults = new ArrayList<>();
+        List<SearchResult> results = searchResults.getResults();
         for (int i = 0, count = 0; i < results.size() && count < maxItems; i++) {
-            final PageTitle res = results.get(i);
+            final SearchResult res = results.get(i);
             if (verbose) {
-                L.v(res.getPrefixedText());
+                L.v(res.getTitle().getPrefixedText());
             }
 
-            if (!title.equalsIgnoreCase(res.getPrefixedText())
-                    && (!requireThumbnail || res.getThumbUrl() != null)
-                    && !(res.isMainPage() || res.isDisambiguationPage())) {
+            if (!title.equalsIgnoreCase(res.getTitle().getPrefixedText())
+                    && (!requireThumbnail || res.getTitle().getThumbUrl() != null)
+                    && !(res.getTitle().isMainPage() || res.getTitle().isDisambiguationPage())) {
                 filteredResults.add(res);
                 count++;
             }

@@ -36,6 +36,7 @@
     <string name="snackbar_saved_page_deleted">Saved page(s) deleted</string>
     <string name="saved_pages_search_list_hint">Search saved pages</string>
     <string name="saved_pages_search_empty_message">No pages found matching your query.</string>
+    <string name="search_redirect_from">Redirected from %s</string>
 
     <!-- Page toolbar menu -->
     <string name="menu_page_show_tabs">Show tabs</string>

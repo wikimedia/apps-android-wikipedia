@@ -89,10 +89,10 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
                 suggestion = searchinfo.getString("suggestion");
             }
         }
-        List<PageTitle> pageTitles = new ArrayList<>();
+        List<SearchResult> resultList = new ArrayList<>();
         JSONObject pages = queryResult.optJSONObject("pages");
         if (pages == null) {
-            return new SearchResults(pageTitles, null, suggestion);
+            return new SearchResults(resultList, null, suggestion);
         }
 
         // First, put all the page objects into an array
@@ -113,10 +113,11 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
             for (int i = 0; i < redirs.length(); i++) {
                 JSONObject redirect = (JSONObject) redirs.get(i);
                 for (JSONObject page : pageArray) {
-                    if (page.getString("title").equals(redirect.getString("to"))
-                            && redirect.has("tofragment")
-                            && !page.has("tofragment")) {
-                        page.put("tofragment", redirect.getString("tofragment"));
+                    if (page.getString("title").equals(redirect.getString("to"))) {
+                        page.put("redirectFrom", redirect.optString("from"));
+                        if (redirect.has("tofragment") && !page.has("tofragment")) {
+                            page.put("tofragment", redirect.getString("tofragment"));
+                        }
                     }
                 }
             }
@@ -146,8 +147,9 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
             if (item.has("tofragment")) {
                 titleText += "#" + item.getString("tofragment");
             }
-            pageTitles.add(new PageTitle(titleText, site, thumbUrl, description));
+            resultList.add(new SearchResult(new PageTitle(titleText, site, thumbUrl, description),
+                    item.optString("redirectFrom")));
         }
-        return new SearchResults(pageTitles, null, suggestion);
+        return new SearchResults(resultList, null, suggestion);
     }
 }

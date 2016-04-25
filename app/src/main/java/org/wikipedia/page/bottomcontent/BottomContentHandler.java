@@ -36,6 +36,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.SuggestionsTask;
+import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ConfigurableListView;
@@ -184,7 +185,7 @@ public class BottomContentHandler implements BottomContentInterface,
             }
             if (!firstTimeShown && readMoreItems != null) {
                 firstTimeShown = true;
-                funnel.logSuggestionsShown(pageTitle, readMoreItems.getPageTitles());
+                funnel.logSuggestionsShown(pageTitle, readMoreItems.getResults());
             }
         }
     }
@@ -318,7 +319,7 @@ public class BottomContentHandler implements BottomContentInterface,
             public void onFinish(SearchResults results) {
                 funnel.setLatency(System.currentTimeMillis() - timeMillis);
                 readMoreItems = results;
-                if (!readMoreItems.getPageTitles().isEmpty()) {
+                if (!readMoreItems.getResults().isEmpty()) {
                     // If there are results, set up section and make sure it's visible
                     setUpReadMoreSection(layoutInflater, readMoreItems);
                     showReadMore();
@@ -364,15 +365,15 @@ public class BottomContentHandler implements BottomContentInterface,
     }
 
     private void setUpReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
-        final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getPageTitles());
+        final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getResults());
         readMoreList.setAdapter(adapter, pageTitle.getSite().languageCode());
         readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle title = (PageTitle) adapter.getItem(position);
+                PageTitle title = ((SearchResult) adapter.getItem(position)).getTitle();
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
                 activity.loadPage(title, historyEntry);
-                funnel.logSuggestionClicked(pageTitle, results.getPageTitles(), position);
+                funnel.logSuggestionClicked(pageTitle, results.getResults(), position);
             }
         });
         adapter.notifyDataSetChanged();
@@ -388,27 +389,27 @@ public class BottomContentHandler implements BottomContentInterface,
         @Override
         public PageTitle getTitleForListPosition(int position) {
             lastPosition = position;
-            return (PageTitle) readMoreList.getAdapter().getItem(position);
+            return ((SearchResult) readMoreList.getAdapter().getItem(position)).getTitle();
         }
 
         @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
             super.onOpenLink(title, entry);
-            funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), lastPosition);
+            funnel.logSuggestionClicked(pageTitle, readMoreItems.getResults(), lastPosition);
         }
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
             super.onOpenInNewTab(title, entry);
-            funnel.logSuggestionClicked(pageTitle, readMoreItems.getPageTitles(), lastPosition);
+            funnel.logSuggestionClicked(pageTitle, readMoreItems.getResults(), lastPosition);
         }
     }
 
     private final class ReadMoreAdapter extends BaseAdapter {
         private final LayoutInflater inflater;
-        private final List<PageTitle> results;
+        private final List<SearchResult> results;
 
-        private ReadMoreAdapter(LayoutInflater inflater, List<PageTitle> results) {
+        private ReadMoreAdapter(LayoutInflater inflater, List<SearchResult> results) {
             this.inflater = inflater;
             this.results = results;
         }
@@ -434,13 +435,13 @@ public class BottomContentHandler implements BottomContentInterface,
                 convertView = inflater.inflate(R.layout.item_page_list_entry, parent, false);
             }
             TextView pageTitleText = (TextView) convertView.findViewById(R.id.page_list_item_title);
-            PageTitle result = (PageTitle) getItem(position);
-            pageTitleText.setText(result.getDisplayText());
+            SearchResult result = (SearchResult) getItem(position);
+            pageTitleText.setText(result.getTitle().getDisplayText());
 
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
-            descriptionText.setText(result.getDescription());
+            descriptionText.setText(result.getTitle().getDescription());
 
-            ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image), result.getThumbUrl());
+            ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image), result.getTitle().getThumbUrl());
             return convertView;
         }
     }

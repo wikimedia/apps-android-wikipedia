@@ -1,10 +1,10 @@
 package org.wikipedia.search;
 
+import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivityLongPressHandler;
 import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
@@ -22,6 +22,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,28 +55,18 @@ public class SearchResultsFragment extends Fragment {
     private TextView searchSuggestion;
 
     private WikipediaApp app;
-    @NonNull private ParcelableLruCache<List<PageTitle>> searchResultsCache
+    @NonNull private ParcelableLruCache<List<SearchResult>> searchResultsCache
             = new ParcelableLruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS, List.class);
     private Handler searchHandler;
     private TitleSearchTask curSearchTask;
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
-    @NonNull private final List<PageTitle> totalResults = new ArrayList<>();
-
-    /**
-     * Whether full-text search has been disabled via remote kill-switch.
-     * TODO: remove this when we're comfortable that it won't melt down the servers.
-     */
-    private boolean fullSearchDisabled = false;
+    @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-
-        // find out whether full-text search has been disabled remotely, and
-        // hide the title/full switcher buttons accordingly.
-        fullSearchDisabled = app.getRemoteConfig().getConfig().optBoolean("disableFullTextSearch", false);
     }
 
     @Override
@@ -88,7 +79,7 @@ public class SearchResultsFragment extends Fragment {
         searchResultsList = (ListView) rootView.findViewById(R.id.search_results_list);
 
         if (savedInstanceState != null) {
-            ParcelableLruCache<List<PageTitle>> mySearchResultsCache = savedInstanceState.getParcelable(ARG_RESULTS_CACHE);
+            ParcelableLruCache<List<SearchResult>> mySearchResultsCache = savedInstanceState.getParcelable(ARG_RESULTS_CACHE);
             if (mySearchResultsCache != null) {
                 searchResultsCache = mySearchResultsCache;
             }
@@ -97,7 +88,7 @@ public class SearchResultsFragment extends Fragment {
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle item = (PageTitle) getAdapter().getItem(position);
+                PageTitle item = ((SearchResult) getAdapter().getItem(position)).getTitle();
                 searchFragment.navigateToTitle(item, false);
             }
         });
@@ -180,7 +171,7 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        List<PageTitle> cacheResult = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + term);
+        List<SearchResult> cacheResult = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + term);
         if (cacheResult != null && !cacheResult.isEmpty()) {
             clearResults();
             displayResults(cacheResult);
@@ -224,24 +215,24 @@ public class SearchResultsFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                List<PageTitle> pageTitles = results.getPageTitles();
+                List<SearchResult> resultList = results.getResults();
                 // To ease data analysis and better make the funnel track with user behaviour,
                 // only transmit search results events if there are a nonzero number of results
-                if (!pageTitles.isEmpty()) {
+                if (!resultList.isEmpty()) {
                     // Calculate total time taken to display results, in milliseconds
                     final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                    searchFragment.getFunnel().searchResults(false, pageTitles.size(), timeToDisplay);
+                    searchFragment.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
                 }
 
                 getPageActivity().updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
-                if (!pageTitles.isEmpty()) {
+                if (!resultList.isEmpty()) {
                     clearResults();
-                    displayResults(pageTitles);
+                    displayResults(resultList);
                 }
 
                 // add titles to cache...
-                searchResultsCache.put(app.getAppOrSystemLanguageCode() + "-" + searchTerm, pageTitles);
+                searchResultsCache.put(app.getAppOrSystemLanguageCode() + "-" + searchTerm, resultList);
                 curSearchTask = null;
 
                 final String suggestion = results.getSuggestion();
@@ -264,7 +255,7 @@ public class SearchResultsFragment extends Fragment {
                     }
                 });
 
-                if (pageTitles.isEmpty()) {
+                if (resultList.isEmpty()) {
                     // kick off full text search if we get no results
                     doFullTextSearch(currentSearchTerm, null, true);
                 }
@@ -329,17 +320,17 @@ public class SearchResultsFragment extends Fragment {
 
                 // To ease data analysis and better make the funnel track with user behaviour,
                 // only transmit search results events if there are a nonzero number of results
-                final List<PageTitle> pageTitles = results.getPageTitles();
-                if (!pageTitles.isEmpty()) {
+                final List<SearchResult> resultList = results.getResults();
+                if (!resultList.isEmpty()) {
                     // Calculate total time taken to display results, in milliseconds
                     final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                    searchFragment.getFunnel().searchResults(true, pageTitles.size(), timeToDisplay);
+                    searchFragment.getFunnel().searchResults(true, resultList.size(), timeToDisplay);
                 }
 
                 // append results to cache...
-                List<PageTitle> cachedTitles = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + searchTerm);
+                List<SearchResult> cachedTitles = searchResultsCache.get(app.getAppOrSystemLanguageCode() + "-" + searchTerm);
                 if (cachedTitles != null) {
-                    cachedTitles.addAll(pageTitles);
+                    cachedTitles.addAll(resultList);
                 }
 
                 getPageActivity().updateProgressBar(false, true, 0);
@@ -348,7 +339,7 @@ public class SearchResultsFragment extends Fragment {
                 // full text special:
                 SearchResultsFragment.this.lastFullTextResults = results;
 
-                displayResults(pageTitles);
+                displayResults(resultList);
             }
 
             @Override
@@ -370,7 +361,7 @@ public class SearchResultsFragment extends Fragment {
     @Nullable
     public PageTitle getFirstResult() {
         if (!totalResults.isEmpty()) {
-            return totalResults.get(0);
+            return totalResults.get(0).getTitle();
         } else {
             return null;
         }
@@ -409,8 +400,8 @@ public class SearchResultsFragment extends Fragment {
      *
      * @param results List of results to display. If null, clears the list of suggestions & hides it.
      */
-    private void displayResults(List<PageTitle> results) {
-        for (PageTitle newResult : results) {
+    private void displayResults(List<SearchResult> results) {
+        for (SearchResult newResult : results) {
             if (!totalResults.contains(newResult)) {
                 totalResults.add(newResult);
             }
@@ -436,7 +427,7 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public PageTitle getTitleForListPosition(int position) {
-            return (PageTitle) getAdapter().getItem(position);
+            return ((SearchResult) getAdapter().getItem(position)).getTitle();
         }
 
         @Override
@@ -475,13 +466,22 @@ public class SearchResultsFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item_page_list_entry, parent, false);
+                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
             }
             TextView pageTitleText = (TextView) convertView.findViewById(R.id.page_list_item_title);
-            PageTitle title = (PageTitle) getItem(position);
+            SearchResult result = (SearchResult) getItem(position);
+
+            View redirectContainer = convertView.findViewById(R.id.page_list_item_redirect_container);
+            if (TextUtils.isEmpty(result.getRedirectFrom())) {
+                redirectContainer.setVisibility(View.GONE);
+            } else {
+                redirectContainer.setVisibility(View.VISIBLE);
+                TextView redirectText = (TextView) convertView.findViewById(R.id.page_list_item_redirect);
+                redirectText.setText(String.format(getString(R.string.search_redirect_from), result.getRedirectFrom()));
+            }
 
             // highlight search term within the text
-            String displayText = title.getDisplayText();
+            String displayText = result.getTitle().getDisplayText();
             int startIndex = indexOf(displayText, currentSearchTerm);
             if (startIndex >= 0) {
                 displayText = displayText.substring(0, startIndex)
@@ -496,14 +496,14 @@ public class SearchResultsFragment extends Fragment {
             }
 
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
-            descriptionText.setText(title.getDescription());
+            descriptionText.setText(result.getTitle().getDescription());
 
             ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image),
-                    title.getThumbUrl());
+                    result.getTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!
-            if (position == (totalResults.size() - 1) && !fullSearchDisabled) {
+            if (position == (totalResults.size() - 1)) {
                 if (lastFullTextResults == null) {
                     // the first full text search
                     doFullTextSearch(currentSearchTerm, null, false);
