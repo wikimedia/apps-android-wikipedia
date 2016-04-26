@@ -10,6 +10,12 @@ import org.wikipedia.readinglist.page.ReadingListPageRow;
 public class ReadingListDiskRow extends DiskRow<ReadingListPageRow> {
     @Nullable private final String filename;
 
+    public ReadingListDiskRow(@NonNull String key, @Nullable ReadingListPageRow dat,
+                              @Nullable String filename) {
+        super(key, dat);
+        this.filename = filename;
+    }
+
     public ReadingListDiskRow(@NonNull DiskRow<ReadingListPageRow> diskRow,
                               @Nullable ReadingListPageRow dat,
                               @Nullable String filename) {
