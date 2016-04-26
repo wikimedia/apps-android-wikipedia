@@ -5,13 +5,13 @@ import android.support.annotation.NonNull;
 
 import org.apache.commons.lang3.Validate;
 import org.wikipedia.readinglist.page.database.disk.DiskStatus;
-import org.wikipedia.readinglist.page.database.disk.ReadingListDiskRow;
+import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 
 public final class ReadingListPage extends ReadingListPageRow {
     @NonNull private DiskStatus diskStatus;
 
     public static ReadingListPage fromCursor(@NonNull Cursor cursor) {
-        ReadingListDiskRow diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
+        ReadingListPageDiskRow diskRow = ReadingListPage.DISK_DATABASE_TABLE.fromCursor(cursor);
         ReadingListPageRow row = ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
         return builder()
                 .copy(row)

@@ -10,7 +10,6 @@ import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.disk.DiskRow;
 import org.wikipedia.readinglist.page.database.disk.DiskStatus;
-import org.wikipedia.readinglist.page.database.disk.ReadingListDiskRow;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 
 public class ReadingListPageDiskTable
@@ -22,10 +21,10 @@ public class ReadingListPageDiskTable
                 ReadingListPageContract.DISK_COLS);
     }
 
-    @Override public ReadingListDiskRow fromCursor(@NonNull Cursor cursor) {
+    @Override public ReadingListPageDiskRow fromCursor(@NonNull Cursor cursor) {
         DiskRow<ReadingListPageRow> diskRow = ReadingListPageContract.DISK_COLS.val(cursor);
         String filename = ReadingListPageContract.Disk.FILENAME.val(cursor);
-        return new ReadingListDiskRow(diskRow, null, filename);
+        return new ReadingListPageDiskRow(diskRow, null, filename);
     }
 
     @NonNull @Override public Column<?>[] getColumnsAdded(int version) {
