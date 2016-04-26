@@ -42,7 +42,6 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -289,11 +288,10 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
     private PageSummary.Callback linkPreviewOnLoadCallback = new PageSummary.Callback() {
         @Override
-        public void success(PageSummary pageSummary, Response response) {
+        public void success(PageSummary pageSummary) {
             if (!isAdded()) {
                 return;
             }
-            Log.v(TAG, response.getUrl());
             if (!pageSummary.hasError()) {
                 progressBar.setVisibility(View.GONE);
                 contents = new LinkPreviewContents(pageSummary, pageTitle.getSite());

@@ -27,7 +27,6 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.AppTextView;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 import static org.wikipedia.util.StringUtil.addUnderscores;
@@ -117,11 +116,10 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
 
     private RbDefinition.Callback definitionOnLoadCallback = new RbDefinition.Callback() {
         @Override
-        public void success(RbDefinition definition, Response response) {
+        public void success(RbDefinition definition) {
             if (!isAdded()) {
                 return;
             }
-            L.v(response.getUrl());
             if (!definition.hasError()) {
                 progressBar.setVisibility(View.GONE);
                 currentDefinition = definition;

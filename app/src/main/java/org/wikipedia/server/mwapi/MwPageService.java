@@ -35,7 +35,7 @@ public class MwPageService implements PageService {
             @Override
             public void success(MwPageSummary pageSummary, Response response) {
                 responseHeaderHandler.onHeaderCheck(response);
-                cb.success(pageSummary, response);
+                cb.success(pageSummary);
             }
 
             @Override
@@ -52,7 +52,7 @@ public class MwPageService implements PageService {
             @Override
             public void success(MwPageLead pageLead, Response response) {
                 responseHeaderHandler.onHeaderCheck(response);
-                cb.success(pageLead, response);
+                cb.success(pageLead);
             }
 
             @Override
@@ -68,7 +68,7 @@ public class MwPageService implements PageService {
             @Override
             public void success(MwPageRemaining pageRemaining, Response response) {
                 RbSwitch.INSTANCE.onMwSuccess();
-                cb.success(pageRemaining, response);
+                cb.success(pageRemaining);
             }
 
             @Override
@@ -83,7 +83,7 @@ public class MwPageService implements PageService {
         webService.pageCombo(title, optional(noImages), new Callback<MwPageCombo>() {
             @Override
             public void success(MwPageCombo pageCombo, Response response) {
-                cb.success(pageCombo, response);
+                cb.success(pageCombo);
             }
 
             @Override

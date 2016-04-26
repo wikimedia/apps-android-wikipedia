@@ -7,7 +7,6 @@ import org.wikipedia.server.PageCombo;
 import org.wikipedia.util.log.L;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 /**
  * Common code for saving a page which is not the current page.
@@ -22,9 +21,7 @@ public abstract class SaveOtherPageCallback implements PageCombo.Callback {
     }
 
     @Override
-    public void success(PageCombo pageCombo, Response response) {
-        L.v(response.getUrl());
-
+    public void success(PageCombo pageCombo) {
         if (pageCombo.hasError()) {
             onError();
             return;

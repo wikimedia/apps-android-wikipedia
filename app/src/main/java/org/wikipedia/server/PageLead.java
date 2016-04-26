@@ -7,7 +7,6 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 /**
  * Gson POJI for loading the first stage of page content.
@@ -33,7 +32,7 @@ public interface PageLead {
 
     /** So we can have polymorphic Retrofit Callbacks */
     interface Callback {
-        void success(PageLead pageLead, Response response);
+        void success(PageLead pageLead);
 
         void failure(RetrofitError error);
     }

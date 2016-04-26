@@ -1,7 +1,6 @@
 package org.wikipedia.server;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 /**
  * Combines PageLead and PageRemaining Gson POJIs for mobileview API.
@@ -12,7 +11,7 @@ public interface PageCombo extends PageLead {
 
     /** So we can have polymorphic Retrofit Callbacks */
     interface Callback {
-        void success(PageCombo pageCombo, Response response);
+        void success(PageCombo pageCombo);
 
         void failure(RetrofitError error);
     }

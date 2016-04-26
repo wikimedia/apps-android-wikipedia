@@ -8,7 +8,6 @@ import org.wikipedia.util.log.L;
 import java.util.Map;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class RbDefinition {
 
@@ -40,7 +39,7 @@ public class RbDefinition {
     }
 
     public interface Callback {
-        void success(RbDefinition definition, Response response);
+        void success(RbDefinition definition);
 
         void failure(RetrofitError error);
     }
