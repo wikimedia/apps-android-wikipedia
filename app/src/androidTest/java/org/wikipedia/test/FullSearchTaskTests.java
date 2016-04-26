@@ -1,12 +1,13 @@
 package org.wikipedia.test;
 
-import org.wikipedia.page.PageTitle;
+import android.test.ActivityUnitTestCase;
+
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchArticlesTask;
+import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
 
-import android.test.ActivityUnitTestCase;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -33,13 +34,13 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
-                        assertEquals(results.getPageTitles().size(), BATCH_SIZE);
+                        assertEquals(results.getResults().size(), BATCH_SIZE);
                         assertNull(results.getSuggestion());
                         assertNotNull(results.getContinueOffset());
 
-                        for (PageTitle result : results.getPageTitles()) {
-                            if (result.getPrefixedText().equals("Test")) {
-                                assertEquals(result.getDescription(), "Wikipedia disambiguation page");
+                        for (SearchResult result : results.getResults()) {
+                            if (result.getTitle().getPrefixedText().equals("Test")) {
+                                assertEquals(result.getTitle().getDescription(), "Wikipedia disambiguation page");
                             }
                         }
                         completionLatch.countDown();
@@ -82,7 +83,7 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
-                        assertEquals(results.getPageTitles().size(), 0);
+                        assertEquals(results.getResults().size(), 0);
                         assertEquals(results.getSuggestion(), "");
                         assertNull(results.getContinueOffset());
                         completionLatch.countDown();

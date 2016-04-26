@@ -1,12 +1,13 @@
 package org.wikipedia.test;
 
-import org.wikipedia.page.PageTitle;
+import android.test.ActivityUnitTestCase;
+
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.SuggestionsTask;
+import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
-
-import android.test.ActivityUnitTestCase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,10 +38,10 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
-                        assertEquals(results.getPageTitles().size(), BATCH_SIZE);
+                        assertEquals(results.getResults().size(), BATCH_SIZE);
 
-                        for (PageTitle result : results.getPageTitles()) {
-                            assertFalse(result.getPrefixedText().equals("Test"));
+                        for (SearchResult result : results.getResults()) {
+                            assertFalse(result.getTitle().getPrefixedText().equals("Test"));
                         }
                         completionLatch.countDown();
                     }
@@ -55,36 +56,36 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
     //
 
     public void testFilterNoResults() throws Throwable {
-        List<PageTitle> originalResults = new ArrayList<>();
+        List<SearchResult> originalResults = new ArrayList<>();
         checkFilter(0, originalResults);
     }
 
     public void testFilter1ResultSameAsTitleIgnoreCase() throws Throwable {
-        List<PageTitle> originalResults = new ArrayList<>();
-        originalResults.add(new PageTitle("Test", SITE, null, null));
+        List<SearchResult> originalResults = new ArrayList<>();
+        originalResults.add(new SearchResult(new PageTitle("Test", SITE, null, null)));
         checkFilter(0, originalResults);
     }
 
     public void testFilter1ResultDifferentFromTitle() throws Throwable {
-        List<PageTitle> originalResults = new ArrayList<>();
-        originalResults.add(new PageTitle("something else", SITE, null, null));
+        List<SearchResult> originalResults = new ArrayList<>();
+        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
         checkFilter(1, originalResults);
     }
 
     public void testFilter4ResultsDifferentFromTitle() throws Throwable {
-        List<PageTitle> originalResults = new ArrayList<>();
-        originalResults.add(new PageTitle("something else", SITE, null, null));
-        originalResults.add(new PageTitle("something else", SITE, null, null));
-        originalResults.add(new PageTitle("something else", SITE, null, null));
-        originalResults.add(new PageTitle("something else", SITE, null, null));
+        List<SearchResult> originalResults = new ArrayList<>();
+        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
         checkFilter(BATCH_SIZE, originalResults);
     }
 
-    private void checkFilter(int expected, List<PageTitle> originalResults) {
+    private void checkFilter(int expected, List<SearchResult> originalResults) {
         SuggestionsTask task = new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test",
                 BATCH_SIZE + 1, BATCH_SIZE, false);
         SearchResults searchResults = new SearchResults(originalResults, null, null);
-        List<PageTitle> filteredList = task.filterResults(searchResults).getPageTitles();
+        List<SearchResult> filteredList = task.filterResults(searchResults).getResults();
         assertEquals(expected, filteredList.size());
     }
 }
