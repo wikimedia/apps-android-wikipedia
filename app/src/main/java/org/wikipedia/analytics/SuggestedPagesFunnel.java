@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.search.SearchResult;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class SuggestedPagesFunnel extends Funnel {
         this.latency = latency;
     }
 
-    public void logSuggestionsShown(PageTitle currentPageTitle, List<PageTitle> suggestedTitles) {
+    public void logSuggestionsShown(PageTitle currentPageTitle, List<SearchResult> suggestedTitles) {
         log(
                 currentPageTitle.getSite(),
                 "action", "shown",
@@ -45,7 +46,7 @@ public class SuggestedPagesFunnel extends Funnel {
         );
     }
 
-    public void logSuggestionClicked(PageTitle currentPageTitle, List<PageTitle> suggestedTitles,
+    public void logSuggestionClicked(PageTitle currentPageTitle, List<SearchResult> suggestedTitles,
                                      int clickedIndex) {
         log(
                 currentPageTitle.getSite(),
