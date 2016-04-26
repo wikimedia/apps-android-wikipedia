@@ -3,6 +3,7 @@ package org.wikipedia.readinglist.page.database;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.CallbackTask;
@@ -44,6 +45,19 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
         String[] selectionArgs = new String[] {listKey};
         String order = ReadingListPageContract.PageWithDisk.ORDER_MRU;
         return client().select(uri, selection, selectionArgs, order);
+    }
+
+    @Nullable public ReadingListPage findPage(@NonNull String key) {
+        Cursor cursor = ReadingListPageDao.instance().page(key);
+        try {
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                return ReadingListPage.fromCursor(cursor);
+            }
+        } finally {
+            cursor.close();
+        }
+        return null;
     }
 
     public void upsertAsync(@NonNull final ReadingListPage row) {

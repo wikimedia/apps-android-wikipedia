@@ -62,7 +62,7 @@ public interface ReadingListContract {
         public static final StrColumn PAGE_DISK_FILENAME = ReadingListPageContract.DiskCol.FILENAME;
 
         public static final String TABLES = (
-                  ":tbl left join :pageTbl on (',' || :tbl.keyCol || ',') like (',' || :pageTbl.listKeysCol || ',') "
+                  ":tbl left join :pageTbl on (',' || :pageTbl.listKeysCol || ',') like ('%,' || :tbl.keyCol || ',%') "
                 + "left join :diskTbl on :diskTbl.keyCol = :pageTbl.keyCol")
                 .replaceAll(":tbl.keyCol", KEY.qualifiedName())
                 .replaceAll(":pageTbl.listKeysCol", PAGE_LIST_KEYS.qualifiedName())

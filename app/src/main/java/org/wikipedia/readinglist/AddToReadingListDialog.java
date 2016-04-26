@@ -2,6 +2,7 @@ package org.wikipedia.readinglist;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +22,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
@@ -184,7 +186,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void addAndDismiss(final ReadingList readingList) {
-        final ReadingListPage page = ReadingListDaoProxy.page(readingList, pageTitle);
+        final ReadingListPage page = findOrCreatePage(readingList, pageTitle);
         ReadingList.DAO.listContainsTitleAsync(readingList, page, new CallbackTask.Callback<Boolean>() {
             @Override
             public void success(Boolean contains) {
@@ -207,6 +209,14 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 }
             }
         });
+    }
+
+    @NonNull private ReadingListPage findOrCreatePage(ReadingList readingList, PageTitle title) {
+        ReadingListPage page = ReadingListPageDao.instance().findPage(ReadingListDaoProxy.key(title));
+        if (page == null) {
+            page = ReadingListDaoProxy.page(readingList, title);
+        }
+        return page;
     }
 
     private class ReadingListItemHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
