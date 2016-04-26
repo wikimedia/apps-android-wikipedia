@@ -147,6 +147,12 @@ public class GalleryItemFragment extends Fragment {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        app.getRefWatcher().watch(this);
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (!isAdded()) {
             return;

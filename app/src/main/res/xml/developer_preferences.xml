@@ -125,6 +125,10 @@
             android:title="@string/preference_key_show_developer_settings" />
 
         <SwitchPreferenceCompat
+            android:key="@string/preference_key_memory_leak_test"
+            android:title="@string/preference_key_memory_leak_test" />
+
+        <SwitchPreferenceCompat
             android:key="@string/preference_key_crashed_before_activity_created"
             android:title="@string/preference_key_crashed_before_activity_created" />
 
