@@ -14,7 +14,8 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_summary_tag_other_hint">
         <AutoCompleteTextView
                 android:id="@+id/edit_summary_edit"
                 android:layout_width="match_parent"
@@ -24,8 +25,7 @@
                 android:singleLine="true"
                 android:imeOptions="actionDone|flagNoExtractUi"
                 android:maxLength="255"
-                android:textColor="?attr/edit_text_color"
-                android:hint="@string/edit_summary_tag_other_hint"/>
+                android:textColor="?attr/edit_text_color"/>
     </android.support.design.widget.TextInputLayout>
 
 </LinearLayout>

@@ -48,10 +48,10 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp">
+            android:layout_margin="12dp"
+            android:hint="@string/history_search_list_hint">
             <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/history_search_list"
-                    android:hint="@string/history_search_list_hint"
                     android:imeOptions="actionDone|flagNoExtractUi"
                     android:singleLine="true"
                     android:textSize="@dimen/searchTextSize"

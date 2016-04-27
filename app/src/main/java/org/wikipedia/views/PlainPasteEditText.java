@@ -3,12 +3,12 @@ package org.wikipedia.views;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.ClipboardManager;
-import android.support.v7.widget.AppCompatEditText;
+import android.support.design.widget.TextInputEditText;
 import android.util.AttributeSet;
 
 import org.wikipedia.util.ClipboardUtil;
 
-public class PlainPasteEditText extends AppCompatEditText {
+public class PlainPasteEditText extends TextInputEditText {
     public PlainPasteEditText(Context context) {
         super(context);
     }

@@ -53,14 +53,14 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp">
+            android:layout_margin="12dp"
+            android:hint="@string/langlinks_filter_hint">
             <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/langlinks_filter"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:hint="@string/langlinks_filter_hint"
                     android:singleLine="true"
                     android:imeOptions="actionDone|flagNoExtractUi"
                     />

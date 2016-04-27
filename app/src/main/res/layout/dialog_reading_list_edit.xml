@@ -14,13 +14,13 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:hint="@string/reading_list_name_hint">
             <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/reading_list_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="?android:textAppearanceMedium"
-                android:hint="@string/reading_list_name_hint"
                 android:imeOptions="flagNoExtractUi"
                 />
         </android.support.design.widget.TextInputLayout>
@@ -28,13 +28,13 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:hint="@string/reading_list_description_hint">
             <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/reading_list_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="?android:textAppearanceMedium"
-                android:hint="@string/reading_list_description_hint"
                 android:imeOptions="flagNoExtractUi"
                 />
         </android.support.design.widget.TextInputLayout>

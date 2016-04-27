@@ -9,12 +9,12 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp">
+        android:layout_margin="12dp"
+        android:hint="@string/preference_languages_filter_hint">
         <org.wikipedia.views.PlainPasteEditText
                 android:id="@+id/preference_languages_filter"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="@string/preference_languages_filter_hint"
                 android:imeOptions="actionDone|flagNoExtractUi"
                 android:singleLine="true"
                 android:layout_marginLeft="8dp"
