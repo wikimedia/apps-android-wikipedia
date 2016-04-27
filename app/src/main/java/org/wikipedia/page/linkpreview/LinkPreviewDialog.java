@@ -41,8 +41,6 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import retrofit.RetrofitError;
-
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
@@ -303,11 +301,11 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         }
 
         @Override
-        public void failure(RetrofitError error) {
+        public void failure(Throwable throwable) {
             if (!isAdded()) {
                 return;
             }
-            Log.e(TAG, "Link preview fetch error: " + error);
+            Log.e(TAG, "Link preview fetch error: " + throwable);
         }
     };
 

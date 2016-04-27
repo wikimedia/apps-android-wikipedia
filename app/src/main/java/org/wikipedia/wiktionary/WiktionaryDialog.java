@@ -26,8 +26,6 @@ import org.wikipedia.server.restbase.RbDefinition;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.AppTextView;
 
-import retrofit.RetrofitError;
-
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.StringUtil.removeUnderscores;
@@ -130,12 +128,12 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
         }
 
         @Override
-        public void failure(RetrofitError error) {
+        public void failure(Throwable throwable) {
             if (!isAdded()) {
                 return;
             }
             displayNoDefinitionsFound();
-            L.e("Wiktionary definition fetch error: " + error);
+            L.e("Wiktionary definition fetch error: " + throwable);
         }
     };
 

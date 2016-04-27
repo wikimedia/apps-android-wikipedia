@@ -47,8 +47,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import retrofit.RetrofitError;
-
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
 
@@ -281,7 +279,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     }
 
                     @Override
-                    public void failure(RetrofitError error) {
+                    public void failure(Throwable error) {
                         L.e("PageLead error: ", error);
                         commonSectionFetchOnCatch(error, startSequenceNum);
                     }
@@ -809,9 +807,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     }
 
                     @Override
-                    public void failure(RetrofitError error) {
-                        L.e("PageRemaining error: ", error);
-                        commonSectionFetchOnCatch(error, startSequenceNum);
+                    public void failure(Throwable throwable) {
+                        L.e("PageRemaining error: ", throwable);
+                        commonSectionFetchOnCatch(throwable, startSequenceNum);
                     }
                 });
     }

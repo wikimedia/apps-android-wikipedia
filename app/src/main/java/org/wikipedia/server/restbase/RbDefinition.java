@@ -7,8 +7,6 @@ import org.wikipedia.util.log.L;
 
 import java.util.Map;
 
-import retrofit.RetrofitError;
-
 public class RbDefinition {
 
     @NonNull private Map<String, Usage[]> usagesByLang;
@@ -41,7 +39,7 @@ public class RbDefinition {
     public interface Callback {
         void success(RbDefinition definition);
 
-        void failure(RetrofitError error);
+        void failure(Throwable throwable);
     }
 
     public static class Usage {

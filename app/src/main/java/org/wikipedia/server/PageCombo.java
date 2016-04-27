@@ -1,7 +1,5 @@
 package org.wikipedia.server;
 
-import retrofit.RetrofitError;
-
 /**
  * Combines PageLead and PageRemaining Gson POJIs for mobileview API.
  * It's basically the same as PageLead.
@@ -13,6 +11,6 @@ public interface PageCombo extends PageLead {
     interface Callback {
         void success(PageCombo pageCombo);
 
-        void failure(RetrofitError error);
+        void failure(Throwable throwable);
     }
 }

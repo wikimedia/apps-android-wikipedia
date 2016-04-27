@@ -25,8 +25,6 @@ import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
-import retrofit.RetrofitError;
-
 import static org.wikipedia.util.UriUtil.decodeURL;
 
 public class WidgetProviderFeaturedPage extends AppWidgetProvider {
@@ -93,7 +91,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                     }
 
                     @Override
-                    public void failure(RetrofitError error) {
+                    public void failure(Throwable error) {
                         L.e("Error while updating widget: " + error);
                     }
                 });
