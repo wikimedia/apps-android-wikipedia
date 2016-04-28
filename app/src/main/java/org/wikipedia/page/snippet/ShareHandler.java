@@ -212,8 +212,7 @@ public class ShareHandler {
     }
 
     private boolean shouldEnableWiktionaryDialog() {
-        return Prefs.useRestBase() && WikipediaApp.getInstance().isPreProdRelease()
-            && isWiktionaryDialogEnabledForArticleLanguage();
+        return Prefs.useRestBase() && isWiktionaryDialogEnabledForArticleLanguage();
     }
 
     private boolean isWiktionaryDialogEnabledForArticleLanguage() {
