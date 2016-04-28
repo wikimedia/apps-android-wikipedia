@@ -6,6 +6,7 @@ import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONObject;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.recurring.RecurringTask;
+import org.wikipedia.settings.RbSwitch;
 
 import java.util.Date;
 
@@ -34,6 +35,7 @@ public class RemoteConfigRefreshTask extends RecurringTask {
             public Boolean performTask() throws Throwable {
                 JSONObject config = new JSONObject(HttpRequest.get(REMOTE_CONFIG_URL).body());
                 app.getRemoteConfig().updateConfig(config);
+                RbSwitch.INSTANCE.update();
                 Log.d("Wikipedia", config.toString());
                 return true;
             }
