@@ -6,6 +6,7 @@ import com.jakewharton.disklrucache.DiskLruCache;
 import org.json.JSONObject;
 import android.content.Context;
 import android.os.Environment;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -169,12 +170,21 @@ public class PageCache {
         // Check if media is mounted or storage is built-in, if so, try and use external cache dir
         // otherwise use internal cache dir.
         final String cachePath;
-        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+        if (Environment.MEDIA_MOUNTED.equals(extStorageState())
             && context.getExternalCacheDir() != null) {
             cachePath = context.getExternalCacheDir().getPath();
         } else {
             cachePath = context.getCacheDir().getPath();
         }
         return new File(cachePath + File.separator + uniqueName);
+    }
+
+    @Nullable private static String extStorageState() {
+        // https://code.google.com/p/android/issues/detail?id=175810
+        try {
+            return Environment.getExternalStorageState();
+        } catch (NullPointerException e) {
+            return null;
+        }
     }
 }
