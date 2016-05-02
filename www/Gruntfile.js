@@ -22,6 +22,9 @@ module.exports = function ( grunt ) {
         "index.html",
         "tests/index.html"
     ];
+    var allJsonFiles = [
+        "package.json"
+    ];
     var distFolder = "../app/src/main/assets/";
 
     grunt.loadNpmTasks( 'grunt-contrib-jshint' );
@@ -36,20 +39,10 @@ module.exports = function ( grunt ) {
             options: {
                 jshintrc: true
             },
-            all: [
-                'js/*.js',
-                'js/transforms/*.js',
-                '!node_modules/**',
-                '!lib/**'
-            ]
+            allFiles: allScriptFiles
         },
         jsonlint: {
-            all: [
-                '../**/*.json',
-                '**/*.json',
-                '!../www/node_modules/**',
-                '!node_modules/**'
-            ]
+            allFiles: allJsonFiles
         },
         browserify: {
             dist: {
