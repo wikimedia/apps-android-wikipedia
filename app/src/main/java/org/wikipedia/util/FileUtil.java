@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -160,6 +162,28 @@ public final class FileUtil {
 
     public static boolean isImage(String mimeType) {
         return mimeType.contains("image");
+    }
+
+    /**
+     * Gets the base directory for all saved pages.
+     * (will be something like /data/data/org.wikimedia/files/savedpages)
+     * @return Base directory for saved pages, inside the app's private storage space.
+     */
+    public static String savedPageBaseDir() {
+        return WikipediaApp.getInstance().getFilesDir() + "/savedpages";
+    }
+
+    /**
+     * Gets the base directory for this page's saved files.
+     * The name of the directory is the MD5 sum of the page title (to account for special
+     * or unicode characters in the title).
+     * @return Base directory for the saved files for this page, inside the
+     * overall base directory for saved pages.
+     */
+    public static String getSavedPageDirFor(PageTitle title) {
+        String dir = savedPageBaseDir() + "/" + title.getIdentifier();
+        (new File(dir)).mkdirs();
+        return dir;
     }
 
     private FileUtil() {

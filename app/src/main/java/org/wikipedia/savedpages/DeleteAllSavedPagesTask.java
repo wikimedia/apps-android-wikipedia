@@ -3,6 +3,7 @@ package org.wikipedia.savedpages;
 import android.content.Context;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.util.FileUtil;
 
 import java.io.File;
 
@@ -20,7 +21,7 @@ public class DeleteAllSavedPagesTask extends SaneAsyncTask<Void> {
         // Clear Saved Pages!
         app.getDatabaseClient(SavedPage.class).deleteAll();
         // Purge all the contents in storage.
-        delete(new File(SavedPage.getSavedPagesDir()), true);
+        delete(new File(FileUtil.savedPageBaseDir()), true);
         // TODO: don't we need to funnel around, too? ;)
         return null;
     }
