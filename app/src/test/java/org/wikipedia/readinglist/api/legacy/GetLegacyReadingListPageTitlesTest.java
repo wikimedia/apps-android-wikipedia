@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 
 import android.support.annotation.Nullable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class GetLegacyReadingListPageTitlesTest extends RetrofitClientBaseTest {
         }
 
         @Override
-        public void execute() {
+        public void execute() throws IOException {
             LegacyReadingListPageTitlesResponse actual = getClient().getMemberPages(WATCHLIST_ID);
             if (expected != null) {
                 List<LegacyReadingListPageTitle> act = actual.query().getMemberPages();

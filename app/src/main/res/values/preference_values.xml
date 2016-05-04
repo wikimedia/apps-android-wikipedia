@@ -4,7 +4,6 @@
         <item>NONE</item>
         <item>BASIC</item>
         <item>HEADERS</item>
-        <item>HEADERS_AND_ARGS</item>
-        <item>FULL</item>
+        <item>BODY</item>
     </string-array>
 </resources>

@@ -2,45 +2,67 @@ package org.wikipedia.server.mwapi;
 
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.server.PageCombo;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageSummary;
+import org.wikipedia.server.restbase.RbPageEndpointsCache;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-import retrofit.http.GET;
-import retrofit.http.Headers;
-import retrofit.http.Query;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.Query;
+
+import java.io.IOException;
 
 /**
  * Retrofit web service client for MediaWiki PHP API.
  */
 public class MwPageService implements PageService {
     private final MwPageEndpoints webService;
+    private final Retrofit retrofit;
     private WikipediaZeroHandler responseHeaderHandler;
 
     public MwPageService(final Site site) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
         webService = MwPageEndpointsCache.INSTANCE.getMwPageEndpoints(site);
+        retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
     }
 
     @Override
     public void pageSummary(String title, final PageSummary.Callback cb) {
-        webService.pageSummary(title, new Callback<MwPageSummary>() {
+        Call<MwPageSummary> call = webService.pageSummary(title);
+        call.enqueue(new Callback<MwPageSummary>() {
+            /**
+             * Invoked for a received HTTP response.
+             * <p/>
+             * Note: An HTTP response may still indicate an application-level failure such as a 404 or 500.
+             * Call {@link Response#isSuccessful()} to determine if the response indicates success.
+             */
             @Override
-            public void success(MwPageSummary pageSummary, Response response) {
-                responseHeaderHandler.onHeaderCheck(response);
-                cb.success(pageSummary);
+            public void onResponse(Call<MwPageSummary> call, Response<MwPageSummary> response) {
+                if (response.isSuccessful()) {
+                    responseHeaderHandler.onHeaderCheck(response);
+                    cb.success(response.body());
+                } else {
+                    cb.failure(RetrofitException.httpError(response, retrofit));
+                }
             }
 
+            /**
+             * Invoked when a network exception occurred talking to the server or when an unexpected
+             * exception occurred creating the request or processing the response.
+             */
             @Override
-            public void failure(RetrofitError error) {
-                cb.failure(error);
+            public void onFailure(Call<MwPageSummary> call, Throwable t) {
+                cb.failure(t);
             }
         });
     }
@@ -48,54 +70,69 @@ public class MwPageService implements PageService {
     @Override
     public void pageLead(String title, int leadImageThumbWidth, boolean noImages,
                          final PageLead.Callback cb) {
-        webService.pageLead(title, leadImageThumbWidth, optional(noImages), new Callback<MwPageLead>() {
+        Call<MwPageLead> call = webService.pageLead(title, leadImageThumbWidth, optional(noImages));
+        call.enqueue(new Callback<MwPageLead>() {
             @Override
-            public void success(MwPageLead pageLead, Response response) {
-                responseHeaderHandler.onHeaderCheck(response);
-                cb.success(pageLead);
+            public void onResponse(Call<MwPageLead> call, Response<MwPageLead> response) {
+                if (response.isSuccessful()) {
+                    responseHeaderHandler.onHeaderCheck(response);
+                    cb.success(response.body());
+                } else {
+                    cb.failure(RetrofitException.httpError(response, retrofit));
+                }
             }
 
             @Override
-            public void failure(RetrofitError error) {
-                cb.failure(error);
+            public void onFailure(Call<MwPageLead> call, Throwable t) {
+                cb.failure(t);
             }
         });
     }
 
     @Override
     public void pageRemaining(String title, boolean noImages, final PageRemaining.Callback cb) {
-        webService.pageRemaining(title, optional(noImages), new Callback<MwPageRemaining>() {
+        Call<MwPageRemaining> call = webService.pageRemaining(title, optional(noImages));
+        call.enqueue(new Callback<MwPageRemaining>() {
             @Override
-            public void success(MwPageRemaining pageRemaining, Response response) {
-                RbSwitch.INSTANCE.onMwSuccess();
-                cb.success(pageRemaining);
+            public void onResponse(Call<MwPageRemaining> call, Response<MwPageRemaining> response) {
+                if (response.isSuccessful()) {
+                    RbSwitch.INSTANCE.onMwSuccess();
+                    cb.success(response.body());
+                } else {
+                    cb.failure(RetrofitException.httpError(response, retrofit));
+                }
             }
 
             @Override
-            public void failure(RetrofitError error) {
-                cb.failure(error);
+            public void onFailure(Call<MwPageRemaining> call, Throwable t) {
+                cb.failure(t);
             }
         });
     }
 
     @Override
     public void pageCombo(String title, boolean noImages, final PageCombo.Callback cb) {
-        webService.pageCombo(title, optional(noImages), new Callback<MwPageCombo>() {
+        Call<MwPageCombo> call = webService.pageCombo(title, optional(noImages));
+        call.enqueue(new Callback<MwPageCombo>() {
             @Override
-            public void success(MwPageCombo pageCombo, Response response) {
-                cb.success(pageCombo);
+            public void onResponse(Call<MwPageCombo> call, Response<MwPageCombo> response) {
+                if (response.isSuccessful()) {
+                    cb.success(response.body());
+                } else {
+                    cb.failure(RetrofitException.httpError(response, retrofit));
+                }
             }
 
             @Override
-            public void failure(RetrofitError error) {
-                cb.failure(error);
+            public void onFailure(Call<MwPageCombo> call, Throwable t) {
+                cb.failure(t);
             }
         });
     }
 
     @Override
-    public MwPageCombo pageCombo(String title, boolean noImages) {
-        return webService.pageCombo(title, noImages);
+    public MwPageCombo pageCombo(String title, boolean noImages) throws IOException {
+        return webService.pageCombo(title, noImages).execute().body();
     }
 
     /**
@@ -118,7 +155,7 @@ public class MwPageService implements PageService {
          * Gets the lead section and initial metadata of a given title.
          *
          * @param title the page title with prefix if necessary
-         * @param cb a Retrofit callback which provides the populated MwPageLead object in #success
+         * @return a Retrofit Call which provides the populated MwPageLead object in #success
          */
          /*
           Here's the rationale for this API call:
@@ -134,10 +171,10 @@ public class MwPageService implements PageService {
           unparsed wikitext, which we certainly don't want.
         */
         @Headers("x-analytics: preview=1")
-        @GET("/w/api.php?action=query&format=json&formatversion=2&prop=extracts%7Cpageimages"
+        @GET("w/api.php?action=query&format=json&formatversion=2&prop=extracts%7Cpageimages"
                 + "&redirects=true&exsentences=5&explaintext=true&piprop=thumbnail%7Cname"
                 + "&pithumbsize=" + WikipediaApp.PREFERRED_THUMB_SIZE)
-        void pageSummary(@Query("titles") String title, Callback<MwPageSummary> cb);
+        Call<MwPageSummary> pageSummary(@Query("titles") String title);
 
         /**
          * Gets the lead section and initial metadata of a given title.
@@ -145,45 +182,28 @@ public class MwPageService implements PageService {
          * @param title the page title with prefix if necessary
          * @param leadImageThumbWidth one of the bucket widths for the lead image
          * @param noImages add the noimages flag to the request if true
-         * @param cb a Retrofit callback which provides the populated MwPageLead object in #success
          */
         @Headers("x-analytics: pageview=1")
-        @GET("/w/api.php?action=mobileview&format=json&formatversion=2&prop="
+        @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
                 + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
                 + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
                 + "&onlyrequestedsections=1&sections=0&sectionprop=toclevel%7Cline%7Canchor"
                 + "&noheadings=true")
-        void pageLead(@Query("page") String title, @Query("thumbsize") int leadImageThumbWidth,
-                      @Query("noimages") Boolean noImages, Callback<MwPageLead> cb);
+        Call<MwPageLead> pageLead(@Query("page") String title,
+                                  @Query("thumbsize") int leadImageThumbWidth,
+                                  @Query("noimages") Boolean noImages);
 
         /**
          * Gets the remaining sections of a given title.
          *
          * @param title the page title to be used including prefix
          * @param noImages add the noimages flag to the request if true
-         * @param cb a Retrofit callback which provides the populated MwPageRemaining object in #success
          */
-        @GET("/w/api.php?action=mobileview&format=json&prop="
+        @GET("w/api.php?action=mobileview&format=json&prop="
                 + "text%7Csections&onlyrequestedsections=1&sections=1-"
                 + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
-        void pageRemaining(@Query("page") String title, @Query("noimages") Boolean noImages,
-                           Callback<MwPageRemaining> cb);
-
-        /**
-         * Gets all page content of a given title -- for refreshing a saved page
-         * Note: the only difference in the URL from #pageLead is the sections=all instead of 0.
-         *
-         * @param title the page title to be used including prefix
-         * @param noImages add the noimages flag to the request if true
-         * @param cb a Retrofit callback which provides the populated MwPageCombo object in #success
-         */
-        @GET("/w/api.php?action=mobileview&format=json&formatversion=2&prop="
-                + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
-                + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
-                + "&onlyrequestedsections=1&sections=all&sectionprop=toclevel%7Cline%7Canchor"
-                + "&noheadings=true")
-        void pageCombo(@Query("page") String title, @Query("noimages") Boolean noImages,
-                       Callback<MwPageCombo> cb);
+        Call<MwPageRemaining> pageRemaining(@Query("page") String title,
+                                            @Query("noimages") Boolean noImages);
 
         /**
          * Gets all page content of a given title -- for refreshing a saved page
@@ -192,11 +212,12 @@ public class MwPageService implements PageService {
          * @param title the page title to be used including prefix
          * @param noImages add the noimages flag to the request if true
          */
-        @GET("/w/api.php?action=mobileview&format=json&formatversion=2&prop="
+        @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
                 + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
                 + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
                 + "&onlyrequestedsections=1&sections=all&sectionprop=toclevel%7Cline%7Canchor"
                 + "&noheadings=true")
-        MwPageCombo pageCombo(@Query("page") String title, @Query("noimages") Boolean noImages);
+        Call<MwPageCombo> pageCombo(@Query("page") String title,
+                                    @Query("noimages") Boolean noImages);
     }
 }

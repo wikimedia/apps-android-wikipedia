@@ -4,11 +4,13 @@ import org.wikipedia.R;
 import org.mediawiki.api.json.ApiException;
 import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
+
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import javax.net.ssl.SSLException;
+
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
 

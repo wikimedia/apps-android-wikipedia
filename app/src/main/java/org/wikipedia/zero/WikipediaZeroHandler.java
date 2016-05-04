@@ -13,8 +13,8 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
-import retrofit.client.Header;
-import retrofit.client.Response;
+import okhttp3.Headers;
+import retrofit2.Response;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -38,7 +38,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.net.URL;
-import java.util.List;
 
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -338,10 +337,10 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     }
 
     private String getHeader(Response response, String key) {
-        List<Header> headers = response.getHeaders();
-        for (Header header: headers) {
-            if (key.equalsIgnoreCase(header.getName())) {
-                return header.getValue();
+        Headers headers = response.headers();
+        for (String name: headers.names()) {
+            if (key.equalsIgnoreCase(name)) {
+                return headers.get(name);
             }
         }
         return null;

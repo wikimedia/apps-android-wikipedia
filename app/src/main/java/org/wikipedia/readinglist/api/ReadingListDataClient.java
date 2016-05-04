@@ -3,13 +3,16 @@ package org.wikipedia.readinglist.api;
 import org.wikipedia.Site;
 import org.wikipedia.readinglist.api.legacy.LegacyReadingListPageTitlesResponse;
 import org.wikipedia.readinglist.api.legacy.LegacyReadingListsResponse;
-import org.wikipedia.dataclient.RestAdapterFactory;
+import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 
-import retrofit.http.GET;
-import retrofit.http.Query;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
+
+import java.io.IOException;
 
 /**
  * Gets and posts collection related data from and to the server.
@@ -20,19 +23,19 @@ public class ReadingListDataClient {
     @NonNull private final Api client;
 
     public ReadingListDataClient() {
-        client = RestAdapterFactory.newInstance(SITE).create(Api.class);
+        client = RetrofitFactory.newInstance(SITE).create(Api.class);
     }
 
     @VisibleForTesting
     public ReadingListDataClient(String baseUrl) {
-        client = RestAdapterFactory.newInstance(SITE, baseUrl).create(Api.class);
+        client = RetrofitFactory.newInstance(SITE, baseUrl).create(Api.class);
     }
 
     /**
      * Gets the Collections of the current user.
      */
-    public LegacyReadingListsResponse getReadingLists() {
-        return client.getReadingLists();
+    public LegacyReadingListsResponse getReadingLists() throws IOException {
+        return client.getReadingLists().execute().body();
     }
 
     /**
@@ -40,18 +43,18 @@ public class ReadingListDataClient {
      *
      * @param listId ID of the reading list to be retrieved
      */
-    public LegacyReadingListPageTitlesResponse getMemberPages(int listId) {
-        return client.getMemberPages(listId);
+    public LegacyReadingListPageTitlesResponse getMemberPages(int listId) throws IOException {
+        return client.getMemberPages(listId).execute().body();
     }
 
     private interface Api {
-        String ACTION_QUERY_LIST = "/w/api.php?format=json&formatversion=2&action=query&list=";
+        String ACTION_QUERY_LIST = "w/api.php?format=json&formatversion=2&action=query&list=";
 
         @GET(ACTION_QUERY_LIST + "lists"
                 + "&lstprop=label%7Cdescription%7Cpublic%7Creview%7Cimage%7Ccount%7Cupdated%7Cowner")
-        LegacyReadingListsResponse getReadingLists();
+        Call<LegacyReadingListsResponse> getReadingLists();
 
         @GET(ACTION_QUERY_LIST + "listpages")
-        LegacyReadingListPageTitlesResponse getMemberPages(@Query("lspid") int collectionId);
+        Call<LegacyReadingListPageTitlesResponse> getMemberPages(@Query("lspid") int collectionId);
     }
 }

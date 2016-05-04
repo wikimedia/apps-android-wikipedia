@@ -7,7 +7,8 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.RestAdapterFactory;
+import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.editing.FetchEditTokenTask;
@@ -15,12 +16,11 @@ import org.wikipedia.useroption.UserOption;
 
 import java.util.concurrent.Executor;
 
-import retrofit.RetrofitError;
-import retrofit.http.Field;
-import retrofit.http.FormUrlEncoded;
-import retrofit.http.GET;
-import retrofit.http.POST;
-import retrofit.http.Query;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public class DefaultUserOptionDataClient implements UserOptionDataClient {
     @NonNull private final Site site;
@@ -28,7 +28,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
     public DefaultUserOptionDataClient(@NonNull Site site) {
         this.site = site;
-        client = RestAdapterFactory.newInstance(site).create(Client.class);
+        client = RetrofitFactory.newInstance(site).create(Client.class);
     }
 
     @NonNull
@@ -54,7 +54,8 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
         String token = app().getEditTokenStorage().token(site);
         if (token == null) {
-            throw RetrofitError.unexpectedError(site.authority(), new RuntimeException("No token"));
+            throw RetrofitException.unexpectedError(
+                    new RuntimeException("No token for " + site.authority()));
         }
         return token;
     }
@@ -85,7 +86,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     }
 
     private interface Client {
-        String ACTION = "/w/api.php?format=json&formatversion=2&action=";
+        String ACTION = "w/api.php?format=json&formatversion=2&action=";
 
         @GET(ACTION + "query&meta=userinfo&uiprop=options")
         @NonNull MwQueryResponse<QueryUserInfo> get();
@@ -115,8 +116,9 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
                     app().getEditTokenStorage().token(site, null);
                 }
 
-                throw RetrofitError.unexpectedError(site.host(),
-                        new RuntimeException("Bad response=" + result()));
+                throw RetrofitException.unexpectedError(
+                        new RuntimeException("Bad response for site " + site.host()
+                                + " = " + result()));
             }
         }
     }

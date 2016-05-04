@@ -3,7 +3,7 @@ package org.wikipedia.server.mwapi;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.Site;
-import org.wikipedia.dataclient.RestAdapterFactory;
+import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 
 /**
  * It's good to cache the Retrofit web service since it's a memory intensive object.
@@ -27,6 +27,6 @@ public final class MwPageEndpointsCache {
     }
 
     private MwPageService.MwPageEndpoints createMwService(Site site) {
-        return RestAdapterFactory.newInstance(site).create(MwPageService.MwPageEndpoints.class);
+        return RetrofitFactory.newInstance(site).create(MwPageService.MwPageEndpoints.class);
     }
 }

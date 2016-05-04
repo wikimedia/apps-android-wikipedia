@@ -19,7 +19,7 @@ import org.wikipedia.util.StringUtil;
 import java.util.Collections;
 import java.util.List;
 
-import retrofit.RestAdapter;
+import okhttp3.logging.HttpLoggingInterceptor.Level;
 
 import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
@@ -281,36 +281,34 @@ public final class Prefs {
         setInt(R.string.preference_key_request_successes, successes);
     }
 
-    public static RestAdapter.LogLevel getRetrofitLogLevel() {
+    public static Level getRetrofitLogLevel() {
         String prefValue = getString(R.string.preference_key_retrofit_log_level, null);
         if (prefValue == null) {
-            return RestAdapter.LogLevel.NONE;
+            return Level.NONE;
         }
         switch (prefValue) {
             case "BASIC":
-                return RestAdapter.LogLevel.BASIC;
+                return Level.BASIC;
             case "HEADERS":
-                return RestAdapter.LogLevel.HEADERS;
-            case "HEADERS_AND_ARGS":
-                return RestAdapter.LogLevel.HEADERS_AND_ARGS;
-            case "FULL":
-                return RestAdapter.LogLevel.FULL;
+                return Level.HEADERS;
+            case "BODY":
+                return Level.BODY;
             case "NONE":
             default:
-                return RestAdapter.LogLevel.NONE;
+                return Level.NONE;
         }
     }
 
     @NonNull
     public static String getRestbaseUriFormat() {
         return StringUtil.defaultIfBlank(getString(R.string.preference_key_restbase_uri_format, null),
-                "%1$s://%2$s/api/rest_v1");
+                "%1$s://%2$s/api/rest_v1/");
     }
 
     @NonNull
     public static Uri getMediaWikiBaseUri() {
         return Uri.parse(StringUtil.defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null),
-                "https://wikipedia.org"));
+                "https://wikipedia.org/"));
     }
 
     public static long getLastRunTime(@NonNull String task) {

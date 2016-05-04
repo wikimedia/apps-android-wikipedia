@@ -1,8 +1,10 @@
 package org.wikipedia.server.restbase;
 
 import org.wikipedia.Site;
-import org.wikipedia.dataclient.RestAdapterFactory;
+import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.settings.Prefs;
+
+import retrofit2.Retrofit;
 
 import java.util.Locale;
 
@@ -15,8 +17,13 @@ public final class RbPageEndpointsCache {
 
     private Site site;
     private RbPageService.RbEndpoints cachedWebService;
+    private Retrofit retrofit;
 
     private RbPageEndpointsCache() {
+    }
+
+    public Retrofit getRetrofit() {
+        return retrofit;
     }
 
     public RbPageService.RbEndpoints getRbEndpoints(Site newSite) {
@@ -28,8 +35,8 @@ public final class RbPageEndpointsCache {
     }
 
     private RbPageService.RbEndpoints createRbService(Site site) {
-        return RestAdapterFactory.newInstance(site,
-                String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(), site.authority()))
-                .create(RbPageService.RbEndpoints.class);
+        retrofit = RetrofitFactory.newInstance(site,
+                String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(), site.authority()));
+        return retrofit.create(RbPageService.RbEndpoints.class);
     }
 }

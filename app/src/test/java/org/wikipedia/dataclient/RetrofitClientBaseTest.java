@@ -8,6 +8,8 @@ import org.junit.Before;
 
 import android.support.annotation.NonNull;
 
+import java.io.IOException;
+
 /**
  * A base class for test cases of Retrofit clients using the MockWebServer.
  */
@@ -25,7 +27,7 @@ public abstract class RetrofitClientBaseTest {
     }
 
     protected void runTest(String responseBody, BaseTestSubject subject)
-            throws InterruptedException {
+            throws InterruptedException, IOException {
 
         server.enqueue(responseBody);
         subject.execute();
@@ -41,7 +43,7 @@ public abstract class RetrofitClientBaseTest {
             return client;
         }
 
-        public abstract void execute();
+        public abstract void execute() throws IOException;
 
         protected BaseTestSubject() {
             client = new ReadingListDataClient(server.getUrl("/").toString());

@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.database.http.HttpStatus;
+import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.useroption.database.UserOptionRow;
@@ -20,8 +21,6 @@ import org.wikipedia.util.log.L;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import retrofit.RetrofitError;
 
 public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
     public UserOptionSyncAdapter(Context context, boolean autoInitialize) {
@@ -44,7 +43,7 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
             if (!uploadOnly) {
                 download();
             }
-        } catch (RetrofitError e) {
+        } catch (RetrofitException e) {
             L.d(e);
             ++syncResult.stats.numIoExceptions;
         }
@@ -70,7 +69,7 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
                     //noinspection ConstantConditions
                     UserOptionDataClientSingleton.instance().post(row.dat());
                 }
-            } catch (RetrofitError e) {
+            } catch (RetrofitException e) {
                 UserOptionDao.instance().failTransaction(rows);
                 throw e;
             }

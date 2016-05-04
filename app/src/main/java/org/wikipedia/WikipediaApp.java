@@ -63,7 +63,8 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
-import retrofit.RequestInterceptor;
+import okhttp3.Headers;
+import okhttp3.Request;
 
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
@@ -226,7 +227,7 @@ public class WikipediaApp extends Application {
     public Api getAPIForSite(Site site, boolean mobile) {
         String host = mobile ? site.mobileHost() : site.host();
         String acceptLanguage = getAcceptLanguage(site);
-        Map<String, String> customHeaders = buildCustomHeaders(acceptLanguage);
+        Map<String, String> customHeaders = buildCustomHeadersMap(acceptLanguage);
         Api api;
 
         String cachedApiKey = host + "-" + acceptLanguage;
@@ -530,16 +531,19 @@ public class WikipediaApp extends Application {
         return PrefsOnboardingStateMachine.getInstance();
     }
 
-    /** For Retrofit requests. Keep in sync with #buildCustomHeaders */
-    public void injectCustomHeaders(RequestInterceptor.RequestFacade request, Site site) {
-        Map<String, String> headers = buildCustomHeaders(getAcceptLanguage(site));
-        for (String key : headers.keySet()) {
-            request.addHeader(key, headers.get(key));
+    /** For Retrofit requests. Keep in sync with #buildCustomHeadersMap */
+    public Headers buildCustomHeaders(Request request, Site site) {
+        Map<String, String> toSetHeaders = buildCustomHeadersMap(getAcceptLanguage(site));
+
+        Headers.Builder moreHeaders = request.headers().newBuilder();
+        for (String key : toSetHeaders.keySet()) {
+            moreHeaders.set(key, toSetHeaders.get(key));
         }
+        return moreHeaders.build();
     }
 
     /** For java-mwapi API requests. */
-    private Map<String, String> buildCustomHeaders(String acceptLanguage) {
+    private Map<String, String> buildCustomHeadersMap(String acceptLanguage) {
         Map<String, String> headers = new HashMap<>();
         headers.put("User-Agent", getUserAgent());
 

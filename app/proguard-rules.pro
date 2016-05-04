@@ -17,26 +17,24 @@
 -dontwarn com.android.volley.toolbox.**
 # --- /Fresco ---
 
-# https://github.com/square/okio/issues/60
--dontwarn okio.**
-
--dontwarn com.squareup.okhttp.**
--dontnote com.squareup.okhttp.internal.Platform
-
-
 -keep class com.mobsandgeeks.saripaar.** {*;}
 
 -keep class uk.co.senab.photoview.** {*;}
 
 -keep class com.github.kevinsawicki.http.** {*;}
 
-# --- Retrofit ---
-# https://github.com/square/retrofit/issues/117
--dontwarn retrofit.**
--keep class retrofit.** { *; }
+# --- Retrofit2 ---
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
 -keepattributes Signature
 -keepattributes Exceptions
 # --- /Retrofit ---
+
+# --- OkHttp + Okio ---
+-dontwarn okhttp3.**
+-keep class okhttp3.** { *; }
+-dontwarn okio.*
+# --- /OkHttp + Okio ---
 
 # --- Butter Knife ---
 -keep class butterknife.** { *; }

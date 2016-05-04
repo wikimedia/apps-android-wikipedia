@@ -2,8 +2,7 @@ package org.wikipedia.settings;
 
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-
-import retrofit.RetrofitError;
+import org.wikipedia.dataclient.retrofit.RetrofitException;
 
 import java.util.Random;
 
@@ -97,7 +96,7 @@ public final class RbSwitch {
     /**
      * Call this method when a RESTBase call fails.
      */
-    public void onRbRequestFailed(RetrofitError error) {
+    public void onRbRequestFailed(Throwable error) {
         if (isSignificantFailure(error)) {
             markRbFailed();
             if (!Prefs.useRestBaseSetManually()) {
@@ -111,12 +110,17 @@ public final class RbSwitch {
      * We don't want to fallback just because of a user error (404)
      * or a network issue on the client side (RetrofitError.Kind.NETWORK).
      */
-    private static boolean isSignificantFailure(RetrofitError error) {
-        if (error.getKind() == RetrofitError.Kind.HTTP) {
-            int status = error.getResponse().getStatus();
+    private static boolean isSignificantFailure(Throwable throwable) {
+        if (!(throwable instanceof RetrofitException)) {
+            return false;
+        }
+
+        RetrofitException error = (RetrofitException) throwable;
+        if (error.getKind() == RetrofitException.Kind.HTTP) {
+            int status = error.getResponse().code();
             return status != HTTP_NOT_FOUND;
         }
-        return error.getKind() != RetrofitError.Kind.NETWORK;
+        return error.getKind() != RetrofitException.Kind.NETWORK;
     }
 
     private static void markRbFailed() {

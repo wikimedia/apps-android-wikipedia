@@ -1,7 +1,7 @@
 package org.wikipedia.test;
 
-import com.squareup.okhttp.mockwebserver.MockResponse;
-import com.squareup.okhttp.mockwebserver.MockWebServer;
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
 
 import org.wikipedia.testlib.TestConstants;
 
@@ -28,7 +28,7 @@ public class TestWebServer {
     }
 
     public URL getUrl(String path) {
-        return server.getUrl(path);
+        return server.url(path).url();
     }
 
     public int getRequestCount() {

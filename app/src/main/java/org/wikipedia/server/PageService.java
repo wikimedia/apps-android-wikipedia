@@ -1,5 +1,7 @@
 package org.wikipedia.server;
 
+import java.io.IOException;
+
 /**
  * Generic interface for Page content service.
  * Usually we would use direct Retrofit Callbacks here but since we have two ways of
@@ -44,9 +46,11 @@ public interface PageService {
 
     /**
      * Gets all page content of a given title.  Used in the saved page sync background service.
+     * Synchronous call.
      *
      * @param title the page title to be used including prefix
      * @param noImages add the noimages flag to the request if true
+     * @throws IOException when the request did not succeed
      */
-    PageCombo pageCombo(String title, boolean noImages);
+    PageCombo pageCombo(String title, boolean noImages) throws IOException;
 }

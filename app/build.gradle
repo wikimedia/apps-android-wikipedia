@@ -155,7 +155,8 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '2.7.0'
+    String retrofitVersion = '2.0.2'
+    String okHttpVersion = '3.2.0'
     String supportVersion = '23.3.0'
     String espressoVersion = '2.2.1'
 
@@ -168,10 +169,11 @@ dependencies {
     compile "com.android.support:preference-v14:$supportVersion"
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'com.google.code.gson:gson:2.6.2'
-    compile "com.squareup.okhttp:okhttp-urlconnection:$okHttpVersion"
-    compile "com.squareup.okhttp:okhttp:$okHttpVersion"
+    compile "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // for JavaNetCookieJar
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     compile 'com.squareup:otto:1.3.8'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
     compile 'com.jakewharton:butterknife:7.0.1'
@@ -185,7 +187,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'
     testCompile 'org.robolectric:robolectric:3.0'
-    testCompile "com.squareup.okhttp:mockwebserver:$okHttpVersion"
+    testCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
 
     // Required by Android JUnit Runner.
     androidTestCompile "com.android.support:support-annotations:$supportVersion"
