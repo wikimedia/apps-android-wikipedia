@@ -39,6 +39,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.util.Date;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
@@ -60,7 +61,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private HistorySearchTextWatcher textWatcher = new HistorySearchTextWatcher();
     private HistoryItemClickListener itemClickListener = new HistoryItemClickListener();
     private HistoryItemLongClickListener itemLongClickListener = new HistoryItemLongClickListener();
-
     private boolean firstRun = true;
 
     @Override
@@ -213,6 +213,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 HistoryEntry oldEntry = (HistoryEntry) view.getTag();
                 HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
                 ((PageActivity) getActivity()).loadPage(oldEntry.getTitle(), newEntry);
+            } else {
+                actionMode.invalidate();
             }
         }
     }
@@ -233,12 +235,21 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 @Override
                 public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                     mode.getMenuInflater().inflate(R.menu.menu_history_context, menu);
+                    setActionModeIntTitle(historyEntryList.getCheckedItemCount() + 1, mode);
                     return true;
                 }
 
                 @Override
                 public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                     mode.setTag(actionModeTag);
+                    int count = historyEntryList.getCheckedItemCount();
+                    if (actionMode != null) {
+                        if (count == 0) {
+                            mode.finish();
+                        } else {
+                            setActionModeIntTitle(count, mode);
+                        }
+                    }
                     return false;
                 }
 
@@ -341,5 +352,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
             getActivity().supportInvalidateOptionsMenu();
         }
+    }
+
+    private void setActionModeIntTitle(int count, ActionMode mode) {
+        mode.setTitle(NumberFormat.getInstance().format(count));
     }
 }
