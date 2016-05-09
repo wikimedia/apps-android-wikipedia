@@ -284,7 +284,7 @@
   <string name="crash_report_relaunch_or_quit">با عرض پوزش نرم‌افزار با خطا خارج شد آیا قصد استفادهٔ مجدد دارید؟</string>
   <string name="crash_report_relaunch">شروع دوباره</string>
   <string name="crash_report_quit">خروج</string>
-  <string name="article_menu_bar_bookmark">ذخیرهٔ مقاله برای مطالعه بدون اینترنت در زمانی دیگر</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">ذخیرهٔ مقاله برای مطالعه بدون اینترنت در زمانی دیگر</string>
   <string name="article_menu_bar_share">اشتراک‌گذاری پیوند مقاله</string>
   <string name="article_menu_bar_navigate">هدایت شدن به موقعیت مقاله</string>
   <string name="user_option_sync_label">ترجیحات</string>

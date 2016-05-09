@@ -284,7 +284,7 @@ Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string
 Vil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
   <string name="crash_report_quit">Afslut</string>
-  <string name="article_menu_bar_bookmark">Gemme artiklen til læsning offline senere</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Gemme artiklen til læsning offline senere</string>
   <string name="article_menu_bar_share">Del link til artiklen</string>
   <string name="article_menu_bar_navigate">Naviger til det omtalte sted</string>
 </resources>

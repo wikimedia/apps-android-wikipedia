@@ -248,6 +248,6 @@ Felhasználási feltételek: https://m.wikimediafoundation.org/wiki/Terms_of_Use
   <string name="crash_report_dialog_send_button">Küldés</string>
   <string name="crash_report_activity_title">Alkalmazás hiba</string>
   <string name="crash_report_quit">Kilépés</string>
-  <string name="article_menu_bar_bookmark">Cikk mentése a későbbi offline olvasáshoz</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Cikk mentése a későbbi offline olvasáshoz</string>
   <string name="article_menu_bar_share">Ossza meg a cikk linkjét</string>
 </resources>

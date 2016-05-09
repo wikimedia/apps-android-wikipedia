@@ -263,7 +263,7 @@
 Viltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
   <string name="crash_report_quit">Hætta</string>
-  <string name="article_menu_bar_bookmark">Vista greinina fyrir síðari tíma tengingarlausan lestur</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Vista greinina fyrir síðari tíma tengingarlausan lestur</string>
   <string name="article_menu_bar_share">Deila tengli á greinina</string>
   <string name="article_menu_bar_navigate">Fara á staðsetningu greinarinnar</string>
 </resources>

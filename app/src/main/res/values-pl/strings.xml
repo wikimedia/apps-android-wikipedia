@@ -271,10 +271,11 @@ Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
 Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
   <string name="crash_report_quit">Wyjście</string>
-  <string name="article_menu_bar_bookmark">Zapisz artykuł do późniejszego odczytu w trybie offline</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Zapisz artykuł do późniejszego odczytu w trybie offline</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_menu_bar_navigate">Przejdź do lokalizacji artykułu</string>
-  <string name="reading_list_added_view_button">Zobacz</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Zobacz</string>
+  <string name="reading_list_item_count_singular">1 artykuł</string>
   <string name="reading_list_sort">Sortuj</string>
   <string name="reading_list_sort_by_name">Według nazwy</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>

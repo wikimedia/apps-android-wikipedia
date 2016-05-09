@@ -3,12 +3,14 @@
   <string name="app_name_prod">विकिपीडिया</string>
   <string name="app_name_beta">विकिपीडिया बीटा</string>
   <string name="app_name_alpha">विकिपीडिया अल्फा</string>
+  <string name="wikimedia">विकिमिडिया</string>
   <string name="yes">होय</string>
   <string name="no">नाही</string>
   <string name="search_hint">विकिपीडिया मध्ये शोधा</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">आंतरजालाशी जुळू शकत नाही.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
+  <string name="page_error_back_to_main">परत जा</string>
   <string name="menu_clear_all_history">इतिहास साफ करा</string>
   <string name="menu_clear_all_saved_pages">साठवलेली पाने पुसून टाका.</string>
   <string name="page_does_not_exist_error">हे पान अस्तित्वात नाही.</string>
@@ -32,15 +34,19 @@
   <string name="menu_page_show_tabs">कळी दाखवा</string>
   <string name="menu_page_other_languages">भाषा बदला</string>
   <string name="menu_page_find_in_page">पाना मध्ये शोधा</string>
+  <string name="menu_page_content_issues">आशयाच्या बाबी</string>
   <string name="menu_page_similar_titles">सारखी शीर्षके</string>
   <string name="menu_page_font_and_theme">टंक आणि देखावा</string>
   <string name="menu_page_save">पान जतन करा</string>
+  <string name="menu_page_add_to_list">वाचनयादीत जोडा</string>
   <string name="menu_page_share">दुवा वाटप करा</string>
   <string name="menu_long_press_open_page">उघडा</string>
   <string name="menu_long_press_open_in_new_tab">नविन कळीत उघडा</string>
   <string name="menu_long_press_copy_page">दुव्याचा पत्ता उतरवा.</string>
   <string name="menu_text_select_copy">नक्कल करा</string>
+  <string name="menu_text_select_define">व्याख्या करा</string>
   <string name="menu_text_select_share">सहभाग करा</string>
+  <string name="menu_text_select_edit_here">येथे संपादन करा</string>
   <string name="nav_item_nearby">जवळपास</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
@@ -119,6 +125,7 @@
   <string name="zero_charged_verbiage">विकीपिडीया झीरो बंद आहे</string>
   <string name="zero_charged_verbiage_extended">इतर लेखांचे प्रभारणाने आपणांस डाटा चार्जेस लागू शकतात.</string>
   <string name="zero_search_hint">विकीपिडीया झीरो मध्ये शोधा</string>
+  <string name="zero_warn_when_leaving">जर विकिपीडिया झिरो सोडत असाल तर इशारा द्या</string>
   <string name="zero_wikipedia_zero_heading">विकिपीडीया झीरो</string>
   <string name="zero_interstitial_title">विकिपीडीया झीरो सोडत आहे</string>
   <string name="zero_interstitial_continue">सोडा</string>
@@ -147,16 +154,18 @@
   <string name="about_description">विकिपीडिया अॅपविषयी</string>
   <string name="privacy_policy_description">गुप्तता नीती</string>
   <string name="terms_of_use_description">वापराच्या अटी</string>
-  <string name="about_contributors_heading" fuzzy="true">योगदानकर्ते</string>
-  <string name="about_translators_heading" fuzzy="true">भाषांतरकार</string>
+  <string name="about_libraries_heading">वापरलेले ग्रंथभंडार</string>
+  <string name="about_contributors_heading">योगदानकर्ते</string>
+  <string name="about_translators_heading">भाषांतरकार</string>
   <string name="about_translators_translatewiki">हे  अॅप स्वयंसेवक भाषांतरकारांनी  &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; येथे भाषांतरीत केले आहे.</string>
+  <string name="about_app_license_heading">परवाना</string>
   <string name="about_wmf">हे &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;विकिमिडिया फाउंडेशनचे&lt;/a&gt; उत्पादन आहे.</string>
   <string name="about_activity_title">आमच्याबद्दल</string>
   <string name="edit_abandon_confirm">हे पान बदलण्यात आले आहे. आपणास आपले बदल जतन न करताच बाहेर व्हायचे आहे काय?</string>
   <string name="user_blocked_from_editing_title">प्रतिबंधित</string>
   <string name="user_logged_in_blocked_from_editing">या विकिवर संपादन करण्यास आपले खाते प्रतिबंधित करण्यात आले आहे.</string>
   <string name="user_anon_blocked_from_editing">कोणतेही संपादन करण्यास, आपला अंकपत्ता प्रतिबंधित करण्यात आला आहे.</string>
-  <string name="edit_how_page_improved">तूम्ही या पानात काय वाढवले?</string>
+  <string name="edit_how_page_improved">तूम्ही या पानात काय सुधारणा केल्यात?</string>
   <string name="edit_next">पुढील</string>
   <string name="edit_done">जतन करा</string>
   <string name="edit_preview">झलक</string>
@@ -168,7 +177,7 @@
   <string name="find_next">पुढील शोधा</string>
   <string name="find_previous">मागील शोधा</string>
   <string name="error_network_error_try_again">नेटवर्कपर्यंत पोहोचू शकत नाही, पुन्हा प्रयत्न करा.</string>
-  <string name="saved_pages_update_all_error_retry">पुनर्प्रयत्‍न</string>
+  <string name="saved_pages_update_all_error_retry">पुनर्प्रयत्‍न करा</string>
   <string name="saved_pages_update_all_error_message">पान अद्ययावत करण्यात त्रुटी</string>
   <string name="saved_pages_progress_title">साठवलेली पाने तरोताजी करीत आहे.</string>
   <string name="abusefilter_title_warn">हे एक अरचनात्मक संपादन असू शकते. हे जतन करण्याबाबत आपण खात्री देता काय?</string>
@@ -186,28 +195,36 @@
   <string name="search_recent_header">अलीकडील शोध:</string>
   <string name="button_clear_all_recent_searches">कुकतेच केलेले शोध हटवा</string>
   <string name="clear_recent_searches_confirm">आपण हे नक्की करता काय कि आपणास शोध इतिहास हटवायचा आहे?</string>
+  <string name="error_browser_not_found">वेब पेज उघडू शकलो नाही (कोणतेही न्याहाळक अॅप सापडले नाही).</string>
   <string name="table_infobox">जलद तथ्य</string>
   <string name="table_other">अधिक माहिती</string>
   <string name="table_close">बंद करा</string>
+  <string name="widget_name_featured_page">विकिपीडिया अविशिष्ट पान</string>
+  <string name="widget_title_featured_page">आजचे अविशिष्ट पान:</string>
   <string name="widget_name_search">विकिपीडीया शोध</string>
+  <string name="wiktionary_no_definitions_found">काहीही व्याख्या सापडल्या नाहीत.</string>
   <string name="alpha_update_notification_title">नवीन अल्फा अद्यतन उपलब्ध आहे</string>
-  <string name="alpha_update_notification_text">उतरवण्यासाठी टिचकवा</string>
+  <string name="alpha_update_notification_text">अधिभारणासाठी टिचकवा</string>
   <string name="dialog_close_description">बंद करा</string>
   <string name="preference_title_show_images">चित्रे दाखवा</string>
   <string name="read_more_section">अधिक वाचन</string>
+  <string name="menu_gallery_visit_page">संचिका पानावर जा</string>
   <string name="gallery_error_draw_failed">चित्र काढता आले नाही.</string>
   <string name="gallery_menu_share">सहभाग करा</string>
   <string name="gallery_menu_save">उपकरणात जतन करा</string>
-  <string name="gallery_save_success" fuzzy="true">चित्र यशस्वीरित्या जतन केले आहे.</string>
+  <string name="gallery_save_progress">संचिका अधिभारण करीत आहे...</string>
+  <string name="gallery_save_success">संचिका यशस्वीरित्या जतन केली.</string>
   <string name="gallery_error_video_failed">व्हिडिओ चालवता आला नाही.</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रे जतन करण्यास, आपल्या उपकरणावर, भांडार-लेखन परवानगी आवश्यक आहे. पुन्हा प्रयत्न करा व विनंती केलेली परवानगी द्या.</string>
   <string name="err_cannot_save_file">संचिका जतन करता येत नाही.</string>
+  <string name="snippet_share_intro">\"%1$s\" @Wikipedia वर: %2$s</string>
   <string name="expand_refs">विस्तार करण्यास टिचका</string>
   <string name="share_snippet_button">वित्र म्हणुन सहभाग करा</string>
   <string name="share_normal_button">मजकूर म्हणून सहभाग करा</string>
   <string name="snippet_share_preview_image_desc">चित्र झलक दाखवा</string>
   <string name="cc_logo">क्रियेटीव्ह कॉमन्स परवाना</string>
   <string name="captcha_image">कॅप्चा चित्र</string>
+  <string name="gallery_fair_use_license">उचीत वापर</string>
   <string name="gallery_uploader_unknown">अपभारक माहित नाही</string>
   <string name="menu_new_tab">नविन कळ</string>
   <string name="button_close_tab">कळ बंद करा</string>
@@ -219,7 +236,7 @@
   <string name="format_error_server_code">संकेत: \"%s\"</string>
   <string name="address_copied">पत्ता टांचणफळ्यात(क्लिपबोर्ड) नकलविला.</string>
   <string name="text_copied">मजकूर टांचणफळ्यात(क्लिपबोर्ड) नकलविला.</string>
-  <string name="button_continue_to_article" fuzzy="true">लेखाकडे परत</string>
+  <string name="button_continue_to_article">लेख वाचा</string>
   <string name="preference_title_show_link_previews">दुव्याची झलक दाखवा</string>
   <string name="nav_item_donate">विकिपीडियास साहाय्य करा</string>
   <string name="crash_report_dialog_dont_send_button">पुढे जा</string>
@@ -233,4 +250,31 @@
   <string name="crash_report_quit">रद्दबादल करा</string>
   <string name="article_menu_bar_share">लेखदुवा सहभागा</string>
   <string name="article_menu_bar_navigate">या लेखाच्या स्थळास न्याहाळा</string>
+  <string name="nav_item_reading_lists">वाचन याद्या</string>
+  <string name="reading_list_untitled">विनाशिर्षक</string>
+  <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
+  <string name="reading_list_create_new">नवीन तयार करा</string>
+  <string name="reading_list_added_to_named">%s ला जोडले.</string>
+  <string name="reading_list_added_to_unnamed">वाचन यादीत जोडले.</string>
+  <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
+  <string name="reading_list_added_view_button" fuzzy="true">बघा</string>
+  <string name="reading_list_item_count_singular">१ लेख</string>
+  <string name="reading_list_item_count_plural">%s लेख</string>
+  <string name="reading_list_sort">निवडा</string>
+  <string name="reading_list_sort_by_name">नावानुसार</string>
+  <string name="reading_list_sort_by_recent">अलीकडील अनुसार</string>
+  <string name="reading_list_menu_edit">वाचन यादीचा तपशील संपादन करा</string>
+  <string name="reading_list_menu_delete">वाचन यादी वगळा</string>
+  <string name="reading_list_name_sample">माझी वाचन यादी</string>
+  <string name="reading_list_name_hint">या यादीचे नाव</string>
+  <string name="reading_list_description_hint">वर्णन (ऐच्छिक)</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">विनाजाल वाचनासाठी जतन करा</string>
+  <string name="reading_list_item_deleted">%s यादीतून काढले</string>
+  <string name="reading_list_deleted">%s वगळले</string>
+  <string name="reading_list_edit_ok">ठीक आहे</string>
+  <string name="reading_list_edit_cancel">रद्द करा</string>
+  <string name="reading_list_delete_confirm">आपणास खात्री आहे काय कि आपणास ही वाचन यादी वगळायची आहे?</string>
+  <string name="reading_lists_empty">येथे वाचन याद्या नाहीत.</string>
+  <string name="reading_lists_onboarding_got_it">समजले</string>
+  <string name="user_option_sync_label">पसंतीक्रम</string>
 </resources>

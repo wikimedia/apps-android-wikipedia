@@ -287,7 +287,7 @@ Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
 Gostaria de recomeçar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
   <string name="crash_report_quit">Sair</string>
-  <string name="article_menu_bar_bookmark">Guardar o artigo para ler off-line mais tarde</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Guardar o artigo para ler off-line mais tarde</string>
   <string name="article_menu_bar_share">Partilhar a ligação do artigo</string>
   <string name="article_menu_bar_navigate">Navegar ao local do artigo</string>
   <string name="nav_item_reading_lists">Listas de leitura</string>
@@ -297,7 +297,7 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_list_added_to_named">Adicionado a %s.</string>
   <string name="reading_list_added_to_unnamed">Adicionado à lista de leitura.</string>
   <string name="reading_list_already_exists">Este artigo já se encontra nesta lista.</string>
-  <string name="reading_list_added_view_button">Ver</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Ver</string>
   <string name="reading_list_item_count_singular">1 artigo</string>
   <string name="reading_list_item_count_plural">%s artigos</string>
   <string name="reading_list_sort">Ordenar</string>
@@ -308,7 +308,7 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_list_name_sample">Minha lista de leitura</string>
   <string name="reading_list_name_hint">Nome desta lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
-  <string name="reading_list_save_for_offline">Guardar para leitura offline</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">Guardar para leitura offline</string>
   <string name="reading_list_item_deleted">%s removido da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>

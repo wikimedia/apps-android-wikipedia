@@ -252,7 +252,7 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
 Žalite li početi ponovno ili prekinuti?</string>
   <string name="crash_report_relaunch">Počni ponovno</string>
   <string name="crash_report_quit">Prekini</string>
-  <string name="article_menu_bar_bookmark">Spremi članak za izvanmrežno čitanje</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Spremi članak za izvanmrežno čitanje</string>
   <string name="article_menu_bar_share">Podijelite poveznicu na članak</string>
   <string name="user_option_sync_label">Postavke</string>
 </resources>

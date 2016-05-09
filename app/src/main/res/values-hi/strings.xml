@@ -281,7 +281,7 @@
 क्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
   <string name="crash_report_quit">बंद करें</string>
-  <string name="article_menu_bar_bookmark">इस आर्टिकल को बाद में ऑफलाइन पढ़ने के लिए सहेजें</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">इस आर्टिकल को बाद में ऑफलाइन पढ़ने के लिए सहेजें</string>
   <string name="article_menu_bar_share">आर्टिकल लिंक को साझा करें</string>
   <string name="article_menu_bar_navigate">लेख के स्थान पर जायें</string>
   <string name="nav_item_reading_lists">पठन सूची</string>
@@ -291,7 +291,7 @@
   <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
   <string name="reading_list_added_to_unnamed">पठन सूची में जोड़ा गया।</string>
   <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
-  <string name="reading_list_added_view_button">देखें</string>
+  <string name="reading_list_added_view_button" fuzzy="true">देखें</string>
   <string name="reading_list_item_count_singular">1 लेख</string>
   <string name="reading_list_item_count_plural">%s लेख</string>
   <string name="reading_list_sort">छांटें</string>
@@ -302,7 +302,7 @@
   <string name="reading_list_name_sample">मेरी पठन सूची</string>
   <string name="reading_list_name_hint">सूची का नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_save_for_offline">ऑफलाइन पढ़ने हेतु सहेजें</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">ऑफलाइन पढ़ने हेतु सहेजें</string>
   <string name="reading_list_item_deleted">%s सूची में से हटाया गया</string>
   <string name="reading_list_item_delete_undo">अनडू</string>
   <string name="reading_list_deleted">%s मिटा दिया गया</string>

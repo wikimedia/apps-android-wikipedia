@@ -286,8 +286,9 @@ Termos de Uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/pt-br</string
 Gostaria de reiniciá-lo ou sair?</string>
   <string name="crash_report_relaunch">Reiniciar</string>
   <string name="crash_report_quit">Sair</string>
-  <string name="article_menu_bar_bookmark">Salvar o artigo para ler sem conexão mais tarde</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Salvar o artigo para ler sem conexão mais tarde</string>
   <string name="article_menu_bar_share">Compartilhar o link do artigo</string>
   <string name="article_menu_bar_navigate">Navegar à localização do artigo</string>
+  <string name="reading_list_create_new">Criar novo</string>
   <string name="user_option_sync_label">Preferências</string>
 </resources>

@@ -278,7 +278,7 @@ Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
   <string name="crash_report_quit">Keluar</string>
-  <string name="article_menu_bar_bookmark">Simpan rencana ini untuk dibaca di luar talian nanti</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Simpan rencana ini untuk dibaca di luar talian nanti</string>
   <string name="article_menu_bar_share">Kongsi pautan rencana</string>
   <string name="article_menu_bar_navigate">Pandu arah ke lokasi rencana</string>
 </resources>

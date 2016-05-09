@@ -140,4 +140,7 @@
   <string name="crash_report_relaunch">Cardin dest pê bike</string>
   <string name="crash_report_quit">Derkeve</string>
   <string name="article_menu_bar_share">Girêdana gotarê parve bike</string>
+  <string name="reading_list_name_hint">Navê vê lîsteyê</string>
+  <string name="reading_list_edit_ok">Baş e</string>
+  <string name="reading_list_edit_cancel">Betal bike</string>
 </resources>

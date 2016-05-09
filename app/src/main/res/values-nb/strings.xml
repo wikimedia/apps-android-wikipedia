@@ -286,8 +286,9 @@ Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
 Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="crash_report_relaunch">Start på nytt</string>
   <string name="crash_report_quit">Avslutt</string>
-  <string name="article_menu_bar_bookmark">Lagre artikkelen for å kunne lese den offline senere</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Lagre artikkelen for å kunne lese den offline senere</string>
   <string name="article_menu_bar_share">Del lenke til artikkelen</string>
   <string name="article_menu_bar_navigate">Naviger til det omtalte stedet</string>
+  <string name="reading_list_create_new">Opprett ny</string>
   <string name="user_option_sync_label">Innstillinger</string>
 </resources>

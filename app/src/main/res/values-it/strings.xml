@@ -290,17 +290,17 @@ Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
 Vuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
   <string name="crash_report_quit">Esci</string>
-  <string name="article_menu_bar_bookmark">Salva la voce per la lettura senza connessione più tardi</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Salva la voce per la lettura senza connessione più tardi</string>
   <string name="article_menu_bar_share">Condividi il collegamento alla voce</string>
   <string name="article_menu_bar_navigate">Naviga verso la posizione della voce</string>
   <string name="nav_item_reading_lists">Elenchi di lettura</string>
   <string name="reading_list_untitled">Senza titolo</string>
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
-  <string name="reading_list_create_new" fuzzy="true">Crea un nuovo elenco di lettura</string>
+  <string name="reading_list_create_new">Crea nuovo</string>
   <string name="reading_list_added_to_named">Aggiunto a %s.</string>
   <string name="reading_list_added_to_unnamed">Aggiunto all\'elenco di lettura</string>
   <string name="reading_list_already_exists">Questa voce è già presente in questo elenco.</string>
-  <string name="reading_list_added_view_button">Visualizza</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Visualizza</string>
   <string name="reading_list_item_count_singular">1 voce</string>
   <string name="reading_list_item_count_plural">%s voci</string>
   <string name="reading_list_sort">Ordina</string>
@@ -311,7 +311,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
-  <string name="reading_list_save_for_offline">Salva per la lettura offline</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">Salva per la lettura offline</string>
   <string name="reading_list_item_deleted">%s rimosso dall\'elenco</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s cancellato</string>
@@ -320,7 +320,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare questo elenco di lettura?</string>
   <string name="reading_lists_empty">Nessun elenco di lettura qui.</string>
   <string name="reading_lists_empty_message">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in cima alla voce, per aggiungerla ad un elenco di lettura.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Nuovo: organizza le voci che vuoi leggere più tardi negli elenchi di lettura.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Organizza le voci che vuoi leggere più tardi negli elenchi di lettura.</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="user_option_sync_label">Preferenze</string>
 </resources>

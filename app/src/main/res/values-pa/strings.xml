@@ -212,7 +212,7 @@
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
   <string name="gallery_menu_save">ੳੁਪਕਰਨ \'ਚ ਸੰਭਾਲੋ</string>
-  <string name="article_menu_bar_bookmark">ਲੇਖ ਔਫਲਾਈਨ ਪੜ੍ਹਨ ਲਈ ਸਾਂਭੋ</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">ਲੇਖ ਔਫਲਾਈਨ ਪੜ੍ਹਨ ਲਈ ਸਾਂਭੋ</string>
   <string name="article_menu_bar_share">ਲੇਖ ਦੀ ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="article_menu_bar_navigate">ਲੇਖ ਦੇ ਟਿਕਾਣੇ ਤੱਕ ਸਫ਼ਰ ਕਰੋ</string>
 </resources>

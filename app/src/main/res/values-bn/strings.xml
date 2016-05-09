@@ -12,11 +12,11 @@
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="page_error_back_to_main">ফিরে যান</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
-  <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার কর</string>
+  <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার করুন</string>
   <string name="page_does_not_exist_error">এই পাতার অস্তিত্ব নেই।</string>
   <string name="nav_item_today">আজ</string>
   <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন</string>
-  <string name="dialog_message_clear_history">এই আপনার সব ব্রাউজ করা ইতিহাস সব মুছে দিন, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
+  <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
   <string name="menu_update_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
   <string name="menu_update_selected_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
@@ -38,6 +38,7 @@
   <string name="menu_page_similar_titles">অনুরূপ শিরোনাম</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_save">পাতা সংরক্ষণ করুন</string>
+  <string name="menu_page_add_to_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
   <string name="menu_long_press_open_page">খুলুন</string>
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
@@ -45,6 +46,7 @@
   <string name="menu_text_select_copy">অনুলিপি</string>
   <string name="menu_text_select_define">সংজ্ঞা</string>
   <string name="menu_text_select_share">বণ্টন</string>
+  <string name="menu_text_select_edit_here">এখানে সম্পাদনা করুন</string>
   <string name="nav_item_nearby">কাছাকাছি</string>
   <string name="nearby_distance_in_meters">%d মি</string>
   <string name="nearby_distance_in_kilometers">%.2f কিমি</string>
@@ -66,7 +68,7 @@
   <string name="dialog_message_edit_failed">সম্পাদনা সংরক্ষণ ব্যর্থ!</string>
   <string name="dialog_message_edit_failed_retry">পুনঃচেষ্টা করুন</string>
   <string name="dialog_message_edit_failed_cancel">বাতিল</string>
-  <string name="dialog_message_leaving_edit">আপনার পরিবর্তনগুলি এখনো সংরক্ষিত হয়নি।আপ্নি কি নিশ্চিত আপনি এই পৃষ্ঠা ছেড়ে যেতে চান?</string>
+  <string name="dialog_message_leaving_edit">আপনার পরিবর্তনগুলি এখনো সংরক্ষিত হয়নি। আপনি কি নিশ্চিত আপনি এই পৃষ্ঠা ছেড়ে যেতে চান?</string>
   <string name="dialog_message_leaving_edit_leave">অগ্রসর হোন</string>
   <string name="dialog_message_leaving_edit_stay">থাকুন</string>
   <string name="menu_show_toc">সূচিপত্র</string>
@@ -87,7 +89,7 @@
   <string name="login_error_wrong_username">ভুল ব্যবহারকারী নাম</string>
   <string name="login_error_illegal">অগ্রহণযোগ্য ব্যবহারকারী নাম</string>
   <string name="login_success_toast">প্রবেশ করা সফল!</string>
-  <string name="login_error_blocked">এই ব্যবহারকারীকে ব্লক করা হয়েছে</string>
+  <string name="login_error_blocked">এই ব্যবহারকারীকে বাধা দেয়া হয়েছে</string>
   <string name="login_error_throttled">অনেকবার প্রবেশের চেষ্টা করা হয়েছে। কয়েক মিনিট অপেক্ষা করে আবার চেষ্টা করুন।</string>
   <string name="login_error_unknown">প্রবেশ ব্যর্থ :(</string>
   <string name="preference_title_logout">প্রস্থান</string>
@@ -109,7 +111,7 @@
   <string name="create_account_email_error">ভুল ইমেইল ঠিকানা</string>
   <string name="create_account_username_exists_error">এই ব্যবহারকারী নাম আগে নিবন্ধিত হয়েছে</string>
   <string name="create_account_ip_throttle_error">একই আইপি ঠিকানা থেকে অনেকগুলো অ্যাকাউন্ট তৈরী করা হয়েছে। অনুগ্রহ করে কিছুক্ষন পরে চেষ্টা করুন।</string>
-  <string name="create_account_open_proxy_error">নতুন অ্যাকাউন্ট তৈরীর ক্ষেত্রে এই অ্যাকাউন্টটি ব্লক করা আছে।</string>
+  <string name="create_account_open_proxy_error">নতুন অ্যাকাউন্ট তৈরী করা থেকে এই অ্যাকাউন্টকে বাধা দেয়া হয়েছে।</string>
   <string name="create_account_noname_error">আপনার দেওয়া ব্যবহারকারীর নাম অবৈধ। আরেকটি ব্যবহারকারীর নাম প্রদান করুন।</string>
   <string name="create_account_invalid_email_error">আপনার দেওয়া ইমেইল ঠিকানা সঠিক নয়।</string>
   <string name="create_account_password_too_short_error">আপনার দেওয়া পাসওয়ার্ড অত্যন্ত ছোট।</string>
@@ -183,9 +185,9 @@
   <string name="edit_summary_tag_other_hint">অন্যান্য যে পদ্ধতিতে আপনি পাতাটির মান উন্নয়ন করেছেন</string>
   <string name="find_next">পরবর্তী অনুসন্ধান</string>
   <string name="find_previous">পূর্বেরটি অনুসন্ধান</string>
-  <string name="error_network_error_try_again">নেটওয়ার্ক ত্রুটি, পুনরায় চেষ্টা করুন।</string>
+  <string name="error_network_error_try_again">নেটওয়ার্কে পৌঁছানো যায়নি, পুনরায় চেষ্টা করুন।</string>
   <string name="saved_pages_update_all_error_retry">পুনঃচেষ্টা করুন</string>
-  <string name="saved_pages_update_all_error_message">ত্রুটি, পাতা হালনাগাদ করা যায়নি</string>
+  <string name="saved_pages_update_all_error_message">সংরক্ষিত পাতা হালনাগাদকরণে ত্রুটি</string>
   <string name="saved_pages_progress_title">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে</string>
   <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি সংরক্ষণ করতে চান?</string>
   <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা সংরক্ষণ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
@@ -286,8 +288,37 @@
 আপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>
-  <string name="article_menu_bar_bookmark">পরে অফলাইনে পড়ার জন্য নিবন্ধটি সংরক্ষণ করুন</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">পরে অফলাইনে পড়ার জন্য নিবন্ধটি সংরক্ষণ করুন</string>
   <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
   <string name="article_menu_bar_navigate">নিবন্ধের অবস্থান থেকে পরিভ্রমণ করুন</string>
+  <string name="nav_item_reading_lists">পড়ার তালিকা</string>
+  <string name="reading_list_untitled">শিরোনামহীন</string>
+  <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
+  <string name="reading_list_create_new">নতুন তৈরি করুন</string>
+  <string name="reading_list_added_to_named">%s-এ যোগ করা হয়েছে।</string>
+  <string name="reading_list_added_to_unnamed">পড়ার তালিকায় যোগ করা হয়েছে।</string>
+  <string name="reading_list_already_exists">এই নিবন্ধটি ইতিমধ্যে সেই তালিকায় রয়েছে।</string>
+  <string name="reading_list_added_view_button" fuzzy="true">দেখুন</string>
+  <string name="reading_list_item_count_singular">১টি নিবন্ধ</string>
+  <string name="reading_list_item_count_plural">%sটি নিবন্ধ</string>
+  <string name="reading_list_sort">বাছাই করুন</string>
+  <string name="reading_list_sort_by_name">নাম অনুযায়ী</string>
+  <string name="reading_list_sort_by_recent">সাম্প্রতিক অনুযায়ী</string>
+  <string name="reading_list_menu_edit">পড়ার তালিকার বিস্তারিত সম্পাদনা করুন</string>
+  <string name="reading_list_menu_delete">পড়ার তালিকা অপসারণ করুন</string>
+  <string name="reading_list_name_sample">আমার পড়ার তালিকা</string>
+  <string name="reading_list_name_hint">এই তালিকার নাম</string>
+  <string name="reading_list_description_hint">বিবরণ (ঐচ্ছিক)</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">অফলাইনে পড়ার জন্য সংরক্ষণ করুন</string>
+  <string name="reading_list_item_deleted">তালিকা থেকে %s সরানো হয়েছে</string>
+  <string name="reading_list_item_delete_undo">পূর্বাবস্থা</string>
+  <string name="reading_list_deleted">%s অপসারিত হয়েছে</string>
+  <string name="reading_list_edit_ok">ঠিক আছে</string>
+  <string name="reading_list_edit_cancel">বাতিল</string>
+  <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই পড়ার তালিকা অপসারণ করতে চান?</string>
+  <string name="reading_lists_empty">এখানে কোন পড়ার তালিকা নেই।</string>
+  <string name="reading_lists_empty_message">পড়ার তালিকার মধ্যে আপনার ব্রাউজ করা নিবন্ধ সংগঠিত করুন! যখন একটি নিবন্ধ ব্রাউজ করবেন, তা পড়ার তালিকায় যোগ করার জন্য নিবন্ধের শীর্ষে থাকা বুকমার্ক আইকনে টোকা দিন।</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">যে নিবন্ধগুলি আপনি পরে পড়ার তালিকায় পড়তে চান তা সংগঠিত করুন।</string>
+  <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
 </resources>

@@ -287,17 +287,17 @@ Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
 Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="crash_report_relaunch">Aloita alusta</string>
   <string name="crash_report_quit">Poistu</string>
-  <string name="article_menu_bar_bookmark">Tallenna artikkeli offline-tilassa lukemista varten</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Tallenna artikkeli offline-tilassa lukemista varten</string>
   <string name="article_menu_bar_share">Jaa artikkelin linkki</string>
   <string name="article_menu_bar_navigate">Navigoi artikkelin sijaintiin</string>
   <string name="nav_item_reading_lists">Lukulistat</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
-  <string name="reading_list_create_new" fuzzy="true">Uuden lukulistan luonti</string>
+  <string name="reading_list_create_new">Luo uusi</string>
   <string name="reading_list_added_to_named">Lisätty listalle %s.</string>
   <string name="reading_list_added_to_unnamed">Lisätty lukulistaan.</string>
   <string name="reading_list_already_exists">Tämä artikkeli on jo listalla.</string>
-  <string name="reading_list_added_view_button">Näytä</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Näytä</string>
   <string name="reading_list_item_count_singular">1 artikkeli</string>
   <string name="reading_list_item_count_plural">%s artikkelia</string>
   <string name="reading_list_sort">Lajittele</string>
@@ -308,7 +308,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_name_sample">Oma lukulista</string>
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
-  <string name="reading_list_save_for_offline">Tallenna luettavaksi yhteydettömässä tilassa</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">Tallenna luettavaksi yhteydettömässä tilassa</string>
   <string name="reading_list_item_deleted">%s poistettu listalta</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
@@ -317,7 +317,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa tämän lukulistan?</string>
   <string name="reading_lists_empty">Ei lukulistoja.</string>
   <string name="reading_lists_empty_message">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta artikkelin yläosassa lisätäksesi sen lukulistaan.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Uutta: Järjestä artikkelit, jotka haluat lukea myöhemmin, lukulistoiksi.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Järjestä artikkelit, jotka haluat lukea myöhemmin, lukulistoiksi.</string>
   <string name="reading_lists_onboarding_got_it">Selvä</string>
   <string name="user_option_sync_label">Asetukset</string>
 </resources>

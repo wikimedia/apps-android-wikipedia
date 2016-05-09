@@ -38,6 +38,7 @@
   <string name="menu_page_similar_titles">Titluri similare</string>
   <string name="menu_page_font_and_theme">Schimbă fontul și tema</string>
   <string name="menu_page_save">Salvează pagina</string>
+  <string name="menu_page_add_to_list">Adaugă la lista de lecturi</string>
   <string name="menu_page_share">Distribuie legătura</string>
   <string name="menu_long_press_open_page">Deschide</string>
   <string name="menu_long_press_open_in_new_tab">Deschide în filă nouă</string>
@@ -45,6 +46,7 @@
   <string name="menu_text_select_copy">Copiază</string>
   <string name="menu_text_select_define">Definire</string>
   <string name="menu_text_select_share">Distribuie</string>
+  <string name="menu_text_select_edit_here">Modifică aici</string>
   <string name="nav_item_nearby">În apropiere</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -286,8 +288,37 @@ Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</strin
 Doriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
   <string name="crash_report_quit">Închide</string>
-  <string name="article_menu_bar_bookmark">Salvează articolul pentru lecturare off-line ulterioară</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Salvează articolul pentru lecturare off-line ulterioară</string>
   <string name="article_menu_bar_share">Distribuie legătura către articol</string>
   <string name="article_menu_bar_navigate">Navighează către locul din articol</string>
+  <string name="nav_item_reading_lists">Liste de lecturi</string>
+  <string name="reading_list_untitled">Fără titlu</string>
+  <string name="reading_list_save_to">Salvează în lista de lecturi</string>
+  <string name="reading_list_create_new">Creează una nouă</string>
+  <string name="reading_list_added_to_named">Adăugat în %s.</string>
+  <string name="reading_list_added_to_unnamed">Adăugat în lista de lecturi.</string>
+  <string name="reading_list_already_exists">Acest articol se află deja în acea listă.</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Vizualizare</string>
+  <string name="reading_list_item_count_singular">1 articol</string>
+  <string name="reading_list_item_count_plural">%s (de) articole</string>
+  <string name="reading_list_sort">Sortare</string>
+  <string name="reading_list_sort_by_name">După titlu</string>
+  <string name="reading_list_sort_by_recent">După dată</string>
+  <string name="reading_list_menu_edit">Modifică detaliile listei de lecturi</string>
+  <string name="reading_list_menu_delete">Șterge lista de lecturi</string>
+  <string name="reading_list_name_sample">Lista mea de lecturi</string>
+  <string name="reading_list_name_hint">Numele listei</string>
+  <string name="reading_list_description_hint">Descriere (opțională)</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">Salvează pentru lectură off-line</string>
+  <string name="reading_list_item_deleted">%s a fost eliminat din listă</string>
+  <string name="reading_list_item_delete_undo">Anulează</string>
+  <string name="reading_list_deleted">%s a fost ștearsă</string>
+  <string name="reading_list_edit_ok">OK</string>
+  <string name="reading_list_edit_cancel">Revocare</string>
+  <string name="reading_list_delete_confirm">Sigur doriți să ștergeți această listă de lecturi?</string>
+  <string name="reading_lists_empty">Nicio listă de lecturi pe aici.</string>
+  <string name="reading_lists_empty_message">Grupați articolele pe care le răsfoiți în liste de lecturi! Când frunzăriți un articol, atingeți pictograma „semn de carte” din partea de sus a articolului pentru a-l adăuga unei liste de lecturi.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Grupați articolele pe care doriți să le citiți mai târziu în liste de lecturi.</string>
+  <string name="reading_lists_onboarding_got_it">Am înțeles</string>
   <string name="user_option_sync_label">Preferințe</string>
 </resources>

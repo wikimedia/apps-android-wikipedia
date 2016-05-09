@@ -225,6 +225,6 @@
   <string name="crash_report_quit">முடித்துக்கொள்</string>
   <string name="article_menu_bar_share">கட்டுரை இணைப்பை பகிர்</string>
   <string name="reading_list_untitled">தலைப்பு இல்லாதவை</string>
-  <string name="reading_list_added_view_button">பார்வையிடுக</string>
+  <string name="reading_list_added_view_button" fuzzy="true">பார்வையிடுக</string>
   <string name="reading_list_sort">வரிசைபடுத்துக</string>
 </resources>

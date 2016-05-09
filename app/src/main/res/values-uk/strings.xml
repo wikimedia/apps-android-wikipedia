@@ -296,7 +296,7 @@ https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
 Хочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>
-  <string name="article_menu_bar_bookmark">Зберегти статті для читання в автономному режимі пізніше</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Зберегти статті для читання в автономному режимі пізніше</string>
   <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
   <string name="article_menu_bar_navigate">Перейти до розташування статті</string>
   <string name="user_option_sync_label">Налаштування</string>

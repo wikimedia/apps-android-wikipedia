@@ -253,7 +253,7 @@
   <string name="crash_report_relaunch_or_quit">გსურთ დაწყება ან გასვლა?</string>
   <string name="crash_report_relaunch">თავიდან დაწყება</string>
   <string name="crash_report_quit">გამოსვლა</string>
-  <string name="article_menu_bar_bookmark">სტატიების შენახვა მოგვიანებით ოფლაინ-რეჟიმში წასაკითხად</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">სტატიების შენახვა მოგვიანებით ოფლაინ-რეჟიმში წასაკითხად</string>
   <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_menu_bar_navigate">სტატიის მდებარეობაზე გადასვლა</string>
 </resources>

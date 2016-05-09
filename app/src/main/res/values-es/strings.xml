@@ -288,17 +288,17 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
 ¿Te gustaría volver a empezar o salir?</string>
   <string name="crash_report_relaunch">Iniciar de nuevo</string>
   <string name="crash_report_quit">Salir</string>
-  <string name="article_menu_bar_bookmark">Guardar el artículo para leerlo sin conexión después</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Guardar el artículo para leerlo sin conexión después</string>
   <string name="article_menu_bar_share">Compartir el enlace del artículo</string>
   <string name="article_menu_bar_navigate">Navegar a la ubicación del artículo</string>
   <string name="nav_item_reading_lists">Listas de lectura</string>
   <string name="reading_list_untitled">Sin título</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
-  <string name="reading_list_create_new" fuzzy="true">Crear una lista de lectura nueva</string>
+  <string name="reading_list_create_new">Crear una nueva</string>
   <string name="reading_list_added_to_named">Añadido a %s.</string>
   <string name="reading_list_added_to_unnamed">Añadido a lista de lectura.</string>
   <string name="reading_list_already_exists">Este artículo ya está en esa lista.</string>
-  <string name="reading_list_added_view_button">Ver</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Ver</string>
   <string name="reading_list_item_count_singular">1 artículo</string>
   <string name="reading_list_item_count_plural">%s artículos</string>
   <string name="reading_list_sort">Ordenar</string>
@@ -309,7 +309,7 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="reading_list_name_sample">Mi lista de lectura</string>
   <string name="reading_list_name_hint">Nombre de esta lista</string>
   <string name="reading_list_description_hint">Descripción (opcional)</string>
-  <string name="reading_list_save_for_offline">Guardar para leer sin conexión</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">Guardar para leer sin conexión</string>
   <string name="reading_list_item_deleted">%s eliminado de la lista</string>
   <string name="reading_list_item_delete_undo">Deshacer</string>
   <string name="reading_list_deleted">%s eliminada</string>
@@ -318,7 +318,7 @@ Términos de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use/es</string
   <string name="reading_list_delete_confirm">¿Estás seguro de que quieres eliminar esta lista de lectura?</string>
   <string name="reading_lists_empty">No hay listas de lectura aquí.</string>
   <string name="reading_lists_empty_message">Organiza los artículos que navegas en listas de lectura Cuando la navegues por un artículo, pulsa el ícono de marcador en la parte superior del artículo para añadirlo a una lista de lectura.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Nuevo: organiza los artículos que quieres leer más tarde en listas de lectura.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Organiza los artículos que quieres leer más tarde en listas de lectura.</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="user_option_sync_label">Preferencias</string>
 </resources>

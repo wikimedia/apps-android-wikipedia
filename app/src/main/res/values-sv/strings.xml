@@ -288,17 +288,17 @@ Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</s
 Vill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
   <string name="crash_report_quit">Avsluta</string>
-  <string name="article_menu_bar_bookmark">Spara artikeln för att läsa den senare offline</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Spara artikeln för att läsa den senare offline</string>
   <string name="article_menu_bar_share">Dela länk till artikeln</string>
   <string name="article_menu_bar_navigate">Navigera till artikelns plats</string>
   <string name="nav_item_reading_lists">Läslistor</string>
   <string name="reading_list_untitled">Namnlös</string>
   <string name="reading_list_save_to">Spara i läslista</string>
-  <string name="reading_list_create_new" fuzzy="true">Skapa en ny läslista</string>
+  <string name="reading_list_create_new">Skapa ny</string>
   <string name="reading_list_added_to_named">Lades till i %s.</string>
   <string name="reading_list_added_to_unnamed">Lades till i läslista.</string>
   <string name="reading_list_already_exists">Denna artikel är redan i listan.</string>
-  <string name="reading_list_added_view_button">Visa</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Visa</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
   <string name="reading_list_item_count_plural">%s artiklar</string>
   <string name="reading_list_sort">Sortera</string>
@@ -309,7 +309,7 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
-  <string name="reading_list_save_for_offline">Spara för läsning offline</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">Spara för läsning offline</string>
   <string name="reading_list_item_deleted">%s togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
   <string name="reading_list_deleted">%s raderades</string>
@@ -318,7 +318,7 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill ta bort denna läslista?</string>
   <string name="reading_lists_empty">Inga läslistor här.</string>
   <string name="reading_lists_empty_message">Organisera artiklarna du läser i läslistor! Tryck på bokmärkesikonen längst upp i artikeln för att lägga in den i en läslista när du läser en artikel.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Nytt: Organisera artiklar du vill läsa senare i läslistor.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Organisera artiklar du vill läsa senare i läslistor.</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="user_option_sync_label">Inställningar</string>
 </resources>

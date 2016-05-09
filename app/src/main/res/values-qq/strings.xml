@@ -56,6 +56,7 @@ See also:
   <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
       {{Identical|Search}}</string>
   <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query.</string>
+  <string name="search_redirect_from">Label shown when a search result is redirected from the original search query. The \"%s\" symbol is replaced with the redirect source.</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.
 {{Identical|Change language}}</string>
@@ -115,7 +116,6 @@ See also:
   <string name="menu_show_toc">Menu item text for showing the Table of Contents for the current article.
 {{Identical|Table of contents}}</string>
   <string name="search_no_results_found">Message shown to user when no search results are found for a string</string>
-  <string name="search_redirect_from">Label shown when a search result is redirected from the original search query. The \"%s\" symbol is replaced with the redirect source.</string>
   <string name="edit_section_captcha_message">A label for the CAPTCHA screen.</string>
   <string name="edit_section_captcha_hint">A call to action to write the CAPTCHA string.</string>
   <string name="title_captcha">A call to action to write the CAPTCHA string.</string>
@@ -390,7 +390,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_navigate">Describes the action performed when pressing the navigate button in the page toolbar underneath the leading image.</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
-  <string name="reading_list_untitled">Name for a reading list that has an empty title.</string>
+  <string name="reading_list_untitled">Name for a reading list that has an empty title.
+{{Identical|Untitled}}</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_added_to_named">Message shown when an article is added to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
@@ -399,7 +400,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.
 {{Identical|View}}</string>
   <string name="reading_list_item_count_singular">Label when a reading list contains one article (singular).</string>
-  <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%s\" symbol is replaced with the number of articles.</string>
+  <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%s\" symbol is replaced with the number of articles.
+{{Identical|Article}}</string>
   <string name="reading_list_sort">Button label to sort reading lists.
 {{Identical|Sort}}</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>

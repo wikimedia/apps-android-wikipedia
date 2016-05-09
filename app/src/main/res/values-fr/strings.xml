@@ -16,7 +16,7 @@
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="nav_item_today">Aujourd’hui</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
-  <string name="dialog_message_clear_history">Cela supprimera tout l’historique de votre navigateur, et fermera tous les onglets ouverts. Êtes-vous sûr ?</string>
+  <string name="dialog_message_clear_history">Cela supprimera tout l’historique de navigation, et fermera tous les onglets ouverts actuellement. Êtes-vous sûr ?</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
   <string name="menu_update_all_saved_pages">Mettre à jour les pages enregistrées</string>
   <string name="menu_update_selected_saved_pages">Mettre à jour les pages enregistrées</string>
@@ -146,7 +146,7 @@
   <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="preference_title_auto_upload_crash_reports">Envoyer des rapports d’incident</string>
   <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer des rapports d’incident à HockeyApp — un fournisseur de services tiers — de façon automatique, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
-  <string name="editing_error_spamblacklist">Liens vers des domaines bloqués (%s) détectés. Veuillez les supprimer et réessayer.</string>
+  <string name="editing_error_spamblacklist">Détection de liens vers des domaines bloqués (%s) . Veuillez les supprimer et réessayer.</string>
   <string name="history_search_list_hint">Rechercher dans l’historique</string>
   <string name="history_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
@@ -288,17 +288,17 @@ Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use
 Voudriez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
   <string name="crash_report_quit">Quitter</string>
-  <string name="article_menu_bar_bookmark">Sauvegarder l\'article pour le lire hors ligne plus tard</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Sauvegarder l\'article pour le lire hors ligne plus tard</string>
   <string name="article_menu_bar_share">Partager cet article</string>
   <string name="article_menu_bar_navigate">Naviguer à l’emplacement de l’article</string>
   <string name="nav_item_reading_lists">Listes de lecture</string>
   <string name="reading_list_untitled">Sans titre</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
-  <string name="reading_list_create_new" fuzzy="true">Créer une nouvelle liste de lecture</string>
+  <string name="reading_list_create_new">Créer un nouveau</string>
   <string name="reading_list_added_to_named">Ajouté à %s.</string>
   <string name="reading_list_added_to_unnamed">Ajouté à la liste de lecture.</string>
   <string name="reading_list_already_exists">Cet article est déjà dans cette liste.</string>
-  <string name="reading_list_added_view_button">Afficher</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Afficher</string>
   <string name="reading_list_item_count_singular">1 article</string>
   <string name="reading_list_item_count_plural">%s articles</string>
   <string name="reading_list_sort">Trier</string>
@@ -309,7 +309,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultatif)</string>
-  <string name="reading_list_save_for_offline">Enregistrer pour une lecture hors connexion</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">Enregistrer pour une lecture hors connexion</string>
   <string name="reading_list_item_deleted">%s supprimé de la liste</string>
   <string name="reading_list_item_delete_undo">Annuler</string>
   <string name="reading_list_deleted">%s supprimé</string>
@@ -318,7 +318,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_delete_confirm">Êtes-vous sûr de vouloir supprimer cette liste de lecture ?</string>
   <string name="reading_lists_empty">Aucune liste de lecture ici.</string>
   <string name="reading_lists_empty_message">Organiser les articles dans lesquels vous naviguez en listes de lecture ! En parcourant un article, cliquez sur l’icône en haut de l’article pour l’ajouter à une liste de lecture.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Nouveau: Organisez les articles que vous voulez lire plus tard en listes de lecture.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Organisez les articles que vous voulez lire plus tard en listes de lecture.</string>
   <string name="reading_lists_onboarding_got_it">L’obtenir</string>
   <string name="user_option_sync_label">Préférences</string>
 </resources>

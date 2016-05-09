@@ -252,17 +252,18 @@
 Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
   <string name="crash_report_quit">Erausgoen</string>
-  <string name="article_menu_bar_bookmark">Den Artikel späichere fir en duerno offline ze liesen</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Den Artikel späichere fir en duerno offline ze liesen</string>
   <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
   <string name="article_menu_bar_navigate">Op d\'Plaz vum Artikel navigéieren</string>
   <string name="nav_item_reading_lists">Lieslëschten</string>
   <string name="reading_list_added_to_unnamed">Op d\'Lieslëscht derbäigesat.</string>
   <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
-  <string name="reading_list_added_view_button">Weisen</string>
+  <string name="reading_list_added_view_button" fuzzy="true">Weisen</string>
   <string name="reading_list_item_count_singular">1 Artikel</string>
   <string name="reading_list_item_count_plural">%s Artikelen</string>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_by_name">Nom Numm</string>
+  <string name="reading_list_menu_edit">Detailer vun der Lieslëscht änneren</string>
   <string name="reading_list_menu_delete">Lieslëscht läschen</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>
   <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>
@@ -273,7 +274,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Ofbriechen</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir dës Lieslëscht läsche wëllt?</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Nei: Organiséiert Artikelen déi Dir spéider liese wëllt a Lieslëschten.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">Organiséiert Artikelen déi Dir spéider liese wëllt a Lieslëschten.</string>
   <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="user_option_sync_label">Astellungen</string>
 </resources>

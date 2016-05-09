@@ -288,17 +288,17 @@
 האם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
   <string name="crash_report_quit">לצאת</string>
-  <string name="article_menu_bar_bookmark">שמירת ערך לקריאה בלי רשת אחר־כך</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">שמירת ערך לקריאה בלי רשת אחר־כך</string>
   <string name="article_menu_bar_share">שיתוף קישור לערך</string>
   <string name="article_menu_bar_navigate">מעבר למקום בתוך ערך</string>
   <string name="nav_item_reading_lists">רשימות קריאה</string>
   <string name="reading_list_untitled">ללא כותרת</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
-  <string name="reading_list_create_new" fuzzy="true">יצירת רשימת קריאה חדשה</string>
+  <string name="reading_list_create_new">ליצור חדשה</string>
   <string name="reading_list_added_to_named">נוסף לרשימה %s.</string>
   <string name="reading_list_added_to_unnamed">הוספה לרשימת קריאה.</string>
   <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
-  <string name="reading_list_added_view_button">הצגה</string>
+  <string name="reading_list_added_view_button" fuzzy="true">הצגה</string>
   <string name="reading_list_item_count_singular">ערך אחד</string>
   <string name="reading_list_item_count_plural">%s ערכים</string>
   <string name="reading_list_sort">מיון</string>
@@ -309,7 +309,7 @@
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
-  <string name="reading_list_save_for_offline">שמירה לקריאה ללא חיבור לרשת</string>
+  <string name="reading_list_save_for_offline" fuzzy="true">שמירה לקריאה ללא חיבור לרשת</string>
   <string name="reading_list_item_deleted">%s הוסר מהרשימה</string>
   <string name="reading_list_item_delete_undo">ביטול</string>
   <string name="reading_list_deleted">%s נמחק</string>
@@ -318,7 +318,7 @@
   <string name="reading_list_delete_confirm">האם ברצונך באמת למחוק את רשימת הקריאה הזאת?</string>
   <string name="reading_lists_empty">אין כאן רשימות קריאה.</string>
   <string name="reading_lists_empty_message">ארגנו את הערכים שאתם גולשים בהם לרשימת קריאה! בעת קריאת ערך, לחצו על סמל הסימנייה בראש הערך כדי להוסיף אותו לרשימת קריאה.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">חדש: ארגנו ערכים שאתם רוצים לקרוא מאוחר יותר לרשימות קריאה.</string>
+  <string name="reading_lists_onboarding_intro" fuzzy="true">ארגנו ערכים שאתם רוצים לקרוא מאוחר יותר לרשימות קריאה.</string>
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="user_option_sync_label">העדפות</string>
 </resources>

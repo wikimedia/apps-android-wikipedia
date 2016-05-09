@@ -284,7 +284,7 @@ Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
 Chcete začít znovu, nebo skončit?</string>
   <string name="crash_report_relaunch">Začít znovu</string>
   <string name="crash_report_quit">Skončit</string>
-  <string name="article_menu_bar_bookmark">Uložit článek pro pozdější čtení offline</string>
+  <string name="article_menu_bar_bookmark" fuzzy="true">Uložit článek pro pozdější čtení offline</string>
   <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
   <string name="article_menu_bar_navigate">Navigovat na místo článku</string>
   <string name="user_option_sync_label">Nastavení</string>
