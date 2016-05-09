@@ -24,6 +24,7 @@ import org.wikipedia.crash.CrashReporter;
 import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
+import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
@@ -41,8 +42,8 @@ import org.wikipedia.readinglist.database.ReadingListRow;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.ReadingListPageHttpRow;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
-import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.savedpages.ReadingListPageObserver;
+import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.theme.Theme;
@@ -76,8 +77,6 @@ public class WikipediaApp extends Application {
     private static final float FONT_SIZE_FACTOR = 0.1f;
 
     public static final int PREFERRED_THUMB_SIZE = 320;
-
-    public static final String FROM_READING_LIST_PAGE_OBSERVER = "fromReadingListPageObserver";
 
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final UserInfoStorage userInfoStorage = new UserInfoStorage();
@@ -592,7 +591,7 @@ public class WikipediaApp extends Application {
         readingListPageObserver = new ReadingListPageObserver(null);
         Uri readingListPageBaseUri = ReadingListPageContract.Disk.URI;
         Uri uriWithQuery = readingListPageBaseUri.buildUpon()
-                .appendQueryParameter(FROM_READING_LIST_PAGE_OBSERVER, "false").build();
+                .appendQueryParameter(AppContentProviderContract.NOTIFY, "false").build();
         WikipediaApp.getInstance().getContentResolver()
                 .registerContentObserver(uriWithQuery, true, readingListPageObserver);
         L.i("Registered reading list page observer");

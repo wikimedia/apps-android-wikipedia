@@ -12,4 +12,5 @@ public interface AppContentProviderContract {
             .scheme(ContentResolver.SCHEME_CONTENT)
             .authority(AUTHORITY)
             .build();
+    String NOTIFY = "notify";
 }

@@ -11,7 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.database.contract.ReadingListPageContract;
+import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.util.log.L;
 
 import java.util.Arrays;
@@ -84,11 +84,6 @@ public class AppContentProvider extends ContentProvider {
         SQLiteDatabase db = writableDatabase();
         int rows = db.delete(endpoint.tables(), selection, selectionArgs);
 
-        if (uri.equals(ReadingListPageContract.Page.URI)) {
-            uri = uri.buildUpon()
-                    .appendQueryParameter(WikipediaApp.FROM_READING_LIST_PAGE_OBSERVER, "true")
-                    .build();
-        }
         notifyChange(uri);
         return rows;
     }
@@ -105,7 +100,7 @@ public class AppContentProvider extends ContentProvider {
     }
 
     private void notifyChange(@NonNull Uri uri) {
-        boolean notify = uri.getBooleanQueryParameter(WikipediaApp.FROM_READING_LIST_PAGE_OBSERVER, true);
+        boolean notify = uri.getBooleanQueryParameter(AppContentProviderContract.NOTIFY, true);
         if (getContentResolver() == null || !notify) {
             return;
         }
