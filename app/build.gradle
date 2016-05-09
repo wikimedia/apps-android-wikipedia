@@ -52,7 +52,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 143
+        versionCode 144
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
