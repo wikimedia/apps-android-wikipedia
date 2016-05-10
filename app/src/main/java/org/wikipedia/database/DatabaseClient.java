@@ -9,9 +9,6 @@ import android.os.RemoteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.readinglist.page.ReadingListPage;
-
 public class DatabaseClient<T> {
     @NonNull private final ContentProviderClient client;
     @NonNull private final DatabaseTable<T> databaseTable;
@@ -29,13 +26,7 @@ public class DatabaseClient<T> {
 
     public void persist(T obj) {
         try {
-            Uri uri = uri();
-            if (ReadingListPage.DATABASE_TABLE.getBaseContentURI().equals(uri)) {
-                uri = uri.buildUpon()
-                        .appendQueryParameter(WikipediaApp.FROM_READING_LIST_PAGE_OBSERVER, "true")
-                        .build();
-            }
-            client.insert(uri, toContentValues(obj));
+            client.insert(uri(), toContentValues(obj));
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
