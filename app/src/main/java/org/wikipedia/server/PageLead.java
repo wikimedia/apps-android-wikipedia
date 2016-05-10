@@ -6,8 +6,6 @@ import android.support.annotation.Nullable;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
 
-import retrofit.RetrofitError;
-
 /**
  * Gson POJI for loading the first stage of page content.
  */
@@ -34,6 +32,6 @@ public interface PageLead {
     interface Callback {
         void success(PageLead pageLead);
 
-        void failure(RetrofitError error);
+        void failure(Throwable throwable);
     }
 }

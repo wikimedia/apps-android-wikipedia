@@ -1,7 +1,5 @@
 package org.wikipedia.server;
 
-import retrofit.RetrofitError;
-
 import android.support.annotation.Nullable;
 
 /**
@@ -24,6 +22,6 @@ public interface PageSummary {
     interface Callback {
         void success(PageSummary pageSummary);
 
-        void failure(RetrofitError error);
+        void failure(Throwable throwable);
     }
 }

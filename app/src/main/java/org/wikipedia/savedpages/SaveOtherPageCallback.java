@@ -6,8 +6,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.PageCombo;
 import org.wikipedia.util.log.L;
 
-import retrofit.RetrofitError;
-
 /**
  * Common code for saving a page which is not the current page.
  * Useful for refreshing a saved page, or for saving a page from a link, search result, disambig
@@ -38,8 +36,8 @@ public abstract class SaveOtherPageCallback implements PageCombo.Callback {
     }
 
     @Override
-    public void failure(RetrofitError error) {
-        L.e("Download page error: " + error);
+    public void failure(Throwable throwable) {
+        L.e("Download page error: " + throwable);
         onError();
     }
 
