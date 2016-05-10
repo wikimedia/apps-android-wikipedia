@@ -44,7 +44,7 @@ public abstract class AMLoginTask extends ApiTask<AMLoginResult> {
                 .param("username", username)
                 .param("password", password)
                 .param("logintoken", token)
-                .param("loginreturnurl", Constants.DEFAULT_AUTH_MANAGER_RETURN_URL);
+                .param("loginreturnurl", Constants.WIKIPEDIA_URL);
     }
 
     @Override

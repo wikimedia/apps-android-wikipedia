@@ -51,7 +51,7 @@ public abstract class AMCreateAccountTask extends ApiTask<AMCreateAccountResult>
                 .param("password", password)
                 .param("retype", repeatPassword)
                 .param("createtoken", token)
-                .param("createreturnurl", Constants.DEFAULT_AUTH_MANAGER_RETURN_URL);
+                .param("createreturnurl", Constants.WIKIPEDIA_URL);
         if (email != null) {
             builder.param("email", email);
         }

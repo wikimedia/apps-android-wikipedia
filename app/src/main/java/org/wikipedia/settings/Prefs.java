@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.SharedPreferenceCookieManager;
 import org.wikipedia.WikipediaApp;
@@ -237,8 +238,7 @@ public final class Prefs {
 
     public static int getSessionTimeout() {
         // return the timeout, but don't let it be less than the minimum
-        return Math.max(getInt(R.string.preference_key_session_timeout,
-                SessionFunnel.DEFAULT_SESSION_TIMEOUT), SessionFunnel.MIN_SESSION_TIMEOUT);
+        return Math.max(getInt(R.string.preference_key_session_timeout, SessionFunnel.DEFAULT_SESSION_TIMEOUT), SessionFunnel.MIN_SESSION_TIMEOUT);
     }
 
     public static int getTextSizeMultiplier() {
@@ -308,7 +308,7 @@ public final class Prefs {
     @NonNull
     public static Uri getMediaWikiBaseUri() {
         return Uri.parse(StringUtil.defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null),
-                "https://wikipedia.org/"));
+                Constants.WIKIPEDIA_URL));
     }
 
     public static boolean getMediaWikiBaseUriSupportsLangCode() {
