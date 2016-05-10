@@ -159,8 +159,9 @@ dependencies {
     String retrofitVersion = '2.0.2'
     String okHttpVersion = '3.2.0'
     String supportVersion = '23.3.0'
-    String espressoVersion = '2.2.1'
+    String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.0.1'
+    String testingSupportVersion = '0.5'
 
     compile "com.android.support:appcompat-v7:$supportVersion" // includes support-v4
     compile "com.android.support:cardview-v7:$supportVersion"
@@ -196,8 +197,8 @@ dependencies {
     // Required by Android JUnit Runner.
     androidTestCompile "com.android.support:support-annotations:$supportVersion"
 
-    androidTestCompile 'com.android.support.test:rules:0.4.1' // JUnit Rules
-    androidTestCompile 'com.android.support.test:runner:0.4.1' // Android JUnit Runner
+    androidTestCompile "com.android.support.test:rules:$testingSupportVersion" // JUnit Rules
+    androidTestCompile "com.android.support.test:runner:$testingSupportVersion" // Android JUnit Runner
     androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
 
     // Espresso-contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks,
@@ -205,6 +206,8 @@ dependencies {
     androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
         // http://stackoverflow.com/questions/30578243/why-would-adding-espresso-contrib-cause-an-inflateexception
         exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'design'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude module: 'recyclerview-v7'
     }
