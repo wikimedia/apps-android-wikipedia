@@ -215,7 +215,7 @@ dependencies {
     // Espresso-idling-resource for synchronization with background jobs.
     androidTestCompile "com.android.support.test.espresso:espresso-idling-resource:$espressoVersion"
 
-    androidTestCompile 'com.squareup.spoon:spoon-client:1.4.0'
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.5.3'
 }
 
 private setSigningConfigKey(config, Properties props) {
