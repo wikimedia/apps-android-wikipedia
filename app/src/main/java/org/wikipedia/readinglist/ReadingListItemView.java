@@ -23,22 +23,22 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ReadingListItemView extends LinearLayout {
-    @Bind(R.id.item_container) LinearLayout containerView;
-    @Bind(R.id.item_title) TextView titleView;
-    @Bind(R.id.item_count) TextView countView;
-    @Bind(R.id.item_description) TextView descriptionView;
-    @Bind(R.id.indicator_offline) ImageView offlineView;
+    @BindView(R.id.item_container) LinearLayout containerView;
+    @BindView(R.id.item_title) TextView titleView;
+    @BindView(R.id.item_count) TextView countView;
+    @BindView(R.id.item_description) TextView descriptionView;
+    @BindView(R.id.indicator_offline) ImageView offlineView;
 
-    @Bind(R.id.item_image_row_1) View imageViewRow1;
-    @Bind(R.id.item_image_row_2) View imageViewRow2;
-    @Bind(R.id.item_image_1) SimpleDraweeView imageView1;
-    @Bind(R.id.item_image_2) SimpleDraweeView imageView2;
-    @Bind(R.id.item_image_3) SimpleDraweeView imageView3;
-    @Bind(R.id.item_image_4) SimpleDraweeView imageView4;
+    @BindView(R.id.item_image_row_1) View imageViewRow1;
+    @BindView(R.id.item_image_row_2) View imageViewRow2;
+    @BindView(R.id.item_image_1) SimpleDraweeView imageView1;
+    @BindView(R.id.item_image_2) SimpleDraweeView imageView2;
+    @BindView(R.id.item_image_3) SimpleDraweeView imageView3;
+    @BindView(R.id.item_image_4) SimpleDraweeView imageView4;
 
     @Nullable private ReadingList readingList;
     @Nullable private OnClickListener clickListener;

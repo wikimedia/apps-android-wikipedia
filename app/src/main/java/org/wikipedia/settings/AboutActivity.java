@@ -18,7 +18,7 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static org.wikipedia.util.DeviceUtil.mailAppExists;
@@ -28,11 +28,11 @@ public class AboutActivity extends ThemedActionBarActivity {
     private static final String KEY_SCROLL_Y = "KEY_SCROLL_Y";
 
     private ScrollView mScrollView;
-    @Bind(R.id.about_translators) TextView translatorsTextView;
-    @Bind(R.id.activity_about_libraries) TextView librariesTextView;
-    @Bind(R.id.about_app_license) TextView appLicenseTextView;
-    @Bind(R.id.send_feedback_text) TextView feedbackTextView;
-    @Bind(R.id.about_wmf) TextView wmfTextView;
+    @BindView(R.id.about_translators) TextView translatorsTextView;
+    @BindView(R.id.activity_about_libraries) TextView librariesTextView;
+    @BindView(R.id.about_app_license) TextView appLicenseTextView;
+    @BindView(R.id.send_feedback_text) TextView feedbackTextView;
+    @BindView(R.id.about_wmf) TextView wmfTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

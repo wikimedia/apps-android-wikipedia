@@ -14,16 +14,16 @@ import org.wikipedia.useroption.database.UserOptionRow;
 
 import java.util.concurrent.TimeUnit;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class UserOptionRowView extends LinearLayout {
-    @Bind(R.id.view_user_option_id) TextView id;
-    @Bind(R.id.view_user_option_key) TextView key;
-    @Bind(R.id.view_user_option_value) TextView value;
-    @Bind(R.id.view_user_option_status) TextView status;
-    @Bind(R.id.view_user_option_timestamp) TextView timestamp;
-    @Bind(R.id.view_user_option_transaction_id) TextView transactionId;
+    @BindView(R.id.view_user_option_id) TextView id;
+    @BindView(R.id.view_user_option_key) TextView key;
+    @BindView(R.id.view_user_option_value) TextView value;
+    @BindView(R.id.view_user_option_status) TextView status;
+    @BindView(R.id.view_user_option_timestamp) TextView timestamp;
+    @BindView(R.id.view_user_option_transaction_id) TextView transactionId;
 
     public UserOptionRowView(Context context) {
         super(context);

@@ -17,6 +17,18 @@
 -dontwarn com.android.volley.toolbox.**
 # --- /Fresco ---
 
+# --- Butter Knife ---
+# Finder.castParam() is stripped when not needed and ProGuard notes it
+# unnecessarily. When castParam() is needed, it's not stripped. e.g.:
+#
+#  @OnItemSelected(value = R.id.history_entry_list)
+#  void foo(ListView bar) {
+#      L.d("baz");
+#  }
+
+-dontnote butterknife.internal.**
+# --- /Butter Knife ---
+
 -keep class com.mobsandgeeks.saripaar.** {*;}
 
 -keep class uk.co.senab.photoview.** {*;}
@@ -35,20 +47,6 @@
 -keep class okhttp3.** { *; }
 -dontwarn okio.*
 # --- /OkHttp + Okio ---
-
-# --- Butter Knife ---
--keep class butterknife.** { *; }
--dontwarn butterknife.internal.**
--keep class **$$ViewBinder { *; }
-
--keepclasseswithmembernames class * {
-    @butterknife.* <fields>;
-}
-
--keepclasseswithmembernames class * {
-    @butterknife.* <methods>;
-}
-# --- /Butter Knife ---
 
 # --- Gson ---
 # https://github.com/google/gson/blob/master/examples/android-proguard-example/proguard.cfg

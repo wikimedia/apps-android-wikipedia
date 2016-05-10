@@ -18,7 +18,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -35,9 +35,9 @@ public class ArticleMenuBarView extends LinearLayout {
         @Override public void onNavigateClick() { }
     }
 
-    @Bind(R.id.view_article_menu_bar_bookmark) ImageView bookmark;
-    @Bind(R.id.view_article_menu_bar_navigate) ImageView navigate;
-    @Bind(R.id.view_article_menu_bar_share) ImageView share;
+    @BindView(R.id.view_article_menu_bar_bookmark) ImageView bookmark;
+    @BindView(R.id.view_article_menu_bar_navigate) ImageView navigate;
+    @BindView(R.id.view_article_menu_bar_share) ImageView share;
 
     @NonNull private Callback callback = new DefaultCallback();
 

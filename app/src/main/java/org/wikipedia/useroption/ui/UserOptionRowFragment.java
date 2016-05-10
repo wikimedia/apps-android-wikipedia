@@ -26,13 +26,13 @@ import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static org.wikipedia.Constants.USER_OPTION_ROW_FRAGMENT_LOADER_ID;
 
 public class UserOptionRowFragment extends Fragment implements CallbackFragment<FragmentCallback> {
-    @Bind(R.id.fragment_user_option_list) ListView list;
+    @BindView(R.id.fragment_user_option_list) ListView list;
 
     public static UserOptionRowFragment newInstance() {
         return new UserOptionRowFragment();
