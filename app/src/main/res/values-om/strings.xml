@@ -12,11 +12,6 @@
   <string name="menu_clear_all_history">Seenaa balleessi</string>
   <string name="nav_item_today">Har\'a</string>
   <string name="nav_item_saved_pages">Fuula olkaayi</string>
-  <string name="snackbar_saving_page">Fuulaa olkaawaa jira…</string>
-  <string name="snackbar_saved_page_missing_images">Suura hunda olkaawuu hindandeenye</string>
-  <string name="delete_selected_saved_pages">Haqi</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Barbaadi</string>
-  <string name="menu_page_save">Fuula olkaayi</string>
   <string name="menu_page_share" fuzzy="true">Hiri</string>
   <string name="nav_item_nearby">Dhihoo</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -49,7 +44,6 @@
   <string name="login_error_unknown">Seenun fashale :(</string>
   <string name="preference_title_logout">Ba\'i</string>
   <string name="toast_logout_complete">Baatee jirta</string>
-  <string name="saved_pages_empty_title">Fuulli as olkaawwame hinjiru!</string>
   <string name="delete_selected_history">Balleessi</string>
   <string name="create_account_username_hint">Maqaa fayyadamaa</string>
   <string name="login_create_account_link">Eenyummeessa hinqabdu? Amma galmaa\'i.</string>
@@ -84,7 +78,6 @@
   <string name="edit_summary_tag_other">Kan biraa</string>
   <string name="find_next">Kan itti aanu barbaadi</string>
   <string name="find_previous">Kan darbe barbaadi</string>
-  <string name="saved_pages_update_all_error_retry">Lammata yaali</string>
   <string name="text_size_select">Guddina foontii</string>
   <string name="color_theme_light">Ifaa</string>
   <string name="color_theme_dark">Dukkanaa\'aa</string>

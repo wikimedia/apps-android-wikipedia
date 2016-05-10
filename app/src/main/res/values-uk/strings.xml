@@ -12,32 +12,18 @@
   <string name="page_error_retry">Повторити</string>
   <string name="page_error_back_to_main">Повернутися</string>
   <string name="menu_clear_all_history">Очистити журнал</string>
-  <string name="menu_clear_all_saved_pages">Очистити збережені сторінки</string>
   <string name="page_does_not_exist_error">Ця сторінка не існує.</string>
   <string name="nav_item_today">Сьогодні</string>
   <string name="dialog_title_clear_history">Очистити історію перегляду</string>
   <string name="dialog_message_clear_history">Буде видалена вся історія відвідування сторінок і закриті всі відкриті вкладки. Ви впевнені?</string>
   <string name="nav_item_saved_pages">Збережені сторінки</string>
-  <string name="menu_update_all_saved_pages">Оновити збережені сторінки</string>
-  <string name="menu_update_selected_saved_pages">Оновити збережені сторінки</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Оновити усі збережені сторінки?</string>
   <string name="share_via">Поділитися через</string>
-  <string name="dialog_title_clear_saved_pages">Очистити всі збережені сторінки?</string>
-  <string name="snackbar_saving_page">Збереження сторінки…</string>
-  <string name="snackbar_saved_page_format">\"%s\" збережено для читання в автономному режимі</string>
-  <string name="snackbar_saved_page_missing_images">Не вдалося зберегти всі зображення</string>
-  <string name="snackbar_refresh_saved_page">Перезавантаження збереженої сторінки…</string>
-  <string name="delete_selected_saved_pages">Вилучити</string>
-  <string name="snackbar_saved_page_deleted">Збережені сторінки видалені</string>
-  <string name="saved_pages_search_list_hint">Пошук в збережених сторінках</string>
-  <string name="saved_pages_search_empty_message">Нема сторінок, що відповідають вашому запиту.</string>
   <string name="menu_page_show_tabs">Показати вкладки</string>
   <string name="menu_page_other_languages">Змінити мову</string>
   <string name="menu_page_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_content_issues">Проблеми матеріалу</string>
   <string name="menu_page_similar_titles">Подібні назви</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
-  <string name="menu_page_save">Зберегти сторінку</string>
   <string name="menu_page_share">Поділитися посиланням</string>
   <string name="menu_long_press_open_page">Відкрити</string>
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
@@ -92,8 +78,6 @@
   <string name="login_error_unknown">Увійти не вдалося :(</string>
   <string name="preference_title_logout">Вийти із системи</string>
   <string name="toast_logout_complete">Ви вийшли із системи</string>
-  <string name="saved_pages_empty_title">Тут немає збережених сторінок!</string>
-  <string name="saved_pages_empty_message">Збережені сторінки — це круто! Користуйтесь ними як закладками, які можна читати навіть, коли Ви офлайн.</string>
   <string name="history_empty_title">Немає нещодавніх сторінок.</string>
   <string name="history_empty_message">Вірогідно, Ви їх усі видалили. Наступного разу, коли відвідаєте сторінку, Ви зможете повернутися до неї звідси.</string>
   <string name="delete_selected_history">Видалити</string>
@@ -122,7 +106,6 @@
   <string name="preferences_general_heading">Загальні</string>
   <string name="wikipedia_app_faq">Часті питання по додатку</string>
   <string name="zero_charged_verbiage">Вікіпедія Zero вимкнена</string>
-  <string name="zero_charged_verbiage_extended">При завантаженні інших статей може стягуватися плата за передачу даних.</string>
   <string name="zero_search_hint">Пошук по Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving">Попередити, якщо залишити Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving_summary">Якщо ваш мобільний оператор не бере плату за доступ до даних з програми Вікіпедії через партнерство Вікіпедія Zero включення цього параметра допоможе вам знати, коли ви залишаєте додаток Вікіпедії, і може почати стягуватися плата за трафік</string>
@@ -183,10 +166,6 @@
   <string name="edit_summary_tag_other_hint">Інші аспекти, в яких Ви поліпшили сторінку</string>
   <string name="find_next">Знайти наступне</string>
   <string name="find_previous">Знайти попереднє</string>
-  <string name="error_network_error_try_again">Не вдалося з\'єднатися з мережею, будь-ласка, спробуйте знову.</string>
-  <string name="saved_pages_update_all_error_retry">Повторити</string>
-  <string name="saved_pages_update_all_error_message">Помилка при оновленні збережених сторінок</string>
-  <string name="saved_pages_progress_title">Перезавантаження збережених сторінок</string>
   <string name="abusefilter_title_warn">Це може редагування бути неконструктивним. Ви впевнені, що хочете його зберегти?</string>
   <string name="abusefilter_title_disallow">Ви не можете зберегти це редагування. Будь ласка, поверніться назад і змініть його.</string>
   <string name="abusefilter_text_warn">Автоматичний фільтр визначив це редагування як потенційно неконструктивне. У ньому може бути щось із цього:&lt;br /&gt;&lt;br /&gt;· Набрано повністю великими літерами&lt;br /&gt;· Очищення статті або спам&lt;br /&gt;· Невідповідні зовнішні посилання чи зображення&lt;br /&gt;· Повторювані символи</string>
@@ -210,36 +189,6 @@
   <string name="widget_title_featured_page">Сьогоднішня вибрана сторінка:</string>
   <string name="widget_name_search">Пошук в Вікіпедії</string>
   <string name="wiktionary_no_definitions_found">Визначень не знайдено.</string>
-  <string name="app_store_description">Офіційний додаток Вікіпедії для Андроїд. Вікіпедія — це вільна енциклопедія, з понад 32 мільйонами статей на 280-ти мовах. Наразі це найбільш доступна і використовувана реферативна робота, яку люди будь-коли писали.
-
-Характеристики:
-
- - Ведучі зображення: Відчуйте Вікіпедію як ніколи раніше з головним по контексту зображенням та описом на початку сторінки. 
-
- - Галерея зображень: Дотиком відкрийте зображення на весь екран та з легкістю пролистуйте їх в межах галереї до статті.
-
- - Опис з Вікідата: Під час пошуку отримуйте коротку анотацію кожного результату щоб не загубитись між синонімами та схожими термінами.
-
- - Що читати далі: Перейдіть вниз статті для перегляду пропонованих сторінок для подальшого читання.
-
- - Збереження сторінок: Зберігайте сторінки щоб прочитати пізніше коли в вас не буде під рукою підключення до мережі.
-
- - Біля вас: Дізнайтесь більше що навколо вас використовуючи геопозиціонування.
-
- - Мовна підтримка: Швидко переходьте між Вікіпедіями на ріхних мовах.
-
- - Вікіпедія Zero: Мобільні оператори, що беруть участь, скасовують плату за передачу даних.
-
- - Вихідний код 100% відкритий. Якщо Ви маєте досвід із Java та Android SDK — ми чекаємо вашого внеску на Github! 
-
-Проект на Github:
-https://github.com/wikimedia/apps-android-wikipedia
-
-Політика приватності:
-https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Умови використання:
-https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Доступне оновлення альфа-версії</string>
   <string name="alpha_update_notification_text">Натисніть, щоб завантажити</string>
   <string name="dialog_close_description">Закрити</string>

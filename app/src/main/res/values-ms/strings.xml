@@ -11,32 +11,18 @@
   <string name="page_error_retry">Cuba lagi</string>
   <string name="page_error_back_to_main">Kembali</string>
   <string name="menu_clear_all_history">Padamkan sejarah</string>
-  <string name="menu_clear_all_saved_pages">Padamkan semua laman tersimpan</string>
   <string name="page_does_not_exist_error">Laman ini tidak wujud.</string>
   <string name="nav_item_today">Hari ini</string>
   <string name="dialog_title_clear_history">Padamkan sejarah pelayaran</string>
   <string name="dialog_message_clear_history">Ini akan menghapuskan kesemua sejarah pelayaran anda serta menutup sebarang tab yang masih terbuka. Adakah anda pasti?</string>
   <string name="nav_item_saved_pages">Laman tersimpan</string>
-  <string name="menu_update_all_saved_pages">Kemaskinikan laman tersimpan</string>
-  <string name="menu_update_selected_saved_pages">Kemaskinikan laman tersimpan</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Kemaskinikan semua laman tersimpan?</string>
   <string name="share_via">Sebarkan melalui</string>
-  <string name="dialog_title_clear_saved_pages">Padamkan semua laman tersimpan?</string>
-  <string name="snackbar_saving_page">Menyimpan laman…</string>
-  <string name="snackbar_saved_page_format">\"%s\" disimpan untuk dibaca di luar talian</string>
-  <string name="snackbar_saved_page_missing_images">Semua gambar tidak dapat disimpan</string>
-  <string name="snackbar_refresh_saved_page">Memuat semula laman tersimpan…</string>
-  <string name="delete_selected_saved_pages">Hapuskan</string>
-  <string name="snackbar_saved_page_deleted">Laman tersimpan dihapuskan</string>
-  <string name="saved_pages_search_list_hint">Cari laman tersimpan</string>
-  <string name="saved_pages_search_empty_message">Tiada laman yang padan dengan pertanyaan anda.</string>
   <string name="menu_page_show_tabs">Paparkan tab</string>
   <string name="menu_page_other_languages">Tukar bahasa</string>
   <string name="menu_page_find_in_page">Cari dalam laman</string>
   <string name="menu_page_content_issues">Masalah kandungan</string>
   <string name="menu_page_similar_titles">Judul² serupa</string>
   <string name="menu_page_font_and_theme">Tukar fon dan tema</string>
-  <string name="menu_page_save">Simpan laman</string>
   <string name="menu_page_share">Kongsikan pautan</string>
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka dalam tab baru</string>
@@ -91,8 +77,6 @@
   <string name="login_error_unknown">Log masuk gagal :(</string>
   <string name="preference_title_logout">Log keluar</string>
   <string name="toast_logout_complete">Log keluar</string>
-  <string name="saved_pages_empty_title">Tiada laman tersimpan di sini!</string>
-  <string name="saved_pages_empty_message">Ciri-ciri laman tersimpan bagaikan penanda buku, boleh dibaca walaupun \'offline\'. Hebat, bukan?</string>
   <string name="history_empty_title">Tiada laman terbaru di sini.</string>
   <string name="history_empty_message">Mungkin anda telah memadamkan kesemuanya. Lain kali anda ke sesuatu laman, anda boleh kembali kepadanya dari sini.</string>
   <string name="delete_selected_history">Hapuskan</string>
@@ -121,7 +105,6 @@
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Soalan Lazim Aplikasi Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Zero dimatikan</string>
-  <string name="zero_charged_verbiage_extended">Memuatkan artikel-artikel lain mungkin dikenakan caj data.</string>
   <string name="zero_search_hint">Cari dalam Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Pesan apabila keluar dari Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator mudah alih anda mengecualikan caj akses data untuk aplikasi Wikipedia menerusi persepakatan Wikipedia Zero, jika tetapan ini dibiarkan pasang, anda akan dipesan bahawa caj mungkin dikenakan ketika anda keluar dari aplikasi Wikipedia.</string>
@@ -180,10 +163,6 @@
   <string name="edit_summary_tag_other_hint">Cara-cara lain anda menambah baik halaman</string>
   <string name="find_next">Carian berikutnya</string>
   <string name="find_previous">Carian sebelumnya</string>
-  <string name="error_network_error_try_again">Rancangan tidak tercapai, sila cuba lagi.</string>
-  <string name="saved_pages_update_all_error_retry">Cuba lagi</string>
-  <string name="saved_pages_update_all_error_message">Ralat kemaskini laman tersimpan</string>
-  <string name="saved_pages_progress_title">Memuatkan semula laman tersimpan</string>
   <string name="abusefilter_title_warn">Suntingan ini mungkin tidak membina. Adakah anda betul-betul mahu menyimpannya?</string>
   <string name="abusefilter_title_disallow">Suntingan ini tidak boleh disimpan. Sila kembali dan suntingnya semula.</string>
   <string name="abusefilter_text_warn">Penapis automatik mendapati suntingan ini berkemungkinan adalah tidak membina. Mungkin ia ada antara yang berikut:&lt;br /&gt;&lt;br /&gt;. Menaip dalam huruf besar&lt;br /&gt;. Mengosongkan rencana atau menspam&lt;br /&gt;. Pautan luar atau imej-imej tidak berkaitan&lt;br /&gt;. Aksara berulang</string>
@@ -207,24 +186,6 @@
   <string name="widget_title_featured_page">Laman pilihan hari ini:</string>
   <string name="widget_name_search">Pencarian Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Tiada takrifan dijumpai.</string>
-  <string name="app_store_description">Aplikasi rasmi Wikipedia untuk Android. Wikipedia merupakan ensiklopedia bebas yang mengandungi lebih daripada 32 juta rencana dalam 280 bahasa, bahkan merupakan bahan rujukan paling menyeluruh dan meluas digunakan yang pernah dihimpunkan oleh manusia. Aplikasi ini telah ditulis ganti dari pangkal dan oleh itu lebih baik daripada dahulu. Aplikasi ini telah dibina semula dari kosong dan kini lebih baik daripada dahulu.
-
-Ciri-ciri:
-- Gambar utama: alami Wikipedia serba baharu dengan gambar yang menonjol dan tepat dengan konteks di atas-atas rencana
-- Galeri imej: sentuh gambar untuk dapatkan paparan resolusi tinggi dengan kebolehan geser ke kiri/kanan untuk menelusuri gambar lain
-- Keterangan dari Wikidata: setiap hasil carian kini ada huraian ringkas untuk memperhalusi hasil menerusi konteks. Keterangan ini juga dipaparkan di ciri-ciri lain aplikasi ini seperti Berdekatan
-- Cadangan rencana: skrol ke bawah rencana untuk melihat cadangan rencana bacaan seterusnya
-- Simpan laman: simpan laman-laman terpilih untuk dibaca di luar talian dan ditelusuri walaupun tiada sambungan data
-- Berdekatan: ketahui lebih lanjut mengenai sekitar anda dengan mendapatkan pautan ke rencana mengenai perihal yang berdekatan dengan lokasi semasa anda
-- Sokongan bahasa: menukar paparan Wikipedia dengan lancar ke pelbagai bahasa
-- Jadual isi kandungan: geser ke kiri pada sebarang rencana untuk dapatkan jadual kandungan untuk cepat beralih sesama bahagian rencana
-- Wikipedia Zero: caj data dikecualikan untuk pengendali talian selular terpilih
-
-Kod ini adalah 100% sumber terbuka. Jika anda mempunyai pengalaman dengan Java dan Android SDK, bantuan anda kami alu-alukan! https://github.com/wikimedia/apps-android-wikipedia
-
-Dasar privasi: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Syarat penggunaan: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Terdapat kemaskinian alfa baru</string>
   <string name="alpha_update_notification_text">Ketik untuk muat turun</string>
   <string name="dialog_close_description">Tutup</string>

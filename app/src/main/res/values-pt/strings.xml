@@ -12,32 +12,18 @@
   <string name="page_error_retry">Tentar novamente</string>
   <string name="page_error_back_to_main">Voltar</string>
   <string name="menu_clear_all_history">Limpar histórico</string>
-  <string name="menu_clear_all_saved_pages">Apagar páginas guardadas</string>
   <string name="page_does_not_exist_error">Esta página não existe.</string>
   <string name="nav_item_today">Hoje</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto eliminará todo o histórico do seu navegador e fechará quaisquer separadores abertos. Tem a certeza?</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>
-  <string name="menu_update_all_saved_pages">Atualizar páginas guardadas</string>
-  <string name="menu_update_selected_saved_pages">Atualizar páginas guardadas</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Atualizar todas as páginas guardadas?</string>
   <string name="share_via">Partilhar via</string>
-  <string name="dialog_title_clear_saved_pages">Limpar todas as páginas guardadas?</string>
-  <string name="snackbar_saving_page">A guardar página…</string>
-  <string name="snackbar_saved_page_format">\"%s\" foi salva para leitura offline</string>
-  <string name="snackbar_saved_page_missing_images">Não foi possível gravar todas as imagens</string>
-  <string name="snackbar_refresh_saved_page">A recarregar página guardada…</string>
-  <string name="delete_selected_saved_pages">Eliminar</string>
-  <string name="snackbar_saved_page_deleted">Página(s) guardada(s) eliminada(s)</string>
-  <string name="saved_pages_search_list_hint">Pesquisar nas páginas guardadas</string>
-  <string name="saved_pages_search_empty_message">Nenhuma página correspondente com a sua pesquisa.</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar idioma</string>
   <string name="menu_page_find_in_page">Localizar na página</string>
   <string name="menu_page_content_issues">Problemas de conteúdo</string>
   <string name="menu_page_similar_titles">Títulos semelhantes</string>
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
-  <string name="menu_page_save">Guardar página</string>
   <string name="menu_page_add_to_list">Adicionar à lista de leitura</string>
   <string name="menu_page_share">Partilhar ligação</string>
   <string name="menu_long_press_open_page">Abrir</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">O início de sessão falhou :(</string>
   <string name="preference_title_logout">Sair</string>
   <string name="toast_logout_complete">Sessão terminada</string>
-  <string name="saved_pages_empty_title">Sem páginas guardadas ainda!</string>
-  <string name="saved_pages_empty_message">As páginas guardadas são bastante úteis. Pense como se fossem marcadores que pode ler mesmo quando estiver offline.</string>
   <string name="history_empty_title">Sem páginas recentes aqui.</string>
   <string name="history_empty_message">Provavelmente, deverá ter eliminado todos eles. Da próxima vez que aceder a uma página, pode obter a partir de aqui.</string>
   <string name="delete_selected_history">Eliminar</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes</string>
   <string name="zero_charged_verbiage">Wikipédia Zero está desligada</string>
-  <string name="zero_charged_verbiage_extended">O carregamento de outros artigos podem incorrer em custos de dados.</string>
   <string name="zero_search_hint">Procurar na Wikipédia Zero</string>
   <string name="zero_warn_when_leaving">Avisar-me se deixar a Wikipédia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se a sua operadora móvel renunciar à taxa de acesso para a aplicação da Wikipédia, através de uma parceria com a Wikipédia Zero, deixar esta opção marcada ajudará a saber quando estará a sair desta aplicação e se serão cobradas taxas de dados.</string>
@@ -184,10 +167,6 @@
   <string name="edit_summary_tag_other_hint">Outras maneiras de como melhorou a página</string>
   <string name="find_next">Localizar próxima</string>
   <string name="find_previous">Localizar anteriores</string>
-  <string name="error_network_error_try_again">Não foi possível aceder à rede, tente novamente por favor.</string>
-  <string name="saved_pages_update_all_error_retry">Tentar novamente</string>
-  <string name="saved_pages_update_all_error_message">Erro ao atualizar as guardadas</string>
-  <string name="saved_pages_progress_title">A recarregar páginas guardadas</string>
   <string name="abusefilter_title_warn">Esta edição poderá não ser construtiva. Tem a certeza que pretende gravá-la?</string>
   <string name="abusefilter_title_disallow">Não pode gravar esta edição. Por favor, volte atrás e altere-a.</string>
   <string name="abusefilter_text_warn">Um filtro automático identificou esta edição como não sendo construtiva. Pode conter os seguintes erros:&lt;br /&gt;&lt;br /&gt;Uso excessivo de maiúsculas;&lt;br/&gt;Branqueamento de artigos e spam;&lt;br/&gt;Imagens ou ligações externas irrelevantes;&lt;br/&gt;Repetição de caracteres</string>
@@ -211,26 +190,6 @@
   <string name="widget_title_featured_page">Artigo em destaque de hoje:</string>
   <string name="widget_name_search">Pesquisa Wikipédia</string>
   <string name="wiktionary_no_definitions_found">Não foram encontradas definições.</string>
-  <string name="app_store_description">Aplicação oficial Wikipédia para Android. A Wikipédia é uma enciclopédia livre que contém mais de 32 milhões de artigos em 280 idiomas, sendo a referência mais abrangente compilada por trabalho humano. A aplicação foi reescrita do zero e está melhor que nunca.
-
-Características:
-   - Imagens principais: experiente a Wikipédia como nunca antes, com imagens contextualmente relevantes e descrições no topo dos artigos.
-   - Galeria de imagens: Toque numa imagem para a exibir em ecrã inteiro em grande resolução, com opções disponíveis para navegar por outras imagens.
-   - Descrições do Wikidata: Ao fazer uma pesquisa, cada resultado contém agora uma pequena descrição que o ajuda a contextualizar o mesmo. Estas descrições são mostradas também noutras áreas da aplicação, como Nas redondezas.
-   - Sugestões de artigos: No final do artigo poderá encontrar sugestões sobre o que poderá ler de seguida.
-   - Páginas guardadas: Pode guardar páginas selecionadas para leitura e navegação \'\'offline\'\' mesmo sem ligação de dados.
-   - Nas redondezas: Saiba mais sobre o que o rodeia ao obter ligações para artigos sobre coisas que estão perto da sua localização.
-   - Suporte de idioma: A aplicação permite que, de forma fácil, consiga ler a Wikipédia escrita em qualquer idioma.
-   - Tabela de conteúdos: Deslize para a esquerda em qualquer artigo para fazer aparecer o indíce, que lhe permite navegar diretamente e facilmente nas seções.
-   - Wikipédia Zero: Taxa de dados dispensada para operadores móveis participantes.   
-
-Envie-nos os seus comentários sobre a aplicação! No menu, clique em \"Mais\", seguido de \"Sobre a aplicação Wikipédia\", e por fim em \"Enviar comentários sobre a aplicação\".
-
-O código é 100% aberto. Se tem experiência com linguagens Java e Android SDK, procuramos contar com a sua contribuição! https://github.com/wikimedia/apps-android-wikipedia
-
-Política de privacidade: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Condições de uso: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nova atualização alfa disponível</string>
   <string name="alpha_update_notification_text">Toque para descarregar</string>
   <string name="dialog_close_description">Fechar</string>

@@ -21,7 +21,6 @@
 {{Identical|Go back}}</string>
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.
 {{Identical|Clear history}}</string>
-  <string name="menu_clear_all_saved_pages">Clear is an imperative verb. This is an action that clears all saved pages.</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
   <string name="nav_item_today">Text in navigation sidebar that when tapped leads to the Main Page.
 {{Identical|Today}}</string>
@@ -29,33 +28,11 @@
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.
 {{Identical|Saved page}}</string>
-  <string name="menu_update_all_saved_pages">Menu item (icon) in saved pages screen to update all saved pages.
-{{Identical|Update saved page}}</string>
-  <string name="menu_update_selected_saved_pages">Menu item (icon) in saved pages screen to update selected saved pages.
-{{Identical|Update saved page}}</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Prompt before updating all saved pages</string>
   <string name="share_via">Dialog title text for Share list.
 
 The Share list contains the following menu items (localized):
 * Mail
 * Message</string>
-  <string name="dialog_title_clear_saved_pages">Title for dialog box asking if you want to clear all of your saved pages</string>
-  <string name="snackbar_saving_page">Small toast (popup) message saying that a page is being saved for offline reading</string>
-  <string name="snackbar_saved_page_format">Small toast (popup) message saying that a page has been saved for offline reading.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-toast saved page missing images}}</string>
-  <string name="snackbar_saved_page_missing_images">Small toast (popup) message saying that not all images of a saved page could be saved.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-toast saved page}}</string>
-  <string name="snackbar_refresh_saved_page">Small toast (popup) message saying that a saved page is being refreshed</string>
-  <string name="delete_selected_saved_pages">Menu item text for deleting the currently selected saved pages
-{{Identical|Delete}}</string>
-  <string name="snackbar_saved_page_deleted">Small toast (popup) message saying that the selected saved pages have been deleted</string>
-  <string name="saved_pages_search_list_hint">Hint for textbox that searches list of items in saved pages as user types.
-      {{Identical|Search}}</string>
-  <string name="saved_pages_search_empty_message">Message shown when no saved pages were found that match the user\'s query.</string>
   <string name="search_redirect_from">Label shown when a search result is redirected from the original search query. The \"%s\" symbol is replaced with the redirect source.</string>
   <string name="menu_page_show_tabs">Text hint for the menu button used for showing the list of current tabs.</string>
   <string name="menu_page_other_languages">Menu item for showing list of languages in which this article is available.
@@ -64,8 +41,6 @@ See also:
   <string name="menu_page_content_issues">Menu item for showing known issues on current page</string>
   <string name="menu_page_similar_titles">Menu item for showing articles similar to the current page</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
-  <string name="menu_page_save">Menu item for saving a page for later reading.
-{{Identical|Save page}}</string>
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
 {{Identical|Share}}</string>
@@ -144,8 +119,6 @@ See also:
   <string name="preference_title_logout">{{Identical|Log out}}</string>
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.
 {{Identical|Logged out}}</string>
-  <string name="saved_pages_empty_title">Used in \"Saved pages\" page if there are no saved pages to show.</string>
-  <string name="saved_pages_empty_message">Brief explanation of what saved pages are, and their benefits.</string>
   <string name="history_empty_title">Used in \"Browsing history\" page if there is nothing to show.</string>
   <string name="history_empty_message">Brief explanation that there are currently no History entries to look at. Just to fill an empty screen. This usually happens when a user just deleted history entries.</string>
   <string name="delete_selected_history">Menu item text for deleting the currently selected history entries
@@ -190,7 +163,6 @@ See also:
 {{Identical|General}}</string>
   <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF</string>
-  <string name="zero_charged_verbiage_extended">Extended text describing that further usage of the app may in fact incur data charges because Wikipedia Zero is off.</string>
   <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
   <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link</string>
   <string name="zero_warn_when_leaving_summary">Lengthy explanation of Wikipedia Zero for settings screen</string>
@@ -276,11 +248,6 @@ Please test the URL to make sure it works</string>
   <string name="find_next">Text for button that finds the next occurrence of a search term.
 {{Identical|Find next}}</string>
   <string name="find_previous">Text for button that finds the previous occurrence of a search term</string>
-  <string name="error_network_error_try_again">Message shown when encountering network connection issues that may be corrected by simply retrying.</string>
-  <string name="saved_pages_update_all_error_retry">Label for button shown in error dialog when updating saved pages fails that lets user try again.
-{{Identical|Retry}}</string>
-  <string name="saved_pages_update_all_error_message">Message for error dialog shown when updating pages fails</string>
-  <string name="saved_pages_progress_title">Title for progress dialog shown when updating saved pages</string>
   <string name="abusefilter_title_warn">Message that warns the user that their edit may be unconstructive, and asks if they want to continue saving it.</string>
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
@@ -312,7 +279,6 @@ Please test the URL to make sure it works</string>
 
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="wiktionary_no_definitions_found">Message shown when a user requests a definition from Wiktionary but no definition is found.</string>
-  <string name="app_store_description">Description of the app as put up on the Google Play Store</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
   
   

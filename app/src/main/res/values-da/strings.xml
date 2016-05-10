@@ -11,32 +11,18 @@
   <string name="page_error_retry">Prøv igen</string>
   <string name="page_error_back_to_main">Gå tilbage</string>
   <string name="menu_clear_all_history">Ryd historik</string>
-  <string name="menu_clear_all_saved_pages">Ryd gemte sider</string>
   <string name="page_does_not_exist_error">Denne side findes ikke.</string>
   <string name="nav_item_today">I dag</string>
   <string name="dialog_title_clear_history" fuzzy="true">Vil du rydde browserhistorikken?</string>
   <string name="dialog_message_clear_history" fuzzy="true">Er du sikker på du ønsker at slette al historik?</string>
   <string name="nav_item_saved_pages">Gemte sider</string>
-  <string name="menu_update_all_saved_pages">Opdater gemte sider</string>
-  <string name="menu_update_selected_saved_pages">Opdater gemte sider</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Opdater alle gemte sider?</string>
   <string name="share_via">Del via</string>
-  <string name="dialog_title_clear_saved_pages">Ryd alle gemte sider?</string>
-  <string name="snackbar_saving_page">Gemmer side…</string>
-  <string name="snackbar_saved_page_format">\"%s\" gemt til offline-læsning</string>
-  <string name="snackbar_saved_page_missing_images">Kunne ikke gemme alle billeder</string>
-  <string name="snackbar_refresh_saved_page">Opdaterer gemt side…</string>
-  <string name="delete_selected_saved_pages">Slet</string>
-  <string name="snackbar_saved_page_deleted">Gemt(e) side(r) slettet</string>
-  <string name="saved_pages_search_list_hint">Søg i Gemte sider</string>
-  <string name="saved_pages_search_empty_message">Ingen sider fundet der matcher din forespørgsel.</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Skift sprog</string>
   <string name="menu_page_find_in_page">Søg på siden</string>
   <string name="menu_page_content_issues">Indholdsproblemer</string>
   <string name="menu_page_similar_titles">Lignende artikler</string>
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
-  <string name="menu_page_save">Gem side</string>
   <string name="menu_page_share">Del link</string>
   <string name="menu_long_press_open_page">Åbn</string>
   <string name="menu_long_press_open_in_new_tab">Åbn i ny fane</string>
@@ -91,8 +77,6 @@
   <string name="login_error_unknown">Login mislykkedes :(</string>
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
-  <string name="saved_pages_empty_title">Ingen gemte sider her!</string>
-  <string name="saved_pages_empty_message">Gemte sider er ret seje. Tænk på dem som bogmærker, som du kan læse, selv når du er offline.</string>
   <string name="history_empty_title">Ingen nye sider her.</string>
   <string name="history_empty_message">Du har sikkert slettet dem alle. Næste gang du går til en side, kan du komme tilbage til den her.</string>
   <string name="delete_selected_history">Slet</string>
@@ -121,7 +105,6 @@
   <string name="preferences_general_heading">Generelt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Wikipedia Zero er slukket</string>
-  <string name="zero_charged_verbiage_extended">Nedhentning af andre artikler kan medføre datagebyrer.</string>
   <string name="zero_search_hint">Søg i Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Advar mig når jeg forlader Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Hvis din mobiloperatør frafalder dataadgangsgebyrer for Wikipedia app via et Wikipedia Zero partnerskab, lader denne indstilling dig vide, når du forlader Wikipedia app og kunne blive opkrævet gebyrer.</string>
@@ -181,10 +164,6 @@
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
-  <string name="error_network_error_try_again">Kunne ikke få forbindelse til netværket, prøv igen.</string>
-  <string name="saved_pages_update_all_error_retry">Prøv igen</string>
-  <string name="saved_pages_update_all_error_message">Der opstod fejl under opdatering af gemte sider</string>
-  <string name="saved_pages_progress_title">Opdaterer gemte sider</string>
   <string name="abusefilter_title_warn">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på du ønsker at gemme den?</string>
   <string name="abusefilter_title_disallow">Du kan ikke gemme denne redigering. Gå venligst tilbage og ændre den.</string>
   <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
@@ -208,26 +187,6 @@
   <string name="widget_title_featured_page">Dagens udvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søgning</string>
   <string name="wiktionary_no_definitions_found">Ingen definitioner fundet.</string>
-  <string name="app_store_description">Officiel Wikipedia App til Android. Wikipedia er en fri encyklopædi der indeholder mere end 32 millioner artikler på 280 sprog, og er den mest omfattende og udbredte referenceværk mennesker nogensinde har samlet.
-
-Funktioner:
-- Indledningsbilleder: oplev Wikipedia som aldrig før, med et fremtrædende indholdsrelevant billede øverst i artiklerne
-- Billedegalleri: tryk på et billede for fuldskærmsvisning i høj opløsning, med muligheder for at swipe til højre/venstre for at gennemse flere billeder
-- Beskrivelser fra Wikidata: når du søger, viser hvert søgeresultat nu en kort beskrivelse som hjælper med at kontekstualisere resultatet. Disse beskrivelser vises også i andre dele af appen, såsom i \"I nærheden\"-funktionen
-- Artikelforslag: rul ned til bunden af en artikel for at se forslag til hvad du kan læse efterfølgende
-- Gemte sider: gem udvalgte sider til offlinelæsning og gennemse dem, selvom du ikke har en dataforbindelse
-- I nærheden: lær mere om hvad der findes omkring dig ved at få vist links til artikler om ting nær din aktuelle placering
-- Sprogunderstøttelse: skift problemfrit mellem Wikipedia-artikler skrevet på ethvert sprog
-- Indholdsfortegnelse: swipe til venstre for at se indholdsfortegnelsen
-- Wikipedia Zero: data gebyrer frafaldes for deltagende mobiloperatører
-
-Send os dit feedback om appen! I menuen, tryk \"Mere\", derefter \"Om Wikipedia-appen\", derefter \"Send tilbagemelding om app\".
-
-Kildekoden er 100% open source. Hvis du har erfaring med Java og Android SDK ser vi frem til dine bidrag! https://github.com/wikimedia/apps-android-wikipedia
-
-Privatlivspolitik: http://wikimediafoundation.org/wiki/Privacy_policy
-
-Vilkår for anvendelse: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Ny alpha opdatering tilgængelig</string>
   <string name="alpha_update_notification_text">Tryk for at hente ned</string>
   <string name="dialog_close_description">Luk</string>

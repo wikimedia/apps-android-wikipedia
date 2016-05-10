@@ -11,32 +11,18 @@
   <string name="page_error_retry">Tornar a provar</string>
   <string name="page_error_back_to_main">Vés enrere</string>
   <string name="menu_clear_all_history">Esborra l\'historial</string>
-  <string name="menu_clear_all_saved_pages">Esborra les pàgines desades</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
   <string name="nav_item_today">Avui</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="nav_item_saved_pages">Pàgines desades</string>
-  <string name="menu_update_all_saved_pages">Actualitza les pàgines desades</string>
-  <string name="menu_update_selected_saved_pages">Actualitza les pàgines desades</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">¿Actualitzar totes les pàgines desades?</string>
   <string name="share_via">Comparteix mitjançant…</string>
-  <string name="dialog_title_clear_saved_pages">Esborrar totes les pàgines desades?</string>
-  <string name="snackbar_saving_page">S\'està desant la pàgina…</string>
-  <string name="snackbar_saved_page_format">«%s» desada per a lectura fora de línia</string>
-  <string name="snackbar_saved_page_missing_images">No s\'han pogut desar totes les imatges</string>
-  <string name="snackbar_refresh_saved_page">S\'està actualitzant la pàgina desada…</string>
-  <string name="delete_selected_saved_pages">Esborra</string>
-  <string name="snackbar_saved_page_deleted">S\'han esborrat les pàgines desades</string>
-  <string name="saved_pages_search_list_hint">Cerca en les pàgines desades</string>
-  <string name="saved_pages_search_empty_message">No s\'ha trobat cap pàgina que coincidís amb la vostra consulta.</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cercar en la pàgina</string>
   <string name="menu_page_content_issues">Problemes amb el contingut</string>
   <string name="menu_page_similar_titles">Títols similars</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
-  <string name="menu_page_save">Desa la pàgina</string>
   <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
   <string name="menu_page_share">Comparteix l\'enllaç</string>
   <string name="menu_long_press_open_page">Obre</string>
@@ -93,8 +79,6 @@
   <string name="login_error_unknown">Ha fallat l\'inici de sessió :(</string>
   <string name="preference_title_logout">Desconnectar-se</string>
   <string name="toast_logout_complete">Desconnectat</string>
-  <string name="saved_pages_empty_title">Aquí no hi ha cap pàgina desada!</string>
-  <string name="saved_pages_empty_message">Les pàgines desades són fantàstiques. Penseu que són talment com adreces d\'interès que podeu llegir fins i tot sense connexió.</string>
   <string name="history_empty_title">Aquí no hi ha pàgines recents!</string>
   <string name="history_empty_message">Probablement les heu eliminades totes. La pròxima vegada que aneu a una pàgina podreu tornar-hi des d\'aquí.</string>
   <string name="delete_selected_history">Esborrar</string>
@@ -123,7 +107,6 @@
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">PMF de l\'app de la Viquipèdia</string>
   <string name="zero_charged_verbiage">Viquipèdia Zero està desactivada</string>
-  <string name="zero_charged_verbiage_extended">Carregar altres articles pot implicar despeses per dades.</string>
   <string name="zero_search_hint">Cercar a Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving">Avisar si es deixa Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si el vostre operador de telefonia mòbil ha renunciat a cobrar per l\'accés de dades des de l\'aplicació de la Viquipèdia gràcies a un acord amb Viquipèdia Zero, en deixar aquest paràmetre habilitat se us avisarà quan sortiu de l\'aplicació de la Viquipèdia, moment en què us poden tornar a cobrar.</string>
@@ -183,10 +166,6 @@
   <string name="edit_summary_tag_other_hint">Altres formes com heu millorat la pàgina</string>
   <string name="find_next">Cercar el següent</string>
   <string name="find_previous">Cercar l\'anterior</string>
-  <string name="error_network_error_try_again">No s\'ha pogut accedir a la xarxa. Torneu-ho a provar.</string>
-  <string name="saved_pages_update_all_error_retry">Tornar-ho a provar</string>
-  <string name="saved_pages_update_all_error_message">Error en actualitzar les pàgines desades</string>
-  <string name="saved_pages_progress_title">S\'estan actualitzant les pàgines desades</string>
   <string name="abusefilter_title_warn">Això podria ser una modificació no constructiva. Segur que voleu desar-la?</string>
   <string name="abusefilter_title_disallow">No podeu desar aquesta modificació. Aneu enrere i canvieu-la.</string>
   <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs irrellevants o imatges&lt;br /&gt;· Caràcters que es repeteixin</string>
@@ -210,22 +189,6 @@
   <string name="widget_title_featured_page">Pàgina destacada del dia:</string>
   <string name="widget_name_search">Cerca a la Viquipèdia</string>
   <string name="wiktionary_no_definitions_found">No s\'han trobat definicions.</string>
-  <string name="app_store_description">Aplicació oficial de la Viquipèdia per a l\'Android. La Viquipèdia és una enciclopèdia lliure que conté més de 32 milions d\'articles en 280 llengües. Es tracta de l\'obra de referència més completa i usada que mai s\'hagi compilat. L\'aplicació ha estat reescrita de bell nou i és millor que mai.
-
-Característiques:
- - Rapidesa: com a aplicació nativa us permet navegar i editar la Viquipèdia més de pressa que abans.
- - Edició: podeu utilitzar-la per editar la Viquipèdia! Tant si ho feu sota un compte d\'usuari com de forma anònima, agraïm totes les contribucions.
- - Pàgines recents: us proporcionem un historial de lectura. Així podeu tocar tants enllaços com vulgueu sense preocupar-vos de perdre el fil.
- - Pàgines desades: podeu seleccionar i desar pàgines per a llegir-les quan no tingueu connexió.
- - Compartició: feu servir les vostres aplicacions socials per a compartir la totalitat del coneixement humà.
- - Suport d\'idioma: l\'aplicació us permet consultar fàcilment les versions de la Viquipèdia en diferents idiomes.
- - Viquipèdia Zero: alguns operadors de telefonia mòbil accepten no cobrar per l\'ús de dades associat a l\'aplicació.
-
-El codi és totalment obert. Si teniu experiència en Java i en l\'SDK de l\'Android, afegiu la vostra aportació! https://github.com/wikimedia/apps-android-wikipedia
-
-Política de privadesa: http://wikimediafoundation.org/wiki/Privacy_policy
-
-Condicions d\'ús: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Hi ha disponible una nova versió alfa</string>
   <string name="alpha_update_notification_text">Tocar per descarregar</string>
   <string name="dialog_close_description">Tancar</string>

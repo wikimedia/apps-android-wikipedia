@@ -12,32 +12,18 @@
   <string name="page_error_retry">Försök igen</string>
   <string name="page_error_back_to_main">Gå tillbaka</string>
   <string name="menu_clear_all_history">Rensa historik</string>
-  <string name="menu_clear_all_saved_pages">Rensa sparade sidor</string>
   <string name="page_does_not_exist_error">Denna sida finns inte!</string>
   <string name="nav_item_today">Idag</string>
   <string name="dialog_title_clear_history">Rensa webbhistoriken</string>
   <string name="dialog_message_clear_history">Detta kommer att radera all webbhistorik och stänga alla öppna flikar. Är du säker?</string>
   <string name="nav_item_saved_pages">Sparade sidor</string>
-  <string name="menu_update_all_saved_pages">Uppdatera sparade sidor</string>
-  <string name="menu_update_selected_saved_pages">Uppdatera sparade sidor</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Uppdatera alla sparade sidor?</string>
   <string name="share_via">Dela via</string>
-  <string name="dialog_title_clear_saved_pages">Rensa alla sparade sidor?</string>
-  <string name="snackbar_saving_page">Sparar sida…</string>
-  <string name="snackbar_saved_page_format">\"%s\" sparades för läsning offline</string>
-  <string name="snackbar_saved_page_missing_images">Kunde inte spara alla bilder</string>
-  <string name="snackbar_refresh_saved_page">Uppdaterar sparad sida…</string>
-  <string name="delete_selected_saved_pages">Radera</string>
-  <string name="snackbar_saved_page_deleted">Sparad(e) sida/sidor raderas</string>
-  <string name="saved_pages_search_list_hint">Sök sparade sidor</string>
-  <string name="saved_pages_search_empty_message">Inga sidor som matchade din sökning hittades.</string>
   <string name="menu_page_show_tabs">Visa flikar</string>
   <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Sök på sidan</string>
   <string name="menu_page_content_issues">Innehållsproblem</string>
   <string name="menu_page_similar_titles">Liknande artiklar</string>
   <string name="menu_page_font_and_theme">Ändra teckensnitt och tema</string>
-  <string name="menu_page_save">Spara sidan</string>
   <string name="menu_page_add_to_list">Lägg till i läslistan</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_long_press_open_page">Öppna</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Inloggningen misslyckades :(</string>
   <string name="preference_title_logout">Logga ut</string>
   <string name="toast_logout_complete">Utloggad</string>
-  <string name="saved_pages_empty_title">Inga sparade sidor här!</string>
-  <string name="saved_pages_empty_message">Sparade sidor är väldigt händigt. Tänk på dem som bokmärken som du kan läsa även när du är offline.</string>
   <string name="history_empty_title">Inga nya sidor här.</string>
   <string name="history_empty_message">Du raderade förmodligen samtliga. Nästa gång du går till en sida kan du komma tillbaka till den härifrån.</string>
   <string name="delete_selected_history">Radera</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Allmänt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Wikipedia Zero är avstängt</string>
-  <string name="zero_charged_verbiage_extended">Laddning av andra artiklar kan medföra kostnader för datatrafik.</string>
   <string name="zero_search_hint">Sök på Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varna om jag lämnar Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Om din mobiloperatör ingått ett partnerskap med Wikipedia Zero, som ger dig tillgång till Wikipedia utan datatrafiksavgifter, varnas du om du lämnar appen och riskerar att betala för datatrafik om du har aktiverat denna inställning.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Andra sätt på vilka du förbättrat sidan</string>
   <string name="find_next">Sök nästa</string>
   <string name="find_previous">Sök föregående</string>
-  <string name="error_network_error_try_again">Kunde inte ansluta till nätverket. Försök igen.</string>
-  <string name="saved_pages_update_all_error_retry">Försök igen</string>
-  <string name="saved_pages_update_all_error_message">Fel vid uppdatering av sparade sidor</string>
-  <string name="saved_pages_progress_title">Uppdaterar sparade sidor</string>
   <string name="abusefilter_title_warn">Detta kan vara en icke-konstruktiv redigering. Är du säker på att du vill spara den?</string>
   <string name="abusefilter_title_disallow">Du kan inte spara denna redigering. Gå tillbaka och ändra den.</string>
   <string name="abusefilter_text_warn">Ett automatiserat filter har identifierat denna redigering som potentiellt okonstruktiv. Den kan innehålla en eller flera av följande:&lt;br /&gt;&lt;br /&gt;· Text skriven helt med versaler&lt;br /&gt;· Tömande av artiklar eller spam&lt;br /&gt;· Irrelevanta externa länkar eller bilder&lt;br /&gt;· Upprepade tecken</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
   <string name="widget_name_search">Wikipedia-sök</string>
   <string name="wiktionary_no_definitions_found">Inga definitioner hittades.</string>
-  <string name="app_store_description">Officiell Wikipedia-app för Android. Wikipedia är det fria uppslagsverket som innehåller mer än 32 miljoner artiklar på 280 språk och är den mest omfattande och använda referensarbetet människan någonsin har sammanställt.
-
-Funktioner:
-- Inledande bilder: Upplev Wikipedia som aldrig tidigare med en framträdande innehållsrelevant bild och beskrivning längst upp på artiklar
-- Bildgallerier: Tryck på en bild för att se den i helskärm och svep till vänster/höger för att bläddra mellan flera bilder
-- Beskrivningar från Wikidata: När du söker kommer varje sökresultat nu innehålla en kort beskrivning som knyter resultatet till ett sammanhang. Dessa beskrivningar visas även på andra ställen i appen, som I närheten
-- Artikelförslag: Rulla längst ned till en artikel för att se förslag på vad du kan läsa sedan
-- Sparade sidor: Spara valda sidor för att läsa offline och bläddra bland dem även när du inte har en dataanslutning.
-- I närheten: Läs mer om vad som finns runtomkring dig genom att få länkar till artiklar om saker som finns nära din aktuella plats
-- Språkstöd: Växla enkelt mellan olika språk att läsa Wikipedia på
-- Innehållsförteckning: Svep till vänster på en artikel för att få en innehållsförteckning, som låter dig enkelt hoppa till artikelns olika avsnitt
-- Wikipedia Zero: Inga dataavgifter från deltagande mobiloperatörer för att använda appen
-
-Skicka din återkoppling om appen! Gå till menyn, tryck på \"Mer\", sedan \"Om Wikipedia-appen\" och \"Skicka återkoppling om appen\".
-
-Koden består till 100 % av öppen källkod. Om du har erfarenhet av Java och Android SDK ser vi fram emot din hjälp! https://github.com/Wikimedia/apps-Android-wikipedia
-
-Integritetspolicy: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Villkor för användning: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Ny alpha-uppdatering tillgänglig</string>
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>
   <string name="dialog_close_description">Stäng</string>

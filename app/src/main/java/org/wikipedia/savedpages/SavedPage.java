@@ -2,18 +2,19 @@ package org.wikipedia.savedpages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageTitle;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 
-import static org.wikipedia.util.FileUtil.delete;
-import static org.wikipedia.util.FileUtil.writeToFile;
-import static org.wikipedia.util.FileUtil.readJSONFile;
 import static org.wikipedia.util.FileUtil.getSavedPageDirFor;
+import static org.wikipedia.util.FileUtil.readJSONFile;
+import static org.wikipedia.util.FileUtil.writeToFile;
 
 public class SavedPage implements Parcelable {
     public static final SavedPageDatabaseTable DATABASE_TABLE = new SavedPageDatabaseTable();
@@ -136,13 +137,5 @@ public class SavedPage implements Parcelable {
 
     public JSONObject readUrlMapFromFileSystem() throws IOException, JSONException {
         return readJSONFile(getUrlMapFile());
-    }
-
-    /**
-     * Deletes any stored files that are associated with this page.
-     * (Removes the entire directory and any files in it)
-     */
-    public void deleteFromFileSystem() {
-        delete(new File(getSavedPageDirFor(title)), true);
     }
 }

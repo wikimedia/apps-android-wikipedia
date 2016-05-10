@@ -10,29 +10,15 @@
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>
   <string name="page_error_retry">Probeer weer</string>
   <string name="menu_clear_all_history">Vee geskiedenis uit</string>
-  <string name="menu_clear_all_saved_pages">Skrap gestoorde bladsye</string>
   <string name="page_does_not_exist_error">Hierdie bladsy bestaan nie.</string>
   <string name="nav_item_today">Vandag</string>
   <string name="dialog_title_clear_history" fuzzy="true">Skrap webblaaier geskiedenis?</string>
   <string name="nav_item_saved_pages">Gestoorde bladsye</string>
-  <string name="menu_update_all_saved_pages">Opdateer gestoorde bladsye</string>
-  <string name="menu_update_selected_saved_pages">Opdateer gestoorde bladsye</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Opdateer alle gestoorde bladsye?</string>
   <string name="share_via">Deel deur</string>
-  <string name="dialog_title_clear_saved_pages">Verwyder alle gestoorde bladsye?</string>
-  <string name="snackbar_saving_page">Besig om blad te stoor…</string>
-  <string name="snackbar_saved_page_format">\"%s\" suksesvol gestoor vir aflyn lees</string>
-  <string name="snackbar_saved_page_missing_images">Kon nie alle beelde stoor nie</string>
-  <string name="snackbar_refresh_saved_page">Herlaai gestoorde blad…</string>
-  <string name="delete_selected_saved_pages">Skrap</string>
-  <string name="snackbar_saved_page_deleted">Gestoorde blad(sye) geskrap</string>
-  <string name="saved_pages_search_list_hint">Soek gestoorde bladsye</string>
-  <string name="saved_pages_search_empty_message">Geen bladsye gevind wat by u soekterm pas nie.</string>
   <string name="menu_page_show_tabs">Vertoon oortjies</string>
   <string name="menu_page_other_languages" fuzzy="true">Lees in ander tale</string>
   <string name="menu_page_find_in_page">Soek in blad</string>
   <string name="menu_page_font_and_theme">Lettertipe en tema</string>
-  <string name="menu_page_save">Stoor bladsy</string>
   <string name="menu_page_share">Deel skakel</string>
   <string name="menu_long_press_open_page">Maak oop</string>
   <string name="menu_long_press_open_in_new_tab">Open in nuwe oortjie</string>
@@ -83,8 +69,6 @@
   <string name="login_error_unknown">Aanmelding het misluk :(</string>
   <string name="preference_title_logout">Teken uit</string>
   <string name="toast_logout_complete">Uitgeteken</string>
-  <string name="saved_pages_empty_title">Geen gestoorde blasye hier nie!</string>
-  <string name="saved_pages_empty_message">Gestoorde bladsye is wonderlik. Dink aan hulle as boekmerke wat u kan lees selfs as u aflyn is.</string>
   <string name="history_empty_title">Geen gestoorde blasye hier nie!</string>
   <string name="history_empty_message">U het moontlik hulle almal geskrap. Volgende keer as u na \'n bladsy gaan kan u terugkom daarby van hier af.</string>
   <string name="delete_selected_history">Skrap</string>
@@ -113,7 +97,6 @@
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Gewilde vrae oor Wikipedia Toep</string>
   <string name="zero_charged_verbiage">Wikipedia Zero is af</string>
-  <string name="zero_charged_verbiage_extended">Laai van ander artikels mag data kostes veroorsaak.</string>
   <string name="zero_search_hint">Soek in Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Waarsku indien Wikipedia Zero verlaat word</string>
   <string name="zero_warn_when_leaving_summary">Indien jou mobiele diensverskaffer data koste kwytskeld vir die Wikipedia toep deur \'n Wikipedia Zero vennootskap, deur hierdie opsie gestel te hou help dit om u in te lig wanneer u die Wikipedia toep verlaat en dit data kostes mag veroorsaak.</string>
@@ -165,10 +148,6 @@
   <string name="edit_summary_tag_other_hint">Ander maniere waarop u die blad verbeter het</string>
   <string name="find_next">Vind volgende</string>
   <string name="find_previous">Vind vorige</string>
-  <string name="error_network_error_try_again">Kon nie netwerk bereik, probeer asseblief weer.</string>
-  <string name="saved_pages_update_all_error_retry">Probeer weer</string>
-  <string name="saved_pages_update_all_error_message">Fout tydens opdatering van gestoorde bladsye</string>
-  <string name="saved_pages_progress_title">Besig om gestoorde bladsye te herlaai</string>
   <string name="abusefilter_title_warn">Hierdie mag \'n nie-konstruktiewe wysiging wees. Is u seker u wil dit stoor?</string>
   <string name="abusefilter_title_disallow">U kan nie hierdie wysiging stoor nie. Gaan asseblief terug en verander dit.</string>
   <string name="abusefilter_text_warn">\'n Outomatiese filter het hierdie wysiging as potensiëel onkonstruktief geïdentifiseer. Dit mag een of meer van die volgende bevat:&lt;br /&gt;&lt;br /&gt;· Tik van alles in hoofletters&lt;br /&gt;· Leegmaak van artikels of pespos&lt;br /&gt;· Irrelevante eksterne skakels&lt;br /&gt;· Herhalende karakter</string>
@@ -191,26 +170,6 @@
   <string name="widget_name_featured_page">Wikipedia voorbladartikel</string>
   <string name="widget_title_featured_page">Vandag se voorbladartikel</string>
   <string name="widget_name_search">Soek op Wikipedia</string>
-  <string name="app_store_description">Amptelike Wikipedia Toep vir Android. Wikipedia is die vrye ensiklopedie wat meer as 32 miljoen artikels bevat in 280 tale, en is die mees omvattende en wyd gebruikte naslaanwerk ooit saamgestel deur die mens.
-
-Kenmerke:
-- Lei beelde: ervaar Wikipedia soos nog nooit tevore met \'n prominente, kontekstueel-relevante beeld en beskrywing aan die bokant van artikels
-- Beeldgallery: kliek op \'n beeld toon die beeld volskerm in hoë resolusie, met opsies van sleep links / regs vir addisionele beelde
-- Beskrywings vanaf Wikidata: tydens soektogte, bevat elke resultaat nou \'n vinnige beskrywing wat help om die resultaat te kontekstualiseer. Hierdie beskrywings word ook getoon in ander gebiede van die toep, soos Naby
-- Artikel voorstelle: gaan na die onderkant van \'n artikel vir voorstelle oor wat jy volgende kan lees
-- Gestoorde bladsye: stoor gekose bladsye vir lees en blaai, selfs wanneer jy nie \'n data verbinding het nie
-- Naby: leer meer oor wat rondom u is met skakels na artikels oor dinge naby jou huidige ligging
-- Taalondersteuning: skakel moeiteloos na Wikipedia geskryf in enige taal
-- Inhoudsopgawe: sleep links op enige artikel om die inhoudsopgawe te vertoon, waarmee jy maklik na die artikel afdelings kan spring
-- Wikipedia Zero: data koste kwytgeskeld vir deelname mobiele diensverskaffers
-
-Stuur vir ons jou terugvoer oor die toep! In die kieslys, druk \"Meer\", dan \"Aangaande Wikipedia toep\", dan \"Stuur toep terugvoer\".
-
-Die kode is 100% oop-bron. As jy ondervinding met Java en die Android SDK, dan sien ons uit na jou bydraes! https://github.com/wikimedia/apps-android-wikipedia
-
-Privaatheidsbeleid: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Voorwaardes: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nuwe alfa opdatering beskikbaar</string>
   <string name="alpha_update_notification_text">Kliek om af te laai</string>
   <string name="dialog_close_description">Sluit</string>

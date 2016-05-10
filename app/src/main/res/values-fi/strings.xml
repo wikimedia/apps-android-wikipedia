@@ -12,32 +12,18 @@
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="page_error_back_to_main">Takaisin</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
-  <string name="menu_clear_all_saved_pages">Tyhjennä tallennetut sivut</string>
   <string name="page_does_not_exist_error">Tätä sivua ei ole.</string>
   <string name="nav_item_today">Tänään</string>
   <string name="dialog_title_clear_history">Selaushistorian tyhjennys</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi sekä sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="nav_item_saved_pages">Tallennetut sivut</string>
-  <string name="menu_update_all_saved_pages">Päivitä tallennetut sivut</string>
-  <string name="menu_update_selected_saved_pages">Päivitä tallennetut sivut</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Päivitetäänkö kaikki tallennetut sivut?</string>
   <string name="share_via">Jaa palvelulla</string>
-  <string name="dialog_title_clear_saved_pages">Tyhjennetäänkö kaikki tallennetut sivut?</string>
-  <string name="snackbar_saving_page">Tallennetaan sivua…</string>
-  <string name="snackbar_saved_page_format">”%s” tallennettiin offline-lukemista varten</string>
-  <string name="snackbar_saved_page_missing_images">Joidenkin kuvien tallennus ei onnistunut</string>
-  <string name="snackbar_refresh_saved_page">Päivitetään tallennettua sivua..</string>
-  <string name="delete_selected_saved_pages">Poista</string>
-  <string name="snackbar_saved_page_deleted">Tallennetut sivu(t) poistettu</string>
-  <string name="saved_pages_search_list_hint">Hae tallennetuista sivuista</string>
-  <string name="saved_pages_search_empty_message">Hakuasi vastaavia sivua ei löytynyt.</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
   <string name="menu_page_other_languages">Vaihda kieltä</string>
   <string name="menu_page_find_in_page">Etsi sivulta</string>
   <string name="menu_page_content_issues">Sisältöongelmat</string>
   <string name="menu_page_similar_titles">Samankaltaiset otsikot</string>
   <string name="menu_page_font_and_theme">Muuta kirjaisintyyppiä ja teemaa</string>
-  <string name="menu_page_save">Tallenna sivu</string>
   <string name="menu_page_add_to_list">Lisää lukulistaan</string>
   <string name="menu_page_share">Jaa linkki</string>
   <string name="menu_long_press_open_page">Avaa</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Kirjautuminen epäonnistui :(</string>
   <string name="preference_title_logout">Kirjaudu ulos</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
-  <string name="saved_pages_empty_title">Ei tallennettuja sivuja täällä.</string>
-  <string name="saved_pages_empty_message">Tallennetut sivut ovat melko loistavia. Ajattele niitä kirjanmerkkeinä, joita voit lukea ilman verkkoyhteyttä.</string>
   <string name="history_empty_title">Ei tuoreita sivuja täällä.</string>
   <string name="history_empty_message">Olet todennäköisesti poistanut ne kaikki. Seuraavalla kerralla kun menet sivulle, voit palata sinne tätä kautta.</string>
   <string name="delete_selected_history">Poista</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Perusasetukset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
   <string name="zero_charged_verbiage">Wikipedia Zero ei ole käytössä</string>
-  <string name="zero_charged_verbiage_extended">Muiden artikkeleiden lataamisesta saattaa aiheutua datamaksuja.</string>
   <string name="zero_search_hint">Etsi Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving_summary">Jos matkapuhelinoperaattorisi luopuu tiedonsiirtomaksuista Wikipedia Zero -yhteistyön kautta, tämän asetuksen ollessa päällä saat huomautuksen, jos aiot poistua Wikipedia-sovelluksesta ja tiedonsiirrosta voidaan periä maksua.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Millä muulla tavoin paransit sivua</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
-  <string name="error_network_error_try_again">Ei verkkoyhteyttä, yritä uudelleen.</string>
-  <string name="saved_pages_update_all_error_retry">Yritä uudelleen</string>
-  <string name="saved_pages_update_all_error_message">Tallennettujen sivujen päivitys epäonnistui</string>
-  <string name="saved_pages_progress_title">Päivitetään tallennettuja sivuja</string>
   <string name="abusefilter_title_warn">Tämä saattaa olla haitallinen muokkaus. Haluatko varmasti tallentaa sen?</string>
   <string name="abusefilter_title_disallow">Et voi tallentaa tätä muokkausta. Palaa takaisin ja muuta sitä.</string>
   <string name="abusefilter_text_warn">Automaattinen suodatin on tunnistanut tämän muokkauksen mahdollisesti haitalliseksi. Se saattaa sisältää yhden tai useampia seuraavista asioista:&lt;br /&gt;&lt;br /&gt;· Kokonaan isoilla kirjaimilla kirjoitettu teksti&lt;br /&gt;· Artikkeleiden tyhjentäminen tai mainostaminen&lt;br /&gt;· Aiheeseen liittymättömät linkit tai kuvat&lt;br /&gt;· Toistuvat merkkijonot</string>
@@ -212,25 +191,6 @@
   <string name="widget_title_featured_page">Päivän suositeltu sivu:</string>
   <string name="widget_name_search">Wikipedia-haku</string>
   <string name="wiktionary_no_definitions_found">Määritelmiä ei löytynyt.</string>
-  <string name="app_store_description">Virallinen Wikipedia-sovellus Androidille. Wikipedia on vapaa tietosanakirja, joka sisältää yli 32 miljoonaa artikkelia 280 eri kielellä, ja se on kattavin ja eniten käytetty hakuteos, jonka ihmiskunta on ikinä koonnut.
-
-Ominaisuudet:
-   - Johdantokuvat: koe Wikipedia aivan uudella tavalla, sillä nyt artikkelit sisältävät asiayhteyteen liittyvän kuvan ja kuvauksen artikkelin yläosassa
-   - Kuvaukset Wikidatasta: hakiessasi tietoa jokainen hakutulos sisältää nyt lyhyen kuvauksen, joka auttaa tuloksen asiayhteyden ymmärtämisessä. Nämä kuvaukset näkyvät myös sovelluksen muissa osissa, kuten Lähistöllä-ominaisuudessa
-   - Artikkeliehdotukset: vieritä artikkelin loppuosaan saadaksesi ehdotuksia siitä, mitä voisit seuraavaksi lukea
-   - Tallennetut sivut: tallenna valittuja sivuja luettavaksi offline-tilassa ja selaa niitä jopa silloin, kun sinulla ei ole datayhteyttä
-   - Lähistöllä: opi lisää lähiympäristöstäsi saamalla linkkejä artikkeleihin asioista, jotka ovat lähellä nykyistä sijaintiasi 
-   - Kielituki: lue Wikipediaa vaivattomasti millä tahansa kielellä
-   - Sisällysluettelo: pyyhkäise vasemmalle missä tahansa artikkelissa tuodaksesi esiin sisällysluettelon, minkä avulla voit nopeasti siirtyä artikkelin osioiden välillä
-   - Wikipedia Zero: tiedonsiirtomaksut poistettu osallistuvien matkapuhelinoperaattoreiden toimesta
-
-Lähetä meille palautetta sovelluksesta! Valitse valikosta \"Lisää\", sitten \"Tietoja Wikipedia-sovelluksesta\", sitten \"Lähetä palautetta sovelluksesta\".
-
-Lähdekoodi on täysin avointa. Jos sinulla on kokemusta Javan ja Android SDK:n parissa työskentelystä, odotamme innolla parannuksiasi! https://github.com/wikimedia/apps-android-wikipedia
-
-Yksityisyydensuoja: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Käyttöehdot: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
   <string name="alpha_update_notification_text">Napauta ladataksesi</string>
   <string name="dialog_close_description">Sulje</string>

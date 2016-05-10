@@ -12,29 +12,15 @@
   <string name="page_error_retry">Ξαναπροσπαθήστε</string>
   <string name="page_error_back_to_main">Επιστροφή</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
-  <string name="menu_clear_all_saved_pages">Εκκαθάριση αποθηκευμένων σελίδων</string>
   <string name="page_does_not_exist_error">Αυτή η σελίδα δεν υπάρχει!</string>
   <string name="nav_item_today">Σήμερα</string>
   <string name="dialog_title_clear_history">Εκκαθάριση ιστορικού περιήγησης</string>
   <string name="nav_item_saved_pages">Αποθηκευμένες σελίδες</string>
-  <string name="menu_update_all_saved_pages">Ενημέρωση αποθηκευμένων σελίδων</string>
-  <string name="menu_update_selected_saved_pages">Να ενημερωθούν όλες οι αποθηκευμένες σελίδες;</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Να ενημερωθούν όλες οι αποθηκευμένες σελίδες;</string>
   <string name="share_via">Μοιραστείτε μέσω</string>
-  <string name="dialog_title_clear_saved_pages">Να διαγραφούν όλες οι αποθηκευμένες σελίδες;</string>
-  <string name="snackbar_saving_page">Η σελίδα αποθηκεύεται…</string>
-  <string name="snackbar_saved_page_format">Η σελίδα \"%s\" αποθηκεύτηκε για εκτός σύνδεσης ανάγνωση</string>
-  <string name="snackbar_saved_page_missing_images">Δεν στάθηκε δυνατόν να αποθηκευθούν όλες οι εικόνες</string>
-  <string name="snackbar_refresh_saved_page">Ανανεώνοντας αποθηκευμένη σελίδα…</string>
-  <string name="delete_selected_saved_pages">Διαγραφή</string>
-  <string name="snackbar_saved_page_deleted">Αποθηκευμένη(ες) σελίδα(ες) διαγράφτηκε(καν)</string>
-  <string name="saved_pages_search_list_hint">Αναζήτηση αποθηκευμένων σελίδων</string>
-  <string name="saved_pages_search_empty_message">Δεν βρέθηκαν σελίδες να αντιστοιχούν στο ερώτημά σας.</string>
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
   <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
   <string name="menu_page_find_in_page">Βρείτε στην σελίδα</string>
   <string name="menu_page_font_and_theme">Γραμματοσειρά και θέμα</string>
-  <string name="menu_page_save">Αποθήκευση σελίδας</string>
   <string name="menu_page_share">Μοιραστείτε σύνδεσμο</string>
   <string name="menu_long_press_open_page">Άνοιγμα</string>
   <string name="menu_long_press_open_in_new_tab">Άνοιγμα σε νέα καρτέλα</string>
@@ -88,8 +74,6 @@
   <string name="login_error_unknown">Η σύνδεση απέτυχε :(</string>
   <string name="preference_title_logout">Αποσύνδεση</string>
   <string name="toast_logout_complete">Αποσύνδεση</string>
-  <string name="saved_pages_empty_title">Δεν υπάρχουν αποθηκευμένες σελίδες εδώ!</string>
-  <string name="saved_pages_empty_message">Οι αποθηκευμένες σελίδες είναι αρκετά φοβερές. Σκεφτείτε τις ως σελιδοδείκτες που μπορείτε να διαβάσετε ακόμα και όταν είστε εκτός σύνδεσης.</string>
   <string name="history_empty_title">Δεν υπάρχουν πρόσφατες σελίδες εδώ.</string>
   <string name="history_empty_message">Πιθανώς να τα διαγράψατε όλα. Την επόμενη φορά που θα μεταβείτε σε μια σελίδα, μπορείτε να επιστρέψετε σε αυτήν από εδώ.</string>
   <string name="delete_selected_history">Διαγραφή</string>
@@ -118,7 +102,6 @@
   <string name="preferences_general_heading">Γενικά</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Το Wikipedia Zero είναι απενεργοποιημένο</string>
-  <string name="zero_charged_verbiage_extended">Με τη φόρτωση άλλων άρθρων μπορεί να υπάρξει χρέωση για δεδομένα</string>
   <string name="zero_search_hint">Αναζήτηση στο Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Προειδοποιήστε με αν φεύγω από το Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Εάν ο πάροχος κινητής τηλεφωνίας σας δεν χρεώνει δεδομένα για τη χρήση της εφαρμογής της Βικιπαιδείας μέσω συνεργασίας του με το Wikipedia Zero, αφήνοντας αυτή τη ρύθμιση επιλεγμένη βοηθιέστε ώστε να γνωρίζετε πότε εγκαταλείπετε την εφαρμογή της Βικιπαίδειας και επομένως μπορεί να χρεώνεστε.</string>
@@ -177,10 +160,6 @@
   <string name="edit_summary_tag_other_hint">Άλλοι τρόποι που βελτίωσατε τη σελίδα</string>
   <string name="find_next">Εύρεση επομένου</string>
   <string name="find_previous">Εύρεση προηγουμένου</string>
-  <string name="error_network_error_try_again">Η σύνδεση στο δίκτυο δεν στάθηκε δυνατή, παρακαλώ προσπαθήστε ξανά.</string>
-  <string name="saved_pages_update_all_error_retry">Ξαναπροσπαθήστε</string>
-  <string name="saved_pages_update_all_error_message">Λάθος στην ενημέρωση αποθηκευμένων σελίδων</string>
-  <string name="saved_pages_progress_title">Ανανέωση αποθηκευμένων σελίδων</string>
   <string name="abusefilter_title_warn">Αυτή μπορεί να είναι μια μη εποικοδομητική επεξεργασία. Είσαι σίγουρος ότι θέλεις να την αποθηκεύσεις;</string>
   <string name="abusefilter_title_disallow">Δεν μπορείτε να αποθηκεύσετε αυτή την επεξεργασία. Παρακαλούμε πηγαίνετε πίσω και αλλάξτε την.</string>
   <string name="abusefilter_text_warn">Ένα αυτοματοποιημένο φίλτρο έχει αναγνωρίσει αυτή την επεξεργασία ως δυνητικά μη εποικοδομητική. Μπορεί να περιέχει ένα ή περισσότερα από τα ακόλουθα:&lt;br /&gt;&lt;br /&gt;· Πληκτρολόγηση με όλα κεφαλαία&lt;br /&gt;· Άδειασμα λημμάτων ή spamming&lt;br /&gt;· Άσχετες εξωτερικές συνδέσεις ή εικόνες&lt;br /&gt;· Επανάληψη χαρακτήρων</string>
@@ -202,24 +181,6 @@
   <string name="widget_name_featured_page">Προβεβλημένο λήμμα της Βικιπαίδειας</string>
   <string name="widget_title_featured_page">Προβεβλημένο λήμμα της ημέρας:</string>
   <string name="widget_name_search">Αναζήτηση στη Wikipedia</string>
-  <string name="app_store_description">Επίσημη εφαρμογή της Βικιπαίδειας για το Android. Η Βικιπαίδεια είναι η δωρεάν εγκυκλοπαίδεια που περιλαμβάνει περισσότερα από 32 εκατομμύρια λήμματα σε 280 γλώσσες και είναι το πιο περιεκτικό και ευρύτερα χρησιμοποιούμενο έργο αναφοράς που έχει δημιουργηθεί από ανθρώπους.
-
-Χαρακτηριστικά:
-- Εισαγωγικές εικόνες: βιώστε την Βικιπαίδεια όπως ποτέ πριν με μια εμφανή, σχετική με τα συμφραζόμενα εικόνα και περιγραφή στην κορυφή των λημμάτων
-- Γκαλερί εικόνων: πατώντας σε μια εικόνα εμφανίζει την εικόνα σε πλήρη οθόνη υψηλής ανάλυσης, με επιλογές για να σύρετε αριστερά/δεξιά και να περιηγηθήτε σε επιπλέον εικόνες
-- Περιγραφές από τα Wikidata: κατά την αναζήτηση, κάθε αποτέλεσμα αναζήτησης περιέχει τώρα μια γρήγορη περιγραφή που βοηθά να αντιληφθείτε τα αποτελέσματα. Οι περιγραφές αυτές εμφανίζονται επίσης σε άλλες περιοχές της εφαρμογής, όπως στο Κοντινά
-- Προτάσεις λημμάτων: κυλίστε προς το κάτω μέρος του λήμματος, για να δείτε προτάσεις για το τι θα μπορούσατε να διαβάσετε μετά
-- Κοντινά: μάθετε περισσότερα για το τι υπάρχει γύρω σας με να λάβετε συνδέσμους προς λήμματα σχετικά με τα πράγματα που είναι κοντά στην τρέχουσα τοποθεσία σας
-- Γλωσσική υποστήριξη: ομαλή αλλαγή της γλωσσικής έκδοσης της Βικιπαίδειας που διαβάζετε
-- Πίνακας περιεχομένων: σαρώστε προς τα αριστερά σε κάθε λήμμα, για να εμφανιστεί ο πίνακας περιεχομένων, ο οποίος σας επιτρέπει να μεταβείτε εύκολα σε ενότητες του λήμματος
-
-Στείλτε μας τα σχόλιά σας για την εφαρμογή! Στο μενού, πατήστε το \"Περισσότερα\", στη συνέχεια \"Σχετικά με την εφαρμογή Wikipedia\", στη συνέχεια \"Αποστολή σχολίων εφαρμογής\".
-
-Ο κώδικας της εφαρμογής είναι εντελώς ανοιχτός. Αν έχετε εμπειρία με Java και το Android SDK, τότε ελάτε να συνεισφέρετε!  https://github.com/wikimedia/apps-android-wikipedia
-
-Πολιτική ιδιωτικότητας: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Όροι χρήσης: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Νέα έκδοση alpha είναι διαθέσιμη</string>
   <string name="alpha_update_notification_text">Πατήστε για να κατεβάσετε</string>
   <string name="dialog_close_description">Κλείσιμο</string>

@@ -12,31 +12,17 @@
   <string name="page_error_retry">Zkusit znovu</string>
   <string name="page_error_back_to_main">Vrátit se</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
-  <string name="menu_clear_all_saved_pages">Vymazat uložené stránky</string>
   <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
   <string name="nav_item_today">Dnes</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené karty. Jste si jisti?</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
-  <string name="menu_update_all_saved_pages">Aktualizovat uložené stránky</string>
-  <string name="menu_update_selected_saved_pages">Aktualizovat uložené stránky</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Aktualizovat všechny uložené stránky?</string>
   <string name="share_via">Sdílet přes</string>
-  <string name="dialog_title_clear_saved_pages">Vymazat všechny uložené stránky?</string>
-  <string name="snackbar_saving_page">Ukládání stránky…</string>
-  <string name="snackbar_saved_page_format">Stránka „%s“ byla uložena ke čtení offline</string>
-  <string name="snackbar_saved_page_missing_images">Nepodařilo se uložit všechny obrázky</string>
-  <string name="snackbar_refresh_saved_page">Aktualizace uložené stránky…</string>
-  <string name="delete_selected_saved_pages">Vymazat</string>
-  <string name="snackbar_saved_page_deleted">Uložené stránky vymazány</string>
-  <string name="saved_pages_search_list_hint">Hledat uložené stránky</string>
-  <string name="saved_pages_search_empty_message">Nenalezeny žádné stránky odpovídající vašemu dotazu.</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
   <string name="menu_page_other_languages">Změnit jazyk</string>
   <string name="menu_page_find_in_page">Najít na stránce</string>
   <string name="menu_page_similar_titles">Podobné názvy</string>
   <string name="menu_page_font_and_theme">Písmo a vzhled</string>
-  <string name="menu_page_save">Uložit stránku</string>
   <string name="menu_page_share">Sdílet odkaz</string>
   <string name="menu_long_press_open_page">Otevřít</string>
   <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
@@ -90,8 +76,6 @@
   <string name="login_error_unknown">Přihlášení se nezdařilo :(</string>
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
-  <string name="saved_pages_empty_title">Nejsou zde žádné uložené stránky!</string>
-  <string name="saved_pages_empty_message">Uložené stránky jsou super. Používejte je jako záložky, které si můžete číst, i když jste offline.</string>
   <string name="history_empty_title">Nejsou zde žádné nedávné stránky!</string>
   <string name="history_empty_message">Pravděpodobně jste je všechny smazali. Až příště navštívíte nějakou stránku, budete se k ní moct vrátit odsud.</string>
   <string name="delete_selected_history">Smazat</string>
@@ -120,7 +104,6 @@
   <string name="preferences_general_heading">Obecné</string>
   <string name="wikipedia_app_faq">FAQ aplikace Wikipedie</string>
   <string name="zero_charged_verbiage">Wikipedia Zero je vypnuto</string>
-  <string name="zero_charged_verbiage_extended">Načtením jiných článků mohou být účtovány poplatky za přenos dat.</string>
   <string name="zero_search_hint">Hledání ve Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varovat při opuštění Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokud váš mobilní operátor neúčtuje poplatky za datové připojení k Wikipedii v rámci partnerství Wikipedia Zero, ponecháním tohoto políčka zaškrtnutého zajistíte, že se dozvíte o opouštění aplikace a možnosti placení za další datové připojení.</string>
@@ -181,10 +164,6 @@
   <string name="edit_summary_tag_other_hint">Jiný způsob, jakým jste vylepšili stránku</string>
   <string name="find_next">Najít další</string>
   <string name="find_previous">Najít předchozí</string>
-  <string name="error_network_error_try_again">Nepodařilo se připojit k síti, zkuste to znovu.</string>
-  <string name="saved_pages_update_all_error_retry">Zkusit znovu</string>
-  <string name="saved_pages_update_all_error_message">Chyba aktualizace uložených stránek</string>
-  <string name="saved_pages_progress_title">Aktualizují se uložené stránky</string>
   <string name="abusefilter_title_warn">Může se jednat o nekonstruktivní editaci. Jste si jisti, že ji chcete uložit?</string>
   <string name="abusefilter_title_disallow">Tuto editaci nemůžete uložit. Prosím, vraťte se zpět a změnte ji.</string>
   <string name="abusefilter_text_warn">Automatický filtr identifikoval tuto editaci jako potenciálně nekonstruktivní. Mohla obsahovat něco z:&lt;br /&gt;&lt;br /&gt;· Text pouze velkými písmeny&lt;br /&gt;· Mazání obsahu nebo spam&lt;br /&gt;· Nerelevantní externí odkazy nebo obrázky&lt;br /&gt;· Opakované znaky</string>
@@ -208,26 +187,6 @@
   <string name="widget_title_featured_page">Dnešní doporučený článek:</string>
   <string name="widget_name_search">Vyhledávání na Wikipedii</string>
   <string name="wiktionary_no_definitions_found">Žádná definice nenalezena.</string>
-  <string name="app_store_description">Oficiální aplikace Wikipedie pro Android. Wikipedie je otevřená encyklopedie obsahující více než 32 milionů článků ve 280 jazycích, je to nejrozsáhlejší a nejšířeji používané referenční dílo, které lidstvo kdy vyrobilo. Aplikace byla přebudována od nuly a je lepší než kdy předtím.
-
-Funkce:
-- Úvodní obrázky: zažijte Wikipedii jako nikdy předtím díky prominentnímu, s obsahem souvisejícímu obrázku a popisku na začátku článku
-- Galerie obrázků: klepnutím na obrázek ho zobrazíte na celou obrazovku ve vysokém rozlišení s možností přejíždění vlevo/vpravo na další obrázky
-- Popisky z Wikidat: při vyhledávání obsahuje každý výsledek krátky popisek, který pomáhá třídit výsledky. Tyto popisky se zobrazují i na jiných místech aplikace jako např. Poblíž
-- Návrhy článků: sjeďte dolů na konec článku a prohlédněte si návrhy toho, co si můžete přečíst jako další
-- Uložené stránky: uložte si vybrané stránky k offline čtení a prohlížejte si je, i když nemáte datové připojení
-- Poblíž: zjistěte více o tom, co je poblíž vás, díky odkazům na články o objektech, které se nacházejí ve vašem okolí
-- Podpora jazyků: hladce přejděte na čtení Wikipedie psané v jakémkoliv jazyce
-- Obsah: přejeďte v jakémkoliv článku doleva a odkryjte obsah, který vám umožní rychle přejít na sekci článku
-- Wikipedia Zero: mobilní operátoři se zřekl datových popltaků
-
-Pošlete nám zpětnou vazbu o aplikaci! V menu vyberte „Více“, poté „O aplikaci Wikipedie“ a nakonec „Poslát názor na aplikaci“.
-
-Zcela otevřený zdrojový kód. Pokud máte zkušenosti s Javou a SDK Androidu, těšíme se na vaše příspěvky ! https://github.com/wikimedia/apps-android-wikipedia
-
-Ochrana osobních údajů: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Podmínky užití: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Je dostupná nová aktualizace alfaverze</string>
   <string name="alpha_update_notification_text">Klepnutím ji stáhnete</string>
   <string name="dialog_close_description">Zavřít</string>

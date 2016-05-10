@@ -10,28 +10,14 @@
   <string name="error_network_error">Ne eblas konektiĝi al Interreto.</string>
   <string name="page_error_retry">Reprovi</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
-  <string name="menu_clear_all_saved_pages">Malplenigi ĉiujn konservitajn paĝojn</string>
   <string name="page_does_not_exist_error">Ĉi tiu paĝo ne ekzistas.</string>
   <string name="nav_item_today">Hodiaŭ</string>
   <string name="dialog_title_clear_history">Malplenigi la retuman historion</string>
   <string name="nav_item_saved_pages">Konservitaj paĝoj</string>
-  <string name="menu_update_all_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
-  <string name="menu_update_selected_saved_pages">Ĝisdatigi konservitajn paĝojn</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Ĉu ĝisdatigi ĉiujn konservitajn paĝojn?</string>
   <string name="share_via">Kundividi per</string>
-  <string name="dialog_title_clear_saved_pages">Ĉu Malplenigi ĉiujn konservitajn paĝojn?</string>
-  <string name="snackbar_saving_page">Konservante paĝon…</string>
-  <string name="snackbar_saved_page_format">\"%s\" konservita por senreta legado</string>
-  <string name="snackbar_saved_page_missing_images">Ne eblas konservi ĉiuj bildojn</string>
-  <string name="snackbar_refresh_saved_page">Ĝisdatigante konservitajn paĝojn</string>
-  <string name="delete_selected_saved_pages">Forigi</string>
-  <string name="snackbar_saved_page_deleted">Konservita(j) paĝo(j) forigita(j)</string>
-  <string name="saved_pages_search_list_hint">Serĉi konservitajn paĝojn</string>
-  <string name="saved_pages_search_empty_message">Neniu paĝo kongruas kun via serĉo.</string>
   <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
   <string name="menu_page_find_in_page">Trovi en la paĝo</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
-  <string name="menu_page_save">Konservi paĝon</string>
   <string name="menu_page_share">Diskonigi ligilon</string>
   <string name="menu_long_press_open_page">Malfermi</string>
   <string name="menu_long_press_open_in_new_tab">Malfermi en nova langeto</string>
@@ -84,8 +70,6 @@
   <string name="login_error_unknown">Ensalutado malsukcesis</string>
   <string name="preference_title_logout">Elsaluti</string>
   <string name="toast_logout_complete">Elsalutiĝinta</string>
-  <string name="saved_pages_empty_title">Neniu paĝo konservita ankoraŭ!</string>
-  <string name="saved_pages_empty_message">Konservitaj paĝoj mojosas. Pensu pri ili kiel markaĵoj kiujn vi povas legi eĉ kiam vi ne estas enreta.</string>
   <string name="history_empty_title">Neniuj lastaj paĝoj ĉi tie!</string>
   <string name="history_empty_message">Tre eble vi forigis ĉiujn. Venontfoje kiam vi vizitu paĝon, vi povas rehavigi ĝin el ĉi tie.</string>
   <string name="delete_selected_history">Forigi</string>
@@ -113,7 +97,6 @@
   <string name="create_account_button">Krei konton</string>
   <string name="preferences_general_heading">Ĝenerala</string>
   <string name="zero_charged_verbiage">Vikipedio Nulo estas malŝaltita</string>
-  <string name="zero_charged_verbiage_extended">Pro ŝutado de pliaj artikoloj vi eble devos pagi la datumŝutadon.</string>
   <string name="zero_search_hint">Serĉi en Vikipedio Zero</string>
   <string name="zero_warn_when_leaving">Avertu kiam forlasi Vikipedio Zero</string>
   <string name="zero_webpage_title">Oftaj demandoj pri Vikipedio Nulo</string>
@@ -165,10 +148,6 @@
   <string name="edit_summary_tag_other_hint">Aliaj manieroj en kiuj vi plibonigis la paĝon</string>
   <string name="find_next">Trovi sekvan</string>
   <string name="find_previous">Trovi antaŭan</string>
-  <string name="error_network_error_try_again">Ne eblis konektiĝi al la reto, bonvole reprovu.</string>
-  <string name="saved_pages_update_all_error_retry">Reprovi</string>
-  <string name="saved_pages_update_all_error_message">Eraro dum ĝisdatigo de konservitaj paĝoj</string>
-  <string name="saved_pages_progress_title">Ĝisdatigante konservitajn paĝojn</string>
   <string name="abusefilter_title_warn">Tio ĉi eble estas nekonstruiga redakto. Ĉu vi certas, ke vi volas konservi ĝin?</string>
   <string name="abusefilter_title_disallow">Vi ne povas konservi ĉi tiun modifon. Bonvole iru reen kaj ŝanĝu ĝin.</string>
   <string name="dialog_page_issues">Paĝaj problemoj</string>
@@ -189,28 +168,6 @@
   <string name="widget_name_featured_page">Vikipedia elstara paĝo</string>
   <string name="widget_title_featured_page">Hodiaŭa elstara paĝo:</string>
   <string name="widget_name_search">Serĉi en Vikipedio</string>
-  <string name="app_store_description" fuzzy="true">Oficiala Vikipedia aplikaĵo por Android. Vikipedio estas la libera enciklopedio kiu enhavas pli ol 32 milionojn da artikoloj en 280 lingvoj, kaj estas estas la plej kompleta kaj vaste uzata referenca verko kiun la homara kreis iam ajn.
-
-Trajtoj:
-
-- Elstara bildo: Spertu Vikipedion kiel neniam antaŭe per elstara bildo, rilata al la kunteksto, kaj sia priskribo en la supra parto de la artikoloj.
-- Bildaro: tuŝi sur bildo montros al vi la bildon tutekrane kaj altkvalite, eblos ankaŭ ŝovi dekstren aŭ maldekstren por vidi aliaj bildojn
-- Priskriboj el Vikidatumoj: Kiam vi serĉu, ĉiu serĉa rezulto nun havas rapidan priskribon kiu helpas rilatigi la rezulton. Tiuj priskriboj ankaŭ aperas en aliaj lokoj de la aplikaĵo, ekzemple en Ĉirkaŭaĵoj.
-- Sugestado de artikoloj: rulumu ĝi la malsupro de artikolo por vidi la sugestojn pri kion vi povus legi poste.
-- Konservitaj paĝoj: Vi povas konservi selektitajn paĝojn por legi kaj navigi ilin kiam vi ne havu retaliron aŭ eĉ sen datuma konekto.
-- Ĉirkaŭaĵoj: Lernu pli pri kio estas ĉirkaŭ vi trovante ligilojn al artikoloj pri aferoj kiuj estas proksime de via nuna situo.
-- Lingva subteno: La aplikaĵo permesas al vi facile ŝanĝi la legadon al Vikipedio en ajna skribita lingvo.
- -Vikipedio Zero: Datumaj pagoj evitataj danke al partneraj poŝtelefonaj entreprenoj.
-- Enhava tabulo: Ŝovu maldekstren ĉe ajna artikolo por aperigi la enhavan tabulon, kiu permesos al vi salti al la artikolaj eroj  facile.
--Vikipedio Zero: Datumaj pagoj evitataj danke al partneraj poŝtelefonaj entreprenoj.
-
-Sendu al ni informon pri la uzado de ĉi tiu aplikaĵo! En la menuo, klaku sur \"Pli\", tiam klaku sur \"Pri la Vikipedia aplikaĵo\", kaj \"Sendu informon pri la aplikaĵo\"
-
-La kodo estas 100% malferma. Se vi havas sperton kun Java kaj Android SDK, ni bonvenas viajn kontribuojn! https://github.com/wikimedia/apps-android-wikipedia
-
-Politikoj pri privateco: http://wikimediafoundation.org/wiki/Privacy_policy
-
-Uzkondiĉoj: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Disponeblas nova alfa ĝisdatigo</string>
   <string name="alpha_update_notification_text">Klaku por elŝuti</string>
   <string name="dialog_close_description">Fermi</string>

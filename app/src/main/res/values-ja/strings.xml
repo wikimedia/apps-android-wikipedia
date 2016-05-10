@@ -12,32 +12,18 @@
   <string name="page_error_retry">再試行</string>
   <string name="page_error_back_to_main">戻る</string>
   <string name="menu_clear_all_history">履歴を消去</string>
-  <string name="menu_clear_all_saved_pages">保存したページをすべて消去</string>
   <string name="page_does_not_exist_error">このページは存在しません。</string>
   <string name="nav_item_today">今日のメインページ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
   <string name="dialog_message_clear_history">これはあなたの閲覧履歴をすべて消去し、現在開いているタブを閉じます。よろしいですか？</string>
   <string name="nav_item_saved_pages">保存したページ</string>
-  <string name="menu_update_all_saved_pages">保存したページを更新</string>
-  <string name="menu_update_selected_saved_pages">保存したページを更新</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">保存したページをすべて更新しますか?</string>
   <string name="share_via">共有する</string>
-  <string name="dialog_title_clear_saved_pages">保存したページをすべて消去しますか?</string>
-  <string name="snackbar_saving_page">ページを保存中…</string>
-  <string name="snackbar_saved_page_format">オフラインで読む用にページ「%s」を保存しました</string>
-  <string name="snackbar_saved_page_missing_images">一部の画像を保存できませんでした</string>
-  <string name="snackbar_refresh_saved_page">保存したページを更新しています…</string>
-  <string name="delete_selected_saved_pages">削除</string>
-  <string name="snackbar_saved_page_deleted">保存したページを削除しました</string>
-  <string name="saved_pages_search_list_hint">保存したページを検索</string>
-  <string name="saved_pages_search_empty_message">キーワードに一致するページが見つかりません。</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
   <string name="menu_page_content_issues">コンテンツの問題点</string>
   <string name="menu_page_similar_titles">類似したタイトル</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
-  <string name="menu_page_save">ページを保存</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>
   <string name="menu_page_share">リンクを共有</string>
   <string name="menu_long_press_open_page">開く</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">ログイン失敗</string>
   <string name="preference_title_logout">ログアウト</string>
   <string name="toast_logout_complete">ログアウトしました</string>
-  <string name="saved_pages_empty_title">保存したページはありません。</string>
-  <string name="saved_pages_empty_message">保存したページは素晴らしい機能です!　オフライン時にも読める、ブックマークのようなものだとお考えください。</string>
   <string name="history_empty_title">履歴はまだありません!</string>
   <string name="history_empty_message">すべて削除したのかもしれません。他のページに行った後にここへ戻ってみてください。</string>
   <string name="delete_selected_history">削除</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">全般</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
   <string name="zero_charged_verbiage">ウィキペディアゼロはオフです</string>
-  <string name="zero_charged_verbiage_extended">その他の記事の読み込みには料金が発生する場合があります。</string>
   <string name="zero_search_hint">ウィキペディアゼロを検索</string>
   <string name="zero_warn_when_leaving">ウィキペディアゼロを離れる場合には警告</string>
   <string name="zero_warn_when_leaving_summary">ウィキペディアゼロの提携により、携帯電話会社がウィキペディアアプリからのアクセス料金を無料にしている場合には、この設定をチェックしておくと、ウィキペディアアプリを離れて料金がかかる際に分かるようになります。</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">ページのその他の改善</string>
   <string name="find_next">次を検索</string>
   <string name="find_previous">前を検索</string>
-  <string name="error_network_error_try_again">ネットワークに接続できませんでした。もう一度お試しください。</string>
-  <string name="saved_pages_update_all_error_retry">再試行</string>
-  <string name="saved_pages_update_all_error_message">保存したページを更新する際にエラーが発生しました</string>
-  <string name="saved_pages_progress_title">保存したページを更新しています</string>
   <string name="abusefilter_title_warn">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
   <string name="abusefilter_title_disallow">この編集は保存できません。戻って変更してください。</string>
   <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;すべて大文字で書かれている&lt;br /&gt;記事が白紙化されている、もしくはスパムである&lt;br /&gt;関係のない外部リンクや画像が挿入されている&lt;br /&gt;一定の文字が繰り返されている</string>
@@ -212,27 +191,6 @@
   <string name="widget_title_featured_page">今日の秀逸な記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
   <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
-  <string name="app_store_description">Android用公式ウィキペディアアプリです。ウィキペディアはフリー百科事典で、280以上の言語版、3200万以上の記事があります。これまでに編纂された百科事典では史上もっとも網羅的で広範に使われています。
-
-機能:
- - リード画像: これまでにない、優れた、本文に関連した画像と説明でウィキペディアをお楽しみください。記事の先頭に出てきます
- - 画像ギャラリー: 画像をタップすると高解像度で全画面で見られます。左右にスワイプして他の画像も見られます
- - Wikidataからの説明: 検索した際に、検索結果の中に、その結果がどんなふうに出てくるか簡単に文脈が表示されるようになりました。この説明はアプリの別のところ、例えば付近のスポットにも出てきます。
- - 保存したページ: オフラインで読みたいページを保存しておくと、ネットワーク接続がないところでも閲覧できます
- - 共有: お持ちのSNSアプリで人類の知識を共有しましょう
- - 付近のスポット: 現在地の近くにある場所の記事で、周囲について学びましょう
- - 言語サポート: どの言語で書かれたページにもシームレスに切り替えできます
- - 目次: どの記事でも左にスワイプすれば目次が表示され、記事のどの部分にも簡単にアクセスできます
- - ウィキペディアゼロ: ウィキペディアゼロのプログラムに参加している携帯電話会社においては、データ通信料金がかかりません
-
-このアプリについてのフィードバックをお寄せください! アプリのメニューで「その他」を押し、「ウィキペディアアプリについて」を選択し、「フィードバックを送る」から送ることができます。
-
-コードは100%オープンソースです。JavaとAndroid SDKの経験をお持ちでしたら、あなたの貢献をお待ちしています!
-https://github.com/wikimedia/apps-android-wikipedia
-
-プライバシーポリシー: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-利用規約: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">新しいアルファアップデートが利用可能です</string>
   <string name="alpha_update_notification_text">タップでダウンロード</string>
   <string name="dialog_close_description">閉じる</string>

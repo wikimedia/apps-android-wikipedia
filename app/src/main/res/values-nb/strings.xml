@@ -12,32 +12,18 @@
   <string name="page_error_retry">Prøv igjen</string>
   <string name="page_error_back_to_main">Gå tilbake</string>
   <string name="menu_clear_all_history">Tøm logg</string>
-  <string name="menu_clear_all_saved_pages">Fjern alle lagrede sider</string>
   <string name="page_does_not_exist_error">Denne siden eksisterer ikke.</string>
   <string name="nav_item_today">I dag</string>
   <string name="dialog_title_clear_history">Tøm besøkslogg</string>
   <string name="dialog_message_clear_history">Dette vil slette hele besøksloggen og lukke alle åpne faner. Er du sikker?</string>
   <string name="nav_item_saved_pages">Lagrede sider</string>
-  <string name="menu_update_all_saved_pages">Oppdater lagrede sider</string>
-  <string name="menu_update_selected_saved_pages">Oppdater lagrede sider</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Oppdater alle lagrede sider?</string>
   <string name="share_via">Del via</string>
-  <string name="dialog_title_clear_saved_pages">Fjern alle lagrede sider?</string>
-  <string name="snackbar_saving_page">Lagrer side…</string>
-  <string name="snackbar_saved_page_format">\"%s\" er lagret for frakoblet lesing</string>
-  <string name="snackbar_saved_page_missing_images">Kunne ikke lagre alle bilder</string>
-  <string name="snackbar_refresh_saved_page">Gjenoppfrisker lagret side…</string>
-  <string name="delete_selected_saved_pages">Fjern</string>
-  <string name="snackbar_saved_page_deleted">Siden(e) ble fjernet</string>
-  <string name="saved_pages_search_list_hint">Søk i lagrede sider</string>
-  <string name="saved_pages_search_empty_message">Fant ingen sider som matchet spørringen din.</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Endre språk</string>
   <string name="menu_page_find_in_page">Søk i siden</string>
   <string name="menu_page_content_issues">Innholdsproblemer</string>
   <string name="menu_page_similar_titles">Lignende artikler</string>
   <string name="menu_page_font_and_theme">Skrift og utseende</string>
-  <string name="menu_page_save">Lagre side</string>
   <string name="menu_page_share">Del lenke</string>
   <string name="menu_long_press_open_page">Åpne</string>
   <string name="menu_long_press_open_in_new_tab">Åpne i ny fane</string>
@@ -92,8 +78,6 @@
   <string name="login_error_unknown">Innlogging feilet :(</string>
   <string name="preference_title_logout">Logg ut</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="saved_pages_empty_title">Ingen lagrede sider enda!</string>
-  <string name="saved_pages_empty_message">Lagrede sider er veldig praktisk. De fungerer som bokmerker som du også kan lese når du er uten nett.</string>
   <string name="history_empty_title">Ingen besøkte sider her!</string>
   <string name="history_empty_message">Du har antakelig fjernet alle sammen. Neste gang du besøker en side så kan du finne den igjen her etterpå.</string>
   <string name="delete_selected_history">Fjern</string>
@@ -122,7 +106,6 @@
   <string name="preferences_general_heading">Generelt</string>
   <string name="wikipedia_app_faq">Ofte stilte spørsmål om Wikipedia-appen</string>
   <string name="zero_charged_verbiage">Wikipedia Zero er skrudd av</string>
-  <string name="zero_charged_verbiage_extended">Lasting av artikler kan føre til at datakostnader påløper.</string>
   <string name="zero_search_hint">Søk i Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varsle hvis jeg forlater Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Hvis mobiloperatøren din dekker datakostnader for Wikipedia-appen gjennom et Wikipedia Zero-samarbeid, kan denne innstillingen informere deg når du forlater Wikipedia-appen og datakostnader kan påløpe.</string>
@@ -183,10 +166,6 @@
   <string name="edit_summary_tag_other_hint">Andre måter du kan forbedre denne siden</string>
   <string name="find_next">Finn neste</string>
   <string name="find_previous">Finn forrige</string>
-  <string name="error_network_error_try_again">Kunne ikke nå nettverket, vennligst prøv igjen.</string>
-  <string name="saved_pages_update_all_error_retry">Prøv igjen</string>
-  <string name="saved_pages_update_all_error_message">Feil under gjenoppfrisking av lagrede sider</string>
-  <string name="saved_pages_progress_title">Gjenoppfrisker lagrede sider</string>
   <string name="abusefilter_title_warn">Dette er muligens en lite konstruktiv redigering. Er du sikker på at du vil lagre?</string>
   <string name="abusefilter_title_disallow">Du kan ikke lagre denne redigeringen. Vennligst gå tilbake og prøv igjen.</string>
   <string name="abusefilter_text_warn">Redigeringen har blitt identifisert som potensielt destruktiv av et automatisk filter. Den kan inneholde en eller flere av følgende ting:&lt;br /&gt;&lt;br /&gt;· Hele ord skrevet med store bokstaver&lt;br /&gt;· Tømming av artikkelen eller spamming&lt;br /&gt;· Irrelevante eksterne lenker eller bilder&lt;br /&gt;· Gjentagende tegn</string>
@@ -210,26 +189,6 @@
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
   <string name="wiktionary_no_definitions_found">Ingen definisjoner funnet.</string>
-  <string name="app_store_description">Offisiell Wikipedia-app for Android. Wikipedia er den frie encyklopedien som inneholder mer enn 32 millioner artikler på 280 språk, og er det mest omfattende og mest brukte referanseverket som noensinne har blitt sammenstilt av mennesker.
-
-Funksjonalitet:
-- Ingressbilder: opplev Wikipedia som aldri før, med et fremtredende innholdsrelevant bilde øverst i artiklene
-- Bildegalleri: trykk på et bilde for fullskjermsvisning i høy oppløsning, med muligheter for å sveipe til høyre/venstre for å vise flere bilder.
-- Beskrivelser fra Wikidata: når du søker, viser hvert søkeresultat nå en kort beskrivelse som hjelper til med å betydningsavklare resultatet. Disse beskrivelsene vises også i andre deler av programmet, som i \"I nærheten\"-funksjonen.
-- Artikkelforslag: Rull ned til bunnen av en artikkel for å vise forslag til hva du kan lese videre.
-- Lagrede sider: Du kan lagre utvalgte sider for så å lese dem i frakoblet modus.
-- I nærheten: Lær mer om hva som finnes rundt deg fra en liste over artikler om ting som befinner seg nær din gjeldende posisjon.
-- Språkstøtte: Programmet lar deg sømløst bytte mellom artikler på ulike språk.
-- Innholdsfortegnelse: Sveip til venstre for å vise innholdsfortegnelsen.
-- Wikipedia Zero: Datakostnader dekkes av enkelte mobiloperatører.
-
-Gi oss gjerne tilbakemelding på programmet! I menyen, velg \"Mer\", deretter \"Om Wikipedia-appen\" og til slutt \"Gi oss tilbakemelding\".
-
-Kildekoden er 100% åpen. Friprog. Hvis du har erfaring med Java og Android-SDK-et er du velkommen til å gjøre forbedringer! https://github.com/wikimedia/apps-android-wikipedia
-
-Personvernspolitikk: http://wikimediafoundation.org/wiki/Privacy_policy
-
-Bruksvilkår: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Ny alphaoppdatering tilgjengelig</string>
   <string name="alpha_update_notification_text">Trykk for å laste ned</string>
   <string name="dialog_close_description">Lukk</string>

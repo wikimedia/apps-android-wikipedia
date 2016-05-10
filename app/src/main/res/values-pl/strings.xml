@@ -12,31 +12,17 @@
   <string name="page_error_retry">Ponów próbę</string>
   <string name="page_error_back_to_main">Wróć</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
-  <string name="menu_clear_all_saved_pages">Wyczyść listę zapisanych stron</string>
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
   <string name="nav_item_today">Dzisiaj</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
   <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="nav_item_saved_pages">Zapisane strony</string>
-  <string name="menu_update_all_saved_pages">Odśwież zapisane strony</string>
-  <string name="menu_update_selected_saved_pages">Odśwież zapisane strony</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Czy odświeżyć wszystkie zapisane strony?</string>
   <string name="share_via">Udostępnij przez</string>
-  <string name="dialog_title_clear_saved_pages">Wyczyścić zapisane strony?</string>
-  <string name="snackbar_saving_page">Zapisywanie strony…</string>
-  <string name="snackbar_saved_page_format">\"%s\" został zapisany do czytania w trybie offline</string>
-  <string name="snackbar_saved_page_missing_images">Nie można zapisać wszystkich obrazów</string>
-  <string name="snackbar_refresh_saved_page">Odświeżanie zapisanej strony…</string>
-  <string name="delete_selected_saved_pages">Usuń</string>
-  <string name="snackbar_saved_page_deleted">Usunięto zapisane strony</string>
-  <string name="saved_pages_search_list_hint">Wyszukiwanie zapisanych stron</string>
-  <string name="saved_pages_search_empty_message">Nie znaleziono stron pasujących do twojego zapytania.</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_similar_titles">Podobne tytuły</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
-  <string name="menu_page_save">Zapisz stronę</string>
   <string name="menu_page_share">Podziel się linkiem</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
@@ -90,8 +76,6 @@
   <string name="login_error_unknown">Logowanie nie powiodło się :(</string>
   <string name="preference_title_logout">Wyloguj</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
-  <string name="saved_pages_empty_title">Nie zapisano tu jeszcze żadnych stron!</string>
-  <string name="saved_pages_empty_message">Zapisane strony są całkiem fajne. Pomyśl o nich jako o zakładkach, które można przeczytać nawet wtedy, gdy jesteś w trybie offline.</string>
   <string name="history_empty_title">Brak ostatnich zmian stron.</string>
   <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem gdy wejdziesz na stronę możesz się tam dostać z tąd.</string>
   <string name="delete_selected_history">Usuń</string>
@@ -120,7 +104,6 @@
   <string name="preferences_general_heading">Ogólne</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
   <string name="zero_charged_verbiage">Wikipedia Zero jest wyłączona</string>
-  <string name="zero_charged_verbiage_extended">Ładując pozostałe artykuły możesz narazić się na poniesienie opłat za transfer danych.</string>
   <string name="zero_search_hint">Szukaj w Wikipedii Zero</string>
   <string name="zero_warn_when_leaving">Ostrzegaj przed opuszczeniem Wikipedii Zero</string>
   <string name="zero_warn_when_leaving_summary">Jeśli twój operator telefonii komórkowej nie pobiera opłat za transfer danych, gdy korzystasz z Wikipedii poprzez tę aplikację (w ramach partnerstwa Wikipedia Zero), ta opcja sprawi, że aplikacja pomoże ci się zorientować, kiedy opuszczasz Wikipedię i mogą zacząć obowiązywać opłaty za transfer danych.</string>
@@ -180,10 +163,6 @@
   <string name="edit_summary_tag_other_hint">Co poprawiłaś/eś na tej stronie</string>
   <string name="find_next">Znajdź następny</string>
   <string name="find_previous">Znajdź poprzedni</string>
-  <string name="error_network_error_try_again">Nie można połączyć się z siecią, spróbuj ponownie.</string>
-  <string name="saved_pages_update_all_error_retry">Ponów próbę</string>
-  <string name="saved_pages_update_all_error_message">Błąd podczas aktualizowania zapisanych stron</string>
-  <string name="saved_pages_progress_title">Odświeżanie zapisanych stron</string>
   <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją zapisać?</string>
   <string name="abusefilter_title_disallow">Nie możesz zapisać tej edycji. Wróć do niej i popraw ją.</string>
   <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może zawierać jeden lub więcej z następujących błedów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnetrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>
@@ -207,15 +186,6 @@
   <string name="widget_title_featured_page">Dzisiejszy artykuł na medal</string>
   <string name="widget_name_search">Wyszukaj w Wikipedii</string>
   <string name="wiktionary_no_definitions_found">Nie znaleziono definicji.</string>
-  <string name="app_store_description">Oficjalna aplikacja \"Wikipedia\" pod Androida. Wikipedia — wolna encyklopedia, zawierająca ponad 32 milionów artykułów w 280 językach. Jest najbardziej kompletną i powszechnie używaną encyklopedią, którą ludzie kiedykolwiek stworzyli.
-
-Prześlij nam swoją opinię na temat aplikacji! W menu kliknij \"Zaawansowane\", a następnie \"informacje o aplikacji \"Wikipedia\"\" i \"Wyślij opinię na temat aplikacji\".
-
-Kod źródłowy jest w 100 % otwarty. Jeśli masz doświadczenie w pracy z Java i Android SDK, czekamy na twoją pomoc! https://github.com/wikimedia/apps-android-wikipedia
-
-Polityka prywatności: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Warunki użytkowania: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
   <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
   <string name="dialog_close_description">Zamknij</string>

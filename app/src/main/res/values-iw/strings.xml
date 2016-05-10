@@ -12,32 +12,18 @@
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="page_error_back_to_main">חזרה</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
-  <string name="menu_clear_all_saved_pages">ניקוי כל הדפים השמורים</string>
   <string name="page_does_not_exist_error">הדף הזה אינו קיים.</string>
   <string name="nav_item_today">היום</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="nav_item_saved_pages">דפים שמורים</string>
-  <string name="menu_update_all_saved_pages">עדכון הדפים השמורים</string>
-  <string name="menu_update_selected_saved_pages">עדכון הדפים השמורים</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">לעדכן את כל הדפים השמורים?</string>
   <string name="share_via">שיתוף באמצעות</string>
-  <string name="dialog_title_clear_saved_pages">לנקות את כל הדפים השמורים?</string>
-  <string name="snackbar_saving_page">מתבצעת שמירת דף…</string>
-  <string name="snackbar_saved_page_format">הדף \"%s\" נשמר לטובת קריאה לא מקוונת</string>
-  <string name="snackbar_saved_page_missing_images">לא היה אפשר לשמור את כל התמונות</string>
-  <string name="snackbar_refresh_saved_page">רענון הדף השמור…</string>
-  <string name="delete_selected_saved_pages">מחיקה</string>
-  <string name="snackbar_saved_page_deleted">הדפים השמורים נמחקו</string>
-  <string name="saved_pages_search_list_hint">חיפוש בדפים השמורים</string>
-  <string name="saved_pages_search_empty_message">לא נמצאו דפים התואמים לשאילתה שלך.</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בדף</string>
   <string name="menu_page_content_issues">בעיות בתוכן</string>
   <string name="menu_page_similar_titles">כותרות דומות</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
-  <string name="menu_page_save">שמירת דף</string>
   <string name="menu_page_add_to_list">הוספת לרשימת קריאה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_long_press_open_page">פתיחה</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">הכניסה נכשלה :(</string>
   <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
-  <string name="saved_pages_empty_title">אין כאן דפים שמורים!</string>
-  <string name="saved_pages_empty_message">דפים שמורים זה דבר די מגניב. הם כמו סימניות שאפשר לקרוא גם כשהמכשיר אינו מחובר לרשת.</string>
   <string name="history_empty_title">אין פה דפים שקראת לאחרונה.</string>
   <string name="history_empty_message">כנראה מחקת את כולם. בפעם הבאה שיזדמן לך לקרוא דף, אפשר יהיה לחזור אליו מכאן.</string>
   <string name="delete_selected_history">מחיקה</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">כללי</string>
   <string name="wikipedia_app_faq">שו\"ת יישומון ויקיפדיה</string>
   <string name="zero_charged_verbiage">מצב ויקיפדיה אפס כבוי</string>
-  <string name="zero_charged_verbiage_extended">טעינת ערכים אחרים עשוי לגרור חיובים על תקשורת נתונים.</string>
   <string name="zero_search_hint">חיפוש בוויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving">להזהיר בעת עזיבת ויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על תקשורת נתונים ביישומון ויקיפדיה במסגרת שותפות \"ויקיפדיה אפס\", הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מיישומון ויקיפדיה ושייתכן שיחולו חיובים.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">איך עוד שיפרת את הדף</string>
   <string name="find_next">חיפוש הבא</string>
   <string name="find_previous">חיפוש הקודם</string>
-  <string name="error_network_error_try_again">לא הייתה גישה לרשת, נא לנסות שוב.</string>
-  <string name="saved_pages_update_all_error_retry">לנסות שוב</string>
-  <string name="saved_pages_update_all_error_message">שגיאה בעדכון הדפים השמורים</string>
-  <string name="saved_pages_progress_title">רענון הדפים השמורים</string>
   <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. באמת לשמור אותה?</string>
   <string name="abusefilter_title_disallow">לא ניתן לשמור את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">הערך המומלץ של היום:</string>
   <string name="widget_name_search">חיפוש בוויקיפדיה</string>
   <string name="wiktionary_no_definitions_found">לא נמצאו הגדרות</string>
-  <string name="app_store_description">יישום ויקיפדיה הרשמי לאנדרואיד. ויקיפדיה היא האנציקלופדיה החופשית עם יותר מ־32 מיליון ערכים ב־280 שפות, והיא יצירת העיון המקיפה והנפוצה ביותר שאנשים כתבו אי־פעם.
-
-אפשרויות:
-- תמונות בראש: התנסו בוויקיפדיה כמו שמעולם לא ראיתם אותה, עם תמונה בולטת ורלוונטית ותיאור בראש כל ערך
-- גלריית תמונות: לחיצה על תמונה מציגה את התמונה במסך מלא באיכות גבוהה עם אפשרות להחליק ימינה ושמאלה כדי לראות תמונות אחרות
-- תיאורים מוויקינתונים: בעת חיפוש, כל תוצאה מכילה תיאור מהיר שעוזר להבין את התוצאה בהקשרה. התיאורים הלאה מוצגים גם במקומות אחרים ביישום, למשל במסך \"בסביבה\"
-- הצעות ערכים יש לגלול לסוף הערך כדי לראות הצעות על מה אתם יכולים לקרוא בהמשך
-- דפים שמורים: אפשר לשמור דפים נבחרים לקריאה בלי חיבור לרשת ולעיין בהם גם כשאין לך חיבור נתונים
-- בסביבה: למדו עוד על מה שנמצא מסביבכם באמצעות קבלת קישורים לערכים על דברים שנמצאים ליד המיקום הנוכחי שלכם
-- תמיכה בשפות: אפשר לעבור לקריאת ויקיפדיה בכל שפה בקלות
-- תוכן עניינים: החליקו ימינה בכל ערך כדי להציג את תוכן העניינים, שיאפשר לכם לקפוץ לפסקאות בערך בקלות
-- ויקיפדיה אפס: ביטול חיוב על נתונים סלולריים אצל ספקי תקשורת ניידת שמשתתפים בתכנית
-
-שלחו לנו את המשוב שלכם על היישום! בתפריט לחצו על \"עוד\" ואז על \"אודות יישום ויקיפדיה\", ואז על \"שליחת משוב על היישום\".
-
-קוד המקור פתוח. אם יש לכם ניסיון עם ג\'אווה ו־SDK של אנדרואיד, אז בואו לתרום לנו קוד! https://github.com/wikimedia/apps-android-wikipedia
-
-מדיניות פרטיות: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-תנאי שימוש: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">זמין עדכון אלפא חדש.</string>
   <string name="alpha_update_notification_text">נא להקיש להורדה</string>
   <string name="dialog_close_description">סגירה</string>

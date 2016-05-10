@@ -12,32 +12,18 @@
   <string name="page_error_retry">Reîncercare</string>
   <string name="page_error_back_to_main">Înapoi</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
-  <string name="menu_clear_all_saved_pages">Șterge paginile salvate</string>
   <string name="page_does_not_exist_error">Această pagină nu există.</string>
   <string name="nav_item_today">Astăzi</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="nav_item_saved_pages">Pagini salvate</string>
-  <string name="menu_update_all_saved_pages">Actualizează paginile salvate</string>
-  <string name="menu_update_selected_saved_pages">Actualizează paginile salvate</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Actualizați toate paginile salvate?</string>
   <string name="share_via">Distribuire prin</string>
-  <string name="dialog_title_clear_saved_pages">Ștergeți toate paginile salvate?</string>
-  <string name="snackbar_saving_page">Se salvează pagina…</string>
-  <string name="snackbar_saved_page_format">„%s” salvată pentru lectură off-line</string>
-  <string name="snackbar_saved_page_missing_images">Nu s-au putut salva toate imaginile</string>
-  <string name="snackbar_refresh_saved_page">Se reîncarcă pagina salvată…</string>
-  <string name="delete_selected_saved_pages">Șterge</string>
-  <string name="snackbar_saved_page_deleted">Pagină(i) salvată(e) eliminată(e)</string>
-  <string name="saved_pages_search_list_hint">Căutare în paginile salvate</string>
-  <string name="saved_pages_search_empty_message">Nicio pagină nu corespunde interogării dumneavoastră.</string>
   <string name="menu_page_show_tabs">Arată filele</string>
   <string name="menu_page_other_languages">Schimbă limba</string>
   <string name="menu_page_find_in_page">Găsește în pagină</string>
   <string name="menu_page_content_issues">Problemele conținutului</string>
   <string name="menu_page_similar_titles">Titluri similare</string>
   <string name="menu_page_font_and_theme">Schimbă fontul și tema</string>
-  <string name="menu_page_save">Salvează pagina</string>
   <string name="menu_page_add_to_list">Adaugă la lista de lecturi</string>
   <string name="menu_page_share">Distribuie legătura</string>
   <string name="menu_long_press_open_page">Deschide</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Autentificare nereușită :(</string>
   <string name="preference_title_logout">Închide sesiunea</string>
   <string name="toast_logout_complete">Sesiune închisă</string>
-  <string name="saved_pages_empty_title">Nicio pagină salvată aici!</string>
-  <string name="saved_pages_empty_message">Paginile salvate sunt minunate. Gândiți-vă la ele ca la niște semne de carte care vă permit să citiți chiar și atunci când sunteți off-line.</string>
   <string name="history_empty_title">Nicio pagină recentă aici.</string>
   <string name="history_empty_message">Probabil că le-ați șters pe toate. Data viitoare când doriți să accesați o pagină, puteți reveni la ea pornind de aici.</string>
   <string name="delete_selected_history">Șterge</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Într. frecv. aplicația Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Zero este dezactivată</string>
-  <string name="zero_charged_verbiage_extended">Încărcarea altor articole poate declanșa costuri pentru trafic de date.</string>
   <string name="zero_search_hint">Căutare în Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avertizează-mă dacă părăsesc Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">În cazul în care, printr-un parteneriat Wikipedia Zero, operatorul dumneavoastră de telefonie mobilă nu percepe tarife pentru traficul de date din aplicația Wikipedia, bifarea acestei opțiuni vă înștiințează atunci când părăsiți aplicația Wikipedia și ați putea fi taxat.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Alte modalități prin care ați îmbunătățit pagina</string>
   <string name="find_next">Găsește următorul</string>
   <string name="find_previous">Găsește precedentul</string>
-  <string name="error_network_error_try_again">Imposibil de conectat la rețea; încercați din nou.</string>
-  <string name="saved_pages_update_all_error_retry">Reîncearcă</string>
-  <string name="saved_pages_update_all_error_message">Eroare la actualizarea paginilor salvate</string>
-  <string name="saved_pages_progress_title">Se reîncarcă paginile salvate</string>
   <string name="abusefilter_title_warn">Această modificare poate fi neconstructivă. Sigur doriți s-o salvați?</string>
   <string name="abusefilter_title_disallow">Nu puteți salva această modificare. Mergeți înapoi și schimbați-o.</string>
   <string name="abusefilter_text_warn">Un filtru automat a identificat această modificare ca potențial neconstructivă. Poate avea cel puțin una din următoarele probleme:&lt;br /&gt;&lt;br /&gt;· Scrierea integrală cu majuscule&lt;br /&gt;· Golirea conținutului sau introducerea de spam&lt;br /&gt;· Legături externe sau imagini irelevante&lt;br /&gt;· Caractere repetate</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">Articolul de calitate al zilei:</string>
   <string name="widget_name_search">Căutare Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Nicio definiție găsită.</string>
-  <string name="app_store_description">Aplicația oficială a Wikipediei pentru Android. Wikipedia este enciclopedia liberă, care conține peste 32 de milioane de articole în 280 de limbi, fiind cea mai cuprinzătoare și larg utilizată lucrare de referință elaborată vreodată de omenire.
-
-Caracteristici:
-   - Imagini de deschidere: experimentați Wikipedia mai bine ca niciodată cu o imagine și o descriere relevante, afișate proeminent, la începutul articolelor.
-   - Galerie de imagini: apăsând pe o imagine vă este afișată imaginea pe tot ecranul, la rezoluție maximă. Trăgând stânga-dreapta, veți putea naviga prin setul de imagini.
-   - Descrieri de la Wikidata: când căutați, fiecare rezultat conține acum o scurtă descriere care vă ajută să puneți rezultatul în context. Aceste descrieri sunt prezentate și în alte locuri ale aplicației, ca de exemplu funcția În apropiere.
-   - Sugestii de articole: derulați până la sfârșitul unui articol pentru a vedea sugestii despre ce ați putea citi în continuare.
-   - Pagini salvate: Salvați anumite pagini pentru lecturare off-line și răsfoiți-le chiar și atunci când nu aveți o conexiune de date.
-   - În apropiere: Aflați mai multe despre ceea ce se află în jurul dumneavoastră obținând legături către articolele referitoare la obiectivele din vecinătate.
-   - Suport lingvistic: Schimbați cu ușurință limba în care citiți Wikipedia.
-   - Cuprins: Trageți către stânga în orice articol pentru a afișa cuprinsul, lucru ce vă permite să săriți printre capitole.
-   - Wikipedia Zero: Taxarea traficului de date este suspendată pentru operatorii de telefonie mobilă participanți.
-
-Trimiteți-ne părerea dumnevoastră despre aplicație! În meniu, apăsați pe „Mai multe”, apoi „Despre aplicația Wikipedia”, apoi „Trimiteți o părere despre aplicație”.
-
-Codul este 100% cu sursă deschisă. Dacă sunteți familiarizat(ă) cu Java și kitul de dezvoltare al Androidului, așteptăm cu nerăbdare contribuțiile dumneavoastră! https://github.com/wikimedia/apps-android-wikipedia
-
-Politica datelor private: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Termeni de utilizare: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">O nouă actualizare alfa disponibilă</string>
   <string name="alpha_update_notification_text">Atingeți pentru a descărca</string>
   <string name="dialog_close_description">Închide</string>

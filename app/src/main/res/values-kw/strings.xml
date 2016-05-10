@@ -10,28 +10,14 @@
   <string name="error_network_error" fuzzy="true">Nyns eus junyans rosweyth :(</string>
   <string name="page_error_retry">Assaya arta</string>
   <string name="menu_clear_all_history">Klerhe an istori</string>
-  <string name="menu_clear_all_saved_pages">Klerhe folennow gwithys</string>
   <string name="page_does_not_exist_error">Nyns eus folen henwys yndelma.</string>
   <string name="nav_item_today">Hedhyw</string>
   <string name="dialog_title_clear_history" fuzzy="true">Klerhe an istori peuri?</string>
   <string name="nav_item_saved_pages">Folennow gwithys</string>
-  <string name="menu_update_all_saved_pages">Nowedhi folennow gwithys</string>
-  <string name="menu_update_selected_saved_pages">Nowedhi folennow gwithys</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Nowedhi pub folen gwithys?</string>
   <string name="share_via">Kevranna dre</string>
-  <string name="dialog_title_clear_saved_pages">Klerhe pub folen gwithys?</string>
-  <string name="snackbar_saving_page">Ow kwitha an folen…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Gwithys yn sewen</string>
-  <string name="snackbar_saved_page_missing_images">Ny ylles gwitha pub imach</string>
-  <string name="snackbar_refresh_saved_page">Ow daskarga an folen withys…</string>
-  <string name="delete_selected_saved_pages">Dilea</string>
-  <string name="snackbar_saved_page_deleted">Diles re beu an folen(now) gwithys</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Hwilas</string>
-  <string name="saved_pages_search_empty_message">Ny veu kevys folen vyth.</string>
   <string name="menu_page_other_languages" fuzzy="true">Redya yn yethow erel</string>
   <string name="menu_page_find_in_page">Hwilas y\'n folen</string>
   <string name="menu_page_font_and_theme">Font ha thema</string>
-  <string name="menu_page_save">Gwitha an folen</string>
   <string name="menu_page_share" fuzzy="true">Kevranna</string>
   <string name="nav_item_nearby">Yn ogas</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -78,8 +64,6 @@
   <string name="login_error_unknown">Omgelmi a fyllis :(</string>
   <string name="preference_title_logout">Digelmi</string>
   <string name="toast_logout_complete">Omgelmys</string>
-  <string name="saved_pages_empty_title">Nyns eus folennow gwithys omma!</string>
-  <string name="saved_pages_empty_message">Splann lowr yw folennow gwithys. Kepar ha lyververkys yns a yllir redya kyn fer dhywarlinen.</string>
   <string name="history_empty_title">Nyns eus folennow a-dhiwedhes omma!</string>
   <string name="history_empty_message">Hwi a dhileas oll anedha martesen. An nessa termyn mayth ewgh dhe folen y hyllowgh dehweles dhedhi alemma.</string>
   <string name="delete_selected_history">Dilea</string>
@@ -107,7 +91,6 @@
   <string name="create_account_button">Gwruthyl akont</string>
   <string name="preferences_general_heading">Ollgemmyn</string>
   <string name="zero_charged_verbiage">Skwychys yn-mes yw Wikipedya Zero</string>
-  <string name="zero_charged_verbiage_extended">Karga erthyglow erel a alsa bos holyes gans feow data.</string>
   <string name="zero_search_hint">Hwilas yn Wikipedya Zero</string>
   <string name="zero_warn_when_leaving">Gwarnya pan ow kwytya Wikipedya Zero</string>
   <string name="zero_webpage_title">FAQ Wikipedya Zero</string>
@@ -159,10 +142,6 @@
   <string name="edit_summary_tag_other_hint">Fordhow erel may hwellhasowgh an folen</string>
   <string name="find_next">Kavos an nessa</string>
   <string name="find_previous">Kavos an kyns</string>
-  <string name="error_network_error_try_again">Ny ylles drehedhes an rosweyth, gwrewgh assaya arta.</string>
-  <string name="saved_pages_update_all_error_retry">Assaya arta</string>
-  <string name="saved_pages_update_all_error_message">Yth esa kammwrians ow nowedhi folennow gwithys</string>
-  <string name="saved_pages_progress_title">Ow taskarga folennow gwithys</string>
   <string name="abusefilter_title_warn">Hemm a alsa bos chanj didhrehevus. Owgh hwi sur bos hwans dhywgh y witha?</string>
   <string name="abusefilter_title_disallow">Ny yllowgh gwitha an chanj ma. Gwrewgh dehweles hag y janjya.</string>
   <string name="text_size_select">Myns an font</string>

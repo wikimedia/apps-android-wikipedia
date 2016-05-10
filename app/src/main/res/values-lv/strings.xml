@@ -16,14 +16,10 @@
   <string name="dialog_message_clear_history" fuzzy="true">Vai tiešām vēlaties notīrīt visu vēsturi?</string>
   <string name="nav_item_saved_pages">Saglabātās lapas</string>
   <string name="share_via">Dalīties, izmantojot</string>
-  <string name="dialog_title_clear_saved_pages">Notīrīt visas saglabātās lapas?</string>
-  <string name="snackbar_saving_page">Saglabā lapu…</string>
-  <string name="delete_selected_saved_pages">Dzēst</string>
   <string name="menu_page_other_languages">Mainīt valodu</string>
   <string name="menu_page_find_in_page">Atrast lapā</string>
   <string name="menu_page_content_issues">Satura problēmas</string>
   <string name="menu_page_similar_titles">Līdzīgi nosaukumi</string>
-  <string name="menu_page_save">Saglabāt lapu</string>
   <string name="menu_page_share">Dalīties ar saiti</string>
   <string name="menu_long_press_open_page">Atvērt</string>
   <string name="menu_long_press_open_in_new_tab">Atvērt jaunā cilnē</string>
@@ -96,7 +92,6 @@
   <string name="edit_preview">Pirmskats</string>
   <string name="find_next">Atrast nākamo</string>
   <string name="find_previous">Atrast iepriekšējo</string>
-  <string name="saved_pages_update_all_error_retry">Mēģināt vēlreiz</string>
   <string name="dialog_page_issues">Lapas problēmas</string>
   <string name="button_page_issues">Lapas problēmas</string>
   <string name="text_size_select">Fonta lielums</string>

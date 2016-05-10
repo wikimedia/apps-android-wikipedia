@@ -12,32 +12,18 @@
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="page_error_back_to_main">वापस जाएँ</string>
   <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
-  <string name="menu_clear_all_saved_pages">सहेजे गए पेजों को हटायें</string>
   <string name="page_does_not_exist_error">यह पृष्ठ अस्तित्व में नहीं है।</string>
   <string name="nav_item_today">आज</string>
   <string name="dialog_title_clear_history">ब्राउज़िंग इतिहास साफ़ करें</string>
   <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करेंगे?</string>
   <string name="nav_item_saved_pages">सहेजे गये पृष्ठ</string>
-  <string name="menu_update_all_saved_pages">सहेजे गए पृष्ठों को अपडेट करें</string>
-  <string name="menu_update_selected_saved_pages">संरक्षित पृष्ठों को अपडेट करें</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">सभी सरंक्षित पृष्ठों को अपडेट करें?</string>
   <string name="share_via">के माध्यम से साझा करें</string>
-  <string name="dialog_title_clear_saved_pages">सभी सहेजे गए पेज साफ करें?</string>
-  <string name="snackbar_saving_page">पृष्ठ सहेजा जा रहा है…</string>
-  <string name="snackbar_saved_page_format">%s ऑफलाइन पढ़ने के लिए सहेजा गया</string>
-  <string name="snackbar_saved_page_missing_images">सभी चित्र सहेजे नहीं गये</string>
-  <string name="snackbar_refresh_saved_page">सहेजे गये पृष्ठ को पुनः ताज़ा किया जा रहा है…</string>
-  <string name="delete_selected_saved_pages">मिटाएँ</string>
-  <string name="snackbar_saved_page_deleted">सहेजे गया (गये) पृष्ठ हटाये</string>
-  <string name="saved_pages_search_list_hint">सहेजे गए पेज खोजें</string>
-  <string name="saved_pages_search_empty_message">आपकी आवश्यकता से मिलता कोई पृष्ठ नहीं पाया गया।</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
   <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="menu_page_content_issues">सामग्री समस्या</string>
   <string name="menu_page_similar_titles">समान शीर्षक</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
-  <string name="menu_page_save">पृष्ठ सहेजें</string>
   <string name="menu_page_add_to_list">पठन सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
   <string name="menu_long_press_open_page">खोलें</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">लॉग-इन असफल रहा :(</string>
   <string name="preference_title_logout">प्रस्थान</string>
   <string name="toast_logout_complete">सत्र का अन्त हुआ।</string>
-  <string name="saved_pages_empty_title">यहाँ कोई पृष्ठ नहीं सहेजा गया।</string>
-  <string name="saved_pages_empty_message">सरंक्षित पृष्ठ बहुत आश्चर्यजनक हैं। उन्हें इस तरह के पुस्तक-चिह्न समझें कि आप उन्हें तब भी पढ़ सकते हो जब आप ऑफ़लाइन हो।</string>
   <string name="history_empty_title">यहाँ का कोई हाल का पेज नहीं है!</string>
   <string name="history_empty_message">सम्भवतया आप उन सभी को हटा चुके हो। अगली बार जब आप उस पृष्ठ पर जायें तब उसे पुनः प्राप्त किया जा सकता है।</string>
   <string name="delete_selected_history">हटायें</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">सामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप FAQ</string>
   <string name="zero_charged_verbiage">विकिपीडिया शून्य बन्द है</string>
-  <string name="zero_charged_verbiage_extended">अन्य पृष्ठों को लोड किया जा रहा है जिसके कारण अतिरिक्त डाटा शुल्क लग सकता है।</string>
   <string name="zero_search_hint">विकिपीडिया शून्य खोजें</string>
   <string name="zero_warn_when_leaving">विकिपीडिया शून्य छोड़ने पर चेतावनी दीजिये</string>
   <string name="zero_warn_when_leaving_summary">अगर आपका मोबाइल ऑपरेटर डेटा इस्तेमाल के चार्जों को विकिपीडिया एप के लिए छोड़ता है, विकिपीडिया ज़ीरो पार्टनरशिप के अनुसार तो इस सेटिंग को चैक छोड़ने से आपको यह जानने में सहायता मिलेगी कि कब आप विकिपीडिया एप छोड़ रहे हैं और आपको चार्ज लग सकता है।</string>
@@ -183,10 +166,6 @@
   <string name="edit_summary_tag_other_hint">अन्य तरीकों से आपके द्वारा पृष्ठ में सुधार</string>
   <string name="find_next">अगला ढूँढें</string>
   <string name="find_previous">पिछला ढूँढें</string>
-  <string name="error_network_error_try_again">नेटवर्क तक नहीं पहुंचा जा सका, कृपया पुनः प्रयास करें।</string>
-  <string name="saved_pages_update_all_error_retry">पुनः प्रयास करें</string>
-  <string name="saved_pages_update_all_error_message">सहेजे गए पेजों को अपडेट करने में समस्या</string>
-  <string name="saved_pages_progress_title">सहेजे गए पेजों को रिफ्रेश किया जा रहा है</string>
   <string name="abusefilter_title_warn">यह संपादन निर्माण रहित हो सकता है। क्या आप इसे सहेजना चाहते हैं?</string>
   <string name="abusefilter_title_disallow">आप इस संपादन को सहेज नही सकते। कृपया पीछे जा कर इसे बदलें।</string>
   <string name="abusefilter_text_warn">एक स्वचलित फ़िल्टर ने इस संपादन को संभवतः अरचनात्मक पाया है। इसमें एक या एक से अधिक निम्न कारण हो सकते हैं:&lt;br/&gt;&lt;br/&gt;सभी को कैपिटल लैटर में लिखना&lt;br/&gt;।लेखों को रिक्त करना या स्पैमिंग&lt;br/&gt;। अक्षरों को बार बार दोहराना।</string>
@@ -210,21 +189,6 @@
   <string name="widget_title_featured_page">आज का मुख्य पेज</string>
   <string name="widget_name_search">विकिपीडिया खोज</string>
   <string name="wiktionary_no_definitions_found">कोई परिभाषाएं नहीं मिलीं।</string>
-  <string name="app_store_description">एंड्राइड के लिए विकिपीडिया का आधिकारिक एप। विकिपीडिया एक मुक्त इनसाइक्लोपीडिया है जिसमें 32 मिलियन से अधिक लेख 280 भाषाओं में उपलब्ध हैं, और यह मनुष्य द्वारा एकत्रित अभी तक का सबसे विस्तृत व व्यापक सन्दर्भ कार्य है। 
-फीचर्स:
--चित्र: विषय संबंधी सरल चित्रों और लेखों के ऊपर दिए विवरण के माध्यम से विकिपीडिया को बिलकुल नए रूप से अनुभव करें-
--चित्र गैलरी: चित्र को टैप करने पर आपको हाई रेज़ोल्यूशन फुल स्क्रीन चित्र दायीं या बायीं ओर के अन्य चित्रों को देखने के विकल्प के साथ दिखाई देता है
--विकीडेटा से विवरण: जब खोज की जाती है तो अब प्रत्येक खोज में एक छोटा विवरण दिया जाता है ताकि परिणाम को समझने में सहायता हो। ये विवरण एप के अन्य क्षेत्रों में भी दिखाए जाते हैं, जैसे पास में
--लेख सुझाव: लेख के आखिर तक स्क्रोल करें तो आपको आगे क्या पढ़ना चाहिए के सम्बन्ध में सुझाव दिखाई देंगे
--सहेजे गए पेज: चुनें और पेजों को ऑफलाइन पढ़ने और ब्राउज़ करने के लिए सहेजें, आप उन्हें बिना डेटा कनेक्शन के भी पढ़ सकते हैं
--पास में: अपने आस-पास की चीज़ों से सम्बंधित पेजों के लिंक्स के द्वारा  आस-पास की चीज़ों के बारे में जान जो आपकी वर्तमान लोकेशन के नज़दीक है
--भाषा सपोर्ट: बिना रोक-टोक किसी अन्य भाषा में विकिपीडिया को पढ़ें
--सारणी(टेबल) सामग्री: सारणी सामग्री को ऊपर लाने के लिए दायीं या बायीं ओर स्वाइप करें, इससे आप लेख के भागों पर आसानी से जा सकते हैं
--विकिपीडिया ज़ीरो: शामिल मोबाइल ऑपरेटरों द्वारा डेटा चार्ज न लेना
-इस एप के बारे में हमें अपना फीडबैक भेजें!मेनू में , \"अधिक\" दबाएं, फिर \"विकिपीडिया एप के बारे में\", उसके बाद \"एप फीडबैक भेजें\"।
-कोड 100% ओपन सोर्स है। अगर आपको जावा और एंड्राइड SDK  का अनुभव है तो हम आपके योगदानों की आशा करते हैं! https://github.com/wikimedia/apps-android-wikipedia
-गोपनीयता नीति: https://m.wikimediafoundation.org/wiki/Privacy_policy 
-उपयोग के नियम: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">नवीन आरम्भिक अपडेट उपलब्ध</string>
   <string name="alpha_update_notification_text">डाउनलोड करने के लिए दबाये रखें</string>
   <string name="dialog_close_description">बंद करें</string>

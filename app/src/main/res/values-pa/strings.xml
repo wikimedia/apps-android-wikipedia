@@ -10,31 +10,17 @@
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
-  <string name="menu_clear_all_saved_pages">ਸੱਭ ਸੰਭਾਲੇ ਵਰਕੇ ਸਾਫ਼ ਕਰੋ</string>
   <string name="page_does_not_exist_error">ਇਹ ਵਰਕਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="nav_item_today">ਅੱਜ</string>
   <string name="dialog_title_clear_history" fuzzy="true">ਫਰੋਲਣ ਦਾ ਅਤੀਤ ਸਾਫ਼ ਕਰਨਾ ਹੈ?</string>
   <string name="nav_item_saved_pages">ਸੰਭਾਲੇ ਹੋਏ ਵਰਕੇ</string>
-  <string name="menu_update_all_saved_pages">ਸਾਂਭੇ ਹੋਏ ਵਰਕਿਆਂ ਨੂੰ ਅੱਡੇਟ ਕਰ ਦਿਉ</string>
-  <string name="menu_update_selected_saved_pages">ਸਾਂਭੇ ਹੋਏ ਵਰਕਿਆਂ ਨੂੰ ਅੱਪਡੇਟ ਕਰ ਦਿਉ</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">ਕੀ ਸਭ ਸੰਭਾਲੇ ਵਰਕੇ ਅੱਪਡੇਟ ਕਰਨੇ ਹਨ?</string>
   <string name="share_via">ਸਾਂਝੀਕਰਨ</string>
-  <string name="dialog_title_clear_saved_pages">ਕੀ ਸੱਭ ਸੰਭਾਲੇ ਗਏ ਵਰਕੇ ਸਾਫ ਕਰਨੇ ਹਨ?</string>
-  <string name="snackbar_saving_page">… ਵਰਕਾ ਸੰਭਾਲਿਆ ਜਾ ਰਿਹਾ</string>
-  <string name="snackbar_saved_page_format">\"%s\" ਅਾੱਫਲਾੲੀਨ ਪੜ੍ਹਨ ਲੲੀ ਸੰਭਾਲਿਆ ਗਿਆ ਹੈ।</string>
-  <string name="snackbar_saved_page_missing_images">ਸਾਰੀਆਂ ਤਸਵੀਰਾਂ ਸੰਭਾਲੀਆਂ ਨਹੀਂ ਗਈਆਂ</string>
-  <string name="snackbar_refresh_saved_page">ਸਾਂਭਿਆ ਵਰਕਾ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਿਹਾ ਹੈ…</string>
-  <string name="delete_selected_saved_pages">ਮਿਟਾਉ</string>
-  <string name="snackbar_saved_page_deleted">ਸਾਂਭਿਆ ਵਰਕਾ(ਕੇ) ਮਿਟਾਇਆ ਗਿਆ</string>
-  <string name="saved_pages_search_list_hint">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਖੋਜੋ</string>
-  <string name="saved_pages_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
   <string name="menu_page_show_tabs">ਟੈਬ ਦਿਖਾਵੋ</string>
   <string name="menu_page_other_languages" fuzzy="true">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="menu_page_find_in_page">ਸਫ਼ੇ \'ਚ ਲੱਭੋ</string>
   <string name="menu_page_content_issues">ਸਮੱਗਰੀ ਸਮੱਸਿਆਵਾਂ</string>
   <string name="menu_page_similar_titles">ਇੱਕੋ ਤਰ੍ਹਾਂ ਦੇ ਸਿਰਲੇਖ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ-ਬਨਾਵਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
-  <string name="menu_page_save">ਵਰਕਾ ਸੰਭਾਲੋ</string>
   <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="menu_long_press_open_page">ਖੋਲ੍ਹੋ</string>
   <string name="menu_long_press_open_in_new_tab">ਨਵੇਂ ਟੈਬ \'ਚ ਖੋਲ੍ਹੋ</string>
@@ -85,8 +71,6 @@
   <string name="login_error_unknown">ਦਾਖ਼ਲਾ ਫੇਲ੍ਹ :(</string>
   <string name="preference_title_logout">ਬਾਹਰ ਆਉ</string>
   <string name="toast_logout_complete">ਬਾਹਰ ਆਏ</string>
-  <string name="saved_pages_empty_title">ਇੱਥੇ ਕੋਈ ਸਾਂਭੇ ਵਰਕੇ ਨਹੀਂ!</string>
-  <string name="saved_pages_empty_message">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਡਾਢੇ ਵਧੀਆ ਹੁੰਦੇ ਹਨ। ਉਹਨਾਂ ਨੂੰ ਅਜਿਹੇ ਨਿਸ਼ਾਨੀਆ ਕਾਗਜ਼ ਸਮਝੋ ਜਿਹਨਾਂ ਨੂੰ ਤੁਸੀਂ ਲੀਹੋਂ ਲਹਿ ਕੇ ਵੀ ਪੜ੍ਹ ਸਕਦੇ ਹੋ।</string>
   <string name="history_empty_title">ਇੱਥੇ ਕੋਈ ਹਾਲੀਆ ਵਰਕੇ ਨਹੀਂ!</string>
   <string name="history_empty_message">ਤੁਸੀਂ ਸ਼ਾਇਦ ਇਹ ਸਾਰੇ ਮਿਟਾ ਦਿੱਤੇ ਹਨ। ਅਗਲੀ ਵਾਰ ਜਦ ਤੁਸੀਂ ਕਿਸੇ ਸਫ਼ੇ \'ਤੇ ਜਾਉਂ ਤਾਂ ਤੁਸੀਂ ਇੱਥੋਂ ਉਹਦੇ ਤੱਕ ਪਰਤ ਸਕਦੇ ਹੋ।</string>
   <string name="delete_selected_history">ਮਿਟਾਓ</string>
@@ -115,7 +99,6 @@
   <string name="preferences_general_heading">ਆਮ</string>
   <string name="wikipedia_app_faq">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਰੇ ਆਮ ਸਵਾਲ</string>
   <string name="zero_charged_verbiage">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬੰਦ ਹੈ</string>
-  <string name="zero_charged_verbiage_extended">ਹੋਰ ਲੇਖ ਲਿਆਉਣ \'ਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਪੈ ਸਕਦਾ ਹੈ।</string>
   <string name="zero_search_hint">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਭਾਲ਼ੋ</string>
   <string name="zero_warn_when_leaving">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਛੱਡਣ \'ਤੇ ਸਚੇਤ ਕਰੋ</string>
   <string name="zero_warn_when_leaving_summary">ਜੇਕਰ ਤੁਹਾਡਾ ਮੋਬਾਈਲ ਚਾਲਕ ਕਿਸੇ ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਸਾਂਝ ਰਾਹੀਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਡਾਟਾ ਤੱਕ ਪਹੁੰਚ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਕਰਦਾ ਹੈ ਤਾਂ ਏਸ ਸੈਟਿੰਗ ਨੂੰ ਸਹੀ ਕਰ ਕੇ ਰੱਖਣ ਨਾਲ਼ ਤੁਹਾਨੂੰ ਪਤਾ ਲੱਗ ਜਾਵੇਗਾ ਕਿ ਤੁਸੀਂ ਕਦੋਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਛੱਡ ਕੇ ਜਾ ਰਹੇ ਹੋ ਅਤੇ ਪੈਸੇ ਪੈ ਸਕਦੇ ਹਨ।</string>
@@ -169,10 +152,6 @@
   <string name="edit_summary_tag_other_hint">ਹੋਰ ਤਰੀਕੇ ਜਿਹਨਾਂ ਨਾਲ਼ ਤੁਸੀਂ ਸਫ਼ੇ ਨੂੰ ਸੁਧਾਰਿਆ</string>
   <string name="find_next">ਅੱਗੇ ਲੱਭੋ</string>
   <string name="find_previous">ਪਿੱਛੇ ਲੱਭੋ</string>
-  <string name="error_network_error_try_again">ਨੈੱਟਵਰਕ ਤੱਕ ਪਹੁੰਚ ਨਾ ਹੋ ਸਕੀ, ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
-  <string name="saved_pages_update_all_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
-  <string name="saved_pages_update_all_error_message">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਨਵਿਆਉਣ ਵਿੱਚ ਦੋਸ਼</string>
-  <string name="saved_pages_progress_title">ਸਾਂਭੇ ਹੋਏ ਸਫ਼ੇ ਮੁੜ-ਤਾਜ਼ਾ ਹੋ ਰਹੇ ਹਨ</string>
   <string name="abusefilter_title_warn">ਇਹ ਇੱਕ ਬੇਉਸਾਰੂ ਸੋਧ ਹੋ ਸਕਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਇਹਨੂੰ ਸਾਂਭਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="abusefilter_title_disallow">ਤੁਸੀਂ ਇਹ ਸੋਧ ਨਹੀਂ ਸਾਂਭ ਸਕਦੇ। ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਪਿੱਛੇ ਜਾਉ ਅਤੇ ਇਹਨੂੰ ਬਦਲੋ।</string>
   <string name="dialog_page_issues">ਸਫ਼ੇ ਦੇ ਮੁੱਦੇ</string>
@@ -191,18 +170,6 @@
   <string name="table_close">ਬੰਦ ਕਰੋ</string>
   <string name="widget_name_search">ਵਿਕੀਪੀਡੀਆ ਖੋਜ</string>
   <string name="wiktionary_no_definitions_found">ਕੋਈ ਪਰਿਭਾਸ਼ਾ ਨਹੀਂ।</string>
-  <string name="app_store_description">ਐਡ੍ਰਾਇਡ ਵਾਸਤੇ ਦਫ਼ਤਰੀ ਵਿਕੀਪੀਡੀਆ ਐਪ। ਵਿਕੀਪੀਡੀਆ ਮੁ਼ਫ਼ਤ ਗਿਆਨਕੋਸ਼ ਹੈ ਜਿਸ ਵਿੱਚ ੨੮੦ ਬੋਲੀਆਂ ਵਿੱਚ ੩.੨ ਕਰੋੜ ਤੋਂ ਵੱਧ ਲੇਖ ਮੌਜੂਦ ਹਨ ਅਤੇ ਮਨੁੱਖਾਂ ਵੱਲੋਂ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਅੱਜ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਸਰਬੰਗੀ ਅਤੇ ਵਿਆਪਕ ਵਰਤੋਂ ਵਾਲਾ ਹਵਾਲਾ ਕਾਰਜ ਹੈ। ਇਹ ਐਪ ਮੁੜ ਨਵੇਂ ਸਿਰੇ \'ਤੋਂ ਲਿਖੀ ਗਈ ਅਤੇ ਹੁਣ ਤੱਕ ਦੇ ਸਭ ਤੋਂ ਚੰਗੇ ਤਰੀਕੇ ਨਾਲ ਬਣਾੲੀ ਗੲੀ ਹੈ।
-
-ਗੁਣ:
-   - ਰਫ਼ਤਾਰ: ਸਾਡੀ ਨਵੀਂ, ਐਪ ਤੁਹਾਨੂੰ ਸਭ ਤੋਂ ਤੇਜ਼ ਤਰੀਕੇ ਨਾਲ਼ ਵਿਕੀਪੀਡੀਆ ਫਰੋਲਣ ਅਤੇ ਸੋਧਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦੀ ਹੈ।
-   - ਸੁਧਾਈ: ਤੁਸੀਂ ਵਿਕੀਪੀਡੀਆ ਸੋਧ ਸਕਦੇ ਹੋ। ਦਾਖ਼ਲ ਹੋਵੋ ਚਾਹੇ ਨਾਂ, ਅਸੀਂ ਤੁਹਾਡੇ ਸਾਰੇ ਯੋਗਦਾਨਾਂ ਵਾਸਤੇ ਤੁਹਾਡੇ ਧੰਨਵਾਦੀ ਹਾਂ।
-   -ਹਾਲੀਅਾ ਸਫੇ: ੲਿਹ ਅੈਪ ਤੁਹਾਡੇ ਦੁਅਾਰਾ ਪੜ੍ਹੇ ਗੲੇ ਸਫਿਅਾਂ ਦਾ ਅਤੀਤ ਵੀ ਸੰਭਾਲ ਕੇ ਰੱਖਦੀ ਹੈ।
-   - ਸਾਂਭੇ ਸਫ਼ੇ: ਤੁਸੀ ਸਫ਼ਿਅਾਂ ਨੂੰ ਅਾੱਫ-ਲਾੲੀਨ ਪੜ੍ਹਨ ਲੲੀ ਸੰਭਾਲ ਸਕਦੇ ਹੋ।
-   - ਸਾਂਝ: ਤੁਸੀਂ ਅੈਪ \'ਚ ਮੌਜੂਦ ਵੰਡੋ ਵਿਕਲਪ ਰਾਹੀਂ ਕਿਸੇ ਵੀ ਸਮਾਜਿਕ ਸਾੲੀਟ ਜਾਂ ਸਥਾਨ \'ਤੇ ਵਿੱਦਿਿਅਾ ਵੰਡ ਸਕਦੇ ਹੋ।
-   - ਭਾਸ਼ਾਈ ਸਹਾਇਤਾ: ਇਹ ਐਪ ਤੁਹਾਨੂੰ ਬੜੀ ਸੌਖ ਨਾਲ਼ ਕਿਸੇ ਵੀ ਭਾਸ਼ਾ \'ਚ ਲਿਖੇ ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਪੜ੍ਹਣ ਜਾਣ ਲਈ ਦਿੰਦੀ ਹੈ।
-   - ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ: ਹਿੱਸਾ ਲੈ ਰਹੇ ਮੋਬਾਈਲ ਚਾਲਕਾਂ ਵਾਸਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਹੈ।
-
-ਇਹਦਾ ਕੋਡ ਪੂਰੀ ਤਰ੍ਹਾਂ ਖੁੱਲ੍ਹੇ ਸਰੋਤ ਵਾਲ਼ਾ ਹੈ। ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਲ਼ ਜਾਵਾ ਅਤੇ ਐਂਡ੍ਰਾਇਡ ਐੱਸ.ਡੀ.ਕੇ. ਦਾ ਤਜਰਬਾ ਹੈ ਤਾਂ ਸਾਡੇ ਨਾਲ ਅਾ ਕੇ ਕੰਮ ਕਰੋ! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">ਨਵਾਂ ਐਲਫ਼ਾ ਨਵੀਨੀਕਰਨ ਮੌਜੂਦ ਹੈ</string>
   <string name="alpha_update_notification_text">ਉਤਾਰਨ ਵਾਸਤੇ ਟਕੋਰੋ</string>
   <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>

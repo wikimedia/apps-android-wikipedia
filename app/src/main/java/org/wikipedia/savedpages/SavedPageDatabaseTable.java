@@ -3,14 +3,12 @@ package org.wikipedia.savedpages;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.SavedPageContract;
@@ -48,29 +46,6 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
         contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
         return contentValues;
-    }
-
-    // TODO: move.
-    public boolean savedPageExists(WikipediaApp app, PageTitle title) {
-        Cursor c = null;
-        boolean exists = false;
-        try {
-            SavedPage savedPage = new SavedPage(title);
-            String[] args = getPrimaryKeySelectionArgs(savedPage);
-            String selection = getPrimaryKeySelection(savedPage, args);
-            final String order = null;
-            c = app.getDatabaseClient(SavedPage.class).select(selection, args, order);
-            if (c.getCount() > 0) {
-                exists = true;
-            }
-        } catch (SQLiteException e) {
-            // page title doesn't exist in database... no problem if it fails.
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-        }
-        return exists;
     }
 
     public Cursor queryAll(SQLiteDatabase db) {

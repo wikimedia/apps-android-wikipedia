@@ -12,32 +12,18 @@
   <string name="page_error_retry">Повторить</string>
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Очистить историю</string>
-  <string name="menu_clear_all_saved_pages">Очистить сохранённые страницы</string>
   <string name="page_does_not_exist_error">Такой страницы не существует.</string>
   <string name="nav_item_today">Сегодня</string>
   <string name="dialog_title_clear_history">Очистить историю</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="nav_item_saved_pages">Сохранённые страницы</string>
-  <string name="menu_update_all_saved_pages">Обновить сохранённые страницы</string>
-  <string name="menu_update_selected_saved_pages">Обновить сохранённые страницы</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Обновить все сохранённые страницы?</string>
   <string name="share_via">Поделиться через</string>
-  <string name="dialog_title_clear_saved_pages">Очистить все сохранённые страницы?</string>
-  <string name="snackbar_saving_page">Сохранение страницы…</string>
-  <string name="snackbar_saved_page_format">\"%s\" сохранена для чтения оффлайн</string>
-  <string name="snackbar_saved_page_missing_images">Не удалось сохранить все изображения</string>
-  <string name="snackbar_refresh_saved_page">Обновление сохранённой страницы…</string>
-  <string name="delete_selected_saved_pages">Удалить</string>
-  <string name="snackbar_saved_page_deleted">Сохранённые страницы удалены</string>
-  <string name="saved_pages_search_list_hint">Поиск по сохранённым страницам</string>
-  <string name="saved_pages_search_empty_message">Страницы, соответствующие вашему запросу, не найдены.</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти на странице</string>
   <string name="menu_page_content_issues">Содержание вопросов</string>
   <string name="menu_page_similar_titles">Похожие названия</string>
   <string name="menu_page_font_and_theme">Изменение шрифта и оформления</string>
-  <string name="menu_page_save">Сохранить страницу</string>
   <string name="menu_page_add_to_list">Добавить в список для чтения</string>
   <string name="menu_page_share">Поделиться ссылкой</string>
   <string name="menu_long_press_open_page">Открыть</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Не удалось войти :(</string>
   <string name="preference_title_logout">Завершение сеанса</string>
   <string name="toast_logout_complete">Сеанс был завершён</string>
-  <string name="saved_pages_empty_title">Здесь нет сохранённых страниц!</string>
-  <string name="saved_pages_empty_message">Сохранённые страницы — это довольно здорово. Подумайте о них, как о закладках, которые вы сможете читать даже тогда, когда вы находитесь в оффлайне.</string>
   <string name="history_empty_title">Недавно просмотренных страниц нет.</string>
   <string name="history_empty_message">Вы, вероятно, удалили их все. В следующий раз, когда зайдёте на страницу, вы сможете вернуться к ней отсюда.</string>
   <string name="delete_selected_history">Удалить</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Общие</string>
   <string name="wikipedia_app_faq">Частые вопросы по приложению Википедии</string>
   <string name="zero_charged_verbiage">Wikipedia Zero выключена</string>
-  <string name="zero_charged_verbiage_extended">При загрузке других статьей может взиматься плата за передачу данных.</string>
   <string name="zero_search_hint">Поиск по Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Предупреждать, если покидаете Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Если ваш мобильный оператор не берёт плату за доступ к данным из приложения Википедии через партнерство Wikipedia Zero, включение этого параметра поможет вам знать, когда вы покидаете приложение Википедии, и может начать взиматься плата за трафик.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Другие способы, которыми вы улучшили страницу</string>
   <string name="find_next">Найти далее</string>
   <string name="find_previous">Найти ранее</string>
-  <string name="error_network_error_try_again">Сеть недоступна, пожалуйста, попробуйте ещё раз.</string>
-  <string name="saved_pages_update_all_error_retry">Повторить</string>
-  <string name="saved_pages_update_all_error_message">Ошибка обновления сохранённых страниц</string>
-  <string name="saved_pages_progress_title">Обновление сохранённых страниц</string>
   <string name="abusefilter_title_warn">Эта правка может быть деструктивной. Вы уверены, что хотите сохранить её?</string>
   <string name="abusefilter_title_disallow">Вы не можете сохранить эту правку. Пожалуйста, вернитесь назад и измените её.</string>
   <string name="abusefilter_text_warn">Автоматизированный фильтр определил эту правку как потенциально неконструктивную. Она может содержать одно или несколько из следующих действий:&lt;br /&gt;&lt;br /&gt;· Печатать заглавными буквами&lt;br&gt;· Штамповка статей или спам&lt;br /&gt;· Неподходящие внешние ссылки или изображения&lt;br /&gt;· Повторяющиеся символы</string>
@@ -212,27 +191,6 @@
   <string name="widget_title_featured_page">Избранная страница дня:</string>
   <string name="widget_name_search">Поиск по Википедии</string>
   <string name="wiktionary_no_definitions_found">Никаких определений не найдено.</string>
-  <string name="app_store_description">Официальное приложение «Википедия» под Android. Википедия — свободная энциклопедия, содержащая более 32 миллионов статей на 280 языках. Она является наиболее полным и широко используемым справочником, который люди когда-либо создавали.
-
-Особенности:
-— Основное изображение: работайте с Википедией так, как никогда раньше, с выделяющимся, контекстно-релевантным изображением и описанием в верхней части статьи
-— Галерея изображений: по нажатию на изображение оно показывает на весь экран в высоком разрешении, с возможностью прокрутки влево/вправо для просмотра дополнительных изображений
-— Описания из Викиданных: во время поиска каждый результат содержит краткое описание, которое помогает увязывать результат с контекстом. Эти описания также показываются и в других местах приложения, таких как «Поблизости»
-— Предложения статей: пролистайте страницу к нижней части статьи, чтобы увидеть предложения относительно того, что вы бы могли почитать дальше
-— Сохранённые страницы: сохраняйте выбранные страницы для чтения в автономном режиме и просматривать их, даже когда у вас нет подключения к интернету
-— Поблизости: узнавайте больше о том, что находится рядом с вами, получая ссылки на статьи об объектах, находящихся недалеко от вашего текущего местоположения
-— Поддержка языков: безболезненно переключайтесь на чтение статей Википедии, написанных на любом языке
-— Содержание: проведите пальцем влево на любой статье, чтобы открыть содержание, которое позволяет легко перейти к любому разделу статьи
-— Википедия Zero: участвующие операторы мобильной связи не взимают плату за трафик
-
-Отправьте нам свой отзыв о приложении! В меню нажмите «Дополнительно», затем — «О приложении „Википедия“» и «Отправить отзыв о приложении».
-
-
-Исходный код является 100 % открытым. Если у вас есть опыт работы с Java и Android SDK, мы с нетерпением ждём вашей помощи! https://github.com/wikimedia/apps-android-wikipedia
-
-Политика конфиденциальности: https://m.wikimediafoundation.org/wiki/Политика_конфиденциальности
-
-Условия использования: https://m.wikimediafoundation.org/wiki/Условия_использования</string>
   <string name="alpha_update_notification_title">Доступно новое обновление альфа-версии</string>
   <string name="alpha_update_notification_text">Нажмите чтобы скачать</string>
   <string name="dialog_close_description">Закрыть</string>

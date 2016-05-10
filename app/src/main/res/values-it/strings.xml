@@ -12,32 +12,18 @@
   <string name="page_error_retry">Riprova</string>
   <string name="page_error_back_to_main">Indietro</string>
   <string name="menu_clear_all_history">Cancella la cronologia</string>
-  <string name="menu_clear_all_saved_pages">Cancella pagine salvate</string>
   <string name="page_does_not_exist_error">Questa pagina non esiste.</string>
   <string name="nav_item_today">Oggi</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
   <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="nav_item_saved_pages">Pagine salvate</string>
-  <string name="menu_update_all_saved_pages">Aggiorna pagine salvate</string>
-  <string name="menu_update_selected_saved_pages">Aggiorna pagine salvate</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Aggiornare tutte le pagine salvate?</string>
   <string name="share_via">Condividi tramite…</string>
-  <string name="dialog_title_clear_saved_pages">Cancellare tutte le pagine salvate?</string>
-  <string name="snackbar_saving_page">Sto salvando la pagina…</string>
-  <string name="snackbar_saved_page_format">\"%s\" salvata per la lettura offline</string>
-  <string name="snackbar_saved_page_missing_images">Non è stato possibile salvare tutte le immagini</string>
-  <string name="snackbar_refresh_saved_page">Aggiornamento pagina salvata…</string>
-  <string name="delete_selected_saved_pages">Cancella</string>
-  <string name="snackbar_saved_page_deleted">Pagine salvate cancellate</string>
-  <string name="saved_pages_search_list_hint">Cerca pagine salvate</string>
-  <string name="saved_pages_search_empty_message">Nessuna pagina trovata che corrisponda alla richiesta.</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>
   <string name="menu_page_find_in_page">Trova nella pagina</string>
   <string name="menu_page_content_issues">Problemi con il contenuto</string>
   <string name="menu_page_similar_titles">Titoli simili</string>
   <string name="menu_page_font_and_theme">Carattere e tema</string>
-  <string name="menu_page_save">Salva la pagina</string>
   <string name="menu_page_add_to_list">Aggiungi all\'elenco di lettura</string>
   <string name="menu_page_share">Condividi collegamento</string>
   <string name="menu_long_press_open_page">Apri</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Accesso non riuscito :(</string>
   <string name="preference_title_logout">Esci</string>
   <string name="toast_logout_complete">Disconnesso</string>
-  <string name="saved_pages_empty_title">Nessuna pagina salvata qui!</string>
-  <string name="saved_pages_empty_message">Le pagine salvate sono fantastiche. Considerale come preferiti che puoi leggere anche quando sei offline.</string>
   <string name="history_empty_title">Nessuna pagina recente qui!</string>
   <string name="history_empty_message">Probabilmente hai cancellato tutto. La prossima volta che vai in una pagina, puoi tornarci da qui.</string>
   <string name="delete_selected_history">Cancella</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Generale</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage">Wikipedia Zero è spento</string>
-  <string name="zero_charged_verbiage_extended">Caricare altre voci può comportare un addebito spese.</string>
   <string name="zero_search_hint">Cerca su Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avvisa se sto uscendo da Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se il tuo operatore di telefonia mobile rinuncia alle tariffe dati per l\'applicazione Wikipedia attraverso una partnership di Wikipedia Zero, lasciare questa impostazione selezionata ti permette di conoscere quando si esce dall\'applicazione Wikipedia e potrebbero essere addebitate le tariffe.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Altri modi nei quali hai migliorato la pagina</string>
   <string name="find_next">Trova successivo</string>
   <string name="find_previous">Trova precedente</string>
-  <string name="error_network_error_try_again">Impossibile raggiungere la rete, si prega di provare nuovamente.</string>
-  <string name="saved_pages_update_all_error_retry">Riprova</string>
-  <string name="saved_pages_update_all_error_message">Errore durante l\'aggiornamento delle pagine salvate</string>
-  <string name="saved_pages_progress_title">Aggiornamento pagine salvate</string>
   <string name="abusefilter_title_warn">Questa potrebbe essere una modifica inutile. Sei sicuro di volerla salvare?</string>
   <string name="abusefilter_title_disallow">Non puoi salvare questa modifica. Per favore torna indietro e modificala.</string>
   <string name="abusefilter_text_warn">Un filtro automatico ha identificato inutile questa modifica. Potrebbe includere uno o più dei seguenti elementi:&lt;br /&gt;&lt;br /&gt;· Scritte tutte in maiuscolo&lt;br /&gt;· Articolo vuoto o di spam&lt;br /&gt;· Collegamenti esterni o immagini non pertinenti&lt;br /&gt;· Caratteri ripetuti</string>
@@ -212,28 +191,6 @@
   <string name="widget_title_featured_page">Pagina di oggi in primo piano:</string>
   <string name="widget_name_search">Ricerca di Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Nessuna definizione trovata.</string>
-  <string name="app_store_description">App ufficiale di Wikipedia per Android.
-Wikipedia è l\'enciclopedia libera con oltre 32 milioni di voci in 280 lingue, ed è l\'opera di consultazione più completa e più diffusa che l\'uomo abbia mai compilato.
-
-Caratteristiche:
-   - Immagine d\'apertura: l\'esperienza con Wikipedia non è mai stata così prima, con un\'importante immagine contestualmente rilevante e una descrizione all\'inizio della voce
-   - Galleria immagini: tocca su un\'immagine per mostrarla a pieno schermo ed altra risoluzione, con la possibilità di scorrere a destra/sinistra per passare alle immagini precedenti o successive
-   - Descrizione da Wikidata: durante la ricerca, ogni risultato ora contiene una breve descrizione che ti aiuta a contestualizzare il risultato. Queste descrizioni sono mostrate anche in altre aree dell\'applicazione, ad esempio Nelle vicinanze
-   - Voci suggerite: scorri verso il fondo della voce per vedere suggerimenti su cosa potresti leggere dopo
-   - Pagine salvate: puoi salvare le pagine che ti interessano per leggerle offline e consultarle anche in assenza di connessione dati.
-   - Nelle vicinanze: scopri di più su ciò che è intorno a te tramite collegamenti alle voci di cose che si trovano vicino alla tua attuale posizione
-   - Supporto linguistico: l\'app ti permette di accedere senza soluzione di continuità alle Wikipedia scritte in altre lingue.
-   - Indice: scorri verso sinistra su qualsiasi voce per visualizzare la tabella dei contenuti, che ti permette di passare facilmente ad una sezione della voce
-   - Wikipedia Zero: nessun costo di connessione con gli operatori mobili partecipanti.
-
-Inviaci il tuo feedback sull\'app! Nel menu, premi il tasto \"Altro\" e poi Su \"A proposito dell\'app Wikipedia\", quindi su \"Invia feedback applicazione\".
-
-Il codice è 100% open source. Se hai esperienza con Java e l\'Android SDK, allora stiamo aspettando i tuoi contributi!
-https://github.com/wikimedia/apps-android-wikipedia
-
-Politica sulla privacy: http://wikimediafoundation.org/wiki/Privacy_policy
-
-Condizioni d\'uso: http://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nuovo aggiornamento alfa disponibile</string>
   <string name="alpha_update_notification_text">Tocca per scaricare</string>
   <string name="dialog_close_description">Chiudi</string>

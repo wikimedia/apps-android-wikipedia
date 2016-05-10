@@ -12,29 +12,16 @@
   <string name="page_error_retry">Կրկնել</string>
   <string name="page_error_back_to_main">Հետ գնալ</string>
   <string name="menu_clear_all_history">Մաքրել պատմությունը</string>
-  <string name="menu_clear_all_saved_pages">Մաքրել պահպանված էջերը</string>
   <string name="page_does_not_exist_error">Այս էջը գոյություն չունի</string>
   <string name="nav_item_today">Այսօր</string>
   <string name="dialog_title_clear_history">Մաքրել հիշապահեստը</string>
   <string name="nav_item_saved_pages">Պահպանված էջեր</string>
-  <string name="menu_update_all_saved_pages">Թարմացնել պահպանված էջերը</string>
-  <string name="menu_update_selected_saved_pages">Թարմացնել պահպանված էջերը</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Թարմացնե՞լ բոլոր պահպանված էջերը</string>
-  <string name="share_via">Կիսվել...</string>
-  <string name="dialog_title_clear_saved_pages">Մաքրե՞լ բոլոր պահպանված էջերը</string>
-  <string name="snackbar_saving_page">Էջը հիշվում է...</string>
-  <string name="snackbar_saved_page_missing_images">Բոլոր պատկերները հիշել հնարավոր չէ</string>
-  <string name="snackbar_refresh_saved_page">Հիշված էջի թարմացում...</string>
-  <string name="delete_selected_saved_pages">Ջնջել</string>
-  <string name="snackbar_saved_page_deleted">Պահպանված էջ(եր)ը ջնջվել է (են)</string>
-  <string name="saved_pages_search_list_hint">Փնտրել պահպանված էջեր</string>
-  <string name="saved_pages_search_empty_message">Ձեր հարցմամբ ոչ մի էջ չի գտնվել</string>
+  <string name="share_via">Կիսվել…</string>
   <string name="menu_page_show_tabs">Ցուցադրել աղյուսակները</string>
   <string name="menu_page_other_languages">Փոխել լեզուն</string>
   <string name="menu_page_find_in_page">Գտնել էջում</string>
   <string name="menu_page_similar_titles">Նմանատիպ անվանումներ</string>
   <string name="menu_page_font_and_theme">Տառատեսակ և ձևավորում</string>
-  <string name="menu_page_save">Հիշել էջը</string>
   <string name="menu_page_add_to_list">Ավելացնել ընթերցացանկում</string>
   <string name="menu_page_share">Կիսվել հղումով</string>
   <string name="menu_long_press_open_page">Բացել</string>
@@ -59,7 +46,7 @@
   <string name="langlinks_activity_title">Այլ լեզուներ</string>
   <string name="menu_save_changes">Հիշել փոփոխությունները</string>
   <string name="edit_section_error_retry">Կրկնել</string>
-  <string name="dialog_saving_in_progress">Պահպանվում է...</string>
+  <string name="dialog_saving_in_progress">Պահպանվում է…</string>
   <string name="edit_saved_successfully">Խմբագրումը պահպանվեց</string>
   <string name="dialog_message_edit_failed">Խմբագրումը չեղարկվեց</string>
   <string name="dialog_message_edit_failed_retry">Կրկնել</string>
@@ -81,7 +68,6 @@
   <string name="login_error_illegal">Սխալ մասնակցային անուն</string>
   <string name="login_success_toast">Հաջող մուտք</string>
   <string name="preference_title_logout">Դուրս գալ</string>
-  <string name="saved_pages_empty_title">Պահպանված էջեր չկան</string>
   <string name="history_empty_title">Վերջնադիտված էջեր չկան</string>
   <string name="delete_selected_history">Ջնջել</string>
   <string name="wp_stylized">&lt;big&gt;Վ&lt;/big&gt;ԻՔԻՊԵԴԻ&lt;big&gt;Ա&lt;/big&gt;</string>
@@ -110,5 +96,4 @@
   <string name="edit_done">Հիշել</string>
   <string name="edit_preview">Նախադիտել</string>
   <string name="edit_summary_tag_other">Այլ</string>
-  <string name="saved_pages_update_all_error_retry">Կրկնել</string>
 </resources>
