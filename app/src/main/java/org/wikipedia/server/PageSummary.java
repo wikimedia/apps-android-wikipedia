@@ -1,7 +1,6 @@
 package org.wikipedia.server;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 import android.support.annotation.Nullable;
 
@@ -23,7 +22,7 @@ public interface PageSummary {
 
     /** So we can have polymorphic Retrofit Callbacks */
     interface Callback {
-        void success(PageSummary pageSummary, Response response);
+        void success(PageSummary pageSummary);
 
         void failure(RetrofitError error);
     }

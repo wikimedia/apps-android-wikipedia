@@ -38,7 +38,7 @@ public class RbPageService implements PageService {
             @Override
             public void success(RbPageSummary pageSummary, Response response) {
                 responseHeaderHandler.onHeaderCheck(response);
-                cb.success(pageSummary, response);
+                cb.success(pageSummary);
             }
 
             @Override
@@ -57,7 +57,7 @@ public class RbPageService implements PageService {
             public void success(RbPageLead pageLead, Response response) {
                 responseHeaderHandler.onHeaderCheck(response);
                 pageLead.setLeadImageThumbWidth(leadImageThumbWidth);
-                cb.success(pageLead, response);
+                cb.success(pageLead);
             }
 
             @Override
@@ -73,7 +73,7 @@ public class RbPageService implements PageService {
         webService.pageRemaining(title, optional(noImages), new Callback<RbPageRemaining>() {
             @Override
             public void success(RbPageRemaining pageRemaining, Response response) {
-                cb.success(pageRemaining, response);
+                cb.success(pageRemaining);
             }
 
             @Override
@@ -89,7 +89,7 @@ public class RbPageService implements PageService {
         webService.pageCombo(title, optional(noImages), new Callback<RbPageCombo>() {
             @Override
             public void success(RbPageCombo pageCombo, Response response) {
-                cb.success(pageCombo, response);
+                cb.success(pageCombo);
             }
 
             @Override
@@ -114,7 +114,7 @@ public class RbPageService implements PageService {
             @Override
             public void success(Map<String, RbDefinition.Usage[]> definition, Response response) {
                 responseHeaderHandler.onHeaderCheck(response);
-                cb.success(new RbDefinition(definition), response);
+                cb.success(new RbDefinition(definition));
             }
 
             @Override

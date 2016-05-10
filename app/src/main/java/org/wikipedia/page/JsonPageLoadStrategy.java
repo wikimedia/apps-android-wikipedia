@@ -48,7 +48,6 @@ import java.util.Locale;
 import java.util.Map;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
 import static org.wikipedia.util.L10nUtil.getStringsForArticleLanguage;
@@ -276,8 +275,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 !app.isImageDownloadEnabled(),
                 new PageLead.Callback() {
                     @Override
-                    public void success(PageLead pageLead, Response response) {
-                        L.v(response.getUrl());
+                    public void success(PageLead pageLead) {
                         app.getSessionFunnel().leadSectionFetchEnd();
                         onLeadSectionLoaded(pageLead, startSequenceNum);
                     }
@@ -805,8 +803,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                 !app.isImageDownloadEnabled(),
                 new PageRemaining.Callback() {
                     @Override
-                    public void success(PageRemaining pageRemaining, @NonNull Response response) {
-                        L.v(response.getUrl());
+                    public void success(PageRemaining pageRemaining) {
                         app.getSessionFunnel().restSectionsFetchEnd();
                         onRemainingSectionsLoaded(pageRemaining, startSequenceNum);
                     }

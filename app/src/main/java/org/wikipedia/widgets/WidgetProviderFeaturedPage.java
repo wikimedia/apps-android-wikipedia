@@ -26,7 +26,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
 import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 
@@ -81,9 +80,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         getApiService(title).pageLead(title.getPrefixedText(), calculateLeadImageWidth(),
                 !app.isImageDownloadEnabled(), new PageLead.Callback() {
                     @Override
-                    public void success(PageLead pageLead, Response response) {
-                        L.v(response.getUrl());
-
+                    public void success(PageLead pageLead) {
                         if (pageLead.hasError()) {
                             pageLead.logError("Error while updating widget");
                             return;
