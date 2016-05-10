@@ -1,6 +1,7 @@
 package org.wikipedia.nearby;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -401,12 +402,16 @@ public class NearbyFragment extends Fragment {
                 .icon(markerIconPassive);
     }
 
+    @SuppressLint("CommitPrefEdits")
     private void disableTelemetry() {
         // setTelemetryEnabled() does not write to shared prefs unless a change is detected.
         // However, it is initialized to false and then defaulted to true when retrieving from
         // shared prefs later. This means either calling setTelemetryEnabled(true) first or writing
         // to Mapbox's private shared prefs directly. setTelemetryEnabled(true) would start the
         // service at least briefly so the latter approach is used.
+
+        // Lint recommends editor.apply() instead of commit() because it blocks but we really want
+        // to be certain that telemetry isn't enabled.
 
         SharedPreferences prefs = getContext().getSharedPreferences(MapboxConstants.MAPBOX_SHARED_PREFERENCES_FILE,
                 Context.MODE_PRIVATE);
