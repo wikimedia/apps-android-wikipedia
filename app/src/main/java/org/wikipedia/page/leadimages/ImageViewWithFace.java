@@ -54,6 +54,7 @@ public class ImageViewWithFace extends SimpleDraweeView {
 
     public void loadImage(String url) {
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url))
+                .setProgressiveRenderingEnabled(true)
                 .setPostprocessor(facePostprocessor)
                 .build();
         PipelineDraweeController controller = (PipelineDraweeController)

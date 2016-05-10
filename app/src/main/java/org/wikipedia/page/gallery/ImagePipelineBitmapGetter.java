@@ -34,7 +34,9 @@ public abstract class ImagePipelineBitmapGetter {
     }
 
     public void get() {
-        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(imageUrl)).build();
+        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(imageUrl))
+                .setProgressiveRenderingEnabled(true)
+                .build();
         ImagePipeline imagePipeline = Fresco.getImagePipeline();
         DataSource<CloseableReference<CloseableImage>> dataSource = imagePipeline.fetchDecodedImage(request, context);
         dataSource.subscribe(new BitmapDataSubscriber(), UiThreadImmediateExecutorService.getInstance());
