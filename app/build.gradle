@@ -161,6 +161,7 @@ dependencies {
     String supportVersion = '23.3.0'
     String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.0.1'
+    String frescoVersion = '0.10.0'
     String testingSupportVersion = '0.5'
 
     compile "com.android.support:appcompat-v7:$supportVersion" // includes support-v4
@@ -170,7 +171,8 @@ dependencies {
     compile "com.android.support:percent:$supportVersion"
     compile "com.android.support:palette-v7:$supportVersion"
     compile "com.android.support:preference-v14:$supportVersion"
-    compile 'com.facebook.fresco:fresco:0.8.1'
+    compile "com.facebook.fresco:animated-gif:$frescoVersion"
+    compile "com.facebook.fresco:fresco:$frescoVersion"
     compile 'com.google.code.gson:gson:2.6.2'
     compile "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion" // for JavaNetCookieJar
     compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
