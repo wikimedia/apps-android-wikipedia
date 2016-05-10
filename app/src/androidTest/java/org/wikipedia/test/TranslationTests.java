@@ -231,7 +231,8 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                     // TODO: remove the following line as part of T91971.
                     || name.equals("app_store_description")
                     // Required after upgrading Support Libraries from v23.0.1 to v23.1.0.
-                    || name.equals("character_counter_pattern")) {
+                    || name.equals("character_counter_pattern")
+                    || name.startsWith("hockeyapp_")) {
                         continue;
                     }
 

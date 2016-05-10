@@ -81,6 +81,8 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import net.hockeyapp.android.metrics.MetricsManager;
+
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -193,6 +195,7 @@ public class PageActivity extends ThemedActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
+        MetricsManager.register(this, app);
         app.checkCrashes(this);
 
         if (ApiUtil.hasKitKat()) {

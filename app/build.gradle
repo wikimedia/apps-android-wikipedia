@@ -184,7 +184,7 @@ dependencies {
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:4.0.0@aar') {
         transitive = true
     }
-    compile 'net.hockeyapp.android:HockeySDK:3.7.0'
+    compile 'net.hockeyapp.android:HockeySDK:4.0.1'
     compile 'org.apache.commons:commons-lang3:3.4'
 
     apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
