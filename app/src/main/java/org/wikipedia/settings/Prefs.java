@@ -108,8 +108,7 @@ public final class Prefs {
     }
 
     public static boolean isShowDeveloperSettingsEnabled() {
-        return getBoolean(R.string.preference_key_show_developer_settings,
-                WikipediaApp.getInstance().isDevRelease());
+        return getBoolean(R.string.preference_key_show_developer_settings, isDevRelease());
     }
 
     public static void setShowDeveloperSettingsEnabled(boolean enabled) {
@@ -284,7 +283,7 @@ public final class Prefs {
     public static Level getRetrofitLogLevel() {
         String prefValue = getString(R.string.preference_key_retrofit_log_level, null);
         if (prefValue == null) {
-            return Level.NONE;
+            return isDevRelease() ? Level.BASIC : Level.NONE;
         }
         switch (prefValue) {
             case "BASIC":
@@ -393,6 +392,10 @@ public final class Prefs {
 
     public static boolean isLinkPreviewEnabled() {
         return getBoolean(R.string.preference_key_show_link_previews, true);
+    }
+
+    private static boolean isDevRelease() {
+        return WikipediaApp.getInstance().isDevRelease();
     }
 
     private Prefs() { }
