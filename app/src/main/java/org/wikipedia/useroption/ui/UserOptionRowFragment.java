@@ -28,11 +28,13 @@ import org.wikipedia.useroption.sync.UserOptionContentResolver;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.USER_OPTION_ROW_FRAGMENT_LOADER_ID;
 
 public class UserOptionRowFragment extends Fragment implements CallbackFragment<FragmentCallback> {
     @BindView(R.id.fragment_user_option_list) ListView list;
+    private Unbinder unbinder;
 
     public static UserOptionRowFragment newInstance() {
         return new UserOptionRowFragment();
@@ -44,7 +46,7 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
         super.onCreateView(inflater, container, savedInstanceState);
 
         View view = inflater.inflate(R.layout.fragment_user_option_row, container, false);
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         CursorAdapter listAdapter = new UserOptionRowCursorAdapter(getContext(), null, true);
         list.setAdapter(listAdapter);
@@ -60,6 +62,7 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
 
     @Override public void onDestroyView() {
         getActivity().getSupportLoaderManager().destroyLoader(USER_OPTION_ROW_FRAGMENT_LOADER_ID);
+        unbinder.unbind();
         super.onDestroyView();
     }
 
