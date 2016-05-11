@@ -1,5 +1,14 @@
 package org.wikipedia.useroption.sync;
 
+import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.database.http.HttpStatus;
+import org.wikipedia.useroption.UserOption;
+import org.wikipedia.useroption.database.UserOptionDao;
+import org.wikipedia.useroption.database.UserOptionRow;
+import org.wikipedia.useroption.dataclient.UserInfo;
+import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
+import org.wikipedia.util.log.L;
+
 import android.accounts.Account;
 import android.content.AbstractThreadedSyncAdapter;
 import android.content.ContentProviderClient;
@@ -8,16 +17,7 @@ import android.content.Context;
 import android.content.SyncResult;
 import android.os.Bundle;
 
-import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.database.http.HttpStatus;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.useroption.UserOption;
-import org.wikipedia.useroption.database.UserOptionDao;
-import org.wikipedia.useroption.database.UserOptionRow;
-import org.wikipedia.useroption.dataclient.UserInfo;
-import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
-import org.wikipedia.util.log.L;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -43,20 +43,20 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
             if (!uploadOnly) {
                 download();
             }
-        } catch (RetrofitException e) {
+        } catch (IOException e) {
             L.d(e);
             ++syncResult.stats.numIoExceptions;
         }
     }
 
-    private void download() {
+    private void download() throws IOException {
         UserInfo info = UserOptionDataClientSingleton.instance().get();
         Collection<UserOption> options = info.userjsOptions();
         L.i("downloaded " + options.size() + " option(s)");
         UserOptionDao.instance().reconcileTransaction(options);
     }
 
-    private void upload() {
+    private void upload() throws IOException {
         List<UserOptionRow> rows = new ArrayList<>(UserOptionDao.instance().startTransaction());
         L.i("uploading " + rows.size() + " option(s)");
         while (!rows.isEmpty()) {
@@ -69,7 +69,7 @@ public class UserOptionSyncAdapter extends AbstractThreadedSyncAdapter {
                     //noinspection ConstantConditions
                     UserOptionDataClientSingleton.instance().post(row.dat());
                 }
-            } catch (RetrofitException e) {
+            } catch (IOException e) {
                 UserOptionDao.instance().failTransaction(rows);
                 throw e;
             }

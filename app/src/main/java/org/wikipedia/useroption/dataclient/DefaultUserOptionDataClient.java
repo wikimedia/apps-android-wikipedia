@@ -14,8 +14,10 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.editing.FetchEditTokenTask;
 import org.wikipedia.useroption.UserOption;
 
+import java.io.IOException;
 import java.util.concurrent.Executor;
 
+import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -33,18 +35,18 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
     @NonNull
     @Override
-    public UserInfo get() {
-        return client.get().query().userInfo();
+    public UserInfo get() throws IOException {
+        return client.get().execute().body().query().userInfo();
     }
 
     @Override
-    public void post(@NonNull UserOption option) {
-        client.post(getToken(), option.key(), option.val()).check(site);
+    public void post(@NonNull UserOption option) throws IOException {
+        client.post(getToken(), option.key(), option.val()).execute().body().check(site);
     }
 
     @Override
-    public void delete(@NonNull String key) {
-        client.delete(getToken(), key).check(site);
+    public void delete(@NonNull String key) throws IOException {
+        client.delete(getToken(), key).execute().body().check(site);
     }
 
     @NonNull private String getToken() {
@@ -89,18 +91,18 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         String ACTION = "w/api.php?format=json&formatversion=2&action=";
 
         @GET(ACTION + "query&meta=userinfo&uiprop=options")
-        @NonNull MwQueryResponse<QueryUserInfo> get();
+        @NonNull Call<MwQueryResponse<QueryUserInfo>> get();
 
         @FormUrlEncoded
         @POST(ACTION + "options")
-        @NonNull PostResponse post(@Field("token") @NonNull String token,
-                                   @Query("optionname") @NonNull String key,
-                                   @Query("optionvalue") @Nullable String value);
+        @NonNull Call<PostResponse> post(@Field("token") @NonNull String token,
+                                         @Query("optionname") @NonNull String key,
+                                         @Query("optionvalue") @Nullable String value);
 
         @FormUrlEncoded
         @POST(ACTION + "options")
-        @NonNull PostResponse delete(@Field("token") @NonNull String token,
-                                     @Query("change") @NonNull String key);
+        @NonNull Call<PostResponse> delete(@Field("token") @NonNull String token,
+                                           @Query("change") @NonNull String key);
     }
 
     private static class PostResponse extends MwPostResponse {
