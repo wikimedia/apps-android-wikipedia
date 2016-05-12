@@ -251,12 +251,12 @@ public class WikipediaApp extends Application {
      * Default site for the app
      * You should use PageTitle.getSite() to get the article site
      */
-    public Site getSite() {
+    @NonNull public Site getSite() {
         // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
         if (site == null) {
-            site = Site.forLanguageCode(getAppOrSystemLanguageCode());
+            String lang = Prefs.getMediaWikiBaseUriSupportsLangCode() ? getAppOrSystemLanguageCode() : "";
+            site = Site.forLanguageCode(lang);
         }
-
         return site;
     }
 

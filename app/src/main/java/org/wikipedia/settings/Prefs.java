@@ -237,7 +237,8 @@ public final class Prefs {
 
     public static int getSessionTimeout() {
         // return the timeout, but don't let it be less than the minimum
-        return Math.max(getInt(R.string.preference_key_session_timeout, SessionFunnel.DEFAULT_SESSION_TIMEOUT), SessionFunnel.MIN_SESSION_TIMEOUT);
+        return Math.max(getInt(R.string.preference_key_session_timeout,
+                SessionFunnel.DEFAULT_SESSION_TIMEOUT), SessionFunnel.MIN_SESSION_TIMEOUT);
     }
 
     public static int getTextSizeMultiplier() {
@@ -308,6 +309,10 @@ public final class Prefs {
     public static Uri getMediaWikiBaseUri() {
         return Uri.parse(StringUtil.defaultIfBlank(getString(R.string.preference_key_mediawiki_base_uri, null),
                 "https://wikipedia.org/"));
+    }
+
+    public static boolean getMediaWikiBaseUriSupportsLangCode() {
+        return getBoolean(R.string.preference_key_mediawiki_base_uri_supports_lang_code, true);
     }
 
     public static long getLastRunTime(@NonNull String task) {
