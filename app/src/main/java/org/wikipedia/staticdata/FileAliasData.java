@@ -5,6 +5,8 @@ package org.wikipedia.staticdata;
 
 import java.util.*;
 
+import android.support.annotation.NonNull;
+
 public final class FileAliasData {
 
     private static HashMap<String, String> DATA_MAP;
@@ -141,8 +143,8 @@ public final class FileAliasData {
         DATA_MAP.put("si", "ගොනුව");
         DATA_MAP.put("nah", "Īxiptli");
         DATA_MAP.put("li", "Plaetje");
-        DATA_MAP.put("sah", "Билэ");
         DATA_MAP.put("vec", "File");
+        DATA_MAP.put("sah", "Билэ");
         DATA_MAP.put("hsb", "Dataja");
         DATA_MAP.put("or", "ଫାଇଲ");
         DATA_MAP.put("os", "Файл");
@@ -173,11 +175,11 @@ public final class FileAliasData {
         DATA_MAP.put("co", "File");
         DATA_MAP.put("sc", "File");
         DATA_MAP.put("lrc", "جانیا");
+        DATA_MAP.put("km", "ឯកសារ");
         DATA_MAP.put("tk", "Faýl");
         DATA_MAP.put("sd", "عڪس");
         DATA_MAP.put("vep", "Fail");
         DATA_MAP.put("csb", "Òbrôzk");
-        DATA_MAP.put("km", "ឯកសារ");
         DATA_MAP.put("gv", "Coadan");
         DATA_MAP.put("szl", "Plik");
         DATA_MAP.put("wuu", "File");
@@ -263,8 +265,8 @@ public final class FileAliasData {
         DATA_MAP.put("ltg", "Fails");
         DATA_MAP.put("zu", "File");
         DATA_MAP.put("sm", "File");
-        DATA_MAP.put("om", "File");
         DATA_MAP.put("chr", "File");
+        DATA_MAP.put("om", "File");
         DATA_MAP.put("chy", "File");
         DATA_MAP.put("rmy", "Chitro");
         DATA_MAP.put("cu", "Дѣло");
@@ -309,7 +311,7 @@ public final class FileAliasData {
         DATA_MAP.put("test", "File");
     }
 
-    public static String valueFor(String key) {
+    @NonNull public static String valueFor(String key) {
         if (DATA_MAP == null) {
             setupData();
         }

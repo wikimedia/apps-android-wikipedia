@@ -5,6 +5,8 @@ package org.wikipedia.staticdata;
 
 import java.util.*;
 
+import android.support.annotation.NonNull;
+
 public final class MainPageNameData {
 
     private static HashMap<String, String> DATA_MAP;
@@ -141,8 +143,8 @@ public final class MainPageNameData {
         DATA_MAP.put("si", "මුල් පිටුව");
         DATA_MAP.put("nah", "Calīxatl");
         DATA_MAP.put("li", "Veurblaad");
-        DATA_MAP.put("sah", "Сүрүн сирэй");
         DATA_MAP.put("vec", "Pajina prinsipałe");
+        DATA_MAP.put("sah", "Сүрүн сирэй");
         DATA_MAP.put("hsb", "Hłowna strona");
         DATA_MAP.put("or", "ପ୍ରଧାନ ପୃଷ୍ଠା");
         DATA_MAP.put("os", "Сæйраг фарс");
@@ -173,11 +175,11 @@ public final class MainPageNameData {
         DATA_MAP.put("co", "Pagina maestra");
         DATA_MAP.put("sc", "Pàgina printzipale");
         DATA_MAP.put("lrc", "سأرآسوٙنە");
+        DATA_MAP.put("km", "ទំព័រដើម");
         DATA_MAP.put("tk", "Baş Sahypa");
         DATA_MAP.put("sd", "مُک صفحو");
         DATA_MAP.put("vep", "Pälehtpol’");
         DATA_MAP.put("csb", "Przédnô starna");
-        DATA_MAP.put("km", "ទំព័រដើម");
         DATA_MAP.put("gv", "Ard-ghuillag");
         DATA_MAP.put("szl", "Przodńo zajta");
         DATA_MAP.put("wuu", "封面");
@@ -263,8 +265,8 @@ public final class MainPageNameData {
         DATA_MAP.put("ltg", "Suoku puslopa");
         DATA_MAP.put("zu", "Ikhasi Elikhulu");
         DATA_MAP.put("sm", "Itūlau Muamua");
-        DATA_MAP.put("om", "Fuula Dura");
         DATA_MAP.put("chr", "ᎤᎵᎮᎵᏍᏗ");
+        DATA_MAP.put("om", "Fuula Dura");
         DATA_MAP.put("chy", "Va'ohtama");
         DATA_MAP.put("rmy", "Sherutni patrin");
         DATA_MAP.put("cu", "Главьна страница");
@@ -309,7 +311,7 @@ public final class MainPageNameData {
         DATA_MAP.put("test", "Main Page");
     }
 
-    public static String valueFor(String key) {
+    @NonNull public static String valueFor(String key) {
         if (DATA_MAP == null) {
             setupData();
         }

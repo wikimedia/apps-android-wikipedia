@@ -5,6 +5,8 @@ package org.wikipedia.staticdata;
 
 import java.util.*;
 
+import android.support.annotation.NonNull;
+
 public final class SpecialAliasData {
 
     private static HashMap<String, String> DATA_MAP;
@@ -141,8 +143,8 @@ public final class SpecialAliasData {
         DATA_MAP.put("si", "විශේෂ");
         DATA_MAP.put("nah", "Nōncuahquīzqui");
         DATA_MAP.put("li", "Speciaal");
-        DATA_MAP.put("sah", "Аналлаах");
         DATA_MAP.put("vec", "Speciale");
+        DATA_MAP.put("sah", "Аналлаах");
         DATA_MAP.put("hsb", "Specialnje");
         DATA_MAP.put("or", "ବିଶେଷ");
         DATA_MAP.put("os", "Сæрмагонд");
@@ -173,11 +175,11 @@ public final class SpecialAliasData {
         DATA_MAP.put("co", "Speciale");
         DATA_MAP.put("sc", "Ispetziale");
         DATA_MAP.put("lrc", "ڤیجە");
+        DATA_MAP.put("km", "ពិសេស");
         DATA_MAP.put("tk", "Ýörite");
         DATA_MAP.put("sd", "خاص");
         DATA_MAP.put("vep", "Specialine");
         DATA_MAP.put("csb", "Specjalnô");
-        DATA_MAP.put("km", "ពិសេស");
         DATA_MAP.put("gv", "Er lheh");
         DATA_MAP.put("szl", "Szpecyjalna");
         DATA_MAP.put("wuu", "Special");
@@ -263,8 +265,8 @@ public final class SpecialAliasData {
         DATA_MAP.put("ltg", "Seviškuo");
         DATA_MAP.put("zu", "Special");
         DATA_MAP.put("sm", "Special");
-        DATA_MAP.put("om", "Special");
         DATA_MAP.put("chr", "Special");
+        DATA_MAP.put("om", "Special");
         DATA_MAP.put("chy", "Special");
         DATA_MAP.put("rmy", "Uzalutno");
         DATA_MAP.put("cu", "Нарочьна");
@@ -309,7 +311,7 @@ public final class SpecialAliasData {
         DATA_MAP.put("test", "Special");
     }
 
-    public static String valueFor(String key) {
+    @NonNull public static String valueFor(String key) {
         if (DATA_MAP == null) {
             setupData();
         }
