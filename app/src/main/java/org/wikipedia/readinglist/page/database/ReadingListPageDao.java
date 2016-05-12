@@ -15,6 +15,7 @@ import org.wikipedia.database.http.HttpRowDao;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 import org.wikipedia.readinglist.page.database.disk.DiskRowDao;
+import org.wikipedia.readinglist.page.database.disk.DiskStatus;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 
 import java.util.ArrayList;
@@ -76,19 +77,17 @@ public final class ReadingListPageDao extends BaseDao<ReadingListPageRow> {
             delete(row);
         } else {
             httpDao.markUpserted(new ReadingListPageHttpRow(row));
-            if (row.savedOrSaving()) {
+            if (row.diskStatus() == DiskStatus.OUTDATED) {
                 diskDao.markOutdated(new ReadingListPageDiskRow(row));
-            } else {
+            } else if (row.diskStatus() == DiskStatus.ONLINE || row.diskStatus() == DiskStatus.UNSAVED) {
                 diskDao.markOnline(new ReadingListPageDiskRow(row));
             }
             super.upsert(row);
         }
     }
 
-    public synchronized void upsertAll(@NonNull Collection<ReadingListPage> rows) {
-        for (ReadingListPage row : rows) {
-            upsert(row);
-        }
+    public synchronized void markOutdated(@NonNull ReadingListPage row) {
+        diskDao.markOutdated(new ReadingListPageDiskRow(row));
     }
 
     @NonNull public synchronized Collection<ReadingListPageDiskRow> startDiskTransaction() {
