@@ -1,12 +1,16 @@
 package org.wikipedia.dataclient.retrofit;
 
+import android.support.annotation.NonNull;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.server.Protection;
 import org.wikipedia.settings.Prefs;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import java.io.IOException;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -16,18 +20,13 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import android.support.annotation.NonNull;
-
-import java.io.IOException;
-
 public final class RetrofitFactory {
     public static Retrofit newInstance(@NonNull Site site) {
-        return newInstance(site, site.scheme() + "://" + site.authority() + "/");
+        return newInstance(site, site.url() + "/");
     }
 
     public static Retrofit newInstance(@NonNull final Site site, @NonNull String endpoint) {
         final WikipediaApp app = WikipediaApp.getInstance();
-
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(Prefs.getRetrofitLogLevel());
 

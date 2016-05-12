@@ -143,8 +143,7 @@ public class Site implements Parcelable {
      */
     @NonNull
     public String mobileHost() {
-        String subdomain = languageCodeToSubdomain(languageCode);
-        return host().replaceFirst("^" + subdomain + "\\.?", "$0m.");
+        return authorityToMobile(host());
     }
 
     public int port() {
@@ -160,10 +159,17 @@ public class Site implements Parcelable {
     }
 
     /**
-     * @return The canonical URL for segment.
+     * @return The canonical URL. e.g., https://en.wikipedia.org.
+     */
+    public String url() {
+        return scheme() + "://" + authority();
+    }
+
+    /**
+     * @return The canonical URL for segment. e.g., https://en.wikipedia.org/w/foo.
      */
     public String url(@NonNull String segment) {
-        return scheme() + "://" + authority() + path(segment);
+        return url() + path(segment);
     }
 
     /**
@@ -271,8 +277,8 @@ public class Site implements Parcelable {
         return authority.replaceFirst("\\.m\\.", ".");
     }
 
-    @NonNull
-    private String authorityToMobile(@NonNull String authority) {
+    /** @param authority Host and optional port. */
+    @NonNull private String authorityToMobile(@NonNull String authority) {
         String subdomain = languageCodeToSubdomain(languageCode);
         return authority.replaceFirst("^" + subdomain + "\\.?", "$0m.");
     }
