@@ -21,14 +21,11 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingList;
-import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -97,15 +94,6 @@ public class LeadImagesHandler {
                 && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
-    public void updateBookmark() {
-        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
-                new CallbackTask.Callback<Boolean>() {
-            @Override public void success(@NonNull Boolean bookmarked) {
-                articleHeaderView.updateBookmark(bookmarked);
-            }
-        });
-    }
-
     public void updateNavigate(@Nullable Location geo) {
         articleHeaderView.updateNavigate(geo != null);
     }
@@ -165,7 +153,6 @@ public class LeadImagesHandler {
         // Set the subtitle, too, so text measurements are accurate.
         layoutWikiDataDescription(getTitle().getDescription());
         layoutViews(listener, sequence);
-        updateBookmark();
     }
 
     /**

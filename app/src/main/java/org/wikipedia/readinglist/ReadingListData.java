@@ -3,6 +3,7 @@ package org.wikipedia.readinglist;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.CallbackTask;
@@ -62,6 +63,7 @@ public final class ReadingListData {
         for (ReadingListPage page : list.getPages()) {
             page.addListKey(list.key());
             ReadingListPageDao.instance().upsert(page);
+            ReadingListPageDao.instance().markOutdated(page);
         }
     }
 
@@ -120,10 +122,10 @@ public final class ReadingListData {
     }
 
     public void anyListContainsTitleAsync(@NonNull final String key,
-                                          @NonNull CallbackTask.Callback<Boolean> callback) {
-        CallbackTask.execute(new CallbackTask.Task<Boolean>() {
-            @Override public Boolean execute() {
-                return anyListContainsTitle(key);
+                                          @NonNull CallbackTask.Callback<ReadingListPage> callback) {
+        CallbackTask.execute(new CallbackTask.Task<ReadingListPage>() {
+            @Override public ReadingListPage execute() {
+                return findPageInAnyList(key);
             }
         }, callback);
     }
@@ -153,13 +155,18 @@ public final class ReadingListData {
         }
     }
 
-    private synchronized boolean anyListContainsTitle(String key) {
+    @Nullable
+    private synchronized ReadingListPage findPageInAnyList(String key) {
         Cursor cursor = ReadingListPageDao.instance().page(key);
         try {
-            return cursor.getCount() != 0;
+            if (cursor.getCount() != 0) {
+                cursor.moveToFirst();
+                return ReadingListPage.fromCursor(cursor);
+            }
         } finally {
             cursor.close();
         }
+        return null;
     }
 
     private synchronized void saveListInfo(@NonNull ReadingList list, @NonNull ReadingListPage page) {

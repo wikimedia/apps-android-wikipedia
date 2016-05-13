@@ -45,6 +45,7 @@ import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.StyleBundle;
+import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
@@ -56,6 +57,10 @@ import org.wikipedia.page.snippet.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.ReadingList;
+import org.wikipedia.readinglist.page.ReadingListPage;
+import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.search.SearchBarHideHandler;
@@ -545,6 +550,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         closePageScrollFunnel();
         pageLoadStrategy.load(pushBackStack, cachePreference, stagedScrollY);
+        updateBookmark();
     }
 
     public Bitmap getLeadImageBitmap() {
@@ -569,7 +575,20 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void updateBookmark() {
-        leadImagesHandler.updateBookmark();
+        ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
+                new CallbackTask.Callback<ReadingListPage>() {
+                    @Override public void success(@Nullable ReadingListPage page) {
+                        if (!isAdded()) {
+                            return;
+                        }
+                        articleHeaderView.updateBookmark(page != null);
+                        if (page != null && page.savedOrSaving()) {
+                            // TODO: mark the page outdated only if the revision ID from the server
+                            // is newer than the one on disk.
+                            ReadingListPageDao.instance().markOutdated(page);
+                        }
+                    }
+                });
     }
 
     public void onActionModeShown(CompatActionMode mode) {

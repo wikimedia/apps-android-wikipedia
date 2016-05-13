@@ -20,6 +20,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
+import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
@@ -193,8 +194,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         @Override
         public void onClick(ReadingList readingList, ReadingListPage page) {
             PageTitle title = ReadingListDaoProxy.pageTitle(page);
-            HistoryEntry newEntry = new HistoryEntry(title,
-                    HistoryEntry.SOURCE_READING_LIST);
+            HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
             ((PageActivity) getActivity()).loadPage(title, newEntry);
 
             ReadingList.DAO.makeListMostRecent(readingList);
@@ -236,6 +236,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             @Override
             public void onClick(View v) {
                 ReadingList.DAO.addTitleToList(readingList, page);
+                ReadingListPageDao.instance().markOutdated(page);
                 listDetailView.updateDetails();
             }
         });
