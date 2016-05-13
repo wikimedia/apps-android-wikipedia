@@ -10,30 +10,16 @@
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="menu_clear_all_history">നാൾവഴി ശൂന്യമാക്കുക</string>
-  <string name="menu_clear_all_saved_pages">സേവ് ചെയ്ത താളുകൾ ഒഴിവാക്കുക</string>
   <string name="page_does_not_exist_error">ഈ താൾ നിലവിലില്ല.</string>
   <string name="nav_item_today">ഇന്ന്</string>
   <string name="dialog_title_clear_history" fuzzy="true">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
   <string name="dialog_message_clear_history" fuzzy="true">എല്ലാ ഹിസ്റ്ററിയും ശൂന്യമാക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
   <string name="nav_item_saved_pages">സേവ് ചെയ്ത താളുകൾ</string>
-  <string name="menu_update_all_saved_pages">സേവ് ചെയ്ത താളുകൾ പുതുക്കുക</string>
-  <string name="menu_update_selected_saved_pages">സേവ് ചെയ്ത താളുകൾ പുതുക്കുക</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">സേവ് ചെയ്ത എല്ലാ താളുകളും പുതുക്കണോ?</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
-  <string name="dialog_title_clear_saved_pages">സേവ് ചെയ്ത എല്ലാ താളുകളും ഒഴിവാക്കണോ?</string>
-  <string name="snackbar_saving_page">താൾ സേവ് ചെയ്യുന്നു…</string>
-  <string name="snackbar_saved_page_format">ഓഫ്‍ലൈൻ ആയി  വായിക്കാൻ \"%s\" സേവ് ചെയ്തു</string>
-  <string name="snackbar_saved_page_missing_images">എല്ലാ ചിത്രങ്ങളും സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല</string>
-  <string name="snackbar_refresh_saved_page">സേവ് ചെയ്ത് താൾ പുതുക്കുന്നു…</string>
-  <string name="delete_selected_saved_pages">മായ്ക്കുക</string>
-  <string name="snackbar_saved_page_deleted">സേവ് ചെയ്ത താൾ (താളുകൾ) മായ്ച്ചു</string>
-  <string name="saved_pages_search_list_hint">സേവ് ചെയ്തിട്ടുള്ള താളുകളിൽ തിരയുക</string>
-  <string name="saved_pages_search_empty_message">താങ്കൾ തിരഞ്ഞതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>
   <string name="menu_page_other_languages" fuzzy="true">മറ്റു ഭാഷകളിൽ വായിക്കുക</string>
   <string name="menu_page_find_in_page">താളിൽ കണ്ടെത്തുക</string>
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
-  <string name="menu_page_save">താൾ സേവ് ചെയ്യുക</string>
   <string name="menu_page_share">കണ്ണി പങ്ക് വെയ്ക്കുക</string>
   <string name="menu_long_press_open_page">തുറക്കുക</string>
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
@@ -80,8 +66,6 @@
   <string name="login_error_unknown">പ്രവേശനം പരാജയപ്പെട്ടു :(</string>
   <string name="preference_title_logout">ലോഗൗട്ട്</string>
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
-  <string name="saved_pages_empty_title">സേവ് ചെയത താളുകളൊന്നും ഇവിടെയില്ല!</string>
-  <string name="saved_pages_empty_message" fuzzy="true">താളുകളൊന്നും സേവ് ചെയ്തിട്ടില്ല.</string>
   <string name="history_empty_message" fuzzy="true">താങ്കളുടെ ഉപയോഗത്തിന്റെ നാൾവഴി ശൂന്യമാണ്.</string>
   <string name="delete_selected_history">മായ്ക്കുക</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
@@ -101,7 +85,6 @@
   <string name="create_account_button">അംഗത്വമെടുക്കുക</string>
   <string name="preferences_general_heading">സാർവത്രികം</string>
   <string name="zero_charged_verbiage">വിക്കിപീഡിയ സീറോ ഇല്ല</string>
-  <string name="zero_charged_verbiage_extended">മറ്റ് ലേഖനങ്ങൾ എടുക്കുമ്പോൾ ഡേറ്റാ ചാർജ്ജ് ബാധകമായേക്കാം.</string>
   <string name="zero_search_hint">വിക്കിപീഡിയ സീറോയിൽ തിരയുക</string>
   <string name="zero_warn_when_leaving">വിക്കിപീഡിയ സീറോയിൽ നിന്ന് പോവുകയാണെങ്കിൽ മുന്നറിയിപ്പ് നൽകുക</string>
   <string name="zero_warn_when_leaving_summary">വിക്കിപീഡിയ സീറോ പങ്കാളിത്തം വഴി ഡേറ്റാ വിലകൾ താങ്കളുടെ മൊബൈൽ ഓപ്പറേറ്റർ പരിത്യജിക്കുന്നുവെങ്കിൽ, വിക്കിപീഡിയ ആപിൽ നിന്നും പുറത്ത് കടക്കുന്നതും എപ്പോൾ മുതലാണ് വില ഈടാക്കുന്നതെന്നും മനസ്സിലാക്കാൻ ഈ സജ്ജീകരണം ശരിയിട്ട് കിടക്കുന്നത് സഹായിക്കുന്നതാണ്.</string>
@@ -153,10 +136,6 @@
   <string name="edit_summary_tag_other_hint">താൾ മെച്ചപ്പെടുത്താൻ താങ്കളുപയോഗിച്ച മറ്റ് മാർഗ്ഗങ്ങൾ</string>
   <string name="find_next">അടുത്തത് കണ്ടെത്തുക</string>
   <string name="find_previous">മുമ്പത്തേത് കണ്ടെത്തുക</string>
-  <string name="error_network_error_try_again">നെറ്റ്‌വർക്ക് കിട്ടുന്നില്ല, ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
-  <string name="saved_pages_update_all_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
-  <string name="saved_pages_update_all_error_message">സേവ് ചെയ്തിട്ടുള്ള താളുകൾ പുതുക്കുന്നതിൽ പിഴവുണ്ടായി</string>
-  <string name="saved_pages_progress_title">സേവ് ചെയ്തിട്ടുള്ള താൾ പുതുക്കുന്നു</string>
   <string name="dialog_page_issues">താളിലെ പ്രശ്നങ്ങൾ</string>
   <string name="button_page_issues">താളിലെ പ്രശ്നങ്ങൾ</string>
   <string name="text_size_select">ഫോണ്ടിന്റെ വലിപ്പം</string>
@@ -166,18 +145,6 @@
   <string name="page_similar_titles">ഇതുപോലുള്ള താളുകൾ</string>
   <string name="search_did_you_mean">ഉദ്ദേശിച്ചത്  \"%s\" എന്നാണോ?</string>
   <string name="table_close">അടയ്ക്കുക</string>
-  <string name="app_store_description" fuzzy="true">ആൻഡ്രോയിഡിനുള്ള ഔദ്യോഗിക വിക്കിപീഡിയ ആപ്. 280 ഭാഷകളിലായി 3 കോടി 20 ലക്ഷം ലേഖനങ്ങളെ ഉൾക്കൊള്ളുന്ന, മനുഷ്യർ ഉണ്ടാക്കിയിട്ടുള്ള ഏറ്റവും ബൃഹത്തും അറിവിനായി ആശ്രഹിക്കാവുന്നതുമായ സ്വതന്ത്ര വിജ്ഞാനകോശമാണ് വിക്കിപീഡിയ. ഈ ആപ് ഏറ്റവും മികച്ച ഉപയോഗാനുഭവത്തിനായി അടിത്തട്ടിൽ നിന്നും പൊളിച്ചെഴുതിയതാണ്.
-
-സവിശേഷതകൾ:
- -വേഗം: ഞങ്ങളുടെ പുതിയ, ആൻഡ്രോയിഡിനായി മാത്രം നിർമ്മിച്ച ആപ് ഉപയോഗിച്ച് വിക്കിപീഡിയ മുമ്പെന്നത്തേക്കാളും വേഗത്തിൽ ബ്രൗസ് ചെയ്യുകയും തിരുത്തുകയും ചെയ്യാം.
- -തിരുത്ത്: താങ്കൾക്ക് വിക്കിപീഡിയ തിരുത്താം! ലോഗിൻ ചെയ്തോ അല്ലാതെയോ ആകട്ടെ, താങ്കളുടെ എല്ലാ സംഭാവനകൾക്കും നന്ദി രേഖപ്പെടുത്തുന്നു.
- -സമീപകാല താളുകൾ: താങ്കൾ സമീപകാലത്ത് വായിച്ച താളുകൾ വീണ്ടുമെടുക്കാം. എത്ര താളുകൾ വേണമെങ്കിലും തുറക്കുക, നഷ്ടപ്പെടുകയേയില്ല.
- -സേവ് ചെയ്ത താളുകൾ: താളുകൾ ഓഫ്‌ലൈൻ വായനയ്ക്കായി തിരഞ്ഞെടുക്കുക, വായിക്കാൻ ഡേറ്റാ ബന്ധം ഇല്ലെങ്കിലും സാരമില്ല.
- -പങ്ക് വെയ്ക്കുക: താങ്കൾക്കുള്ള സോഷ്യൽ നെറ്റ്‌വർക്കിങ് ആപുകൾ ഉപയോഗിച്ച് മനുഷ്യവിജ്ഞാനത്തിന്റെ ആകെ ശേഖരം പങ്ക് വെയ്ക്കുക.
- -ഭാഷാ പിന്തുണ: വിക്കിപീഡിയ എഴുതപ്പെട്ടിട്ടുള്ള ഏതുഭാഷയും ഒരു തടസ്സവും കൂടാതെ മാറി മാറി വായിക്കാൻ ഈ ആപ് സുസജ്ജമാണ്.
- -വിക്കിപീഡിയ സീറോ: പങ്കാളികളായിട്ടുള്ള മൊബൈൽ ഓപ്പറേറ്റർമാരിലൂടെ എടുക്കുന്ന പക്ഷം ഡേറ്റാ ബന്ധം തികച്ചും സൗജന്യമായിരിക്കും.
-
-കോഡ് പൂർണ്ണമായും ഓപ്പൺ സോഴ്സ് ആണ്. ജാവയിലും ആൻഡ്രോയിഡ് എസ്.ഡി.കെ.യിലും പരിചയസമ്പത്തുണ്ടെങ്കിൽ പകർത്താൻ മടിക്കേണ്ടതില്ല! https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="dialog_close_description">അടയ്ക്കുക</string>
   <string name="preference_title_show_images">ചിത്രങ്ങൾ പ്രദർശിപ്പിക്കുക</string>
   <string name="read_more_section">കൂടുതൽ വായിക്കുക</string>

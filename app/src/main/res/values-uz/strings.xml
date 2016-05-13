@@ -10,28 +10,14 @@
   <string name="error_network_error" fuzzy="true">Tarmoq aloqasi mavjud emas :(</string>
   <string name="page_error_retry">Qayta urinib koʻrish</string>
   <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalash</string>
-  <string name="menu_clear_all_saved_pages">Saqlangan sahifalarni o\'chirish</string>
   <string name="page_does_not_exist_error">Bu sahifa mavjud emas.</string>
   <string name="nav_item_today">Bugun</string>
   <string name="dialog_title_clear_history" fuzzy="true">Ko\'rish tarixini o\'chirasizmi?</string>
   <string name="nav_item_saved_pages">Saqlangan sahifalar</string>
-  <string name="menu_update_all_saved_pages">Saqlangan sahifalarni yangilash</string>
-  <string name="menu_update_selected_saved_pages">Saqlangan sahifalarni yangilash</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Barcha saqlangan sahifalarni yangilamoqchimisiz?</string>
   <string name="share_via">Orqali bo\'lishish</string>
-  <string name="dialog_title_clear_saved_pages">Barcha saqlangan sahifalarni o‘chirishni xoxlaysizmi?</string>
-  <string name="snackbar_saving_page">Sahifa saqlanyapti…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Sahifa samarili saqlandi</string>
-  <string name="snackbar_saved_page_missing_images">Barcha rasmlarni saqlab bo\'lmadi</string>
-  <string name="snackbar_refresh_saved_page">Saqlangan sahifa yangilanyapti…</string>
-  <string name="delete_selected_saved_pages">O\'chirish</string>
-  <string name="snackbar_saved_page_deleted">Saqlangan sahifa(lar) o\'chirildi</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Qidirish</string>
-  <string name="saved_pages_search_empty_message">So\'rovingizga mos sahifa topilmadi.</string>
   <string name="menu_page_other_languages" fuzzy="true">Boshqa tillarda o\'qish</string>
   <string name="menu_page_find_in_page">Sahifadan topish</string>
   <string name="menu_page_font_and_theme">Shrift va mavzu</string>
-  <string name="menu_page_save">Sahifani saqlash</string>
   <string name="menu_page_share" fuzzy="true">Bo\'lishish</string>
   <string name="nav_item_nearby">Yaqin atrofda</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -71,7 +57,6 @@
   <string name="login_error_unknown">Kirish amalga oshmadi :(</string>
   <string name="preference_title_logout">Chiqish</string>
   <string name="toast_logout_complete">Chiqildi</string>
-  <string name="saved_pages_empty_title">Bu yerda saqlangan sahifalar yo‘q!</string>
   <string name="history_empty_title">Bu yerda so‘nggi sahifalar yo‘q!</string>
   <string name="delete_selected_history">O‘chirish</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -143,10 +128,6 @@ Oldindan yoqimli …</string>
   <string name="edit_summary_tag_other">Boshqa</string>
   <string name="find_next">Keyingisini topish</string>
   <string name="find_previous">Oldingisini topish</string>
-  <string name="error_network_error_try_again">Tarmoqqa ulanib bo‘lmadi, iltimos, qaytadan urinib ko‘ring.</string>
-  <string name="saved_pages_update_all_error_retry">Qayta urinib koʻrish</string>
-  <string name="saved_pages_update_all_error_message">Saqlangan sahifalarni yangilashda xatolik</string>
-  <string name="saved_pages_progress_title">Saqlangan sahifalarni yangilash</string>
   <string name="dialog_page_issues">Sahifa muammolari</string>
   <string name="button_page_issues">Sahifa muammolari</string>
   <string name="text_size_select">Shrift o‘lchami</string>

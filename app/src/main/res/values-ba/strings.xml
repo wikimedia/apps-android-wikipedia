@@ -12,32 +12,18 @@
   <string name="page_error_retry">Ҡабатлау</string>
   <string name="page_error_back_to_main">Кире ҡайтырға</string>
   <string name="menu_clear_all_history">Тарихты юйыу</string>
-  <string name="menu_clear_all_saved_pages">Бөтә һаҡланған биттәрҙе таҙартырға</string>
   <string name="page_does_not_exist_error">Был бит юҡ!</string>
   <string name="nav_item_today">Бөгөн</string>
   <string name="dialog_title_clear_history">Тарихты таҙартырға</string>
   <string name="dialog_message_clear_history">Ҡараған биттәр тарихы һәм ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="nav_item_saved_pages">Һаҡланған биттәр</string>
-  <string name="menu_update_all_saved_pages">Һаҡланған биттәрҙе яңыртыу</string>
-  <string name="menu_update_selected_saved_pages">Һаҡланған биттәрҙе яңыртырға</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Бөтә һаҡланған биттәрҙе яңыртырғамы?</string>
   <string name="share_via">Уртаҡлашырға</string>
-  <string name="dialog_title_clear_saved_pages">Бөтә һаҡланған биттәрҙе таҙартырғамы?</string>
-  <string name="snackbar_saving_page">Биттәрҙе һаҡлау</string>
-  <string name="snackbar_saved_page_format">\"%s\" оффлайн режимында уҡыу өсөн һаҡланған</string>
-  <string name="snackbar_saved_page_missing_images">Бөтә рәсемдәрҙе лә һаҡлап булманы</string>
-  <string name="snackbar_refresh_saved_page">Һаҡланған бит яңыртыла</string>
-  <string name="delete_selected_saved_pages">Юйырға</string>
-  <string name="snackbar_saved_page_deleted">Һаҡланған бит(тәр) юйылды</string>
-  <string name="saved_pages_search_list_hint">Юйылған биттәр эсендә эҙләү</string>
-  <string name="saved_pages_search_empty_message">Һеҙҙең һорау буйынса бит табылманы.</string>
   <string name="menu_page_show_tabs">Ҡушымтаны күрһәтергә</string>
   <string name="menu_page_other_languages">Телде һайларға</string>
   <string name="menu_page_find_in_page">Был биттә табырға</string>
   <string name="menu_page_content_issues">Һорауҙар йөкмәткеһе</string>
   <string name="menu_page_similar_titles">Оҡшаш исемдәр</string>
   <string name="menu_page_font_and_theme">Шрифты һәм биҙәлеште үҙгәртергә</string>
-  <string name="menu_page_save">Яҙҙырып ҡуйырға</string>
   <string name="menu_page_add_to_list">Уҡыу исемлегенә өҫтәргә</string>
   <string name="menu_page_share">Һылтанма менән бүлешергә</string>
   <string name="menu_long_press_open_page">Асырға</string>
@@ -93,8 +79,6 @@
   <string name="login_error_unknown">Кереп булманы :(</string>
   <string name="preference_title_logout">Тамамлау</string>
   <string name="toast_logout_complete">Тамам</string>
-  <string name="saved_pages_empty_title">Бында һаҡланмаған биттәр юҡ</string>
-  <string name="saved_pages_empty_message">Һаҡланған биттәр- был бик шәп. Улар тураһында оффлайн булғанда ла уҡырлыҡ билдә булараҡ уйлағыҙ</string>
   <string name="history_empty_title">Яңыраҡ ҡаралған биттәр юҡ!</string>
   <string name="history_empty_message">Һеҙ, моғайын, уларҙың бөтәһен дә юйғанһығыҙ. Икенсе тапҡыр, биткә инһәгеҙ, уға ошо урындан кире әйләнеп ҡайта алаһығыҙ.</string>
   <string name="delete_selected_history">Юйырға</string>
@@ -122,7 +106,6 @@
   <string name="preferences_general_heading">Дөйөм</string>
   <string name="wikipedia_app_faq">Википедия ҡушымтаһы буйынса йыш бирелгән һорауҙар</string>
   <string name="zero_charged_verbiage">Zero Википедияһы һүндерелгән</string>
-  <string name="zero_charged_verbiage_extended">Башҡа мәҡәләләрҙе күсергәндә, мәғлүмәт ебәргән өсөн хаҡ алыныуы ихтимал</string>
   <string name="zero_search_hint">Zero Википедияһында эҙләү</string>
   <string name="zero_warn_when_leaving">Zero Википедияһынан сыҡҡанда, иҫкәртергә</string>
   <string name="zero_warn_when_leaving_summary">Һеҙҙең мобиль оператор Wikipedia Zero менән хеҙмәттәшлек аша Википедия ҡушымтаһы мәғлүмәттәренә ингән өсөн хаҡ алмаһа, был параметрҙы керетеү трафик өсөн түләү башланыуын, ҡушымтанан сығыуҙы белергә ярҙам итә</string>
@@ -135,7 +118,7 @@
   <string name="zero_learn_more">Википедия ҡушымтаһын файҙаланғанда, мәғлүмәт өсөн хаҡ алынмай</string>
   <string name="zero_learn_more_learn_more">Тулыраҡ уҡырға</string>
   <string name="zero_learn_more_dismiss">Ябырға</string>
-  <string name="edit_preview_fetching_dialog_message">Алдан ҡарауҙы алыу...</string>
+  <string name="edit_preview_fetching_dialog_message">Алдан ҡарауҙы алыу…</string>
   <string name="send_feedback">Ҡушымта тураһында баһалама ебәрергә</string>
   <string name="nav_item_random">Осраҡлы</string>
   <string name="create_account_account_created_toast">Иҫәп яҙмаһы  булдырылды!</string>
@@ -182,10 +165,6 @@
   <string name="edit_summary_tag_other_hint">Битте яҡшыртҡан башҡа төрлө алымдар</string>
   <string name="find_next">Артабан эҙләп табырға</string>
   <string name="find_previous">Тәүгеләрҙе эҙләү</string>
-  <string name="error_network_error_try_again">Селтәргә инеп булманы, тағы берҙе тырышып ҡарағыҙ.</string>
-  <string name="saved_pages_update_all_error_retry">Ҡабатларға</string>
-  <string name="saved_pages_update_all_error_message">Һаҡланған битте яңыртыу хатаһы сыҡты</string>
-  <string name="saved_pages_progress_title">Һаҡланған бит яңыртыла</string>
   <string name="abusefilter_title_warn">Был төҙәтеү хаталы. Һеҙ ысынлап та уны һаҡларға теләйһегеҙме?</string>
   <string name="abusefilter_title_disallow">Һеҙ был битте һаҡлай алмайһығыҙ, кире ҡайтып, уны үҙгәртегеҙ</string>
   <string name="abusefilter_text_warn">Автоматлаштырылған фильтр был төҙәтеүҙе конструктив түгел тип һанай. Ул түбәндәге бер нисә ғәмәлде үҙ эсенә ала: :&lt;br /&gt;&lt;br /&gt;·Баш хәреф менән баҫырға. Мәҡәләләрҙе мисәтләү йәки спам&lt;br /&gt;· Тура килмәгән тышҡы һылтанмалар йәки һүрәттәр&lt;br /&gt;· Ҡабатланған символдар</string>
@@ -209,27 +188,6 @@
   <string name="widget_title_featured_page">Бөгөнгө көн өсөн әһәмиәтле бит:</string>
   <string name="widget_name_search"> Википедия буйынса эҙләү</string>
   <string name="wiktionary_no_definitions_found">Бер ниндәй аңлатма табылманы.</string>
-  <string name="app_store_description">«Википедияның» Android өсөн махсус ҡушымтаһы. Википедия — 280 телдә 32 миллиондан ашыу мәҡәләнән торған ирекле энциклопедия. Кешеләр төҙөгән иң тулы һәм киң ҡулланған белешмә.
-
-Үҙенсәлектәр:
-— Төп һүрәт: Википедия менән бер ҡасан да эшләмәгән кеүек эш итегеҙ, айырымланған, контекст-релевантлы һүрәттәр һәм мәҡәләнең өҫкө яғында һүрәтләмәһе менән 
-— Һүрәттәр галереяһы: һүрәткә баҫҡас, юғары сифатта бөтә экранда күренә, өҫтәмә һүрәттәрҙе ҡарау өсөн өҫкә/аҫҡа шылдырырға була
-— Викимәғлүмәттәрҙән һүрәтләмәләр: эҙләгәндә, һәр бер һөҙөмтәлә ҡыҫҡа йөкмәтке бар. Шул уҡ һүрәтләмә ҡушымтаның башҡа урындарында, мәҫәлән, «Яҡында» тигәнендә күренә 
-— Тәҡдим ителгән мәҡәләләр: һеҙ артабан уҡыр өсөн тәҡдим ителгән мәҡәләләрҙе күрер өсөн, битте аҫҡы яғына тиклем күсерәһегеҙ
-— Һаҡланған биттәр: интернетҡа тоташып булмағанда да, һайланған мәҡәләләрҙе уҡырға һәм ҡарап сығыр өсөн, уларҙы һаҡлағыҙ 
-— Яҡында: һеҙҙең эргәлә булған объекттар хаҡында мәҡәләләргә һылтанма алып,күберәк белегеҙ
-— Телдәрҙе яҡлау: Википедияла башҡа телдәрҙә яҙылған мәҡәләләрҙе уҡырға ҡыйынлыҡһыҙ күсегеҙ
-— Эстәлек: бармағығыҙ менән мәҡәләнең һул яғына баҫып, эстәлеген асырға, еңел генә бүлекте һайларға була
-— Википедия Zero: ҡатнашҡан мобиль операторҙар трафик өсөн түләүҙе алмай
-
-Ҡушымта тураһындағы фекерегеҙҙе беҙгә ебәрегеҙ! Менюла «Өҫтәмә» төймәһенә, унан — «„Википедия“ ҡушымтаһы тураһында», аҙаҡ «Ҡушымта тураһында фекер ебәрергә» төймәһенә баҫаһығыҙ.
-
-
-Баштағы 100 % коды асыҡ. Java һәм Android SDK менән эш тәжрибәһе бар икән, беҙ түҙемһеҙлек менән һеҙҙең ярҙамды көтәбеҙ! https://github.com/wikimedia/apps-android-wikipedia
-
-Сер һаҡлау сәйәсәте: https://m.wikimediafoundation.org/wiki/Политика_конфиденциальности
-
-Файҙаланыу шарттары: https://m.wikimediafoundation.org/wiki/Условия_использования</string>
   <string name="alpha_update_notification_title">Альфа-версияның яңы яңыртылыуы асыҡ</string>
   <string name="alpha_update_notification_text">Күсереү өсөн баҫығыҙ</string>
   <string name="dialog_close_description">Ябырға</string>

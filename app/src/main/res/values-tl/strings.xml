@@ -10,29 +10,15 @@
   <string name="error_network_error" fuzzy="true">Walang koneksyon sa talalambatan (network) :\'(</string>
   <string name="page_error_retry">Subukan muli</string>
   <string name="menu_clear_all_history">Burahin ang kasaysayan</string>
-  <string name="menu_clear_all_saved_pages">Burahin ang mga naitalang pahina</string>
   <string name="page_does_not_exist_error">Hindi umiiral ang pahinang ito</string>
   <string name="nav_item_today">Ngayong araw na ito</string>
   <string name="dialog_title_clear_history" fuzzy="true">Burahin ang kasaysayan ng pagbabasa?</string>
   <string name="nav_item_saved_pages">Mga naitalang pahina</string>
-  <string name="menu_update_all_saved_pages">Isapanahon ang mga naitalang pahina</string>
-  <string name="menu_update_selected_saved_pages">Isapanahon ang mga naitalang pahina</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Isasapanahon ang lahat ng mga naitalang pahina?</string>
   <string name="share_via">Ibahagi sa pamamagitan ng</string>
-  <string name="dialog_title_clear_saved_pages">Hawiin ang lahat ng naitalang mga pahina?</string>
-  <string name="snackbar_saving_page">Itinatala ang pahina…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Matagumpay na naitala ang pahina</string>
-  <string name="snackbar_saved_page_missing_images">Hindi maitatala ang lahat ng mga larawan</string>
-  <string name="snackbar_refresh_saved_page">Pinapanariwang-muli (refresh) ang naitalang pahina…</string>
-  <string name="delete_selected_saved_pages">Burahin</string>
-  <string name="snackbar_saved_page_deleted">Naitalang (mga) pahina nabura na</string>
-  <string name="saved_pages_search_list_hint">Hanapin ang naitalang mga pahina</string>
-  <string name="saved_pages_search_empty_message">Walang nahanap na mga pahina na tumutugma sa iyong tanong.</string>
   <string name="menu_page_show_tabs">Ipakita ang mga talahanayan (tabs)</string>
   <string name="menu_page_other_languages" fuzzy="true">Basahin sa ibang wika</string>
   <string name="menu_page_find_in_page">Hanapin sa pahina</string>
   <string name="menu_page_font_and_theme">Font at tema</string>
-  <string name="menu_page_save">Itala ang pahina</string>
   <string name="menu_page_share" fuzzy="true">Ibahagi</string>
   <string name="menu_long_press_open_page" fuzzy="true">Buksan ang kawing (link)</string>
   <string name="menu_long_press_open_in_new_tab">Buksan sa bagong talahanayan (tab)</string>
@@ -82,8 +68,6 @@
   <string name="login_error_unknown">Paglagda ay di-tagumpay :\'(</string>
   <string name="preference_title_logout">Umalis sa pagkaka-lagda</string>
   <string name="toast_logout_complete">Nakaalis na sa pagkakalagda</string>
-  <string name="saved_pages_empty_title">Walang naitalang mga pahina rito!</string>
-  <string name="saved_pages_empty_message">Walang naitalang mga pahina</string>
   <string name="history_empty_title">Walang makabagong mga pahina rito!</string>
   <string name="history_empty_message">Maaaring nabura mo ang lahat ng mga iyon. Sa susunod pumunta ka sa pahinang maaaring makabalik doon mula rito.</string>
   <string name="delete_selected_history">Burahin</string>
@@ -112,7 +96,6 @@
   <string name="preferences_general_heading">Pangkalahatan</string>
   <string name="wikipedia_app_faq">Mga madalas itanong (FAQ) ng Wikipedia App</string>
   <string name="zero_charged_verbiage">Nakasara ang Wikipedia Zero</string>
-  <string name="zero_charged_verbiage_extended">Maaaring may bayad ang pagkakarga ng iba pang artikulo.</string>
   <string name="zero_search_hint">Hanapin sa Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Bigyang-babala kapag lilisanin ang Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Kapag nag-urong ang iyong mobile operator ng singil sa data access para sa Wikipedia app sa pamamagitan ng isang pakikipag-korporasyon ng Wikipedia Zero, sa pag-iwan ng kaayusang ito na naka-tsek ay tinutulungang ipaalam sa iyo kapag lilisanin ang Wikipedia app at maaaring masingil.</string>
@@ -165,10 +148,6 @@
   <string name="edit_summary_tag_other_hint">Iba pang paraan kung paano mo naayos ang pahina</string>
   <string name="find_next">Hanapin ang kasunod</string>
   <string name="find_previous">Hanapin ang nakalipas</string>
-  <string name="error_network_error_try_again">Hindi maabot ang talalambatan (network),  paki-subukang muli.</string>
-  <string name="saved_pages_update_all_error_retry">Subukang muli</string>
-  <string name="saved_pages_update_all_error_message">May mali sa pag-update sa mga naitalang pahina</string>
-  <string name="saved_pages_progress_title">Pinapanariwang-muli (refresh) ang mga naitalang pahina</string>
   <string name="abusefilter_title_warn">Maaaring hindi makakatulong na pahina ito. Tiyak ka bang nais mong itala ito?</string>
   <string name="abusefilter_title_disallow">Hindi mo maaaring maitala ang edit na ito. Mangyaring bumalik muli at baguhin iyon.</string>
   <string name="abusefilter_text_warn">Natukoy ng isang automated filter ang edit na ito na potensyal na di-makakatulong. Maaaring naglalaman ito ng isa o humigit pa sa mga sumusunod:&lt;br /&gt;&lt;br /&gt;· Pagta-type ng naka-all caps&lt;br /&gt;· Pagba-blangko ng mga artikulo o pag-ispam&lt;br /&gt;· Walang kaugnay na mga kawing panlabas (external links) o mga larawan&lt;br /&gt;· Pag-uulit ng mga karakter</string>

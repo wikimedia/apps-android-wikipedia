@@ -12,32 +12,18 @@
   <string name="page_error_retry">Thử lại</string>
   <string name="page_error_back_to_main">Quay lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
-  <string name="menu_clear_all_saved_pages">Xóa các trang đã lưu</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
   <string name="nav_item_today">Hôm nay</string>
   <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
   <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
   <string name="nav_item_saved_pages">Trang đã lưu</string>
-  <string name="menu_update_all_saved_pages">Cập nhật các trang đã lưu</string>
-  <string name="menu_update_selected_saved_pages">Cập nhật các trang đã lưu</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Bạn muốn cập nhật các trang đã lưu?</string>
   <string name="share_via">Chia sẻ qua</string>
-  <string name="dialog_title_clear_saved_pages">Bạn có muốn xóa các trang đã lưu?</string>
-  <string name="snackbar_saving_page">Đang lưu trang…</string>
-  <string name="snackbar_saved_page_format">“%s” được lưu để đọc ngoại tuyến</string>
-  <string name="snackbar_saved_page_missing_images">Không thể lưu tất cả các hình ảnh</string>
-  <string name="snackbar_refresh_saved_page">Đang làm mới trang đã lưu…</string>
-  <string name="delete_selected_saved_pages">Xóa</string>
-  <string name="snackbar_saved_page_deleted">Đã xóa (các) trang đã lưu</string>
-  <string name="saved_pages_search_list_hint">Tìm kiếm các trang đã lưu</string>
-  <string name="saved_pages_search_empty_message">Không tìm thấy trang trùng với truy vấn của bạn.</string>
   <string name="menu_page_show_tabs">Hiển thị tab</string>
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
   <string name="menu_page_find_in_page">Tìm trong trang</string>
   <string name="menu_page_content_issues">Vấn đề nội dung</string>
   <string name="menu_page_similar_titles">Tiêu đề tương tự</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
-  <string name="menu_page_save">Lưu trang</string>
   <string name="menu_page_add_to_list">Thêm vào danh sách đọc</string>
   <string name="menu_page_share">Chia sẻ liên kết</string>
   <string name="menu_long_press_open_page">Mở</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Đăng nhập thất bại :(</string>
   <string name="preference_title_logout">Đăng xuất</string>
   <string name="toast_logout_complete">Đã đăng xuất</string>
-  <string name="saved_pages_empty_title">Không có trang lưu tại đây!</string>
-  <string name="saved_pages_empty_message">Các trang đã lưu là giống như các dấu trang có thể đọc ngay cả khi ngoại tuyến.</string>
   <string name="history_empty_title">Đây không có trang gần đây.</string>
   <string name="history_empty_message">Có lẽ bạn đã xóa toàn bộ. Lần sau xem một trang, trang sẽ xuất hiện tại đây để truy cập sau.</string>
   <string name="delete_selected_history">Xóa</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="wikipedia_app_faq">Câu hỏi thường hỏi về ứng dụng Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Miễn phí đang tắt</string>
-  <string name="zero_charged_verbiage_extended">Có thể phải trả chi phí dữ liệu nếu tải thêm bài.</string>
   <string name="zero_search_hint">Tìm trong Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving">Cảnh báo khi ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do có quan hệ đối tác với Wikipedia Miễn phí, chọn hộp này để giúp bạn biết khi bạn sắp thoát ứng dụng Wikipedia và sẽ bị tính phí.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Những cách khác để cải thiện trang</string>
   <string name="find_next">Tìm tiếp</string>
   <string name="find_previous">Tìm trước</string>
-  <string name="error_network_error_try_again">Không thể kết nối mạng. Vui lòng thử lại.</string>
-  <string name="saved_pages_update_all_error_retry">Thử lại</string>
-  <string name="saved_pages_update_all_error_message">Có lỗi khi cập nhật các trang đã lưu</string>
-  <string name="saved_pages_progress_title">Đang làm mới các trang đã lưu</string>
   <string name="abusefilter_title_warn">Sửa đổi này có vẻ không có tính xây dựng. Bạn có chắc chắn muốn lưu nó?</string>
   <string name="abusefilter_title_disallow">Bạn không thể lưu sửa đổi này. Vui lòng quay lại và thay đổi nó.</string>
   <string name="abusefilter_text_warn">Một bộ lọc đã tự động nhận ra sửa đổi này là có thể không mang tính xây dựng. Nó có thể có một trong những vấn đề sau:&lt;br /&gt;&lt;br /&gt;· Viết tất cả bằng chữ hoa&lt;br /&gt;· Xóa trống hoặc đưa spam vào bài&lt;br /&gt;· Liên kết ngoài hoặc hình ảnh không có liên quan đến đề tài&lt;br /&gt;· Ký tự lặp lại</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">Bài viết chọn lọc hôm nay:</string>
   <string name="widget_name_search">Tìm kiếm Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Không tìm thấy định nghĩa nào.</string>
-  <string name="app_store_description">Ứng dụng Wikipedia chính thức dành cho Android. Wikipedia là bách khoa toàn thư mở có hơn 32 triệu bài viết trong 280 ngôn ngữ. Nó là nguồn tài liệu tham khảo toàn diện nhất, được sử dụng rộng rãi nhất mà nhân loại từng tạo nên.
-
-Tính năng:
-- Hình đầu: Trải nghiệm Wikipedia một cách hoàn toàn mới với bức hình nổi bật, phù hợp được trình bày và miêu tả ngay vào đầu trang.
-- Thư viện ảnh: Chạm vào bất cứ hình nào để xem bản độ phân giải cao toàn màn hình. Vuốt trái/phải để xem các hình ảnh khác.
-- Miêu tả từ Wikidata: Mỗi kết quả tìm kiếm hiện có lời miêu tả ngắn gọn cho biết ngữ cảnh. Các miêu tả này cũng xuất hiện ở khắp ứng dụng, chẳng hạn ở phần Lân cận.
-- Gợi ý bài: Cuộn đến cuối bài để nhận gợi ý về những bài nên đọc tiếp theo.
-- Lưu trang: Bạn có thể lưu các trang mong muốn để duyệt và đọc khi thậm chí không có kết nối dữ liệu.
-- Lân cận: Tìm hiểu về vùng chung quanh bạn. Dễ dàng duyệt các bài về đề tài gần vị trí hiện tại của bạn.
-- Hỗ trợ ngôn ngữ: Ứng dụng cho phép bạn dễ dàng chuyển đổi để đọc Wikipedia được viết bằng bất kỳ ngôn ngữ nào.
-- Bảng mục lục: Vuốt trái trên bất cứ bài nào để xem bảng mục lục và nhảy giữa các phần bài.
-- Wikipedia Miễn phí: Không bị tính phí dữ liệu đối với một số nhà mạng có tham gia chương trình.
-
-Hãy gửi phản hồi về ứng dụng này! Bấm “Thêm” trong trình đơn, rồi “Giới thiệu về ứng dụng Wikipedia”, rồi “Gửi phản hồi về ứng dụng”.
-
-Mã nguồn là 100% mở. Nếu bạn có kinh nghiệm với Java và Android SDK, mời bạn đóng góp vào dự án! https://github.com/wikimedia/apps-android-wikipedia
-
-Quy định về quyền riêng tư: http://wikimediafoundation.org/wiki/Special:MyLanguage/Privacy_policy
-
-Các Điều khoản Sử dụng: http://wikimediafoundation.org/wiki/Terms_of_Use/vi</string>
   <string name="alpha_update_notification_title">Có sẵn bản cập nhật alpha mới</string>
   <string name="alpha_update_notification_text">Chạm để tải về</string>
   <string name="dialog_close_description">Đóng</string>

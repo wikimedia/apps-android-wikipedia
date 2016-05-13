@@ -12,32 +12,18 @@
   <string name="page_error_retry">Erneut versuchen</string>
   <string name="page_error_back_to_main">Zurück gehen</string>
   <string name="menu_clear_all_history">Verlauf löschen</string>
-  <string name="menu_clear_all_saved_pages">Gespeicherte Seiten löschen</string>
   <string name="page_does_not_exist_error">Diese Seite ist nicht vorhanden.</string>
   <string name="nav_item_today">Heute</string>
   <string name="dialog_title_clear_history">Browsing-Verlauf löschen</string>
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="nav_item_saved_pages">Gespeicherte Seiten</string>
-  <string name="menu_update_all_saved_pages">Gespeicherte Seiten aktualisieren</string>
-  <string name="menu_update_selected_saved_pages">Gespeicherte Seiten aktualisieren</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Alle gespeicherten Seiten aktualisieren?</string>
   <string name="share_via">Teilen über</string>
-  <string name="dialog_title_clear_saved_pages">Alle gespeicherten Seiten löschen?</string>
-  <string name="snackbar_saving_page">Speichere Seite …</string>
-  <string name="snackbar_saved_page_format">„%s“ zum Offline-Lesen gespeichert</string>
-  <string name="snackbar_saved_page_missing_images">Es konnten nicht alle Bilder gespeichert werden</string>
-  <string name="snackbar_refresh_saved_page">Aktualisiere gespeicherte Seite …</string>
-  <string name="delete_selected_saved_pages">Löschen</string>
-  <string name="snackbar_saved_page_deleted">Gespeicherte Seite(n) gelöscht</string>
-  <string name="saved_pages_search_list_hint">Gespeicherte Seiten suchen</string>
-  <string name="saved_pages_search_empty_message">Keine Seiten mit deiner Suchanfrage gefunden.</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
   <string name="menu_page_content_issues">Inhaltsprobleme</string>
   <string name="menu_page_similar_titles">Ähnliche Titel</string>
   <string name="menu_page_font_and_theme">Schriftart und Farbschema ändern</string>
-  <string name="menu_page_save">Seite speichern</string>
   <string name="menu_page_add_to_list">Zur Leseliste hinzufügen</string>
   <string name="menu_page_share">Link teilen</string>
   <string name="menu_long_press_open_page">Öffnen</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Anmeldung fehlgeschlagen :(</string>
   <string name="preference_title_logout">Abmelden</string>
   <string name="toast_logout_complete">Abgemeldet</string>
-  <string name="saved_pages_empty_title">Hier gibt es keine gespeicherten Seiten!</string>
-  <string name="saved_pages_empty_message">Gespeicherte Seiten sind ziemlich genial. Betrachte sie als Lesezeichen, die du lesen kannst, auch wenn du offline bist.</string>
   <string name="history_empty_title">Hier gibt es keine letzten Seiten.</string>
   <string name="history_empty_message">Du hast vermutlich alle Elemente gelöscht. Das nächste Mal, wenn du eine Seite besuchst, kannst du von hier auf sie zurückgehen.</string>
   <string name="delete_selected_history">Löschen</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Allgemein</string>
   <string name="wikipedia_app_faq">FAQ zur Wikipedia-App</string>
   <string name="zero_charged_verbiage">Wikipedia Zero ist aus</string>
-  <string name="zero_charged_verbiage_extended">Das Laden anderer Artikel verursacht Datenübertragungsgebühren.</string>
   <string name="zero_search_hint">Wikipedia Zero durchsuchen</string>
   <string name="zero_warn_when_leaving">Beim Verlassen von Wikipedia Zero warnen</string>
   <string name="zero_warn_when_leaving_summary">Falls dein Mobilfunkbetreiber auf Datenzugriffsgebühren für die Wikipedia-App aufgrund einer Wikipedia-Zero-Partnerschaft verzichtet, wirst du bei Aktivierung dieser Einstellung informiert, wenn du die Wikipedia-App verlässt und Gebühren anfallen können.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Andere Wege, wie du die Seite verbessert hast</string>
   <string name="find_next">Nächste finden</string>
   <string name="find_previous">Vorherige finden</string>
-  <string name="error_network_error_try_again">Das Netzwerk konnte nicht erreicht werden. Bitte erneut versuchen.</string>
-  <string name="saved_pages_update_all_error_retry">Erneut versuchen</string>
-  <string name="saved_pages_update_all_error_message">Fehler beim Aktualisieren der gespeicherten Seiten</string>
-  <string name="saved_pages_progress_title">Aktualisiere gespeicherte Seiten</string>
   <string name="abusefilter_title_warn">Dies könnte eine unkonstruktive Bearbeitung sein. Bist du sicher, dass du sie speichern möchtest?</string>
   <string name="abusefilter_title_disallow">Du kannst diese Bearbeitung nicht speichern. Bitte gehe zurück und ändere sie ab.</string>
   <string name="abusefilter_text_warn">Ein automatischer Filter hat diese Bearbeitung als potenziell unkonstruktiv identifiziert. Sie könnte eine oder mehrere der folgenden Dinge beinhalten:&lt;br /&gt;&lt;br /&gt;· Eingeben aller Kapitälchen&lt;br /&gt;· Artikel leeren oder Einbringen von Spam&lt;br /&gt;· Irrelevante externe Links oder Bilder&lt;br /&gt;· Wiederholte Zeichen</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">Seite des Tages:</string>
   <string name="widget_name_search">Wikipedia-Suche</string>
   <string name="wiktionary_no_definitions_found">Keine Definitionen gefunden.</string>
-  <string name="app_store_description">Offizielle Wikipedia-App für Android. Wikipedia ist die freie Enzyklopädie mit mehr als 32 Millionen Artikeln in 280 Sprachen und ist das umfangreichste und am meisten genutzte Nachschlagewerk, das von Menschen zusammengestellt wurde.
-
-Funktionen:
-- Einleitungsbilder: Erlebe Wikipedia wie nie zuvor mit einem prominenten, kontextrelevanten Bild und einer Beschreibung am Artikelanfang
-- Bildergalerie: Das Tippen auf ein Bild zeigt es dir in hoher Auflösung, mit Optionen zum Wischen nach links oder rechts für das Durchsuchen weiterer Bilder
-- Beschreibungen von Wikidata: Beim Suchen enthält jetzt jedes Suchergebnis eine schnelle Beschreibung, die hilft, das Ergebnis einzuordnen. Diese Beschreibungen werden auch in anderen Bereichen der App angezeigt, wie „In der Nähe“
-- Artikelvorschläge: Scrolle an das Artikelende, um Vorschläge zu erhalten, was du als nächstes lesen könntest
-- Gespeicherte Seiten: Speichere ausgewählte Seiten zum Offline-Lesen und durchsuche sie, auch wenn du keine Datenverbindung hast
-- In der Nähe: Erfahre mehr über deine Umgebung durch das Abrufen von Links auf Artikel über Dinge, die in der Nähe deines aktuellen Standorts sind
-- Sprachenunterstützung: Wechsle nahtlos zu anderssprachigen Wikipedias
-- Inhaltsverzeichnis: Wische bei einem beliebigen Artikel nach links, um das Inhaltsverzeichnis zu zeigen, das dich leicht zu Artikelabschnitten springen lässt
-- Wikipedia Zero: Teilnehmende Mobilfunknetzbetreiber verzichten auf Datenübertragungsgebühren
-
-Sende uns deine Rückmeldungen über die App! Drücke im Menü auf „Mehr“, dann „Über die Wikipedia-App“ und „App-Rückmeldung senden“.
-
-Der Code ist 100% quelloffen. Falls du Erfahrungen mit Java und dem Android SDK hast, freuen wir uns auf deine Beiträge! https://github.com/wikimedia/apps-android-wikipedia
-
-Datenschutzrichtlinie: https://meta.m.wikimedia.org/wiki/Privacy_policy/de
-
-Nutzungsbedingungen: https://m.wikimediafoundation.org/wiki/Terms_of_Use/de</string>
   <string name="alpha_update_notification_title">Neue Alpha-Aktualisierung verfügbar</string>
   <string name="alpha_update_notification_text">Zum Herunterladen tippen</string>
   <string name="dialog_close_description">Schließen</string>

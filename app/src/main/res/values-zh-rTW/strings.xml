@@ -12,32 +12,18 @@
   <string name="page_error_retry">重試</string>
   <string name="page_error_back_to_main">返回</string>
   <string name="menu_clear_all_history">清除歷史</string>
-  <string name="menu_clear_all_saved_pages">清除已儲存的頁面</string>
   <string name="page_does_not_exist_error">此頁面不存在！</string>
   <string name="nav_item_today">今日</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉任何目前開啟的分頁。您確定嗎？</string>
   <string name="nav_item_saved_pages">已儲存的頁面</string>
-  <string name="menu_update_all_saved_pages">更新已儲存的頁面</string>
-  <string name="menu_update_selected_saved_pages">更新已儲存的頁面</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">更新所有已儲存的頁面？</string>
   <string name="share_via">分享透過</string>
-  <string name="dialog_title_clear_saved_pages">清除所有已儲存的頁面嗎？</string>
-  <string name="snackbar_saving_page">儲存頁面中…</string>
-  <string name="snackbar_saved_page_format">\"%s\" 已儲存以便於離線閱讀。</string>
-  <string name="snackbar_saved_page_missing_images">無法儲存所有圖片</string>
-  <string name="snackbar_refresh_saved_page">重新整理已儲存的頁面…</string>
-  <string name="delete_selected_saved_pages">刪除</string>
-  <string name="snackbar_saved_page_deleted">已刪除儲存的頁面</string>
-  <string name="saved_pages_search_list_hint">搜尋已儲存的頁面</string>
-  <string name="saved_pages_search_empty_message">未找到符合您查詢的頁面。</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">變更語言</string>
   <string name="menu_page_find_in_page">於頁面中尋找</string>
   <string name="menu_page_content_issues">內容問題</string>
   <string name="menu_page_similar_titles">類似標題</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
-  <string name="menu_page_save">儲存頁面</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
   <string name="menu_page_share">分享連結</string>
   <string name="menu_long_press_open_page">開啟</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">登入失敗 :(</string>
   <string name="preference_title_logout">登出</string>
   <string name="toast_logout_complete">已登出</string>
-  <string name="saved_pages_empty_title">尚未儲存頁面！</string>
-  <string name="saved_pages_empty_message">儲存頁面很棒。試想一下，你存為書籤後即使在離線時也可以閱讀。</string>
   <string name="history_empty_title">沒有近期頁面！</string>
   <string name="history_empty_message">你可能刪除它們的一切。下一次您進入到一個頁面時您可以從這裡返回。</string>
   <string name="delete_selected_history">刪除</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="zero_charged_verbiage">Wikipedia Zero 已被關掉 (可能要付標準資料費用)</string>
-  <string name="zero_charged_verbiage_extended">讀取其他條目可能產生資料流量的費用。</string>
   <string name="zero_search_hint">搜尋 Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">離開 Wikipedia Zero 時提示</string>
   <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與 Wikipedia Zero 有合作夥伴關係，並且免除存取維基百科應用程式時的資料費用，請勾選此設定以幫助您知道您正在離開維基百科並可能被收取費用。</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">您改善頁面的其他方式</string>
   <string name="find_next">尋找下一筆</string>
   <string name="find_previous">尋找上一筆</string>
-  <string name="error_network_error_try_again">無法連線網路，請再試一次。</string>
-  <string name="saved_pages_update_all_error_retry">重試</string>
-  <string name="saved_pages_update_all_error_message">更新儲存頁面時發生錯誤</string>
-  <string name="saved_pages_progress_title">重新整理已儲存的頁面</string>
   <string name="abusefilter_title_warn">這可能是沒有建設性的編輯。你確定你想要儲存它？</string>
   <string name="abusefilter_title_disallow">您不能儲存此編輯。請返回並修正。</string>
   <string name="abusefilter_text_warn">自動過濾器認為您的編輯缺乏建設性。 可能由於編輯中包含以下之一：&lt;br /&gt;&lt;br /&gt;· 全部使用大寫字母&lt;br /&gt;· 空白的文章內容或含有垃圾訊息&lt;br /&gt;· 含有無關的外部連結或圖片&lt;br /&gt;· 重複的文字</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">今日特色頁面：</string>
   <string name="widget_name_search">維基百科搜尋</string>
   <string name="wiktionary_no_definitions_found">找不到定義。</string>
-  <string name="app_store_description">Official Wikipedia App for Android. Wikipedia is the free encyclopedia containing more than 32 million articles in 280 languages, and is the most comprehensive and widely used reference work humans have ever compiled.
-
-Features:
-- Lead images: experience Wikipedia like never before with a prominent, contextually-relevant image and description at the top of articles
-- Image gallery: tapping on an image shows you the image full-screen in high resolution, with options to swipe left/right for browsing additional images
-- Descriptions from Wikidata: when searching, each search result now contains a quick description that helps to contextualize the result. These descriptions are also shown in other areas of the app, like Nearby
-- Article suggestions: scroll to the bottom of an article to see suggestions about what you could read next
-- Saved pages: save select pages for offline reading and browse them even when you don\'t have a data connection
-- Nearby: learn more about what\'s around you by getting links to articles about things that are near your current location
-- Language support: seamlessly switch to reading Wikipedia written in any language
-- Table of contents: swipe left on any article to bring up the table of contents, which lets you jump to article sections easily
-- Wikipedia Zero: data charges waived for participating mobile operators
-
-Send us your feedback about the app! In the menu, press \"More\", then \"About the Wikipedia app\", then \"Send app feedback\".
-
-The code is 100% open source. If you have experience with Java and the Android SDK, then we look forward to your contributions! https://github.com/wikimedia/apps-android-wikipedia
-
-Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">有新的封測版更新可用</string>
   <string name="alpha_update_notification_text">輕觸下載</string>
   <string name="dialog_close_description">關閉</string>

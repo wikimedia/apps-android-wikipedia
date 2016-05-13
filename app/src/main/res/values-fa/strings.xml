@@ -12,32 +12,18 @@
   <string name="page_error_retry">تلاش مجدد</string>
   <string name="page_error_back_to_main">بازگشت به عقب</string>
   <string name="menu_clear_all_history">پاک کردن تاریخچه</string>
-  <string name="menu_clear_all_saved_pages">پاک کردن صفحه‌های ذخیره‌شده</string>
   <string name="page_does_not_exist_error">این صفحه وجود ندارد!</string>
   <string name="nav_item_today">امروز</string>
   <string name="dialog_title_clear_history">پاک کردن تاریخچه جستجو</string>
   <string name="dialog_message_clear_history">این ممکن است که تاریخچهٔ مرورگر شما را حذف خواهد کرد و همه تب‌های باز را خواهد بست. آیا مطمئن هستید؟</string>
   <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
-  <string name="menu_update_all_saved_pages">به‌روزرسانی صفحات ذخیره‌شده</string>
-  <string name="menu_update_selected_saved_pages">به‌روزرسانی صفحه‌های ذخیره‌شده</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">به‌روزرسانی همه صفحه‌های ذخیره‌شده؟</string>
   <string name="share_via">اشتراک با</string>
-  <string name="dialog_title_clear_saved_pages">پاک کردن همهٔ صفحه‌های  ذخیره‌شده؟</string>
-  <string name="snackbar_saving_page">ذخیره کردن صفحه…</string>
-  <string name="snackbar_saved_page_format">صفحهٔ «%s» برای خواندن برون‌خطی ذخیره شد.</string>
-  <string name="snackbar_saved_page_missing_images">نمی‌توان همه تصویرها را ذخیره نمود</string>
-  <string name="snackbar_refresh_saved_page">تازه کردن صفحه ذخیره‌شده…</string>
-  <string name="delete_selected_saved_pages">حذف</string>
-  <string name="snackbar_saved_page_deleted">ذخیره صفحه(های) حذف‌شده</string>
-  <string name="saved_pages_search_list_hint">جستجوی صفحه‌های ذخیره شده</string>
-  <string name="saved_pages_search_empty_message">هیچ صفحه‌ای برای کوئری شما یافت نشد</string>
   <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
   <string name="menu_page_other_languages">تغییر زبان</string>
   <string name="menu_page_find_in_page">در صفحه پیدا کنید</string>
   <string name="menu_page_content_issues">موضوع‌های محتوی</string>
   <string name="menu_page_similar_titles">عنوان‌های مشابه</string>
   <string name="menu_page_font_and_theme">تغییر فونت و پوسته</string>
-  <string name="menu_page_save">ذخیرهٔ  صفحه</string>
   <string name="menu_page_share">به‌اشتراک‌گذاشتن پیوند</string>
   <string name="menu_long_press_open_page">باز کردن</string>
   <string name="menu_long_press_open_in_new_tab">باز کردن در برگهٔ جدید</string>
@@ -92,8 +78,6 @@
   <string name="login_error_unknown">ورود ناموفق :(</string>
   <string name="preference_title_logout">خروج از سامانه</string>
   <string name="toast_logout_complete">خارج شد</string>
-  <string name="saved_pages_empty_title">صفحه‌ای در اینجا ذخیره نشده‌است.</string>
-  <string name="saved_pages_empty_message">صفحات ذخیره‌شده بسیار عالی هستند. به آنها به چشم بوکمارک‌هایی نگاه کنید که می‌توانید بخوانید حتی زمانی که آفلاین هستید.</string>
   <string name="history_empty_title">هیچ صفحه اخیری اینجا نیست.</string>
   <string name="history_empty_message">شما احتمالاً همه آنها را حذف کردید. دفعه بعد که به صفحه‌ای می‌روید می‌توانید از اینجا به آن صفحه برگردید.</string>
   <string name="delete_selected_history">حذف</string>
@@ -122,7 +106,6 @@
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
   <string name="zero_charged_verbiage">خاموش کردن ویکی‌پدیا صفر</string>
-  <string name="zero_charged_verbiage_extended">بارگیری مقالات دیگر ممکن است برای شما هزینه داشته باشد.</string>
   <string name="zero_search_hint">جستجو در ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving">هشدار برای خروج از ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving_summary">اگر اپراتور تلفن همراه شما  هزینهٔ دیتا را بر اساس تفاهم‌نامهٔ ویکی‌پدیا صفر تخت اپلیکیشن موبایل ویکی‌پدیا دریافت نکند رها کردن تنظیمات به شما کمک می‌کند تا زمانی که شما از اپلیکیشن خارج می‌شوید  از دریافت هزینه آگاه شوید.</string>
@@ -183,10 +166,6 @@
   <string name="edit_summary_tag_other_hint">راه‌های دیگر برای بهبود صفحه</string>
   <string name="find_next">یافتن بعدی</string>
   <string name="find_previous">یافتن قبلی</string>
-  <string name="error_network_error_try_again">دسترسی به شبکه مقدور نیست، لطفاً دوباره تلاش کنید.</string>
-  <string name="saved_pages_update_all_error_retry">تلاش دوباره</string>
-  <string name="saved_pages_update_all_error_message">خطا در به روز رسانی صفحات ذخیره شده</string>
-  <string name="saved_pages_progress_title">تازه کردن صفحه ذخیره‌شده</string>
   <string name="abusefilter_title_warn">این ویرایش ممکن است غیرسازنده باشد. آیا مطمئنید می‌خواهید ذخیره‌اش کنید؟</string>
   <string name="abusefilter_title_disallow">شما نمی‌توانید این ویرایش را ذخیره کنید. لطفاً بازگردید و تغییرش دهید.</string>
   <string name="abusefilter_text_warn">یک پالایهٔ خودکار این ویرایش را به طور بالقوه غیرسازنده شناسایی کرده‌است. این ویرایش ممکن است شامل یک یا چند مورد از موارد زیر باشد:&lt;br /&gt;&lt;br /&gt;· همه را با حروف بزرگ نوشتن&lt;br /&gt;· خالی‌گذاشتن مقاله‌ها یا هرز نگاره&lt;br /&gt;· پیوندهای بیرونی یا تصاویر نامرتبط&lt;br /&gt;· تکرار نویسه‌ها</string>
@@ -210,26 +189,6 @@
   <string name="widget_title_featured_page">مطلب برگزیدهٔ امروز:</string>
   <string name="widget_name_search">جستجوی ویکی‌پدیا</string>
   <string name="wiktionary_no_definitions_found">معنایی یافت نشد</string>
-  <string name="app_store_description">نرم افزار رسمی ویکی‌پدیا برای استفاده در اندروید. ویکی پدیا حاوی بیش از ۳۲ میلیون مقاله به زبان ۲۸۰ است و جامع‌ترین و گسترده‌ترین مرجع کار انسان تا کنون است.
-
-ویژگی‌ها:
-- تصویر اصلی: ویکی‌پدیای جدیدی را با تصویر برجسته و مرتبط به همراه توضیح در بالای هر مقاهل تجربه کنید
-- نگارخانه: زدن برروی یک تصویر نسخهٔ تمام صفحهٔ آن با کیفیت بالا را به نمایش می‌گذارد. قابلیت سویپ به چپ و راست برای مرور تصاویر نیز موجود است.
-- توضیحات از ویکی‌داده:
-- پیشنهاد مقالات:
-- صفحات ذخیره‌شده:
-- در نزدیکی: دربارهٔ چیزهایی که در نزدیکی شما قرار دارند اطلاعات بیشتری بدست آورید.
-- پشتیبانی از زبان‌ها
-- فهرست محتویات: برروی هر مقاله به سمت چپ سویپ کنید تا فهرست محتویاتش را ببینید و به راحتی به هر بخش مقاله بروید.
-- ویکی‌پدیا زیرو: هزینه‌های مشارکت در اپرتورها به صورت رایگان محاسبه می‌گردد.
-
-در مورد برنامه برای ما بازخورد بفرستید! در منو، بر روی گزینه‌های «بیشتر»، سپس «دربارهٔ نرم‌افزار ویکی‌پدیا» و بعد «ارسال بازخورد برای ما» فشار دهید.
-
-کد کاملاً منبع باز است. اگر شما تجربه با جاوا و آندروید SDK دارید از https://github.com/wikimedia/apps-android-wikipedia برای فورک کردن استفاده کنید.
-
-سیاست حریم شخصی: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-شرایط استفاده : https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">به‌روزرسانی نسخه  آلفا جدید موجود است</string>
   <string name="alpha_update_notification_text">تپ برای دانلود</string>
   <string name="dialog_close_description">بستن</string>

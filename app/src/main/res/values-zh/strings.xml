@@ -12,32 +12,18 @@
   <string name="page_error_retry">重试</string>
   <string name="page_error_back_to_main">返回</string>
   <string name="menu_clear_all_history">清除历史</string>
-  <string name="menu_clear_all_saved_pages">清除保存的页面</string>
   <string name="page_does_not_exist_error">该页面不存在。</string>
   <string name="nav_item_today">今天</string>
   <string name="dialog_title_clear_history">清除浏览历史</string>
   <string name="dialog_message_clear_history">这将删除您所有的浏览历史，并关闭任何当前打开的标签。您确定要这样做么？</string>
   <string name="nav_item_saved_pages">已保存的页面</string>
-  <string name="menu_update_all_saved_pages">更新保存的页面</string>
-  <string name="menu_update_selected_saved_pages">更新保存的页面</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">更新所有保存的页面？</string>
   <string name="share_via">分享到…</string>
-  <string name="dialog_title_clear_saved_pages">清除所有保存的页面？</string>
-  <string name="snackbar_saving_page">正在保存页面…</string>
-  <string name="snackbar_saved_page_format">“%s”已保存以便离线阅读</string>
-  <string name="snackbar_saved_page_missing_images">无法保存所有图像</string>
-  <string name="snackbar_refresh_saved_page">正在更新保存的页面…</string>
-  <string name="delete_selected_saved_pages">删除</string>
-  <string name="snackbar_saved_page_deleted">保存的页面已删除</string>
-  <string name="saved_pages_search_list_hint">搜索已保存页面</string>
-  <string name="saved_pages_search_empty_message">未找到匹配您的查询的页面。</string>
   <string name="menu_page_show_tabs">显示标签页</string>
   <string name="menu_page_other_languages">更改语言</string>
   <string name="menu_page_find_in_page">在页面中查找</string>
   <string name="menu_page_content_issues">内容问题</string>
   <string name="menu_page_similar_titles">相似标题</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
-  <string name="menu_page_save">保存页面</string>
   <string name="menu_page_add_to_list">添加至阅读列表</string>
   <string name="menu_page_share">分享链接</string>
   <string name="menu_long_press_open_page">打开</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">登录失败:(</string>
   <string name="preference_title_logout">退出登录</string>
   <string name="toast_logout_complete">已退出登录</string>
-  <string name="saved_pages_empty_title">这里没有保存的页面！</string>
-  <string name="saved_pages_empty_message">保存页面功能非常棒。即使离线时也可以阅读您保存的页面。</string>
   <string name="history_empty_title">最近这里没有页面！</string>
   <string name="history_empty_message">您可能清空了它们。下次您前往一个页面时，可从这里返回它。</string>
   <string name="delete_selected_history">删除</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">常规</string>
   <string name="wikipedia_app_faq">维基百科应用程序常见问题</string>
   <string name="zero_charged_verbiage">维基百科零已关闭</string>
-  <string name="zero_charged_verbiage_extended">载入其他条目可能产生数据费用。</string>
   <string name="zero_search_hint">搜索维基百科零</string>
   <string name="zero_warn_when_leaving">离开维基百科零时警告</string>
   <string name="zero_warn_when_leaving_summary">如果您的移动运营商是维基百科零的合作伙伴，并免除维基百科应用的数据费用，请勾选该设置，以帮助您了解您是否要离开维基百科应用程序，并因此计费。</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">您改善该页面的其他方式</string>
   <string name="find_next">查找下一个</string>
   <string name="find_previous">查找上一个</string>
-  <string name="error_network_error_try_again">无法连接网络，请重试。</string>
-  <string name="saved_pages_update_all_error_retry">重试</string>
-  <string name="saved_pages_update_all_error_message">更新保存的页面时出错</string>
-  <string name="saved_pages_progress_title">正在更新保存的页面</string>
   <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要保存？</string>
   <string name="abusefilter_title_disallow">您不能保存该编辑。请返回更改。</string>
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全文大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">今日特色页面：</string>
   <string name="widget_name_search">维基百科搜索</string>
   <string name="wiktionary_no_definitions_found">找不到定义。</string>
-  <string name="app_store_description">维基百科官方Android应用。维基百科是拥有以280种语言撰写的超过3200万个条目的自由的百科全书，是人类已编纂的最综合并最为广泛使用的参考著作。
-
-功能：
-- 主题图像：条目顶部突出显示的与条目内容有关的图像及说明会给您带来前所未有的维基百科体验
-- 图像浏览：点按图像会以高分辨率向您全屏展示该图像，并可左右滑动查看其他图像
-- 维基数据说明：当搜索时，每个搜索结果会含有有助理解结果内容的简短说明。这些说明也会在诸如附近等该应用的其他区域显示
-- 条目建议：滚动到条目的底部可以查看可供您阅读的相关条目的建议
-- 保存页面：保存特定页面以供离线阅读，即使没有网络连接也可浏览
-- 周边条目：通过获取关于您当前位置附近事物的条目的链接来了解它们
-- 语言支持：无缝切换阅读各种语言撰写的维基百科
-- 目录选单：在任何条目上向左滑动可以打开目录，使您轻松跳转至条目各节
-- 维基百科零：部分移动运营商减免浏览维基百科的数据费用
-
-请向我们发送您有关应用的反馈！在菜单上，点击“更多”，然后点击“关于维基百科应用”，之后点击“发送应用反馈”。
-
-代码是100%开源的。如果您拥有Java及Android SDK的开发经验，我们期待着您的贡献！https://github.com/wikimedia/apps-android-wikipedia
-
-隐私政策：https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-使用条款：https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">有新的Alpha更新可用</string>
   <string name="alpha_update_notification_text">点按下载</string>
   <string name="dialog_close_description">关闭</string>

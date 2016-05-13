@@ -49,8 +49,6 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         List<Res> tagRes = new ResourceCollector("<", "&lt;").collectParameterResources(defaultLang);
         List<Res> noTagRes = new ResourceCollector("<", "&lt;").not().collectParameterResources(defaultLang);
         List<Res> stringParamRes = new ResourceCollector("%s").collectParameterResources(defaultLang);
-        // TODO: remove the following line as part of T110243.
-        stringParamRes.remove(new Res(R.string.snackbar_saved_page_format, "snackbar_saved_page_format"));
         List<Res> twoStringParamRes = new ResourceCollector("%2$s").collectParameterResources(defaultLang);
         List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources(defaultLang);
         List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources(defaultLang);
@@ -228,8 +226,6 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                     // don't care about appcompat string; and preference string resources don't get translated
                     if (name.startsWith("abc_")
                     ||  name.startsWith("preference_")
-                    // TODO: remove the following line as part of T91971.
-                    || name.equals("app_store_description")
                     // Required after upgrading Support Libraries from v23.0.1 to v23.1.0.
                     || name.equals("character_counter_pattern")
                     || name.startsWith("hockeyapp_")) {

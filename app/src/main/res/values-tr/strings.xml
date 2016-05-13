@@ -12,32 +12,18 @@
   <string name="page_error_retry">Tekrar dene</string>
   <string name="page_error_back_to_main">Geri git</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
-  <string name="menu_clear_all_saved_pages">Tüm kaydedilen sayfaları temizle</string>
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
   <string name="nav_item_today">Bugün</string>
   <string name="dialog_title_clear_history">Göz atma geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu, tüm tarama geçmişinizi silecek ve açık bütün sekmeleri kapatacak. Emin misiniz?</string>
   <string name="nav_item_saved_pages">Kaydedilen sayfalar</string>
-  <string name="menu_update_all_saved_pages">Kaydedilen sayfaları güncelle</string>
-  <string name="menu_update_selected_saved_pages">Kaydedilen sayfaları güncelle</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Kaydedilen tüm sayfalar güncellensin mi?</string>
   <string name="share_via">Şununla paylaş:</string>
-  <string name="dialog_title_clear_saved_pages">Tüm kaydedilen sayfalar silinsin mi?</string>
-  <string name="snackbar_saving_page">Sayfa kaydediliyor…</string>
-  <string name="snackbar_saved_page_format">Çevrimdışı okuma için \"%s\" kaydedildi</string>
-  <string name="snackbar_saved_page_missing_images">Görsellerin tamamı kaydedilemedi</string>
-  <string name="snackbar_refresh_saved_page">Kaydedilmiş sayfa yenileniyor…</string>
-  <string name="delete_selected_saved_pages">Sil</string>
-  <string name="snackbar_saved_page_deleted">Kaydedilen sayfa(lar) silindi</string>
-  <string name="saved_pages_search_list_hint">Kaydedilen sayfaları ara</string>
-  <string name="saved_pages_search_empty_message">Sorgunuzla eşleşen hiçbir sayfa bulunamadı.</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Başka dilde oku</string>
   <string name="menu_page_find_in_page">Sayfada bul</string>
   <string name="menu_page_content_issues">İçerik sorunları</string>
   <string name="menu_page_similar_titles">Benzer başlıklar</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
-  <string name="menu_page_save">Sayfayı kaydet</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
   <string name="menu_page_share">Bağlantı paylaş</string>
   <string name="menu_long_press_open_page">Aç</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Oturum açma başarısız :(</string>
   <string name="preference_title_logout">Oturumu kapat</string>
   <string name="toast_logout_complete">Oturum kapandı</string>
-  <string name="saved_pages_empty_title">Kaydedilmiş bir sayfa yok!</string>
-  <string name="saved_pages_empty_message">Kaydedilmiş sayfalar çok güzeldir. Bunu çevrim dışıyken bile okuyabileceğiniz yer imleri olarak düşünün.</string>
   <string name="history_empty_title">Hiç ziyaret edilmiş sayfa yok.</string>
   <string name="history_empty_message">Muhtemelen hepsini sildiniz. Bir daha herhangi bir sayfaya gittiğinizde, buradan ona tekrar ulaşabilirsiniz.</string>
   <string name="delete_selected_history">Sil</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
   <string name="zero_charged_verbiage">Wikipedia Zero kapalı</string>
-  <string name="zero_charged_verbiage_extended">Diğer makaleleri yüklemek veri iletişim ücretleri doğurabilir.</string>
   <string name="zero_search_hint">Wikipedia Zero\'da Ara</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero\'dan çıkılırsa uyar</string>
   <string name="zero_warn_when_leaving_summary">Eğer mobil operatörünüz Wikipedia Zero ortaklığıyla, Vikipedi uygulaması için ücretsiz veri erişimi sağlıyorsa, bu seçeneği işaretlemek, ne zaman Vikipedi uygulamasından çıktığınızı ve ücret ödemeniz gerekebileceğini anlamanıza yardımcı olur.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Sayfayı geliştirdiğiniz diğer yönler</string>
   <string name="find_next">Sonrakini bul</string>
   <string name="find_previous">Öncekini bul</string>
-  <string name="error_network_error_try_again">Ağa erişilemiyor; lütfen tekrar deneyin.</string>
-  <string name="saved_pages_update_all_error_retry">Tekrar dene</string>
-  <string name="saved_pages_update_all_error_message">Kaydedilen sayfalar güncelleştirilirken hata oluştu</string>
-  <string name="saved_pages_progress_title">Kaydedilen sayfalar yenileniyor…</string>
   <string name="abusefilter_title_warn">Bu yapıcı olmayan bir düzenleme olabilir. Kaydetmek istediğinize emin misiniz?</string>
   <string name="abusefilter_title_disallow">Bu düzenlemeyi kaydedemezsiniz. Lütfen geri dönüp değiştirin.</string>
   <string name="abusefilter_text_warn">Bir otomatik süzgeç, bu değişikliği potansiyel zarar verici olarak tanımlamıştır. Değişiklik şunlardan birini veya daha fazlasını içeriyor olabilir:&lt;br /&gt;&lt;br /&gt;· Tamamı büyük harfle yazım&lt;br /&gt;· Sayfaların içeriğini boşaltma veya spam&lt;br /&gt;· İlgisiz dış bağlantılar veya resimler&lt;br /&gt;· Yinelenen karakterler</string>
@@ -212,24 +191,6 @@
   <string name="widget_title_featured_page">Haftanın seçkin maddesi:</string>
   <string name="widget_name_search">Vikipedi arama</string>
   <string name="wiktionary_no_definitions_found">Herhangi bir tanım bulunamadı.</string>
-  <string name="app_store_description">Android için resmi Wikipedia Uygulaması. Vikipedi 280 dilde toplam 32 milyondan fazla maddesi olan, insanoğlunun yazdığı en kapsamlı ve en çok kullanılan kaynak çalışmasıdır.
-Özellikler:
-- Başlık resimleri: Maddelerin en üstündeki, konuyla alakalı, öne çıkan bir resim ve tanımla, Vikipedi\'yi daha önce hiç görmediğiniz şekilde tecrübe edin.
-- Resim galerisi: Bir resme dokunarak yüksek çözünürlükte tam ekran olarak görüntüleyebilir, sağa/sola kaydırarak diğer resimleri görme seçeneğini kullanabilirsiniz.
-- Madde önerileri: Sayfaların en altına doğru kaydırıp, okumanız için önerilen maddeleri görebilirsiniz.
-- Kaydedilen sayfalar: Çevrim dışı iken okumak için sayfaları kaydedebilir, veri erişiminiz olmasa da bu sayfaları ziyaret edebilirsiniz.
-- Yakındakiler: Mevcut konumunuza yakın şeyler hakkındaki maddelerin bağlantılarını görün ve böylece etrafınızda neler olduğu hakkında daha fazla bilgi edinin.
-- Dil desteği: Uygulama sizi Vikipedi\'nin herhangi bir dil sürümüne sorunsuzca ulaştırır.
-- İçindekiler: Herhangi bir maddede içindekileri görmek için sola kaydırın; böylece istediğiniz alt başlığa kolayca geçebilirsiniz.
-- Wikipedia Zero: Anlaşmalı mobil operatörlerde veri iletişim ücretleri alınmaz.
-
-Uygulama hakkındaki görüşlerinizi bize gönderin! Menüde \"Daha fazla\"ya tıklayın; sonrasında \"Vikipedi uygulaması hakkında\"ya ve ardından \"Uygulama geri bildirimi gönder\"e basın.
-
-Uygulama kodları %100 açık kaynaklıdır. Eğer Java ve Android SDK tecrübeniz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
-
-Gizlilik Politikası: https://meta.wikimedia.org/wiki/Privacy_policy/tr
-
-Kullanım koşulları: https://meta.wikimedia.org/wiki/Terms_of_use/tr</string>
   <string name="alpha_update_notification_title">Yeni alfa güncellemesi var</string>
   <string name="alpha_update_notification_text">İndirmek için dokunun</string>
   <string name="dialog_close_description">Kapat</string>

@@ -10,23 +10,12 @@
   <string name="error_network_error" fuzzy="true">सञ्जालमा पुग्न सकेन :(</string>
   <string name="page_error_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="menu_clear_all_history">इतिहास हटाउने</string>
-  <string name="menu_clear_all_saved_pages">संग्रह गरिएका पृष्ठहरू मेटाउने</string>
   <string name="page_does_not_exist_error">यो पृष्ठ उपलब्ध छैन ।</string>
   <string name="nav_item_today">आज</string>
   <string name="nav_item_saved_pages">संग्रहित पृष्ठहरू</string>
-  <string name="menu_update_all_saved_pages">संग्रहित पृष्ठहरूलाई अद्यावधिक गर्ने</string>
-  <string name="menu_update_selected_saved_pages">संग्रहित पृष्ठहरूलाई अद्यावधिक गर्ने</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">सम्पूर्ण संग्रहित पृष्ठहरूलाई अद्यावधिक गर्ने</string>
-  <string name="dialog_title_clear_saved_pages">संग्रह गरिएका सम्पूर्ण पृष्ठहरू मेटाउने ?</string>
-  <string name="snackbar_saving_page">पृष्ठ रक्षण गरिदै</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">पृष्ठलाई स्वतः रक्षण गर्ने</string>
-  <string name="delete_selected_saved_pages">मेट्ने</string>
-  <string name="snackbar_saved_page_deleted">संग्रह भएका पृष्ठहरू मेटाइयो</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">खोज्ने</string>
   <string name="menu_page_other_languages" fuzzy="true">अन्य भाषाहरूमा पढ्ने</string>
   <string name="menu_page_find_in_page">पृष्ठमा खोज्ने</string>
   <string name="menu_page_font_and_theme">फन्ट तथा विषयसार</string>
-  <string name="menu_page_save">संग्रहित पृष्ठहरू</string>
   <string name="menu_page_share" fuzzy="true">बाड्ने</string>
   <string name="nav_item_nearby">नजिकै</string>
   <string name="nearby_distance_in_meters">%d मीटर</string>
@@ -59,7 +48,6 @@
   <string name="login_success_toast" fuzzy="true">प्रवेश सफल!</string>
   <string name="preference_title_logout">निर्गमन</string>
   <string name="toast_logout_complete">निर्गमन भयो</string>
-  <string name="saved_pages_empty_title">संग्रह गरिएका पृष्ठहरू नभएको !</string>
   <string name="history_empty_title">यहाँ भर्खरैको कुनै पृष्ठ नरहेको !</string>
   <string name="delete_selected_history">हटाउने</string>
   <string name="create_account_username_hint">प्रयोगकर्ता नाम</string>
@@ -123,7 +111,6 @@
   <string name="edit_summary_tag_other_hint">तपाईंले पृष्ठ सुधार गर्ने अन्य तरिकाहरू</string>
   <string name="find_next">अर्को खोज्ने</string>
   <string name="find_previous">पछिल्लो खोज्ने</string>
-  <string name="saved_pages_update_all_error_retry">पुन: प्रयास गर्ने</string>
   <string name="dialog_page_issues">पृष्ठका मुद्दाहरू</string>
   <string name="button_page_issues">पृष्ठका मुद्दाहरू</string>
   <string name="text_size_select">फन्ट आकार</string>

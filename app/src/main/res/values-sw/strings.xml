@@ -10,25 +10,13 @@
   <string name="error_network_error" fuzzy="true">Hakuna muunganisho kwa mtandao :(</string>
   <string name="page_error_retry">Jaribu tena</string>
   <string name="menu_clear_all_history">Futa historia</string>
-  <string name="menu_clear_all_saved_pages">Panguza kura zote zilizohifadhiwa</string>
   <string name="page_does_not_exist_error">Ukarasa haupo.</string>
   <string name="nav_item_today">Leo</string>
   <string name="dialog_title_clear_history" fuzzy="true">Futa historia ya kuvijari?</string>
   <string name="nav_item_saved_pages">Kurasa zilizohifadhiwa</string>
-  <string name="menu_update_all_saved_pages">Sasisha kurasa zilizohifadhgiwa</string>
-  <string name="menu_update_selected_saved_pages">Sasisha kurasa zilizohifadhiwa</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Panguza kurasa zote zilizohifadhiwa?</string>
   <string name="share_via">Shiriki kupitia</string>
-  <string name="dialog_title_clear_saved_pages">Panguza kurasa zote zilizohifadhiwa?</string>
-  <string name="snackbar_saving_page">Inahifadhi ukurasa…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">Ukurasa umehifadhiwa</string>
-  <string name="snackbar_saved_page_missing_images">Haingehifadhi picha zote</string>
-  <string name="delete_selected_saved_pages">Futa</string>
-  <string name="snackbar_saved_page_deleted">Ukurasa uliohifadhiwa umefutwa</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">Tafuta</string>
   <string name="menu_page_other_languages" fuzzy="true">Soma katika lugha zingine</string>
   <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
-  <string name="menu_page_save">Hifadhi ukurasa</string>
   <string name="menu_page_share" fuzzy="true">Gawa</string>
   <string name="nav_item_nearby">Karibu</string>
   <string name="nearby_distance_in_meters">%d m</string>
@@ -65,7 +53,6 @@
   <string name="login_success_toast" fuzzy="true">Umefaulu kuingia</string>
   <string name="login_error_blocked">Mtumiaji amefungiwa</string>
   <string name="preference_title_logout">Toka</string>
-  <string name="saved_pages_empty_title">Hakuna kurasa zilizohifadhiwa hapa!</string>
   <string name="delete_selected_history">Futa</string>
   <string name="wp_stylized">big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Jina la mtumiaji</string>
@@ -120,7 +107,6 @@
   <string name="edit_summary_tag_other_hint">Njia zingine ulizoboresha ukurasa</string>
   <string name="find_next">Tafuta ifuatayo</string>
   <string name="find_previous">Tafuta iliyotangulia</string>
-  <string name="saved_pages_update_all_error_retry">Jaribu tena</string>
   <string name="page_similar_titles">Kurasa zifananazo</string>
   <string name="search_did_you_mean">Je ulimaanisha \"%s\"?</string>
   <string name="table_other">Maelezo zaidi</string>

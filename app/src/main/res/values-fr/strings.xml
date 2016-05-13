@@ -12,32 +12,18 @@
   <string name="page_error_retry">Réessayer</string>
   <string name="page_error_back_to_main">Revenir en arrière</string>
   <string name="menu_clear_all_history">Effacer l’historique</string>
-  <string name="menu_clear_all_saved_pages">Effacer les pages enregistrées</string>
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
   <string name="nav_item_today">Aujourd’hui</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
   <string name="dialog_message_clear_history">Cela supprimera tout l’historique de navigation, et fermera tous les onglets ouverts actuellement. Êtes-vous sûr ?</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
-  <string name="menu_update_all_saved_pages">Mettre à jour les pages enregistrées</string>
-  <string name="menu_update_selected_saved_pages">Mettre à jour les pages enregistrées</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Mettre à jour toutes les pages enregistrées ?</string>
   <string name="share_via">Partager via</string>
-  <string name="dialog_title_clear_saved_pages">Effacer toutes les pages enregistrées ?</string>
-  <string name="snackbar_saving_page">Enregistrement de la page…</string>
-  <string name="snackbar_saved_page_format">« %s » enregistré pour une lecture hors connexion</string>
-  <string name="snackbar_saved_page_missing_images">Impossible d’enregistrer toutes les images</string>
-  <string name="snackbar_refresh_saved_page">Rafraîchissement de la page enregistrée…</string>
-  <string name="delete_selected_saved_pages">Supprimer</string>
-  <string name="snackbar_saved_page_deleted">Pages enregistrées supprimées</string>
-  <string name="saved_pages_search_list_hint">Rechercher les pages enregistrées</string>
-  <string name="saved_pages_search_empty_message">Aucune page trouvée correspondant à votre requête.</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Rechercher dans la page</string>
   <string name="menu_page_content_issues">Problèmes de contenu</string>
   <string name="menu_page_similar_titles">Titres similaires</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
-  <string name="menu_page_save">Enregistrer la page</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
   <string name="menu_page_share">Partager le lien</string>
   <string name="menu_long_press_open_page">Ouvrir</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">Échec de la connexion :(</string>
   <string name="preference_title_logout">Se déconnecter</string>
   <string name="toast_logout_complete">Déconnecté</string>
-  <string name="saved_pages_empty_title">Pas de page enregistrée ici !</string>
-  <string name="saved_pages_empty_message">Les pages enregistrées sont assez impressionnantes. Pensez à elles comme à des favoris que vous pourrez lire même en étant déconnecté.</string>
   <string name="history_empty_title">Aucune page récente ici.</string>
   <string name="history_empty_message">Vous les avez probablement toutes détruites. La prochaine fois que vous irez sur une page, vous pourrez y revenir en démarrant d’ici.</string>
   <string name="delete_selected_history">Supprimer</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">Général</string>
   <string name="wikipedia_app_faq">FAQ des applis Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipédia Zéro est désactivé</string>
-  <string name="zero_charged_verbiage_extended">Charger d’autres articles peut entraîner des frais de données.</string>
   <string name="zero_search_hint">Rechercher dans Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving">Avertir au moment de quitter Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving_summary">Si votre opérateur mobile renonce aux frais de données liés à l’utilisation de l’application Wikipédia dans le cadre d’un partenariat Wikipédia Zéro, laisser ce paramètre activé vous permettra d’être prévenu lorsque vous quittez l’application Wikipédia et risquez de payer des frais de données.</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">Autres façons d’améliorer la page</string>
   <string name="find_next">Rechercher le suivant</string>
   <string name="find_previous">Rechercher le précédent</string>
-  <string name="error_network_error_try_again">Impossible d’atteindre le réseau, veuillez réessayer.</string>
-  <string name="saved_pages_update_all_error_retry">Réessayer</string>
-  <string name="saved_pages_update_all_error_message">Erreur à la mise à jour des pages enregistrées</string>
-  <string name="saved_pages_progress_title">Rafraîchissement des pages enregistrées</string>
   <string name="abusefilter_title_warn">Cela pourrait être une modification non constructive. Êtes-vous sûr de l’enregistrer ?</string>
   <string name="abusefilter_title_disallow">Vous ne pouvez pas enregistrer cette modification. Veuillez revenir en arrière et la changer.</string>
   <string name="abusefilter_text_warn">Un filtre automatique a identifié cette modification comme potentiellement non constructive. Elle pourrait contenir un ou plusieurs des éléments suivants :&lt;br /&gt;&lt;br /&gt;· Saisie toute en majuscules&lt;br /&gt;· Découpage d’articles ou pourriel&lt;br /&gt;· Liens ou images externes inappropriés&lt;br /&gt;· Caractères répétés</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">Page mise en avant aujourd’hui :</string>
   <string name="widget_name_search">Recherche Wikipédia</string>
   <string name="wiktionary_no_definitions_found">Aucune définition trouvée.</string>
-  <string name="app_store_description">Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée.
-
-Fonctionnalités :
-- Images principales : faites l’expérience de Wikipédia comme jamais auparavant avec une image marquante dans le contexte et une description en haut des articles
-- Galerie d’images : appuyer sur une image affiche l’image en plein écran en haute résolution, avec des options pour faire glisser à droite ou à gauche pour parcourir les autres images
-- Descriptions de Wikidata : lors d’une recherche, chaque résultat de recherche contient désormais une courte description qui aide à saisir le contexte du résultat. Ces descriptions sont aussi affichées dans d’autres zones de l’application, comme « À proximité »
-- Suggestions d’article : allez en bas d’un article pour voir les suggestions sur ce que vous pouvez lire ensuite
-- Pages enregistrées : vous pouvez enregistrer des pages pour une lecture hors ligne et y naviguer même sans avoir de connexion
-- À proximité : en savoir plus sur ce qui est aux alentours en obtenant des liens vers des articles sur des choses qui sont proches de votre position actuelle
-- Support linguistique : l’application vous permet de changer sans efforts la langue du contenu de Wikipédia lu.
-- Table des matières : faites glisser sur n’importe quel article pour faire apparaître le sommaire, qui vous permet d’atteindre facilement les sections de l’article
-- Wikipédia Zéro : les frais de données sont annulés pour les opérateurs mobiles participants.
-
-Envoyez-nous votre avis sur l’application ! Dans le menu, appuyez sur « Plus », puis « À propos de l’application Wikipédia », puis « Envoyer un avis sur l’application ». 
-
-Le code est ouvert à 100%. Si vous êtes expérimenté avec Java et le kit de développement Android, alors nous attendons vos contributions ! https://github.com/wikimedia/apps-android-wikipedia
-
-Politique de confidentialité : https://m.wikimediafoundation.org/wiki/Privacy_policy 
-
-Conditions d’utilisation : https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nouvelle mise à jour alpha disponible</string>
   <string name="alpha_update_notification_text">Touchez pour télécharger</string>
   <string name="dialog_close_description">Fermer</string>

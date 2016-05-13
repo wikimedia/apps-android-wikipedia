@@ -12,32 +12,18 @@
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="page_error_back_to_main">Terug</string>
   <string name="menu_clear_all_history">Geschiedenis wissen</string>
-  <string name="menu_clear_all_saved_pages">Opgeslagen pagina\'s verwijderen</string>
   <string name="page_does_not_exist_error">Deze pagina bestaat niet.</string>
   <string name="nav_item_today">Vandaag</string>
   <string name="dialog_title_clear_history">Browsergeschiedenis wissen</string>
   <string name="dialog_message_clear_history">Hierdoor wordt uw volledige browsergeschiedenis gewist en worden alle huidige open tabbladen gesloten. Weet u het zeker?</string>
   <string name="nav_item_saved_pages">Opgeslagen pagina\'s</string>
-  <string name="menu_update_all_saved_pages">Opgeslagen pagina\'s bijwerken</string>
-  <string name="menu_update_selected_saved_pages">Opgeslagen pagina\'s bijwerken</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Alle opgeslagen pagina\'s bijwerken?</string>
   <string name="share_via">Delen via</string>
-  <string name="dialog_title_clear_saved_pages">Alle opgeslagen pagina\'s wissen?</string>
-  <string name="snackbar_saving_page">Pagina aan het opslaan…</string>
-  <string name="snackbar_saved_page_format">\"%s\" is opgeslagen voor offline lezen</string>
-  <string name="snackbar_saved_page_missing_images">Kon niet alle afbeeldingen opslaan</string>
-  <string name="snackbar_refresh_saved_page">Opgeslagen pagina vernieuwen…</string>
-  <string name="delete_selected_saved_pages">Wissen</string>
-  <string name="snackbar_saved_page_deleted">Opgeslagen pagina(\'s) verwijderd</string>
-  <string name="saved_pages_search_list_hint">In opgeslagen pagina\'s zoeken</string>
-  <string name="saved_pages_search_empty_message">Geen pagina\'s gevonden die overeenkomen met uw zoekopdracht.</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Op pagina zoeken</string>
   <string name="menu_page_content_issues">Inhoudelijke problemen</string>
   <string name="menu_page_similar_titles">Gerelateerde pagina\'s</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
-  <string name="menu_page_save">Pagina opslaan</string>
   <string name="menu_page_share">Koppeling delen</string>
   <string name="menu_long_press_open_page">Openen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
@@ -92,8 +78,6 @@
   <string name="login_error_unknown">Aanmelden mislukt :(</string>
   <string name="preference_title_logout">Afmelden</string>
   <string name="toast_logout_complete">Afgemeld</string>
-  <string name="saved_pages_empty_title">Nog geen opgeslagen pagina\'s</string>
-  <string name="saved_pages_empty_message">Opgeslagen pagina\'s zijn allemachtig prachtig. Denk aan bladwijzers die u zelfs kunt lezen wanneer u offline bent.</string>
   <string name="history_empty_title">Geen recente pagina\'s</string>
   <string name="history_empty_message">U heeft ze vast allemaal verwijderd. De volgende keer als u een pagina bezoekt, kunt u hem hier terugvinden.</string>
   <string name="delete_selected_history">Verwijderen</string>
@@ -122,7 +106,6 @@
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Veelgestelde vragen over de Wikipedia-app</string>
   <string name="zero_charged_verbiage">Wikipedia Zero is uitgeschakeld</string>
-  <string name="zero_charged_verbiage_extended">Het laden van andere pagina\'s kan datakosten met zich meebrengen.</string>
   <string name="zero_search_hint">In Wikipedia Zero zoeken</string>
   <string name="zero_warn_when_leaving">Waarschuwen bij het verlaten van Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Als uw mobiele provider geen kosten in rekening brengt voor het gegevensgebruik via de Wikipedia-app vanwege een Wikipedia Zero-partnerschap, dan zorgt het inschakelen van deze instelling ervoor dat u wordt gewaarschuwd als u Wikipedia verlaat en mogelijk kosten voor data moet betalen.</string>
@@ -182,10 +165,6 @@
   <string name="edit_summary_tag_other_hint">Andere manieren waarop hoe u de pagina hebt verbeterd</string>
   <string name="find_next">Volgende zoeken</string>
   <string name="find_previous">Vorige zoeken</string>
-  <string name="error_network_error_try_again">Kon het netwerk niet bereiken. Probeer het opnieuw.</string>
-  <string name="saved_pages_update_all_error_retry">Opnieuw proberen</string>
-  <string name="saved_pages_update_all_error_message">Er is een fout opgetreden tijdens het bijwerken van de opgeslagen pagina\'s</string>
-  <string name="saved_pages_progress_title">Opgeslagen pagina\'s aan het bijwerken</string>
   <string name="abusefilter_title_warn">Dit kan een niet-constructieve bewerking zijn. Weet u zeker dat u die wilt opslaan?</string>
   <string name="abusefilter_title_disallow">U kunt deze bewerking niet opslaan. Ga terug en wijzig de inhoud.</string>
   <string name="abusefilter_text_warn">Een geautomatiseerde filter heeft deze bewerking als potentieel onconstructief geïdentificeerd. Het kan een of meer van de volgende bevatten:&lt;br /&gt;&lt;br /&gt;· Getypt in hoofdletters&lt;br /&gt;· Leeghalen van pagina\'s of spammen&lt;br /&gt;· Irrelevant externe koppelingen of afbeeldingen&lt;br /&gt;· Tekens herhalen</string>
@@ -209,26 +188,6 @@
   <string name="widget_title_featured_page">Vandaag uitgelicht:</string>
   <string name="widget_name_search">Zoeken op Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Geen definities gevonden.</string>
-  <string name="app_store_description">De officiële app voor Wikipedia voor Android. Wikipedia is de vrij encyclopedie die meer dan 32 miljoen pagina\'s in 280 talen bevat, en het is de meest uitgebreide en het meest gebruikte referentiewerk dat mensen ooit gemaakt hebben.
-
-Mogelijkheden:
-- Beginafbeeldingen: ervaar Wikipedia als nooit tevoren met een prominente, contextrelevante afbeelding en beschrijving bovenaan pagina\'s
-- Afbeeldingengalerij: door te klikken op een afbeelding wordt deze in hoge resolutie op het volledige scherm weergegeven, met de mogelijkheid om naar links en rechts te vegen voor extra afbeeldingen
-- Beschrijvingen van Wikidata: tijdens het zoeken, bevat ieder resultaat nu een snelle beschrijving die help bij het begrijpen van het resultaat. Deze beschrijvingen worden ook weergegeven in andere delen van de app, zoals bij In de buurt
-- Paginasuggesties: ga naar het einde van een pagina om suggesties te zien over wat u daarna kunt lezen
-- Opgeslagen pagina\'s: sla geselecteerde pagina\'s op om deze later offline te lezen en bekijk ze zelfs als u geen dataverbinding hebt
-- In de buurt: leer meer over wat er bij u in de buurt is door tips te krijgen over pagina\'s over dingen die dichtbij uw huidige locatie zijn
-- Taalondersteuning: naadloos overschakelen naar een Wikipedia in een andere taal
-- Inhoudsopgave: veeg in een pagina naar links om de inhoudsopgave weer te geven, van waar u eenvoudig naar alle delen van een pagina kunt springen
-- Wikipedia Zero: geen kosten voor data voor providers die aan dit programma deelnemen
-
-Stuur ons uw terugkoppeling over de app! Klik in het menu op \"Meer\" en daarna op \"Over de Wikipedia app\", daarna op \"Terugkoppeling over app geven\".
-
-De programmacode is 100% open source. Als u ervaring hebt met Java en de Android SDK, dan zien we graag uw bijdragen tegemoet! https://github.com/wikimedia/apps-android-wikipedia
-
-Privacybeleid: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Gebruiksvoorwaarden: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Nieuwe alpha-update beschikbaar</string>
   <string name="alpha_update_notification_text">Tik om te downloaden</string>
   <string name="dialog_close_description">Sluiten</string>

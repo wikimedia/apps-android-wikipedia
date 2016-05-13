@@ -10,32 +10,18 @@
   <string name="error_network_error">Nem tud csatlakozni az Internethez.</string>
   <string name="page_error_retry">Újra</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
-  <string name="menu_clear_all_saved_pages">Elmentett lapok törlése</string>
   <string name="page_does_not_exist_error">Ez a lap nem létezik.</string>
   <string name="nav_item_today">Ma</string>
   <string name="dialog_title_clear_history">Böngészési előzmények törlése</string>
   <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
   <string name="nav_item_saved_pages">Elmentett lapok</string>
-  <string name="menu_update_all_saved_pages">Mentett lapok frissítése</string>
-  <string name="menu_update_selected_saved_pages">Mentett lapok frissítése</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Valamennyi elmentett lap frissítése?</string>
   <string name="share_via">Megosztás ezzel:</string>
-  <string name="dialog_title_clear_saved_pages">Törlöd az összes mentett lapot?</string>
-  <string name="snackbar_saving_page">Oldal mentése…</string>
-  <string name="snackbar_saved_page_format">„%s” elmentve offline olvasásra</string>
-  <string name="snackbar_saved_page_missing_images">Nem sikerült az összes kép mentése</string>
-  <string name="snackbar_refresh_saved_page">Mentett lapok frissítése…</string>
-  <string name="delete_selected_saved_pages">Törlés</string>
-  <string name="snackbar_saved_page_deleted">Mentett oldal(ak) törölve</string>
-  <string name="saved_pages_search_list_hint">Mentett lapok keresése</string>
-  <string name="saved_pages_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
   <string name="menu_page_show_tabs">Fülek megjelenítése</string>
   <string name="menu_page_other_languages">Nyelvváltás</string>
   <string name="menu_page_find_in_page">Keresés a lapon</string>
   <string name="menu_page_content_issues">Tartalmi problémák</string>
   <string name="menu_page_similar_titles">Hasonló címek</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
-  <string name="menu_page_save">Lap mentése</string>
   <string name="menu_page_share">Link megosztása</string>
   <string name="menu_long_press_open_page">Megnyitás</string>
   <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
@@ -89,8 +75,6 @@
   <string name="login_error_unknown">A bejelentkezés nem sikerült :(</string>
   <string name="preference_title_logout">Kijelentkezés</string>
   <string name="toast_logout_complete">Kijelentkezve</string>
-  <string name="saved_pages_empty_title">Nincsenek mentett lapok!</string>
-  <string name="saved_pages_empty_message">A mentett lapok csodásak. Gondolj úgy rájuk, mint a könyvjelzőkre, amelyeket akkor is tudod olvasni, ha offline vagy.</string>
   <string name="history_empty_title">Nincsenek korábbi lapok!</string>
   <string name="history_empty_message">Talán mindet törölted. Miután legközelebb meglátogatsz egy lapot, innen visszatalálsz rá.</string>
   <string name="delete_selected_history">Töröl</string>
@@ -119,7 +103,6 @@
   <string name="preferences_general_heading">Általános</string>
   <string name="wikipedia_app_faq">Wikipédia app GYIK</string>
   <string name="zero_charged_verbiage">Wikipedia Zero kikapcsolva</string>
-  <string name="zero_charged_verbiage_extended">További szócikkek betöltése okozhat adatköltségeket.</string>
   <string name="zero_search_hint">Wikipedia Zero keresés</string>
   <string name="zero_warn_when_leaving">Figyelmeztet, ha elhagyom a Wikipédia Zérót</string>
   <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia appot, ami költségekkel járhat.</string>
@@ -174,10 +157,6 @@
   <string name="edit_summary_tag_other">Egyéb</string>
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
-  <string name="error_network_error_try_again">Nem sikerült elérni a hálózatot, kérjük, próbáld újra.</string>
-  <string name="saved_pages_update_all_error_retry">Újra</string>
-  <string name="saved_pages_update_all_error_message">Hiba a mentett lapok frissítése során</string>
-  <string name="saved_pages_progress_title">Mentett lapok frissítése</string>
   <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan el akarod menteni?</string>
   <string name="dialog_page_issues">A lap problémái</string>
   <string name="button_page_issues">A lap problémái</string>
@@ -197,26 +176,6 @@
   <string name="widget_name_featured_page">Wikipédia kiemelt oldal</string>
   <string name="widget_title_featured_page">Mai kiemelt lap</string>
   <string name="widget_name_search">Wikipédia keresés</string>
-  <string name="app_store_description">Hivatalos Wikipédia alkalmazás Androidra. A Wikipédia, a szabad enciklopédia több mint 32 millió szócikkel rendelkezik 280 nyelven, és ez a legátfogóbb és legszélesebb körben használt referenciamunka, amit az emberiség valaha is összeállított.
-
-Funkciók:
-– Borítóképek: élvezd a Wikipédiát, ahogy még soha, egy hangsúlyos, témához kapcsolódó képpel és egy leírással a szócikkek elején.
-– Képgaléria: ha megérintesz egy képet, megjelenik teljes képernyőn, nagy felbontásban, amit ha oldalra elhúzol, böngészheted a lapon lévő összes képet.
-– Leírások a Wikidatából: kereséskor a találatok tartalmaznak egy rövid leírást, ami segít megtalálni a jó szócikket. Ezek a leírások az alkalmazás más részein (például Közelben) is megjelennek.
-– Ajánlott szócikkek: görgess a szócikk aljára a javasolt cikkekért, melyeket elolvashatnál még.
-– Mentett lapok: ments el lapokat kapcsolat nélküli olvasásra, és böngészd őket akkor is, ha nincs adatkapcsolatod.
-– Közelben: tudj meg többet a körülötted lévő dolgokról úgy, hogy az alkalmazás megmutatja az aktuális pozíciódhoz közeli szócikkeket.
-– Nyelvi támogatás: zökkenőmentesen válthatsz a Wikipédia bármely nyelvű változata között.
-– Tartalomjegyzék: legyints balra bármilyen szócikken a tartalomjegyzék előhozásához, amivel könnyedén ugorhatsz a szócikk egyes szakaszaihoz.
-– Wikipédia Zéró: az adatköltségeket elengedik az együttműködő mobilszolgáltatók (Magyarországon nincs ilyen).
-
-Küldj visszajelzést az appról! A menüben nyomd meg a „Beállítások”, majd „A Wikipédia appról” gombot, végül válaszd a „visszajelzés küldése” linket.
-
-A forráskód 100%-ban nyílt. Ha van tapasztalatod a Javával és az Android SDK-val, várunk téged is a közreműködők között! https://github.com/wikimedia/apps-android-wikipedia
-
-Adatvédelmi irányelvek: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Felhasználási feltételek: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">Új alfa frissítés érhető el</string>
   <string name="alpha_update_notification_text">Koppints a letöltéshez</string>
   <string name="dialog_close_description">Bezár</string>

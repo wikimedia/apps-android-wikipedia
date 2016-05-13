@@ -10,30 +10,16 @@
   <string name="error_network_error">Ni ellir cysylltu â\'r rhyngrwyd.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>
-  <string name="menu_clear_all_saved_pages">Clirio\'r tudalennau a gadwyd</string>
   <string name="page_does_not_exist_error">Does dim tudalen o\'r enw hwn ar gael.</string>
   <string name="nav_item_today">Heddiw</string>
   <string name="dialog_title_clear_history" fuzzy="true">Clirio\'r hanes pori?</string>
   <string name="dialog_message_clear_history" fuzzy="true">Ydych chi\'n siwr eich bod am glirio\'r hanes?</string>
   <string name="nav_item_saved_pages">Tudalennau a gadwyd</string>
-  <string name="menu_update_all_saved_pages">Diweddarwch tudalennau sydd wedi\'u cadw</string>
-  <string name="menu_update_selected_saved_pages">Diweddarwch tudalennau sydd wed\'u harbed</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">Diweddarwch pob tudalen sydd wedi\'u harbed?</string>
   <string name="share_via">Rhannu drwy</string>
-  <string name="dialog_title_clear_saved_pages">Clirio\'r holl dudalennau a gadwyd?</string>
-  <string name="snackbar_saving_page">Wrthi\'n rhoi\'r dudalen ar gadw…</string>
-  <string name="snackbar_saved_page_format">\"%s\" a gadwyd i\'w ddarllen all-lein</string>
-  <string name="snackbar_saved_page_missing_images">Methwyd arbed pob delwedd</string>
-  <string name="snackbar_refresh_saved_page">Wrthi\'n adnewyddu\'r dudalen a arbedwyd</string>
-  <string name="delete_selected_saved_pages">Dileu</string>
-  <string name="snackbar_saved_page_deleted">Diddymwyd y dudalen/au a ddilewyd</string>
-  <string name="saved_pages_search_list_hint">Chwilio dalennau a arbedwyd</string>
-  <string name="saved_pages_search_empty_message">Ni chafwyd hyn i\'r dudalen y chwiliwch amdani</string>
   <string name="menu_page_show_tabs">Dangos y tabiau</string>
   <string name="menu_page_other_languages" fuzzy="true">Darllen mewn ieithoedd eraill</string>
   <string name="menu_page_find_in_page">Chwilio yn y dudalen</string>
   <string name="menu_page_font_and_theme">Ffont a thema</string>
-  <string name="menu_page_save">Cadw\'r dudalen</string>
   <string name="menu_page_share">Rhannwch y dolennau</string>
   <string name="menu_long_press_open_page">Agor</string>
   <string name="menu_long_press_open_in_new_tab">Agor mewn tab newydd</string>
@@ -84,8 +70,6 @@
   <string name="login_error_unknown">Methodd y mewngofnodi :(</string>
   <string name="preference_title_logout">Allgofnodi</string>
   <string name="toast_logout_complete">Wedi allgofnodi</string>
-  <string name="saved_pages_empty_title">Does yr un ddalen wedi\'i chadw yma!</string>
-  <string name="saved_pages_empty_message">Mae dalennau sydd wedi\'u cadw yn fendigedig! Meddyliwch amdanynt fel ffefrynau, y medrwch eu darllen pan rydych all-lein.</string>
   <string name="history_empty_title">Does yr un tudalen diweddar yma!</string>
   <string name="history_empty_message">Rydych yn fwy na thebyg wedi eu dileu nhw i gyd! Y tro nesaf yr ymwelwch a thudalen, gallwch fynd yn ôl ati o\'r fan hon.</string>
   <string name="delete_selected_history">Dileu</string>
@@ -114,7 +98,6 @@
   <string name="preferences_general_heading">Cyffredinol</string>
   <string name="wikipedia_app_faq">Ap FAQ Wicipedia</string>
   <string name="zero_charged_verbiage">Mae Wicipedia Sero i ffwrdd</string>
-  <string name="zero_charged_verbiage_extended">Gall llwytho erthyglau eraill achosi costau data.</string>
   <string name="zero_search_hint">Chwiliwch yn Wicipedia Sero</string>
   <string name="zero_warn_when_leaving">Rhybudd os ydych yn gadael Wicipedia Sero</string>
   <string name="zero_webpage_title">FAQ Wicipedia Sero</string>
@@ -156,6 +139,5 @@
   <string name="edit_summary_tag_other_hint">Pethau eraill a wnaethoch i wella\'r dudalen</string>
   <string name="find_next">Canfod y nesaf</string>
   <string name="find_previous">Canfod yr un cynt</string>
-  <string name="saved_pages_update_all_error_retry">Ailgeisio</string>
   <string name="nav_item_donate">Cefnogwch Wicipedia</string>
 </resources>

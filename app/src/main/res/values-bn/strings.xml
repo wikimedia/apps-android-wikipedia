@@ -12,32 +12,18 @@
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="page_error_back_to_main">ফিরে যান</string>
   <string name="menu_clear_all_history">ইতিহাস অপসারণ</string>
-  <string name="menu_clear_all_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার করুন</string>
   <string name="page_does_not_exist_error">এই পাতার অস্তিত্ব নেই।</string>
   <string name="nav_item_today">আজ</string>
   <string name="dialog_title_clear_history">ব্রাউজ ইতিহাস অপসারণ করবেন</string>
   <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
-  <string name="menu_update_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
-  <string name="menu_update_selected_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করুন</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">সংরক্ষিত পাতাগুলি হালনাগাদ করবেন?</string>
   <string name="share_via">শেয়ার</string>
-  <string name="dialog_title_clear_saved_pages">সংরক্ষিত সকল পাতা পরিষ্কার?</string>
-  <string name="snackbar_saving_page">পাতা সংরক্ষণ হচ্ছে…</string>
-  <string name="snackbar_saved_page_format">অফলাইনে পড়ার জন্য \"%s\" সংরক্ষিত হয়েছে</string>
-  <string name="snackbar_saved_page_missing_images">সকল চিত্র সংরক্ষণ সম্ভব হয়নি</string>
-  <string name="snackbar_refresh_saved_page">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে…</string>
-  <string name="delete_selected_saved_pages">অপসারণ</string>
-  <string name="snackbar_saved_page_deleted">সংরক্ষিত পাতা(সমূহ) অপসারণ করা হয়েছে</string>
-  <string name="saved_pages_search_list_hint">সংরক্ষিত পাতা অনুসন্ধান</string>
-  <string name="saved_pages_search_empty_message">আপনার অনুসন্ধানের সাথে মিল আছে এমন কোনো পাতা নেই।</string>
   <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
   <string name="menu_page_content_issues">বিষয়বস্তুর সমস্যা</string>
   <string name="menu_page_similar_titles">অনুরূপ শিরোনাম</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
-  <string name="menu_page_save">পাতা সংরক্ষণ করুন</string>
   <string name="menu_page_add_to_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
   <string name="menu_long_press_open_page">খুলুন</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">প্রবেশ ব্যর্থ :(</string>
   <string name="preference_title_logout">প্রস্থান</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
-  <string name="saved_pages_empty_title">এখানে কোন পাতা সংরক্ষিত হয়নি!</string>
-  <string name="saved_pages_empty_message">সংরক্ষিত পাতা বেশ ভালো। তাদের বুকমার্ক হিসাবে চিন্তা করুন যা এমনকি আপনি অফলাইনে থাকাকালীন আপনি পড়তে পারেন।</string>
   <string name="history_empty_title">এখানে কোন সাম্প্রতিক পাতা নেই।</string>
   <string name="history_empty_message">আপনি সম্ভবত সবকিছু মুছে ফেলেছেন। পরবর্তী সময়ে আপনি একটি পাতায় গেলে আপনি এখানে থেকে তা ফিরে পেতে পারেন।</string>
   <string name="delete_selected_history">অপসারণ</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">সাধারণ</string>
   <string name="wikipedia_app_faq">উইকিপিডিয়া অ্যাপ প্রাজিপ্র</string>
   <string name="zero_charged_verbiage">উইকিপিডিয়া জিরো নিষ্ক্রিয়</string>
-  <string name="zero_charged_verbiage_extended">অন্যান্য নিবন্ধ দেখার জন্য ডাটা চার্জ প্রযোজ্য হতে পারে।</string>
   <string name="zero_search_hint">উইকিপিডিয়া জিরো অনুসন্ধান</string>
   <string name="zero_warn_when_leaving">উইকিপিডিয়া জিরো প্রস্থানের সময় সতর্ক করো</string>
   <string name="zero_warn_when_leaving_summary">যদি আপনার মোবাইল অপারেটর উইকিপিডিয়া জিরো অংশীদারিত্বের মাধ্যমে উইকিপিডিয়া অ্যাপ্লিকেশনের জন্য তথ্য প্রবেশাধিকার চার্জ গ্রহণ না করে, তাহলে এই সেটিং টিকচিহ্ন দিয়ে রাখলে কখন আপনি উইকিপিডিয়া অ্যাপ্লিকেশন ছেড়ে যাচ্ছেন এবং আপনার থেকে চার্জ গ্রহণ করা হতে পারে তা আপনাকে জানাতে সাহায্য করবে।</string>
@@ -185,10 +168,6 @@
   <string name="edit_summary_tag_other_hint">অন্যান্য যে পদ্ধতিতে আপনি পাতাটির মান উন্নয়ন করেছেন</string>
   <string name="find_next">পরবর্তী অনুসন্ধান</string>
   <string name="find_previous">পূর্বেরটি অনুসন্ধান</string>
-  <string name="error_network_error_try_again">নেটওয়ার্কে পৌঁছানো যায়নি, পুনরায় চেষ্টা করুন।</string>
-  <string name="saved_pages_update_all_error_retry">পুনঃচেষ্টা করুন</string>
-  <string name="saved_pages_update_all_error_message">সংরক্ষিত পাতা হালনাগাদকরণে ত্রুটি</string>
-  <string name="saved_pages_progress_title">সংরক্ষিত পাতা পুনঃসতেজ করা হচ্ছে</string>
   <string name="abusefilter_title_warn">এটি অ-গঠনমূলক সম্পাদনা বলে মনে হচ্ছে। আপনি কি নিশ্চিতভাবে এটি সংরক্ষণ করতে চান?</string>
   <string name="abusefilter_title_disallow">আপনি এই সম্পাদনা সংরক্ষণ করতে পারবেন না। দয়া করে ফিরে যান ও এটি পরিবর্তন করুন।</string>
   <string name="abusefilter_text_warn">একটি স্বয়ংক্রিয় ফিল্টার এই সম্পাদনা সম্ভাব্য অ-গঠনমূলক হিসাবে চিহ্নিত করেছে। এতে নিম্নলিখিতগুলি এক বা একাধিক বার থাকতে পারে:&lt;br /&gt;&lt;br /&gt;· নিবন্ধ খালি করা বা স্প্যামিং করা&lt;br /&gt;· অপ্রাসঙ্গিক বাহ্যিক লিঙ্ক বা ছবি&lt;br /&gt;· অক্ষরের পুনরাবৃত্তি</string>
@@ -212,26 +191,6 @@
   <string name="widget_title_featured_page">আজকের নির্বাচিত পাতা:</string>
   <string name="widget_name_search">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="wiktionary_no_definitions_found">কোন সংজ্ঞা পাওয়া যায়নি</string>
-  <string name="app_store_description">এন্ড্রয়েডের জন্য অফিসিয়াল উইকিপিডিয়া অ্যাপ। উইকিপিডিয়া মুক্ত বিশ্বকোষটিতে ২৮০টি ভাষায় ৩২০ লক্ষের অধিক নিবন্ধ রয়েছে, এবং মানুষের তৈরি সবচেয়ে ব্যাপক ও বহুল ব্যবহৃত একটি তথ্যসূত্র।
-
-বৈশিষ্ট্যসমূহ:
-- ভূমিকা চিত্র: নিবন্ধের শীর্ষে প্রসঙ্গ-প্রাসঙ্গিক চিত্র ও বিবরণসহ আগে কখনও না হওয়া উইকিপিডিয়া অভিজ্ঞতা
-- ছবির গ্যালারি: একটি ছবিতে টোকা দিলে তা আপনাকে উচ্চ রেজল্যুশনের চিত্র পুরো পর্দা দেখায়, সেইসাথে বাম/ডানের অতিরিক্ত চিত্র ব্রাউজ করার জন্য ডানে-বামে যাওয়ার অপশন
-- উইকিউপাত্ত থেকে বিবরণ: অনুসন্ধানের সময়, প্রতিটি অনুসন্ধানের ফলাফলে এখন একটি দ্রুত বিবরণ রয়েছে যা ফলাফলের বিষয়বস্তু সম্পর্কে জানতে সাহায্য করে। এছাড়াও এই বিবরণ অ্যাপ্লিকেশন অন্যান্য এলাকায় দেখানো হয়, যেমন কাছাকাছি
-- নিবন্ধ পরামর্শ: আপনি পরে কি পড়তে পারেন সে সম্পর্কে পরামর্শ দেখতে একটি নিবন্ধের নীচে স্ক্রোল করুন
-- সংরক্ষিত পাতা: অফলাইনে পড়ার জন্য পাতা সংরক্ষণ করুন এবং ইন্টারনেট সংযোগ ছাড়াই তাঁদের ব্রাউজ করুন
-- কাছাকাছি: আপনার বর্তমান অবস্থানের কাছাকাছি আপনার চারপাশের জিনিস সম্পর্কিত নিবন্ধের লিংক পাওয়ার দ্বারা আরও জানুন
-- ভাষা সমর্থন: কোন ভাষায় লিখিত উইকিপিডিয়া পড়তে দিবে
-- পরিচ্ছেদসমূহ: পরিচ্ছেদসমূহ আনার জন্য যেকোন নিবন্ধে ডান থেকে বামে ক্রল করুন, যা আপনাকে সহজেই নিবন্ধের অনুচ্ছেদে ঝাঁপ দিতে দিবে
-- উইকিপিডিয়া জিরো: অংশগ্রহণকারী মোবাইল অপারেটরদের জন্য ডেটা চার্জ মওকুফ
-
-অ্যাপ্লিকেশন সম্পর্কে আপনার মতামত পাঠান! মেনুতে, \"আরও\" টিপুন, এরপর \"উইকিপিডিয়া অ্যাপ সম্পর্কে\", এরপর \"অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান\"।
-
-কোড ১০০% মুক্ত উৎসের। আপনার যদি জাভা এবং অ্যান্ড্রয়েড SDK-এর সাথে কাজ করার অভিজ্ঞতা থাকে, তাহলে আমরা আপনার অবদানের অপেক্ষায় থাকলাম! https://github.com/wikimedia/apps-android-wikipedia
-
-গোপনীয়তার নীতি: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-ব্যবহারের শর্তাবলী: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">নতুন আলফা হালনাগাদ উপলব্ধ</string>
   <string name="alpha_update_notification_text">ডাউনলোড করতে টোকা দিন</string>
   <string name="dialog_close_description">বন্ধ</string>

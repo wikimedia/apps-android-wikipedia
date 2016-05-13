@@ -10,29 +10,15 @@
   <string name="error_network_error" fuzzy="true">គ្មានបណ្ដាញតភ្ជាប់ទេ :(</string>
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="menu_clear_all_history">ជម្រះ​ប្រវត្តិ</string>
-  <string name="menu_clear_all_saved_pages">ជម្រះទំព័រ​ដែល​បាន​រក្សា​ទុក​</string>
   <string name="page_does_not_exist_error">គ្មានទំព័រនេះទេ។</string>
   <string name="nav_item_today">ថ្ងៃនេះ</string>
   <string name="dialog_title_clear_history" fuzzy="true">ជម្រះ​ប្រវត្តិរាវរកអ៊ីនធើណិត?</string>
   <string name="dialog_message_clear_history" fuzzy="true">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ប្រវត្តិ​ទាំង​អស់ មែន​ទេ?</string>
   <string name="nav_item_saved_pages">ទំព័រដែលបានរក្សាទុក</string>
-  <string name="menu_update_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
-  <string name="menu_update_selected_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">បន្ទាន់សម័យទំព័រដែលបានរក្សាទុកទាំងអស់ឬ?</string>
   <string name="share_via">ចែក​រំលែក​តាម…</string>
-  <string name="dialog_title_clear_saved_pages">ជម្រះទំព័រ​ដែល​បាន​រក្សា​ទុកទាំងអស់ឬ?</string>
-  <string name="snackbar_saving_page">កំពុង​រក្សា​ទុក​ទំព័រ…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">បាន​រក្សា​ទំព័របានសម្រេច</string>
-  <string name="snackbar_saved_page_missing_images">មិនអាចរក្សាទុករូបភាពទាំងអស់</string>
-  <string name="snackbar_refresh_saved_page">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី…</string>
-  <string name="delete_selected_saved_pages">លុប</string>
-  <string name="snackbar_saved_page_deleted">បាន​លុប​ទំព័រ​ដែល​បាន​រក្សា​ទុក</string>
-  <string name="saved_pages_search_list_hint">ស្វែងរកទំព័រដែលបានរក្សាទុក</string>
-  <string name="saved_pages_search_empty_message">រកមិនឃើញទំព័រត្រូវគ្នាជាមួយពាក្យស្វែងរករបស់អ្នកទេ។</string>
   <string name="menu_page_other_languages" fuzzy="true">អានជាភាសា​ដទៃ​ទៀត</string>
   <string name="menu_page_find_in_page">ស្វែងរកក្នុងទំព័រ</string>
   <string name="menu_page_font_and_theme">ប្រភេទអក្សរនិងរចនាបថ</string>
-  <string name="menu_page_save">រក្សា​ទុក​ទំព័រ</string>
   <string name="menu_page_share" fuzzy="true">ចែក​រំលែក</string>
   <string name="nav_item_nearby">ជិតខាង</string>
   <string name="nearby_distance_in_meters">%d ម</string>
@@ -77,8 +63,6 @@
   <string name="login_error_unknown">កត់ឈ្មោះចូលមិនបានសម្រេច :(</string>
   <string name="preference_title_logout">កត់ឈ្មោះចេញ</string>
   <string name="toast_logout_complete">បាន​កត់ឈ្មោះចេញ​ហើយ</string>
-  <string name="saved_pages_empty_title">គ្មានទំព័រដែលរក្សាទុកនៅទីនេះទេ!</string>
-  <string name="saved_pages_empty_message">ទំព័ររក្សាទុកជាមុខងារអស្ចារ្យមួយ។ អ្នកអាចចាត់ទុកវាជាការកត់ចំណាំ សម្រាប់អោយអ្នកអាចអានអត្ថបទពេលអ្នកនៅក្រៅបណ្ដាញ</string>
   <string name="history_empty_title">គ្មានទំព័រថ្មីៗនៅទីនេះទេ!</string>
   <string name="history_empty_message">អ្នកប្រហែលជាបានលុបវាចោលអស់ហើយ។ លើកក្រោយពេលអ្នកចូលមើលទំព័រមួយ អ្នកអាចត្រឡប់ទៅកាន់ទំព័រនោះពីទីនេះ។</string>
   <string name="delete_selected_history">លុបចោល</string>
@@ -154,10 +138,6 @@
   <string name="edit_summary_tag_other_hint">របៀបផ្សេងទៀតដែលអ្នកបានកែលម្អទំព័រនេះ</string>
   <string name="find_next">ស្វែងរក​បន្ទាប់</string>
   <string name="find_previous">ស្វែងរក​មុន</string>
-  <string name="error_network_error_try_again">មិនអាចភ្ចាប់ទៅបណ្ដាញ។ សូមសាកល្បងម្ដងទៀត។</string>
-  <string name="saved_pages_update_all_error_retry">ព្យាយាមម្ដងទៀត</string>
-  <string name="saved_pages_update_all_error_message">បញ្ហាក្នុងការបន្ទាន់សម័យទំព័រដែលបានរក្សាទុក</string>
-  <string name="saved_pages_progress_title">កំពុងផ្ទុកទំព័រដែលបានរក្សាទុកជាថ្មី</string>
   <string name="abusefilter_title_warn">នេះប្រហែលជាការកែប្រែដែលគ្មានលក្ខណៈស្ថាបនាទេ។ តើអ្នកពិតជាចង់រក្សាវាទុកទេ?</string>
   <string name="abusefilter_title_disallow">អ្នកមិនអាចរក្សាទុកកំណែប្រែនេះទេ។ សូមត្រឡប់ក្រោយហើយកែប្រែវាម្ដងទៀត។</string>
   <string name="dialog_page_issues">បញ្ហារបស់ទំព័រ</string>

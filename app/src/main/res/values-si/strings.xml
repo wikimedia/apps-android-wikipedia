@@ -10,27 +10,15 @@
   <string name="error_network_error">අන්තර්ජාලය වෙත සම්බන්ධ විය නොහැක.</string>
   <string name="page_error_retry">නැවත උත්සහ කරන්න</string>
   <string name="menu_clear_all_history">ඉතිහාසය ඉවත් කරන්න</string>
-  <string name="menu_clear_all_saved_pages">සුරක්ෂිත පිටු හිස් කරන්න</string>
   <string name="page_does_not_exist_error">මෙම පිටුව නොපවතියි.</string>
   <string name="nav_item_today">අද</string>
   <string name="dialog_title_clear_history" fuzzy="true">පිරික්සුම් ඉතිහාසය මකන්න?</string>
   <string name="nav_item_saved_pages">සුරක්ෂිත පිටු</string>
-  <string name="menu_update_all_saved_pages">සුරක්ෂිත පිටු යාවත්කාලීන කරන්න</string>
-  <string name="menu_update_selected_saved_pages">සුරක්ෂිත පිටු යාවත්කාලීන කරන්න</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">සියලුම සුරක්ෂිත පිටු යාවත්කාලීන කරනවද?</string>
   <string name="share_via">මගින් හුවමාරු කරන්න</string>
-  <string name="dialog_title_clear_saved_pages">සියලුම සුරක්ෂිත පිටු හිස් කරනවද?</string>
-  <string name="snackbar_saving_page">පිටුව සුරකිමින්…</string>
-  <string name="snackbar_saved_page_format">\"%s\" පිටුව අන්තර්ජාල සබඳතාව නොමැතිව කියවීම සඳහා සුරකින ලදී</string>
-  <string name="snackbar_saved_page_missing_images">සියලු ඡායාරූප සුරැකීමට නොහැකි විය</string>
-  <string name="delete_selected_saved_pages">මකන්න</string>
-  <string name="saved_pages_search_list_hint">සුරක්ශිත කළ පිටු සොයන්න</string>
-  <string name="saved_pages_search_empty_message">ඔබගේ විමසුම හා ගැලපෙන පිටු සොයාගැනීමට නොමැත.</string>
   <string name="menu_page_show_tabs">ටැබ් පෙන්වන්න</string>
   <string name="menu_page_other_languages" fuzzy="true">වෙනත් භාෂාවලින් කියවන්න</string>
   <string name="menu_page_find_in_page">පිටුවෙහි සොයන්න</string>
   <string name="menu_page_font_and_theme">අකුරු රටාව හා තේමාව</string>
-  <string name="menu_page_save">පිටුව සුරකින්න</string>
   <string name="menu_page_share">සබැඳිය හුවමාරු කරන්න</string>
   <string name="menu_long_press_open_page">විවෘත කරන්න</string>
   <string name="menu_long_press_open_in_new_tab">නව ටැබයක විවෘත කරන්න</string>
@@ -77,7 +65,6 @@
   <string name="login_error_unknown">පිවිසීම අසාර්ථකයි :(</string>
   <string name="preference_title_logout">නික්මීම</string>
   <string name="toast_logout_complete">නික්මී ඇත</string>
-  <string name="saved_pages_empty_title">ආරක්ෂණය කරන ලද පිටු මෙහි නොමැත!</string>
   <string name="history_empty_title">මෑත පිටු මෙහි නොමැත!</string>
   <string name="delete_selected_history">මකන්න</string>
   <string name="wp_stylized">&lt;big&gt;වි&lt;/big&gt;කිපීඩි&lt;big&gt;යා&lt;/big&gt;</string>

@@ -10,30 +10,16 @@
   <string name="error_network_error">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই।</string>
   <string name="page_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="menu_clear_all_history">ইতিহাস মোহাৰক</string>
-  <string name="menu_clear_all_saved_pages">সকলো সাঁচি থোৱা পৃষ্ঠা মচি পেলাওক</string>
   <string name="page_does_not_exist_error">এই নামৰ কোনো পৃষ্ঠা নাই।</string>
   <string name="nav_item_today">আজি</string>
   <string name="dialog_title_clear_history" fuzzy="true">ব্ৰাউজিং ইতিহাস মচি পেলাওক?</string>
   <string name="dialog_message_clear_history" fuzzy="true">সমগ্ৰ ইতিহাস মচি পেলাব বুলি আপুনি নিশ্চিতনে?</string>
   <string name="nav_item_saved_pages">সংৰক্ষিত পৃষ্ঠাসমূহ</string>
-  <string name="menu_update_all_saved_pages">সংৰক্ষিত পৃষ্ঠাসমূহ নবীকৰণ কৰক</string>
-  <string name="menu_update_selected_saved_pages">সংৰক্ষিত পৃষ্ঠাবোৰ নবীকৰণ কৰক</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">সকলো সংৰক্ষিত পৃষ্ঠা নবীকৰণ কৰিব?</string>
   <string name="share_via">শ্বেয়াৰ</string>
-  <string name="dialog_title_clear_saved_pages">সকলো সাঁচি থোৱা পৃষ্ঠা মচি পেলাওক?</string>
-  <string name="snackbar_saving_page">পৃষ্ঠা সাঁচি থোৱা হৈছে…</string>
-  <string name="snackbar_saved_page_format">অফলাইন পঢ়িবৰ বাবে \"%s\" সাঁচি থোৱা হ\'ল</string>
-  <string name="snackbar_saved_page_missing_images">সকলো ছবি সাঁচিব পৰা নগ\'ল</string>
-  <string name="snackbar_refresh_saved_page">সঞ্চিত পৃষ্ঠা পুনঃসতেজ কৰা হৈছে…</string>
-  <string name="delete_selected_saved_pages">বিলোপ</string>
-  <string name="snackbar_saved_page_deleted">সঞ্চিত পৃষ্ঠা(সমূহ) মচি পেলোৱা হৈছে</string>
-  <string name="saved_pages_search_list_hint">সঞ্চিত পৃষ্ঠাসমূহ সন্ধান কৰক</string>
-  <string name="saved_pages_search_empty_message">আপোনাৰ সন্ধানৰ সৈতে মিল থকা কোনো পৃষ্ঠা পোৱা নগ\'ল।</string>
   <string name="menu_page_show_tabs">টেব্‌সমূহ দেখুৱাওক</string>
   <string name="menu_page_other_languages" fuzzy="true">অন্য ভাষাত পঢ়ক</string>
   <string name="menu_page_find_in_page">এই পৃষ্ঠাত বিচাৰক</string>
   <string name="menu_page_font_and_theme">ফ\'ণ্ট আৰু থীম</string>
-  <string name="menu_page_save">পৃষ্ঠা সাঁচক</string>
   <string name="menu_page_share">লিংক শ্বেয়াৰ কৰক</string>
   <string name="menu_long_press_open_page">খোলক</string>
   <string name="menu_long_press_open_in_new_tab">নতুন টেবত খোলক</string>
@@ -87,8 +73,6 @@
   <string name="login_error_unknown">প্ৰৱেশ ব্যৰ্থ :(</string>
   <string name="preference_title_logout">প্ৰস্থান</string>
   <string name="toast_logout_complete">প্ৰস্থান হ\'ল</string>
-  <string name="saved_pages_empty_title">ইয়াত কোনো সঞ্চিত পৃষ্ঠা নাই!</string>
-  <string name="saved_pages_empty_message">সঞ্চিত পৃষ্ঠাসমূহ সঁচাই বঢ়িয়া। আপুনি অফলাইন থকা অৱস্থাতো পঢ়িব পৰাকৈ সেইবোৰ বুক্‌মাৰ্ক বুলি ভাবিব পাৰে।</string>
   <string name="history_empty_title">ইয়াত কোনো শেহতীয়া পৃষ্ঠা নাই!</string>
   <string name="history_empty_message">আপুনি হয়তো গোটেইবোৰ বিলোপ কৰিছে। ইয়াত পাছত আপুনি কোনো পৃষ্ঠালৈ গ\'লে ইয়াতে পুনৰ চাব পাৰিব।</string>
   <string name="delete_selected_history">বিলোপ কৰক</string>
@@ -117,7 +101,6 @@
   <string name="preferences_general_heading">সাধাৰণ</string>
   <string name="wikipedia_app_faq">ৱিকিপিডিয়া এপ্‌ FAQ</string>
   <string name="zero_charged_verbiage">ৱিকিপিডিয়া জিৰ\' বন্ধ হৈ আছে</string>
-  <string name="zero_charged_verbiage_extended">অন্য প্ৰবন্ধ ল\'ড কৰিলে ডে\'টা মূল্য বহন কৰিব লাগিব।</string>
   <string name="zero_search_hint">ৱিকিপিডিয়া জিৰ\' সন্ধান কৰক</string>
   <string name="zero_warn_when_leaving">ৱিকিপিডিয়া জিৰ\' এৰিলে সতৰ্ক কৰিব</string>
   <string name="zero_warn_when_leaving_summary">যদি আপোনাৰ ম\'বাইল অপাৰেটৰে ৱিকিপিডিয়া জিৰ\' সহযোগৰ জৰিয়তে ৱিকিপিডিয়া এপৰ বাবে ডে\'টা মূল্য ৰেহাই দিয়ে, তেন্তে এই ছেটিং সক্ৰিয় কৰি থ\'লে আপুনি ৱিকিপিডিয়াৰ পৰা আঁতৰি গৈ মূল্য বহন কৰিবলগীয়া হ\'লে জানিব পাৰিব।</string>
@@ -173,10 +156,6 @@
   <string name="edit_summary_tag_other_hint">পৃষ্ঠাটো উন্নত কৰাত আপোনাৰ অন্য অৱদান</string>
   <string name="find_next">পৰৱৰ্তী বিচাৰক</string>
   <string name="find_previous">পূৰ্বৱৰ্তী বিচাৰক</string>
-  <string name="error_network_error_try_again">নে\'টৱৰ্ক পোৱা নগ\'ল, অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।</string>
-  <string name="saved_pages_update_all_error_retry">পুনৰ চেষ্টা কৰক</string>
-  <string name="saved_pages_update_all_error_message">সঞ্চিত পৃষ্ঠাসমূহ আপডে\'ট কৰাত ত্ৰুটি হৈছে</string>
-  <string name="saved_pages_progress_title">সঞ্চিত পৃষ্ঠাসমূহ পুনঃসতেজ কৰা হৈছে</string>
   <string name="abusefilter_title_warn">এইটো সম্ভৱ এটা অগঠনমূলক সম্পাদনা। আপুনি এইটো সাঁচিব বুলি নিশ্চিতনে?</string>
   <string name="abusefilter_title_disallow">আপুনি এই সম্পাদনাটো সাঁচিব নোৱাৰে। অনুগ্ৰহ কৰি ঘূৰি গৈ এইটো সলাওক।</string>
   <string name="abusefilter_text_warn">এখন স্বয়ংক্ৰিয় ছেকনীয়ে এই সম্পাদনাটো সম্ভাৱিত অগঠনমূলক বুলি চিহ্নিত কৰিছে। ইয়াত তলৰ এটা বা অধিক থাকিব পাৰে:&lt;br /&gt;&lt;br /&gt;· প্ৰবন্ধ খালি কৰা বা স্পামিং&lt;br /&gt;· অপ্ৰয়োজনীয় বাহ্যিক সংযোগ বা ছবি&lt;br /&gt;· চিহ্নৰ পুনৰাবৃত্তি</string>
@@ -199,26 +178,6 @@
   <string name="widget_name_featured_page">ৱিকিপিডিয়া নিৰ্বাচিত পৃষ্ঠা</string>
   <string name="widget_title_featured_page">আজিৰ নিৰ্বাচিত পৃষ্ঠা:</string>
   <string name="widget_name_search">ৱিকিপিডিয়া সন্ধান</string>
-  <string name="app_store_description">এণ্ড্ৰইডৰ বাবে আনুষ্ঠানিক ৱিকিপিডিয়া এপ্‌। ৱিকিপিডিয়া এখন বিনামূলীয়া বিশ্বকোষ য\'ত ২৮০টা ভাষাত ৩.২ কোটিতকৈও অধিক প্ৰবন্ধ আছে, আৰু ই মানুহে যুগুতাই উলিওৱা সকলোতকৈ বিশদ আৰু সৰ্বাধিক ব্যৱহৃত প্ৰসংগ কৰ্ম।
-
-বৈশিষ্টসমূহ:
-- শীৰ্ষ চিত্ৰ: প্ৰবন্ধৰ শীৰ্ষত স্পষ্ট, প্ৰাসংগিক চিত্ৰ আৰু বৰ্ণনাৰে আগতে নোপোৱা ধৰণৰে ৱিকিপিডিয়াৰ অভিজ্ঞতা লাভ কৰক
-- চিত্ৰ ভঁৰাল: এখন ছবিত টুকুৰিয়ালে আপুনি ছবিখন উচ্চ ৰিজ\'লিউচনত পূৰ্ণ স্ক্ৰীনত দেখা পাব, আৰু লগতে আন ছবি চাবৰ বাবে বাওঁ/সোঁফালে যাবলৈ বিকল্প পাব
-- ৱিকিডে\'টা বিৱৰণ: সন্ধান কৰোঁতে প্ৰতিটো সন্ধান ফলাফলত এতিয়া এটা ক্ষিপ্ৰ বিৱৰণ দেখিব। এই বৰ্ণনাবোৰ এপ্‌টোৰ আন ঠাই যেনে কাষৰীয়াতো পাব। 
-- প্ৰবন্ধ পৰামৰ্শ: প্ৰবন্ধটোৰ তললৈ গ\'লে আপুনি ইয়াৰ পাছত পঢ়িবলৈ পৰামৰ্শ লাভ কৰিব
-- সঞ্চিত পৃষ্ঠা: অফলাইন পঢ়িবৰ বাবে নিৰ্বাচিত পৃষ্ঠা সাঁচি থওক আৰু আপোনাৰ ডে\'টা সযোগ নথাকিলেও সেয়া চাওক
-- কাষৰীয়া: আপোনাৰ বৰ্তমান অৱস্থানৰ ওচৰত থকা বিষয়ৰ প্ৰবন্ধৰ সংযোগেৰে আপোনাৰ ওচৰ-পাজৰৰ তথ্য লভক 
-- ভাষা সমৰ্থন: কোনো অসুবিধা নোহোৱাকৈ অন্য ভাষাত ৱিকিপিডিয়া খোলক
-- বিষয়বস্তুৰ তালিকা: যিকোনো প্ৰবন্ধত বাওঁফালে স্বাইপ কৰি বিষয়বস্তুৰ তালিকা পাব যিয়ে প্ৰবন্ধৰ নিৰ্দিষ্ট অনুচ্ছেদলৈ যোৱাত সহায় কৰিব
-- ৱিকিপিডিয়া জিৰ\': অংশগ্ৰহণ কৰা ম\'বাইল অপাৰেটৰৰ বাবে ডে\'টা মূল্য ৰেহাই
-
-এপ্‌টোৰ বিষয়ে আপোনাৰ প্ৰতিক্ৰিয়া জনাওক! মেনুত \"অধিক\" টিপক, তাৰ পিছত \"ৱিকিপিডিয়া এপ্‌টোৰ বিষয়ে\", তাৰ পিছত \"এপ্‌ প্ৰতিক্ৰিয়া জনাওক\"।
-
-ক\'ডসমূহ ১০০% মুক্ত উৎসৰ। যদি আপোনাৰ জাভা আৰু এণ্ড্ৰইড SDKৰ অভিজ্ঞতা আছে, তেন্তে আমি আপোনাৰ বৰঙণিলৈ বাট চাম! https://github.com/wikimedia/apps-android-wikipedia
-
-Privacy policy: https://m.wikimediafoundation.org/wiki/Privacy_policy
-
-Terms of Use: https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="alpha_update_notification_title">নতুন আলফা আপ্‌ডে\'ট উপলব্ধ</string>
   <string name="alpha_update_notification_text">ডাউনল\'ড কৰিবলৈ টেপ্‌ কৰক</string>
   <string name="dialog_close_description">বন্ধ কৰক</string>

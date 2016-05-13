@@ -11,27 +11,13 @@
   <string name="page_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="page_error_back_to_main">ପଛକୁ ଫେରିବେ</string>
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
-  <string name="menu_clear_all_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠା</string>
   <string name="page_does_not_exist_error">ଏହି ପୃଷ୍ଠାଟି ନାହିଁ ।</string>
   <string name="nav_item_today">ଆଜି</string>
   <string name="dialog_title_clear_history">ଇତିହାସ ଲିଭାଇବେ?</string>
   <string name="dialog_message_clear_history" fuzzy="true">ସମସ୍ତ ପୃଷ୍ଠା ଲିଭାଇବା ବାବଦରେ ଆପଣ ନିଶ୍ଚିତ ତ?</string>
   <string name="nav_item_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
-  <string name="menu_update_all_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>
-  <string name="menu_update_selected_saved_pages">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକୁ ଅପଡେଟ କରିବେ</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">ସବୁ ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକୁ ଅପଡେଟ କରିବେ କି ?</string>
   <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
-  <string name="dialog_title_clear_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ ଲିଭାଇବେ?</string>
-  <string name="snackbar_saving_page">ପୃଷ୍ଠାଟିକୁ ସାଇତା ଯାଉଛି…</string>
-  <string name="snackbar_saved_page_format" fuzzy="true">ପୃଷ୍ଠାଟି ସଫଳତା ପୁର୍ବକ ସାଇତା ଗଲା ।</string>
-  <string name="snackbar_saved_page_missing_images">ସବୁ ଛବି ସାଇତା ଯାଇ ପାରିଲା ନାହିଁ</string>
-  <string name="snackbar_refresh_saved_page">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଅଦ୍ଯତନ କରାଯାଊଛି ।</string>
-  <string name="delete_selected_saved_pages">ଲିଭାନ୍ତୁ</string>
-  <string name="snackbar_saved_page_deleted">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ଲିଭାଗଲା</string>
-  <string name="saved_pages_search_list_hint" fuzzy="true">ଖୋଜିବେ</string>
-  <string name="saved_pages_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
   <string name="menu_page_other_languages" fuzzy="true">ଅନ୍ୟ ଭାଷାରେ ପଢିବେ</string>
-  <string name="menu_page_save">ପୃଷ୍ଠା ସାଇତିବା</string>
   <string name="menu_page_share" fuzzy="true">ବାଣ୍ଟିବେ</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
   <string name="nearby_distance_in_meters">%d ମି</string>
@@ -74,7 +60,6 @@
   <string name="login_error_unknown">ଲଗଇନ ହେଲାନାହିଁ :(</string>
   <string name="preference_title_logout">ଲଗ ଆଉଟ</string>
   <string name="toast_logout_complete">ଲଗ ଆଉଟ ହୋଇଗଲା</string>
-  <string name="saved_pages_empty_message">ସାଇତା ଯାଇଥିବା ପୃଷ୍ଠାଗୁଡିକ ବ‌ହୁତ ଭଲ । ବୁକମାର୍କ କଲା ଭଳି ଆପଣ ଏହାକୁ ଅଫଲାଇନ ବି ପଢିପାରିବେ ।</string>
   <string name="history_empty_message">ଆପଣ ବୋଧେ ସବୁ ଲିଭାଇ ଦେଇଛନ୍ତି । ଆଗକୁ ଆପଣ ଏକ ପୃଷ୍ଠାକୁ ଗଲେ ଏଇଠି ଦେଖିପାରିବେ ।</string>
   <string name="delete_selected_history">ଲିଭାଇବେ</string>
   <string name="create_account_username_hint">ସଭ୍ୟ ନାମ</string>

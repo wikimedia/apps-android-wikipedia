@@ -12,32 +12,18 @@
   <string name="page_error_retry">أعد المحاولة</string>
   <string name="page_error_back_to_main">ارجع إلى الخلف</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
-  <string name="menu_clear_all_saved_pages">امسح الصفحات المحفوظة</string>
   <string name="page_does_not_exist_error">هذه الصفحة غير موجودة.</string>
   <string name="nav_item_today">اليوم</string>
   <string name="dialog_title_clear_history">مسح تاريخ التصفح</string>
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
   <string name="nav_item_saved_pages">الصفحات المحفوظة</string>
-  <string name="menu_update_all_saved_pages">تحديث الصفحات المحفوظة</string>
-  <string name="menu_update_selected_saved_pages">تحديث الصفحات المحفوظة</string>
-  <string name="dialog_prompt_refresh_all_saved_pages">تحديث كل الصفحات المحفوظة؟</string>
   <string name="share_via">مشاركة عبر</string>
-  <string name="dialog_title_clear_saved_pages">مسح كل الصفحات المحفوظة؟</string>
-  <string name="snackbar_saving_page">جارٍ حفظ الصفحة…</string>
-  <string name="snackbar_saved_page_format">حُفظت \"%s\" للقراءة بدون اتصال انترنت</string>
-  <string name="snackbar_saved_page_missing_images">تعذّر حفظ جميع الصور</string>
-  <string name="snackbar_refresh_saved_page">جارٍ تحديث الصفحة المحفوظة</string>
-  <string name="delete_selected_saved_pages">حذف</string>
-  <string name="snackbar_saved_page_deleted">حُذفت الصفحة/الصفحات المحفوظة</string>
-  <string name="saved_pages_search_list_hint">ابحث في الصفحات المحفوظة</string>
-  <string name="saved_pages_search_empty_message">لم يتم العثور على صفحات مطابقة لبحثك.</string>
   <string name="menu_page_show_tabs">أظهر الألسنة</string>
   <string name="menu_page_other_languages">اقرأ بلغات أخرى</string>
   <string name="menu_page_find_in_page">البحث في الصفحة</string>
   <string name="menu_page_content_issues">مشاكل المحتوى</string>
   <string name="menu_page_similar_titles">عناوين مشابهة</string>
   <string name="menu_page_font_and_theme">الخط والمظهر</string>
-  <string name="menu_page_save">حفظ الصفحة</string>
   <string name="menu_page_add_to_list">أضف إلى قائمة القراءة</string>
   <string name="menu_page_share">شارك الوصلة</string>
   <string name="menu_long_press_open_page">افتح</string>
@@ -94,8 +80,6 @@
   <string name="login_error_unknown">فشل تسجيل الدخول :(</string>
   <string name="preference_title_logout">تسجيل الخروج</string>
   <string name="toast_logout_complete">تم تسجيل الخروج</string>
-  <string name="saved_pages_empty_title">لا صفحات  محفوظة هنا!</string>
-  <string name="saved_pages_empty_message">الصفحات المحفوظة خاصيةٌ رائعةٌ جداً، فهي كالمحفوظات التي بإمكانك قراءتها حتى عندما لا تكون متصلًا بالشبكة.</string>
   <string name="history_empty_title">لا صفحات مفتوحة مؤخرًا هنا!</string>
   <string name="history_empty_message">تاريخ تصفحك فارغ، يبدو بأنك قد حذفت جميع مدخلات التاريخ. في المرة القادمة التي تزور فيها إحدى الصفحات بإمكانك العودة إليها مباشرةً من هنا.</string>
   <string name="delete_selected_history">حذف</string>
@@ -124,7 +108,6 @@
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">الأسئلة المتكررة عن تطبيق ويكيبيديا</string>
   <string name="zero_charged_verbiage">ويكيبيديا زيرو معطلة</string>
-  <string name="zero_charged_verbiage_extended">قد يتطلب تحميل مقالات أخرى دفع رسوم بيانات.</string>
   <string name="zero_search_hint">البحث في ويكيبيديا زيرو</string>
   <string name="zero_warn_when_leaving">قم بالتحذير عند ترك ويكيبيديا زيرو</string>
   <string name="zero_warn_when_leaving_summary">إذا تنازل مشغل خدمة الجوال أو المحمول الخاص بك عن رسوم الوصول إلى البيانات لتطبيق ويكيبيديا من خلال شراكة ويكيبيديا زيرو، فإن اختيارك لهذا الإعداد سيساعد  في تنبيهك معرفة متى ستُغادر تطبيق ويكيبيديا وحين دفع رسوم.</string>
@@ -183,10 +166,6 @@
   <string name="edit_summary_tag_other_hint">طرق أخرى استخدمتها لتحسين الصفحة</string>
   <string name="find_next">البحث عن التالي</string>
   <string name="find_previous">البحث عن السابق</string>
-  <string name="error_network_error_try_again">تعذر الوصول للشبكة، الرجاء المحاولة لاحقاً.</string>
-  <string name="saved_pages_update_all_error_retry">إعادة المحاولة</string>
-  <string name="saved_pages_update_all_error_message">حدث خطأ أثناء تحديث الصفحات المحفوظة</string>
-  <string name="saved_pages_progress_title">جارٍ تحديث الصفحات المحفوظة</string>
   <string name="abusefilter_title_warn">هذا التعديل ربما لا يكون بنّاءً. هل أنت متأكد من أنك تريد حفظه؟</string>
   <string name="abusefilter_title_disallow">لا يمكنك حفظ هذا التعديل. فضلًا عُد وغيّره.</string>
   <string name="abusefilter_text_warn">قام مرشحٌ تلقائيٌ بالتعرف على هذا التعديل على أنه قد يكون غير بناءٍ. قد يحتوي التعديل على حالة أو أكثر مما يلي:&lt;br /&gt;&lt;br /&gt;· كتابة الكل بأحرف كبيرة&lt;br /&gt;· إفراغ المقالات أو إضافة وصلات السبام&lt;br /&gt;· إضافة وصلات خارجية أو صور ليست لها صلة بالموضوع&lt;br /&gt;· تكرار أحرف</string>
@@ -210,19 +189,6 @@
   <string name="widget_title_featured_page">صفحة اليوم المختارة:</string>
   <string name="widget_name_search">بحث ويكيبيديا</string>
   <string name="wiktionary_no_definitions_found">لم يتم العثور على تعريفات.</string>
-  <string name="app_store_description">تطبيق ويكيبيديا الرسمي لأندرويد. ويكيبيديا هي موسوعة حرة تحتوي على أكثر من 32 مليون مقالة في 280 لغة. كما أنها الموسوعة الأشمل والأكثر استخداماً على نطاق واسع. وهي أكبر عمل موسوعي جمعته البشرية. تمت إعادة تطوير التطبيق من الصفر وأصبح أفضل من أي وقتٍ مضى.
-
-المميزات:
--السرعة: يمكنك تطبيقنا الأصلي الجديد من تصفح وتحرير ويكيبيديا بسرعة أكبر من ذي قبل.
--التحرير: يمكنك تحرير ويكيبيديا! نحن نشكرك على جميع مساهماتك سواءً كنت مسجل الدخول أم لا.
--الصفحات الحديثة: تحن نوفر لك تاريخ قرائتك حتى تستطيع النقر على أي عدد من الروابط دون الإحساس بالتخبط أو الضياع.
-الصفحات المحفوظة: يمكنك حفظ الصفحات لقرائتها دون اتصال. يمكنك تصفح هذه الصفحات حتى إذا كنت غير متصل بالإنترنت.
--شارك: يمكنك استخدام تطبيقات التواصل الاجتماعي المثبتة لديك للمشاركة في حصيلة المعرفة الإنسانية.
--دعم اللغات: يسمح لك التطبيق التحويل لأي موسوعة ويكيبيدية ذات لغة مختلفة عند القراءة بكل سهولة وسلاسة.
--ويكيبيديا زيرو: يتم التنازل عن رسوم البيانات إذا كان مقدم الخدمة الخاص بك مشترك في هذه الإتفاقية.
-
-الشفرة المصدرية (code) الخاصة بالتطبيق مفتوحة المصدر بالكامل. إذا كانت لديك خبرة مع جافا (Java) وحزمة أدوات تطوير البرمجيات الخاصة بأندرويد (Android SDK) فقم بالتفرع منا! (fork us)
-https://github.com/wikimedia/apps-android-wikipedia</string>
   <string name="alpha_update_notification_title">يتوفّر تحديث ألفا جديد</string>
   <string name="alpha_update_notification_text">اضغط للتنزيل</string>
   <string name="dialog_close_description">إغلاق</string>
