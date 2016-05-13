@@ -1173,6 +1173,18 @@ a.issues_button:active {
   width: 28px;
 }
 
+.content figure {
+  max-width: 100%;
+  -webkit-margin-before: 0 !important;
+  -webkit-margin-after: 0 !important;
+  -webkit-margin-start: 0 !important;
+  -webkit-margin-end: 0 !important;
+}
+.content figure img {
+  margin: .6em auto .6em auto;
+  display: block;
+  clear: both;
+}
 .content figcaption {
   margin: .5em 0 0;
   font-size: .8em;
