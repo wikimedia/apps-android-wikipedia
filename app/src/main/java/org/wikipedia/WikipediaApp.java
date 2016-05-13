@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.Window;
 import android.webkit.WebView;
 
@@ -162,6 +163,9 @@ public class WikipediaApp extends Application {
     public void onCreate() {
         super.onCreate();
         initExceptionHandling();
+
+        // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
         Fresco.initialize(this);
         bus = new Bus();
