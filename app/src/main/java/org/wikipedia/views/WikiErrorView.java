@@ -10,15 +10,15 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static org.wikipedia.util.ThrowableUtil.isRetryable;
 
 public class WikiErrorView extends FrameLayout {
-    @Bind(R.id.error_text) TextView errorTextView;
-    @Bind(R.id.retry_button) Button button;
-    @Bind(R.id.server_message_text) TextView messageTextView;
+    @BindView(R.id.error_text) TextView errorTextView;
+    @BindView(R.id.retry_button) Button button;
+    @BindView(R.id.server_message_text) TextView messageTextView;
 
     @Nullable private OnClickListener retryListener;
     @Nullable private OnClickListener backListener;

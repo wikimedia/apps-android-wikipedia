@@ -1,5 +1,6 @@
 apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 apply from: '../config/quality.gradle'
 
 import com.android.build.gradle.internal.dsl.ProductFlavor;
@@ -159,6 +160,7 @@ dependencies {
     String okHttpVersion = '3.2.0'
     String supportVersion = '23.3.0'
     String espressoVersion = '2.2.1'
+    String butterKnifeVersion = '8.0.1'
 
     compile "com.android.support:appcompat-v7:$supportVersion" // includes support-v4
     compile "com.android.support:cardview-v7:$supportVersion"
@@ -176,13 +178,15 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile 'com.mobsandgeeks:android-saripaar:2.0.3'
     compile 'com.github.ryanjohn1:onboarding:1.0.3'
-    compile 'com.jakewharton:butterknife:7.0.1'
+    compile "com.jakewharton:butterknife:$butterKnifeVersion"
     compile 'com.jakewharton:disklrucache:2.0.2'
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:4.0.0@aar') {
         transitive = true
     }
     compile 'net.hockeyapp.android:HockeySDK:3.7.0'
     compile 'org.apache.commons:commons-lang3:3.4'
+
+    apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'

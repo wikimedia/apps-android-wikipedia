@@ -43,16 +43,16 @@ import org.wikipedia.views.AppTextView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ArticleHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
-    @Bind(R.id.view_article_header_image) ArticleHeaderImageView image;
-    @Bind(R.id.view_article_header_text)
+    @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;
+    @BindView(R.id.view_article_header_text)
     AppTextView text;
-    @Bind(R.id.view_article_header_menu_bar) ArticleMenuBarView menuBar;
+    @BindView(R.id.view_article_header_menu_bar) ArticleMenuBarView menuBar;
 
     @NonNull private CharSequence title = "";
     @NonNull private CharSequence subtitle = "";

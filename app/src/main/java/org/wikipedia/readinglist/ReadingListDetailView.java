@@ -36,16 +36,16 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ReadingListDetailView extends LinearLayout {
-    @Bind(R.id.reading_list_title) TextView titleView;
-    @Bind(R.id.reading_list_count) TextView countView;
-    @Bind(R.id.reading_list_description) GoneIfEmptyTextView descriptionView;
-    @Bind(R.id.contents_list) RecyclerView contentsListView;
-    @Bind(R.id.button_edit) ImageButton editButton;
-    @Bind(R.id.indicator_offline) ImageView offlineView;
+    @BindView(R.id.reading_list_title) TextView titleView;
+    @BindView(R.id.reading_list_count) TextView countView;
+    @BindView(R.id.reading_list_description) GoneIfEmptyTextView descriptionView;
+    @BindView(R.id.contents_list) RecyclerView contentsListView;
+    @BindView(R.id.button_edit) ImageButton editButton;
+    @BindView(R.id.indicator_offline) ImageView offlineView;
 
     @Nullable private ReadingList readingList;
     @Nullable private ReadingListItemActionListener itemActionListener;

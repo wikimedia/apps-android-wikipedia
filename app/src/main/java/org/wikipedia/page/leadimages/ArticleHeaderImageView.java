@@ -10,11 +10,11 @@ import android.widget.FrameLayout;
 
 import org.wikipedia.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ArticleHeaderImageView extends FrameLayout {
-    @Bind(R.id.view_article_header_image_image) ImageViewWithFace image;
+    @BindView(R.id.view_article_header_image_image) ImageViewWithFace image;
 
     public ArticleHeaderImageView(Context context) {
         super(context);

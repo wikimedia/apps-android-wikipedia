@@ -154,15 +154,27 @@
         <module name="InterfaceIsType"/>
         <module name="VisibilityModifier">
             <!-- Butter Knife -->
-            <property name="ignoreAnnotationCanonicalNames" value="Bind" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindArray" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindBitmap" />
             <property name="ignoreAnnotationCanonicalNames" value="BindBool" />
             <property name="ignoreAnnotationCanonicalNames" value="BindColor" />
             <property name="ignoreAnnotationCanonicalNames" value="BindDimen" />
             <property name="ignoreAnnotationCanonicalNames" value="BindDrawable" />
             <property name="ignoreAnnotationCanonicalNames" value="BindInt" />
             <property name="ignoreAnnotationCanonicalNames" value="BindString" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindView" />
+            <property name="ignoreAnnotationCanonicalNames" value="BindViews" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnCheckedChanged" />
             <property name="ignoreAnnotationCanonicalNames" value="OnClick" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnEditorAction" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnFocusChange" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnItemClick" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnItemLongClick" />
             <property name="ignoreAnnotationCanonicalNames" value="OnItemSelected" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnLongClick" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnPageChange" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnTextChanged" />
+            <property name="ignoreAnnotationCanonicalNames" value="OnTouch" />
 
             <!-- Testing -->
             <property name="ignoreAnnotationCanonicalNames" value="Rule" />
