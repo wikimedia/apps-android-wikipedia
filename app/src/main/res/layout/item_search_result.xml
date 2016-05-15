@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/page_list_item_container"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/list_item_vertical_padding"
@@ -15,82 +15,75 @@
     android:background="?attr/selectableItemBackground"
     android:gravity="top">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+  <com.facebook.drawee.view.SimpleDraweeView
+      android:id="@+id/page_list_item_image"
+      android:layout_width="@dimen/defaultListItemSize"
+      android:layout_height="@dimen/defaultListItemSize"
+      android:layout_gravity="center_vertical"
+      android:contentDescription="@null"
+      app:placeholderImage="@drawable/ic_pageimage_placeholder"
+      app:placeholderImageScaleType="centerCrop"
+      app:failureImage="@drawable/ic_pageimage_placeholder"
+      app:failureImageScaleType="centerCrop"
+      app:actualImageScaleType="centerCrop"
+      android:background="@color/window_background_light"/>
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/page_list_item_image"
-            android:layout_width="@dimen/defaultListItemSize"
-            android:layout_height="@dimen/defaultListItemSize"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@null"
-            app:placeholderImage="@drawable/ic_pageimage_placeholder"
-            app:placeholderImageScaleType="centerCrop"
-            app:failureImage="@drawable/ic_pageimage_placeholder"
-            app:failureImageScaleType="centerCrop"
-            app:actualImageScaleType="centerCrop"
-            android:background="@color/window_background_light"/>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:layout_marginLeft="@dimen/list_item_text_horizontal_padding"
+      android:layout_marginStart="@dimen/list_item_text_horizontal_padding"
+      android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/list_item_text_horizontal_padding"
-            android:layout_marginStart="@dimen/list_item_text_horizontal_padding"
-            android:orientation="vertical">
+      <TextView
+          android:id="@+id/page_list_item_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          style="@style/RtlAwareTextView"
+          android:textSize="@dimen/textSize"
+          android:ellipsize="end"
+          android:maxLines="2"
+          android:textColor="?attr/list_item_text_primary_color"
+          tools:text="Lorem ipsum" />
 
-            <TextView
-                android:id="@+id/page_list_item_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:textSize="@dimen/textSize"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="?attr/list_item_text_primary_color"
-                tools:text="Lorem ipsum" />
+      <LinearLayout
+          android:id="@+id/page_list_item_redirect_container"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_marginBottom="4dp"
+          android:alpha="0.5"
+          android:orientation="horizontal">
+          <ImageView
+              android:layout_width="16dp"
+              android:layout_height="16dp"
+              app:srcCompat="@drawable/ic_subdirectory_arrow_right_black_24dp"
+              android:tint="?attr/list_item_text_secondary_color"
+              android:contentDescription="@null"/>
+          <org.wikipedia.views.GoneIfEmptyTextView
+              android:id="@+id/page_list_item_redirect"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              style="@style/RtlAwareTextView"
+              android:textAppearance="?android:attr/textAppearanceSmall"
+              android:ellipsize="end"
+              android:maxLines="2"
+              android:textColor="?attr/list_item_text_secondary_color"
+              tools:text="Redirected from..."
+              />
+      </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/page_list_item_redirect_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="4dp"
-                android:alpha="0.5"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    app:srcCompat="@drawable/ic_subdirectory_arrow_right_black_24dp"
-                    android:tint="?attr/list_item_text_secondary_color"
-                    android:contentDescription="@null"/>
-                <org.wikipedia.views.GoneIfEmptyTextView
-                    android:id="@+id/page_list_item_redirect"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/RtlAwareTextView"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:textColor="?attr/list_item_text_secondary_color"
-                    tools:text="Redirected from..."
-                    />
-            </LinearLayout>
-
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/page_list_item_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/RtlAwareTextView"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="?attr/list_item_text_secondary_color"
-                tools:text="Sample description"
-                />
-
-        </LinearLayout>
-    </LinearLayout>
+      <org.wikipedia.views.GoneIfEmptyTextView
+          android:id="@+id/page_list_item_description"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          style="@style/RtlAwareTextView"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          android:ellipsize="end"
+          android:maxLines="2"
+          android:textColor="?attr/list_item_text_secondary_color"
+          tools:text="Sample description"
+          />
+  </LinearLayout>
 </LinearLayout>
