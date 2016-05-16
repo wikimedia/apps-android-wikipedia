@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">これはあなたの閲覧履歴をすべて消去し、現在開いているタブを閉じます。よろしいですか？</string>
   <string name="nav_item_saved_pages">保存したページ</string>
   <string name="share_via">共有する</string>
+  <string name="search_redirect_from">%s からリダイレクト</string>
   <string name="menu_page_show_tabs">タブを表示</string>
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
@@ -187,7 +188,7 @@
   <string name="table_infobox">基本データ</string>
   <string name="table_other">さらに見る</string>
   <string name="table_close">閉じる</string>
-  <string name="widget_name_featured_page">今日の秀逸な記事</string>
+  <string name="widget_name_featured_page">ウィキペディアの秀逸な記事</string>
   <string name="widget_title_featured_page">今日の秀逸な記事</string>
   <string name="widget_name_search">ウィキペディアを検索</string>
   <string name="wiktionary_no_definitions_found">語釈が見つかりませんでした。</string>
@@ -219,7 +220,7 @@
   <string name="gallery_uploader_unknown">アップロード者不明</string>
   <string name="menu_new_tab">新規タブ</string>
   <string name="button_close_tab">タブを閉じる</string>
-  <string name="tool_tip_select_text">コピーと共有のためにテキストを選択するには、テキストのどこかを長押ししてください。</string>
+  <string name="tool_tip_select_text">テキストのどこかを長押しすると、コピーしてシェアするテキストを選択できます。</string>
   <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSで共有しましょう!</string>
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
   <string name="tool_tip_toc_button">このボタンをタップするか、画面右側からスライドすると、いつでも目次が呼び出せます。</string>
@@ -247,9 +248,9 @@
 アプリを再起動しますか? 終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">オフラインでも閲読できるように記事を保存します</string>
+  <string name="article_menu_bar_bookmark">この記事をあとで読むリストに追加</string>
   <string name="article_menu_bar_share">記事のリンクを共有します</string>
-  <string name="article_menu_bar_navigate">記事の場所に移動します</string>
+  <string name="article_menu_bar_navigate">記事の対象が実際にある場所までご案内します</string>
   <string name="nav_item_reading_lists">あとで読むリスト</string>
   <string name="reading_list_untitled">題名なし</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
@@ -257,7 +258,7 @@
   <string name="reading_list_added_to_named">%s に追加しました</string>
   <string name="reading_list_added_to_unnamed">あとで読むリストに追加しました</string>
   <string name="reading_list_already_exists">この記事は既にリストにあります</string>
-  <string name="reading_list_added_view_button" fuzzy="true">表示</string>
+  <string name="reading_list_added_view_button">リストを表示</string>
   <string name="reading_list_item_count_singular">1記事</string>
   <string name="reading_list_item_count_plural">%s記事</string>
   <string name="reading_list_sort">並べ替え</string>
@@ -268,7 +269,7 @@
   <string name="reading_list_name_sample">あなたのあとで読むリスト</string>
   <string name="reading_list_name_hint">このリストの名称</string>
   <string name="reading_list_description_hint">説明 (省略可)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">$1 をオフラインで読むために保存</string>
+  <string name="reading_list_save_for_offline">オフラインで参照可能</string>
   <string name="reading_list_item_deleted">%s はリストから削除されました</string>
   <string name="reading_list_item_delete_undo">取り消す</string>
   <string name="reading_list_deleted">%s は削除されました</string>
@@ -277,7 +278,11 @@
   <string name="reading_list_delete_confirm">あとで読むリストを本当に削除しますか?</string>
   <string name="reading_lists_empty">あとで読むリストはありません</string>
   <string name="reading_lists_empty_message">あとで読むリストで記事を整理しましょう。記事を読んでいるときに上部のブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">あとで読むリストを使って、後から読みたい記事をまとめておきましょう。</string>
+  <string name="reading_lists_onboarding_intro">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
+  <string name="reading_lists_onboarding_for_example">例えば</string>
+  <string name="reading_lists_onboarding_example1">行ってみたい場所</string>
+  <string name="reading_lists_onboarding_example2">好きな動物</string>
+  <string name="reading_lists_onboarding_example3">宇宙！</string>
   <string name="reading_lists_onboarding_got_it">わかりました</string>
-  <string name="user_option_sync_label">個人設定</string>
+  <string name="user_option_sync_label">設定</string>
 </resources>

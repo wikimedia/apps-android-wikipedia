@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">사용자의 모든 방문 기록을 지우고 현재 열려있는 모든 창을 닫습니다. 정말 그렇게 하시겠습니까?</string>
   <string name="nav_item_saved_pages">저장된 문서</string>
   <string name="share_via">다음을 통해 공유</string>
+  <string name="search_redirect_from">%s에서 넘어옴</string>
   <string name="menu_page_show_tabs">탭 보기</string>
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
@@ -245,7 +246,7 @@
 다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>
   <string name="crash_report_quit">종료</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">오프라인에서 읽기 위하여 이 문서를 저장하기</string>
+  <string name="article_menu_bar_bookmark">이 문서를 읽기 목록에 추가하기</string>
   <string name="article_menu_bar_share">문서 링크 공유</string>
   <string name="article_menu_bar_navigate">문서의 위치 찾기</string>
   <string name="nav_item_reading_lists">읽기 목록</string>
@@ -255,7 +256,7 @@
   <string name="reading_list_added_to_named">%s에 추가했습니다.</string>
   <string name="reading_list_added_to_unnamed">읽기 목록에 추가되었습니다.</string>
   <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">보기</string>
+  <string name="reading_list_added_view_button">목록 보기</string>
   <string name="reading_list_item_count_singular">1개의 문서</string>
   <string name="reading_list_item_count_plural">%s개의 문서</string>
   <string name="reading_list_sort">정렬</string>
@@ -266,7 +267,7 @@
   <string name="reading_list_name_sample">내 읽기 목록</string>
   <string name="reading_list_name_hint">이 목록의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">오프라인에서도 읽을 수 있게 저장</string>
+  <string name="reading_list_save_for_offline">오프라인 읽기 허용</string>
   <string name="reading_list_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
   <string name="reading_list_item_delete_undo">실행 취소</string>
   <string name="reading_list_deleted">%s이(가) 삭제되었습니다</string>
@@ -275,7 +276,11 @@
   <string name="reading_list_delete_confirm">이 읽기 목록을 삭제하시겠습니까?</string>
   <string name="reading_lists_empty">여기에 읽기 목록이 없습니다.</string>
   <string name="reading_lists_empty_message">사용자가 찾아본 글들을 읽기 목록에 정리합니다! 글을 찾아볼 때 문서 상단의 즐겨찾기 아이콘을 탭하면 읽기 목록에 글을 추가합니다.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">나중에 읽고 싶은 글들을 읽기 목록에 정리합니다.</string>
+  <string name="reading_lists_onboarding_intro">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
+  <string name="reading_lists_onboarding_for_example">예를 들어</string>
+  <string name="reading_lists_onboarding_example1">방문할 장소</string>
+  <string name="reading_lists_onboarding_example2">좋아하는 동물</string>
+  <string name="reading_lists_onboarding_example3">우주!</string>
   <string name="reading_lists_onboarding_got_it">알겠습니다</string>
   <string name="user_option_sync_label">환경 설정</string>
 </resources>

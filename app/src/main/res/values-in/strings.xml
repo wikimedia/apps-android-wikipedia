@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penjelajahan Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
   <string name="nav_item_saved_pages">Halaman tersimpan</string>
   <string name="share_via">Berbagi melalui</string>
+  <string name="search_redirect_from">Dialihkan dari %s</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
   <string name="menu_page_other_languages">Ganti bahasa</string>
   <string name="menu_page_find_in_page">Cari di halaman</string>
@@ -247,7 +248,7 @@
 Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
   <string name="crash_report_quit">Keluar</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Simpan artikel secara luring untuk dibaca nanti</string>
+  <string name="article_menu_bar_bookmark">Tambahkan artikel ini ke dalam daftar bacaan</string>
   <string name="article_menu_bar_share">Berbagi pranala artikel</string>
   <string name="article_menu_bar_navigate">Navigasikan ke lokasi dari artikel</string>
   <string name="nav_item_reading_lists">Daftar bacaan</string>
@@ -257,7 +258,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_added_to_named">Ditambahkan ke %s.</string>
   <string name="reading_list_added_to_unnamed">Ditambahkan ke daftar bacaan.</string>
   <string name="reading_list_already_exists">Artikel ini sudah ada dalam daftar itu.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Lihat</string>
+  <string name="reading_list_added_view_button">Lihat daftar</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
   <string name="reading_list_item_count_plural">%s artikel</string>
   <string name="reading_list_sort">Urutkan</string>
@@ -268,7 +269,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
   <string name="reading_list_name_hint">Nama daftar ini</string>
   <string name="reading_list_description_hint">Deskripsi (opsional)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Simpan untuk dibaca secara luring</string>
+  <string name="reading_list_save_for_offline">Tersedia untuk dibaca secara luring</string>
   <string name="reading_list_item_deleted">%s dihapus dari daftar</string>
   <string name="reading_list_item_delete_undo">Urungkan</string>
   <string name="reading_list_deleted">%s terhapus</string>
@@ -277,7 +278,11 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus daftar bacaan ini?</string>
   <string name="reading_lists_empty">Tidak ada daftar bacaan di sini.</string>
   <string name="reading_lists_empty_message">Susun artikel yang Anda jelajah ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, sentuh ikon markah pada bagian atas artikel untuk menambahkannya ke daftar bacaan.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Menyusun artikel yang ingin Anda baca kemudian ke dalam daftar bacaan.</string>
+  <string name="reading_lists_onboarding_intro">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan ketika Anda sedang luring!</string>
+  <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
+  <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
+  <string name="reading_lists_onboarding_example2">Hewan kesukaan</string>
+  <string name="reading_lists_onboarding_example3">Luar angkasa!</string>
   <string name="reading_lists_onboarding_got_it">Mengerti</string>
   <string name="user_option_sync_label">Preferensi</string>
 </resources>

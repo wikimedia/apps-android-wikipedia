@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="nav_item_saved_pages">דפים שמורים</string>
   <string name="share_via">שיתוף באמצעות</string>
+  <string name="search_redirect_from">הופנה מהדף %s</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בדף</string>
@@ -247,7 +248,7 @@
 האם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
   <string name="crash_report_quit">לצאת</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">שמירת ערך לקריאה בלי רשת אחר־כך</string>
+  <string name="article_menu_bar_bookmark">הוספת הערך הזה לרשימת קריאה</string>
   <string name="article_menu_bar_share">שיתוף קישור לערך</string>
   <string name="article_menu_bar_navigate">מעבר למקום בתוך ערך</string>
   <string name="nav_item_reading_lists">רשימות קריאה</string>
@@ -257,7 +258,7 @@
   <string name="reading_list_added_to_named">נוסף לרשימה %s.</string>
   <string name="reading_list_added_to_unnamed">הוספה לרשימת קריאה.</string>
   <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">הצגה</string>
+  <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="reading_list_item_count_singular">ערך אחד</string>
   <string name="reading_list_item_count_plural">%s ערכים</string>
   <string name="reading_list_sort">מיון</string>
@@ -268,7 +269,7 @@
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">שמירה לקריאה ללא חיבור לרשת</string>
+  <string name="reading_list_save_for_offline">זמין לקריאה ללא רשת</string>
   <string name="reading_list_item_deleted">%s הוסר מהרשימה</string>
   <string name="reading_list_item_delete_undo">ביטול</string>
   <string name="reading_list_deleted">%s נמחק</string>
@@ -277,7 +278,11 @@
   <string name="reading_list_delete_confirm">האם ברצונך באמת למחוק את רשימת הקריאה הזאת?</string>
   <string name="reading_lists_empty">אין כאן רשימות קריאה.</string>
   <string name="reading_lists_empty_message">ארגנו את הערכים שאתם גולשים בהם לרשימת קריאה! בעת קריאת ערך, לחצו על סמל הסימנייה בראש הערך כדי להוסיף אותו לרשימת קריאה.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">ארגנו ערכים שאתם רוצים לקרוא מאוחר יותר לרשימות קריאה.</string>
+  <string name="reading_lists_onboarding_intro">צרו רשימת קריאה מערכים שאתם רוצים לקרוא אחר־כך, אפילו בלי רשת!</string>
+  <string name="reading_lists_onboarding_for_example">למשל</string>
+  <string name="reading_lists_onboarding_example1">מקומות לבקר בהם</string>
+  <string name="reading_lists_onboarding_example2">חיות אהובות</string>
+  <string name="reading_lists_onboarding_example3">חלל!</string>
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="user_option_sync_label">העדפות</string>
 </resources>

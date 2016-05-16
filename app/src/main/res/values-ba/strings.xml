@@ -252,16 +252,16 @@
   <string name="reading_list_create_new">Яңыны төҙөргә</string>
   <string name="reading_list_added_to_named">%s өҫтәлде.</string>
   <string name="reading_list_added_to_unnamed">Уҡыу исемлегенә өҫтәлде.</string>
-  <string name="reading_list_already_exists">Мәҡәлә был исемлектә бар инде.</string>
+  <string name="reading_list_already_exists">Был исемлектә мәҡәлә бар инде.</string>
   <string name="reading_list_added_view_button" fuzzy="true">Ҡарау</string>
   <string name="reading_list_item_count_singular">1 мәҡәлә</string>
-  <string name="reading_list_item_count_plural">%s мәҡәлә</string>
+  <string name="reading_list_item_count_plural">%s мәҡәләләр</string>
   <string name="reading_list_sort">Сортҡа айырыу</string>
-  <string name="reading_list_sort_by_name">Исем буйынса</string>
+  <string name="reading_list_sort_by_name">Исемләп</string>
   <string name="reading_list_sort_by_recent">Дата буйынса</string>
-  <string name="reading_list_menu_edit">Мәғлүмәтте уҡыу исемлеге буйынса мөхәррирләргә</string>
+  <string name="reading_list_menu_edit">Уҡыу исемлеге буйынса мәғлүмәтте мөхәррирләргә</string>
   <string name="reading_list_menu_delete">Уҡыу исемлеген юйырға</string>
-  <string name="reading_list_name_sample">Минең уҡыу исемлеге</string>
+  <string name="reading_list_name_sample">Уҡыу исемлегем</string>
   <string name="reading_list_name_hint">Был исемлек атамаһы</string>
   <string name="reading_list_description_hint">Тасуирлама (мотлаҡ түгел)</string>
   <string name="reading_list_save_for_offline" fuzzy="true">Үҙаллы режимда уҡыу өсөн һаҡларға</string>
@@ -271,6 +271,10 @@
   <string name="reading_list_edit_ok">Яҡшы</string>
   <string name="reading_list_edit_cancel">Кире алыу</string>
   <string name="reading_lists_empty">Уҡыу исемлектәре юҡ әле.</string>
-  <string name="reading_lists_onboarding_got_it">Аңлашылды</string>
+  <string name="reading_lists_onboarding_for_example">Мәҫәлән</string>
+  <string name="reading_lists_onboarding_example1">Барыу урындары</string>
+  <string name="reading_lists_onboarding_example2">Яратҡан хайуандар</string>
+  <string name="reading_lists_onboarding_example3">Йыһан!</string>
+  <string name="reading_lists_onboarding_got_it">Аңланым</string>
   <string name="user_option_sync_label">Көйләүҙәр</string>
 </resources>

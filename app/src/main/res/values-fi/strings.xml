@@ -17,7 +17,8 @@
   <string name="dialog_title_clear_history">Selaushistorian tyhjennys</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi sekä sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="nav_item_saved_pages">Tallennetut sivut</string>
-  <string name="share_via">Jaa palvelulla</string>
+  <string name="share_via">Jaa palvelussa</string>
+  <string name="search_redirect_from">Uudelleenohjattu sivulta %s</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
   <string name="menu_page_other_languages">Vaihda kieltä</string>
   <string name="menu_page_find_in_page">Etsi sivulta</string>
@@ -37,7 +38,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Lähennä kartalla olevaan kohteeseen</string>
-  <string name="last_updated_text">Viimeksi päivitetty %1$s</string>
+  <string name="last_updated_text">Päivitetty viimeksi %s</string>
   <string name="content_license_html">Sisältö on saatavilla &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin alla ellei toisin ilmoiteta</string>
   <string name="edit_save_action_license_logged_in">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="edit_save_action_license_anon">Tallentamalla hyväksyt &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
@@ -54,14 +55,14 @@
   <string name="dialog_message_edit_failed">Muokkaus epäonnistui!</string>
   <string name="dialog_message_edit_failed_retry">Yritä uudelleen</string>
   <string name="dialog_message_edit_failed_cancel">Peru</string>
-  <string name="dialog_message_leaving_edit">Muutoksia ei ole päivitetty vielä. Haluatko varmasti poistua sivulta?</string>
+  <string name="dialog_message_leaving_edit">Muutoksia ei ole vielä tallennettu. Haluatko varmasti poistua sivulta?</string>
   <string name="dialog_message_leaving_edit_leave">Poistu</string>
   <string name="dialog_message_leaving_edit_stay">Jää</string>
   <string name="menu_show_toc">Sisällysluettelo</string>
   <string name="search_no_results_found">Tuloksia ei löytynyt</string>
-  <string name="edit_section_captcha_message">Syötä alla näkyvät sanat (auttaa suojautumaan automaattiselta spämmiltä)</string>
+  <string name="edit_section_captcha_message">Kirjoita alla olevat sanat roskapostin torjumiseksi</string>
   <string name="edit_section_captcha_hint">Toista edeltävät sanat</string>
-  <string name="title_captcha">Syötä captcha</string>
+  <string name="title_captcha">Kirjoita roskapostisuojauksen kirjaimet</string>
   <string name="edit_section_captcha_reload">Lataa uusi napauttamalla</string>
   <string name="edit_saved_page_refresh">Tämä tallennettu sivu saattaa olla vanhentunut ja se tulee päivittää, jotta muokkaaminen on mahdollista. Haluatko päivittää sivun?</string>
   <string name="nav_item_login">Kirjaudu sisään Wikipediaan</string>
@@ -80,7 +81,7 @@
   <string name="login_error_unknown">Kirjautuminen epäonnistui :(</string>
   <string name="preference_title_logout">Kirjaudu ulos</string>
   <string name="toast_logout_complete">Kirjauduit ulos</string>
-  <string name="history_empty_title">Ei tuoreita sivuja täällä.</string>
+  <string name="history_empty_title">Ei tuoreita sivuja.</string>
   <string name="history_empty_message">Olet todennäköisesti poistanut ne kaikki. Seuraavalla kerralla kun menet sivulle, voit palata sinne tätä kautta.</string>
   <string name="delete_selected_history">Poista</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -94,11 +95,11 @@
   <string name="create_account_passwords_mismatch_error">Salasanat eivät täsmää</string>
   <string name="create_account_email_error">Virheellinen sähköpostiosoite</string>
   <string name="create_account_username_exists_error">Käyttäjätunnus on jo käytössä</string>
-  <string name="create_account_ip_throttle_error">Liian monta tiliä luotu tältä IP-osoitteelta. Yritä uudelleen myöhemmin.</string>
-  <string name="create_account_open_proxy_error">Tältä IP-osoitteelta on estetty tilien luominen.</string>
-  <string name="create_account_noname_error">Syöttämäsi käyttäjänimi ei kelpaa. Anna toinen käyttäjänimi.</string>
-  <string name="create_account_invalid_email_error">Syöttämäsi sähköpostiosoite ei kelpaa.</string>
-  <string name="create_account_password_too_short_error">Syöttämäsi salasana on liian lyhyt.</string>
+  <string name="create_account_ip_throttle_error">Tällä IP-osoitteella on luotu liian monta tiliä. Yritä uudelleen myöhemmin.</string>
+  <string name="create_account_open_proxy_error">Tilien luominen tällä IP-osoitteella on estetty.</string>
+  <string name="create_account_noname_error">Valittu käyttäjänimi ei kelpaa. Anna toinen käyttäjänimi.</string>
+  <string name="create_account_invalid_email_error">Syötetty sähköpostiosoite ei kelpaa.</string>
+  <string name="create_account_password_too_short_error">Valittu salasana on liian lyhyt.</string>
   <string name="create_account_blocked_anon_error">Et voi luoda tiliä, koska IP-osoitteesi on estetty.</string>
   <string name="create_account_blocked_error">Et voi luoda tiliä, koska tilisi on estetty.</string>
   <string name="create_account_password_name_match_error">Käyttäjänimesi ja salasanasi on oltava erilaisia.</string>
@@ -126,7 +127,7 @@
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
   <string name="preferences_privacy_settings_heading">Yksityisyys</string>
   <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
-  <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja siitä, miten käytät sovellusta, jotta sovellusta voidaan parantaa</string>
+  <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja sovelluksen käyttötottumuksista käyttäjäkokemuksen parantamiseksi.</string>
   <string name="preference_title_auto_upload_crash_reports">Lähetä kaatumisilmoituksia</string>
   <string name="preference_summary_auto_upload_crash_reports">Salli sovelluksen lähettää kaatumisilmoituksia HockeyAppille / kolmannen osapuolen palveluntarjoajalle automaattisesti, jotta voimme käydä läpi kaatumisesi ja korjata ongelman nopeammin ja helpommin.</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
@@ -165,7 +166,7 @@
   <string name="edit_summary_tag_grammar">Kielioppia korjattu</string>
   <string name="edit_summary_tag_links">Lisätty linkkejä</string>
   <string name="edit_summary_tag_other">Muu</string>
-  <string name="edit_summary_tag_other_hint">Millä muulla tavoin paransit sivua</string>
+  <string name="edit_summary_tag_other_hint">Muita sivulle tehtyjä parannuksia</string>
   <string name="find_next">Etsi seuraava</string>
   <string name="find_previous">Etsi edellinen</string>
   <string name="abusefilter_title_warn">Tämä saattaa olla haitallinen muokkaus. Haluatko varmasti tallentaa sen?</string>
@@ -192,7 +193,7 @@
   <string name="widget_name_search">Wikipedia-haku</string>
   <string name="wiktionary_no_definitions_found">Määritelmiä ei löytynyt.</string>
   <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
-  <string name="alpha_update_notification_text">Napauta ladataksesi</string>
+  <string name="alpha_update_notification_text">Lataa napauttamalla</string>
   <string name="dialog_close_description">Sulje</string>
   <string name="preference_title_show_images">Näytä kuvat</string>
   <string name="preference_summary_show_images">Ota käyttöön tai poista käytöstä kuvien lataaminen sivuilla. Ota tämä asetus pois käytöstä, jos Internet-yhteytesi on hidas tai jos datayhteytesi on rajoitettu.</string>
@@ -247,7 +248,7 @@
 Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="crash_report_relaunch">Aloita alusta</string>
   <string name="crash_report_quit">Poistu</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Tallenna artikkeli offline-tilassa lukemista varten</string>
+  <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulistaan</string>
   <string name="article_menu_bar_share">Jaa artikkelin linkki</string>
   <string name="article_menu_bar_navigate">Navigoi artikkelin sijaintiin</string>
   <string name="nav_item_reading_lists">Lukulistat</string>
@@ -257,7 +258,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_added_to_named">Lisätty listalle %s.</string>
   <string name="reading_list_added_to_unnamed">Lisätty lukulistaan.</string>
   <string name="reading_list_already_exists">Tämä artikkeli on jo listalla.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Näytä</string>
+  <string name="reading_list_added_view_button">Näytä luettelo</string>
   <string name="reading_list_item_count_singular">1 artikkeli</string>
   <string name="reading_list_item_count_plural">%s artikkelia</string>
   <string name="reading_list_sort">Lajittele</string>
@@ -268,7 +269,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_name_sample">Oma lukulista</string>
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Tallenna luettavaksi yhteydettömässä tilassa</string>
+  <string name="reading_list_save_for_offline">Saatavilla yhteydettömässä tilassa</string>
   <string name="reading_list_item_deleted">%s poistettu listalta</string>
   <string name="reading_list_item_delete_undo">Kumoa</string>
   <string name="reading_list_deleted">%s poistettu</string>
@@ -277,7 +278,10 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa tämän lukulistan?</string>
   <string name="reading_lists_empty">Ei lukulistoja.</string>
   <string name="reading_lists_empty_message">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta artikkelin yläosassa lisätäksesi sen lukulistaan.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Järjestä artikkelit, jotka haluat lukea myöhemmin, lukulistoiksi.</string>
+  <string name="reading_lists_onboarding_intro">Luo lukulistoja artikkeleista, jotka haluat lukea myöhemmin, jopa verkkoyhteydettömässä tilassa!</string>
+  <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
+  <string name="reading_lists_onboarding_example1">Paikat, joissa käydä</string>
+  <string name="reading_lists_onboarding_example2">Suosikkieläimet</string>
   <string name="reading_lists_onboarding_got_it">Selvä</string>
   <string name="user_option_sync_label">Asetukset</string>
 </resources>

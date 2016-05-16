@@ -363,8 +363,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_added_to_named">Message shown when an article is added to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_added_to_unnamed">Message shown when an article is added to an untitled reading list.</string>
   <string name="reading_list_already_exists">Message shown when an article already exists in the selected reading list.</string>
-  <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.
-{{Identical|View}}</string>
+  <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
   <string name="reading_list_item_count_singular">Label when a reading list contains one article (singular).</string>
   <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%s\" symbol is replaced with the number of articles.
 {{Identical|Article}}</string>
@@ -393,7 +392,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_lists_onboarding_for_example">Label stating that the items below are examples of reading list titles.</string>
   <string name="reading_lists_onboarding_example1">First example of a reading list title</string>
   <string name="reading_lists_onboarding_example2">Second example of a reading list title</string>
-  <string name="reading_lists_onboarding_example3">Third example of a reading list title</string>
+  <string name="reading_lists_onboarding_example3">Third example of a reading list title
+{{Identical|Space}}</string>
   <string name="reading_lists_onboarding_got_it">Button label to dismiss the onboarding screen.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>

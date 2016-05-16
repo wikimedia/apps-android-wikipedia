@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Hierdoor wordt uw volledige browsergeschiedenis gewist en worden alle huidige open tabbladen gesloten. Weet u het zeker?</string>
   <string name="nav_item_saved_pages">Opgeslagen pagina\'s</string>
   <string name="share_via">Delen via</string>
+  <string name="search_redirect_from">Doorverwezen vanaf %s</string>
   <string name="menu_page_show_tabs">Tabbladen weergeven</string>
   <string name="menu_page_other_languages">Taal wijzigen</string>
   <string name="menu_page_find_in_page">Op pagina zoeken</string>
@@ -245,5 +246,6 @@
   <string name="article_menu_bar_bookmark" fuzzy="true">Pagina opslaan voor offline lezen</string>
   <string name="article_menu_bar_share">Koppeling naar pagina delen</string>
   <string name="article_menu_bar_navigate">Naar de locatie van de pagina navigeren</string>
+  <string name="reading_lists_onboarding_example1">Plaatsen om te bezoeken</string>
   <string name="user_option_sync_label">Voorkeuren</string>
 </resources>

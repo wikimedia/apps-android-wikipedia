@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="nav_item_saved_pages">Зачувани страници</string>
   <string name="share_via">Сподели преку</string>
+  <string name="search_redirect_from">Пренасочено од %s</string>
   <string name="menu_page_show_tabs">Прикажи јазичиња</string>
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди на страницата</string>
@@ -247,7 +248,7 @@
 Дали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
   <string name="crash_report_quit">Излези</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Зачувај ја статијава за читање вон линија</string>
+  <string name="article_menu_bar_bookmark">Додај ја статијава во списокот за читање</string>
   <string name="article_menu_bar_share">Сподели врска за статијата</string>
   <string name="article_menu_bar_navigate">Оди на местото на статијата</string>
   <string name="nav_item_reading_lists">Списоци за читање</string>
@@ -257,7 +258,7 @@
   <string name="reading_list_added_to_named">Додадено во %s.</string>
   <string name="reading_list_added_to_unnamed">Додадено во списокот за читање.</string>
   <string name="reading_list_already_exists">Статијава веќе стои на тој список.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Преглед</string>
+  <string name="reading_list_added_view_button">Погл. списокот</string>
   <string name="reading_list_item_count_singular">1 статија</string>
   <string name="reading_list_item_count_plural">%s статии</string>
   <string name="reading_list_sort">Подреди</string>
@@ -268,7 +269,7 @@
   <string name="reading_list_name_sample">Мој список за читање</string>
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Зачувај за вонмрежно читање</string>
+  <string name="reading_list_save_for_offline">Достапна за вонмрежно читање</string>
   <string name="reading_list_item_deleted">%s е отстранета од списокот</string>
   <string name="reading_list_item_delete_undo">Откажи</string>
   <string name="reading_list_deleted">%s е избришана</string>
@@ -277,7 +278,11 @@
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете овој список за читање?</string>
   <string name="reading_lists_empty">Тука нема списоци за читање.</string>
   <string name="reading_lists_empty_message">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување најгоре во статијата за да ја додадете во списокот.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Стокмете ги статиите што сакате да ги читате подоцна во списоци за читање.</string>
+  <string name="reading_lists_onboarding_intro">Создајте списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
+  <string name="reading_lists_onboarding_for_example">На пример</string>
+  <string name="reading_lists_onboarding_example1">Места за посета</string>
+  <string name="reading_lists_onboarding_example2">Омилени животни</string>
+  <string name="reading_lists_onboarding_example3">Вселена!</string>
   <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="user_option_sync_label">Поставки</string>
 </resources>

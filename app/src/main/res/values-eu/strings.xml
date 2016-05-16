@@ -199,4 +199,7 @@
   <string name="crash_report_quit">Irten</string>
   <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
   <string name="article_menu_bar_navigate">Nabigatu artikuluaren kokagunera</string>
+  <string name="reading_list_create_new">Sortu berria</string>
+  <string name="reading_lists_onboarding_for_example">Adibidez</string>
+  <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
 </resources>

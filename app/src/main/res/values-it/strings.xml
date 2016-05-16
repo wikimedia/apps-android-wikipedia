@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="nav_item_saved_pages">Pagine salvate</string>
   <string name="share_via">Condividi tramite…</string>
+  <string name="search_redirect_from">Reindirizzamento da %s</string>
   <string name="menu_page_show_tabs">Mostra schede</string>
   <string name="menu_page_other_languages">Cambia lingua</string>
   <string name="menu_page_find_in_page">Trova nella pagina</string>
@@ -247,7 +248,7 @@
 Vuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
   <string name="crash_report_quit">Esci</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Salva la voce per la lettura senza connessione più tardi</string>
+  <string name="article_menu_bar_bookmark">Aggiungi questa voce ad un elenco lettura</string>
   <string name="article_menu_bar_share">Condividi il collegamento alla voce</string>
   <string name="article_menu_bar_navigate">Naviga verso la posizione della voce</string>
   <string name="nav_item_reading_lists">Elenchi di lettura</string>
@@ -257,7 +258,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_added_to_named">Aggiunto a %s.</string>
   <string name="reading_list_added_to_unnamed">Aggiunto all\'elenco di lettura</string>
   <string name="reading_list_already_exists">Questa voce è già presente in questo elenco.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Visualizza</string>
+  <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="reading_list_item_count_singular">1 voce</string>
   <string name="reading_list_item_count_plural">%s voci</string>
   <string name="reading_list_sort">Ordina</string>
@@ -268,7 +269,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
   <string name="reading_list_name_hint">Nome di questo elenco</string>
   <string name="reading_list_description_hint">Descrizione (opzionale)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Salva per la lettura offline</string>
+  <string name="reading_list_save_for_offline">Disponibile per la lettura offline</string>
   <string name="reading_list_item_deleted">%s rimosso dall\'elenco</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
   <string name="reading_list_deleted">%s cancellato</string>
@@ -277,7 +278,11 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare questo elenco di lettura?</string>
   <string name="reading_lists_empty">Nessun elenco di lettura qui.</string>
   <string name="reading_lists_empty_message">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in cima alla voce, per aggiungerla ad un elenco di lettura.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Organizza le voci che vuoi leggere più tardi negli elenchi di lettura.</string>
+  <string name="reading_lists_onboarding_intro">Crea elenchi di lettura da voci che vuoi leggere più tardi, anche quando sei offline!</string>
+  <string name="reading_lists_onboarding_for_example">Per esempio</string>
+  <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>
+  <string name="reading_lists_onboarding_example2">Animali preferiti</string>
+  <string name="reading_lists_onboarding_example3">Spazio!</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="user_option_sync_label">Preferenze</string>
 </resources>

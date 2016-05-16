@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करेंगे?</string>
   <string name="nav_item_saved_pages">सहेजे गये पृष्ठ</string>
   <string name="share_via">के माध्यम से साझा करें</string>
+  <string name="search_redirect_from">%s से अनुप्रेषित</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
   <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
@@ -245,17 +246,17 @@
 क्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
   <string name="crash_report_quit">बंद करें</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">इस आर्टिकल को बाद में ऑफलाइन पढ़ने के लिए सहेजें</string>
+  <string name="article_menu_bar_bookmark">इस लेख को पठन सूची में जोड़ें</string>
   <string name="article_menu_bar_share">आर्टिकल लिंक को साझा करें</string>
   <string name="article_menu_bar_navigate">लेख के स्थान पर जायें</string>
   <string name="nav_item_reading_lists">पठन सूची</string>
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
-  <string name="reading_list_create_new" fuzzy="true">नयी पठन सूची बनायें</string>
+  <string name="reading_list_create_new">नयी बनायें</string>
   <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
   <string name="reading_list_added_to_unnamed">पठन सूची में जोड़ा गया।</string>
   <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
-  <string name="reading_list_added_view_button" fuzzy="true">देखें</string>
+  <string name="reading_list_added_view_button">देखें</string>
   <string name="reading_list_item_count_singular">1 लेख</string>
   <string name="reading_list_item_count_plural">%s लेख</string>
   <string name="reading_list_sort">छांटें</string>
@@ -266,7 +267,7 @@
   <string name="reading_list_name_sample">मेरी पठन सूची</string>
   <string name="reading_list_name_hint">सूची का नाम</string>
   <string name="reading_list_description_hint">विवरण (वैकल्पिक)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">ऑफलाइन पढ़ने हेतु सहेजें</string>
+  <string name="reading_list_save_for_offline">ऑफलाइन पढ़ने हेतु उपलब्ध</string>
   <string name="reading_list_item_deleted">%s सूची में से हटाया गया</string>
   <string name="reading_list_item_delete_undo">अनडू</string>
   <string name="reading_list_deleted">%s मिटा दिया गया</string>
@@ -276,7 +277,11 @@
   <string name="reading_lists_empty">यहाँ कोई पठन सूची नहीं।</string>
   <string name="reading_lists_empty_message">आपके द्वारा ब्राउज़ किये जाने वाले लेखों को पठन सूची में लगाएं! लेख ब्राउज़ करते समय उसे पठन सूची में जोड़ने हेतु
 लेख के ऊपर बने बुकमार्क आइकॉन पर टैप करे ।</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">नया: जिन लेखों की आप बाद में पढ़ना चाहते हैं उन्हें पठन सूची में सुनियोजित करता है।</string>
+  <string name="reading_lists_onboarding_intro">जिन लेखों की आप बाद में पढ़ना चाहते हैं, ऑफलाइन होने पर भी, उनसें पठन सूचियाँ बनायें!</string>
+  <string name="reading_lists_onboarding_for_example">उदाहरण</string>
+  <string name="reading_lists_onboarding_example1">जाने के स्थान</string>
+  <string name="reading_lists_onboarding_example2">पसंदीदा पशु</string>
+  <string name="reading_lists_onboarding_example3">ब्रह्माण्ड!</string>
   <string name="reading_lists_onboarding_got_it">समझ गया</string>
   <string name="user_option_sync_label">वरीयता</string>
 </resources>

@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉任何目前開啟的分頁。您確定嗎？</string>
   <string name="nav_item_saved_pages">已儲存的頁面</string>
   <string name="share_via">分享透過</string>
+  <string name="search_redirect_from">重定向自%s</string>
   <string name="menu_page_show_tabs">顯示分頁</string>
   <string name="menu_page_other_languages">變更語言</string>
   <string name="menu_page_find_in_page">於頁面中尋找</string>
@@ -247,7 +248,7 @@
 您是否想要重新啟動或者離開？</string>
   <string name="crash_report_relaunch">重新啟動</string>
   <string name="crash_report_quit">結束</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">儲存條目以便日後離線閱讀</string>
+  <string name="article_menu_bar_bookmark">增加此條目至閱讀列表裡</string>
   <string name="article_menu_bar_share">分享條目連結</string>
   <string name="article_menu_bar_navigate">導覽至條目的位置</string>
   <string name="nav_item_reading_lists">閱讀清單</string>
@@ -257,7 +258,7 @@
   <string name="reading_list_added_to_named">已新增至 %s。</string>
   <string name="reading_list_added_to_unnamed">己新增至閱讀清單</string>
   <string name="reading_list_already_exists">這個條目已經在清單之中。</string>
-  <string name="reading_list_added_view_button" fuzzy="true">檢視</string>
+  <string name="reading_list_added_view_button">檢視清單</string>
   <string name="reading_list_item_count_singular">1 個條目</string>
   <string name="reading_list_item_count_plural">%s 個條目</string>
   <string name="reading_list_sort">排序</string>
@@ -268,7 +269,7 @@
   <string name="reading_list_name_sample">我的閱讀清單</string>
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述 (選填)：</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">儲存以供離線閱讀。</string>
+  <string name="reading_list_save_for_offline">用於離線閱讀。</string>
   <string name="reading_list_item_deleted">%s 已從清單之中移除</string>
   <string name="reading_list_item_delete_undo">還原</string>
   <string name="reading_list_deleted">%s 已刪除</string>
@@ -277,7 +278,11 @@
   <string name="reading_list_delete_confirm">你確定要刪除此清單？</string>
   <string name="reading_lists_empty">這裡無閱讀清單</string>
   <string name="reading_lists_empty_message">將你瀏覽過的條目組織到閱讀清單中！瀏覽條目時，輕觸條目上方的書籤圖示，將它新增至閱讀清單中。</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">將您之後想要閱讀的條目組織到閱讀清單中。</string>
+  <string name="reading_lists_onboarding_intro">創建您感興趣條目的閱讀清單，讓您即使在離線狀態下也可使用！</string>
+  <string name="reading_lists_onboarding_for_example">舉例</string>
+  <string name="reading_lists_onboarding_example1">要瀏覽的項目</string>
+  <string name="reading_lists_onboarding_example2">喜愛動物</string>
+  <string name="reading_lists_onboarding_example3">太空！</string>
   <string name="reading_lists_onboarding_got_it">知道了</string>
   <string name="user_option_sync_label">偏好設定</string>
 </resources>

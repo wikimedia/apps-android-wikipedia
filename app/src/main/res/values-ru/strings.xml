@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="nav_item_saved_pages">Сохранённые страницы</string>
   <string name="share_via">Поделиться через</string>
+  <string name="search_redirect_from">Перенаправлено с %s</string>
   <string name="menu_page_show_tabs">Показать вкладки</string>
   <string name="menu_page_other_languages">Изменить язык</string>
   <string name="menu_page_find_in_page">Найти на странице</string>
@@ -247,7 +248,7 @@
 Вы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
   <string name="crash_report_quit">Выйти</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Сохранить статью для последующего чтения в автономном режиме</string>
+  <string name="article_menu_bar_bookmark">Добавить эту статью в список для чтения</string>
   <string name="article_menu_bar_share">Поделиться ссылкой на статью</string>
   <string name="article_menu_bar_navigate">Перейдите к местоположению статьи</string>
   <string name="nav_item_reading_lists">Списки для чтения</string>
@@ -257,7 +258,7 @@
   <string name="reading_list_added_to_named">Добавлено в %s.</string>
   <string name="reading_list_added_to_unnamed">Добавлено в список для чтения.</string>
   <string name="reading_list_already_exists">Эта статья уже находится в данном списке.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Просмотр</string>
+  <string name="reading_list_added_view_button">Просмотр списка</string>
   <string name="reading_list_item_count_singular">1 статья</string>
   <string name="reading_list_item_count_plural">%s статей</string>
   <string name="reading_list_sort">Сортировать</string>
@@ -268,7 +269,7 @@
   <string name="reading_list_name_sample">Мой список для чтения</string>
   <string name="reading_list_name_hint">Название этого списка</string>
   <string name="reading_list_description_hint">Описание (необязательно)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Сохранить для чтения в автономном режиме</string>
+  <string name="reading_list_save_for_offline">Доступно для чтения в автономном режиме</string>
   <string name="reading_list_item_deleted">%s удалено из списка</string>
   <string name="reading_list_item_delete_undo">Отменить</string>
   <string name="reading_list_deleted">%s удалено</string>
@@ -277,7 +278,11 @@
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить этот список для чтения?</string>
   <string name="reading_lists_empty">Ещё нет списков для чтения.</string>
   <string name="reading_lists_empty_message">Сгруппируйте статьи, которые вы просматриваете, в списки для чтения! Когда вы просматриваете статью, нажмите значок закладки в верхней части статьи, чтобы добавить её в список для чтения.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Сгруппируйте статьи, которые вы хотели бы прочитать позже, в списки для чтения.</string>
+  <string name="reading_lists_onboarding_intro">Создайте списки для чтения из статей, которые вы хотели бы прочитать позже, даже если вы не подключены к интернету!</string>
+  <string name="reading_lists_onboarding_for_example">Например</string>
+  <string name="reading_lists_onboarding_example1">Места для посещения</string>
+  <string name="reading_lists_onboarding_example2">Любимые животные</string>
+  <string name="reading_lists_onboarding_example3">Космос!</string>
   <string name="reading_lists_onboarding_got_it">Понятно</string>
   <string name="user_option_sync_label">Настройки</string>
 </resources>

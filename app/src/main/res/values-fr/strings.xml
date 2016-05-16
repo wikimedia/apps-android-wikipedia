@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Cela supprimera tout l’historique de navigation, et fermera tous les onglets ouverts actuellement. Êtes-vous sûr ?</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>
   <string name="share_via">Partager via</string>
+  <string name="search_redirect_from">Redirigé depuis %s</string>
   <string name="menu_page_show_tabs">Afficher les onglets</string>
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Rechercher dans la page</string>
@@ -247,7 +248,7 @@
 Voudriez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>
   <string name="crash_report_quit">Quitter</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Sauvegarder l\'article pour le lire hors ligne plus tard</string>
+  <string name="article_menu_bar_bookmark">Ajouter cet article à une liste de lecture</string>
   <string name="article_menu_bar_share">Partager cet article</string>
   <string name="article_menu_bar_navigate">Naviguer à l’emplacement de l’article</string>
   <string name="nav_item_reading_lists">Listes de lecture</string>
@@ -257,7 +258,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_added_to_named">Ajouté à %s.</string>
   <string name="reading_list_added_to_unnamed">Ajouté à la liste de lecture.</string>
   <string name="reading_list_already_exists">Cet article est déjà dans cette liste.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Afficher</string>
+  <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="reading_list_item_count_singular">1 article</string>
   <string name="reading_list_item_count_plural">%s articles</string>
   <string name="reading_list_sort">Trier</string>
@@ -268,7 +269,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>
   <string name="reading_list_name_hint">Nom de cette liste</string>
   <string name="reading_list_description_hint">Description (facultatif)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Enregistrer pour une lecture hors connexion</string>
+  <string name="reading_list_save_for_offline">Disponible pour une lecture hors connexion</string>
   <string name="reading_list_item_deleted">%s supprimé de la liste</string>
   <string name="reading_list_item_delete_undo">Annuler</string>
   <string name="reading_list_deleted">%s supprimé</string>
@@ -277,7 +278,11 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_delete_confirm">Êtes-vous sûr de vouloir supprimer cette liste de lecture ?</string>
   <string name="reading_lists_empty">Aucune liste de lecture ici.</string>
   <string name="reading_lists_empty_message">Organiser les articles dans lesquels vous naviguez en listes de lecture ! En parcourant un article, cliquez sur l’icône en haut de l’article pour l’ajouter à une liste de lecture.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Organisez les articles que vous voulez lire plus tard en listes de lecture.</string>
+  <string name="reading_lists_onboarding_intro">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même en étant hors connexion !</string>
+  <string name="reading_lists_onboarding_for_example">Par exemple</string>
+  <string name="reading_lists_onboarding_example1">Endroits à visiter</string>
+  <string name="reading_lists_onboarding_example2">Animaux favoris</string>
+  <string name="reading_lists_onboarding_example3">Espace !</string>
   <string name="reading_lists_onboarding_got_it">L’obtenir</string>
   <string name="user_option_sync_label">Préférences</string>
 </resources>

@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Bu, tüm tarama geçmişinizi silecek ve açık bütün sekmeleri kapatacak. Emin misiniz?</string>
   <string name="nav_item_saved_pages">Kaydedilen sayfalar</string>
   <string name="share_via">Şununla paylaş:</string>
+  <string name="search_redirect_from">%s sayfasından yönlendirildi</string>
   <string name="menu_page_show_tabs">Sekmeleri göster</string>
   <string name="menu_page_other_languages">Başka dilde oku</string>
   <string name="menu_page_find_in_page">Sayfada bul</string>
@@ -245,7 +246,7 @@
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.</string>
   <string name="crash_report_relaunch">Baştan başla</string>
   <string name="crash_report_quit">Çıkış</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Maddeyi daha sonra çevrimdışı okuma için kaydet</string>
+  <string name="article_menu_bar_bookmark">Maddeyi, bir okuma listsine ekle</string>
   <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
   <string name="article_menu_bar_navigate">Makale konumuna gidin</string>
   <string name="nav_item_reading_lists">Okuma listeleri</string>
@@ -255,7 +256,7 @@
   <string name="reading_list_added_to_named">%s listesine eklendi.</string>
   <string name="reading_list_added_to_unnamed">Okuma listesine eklendi.</string>
   <string name="reading_list_already_exists">Bu madde, seçtiğiniz listede mevcut.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Görüntüle</string>
+  <string name="reading_list_added_view_button">Listeyi görüntüle</string>
   <string name="reading_list_item_count_singular">1 madde</string>
   <string name="reading_list_item_count_plural">%s madde</string>
   <string name="reading_list_sort">Sırala</string>
@@ -266,7 +267,7 @@
   <string name="reading_list_name_sample">Okuma listem</string>
   <string name="reading_list_name_hint">Bu listenin adı</string>
   <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Çevrim dışı okuma için kaydet</string>
+  <string name="reading_list_save_for_offline">Çevrim dışı okuma mümkün</string>
   <string name="reading_list_item_deleted">%s listeden çıkarıldı</string>
   <string name="reading_list_item_delete_undo">Geri al</string>
   <string name="reading_list_deleted">%s silindi</string>
@@ -275,7 +276,11 @@
   <string name="reading_list_delete_confirm">Bu okuma listesini silmek istediğinizden emin misiniz?</string>
   <string name="reading_lists_empty">Hiçbir okuma listesi yok.</string>
   <string name="reading_lists_empty_message">Görüntülediğiniz maddeleri okuma listeleriyle organize edin! Okuduğunuz bir maddeyi, bir okuma listesine eklemek için maddenin üst bölümündeki yer imi simgesine dokunun.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Okumayı düşündüğünüz maddeleri okuma listelerine ekleyerek organize edin.</string>
+  <string name="reading_lists_onboarding_intro">Çevridışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun!</string>
+  <string name="reading_lists_onboarding_for_example">Örneğin</string>
+  <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>
+  <string name="reading_lists_onboarding_example2">En sevilen hayvanlar</string>
+  <string name="reading_lists_onboarding_example3">Uzay!</string>
   <string name="reading_lists_onboarding_got_it">Anladım</string>
   <string name="user_option_sync_label">Ayarlar</string>
 </resources>

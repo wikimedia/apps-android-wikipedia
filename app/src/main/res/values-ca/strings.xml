@@ -17,6 +17,7 @@
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="nav_item_saved_pages">Pàgines desades</string>
   <string name="share_via">Comparteix mitjançant…</string>
+  <string name="search_redirect_from">Redirigit de %s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cercar en la pàgina</string>
@@ -255,7 +256,7 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_added_to_named">Afegit a %s.</string>
   <string name="reading_list_added_to_unnamed">Afegit a la llista de lectura.</string>
   <string name="reading_list_already_exists">L\'article ja és a la llista.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Mostra</string>
+  <string name="reading_list_added_view_button">Mostra la llista</string>
   <string name="reading_list_item_count_singular">1 article</string>
   <string name="reading_list_item_count_plural">%s articles</string>
   <string name="reading_list_sort">Ordena</string>
@@ -266,7 +267,7 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
   <string name="reading_list_name_hint">Nom de la llista</string>
   <string name="reading_list_description_hint">Descripció (opcional)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Desa-ho per a lectura fora de línia</string>
+  <string name="reading_list_save_for_offline">Disponible per a lectura fora de línia</string>
   <string name="reading_list_item_deleted">%s suprimit de la llista</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
   <string name="reading_list_deleted">%s eliminada</string>
@@ -274,6 +275,7 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_edit_cancel">Cancel·la</string>
   <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir aquesta llista de lectura?</string>
   <string name="reading_lists_empty">No hi ha cap llista de lectura.</string>
+  <string name="reading_lists_onboarding_example3">Espai!</string>
   <string name="reading_lists_onboarding_got_it">Entesos</string>
   <string name="user_option_sync_label">Preferències</string>
 </resources>

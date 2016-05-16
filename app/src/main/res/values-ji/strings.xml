@@ -15,13 +15,16 @@
   <string name="page_does_not_exist_error">דער בלאט עקזיסטירט נישט.</string>
   <string name="nav_item_today">הײַנט</string>
   <string name="dialog_title_clear_history">אפראמען בלעטערן היסטאריע</string>
+  <string name="dialog_message_clear_history">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
   <string name="nav_item_saved_pages">אײַנגעשפייכלערטע בלעטער</string>
   <string name="share_via">טיילן דורך</string>
   <string name="menu_page_show_tabs">ווײַזן טאבן</string>
   <string name="menu_page_other_languages">ענדערן שפראך</string>
   <string name="menu_page_find_in_page">טרעפן אין בלאט</string>
   <string name="menu_page_content_issues">אינהאלט פֿראגעס</string>
+  <string name="menu_page_similar_titles">ענלעכע טיטלען</string>
   <string name="menu_page_font_and_theme">פאנט און טעמע</string>
+  <string name="menu_page_add_to_list">צולייגן צו ליינליסטע</string>
   <string name="menu_page_share">טיילן לינק</string>
   <string name="menu_long_press_open_page">עפענען</string>
   <string name="menu_long_press_open_in_new_tab">עפֿענען אין נײַעם טאב</string>
@@ -29,6 +32,7 @@
   <string name="menu_text_select_copy">קאפירן</string>
   <string name="menu_text_select_define">דעפֿינירן</string>
   <string name="menu_text_select_share">טיילן</string>
+  <string name="menu_text_select_edit_here">רעדאקטירן דא</string>
   <string name="nav_item_nearby">דערבײַ</string>
   <string name="nearby_distance_in_meters">%d מ\'</string>
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
@@ -130,6 +134,7 @@
   <string name="about_contributors_heading">בײַשטײַערער</string>
   <string name="about_translators_heading">איבערזעצער</string>
   <string name="about_translators_translatewiki">דער אפ איז געווארן איבערגעזעצט דורך די וואלונטיר איבערזעצער בײַ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">לייסענס</string>
   <string name="about_wmf">א פרא דוקו פון דער &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;וויקימעדיע פונדאציע&lt;/a&gt;</string>
   <string name="about_activity_title">וועגן</string>
   <string name="user_blocked_from_editing_title">בלאקירט</string>
@@ -191,4 +196,9 @@
   <string name="crash_report_activity_title">אפליקאציע פֿעלער</string>
   <string name="crash_report_relaunch">אנהייבן פונדאסניי</string>
   <string name="crash_report_quit">פֿארלאזן</string>
+  <string name="reading_list_edit_ok">אקעי</string>
+  <string name="reading_list_edit_cancel">אַנולירן</string>
+  <string name="reading_lists_onboarding_for_example">צום ביישפיל</string>
+  <string name="reading_lists_onboarding_example3">ליידיג פלאץ!</string>
+  <string name="reading_lists_onboarding_got_it">פארשטאנען</string>
 </resources>

@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Dies löscht deinen gesamten Browsing-Verlauf und schließt alle derzeit geöffneten Registerkarten. Bist du sicher?</string>
   <string name="nav_item_saved_pages">Gespeicherte Seiten</string>
   <string name="share_via">Teilen über</string>
+  <string name="search_redirect_from">Weiterleitung von %s</string>
   <string name="menu_page_show_tabs">Registerkarten anzeigen</string>
   <string name="menu_page_other_languages">Sprache ändern</string>
   <string name="menu_page_find_in_page">In Seite finden</string>
@@ -247,7 +248,7 @@
 Möchtest du die App neu starten oder beenden?</string>
   <string name="crash_report_relaunch">Neu starten</string>
   <string name="crash_report_quit">Beenden</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Den Artikel zum späteren Offline-Lesen speichern</string>
+  <string name="article_menu_bar_bookmark">Füge diesen Artikel zu einer Leseliste hinzu</string>
   <string name="article_menu_bar_share">Artikellink teilen</string>
   <string name="article_menu_bar_navigate">Zum Standort des Artikels navigieren</string>
   <string name="nav_item_reading_lists">Leselisten</string>
@@ -257,7 +258,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_added_to_named">Zu %s hinzugefügt.</string>
   <string name="reading_list_added_to_unnamed">Zur Leseliste hinzugefügt.</string>
   <string name="reading_list_already_exists">Dieser Artikel ist bereits in dieser Liste.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Ansehen</string>
+  <string name="reading_list_added_view_button">Liste ansehen</string>
   <string name="reading_list_item_count_singular">Ein Artikel</string>
   <string name="reading_list_item_count_plural">%s Artikel</string>
   <string name="reading_list_sort">Sortieren</string>
@@ -268,7 +269,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_name_sample">Meine Leseliste</string>
   <string name="reading_list_name_hint">Name dieser Liste</string>
   <string name="reading_list_description_hint">Beschreibung (optional)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Zum Offline-Lesen speichern</string>
+  <string name="reading_list_save_for_offline">Verfügbar zum Offline-Lesen</string>
   <string name="reading_list_item_deleted">%s von der Liste entfernt</string>
   <string name="reading_list_item_delete_undo">Rückgängig</string>
   <string name="reading_list_deleted">%s gelöscht</string>
@@ -277,7 +278,11 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_delete_confirm">Bist du sicher, dass du diese Leseliste löschen möchtest?</string>
   <string name="reading_lists_empty">Hier gibt es keine Leselisten.</string>
   <string name="reading_lists_empty_message">Organisiere die aufgerufenen Artikel in Leselisten! Tippe beim Aufrufen eines Artikels auf das Lesezeichen-Symbol am Artikelanfang, um ihn zur Leseliste hinzuzufügen.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Organisiere Artikel in Leselisten, die du später lesen möchtest.</string>
+  <string name="reading_lists_onboarding_intro">Erstelle Leselisten von Artikeln, die du später lesen möchtest, auch wenn du offline bist!</string>
+  <string name="reading_lists_onboarding_for_example">Zum Beispiel</string>
+  <string name="reading_lists_onboarding_example1">Zu besuchende Orte</string>
+  <string name="reading_lists_onboarding_example2">Lieblingstiere</string>
+  <string name="reading_lists_onboarding_example3">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="user_option_sync_label">Einstellungen</string>
 </resources>

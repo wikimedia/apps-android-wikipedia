@@ -92,6 +92,7 @@
   <string name="privacy_policy_description">Siyaseta taybetîtiyê</string>
   <string name="terms_of_use_description">Mercên bikaranînê</string>
   <string name="about_translators_heading">Wergêr</string>
+  <string name="about_app_license_heading">Destûr</string>
   <string name="about_activity_title">Derbarê</string>
   <string name="edit_next">Pêşve</string>
   <string name="edit_done">Tomar bike</string>
@@ -118,13 +119,18 @@
   <string name="cc_logo">Lîsansa Creative Commonsê</string>
   <string name="gallery_fair_use_license">Bikaranîna dadmend</string>
   <string name="gallery_uploader_unknown">Barker nenas e</string>
+  <string name="menu_new_tab">Hilpekîna nû</string>
   <string name="format_error_server_code">Kod:%s</string>
+  <string name="button_continue_to_article">Gotarê bixwîne</string>
   <string name="crash_report_dialog_dont_send_button">Derbaske</string>
   <string name="crash_report_dialog_send_button">Bişîne</string>
   <string name="crash_report_activity_title">Çewtiya sepanê</string>
   <string name="crash_report_relaunch">Cardin dest pê bike</string>
   <string name="crash_report_quit">Derkeve</string>
   <string name="article_menu_bar_share">Girêdana gotarê parve bike</string>
+  <string name="reading_list_item_count_singular">gotarek</string>
+  <string name="reading_list_item_count_plural">%s gotar</string>
+  <string name="reading_list_sort_by_name">Li gorî nav</string>
   <string name="reading_list_name_hint">Navê vê lîsteyê</string>
   <string name="reading_list_edit_ok">Baş e</string>
   <string name="reading_list_edit_cancel">Betal bike</string>
