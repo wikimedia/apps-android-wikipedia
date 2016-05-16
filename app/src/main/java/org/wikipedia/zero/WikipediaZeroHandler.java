@@ -48,11 +48,11 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     /**
      * Size of the text, in sp, of the Zero banner text.
      */
-    private static final int BANNER_TEXT_SIZE = 16;
+    private static final int BANNER_TEXT_SIZE = 12;
     /**
      * Height of the Zero banner, in pixels, that will pop up from the bottom of the screen.
      */
-    private static final int BANNER_HEIGHT = (int) (120 * DimenUtil.getDensityScalar());
+    private static final int BANNER_HEIGHT = (int) (24 * DimenUtil.getDensityScalar());
 
     private WikipediaApp app;
 
@@ -96,7 +96,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     }
 
     public void showZeroBanner(@NonNull final Activity activity, @NonNull ZeroConfig zeroConfig) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity.getWindow().getDecorView(),
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity,
                 zeroConfig.getMessage(), FeedbackUtil.LENGTH_DEFAULT);
         final String zeroBannerUrl = zeroConfig.getBannerUrl();
         if (!StringUtil.emptyIfNull(zeroBannerUrl).equals("")) {
@@ -112,7 +112,7 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
     }
 
     public void showZeroOffBanner(@NonNull final Activity activity, String message, int background, int foreground) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity.getWindow().getDecorView(),
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity,
                 message, FeedbackUtil.LENGTH_DEFAULT);
         show(snackbar, background, foreground);
     }
@@ -121,10 +121,11 @@ public class WikipediaZeroHandler extends BroadcastReceiver implements OnHeaderC
         ViewGroup rootView = (ViewGroup) snackbar.getView();
         TextView textView = (TextView) rootView.findViewById(R.id.snackbar_text);
         rootView.setBackgroundColor(background);
+        rootView.setMinimumHeight(BANNER_HEIGHT);
         textView.setTextColor(foreground);
         textView.setTextSize(BANNER_TEXT_SIZE);
+        textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         textView.setGravity(Gravity.CENTER_HORIZONTAL);
-        rootView.setMinimumHeight(BANNER_HEIGHT);
         snackbar.show();
     }
 

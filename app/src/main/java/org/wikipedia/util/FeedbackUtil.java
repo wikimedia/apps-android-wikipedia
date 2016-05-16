@@ -29,6 +29,10 @@ public final class FeedbackUtil {
         }
     };
 
+    public static Snackbar makeSnackbar(Activity activity, CharSequence text, int duration) {
+        return makeSnackbar(findBestView(activity), text, duration);
+    }
+
     public static Snackbar makeSnackbar(View view, CharSequence text, int duration) {
         Snackbar snackbar = Snackbar.make(view, text, duration);
         TextView textView = (TextView) snackbar.getView().findViewById(R.id.snackbar_text);
