@@ -49,15 +49,14 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
         client.delete(getToken(), key).execute().body().check(site);
     }
 
-    @NonNull private String getToken() {
+    @NonNull private String getToken() throws IOException {
         if (app().getEditTokenStorage().token(site) == null) {
             requestToken();
         }
 
         String token = app().getEditTokenStorage().token(site);
         if (token == null) {
-            throw RetrofitException.unexpectedError(
-                    new RuntimeException("No token for " + site.authority()));
+            throw new IOException("No token for " + site.authority());
         }
         return token;
     }

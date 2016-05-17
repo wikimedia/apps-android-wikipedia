@@ -1,13 +1,11 @@
 package org.wikipedia;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+
 import com.github.kevinsawicki.http.HttpRequest;
-import okhttp3.Cache;
-import okhttp3.CookieJar;
-import okhttp3.JavaNetCookieJar;
-import okhttp3.OkHttpClient;
-import okhttp3.OkUrlFactory;
-import okhttp3.Protocol;
+
+import org.wikipedia.settings.Prefs;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -16,13 +14,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.Cache;
+import okhttp3.CookieJar;
+import okhttp3.JavaNetCookieJar;
+import okhttp3.OkHttpClient;
+import okhttp3.OkUrlFactory;
+import okhttp3.Protocol;
+import okhttp3.logging.HttpLoggingInterceptor;
+
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     private static final long HTTP_CACHE_SIZE = 16 * 1024 * 1024;
 
     private final OkHttpClient client;
 
-    public OkHttpConnectionFactory(Context context) {
-        client = createClient(context);
+    public OkHttpConnectionFactory(@NonNull Context context) {
+        client = createClient(context).build();
     }
 
     @Override
@@ -36,7 +42,7 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 "Per-connection proxy is not supported. Use OkHttpClient's setProxy instead.");
     }
 
-    public static OkHttpClient createClient(Context context) {
+    public static OkHttpClient.Builder createClient(@NonNull Context context) {
         // Create a custom set of protocols that excludes HTTP/2, since OkHttp doesn't play
         // nicely with nginx over HTTP/2.
         // TODO: Remove when https://github.com/square/okhttp/issues/2543 is fixed.
@@ -49,10 +55,13 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
         // TODO: consider using okhttp3.CookieJar implementation instead of JavaNetCookieJar wrapper
         CookieJar cookieJar = new JavaNetCookieJar(cookieManager);
 
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(Prefs.getRetrofitLogLevel());
+
         return new OkHttpClient.Builder()
                 .cookieJar(cookieJar)
                 .cache(new Cache(context.getCacheDir(), HTTP_CACHE_SIZE))
                 .protocols(protocolList)
-                .build();
+                .addInterceptor(loggingInterceptor);
     }
 }

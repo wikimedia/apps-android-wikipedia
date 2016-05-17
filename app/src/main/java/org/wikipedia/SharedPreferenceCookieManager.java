@@ -47,7 +47,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
             // en.wikipedia.org and *.wikimedia.org
             // FIXME: Whitelist the domains we accept cookies from/send cookies to. SECURITY!!!1
             if (domain.endsWith(domainSpec)
-                    || (domain.endsWith(".wikimedia.org") && domainSpec.endsWith(".wikipedia.org"))) {
+                    || (domain.endsWith(".wikimedia.org") && domainSpec.endsWith("wikipedia.org"))) {
                 cookiesList.addAll(makeCookieList(cookieJar.get(domainSpec)));
             }
         }
@@ -86,7 +86,6 @@ public class SharedPreferenceCookieManager extends CookieManager {
                         } else {
                             cookieJar.get(domainSpec).put(cookie.getName(), cookie.getValue());
                         }
-
                         domainsModified.add(domainSpec);
                     }
                 } catch (IllegalArgumentException e) {
