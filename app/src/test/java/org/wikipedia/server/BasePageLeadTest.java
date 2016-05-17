@@ -63,7 +63,7 @@ public abstract class BasePageLeadTest {
     protected String getUnprotectedDisambiguationPageJson() {
         return "{"
                 + "\"disambiguation\":true,"
-                + "\"protection\":[]," // oh MediaWiki API
+                + "\"protection\":{},"
                 + "\"editable\":true"
                 + "}";
     }
