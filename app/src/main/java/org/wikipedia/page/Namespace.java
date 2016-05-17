@@ -3,15 +3,21 @@ package org.wikipedia.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.Site;
 import org.wikipedia.model.CodeEnum;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
+import org.wikipedia.staticdata.FileAliasData;
+import org.wikipedia.staticdata.SpecialAliasData;
 import org.wikipedia.util.StringUtil;
 
-// https://en.wikipedia.org/wiki/Wikipedia:Namespace
-// https://www.mediawiki.org/wiki/Extension_default_namespaces
-// https://github.com/wikimedia/wikipedia-ios/blob/master/Wikipedia/Code/NSNumber+MWKTitleNamespace.h
-// https://www.mediawiki.org/wiki/Manual:Namespace#Built-in_namespaces
+/** An enumeration describing the different possible namespace codes. Do not attempt to use this
+ *  class to preserve URL path information such as Talk: or User: or localization.
+ *  @see <a href='https://en.wikipedia.org/wiki/Wikipedia:Namespace'>Wikipedia:Namespace</a>
+ *  @see <a href='https://www.mediawiki.org/wiki/Extension_default_namespaces'>Extension default namespaces</a>
+ *  @see <a href='https://github.com/wikimedia/wikipedia-ios/blob/master/Wikipedia/Code/NSNumber+MWKTitleNamespace.h'>NSNumber+MWKTitleNamespace.h (iOS implementation)</a>
+ *  @see <a href='https://www.mediawiki.org/wiki/Manual:Namespace#Built-in_namespaces'>Manual:Namespace</a>
+ */
 public enum Namespace implements EnumCode {
     MEDIA(-2),
     SPECIAL(-1) {
@@ -65,6 +71,8 @@ public enum Namespace implements EnumCode {
 
     private final int code;
 
+    /** Warning: this method returns an English translation for the current namespace. */
+    @Deprecated
     @Nullable
     public String toLegacyString() {
         String string = this == MAIN ? null : this.name();
@@ -72,6 +80,22 @@ public enum Namespace implements EnumCode {
             StringUtil.capitalizeFirstChar(string.toLowerCase());
         }
         return string;
+    }
+
+    /** Warning: this method is localized only for File and Special pages. */
+    @Deprecated @NonNull public static Namespace fromLegacyString(@NonNull Site site,
+                                                                  @Nullable String name) {
+        String filePageAlias = FileAliasData.valueFor(site.languageCode());
+        if (filePageAlias.equals(name)) {
+            return Namespace.FILE;
+        }
+
+        String specialPageAlias = SpecialAliasData.valueFor(site.languageCode());
+        if (specialPageAlias.equals(name)) {
+            return Namespace.SPECIAL;
+        }
+
+        return Namespace.MAIN;
     }
 
     @NonNull

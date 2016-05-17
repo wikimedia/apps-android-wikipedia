@@ -7,7 +7,9 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
+import org.wikipedia.Site;
 import org.wikipedia.page.GeoTypeAdapter;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -15,6 +17,7 @@ import org.wikipedia.page.Section;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageLeadProperties;
 import org.wikipedia.server.Protection;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
@@ -70,7 +73,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     public Page toPage(PageTitle title) {
         return new Page(adjustPageTitle(title),
                 getSections(),
-                toPageProperties());
+                toPageProperties(title.getSite()));
     }
 
     /* package */ PageTitle adjustPageTitle(PageTitle title) {
@@ -95,13 +98,17 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     }
 
     /** Converter */
-    public PageProperties toPageProperties() {
-        return new PageProperties(this);
+    public PageProperties toPageProperties(@NonNull Site site) {
+        return new PageProperties(site, this);
     }
 
     @Override
     public int getId() {
         return id;
+    }
+
+    @NonNull @Override public Namespace getNamespace(@NonNull Site site) {
+        return guessNamespace(site, StringUtil.emptyIfNull(normalizedtitle));
     }
 
     @Override
@@ -199,6 +206,13 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     public void setLeadImageThumbWidth(int leadImageThumbWidth) {
         this.leadImageThumbWidth = leadImageThumbWidth;
+    }
+
+    // TODO: remove this method and #getNamespace() Site dependency when T135141 is fixed.
+    @NonNull private Namespace guessNamespace(@NonNull Site site, @NonNull String title) {
+        String[] parts = title.split(":", -1);
+        String name = parts.length > 1  ? parts[0] : null;
+        return Namespace.fromLegacyString(site, name);
     }
 
     /**

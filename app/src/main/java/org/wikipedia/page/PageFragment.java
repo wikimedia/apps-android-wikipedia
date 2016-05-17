@@ -17,7 +17,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.text.Html;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -385,7 +384,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             return;
         }
         getPageActivity().dismissBottomSheet();
-        if (!TextUtils.isEmpty(title.getNamespace()) || !app.isLinkPreviewEnabled()) {
+        if (title.namespace() != Namespace.MAIN || !app.isLinkPreviewEnabled()) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             getPageActivity().loadPage(title, historyEntry);
             new LinkPreviewFunnel(app).logNavigate();

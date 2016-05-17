@@ -185,10 +185,10 @@ public class MwPageService implements PageService {
          */
         @Headers("x-analytics: pageview=1")
         @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
-                + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
-                + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
-                + "&onlyrequestedsections=1&sections=0&sectionprop=toclevel%7Cline%7Canchor"
-                + "&noheadings=true")
+                + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Cnamespace%7Crevision"
+                + "%7Cdescription%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection"
+                + "%7Ceditable&onlyrequestedsections=1&sections=0&sectionprop=toclevel%7Cline"
+                + "%7Canchor&noheadings=true")
         Call<MwPageLead> pageLead(@Query("page") String title,
                                   @Query("thumbsize") int leadImageThumbWidth,
                                   @Query("noimages") Boolean noImages);

@@ -3,12 +3,14 @@ package org.wikipedia.page;
 import android.location.Location;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.Site;
 import org.wikipedia.server.PageLeadProperties;
 import org.wikipedia.util.StringUtil;
 
@@ -23,8 +25,10 @@ import static org.wikipedia.util.DateUtil.getIso8601DateFormat;
 public class PageProperties implements Parcelable {
     private static final String JSON_NAME_TITLE_PRONUNCIATION_URL = "titlePronunciationUrl";
     private static final String JSON_NAME_GEO = "geo";
+    private static final String JSON_NAME_NAMESPACE = "namespace";
 
     private final int pageId;
+    @NonNull private final Namespace namespace;
     private final long revisionId;
     private final Date lastModified;
     private final String displayTitleText;
@@ -48,8 +52,9 @@ public class PageProperties implements Parcelable {
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
-    public PageProperties(PageLeadProperties core) {
+    public PageProperties(@NonNull Site site, PageLeadProperties core) {
         pageId = core.getId();
+        namespace = core.getNamespace(site);
         revisionId = core.getRevision();
         displayTitleText = StringUtil.emptyIfNull(core.getDisplayTitle());
         titlePronunciationUrl = core.getTitlePronunciationUrl();
@@ -80,6 +85,7 @@ public class PageProperties implements Parcelable {
      */
     public PageProperties(JSONObject json) {
         pageId = json.optInt("id");
+        namespace = Namespace.of(json.optInt(JSON_NAME_NAMESPACE));
         revisionId = json.optLong("revision");
         displayTitleText = json.optString("displaytitle");
         titlePronunciationUrl = json.optString(JSON_NAME_TITLE_PRONUNCIATION_URL, null);
@@ -120,6 +126,10 @@ public class PageProperties implements Parcelable {
 
     public int getPageId() {
         return pageId;
+    }
+
+    @NonNull public Namespace getNamespace() {
+        return namespace;
     }
 
     public long getRevisionId() {
@@ -185,6 +195,7 @@ public class PageProperties implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeInt(pageId);
+        parcel.writeInt(namespace.code());
         parcel.writeLong(revisionId);
         parcel.writeLong(lastModified.getTime());
         parcel.writeString(displayTitleText);
@@ -201,6 +212,7 @@ public class PageProperties implements Parcelable {
 
     private PageProperties(Parcel in) {
         pageId = in.readInt();
+        namespace = Namespace.of(in.readInt());
         revisionId = in.readLong();
         lastModified = new Date(in.readLong());
         displayTitleText = in.readString();
@@ -240,6 +252,7 @@ public class PageProperties implements Parcelable {
         PageProperties that = (PageProperties) o;
 
         return pageId == that.pageId
+                && namespace == that.namespace
                 && revisionId == that.revisionId
                 && lastModified.equals(that.lastModified)
                 && displayTitleText.equals(that.displayTitleText)
@@ -268,6 +281,7 @@ public class PageProperties implements Parcelable {
         result = 31 * result + (leadImageName != null ? leadImageName.hashCode() : 0);
         result = 31 * result + (canEdit ? 1 : 0);
         result = 31 * result + pageId;
+        result = 31 * result + namespace.code();
         result = 31 * result + (int) revisionId;
         return result;
     }
@@ -281,6 +295,7 @@ public class PageProperties implements Parcelable {
         JSONObject json = new JSONObject();
         try {
             json.put("id", pageId);
+            json.put(JSON_NAME_NAMESPACE, namespace.code());
             json.put("revision", revisionId);
             json.put("lastmodified", getIso8601DateFormat().format(getLastModified()));
             json.put("displaytitle", displayTitleText);

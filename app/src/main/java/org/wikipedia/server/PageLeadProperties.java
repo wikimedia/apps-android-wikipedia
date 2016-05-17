@@ -1,8 +1,11 @@
 package org.wikipedia.server;
 
+import org.wikipedia.Site;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Section;
 
 import android.location.Location;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
@@ -14,6 +17,8 @@ import java.util.List;
 public interface PageLeadProperties {
 
     int getId();
+
+    @NonNull Namespace getNamespace(@NonNull Site site);
 
     long getRevision();
 

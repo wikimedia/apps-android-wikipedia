@@ -3,7 +3,6 @@ package org.wikipedia.readinglist.page.database;
 import android.support.annotation.NonNull;
 import android.util.Base64;
 
-import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.page.ReadingListPage;
@@ -35,8 +34,7 @@ public final class ReadingListDaoProxy {
                 .key(key(title))
                 .listKeys(listKey(list))
                 .site(title.getSite())
-                // TODO: unmarshal namespace when received, not when used.
-                .namespace(title.getNamespace() == null ? Namespace.MAIN : Namespace.of(Integer.parseInt(title.getNamespace())))
+                .namespace(title.namespace())
                 .title(title.getDisplayText())
                 .diskPageRevision(title.hasProperties() ? title.getProperties().getRevisionId() : 0)
                 .mtime(now)
