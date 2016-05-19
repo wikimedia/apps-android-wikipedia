@@ -8,7 +8,7 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.SingleFragmentActivity;
 
 public class CrashReportActivity extends SingleFragmentActivity<CrashReportFragment>
-        implements CrashReportFragmentCallback {
+        implements CrashReportFragment.Callback {
     @Override
     protected CrashReportFragment createFragment() {
         return CrashReportFragment.newInstance();

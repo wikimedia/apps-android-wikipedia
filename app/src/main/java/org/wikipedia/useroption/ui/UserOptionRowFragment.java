@@ -20,7 +20,7 @@ import android.widget.ListView;
 
 import org.wikipedia.R;
 import org.wikipedia.activity.CallbackFragment;
-import org.wikipedia.activity.FragmentCallback;
+import org.wikipedia.activity.CallbackFragment.Callback;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.database.contract.UserOptionContract;
@@ -32,7 +32,8 @@ import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.USER_OPTION_ROW_FRAGMENT_LOADER_ID;
 
-public class UserOptionRowFragment extends Fragment implements CallbackFragment<FragmentCallback> {
+public class UserOptionRowFragment extends Fragment
+        implements CallbackFragment<Callback> {
     @BindView(R.id.fragment_user_option_list) ListView list;
     private Unbinder unbinder;
 
@@ -83,7 +84,7 @@ public class UserOptionRowFragment extends Fragment implements CallbackFragment<
         }
     }
 
-    @Nullable @Override public FragmentCallback getCallback() {
+    @Nullable @Override public Callback getCallback() {
         return FragmentUtil.getCallback(this);
     }
 

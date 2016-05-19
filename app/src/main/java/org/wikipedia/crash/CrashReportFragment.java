@@ -11,9 +11,15 @@ import android.view.ViewGroup;
 import org.wikipedia.R;
 import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.crash.CrashReportFragment.Callback;
 
 public class CrashReportFragment extends Fragment
-        implements CallbackFragment<CrashReportFragmentCallback> {
+        implements CallbackFragment<Callback> {
+    public interface Callback extends CallbackFragment.Callback {
+        void onStartOver();
+        void onQuit();
+    }
+
     public static CrashReportFragment newInstance() {
         return new CrashReportFragment();
     }
@@ -30,8 +36,8 @@ public class CrashReportFragment extends Fragment
         return view;
     }
 
-    @Override @Nullable public CrashReportFragmentCallback getCallback() {
-        return FragmentUtil.getCallback(this, CrashReportFragmentCallback.class);
+    @Override @Nullable public Callback getCallback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 
     private void setOnClickListener(View view, @IdRes int id, View.OnClickListener listener) {
