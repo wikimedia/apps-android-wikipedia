@@ -2,13 +2,9 @@ package org.wikipedia.dataclient.retrofit;
 
 import android.support.annotation.NonNull;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.server.Protection;
 
 import java.io.IOException;
 
@@ -43,21 +39,8 @@ public final class RetrofitFactory {
         return new Retrofit.Builder()
                 .client(client)
                 .baseUrl(endpoint)
-                .addConverterFactory(buildCustomGsonConverter())
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
-    }
-
-    /**
-     * Add custom deserializer, which is only needed for the hacky PageLead.Protection
-     * deserialization.
-     * Replace this method with GsonConverterFactory.create() once
-     * https://phabricator.wikimedia.org/T69054 is resolved (see T111131).
-     */
-    private static GsonConverterFactory buildCustomGsonConverter() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Protection.class, new Protection.Deserializer());
-        Gson myGson = gsonBuilder.create();
-        return GsonConverterFactory.create(myGson);
     }
 
     private RetrofitFactory() { }
