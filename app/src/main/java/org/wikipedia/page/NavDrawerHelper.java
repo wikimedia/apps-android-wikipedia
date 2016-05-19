@@ -24,6 +24,7 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.readinglist.ReadingListsFragment;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.UriUtil;
@@ -63,6 +64,10 @@ public class NavDrawerHelper {
         updateWikipediaZeroStatus();
         accountToggle = false;
         updateMenuGroupToggle();
+
+        if (!Prefs.enableFeed()) {
+            activity.getNavMenu().findItem(R.id.nav_item_feed).setVisible(false);
+        }
     }
 
     public NavigationView.OnNavigationItemSelectedListener getNewListener() {
@@ -70,6 +75,10 @@ public class NavDrawerHelper {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
+                    case R.id.nav_item_feed:
+                        // TODO: [Feed] show Feed Fragment.
+                        // TODO: [Feed] add Feed logging.
+                        break;
                     case R.id.nav_item_today:
                         activity.loadMainPageInCurrentTab();
                         funnel.logToday();
@@ -189,7 +198,10 @@ public class NavDrawerHelper {
     }
 
     @Nullable @IdRes private Integer fragmentToMenuId(Class<? extends Fragment> fragment) {
-        if (fragment == PageFragment.class) {
+        // TODO: [Feed] add Feed Fragment.
+        /*if (fragment == FeedFragment.class) {
+            return R.id.nav_item_feed;
+        } else*/ if (fragment == PageFragment.class) {
             return R.id.nav_item_today;
         } else if (fragment == HistoryFragment.class) {
             return R.id.nav_item_history;

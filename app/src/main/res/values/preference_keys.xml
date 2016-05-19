@@ -41,4 +41,5 @@
     <string name="preference_key_remote_log">remoteLog</string>
     <!-- Note: this value _must_ match net.hockeyapp.android.CrashManager.ALWAYS_SEND_KEY. -->
     <string name="preference_key_auto_upload_crash_reports">always_send_crash_reports</string>
+    <string name="preference_key_enable_feed">enableFeed</string>
 </resources>

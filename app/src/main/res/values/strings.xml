@@ -310,4 +310,8 @@
     <!-- User options -->
     <string name="user_option_sync_label">Preferences</string>
     <!-- /User options -->
+
+    <!-- The Feed -->
+    <!-- TODO: [Feed] move translatable strings here. -->
+    <!-- /The Feed -->
 </resources>

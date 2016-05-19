@@ -151,6 +151,10 @@
             android:key="@string/preference_key_show_developer_settings"
             android:title="@string/preference_key_show_developer_settings" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_enable_feed"
+            android:title="@string/preference_key_enable_feed" />
+
         <Preference android:key="@string/preferences_developer_crash_key"
             android:title="@string/preferences_developer_crash_title"
             android:summary="@string/preferences_developer_crash_summary" />
