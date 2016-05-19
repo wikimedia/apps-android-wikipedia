@@ -51,6 +51,7 @@
             android:dialogMessage="Prod (default if blank): https://wikipedia.org
             \nDev: http://host:8080
             \nBeta cluster (switch app language to Simple English): http://wikipedia.beta.wmflabs.org
+            \nAuth manager (disable language code): http://authmanager.wmflabs.org
             \nNote: change requires restart." />
 
         <SwitchPreferenceCompat
