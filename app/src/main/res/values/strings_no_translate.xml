@@ -42,6 +42,8 @@
 
     <!-- The Feed -->
     <!-- TODO: [Feed] move translatable strings to strings.xml. -->
-    <string name="nav_item_feed">Home</string>
+    <string name="feed">Home</string>
+    <string name="activity_feed_title">@string/feed</string>
+    <string name="nav_item_feed">@string/feed</string>
     <!-- /The Feed -->
 </resources>

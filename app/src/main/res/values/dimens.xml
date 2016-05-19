@@ -87,4 +87,7 @@
 
     <!-- Article menu bar -->
     <dimen name="view_article_menu_bar_button_padding">12dp</dimen>
+
+    <!-- The Feed -->
+    <dimen name="view_feed_min_column_width">192dp</dimen>
 </resources>
