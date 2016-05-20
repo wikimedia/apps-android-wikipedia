@@ -1,16 +1,12 @@
 package org.wikipedia.server.restbase;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.server.BasePageLeadTest;
-import org.wikipedia.server.Protection;
 import org.wikipedia.server.mwapi.MwPageLead;
 import org.wikipedia.test.TestRunner;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import static org.wikipedia.json.GsonUnmarshaller.unmarshal;
 
 /**
  * Tests serialization via Gson.
@@ -18,24 +14,15 @@ import com.google.gson.GsonBuilder;
  */
 @RunWith(TestRunner.class)
 public class RbPageLeadTest extends BasePageLeadTest {
-    private Gson gson;
-
-    @Before
-    public void setUp() throws Exception {
-        gson = new GsonBuilder()
-                .registerTypeAdapter(Protection.class, new Protection.Deserializer())
-                .create();
-    }
-
     @Test
     public void testEnglishMainPage() throws Exception {
-        RbPageLead props = gson.fromJson(getEnglishMainPageJson(), RbPageLead.class);
+        RbPageLead props = unmarshal(RbPageLead.class, getEnglishMainPageJson());
         verifyEnglishMainPage(props);
     }
 
     @Test
     public void testUnprotectedDisambiguationPage() throws Exception {
-        RbPageLead props = gson.fromJson(getUnprotectedDisambiguationPageJson(), RbPageLead.class);
+        RbPageLead props = unmarshal(RbPageLead.class, getUnprotectedDisambiguationPageJson());
         verifyUnprotectedDisambiguationPage(props);
     }
 
@@ -45,7 +32,7 @@ public class RbPageLeadTest extends BasePageLeadTest {
      */
     @Test
     public void testProtectedButNoEditProtectionPage() throws Exception {
-        RbPageLead props = gson.fromJson(getProtectedButNoEditProtectionPageJson(), RbPageLead.class);
+        RbPageLead props = unmarshal(RbPageLead.class, getProtectedButNoEditProtectionPageJson());
         verifyProtectedNoEditProtectionPage(props);
     }
 
@@ -54,7 +41,7 @@ public class RbPageLeadTest extends BasePageLeadTest {
      */
     @Test
     public void testError() throws Exception {
-        MwPageLead pageLead = gson.fromJson(getErrorJson(), MwPageLead.class);
+        MwPageLead pageLead = unmarshal(MwPageLead.class, getErrorJson());
         MwPageLead.Mobileview props = pageLead.getMobileview();
         verifyError(pageLead, props);
     }
