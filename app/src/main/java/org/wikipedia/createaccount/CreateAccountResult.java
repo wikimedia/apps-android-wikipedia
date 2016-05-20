@@ -15,7 +15,7 @@ public class CreateAccountResult extends CompatCreateAccountResult {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(result);
     }
 

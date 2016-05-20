@@ -26,7 +26,7 @@ public class AMCreateAccountResult extends CompatCreateAccountResult {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(status);
         parcel.writeString(message);
     }

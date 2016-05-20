@@ -11,8 +11,6 @@ import org.wikipedia.ApiTask;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
-import java.util.List;
-
 public class AMCreateAccountInfoTask extends ApiTask<AMCreateAccountInfoResult> {
 
     public AMCreateAccountInfoTask() {
@@ -36,7 +34,7 @@ public class AMCreateAccountInfoTask extends ApiTask<AMCreateAccountInfoResult> 
     public AMCreateAccountInfoResult processResult(ApiResult result) throws Throwable {
         boolean enabled = result.asObject().optJSONObject("query") != null;
         if (!enabled) {
-            return new AMCreateAccountInfoResult(false, null, null);
+            return new AMCreateAccountInfoResult(false, null);
         }
 
         String captchaId = null;
@@ -55,12 +53,6 @@ public class AMCreateAccountInfoTask extends ApiTask<AMCreateAccountInfoResult> 
         } catch (JSONException e) {
             L.e("Error parsing createaccountinfo json", e);
         }
-
-        List<String> sessionCookie = null;
-        if (result.getHeaders().containsKey("Set-Cookie")) {
-            sessionCookie = result.getHeaders().get("Set-Cookie");
-        }
-
-        return new AMCreateAccountInfoResult(true, captchaId, sessionCookie);
+        return new AMCreateAccountInfoResult(true, captchaId);
     }
 }
