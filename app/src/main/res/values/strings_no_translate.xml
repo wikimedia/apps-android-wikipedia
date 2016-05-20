@@ -40,4 +40,8 @@
     <string name="hockeyapp_crash_dialog_positive_button" tools:ignore="UnusedResources">@string/crash_report_dialog_send_button</string>
     <!-- /Crash reporter -->
 
+    <!-- The Feed -->
+    <!-- TODO: [Feed] move translatable strings to strings.xml. -->
+    <string name="nav_item_feed">Home</string>
+    <!-- /The Feed -->
 </resources>
