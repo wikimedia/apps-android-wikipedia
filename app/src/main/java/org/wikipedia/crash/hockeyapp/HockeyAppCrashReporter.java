@@ -11,6 +11,7 @@ import net.hockeyapp.android.ExceptionHandler;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.BaseCrashReporter;
 import org.wikipedia.crash.CrashReportActivity;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
@@ -83,7 +84,12 @@ public class HockeyAppCrashReporter extends BaseCrashReporter {
 
         @Override
         public void onCrash() {
-            launchCrashReportActivity();
+            if (!Prefs.crashedBeforeActivityCreated()) {
+                Prefs.crashedBeforeActivityCreated(true);
+                launchCrashReportActivity();
+            } else {
+                L.i("Crashed before showing UI. Skipping reboot.");
+            }
             terminateApp();
         }
 

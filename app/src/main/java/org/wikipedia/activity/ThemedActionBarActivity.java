@@ -12,6 +12,7 @@ import android.view.ViewConfiguration;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ApiUtil;
 
 import java.lang.reflect.Field;
@@ -22,6 +23,7 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ActivityUtil.requestFullUserOrientation(this);
 
         setTheme();
@@ -37,6 +39,10 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         AccountUtil.logOutIfAccountRemoved();
+
+        // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
+        // less probable.
+        Prefs.crashedBeforeActivityCreated(false);
     }
 
     @Override
