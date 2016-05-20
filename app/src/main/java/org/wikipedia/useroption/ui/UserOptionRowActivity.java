@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.activity.CallbackFragment.Callback;
 import org.wikipedia.activity.SingleFragmentActivity;
-import org.wikipedia.activity.FragmentCallback;
 
 public class UserOptionRowActivity extends SingleFragmentActivity<UserOptionRowFragment>
-        implements FragmentCallback {
+        implements Callback {
     public static Intent newIntent(@NonNull Context context) {
         return new Intent().setClass(context, UserOptionRowActivity.class);
     }
