@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
+import org.wikipedia.Site;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -50,7 +52,7 @@ public class MwPageLead implements PageLead {
     public Page toPage(@NonNull PageTitle title) {
         return new Page(adjustPageTitle(title),
                 mobileview.getSections(),
-                mobileview.toPageProperties());
+                mobileview.toPageProperties(title.getSite()));
     }
 
     private PageTitle adjustPageTitle(@NonNull PageTitle title) {
@@ -99,6 +101,7 @@ public class MwPageLead implements PageLead {
      */
     public static class Mobileview implements PageLeadProperties {
         private int id;
+        private int namespace;
         private long revision;
         @Nullable private String lastmodified;
         @Nullable private String displaytitle;
@@ -115,13 +118,17 @@ public class MwPageLead implements PageLead {
         @Nullable private List<Section> sections;
 
         /** Converter */
-        public PageProperties toPageProperties() {
-            return new PageProperties(this);
+        public PageProperties toPageProperties(@NonNull Site site) {
+            return new PageProperties(site, this);
         }
 
         @Override
         public int getId() {
             return id;
+        }
+
+        @Override @NonNull public Namespace getNamespace(@NonNull Site site) {
+            return Namespace.of(namespace);
         }
 
         @Override

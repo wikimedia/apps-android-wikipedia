@@ -1,5 +1,6 @@
 package org.wikipedia.server.restbase;
 
+import org.wikipedia.Site;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -7,6 +8,7 @@ import org.wikipedia.server.PageCombo;
 import org.wikipedia.util.log.L;
 
 import android.location.Location;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 
@@ -48,7 +50,8 @@ public class RbPageCombo implements PageCombo {
         if (lead == null) {
             throw new RuntimeException("lead is null. Check for errors before use!");
         }
-        Page page = new Page(lead.adjustPageTitle(title), lead.getSections(), toPageProperties());
+        Page page = new Page(lead.adjustPageTitle(title), lead.getSections(),
+                toPageProperties(title.getSite()));
         if (remaining != null) {
             page.augmentRemainingSections(remaining.getSections());
         }
@@ -73,7 +76,7 @@ public class RbPageCombo implements PageCombo {
     }
 
     /** Converter */
-    public PageProperties toPageProperties() {
-        return new PageProperties(lead);
+    public PageProperties toPageProperties(@NonNull Site site) {
+        return new PageProperties(site, lead);
     }
 }

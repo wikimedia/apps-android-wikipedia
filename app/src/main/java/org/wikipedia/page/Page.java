@@ -99,7 +99,7 @@ public class Page {
     }
 
     public boolean couldHaveReadMoreSection() {
-        return (!isFilePage() && !getTitle().isSpecial() && getTitle().getNamespace() == null);
+        return getTitle().namespace() == Namespace.MAIN;
     }
 
     @Override
@@ -141,7 +141,7 @@ public class Page {
     }
 
     public boolean isArticle() {
-        return !isMainPage() && getTitle().getNamespace() == null;
+        return !isMainPage() && getTitle().namespace() == Namespace.MAIN;
     }
 
     public JSONObject toJSON() {

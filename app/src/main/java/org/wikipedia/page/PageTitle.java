@@ -2,15 +2,14 @@ package org.wikipedia.page;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
-import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.MainPageNameData;
-import org.wikipedia.staticdata.SpecialAliasData;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -47,7 +46,9 @@ public class PageTitle implements Parcelable {
      * * [[Utilisateur:Deskana]] on frwiki will have a namespace of "Utilisateur", even if you got
      *   to the page by going to [[User:Deskana]] and having MediaWiki automatically redirect you.
      */
-    // TODO: use Namespace. Clients shouldn't have to bear this knowledge to access a String.
+    // TODO: remove. This legacy code is the localized namespace name (File, Special, Talk, etc) but
+    //       isn't consistent across titles. e.g., articles with colons, such as RTÉ News: Six One,
+    //       are broken.
     @Nullable private final String namespace;
     private final String text;
     private final String fragment;
@@ -114,6 +115,15 @@ public class PageTitle implements Parcelable {
     @Nullable
     public String getNamespace() {
         return namespace;
+    }
+
+    @NonNull public Namespace namespace() {
+        if (properties != null) {
+            return properties.getNamespace();
+        }
+
+        // Properties has the accurate namespace but it doesn't exist. Guess based on title.
+        return Namespace.fromLegacyString(site, namespace);
     }
 
     public Site getSite() {
@@ -258,35 +268,22 @@ public class PageTitle implements Parcelable {
         return namespace == null ? getText() : namespace + ":" + getText();
     }
 
-
-    private Boolean isFilePage = null;
     /**
      * Check if the Title represents a File:
      *
      * @return true if it is a File page, false if not
      */
     public boolean isFilePage() {
-        if (isFilePage == null) {
-            String filePageAlias = FileAliasData.valueFor(getSite().languageCode());
-            isFilePage = filePageAlias.equals(getNamespace());
-        }
-
-        return isFilePage;
+        return namespace().file();
     }
 
-    private Boolean isSpecial = null;
     /**
      * Check if the Title represents a special page
      *
      * @return true if it is a special page, false if not
      */
     public boolean isSpecial() {
-        if (isSpecial == null) {
-            String specialPageAlias = SpecialAliasData.valueFor(getSite().languageCode());
-            isSpecial = specialPageAlias.equals(getNamespace());
-        }
-
-        return isSpecial;
+        return namespace().special();
     }
 
     @Override
