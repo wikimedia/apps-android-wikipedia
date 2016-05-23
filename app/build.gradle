@@ -35,7 +35,7 @@ def getDate() {
 }
 
 def computeVersionName(label) {
-    return "2.1.${android.defaultConfig.versionCode}-${label}-${date}"
+    return "2.2.${android.defaultConfig.versionCode}-${label}-${date}"
 }
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_7
