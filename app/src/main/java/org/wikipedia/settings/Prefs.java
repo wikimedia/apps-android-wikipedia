@@ -104,6 +104,14 @@ public final class Prefs {
         remove(getCookiesForDomainKey(domain));
     }
 
+    public static boolean crashedBeforeActivityCreated() {
+        return getBoolean(R.string.preference_key_crashed_before_activity_created, true);
+    }
+
+    public static void crashedBeforeActivityCreated(boolean crashed) {
+        setBoolean(R.string.preference_key_crashed_before_activity_created, crashed);
+    }
+
     public static boolean isCrashReportAutoUploadEnabled() {
         return getBoolean(R.string.preference_key_auto_upload_crash_reports, true);
     }

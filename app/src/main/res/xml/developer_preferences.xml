@@ -156,6 +156,10 @@
             android:key="@string/preference_key_enable_feed"
             android:title="@string/preference_key_enable_feed" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_crashed_before_activity_created"
+            android:title="@string/preference_key_crashed_before_activity_created" />
+
         <Preference android:key="@string/preferences_developer_crash_key"
             android:title="@string/preferences_developer_crash_title"
             android:summary="@string/preferences_developer_crash_summary" />
