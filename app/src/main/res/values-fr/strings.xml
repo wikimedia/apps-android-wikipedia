@@ -75,7 +75,7 @@
   <string name="login_error_wrong_password">Mot de passe incorrect</string>
   <string name="login_error_wrong_username">Nom d’utilisateur incorrect</string>
   <string name="login_error_illegal">Nom d’utilisateur non valide</string>
-  <string name="login_success_toast">Connecté avec succès!</string>
+  <string name="login_success_toast">Connecté avec succès !</string>
   <string name="login_error_blocked">Cet utilisateur a été bloqué</string>
   <string name="login_error_throttled">Trop de tentatives de connexion. Attendez quelques minutes pour réessayer !</string>
   <string name="login_error_unknown">Échec de la connexion :(</string>
@@ -107,7 +107,7 @@
   <string name="create_account_next">Suivant</string>
   <string name="create_account_button">Créer un compte</string>
   <string name="preferences_general_heading">Général</string>
-  <string name="wikipedia_app_faq">FAQ des applis Wikipedia</string>
+  <string name="wikipedia_app_faq">FAQ des applis Wikipédia</string>
   <string name="zero_charged_verbiage">Wikipédia Zéro est désactivé</string>
   <string name="zero_search_hint">Rechercher dans Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving">Avertir au moment de quitter Wikipédia Zéro</string>

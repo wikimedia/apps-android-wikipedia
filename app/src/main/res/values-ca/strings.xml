@@ -3,6 +3,7 @@
   <string name="app_name_prod">Viquipèdia</string>
   <string name="app_name_beta">Viquipèdia Beta</string>
   <string name="app_name_alpha">Viquipèdia Alfa</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Sí</string>
   <string name="no">No</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
@@ -246,7 +247,7 @@
 Voleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Començar de nou</string>
   <string name="crash_report_quit">Surt</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Desa l\'article per poder-lo llegir sense connexió</string>
+  <string name="article_menu_bar_bookmark">Afegeix l\'article a la llista de lectura</string>
   <string name="article_menu_bar_share">Comparteix l\'enllaç a l\'article</string>
   <string name="article_menu_bar_navigate">Navega a la ubicació de l\'article</string>
   <string name="nav_item_reading_lists">Llistes de lectura</string>
@@ -275,6 +276,11 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_edit_cancel">Cancel·la</string>
   <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir aquesta llista de lectura?</string>
   <string name="reading_lists_empty">No hi ha cap llista de lectura.</string>
+  <string name="reading_lists_empty_message">Organitzeu els articles que llegiu en llistes de lectura! En navegar un article, feu un toca a la icona d\'adreces d\'interès a la part superior de l\'article per afegir-lo a la llista de lectura.</string>
+  <string name="reading_lists_onboarding_intro">Crea llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan estigueu fora de línia!</string>
+  <string name="reading_lists_onboarding_for_example">Per exemple</string>
+  <string name="reading_lists_onboarding_example1">Llocs per visitar</string>
+  <string name="reading_lists_onboarding_example2">Animals preferits</string>
   <string name="reading_lists_onboarding_example3">Espai!</string>
   <string name="reading_lists_onboarding_got_it">Entesos</string>
   <string name="user_option_sync_label">Preferències</string>

@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="nav_item_saved_pages">Pagini salvate</string>
   <string name="share_via">Distribuire prin</string>
+  <string name="search_redirect_from">Redirecționat de la %s</string>
   <string name="menu_page_show_tabs">Arată filele</string>
   <string name="menu_page_other_languages">Schimbă limba</string>
   <string name="menu_page_find_in_page">Găsește în pagină</string>
@@ -247,7 +248,7 @@
 Doriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
   <string name="crash_report_quit">Închide</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Salvează articolul pentru lecturare off-line ulterioară</string>
+  <string name="article_menu_bar_bookmark">Adaugă acest articol într-o listă de lecturi</string>
   <string name="article_menu_bar_share">Distribuie legătura către articol</string>
   <string name="article_menu_bar_navigate">Navighează către locul din articol</string>
   <string name="nav_item_reading_lists">Liste de lecturi</string>
@@ -257,7 +258,7 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_added_to_named">Adăugat în %s.</string>
   <string name="reading_list_added_to_unnamed">Adăugat în lista de lecturi.</string>
   <string name="reading_list_already_exists">Acest articol se află deja în acea listă.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Vizualizare</string>
+  <string name="reading_list_added_view_button">Vezi lista</string>
   <string name="reading_list_item_count_singular">1 articol</string>
   <string name="reading_list_item_count_plural">%s (de) articole</string>
   <string name="reading_list_sort">Sortare</string>
@@ -268,7 +269,7 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_name_sample">Lista mea de lecturi</string>
   <string name="reading_list_name_hint">Numele listei</string>
   <string name="reading_list_description_hint">Descriere (opțională)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Salvează pentru lectură off-line</string>
+  <string name="reading_list_save_for_offline">Disponibil pentru lectură off-line</string>
   <string name="reading_list_item_deleted">%s a fost eliminat din listă</string>
   <string name="reading_list_item_delete_undo">Anulează</string>
   <string name="reading_list_deleted">%s a fost ștearsă</string>
@@ -277,7 +278,11 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_delete_confirm">Sigur doriți să ștergeți această listă de lecturi?</string>
   <string name="reading_lists_empty">Nicio listă de lecturi pe aici.</string>
   <string name="reading_lists_empty_message">Grupați articolele pe care le răsfoiți în liste de lecturi! Când frunzăriți un articol, atingeți pictograma „semn de carte” din partea de sus a articolului pentru a-l adăuga unei liste de lecturi.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Grupați articolele pe care doriți să le citiți mai târziu în liste de lecturi.</string>
+  <string name="reading_lists_onboarding_intro">Creați liste de lecturi cu articolele pe care doriți să le citiți mai târziu, chiar dacă sunteți off-line!</string>
+  <string name="reading_lists_onboarding_for_example">De exemplu</string>
+  <string name="reading_lists_onboarding_example1">Locuri de vizitat</string>
+  <string name="reading_lists_onboarding_example2">Animale preferate</string>
+  <string name="reading_lists_onboarding_example3">Cosmos!</string>
   <string name="reading_lists_onboarding_got_it">Am înțeles</string>
   <string name="user_option_sync_label">Preferințe</string>
 </resources>

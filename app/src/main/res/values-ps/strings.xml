@@ -32,6 +32,7 @@
   <string name="nav_item_nearby">نژدې</string>
   <string name="nearby_distance_in_meters">%d متر</string>
   <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
+  <string name="last_updated_text">وروستئ هممهالېدنه %s</string>
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
   <string name="preference_languages_filter_hint">پلټل</string>
   <string name="langlinks_filter_hint">پلټل</string>
@@ -40,8 +41,11 @@
   <string name="menu_save_changes">بدلونونه خوندي کول</string>
   <string name="edit_section_error_retry">بياآزمويل</string>
   <string name="dialog_saving_in_progress">خوندي کېدنې کې دی…</string>
+  <string name="edit_saved_successfully">سمون مو خوندي شو!</string>
+  <string name="dialog_message_edit_failed">سمون مو نابرياله شو!</string>
   <string name="dialog_message_edit_failed_retry">بياآزمويل</string>
   <string name="dialog_message_edit_failed_cancel">ناگارل</string>
+  <string name="dialog_message_leaving_edit">ستاسې بدلونونه لا تر اوسه پورې نه دي خوندي شوي. ايا د دې مخ په پرېښودلو کې ډاډمن يې؟</string>
   <string name="dialog_message_leaving_edit_leave">وتل</string>
   <string name="dialog_message_leaving_edit_stay">پاتې کېدل</string>
   <string name="menu_show_toc">نيوليک</string>
@@ -74,12 +78,14 @@
   <string name="create_account_passwords_mismatch_error">پټنومونه مو سره ورته نه دي</string>
   <string name="create_account_email_error">ناسمه برېښليک پته</string>
   <string name="create_account_username_exists_error">دا کارن-نوم بل څوک کاروي</string>
+  <string name="create_account_generic_error">گڼون مو جوړ نه شو</string>
   <string name="create_account_next">راتلونکی</string>
   <string name="create_account_button">گڼون جوړول</string>
   <string name="preferences_general_heading">ټولگړی</string>
   <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ.ځ.پ</string>
   <string name="zero_charged_verbiage">ويكيپېډيا زيرو گول دی</string>
   <string name="zero_search_hint">ويکيپېډيا زيرو پلټل</string>
+  <string name="zero_warn_when_leaving">د ويکيپېډيا زيرو په پرېښودلو کې گواښنه</string>
   <string name="zero_webpage_title">د ويکيپېډيا زيرو ډ.ځ.پ</string>
   <string name="zero_wikipedia_zero_heading">ويکيپېډيا زيرو</string>
   <string name="zero_interstitial_title">ويکيپېډيا زيرو پرېښودل</string>
@@ -149,6 +155,8 @@
   <string name="snippet_share_preview_image_desc">انځور مخليدنه</string>
   <string name="cc_logo">کريټيف کامنز منښتليک</string>
   <string name="captcha_image">کېپچا انځور</string>
+  <string name="gallery_fair_use_license">منصفانه کارېدنه</string>
+  <string name="gallery_uploader_unknown">ناڅرگند پورته کوونکی</string>
   <string name="page_view_in_browser">مخ په کتنمل کې کتل</string>
   <string name="format_error_server_message">پيغام: \"%s\"</string>
   <string name="format_error_server_code">کوډ: \"%s\"</string>
@@ -167,19 +175,26 @@
   <string name="reading_list_create_new">نوی جوړول</string>
   <string name="reading_list_added_to_named">%s کې ورگډ شو.</string>
   <string name="reading_list_added_to_unnamed">لوست لړليک کې ورگډ شوی.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">کتل</string>
+  <string name="reading_list_added_view_button">لړليک کتل</string>
   <string name="reading_list_item_count_singular">1 ليکنه</string>
   <string name="reading_list_item_count_plural">%s ليکنې</string>
   <string name="reading_list_sort">اوډل</string>
   <string name="reading_list_sort_by_name">د نوم له مخې</string>
+  <string name="reading_list_sort_by_recent">د وروستني له مخې</string>
+  <string name="reading_list_menu_edit">د لوست لړ تفصيلونه سمول</string>
   <string name="reading_list_menu_delete">لوست لړليک ړنگول</string>
   <string name="reading_list_name_sample">زما لوست لړليک</string>
   <string name="reading_list_name_hint">د دې لړليک نوم</string>
   <string name="reading_list_description_hint">څرگندونه (اختياري)</string>
+  <string name="reading_list_save_for_offline">د پرې ليکه لوستنې لپاره شته</string>
+  <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
   <string name="reading_list_item_delete_undo">ناکړل</string>
   <string name="reading_list_deleted">%s ړنگ شو</string>
   <string name="reading_list_edit_ok">ښه</string>
   <string name="reading_list_edit_cancel">ناگارل</string>
+  <string name="reading_lists_onboarding_for_example">د بېلگې په توگه</string>
+  <string name="reading_lists_onboarding_example2">خواپوري ژوي</string>
+  <string name="reading_lists_onboarding_example3">تشيال!</string>
   <string name="reading_lists_onboarding_got_it">وپوهېدم</string>
   <string name="user_option_sync_label">غوره توبونه</string>
 </resources>

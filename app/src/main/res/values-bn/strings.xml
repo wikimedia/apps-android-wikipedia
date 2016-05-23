@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">এটি আপনার সব ব্রাউজ করা ইতিহাস মুছে দিবে, এবং বর্তমানে খোলা সব ট্যাব বন্ধ করবে। আপনি কি নিশ্চিত?</string>
   <string name="nav_item_saved_pages">সংরক্ষিত পাতাসমূহ</string>
   <string name="share_via">শেয়ার</string>
+  <string name="search_redirect_from">%s থেকে পুনর্নির্দেশিত</string>
   <string name="menu_page_show_tabs">ট্যাবসমূহ দেখান</string>
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
@@ -247,7 +248,7 @@
 আপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">পরে অফলাইনে পড়ার জন্য নিবন্ধটি সংরক্ষণ করুন</string>
+  <string name="article_menu_bar_bookmark">একটি পড়ার তালিকা এই নিবন্ধটি যোগ করে</string>
   <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
   <string name="article_menu_bar_navigate">নিবন্ধের অবস্থান থেকে পরিভ্রমণ করুন</string>
   <string name="nav_item_reading_lists">পড়ার তালিকা</string>
@@ -257,7 +258,7 @@
   <string name="reading_list_added_to_named">%s-এ যোগ করা হয়েছে।</string>
   <string name="reading_list_added_to_unnamed">পড়ার তালিকায় যোগ করা হয়েছে।</string>
   <string name="reading_list_already_exists">এই নিবন্ধটি ইতিমধ্যে সেই তালিকায় রয়েছে।</string>
-  <string name="reading_list_added_view_button" fuzzy="true">দেখুন</string>
+  <string name="reading_list_added_view_button">তালিকা দেখুন</string>
   <string name="reading_list_item_count_singular">১টি নিবন্ধ</string>
   <string name="reading_list_item_count_plural">%sটি নিবন্ধ</string>
   <string name="reading_list_sort">বাছাই করুন</string>
@@ -268,7 +269,7 @@
   <string name="reading_list_name_sample">আমার পড়ার তালিকা</string>
   <string name="reading_list_name_hint">এই তালিকার নাম</string>
   <string name="reading_list_description_hint">বিবরণ (ঐচ্ছিক)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">অফলাইনে পড়ার জন্য সংরক্ষণ করুন</string>
+  <string name="reading_list_save_for_offline">অফলাইনে পড়ার জন্য উপলব্ধ</string>
   <string name="reading_list_item_deleted">তালিকা থেকে %s সরানো হয়েছে</string>
   <string name="reading_list_item_delete_undo">পূর্বাবস্থা</string>
   <string name="reading_list_deleted">%s অপসারিত হয়েছে</string>
@@ -277,7 +278,11 @@
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই পড়ার তালিকা অপসারণ করতে চান?</string>
   <string name="reading_lists_empty">এখানে কোন পড়ার তালিকা নেই।</string>
   <string name="reading_lists_empty_message">পড়ার তালিকার মধ্যে আপনার ব্রাউজ করা নিবন্ধ সংগঠিত করুন! যখন একটি নিবন্ধ ব্রাউজ করবেন, তা পড়ার তালিকায় যোগ করার জন্য নিবন্ধের শীর্ষে থাকা বুকমার্ক আইকনে টোকা দিন।</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">যে নিবন্ধগুলি আপনি পরে পড়ার তালিকায় পড়তে চান তা সংগঠিত করুন।</string>
+  <string name="reading_lists_onboarding_intro">পরে পড়ার জন্য আপনার জন্য পড়ার তালিকা তৈরি করে, এমনকি যখন আপনি অফলাইনে থাকেন!</string>
+  <string name="reading_lists_onboarding_for_example">উদাহরণস্বরূপ</string>
+  <string name="reading_lists_onboarding_example1">ভ্রমণের জন্য স্থান</string>
+  <string name="reading_lists_onboarding_example2">প্রিয় পশুপাখি</string>
+  <string name="reading_lists_onboarding_example3">মহাকাশ!</string>
   <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
 </resources>

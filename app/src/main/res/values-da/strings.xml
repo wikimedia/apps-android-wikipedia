@@ -3,6 +3,7 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="yes">Ja</string>
   <string name="no">Nej</string>
   <string name="search_hint">Søg i Wikipedia</string>
@@ -13,16 +14,18 @@
   <string name="menu_clear_all_history">Ryd historik</string>
   <string name="page_does_not_exist_error">Denne side findes ikke.</string>
   <string name="nav_item_today">I dag</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Vil du rydde browserhistorikken?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Er du sikker på du ønsker at slette al historik?</string>
+  <string name="dialog_title_clear_history">Ryd browserhistorikken</string>
+  <string name="dialog_message_clear_history">Dette vil slette hele browserhistorikken og lukke alle åbne faner. Er du sikker?</string>
   <string name="nav_item_saved_pages">Gemte sider</string>
   <string name="share_via">Del via</string>
+  <string name="search_redirect_from">Omdirigeret fra %s</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Skift sprog</string>
   <string name="menu_page_find_in_page">Søg på siden</string>
   <string name="menu_page_content_issues">Indholdsproblemer</string>
   <string name="menu_page_similar_titles">Lignende artikler</string>
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
+  <string name="menu_page_add_to_list">Tilføj til læseliste</string>
   <string name="menu_page_share">Del link</string>
   <string name="menu_long_press_open_page">Åbn</string>
   <string name="menu_long_press_open_in_new_tab">Åbn i ny fane</string>
@@ -30,6 +33,7 @@
   <string name="menu_text_select_copy">Kopier</string>
   <string name="menu_text_select_define">Beskriv</string>
   <string name="menu_text_select_share">Del</string>
+  <string name="menu_text_select_edit_here">Rediger her</string>
   <string name="nav_item_nearby">I nærheden</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -142,9 +146,9 @@
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading" fuzzy="true">anvendte biblioteker</string>
-  <string name="about_contributors_heading" fuzzy="true">bidragsydere</string>
-  <string name="about_translators_heading" fuzzy="true">oversættere</string>
+  <string name="about_libraries_heading">Anvendte biblioteker</string>
+  <string name="about_contributors_heading">Bidragsydere</string>
+  <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
@@ -200,7 +204,7 @@
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_menu_save">Gem til enhed</string>
   <string name="gallery_save_progress">Downloader fil…</string>
-  <string name="gallery_save_success" fuzzy="true">Billedet er gemt med succes.</string>
+  <string name="gallery_save_success">Filen er gemt.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder. Prøv venligst igen, og giv den ønskede tilladelse.</string>
   <string name="err_cannot_save_file">Kan ikke gemme filen</string>
@@ -243,7 +247,41 @@
 Vil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
   <string name="crash_report_quit">Afslut</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Gemme artiklen til læsning offline senere</string>
+  <string name="article_menu_bar_bookmark">Tilføj denne artikel til en læseliste</string>
   <string name="article_menu_bar_share">Del link til artiklen</string>
   <string name="article_menu_bar_navigate">Naviger til det omtalte sted</string>
+  <string name="nav_item_reading_lists">Læselister</string>
+  <string name="reading_list_untitled">Unavngivet</string>
+  <string name="reading_list_save_to">Gem til læseliste</string>
+  <string name="reading_list_create_new">Opret ny</string>
+  <string name="reading_list_added_to_named">Tilføjet til %s.</string>
+  <string name="reading_list_added_to_unnamed">Tilføjet til læseliste.</string>
+  <string name="reading_list_already_exists">Denne artikel er allerede på den liste.</string>
+  <string name="reading_list_added_view_button">Vis liste</string>
+  <string name="reading_list_item_count_singular">1 artikel</string>
+  <string name="reading_list_item_count_plural">%s artikler</string>
+  <string name="reading_list_sort">Sortér</string>
+  <string name="reading_list_sort_by_name">Efter navn</string>
+  <string name="reading_list_sort_by_recent">Efter dato</string>
+  <string name="reading_list_menu_edit">Rediger detaljer om læseliste</string>
+  <string name="reading_list_menu_delete">Slet læseliste</string>
+  <string name="reading_list_name_sample">Min læseliste</string>
+  <string name="reading_list_name_hint">Navn på denne liste</string>
+  <string name="reading_list_description_hint">Beskrivelse (valgfri)</string>
+  <string name="reading_list_save_for_offline">Tilgængelig for læsning offline</string>
+  <string name="reading_list_item_deleted">%s fjernet fra listen</string>
+  <string name="reading_list_item_delete_undo">Fortryd</string>
+  <string name="reading_list_deleted">%s slettet</string>
+  <string name="reading_list_edit_ok">OK</string>
+  <string name="reading_list_edit_cancel">Annuller</string>
+  <string name="reading_list_delete_confirm">Er du sikker på at du vil slette denne læseliste?</string>
+  <string name="reading_lists_empty">Ingen læselister her.</string>
+  <string name="reading_lists_empty_message">Organiser de artikler du læser i læselister! Tap på bogmærkeikonet øverst i artiklen når du læser en artikel for at tilføje det til en læseliste.</string>
+  <string name="reading_lists_onboarding_intro">Opret læselister fra artikler du ønsker at læse senere, selv når du er offline!</string>
+  <string name="reading_lists_onboarding_for_example">For eksempel</string>
+  <string name="reading_lists_onboarding_example1">Steder at besøge</string>
+  <string name="reading_lists_onboarding_example2">Ynglingsdyr</string>
+  <string name="reading_lists_onboarding_example3">Rummet!</string>
+  <string name="reading_lists_onboarding_got_it">Forstået</string>
+  <string name="user_option_sync_label">Indstillinger</string>
 </resources>

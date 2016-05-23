@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Týmto sa odstráni vaša história prehliadania a zavrú sa všetky otvorené karty. Naozaj chcete vymazať celú históriu?</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
   <string name="share_via">Zdieľať cez</string>
+  <string name="search_redirect_from">Presmerované z %s</string>
   <string name="menu_page_show_tabs">Zobraziť karty</string>
   <string name="menu_page_other_languages">Zmeniť jazyk</string>
   <string name="menu_page_find_in_page">Nájsť na stránke</string>
@@ -247,7 +248,7 @@
 Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="crash_report_relaunch">Začať odznova</string>
   <string name="crash_report_quit">Ukončiť</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Uložiť článok na offline čítanie</string>
+  <string name="article_menu_bar_bookmark">Pridať tento článok do zoznamu na prečítanie</string>
   <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
   <string name="article_menu_bar_navigate">Prejsť na umiestnenie článku</string>
   <string name="nav_item_reading_lists">Zoznamy na prečítanie</string>
@@ -257,7 +258,7 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_added_to_named">Článok bol pridaný do zoznamu %s</string>
   <string name="reading_list_added_to_unnamed">Článok bol pridaný do zoznamu na prečítanie.</string>
   <string name="reading_list_already_exists">Tento článok sa už v zozname na prečítanie nachádza.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Zobraziť</string>
+  <string name="reading_list_added_view_button">Zobraziť zoznam</string>
   <string name="reading_list_item_count_singular">1 článok</string>
   <string name="reading_list_item_count_plural">%s článkov</string>
   <string name="reading_list_sort">Zoradiť</string>
@@ -268,7 +269,7 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_name_sample">Môj zoznam na prečítanie</string>
   <string name="reading_list_name_hint">Názov zoznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinné)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Uložiť na čítanie v režime offline</string>
+  <string name="reading_list_save_for_offline">Dostupné na čítanie v režime offline</string>
   <string name="reading_list_item_deleted">Článok %s bol odstránený zo zoznamu na prečítanie</string>
   <string name="reading_list_item_delete_undo">Vrátiť</string>
   <string name="reading_list_deleted">Zoznam %s bol odstránený</string>
@@ -277,7 +278,11 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_delete_confirm">Naozaj chcete tento zoznam na prečítanie odstrániť?</string>
   <string name="reading_lists_empty">Nemáte žiadne zoznamy na prečítanie.</string>
   <string name="reading_lists_empty_message">Usporiadajte si články do zoznamov na prečítanie! Pri prehliadaní článku ťuknite na ikonu záložky v jeho vrchnej časti a pridajte si ho tak do zoznamu na prečítanie.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Články, ktoré si chcete prečítať neskôr môžete usporiadať do zoznamov na prečítanie.</string>
+  <string name="reading_lists_onboarding_intro">Z článkov, ktoré si chcete prečítať neskôr si môžete vytvoriť zoznamy na prečítanie!</string>
+  <string name="reading_lists_onboarding_for_example">Napríklad</string>
+  <string name="reading_lists_onboarding_example1">Miesta, ktoré chcem navštíviť</string>
+  <string name="reading_lists_onboarding_example2">Obľúbené zvieratá</string>
+  <string name="reading_lists_onboarding_example3">Vesmír!</string>
   <string name="reading_lists_onboarding_got_it">Rozumiem</string>
   <string name="user_option_sync_label">Nastavenia</string>
 </resources>

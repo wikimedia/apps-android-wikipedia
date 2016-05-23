@@ -9,6 +9,7 @@
   <string name="nav_item_history">Historiku</string>
   <string name="error_network_error">Nuk mund të lidhet me internet.</string>
   <string name="page_error_retry">Riprovo</string>
+  <string name="page_error_back_to_main">Kthehu</string>
   <string name="menu_clear_all_history">Fshij historikun?</string>
   <string name="page_does_not_exist_error">Faqja e dhënë nuk ekziston.</string>
   <string name="nav_item_today">Sot</string>
@@ -16,22 +17,35 @@
   <string name="dialog_message_clear_history">Ky veprim do të fshijë gjithë historikun e kërkimit dhe do të mbyllë çdo skedë të hapur. Jeni të sigurt?</string>
   <string name="nav_item_saved_pages">Faqet e ruajtura</string>
   <string name="share_via">Shpërndaj nëpërmjet</string>
+  <string name="search_redirect_from">Përcjellë nga %s</string>
   <string name="menu_page_show_tabs">Trego skedat</string>
-  <string name="menu_page_other_languages" fuzzy="true">Lexo në gjuhë të tjera</string>
+  <string name="menu_page_other_languages">Ndrysho gjuhën</string>
   <string name="menu_page_find_in_page">Gjej në faqe</string>
+  <string name="menu_page_content_issues">Çështjet e përmbajtjes</string>
+  <string name="menu_page_similar_titles">Tituj të ngjashëm</string>
   <string name="menu_page_font_and_theme">Shkrimi dhe tema</string>
+  <string name="menu_page_add_to_list">Shtoni në listën e leximit</string>
   <string name="menu_page_share">Shpërndaj lidhjen</string>
   <string name="menu_long_press_open_page">Hap</string>
   <string name="menu_long_press_open_in_new_tab">Hape në një skedë të re</string>
   <string name="menu_long_press_copy_page">Kopjo adresën e lidhjes</string>
   <string name="menu_text_select_copy">Kopjo</string>
+  <string name="menu_text_select_define">Përcaktoje</string>
   <string name="menu_text_select_share">Shpërndaje</string>
+  <string name="menu_text_select_edit_here">Redakto këtu</string>
   <string name="nav_item_nearby">Pranë</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Afro te një vendndodhje në hartë</string>
-  <string name="content_license_html" fuzzy="true">Përmbajtja është nën disponim, &lt;a class=\"jashtëm\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; përveç rasteve kur tregohet ndryshe</string>
+  <string name="last_updated_text">Përditësim i fundit %s</string>
+  <string name="content_license_html">Përmbajtja është nën disponim, &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; përveç rasteve kur tregohet ndryshe</string>
+  <string name="edit_save_action_license_logged_in">Duke e ruajtur, ju pajtoheni me &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Duke e ruajtur, ju pajtoheni me &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktimet do t\'i atribuohen IP adresës të pajisjes tuaj. Nëse ju &lt;a href=\"https://#login\"&gt;kyçeni&lt;/a&gt;, do të keni më shumë privatësi.</string>
+  <string name="preference_title_language">Gjuha e Wikipedias</string>
+  <string name="preference_languages_filter_hint">Kërko</string>
   <string name="langlinks_filter_hint">Kërko</string>
+  <string name="langlinks_empty">Kjo faqe nuk është në dispozicion në gjuhë të tjera.</string>
+  <string name="langlinks_no_match">Nuk u gjet asnjë gjuhë që përputhet me kërkimin tuaj.</string>
   <string name="langlinks_activity_title">Gjuhët e tjera</string>
   <string name="menu_save_changes">Ruaj ndryshimet</string>
   <string name="edit_section_error_retry">Riprovo</string>

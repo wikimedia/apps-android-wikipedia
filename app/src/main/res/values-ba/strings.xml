@@ -233,7 +233,7 @@
   <string name="error_no_maps_app">Маршрут һалырлыҡ бер ҡушымтаны ла табып булманы</string>
   <string name="preference_title_show_link_previews">Һылтанмаларға  байҡауҙы алдан күрһәтеп ҡуйыу</string>
   <string name="preference_summary_show_link_previews">Һылтанмаға баҫып, мәҡәләне алдан тиҙ ҡарауҙы күрһәтергә</string>
-  <string name="nav_item_donate">Викимедия фондына  ярҙам</string>
+  <string name="nav_item_donate">Википедияға ярҙам итергә</string>
   <string name="crash_report_dialog_title">Үкенескә ҡаршы, үткән юлы ҡушымта \"төшкән\"</string>
   <string name="crash_report_dialog_text">Викимедия авария тураһында мәғлүмәт бирһен һәм уны булдырған хатаны төҙәтһен өсөн Һеҙ HockeyApp ят сервис-провайдерға хата тураһында отчет ебәрергә теләйһегеҙ?</string>
   <string name="crash_report_dialog_dont_send_button">Үткәреп ебәрергә</string>
