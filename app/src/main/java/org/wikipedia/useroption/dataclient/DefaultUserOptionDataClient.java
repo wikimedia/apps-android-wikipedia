@@ -7,10 +7,9 @@ import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.editing.FetchEditTokenTask;
 import org.wikipedia.useroption.UserOption;
 
@@ -111,15 +110,13 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
             return options;
         }
 
-        public void check(@NonNull Site site) {
+        public void check(@NonNull Site site) throws IOException {
             if (!success(options)) {
                 if (badToken()) {
                     app().getEditTokenStorage().token(site, null);
                 }
 
-                throw RetrofitException.unexpectedError(
-                        new RuntimeException("Bad response for site " + site.host()
-                                + " = " + result()));
+                throw new IOException("Bad response for site " + site.host() + " = " + result());
             }
         }
     }
