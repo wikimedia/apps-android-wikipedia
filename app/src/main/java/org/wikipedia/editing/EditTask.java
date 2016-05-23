@@ -10,6 +10,8 @@ import org.wikipedia.ApiTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 
+import java.util.concurrent.TimeUnit;
+
 public class EditTask extends ApiTask<EditingResult> {
     private final PageTitle title;
     private final String sectionWikitext;
@@ -57,6 +59,11 @@ public class EditTask extends ApiTask<EditingResult> {
         JSONObject edit = resultJSON.optJSONObject("edit");
         String status = edit.optString("result");
         if (status.equals("Success")) {
+
+            // TODO: remove when the server reflects the updated page content immediately
+            // after submitting the edit, instead of a short while after.
+            Thread.sleep(TimeUnit.SECONDS.toMillis(2));
+
             return new SuccessEditResult(edit.optInt("newrevid"));
         } else if (status.equals("Failure")) {
             if (edit.has("captcha")) {
