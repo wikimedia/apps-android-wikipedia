@@ -217,7 +217,7 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
         }
 
         @Override
-        public Object getItem(int position) {
+        public View getItem(int position) {
             return views.get(position);
         }
 

@@ -420,7 +420,7 @@ public class BottomContentHandler implements BottomContentInterface,
         }
 
         @Override
-        public Object getItem(int position) {
+        public SearchResult getItem(int position) {
             return results.get(position);
         }
 
@@ -435,7 +435,7 @@ public class BottomContentHandler implements BottomContentInterface,
                 convertView = inflater.inflate(R.layout.item_page_list_entry, parent, false);
             }
             TextView pageTitleText = (TextView) convertView.findViewById(R.id.page_list_item_title);
-            SearchResult result = (SearchResult) getItem(position);
+            SearchResult result = getItem(position);
             pageTitleText.setText(result.getTitle().getDisplayText());
 
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);

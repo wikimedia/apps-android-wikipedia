@@ -380,7 +380,7 @@ public class TabsProvider {
         }
 
         @Override
-        public Object getItem(int position) {
+        public Tab getItem(int position) {
             return tabList.get(position);
         }
 

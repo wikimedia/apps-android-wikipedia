@@ -235,7 +235,7 @@ public class ToCHandler {
         }
 
         @Override
-        public Object getItem(int position) {
+        public Section getItem(int position) {
             return sections.get(position);
         }
 
@@ -249,7 +249,7 @@ public class ToCHandler {
             if (convertView == null) {
                 convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_toc_entry, parent, false);
             }
-            Section section = (Section) getItem(position);
+            Section section = getItem(position);
             TextView sectionHeading = (TextView) convertView.findViewById(R.id.page_toc_item_text);
             View sectionFiller = convertView.findViewById(R.id.page_toc_filler);
 
