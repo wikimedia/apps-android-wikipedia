@@ -43,7 +43,7 @@ public class HockeyAppCrashReporter extends BaseCrashReporter {
 
     @Override
     public void log(@NonNull Throwable throwable) {
-        ExceptionHandler.saveException(throwable, crashListener);
+        ExceptionHandler.saveException(throwable, Thread.currentThread(), crashListener);
     }
 
     private class CrashListener extends HockeyAppCrashListener {
