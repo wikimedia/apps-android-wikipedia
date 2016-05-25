@@ -210,4 +210,20 @@
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
+    <style name="SimpleDraweeViewPlaceholder">
+        <item name="actualImageScaleType">centerCrop</item>
+        <item name="placeholderImage">@drawable/checkerboard</item>
+        <item name="placeholderImageScaleType">centerCrop</item>
+        <item name="failureImage">@drawable/checkerboard</item>
+        <item name="failureImageScaleType">centerCrop</item>
+
+        <!-- Draw translucent images on a white background. -->
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="SimpleDraweeViewPlaceholder.Article">
+        <item name="placeholderImage">@drawable/ic_pageimage_placeholder</item>
+        <item name="failureImage">@drawable/ic_pageimage_placeholder</item>
+    </style>
+
 </resources>

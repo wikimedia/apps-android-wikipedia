@@ -14,19 +14,13 @@
         android:background="?attr/tab_item_selector"
         >
         <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/SimpleDraweeViewPlaceholder.Article"
             android:id="@+id/tab_item_thumbnail"
             android:layout_height="@dimen/tabImageSize"
             android:layout_width="@dimen/tabImageSize"
             android:layout_margin="4dp"
             android:layout_gravity="center_vertical"
-            app:placeholderImage="@drawable/ic_pageimage_placeholder"
-            app:placeholderImageScaleType="centerCrop"
-            app:failureImage="@drawable/ic_pageimage_placeholder"
-            app:failureImageScaleType="centerCrop"
-            app:actualImageScaleType="centerCrop"
-            android:background="@android:color/white"
-            android:contentDescription="@null"
-            />
+            android:contentDescription="@null" />
 
         <TextView
             android:id="@+id/tab_item_title"

@@ -16,17 +16,12 @@
     android:gravity="top">
 
   <com.facebook.drawee.view.SimpleDraweeView
+      style="@style/SimpleDraweeViewPlaceholder.Article"
       android:id="@+id/page_list_item_image"
       android:layout_width="@dimen/defaultListItemSize"
       android:layout_height="@dimen/defaultListItemSize"
       android:layout_gravity="center_vertical"
-      android:contentDescription="@null"
-      app:placeholderImage="@drawable/ic_pageimage_placeholder"
-      app:placeholderImageScaleType="centerCrop"
-      app:failureImage="@drawable/ic_pageimage_placeholder"
-      app:failureImageScaleType="centerCrop"
-      app:actualImageScaleType="centerCrop"
-      android:background="@color/window_background_light"/>
+      android:contentDescription="@null" />
 
   <LinearLayout
       android:layout_width="match_parent"

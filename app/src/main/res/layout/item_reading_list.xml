@@ -33,30 +33,22 @@
                     android:layout_weight="1"
                     android:orientation="horizontal">
                     <com.facebook.drawee.view.SimpleDraweeView
+                        style="@style/SimpleDraweeViewPlaceholder.Article"
                         android:id="@+id/item_image_1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@null"
-                        app:placeholderImage="@drawable/ic_pageimage_placeholder"
-                        app:placeholderImageScaleType="centerCrop"
-                        app:failureImage="@drawable/ic_pageimage_placeholder"
-                        app:failureImageScaleType="centerCrop"
-                        app:actualImageScaleType="centerCrop"
                         android:background="@color/window_background_light"/>
                     <com.facebook.drawee.view.SimpleDraweeView
+                        style="@style/SimpleDraweeViewPlaceholder.Article"
                         android:id="@+id/item_image_2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@null"
-                        app:placeholderImage="@drawable/ic_pageimage_placeholder"
-                        app:placeholderImageScaleType="centerCrop"
-                        app:failureImage="@drawable/ic_pageimage_placeholder"
-                        app:failureImageScaleType="centerCrop"
-                        app:actualImageScaleType="centerCrop"
                         android:background="@color/window_background_light"/>
                 </LinearLayout>
                 <LinearLayout
@@ -66,30 +58,22 @@
                     android:layout_weight="1"
                     android:orientation="horizontal">
                     <com.facebook.drawee.view.SimpleDraweeView
+                        style="@style/SimpleDraweeViewPlaceholder.Article"
                         android:id="@+id/item_image_3"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@null"
-                        app:placeholderImage="@drawable/ic_pageimage_placeholder"
-                        app:placeholderImageScaleType="centerCrop"
-                        app:failureImage="@drawable/ic_pageimage_placeholder"
-                        app:failureImageScaleType="centerCrop"
-                        app:actualImageScaleType="centerCrop"
                         android:background="@color/window_background_light"/>
                     <com.facebook.drawee.view.SimpleDraweeView
+                        style="@style/SimpleDraweeViewPlaceholder.Article"
                         android:id="@+id/item_image_4"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:contentDescription="@null"
-                        app:placeholderImage="@drawable/ic_pageimage_placeholder"
-                        app:placeholderImageScaleType="centerCrop"
-                        app:failureImage="@drawable/ic_pageimage_placeholder"
-                        app:failureImageScaleType="centerCrop"
-                        app:actualImageScaleType="centerCrop"
                         android:background="@color/window_background_light"/>
                 </LinearLayout>
             </LinearLayout>
