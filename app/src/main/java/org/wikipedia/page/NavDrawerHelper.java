@@ -106,6 +106,7 @@ public class NavDrawerHelper {
                         break;
                     case R.id.nav_item_random:
                         activity.getRandomHandler().doVisitRandomArticle();
+                        activity.closeNavDrawer();
                         funnel.logRandom();
                         break;
                     case R.id.nav_item_donate:
