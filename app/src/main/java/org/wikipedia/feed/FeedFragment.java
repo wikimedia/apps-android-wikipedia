@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import org.wikipedia.R;
 import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.feed.model.FeedCard;
+import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.feed.view.FeedView;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class FeedFragment extends Fragment
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
     private Unbinder unbinder;
 
-    @NonNull private final List<FeedCard> cards = new ArrayList<>();
+    @NonNull private final List<ListCard> cards = new ArrayList<>();
 
     public static FeedFragment newInstance() {
         return new FeedFragment();
@@ -57,7 +57,7 @@ public class FeedFragment extends Fragment
 
     // TODO: [Feed] remove.
     @OnClick(R.id.fragment_feed_add_card) void addCard() {
-        cards.add(new FeedCard());
+        cards.add(new ListCard());
         feedView.update();
     }
 }

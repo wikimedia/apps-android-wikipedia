@@ -15,6 +15,10 @@
         <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
     </style>
 
+    <style name="FeedTheme" parent="PageTheme">
+        <item name="window_background_color">@color/feed_window_background</item>
+    </style>
+
     <style name="FullScreen" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
     </style>

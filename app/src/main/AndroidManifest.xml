@@ -55,9 +55,9 @@
             android:value="@string/hockeyapp_app_id" />
 
         <activity android:name=".feed.FeedActivity"
+                  android:theme="@style/FeedTheme"
                   android:label="@string/activity_feed_title"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                  />
+                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity android:name=".page.PageActivity"
                   android:theme="@style/PageTheme"

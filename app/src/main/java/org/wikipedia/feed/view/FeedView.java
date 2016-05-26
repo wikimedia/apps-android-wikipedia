@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.model.FeedCard;
+import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.views.AutoFitRecyclerView;
 import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.Collections;
 import java.util.List;
@@ -47,7 +48,7 @@ public class FeedView extends FrameLayout {
         init();
     }
 
-    public void set(@NonNull List<FeedCard> cards) {
+    public void set(@NonNull List<ListCard> cards) {
         // TODO: should this class be responsible for showing a "no items in collection" view? It
         //       would be nice to show placeholder elements while it loads.
         recyclerAdapter = new RecyclerAdapter(cards);
@@ -68,24 +69,29 @@ public class FeedView extends FrameLayout {
         recyclerLayoutManager = new StaggeredGridLayoutManager(recyclerView.getColumns(),
                 StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(recyclerLayoutManager);
+        recyclerView.addItemDecoration(new MarginItemDecoration(getContext(),
+                R.dimen.view_list_card_margin_horizontal,
+                R.dimen.view_list_card_margin_vertical,
+                R.dimen.view_list_card_margin_horizontal,
+                R.dimen.view_list_card_margin_vertical));
         recyclerView.callback(new RecyclerViewColumnCallback());
-        set(Collections.<FeedCard>emptyList());
+        set(Collections.<ListCard>emptyList());
     }
 
-    private class RecyclerAdapter extends Adapter<DefaultViewHolder<FeedCardView>> {
-        @NonNull private final List<FeedCard> cards;
+    private class RecyclerAdapter extends Adapter<DefaultViewHolder<ListCardView>> {
+        @NonNull private final List<ListCard> cards;
 
-        RecyclerAdapter(@NonNull List<FeedCard> cards) {
+        RecyclerAdapter(@NonNull List<ListCard> cards) {
             this.cards = cards;
         }
 
-        @Override public DefaultViewHolder<FeedCardView> onCreateViewHolder(ViewGroup parent,
+        @Override public DefaultViewHolder<ListCardView> onCreateViewHolder(ViewGroup parent,
                                                                             int viewType) {
-            return new DefaultViewHolder<>(new FeedCardView(getContext()));
+            return new DefaultViewHolder<>(new ListCardView(getContext()));
         }
 
-        @Override public void onBindViewHolder(DefaultViewHolder<FeedCardView> holder, int position) {
-            holder.getView().update(cards.get(position));
+        @Override public void onBindViewHolder(DefaultViewHolder<ListCardView> holder, int position) {
+            holder.getView().set(cards.get(position));
         }
 
         @Override public int getItemCount() {

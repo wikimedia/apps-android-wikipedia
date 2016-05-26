@@ -13,4 +13,6 @@ public class FeedActivity extends SingleFragmentActivity<FeedFragment> {
     @Override protected FeedFragment createFragment() {
         return FeedFragment.newInstance();
     }
+
+    @Override protected void setTheme() { }
 }

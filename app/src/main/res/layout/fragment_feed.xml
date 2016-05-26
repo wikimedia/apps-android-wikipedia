@@ -2,16 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin">
+    android:orientation="vertical">
+
+    <org.wikipedia.views.StatusBarBlankView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginLeft="@dimen/margin"
         android:text="@string/activity_feed_title" />
 
     <!-- TODO: [Feed] remove. -->
@@ -19,11 +22,16 @@
         android:id="@+id/fragment_feed_add_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/margin"
         android:text="Add card" />
 
     <org.wikipedia.feed.view.FeedView
         android:id="@+id/fragment_feed_feed"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/view_list_card_margin_horizontal"
+        android:paddingRight="@dimen/view_list_card_margin_horizontal" />
 
 </LinearLayout>

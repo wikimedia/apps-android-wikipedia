@@ -89,5 +89,8 @@
     <dimen name="view_article_menu_bar_button_padding">12dp</dimen>
 
     <!-- The Feed -->
-    <dimen name="view_feed_min_column_width">192dp</dimen>
+    <dimen name="view_feed_min_column_width">229.3dp</dimen>
+    <dimen name="view_list_card_margin_vertical">26.7dp</dimen>
+    <dimen name="view_list_card_margin_horizontal">5.3dp</dimen>
+    <dimen name="view_list_card_item_margin">21.4dp</dimen>
 </resources>

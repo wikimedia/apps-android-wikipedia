@@ -104,4 +104,6 @@
     <color name="reading_list_delete_link">#f00</color>
 
     <color name="holo_red_dark">#c00</color>
+
+    <color name="feed_window_background">#eaecf0</color>
 </resources>
