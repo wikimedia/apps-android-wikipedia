@@ -252,7 +252,7 @@ Please test the URL to make sure it works</string>
   <string name="abusefilter_title_disallow">Message that informs the user that their edit is not allowed, and that the user must go back and modify the edit.</string>
   <string name="abusefilter_text_warn">Explanation of why the edit may be flagged as unconstructive: Typing in all caps, Blanking articles or Spamming, Irrelevant external links or images, Repeating characters</string>
   <string name="abusefilter_text_disallow">Explanation of why the edit was not allowed: potentially unconstructive, or potential vandalism.</string>
-  <string name="dialog_page_issues">Dialog title for page/article issues list.
+  <string name="dialog_page_issues">Dialog title for article issues list (issues parsed from hatnote templates, such as \"needs additional citations\").
 {{Identical|Page issue}}</string>
   <string name="button_page_issues">Label for button that shows the Page issues dialog.
 {{Identical|Page issue}}</string>
@@ -390,11 +390,10 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists.</string>
   <string name="reading_lists_onboarding_intro">Short introductory statement about reading lists to be shown in the onboarding screen, emphasizing that reading lists are available for offline access.</string>
   <string name="reading_lists_onboarding_for_example">Label stating that the items below are examples of reading list titles.</string>
-  <string name="reading_lists_onboarding_example1">First example of a reading list title</string>
-  <string name="reading_lists_onboarding_example2">Second example of a reading list title</string>
-  <string name="reading_lists_onboarding_example3">Third example of a reading list title
-{{Identical|Space}}</string>
-  <string name="reading_lists_onboarding_got_it">Button label to dismiss the onboarding screen.</string>
+  <string name="reading_lists_onboarding_example1">First example of a reading list title, in this case places to visit.</string>
+  <string name="reading_lists_onboarding_example2">Second example of a reading list title, in this case favorite animals.</string>
+  <string name="reading_lists_onboarding_example3">Third example of a reading list title, in this case space (as in outer space, cosmos).</string>
+  <string name="reading_lists_onboarding_got_it">Label for the button that dismisses an introductory dialog that tells the user about the new Reading Lists feature.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>
 </resources>
