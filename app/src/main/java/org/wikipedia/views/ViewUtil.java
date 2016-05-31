@@ -8,9 +8,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.ActionMode;
 import android.text.TextUtils;
+import android.view.ActionMode;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewManager;
 import android.view.animation.Animation;
 
@@ -42,7 +43,11 @@ public final class ViewUtil {
         return false;
     }
 
-    public static void setBottomPaddingDp(View view, int padding) {
+    public static void setPadding(@NonNull View view, int padding) {
+        view.setPadding(padding, padding, padding, padding);
+    }
+
+    public static void setBottomPaddingDp(@NonNull View view, int padding) {
         view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(),
                 (int) (padding * DimenUtil.getDensityScalar()));
     }
@@ -82,6 +87,33 @@ public final class ViewUtil {
         Canvas canvas = new Canvas(returnedBitmap);
         view.draw(canvas);
         return returnedBitmap;
+    }
+
+    @Nullable public static ViewGroup parent(@NonNull View view) {
+        return view.getParent() instanceof ViewGroup ? (ViewGroup) view.getParent() : null;
+    }
+
+    public static void remove(@NonNull View view) {
+        ViewManager parent = parent(view);
+        if (parent != null) {
+            parent.removeView(view);
+        }
+    }
+
+    /** Replace the current View with a new View by copying the ID and LayoutParams (by reference). */
+    public static void replace(@NonNull View current, @NonNull View next) {
+        ViewGroup parent = parent(current);
+        if (parent == null || parent(next) != null) {
+            String msg = "Parent of current View must be nonnull; parent of next View must be null.";
+            throw new IllegalStateException(msg);
+        }
+
+        next.setId(current.getId());
+        next.setLayoutParams(current.getLayoutParams());
+
+        int index = parent.indexOfChild(current);
+        remove(current);
+        parent.addView(next, index);
     }
 
     private ViewUtil() { }

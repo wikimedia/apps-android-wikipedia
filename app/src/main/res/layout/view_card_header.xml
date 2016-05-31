@@ -1,0 +1,36 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        style="@style/SimpleDraweeViewPlaceholder.Article"
+        android:id="@+id/view_card_header_image"
+        android:layout_width="@dimen/defaultListItemSize"
+        android:layout_height="@dimen/defaultListItemSize"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/view_card_header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/view_card_header_image"
+        android:layout_toEndOf="@id/view_card_header_image"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/view_card_header_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/view_card_header_image"
+        android:layout_toEndOf="@id/view_card_header_image"
+        android:layout_below="@id/view_card_header_title"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textStyle="bold" />
+
+</merge>

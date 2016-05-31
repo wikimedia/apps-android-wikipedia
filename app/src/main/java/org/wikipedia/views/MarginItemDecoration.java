@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 public class MarginItemDecoration extends RecyclerView.ItemDecoration {
-    private final Rect rect = new Rect();
+    private final Rect offsets = new Rect();
 
     public MarginItemDecoration(@NonNull Context context, @DimenRes int id) {
         this(pixelSize(context, id));
@@ -25,13 +25,13 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public MarginItemDecoration(int leftMargin, int topMargin, int rightMargin, int bottomMargin) {
-        rect.set(leftMargin, topMargin, rightMargin, bottomMargin);
+        offsets.set(leftMargin, topMargin, rightMargin, bottomMargin);
     }
 
     @Override public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
                                          RecyclerView.State state) {
         super.getItemOffsets(outRect, view, parent, state);
-        outRect.set(rect);
+        outRect.set(offsets);
     }
 
     private static int pixelSize(@NonNull Context context, @DimenRes int id) {

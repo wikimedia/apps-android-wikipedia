@@ -45,5 +45,6 @@
     <string name="feed">Home</string>
     <string name="activity_feed_title">@string/feed</string>
     <string name="nav_item_feed">@string/feed</string>
+    <string name="view_card_footer_button">See more</string>
     <!-- /The Feed -->
 </resources>
