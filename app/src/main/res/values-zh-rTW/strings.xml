@@ -248,7 +248,7 @@
 您是否想要重新啟動或者離開？</string>
   <string name="crash_report_relaunch">重新啟動</string>
   <string name="crash_report_quit">結束</string>
-  <string name="article_menu_bar_bookmark">增加此條目至閱讀列表裡</string>
+  <string name="article_menu_bar_bookmark">增加此條目至閱讀清單裡</string>
   <string name="article_menu_bar_share">分享條目連結</string>
   <string name="article_menu_bar_navigate">導覽至條目的位置</string>
   <string name="nav_item_reading_lists">閱讀清單</string>
@@ -278,7 +278,7 @@
   <string name="reading_list_delete_confirm">你確定要刪除此清單？</string>
   <string name="reading_lists_empty">這裡無閱讀清單</string>
   <string name="reading_lists_empty_message">將你瀏覽過的條目組織到閱讀清單中！瀏覽條目時，輕觸條目上方的書籤圖示，將它新增至閱讀清單中。</string>
-  <string name="reading_lists_onboarding_intro">創建您感興趣條目的閱讀清單，讓您即使在離線狀態下也可使用！</string>
+  <string name="reading_lists_onboarding_intro">建立您感興趣條目的閱讀清單，讓您即使在離線狀態下也可使用！</string>
   <string name="reading_lists_onboarding_for_example">舉例</string>
   <string name="reading_lists_onboarding_example1">要瀏覽的項目</string>
   <string name="reading_lists_onboarding_example2">喜愛動物</string>

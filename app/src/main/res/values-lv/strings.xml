@@ -53,7 +53,7 @@
   <string name="login_error_wrong_username">Nepareizs lietotājvārds</string>
   <string name="login_error_illegal">Nederīgs lietotājvārds</string>
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
-  <string name="login_error_blocked">Šis lietotājs ir bloķēts</string>
+  <string name="login_error_blocked">Šis dalībnieks ir bloķēts</string>
   <string name="preference_title_logout">Iziet</string>
   <string name="toast_logout_complete">Jūs esat izgājis</string>
   <string name="delete_selected_history">Dzēst</string>

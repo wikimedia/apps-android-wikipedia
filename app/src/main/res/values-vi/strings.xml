@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
   <string name="nav_item_saved_pages">Trang đã lưu</string>
   <string name="share_via">Chia sẻ qua</string>
+  <string name="search_redirect_from">Đổi hướng từ %s</string>
   <string name="menu_page_show_tabs">Hiển thị tab</string>
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
   <string name="menu_page_find_in_page">Tìm trong trang</string>
@@ -104,7 +105,7 @@
   <string name="create_account_password_name_match_error">Tên người dùng và mật khẩu của bạn phải khác nhau.</string>
   <string name="create_account_generic_error">Không thể mở tài khoản</string>
   <string name="create_account_next">Tiếp</string>
-  <string name="create_account_button">Mở Tài khoản</string>
+  <string name="create_account_button">Mở tài khoản</string>
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="wikipedia_app_faq">Câu hỏi thường hỏi về ứng dụng Wikipedia</string>
   <string name="zero_charged_verbiage">Wikipedia Miễn phí đang tắt</string>
@@ -245,7 +246,7 @@
   <string name="crash_report_relaunch_or_quit">Bạn muốn bắt đầu lại hay thoát?</string>
   <string name="crash_report_relaunch">Bắt đầu lại</string>
   <string name="crash_report_quit">Thoát</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Lưu bài để đọc sau</string>
+  <string name="article_menu_bar_bookmark">Thêm bài này vào một danh sách đọc</string>
   <string name="article_menu_bar_share">Chia sẻ liên kết đến bài</string>
   <string name="article_menu_bar_navigate">Chuyển đến vị trí của bài</string>
   <string name="nav_item_reading_lists">Danh sách đọc</string>
@@ -255,7 +256,7 @@
   <string name="reading_list_added_to_named">Đã thêm vào %s.</string>
   <string name="reading_list_added_to_unnamed">Đã thêm vào danh sách đọc.</string>
   <string name="reading_list_already_exists">Bài này đã có trong danh sách đó.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Xem</string>
+  <string name="reading_list_added_view_button">Xem danh sách</string>
   <string name="reading_list_item_count_singular">1 bài</string>
   <string name="reading_list_item_count_plural">%s bài</string>
   <string name="reading_list_sort">Sắp xếp</string>
@@ -266,7 +267,7 @@
   <string name="reading_list_name_sample">Danh sách đọc của tôi</string>
   <string name="reading_list_name_hint">Tên của danh sách này</string>
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Lưu để đọc ngoại tuyến</string>
+  <string name="reading_list_save_for_offline">Có sẵn để đọc ngoại tuyến</string>
   <string name="reading_list_item_deleted">Đã xóa %s khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
@@ -275,7 +276,11 @@
   <string name="reading_list_delete_confirm">Bạn có chắc chắn muốn xóa danh sách đọc này?</string>
   <string name="reading_lists_empty">Không có danh sách đọc.</string>
   <string name="reading_lists_empty_message">Sắp xếp các bài mà bạn duyệt xem vào danh sách đọc! Khi nào xem một bài, chỉ việc chạm vào hình dấu trang ở đầu bài để thêm nó vào một danh sách đọc.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Sắp xếp các bài mà bạn muốn đọc sau vào danh sách đọc.</string>
+  <string name="reading_lists_onboarding_intro">Tạo danh sách các bài viết bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến.</string>
+  <string name="reading_lists_onboarding_for_example">Ví dụ</string>
+  <string name="reading_lists_onboarding_example1">Các địa điểm để tham quan</string>
+  <string name="reading_lists_onboarding_example2">Loài vật ưa thích</string>
+  <string name="reading_lists_onboarding_example3">Vũ trụ!</string>
   <string name="reading_lists_onboarding_got_it">Được rồi</string>
   <string name="user_option_sync_label">Tùy chọn</string>
 </resources>

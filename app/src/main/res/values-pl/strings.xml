@@ -94,7 +94,7 @@
   <string name="create_account_ip_throttle_error">Zbyt wiele kont utworzono z tego adresu IP. Spróbuj ponownie później.</string>
   <string name="create_account_open_proxy_error">Tworzenie kont z tego adresu IP zostało zablokowane.</string>
   <string name="create_account_noname_error">Podana nazwa użytkownika jest nieprawidłowa. Proszę podać inną nazwę użytkownika.</string>
-  <string name="create_account_invalid_email_error">Podany przez ciebie adres e-mail jest nieprawidłowy.</string>
+  <string name="create_account_invalid_email_error">Podany przez Ciebie adres e-mail jest nieprawidłowy.</string>
   <string name="create_account_password_too_short_error">Podane hasło jest zbyt krótkie.</string>
   <string name="create_account_blocked_anon_error">Nie możesz utworzyć konta, ponieważ twoje IP jest zablokowane.</string>
   <string name="create_account_blocked_error">Nie możnesz utworzyć konta, ponieważ Twoje konto jest zablokowane.</string>

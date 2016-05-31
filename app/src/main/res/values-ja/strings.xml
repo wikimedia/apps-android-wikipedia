@@ -15,7 +15,7 @@
   <string name="page_does_not_exist_error">このページは存在しません。</string>
   <string name="nav_item_today">今日のメインページ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
-  <string name="dialog_message_clear_history">これはあなたの閲覧履歴をすべて消去し、現在開いているタブを閉じます。よろしいですか？</string>
+  <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブを閉じます。本当によろしいですか？</string>
   <string name="nav_item_saved_pages">保存したページ</string>
   <string name="share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
@@ -33,7 +33,7 @@
   <string name="menu_text_select_copy">コピー</string>
   <string name="menu_text_select_define">語釈</string>
   <string name="menu_text_select_share">共有</string>
-  <string name="menu_text_select_edit_here">ここから編集</string>
+  <string name="menu_text_select_edit_here">ここを編集</string>
   <string name="nav_item_nearby">付近のスポット</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -64,7 +64,7 @@
   <string name="edit_section_captcha_hint">上記の言葉を繰り返してください</string>
   <string name="title_captcha">CAPTCHA を入力</string>
   <string name="edit_section_captcha_reload">タップすると CAPTCHA を再読み込みします</string>
-  <string name="edit_saved_page_refresh">この保存されたページは期限切れかもしれません。編集するには更新する必要があります。ページを更新しますか?</string>
+  <string name="edit_saved_page_refresh">この保存されたページは古くなっているかもしれません。編集するにはその前に更新する必要があります。ページを更新しますか?</string>
   <string name="nav_item_login">ウィキペディアにログイン</string>
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
@@ -127,7 +127,7 @@
   <string name="create_account_account_created_toast">アカウントを作成しました!</string>
   <string name="preferences_privacy_settings_heading">プライバシー</string>
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
-  <string name="preference_summary_eventlogging_opt_in">このアプリの改善に役立てるため、ウィキメディアがアプリの使用情報を収集することを許可する</string>
+  <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
   <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的に第三者の HockeyApp に対してクラッシュレポートを送信することを許可する。これによって、クラッシュを確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
@@ -171,7 +171,7 @@
   <string name="find_previous">前を検索</string>
   <string name="abusefilter_title_warn">これは建設的ではない編集かもしれません。それでも保存しますか?</string>
   <string name="abusefilter_title_disallow">この編集は保存できません。戻って変更してください。</string>
-  <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;すべて大文字で書かれている&lt;br /&gt;記事が白紙化されている、もしくはスパムである&lt;br /&gt;関係のない外部リンクや画像が挿入されている&lt;br /&gt;一定の文字が繰り返されている</string>
+  <string name="abusefilter_text_warn">自動フィルターによって、この編集が建設的ではない可能性があると判断されました。以下のうちいくつかが当てはまるかもしれません。&lt;br /&gt;&lt;br /&gt;・すべて大文字で書かれている&lt;br /&gt;・記事が白紙化されている、もしくはスパムである&lt;br /&gt;・関係のない外部リンクや画像が挿入されている&lt;br /&gt;・一定の文字が繰り返されている</string>
   <string name="abusefilter_text_disallow">自動フィルターによって、この編集が建設的でないか、荒らしである可能性があると判断されました。&lt;br /&gt;&lt;br /&gt;ウィキペディアは百科事典であり、中立的で特筆性のあるコンテンツのみを記載する必要があります。</string>
   <string name="dialog_page_issues">ページの問題点</string>
   <string name="button_page_issues">ページの問題点</string>
