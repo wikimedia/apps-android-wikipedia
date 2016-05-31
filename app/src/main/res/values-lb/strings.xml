@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="nav_item_saved_pages">Gespäichert Säiten</string>
   <string name="share_via">Deelen iwwer</string>
+  <string name="search_redirect_from">Virugeleet vu(n) %s</string>
   <string name="menu_page_show_tabs">Tabs weisen</string>
   <string name="menu_page_other_languages">Sprooch wiesselen</string>
   <string name="menu_page_find_in_page">Op der Säit sichen</string>
@@ -235,6 +236,8 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
   <string name="article_menu_bar_navigate">Op d\'Plaz vum Artikel navigéieren</string>
   <string name="nav_item_reading_lists">Lieslëschten</string>
+  <string name="reading_list_untitled">Ouni Titel</string>
+  <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_added_to_unnamed">Op d\'Lieslëscht derbäigesat.</string>
   <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
@@ -247,14 +250,19 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>
   <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>
   <string name="reading_list_description_hint">Beschreiwung (fakultativ):</string>
+  <string name="reading_list_save_for_offline">Disponibel fir offline ze liesen</string>
   <string name="reading_list_item_deleted">%s vun der Lëscht erofhehuoll</string>
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Ofbriechen</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir dës Lieslëscht läsche wëllt?</string>
+  <string name="reading_lists_empty">Hei gëtt et keng Lieslëschten.</string>
   <string name="reading_lists_onboarding_intro">Maacht eng Lieslëscht vun den Artikelen déi Dir spéider liese wëllt, esouguer wann Dir offline sidd!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispill</string>
+  <string name="reading_lists_onboarding_example1">Plaze fir ze besichen</string>
+  <string name="reading_lists_onboarding_example2">Lieblingsdéieren</string>
+  <string name="reading_lists_onboarding_example3">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="user_option_sync_label">Astellungen</string>
 </resources>

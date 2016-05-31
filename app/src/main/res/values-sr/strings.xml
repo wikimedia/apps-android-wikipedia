@@ -6,7 +6,7 @@
   <string name="wikimedia">Викимедија</string>
   <string name="yes">Да</string>
   <string name="no">Не</string>
-  <string name="search_hint">Претрага Википедије</string>
+  <string name="search_hint">Претрага</string>
   <string name="nav_item_history">Историја</string>
   <string name="error_network_error">Није могуће успоставити везу са интернетом.</string>
   <string name="page_error_retry">Пробај опет</string>
@@ -18,9 +18,11 @@
   <string name="dialog_message_clear_history">Да ли сигурно желите да обришете историју?</string>
   <string name="nav_item_saved_pages">Сачуване странице</string>
   <string name="share_via">Делите преко</string>
+  <string name="search_redirect_from">Преусмерено са %s</string>
   <string name="menu_page_show_tabs">Прикажи језичке</string>
   <string name="menu_page_other_languages">Промени језик</string>
   <string name="menu_page_find_in_page">Пронађи на страници</string>
+  <string name="menu_page_content_issues">Проблеми са садржајем</string>
   <string name="menu_page_similar_titles">Слични наслови</string>
   <string name="menu_page_font_and_theme">Фонт и тема</string>
   <string name="menu_page_share">Дели</string>
@@ -118,8 +120,10 @@
   <string name="page_protected_can_not_edit_title">Ова страница је заштићена</string>
   <string name="settings_item_preferences">Подешавања</string>
   <string name="settings_activity_title">Подешавања</string>
+  <string name="about_description">О апликацији</string>
   <string name="privacy_policy_description">Политика приватности</string>
   <string name="terms_of_use_description">Услови коришћења</string>
+  <string name="about_libraries_heading">Употребљене библиотеке</string>
   <string name="about_contributors_heading">Доприносиоци</string>
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Ову апликацију су превели волонтери сајта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -139,6 +143,7 @@
   <string name="edit_summary_tag_grammar">Поправљена граматика</string>
   <string name="edit_summary_tag_links">Додане везе</string>
   <string name="edit_summary_tag_other">Друго</string>
+  <string name="edit_summary_tag_other_hint">Опис измене</string>
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
   <string name="dialog_page_issues">Недостаци странице</string>
@@ -156,6 +161,7 @@
   <string name="table_infobox">Брзи факти</string>
   <string name="table_other">Више информација</string>
   <string name="table_close">Затвори</string>
+  <string name="widget_title_featured_page">Данашњи изабрани садржај:</string>
   <string name="alpha_update_notification_title">Нова алфа-надоградња доступна</string>
   <string name="alpha_update_notification_text">Тапните да преузмете</string>
   <string name="dialog_close_description">Затвори</string>
@@ -164,6 +170,7 @@
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_menu_save">Сачувај на уређај</string>
+  <string name="gallery_save_progress">Преузимам датотеку...</string>
   <string name="gallery_save_success">Датотека успешно сачувана.</string>
   <string name="gallery_error_video_failed">Не могу да пустим видео.</string>
   <string name="err_cannot_save_file">Не могу да сачувам датотеку</string>
@@ -183,5 +190,17 @@
   <string name="crash_report_dialog_dont_send_button">Прескочи</string>
   <string name="crash_report_dialog_send_button">Пошаљи</string>
   <string name="crash_report_quit">Изађи</string>
+  <string name="reading_list_untitled">Без наслова</string>
+  <string name="reading_list_create_new">Направи нову</string>
+  <string name="reading_list_added_to_named">Додато у %s.</string>
+  <string name="reading_list_added_view_button">Прикажи списак</string>
+  <string name="reading_list_item_count_singular">1 чланак</string>
+  <string name="reading_list_item_count_plural">Чланака: %s</string>
+  <string name="reading_list_sort">Поређај</string>
+  <string name="reading_list_sort_by_name">По називу</string>
+  <string name="reading_list_item_delete_undo">Опозови</string>
+  <string name="reading_list_deleted">%s обрисана</string>
+  <string name="reading_list_edit_ok">У реду</string>
+  <string name="reading_list_edit_cancel">Откажи</string>
   <string name="user_option_sync_label">Подешавања</string>
 </resources>
