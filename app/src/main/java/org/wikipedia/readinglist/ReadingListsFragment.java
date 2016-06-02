@@ -232,6 +232,11 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             listDetailView.setReadingList(readingList);
             listDetailView.setSort(readingListPageSortMode);
             pager.setCurrentItem(PAGE_LIST_DETAIL);
+
+            if (!readingList.getPages().isEmpty()
+                    && Prefs.isReadingListPageDeleteTutorialEnabled()) {
+                showDeletePageOnboarding();
+            }
         }
     }
 
@@ -304,6 +309,16 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             }
         });
         snackbar.show();
+    }
+
+    private void showDeletePageOnboarding() {
+        FeedbackUtil.makeSnackbar(getView(), getString(R.string.reading_lists_onboarding_page_delete), Snackbar.LENGTH_INDEFINITE)
+                .setAction(R.string.reading_lists_onboarding_got_it, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Prefs.setReadingListPageDeleteTutorialEnabled(false);
+                    }
+                }).show();
     }
 
     private void setSortMode(int sortModeAsc, int sortModeDesc) {

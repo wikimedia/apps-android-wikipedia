@@ -308,6 +308,7 @@
     <string name="reading_lists_onboarding_example2">Favorite animals</string>
     <string name="reading_lists_onboarding_example3">Space!</string>
     <string name="reading_lists_onboarding_got_it">Got it</string>
+    <string name="reading_lists_onboarding_page_delete">Tip: Swipe any page left or right to remove it from this reading list.</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
