@@ -178,6 +178,7 @@
     </style>
 
     <style name="EditTextAutoSummarizePreference" parent="Preference.DialogPreference.EditTextPreference.Material">
+        <item name="android:dialogLayout">@layout/preference_dialog_edittext</item>
     </style>
 
     <style name="DataStringPreference" parent="EditTextAutoSummarizePreference">
