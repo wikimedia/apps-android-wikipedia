@@ -371,7 +371,9 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_sort">Button label to sort reading lists.
 {{Identical|Sort}}</string>
   <string name="reading_list_sort_by_name">Menu option to sort reading lists by name.</string>
+  <string name="reading_list_sort_by_name_desc">Menu option to sort reading lists by name, in reverse order.</string>
   <string name="reading_list_sort_by_recent">Menu option to sort reading lists by last-accessed time.</string>
+  <string name="reading_list_sort_by_recent_desc">Menu option to sort reading lists by last-accessed time, in reverse order.</string>
   <string name="reading_list_menu_edit">Button label to edit the details of the current reading list.</string>
   <string name="reading_list_menu_delete">Button label to delete the current reading list.</string>
   <string name="reading_list_name_sample">Default name for a new reading list.</string>

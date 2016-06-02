@@ -54,32 +54,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/actionbar_background"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="@dimen/list_item_horizontal_padding"
-                    android:layout_gravity="center_vertical"
-                    android:text="@string/nav_item_reading_lists"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold" />
-                <ImageButton
-                    style="@style/ArticleMenuBarViewButton"
-                    android:id="@+id/button_sort"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    app:srcCompat="@drawable/ic_sort_black_24dp"
-                    android:tint="@android:color/white"
-                    android:visibility="gone"
-                    android:contentDescription="@string/reading_list_sort" />
-            </LinearLayout>
+                android:padding="@dimen/list_item_horizontal_padding"
+                android:text="@string/nav_item_reading_lists"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/reading_list_list"

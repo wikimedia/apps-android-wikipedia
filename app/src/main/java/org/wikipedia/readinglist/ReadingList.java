@@ -9,11 +9,19 @@ import org.wikipedia.readinglist.database.ReadingListRow;
 import org.wikipedia.readinglist.page.ReadingListPage;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public final class ReadingList extends ReadingListRow {
+    public static final int SORT_BY_NAME_ASC = 0;
+    public static final int SORT_BY_NAME_DESC = 1;
+    public static final int SORT_BY_RECENT_ASC = 2;
+    public static final int SORT_BY_RECENT_DESC = 3;
+
     @NonNull private final List<ReadingListPage> pages;
     private boolean emptyListSavePagesState = true;
+    private int sortMode = SORT_BY_NAME_ASC;
 
     public static ReadingList fromCursor(@NonNull Cursor cursor) {
         ReadingListRow list = ReadingList.DATABASE_TABLE.fromCursor(cursor);
@@ -65,6 +73,7 @@ public final class ReadingList extends ReadingListRow {
             }
         }
         pages.add(0, page);
+        sortPages();
     }
 
     public void setTitle(@NonNull String title) {
@@ -96,9 +105,54 @@ public final class ReadingList extends ReadingListRow {
         return true;
     }
 
+    public void setSort(int sortMode) {
+        this.sortMode = sortMode;
+        sortPages();
+    }
+
+    private void sortPages() {
+        switch (sortMode) {
+            case SORT_BY_NAME_ASC:
+                Collections.sort(pages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return lhs.title().compareTo(rhs.title());
+                    }
+                });
+                break;
+            case SORT_BY_NAME_DESC:
+                Collections.sort(pages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return rhs.title().compareTo(lhs.title());
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_ASC:
+                Collections.sort(pages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return ((Long) lhs.atime()).compareTo(rhs.atime());
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_DESC:
+                Collections.sort(pages, new Comparator<ReadingListPage>() {
+                    @Override
+                    public int compare(ReadingListPage lhs, ReadingListPage rhs) {
+                        return ((Long) rhs.atime()).compareTo(lhs.atime());
+                    }
+                });
+                break;
+            default:
+                break;
+        }
+    }
+
     private ReadingList(@NonNull Builder builder) {
         super(builder);
         pages = new ArrayList<>(builder.pages);
+        sortPages();
     }
 
     public static class Builder extends ReadingListRow.Builder<Builder> {
@@ -117,6 +171,45 @@ public final class ReadingList extends ReadingListRow {
         @Override protected void validate() {
             super.validate();
             Validate.notNull(pages);
+        }
+    }
+
+    public static void sortReadingLists(List<ReadingList> readingLists, int sortMode) {
+        switch (sortMode) {
+            case SORT_BY_NAME_ASC:
+                Collections.sort(readingLists, new Comparator<ReadingList>() {
+                    @Override
+                    public int compare(ReadingList lhs, ReadingList rhs) {
+                        return lhs.getTitle().compareTo(rhs.getTitle());
+                    }
+                });
+                break;
+            case SORT_BY_NAME_DESC:
+                Collections.sort(readingLists, new Comparator<ReadingList>() {
+                    @Override
+                    public int compare(ReadingList lhs, ReadingList rhs) {
+                        return rhs.getTitle().compareTo(lhs.getTitle());
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_ASC:
+                Collections.sort(readingLists, new Comparator<ReadingList>() {
+                    @Override
+                    public int compare(ReadingList lhs, ReadingList rhs) {
+                        return ((Long) lhs.atime()).compareTo(rhs.atime());
+                    }
+                });
+                break;
+            case SORT_BY_RECENT_DESC:
+                Collections.sort(readingLists, new Comparator<ReadingList>() {
+                    @Override
+                    public int compare(ReadingList lhs, ReadingList rhs) {
+                        return ((Long) rhs.atime()).compareTo(lhs.atime());
+                    }
+                });
+                break;
+            default:
+                break;
         }
     }
 }

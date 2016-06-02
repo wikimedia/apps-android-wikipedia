@@ -43,4 +43,6 @@
     <!-- Note: this value _must_ match net.hockeyapp.android.CrashManager.ALWAYS_SEND_KEY. -->
     <string name="preference_key_auto_upload_crash_reports">always_send_crash_reports</string>
     <string name="preference_key_enable_feed">enableFeed</string>
+    <string name="preference_key_reading_list_sort_mode">readingListSortMode</string>
+    <string name="preference_key_reading_list_page_sort_mode">readingListPageSortMode</string>
 </resources>

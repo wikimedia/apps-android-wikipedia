@@ -582,11 +582,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                         if (!isAdded()) {
                             return;
                         }
-                        articleHeaderView.updateBookmark(page != null);
-                        if (page != null && page.savedOrSaving()) {
-                            // TODO: mark the page outdated only if the revision ID from the server
-                            // is newer than the one on disk.
-                            ReadingListPageDao.instance().markOutdated(page);
+                        if (page != null) {
+                            articleHeaderView.updateBookmark(true);
+                            page.touch();
+                            ReadingListPageDao.instance().upsert(page);
+                            if (page.savedOrSaving()) {
+                                // TODO: mark the page outdated only if the revision ID from the server
+                                // is newer than the one on disk.
+                                ReadingListPageDao.instance().markOutdated(page);
+                            }
+                        } else {
+                            articleHeaderView.updateBookmark(false);
                         }
                     }
                 });

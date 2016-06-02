@@ -8,6 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -21,6 +24,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
@@ -29,6 +33,9 @@ import java.util.List;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class ReadingListsFragment extends Fragment implements BackPressedHandler {
+    private static final int PAGE_READING_LISTS = 0;
+    private static final int PAGE_LIST_DETAIL = 1;
+
     private RecyclerView readingListView;
     private View emptyContainer;
     private ViewPager pager;
@@ -42,10 +49,15 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private ReadingListItemActionListener itemActionListener = new ReadingListItemActionListener();
     private ReadingListActionListener actionListener = new ReadingListActionListener();
 
+    private int readingListSortMode;
+    private int readingListPageSortMode;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+        readingListSortMode = Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
+        readingListPageSortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC);
     }
 
     @Override
@@ -65,12 +77,29 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
         pager = (ViewPager) rootView.findViewById(R.id.pager);
         pager.setAdapter(pagerAdapter);
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
 
-        View sortButton = rootView.findViewById(R.id.button_sort);
-        FeedbackUtil.setToolbarButtonLongPressToast(sortButton);
+            @Override
+            public void onPageSelected(int position) {
+                getActivity().supportInvalidateOptionsMenu();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
 
         updateLists();
         return rootView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -81,12 +110,45 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     @Override
     public boolean onBackPressed() {
-        if (pager.getCurrentItem() > 0) {
-            pager.setCurrentItem(0);
+        if (pager.getCurrentItem() != PAGE_READING_LISTS) {
+            pager.setCurrentItem(PAGE_READING_LISTS);
             updateLists();
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_reading_lists, menu);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        MenuItem sortByNameItem = menu.findItem(R.id.menu_sort_by_name);
+        MenuItem sortByRecentItem = menu.findItem(R.id.menu_sort_by_recent);
+        if (pager.getCurrentItem() == PAGE_READING_LISTS) {
+            sortByNameItem.setTitle(readingListSortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
+            sortByRecentItem.setTitle(readingListSortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+        } else {
+            sortByNameItem.setTitle(readingListPageSortMode == ReadingList.SORT_BY_NAME_ASC ? R.string.reading_list_sort_by_name_desc : R.string.reading_list_sort_by_name);
+            sortByRecentItem.setTitle(readingListPageSortMode == ReadingList.SORT_BY_RECENT_DESC ? R.string.reading_list_sort_by_recent_desc : R.string.reading_list_sort_by_recent);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_sort_by_name:
+                setSortMode(ReadingList.SORT_BY_NAME_ASC, ReadingList.SORT_BY_NAME_DESC);
+                return true;
+            case R.id.menu_sort_by_recent:
+                setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void updateLists() {
@@ -94,7 +156,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             @Override
             public void success(List<ReadingList> rows) {
                 readingLists = rows;
-                adapter.notifyDataSetChanged();
+                sortLists();
                 updateEmptyMessage();
             }
         });
@@ -118,7 +180,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             showDeleteListUndoSnackbar(readingList);
             ReadingList.DAO.removeList(readingList);
             funnel.logDeleteList(readingList, readingLists.size());
-            pager.setCurrentItem(0);
+            pager.setCurrentItem(PAGE_READING_LISTS);
             updateLists();
         }
     }
@@ -126,15 +188,15 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     class ReadingListPagerAdapter extends PagerAdapter {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
-            int resId = 0;
+            int resId;
             switch (position) {
-                case 0:
-                    resId = R.id.list_of_lists_page;
-                    break;
-                case 1:
+                case PAGE_LIST_DETAIL:
                     resId = R.id.list_detail_page;
                     break;
+                case PAGE_READING_LISTS:
                 default:
+                    resId = R.id.list_of_lists_page;
+                    break;
             }
             return getView().findViewById(resId);
         }
@@ -168,7 +230,8 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         @Override
         public void onClick(View v) {
             listDetailView.setReadingList(readingList);
-            pager.setCurrentItem(1);
+            listDetailView.setSort(readingListPageSortMode);
+            pager.setCurrentItem(PAGE_LIST_DETAIL);
         }
     }
 
@@ -241,5 +304,31 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             }
         });
         snackbar.show();
+    }
+
+    private void setSortMode(int sortModeAsc, int sortModeDesc) {
+        if (pager.getCurrentItem() == PAGE_READING_LISTS) {
+            if (readingListSortMode != sortModeAsc) {
+                readingListSortMode = sortModeAsc;
+            } else {
+                readingListSortMode = sortModeDesc;
+            }
+            sortLists();
+            Prefs.setReadingListSortMode(readingListSortMode);
+        } else if (pager.getCurrentItem() == PAGE_LIST_DETAIL) {
+            if (readingListPageSortMode != sortModeAsc) {
+                readingListPageSortMode = sortModeAsc;
+            } else {
+                readingListPageSortMode = sortModeDesc;
+            }
+            listDetailView.setSort(readingListPageSortMode);
+            Prefs.setReadingListPageSortMode(readingListPageSortMode);
+        }
+        getActivity().supportInvalidateOptionsMenu();
+    }
+
+    private void sortLists() {
+        ReadingList.sortReadingLists(readingLists, readingListSortMode);
+        adapter.notifyDataSetChanged();
     }
 }

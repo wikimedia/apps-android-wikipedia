@@ -120,6 +120,14 @@ public class ReadingListDetailView extends LinearLayout {
         adapter.notifyDataSetChanged();
     }
 
+    public void setSort(int sortMode) {
+        if (readingList == null) {
+            return;
+        }
+        readingList.setSort(sortMode);
+        adapter.notifyDataSetChanged();
+    }
+
     private void init() {
         inflate(getContext(), R.layout.item_reading_list_detail, this);
         ButterKnife.bind(this);
