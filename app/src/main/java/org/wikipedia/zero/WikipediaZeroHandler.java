@@ -6,6 +6,7 @@ import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
+import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
@@ -225,7 +226,9 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         rootView.setMinimumHeight(BANNER_HEIGHT);
         textView.setTextColor(foreground);
         textView.setTextSize(BANNER_TEXT_SIZE);
-        textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        if (ApiUtil.hasJellyBeanMr1()) {
+            textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        }
         textView.setGravity(Gravity.CENTER_HORIZONTAL);
         snackbar.show();
     }
