@@ -4,16 +4,13 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView.Adapter;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.model.ListCard;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.views.AutoFitRecyclerView;
-import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.Collections;
@@ -25,7 +22,7 @@ import butterknife.ButterKnife;
 public class FeedView extends FrameLayout {
     @BindView(R.id.view_feed_recycler) AutoFitRecyclerView recyclerView;
     private StaggeredGridLayoutManager recyclerLayoutManager;
-    private RecyclerAdapter recyclerAdapter;
+    private FeedRecyclerAdapter recyclerAdapter;
 
     public FeedView(Context context) {
         super(context);
@@ -48,10 +45,10 @@ public class FeedView extends FrameLayout {
         init();
     }
 
-    public void set(@NonNull List<ListCard> cards) {
+    public void set(@NonNull List<Card> cards) {
         // TODO: should this class be responsible for showing a "no items in collection" view? It
         //       would be nice to show placeholder elements while it loads.
-        recyclerAdapter = new RecyclerAdapter(cards);
+        recyclerAdapter = new FeedRecyclerAdapter(cards);
         recyclerView.setAdapter(recyclerAdapter);
     }
 
@@ -70,37 +67,17 @@ public class FeedView extends FrameLayout {
                 StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(recyclerLayoutManager);
         recyclerView.addItemDecoration(new MarginItemDecoration(getContext(),
-                R.dimen.view_list_card_margin_horizontal,
-                R.dimen.view_list_card_margin_vertical,
-                R.dimen.view_list_card_margin_horizontal,
-                R.dimen.view_list_card_margin_vertical));
+                R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
+                R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical));
         recyclerView.callback(new RecyclerViewColumnCallback());
-        set(Collections.<ListCard>emptyList());
-    }
-
-    private class RecyclerAdapter extends Adapter<DefaultViewHolder<ListCardView>> {
-        @NonNull private final List<ListCard> cards;
-
-        RecyclerAdapter(@NonNull List<ListCard> cards) {
-            this.cards = cards;
-        }
-
-        @Override public DefaultViewHolder<ListCardView> onCreateViewHolder(ViewGroup parent,
-                                                                            int viewType) {
-            return new DefaultViewHolder<>(new ListCardView(getContext()));
-        }
-
-        @Override public void onBindViewHolder(DefaultViewHolder<ListCardView> holder, int position) {
-            holder.getView().set(cards.get(position));
-        }
-
-        @Override public int getItemCount() {
-            return cards.size();
-        }
+        set(Collections.<Card>emptyList());
     }
 
     private class RecyclerViewColumnCallback implements AutoFitRecyclerView.Callback {
         @Override public void onColumns(int columns) {
+            // todo: when there is only one column, should we setSpanCount to 1? e.g.:
+            //   recyclerAdapter.getItemCount() <= 1 ? 1 : columns;
+            // We would need to also notify the layout manager when the data set changes though.
             recyclerLayoutManager.setSpanCount(columns);
         }
     }

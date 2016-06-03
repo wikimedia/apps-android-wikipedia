@@ -61,6 +61,7 @@
 
     </PreferenceCategory>
 
+    <!-- TODO: move this category further down the file. We don't normally touch onboarding. -->
     <PreferenceCategory android:title="@string/preferences_developer_onboarding_heading">
 
         <SwitchPreferenceCompat
@@ -115,6 +116,18 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/preferences_developer_feed_heading">
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_enable_feed"
+            android:title="@string/preference_key_enable_feed" />
+
+        <!--suppress AndroidUnknownAttribute -->
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/EditTextAutoSummarizePreference"
+            android:key="@string/preference_key_dismissed_continue_reading_title"
+            android:title="@string/preference_key_dismissed_continue_reading_title" />
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
 
         <Preference android:key="@string/preferences_developer_user_option_key"
@@ -155,10 +168,6 @@
         <SwitchPreferenceCompat
             android:key="@string/preference_key_show_developer_settings"
             android:title="@string/preference_key_show_developer_settings" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_enable_feed"
-            android:title="@string/preference_key_enable_feed" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_crashed_before_activity_created"
