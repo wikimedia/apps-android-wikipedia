@@ -45,4 +45,5 @@
     <string name="preference_key_enable_feed">enableFeed</string>
     <string name="preference_key_reading_list_sort_mode">readingListSortMode</string>
     <string name="preference_key_reading_list_page_sort_mode">readingListPageSortMode</string>
+    <string name="preference_key_reading_list_page_delete_tutorial_enabled">readingListPageDeleteTutorialEnabled</string>
 </resources>
