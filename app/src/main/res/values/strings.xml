@@ -284,8 +284,10 @@
     <string name="reading_list_item_count_singular">1 article</string>
     <string name="reading_list_item_count_plural">%s articles</string>
     <string name="reading_list_sort">Sort</string>
-    <string name="reading_list_sort_by_name">By name</string>
-    <string name="reading_list_sort_by_recent">By recent</string>
+    <string name="reading_list_sort_by_name">Sort by name</string>
+    <string name="reading_list_sort_by_name_desc">Sort by name (reverse)</string>
+    <string name="reading_list_sort_by_recent">Sort by most recent</string>
+    <string name="reading_list_sort_by_recent_desc">Sort by least recent</string>
     <string name="reading_list_menu_edit">Edit reading list details</string>
     <string name="reading_list_menu_delete">Delete reading list</string>
     <string name="reading_list_name_sample">My reading list</string>

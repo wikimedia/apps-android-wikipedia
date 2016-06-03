@@ -411,6 +411,22 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_show_link_previews, true);
     }
 
+    public static int getReadingListSortMode(int defaultValue) {
+        return getInt(R.string.preference_key_reading_list_sort_mode, defaultValue);
+    }
+
+    public static void setReadingListSortMode(int sortMode) {
+        setInt(R.string.preference_key_reading_list_sort_mode, sortMode);
+    }
+
+    public static int getReadingListPageSortMode(int defaultValue) {
+        return getInt(R.string.preference_key_reading_list_page_sort_mode, defaultValue);
+    }
+
+    public static void setReadingListPageSortMode(int sortMode) {
+        setInt(R.string.preference_key_reading_list_page_sort_mode, sortMode);
+    }
+
     private static boolean isDevRelease() {
         return WikipediaApp.getInstance().isDevRelease();
     }

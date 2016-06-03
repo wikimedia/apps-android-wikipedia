@@ -27,7 +27,7 @@ public class ReadingListPageRow extends BaseModel {
     @NonNull private final String title;
     @Nullable private Long diskPageRevision;
     private final long mtime;
-    private final long atime;
+    private long atime;
     @Nullable private String thumbnailUrl;
     @Nullable private String description;
 
@@ -77,6 +77,10 @@ public class ReadingListPageRow extends BaseModel {
     /** @return the time of last access in seconds since epoch. */
     public long atime() {
         return atime;
+    }
+
+    public void touch() {
+        atime = System.currentTimeMillis();
     }
 
     @Nullable public String thumbnailUrl() {

@@ -23,6 +23,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.FeedbackUtil;
 
 import java.util.ArrayList;
@@ -144,6 +145,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             @Override
             public void success(List<ReadingList> rows) {
                 readingLists = rows;
+                ReadingList.sortReadingLists(readingLists,
+                        Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
                 adapter.notifyDataSetChanged();
             }
         });
