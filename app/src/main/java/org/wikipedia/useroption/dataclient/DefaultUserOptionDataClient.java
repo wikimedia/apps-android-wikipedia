@@ -35,7 +35,11 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     @NonNull
     @Override
     public UserInfo get() throws IOException {
-        return client.get().execute().body().query().userInfo();
+        MwQueryResponse<QueryUserInfo> body = client.get().execute().body();
+        if (body == null) {
+            throw new IOException("Received response without body.");
+        }
+        return body.query().userInfo();
     }
 
     @Override
