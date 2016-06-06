@@ -71,6 +71,11 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
             public void execute() {
                 super.executeOnExecutor(new SynchronousExecutor());
             }
+
+            @Override
+            public void onCatch(Throwable throwable) {
+                // Don't worry about it; will be retried next time.
+            }
         }.execute();
     }
 
