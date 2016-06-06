@@ -31,6 +31,10 @@ public class MwQueryResponse<T> {
         return query;
     }
 
+    public boolean success() {
+        return error == null && query != null;
+    }
+
     @VisibleForTesting
     protected void setQuery(@Nullable T query) {
         this.query = query;

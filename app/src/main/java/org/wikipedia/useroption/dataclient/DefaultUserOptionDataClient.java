@@ -11,12 +11,14 @@ import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.editing.FetchEditTokenTask;
+import org.wikipedia.server.ServiceError;
 import org.wikipedia.useroption.UserOption;
 
 import java.io.IOException;
 import java.util.concurrent.Executor;
 
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -35,16 +37,29 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     @NonNull
     @Override
     public UserInfo get() throws IOException {
-        MwQueryResponse<QueryUserInfo> body = client.get().execute().body();
-        if (body == null) {
-            throw new IOException("Received response without body.");
+        Response<MwQueryResponse<QueryUserInfo>> rsp = client.get().execute();
+        if (rsp.isSuccessful() && rsp.body().success()) {
+            //noinspection ConstantConditions
+            return rsp.body().query().userInfo();
         }
-        return body.query().userInfo();
+        ServiceError err = rsp.body() == null || rsp.body().getError() == null
+                ? null
+                : rsp.body().getError();
+        throw new IOException(err == null ? rsp.message() : err.getDetails());
     }
 
     @Override
     public void post(@NonNull UserOption option) throws IOException {
-        client.post(getToken(), option.key(), option.val()).execute().body().check(site);
+        Response<PostResponse> rsp = client.post(getToken(), option.key(), option.val()).execute();
+        if (rsp.isSuccessful()) {
+            rsp.body().check(site);
+            return;
+        }
+
+        String msg = rsp.body() == null || rsp.body().info() == null
+                ? rsp.message()
+                : rsp.body().info();
+        throw new IOException(msg);
     }
 
     @Override
