@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">지도 상의 장소를 확대</string>
   <string name="last_updated_text">%1$s에 마지막으로 업데이트됨</string>
+  <string name="talk_page_link_text">토론</string>
   <string name="content_license_html">내용은 별도로 명시하지 않을 경우 &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;에 따라 사용할 수 있습니다</string>
   <string name="edit_save_action_license_logged_in">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다.</string>
   <string name="edit_save_action_license_anon">저장하면, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;이용 약관&lt;/a&gt;에 동의하고 영구히 &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 배포하는 데 동의합니다. 편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
@@ -260,8 +261,8 @@
   <string name="reading_list_item_count_singular">1개의 문서</string>
   <string name="reading_list_item_count_plural">%s개의 문서</string>
   <string name="reading_list_sort">정렬</string>
-  <string name="reading_list_sort_by_name">이름순</string>
-  <string name="reading_list_sort_by_recent">최근순</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">이름순</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">최근순</string>
   <string name="reading_list_menu_edit">읽기 목록의 세부사항 편집</string>
   <string name="reading_list_menu_delete">읽기 목록 삭제</string>
   <string name="reading_list_name_sample">내 읽기 목록</string>

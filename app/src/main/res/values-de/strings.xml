@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f Kilometer</string>
   <string name="nearby_zoom_to_location">Vergrößere auf einen Standort auf der Karte</string>
   <string name="last_updated_text">Zuletzt aktualisiert %1$s</string>
+  <string name="talk_page_link_text">Diskussion</string>
   <string name="content_license_html">Der Inhalt ist verfügbar unter &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA 3.0&lt;/a&gt;, sofern nicht anders angegeben.</string>
   <string name="edit_save_action_license_logged_in">Mit dem Speichern stimmst du den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/de\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt; zu.</string>
   <string name="edit_save_action_license_anon">Mit dem Speichern stimmst du den &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/de\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.de\"&gt;CC-BY-SA-3.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
@@ -262,8 +263,8 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_item_count_singular">Ein Artikel</string>
   <string name="reading_list_item_count_plural">%s Artikel</string>
   <string name="reading_list_sort">Sortieren</string>
-  <string name="reading_list_sort_by_name">Nach Name</string>
-  <string name="reading_list_sort_by_recent">Nach zuletzt gelesen</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Nach Name</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Nach zuletzt gelesen</string>
   <string name="reading_list_menu_edit">Einzelheiten der Leseliste bearbeiten</string>
   <string name="reading_list_menu_delete">Leseliste löschen</string>
   <string name="reading_list_name_sample">Meine Leseliste</string>

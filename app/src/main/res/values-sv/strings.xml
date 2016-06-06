@@ -25,7 +25,7 @@
   <string name="menu_page_content_issues">Innehållsproblem</string>
   <string name="menu_page_similar_titles">Liknande artiklar</string>
   <string name="menu_page_font_and_theme">Ändra teckensnitt och tema</string>
-  <string name="menu_page_add_to_list">Lägg till i läslistan</string>
+  <string name="menu_page_add_to_list">Lägg till i läslista</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zooma till en plats på kartan</string>
   <string name="last_updated_text">Senast uppdaterad %s</string>
+  <string name="talk_page_link_text">Diskussion</string>
   <string name="content_license_html">Innehållet är tillgängligt under &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; om inget annat anges</string>
   <string name="edit_save_action_license_logged_in">Genom att spara godkänner du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Genom att spara samtycker till &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
@@ -262,8 +263,8 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
   <string name="reading_list_item_count_plural">%s artiklar</string>
   <string name="reading_list_sort">Sortera</string>
-  <string name="reading_list_sort_by_name">Efter namn</string>
-  <string name="reading_list_sort_by_recent">Efter datum</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Efter namn</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Efter datum</string>
   <string name="reading_list_menu_edit">Redigera detaljer om läslistan</string>
   <string name="reading_list_menu_delete">Radera läslista</string>
   <string name="reading_list_name_sample">Min läslista</string>

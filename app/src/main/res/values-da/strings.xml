@@ -261,8 +261,8 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
   <string name="reading_list_item_count_plural">%s artikler</string>
   <string name="reading_list_sort">Sortér</string>
-  <string name="reading_list_sort_by_name">Efter navn</string>
-  <string name="reading_list_sort_by_recent">Efter dato</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Efter navn</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Efter dato</string>
   <string name="reading_list_menu_edit">Rediger detaljer om læseliste</string>
   <string name="reading_list_menu_delete">Slet læseliste</string>
   <string name="reading_list_name_sample">Min læseliste</string>

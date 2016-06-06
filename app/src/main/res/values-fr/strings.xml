@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoomer sur un endroit de la carte</string>
   <string name="last_updated_text">Dernière modification le %s</string>
+  <string name="talk_page_link_text">Discussion</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre appareil. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
@@ -262,8 +263,8 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_item_count_singular">1 article</string>
   <string name="reading_list_item_count_plural">%s articles</string>
   <string name="reading_list_sort">Trier</string>
-  <string name="reading_list_sort_by_name">Par nom</string>
-  <string name="reading_list_sort_by_recent">Par les plus récents</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Par nom</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Par les plus récents</string>
   <string name="reading_list_menu_edit">Modifier les détails de la liste de lecture</string>
   <string name="reading_list_menu_delete">Supprimer la liste de lecture</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>

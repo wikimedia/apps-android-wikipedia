@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Вказати місце розташування на карті</string>
   <string name="last_updated_text">Останнє оновлення %1$s</string>
+  <string name="talk_page_link_text">Обговорення</string>
   <string name="content_license_html">Вміст доступний згідно з &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.uk\"&gt;CC BY-SA 3.0&lt;/a&gt; якщо не вказано інше</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та безповоротно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, Ви погоджуєтеся з &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Умовами користування&lt;/a&gt;, та беззастережно публікуєте свій внесок під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою Вашого пристрою. Якщо Ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, то матимете більше приватності.</string>
@@ -262,8 +263,8 @@
   <string name="reading_list_item_count_singular">1 статья</string>
   <string name="reading_list_item_count_plural">%s статей</string>
   <string name="reading_list_sort">Сортувати</string>
-  <string name="reading_list_sort_by_name">По імені</string>
-  <string name="reading_list_sort_by_recent">В порядку додавання</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">По імені</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">В порядку додавання</string>
   <string name="reading_list_menu_edit">Редагування списку читання</string>
   <string name="reading_list_menu_delete">Видалити список читання</string>
   <string name="reading_list_name_sample">Мій список для читання</string>

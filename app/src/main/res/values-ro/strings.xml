@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Mărire pe o locație de pe hartă</string>
   <string name="last_updated_text">Ultima actualizare: %1$s</string>
+  <string name="talk_page_link_text">Discuție</string>
   <string name="content_license_html">Conținutul este disponibil sub licența &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;, cu excepția cazurilor în care se specifică altfel</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Salvând, sunteți de acord cu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Modificările vor fi atribuite adresei IP a dispozitivului dumneavoastră. Dacă vă &lt;a href=\"https://#login\"&gt;autentificați&lt;/a&gt; veți beneficia de mai multă confidențialitate.</string>
@@ -262,8 +263,8 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_item_count_singular">1 articol</string>
   <string name="reading_list_item_count_plural">%s (de) articole</string>
   <string name="reading_list_sort">Sortare</string>
-  <string name="reading_list_sort_by_name">După titlu</string>
-  <string name="reading_list_sort_by_recent">După dată</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">După titlu</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">După dată</string>
   <string name="reading_list_menu_edit">Modifică detaliile listei de lecturi</string>
   <string name="reading_list_menu_delete">Șterge lista de lecturi</string>
   <string name="reading_list_name_sample">Lista mea de lecturi</string>

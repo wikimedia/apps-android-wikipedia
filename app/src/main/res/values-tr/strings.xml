@@ -260,8 +260,8 @@
   <string name="reading_list_item_count_singular">1 madde</string>
   <string name="reading_list_item_count_plural">%s madde</string>
   <string name="reading_list_sort">Sırala</string>
-  <string name="reading_list_sort_by_name">Ada göre</string>
-  <string name="reading_list_sort_by_recent">Son erişime göre</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Ada göre</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Son erişime göre</string>
   <string name="reading_list_menu_edit">Okuma listesi ayrıntılarını düzenle</string>
   <string name="reading_list_menu_delete">Okuma listesini sil</string>
   <string name="reading_list_name_sample">Okuma listem</string>

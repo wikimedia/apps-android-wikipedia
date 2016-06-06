@@ -61,7 +61,8 @@ The Share list contains the following menu items (localized):
   <string name="nearby_distance_in_kilometers">Distance to the place mentioned in the nearby page in kilometers. Please leave the %.2f as is. It represents a floating point number with 2 digits after the decimal point.</string>
   <string name="nearby_zoom_to_location">Small toast (popup) message on Nearby screen saying that the current location of the device was not available.</string>
   <string name="last_updated_text">Message in footer of article indicating when the article was last updated. \'%s\' is substituted with the appropriately formatted human-readable timestamp, such as \"seven days ago\".</string>
-  <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site. Some use the term discussions.</string>
+  <string name="talk_page_link_text">Link text for accessing Talk pages. Use the same word in your language as is done on the web site. Some use the term discussions.
+{{Identical|Talk}}</string>
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a log link before saving edits, only when the user has not logged in. Please do not change the href=\'https://#login\' part of the message.</string>

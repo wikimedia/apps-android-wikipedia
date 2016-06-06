@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f千米</string>
   <string name="nearby_zoom_to_location">缩放至地图上的位置</string>
   <string name="last_updated_text">最后更新于%s</string>
+  <string name="talk_page_link_text">讨论</string>
   <string name="content_license_html">除非另有声明，内容采用&lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议发表。</string>
   <string name="edit_save_action_license_logged_in">一旦保存，即表示您认同&lt;a href=\"https://wikimediafoundation.org/wiki/Special:MyLanguage/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦保存，即表示您认同&lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.zh\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您的设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
@@ -262,8 +263,8 @@
   <string name="reading_list_item_count_singular">1个条目</string>
   <string name="reading_list_item_count_plural">%s个条目</string>
   <string name="reading_list_sort">排序</string>
-  <string name="reading_list_sort_by_name">按名称</string>
-  <string name="reading_list_sort_by_recent">按最近访问</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">按名称</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">按最近访问</string>
   <string name="reading_list_menu_edit">编辑阅读列表详情</string>
   <string name="reading_list_menu_delete">删除阅读列表</string>
   <string name="reading_list_name_sample">我的阅读列表</string>

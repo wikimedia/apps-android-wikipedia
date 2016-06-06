@@ -35,6 +35,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="last_updated_text">Lasta ĝisdatigo %s</string>
+  <string name="talk_page_link_text">Diskuto</string>
   <string name="content_license_html">La enhavo disponeblas laŭ la permesilo  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; krom se alia permesilo estas indikita.</string>
   <string name="edit_save_action_license_logged_in">Konservante, vi konsentas kun la  &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo.</string>
   <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Uzkondiĉoj&lt;/a&gt;,kaj ne-malfareble liberigas viajn kontribuojn sub la &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; permesilo. Modifoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutas&lt;/a&gt;, vi havos pli privatecon.</string>
@@ -216,7 +217,7 @@
   <string name="reading_list_item_count_singular">1 artikolo</string>
   <string name="reading_list_item_count_plural">%s artikoloj</string>
   <string name="reading_list_sort">Ordigi</string>
-  <string name="reading_list_sort_by_name">Laŭ nomo</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Laŭ nomo</string>
   <string name="reading_list_description_hint">Priskribo (malnepra)</string>
   <string name="reading_list_item_delete_undo">Malfari</string>
   <string name="reading_list_deleted">%s forigita</string>

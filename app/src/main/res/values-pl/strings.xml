@@ -248,7 +248,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="reading_list_item_count_singular">1 artykuł</string>
   <string name="reading_list_sort">Sortuj</string>
-  <string name="reading_list_sort_by_name">Według nazwy</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Według nazwy</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>

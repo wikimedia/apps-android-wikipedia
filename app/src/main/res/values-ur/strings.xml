@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f کلومیٹر</string>
   <string name="nearby_zoom_to_location">نقشہ پر مقام کو بڑا کریں</string>
   <string name="last_updated_text">آخری تجدید %s</string>
+  <string name="talk_page_link_text">تبادلۂ خیال</string>
   <string name="content_license_html">تمام مواد لائسنس &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; کے تحت دستیاب ہے جب تک کوئی دوسری شرط عائد نہ ہو</string>
   <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق سمجھا جائے گا اور ترامیم کو&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس کے تحت آزاد سمجھا جائے گا</string>
   <string name="edit_save_action_license_anon">محفوظ کرنے پر آپ کو &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق سمجھا جائے گا اور ترامیم کو&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; لائسنس کے تحت آزاد سمجھا جائے گا. ترامیم کو آپکے آئی پی ایڈریس سے منسلک کیا جائے گا. اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی ایڈریس ظاہر نہیں ہوگا</string>
@@ -262,8 +263,8 @@
   <string name="reading_list_item_count_singular">1 مضمون</string>
   <string name="reading_list_item_count_plural">%s مضامین</string>
   <string name="reading_list_sort">چھانٹ</string>
-  <string name="reading_list_sort_by_name">نام سے</string>
-  <string name="reading_list_sort_by_recent">حالیہ تبدیلیوں کے اعتبار سے</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">نام سے</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">حالیہ تبدیلیوں کے اعتبار سے</string>
   <string name="reading_list_menu_edit">فہرست مطالعہ تفصیلات کی ترمیم</string>
   <string name="reading_list_menu_delete">فہرست مطالعہ کو حذف کریں</string>
   <string name="reading_list_name_sample">میری فہرست مطالعہ</string>

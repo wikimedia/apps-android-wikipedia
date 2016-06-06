@@ -38,6 +38,7 @@
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Картала урынды күрһәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
+  <string name="talk_page_link_text">Әңгәмә</string>
   <string name="content_license_html">Эстәлек &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһына ярашлы ҡулланыла</string>
   <string name="edit_save_action_license_logged_in">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru ҡулланыу шарттарына ризалыҡ бирәһегеҙ\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Википедия теле</string>
@@ -257,8 +258,8 @@
   <string name="reading_list_item_count_singular">1 мәҡәлә</string>
   <string name="reading_list_item_count_plural">%s мәҡәләләр</string>
   <string name="reading_list_sort">Сортҡа айырыу</string>
-  <string name="reading_list_sort_by_name">Исемләп</string>
-  <string name="reading_list_sort_by_recent">Дата буйынса</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Исемләп</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Дата буйынса</string>
   <string name="reading_list_menu_edit">Уҡыу исемлеге буйынса мәғлүмәтте мөхәррирләргә</string>
   <string name="reading_list_menu_delete">Уҡыу исемлеген юйырға</string>
   <string name="reading_list_name_sample">Уҡыу исемлегем</string>

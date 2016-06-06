@@ -3,12 +3,14 @@
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia béta</string>
   <string name="app_name_alpha">Wikipédia alpha</string>
+  <string name="wikimedia">Wikimédia</string>
   <string name="yes">Igen</string>
   <string name="no">Nem</string>
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="nav_item_history">Előzmények</string>
   <string name="error_network_error">Nem tud csatlakozni az Internethez.</string>
   <string name="page_error_retry">Újra</string>
+  <string name="page_error_back_to_main">Vissza</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="page_does_not_exist_error">Ez a lap nem létezik.</string>
   <string name="nav_item_today">Ma</string>
@@ -209,4 +211,16 @@
   <string name="crash_report_quit">Kilépés</string>
   <string name="article_menu_bar_bookmark" fuzzy="true">Cikk mentése a későbbi offline olvasáshoz</string>
   <string name="article_menu_bar_share">Ossza meg a cikk linkjét</string>
+  <string name="reading_list_item_count_singular">1 szócikk</string>
+  <string name="reading_list_item_count_plural">%s szócikk</string>
+  <string name="reading_list_sort">Rendezés</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Név szerint</string>
+  <string name="reading_list_item_delete_undo">Visszavonás</string>
+  <string name="reading_list_deleted">%s törölve</string>
+  <string name="reading_list_edit_ok">OK</string>
+  <string name="reading_list_edit_cancel">Mégse</string>
+  <string name="reading_lists_onboarding_for_example">Például</string>
+  <string name="reading_lists_onboarding_example1">Látványosságok</string>
+  <string name="reading_lists_onboarding_example2">Kedvenc állatok</string>
+  <string name="user_option_sync_label">Beállítások</string>
 </resources>

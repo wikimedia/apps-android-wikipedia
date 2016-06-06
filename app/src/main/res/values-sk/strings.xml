@@ -262,8 +262,8 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_item_count_singular">1 článok</string>
   <string name="reading_list_item_count_plural">%s článkov</string>
   <string name="reading_list_sort">Zoradiť</string>
-  <string name="reading_list_sort_by_name">Podľa mena</string>
-  <string name="reading_list_sort_by_recent">Podľa nedávno navštívených</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Podľa mena</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Podľa nedávno navštívených</string>
   <string name="reading_list_menu_edit">Upraviť podrobnosti zoznamu na prečítanie</string>
   <string name="reading_list_menu_delete">Odstrániť zoznam na prečítanie</string>
   <string name="reading_list_name_sample">Môj zoznam na prečítanie</string>

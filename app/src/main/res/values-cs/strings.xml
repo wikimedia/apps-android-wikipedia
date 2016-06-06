@@ -261,7 +261,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_item_count_singular">1 článek</string>
   <string name="reading_list_item_count_plural">%s článků</string>
   <string name="reading_list_sort">Seřadit</string>
-  <string name="reading_list_sort_by_name">Podle názvu</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Podle názvu</string>
   <string name="reading_list_menu_edit">Upravit podrobnosti seznamu k přečtení</string>
   <string name="reading_list_menu_delete">Odstranit seznam k přečtení</string>
   <string name="reading_list_name_sample">Můj seznam k přečtení</string>

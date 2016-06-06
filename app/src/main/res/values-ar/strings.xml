@@ -257,7 +257,7 @@
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button" fuzzy="true">اعرض</string>
   <string name="reading_list_item_count_singular">مقالة واحدة</string>
-  <string name="reading_list_sort_by_name">الاسماء</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">الاسماء</string>
   <string name="reading_list_menu_edit">عدل تفاصيل قائمة القراءة</string>
   <string name="reading_list_menu_delete">احذف قائمة القراءة</string>
   <string name="reading_list_name_sample">قائمة قراءاتي</string>

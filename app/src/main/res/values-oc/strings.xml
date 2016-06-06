@@ -117,8 +117,8 @@
   <string name="about_libraries_heading">Bibliotècas utilizadas</string>
   <string name="about_contributors_heading">Contributors</string>
   <string name="about_translators_heading">Traductors</string>
-  <string name="about_translators_translatewiki">Aquesta aplicacion es estada traducha pels traductors volontaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Un produch de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondacion Wikimèdia&lt;/a&gt;</string>
+  <string name="about_translators_translatewiki">Aquesta aplicacion es estada traduita pels traductors volontaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_wmf">Un produit de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fondacion Wikimèdia&lt;/a&gt;</string>
   <string name="about_activity_title">A prepaus</string>
   <string name="user_blocked_from_editing_title">Blocat</string>
   <string name="edit_next">Seguent</string>
@@ -140,7 +140,7 @@
   <string name="search_did_you_mean">Volètz dire « %s » ?</string>
   <string name="search_recent_header">Recèrcas recentas :</string>
   <string name="button_clear_all_recent_searches">Escafar las recèrcas recentas</string>
-  <string name="table_infobox">Faches en brèu</string>
+  <string name="table_infobox">Faits en brèu</string>
   <string name="table_other">Mai d’informacions</string>
   <string name="table_close">Tampar</string>
   <string name="widget_name_featured_page">Pagina mesa en avant de Wikipèdia</string>
@@ -158,7 +158,7 @@
   <string name="gallery_menu_save">Enregistrar sus l’aparelh</string>
   <string name="gallery_save_success">Fichièr enregistrat corrèctament.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrar lo fichièr</string>
-  <string name="snippet_share_intro">Fach interessant sus @Wikipedia %1$s : %2$s</string>
+  <string name="snippet_share_intro">Fait interessant sus @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Tustar per desvolopar</string>
   <string name="share_snippet_button">Partejar coma imatge</string>
   <string name="share_normal_button">Partejar coma tèxte</string>
@@ -170,7 +170,7 @@
   <string name="menu_new_tab">Onglet novèl</string>
   <string name="button_close_tab">Tampar l’onglet</string>
   <string name="format_error_server_message">Messatge : \"%s\"</string>
-  <string name="format_error_server_code">Còde : \"%s\"</string>
+  <string name="format_error_server_code">Còdi : \"%s\"</string>
   <string name="button_continue_to_article">Legir l’article</string>
   <string name="button_get_directions">Obténer las direccions</string>
   <string name="crash_report_dialog_dont_send_button">Sautar</string>

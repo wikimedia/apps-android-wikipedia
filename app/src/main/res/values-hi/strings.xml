@@ -260,8 +260,8 @@
   <string name="reading_list_item_count_singular">1 लेख</string>
   <string name="reading_list_item_count_plural">%s लेख</string>
   <string name="reading_list_sort">छांटें</string>
-  <string name="reading_list_sort_by_name">नाम से</string>
-  <string name="reading_list_sort_by_recent">पिछलों में से</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">नाम से</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">पिछलों में से</string>
   <string name="reading_list_menu_edit">पठन सूची विवरण सम्पादित करें</string>
   <string name="reading_list_menu_delete">पठन सूची को मिटायें</string>
   <string name="reading_list_name_sample">मेरी पठन सूची</string>
@@ -277,8 +277,8 @@
   <string name="reading_lists_empty">यहाँ कोई पठन सूची नहीं।</string>
   <string name="reading_lists_empty_message">आपके द्वारा ब्राउज़ किये जाने वाले लेखों को पठन सूची में लगाएं! लेख ब्राउज़ करते समय उसे पठन सूची में जोड़ने हेतु
 लेख के ऊपर बने बुकमार्क आइकॉन पर टैप करे ।</string>
-  <string name="reading_lists_onboarding_intro">जिन लेखों की आप बाद में पढ़ना चाहते हैं, ऑफलाइन होने पर भी, उनसें पठन सूचियाँ बनायें!</string>
-  <string name="reading_lists_onboarding_for_example">उदाहरण</string>
+  <string name="reading_lists_onboarding_intro">जिन लेखों को आप बाद में, ऑफ़लाइन होने पर भी पढ़ना चाहते हैं, उनकी पठन सूचियाँ बनायें!</string>
+  <string name="reading_lists_onboarding_for_example">उदाहरण के लिए</string>
   <string name="reading_lists_onboarding_example1">जाने के स्थान</string>
   <string name="reading_lists_onboarding_example2">पसंदीदा पशु</string>
   <string name="reading_lists_onboarding_example3">ब्रह्माण्ड!</string>

@@ -33,6 +33,7 @@
   <string name="nearby_distance_in_meters">%d متر</string>
   <string name="nearby_distance_in_kilometers">%.2f کيلومتر</string>
   <string name="last_updated_text">وروستئ هممهالېدنه %s</string>
+  <string name="talk_page_link_text">خبرې اترې</string>
   <string name="preference_title_language">د ويکيپېډيا ژبه</string>
   <string name="preference_languages_filter_hint">پلټل</string>
   <string name="langlinks_filter_hint">پلټل</string>
@@ -179,8 +180,8 @@
   <string name="reading_list_item_count_singular">1 ليکنه</string>
   <string name="reading_list_item_count_plural">%s ليکنې</string>
   <string name="reading_list_sort">اوډل</string>
-  <string name="reading_list_sort_by_name">د نوم له مخې</string>
-  <string name="reading_list_sort_by_recent">د وروستني له مخې</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">د نوم له مخې</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">د وروستني له مخې</string>
   <string name="reading_list_menu_edit">د لوست لړ تفصيلونه سمول</string>
   <string name="reading_list_menu_delete">لوست لړليک ړنگول</string>
   <string name="reading_list_name_sample">زما لوست لړليک</string>

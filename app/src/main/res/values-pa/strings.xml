@@ -235,8 +235,8 @@
   <string name="reading_list_item_count_singular">1 ਲੇਖ</string>
   <string name="reading_list_item_count_plural">%s ਲੇਖ</string>
   <string name="reading_list_sort">ਤਰਤੀਬਵਾਰ ਕਰੋ</string>
-  <string name="reading_list_sort_by_name">ਨਾਂ ਅਨੁਸਾਰ</string>
-  <string name="reading_list_sort_by_recent">ਹਾਲੀਆ ਖੋਲ੍ਹੇ ਅਨੁਸਾਰ</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">ਨਾਂ ਅਨੁਸਾਰ</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">ਹਾਲੀਆ ਖੋਲ੍ਹੇ ਅਨੁਸਾਰ</string>
   <string name="reading_list_menu_edit">ਪੜ੍ਹਤ ਸੂਚੀ ਦੀ ਜਾਣਕਾਰੀ ਸੋਧੋ</string>
   <string name="reading_list_menu_delete">ਪੜ੍ਹਤ ਸੂਚੀ ਮਿਟਾਉ</string>
   <string name="reading_list_name_sample">ਮੇਰੀ ਪੜ੍ਹਤ ਸੂਚੀ</string>

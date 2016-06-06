@@ -260,8 +260,8 @@
   <string name="reading_list_item_count_singular">1 bài</string>
   <string name="reading_list_item_count_plural">%s bài</string>
   <string name="reading_list_sort">Sắp xếp</string>
-  <string name="reading_list_sort_by_name">Theo tên</string>
-  <string name="reading_list_sort_by_recent">Theo lúc xem</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Theo tên</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Theo lúc xem</string>
   <string name="reading_list_menu_edit">Sửa chi tiết danh sách đọc</string>
   <string name="reading_list_menu_delete">Xóa danh sách đọc</string>
   <string name="reading_list_name_sample">Danh sách đọc của tôi</string>

@@ -260,8 +260,8 @@
   <string name="reading_list_item_count_singular">۱ مقاله</string>
   <string name="reading_list_item_count_plural">%s مقاله</string>
   <string name="reading_list_sort">مرتب‌کردن</string>
-  <string name="reading_list_sort_by_name">بر پایهٔ نام</string>
-  <string name="reading_list_sort_by_recent">بر پایهٔ آخرین</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">بر پایهٔ نام</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">بر پایهٔ آخرین</string>
   <string name="reading_list_menu_edit">ویرایش جزئیات فهرست مطالعه</string>
   <string name="reading_list_menu_delete">حذف فهرست مطالعه</string>
   <string name="reading_list_name_sample">فهرست مطالعهٔ من</string>

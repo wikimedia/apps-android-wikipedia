@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Ampliar una ubicación en el mapa</string>
   <string name="last_updated_text">Última actualización: %s</string>
+  <string name="talk_page_link_text">Discusión</string>
   <string name="content_license_html">El contenido está disponible bajo la licencia &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que se indique lo contrario</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al guardar, aceptas los &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
@@ -262,8 +263,8 @@
   <string name="reading_list_item_count_singular">1 artículo</string>
   <string name="reading_list_item_count_plural">%s artículos</string>
   <string name="reading_list_sort">Ordenar</string>
-  <string name="reading_list_sort_by_name">Por nombre</string>
-  <string name="reading_list_sort_by_recent">Por reciente</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Por nombre</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Por reciente</string>
   <string name="reading_list_menu_edit">Editar los detalles de la lista de lectura</string>
   <string name="reading_list_menu_delete">Eliminar la lista de lectura</string>
   <string name="reading_list_name_sample">Mi lista de lectura</string>

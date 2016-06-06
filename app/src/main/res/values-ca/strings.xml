@@ -261,8 +261,8 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_item_count_singular">1 article</string>
   <string name="reading_list_item_count_plural">%s articles</string>
   <string name="reading_list_sort">Ordena</string>
-  <string name="reading_list_sort_by_name">Per nom</string>
-  <string name="reading_list_sort_by_recent">Per més recent</string>
+  <string name="reading_list_sort_by_name" fuzzy="true">Per nom</string>
+  <string name="reading_list_sort_by_recent" fuzzy="true">Per més recent</string>
   <string name="reading_list_menu_edit">Edita els detalls de la llista de lectura</string>
   <string name="reading_list_menu_delete">Elimina la llista de lectura</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
