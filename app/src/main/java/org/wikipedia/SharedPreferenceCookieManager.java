@@ -31,7 +31,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
     }
 
     @Override
-    public Map<String, List<String>> get(URI uri, Map<String, List<String>> requestHeaders) throws IOException {
+    public synchronized Map<String, List<String>> get(URI uri, Map<String, List<String>> requestHeaders) throws IOException {
         if (uri == null || requestHeaders == null) {
             throw new IllegalArgumentException("Argument is null");
         }
@@ -58,7 +58,7 @@ public class SharedPreferenceCookieManager extends CookieManager {
     }
 
     @Override
-    public void put(URI uri, Map<String, List<String>> responseHeaders) throws IOException {
+    public synchronized void put(URI uri, Map<String, List<String>> responseHeaders) throws IOException {
         // pre-condition check
         if (uri == null || responseHeaders == null) {
             throw new IllegalArgumentException("Argument is null");
@@ -110,12 +110,12 @@ public class SharedPreferenceCookieManager extends CookieManager {
 
     // This will remove cookies for the domain specified but cookies from other domains may still be
     // merged into requests.
-    public void clearCookiesForDomain(String domain) {
+    public synchronized void clearCookiesForDomain(String domain) {
         Prefs.removeCookiesForDomain(domain);
         cookieJar.remove(domain);
     }
 
-    public void clearAllCookies() {
+    public synchronized void clearAllCookies() {
         for (String domain: cookieJar.keySet()) {
             Prefs.removeCookiesForDomain(domain);
         }
