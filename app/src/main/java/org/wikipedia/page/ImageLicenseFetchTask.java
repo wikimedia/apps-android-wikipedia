@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -25,22 +26,23 @@ public class ImageLicenseFetchTask extends PageQueryTask<ImageLicense> {
 
     @Override
     public ImageLicense processPage(int pageId, PageTitle pageTitle, JSONObject result) {
-        ImageLicense license = new ImageLicense("", "", "");
         try {
             JSONObject imageInfo = (JSONObject) result.getJSONArray("imageinfo").get(0);
-            parseImageLicenseMetadata(license, imageInfo.getJSONObject("extmetadata"));
+            return imageLicenseFromMetadata(imageInfo.getJSONObject("extmetadata"));
         } catch (JSONException e) {
             Log.w(TAG, e);
         }
-        return license;
+        return new ImageLicense();
     }
 
-    public static void parseImageLicenseMetadata(ImageLicense imageLicense, JSONObject extmetadata) {
-        imageLicense.setLicense(getValueForOptionalKey(extmetadata, "License"));
-        imageLicense.setLicenseShortName(getValueForOptionalKey(extmetadata, "LicenseShortName"));
-        imageLicense.setLicenseUrl(getValueForOptionalKey(extmetadata, "LicenseUrl"));
+    @NonNull
+    public static ImageLicense imageLicenseFromMetadata(JSONObject extmetadata) {
+        return new ImageLicense(getValueForOptionalKey(extmetadata, "License"),
+                getValueForOptionalKey(extmetadata, "LicenseShortName"),
+                getValueForOptionalKey(extmetadata, "LicenseUrl"));
     }
 
+    @NonNull
     private static String getValueForOptionalKey(JSONObject object, String key) {
         return object.has(key) ? object.optJSONObject(key).optString("value") : "";
     }

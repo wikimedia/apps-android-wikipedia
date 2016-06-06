@@ -496,7 +496,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         }
 
         // determine which icon to display...
-        licenseIcon.setImageDrawable(getResources().getDrawable(getLicenseIcon(item)));
+        licenseIcon.setImageResource(getLicenseIcon(item));
         // Set the icon's content description to the UsageTerms property.
         // (if UsageTerms is not present, then default to Fair Use)
         String usageTerms = item.getMetadata().get("UsageTerms");
@@ -524,7 +524,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * Return an icon (drawable resource id) that corresponds to the type of license
      * under which the specified Gallery item is provided.
      * @param item Gallery item for which to give a license icon.
-     * @return Resource ID of the icon to display.
+     * @return Resource ID of the icon to display, or 0 if no license is available.
      */
     private static int getLicenseIcon(GalleryItem item) {
         return item.getLicense().getLicenseIcon();

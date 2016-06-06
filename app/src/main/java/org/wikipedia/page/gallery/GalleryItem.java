@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
 
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import java.util.HashMap;
@@ -54,12 +55,12 @@ public class GalleryItem {
         return height;
     }
 
-    private ImageLicense license;
-    public ImageLicense getLicense() {
+    @NonNull private final ImageLicense license;
+    @NonNull public ImageLicense getLicense() {
         return license;
     }
 
-    public String getLicenseUrl() {
+    @NonNull public String getLicenseUrl() {
         return license.getLicenseUrl();
     }
 
@@ -72,6 +73,7 @@ public class GalleryItem {
         this.metadata = null;
         this.width = 0;
         this.height = 0;
+        this.license = new ImageLicense();
     }
 
     public GalleryItem(JSONObject json) throws JSONException {
@@ -104,6 +106,7 @@ public class GalleryItem {
             height = 0;
             thumbUrl = null;
             mimeType = "*/*";
+            this.license = new ImageLicense();
             return;
         }
         if (TextUtils.isEmpty(url)) {
@@ -113,7 +116,6 @@ public class GalleryItem {
         thumbUrl = objinfo.optString("thumburl", "");
         width = objinfo.getInt("width");
         height = objinfo.getInt("height");
-        license = new ImageLicense("", "", "");
         JSONObject extmetadata = objinfo.optJSONObject("extmetadata");
         if (extmetadata != null) {
             Iterator<String> keys = extmetadata.keys();
@@ -122,7 +124,9 @@ public class GalleryItem {
                 String value = extmetadata.getJSONObject(key).getString("value");
                 metadata.put(key, value);
             }
-            ImageLicenseFetchTask.parseImageLicenseMetadata(license, extmetadata);
+            license = ImageLicenseFetchTask.imageLicenseFromMetadata(extmetadata);
+        } else {
+            license = new ImageLicense();
         }
     }
 }

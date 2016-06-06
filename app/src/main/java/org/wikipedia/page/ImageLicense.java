@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.util.StringUtil;
@@ -9,38 +10,30 @@ public class ImageLicense {
     private static final String CREATIVE_COMMONS_PREFIX = "cc";
     private static final String PUBLIC_DOMAIN_PREFIX = "pd";
 
-    private String license;
-    private String licenseShortName;
-    private String licenseUrl;
+    @NonNull private final String license;
+    @NonNull private final String licenseShortName;
+    @NonNull private final String licenseUrl;
 
-    public ImageLicense(String license, String licenseShortName, String licenseUrl) {
+    public ImageLicense() {
+        this("", "", "");
+    }
+
+    public ImageLicense(@NonNull String license, @NonNull String licenseShortName, @NonNull String licenseUrl) {
         this.license = license;
         this.licenseShortName = licenseShortName;
         this.licenseUrl = licenseUrl;
     }
 
-    public String getLicense() {
+    @NonNull public String getLicense() {
         return license;
     }
 
-    public void setLicense(String licenseValue) {
-        license = licenseValue;
-    }
-
-    public String getLicenseShortName() {
+    @NonNull public String getLicenseShortName() {
         return licenseShortName;
     }
 
-    public void setLicenseShortName(String licenseShortNameValue) {
-        licenseShortName = licenseShortNameValue;
-    }
-
-    public String getLicenseUrl() {
+    @NonNull public String getLicenseUrl() {
         return licenseUrl;
-    }
-
-    public void setLicenseUrl(String licenseUrlValue) {
-        licenseUrl = licenseUrlValue;
     }
 
     public boolean isLicenseCC() {
