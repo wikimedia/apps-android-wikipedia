@@ -24,6 +24,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     private static final long HTTP_CACHE_SIZE = 16 * 1024 * 1024;
+    private static final Cache HTTP_CACHE = new Cache(WikipediaApp.getInstance().getCacheDir(), HTTP_CACHE_SIZE);
 
     private final OkHttpClient client;
 
@@ -58,9 +59,10 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(Prefs.getRetrofitLogLevel());
 
+        // TODO: switch to using a single instance of OkHttpClient throughout the app.
         return new OkHttpClient.Builder()
                 .cookieJar(cookieJar)
-                .cache(new Cache(context.getCacheDir(), HTTP_CACHE_SIZE))
+                .cache(HTTP_CACHE)
                 .protocols(protocolList)
                 .addInterceptor(loggingInterceptor);
     }
