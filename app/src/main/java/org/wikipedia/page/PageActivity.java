@@ -1,12 +1,58 @@
 package org.wikipedia.page;
 
+import android.annotation.TargetApi;
+import android.app.SearchManager;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.location.Location;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
+import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.preference.PreferenceManager;
+import android.support.v7.view.ActionMode;
+import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.TextUtils;
+import android.text.format.DateUtils;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
+
+import net.hockeyapp.android.metrics.MetricsManager;
+
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.activity.ActivityUtil;
-import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.ActivityUtil;
+import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
@@ -38,53 +84,8 @@ import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.zero.ZeroConfig;
 
-import com.squareup.otto.Bus;
-import com.squareup.otto.Subscribe;
-
-import android.annotation.TargetApi;
-import android.app.SearchManager;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.location.Location;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.preference.PreferenceManager;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.view.ActionMode;
-import android.text.Html;
-import android.text.TextUtils;
-import android.text.format.DateUtils;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import net.hockeyapp.android.metrics.MetricsManager;
-
-import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity {
@@ -526,7 +527,7 @@ public class PageActivity extends ThemedActionBarActivity {
     }
 
     /**
-     * Add a new fragment to the top of the activity's backstack, and optionally allow state loss.
+     * Add a new fragment to the top of the activity's backstack, and optionally  allow state loss.
      * Useful for cases where we might push a fragment from an AsyncTask result.
      * @param f New fragment to place on top.
      * @param allowStateLoss Whether to allow state loss.
@@ -791,8 +792,8 @@ public class PageActivity extends ThemedActionBarActivity {
             if (leftZeroRatedNetwork(latestZeroEnabledState)) {
                 app.getWikipediaZeroHandler().showZeroOffBanner(PageActivity.this,
                         getString(R.string.zero_charged_verbiage),
-                        getResources().getColor(R.color.holo_red_dark),
-                        getResources().getColor(android.R.color.white));
+                        ContextCompat.getColor(PageActivity.this, R.color.holo_red_dark),
+                        ContextCompat.getColor(PageActivity.this, android.R.color.white));
                 navDrawerHelper.setupDynamicNavDrawerItems();
             }
 

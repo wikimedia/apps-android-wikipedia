@@ -21,7 +21,7 @@ public abstract class AMLoginTask extends ApiTask<AMLoginResult> {
         this.password = password;
     }
 
-    public RequestBuilder buildRequest(Api api) {
+    @Override public RequestBuilder buildRequest(Api api) {
         // HACK: T124384
         WikipediaApp.getInstance().getEditTokenStorage().clearAllTokens();
 
