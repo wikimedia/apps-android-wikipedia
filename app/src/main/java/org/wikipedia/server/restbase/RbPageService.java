@@ -8,6 +8,7 @@ import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageSummary;
+import org.wikipedia.server.ServiceError;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
@@ -146,7 +147,14 @@ public class RbPageService implements PageService {
 
     @Override
     public RbPageCombo pageCombo(String title, boolean noImages) throws IOException {
-        return webService.pageCombo(title, noImages).execute().body();
+        Response<RbPageCombo> rsp = webService.pageCombo(title, noImages).execute();
+        if (rsp.isSuccessful() && !rsp.body().hasError()) {
+            return rsp.body();
+        }
+        ServiceError err = rsp.body() == null || rsp.body().getError() == null
+                ? null
+                : rsp.body().getError();
+        throw new IOException(err == null ? rsp.message() : err.getDetails());
     }
 
     /* Not defined in the PageService interface since the Wiktionary definition endpoint exists only

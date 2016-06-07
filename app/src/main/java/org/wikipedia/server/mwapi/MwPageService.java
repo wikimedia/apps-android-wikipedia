@@ -8,9 +8,12 @@ import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageSummary;
+import org.wikipedia.server.ServiceError;
 import org.wikipedia.server.restbase.RbPageEndpointsCache;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.zero.WikipediaZeroHandler;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,8 +22,6 @@ import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Query;
-
-import java.io.IOException;
 
 /**
  * Retrofit web service client for MediaWiki PHP API.
@@ -132,7 +133,14 @@ public class MwPageService implements PageService {
 
     @Override
     public MwPageCombo pageCombo(String title, boolean noImages) throws IOException {
-        return webService.pageCombo(title, noImages).execute().body();
+        Response<MwPageCombo> rsp = webService.pageCombo(title, noImages).execute();
+        if (rsp.isSuccessful() && !rsp.body().hasError()) {
+            return rsp.body();
+        }
+        ServiceError err = rsp.body() == null || rsp.body().getError() == null
+                ? null
+                : rsp.body().getError();
+        throw new IOException(err == null ? rsp.message() : err.getDetails());
     }
 
     /**
