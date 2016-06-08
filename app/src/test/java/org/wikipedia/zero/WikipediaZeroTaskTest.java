@@ -4,34 +4,17 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.wikipedia.test.ImmediateExecutor;
+import org.wikipedia.test.MockWebServerTest;
 import org.wikipedia.test.TestApi;
 import org.wikipedia.test.TestFileUtil;
-import org.wikipedia.test.TestRunner;
-import org.wikipedia.test.TestWebServer;
 import org.wikipedia.testlib.TestLatch;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-@RunWith(TestRunner.class)
-public class WikipediaZeroTaskTest {
-    private TestWebServer server = new TestWebServer();
-
-    @Before
-    public void setUp() throws Exception {
-        server.setUp();
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        server.tearDown();
-    }
-
+public class WikipediaZeroTaskTest extends MockWebServerTest {
     @Test
     public void testOnFinishIneligible() throws Exception {
         testOnFinish("{}", null);
@@ -54,11 +37,11 @@ public class WikipediaZeroTaskTest {
         TestLatch latch = new TestLatch();
         Subject subject = new Subject(latch, expected);
 
-        server.enqueue(responseBody);
+        server().enqueue(responseBody);
 
         subject.execute();
 
-        server.takeRequest();
+        server().takeRequest();
         latch.await();
     }
 
@@ -70,7 +53,7 @@ public class WikipediaZeroTaskTest {
         private final ZeroConfig expected;
 
         Subject(@NonNull TestLatch latch, @Nullable ZeroConfig expected) {
-            super(new TestApi(server), "userAgent");
+            super(new TestApi(server()), "userAgent");
             this.latch = latch;
             this.expected = expected;
         }
