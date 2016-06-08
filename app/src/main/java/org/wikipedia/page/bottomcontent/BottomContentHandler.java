@@ -55,6 +55,7 @@ public class BottomContentHandler implements BottomContentInterface,
                                                 ObservableWebView.OnScrollChangeListener,
                                                 ObservableWebView.OnContentHeightChangedListener {
     private static final String TAG = "BottomContentHandler";
+
     private final PageFragment parentFragment;
     private final CommunicationBridge bridge;
     private final WebView webView;
@@ -315,11 +316,9 @@ public class BottomContentHandler implements BottomContentInterface,
             layoutContent();
             return;
         }
-        final int maxResultItems = 3;
-        final int numRequestItems = 5;
         final long timeMillis = System.currentTimeMillis();
         new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
-                            myTitle.getPrefixedText(), numRequestItems, maxResultItems, false) {
+                            myTitle.getPrefixedText(), false) {
             @Override
             public void onFinish(SearchResults results) {
                 funnel.setLatency(System.currentTimeMillis() - timeMillis);
@@ -375,7 +374,7 @@ public class BottomContentHandler implements BottomContentInterface,
         readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle title = ((SearchResult) adapter.getItem(position)).getTitle();
+                PageTitle title = ((SearchResult) adapter.getItem(position)).getPageTitle();
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
                 activity.loadPage(title, historyEntry);
                 funnel.logSuggestionClicked(pageTitle, results.getResults(), position);
@@ -394,7 +393,7 @@ public class BottomContentHandler implements BottomContentInterface,
         @Override
         public PageTitle getTitleForListPosition(int position) {
             lastPosition = position;
-            return ((SearchResult) readMoreList.getAdapter().getItem(position)).getTitle();
+            return ((SearchResult) readMoreList.getAdapter().getItem(position)).getPageTitle();
         }
 
         @Override
@@ -441,12 +440,12 @@ public class BottomContentHandler implements BottomContentInterface,
             }
             TextView pageTitleText = (TextView) convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = getItem(position);
-            pageTitleText.setText(result.getTitle().getDisplayText());
+            pageTitleText.setText(result.getPageTitle().getDisplayText());
 
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
-            descriptionText.setText(result.getTitle().getDescription());
+            descriptionText.setText(result.getPageTitle().getDescription());
 
-            ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image), result.getTitle().getThumbUrl());
+            ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image), result.getPageTitle().getThumbUrl());
             return convertView;
         }
     }

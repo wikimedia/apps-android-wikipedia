@@ -2,6 +2,7 @@ package org.wikipedia.test;
 
 import android.test.ActivityUnitTestCase;
 
+import org.wikipedia.Constants;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
@@ -19,7 +20,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 200000;
-    private static final int BATCH_SIZE = 3;
     private static final Site SITE = new Site("en.wikipedia.org"); // suggestions don't seem to work on testwiki
 
     private WikipediaApp app = WikipediaApp.getInstance();
@@ -33,15 +33,14 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test",
-                        BATCH_SIZE + 1, BATCH_SIZE, false) {
+                new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test", false) {
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
-                        assertEquals(results.getResults().size(), BATCH_SIZE);
+                        assertEquals(results.getResults().size(), Constants.MAX_SUGGESTION_RESULTS);
 
                         for (SearchResult result : results.getResults()) {
-                            assertFalse(result.getTitle().getPrefixedText().equals("Test"));
+                            assertFalse(result.getPageTitle().getPrefixedText().equals("Test"));
                         }
                         completionLatch.countDown();
                     }
@@ -78,14 +77,13 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
         originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
         originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
         originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
-        checkFilter(BATCH_SIZE, originalResults);
+        checkFilter(Constants.MAX_SUGGESTION_RESULTS, originalResults);
     }
 
     private void checkFilter(int expected, List<SearchResult> originalResults) {
-        SuggestionsTask task = new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test",
-                BATCH_SIZE + 1, BATCH_SIZE, false);
+        String title = "test";
         SearchResults searchResults = new SearchResults(originalResults, null, null);
-        List<SearchResult> filteredList = task.filterResults(searchResults).getResults();
+        List<SearchResult> filteredList = SearchResults.filter(searchResults, title, false).getResults();
         assertEquals(expected, filteredList.size());
     }
 }

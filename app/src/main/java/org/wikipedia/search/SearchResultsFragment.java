@@ -88,7 +88,7 @@ public class SearchResultsFragment extends Fragment {
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle item = ((SearchResult) getAdapter().getItem(position)).getTitle();
+                PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
                 searchFragment.navigateToTitle(item, false);
             }
         });
@@ -361,7 +361,7 @@ public class SearchResultsFragment extends Fragment {
     @Nullable
     public PageTitle getFirstResult() {
         if (!totalResults.isEmpty()) {
-            return totalResults.get(0).getTitle();
+            return totalResults.get(0).getPageTitle();
         } else {
             return null;
         }
@@ -427,7 +427,7 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public PageTitle getTitleForListPosition(int position) {
-            return ((SearchResult) getAdapter().getItem(position)).getTitle();
+            return ((SearchResult) getAdapter().getItem(position)).getPageTitle();
         }
 
         @Override
@@ -472,7 +472,7 @@ public class SearchResultsFragment extends Fragment {
             SearchResult result = (SearchResult) getItem(position);
 
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
-            descriptionText.setText(result.getTitle().getDescription());
+            descriptionText.setText(result.getPageTitle().getDescription());
 
             View redirectContainer = convertView.findViewById(R.id.page_list_item_redirect_container);
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
@@ -486,7 +486,7 @@ public class SearchResultsFragment extends Fragment {
             }
 
             // highlight search term within the text
-            String displayText = result.getTitle().getDisplayText();
+            String displayText = result.getPageTitle().getDisplayText();
             int startIndex = indexOf(displayText, currentSearchTerm);
             if (startIndex >= 0) {
                 displayText = displayText.substring(0, startIndex)
@@ -501,7 +501,7 @@ public class SearchResultsFragment extends Fragment {
             }
 
             ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image),
-                    result.getTitle().getThumbUrl());
+                    result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!

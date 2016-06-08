@@ -39,8 +39,8 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
                         assertNotNull(results.getContinueOffset());
 
                         for (SearchResult result : results.getResults()) {
-                            if (result.getTitle().getPrefixedText().equals("Test")) {
-                                assertEquals(result.getTitle().getDescription(), "Wikipedia disambiguation page");
+                            if (result.getPageTitle().getPrefixedText().equals("Test")) {
+                                assertEquals(result.getPageTitle().getDescription(), "Wikipedia disambiguation page");
                             }
                         }
                         completionLatch.countDown();

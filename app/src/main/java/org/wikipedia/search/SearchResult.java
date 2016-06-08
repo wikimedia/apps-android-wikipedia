@@ -6,24 +6,28 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import org.wikipedia.page.MwApiResultPage;
 import org.wikipedia.page.PageTitle;
 
-public class SearchResult implements Parcelable {
-    private final PageTitle title;
+public class SearchResult extends MwApiResultPage implements Parcelable {
+    private PageTitle pageTitle;
     private final String redirectFrom;
 
-    public SearchResult(@NonNull PageTitle title) {
-        this(title, null);
+    public SearchResult(@NonNull PageTitle pageTitle) {
+        this(pageTitle, null);
     }
 
-    public SearchResult(@NonNull PageTitle title, @Nullable String redirectFrom) {
-        this.title = title;
+    public SearchResult(@NonNull PageTitle pageTitle, @Nullable String redirectFrom) {
+        this.pageTitle = pageTitle;
         this.redirectFrom = redirectFrom;
+        this.title(pageTitle.getText());
+        this.thumbUrl(pageTitle.getThumbUrl());
+        this.description(pageTitle.getDescription());
     }
 
     @NonNull
-    public PageTitle getTitle() {
-        return title;
+    public PageTitle getPageTitle() {
+        return pageTitle;
     }
 
     @Nullable
@@ -33,7 +37,7 @@ public class SearchResult implements Parcelable {
 
     @Override
     public String toString() {
-        return title.getPrefixedText();
+        return pageTitle.getPrefixedText();
     }
 
     @Override
@@ -56,7 +60,7 @@ public class SearchResult implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeParcelable(title, flags);
+        parcel.writeParcelable(pageTitle, flags);
         parcel.writeString(redirectFrom);
     }
 
@@ -66,18 +70,18 @@ public class SearchResult implements Parcelable {
             return false;
         }
         SearchResult other = (SearchResult)o;
-        return other.getTitle().equals(title) && TextUtils.equals(other.getRedirectFrom(), redirectFrom);
+        return other.getPageTitle().equals(pageTitle) && TextUtils.equals(other.getRedirectFrom(), redirectFrom);
     }
 
     @Override
     public int hashCode() {
-        int result = title.hashCode();
+        int result = pageTitle.hashCode();
         result = 31 * result + redirectFrom.hashCode();
         return result;
     }
 
     private SearchResult(Parcel in) {
-        title = in.readParcelable(PageTitle.class.getClassLoader());
+        pageTitle = in.readParcelable(PageTitle.class.getClassLoader());
         redirectFrom = in.readString();
     }
 }

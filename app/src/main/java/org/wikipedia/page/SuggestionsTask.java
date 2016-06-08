@@ -1,16 +1,11 @@
 package org.wikipedia.page;
 
+import org.wikipedia.Constants;
 import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
-import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
-import org.wikipedia.util.log.L;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Task for getting suggestions for further reading.
@@ -18,46 +13,16 @@ import java.util.List;
  */
 public class SuggestionsTask extends FullSearchArticlesTask {
     private final String title;
-    private final int maxItems;
     private final boolean requireThumbnail;
 
-    public SuggestionsTask(Api api, Site site, String title, int numRequestItems,
-                           int maxResultItems, boolean requireThumbnail) {
-        super(api, site, title, numRequestItems, null, true);
+    public SuggestionsTask(Api api, Site site, String title, boolean requireThumbnail) {
+        super(api, site, title, Constants.MAX_SUGGESTION_RESULTS, null, true);
         this.title = title;
-        this.maxItems = maxResultItems;
         this.requireThumbnail = requireThumbnail;
     }
 
     @Override
     public SearchResults processResult(final ApiResult result) throws Throwable {
-        return filterResults(super.processResult(result));
-    }
-
-    /**
-     * Filter the list of suggestions to make sure the original page title isn't one of them,
-     * as well as whether the suggestion contains a thumbnail.
-     *
-     * @param searchResults original results from server
-     * @return filtered results
-     */
-    public SearchResults filterResults(SearchResults searchResults) {
-        final boolean verbose = WikipediaApp.getInstance().isDevRelease();
-        List<SearchResult> filteredResults = new ArrayList<>();
-        List<SearchResult> results = searchResults.getResults();
-        for (int i = 0, count = 0; i < results.size() && count < maxItems; i++) {
-            final SearchResult res = results.get(i);
-            if (verbose) {
-                L.v(res.getTitle().getPrefixedText());
-            }
-
-            if (!title.equalsIgnoreCase(res.getTitle().getPrefixedText())
-                    && (!requireThumbnail || res.getTitle().getThumbUrl() != null)
-                    && !(res.getTitle().isMainPage() || res.getTitle().isDisambiguationPage())) {
-                filteredResults.add(res);
-                count++;
-            }
-        }
-        return new SearchResults(filteredResults, null, null);
+        return SearchResults.filter(super.processResult(result), title, requireThumbnail);
     }
 }

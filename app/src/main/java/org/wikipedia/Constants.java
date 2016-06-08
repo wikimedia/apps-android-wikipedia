@@ -9,5 +9,8 @@ public final class Constants {
 
     public static final String WIKIPEDIA_URL = "https://wikipedia.org/";
 
+    public static final int MAX_SUGGESTION_RESULTS = 3;
+    public static final int SUGGESTION_REQUEST_ITEMS = 5;
+
     private Constants() { }
 }
