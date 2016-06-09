@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.json.GsonUtil;
 
 import java.io.IOException;
 
@@ -39,7 +40,7 @@ public final class RetrofitFactory {
         return new Retrofit.Builder()
                 .client(client)
                 .baseUrl(endpoint)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
                 .build();
     }
 

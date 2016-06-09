@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
+import org.wikipedia.json.GsonUtil;
 
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
@@ -50,7 +51,7 @@ public abstract class MockWebServerTest {
                 .baseUrl(url)
                 .callbackExecutor(new ImmediateExecutor())
                 .client(okHttp)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
                 .build()
                 .create(clazz);
     }
