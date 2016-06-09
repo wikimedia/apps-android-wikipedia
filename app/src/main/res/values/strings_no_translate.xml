@@ -46,5 +46,11 @@
     <string name="activity_feed_title">@string/feed</string>
     <string name="nav_item_feed">@string/feed</string>
     <string name="view_card_footer_button">See more</string>
+    <string name="view_continue_reading_card_title">Continue reading</string>
+
+    <plurals name="view_continue_reading_card_subtitle">
+        <item quantity="one">1 day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
     <!-- /The Feed -->
 </resources>

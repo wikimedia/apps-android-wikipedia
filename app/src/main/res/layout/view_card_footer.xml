@@ -15,7 +15,8 @@
     <!-- TODO: [Feed] If making the whole cell clickable, consider using a compound drawable:
                1 Drop the ImageButton.
                2 Set the TextView width to match_parent.
-               3 Add android:drawableEnd/Right. -->
+               3 Add android:drawableEnd/Right.
+               4 Reduce the custom View to a FrameLayout instead of RelativeLayout. -->
     <TextView
         android:id="@+id/view_card_footer_text"
         android:layout_width="wrap_content"

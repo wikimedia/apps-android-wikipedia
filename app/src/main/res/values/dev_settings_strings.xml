@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- TODO: add some spacing to this file so we can see headings vs other stuff at a glance. -->
     <string name="developer_settings_activity_title">Developer settings</string>
     <string name="preference_summary_no_value">Unset</string>
     <string name="show_developer_settings_enabled">You are now a Wikipedia developer!</string>
@@ -12,6 +13,7 @@
     <string name="preferences_developer_feature_testing_heading">A/B feature testing</string>
     <string name="preferences_developer_restbase_heading">RESTBase access</string>
     <string name="preferences_developer_logging_heading">Logging</string>
+    <string name="preferences_developer_feed_heading">Feed</string>
     <string name="preferences_developer_retrofit_log_level">Retrofit Log Level (restart required)</string>
     <string name="preferences_developer_cookies_key">cookies</string>
     <string name="preferences_developer_edit_tokens_key">edit_tokens</string>
