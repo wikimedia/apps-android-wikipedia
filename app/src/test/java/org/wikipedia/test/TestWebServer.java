@@ -1,12 +1,14 @@
 package org.wikipedia.test;
 
-import okhttp3.mockwebserver.MockResponse;
-import okhttp3.mockwebserver.MockWebServer;
+import android.support.annotation.NonNull;
 
 import org.wikipedia.testlib.TestConstants;
 
 import java.io.IOException;
-import java.net.URL;
+
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
+import okhttp3.mockwebserver.RecordedRequest;
 
 public class TestWebServer {
     private final MockWebServer server;
@@ -23,19 +25,19 @@ public class TestWebServer {
         server.shutdown();
     }
 
-    public URL getUrl() {
+    public String getUrl() {
         return getUrl("");
     }
 
-    public URL getUrl(String path) {
-        return server.url(path).url();
+    public String getUrl(String path) {
+        return server.url(path).url().toString();
     }
 
     public int getRequestCount() {
         return server.getRequestCount();
     }
 
-    public void enqueue(String body) {
+    public void enqueue(@NonNull String body) {
         enqueue(new MockResponse().setBody(body));
     }
 
@@ -43,9 +45,12 @@ public class TestWebServer {
         server.enqueue(response);
     }
 
-    public void takeRequest() throws InterruptedException {
-        if (server.takeRequest(TestConstants.TIMEOUT_DURATION, TestConstants.TIMEOUT_UNIT) == null) {
+    @NonNull public RecordedRequest takeRequest() throws InterruptedException {
+        RecordedRequest req = server.takeRequest(TestConstants.TIMEOUT_DURATION,
+                TestConstants.TIMEOUT_UNIT);
+        if (req == null) {
             throw new InterruptedException("Timeout elapsed.");
         }
+        return req;
     }
 }

@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.mediawiki.api.json.Api;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class TestApi extends Api {
@@ -17,6 +18,10 @@ public class TestApi extends Api {
 
     @Override
     public URL getApiUrl() {
-        return server.getUrl("/");
+        try {
+            return new URL(server.getUrl("/"));
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
