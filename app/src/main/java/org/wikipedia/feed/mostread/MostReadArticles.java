@@ -2,7 +2,6 @@ package org.wikipedia.feed.mostread;
 
 import android.support.annotation.NonNull;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -16,12 +15,5 @@ public final class MostReadArticles {
 
     @NonNull public List<MostReadArticle> articles() {
         return articles;
-    }
-
-    private MostReadArticles() {
-        //noinspection ConstantConditions
-        if (articles == null) {
-            articles = Collections.emptyList();
-        }
     }
 }
