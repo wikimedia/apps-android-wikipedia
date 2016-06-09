@@ -55,8 +55,8 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
   vertical-align: baseline;
   background: none;
 }
@@ -95,7 +95,7 @@ table {
   font-size: 100%;
 }
 body {
-  font-family: "Helvetica Neue", "Helvetica", "Nimbus Sans L", "Arial", "Liberation Sans", sans-serif;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Nimbus Sans L', 'Arial', 'Liberation Sans', sans-serif;
   line-height: 1.4;
   color: #252525;
   background: #fff;
@@ -184,7 +184,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Linux Libertine", Georgia, Times, serif;
+  font-family: 'Linux Libertine', 'Georgia', ' Times', serif;
   line-height: 1.3;
   word-wrap: break-word;
   word-break: break-word;
@@ -210,9 +210,9 @@ h4 {
   font-weight: bold;
 }
 blockquote {
-  font-family: "Linux Libertine", Georgia, Times, serif;
+  font-family: 'Linux Libertine', 'Georgia', ' Times', serif;
   font-size: 1.1em;
-  quotes: "\201C" "\201D";
+  quotes: '\201C' '\201D';
   padding: 1em 25px 1em 30px;
   position: relative;
   overflow: hidden;
@@ -382,7 +382,6 @@ https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
 
 FIXME: Review all of these hacks to see if they still apply.
 */
-.content .sistersitebox,
 .content .tmbox,
 .content .ambox,
 .content #coordinates,
@@ -441,7 +440,7 @@ FIXME: Review all of these hacks to see if they still apply.
   column-width: 35em;
 }
 .references li:target {
-  background-color: #ddeeff;
+  background-color: #def;
 }
 .hatnote,
 .dablink,
@@ -479,40 +478,42 @@ span.mw-ref {
 }
 
 /* With a group set */
-span.mw-ref a[data-mw-group]::after {
-	content: "[" attr(data-mw-group) " " counter(mw-Ref, decimal) "]"}
+span.mw-ref a[data-mw-group]:after {
+	content: '[' attr( data-mw-group ) ' ' counter( mw-Ref, decimal ) ']';
+}
 
 /* Groups with special appearance */
-span.mw-ref a[data-mw-group="decimal"]::after {
-	content: "[" counter(mw-Ref, decimal) "]";
+span.mw-ref a[data-mw-group='decimal']:after {
+	content: '[' counter( mw-Ref, decimal ) ']';
 }
-span.mw-ref a[data-mw-group="lower-alpha"]::after {
-	content: "[" counter(mw-Ref, lower-alpha) "]";
+span.mw-ref a[data-mw-group='lower-alpha']:after {
+	content: '[' counter( mw-Ref, lower-alpha ) ']';
 }
-span.mw-ref a[data-mw-group="upper-alpha"]::after {
-	content: "[" counter(mw-Ref, upper-alpha) "]";
+span.mw-ref a[data-mw-group='upper-alpha']:after {
+	content: '[' counter( mw-Ref, upper-alpha ) ']';
 }
-span.mw-ref a[data-mw-group="lower-greek"]::after {
-	content: "[" counter(mw-Ref, lower-greek) "]";
+span.mw-ref a[data-mw-group='lower-greek']:after {
+	content: '[' counter( mw-Ref, lower-greek ) ']';
 }
-span.mw-ref a[data-mw-group="lower-roman"]::after {
-	content: "[" counter(mw-Ref, lower-roman) "]";
+span.mw-ref a[data-mw-group='lower-roman']:after {
+	content: '[' counter( mw-Ref, lower-roman ) ']';
 }
-span.mw-ref a[data-mw-group="upper-roman"]::after {
-	content: "[" counter(mw-Ref, upper-roman) "]";
+span.mw-ref a[data-mw-group='upper-roman']:after {
+	content: '[' counter( mw-Ref, upper-roman ) ']';
 }
-span.mw-ref a[data-mw-group="error-test"]::after {
-	content: "[" counter(mw-Ref, symbols(cyclic "first" "second" "last!")) "]";
+span.mw-ref a[data-mw-group='error-test']:after {
+	content: '[' counter( mw-Ref, symbols( cyclic 'first' 'second' 'last!' ) ) ']';
 }
 
 /* Without a group */
-span.mw-ref a::after {
-	content: "[" counter(mw-Ref, decimal) "]";
+span.mw-ref a:after {
+	content: '[' counter( mw-Ref, decimal ) ']';
 }
 
 /* Hide the default rendering in browsers that support content
- * generation by selecting for ::after pseudo-element.*/
-x-thereisnoelementwiththisname::after, span.mw-reflink-text {
+ * generation by selecting for :after pseudo-element.*/
+x-thereisnoelementwiththisname:after,
+span.mw-reflink-text {
 	display: none;
 }
 
@@ -525,29 +526,30 @@ ol.mw-references li {
 	counter-increment: mw-ref-linkback;
 }
 
-[rel="mw:referencedBy"] {
+[rel='mw:referencedBy'] {
 	counter-reset: mw-ref-linkback -1;
 }
 
-[rel="mw:referencedBy"]::before {
-	content: "↑ ";
+[rel='mw:referencedBy']:before {
+	content: '↑ ';
 }
 
-span[rel="mw:referencedBy"] a::before {
+span[rel='mw:referencedBy'] a:before {
 	counter-increment: mw-ref-linkback;
-	content: counters(mw-ref-linkback, ".", decimal);
+	content: counters( mw-ref-linkback, '.', decimal );
 	vertical-align: super;
 	line-height: 1;
 	font-size: smaller;
 }
 
-span[rel="mw:referencedBy"] a::after {
-	content: " ";
+span[rel='mw:referencedBy'] a:after {
+	content: ' ';
 }
 
 /* Hide the default rendering in browsers that support content
- * generation by selecting for ::after pseudo-element.*/
-x-thereisnoelementwiththisname[rel="mw:referencedBy"]::before, span.mw-linkback-text {
+ * generation by selecting for :after pseudo-element.*/
+x-thereisnoelementwiththisname[rel='mw:referencedBy']:before,
+span.mw-linkback-text {
 	display: none;
 }@media print {
 	li.gallerybox {
@@ -670,7 +672,7 @@ ul.mw-gallery-packed-hover li.gallerybox:hover div.gallerytextwrapper,
 ul.mw-gallery-packed-overlay li.gallerybox div.gallerytextwrapper,
 ul.mw-gallery-packed-hover li.gallerybox.mw-gallery-focused div.gallerytextwrapper {
 	position: absolute;
-	background: white;
+	background: #fff;
 	background: rgba(255, 255, 255, 0.8);
 	padding: 5px 10px;
 	bottom: 0;
