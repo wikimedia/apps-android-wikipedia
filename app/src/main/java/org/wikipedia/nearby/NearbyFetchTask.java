@@ -8,6 +8,7 @@ import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.ApiTask;
+import org.wikipedia.Constants;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 
@@ -37,7 +38,7 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
                 .param("prop", "coordinates|pageimages|pageterms")
                 .param("colimit", LIMIT)
                 .param("piprop", "thumbnail") // so response doesn't contain unused "pageimage" prop
-                .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
+                .param("pithumbsize", Integer.toString(Constants.PREFERRED_THUMB_SIZE))
                 .param("pilimit", LIMIT)
                 .param("wbptterms", "description")
                 .param("generator", "geosearch")

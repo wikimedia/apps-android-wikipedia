@@ -82,8 +82,6 @@ public class WikipediaApp extends Application {
     public static final int FONT_SIZE_MULTIPLIER_MAX = 8;
     private static final float FONT_SIZE_FACTOR = 0.1f;
 
-    public static final int PREFERRED_THUMB_SIZE = 320;
-
     private final RemoteConfig remoteConfig = new RemoteConfig();
     private final UserInfoStorage userInfoStorage = new UserInfoStorage();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());

@@ -70,7 +70,7 @@ public class BecauseYouReadClient {
                 + "&prop=pageterms|pageimages|pageprops&ppprop=mainpage|disambiguation"
                 + "&wbptterms=description&generator=search&gsrnamespace=0&gsrwhat=text"
                 + "&gsrinfo=&gsrprop=redirecttitle&gsrlimit=" + Constants.SUGGESTION_REQUEST_ITEMS
-                + "&piprop=thumbnail&pithumbsize=" + WikipediaApp.PREFERRED_THUMB_SIZE
+                + "&piprop=thumbnail&pithumbsize=" + Constants.PREFERRED_THUMB_SIZE
                 + "&pilimit=" + Constants.SUGGESTION_REQUEST_ITEMS)
         @NonNull
         Call<MwQueryResponse<Pages>> get(@Query("gsrsearch") String morelikeQuery);

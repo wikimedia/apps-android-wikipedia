@@ -3,10 +3,11 @@ package org.wikipedia.page.gallery;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.Constants;
+import org.wikipedia.Site;
 import org.wikipedia.page.PageQueryTask;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
+
 import java.util.Map;
 
 public abstract class GalleryCollectionFetchTask extends PageQueryTask<GalleryItem> {
@@ -34,8 +35,8 @@ public abstract class GalleryCollectionFetchTask extends PageQueryTask<GalleryIt
         // just get the name of each image, and we would need to send a separate request
         // to get the url (and other info) for the image.
         if (getThumbs) {
-            builder.param("iiurlwidth", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
-                    .param("iiurlheight", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE));
+            builder.param("iiurlwidth", Integer.toString(Constants.PREFERRED_THUMB_SIZE))
+                    .param("iiurlheight", Integer.toString(Constants.PREFERRED_THUMB_SIZE));
         }
     }
 

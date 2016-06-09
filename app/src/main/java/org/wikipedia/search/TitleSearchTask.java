@@ -2,6 +2,7 @@ package org.wikipedia.search;
 
 import org.json.JSONArray;
 import org.wikipedia.ApiTask;
+import org.wikipedia.Constants;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
@@ -52,7 +53,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
                 .param("prop", "pageterms|pageimages")
                 .param("wbptterms", "description") // only interested in Wikidata description
                 .param("piprop", "thumbnail")
-                .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
+                .param("pithumbsize", Integer.toString(Constants.PREFERRED_THUMB_SIZE))
                 .param("pilimit", NUM_RESULTS_PER_QUERY)
                 .param("continue", ""); // to avoid warning about new continuation syntax
         if (WikipediaApp.getInstance().isFeatureSearchAutoCompleteEnabled()) {

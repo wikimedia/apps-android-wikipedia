@@ -1,17 +1,17 @@
 package org.wikipedia.search;
 
 import org.json.JSONArray;
-import org.wikipedia.ApiTask;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.wikipedia.ApiTask;
+import org.wikipedia.Constants;
+import org.wikipedia.Site;
 import org.wikipedia.page.PageProperties;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
                 .param("gsrprop", "redirecttitle")
                 .param("gsrlimit", maxResultsString)
                 .param("piprop", "thumbnail") // for thumbnail URLs
-                .param("pithumbsize", Integer.toString(WikipediaApp.PREFERRED_THUMB_SIZE))
+                .param("pithumbsize", Integer.toString(Constants.PREFERRED_THUMB_SIZE))
                 .param("pilimit", maxResultsString);
         if (continueOffset != null) {
             req.param("continue", continueOffset.cont);

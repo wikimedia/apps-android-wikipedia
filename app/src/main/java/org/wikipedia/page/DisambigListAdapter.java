@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import org.wikipedia.Constants;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -64,7 +65,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
                 app.getAPIForSite(site),
                 site,
                 titleList,
-                (int)(WikipediaApp.PREFERRED_THUMB_SIZE * DimenUtil.getDensityScalar())) {
+                (int)(Constants.PREFERRED_THUMB_SIZE * DimenUtil.getDensityScalar())) {
             @Override
             public void onFinish(Map<PageTitle, String> result) {
                 for (Map.Entry<PageTitle, String> entry : result.entrySet()) {

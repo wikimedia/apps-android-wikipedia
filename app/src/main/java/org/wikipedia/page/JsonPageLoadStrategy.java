@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.ApiException;
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -759,7 +760,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
         // Fetch larger thumbnail URL from the network, and save it to our DB.
         (new PageImagesTask(app.getAPIForSite(model.getTitle().getSite()), model.getTitle().getSite(),
-                Arrays.asList(new PageTitle[]{model.getTitle()}), WikipediaApp.PREFERRED_THUMB_SIZE) {
+                Arrays.asList(new PageTitle[]{model.getTitle()}), Constants.PREFERRED_THUMB_SIZE) {
             @Override
             public void onFinish(Map<PageTitle, String> result) {
                 if (result.containsKey(model.getTitle())) {
