@@ -1,11 +1,11 @@
 package org.wikipedia.feed.mostread;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.net.URL;
 import java.util.Collections;
 import java.util.Map;
 
@@ -14,7 +14,7 @@ public final class MostReadArticle {
     @SuppressWarnings("NullableProblems") @NonNull private String title;
     @Nullable private String description;
     @SerializedName("pageid") private int pageId;
-    @SerializedName("thumbnail") @SuppressWarnings("NullableProblems") @NonNull private Map<Integer, URL> thumbnails;
+    @SerializedName("thumbnail") @SuppressWarnings("NullableProblems") @NonNull private Map<Integer, Uri> thumbnails;
     private int rank;
     private int views;
 
@@ -34,7 +34,7 @@ public final class MostReadArticle {
         return pageId;
     }
 
-    public Map<Integer, URL> thumbnails() {
+    public Map<Integer, Uri> thumbnails() {
         return thumbnails;
     }
 

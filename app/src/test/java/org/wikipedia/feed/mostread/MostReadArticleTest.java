@@ -1,11 +1,12 @@
 package org.wikipedia.feed.mostread;
 
+import android.net.Uri;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.test.TestRunner;
 
-import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,10 +32,10 @@ public class MostReadArticleTest {
         assertThat(subject.description(), is("American actress, model, and singer"));
         assertThat(subject.pageId(), is(19318));
 
-        Map<Integer, URL> thumbnails = new HashMap<>();
-        thumbnails.put(60, new URL("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/60px-Marilyn_Monroe_in_1952.jpg"));
-        thumbnails.put(120, new URL("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/120px-Marilyn_Monroe_in_1952.jpg"));
-        thumbnails.put(320, new URL("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/229px-Marilyn_Monroe_in_1952.jpg"));
+        Map<Integer, Uri> thumbnails = new HashMap<>();
+        thumbnails.put(60, Uri.parse("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/60px-Marilyn_Monroe_in_1952.jpg"));
+        thumbnails.put(120, Uri.parse("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/120px-Marilyn_Monroe_in_1952.jpg"));
+        thumbnails.put(320, Uri.parse("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/229px-Marilyn_Monroe_in_1952.jpg"));
 
         assertThat(subject.thumbnails(), is(thumbnails));
 
