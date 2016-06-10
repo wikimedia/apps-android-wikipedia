@@ -7,32 +7,33 @@ import android.net.Uri;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.format.DateUtils;
 
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
 
+import java.util.Date;
+
 public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
-    public interface Callback {
-        void success(@NonNull HistoryEntry entry);
-    }
-
     @NonNull private final Context context;
-    @NonNull private final Callback cb;
+    private final int age;
+    private final long earlierThanTime;
 
-    public LastPageReadTask(@NonNull Context context, @NonNull Callback cb) {
+    public LastPageReadTask(@NonNull Context context, int age, int minDaysOld) {
         this.context = context;
-        this.cb = cb;
+        this.age = age;
+        earlierThanTime = new Date().getTime() - (minDaysOld * DateUtils.DAY_IN_MILLIS);
     }
 
     @Nullable @Override public HistoryEntry performTask() throws Throwable {
-        Cursor cursor = queryLastPage();
+        Cursor cursor = queryLastPage(earlierThanTime);
         if (cursor == null) {
             return null;
         }
 
         try {
-            if (cursor.moveToNext()) {
+            if (cursor.moveToPosition(age)) {
                 return HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
             }
         } finally {
@@ -41,21 +42,14 @@ public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
         return null;
     }
 
-    @Override public void onFinish(@Nullable HistoryEntry entry) {
-        super.onFinish(entry);
-        if (entry != null) {
-            cb.success(entry);
-        }
-    }
-
-    @Nullable private Cursor queryLastPage() {
+    @Nullable private Cursor queryLastPage(long earlierThanTime) {
         ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context);
         try {
             Uri uri = PageHistoryContract.Page.URI;
             final String[] projection = null;
-            final String selection = null;
-            final String[] selectionArgs = null;
-            String order = PageHistoryContract.Page.ORDER_MRU + " limit 1";
+            final String selection = PageHistoryContract.Col.TIMESTAMP.getName() + " < ?";
+            final String[] selectionArgs = {Long.toString(earlierThanTime)};
+            String order = PageHistoryContract.Page.ORDER_MRU + " limit " + (age + 1);
             return client.query(uri, projection, selection, selectionArgs, order);
         } catch (RemoteException e) {
             throw new RuntimeException(e);

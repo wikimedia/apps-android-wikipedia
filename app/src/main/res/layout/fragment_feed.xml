@@ -25,7 +25,7 @@
         android:layout_marginRight="@dimen/margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginLeft="@dimen/margin"
-        android:text="Add integer list card" />
+        android:text="Get more" />
 
     <org.wikipedia.feed.view.FeedView
         android:id="@+id/fragment_feed_feed"

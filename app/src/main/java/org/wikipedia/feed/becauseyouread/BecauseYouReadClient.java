@@ -1,6 +1,8 @@
 package org.wikipedia.feed.becauseyouread;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -10,59 +12,105 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
+import org.wikipedia.feed.FeedClient;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.page.MwApiResultPage;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.server.restbase.RbPageEndpointsCache;
+import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public class BecauseYouReadClient {
+public class BecauseYouReadClient implements FeedClient {
     private static final String MORELIKE = "morelike:";
 
     @NonNull private final MwApiSearchClient client;
     @NonNull private final WikipediaZeroHandler responseHeaderHandler;
     @NonNull private final Retrofit retrofit;
-    @NonNull private final Site site;
 
-    public BecauseYouReadClient(@NonNull final Site site) {
-        this.site = site;
+    @Nullable private MainPageReadMoreTopicTask readMoreTopicTask;
+    @Nullable private Call<MwQueryResponse<Pages>> readMoreCall;
+
+    public BecauseYouReadClient(@NonNull Site site) {
         this.client = RetrofitFactory.newInstance(site).create(MwApiSearchClient.class);
         this.responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
         this.retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
     }
 
-    public void get(String title, final BecauseYouReadCallback cb) throws IOException {
-        Call<MwQueryResponse<Pages>> call = client.get(MORELIKE + title);
-        call.enqueue(new Callback<MwQueryResponse<Pages>>() {
+    @Override
+    public void request(@NonNull Context context, int age, @NonNull final FeedClient.Callback cb) {
+        cancel();
+        readMoreTopicTask = new MainPageReadMoreTopicTask(context, age) {
+            @Override
+            public void onFinish(@Nullable PageTitle title) {
+                if (title == null) {
+                    cb.error(new IOException("Error fetching suggestions"));
+                    return;
+                }
+                getSuggestionsForTitle(title, cb);
+            }
+
+            @Override
+            public void onCatch(Throwable caught) {
+                L.w("Error fetching 'because you read' suggestions", caught);
+                cb.error(caught);
+            }
+        };
+        readMoreTopicTask.execute();
+    }
+
+    @Override
+    public void cancel() {
+        if (readMoreTopicTask != null) {
+            readMoreTopicTask.cancel();
+            readMoreTopicTask = null;
+        }
+        if (readMoreCall != null) {
+            readMoreCall.cancel();
+            readMoreCall = null;
+        }
+    }
+
+    private void getSuggestionsForTitle(@NonNull final PageTitle title,
+                                        final FeedClient.Callback cb) {
+        readMoreCall = client.get(MORELIKE + title.getDisplayText());
+        readMoreCall.enqueue(new retrofit2.Callback<MwQueryResponse<Pages>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<Pages>> call,
                                    Response<MwQueryResponse<Pages>> response) {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
-                    cb.success(response.body());
+                    MwQueryResponse<Pages> pages = response.body();
+                    if (pages.success() && pages.query() != null && pages.query().results(title.getSite()) != null) {
+                        SearchResults results = SearchResults.filter(pages.query().results(title.getSite()), title.getText(), false);
+                        List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results);
+
+                        cb.success(Collections.singletonList((Card) new BecauseYouReadCard(title.getText(), itemCards)));
+                    } else {
+                        cb.error(new IOException("Error fetching suggestions."));
+                    }
                 } else {
-                    cb.failure(RetrofitException.httpError(response, retrofit));
+                    cb.error(RetrofitException.httpError(response, retrofit));
                 }
             }
 
             @Override
             public void onFailure(Call<MwQueryResponse<Pages>> call, Throwable t) {
-                cb.failure(t);
+                cb.error(t);
             }
         });
-    }
-
-    public Site site() {
-        return site;
     }
 
     private interface MwApiSearchClient {
@@ -82,10 +130,5 @@ public class BecauseYouReadClient {
         public SearchResults results(Site site) {
             return new SearchResults(Arrays.asList(pages), site);
         }
-    }
-
-    public interface BecauseYouReadCallback {
-        void success(MwQueryResponse<Pages> pages);
-        void failure(Throwable throwable);
     }
 }

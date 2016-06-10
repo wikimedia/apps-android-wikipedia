@@ -17,16 +17,22 @@ import org.wikipedia.page.PageTitle;
  */
 public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
     private final Context context;
+    private int age;
 
     public MainPageReadMoreTopicTask(Context context) {
+        this(context, 0);
+    }
+
+    public MainPageReadMoreTopicTask(Context context, int age) {
         this.context = context;
+        this.age = age;
     }
 
     @Override
     public PageTitle performTask() throws Throwable {
         Cursor c = getInterestedHistoryEntry();
         try {
-            if (c.moveToFirst()) {
+            if (c.moveToPosition(age)) {
                 final HistoryEntry historyEntry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
                 return historyEntry.getTitle();
             }
