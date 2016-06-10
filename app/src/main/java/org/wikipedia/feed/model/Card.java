@@ -4,7 +4,9 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public abstract class Card {
+import org.wikipedia.model.BaseModel;
+
+public abstract class Card extends BaseModel {
     @NonNull public abstract String title();
 
     @Nullable public String subtitle() {
