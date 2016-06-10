@@ -26,7 +26,7 @@ public class ListCardItemView extends RelativeLayout {
         ButterKnife.bind(this);
     }
 
-    @NonNull public ListCardItemView setImage(@NonNull Uri uri) {
+    @NonNull public ListCardItemView setImage(@Nullable Uri uri) {
         imageView.setImageURI(uri);
         return this;
     }

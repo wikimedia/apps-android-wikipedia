@@ -11,6 +11,7 @@ import android.text.format.DateUtils;
 
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
 
 import java.util.Date;
@@ -34,7 +35,9 @@ public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
 
         try {
             if (cursor.moveToPosition(age)) {
-                return HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
+                HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
+                entry.getTitle().setThumbUrl(PageImageHistoryContract.Col.IMAGE_NAME.val(cursor));
+                return entry;
             }
         } finally {
             cursor.close();
@@ -45,11 +48,11 @@ public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
     @Nullable private Cursor queryLastPage(long earlierThanTime) {
         ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context);
         try {
-            Uri uri = PageHistoryContract.Page.URI;
+            Uri uri = PageHistoryContract.PageWithImage.URI;
             final String[] projection = null;
             final String selection = PageHistoryContract.Col.TIMESTAMP.getName() + " < ?";
             final String[] selectionArgs = {Long.toString(earlierThanTime)};
-            String order = PageHistoryContract.Page.ORDER_MRU + " limit " + (age + 1);
+            String order = PageHistoryContract.PageWithImage.ORDER_MRU + " limit " + (age + 1);
             return client.query(uri, projection, selection, selectionArgs, order);
         } catch (RemoteException e) {
             throw new RuntimeException(e);

@@ -41,6 +41,7 @@ public class ContinueReadingCardView extends ListCardView<ContinueReadingCard> {
             ContinueReadingCard card = item(position);
             holder.getView().setTitle(card.title());
             holder.getView().setSubtitle(card.subtitle());
+            holder.getView().setImage(card.image());
         }
     }
 }

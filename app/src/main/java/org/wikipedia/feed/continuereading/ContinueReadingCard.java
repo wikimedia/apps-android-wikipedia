@@ -1,7 +1,9 @@
 package org.wikipedia.feed.continuereading;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
@@ -16,11 +18,15 @@ public class ContinueReadingCard extends Card {
     }
 
     @Override @NonNull public String title() {
-        return entry.getTitle().getText();
+        return entry.getTitle().getDisplayText();
     }
 
     @Override @Nullable public String subtitle() {
         return entry.getTitle().getDescription();
+    }
+
+    @Override @Nullable public Uri image() {
+        return TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl());
     }
 
     /** @return The last visit age in days. */
