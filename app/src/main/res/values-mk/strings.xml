@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">1 статија</string>
   <string name="reading_list_item_count_plural">%s статии</string>
   <string name="reading_list_sort">Подреди</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">По назив</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">По скорешност</string>
+  <string name="reading_list_sort_by_name">Подреди по назив</string>
+  <string name="reading_list_sort_by_name_desc">Подреди по назив (обратно)</string>
+  <string name="reading_list_sort_by_recent">Подреди по скорешност</string>
+  <string name="reading_list_sort_by_recent_desc">Подреди по дамнешност</string>
   <string name="reading_list_menu_edit">Уреди подробности во списокот за читање</string>
   <string name="reading_list_menu_delete">Избриши го списокот за читање</string>
   <string name="reading_list_name_sample">Мој список за читање</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">Омилени животни</string>
   <string name="reading_lists_onboarding_example3">Вселена!</string>
   <string name="reading_lists_onboarding_got_it">Јасно</string>
+  <string name="reading_lists_onboarding_page_delete">Совет: Повлечете ја било која страница налево или надесно за да ја отстраните од списоков.</string>
   <string name="user_option_sync_label">Поставки</string>
 </resources>

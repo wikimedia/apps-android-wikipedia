@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">1 artículo</string>
   <string name="reading_list_item_count_plural">%s artículos</string>
   <string name="reading_list_sort">Ordenar</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Por nombre</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Por reciente</string>
+  <string name="reading_list_sort_by_name">Ordenar por nombre</string>
+  <string name="reading_list_sort_by_name_desc">Ordenar por nombre (inverso)</string>
+  <string name="reading_list_sort_by_recent">Ordenar por más reciente</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar por menos reciente</string>
   <string name="reading_list_menu_edit">Editar los detalles de la lista de lectura</string>
   <string name="reading_list_menu_delete">Eliminar la lista de lectura</string>
   <string name="reading_list_name_sample">Mi lista de lectura</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">Animales favoritos</string>
   <string name="reading_lists_onboarding_example3">¡El espacio!</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
+  <string name="reading_lists_onboarding_page_delete">Consejo: desliza cualquier página a la izquierda o a la derecha para quitarla de esta lista de lectura.</string>
   <string name="user_option_sync_label">Preferencias</string>
 </resources>

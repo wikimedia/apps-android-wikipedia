@@ -263,8 +263,10 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
   <string name="reading_list_item_count_plural">%s artikel</string>
   <string name="reading_list_sort">Urutkan</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Berdasarkan nama</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Berdasarkan baru-baru ini</string>
+  <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
+  <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>
+  <string name="reading_list_sort_by_recent">Urutkan berdasarkan baru-baru ini</string>
+  <string name="reading_list_sort_by_recent_desc">Urutkan berdasarkan setidaknya baru-baru ini</string>
   <string name="reading_list_menu_edit">Sunting rincian daftar bacaan</string>
   <string name="reading_list_menu_delete">Hapus daftar bacaan</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
@@ -285,5 +287,6 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_lists_onboarding_example2">Hewan kesukaan</string>
   <string name="reading_lists_onboarding_example3">Luar angkasa!</string>
   <string name="reading_lists_onboarding_got_it">Mengerti</string>
+  <string name="reading_lists_onboarding_page_delete">Tips: Geser beberapa halaman ke kiri dan kanan untuk menghapusnya dari daftar bacaan ini.</string>
   <string name="user_option_sync_label">Preferensi</string>
 </resources>

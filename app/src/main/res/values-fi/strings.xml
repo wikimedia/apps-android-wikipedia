@@ -263,8 +263,9 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_item_count_singular">1 artikkeli</string>
   <string name="reading_list_item_count_plural">%s artikkelia</string>
   <string name="reading_list_sort">Lajittele</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Nimen mukaan</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Viimeisimmän käytön mukaan</string>
+  <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
+  <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan (käänteinen)</string>
+  <string name="reading_list_sort_by_recent">Lajittele viimeisimmän käytön mukaan</string>
   <string name="reading_list_menu_edit">Muokkaa lukulistan tietoja</string>
   <string name="reading_list_menu_delete">Poista lukulista</string>
   <string name="reading_list_name_sample">Oma lukulista</string>
@@ -284,5 +285,6 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_lists_onboarding_example1">Paikat, joissa käydä</string>
   <string name="reading_lists_onboarding_example2">Suosikkieläimet</string>
   <string name="reading_lists_onboarding_got_it">Selvä</string>
+  <string name="reading_lists_onboarding_page_delete">Vinkki: Pyyhi mikä tahansa sivu vasemmalle tai oikealle poistaaksesi sen tästä lukulistasta.</string>
   <string name="user_option_sync_label">Asetukset</string>
 </resources>

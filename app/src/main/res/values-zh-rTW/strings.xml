@@ -152,7 +152,7 @@
   <string name="about_translators_heading">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_app_license_heading">授權條款</string>
-  <string name="about_app_license">源代碼位於&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;授權。</string>
+  <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;授權。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_abandon_confirm">頁面已被修改。你確定你想要離開而不存儲您的更改？</string>
@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">1 個條目</string>
   <string name="reading_list_item_count_plural">%s 個條目</string>
   <string name="reading_list_sort">排序</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">依名稱</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">依最近存取</string>
+  <string name="reading_list_sort_by_name">依名稱排序</string>
+  <string name="reading_list_sort_by_name_desc">按名稱排序 (反向)</string>
+  <string name="reading_list_sort_by_recent">依最近閱讀排序</string>
+  <string name="reading_list_sort_by_recent_desc">按最早閱讀排序</string>
   <string name="reading_list_menu_edit">編輯閱讀清單詳細資料</string>
   <string name="reading_list_menu_delete">刪除閱讀清單</string>
   <string name="reading_list_name_sample">我的閱讀清單</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">喜愛動物</string>
   <string name="reading_lists_onboarding_example3">太空！</string>
   <string name="reading_lists_onboarding_got_it">知道了</string>
+  <string name="reading_lists_onboarding_page_delete">提示：向左或向右撥動任何頁面以將其從此閱讀清單裡面移除。</string>
   <string name="user_option_sync_label">偏好設定</string>
 </resources>

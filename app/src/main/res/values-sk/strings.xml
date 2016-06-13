@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Priblížte sa k polohe na mape</string>
   <string name="last_updated_text">Posledná aktualizácia %s</string>
+  <string name="talk_page_link_text">Diskusia</string>
   <string name="content_license_html">Pokiaľ nie je uvedené inak, je obsah dostupný v rámci licencie &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov v rámci licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Uložením vašej úpravy zároveň súhlasíte s &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto s uverejnením vašich príspevkov pod licenciou &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Úpravy budú spájané s IP adresou vášho zariadenia. Po &lt;a href=\"https://#login\"&gt;prihlásení&lt;/a&gt; budete disponovať vyššou ochranou súkromia.</string>
@@ -262,8 +263,9 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_item_count_singular">1 článok</string>
   <string name="reading_list_item_count_plural">%s článkov</string>
   <string name="reading_list_sort">Zoradiť</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Podľa mena</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Podľa nedávno navštívených</string>
+  <string name="reading_list_sort_by_name">Zoradiť podľa názvu</string>
+  <string name="reading_list_sort_by_name_desc">Zoradiť podľa názvu (v opačnom poradí)</string>
+  <string name="reading_list_sort_by_recent">Zoradiť podľa nedávno navštívených</string>
   <string name="reading_list_menu_edit">Upraviť podrobnosti zoznamu na prečítanie</string>
   <string name="reading_list_menu_delete">Odstrániť zoznam na prečítanie</string>
   <string name="reading_list_name_sample">Môj zoznam na prečítanie</string>
@@ -284,5 +286,6 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_lists_onboarding_example2">Obľúbené zvieratá</string>
   <string name="reading_lists_onboarding_example3">Vesmír!</string>
   <string name="reading_lists_onboarding_got_it">Rozumiem</string>
+  <string name="reading_lists_onboarding_page_delete">Tip: Potiahnutím prsta vpravo alebo vľavo na ktorejkoľvek stránke ju zo zoznamu na prečítanie odstránite.</string>
   <string name="user_option_sync_label">Nastavenia</string>
 </resources>

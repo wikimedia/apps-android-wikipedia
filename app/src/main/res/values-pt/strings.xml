@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">Isto eliminará todo o histórico do seu navegador e fechará quaisquer separadores abertos. Tem a certeza?</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>
   <string name="share_via">Partilhar via</string>
+  <string name="search_redirect_from">Redirecionado de %s</string>
   <string name="menu_page_show_tabs">Mostrar separadores</string>
   <string name="menu_page_other_languages">Alterar idioma</string>
   <string name="menu_page_find_in_page">Localizar na página</string>
@@ -38,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Aplicar zoom a um local no mapa</string>
   <string name="last_updated_text">Última atualização: %s</string>
+  <string name="talk_page_link_text">Discussão</string>
   <string name="content_license_html">O conteúdo está disponível sob &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; a menos que seja indicado em contrário</string>
   <string name="edit_save_action_license_logged_in">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao gravar, concorda com as &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Condições de uso&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição sob a licença &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. O seu endereço de IP estará visível nas edições do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar sessão&lt;/a&gt;, terá mais privacidade.</string>
@@ -150,6 +152,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida por voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
+  <string name="about_app_license">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
@@ -246,28 +249,30 @@
 Gostaria de recomeçar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
   <string name="crash_report_quit">Sair</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Guardar o artigo para ler off-line mais tarde</string>
+  <string name="article_menu_bar_bookmark">Adicionar este artigo a uma lista de leitura</string>
   <string name="article_menu_bar_share">Partilhar a ligação do artigo</string>
   <string name="article_menu_bar_navigate">Navegar ao local do artigo</string>
   <string name="nav_item_reading_lists">Listas de leitura</string>
   <string name="reading_list_untitled">Sem título</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
-  <string name="reading_list_create_new" fuzzy="true">Criar nova lista de leitura</string>
+  <string name="reading_list_create_new">Criar nova</string>
   <string name="reading_list_added_to_named">Adicionado a %s.</string>
   <string name="reading_list_added_to_unnamed">Adicionado à lista de leitura.</string>
   <string name="reading_list_already_exists">Este artigo já se encontra nesta lista.</string>
-  <string name="reading_list_added_view_button" fuzzy="true">Ver</string>
+  <string name="reading_list_added_view_button">Ver a lista</string>
   <string name="reading_list_item_count_singular">1 artigo</string>
   <string name="reading_list_item_count_plural">%s artigos</string>
   <string name="reading_list_sort">Ordenar</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Por nome</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Por recentes</string>
+  <string name="reading_list_sort_by_name">Ordenar por nome</string>
+  <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
+  <string name="reading_list_sort_by_recent">Ordenar por mais recentes</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar por menos recentes</string>
   <string name="reading_list_menu_edit">Editar detalhes da lista de leitura</string>
   <string name="reading_list_menu_delete">Eliminar lista de leitura</string>
   <string name="reading_list_name_sample">Minha lista de leitura</string>
   <string name="reading_list_name_hint">Nome desta lista</string>
   <string name="reading_list_description_hint">Descrição (opcional)</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">Guardar para leitura offline</string>
+  <string name="reading_list_save_for_offline">Disponível para leitura offline</string>
   <string name="reading_list_item_deleted">%s removido da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>
@@ -276,7 +281,12 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_list_delete_confirm">Tem a certeza de que pretende eliminar esta lista?</string>
   <string name="reading_lists_empty">Não existem listas de leitura aqui.</string>
   <string name="reading_lists_empty_message">Organize os artigos em que navega em listas de leitura! Ao ler um artigo, toque rapidamente no ícone de marcador no início para adicioná-lo a uma lista de leitura.</string>
-  <string name="reading_lists_onboarding_intro" fuzzy="true">Novo: Organize artigos que pretenda ler mais tarde em listas de leitura.</string>
+  <string name="reading_lists_onboarding_intro">Crie listas de leitura de artigos que deseja ler mais tarde, mesmo quando estiver offline!</string>
+  <string name="reading_lists_onboarding_for_example">Por exemplo</string>
+  <string name="reading_lists_onboarding_example1">Lugares para visitar</string>
+  <string name="reading_lists_onboarding_example2">Animais favoritos</string>
+  <string name="reading_lists_onboarding_example3">Espaço!</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
+  <string name="reading_lists_onboarding_page_delete">Dica: Mova com o dedo qualquer página para a esquerda ou para a direita para removê-la da lista de leitura.</string>
   <string name="user_option_sync_label">Preferências</string>
 </resources>

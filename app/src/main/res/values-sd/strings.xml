@@ -232,7 +232,7 @@
 ڇا توهان ٻيهر شروع ڪرڻ پسند ڪندئو يا بس؟</string>
   <string name="crash_report_relaunch">شروع ڪريو</string>
   <string name="crash_report_quit">نڪرو</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">مضمون کي بعد ۾ آف لائين پڙهائي لاءِ سانڍيو</string>
+  <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ شامل ڪريو</string>
   <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
   <string name="article_menu_bar_navigate">مضمون جي مڪانيت ڏانهن وڃو</string>
   <string name="user_option_sync_label">ترجيحات</string>

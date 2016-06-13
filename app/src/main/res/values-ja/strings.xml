@@ -15,7 +15,7 @@
   <string name="page_does_not_exist_error">このページは存在しません。</string>
   <string name="nav_item_today">今日のメインページ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
-  <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブを閉じます。本当によろしいですか？</string>
+  <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか？</string>
   <string name="nav_item_saved_pages">保存したページ</string>
   <string name="share_via">共有する</string>
   <string name="search_redirect_from">%s からリダイレクト</string>
@@ -56,7 +56,7 @@
   <string name="dialog_message_edit_failed">編集の保存に失敗しました!</string>
   <string name="dialog_message_edit_failed_retry">再試行</string>
   <string name="dialog_message_edit_failed_cancel">中止</string>
-  <string name="dialog_message_leaving_edit">あなたの変更はまだ保存されていません。このページを離れますか？</string>
+  <string name="dialog_message_leaving_edit">変更はまだ保存されていません。本当にこのページを離れてもいいですか？</string>
   <string name="dialog_message_leaving_edit_leave">離れる</string>
   <string name="dialog_message_leaving_edit_stay">留まる</string>
   <string name="menu_show_toc">目次</string>
@@ -87,7 +87,7 @@
   <string name="delete_selected_history">削除</string>
   <string name="wp_stylized">&lt;big&gt;ウィ&lt;/big&gt;キペディ&lt;big&gt;ア&lt;/big&gt;</string>
   <string name="create_account_username_hint">利用者名</string>
-  <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加してください</string>
+  <string name="login_create_account_link">アカウントをお持ちではない場合は、こちらからウィキペディアに参加しましょう</string>
   <string name="create_account_login_link">アカウントを既にお持ちの場合は、こちらからログインしてください</string>
   <string name="create_account_activity_title">アカウント作成</string>
   <string name="dialog_create_account_checking_progress">検証中</string>
@@ -96,12 +96,12 @@
   <string name="create_account_passwords_mismatch_error">パスワードが一致しません</string>
   <string name="create_account_email_error">無効なメールアドレスです</string>
   <string name="create_account_username_exists_error">既に使用されている利用者名です</string>
-  <string name="create_account_ip_throttle_error">この IP アドレスからのアカウント作成が多すぎます。しばらくしてから再試行してください。</string>
-  <string name="create_account_open_proxy_error">この IP アドレスからのアカウント作成はブロックされています。</string>
+  <string name="create_account_ip_throttle_error">このIPアドレスからのアカウント作成が多すぎます。しばらくしてから再試行してください。</string>
+  <string name="create_account_open_proxy_error">このIPアドレスからのアカウント作成はブロックされています。</string>
   <string name="create_account_noname_error">入力した利用者名は無効です。別の利用者名を入力してください。</string>
   <string name="create_account_invalid_email_error">入力したメールアドレスは無効です。</string>
   <string name="create_account_password_too_short_error">パスワードが短すぎます。</string>
-  <string name="create_account_blocked_anon_error">IP アドレスがブロックされているため、アカウントを作成できません。</string>
+  <string name="create_account_blocked_anon_error">IPアドレスがブロックされているため、アカウントを作成できません。</string>
   <string name="create_account_blocked_error">あなたのアカウントはブロックされているため、アカウントを作成できません。</string>
   <string name="create_account_password_name_match_error">利用者名とパスワードは同一にできません。</string>
   <string name="create_account_generic_error">アカウントを作成できませんでした</string>
@@ -117,7 +117,7 @@
   <string name="zero_wikipedia_zero_heading">ウィキペディアゼロ</string>
   <string name="zero_interstitial_title">ウィキペディアゼロを離れる</string>
   <string name="zero_interstitial_leave_app">データ料金がかかるかもしれません。外部サイトへ接続しますか?</string>
-  <string name="zero_interstitial_continue">離れる</string>
+  <string name="zero_interstitial_continue">接続する</string>
   <string name="zero_interstitial_cancel">留まる</string>
   <string name="zero_learn_more">このウィキペディアアプリでは、データ料金が免除されます。</string>
   <string name="zero_learn_more_learn_more">続きを読む</string>
@@ -178,8 +178,8 @@
   <string name="button_page_issues">ページの問題点</string>
   <string name="text_size_select">フォントサイズ</string>
   <string name="color_theme_select">テーマ</string>
-  <string name="color_theme_light">明るい</string>
-  <string name="color_theme_dark">暗い</string>
+  <string name="color_theme_light">明るく</string>
+  <string name="color_theme_dark">暗く</string>
   <string name="page_similar_titles">類似したページ</string>
   <string name="search_did_you_mean">もしかして: 「%s」</string>
   <string name="search_recent_header">最近の検索:</string>
@@ -198,7 +198,7 @@
   <string name="dialog_close_description">閉じる</string>
   <string name="preference_title_show_images">画像を表示</string>
   <string name="preference_summary_show_images">ページ内の画像読み込みを有効/無効にします。インターネット接続が遅い時や、データ通信契約に上限があるときには、このチェックを外してください。</string>
-  <string name="read_more_section">続きを読む</string>
+  <string name="read_more_section">さらに詳しく</string>
   <string name="menu_gallery_visit_page">ファイルのページに移動</string>
   <string name="gallery_error_draw_failed">画像を表示できませんでした</string>
   <string name="license_title">%s ライブラリのライセンス文</string>
@@ -246,7 +246,7 @@
   <string name="crash_report_activity_title">アプリケーションエラー</string>
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。
 
-アプリを再起動しますか? 終了しますか?</string>
+アプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
   <string name="article_menu_bar_bookmark">この記事をあとで読むリストに追加</string>
@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">1記事</string>
   <string name="reading_list_item_count_plural">%s記事</string>
   <string name="reading_list_sort">並べ替え</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">名前</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">最近のものから</string>
+  <string name="reading_list_sort_by_name">名前順に並べ替え</string>
+  <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
+  <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>
+  <string name="reading_list_sort_by_recent_desc">古い方から並べ替え</string>
   <string name="reading_list_menu_edit">あとで読むリストの詳細を編集</string>
   <string name="reading_list_menu_delete">あとで読むリストを削除</string>
   <string name="reading_list_name_sample">あなたのあとで読むリスト</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">好きな動物</string>
   <string name="reading_lists_onboarding_example3">宇宙！</string>
   <string name="reading_lists_onboarding_got_it">わかりました</string>
+  <string name="reading_lists_onboarding_page_delete">ヒント: 各ページは左か右にスワイプすると「あとで読むリスト」から削除できます。</string>
   <string name="user_option_sync_label">設定</string>
 </resources>

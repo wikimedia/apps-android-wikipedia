@@ -263,8 +263,10 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_item_count_singular">1 voce</string>
   <string name="reading_list_item_count_plural">%s voci</string>
   <string name="reading_list_sort">Ordina</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Per nome</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Per data di accesso</string>
+  <string name="reading_list_sort_by_name">Ordina per nome</string>
+  <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
+  <string name="reading_list_sort_by_recent">Ordina per più recenti</string>
+  <string name="reading_list_sort_by_recent_desc">Ordina per meno recenti</string>
   <string name="reading_list_menu_edit">Modifica dettagli elenco di lettura</string>
   <string name="reading_list_menu_delete">Cancella elenco di lettura</string>
   <string name="reading_list_name_sample">Il mio elenco di lettura</string>
@@ -285,5 +287,6 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_lists_onboarding_example2">Animali preferiti</string>
   <string name="reading_lists_onboarding_example3">Spazio!</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
+  <string name="reading_lists_onboarding_page_delete">Suggerimento: fai scorrere una pagina a sinistra o a destra per rimuoverla dall\'elenco di lettura.</string>
   <string name="user_option_sync_label">Preferenze</string>
 </resources>

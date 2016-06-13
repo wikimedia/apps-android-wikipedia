@@ -245,7 +245,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_item_count_singular">1 Artikel</string>
   <string name="reading_list_item_count_plural">%s Artikelen</string>
   <string name="reading_list_sort">Zortéieren</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Nom Numm</string>
+  <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
   <string name="reading_list_menu_edit">Detailer vun der Lieslëscht änneren</string>
   <string name="reading_list_menu_delete">Lieslëscht läschen</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>

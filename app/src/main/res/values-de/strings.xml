@@ -263,8 +263,10 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_item_count_singular">Ein Artikel</string>
   <string name="reading_list_item_count_plural">%s Artikel</string>
   <string name="reading_list_sort">Sortieren</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Nach Name</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Nach zuletzt gelesen</string>
+  <string name="reading_list_sort_by_name">Nach Name sortieren</string>
+  <string name="reading_list_sort_by_name_desc">Nach Name sortieren (umgekehrt)</string>
+  <string name="reading_list_sort_by_recent">Nach zuletzt gelesen sortieren</string>
+  <string name="reading_list_sort_by_recent_desc">Nach zuletzt gelesen sortieren (umgekehrt)</string>
   <string name="reading_list_menu_edit">Einzelheiten der Leseliste bearbeiten</string>
   <string name="reading_list_menu_delete">Leseliste löschen</string>
   <string name="reading_list_name_sample">Meine Leseliste</string>
@@ -285,5 +287,6 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_onboarding_example2">Lieblingstiere</string>
   <string name="reading_lists_onboarding_example3">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
+  <string name="reading_lists_onboarding_page_delete">Tipp: Wische eine beliebige Seite nach links oder rechts, um sie aus dieser Leseliste zu entfernen.</string>
   <string name="user_option_sync_label">Einstellungen</string>
 </resources>

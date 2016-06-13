@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">1 статья</string>
   <string name="reading_list_item_count_plural">%s статей</string>
   <string name="reading_list_sort">Сортувати</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">По імені</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">В порядку додавання</string>
+  <string name="reading_list_sort_by_name">Сортування за назвою</string>
+  <string name="reading_list_sort_by_name_desc">Сортування за назвою (зворотнє)</string>
+  <string name="reading_list_sort_by_recent">Сортування по даті (останні)</string>
+  <string name="reading_list_sort_by_recent_desc">Сортувати по даті (старі)</string>
   <string name="reading_list_menu_edit">Редагування списку читання</string>
   <string name="reading_list_menu_delete">Видалити список читання</string>
   <string name="reading_list_name_sample">Мій список для читання</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">Улюблені тварини</string>
   <string name="reading_lists_onboarding_example3">Космос!</string>
   <string name="reading_lists_onboarding_got_it">Зрозуміло</string>
+  <string name="reading_lists_onboarding_page_delete">Порада: Проведіть по будь-якій сторінці вліво чи вправо, щоб видалити її зі списку читання.</string>
   <string name="user_option_sync_label">Налаштування</string>
 </resources>

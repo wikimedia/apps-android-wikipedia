@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoom a una ubicació en el mapa</string>
   <string name="last_updated_text">Última actualització %1$s</string>
+  <string name="talk_page_link_text">Discussió</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
   <string name="edit_save_action_license_logged_in">En desar accepteu les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En desar accepteu les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
@@ -261,8 +262,10 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_item_count_singular">1 article</string>
   <string name="reading_list_item_count_plural">%s articles</string>
   <string name="reading_list_sort">Ordena</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Per nom</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Per més recent</string>
+  <string name="reading_list_sort_by_name">Ordena per nom</string>
+  <string name="reading_list_sort_by_name_desc">Ordena per nom (invers)</string>
+  <string name="reading_list_sort_by_recent">Ordena per més recent</string>
+  <string name="reading_list_sort_by_recent_desc">Ordena per menys recent</string>
   <string name="reading_list_menu_edit">Edita els detalls de la llista de lectura</string>
   <string name="reading_list_menu_delete">Elimina la llista de lectura</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>

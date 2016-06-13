@@ -263,8 +263,10 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_item_count_singular">1 article</string>
   <string name="reading_list_item_count_plural">%s articles</string>
   <string name="reading_list_sort">Trier</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Par nom</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Par les plus récents</string>
+  <string name="reading_list_sort_by_name">Trier par nom</string>
+  <string name="reading_list_sort_by_name_desc">Trier par nom (inverse)</string>
+  <string name="reading_list_sort_by_recent">Trier selon les plus récents</string>
+  <string name="reading_list_sort_by_recent_desc">Trier selon les moins récents</string>
   <string name="reading_list_menu_edit">Modifier les détails de la liste de lecture</string>
   <string name="reading_list_menu_delete">Supprimer la liste de lecture</string>
   <string name="reading_list_name_sample">Ma liste de lecture</string>
@@ -285,5 +287,6 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_lists_onboarding_example2">Animaux favoris</string>
   <string name="reading_lists_onboarding_example3">Espace !</string>
   <string name="reading_lists_onboarding_got_it">L’obtenir</string>
+  <string name="reading_lists_onboarding_page_delete">Conseil : Faire glisser une page à droite ou à gauche pour la supprimer de cette liste de lecture.</string>
   <string name="user_option_sync_label">Préférences</string>
 </resources>

@@ -214,7 +214,7 @@
   <string name="reading_list_item_count_singular">1 szócikk</string>
   <string name="reading_list_item_count_plural">%s szócikk</string>
   <string name="reading_list_sort">Rendezés</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Név szerint</string>
+  <string name="reading_list_sort_by_name">Rendezés név szerint</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
   <string name="reading_list_edit_ok">OK</string>

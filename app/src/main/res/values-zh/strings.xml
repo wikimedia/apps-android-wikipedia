@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">1个条目</string>
   <string name="reading_list_item_count_plural">%s个条目</string>
   <string name="reading_list_sort">排序</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">按名称</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">按最近访问</string>
+  <string name="reading_list_sort_by_name">按名称排序</string>
+  <string name="reading_list_sort_by_name_desc">按名称排序（反向）</string>
+  <string name="reading_list_sort_by_recent">按最近访问排序</string>
+  <string name="reading_list_sort_by_recent_desc">按最早访问排序</string>
   <string name="reading_list_menu_edit">编辑阅读列表详情</string>
   <string name="reading_list_menu_delete">删除阅读列表</string>
   <string name="reading_list_name_sample">我的阅读列表</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">喜爱的动物</string>
   <string name="reading_lists_onboarding_example3">太空！</string>
   <string name="reading_lists_onboarding_got_it">明白了</string>
+  <string name="reading_lists_onboarding_page_delete">小建议：向左或向右滑动任意页面以将其从此阅读列表中移除。</string>
   <string name="user_option_sync_label">参数设置</string>
 </resources>

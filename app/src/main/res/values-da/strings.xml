@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoom til et sted på kortet</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
+  <string name="talk_page_link_text">Diskussion</string>
   <string name="content_license_html">Indholdet er udgivet under &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; medmindre andet er angivet</string>
   <string name="edit_save_action_license_logged_in">Ved at gemme, accepterer du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
   <string name="edit_save_action_license_anon">Ved at gemme, accepterer du &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dit bidrag under &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.da\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
@@ -261,8 +262,10 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
   <string name="reading_list_item_count_plural">%s artikler</string>
   <string name="reading_list_sort">Sortér</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Efter navn</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Efter dato</string>
+  <string name="reading_list_sort_by_name">Sortér efter navn</string>
+  <string name="reading_list_sort_by_name_desc">Sortér efter navn (omvendt)</string>
+  <string name="reading_list_sort_by_recent">Sortér efter seneste</string>
+  <string name="reading_list_sort_by_recent_desc">Sortér efter ældste</string>
   <string name="reading_list_menu_edit">Rediger detaljer om læseliste</string>
   <string name="reading_list_menu_delete">Slet læseliste</string>
   <string name="reading_list_name_sample">Min læseliste</string>
@@ -283,5 +286,6 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_lists_onboarding_example2">Ynglingsdyr</string>
   <string name="reading_lists_onboarding_example3">Rummet!</string>
   <string name="reading_lists_onboarding_got_it">Forstået</string>
+  <string name="reading_lists_onboarding_page_delete">Tip: Stryg en side til venstre eller højre for at fjerne den fra denne læseliste.</string>
   <string name="user_option_sync_label">Indstillinger</string>
 </resources>

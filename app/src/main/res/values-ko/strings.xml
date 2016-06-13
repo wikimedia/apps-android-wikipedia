@@ -124,7 +124,7 @@
   <string name="zero_learn_more_dismiss">숨기기</string>
   <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중…</string>
   <string name="send_feedback">앱 피드백 보내기</string>
-  <string name="nav_item_random">임의</string>
+  <string name="nav_item_random">임의 문서</string>
   <string name="create_account_account_created_toast">계정을 만들었습니다!</string>
   <string name="preferences_privacy_settings_heading">개인정보</string>
   <string name="preference_title_eventlogging_opt_in">사용 보고서 보내기</string>
@@ -195,7 +195,7 @@
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
   <string name="dialog_close_description">닫기</string>
   <string name="preference_title_show_images">그림 보이기</string>
-  <string name="preference_summary_show_images">문서에서 그림을 불러오도록 설정/비설정 합니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정을 해제하세요.</string>
+  <string name="preference_summary_show_images">문서에서 그림 불러오기를 사용하거나 사용하지 않습니다. 인터넷 연결이 느리거나, 데이터 요금제가 제한되어 있다면 이 설정의 체크를 제거하세요.</string>
   <string name="read_more_section">더 읽어보기</string>
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
@@ -242,7 +242,7 @@
   <string name="crash_report_dialog_always_send_button">항상 보내기</string>
   <string name="crash_report_dialog_send_button">보내기</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
-  <string name="crash_report_relaunch_or_quit">죄송합니다,  위키 백과 앱이 오류가 발생하고 종료 되었습니다.
+  <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.
 
 다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>
@@ -261,8 +261,10 @@
   <string name="reading_list_item_count_singular">1개의 문서</string>
   <string name="reading_list_item_count_plural">%s개의 문서</string>
   <string name="reading_list_sort">정렬</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">이름순</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">최근순</string>
+  <string name="reading_list_sort_by_name">이름순</string>
+  <string name="reading_list_sort_by_name_desc">이름순(역순)</string>
+  <string name="reading_list_sort_by_recent">최근순</string>
+  <string name="reading_list_sort_by_recent_desc">적은 빈도로 접근한 최신문서순</string>
   <string name="reading_list_menu_edit">읽기 목록의 세부사항 편집</string>
   <string name="reading_list_menu_delete">읽기 목록 삭제</string>
   <string name="reading_list_name_sample">내 읽기 목록</string>
@@ -283,5 +285,6 @@
   <string name="reading_lists_onboarding_example2">좋아하는 동물</string>
   <string name="reading_lists_onboarding_example3">우주!</string>
   <string name="reading_lists_onboarding_got_it">알겠습니다</string>
+  <string name="reading_lists_onboarding_page_delete">이 읽고목록에서 삭제하려면, 페이지 왼쪽이나 오른쪽으로 미세요.</string>
   <string name="user_option_sync_label">환경 설정</string>
 </resources>

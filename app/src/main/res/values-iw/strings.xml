@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">ערך אחד</string>
   <string name="reading_list_item_count_plural">%s ערכים</string>
   <string name="reading_list_sort">מיון</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">לפי שם</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">לפי זמן</string>
+  <string name="reading_list_sort_by_name">מיון לפי שם</string>
+  <string name="reading_list_sort_by_name_desc">מיון לפי שם (אחורה)</string>
+  <string name="reading_list_sort_by_recent">מיון לפי החדש ביותר</string>
+  <string name="reading_list_sort_by_recent_desc">מיון לפי הישן ביותר</string>
   <string name="reading_list_menu_edit">עריכת פרטי רשימה</string>
   <string name="reading_list_menu_delete">מחיקת רשימת קריאה</string>
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">חיות אהובות</string>
   <string name="reading_lists_onboarding_example3">חלל!</string>
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
+  <string name="reading_lists_onboarding_page_delete">עצה: החלקה של כל דף שמאלה או ימינה תסיר אותו מרשימת הקריאה הזאת.</string>
   <string name="user_option_sync_label">העדפות</string>
 </resources>

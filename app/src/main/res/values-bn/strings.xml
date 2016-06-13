@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">১টি নিবন্ধ</string>
   <string name="reading_list_item_count_plural">%sটি নিবন্ধ</string>
   <string name="reading_list_sort">বাছাই করুন</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">নাম অনুযায়ী</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">সাম্প্রতিক অনুযায়ী</string>
+  <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
+  <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>
+  <string name="reading_list_sort_by_recent">সাম্প্রতিক অনুযায়ী বাছাই</string>
+  <string name="reading_list_sort_by_recent_desc">অন্তত সাম্প্রতিক বাছাই</string>
   <string name="reading_list_menu_edit">পড়ার তালিকার বিস্তারিত সম্পাদনা করুন</string>
   <string name="reading_list_menu_delete">পড়ার তালিকা অপসারণ করুন</string>
   <string name="reading_list_name_sample">আমার পড়ার তালিকা</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">প্রিয় পশুপাখি</string>
   <string name="reading_lists_onboarding_example3">মহাকাশ!</string>
   <string name="reading_lists_onboarding_got_it">বুঝেছি</string>
+  <string name="reading_lists_onboarding_page_delete">পরামর্শি: যে কোন পাতা পড়ার তালিকা থেকে মুছে ফেলার জন্য সেই পাতা বাম বা ডান দিকে টেনে আনুন।</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
 </resources>

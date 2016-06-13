@@ -263,8 +263,10 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_item_count_singular">1 artigo</string>
   <string name="reading_list_item_count_plural">%s artigos</string>
   <string name="reading_list_sort">Ordenar</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Por nome</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Por recentes</string>
+  <string name="reading_list_sort_by_name">Ordenar por nome</string>
+  <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>
+  <string name="reading_list_sort_by_recent">Ordenar polas máis recentes</string>
+  <string name="reading_list_sort_by_recent_desc">Ordenar polas menos recentes</string>
   <string name="reading_list_menu_edit">Editar os detalles da lista de lectura</string>
   <string name="reading_list_menu_delete">Eliminar a lista de lectura</string>
   <string name="reading_list_name_sample">A miña lista de lectura</string>
@@ -285,5 +287,6 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_lists_onboarding_example2">Animais favoritos</string>
   <string name="reading_lists_onboarding_example3">O espazoǃ</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
+  <string name="reading_lists_onboarding_page_delete">Consello: Desprace calquera páxina á esquerda ou á dereita para eliminala desta páxina de lectura.</string>
   <string name="user_option_sync_label">Preferencias</string>
 </resources>

@@ -257,17 +257,23 @@
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button" fuzzy="true">اعرض</string>
   <string name="reading_list_item_count_singular">مقالة واحدة</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">الاسماء</string>
+  <string name="reading_list_sort">رتب</string>
+  <string name="reading_list_sort_by_name">فرز خسب الأسم</string>
+  <string name="reading_list_sort_by_recent">فرز حسب الأحدث</string>
+  <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>
   <string name="reading_list_menu_edit">عدل تفاصيل قائمة القراءة</string>
   <string name="reading_list_menu_delete">احذف قائمة القراءة</string>
   <string name="reading_list_name_sample">قائمة قراءاتي</string>
   <string name="reading_list_name_hint">اسم قائمة القراءة</string>
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
-  <string name="reading_list_save_for_offline" fuzzy="true">احفظ للقراءة دون اتصال</string>
+  <string name="reading_list_save_for_offline">متوفر للقراءة بدون اتصال</string>
   <string name="reading_list_item_deleted">أزيلت %s من القائمة</string>
   <string name="reading_list_edit_ok">موافق</string>
   <string name="reading_list_edit_cancel">إلغاء</string>
   <string name="reading_lists_empty">لا قوائم قراءة هنا.</string>
+  <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
+  <string name="reading_lists_onboarding_example1">اماكن للزيارة</string>
+  <string name="reading_lists_onboarding_example2">الحيوانات المفضلة</string>
   <string name="reading_lists_onboarding_got_it">فهمت</string>
   <string name="user_option_sync_label">تفضيلات</string>
 </resources>

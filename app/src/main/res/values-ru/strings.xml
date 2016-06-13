@@ -263,8 +263,10 @@
   <string name="reading_list_item_count_singular">1 статья</string>
   <string name="reading_list_item_count_plural">%s статей</string>
   <string name="reading_list_sort">Сортировать</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">По названию</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">По дате</string>
+  <string name="reading_list_sort_by_name">Сортировка по названию</string>
+  <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>
+  <string name="reading_list_sort_by_recent">Сортировка по дате (последние)</string>
+  <string name="reading_list_sort_by_recent_desc">Сортировка по дате (старые)</string>
   <string name="reading_list_menu_edit">Редактировать информацию по списку для чтения</string>
   <string name="reading_list_menu_delete">Удалить список для чтения</string>
   <string name="reading_list_name_sample">Мой список для чтения</string>
@@ -285,5 +287,6 @@
   <string name="reading_lists_onboarding_example2">Любимые животные</string>
   <string name="reading_lists_onboarding_example3">Космос!</string>
   <string name="reading_lists_onboarding_got_it">Понятно</string>
+  <string name="reading_lists_onboarding_page_delete">Совет: проведите пальцем по любой странице влево или вправо, чтобы удалить её из списка для чтения.</string>
   <string name="user_option_sync_label">Настройки</string>
 </resources>
