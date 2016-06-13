@@ -23,9 +23,9 @@
       "title": "Razak_Khan",
       "pageid": 40626711,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Razak_Khan.jpg/60px-Razak_Khan.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Razak_Khan.jpg/120px-Razak_Khan.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Razak_Khan.jpg/241px-Razak_Khan.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Razak_Khan.jpg/241px-Razak_Khan.jpg",
+        "width": 241,
+        "height": 320
       },
       "normalizedtitle": "Razak Khan",
       "description": "Indian actor"
@@ -36,9 +36,9 @@
       "title": "Marilyn_Monroe",
       "pageid": 19318,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/60px-Marilyn_Monroe_in_1952.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/120px-Marilyn_Monroe_in_1952.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/229px-Marilyn_Monroe_in_1952.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/229px-Marilyn_Monroe_in_1952.jpg",
+        "width": 229,
+        "height": 320
       },
       "normalizedtitle": "Marilyn Monroe",
       "description": "American actress, model, and singer"
@@ -57,9 +57,9 @@
       "title": "Big_Trouble_(2002_film)",
       "pageid": 1703740,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Big_trouble_ver2.jpg/60px-Big_trouble_ver2.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Big_trouble_ver2.jpg/120px-Big_trouble_ver2.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Big_trouble_ver2.jpg/217px-Big_trouble_ver2.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Big_trouble_ver2.jpg/217px-Big_trouble_ver2.jpg",
+        "width": 217,
+        "height": 320
       },
       "normalizedtitle": "Big Trouble (2002 film)",
       "description": "2002 American comedy film"
@@ -70,9 +70,9 @@
       "title": "X-Men:_Apocalypse",
       "pageid": 43530847,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Englefield_House_-_geograph.org.uk_-_1824880.jpg/60px-Englefield_House_-_geograph.org.uk_-_1824880.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Englefield_House_-_geograph.org.uk_-_1824880.jpg/120px-Englefield_House_-_geograph.org.uk_-_1824880.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Englefield_House_-_geograph.org.uk_-_1824880.jpg/320px-Englefield_House_-_geograph.org.uk_-_1824880.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Englefield_House_-_geograph.org.uk_-_1824880.jpg/320px-Englefield_House_-_geograph.org.uk_-_1824880.jpg",
+        "width": 320,
+        "height": 213
       },
       "normalizedtitle": "X-Men: Apocalypse",
       "description": "2016 superhero film"
@@ -83,9 +83,9 @@
       "title": "Gotthard_Base_Tunnel",
       "pageid": 692624,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20141120_gotthard-basistunnel02-wikipedia-hannes-ortlieb.jpg/60px-20141120_gotthard-basistunnel02-wikipedia-hannes-ortlieb.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20141120_gotthard-basistunnel02-wikipedia-hannes-ortlieb.jpg/120px-20141120_gotthard-basistunnel02-wikipedia-hannes-ortlieb.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20141120_gotthard-basistunnel02-wikipedia-hannes-ortlieb.jpg/320px-20141120_gotthard-basistunnel02-wikipedia-hannes-ortlieb.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/20141120_gotthard-basistunnel02-wikipedia-hannes-ortlieb.jpg/320px-20141120_gotthard-basistunnel02-wikipedia-hannes-ortlieb.jpg",
+        "width": 320,
+        "height": 213
       },
       "normalizedtitle": "Gotthard Base Tunnel",
       "description": "railway tunnel through the Swiss Alps"
@@ -96,9 +96,9 @@
       "title": "UEFA_Euro_2016",
       "pageid": 7932564,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/UEFA_Euro_2016_qualifying_map.svg/60px-UEFA_Euro_2016_qualifying_map.svg.png",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/UEFA_Euro_2016_qualifying_map.svg/120px-UEFA_Euro_2016_qualifying_map.svg.png",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/UEFA_Euro_2016_qualifying_map.svg/320px-UEFA_Euro_2016_qualifying_map.svg.png"
+        "source": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/UEFA_Euro_2016_Logo.svg/227px-UEFA_Euro_2016_Logo.svg.png",
+        "width": 227,
+        "height": 320
       },
       "normalizedtitle": "UEFA Euro 2016",
       "description": "football tournament held in 2016"
@@ -109,9 +109,9 @@
       "title": "Kunta_Kinte",
       "pageid": 951527,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/IJzeren_voetring_voor_gevangenen_transparent_background.png/60px-IJzeren_voetring_voor_gevangenen_transparent_background.png",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/IJzeren_voetring_voor_gevangenen_transparent_background.png/120px-IJzeren_voetring_voor_gevangenen_transparent_background.png",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/IJzeren_voetring_voor_gevangenen_transparent_background.png/320px-IJzeren_voetring_voor_gevangenen_transparent_background.png"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/IJzeren_voetring_voor_gevangenen_transparent_background.png/320px-IJzeren_voetring_voor_gevangenen_transparent_background.png",
+        "width": 320,
+        "height": 175
       },
       "normalizedtitle": "Kunta Kinte",
       "description": "From Alex Haley's ''Roots''"
@@ -138,9 +138,9 @@
       "title": "Amber_Heard",
       "pageid": 10784468,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Amber_Heard_2011.jpg/60px-Amber_Heard_2011.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Amber_Heard_2011.jpg/120px-Amber_Heard_2011.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Amber_Heard_2011.jpg/231px-Amber_Heard_2011.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Amber_Heard_2011.jpg/231px-Amber_Heard_2011.jpg",
+        "width": 231,
+        "height": 320
       },
       "normalizedtitle": "Amber Heard",
       "description": "American actress"
@@ -151,9 +151,9 @@
       "title": "Game_of_Thrones_(season_6)",
       "pageid": 43186937,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Castillo_de_Zafra_-_Exterior.JPG/60px-Castillo_de_Zafra_-_Exterior.JPG",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Castillo_de_Zafra_-_Exterior.JPG/120px-Castillo_de_Zafra_-_Exterior.JPG",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Castillo_de_Zafra_-_Exterior.JPG/320px-Castillo_de_Zafra_-_Exterior.JPG"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Castillo_de_Zafra_-_Exterior.JPG/320px-Castillo_de_Zafra_-_Exterior.JPG",
+        "width": 320,
+        "height": 180
       },
       "normalizedtitle": "Game of Thrones (season 6)",
       "description": "sixth season of the fantasy drama television series Game of Thrones"
@@ -172,9 +172,9 @@
       "title": "Game_of_Thrones",
       "pageid": 20715044,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Game_of_Thrones_Oslo_exhibition_2014_-_Weapons.jpg/60px-Game_of_Thrones_Oslo_exhibition_2014_-_Weapons.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Game_of_Thrones_Oslo_exhibition_2014_-_Weapons.jpg/120px-Game_of_Thrones_Oslo_exhibition_2014_-_Weapons.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Game_of_Thrones_Oslo_exhibition_2014_-_Weapons.jpg/320px-Game_of_Thrones_Oslo_exhibition_2014_-_Weapons.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Game_of_Thrones_Oslo_exhibition_2014_-_Weapons.jpg/320px-Game_of_Thrones_Oslo_exhibition_2014_-_Weapons.jpg",
+        "width": 320,
+        "height": 253
       },
       "normalizedtitle": "Game of Thrones",
       "description": "American fantasy drama television series"
@@ -192,9 +192,9 @@
       "title": "Captain_America:_Civil_War",
       "pageid": 41974496,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cast_of_Captain_America_Civil_War.jpg/60px-Cast_of_Captain_America_Civil_War.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cast_of_Captain_America_Civil_War.jpg/120px-Cast_of_Captain_America_Civil_War.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cast_of_Captain_America_Civil_War.jpg/320px-Cast_of_Captain_America_Civil_War.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cast_of_Captain_America_Civil_War.jpg/320px-Cast_of_Captain_America_Civil_War.jpg",
+        "width": 320,
+        "height": 187
       },
       "normalizedtitle": "Captain America: Civil War",
       "description": "2016 superhero film produced by Marvel Studios"
@@ -213,9 +213,9 @@
       "title": "State_of_Origin_series",
       "pageid": 1954843,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/en/thumb/e/e8/First_State_of_Origin_Shield.jpg/60px-First_State_of_Origin_Shield.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/en/thumb/e/e8/First_State_of_Origin_Shield.jpg/120px-First_State_of_Origin_Shield.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/en/thumb/e/e8/First_State_of_Origin_Shield.jpg/301px-First_State_of_Origin_Shield.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/First_State_of_Origin_Shield.jpg/301px-First_State_of_Origin_Shield.jpg",
+        "width": 301,
+        "height": 320
       },
       "normalizedtitle": "State of Origin series"
     },
@@ -225,9 +225,9 @@
       "title": "Gorilla",
       "pageid": 12546,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Male_gorilla_in_SF_zoo.jpg/60px-Male_gorilla_in_SF_zoo.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Male_gorilla_in_SF_zoo.jpg/120px-Male_gorilla_in_SF_zoo.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Male_gorilla_in_SF_zoo.jpg/287px-Male_gorilla_in_SF_zoo.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Male_gorilla_in_SF_zoo.jpg/287px-Male_gorilla_in_SF_zoo.jpg",
+        "width": 287,
+        "height": 320
       },
       "normalizedtitle": "Gorilla",
       "description": "genus of mammals"
@@ -238,9 +238,9 @@
       "title": "Stephen_Curry",
       "pageid": 5608488,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stephen_Curry_dribbling_2016_%28cropped%29.jpg/60px-Stephen_Curry_dribbling_2016_%28cropped%29.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stephen_Curry_dribbling_2016_%28cropped%29.jpg/120px-Stephen_Curry_dribbling_2016_%28cropped%29.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stephen_Curry_dribbling_2016_%28cropped%29.jpg/178px-Stephen_Curry_dribbling_2016_%28cropped%29.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stephen_Curry_dribbling_2016_%28cropped%29.jpg/178px-Stephen_Curry_dribbling_2016_%28cropped%29.jpg",
+        "width": 178,
+        "height": 320
       },
       "normalizedtitle": "Stephen Curry",
       "description": "American basketball player"
@@ -251,9 +251,9 @@
       "title": "Maya_Rudolph",
       "pageid": 511348,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Maya_Rudolph.jpg/60px-Maya_Rudolph.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Maya_Rudolph.jpg/120px-Maya_Rudolph.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Maya_Rudolph.jpg/318px-Maya_Rudolph.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Maya_Rudolph.jpg/318px-Maya_Rudolph.jpg",
+        "width": 318,
+        "height": 320
       },
       "normalizedtitle": "Maya Rudolph",
       "description": "American comedic actress"
@@ -264,9 +264,9 @@
       "title": "Johnny_Depp",
       "pageid": 71870,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/JohnnyDeppHWOFJune2013.jpg/60px-JohnnyDeppHWOFJune2013.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/JohnnyDeppHWOFJune2013.jpg/120px-JohnnyDeppHWOFJune2013.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/JohnnyDeppHWOFJune2013.jpg/273px-JohnnyDeppHWOFJune2013.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/JohnnyDeppHWOFJune2013.jpg/273px-JohnnyDeppHWOFJune2013.jpg",
+        "width": 273,
+        "height": 320
       },
       "normalizedtitle": "Johnny Depp",
       "description": "American actor, film producer, and musician"
@@ -277,12 +277,12 @@
       "title": "Donald_Trump",
       "pageid": 4848272,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Donald_Trump_August_19%2C_2015_%28cropped%29.jpg/60px-Donald_Trump_August_19%2C_2015_%28cropped%29.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Donald_Trump_August_19%2C_2015_%28cropped%29.jpg/120px-Donald_Trump_August_19%2C_2015_%28cropped%29.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Donald_Trump_August_19%2C_2015_%28cropped%29.jpg/235px-Donald_Trump_August_19%2C_2015_%28cropped%29.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Donald_Trump_August_19%2C_2015_%28cropped%29.jpg/235px-Donald_Trump_August_19%2C_2015_%28cropped%29.jpg",
+        "width": 235,
+        "height": 320
       },
       "normalizedtitle": "Donald Trump",
-      "description": "American business magnate, television personality, author and politician"
+      "description": "German American business magnate, television personality, author and politician"
     },
     {
       "views": 60341,
@@ -290,9 +290,9 @@
       "title": "Children's_Day",
       "pageid": 494299,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Wikipedia_Children%27s_Day.png/60px-Wikipedia_Children%27s_Day.png",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Wikipedia_Children%27s_Day.png/120px-Wikipedia_Children%27s_Day.png",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Wikipedia_Children%27s_Day.png/320px-Wikipedia_Children%27s_Day.png"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Wikipedia_Children%27s_Day.png/320px-Wikipedia_Children%27s_Day.png",
+        "width": 320,
+        "height": 280
       },
       "normalizedtitle": "Children's Day",
       "description": "day to honor children globally"
@@ -303,9 +303,9 @@
       "title": "Louis_XIV_of_France",
       "pageid": 18553,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Louis_XIV_of_France.jpg/60px-Louis_XIV_of_France.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Louis_XIV_of_France.jpg/120px-Louis_XIV_of_France.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Louis_XIV_of_France.jpg/225px-Louis_XIV_of_France.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Louis_XIV_of_France.jpg/225px-Louis_XIV_of_France.jpg",
+        "width": 225,
+        "height": 320
       },
       "normalizedtitle": "Louis XIV of France",
       "description": "King of France and Navarra, from 1643 to 1715"
@@ -340,9 +340,9 @@
       "title": "List_of_Person_of_Interest_episodes",
       "pageid": 32796719,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Person_of_Interest_logo.svg/60px-Person_of_Interest_logo.svg.png",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Person_of_Interest_logo.svg/120px-Person_of_Interest_logo.svg.png",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Person_of_Interest_logo.svg/320px-Person_of_Interest_logo.svg.png"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Person_of_Interest_logo.svg/320px-Person_of_Interest_logo.svg.png",
+        "width": 320,
+        "height": 107
       },
       "normalizedtitle": "List of Person of Interest episodes",
       "description": "Wikimedia list article"
@@ -369,9 +369,9 @@
       "title": "Rosenhan_experiment",
       "pageid": 449532,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Center_building_at_Saint_Elizabeths%2C_August_23%2C_2006.jpg/60px-Center_building_at_Saint_Elizabeths%2C_August_23%2C_2006.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Center_building_at_Saint_Elizabeths%2C_August_23%2C_2006.jpg/120px-Center_building_at_Saint_Elizabeths%2C_August_23%2C_2006.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Center_building_at_Saint_Elizabeths%2C_August_23%2C_2006.jpg/320px-Center_building_at_Saint_Elizabeths%2C_August_23%2C_2006.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Center_building_at_Saint_Elizabeths%2C_August_23%2C_2006.jpg/320px-Center_building_at_Saint_Elizabeths%2C_August_23%2C_2006.jpg",
+        "width": 320,
+        "height": 241
       },
       "normalizedtitle": "Rosenhan experiment",
       "description": "psychological experiment"
@@ -382,9 +382,9 @@
       "title": "Emilia_Clarke",
       "pageid": 30175038,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Emilia_Clarke_2013_%28Straighten_Colors_2%29.jpg/60px-Emilia_Clarke_2013_%28Straighten_Colors_2%29.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Emilia_Clarke_2013_%28Straighten_Colors_2%29.jpg/120px-Emilia_Clarke_2013_%28Straighten_Colors_2%29.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Emilia_Clarke_2013_%28Straighten_Colors_2%29.jpg/239px-Emilia_Clarke_2013_%28Straighten_Colors_2%29.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Emilia_Clarke_by_Gage_Skidmore_2.jpg/260px-Emilia_Clarke_by_Gage_Skidmore_2.jpg",
+        "width": 260,
+        "height": 320
       },
       "normalizedtitle": "Emilia Clarke",
       "description": "English actress"
@@ -395,9 +395,9 @@
       "title": "Elizabeth_Holmes",
       "pageid": 43573275,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Elizabeth_Holmes_2014_%28cropped%29.jpg/60px-Elizabeth_Holmes_2014_%28cropped%29.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Elizabeth_Holmes_2014_%28cropped%29.jpg/120px-Elizabeth_Holmes_2014_%28cropped%29.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Elizabeth_Holmes_2014_%28cropped%29.jpg/277px-Elizabeth_Holmes_2014_%28cropped%29.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Elizabeth_Holmes_2014_%28cropped%29.jpg/277px-Elizabeth_Holmes_2014_%28cropped%29.jpg",
+        "width": 277,
+        "height": 320
       },
       "normalizedtitle": "Elizabeth Holmes",
       "description": "American business executive"
@@ -408,9 +408,9 @@
       "title": "Stephen_Hawking",
       "pageid": 19376148,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Stephen_Hawking.StarChild.jpg/60px-Stephen_Hawking.StarChild.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Stephen_Hawking.StarChild.jpg/120px-Stephen_Hawking.StarChild.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Stephen_Hawking.StarChild.jpg/223px-Stephen_Hawking.StarChild.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Stephen_Hawking.StarChild.jpg/223px-Stephen_Hawking.StarChild.jpg",
+        "width": 223,
+        "height": 320
       },
       "normalizedtitle": "Stephen Hawking",
       "description": "British theoretical physicist, cosmologist, and author"
@@ -428,9 +428,9 @@
       "title": "Female_genital_mutilation",
       "pageid": 11408,
       "thumbnail": {
-        "60": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Campaign_road_sign_against_female_genital_mutilation_%28cropped%29_2.jpg/60px-Campaign_road_sign_against_female_genital_mutilation_%28cropped%29_2.jpg",
-        "120": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Campaign_road_sign_against_female_genital_mutilation_%28cropped%29_2.jpg/120px-Campaign_road_sign_against_female_genital_mutilation_%28cropped%29_2.jpg",
-        "320": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Campaign_road_sign_against_female_genital_mutilation_%28cropped%29_2.jpg/320px-Campaign_road_sign_against_female_genital_mutilation_%28cropped%29_2.jpg"
+        "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Campaign_road_sign_against_female_genital_mutilation_%28cropped%29_2.jpg/320px-Campaign_road_sign_against_female_genital_mutilation_%28cropped%29_2.jpg",
+        "width": 320,
+        "height": 212
       },
       "normalizedtitle": "Female genital mutilation",
       "description": "controversial cultural ritual"

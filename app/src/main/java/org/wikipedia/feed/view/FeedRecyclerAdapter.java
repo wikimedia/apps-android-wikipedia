@@ -13,6 +13,8 @@ import org.wikipedia.feed.continuereading.ContinueReadingCard;
 import org.wikipedia.feed.continuereading.ContinueReadingCardView;
 import org.wikipedia.feed.demo.IntegerListCard;
 import org.wikipedia.feed.demo.IntegerListCardView;
+import org.wikipedia.feed.featured.FeaturedArticleCard;
+import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.mostread.MostReadCardView;
 import org.wikipedia.feed.mostread.MostReadListCard;
@@ -28,6 +30,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
     private static final int VIEW_TYPE_CONTINUE_READING = 1;
     private static final int VIEW_TYPE_BECAUSE_YOU_READ = 2;
     private static final int VIEW_TYPE_MOST_READ = 3;
+    private static final int VIEW_TYPE_FEATURED_ARTICLE = 4;
     private static final int VIEW_TYPE_INTEGER_LIST = 100;
 
     @Nullable private FeedViewCallback callback;
@@ -61,6 +64,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             ((SearchCardView) view).set((SearchCard) item);
         } else if (view instanceof MostReadCardView) {
             ((MostReadCardView) view).set((MostReadListCard) item);
+        } else if (view instanceof FeaturedArticleCardView) {
+            ((FeaturedArticleCardView) view).set((FeaturedArticleCard) item);
         } else {
             throw new IllegalStateException("Unknown type=" + view.getClass());
         }
@@ -78,6 +83,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             return VIEW_TYPE_SEARCH_BAR;
         } else if (item instanceof MostReadListCard) {
             return VIEW_TYPE_MOST_READ;
+        } else if (item instanceof FeaturedArticleCard) {
+            return VIEW_TYPE_FEATURED_ARTICLE;
         } else {
             throw new IllegalStateException("Unknown type=" + item.getClass());
         }
@@ -95,6 +102,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
                 return new SearchCardView(context).setCallback(callback);
             case VIEW_TYPE_MOST_READ:
                 return new MostReadCardView(context);
+            case VIEW_TYPE_FEATURED_ARTICLE:
+                return new FeaturedArticleCardView(context);
             default:
                 throw new IllegalArgumentException("viewType=" + viewType);
         }

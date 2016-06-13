@@ -319,5 +319,7 @@
     <!-- The Feed -->
     <string name="view_continue_reading_card_title">Continue reading</string>
     <string name="view_because_you_read_card_title">Because you read</string>
+    <string name="view_featured_article_card_title">Featured article</string>
+    <string name="view_featured_article_footer_save_button_label">Save</string>
     <!-- /The Feed -->
 </resources>

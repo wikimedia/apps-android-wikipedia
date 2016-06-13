@@ -6,15 +6,14 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Collections;
-import java.util.Map;
+import org.wikipedia.feed.model.Thumbnail;
 
 public final class MostReadArticle {
     @SerializedName("normalizedtitle") @SuppressWarnings("NullableProblems") @NonNull private String normalizedTitle;
     @SuppressWarnings("NullableProblems") @NonNull private String title;
     @Nullable private String description;
     @SerializedName("pageid") private int pageId;
-    @SerializedName("thumbnail") @SuppressWarnings("NullableProblems") @NonNull private Map<Integer, Uri> thumbnails;
+    @SerializedName("thumbnail") @Nullable private Thumbnail thumbnail;
     private int rank;
     private int views;
 
@@ -34,8 +33,8 @@ public final class MostReadArticle {
         return pageId;
     }
 
-    public Map<Integer, Uri> thumbnails() {
-        return thumbnails;
+    public Uri thumbnail() {
+        return thumbnail != null ? Uri.parse(thumbnail.source()) : null;
     }
 
     public int rank() {
@@ -44,12 +43,5 @@ public final class MostReadArticle {
 
     public int views() {
         return views;
-    }
-
-    private MostReadArticle() {
-        //noinspection ConstantConditions
-        if (thumbnails == null) {
-            thumbnails = Collections.emptyMap();
-        }
     }
 }

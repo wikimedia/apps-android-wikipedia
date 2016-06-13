@@ -4,9 +4,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Constants;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.util.log.L;
 
 public class MostReadItemCard extends Card {
     @NonNull private final MostReadArticle article;
@@ -24,7 +22,6 @@ public class MostReadItemCard extends Card {
     }
 
     @Nullable @Override public Uri image() {
-        L.d(article.thumbnails().toString());
-        return article.thumbnails().get(Constants.PREFERRED_THUMB_SIZE);
+        return article.thumbnail();
     }
 }

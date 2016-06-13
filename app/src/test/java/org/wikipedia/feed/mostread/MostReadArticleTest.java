@@ -7,13 +7,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.test.TestRunner;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 
 @RunWith(TestRunner.class)
 @SuppressWarnings("checkstyle:magicnumber")
@@ -32,12 +30,8 @@ public class MostReadArticleTest {
         assertThat(subject.description(), is("American actress, model, and singer"));
         assertThat(subject.pageId(), is(19318));
 
-        Map<Integer, Uri> thumbnails = new HashMap<>();
-        thumbnails.put(60, Uri.parse("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/60px-Marilyn_Monroe_in_1952.jpg"));
-        thumbnails.put(120, Uri.parse("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/120px-Marilyn_Monroe_in_1952.jpg"));
-        thumbnails.put(320, Uri.parse("http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/229px-Marilyn_Monroe_in_1952.jpg"));
-
-        assertThat(subject.thumbnails(), is(thumbnails));
+        Uri thumbnail = Uri.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Marilyn_Monroe_in_1952.jpg/229px-Marilyn_Monroe_in_1952.jpg");
+        assertThat(subject.thumbnail(), is(thumbnail));
 
         assertThat(subject.rank(), is(8));
         assertThat(subject.views(), is(201439));
@@ -50,8 +44,7 @@ public class MostReadArticleTest {
         assertThat(subject.title(), is("Bicycle_Race"));
         assertThat(subject.description(), is("rock song by Queen"));
         assertThat(subject.pageId(), is(3957496));
-        assertThat(subject.thumbnails(), notNullValue());
-        assertThat(subject.thumbnails().size(), is(0));
+        assertThat(subject.thumbnail(), nullValue());
         assertThat(subject.rank(), is(3));
         assertThat(subject.views(), is(330200));
     }

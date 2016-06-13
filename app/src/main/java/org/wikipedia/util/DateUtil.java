@@ -1,8 +1,12 @@
 package org.wikipedia.util;
 
-import java.text.ParseException;
+import android.text.format.DateUtils;
+
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.feed.UtcDate;
+
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -14,16 +18,13 @@ public final class DateUtil {
         return simpleDateFormat;
     }
 
-    // Ex. "2015-07-18T18:11:52Z"
-    public static long fromMwApiTimestamp(String timestamp) {
-        long timeInMilliseconds = 0;
-        try {
-            Date date = getIso8601DateFormat().parse(timestamp);
-            timeInMilliseconds = date.getTime();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return timeInMilliseconds;
+    public static String getFeedCardDateString(Calendar cal) {
+        int flags = DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_UTC;
+        return DateUtils.formatDateTime(WikipediaApp.getInstance(), cal.getTimeInMillis(), flags);
+    }
+
+    public static UtcDate getUtcRequestDateFor(int age) {
+        return new UtcDate(age);
     }
 
     private DateUtil() {
