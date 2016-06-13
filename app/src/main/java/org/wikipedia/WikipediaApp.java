@@ -29,6 +29,7 @@ import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
+import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -68,6 +69,7 @@ import java.util.UUID;
 
 import okhttp3.Headers;
 import okhttp3.Request;
+import retrofit2.Retrofit;
 
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
@@ -96,6 +98,8 @@ public class WikipediaApp extends Application {
     private SharedPreferenceCookieManager cookieManager;
     private String userAgent;
     private Site site;
+    @Nullable private Site retrofitSite;
+    @Nullable private Retrofit retrofit;
 
     private CrashReporter crashReporter;
 
@@ -269,6 +273,20 @@ public class WikipediaApp extends Application {
             site = Site.forLanguageCode(lang);
         }
         return site;
+    }
+
+    /** @return client if app site has not changed, a new client otherwise. */
+    @NonNull public synchronized <T> T retrofitClient(Class<T> clazz, @Nullable T client) {
+        @SuppressWarnings("checkstyle:hiddenfield") Site site = getSite();
+        if (!site.equals(retrofitSite)) {
+            retrofitSite = site;
+            retrofit = RetrofitFactory.newInstance(site);
+            return retrofit.create(clazz);
+        }
+        // getSite() returns nonnull. If retrofitSite was null, it would have been unequal and
+        // initialized in the preceding conditional.
+        //noinspection ConstantConditions
+        return client == null ? retrofit.create(clazz) : client;
     }
 
     /**
