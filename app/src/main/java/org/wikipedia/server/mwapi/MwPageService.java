@@ -4,7 +4,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.server.PageCombo;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
@@ -107,26 +106,6 @@ public class MwPageService implements PageService {
 
             @Override
             public void onFailure(Call<MwPageRemaining> call, Throwable t) {
-                cb.failure(t);
-            }
-        });
-    }
-
-    @Override
-    public void pageCombo(String title, boolean noImages, final PageCombo.Callback cb) {
-        Call<MwPageCombo> call = webService.pageCombo(title, optional(noImages));
-        call.enqueue(new Callback<MwPageCombo>() {
-            @Override
-            public void onResponse(Call<MwPageCombo> call, Response<MwPageCombo> response) {
-                if (response.isSuccessful()) {
-                    cb.success(response.body());
-                } else {
-                    cb.failure(RetrofitException.httpError(response, retrofit));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<MwPageCombo> call, Throwable t) {
                 cb.failure(t);
             }
         });

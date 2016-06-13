@@ -3,7 +3,6 @@ package org.wikipedia.server.restbase;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.server.PageCombo;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageService;
@@ -116,29 +115,6 @@ public class RbPageService implements PageService {
 
             @Override
             public void onFailure(Call<RbPageRemaining> call, Throwable t) {
-                RbSwitch.INSTANCE.onRbRequestFailed(t);
-                cb.failure(t);
-            }
-        });
-    }
-
-    @Override
-    public void pageCombo(String title, boolean noImages, final PageCombo.Callback cb) {
-        Call<RbPageCombo> call = webService.pageCombo(title, optional(noImages));
-        call.enqueue(new Callback<RbPageCombo>() {
-            @Override
-            public void onResponse(Call<RbPageCombo> call, Response<RbPageCombo> response) {
-                if (response.isSuccessful()) {
-                    cb.success(response.body());
-                } else {
-                    Throwable throwable = RetrofitException.httpError(response, retrofit);
-                    RbSwitch.INSTANCE.onRbRequestFailed(throwable);
-                    cb.failure(throwable);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RbPageCombo> call, Throwable t) {
                 RbSwitch.INSTANCE.onRbRequestFailed(t);
                 cb.failure(t);
             }

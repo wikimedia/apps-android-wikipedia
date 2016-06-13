@@ -36,15 +36,6 @@ public interface PageService {
     void pageRemaining(String title, boolean noImages, PageRemaining.Callback cb);
 
     /**
-     * Gets all page content of a given title -- for refreshing a saved page
-     *
-     * @param title the page title to be used including prefix
-     * @param noImages add the noimages flag to the request if true
-     * @param cb a Retrofit callback which provides the populated PageCombo object in #success
-     */
-    void pageCombo(String title, boolean noImages, PageCombo.Callback cb);
-
-    /**
      * Gets all page content of a given title.  Used in the saved page sync background service.
      * Synchronous call.
      *
