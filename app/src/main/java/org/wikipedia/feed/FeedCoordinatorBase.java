@@ -72,7 +72,7 @@ public abstract class FeedCoordinatorBase {
 
     private class ExhaustionClientCallback implements FeedClient.Callback {
         @Override
-        public void success(@NonNull List<Card> cardList) {
+        public void success(@NonNull List<? extends Card> cardList) {
             cards.addAll(cardList);
             if (updateListener != null) {
                 updateListener.update(cards);

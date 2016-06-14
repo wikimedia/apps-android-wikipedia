@@ -13,7 +13,7 @@ public interface FeedClient {
     void cancel();
 
     interface Callback {
-        void success(@NonNull List<Card> cards);
+        void success(@NonNull List<? extends Card> cards);
         void error(@NonNull Throwable caught);
     }
 }
