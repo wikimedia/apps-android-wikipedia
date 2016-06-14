@@ -20,7 +20,6 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 app:srcCompat="@drawable/ic_bookmark_black_24dp"
-                android:tint="@color/gray_background"
                 android:contentDescription="@null"/>
 
             <TextView

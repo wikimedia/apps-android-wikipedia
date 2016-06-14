@@ -26,21 +26,23 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     }
 
     @NonNull @Override public String title() {
-        return getString(R.string.most_read_list_card_title, date());
+        return getString(R.string.most_read_list_card_title);
     }
 
     @Nullable @Override public String subtitle() {
-        return date();
+        // todo: consider allowing TWN date formats. It would be useful to have but might be
+        //       difficult for translators to write correct format specifiers without being able to
+        //       test them. We should investigate localization support in date libraries such as
+        //       Joda-Time and how TWN solves this classic problem.
+        DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(context());
+        return dateFormat.format(articles.date());
     }
 
     @Nullable @Override public String footer() {
-        // todo: the mocks show a more terse date used here but this will probably require TWN
-        //       support. We should investigate localization support in date libraries such as
-        //       Joda-Time and how TWN solves this classic problem.
-        return getString(R.string.most_read_list_card_footer, date());
+        return getString(R.string.most_read_list_card_footer);
     }
 
-    @VisibleForTesting @NonNull Date getDate() {
+    @VisibleForTesting @NonNull Date date() {
         return articles.date();
     }
 
@@ -50,14 +52,6 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
             cards.add(new MostReadItemCard(article));
         }
         return cards.subList(0, Math.min(cards.size(), MAX_SIZE));
-    }
-
-    @NonNull private String date() {
-        // todo: consider allowing TWN date formats. It would be useful to have but might be
-        //       difficult for translators to write correct format specifiers without being able to
-        //       test them.
-        DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(context());
-        return dateFormat.format(articles.date());
     }
 
     @NonNull private String getString(@StringRes int id, @Nullable Object... formatArgs) {

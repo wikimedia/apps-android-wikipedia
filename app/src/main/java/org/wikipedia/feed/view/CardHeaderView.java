@@ -26,7 +26,7 @@ public class CardHeaderView extends LinearLayout {
         ButterKnife.bind(this);
     }
 
-    @NonNull public CardHeaderView setImage(@NonNull Uri uri) {
+    @NonNull public CardHeaderView setImage(@Nullable Uri uri) {
         imageView.setImageURI(uri);
         return this;
     }
