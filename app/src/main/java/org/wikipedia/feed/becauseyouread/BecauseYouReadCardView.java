@@ -1,7 +1,6 @@
 package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.feed.view.CardLargeHeaderView;
@@ -39,11 +38,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
             BecauseYouReadItemCard card = item(i);
             holder.getView().setTitle(card.title());
             holder.getView().setSubtitle(card.subtitle());
-
-            Uri imageUri = card.image();
-            if (imageUri != null) {
-                holder.getView().setImage(imageUri);
-            }
+            holder.getView().setImage(card.image());
         }
     }
 }
