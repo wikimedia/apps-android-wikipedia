@@ -50,17 +50,15 @@ public class FeedFragment extends Fragment implements CallbackFragment<CallbackF
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
             @Override
             public void update(List<Card> cards) {
-                feedView.update();
+                if (isAdded()) {
+                    feedView.update();
+                }
             }
         });
 
         coordinator.more(app.getSite());
 
         return view;
-    }
-
-    @Override public void onResume() {
-        super.onResume();
     }
 
     @Override public void onDestroyView() {
