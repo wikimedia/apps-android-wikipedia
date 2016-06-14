@@ -26,6 +26,12 @@ public final class MwPageEndpointsCache {
         return cachedWebService;
     }
 
+    public void update() {
+        if (site != null) {
+            cachedWebService = createMwService(site);
+        }
+    }
+
     private MwPageService.MwPageEndpoints createMwService(Site site) {
         return RetrofitFactory.newInstance(site).create(MwPageService.MwPageEndpoints.class);
     }
