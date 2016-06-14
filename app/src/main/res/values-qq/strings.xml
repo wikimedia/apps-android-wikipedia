@@ -401,4 +401,6 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_lists_onboarding_page_delete">Message for a tooltip that gives the user a hint that they can remove an page from a reading list by swiping it left or right.</string>
   <string name="user_option_sync_label">Checkbox title for Wikimedia account preference synchronization.
 {{Identical|Preferences}}</string>
+  <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
+  <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
 </resources>

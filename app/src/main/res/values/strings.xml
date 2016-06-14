@@ -316,6 +316,7 @@
     <!-- /User options -->
 
     <!-- The Feed -->
-    <!-- TODO: [Feed] move translatable strings here. -->
+    <string name="view_continue_reading_card_title">Continue reading</string>
+    <string name="view_because_you_read_card_title">Because you read</string>
     <!-- /The Feed -->
 </resources>

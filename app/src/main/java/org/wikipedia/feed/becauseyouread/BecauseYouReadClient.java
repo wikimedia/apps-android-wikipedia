@@ -97,7 +97,7 @@ public class BecauseYouReadClient implements FeedClient {
                         SearchResults results = SearchResults.filter(pages.query().results(title.getSite()), title.getText(), false);
                         List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results);
 
-                        cb.success(Collections.singletonList((Card) new BecauseYouReadCard(title.getText(), itemCards)));
+                        cb.success(Collections.singletonList((Card) new BecauseYouReadCard(title, itemCards)));
                     } else {
                         cb.error(new IOException("Error fetching suggestions."));
                     }

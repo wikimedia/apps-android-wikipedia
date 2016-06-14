@@ -5,18 +5,17 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CardHeaderView extends RelativeLayout {
-    @BindView(R.id.view_card_header_image) SimpleDraweeView imageView;
+public class CardHeaderView extends LinearLayout {
+    @BindView(R.id.view_card_header_image) ImageView imageView;
     @BindView(R.id.view_card_header_title) TextView titleView;
     @BindView(R.id.view_card_header_subtitle) TextView subtitleView;
 

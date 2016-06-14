@@ -1,4 +1,6 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <com.facebook.drawee.view.SimpleDraweeView
         style="@style/SimpleDraweeViewPlaceholder.Article"
@@ -14,11 +16,12 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/view_list_card_item_image"
         android:layout_toEndOf="@id/view_list_card_item_image"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Lorem ipsum"/>
 
     <TextView
         android:id="@+id/view_list_card_item_subtitle"
@@ -27,9 +30,10 @@
         android:layout_toRightOf="@id/view_list_card_item_image"
         android:layout_toEndOf="@id/view_list_card_item_image"
         android:layout_below="@id/view_list_card_item_title"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="16sp" />
+        android:textSize="14sp"
+        tools:text="Lorem ipsum"/>
 
 </merge>

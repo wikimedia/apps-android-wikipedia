@@ -16,7 +16,7 @@ public class IntegerListCard extends ListCard<IntegerListItemCard> {
     }
 
     @NonNull @Override public String title() {
-        return "Top read on English Wikipedia";
+        return "Trending articles";
     }
 
     @Nullable @Override public String subtitle() {
