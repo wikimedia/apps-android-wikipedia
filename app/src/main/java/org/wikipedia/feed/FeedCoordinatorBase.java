@@ -50,11 +50,11 @@ public abstract class FeedCoordinatorBase {
             currentAge++;
         }
 
-        buildScript(site);
+        buildScript(site, currentAge);
         requestNextCard();
     }
 
-    protected abstract void buildScript(Site site);
+    protected abstract void buildScript(Site site, int age);
 
     protected void addPendingClient(FeedClient client) {
         pendingClients.add(client);
