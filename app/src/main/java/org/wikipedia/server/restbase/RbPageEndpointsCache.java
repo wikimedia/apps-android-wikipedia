@@ -1,5 +1,7 @@
 package org.wikipedia.server.restbase;
 
+import android.support.annotation.NonNull;
+
 import org.wikipedia.Site;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.settings.Prefs;
@@ -18,6 +20,12 @@ public final class RbPageEndpointsCache {
     private Site site;
     private RbPageService.RbEndpoints cachedWebService;
     private Retrofit retrofit;
+
+    public static Retrofit retrofit(@NonNull Site site) {
+        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(),
+                site.authority());
+        return RetrofitFactory.newInstance(site, endpoint);
+    }
 
     private RbPageEndpointsCache() {
     }
@@ -41,8 +49,7 @@ public final class RbPageEndpointsCache {
     }
 
     private RbPageService.RbEndpoints createRbService(Site site) {
-        retrofit = RetrofitFactory.newInstance(site,
-                String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(), site.authority()));
+        retrofit = retrofit(site);
         return retrofit.create(RbPageService.RbEndpoints.class);
     }
 }

@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.wikipedia.feed.mostread.MostReadClient.Callback;
-import org.wikipedia.feed.mostread.MostReadClient.Client;
+import org.wikipedia.feed.mostread.MostReadClient.Service;
 import org.wikipedia.test.MockWebServerTest;
 
 import java.util.Calendar;
@@ -30,10 +30,10 @@ public class MostReadClientTest extends MockWebServerTest {
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("most_read.json");
 
-        Client client = client(Client.class);
+        Service service = service(Service.class);
         Calendar date = calendar(2016, Calendar.JUNE, 1);
         Callback cb = mock(Callback.class);
-        subject.request(client, date, cb);
+        subject.request(service, date, cb);
 
         RecordedRequest req = server().takeRequest();
         assertRequestIssued(req, "2016/06/01");
@@ -44,10 +44,10 @@ public class MostReadClientTest extends MockWebServerTest {
     @Test public void testRequestFailure() throws Throwable {
         enqueue404();
 
-        Client client = client(Client.class);
+        Service service = service(Service.class);
         Calendar date = calendar(2016, Calendar.JUNE, 1);
         Callback cb = mock(Callback.class);
-        subject.request(client, date, cb);
+        subject.request(service, date, cb);
 
         RecordedRequest req = server().takeRequest();
         assertRequestIssued(req, "2016/06/01");

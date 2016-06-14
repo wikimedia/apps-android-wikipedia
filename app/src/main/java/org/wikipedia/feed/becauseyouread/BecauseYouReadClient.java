@@ -10,15 +10,14 @@ import org.wikipedia.Constants;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.feed.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.page.MwApiResultPage;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 import org.wikipedia.search.SearchResults;
-import org.wikipedia.server.restbase.RbPageEndpointsCache;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
@@ -36,21 +35,19 @@ import retrofit2.http.Query;
 public class BecauseYouReadClient implements FeedClient {
     private static final String MORELIKE = "morelike:";
 
-    @NonNull private final MwApiSearchClient client;
+    @NonNull private final MwCachedService<MwApiSearchClient> cachedService = new MwCachedService<>(MwApiSearchClient.class);
     @NonNull private final WikipediaZeroHandler responseHeaderHandler;
-    @NonNull private final Retrofit retrofit;
 
     @Nullable private MainPageReadMoreTopicTask readMoreTopicTask;
     @Nullable private Call<MwQueryResponse<Pages>> readMoreCall;
 
-    public BecauseYouReadClient(@NonNull Site site) {
-        this.client = RetrofitFactory.newInstance(site).create(MwApiSearchClient.class);
+    public BecauseYouReadClient() {
         this.responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        this.retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
     }
 
     @Override
-    public void request(@NonNull Context context, int age, @NonNull final FeedClient.Callback cb) {
+    public void request(@NonNull Context context, @NonNull final Site site, int age,
+                        @NonNull final FeedClient.Callback cb) {
         cancel();
         readMoreTopicTask = new MainPageReadMoreTopicTask(context, age) {
             @Override
@@ -59,7 +56,7 @@ public class BecauseYouReadClient implements FeedClient {
                     cb.error(new IOException("Error fetching suggestions"));
                     return;
                 }
-                getSuggestionsForTitle(title, cb);
+                getSuggestionsForTitle(site, title, cb);
             }
 
             @Override
@@ -83,9 +80,11 @@ public class BecauseYouReadClient implements FeedClient {
         }
     }
 
-    private void getSuggestionsForTitle(@NonNull final PageTitle title,
+    private void getSuggestionsForTitle(@NonNull Site site,
+                                        @NonNull final PageTitle title,
                                         final FeedClient.Callback cb) {
-        readMoreCall = client.get(MORELIKE + title.getDisplayText());
+        final Retrofit retrofit = cachedService.retrofit(site);
+        readMoreCall = cachedService.service(site).get(MORELIKE + title.getDisplayText());
         readMoreCall.enqueue(new retrofit2.Callback<MwQueryResponse<Pages>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<Pages>> call,

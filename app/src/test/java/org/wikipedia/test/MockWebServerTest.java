@@ -39,11 +39,11 @@ public abstract class MockWebServerTest {
         server.enqueue(new MockResponse().setResponseCode(code).setBody("Not Found"));
     }
 
-    @NonNull public <T> T client(Class<T> clazz) {
-        return client(clazz, server().getUrl());
+    @NonNull public <T> T service(Class<T> clazz) {
+        return service(clazz, server().getUrl());
     }
 
-    @NonNull public <T> T client(Class<T> clazz, @NonNull String url) {
+    @NonNull public <T> T service(Class<T> clazz, @NonNull String url) {
         OkHttpClient okHttp = new OkHttpClient.Builder()
                 .dispatcher(new Dispatcher(new ImmediateExecutorService()))
                 .build();

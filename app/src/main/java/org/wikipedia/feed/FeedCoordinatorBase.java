@@ -17,6 +17,7 @@ public abstract class FeedCoordinatorBase {
     }
 
     @NonNull private Context context;
+    @Nullable private Site site;
     @Nullable private FeedUpdateListener updateListener;
     @NonNull private final List<Card> cards = new ArrayList<>();
     private int currentAge;
@@ -37,6 +38,7 @@ public abstract class FeedCoordinatorBase {
     }
 
     public void reset() {
+        site = null;
         currentAge = 0;
         for (FeedClient client : pendingClients) {
             client.cancel();
@@ -45,26 +47,27 @@ public abstract class FeedCoordinatorBase {
         cards.clear();
     }
 
-    public void more(Site site) {
+    public void more(@NonNull Site site) {
+        this.site = site;
         if (cards.size() > 0) {
             currentAge++;
         }
 
-        buildScript(site, currentAge);
-        requestNextCard();
+        buildScript(currentAge);
+        requestNextCard(site);
     }
 
-    protected abstract void buildScript(Site site, int age);
+    protected abstract void buildScript(int age);
 
     protected void addPendingClient(FeedClient client) {
         pendingClients.add(client);
     }
 
-    private void requestNextCard() {
+    private void requestNextCard(@NonNull Site site) {
         if (pendingClients.isEmpty()) {
             return;
         }
-        pendingClients.remove(0).request(context, currentAge, exhaustionClientCallback);
+        pendingClients.remove(0).request(context, site, currentAge, exhaustionClientCallback);
     }
 
     private class ExhaustionClientCallback implements FeedClient.Callback {
@@ -74,12 +77,14 @@ public abstract class FeedCoordinatorBase {
             if (updateListener != null) {
                 updateListener.update(cards);
             }
-            requestNextCard();
+            //noinspection ConstantConditions
+            requestNextCard(site);
         }
 
         @Override
         public void error(@NonNull Throwable caught) {
-            requestNextCard();
+            //noinspection ConstantConditions
+            requestNextCard(site);
         }
     }
 }

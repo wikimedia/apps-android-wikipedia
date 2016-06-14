@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.Site;
 import org.wikipedia.feed.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
@@ -19,7 +20,8 @@ public class ContinueReadingClient implements FeedClient {
     @Nullable private LastPageReadTask lastPageReadTask;
 
     @Override
-    public void request(@NonNull Context context, int age, @NonNull final FeedClient.Callback cb) {
+    public void request(@NonNull Context context, @NonNull Site site, int age,
+                        @NonNull final FeedClient.Callback cb) {
         cancel();
         lastPageReadTask = new LastPageReadTask(context, age, MIN_DAYS_OLD) {
             @Override
