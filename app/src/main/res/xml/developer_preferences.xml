@@ -41,8 +41,7 @@
             \nLabs: http://appservice.wmflabs.org/%2$s/v1/
             \nDev: http://host:6927/%2$s/v1/
             \n%1$s &#10139; protocol (https if omitted)
-            \n%2$s &#10139; WP host
-            \nNote: change requires restart." />
+            \n%2$s &#10139; WP host" />
 
         <!--suppress AndroidUnknownAttribute -->
         <org.wikipedia.settings.EditTextAutoSummarizePreference
@@ -52,8 +51,7 @@
             android:dialogMessage="Prod (default if blank): https://wikipedia.org
             \nDev: http://host:8080
             \nBeta cluster (switch app language to Simple English): http://wikipedia.beta.wmflabs.org
-            \nAuth manager (disable language code): http://authmanager.wmflabs.org
-            \nNote: change requires restart." />
+            \nAuth manager (disable language code): http://authmanager.wmflabs.org" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_mediawiki_base_uri_supports_lang_code"

@@ -34,6 +34,12 @@ public final class RbPageEndpointsCache {
         return cachedWebService;
     }
 
+    public void update() {
+        if (site != null) {
+            cachedWebService = createRbService(site);
+        }
+    }
+
     private RbPageService.RbEndpoints createRbService(Site site) {
         retrofit = RetrofitFactory.newInstance(site,
                 String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(), site.authority()));
