@@ -4,21 +4,24 @@ import android.support.annotation.NonNull;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
-import org.wikipedia.feed.mostread.MostReadClient.Callback;
+import org.wikipedia.feed.FeedClient.Callback;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.mostread.MostReadClient.Service;
 import org.wikipedia.test.MockWebServerTest;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.TimeZone;
 
 import okhttp3.mockwebserver.RecordedRequest;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.endsWith;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyListOf;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -52,7 +55,7 @@ public class MostReadClientTest extends MockWebServerTest {
         RecordedRequest req = server().takeRequest();
         assertRequestIssued(req, "2016/06/01");
 
-        verify(cb, never()).success(any(MostReadArticles.class));
+        verify(cb, never()).success(anyListOf(Card.class));
     }
 
     private void assertRequestIssued(@NonNull RecordedRequest req, @NonNull String date) {
@@ -60,12 +63,14 @@ public class MostReadClientTest extends MockWebServerTest {
     }
 
     private void assertCallbackSuccess(@NonNull Callback cb, @NonNull Calendar date) {
-        ArgumentCaptor<MostReadArticles> captor = ArgumentCaptor.forClass(MostReadArticles.class);
+        @SuppressWarnings({"unchecked", "rawtypes"})
+        ArgumentCaptor<List<MostReadListCard>> captor = ArgumentCaptor.forClass((Class) List.class);
         verify(cb).success(captor.capture());
 
-        MostReadArticles rsp = captor.getValue();
+        List<MostReadListCard> rsp = captor.getValue();
         assertThat(rsp, notNullValue());
-        assertThat(rsp.date(), is(date.getTime()));
+        assertThat(rsp.size(), greaterThan(0));
+        assertThat(rsp.get(0).getDate(), is(date.getTime()));
     }
 
     @NonNull private Calendar calendar(int year, int month, int day) throws Throwable {
