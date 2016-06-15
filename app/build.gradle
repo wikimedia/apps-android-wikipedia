@@ -157,7 +157,7 @@ dependencies {
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
     String retrofitVersion = '2.0.2'
-    String okHttpVersion = '3.2.0'
+    String okHttpVersion = '3.3.1'
     String supportVersion = '23.4.0'
     String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.0.1'
