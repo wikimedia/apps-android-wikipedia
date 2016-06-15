@@ -62,6 +62,7 @@ public abstract class ListCardView<T extends Card> extends CardView {
                 R.dimen.view_list_card_item_margin));
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 R.drawable.divider, true));
+        recyclerView.setNestedScrollingEnabled(false);
     }
 
     protected abstract static class RecyclerAdapter<T>

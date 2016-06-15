@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:srcCompat="@drawable/ic_search_black_24dp"
+            app:srcCompat="@drawable/ic_search_white_24dp"
             android:scaleType="center"
             android:tint="@color/gray_background"
             android:contentDescription="@string/search_hint" />

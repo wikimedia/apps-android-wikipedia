@@ -2,8 +2,13 @@ package org.wikipedia.feed;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,14 +24,20 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class FeedFragment extends Fragment implements CallbackFragment<CallbackFragment.Callback> {
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
+    @BindView(R.id.feed_collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
+    @BindView(R.id.feed_toolbar) Toolbar toolbar;
     private Unbinder unbinder;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
+
+    public interface Callback extends CallbackFragment.Callback {
+        void onAddToolbar(Toolbar toolbar);
+        void onRemoveToolbar(Toolbar toolbar);
+    }
 
     public static FeedFragment newInstance() {
         return new FeedFragment();
@@ -49,6 +60,10 @@ public class FeedFragment extends Fragment implements CallbackFragment<CallbackF
         unbinder = ButterKnife.bind(this, view);
         feedView.set(coordinator.getCards());
 
+        if (getCallback() != null) {
+            getCallback().onAddToolbar(toolbar);
+        }
+
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
             @Override
             public void update(List<Card> cards) {
@@ -63,19 +78,40 @@ public class FeedFragment extends Fragment implements CallbackFragment<CallbackF
         return view;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
     @Override public void onDestroyView() {
+        if (getCallback() != null) {
+            getCallback().onRemoveToolbar(toolbar);
+        }
         unbinder.unbind();
         super.onDestroyView();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_feed, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_feed_search:
+
+                // TODO: remove
+                coordinator.more(app.getSite());
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override @Nullable public Callback getCallback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
-
-    // TODO: [Feed] remove.
-    @OnClick(R.id.fragment_feed_add_card) void addCard() {
-        coordinator.more(app.getSite());
-        feedView.update();
-    }
-
 }
