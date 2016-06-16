@@ -1,0 +1,42 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/search_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/ic_search_black_24dp"
+            android:scaleType="center"
+            android:tint="@color/gray_background"
+            android:contentDescription="@string/search_hint" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="@string/search_hint"
+            android:textColor="@color/gray_disabled" />
+
+        <ImageView
+            android:id="@+id/voice_search_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/ic_mic_black_24dp"
+            android:scaleType="center"
+            android:tint="@color/gray_background"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:contentDescription="@string/search_hint" />
+
+    </LinearLayout>
+
+</merge>

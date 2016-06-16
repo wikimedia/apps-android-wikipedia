@@ -12,15 +12,18 @@ import org.wikipedia.feed.continuereading.ContinueReadingCardView;
 import org.wikipedia.feed.demo.IntegerListCard;
 import org.wikipedia.feed.demo.IntegerListCardView;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.searchbar.SearchCard;
+import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
 
 public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> {
-    private static final int VIEW_TYPE_INTEGER_LIST = 0;
+    private static final int VIEW_TYPE_SEARCH_BAR = 0;
     private static final int VIEW_TYPE_CONTINUE_READING = 1;
     private static final int VIEW_TYPE_BECAUSE_YOU_READ = 2;
+    private static final int VIEW_TYPE_INTEGER_LIST = 100;
 
     public FeedRecyclerAdapter(@NonNull List<Card> items) {
         super(items);
@@ -40,6 +43,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             ((ContinueReadingCardView) view).set((ContinueReadingCard) item);
         } else if (view instanceof BecauseYouReadCardView) {
             ((BecauseYouReadCardView) view).set((BecauseYouReadCard) item);
+        } else if (view instanceof SearchCardView) {
+            ((SearchCardView) view).set((SearchCard) item);
         } else {
             throw new IllegalStateException("Unknown type=" + view.getClass());
         }
@@ -53,6 +58,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             return VIEW_TYPE_CONTINUE_READING;
         } else if (item instanceof BecauseYouReadCard) {
             return VIEW_TYPE_BECAUSE_YOU_READ;
+        } else if (item instanceof SearchCard) {
+            return VIEW_TYPE_SEARCH_BAR;
         } else {
             throw new IllegalStateException("Unknown type=" + item.getClass());
         }
@@ -66,6 +73,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
                 return new ContinueReadingCardView(context);
             case VIEW_TYPE_BECAUSE_YOU_READ:
                 return new BecauseYouReadCardView(context);
+            case VIEW_TYPE_SEARCH_BAR:
+                return new SearchCardView(context);
             default:
                 throw new IllegalArgumentException("viewType=" + viewType);
         }
