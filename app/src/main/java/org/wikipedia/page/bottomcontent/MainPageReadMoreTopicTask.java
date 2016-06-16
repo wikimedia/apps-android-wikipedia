@@ -8,6 +8,7 @@ import android.os.RemoteException;
 
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 
@@ -33,8 +34,9 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
         Cursor c = getInterestedHistoryEntry();
         try {
             if (c.moveToPosition(age)) {
-                final HistoryEntry historyEntry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
-                return historyEntry.getTitle();
+                HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
+                entry.getTitle().setThumbUrl(PageImageHistoryContract.Col.IMAGE_NAME.val(c));
+                return entry.getTitle();
             }
             return null;
         } finally {
@@ -45,13 +47,13 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
     private Cursor getInterestedHistoryEntry() {
         ContentProviderClient client = HistoryEntry.DATABASE_TABLE.acquireClient(context);
         try {
-            Uri uri = PageHistoryContract.Page.URI;
+            Uri uri = PageHistoryContract.PageWithImage.URI;
             final String[] projection = null;
             String selection = ":sourceCol != ? and :sourceCol != ? "
                     .replaceAll(":sourceCol", PageHistoryContract.Page.SOURCE.qualifiedName());
             String[] selectionArgs = new String[] {Integer.toString(HistoryEntry.SOURCE_MAIN_PAGE),
                     Integer.toString(HistoryEntry.SOURCE_RANDOM)};
-            String order = PageHistoryContract.Page.ORDER_MRU;
+            String order = PageHistoryContract.PageWithImage.ORDER_MRU;
             return client.query(uri, projection, selection, selectionArgs, order);
         } catch (RemoteException e) {
             throw new RuntimeException(e);

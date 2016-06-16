@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.feed.view.CardHeaderView;
+import org.wikipedia.feed.view.CardLargeHeaderView;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.views.DefaultViewHolder;
@@ -22,9 +22,11 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {
-        CardHeaderView header = new CardHeaderView(getContext())
+        CardLargeHeaderView header = new CardLargeHeaderView(getContext())
                 .setTitle(card.title())
-                .setSubtitle(card.subtitle());
+                .setSubtitle(card.subtitle())
+                .setPageTitle(card.pageTitle())
+                .setImage(card.image());
         header(header);
     }
 
