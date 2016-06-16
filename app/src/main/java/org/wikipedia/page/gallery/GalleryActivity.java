@@ -1,6 +1,7 @@
 package org.wikipedia.page.gallery;
 
 import org.wikipedia.activity.ActivityUtil;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -11,7 +12,6 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.FeedbackUtil;
@@ -246,7 +246,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         galleryIntent.putExtra(EXTRA_IMAGETITLE, imageTitle);
         galleryIntent.putExtra(EXTRA_PAGETITLE, pageTitle);
         galleryIntent.putExtra(EXTRA_SOURCE, source);
-        activity.startActivityForResult(galleryIntent, PageActivity.ACTIVITY_REQUEST_GALLERY);
+        activity.startActivityForResult(galleryIntent, MainActivity.ACTIVITY_REQUEST_GALLERY);
     }
 
     private class GalleryPageChangeListener implements ViewPager.OnPageChangeListener {
@@ -375,10 +375,10 @@ public class GalleryActivity extends ThemedActionBarActivity {
         HistoryEntry historyEntry = new HistoryEntry(resultTitle,
                                                      HistoryEntry.SOURCE_INTERNAL_LINK);
         Intent intent = new Intent();
-        intent.setClass(GalleryActivity.this, PageActivity.class);
-        intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-        intent.putExtra(PageActivity.EXTRA_PAGETITLE, resultTitle);
-        intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
+        intent.setClass(GalleryActivity.this, MainActivity.class);
+        intent.setAction(MainActivity.ACTION_PAGE_FOR_TITLE);
+        intent.putExtra(MainActivity.EXTRA_PAGETITLE, resultTitle);
+        intent.putExtra(MainActivity.EXTRA_HISTORYENTRY, historyEntry);
         setResult(ACTIVITY_RESULT_FILEPAGE_SELECT, intent);
         finish();
     }

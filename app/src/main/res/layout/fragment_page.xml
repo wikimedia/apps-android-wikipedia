@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/page_background_color"
-    tools:context=".page.PageActivity">
+    tools:context=".MainActivity">
 
     <org.wikipedia.views.WikiDrawerLayout
             android:id="@+id/page_toc_drawer"

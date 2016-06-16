@@ -19,7 +19,7 @@ import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
@@ -263,7 +263,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         public void onClick(ReadingList readingList, ReadingListPage page) {
             PageTitle title = ReadingListDaoProxy.pageTitle(page);
             HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
-            ((PageActivity) getActivity()).loadPage(title, newEntry);
+            ((MainActivity) getActivity()).loadPage(title, newEntry);
 
             ReadingList.DAO.makeListMostRecent(readingList);
         }

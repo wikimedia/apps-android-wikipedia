@@ -11,7 +11,7 @@ import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
 
@@ -41,7 +41,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
         intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, currentPage.getPageProperties());
         intent.putExtra(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT, highlightText);
-        fragment.startActivityForResult(intent, PageActivity.ACTIVITY_REQUEST_EDIT_SECTION);
+        fragment.startActivityForResult(intent, MainActivity.ACTIVITY_REQUEST_EDIT_SECTION);
     }
 
     private void showUneditableDialog() {

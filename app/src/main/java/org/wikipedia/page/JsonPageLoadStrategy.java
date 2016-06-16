@@ -18,6 +18,7 @@ import org.mediawiki.api.json.ApiException;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.MainActivity;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.editing.EditHandler;
@@ -103,7 +104,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private PageViewModel model;
     private PageFragment fragment;
     private CommunicationBridge bridge;
-    private PageActivity activity;
+    private MainActivity activity;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
     @NonNull private final WikipediaApp app = WikipediaApp.getInstance();
@@ -125,7 +126,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                       @NonNull List<PageBackStackItem> backStack) {
         this.model = model;
         this.fragment = fragment;
-        activity = (PageActivity) fragment.getActivity();
+        activity = (MainActivity) fragment.getActivity();
         this.refreshView = refreshView;
         this.webView = webView;
         this.bridge = bridge;
@@ -677,7 +678,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private void displayNonLeadSection(int index, boolean savedPage) {
         activity.updateProgressBar(true, false,
-                PageActivity.PROGRESS_BAR_MAX_VALUE / model.getPage()
+                MainActivity.PROGRESS_BAR_MAX_VALUE / model.getPage()
                         .getSections().size() * index);
         try {
             final Page page = model.getPage();

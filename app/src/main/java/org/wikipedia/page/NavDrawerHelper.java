@@ -16,6 +16,7 @@ import android.widget.TextView;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.NavMenuFunnel;
 import org.wikipedia.feed.FeedActivity;
@@ -34,14 +35,14 @@ import org.wikipedia.util.UriUtil;
 public class NavDrawerHelper {
 
     private final WikipediaApp app = WikipediaApp.getInstance();
-    private final PageActivity activity;
+    private final MainActivity activity;
     private NavMenuFunnel funnel;
     private TextView accountNameView;
     private ImageView accountNameArrow;
     private boolean accountToggle;
     private boolean isTempExplicitHighlight;
 
-    public NavDrawerHelper(@NonNull PageActivity activity, View navDrawerHeader) {
+    public NavDrawerHelper(@NonNull MainActivity activity, View navDrawerHeader) {
         this.funnel = new NavMenuFunnel();
         this.activity = activity;
         activity.getSupportFragmentManager()
@@ -128,7 +129,7 @@ public class NavDrawerHelper {
                     @Override
                     public void onRandomPageReceived(@Nullable PageTitle title) {
                         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                        activity.loadPage(title, historyEntry, PageActivity.TabPosition.CURRENT_TAB, true);
+                        activity.loadPage(title, historyEntry, MainActivity.TabPosition.CURRENT_TAB, true);
                     }
 
                     @Override

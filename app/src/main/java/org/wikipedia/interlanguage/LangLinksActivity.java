@@ -21,7 +21,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.views.WikiErrorView;
 
@@ -98,10 +98,10 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                 app.setMruLanguageCode(langLink.getSite().languageCode());
                 HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
                 Intent intent = new Intent()
-                        .setClass(LangLinksActivity.this, PageActivity.class)
-                        .setAction(PageActivity.ACTION_PAGE_FOR_TITLE)
-                        .putExtra(PageActivity.EXTRA_PAGETITLE, langLink)
-                        .putExtra(PageActivity.EXTRA_HISTORYENTRY, historyEntry);
+                        .setClass(LangLinksActivity.this, MainActivity.class)
+                        .setAction(MainActivity.ACTION_PAGE_FOR_TITLE)
+                        .putExtra(MainActivity.EXTRA_PAGETITLE, langLink)
+                        .putExtra(MainActivity.EXTRA_HISTORYENTRY, historyEntry);
                 setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
                 hideSoftKeyboard(LangLinksActivity.this);
                 finish();

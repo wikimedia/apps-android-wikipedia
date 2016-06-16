@@ -17,7 +17,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.WiktionaryDialogFunnel;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageService;
@@ -210,8 +210,8 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
             });
 
     private boolean currentPageFragmentExists() {
-        return getActivity() != null && getActivity() instanceof PageActivity
-                && ((PageActivity) getActivity()).getCurPageFragment() != null;
+        return getActivity() != null && getActivity() instanceof MainActivity
+                && ((MainActivity) getActivity()).getCurPageFragment() != null;
     }
 
     private String getTermFromWikiLink(String url) {
@@ -223,7 +223,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void showNewDialogForLink(String url) {
-        ((PageActivity) getActivity()).getCurPageFragment().getShareHandler()
+        ((MainActivity) getActivity()).getCurPageFragment().getShareHandler()
                 .showWiktionaryDefinition(getTermFromWikiLink(url));
     }
 

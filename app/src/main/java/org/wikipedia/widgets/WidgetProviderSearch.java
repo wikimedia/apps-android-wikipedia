@@ -1,7 +1,7 @@
 package org.wikipedia.widgets;
 
 import org.wikipedia.R;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -24,9 +24,9 @@ public class WidgetProviderSearch extends AppWidgetProvider {
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_search);
 
             // Create a PendingIntent to act as the onClickListener
-            Intent intent = new Intent(context, PageActivity.class);
+            Intent intent = new Intent(context, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(PageActivity.EXTRA_SEARCH_FROM_WIDGET, true);
+            intent.putExtra(MainActivity.EXTRA_SEARCH_FROM_WIDGET, true);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             // If we want to update the widget itself from the click event, then do something like this:

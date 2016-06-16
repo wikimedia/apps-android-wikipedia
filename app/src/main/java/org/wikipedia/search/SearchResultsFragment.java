@@ -2,12 +2,12 @@ package org.wikipedia.search;
 
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivityLongPressHandler;
+import org.wikipedia.MainActivity;
+import org.wikipedia.page.MainActivityLongPressHandler;
 import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
@@ -128,7 +128,7 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(getPageActivity());
+        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(getMainActivity());
         new PageLongPressHandler(getActivity(), searchResultsList, HistoryEntry.SOURCE_SEARCH,
                 contextMenuListener);
     }
@@ -207,7 +207,7 @@ public class SearchResultsFragment extends Fragment {
         TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getSite()), app.getSite(), searchTerm) {
             @Override
             public void onBeforeExecute() {
-                getPageActivity().updateProgressBar(true, true, 0);
+                getMainActivity().updateProgressBar(true, true, 0);
             }
 
             @Override
@@ -224,7 +224,7 @@ public class SearchResultsFragment extends Fragment {
                     searchFragment.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
                 }
 
-                getPageActivity().updateProgressBar(false, true, 0);
+                getMainActivity().updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
                 if (!resultList.isEmpty()) {
                     clearResults();
@@ -269,7 +269,7 @@ public class SearchResultsFragment extends Fragment {
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(false, timeToDisplay);
-                getPageActivity().updateProgressBar(false, true, 0);
+                getMainActivity().updateProgressBar(false, true, 0);
 
                 searchErrorView.setVisibility(View.VISIBLE);
                 searchErrorView.setError(caught);
@@ -285,7 +285,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void cancelSearchTask() {
-        getPageActivity().updateProgressBar(false, true, 0);
+        getMainActivity().updateProgressBar(false, true, 0);
         searchHandler.removeMessages(MESSAGE_SEARCH);
         if (curSearchTask != null) {
             // This does not cancel the HTTP request itself
@@ -305,7 +305,7 @@ public class SearchResultsFragment extends Fragment {
                                    searchTerm, BATCH_SIZE, continueOffset, false) {
             @Override
             public void onBeforeExecute() {
-                getPageActivity().updateProgressBar(true, true, 0);
+                getMainActivity().updateProgressBar(true, true, 0);
             }
 
             @Override
@@ -333,7 +333,7 @@ public class SearchResultsFragment extends Fragment {
                     cachedTitles.addAll(resultList);
                 }
 
-                getPageActivity().updateProgressBar(false, true, 0);
+                getMainActivity().updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
 
                 // full text special:
@@ -350,7 +350,7 @@ public class SearchResultsFragment extends Fragment {
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(true, timeToDisplay);
-                getPageActivity().updateProgressBar(false, true, 0);
+                getMainActivity().updateProgressBar(false, true, 0);
 
                 // since this is a follow-up search just show a message
                 FeedbackUtil.showError(getView(), caught);
@@ -390,9 +390,9 @@ public class SearchResultsFragment extends Fragment {
         return (BaseAdapter) searchResultsList.getAdapter();
     }
 
-    // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.
-    private PageActivity getPageActivity() {
-        return (PageActivity) getActivity();
+    // TODO: don't assume host is MainActivity. Use Fragment callbacks pattern.
+    private MainActivity getMainActivity() {
+        return (MainActivity) getActivity();
     }
 
     /**
@@ -419,9 +419,9 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private class LongPressHandler extends PageActivityLongPressHandler
+    private class LongPressHandler extends MainActivityLongPressHandler
             implements PageLongPressHandler.ListViewContextMenuListener {
-        LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull MainActivity activity) {
             super(activity);
         }
 

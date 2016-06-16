@@ -59,7 +59,7 @@
                   android:label="@string/activity_feed_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
-        <activity android:name=".page.PageActivity"
+        <activity android:name=".MainActivity"
                   android:theme="@style/PageTheme"
                   android:windowSoftInputMode="stateHidden"
                   android:configChanges="orientation|screenSize"
