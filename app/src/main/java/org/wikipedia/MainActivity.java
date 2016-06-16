@@ -54,6 +54,7 @@ import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import org.wikipedia.feed.FeedActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
@@ -83,6 +84,8 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.zero.ZeroConfig;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
@@ -451,6 +454,13 @@ public class MainActivity extends ThemedActionBarActivity {
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
+        } else if (Prefs.enableFeed() && TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) > 0) {
+            launchFeedActivity();
+
+            // Uncommenting the following line gives the desired back button behavior but there's
+            // currently no way to open a page from the Feed. todo: uncomment once the Feed is
+            // interactive.
+            // finish();
         } else {
             loadMainPageIfNoTabs();
         }
@@ -1046,5 +1056,9 @@ public class MainActivity extends ThemedActionBarActivity {
                 new ComponentName(this, WidgetProviderFeaturedPage.class));
         widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         sendBroadcast(widgetIntent);
+    }
+
+    private void launchFeedActivity() {
+        startActivity(FeedActivity.newIntent(this));
     }
 }

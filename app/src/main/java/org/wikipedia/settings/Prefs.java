@@ -343,6 +343,14 @@ public final class Prefs {
         setLong(getLastRunTimeKey(task), time);
     }
 
+    public static long pageLastShown() {
+        return getLong(R.string.preference_key_page_last_shown, 0);
+    }
+
+    public static void pageLastShown(long time) {
+        setLong(R.string.preference_key_page_last_shown, time);
+    }
+
     public static boolean isShowZeroInterstitialEnabled() {
         return getBoolean(R.string.preference_key_zero_interstitial, true);
     }

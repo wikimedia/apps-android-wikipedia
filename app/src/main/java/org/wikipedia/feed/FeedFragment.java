@@ -13,6 +13,7 @@ import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedView;
+import org.wikipedia.settings.Prefs;
 
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class FeedFragment extends Fragment implements CallbackFragment<CallbackF
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
         coordinator = new FeedCoordinator(getContext());
+        Prefs.pageLastShown(0);
     }
 
     @Nullable @Override public View onCreateView(LayoutInflater inflater,
