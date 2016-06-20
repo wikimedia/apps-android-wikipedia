@@ -120,6 +120,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
         inflater.inflate(R.menu.menu_reading_lists, menu);
     }
 

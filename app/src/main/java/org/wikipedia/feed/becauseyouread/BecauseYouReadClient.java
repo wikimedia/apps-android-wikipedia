@@ -94,7 +94,7 @@ public class BecauseYouReadClient implements FeedClient {
                     MwQueryResponse<Pages> pages = response.body();
                     if (pages.success() && pages.query() != null && pages.query().results(title.getSite()) != null) {
                         SearchResults results = SearchResults.filter(pages.query().results(title.getSite()), title.getText(), false);
-                        List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results);
+                        List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results, title.getSite());
 
                         cb.success(Collections.singletonList((Card) new BecauseYouReadCard(title, itemCards)));
                     } else {

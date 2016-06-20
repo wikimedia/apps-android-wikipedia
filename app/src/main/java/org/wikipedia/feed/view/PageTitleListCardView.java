@@ -21,13 +21,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public abstract class ListCardView<T extends Card> extends CardView {
+public abstract class PageTitleListCardView<T extends Card> extends CardView {
     @BindView(R.id.view_list_card_header) View headerView;
     @BindView(R.id.view_list_card_footer) View footerView;
-
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;
 
-    public ListCardView(Context context) {
+    public PageTitleListCardView(Context context) {
         super(context);
 
         inflate(getContext(), R.layout.view_list_card, this);
@@ -63,14 +62,14 @@ public abstract class ListCardView<T extends Card> extends CardView {
     }
 
     protected abstract static class RecyclerAdapter<T>
-            extends DefaultRecyclerAdapter<T, ListCardItemView> {
+            extends DefaultRecyclerAdapter<T, PageTitleListCardItemView> {
         protected RecyclerAdapter(@NonNull List<T> items) {
             super(items);
         }
 
-        @Override public DefaultViewHolder<ListCardItemView> onCreateViewHolder(ViewGroup parent,
+        @Override public DefaultViewHolder<PageTitleListCardItemView> onCreateViewHolder(ViewGroup parent,
                                                                                 int viewType) {
-            return new DefaultViewHolder<>(new ListCardItemView(parent.getContext()));
+            return new DefaultViewHolder<>(new PageTitleListCardItemView(parent.getContext()));
         }
     }
 }

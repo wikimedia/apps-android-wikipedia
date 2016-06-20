@@ -54,7 +54,7 @@ import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import org.wikipedia.feed.FeedActivity;
+import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
@@ -91,7 +91,7 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class MainActivity extends ThemedActionBarActivity {
+public class MainActivity extends ThemedActionBarActivity implements FeedFragment.Callback {
 
     public enum TabPosition {
         CURRENT_TAB,
@@ -135,6 +135,7 @@ public class MainActivity extends ThemedActionBarActivity {
     private boolean navItemSelected;
     private WikipediaZeroUsageFunnel zeroFunnel;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this);
+    private MainActivityToolbarCoordinator toolbarCoordinator;
 
     public View getContentView() {
         return fragmentContainerView;
@@ -209,10 +210,15 @@ public class MainActivity extends ThemedActionBarActivity {
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         setContentView(R.layout.activity_page);
 
-        setSupportActionBar((Toolbar) findViewById(R.id.main_toolbar));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        toolbarCoordinator = new MainActivityToolbarCoordinator(this, (Toolbar) findViewById(R.id.main_toolbar));
         toolbarContainer = findViewById(R.id.main_toolbar_container);
+        getSupportFragmentManager()
+                .addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+                    @Override
+                    public void onBackStackChanged() {
+                        updateToolbarForFragment();
+                    }
+                });
 
         busMethods = new EventBusMethods();
         registerBus();
@@ -454,15 +460,10 @@ public class MainActivity extends ThemedActionBarActivity {
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
-        } else if (Prefs.enableFeed() && TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) > 0) {
-            launchFeedActivity();
-
-            // Uncommenting the following line gives the desired back button behavior but there's
-            // currently no way to open a page from the Feed. todo: uncomment once the Feed is
-            // interactive.
-            // finish();
-        } else {
+        } else if (!Prefs.enableFeed() || TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) == 0) {
             loadMainPageIfNoTabs();
+        } else {
+            showFeed();
         }
     }
 
@@ -524,8 +525,21 @@ public class MainActivity extends ThemedActionBarActivity {
         drawerLayout.closeDrawer(GravityCompat.START);
     }
 
-    private void removeAllFragments() {
-        getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    public void showFeed() {
+        // pop fragments until we see a FeedFragment. If there's no FeedFragment, then add it.
+        while (getSupportFragmentManager().getBackStackEntryCount() > 0
+                && !(getTopFragment() instanceof FeedFragment)) {
+            getSupportFragmentManager().popBackStackImmediate();
+        }
+        pushFragment(new FeedFragment());
+    }
+
+    private void resetFragmentsToFeedOrPage() {
+        while (getSupportFragmentManager().getBackStackEntryCount() > 0
+                && !(getTopFragment() instanceof FeedFragment)
+                && !(getTopFragment() instanceof PageFragment)) {
+            getSupportFragmentManager().popBackStackImmediate();
+        }
     }
 
     /**
@@ -543,9 +557,7 @@ public class MainActivity extends ThemedActionBarActivity {
      * @param allowStateLoss Whether to allow state loss.
      */
     public void pushFragment(Fragment f, boolean allowStateLoss) {
-        closeNavDrawer();
-        searchBarHideHandler.setForceNoFade(false);
-        searchBarHideHandler.setFadeEnabled(false);
+        beforeFragmentChanged();
         // if the new fragment is the same class as the current topmost fragment,
         // then just keep the previous fragment there.
         // e.g. if the user selected History, and there's already a History fragment on top,
@@ -554,7 +566,7 @@ public class MainActivity extends ThemedActionBarActivity {
             return;
         }
 
-        removeAllFragments();
+        resetFragmentsToFeedOrPage();
         FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
         trans.add(R.id.content_fragment_container, f);
         trans.addToBackStack(null);
@@ -563,17 +575,33 @@ public class MainActivity extends ThemedActionBarActivity {
         } else {
             trans.commit();
         }
+        afterFragmentChanged();
+    }
 
-        // and make sure the ActionBar is visible
+    public void resetAfterClearHistory() {
+        Prefs.clearTabs();
+        showFeed();
+    }
+
+    private void beforeFragmentChanged() {
+        closeNavDrawer();
+        searchBarHideHandler.setForceNoFade(false);
+        searchBarHideHandler.setFadeEnabled(false);
+    }
+
+    private void afterFragmentChanged() {
+        //make sure the ActionBar is visible
         showToolbar();
         //also make sure the progress bar is not showing
         updateProgressBar(false, true, 0);
     }
 
-    public void resetAfterClearHistory() {
-        removeAllFragments();
-        Prefs.clearTabs();
-        loadMainPageIfNoTabs();
+    private void updateToolbarForFragment() {
+        if (getTopFragment() instanceof MainActivityToolbarProvider) {
+            toolbarCoordinator.setOverrideToolbar(((MainActivityToolbarProvider) getTopFragment()).getToolbar());
+        } else {
+            toolbarCoordinator.removeOverrideToolbar();
+        }
     }
 
     /**
@@ -770,11 +798,29 @@ public class MainActivity extends ThemedActionBarActivity {
         if (getTopFragment() instanceof BackPressedHandler
                 && ((BackPressedHandler) getTopFragment()).onBackPressed()) {
             return;
-        } else if (!(getTopFragment() instanceof PageFragment)) {
-            pushFragment(new PageFragment(), false);
+        }
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            beforeFragmentChanged();
+            getSupportFragmentManager().popBackStackImmediate();
+            afterFragmentChanged();
             return;
         }
         finish();
+    }
+
+    @Override
+    public void onFeedSearchRequested() {
+        onSearchRequested();
+    }
+
+    @Override
+    public void onFeedSelectPage(PageTitle title) {
+        loadPage(title, new HistoryEntry(title, HistoryEntry.SOURCE_FEED));
+    }
+
+    @Override
+    public void onFeedAddPageToList(PageTitle title) {
+        showAddToListDialog(title, AddToReadingListDialog.InvokeSource.FEED);
     }
 
     private void loadMainPageIfNoTabs() {
@@ -1056,9 +1102,5 @@ public class MainActivity extends ThemedActionBarActivity {
                 new ComponentName(this, WidgetProviderFeaturedPage.class));
         widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         sendBroadcast(widgetIntent);
-    }
-
-    private void launchFeedActivity() {
-        startActivity(FeedActivity.newIntent(this));
     }
 }

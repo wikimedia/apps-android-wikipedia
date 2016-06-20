@@ -168,6 +168,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         if (!isMenuToBeSetUp()) {
             return;
         }
+        menu.clear();
         inflater.inflate(R.menu.menu_history, menu);
     }
 

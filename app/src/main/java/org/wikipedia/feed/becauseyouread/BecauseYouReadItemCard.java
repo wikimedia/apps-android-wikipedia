@@ -3,33 +3,35 @@ package org.wikipedia.feed.becauseyouread;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.page.PageTitle;
 
 public class BecauseYouReadItemCard extends Card {
-    @NonNull private final String title;
-    @Nullable private final String subtitle;
-    @Nullable private final Uri image;
+    @NonNull private final PageTitle title;
 
-    public BecauseYouReadItemCard(@NonNull String title, @Nullable String subtitle,
-                                  @Nullable String image) {
+    public BecauseYouReadItemCard(@NonNull PageTitle title) {
         this.title = title;
-        this.subtitle = subtitle;
-        this.image = image != null ? Uri.parse(image) : null;
+    }
+
+    @NonNull
+    public PageTitle pageTitle() {
+        return title;
     }
 
     @NonNull
     @Override public String title() {
-        return title;
+        return title.getDisplayText();
     }
 
     @Nullable
     @Override public String subtitle() {
-        return subtitle;
+        return title.getDescription();
     }
 
     @Nullable
     @Override public Uri image() {
-        return image;
+        return TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
     }
 }

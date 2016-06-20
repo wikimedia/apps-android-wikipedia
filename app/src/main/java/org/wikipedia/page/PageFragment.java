@@ -14,7 +14,6 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.text.Html;
 import android.util.Log;
@@ -473,7 +472,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("");
         initPageScrollFunnel();
     }
 
@@ -628,6 +626,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!isAdded() || getMainActivity().isSearching()) {
             return;
         }
+        menu.clear();
         inflater.inflate(R.menu.menu_page_actions, menu);
     }
 

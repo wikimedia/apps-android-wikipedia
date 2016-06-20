@@ -2,38 +2,46 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        style="@style/SimpleDraweeViewPlaceholder.Article"
-        android:id="@+id/view_list_card_item_image"
-        android:layout_width="@dimen/defaultListItemSize"
-        android:layout_height="@dimen/defaultListItemSize"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/view_list_card_item_title"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/view_list_card_item_image"
-        android:layout_toEndOf="@id/view_list_card_item_image"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:text="Lorem ipsum"/>
+        android:padding="@dimen/list_item_horizontal_padding"
+        android:background="?attr/selectableItemBackground">
 
-    <TextView
-        android:id="@+id/view_list_card_item_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/view_list_card_item_image"
-        android:layout_toEndOf="@id/view_list_card_item_image"
-        android:layout_below="@id/view_list_card_item_title"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="14sp"
-        tools:text="Lorem ipsum"/>
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/SimpleDraweeViewPlaceholder.Article"
+            android:id="@+id/view_list_card_item_image"
+            android:layout_width="@dimen/defaultListItemSize"
+            android:layout_height="@dimen/defaultListItemSize"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/view_list_card_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/view_list_card_item_image"
+            android:layout_toEndOf="@id/view_list_card_item_image"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Lorem ipsum"/>
+
+        <TextView
+            android:id="@+id/view_list_card_item_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/view_list_card_item_image"
+            android:layout_toEndOf="@id/view_list_card_item_image"
+            android:layout_below="@id/view_list_card_item_title"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="14sp"
+            tools:text="Lorem ipsum"/>
+
+    </RelativeLayout>
 
 </merge>
