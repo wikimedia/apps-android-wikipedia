@@ -201,7 +201,7 @@
   <string name="read_more_section">Ler mais</string>
   <string name="menu_gallery_visit_page">Ir para a página do ficheiro</string>
   <string name="gallery_error_draw_failed">Não é possível mostrar a imagem.</string>
-  <string name="license_title">Texto da licença para %s biblioteca</string>
+  <string name="license_title">Texto da licença para a biblioteca %s</string>
   <string name="gallery_menu_share">Partilhar</string>
   <string name="gallery_share_error">Não é possível partilhar a imagem: %s</string>
   <string name="gallery_menu_save">Guardar no dispositivo</string>
@@ -259,7 +259,7 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_list_added_to_named">Adicionado a %s.</string>
   <string name="reading_list_added_to_unnamed">Adicionado à lista de leitura.</string>
   <string name="reading_list_already_exists">Este artigo já se encontra nesta lista.</string>
-  <string name="reading_list_added_view_button">Ver a lista</string>
+  <string name="reading_list_added_view_button">Ver lista</string>
   <string name="reading_list_item_count_singular">1 artigo</string>
   <string name="reading_list_item_count_plural">%s artigos</string>
   <string name="reading_list_sort">Ordenar</string>

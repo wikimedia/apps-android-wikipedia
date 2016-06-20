@@ -24,6 +24,7 @@
   <string name="menu_page_content_issues">შინაარსობრივი საკითები</string>
   <string name="menu_page_similar_titles">მსგავსი სათაურები</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
+  <string name="menu_page_add_to_list">საკითხავ სიაში დამატება</string>
   <string name="menu_page_share">ბმულის გაზიარება</string>
   <string name="menu_long_press_open_page">გახსნა</string>
   <string name="menu_long_press_open_in_new_tab">ახალ ჩანართში გახსნა</string>
@@ -36,6 +37,7 @@
   <string name="nearby_distance_in_kilometers">%.2f კმ</string>
   <string name="nearby_zoom_to_location">მიახლოება რუკაზე</string>
   <string name="last_updated_text">ბოლოს განახლდა %s</string>
+  <string name="talk_page_link_text">განხილვა</string>
   <string name="content_license_html">შინაარსი ვრცელდება &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით, თუკი სხვაგვარად არ არის აღნიშნული</string>
   <string name="edit_save_action_license_logged_in">შენახვით, თქვენ ეთანხმებით &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
   <string name="edit_save_action_license_anon">შენახვით, თქვენ ეთანხმებით &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
@@ -137,10 +139,11 @@
   <string name="about_description">ვიკიპედიის აპლიკაციის შესახებ</string>
   <string name="privacy_policy_description">კონფიდენციალურობის პოლიტიკა</string>
   <string name="terms_of_use_description">გამოყენების პირობები</string>
-  <string name="about_libraries_heading" fuzzy="true">გამოყენებული მასალები</string>
-  <string name="about_contributors_heading" fuzzy="true">ავტორები</string>
-  <string name="about_translators_heading" fuzzy="true">მთარგმნელები</string>
+  <string name="about_libraries_heading">გამოყენებული ბიბლიოთეკები</string>
+  <string name="about_contributors_heading">ავტორები</string>
+  <string name="about_translators_heading">მთარგმნელები</string>
   <string name="about_translators_translatewiki">ეს აპლიკაცია თარგმნილია მოხალისე მთარგმნელთა მიერ აქ: &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">ლიცენზია</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ფონდ ვიკიმედიის&lt;/a&gt; პროდუქტი</string>
   <string name="about_activity_title">შესახებ</string>
   <string name="edit_abandon_confirm">ეს გვერდი განახლდა. გსურთ თქვენი ცვლილებების შენახვის გარეშე გამოსვლა?</string>
@@ -233,7 +236,27 @@
   <string name="crash_report_relaunch_or_quit">გსურთ დაწყება ან გასვლა?</string>
   <string name="crash_report_relaunch">თავიდან დაწყება</string>
   <string name="crash_report_quit">გამოსვლა</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">სტატიების შენახვა მოგვიანებით ოფლაინ-რეჟიმში წასაკითხად</string>
+  <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
   <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_menu_bar_navigate">სტატიის მდებარეობაზე გადასვლა</string>
+  <string name="nav_item_reading_lists">საკითხავი სიები</string>
+  <string name="reading_list_untitled">უსათაურო</string>
+  <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>
+  <string name="reading_list_create_new">ახლის შექმნა</string>
+  <string name="reading_list_added_to_named">დაემატა %s-ში.</string>
+  <string name="reading_list_added_to_unnamed">დაემატა საკითხავ სიაში.</string>
+  <string name="reading_list_already_exists">ეს სტატია უკვე ამ სიაშია.</string>
+  <string name="reading_list_added_view_button">სიის ხილვა</string>
+  <string name="reading_list_item_count_singular">1 სტატია</string>
+  <string name="reading_list_item_count_plural">%s სტატია</string>
+  <string name="reading_list_sort">სორტირება</string>
+  <string name="reading_list_item_delete_undo">გაუქმება</string>
+  <string name="reading_list_edit_ok">კარგი</string>
+  <string name="reading_list_edit_cancel">გაუქმება</string>
+  <string name="reading_lists_onboarding_for_example">მაგალითად</string>
+  <string name="reading_lists_onboarding_example1">მოსანახულებელი ადგილები</string>
+  <string name="reading_lists_onboarding_example2">საყვარელი ცხოველები</string>
+  <string name="reading_lists_onboarding_example3">კოსმოსი!</string>
+  <string name="reading_lists_onboarding_got_it">გასაგებია</string>
+  <string name="user_option_sync_label">კონფიგურაცია</string>
 </resources>

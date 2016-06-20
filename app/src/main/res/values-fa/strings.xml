@@ -39,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">بزرگنمایی مکان در نقشه</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
+  <string name="talk_page_link_text">بحث</string>
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="edit_save_action_license_logged_in">با ذخیره کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
   <string name="edit_save_action_license_anon">با ذخیره کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید. ویرایش‌ها به نشانی آی‌پی دستگاه‌تان نسبت داده خواهد شد. اگر &lt;a href=\"https://#login\"&gt;وارد شوید&lt;/a&gt;، حریم خصوصی بیشتری دارید.</string>
@@ -260,8 +261,10 @@
   <string name="reading_list_item_count_singular">۱ مقاله</string>
   <string name="reading_list_item_count_plural">%s مقاله</string>
   <string name="reading_list_sort">مرتب‌کردن</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">بر پایهٔ نام</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">بر پایهٔ آخرین</string>
+  <string name="reading_list_sort_by_name">مرتب بر پایهٔ نام</string>
+  <string name="reading_list_sort_by_name_desc">مرتب بر پایهٔ نام (معکوس)</string>
+  <string name="reading_list_sort_by_recent">مرتب بر پایهٔ آخرین</string>
+  <string name="reading_list_sort_by_recent_desc">مرتب بر پایهٔ آخرین (معکوس)</string>
   <string name="reading_list_menu_edit">ویرایش جزئیات فهرست مطالعه</string>
   <string name="reading_list_menu_delete">حذف فهرست مطالعه</string>
   <string name="reading_list_name_sample">فهرست مطالعهٔ من</string>
@@ -282,5 +285,6 @@
   <string name="reading_lists_onboarding_example2">حیوانات مورد علاقه</string>
   <string name="reading_lists_onboarding_example3">فضا!</string>
   <string name="reading_lists_onboarding_got_it">گرفتم</string>
+  <string name="reading_lists_onboarding_page_delete">نکته: هر صفحه‌ای را به راست یا چپ بکشید تا از این فهرست حذف شود.</string>
   <string name="user_option_sync_label">ترجیحات</string>
 </resources>
