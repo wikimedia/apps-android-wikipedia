@@ -35,7 +35,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -180,7 +180,7 @@ public class NearbyFragment extends Fragment {
                         NearbyPage page = findNearbyPageFromMarker(marker);
                         if (page != null) {
                             PageTitle title = new PageTitle(page.getTitle(), site, page.getThumblUrl());
-                            ((PageActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
+                            ((MainActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
                             return true;
                         } else {
                             return false;
@@ -423,6 +423,6 @@ public class NearbyFragment extends Fragment {
     }
 
     private void setRefreshingState(boolean isRefreshing) {
-        ((PageActivity)getActivity()).updateProgressBar(isRefreshing, true, 0);
+        ((MainActivity)getActivity()).updateProgressBar(isRefreshing, true, 0);
     }
 }

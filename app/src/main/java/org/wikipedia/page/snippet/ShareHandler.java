@@ -26,7 +26,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.page.Page;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.settings.Prefs;
@@ -60,7 +60,7 @@ public class ShareHandler {
 
     @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_liberal;
 
-    private final PageActivity activity;
+    private final MainActivity activity;
     private final CommunicationBridge bridge;
     private CompatActionMode webViewActionMode;
     private ShareAFactFunnel funnel;
@@ -73,7 +73,7 @@ public class ShareHandler {
                 pageProperties.getRevisionId());
     }
 
-    public ShareHandler(PageActivity activity, CommunicationBridge bridge) {
+    public ShareHandler(MainActivity activity, CommunicationBridge bridge) {
         this.activity = activity;
         this.bridge = bridge;
 
@@ -313,7 +313,7 @@ public class ShareHandler {
 class PreviewDialog extends NoDimBottomSheetDialog {
     private boolean completed = false;
 
-    PreviewDialog(final PageActivity activity, final Bitmap resultBitmap, final PageTitle title,
+    PreviewDialog(final MainActivity activity, final Bitmap resultBitmap, final PageTitle title,
                   final String selectedText, final ShareAFactFunnel funnel) {
         super(activity);
         View rootView = LayoutInflater.from(activity).inflate(R.layout.dialog_share_preview, null);

@@ -37,6 +37,7 @@ import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
@@ -259,7 +260,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         linkHandler = new LinkHandler(getActivity(), bridge) {
             @Override
             public void onPageLinkClicked(String anchor) {
-                getPageActivity().dismissBottomSheet();
+                getMainActivity().dismissBottomSheet();
                 JSONObject payload = new JSONObject();
                 try {
                     payload.put("anchor", anchor);
@@ -287,7 +288,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     Log.d("PageFragment", "Detached from activity, so stopping reference click.");
                     return;
                 }
-                getPageActivity().showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml));
+                getMainActivity().showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml));
             }
         };
 
@@ -314,20 +315,20 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         editHandler = new EditHandler(this, bridge);
         pageLoadStrategy.setEditHandler(editHandler);
 
-        tocHandler = new ToCHandler(getPageActivity(), tocDrawer, bridge);
+        tocHandler = new ToCHandler(getMainActivity(), tocDrawer, bridge);
 
         // TODO: initialize View references in onCreateView().
         articleHeaderView = findById(getView(), R.id.page_header_view);
         leadImagesHandler = new LeadImagesHandler(this, bridge, webView, articleHeaderView);
-        searchBarHideHandler = getPageActivity().getSearchBarHideHandler();
+        searchBarHideHandler = getMainActivity().getSearchBarHideHandler();
         searchBarHideHandler.setScrollView(webView);
 
-        shareHandler = new ShareHandler(getPageActivity(), bridge);
+        shareHandler = new ShareHandler(getMainActivity(), bridge);
 
-        tabsProvider = new TabsProvider(getPageActivity(), tabList);
+        tabsProvider = new TabsProvider(getMainActivity(), tabList);
         tabsProvider.setTabsProviderListener(tabsProviderListener);
 
-        PageLongPressHandler.WebViewContextMenuListener contextMenuListener = new LongPressHandler(getPageActivity());
+        PageLongPressHandler.WebViewContextMenuListener contextMenuListener = new LongPressHandler(getMainActivity());
         new PageLongPressHandler(getActivity(), webView, HistoryEntry.SOURCE_INTERNAL_LINK,
                 contextMenuListener);
 
@@ -385,13 +386,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             visitInExternalBrowser(getActivity(), Uri.parse(title.getMobileUri()));
             return;
         }
-        getPageActivity().dismissBottomSheet();
+        getMainActivity().dismissBottomSheet();
         if (title.namespace() != Namespace.MAIN || !app.isLinkPreviewEnabled()) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-            getPageActivity().loadPage(title, historyEntry);
+            getMainActivity().loadPage(title, historyEntry);
             new LinkPreviewFunnel(app).logNavigate();
         } else {
-            getPageActivity().showLinkPreview(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+            getMainActivity().showLinkPreview(title, HistoryEntry.SOURCE_INTERNAL_LINK);
         }
     }
 
@@ -430,7 +431,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onNewTabRequested() {
             // just load the main page into a new tab...
-            getPageActivity().loadMainPageInForegroundTab();
+            getMainActivity().loadMainPageInForegroundTab();
             tabFunnel.logCreateNew(tabList.size());
         }
 
@@ -545,7 +546,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         model.setTitleOriginal(title);
         model.setCurEntry(entry);
 
-        getPageActivity().updateProgressBar(true, true, 0);
+        getMainActivity().updateProgressBar(true, true, 0);
 
         this.pageRefreshed = pageRefreshed;
 
@@ -608,7 +609,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PageActivity.ACTIVITY_REQUEST_EDIT_SECTION
+        if (requestCode == MainActivity.ACTIVITY_REQUEST_EDIT_SECTION
             && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             pageLoadStrategy.backFromEditing(data);
             FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
@@ -619,7 +620,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (!isAdded() || getPageActivity().isSearching()) {
+        if (!isAdded() || getMainActivity().isSearching()) {
             return;
         }
         inflater.inflate(R.menu.menu_page_actions, menu);
@@ -628,7 +629,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (!isAdded() || getPageActivity().isSearching()) {
+        if (!isAdded() || getMainActivity().isSearching()) {
             return;
         }
 
@@ -680,7 +681,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
                 langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
                 getActivity().startActivityForResult(langIntent,
-                                                     PageActivity.ACTIVITY_REQUEST_LANGLINKS);
+                                                     MainActivity.ACTIVITY_REQUEST_LANGLINKS);
                 return true;
             case R.id.menu_page_share:
                 sharePageLink();
@@ -698,7 +699,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 showSimilarTitles();
                 return true;
             case R.id.menu_page_font_and_theme:
-                getPageActivity().showThemeChooser();
+                getMainActivity().showThemeChooser();
                 return true;
             case R.id.menu_page_show_tabs:
                 tabsProvider.enterTabMode();
@@ -709,7 +710,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void addToReadingList(AddToReadingListDialog.InvokeSource source) {
-        getPageActivity().showAddToListDialog(getTitle(), source);
+        getMainActivity().showAddToListDialog(getTitle(), source);
     }
 
     public void sharePageLink() {
@@ -722,13 +723,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (model.getPage() == null) {
             return;
         }
-        final PageActivity pageActivity = getPageActivity();
+        final MainActivity mainActivity = getMainActivity();
         final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getSite(),
                 model.getPage().getPageProperties().getPageId());
         final FindInPageActionProvider findInPageActionProvider
-                = new FindInPageActionProvider(pageActivity, funnel);
+                = new FindInPageActionProvider(mainActivity, funnel);
 
-        pageActivity.startSupportActionMode(new ActionMode.Callback() {
+        mainActivity.startSupportActionMode(new ActionMode.Callback() {
             private final String actionModeTag = "actionModeFindInPage";
 
             @Override
@@ -757,9 +758,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 funnel.setPageHeight(webView.getContentHeight());
                 funnel.logDone();
                 webView.clearMatches();
-                pageActivity.showToolbar();
+                mainActivity.showToolbar();
                 showToCButton();
-                hideSoftKeyboard(pageActivity);
+                hideSoftKeyboard(mainActivity);
             }
         });
     }
@@ -806,7 +807,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         // in any case, make sure the TOC drawer is closed
         tocDrawer.closeDrawers();
-        getPageActivity().updateProgressBar(false, true, 0);
+        getMainActivity().updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
 
         if (pageRefreshed) {
@@ -919,7 +920,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void showPageInfoDialog(boolean startAtDisambig) {
-        getPageActivity().showBottomSheet(new PageInfoDialog((PageActivity) getActivity(), pageInfo, startAtDisambig));
+        getMainActivity().showBottomSheet(new PageInfoDialog((MainActivity) getActivity(), pageInfo, startAtDisambig));
     }
 
     private void openInNewTab(PageTitle title, HistoryEntry entry, int position) {
@@ -1106,7 +1107,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private void updateNavDrawerSelection() {
         if (isAdded()) {
             // TODO: define a Fragment host interface instead of assuming a cast is safe.
-            ((PageActivity) getActivity()).updateNavDrawerSelection(this);
+            ((MainActivity) getActivity()).updateNavDrawerSelection(this);
         }
     }
 
@@ -1145,9 +1146,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         pageScrollFunnel = null;
     }
 
-    // TODO: don't assume host is PageActivity. Use Fragment callbacks pattern.
-    private PageActivity getPageActivity() {
-        return (PageActivity) getActivity();
+    // TODO: don't assume host is MainActivity. Use Fragment callbacks pattern.
+    private MainActivity getMainActivity() {
+        return (MainActivity) getActivity();
     }
 
     @VisibleForTesting
@@ -1155,9 +1156,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         this.pageLoadCallbacks = pageLoadCallbacks;
     }
 
-    private class LongPressHandler extends PageActivityLongPressHandler
+    private class LongPressHandler extends MainActivityLongPressHandler
             implements PageLongPressHandler.WebViewContextMenuListener {
-        LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull MainActivity activity) {
             super(activity);
         }
 

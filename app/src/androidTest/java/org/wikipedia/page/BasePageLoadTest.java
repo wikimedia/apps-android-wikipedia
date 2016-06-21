@@ -15,6 +15,7 @@ import com.squareup.spoon.Spoon;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.wikipedia.Site;
+import org.wikipedia.MainActivity;
 import org.wikipedia.history.HistoryEntry;
 
 @LargeTest
@@ -25,7 +26,7 @@ public abstract class BasePageLoadTest {
 
     @Rule
     @NonNull
-    public final ActivityTestRule<PageActivity> activityRule = new ActivityTestRule<>(PageActivity.class);
+    public final ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
 
     protected void loadPageSync(String title) {
         loadPage(title, TEST_SITE);
@@ -91,7 +92,7 @@ public abstract class BasePageLoadTest {
         return (PageFragment) getActivity().getTopFragment();
     }
 
-    protected PageActivity getActivity() {
+    protected MainActivity getActivity() {
         return activityRule.getActivity();
     }
 

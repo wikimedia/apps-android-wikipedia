@@ -1,7 +1,7 @@
 package org.wikipedia.page.tabs;
 
 import org.wikipedia.R;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DimenUtil;
@@ -38,7 +38,7 @@ public class TabsProvider {
         void onCloseTabRequested(int position);
     }
 
-    private PageActivity parentActivity;
+    private MainActivity parentActivity;
 
     private View pageContentView;
     private View tabContainerView;
@@ -58,7 +58,7 @@ public class TabsProvider {
         providerListener = DefaultTabsProviderListener.defaultIfNull(listener);
     }
 
-    public TabsProvider(PageActivity parentActivity, List<Tab> tabList) {
+    public TabsProvider(MainActivity parentActivity, List<Tab> tabList) {
         this.parentActivity = parentActivity;
         this.tabList = tabList;
 

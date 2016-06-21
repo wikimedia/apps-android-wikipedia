@@ -1,4 +1,4 @@
-package org.wikipedia.page;
+package org.wikipedia;
 
 import android.annotation.TargetApi;
 import android.app.SearchManager;
@@ -46,11 +46,6 @@ import com.squareup.otto.Subscribe;
 
 import net.hockeyapp.android.metrics.MetricsManager;
 
-import org.wikipedia.BackPressedHandler;
-import org.wikipedia.R;
-import org.wikipedia.Site;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
@@ -62,6 +57,11 @@ import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
+import org.wikipedia.page.NavDrawerHelper;
+import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.PageLoadStrategy;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
@@ -88,7 +88,7 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class PageActivity extends ThemedActionBarActivity {
+public class MainActivity extends ThemedActionBarActivity {
 
     public enum TabPosition {
         CURRENT_TAB,
@@ -341,7 +341,7 @@ public class PageActivity extends ThemedActionBarActivity {
             super.onDrawerSlide(drawerView, 0);
             if (!oncePerSlideLock) {
                 // Hide the keyboard when the drawer is opened
-                hideSoftKeyboard(PageActivity.this);
+                hideSoftKeyboard(MainActivity.this);
                 //also make sure ToC is hidden
                 if (getCurPageFragment() != null) {
                     getCurPageFragment().toggleToC(PageFragment.TOC_ACTION_HIDE);
@@ -781,7 +781,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
         @Subscribe
         public void onChangeTheme(ThemeChangeEvent event) {
-            PageActivity.this.recreate();
+            MainActivity.this.recreate();
         }
 
         @Subscribe
@@ -790,15 +790,15 @@ public class PageActivity extends ThemedActionBarActivity {
             ZeroConfig latestZeroConfig = app.getWikipediaZeroHandler().getZeroConfig();
 
             if (leftZeroRatedNetwork(latestZeroEnabledState)) {
-                app.getWikipediaZeroHandler().showZeroOffBanner(PageActivity.this,
+                app.getWikipediaZeroHandler().showZeroOffBanner(MainActivity.this,
                         getString(R.string.zero_charged_verbiage),
-                        ContextCompat.getColor(PageActivity.this, R.color.holo_red_dark),
-                        ContextCompat.getColor(PageActivity.this, android.R.color.white));
+                        ContextCompat.getColor(MainActivity.this, R.color.holo_red_dark),
+                        ContextCompat.getColor(MainActivity.this, android.R.color.white));
                 navDrawerHelper.setupDynamicNavDrawerItems();
             }
 
             if (enteredNewZeroRatedNetwork(latestZeroConfig, latestZeroEnabledState)) {
-                app.getWikipediaZeroHandler().showZeroBanner(PageActivity.this, latestZeroConfig);
+                app.getWikipediaZeroHandler().showZeroBanner(MainActivity.this, latestZeroConfig);
                 if (Prefs.isShowZeroInfoDialogEnabled()) {
                     showZeroInfoDialog(latestZeroConfig);
                     Prefs.setShowZeroInfoDialogEnable(false);
@@ -832,7 +832,7 @@ public class PageActivity extends ThemedActionBarActivity {
         return new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
-                visitInExternalBrowser(PageActivity.this, (Uri.parse(getString(R.string.zero_webpage_url))));
+                visitInExternalBrowser(MainActivity.this, (Uri.parse(getString(R.string.zero_webpage_url))));
                 zeroFunnel.logExtLinkMore();
             }
         };
@@ -967,8 +967,8 @@ public class PageActivity extends ThemedActionBarActivity {
 
     private <T> void conditionallyInjectCustomCabMenu(T mode) {
         currentActionMode = new CompatActionMode(mode);
-        if (currentActionMode.shouldInjectCustomMenu(PageActivity.this)) {
-            currentActionMode.injectCustomMenu(PageActivity.this);
+        if (currentActionMode.shouldInjectCustomMenu(MainActivity.this)) {
+            currentActionMode.injectCustomMenu(MainActivity.this);
         }
     }
 
@@ -1022,7 +1022,7 @@ public class PageActivity extends ThemedActionBarActivity {
 
     /**
      * Reload the main page in the new language, after delaying for one second in order to:
-     * (1) Make sure that onStart in PageActivity gets called, thus registering the activity for the bus.
+     * (1) Make sure that onStart in MainActivity gets called, thus registering the activity for the bus.
      * (2) Ensure a smooth transition, which is very jarring without a delay.
      */
     private void loadNewLanguageMainPage() {

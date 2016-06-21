@@ -3,17 +3,18 @@ package org.wikipedia.page;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
+import org.wikipedia.MainActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
-public abstract class PageActivityLongPressHandler implements PageLongPressHandler.ContextMenuListener {
+public abstract class MainActivityLongPressHandler implements PageLongPressHandler.ContextMenuListener {
     @NonNull
-    private final PageActivity activity;
+    private final MainActivity activity;
 
-    public PageActivityLongPressHandler(@NonNull PageActivity activity) {
+    public MainActivityLongPressHandler(@NonNull MainActivity activity) {
         this.activity = activity;
     }
 
@@ -24,7 +25,7 @@ public abstract class PageActivityLongPressHandler implements PageLongPressHandl
 
     @Override
     public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-        activity.loadPage(title, entry, PageActivity.TabPosition.NEW_TAB_BACKGROUND, false);
+        activity.loadPage(title, entry, MainActivity.TabPosition.NEW_TAB_BACKGROUND, false);
     }
 
     @Override

@@ -18,7 +18,7 @@ import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
@@ -195,10 +195,10 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             public void success(Boolean contains) {
                 if (isAdded()) {
                     if (contains) {
-                        ((PageActivity) getActivity())
+                        ((MainActivity) getActivity())
                                 .showReadingListAddedSnackbar(getString(R.string.reading_list_already_exists), isOnboarding);
                     } else {
-                        ((PageActivity) getActivity())
+                        ((MainActivity) getActivity())
                                 .showReadingListAddedSnackbar(TextUtils.isEmpty(readingList.getTitle())
                                         ? getString(R.string.reading_list_added_to_unnamed)
                                         : String.format(getString(R.string.reading_list_added_to_named),

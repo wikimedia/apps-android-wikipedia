@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 
@@ -13,7 +13,7 @@ public class RandomHandler {
     private RandomArticleIdTask curRandomArticleIdTask;
     private static final int MESSAGE_RND = 1;
 
-    private PageActivity activity;
+    private MainActivity activity;
     private RandomListener listener;
 
     public interface RandomListener {
@@ -21,7 +21,7 @@ public class RandomHandler {
         void onRandomPageFailed(Throwable caught);
     }
 
-    public RandomHandler(PageActivity activity, RandomListener listener) {
+    public RandomHandler(MainActivity activity, RandomListener listener) {
         this.activity = activity;
         this.listener = listener;
         this.app = WikipediaApp.getInstance();

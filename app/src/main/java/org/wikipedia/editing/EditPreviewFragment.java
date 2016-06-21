@@ -25,6 +25,7 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.StyleBundle;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -32,7 +33,6 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.editing.summaries.EditSummaryTag;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;
-import org.wikipedia.page.PageActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -213,10 +213,10 @@ public class EditPreviewFragment extends Fragment {
                     showLeavingEditDialogue(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent = new Intent(getActivity(), PageActivity.class);
-                            intent.setAction(PageActivity.ACTION_PAGE_FOR_TITLE);
-                            intent.putExtra(PageActivity.EXTRA_PAGETITLE, title);
-                            intent.putExtra(PageActivity.EXTRA_HISTORYENTRY, new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK));
+                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            intent.setAction(MainActivity.ACTION_PAGE_FOR_TITLE);
+                            intent.putExtra(MainActivity.EXTRA_PAGETITLE, title);
+                            intent.putExtra(MainActivity.EXTRA_HISTORYENTRY, new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK));
                             startActivity(intent);
                         }
                     });

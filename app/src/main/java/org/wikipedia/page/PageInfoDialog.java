@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import org.wikipedia.R;
+import org.wikipedia.MainActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 
@@ -24,7 +25,7 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
     private final Button issuesHeading;
     private final ListView disambigList;
 
-    public PageInfoDialog(final PageActivity activity, PageInfo pageInfo, boolean startAtDisambig) {
+    public PageInfoDialog(final MainActivity activity, PageInfo pageInfo, boolean startAtDisambig) {
         super(activity);
         View parentView = LayoutInflater.from(activity).inflate(R.layout.dialog_page_info, null);
         setContentView(parentView);
@@ -119,9 +120,9 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         issuesHeading.setEnabled(false);
     }
 
-    private class LongPressHandler extends PageActivityLongPressHandler
+    private class LongPressHandler extends MainActivityLongPressHandler
             implements PageLongPressHandler.ListViewContextMenuListener {
-        LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull MainActivity activity) {
             super(activity);
         }
 

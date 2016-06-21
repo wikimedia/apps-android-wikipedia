@@ -35,7 +35,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.database.contract.PageHistoryContract;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
@@ -196,7 +196,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                                 // Clear history!
                                 new DeleteAllHistoryTask(app).execute();
                                 entryFilter.setVisibility(View.GONE);
-                                ((PageActivity) getActivity()).resetAfterClearHistory();
+                                ((MainActivity) getActivity()).resetAfterClearHistory();
                             }
                         })
                         .setNegativeButton(R.string.no, null).create().show();
@@ -212,7 +212,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             if (actionMode == null) {
                 HistoryEntry oldEntry = (HistoryEntry) view.getTag();
                 HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
-                ((PageActivity) getActivity()).loadPage(oldEntry.getTitle(), newEntry);
+                ((MainActivity) getActivity()).loadPage(oldEntry.getTitle(), newEntry);
             } else {
                 actionMode.invalidate();
             }
@@ -220,7 +220,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private boolean isMenuToBeSetUp() {
-        return isAdded() && !((PageActivity)getActivity()).isSearching();
+        return isAdded() && !((MainActivity)getActivity()).isSearching();
     }
 
     private class HistoryItemLongClickListener implements AdapterView.OnItemLongClickListener {

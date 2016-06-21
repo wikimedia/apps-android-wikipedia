@@ -22,7 +22,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.page.PageActivityLongPressHandler;
+import org.wikipedia.MainActivity;
+import org.wikipedia.page.MainActivityLongPressHandler;
 import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
@@ -33,7 +34,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
-import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResult;
@@ -61,7 +61,7 @@ public class BottomContentHandler implements BottomContentInterface,
     private final WebView webView;
     private final LinkHandler linkHandler;
     private PageTitle pageTitle;
-    private final PageActivity activity;
+    private final MainActivity activity;
     private final WikipediaApp app;
     private boolean firstTimeShown = false;
 
@@ -81,7 +81,7 @@ public class BottomContentHandler implements BottomContentInterface,
         this.bridge = bridge;
         this.webView = webview;
         this.linkHandler = linkHandler;
-        activity = (PageActivity) parentFragment.getActivity();
+        activity = (MainActivity) parentFragment.getActivity();
         app = (WikipediaApp) activity.getApplicationContext();
 
         bottomContentContainer = hidingView;
@@ -383,10 +383,10 @@ public class BottomContentHandler implements BottomContentInterface,
         adapter.notifyDataSetChanged();
     }
 
-    private class LongPressHandler extends PageActivityLongPressHandler
+    private class LongPressHandler extends MainActivityLongPressHandler
             implements PageLongPressHandler.ListViewContextMenuListener {
         private int lastPosition;
-        LongPressHandler(@NonNull PageActivity activity) {
+        LongPressHandler(@NonNull MainActivity activity) {
             super(activity);
         }
 

@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.tooltip.ToolTipUtil;
@@ -124,8 +125,8 @@ public class ToCHandler {
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
                 // make sure the ActionBar is showing
-                ((PageActivity) parentActivity).showToolbar();
-                ((PageActivity) parentActivity).getSearchBarHideHandler().setForceNoFade(slideOffset != 0);
+                ((MainActivity) parentActivity).showToolbar();
+                ((MainActivity) parentActivity).getSearchBarHideHandler().setForceNoFade(slideOffset != 0);
                 // request the current section to highlight, if we haven't yet
                 if (!sectionRequested) {
                     bridge.sendMessage("requestCurrentSection", new JSONObject());

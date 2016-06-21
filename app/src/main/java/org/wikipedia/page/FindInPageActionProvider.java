@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import org.wikipedia.R;
+import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.util.ApiUtil;
 
@@ -17,14 +18,14 @@ import android.widget.TextView;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class FindInPageActionProvider extends ActionProvider {
-    private final PageActivity parentActivity;
+    private final MainActivity parentActivity;
     private final FindInPageFunnel funnel;
 
     private View findInPageNext;
     private View findInPagePrev;
     private TextView findInPageMatch;
 
-    public FindInPageActionProvider(PageActivity parentActivity, FindInPageFunnel funnel) {
+    public FindInPageActionProvider(MainActivity parentActivity, FindInPageFunnel funnel) {
         super(parentActivity);
         this.parentActivity = parentActivity;
         this.funnel = funnel;

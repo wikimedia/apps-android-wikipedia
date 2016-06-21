@@ -5,9 +5,9 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.Page;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.page.PageActivityLongPressHandler;
+import org.wikipedia.page.MainActivityLongPressHandler;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
@@ -197,7 +197,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     @Override
     public void onStart() {
         super.onStart();
-        overflowMenuHandler = new LongPressHandler(getPageActivity());
+        overflowMenuHandler = new LongPressHandler(getMainActivity());
     }
 
     @Override
@@ -304,8 +304,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         }
     };
 
-    private PageActivity getPageActivity() {
-        return (PageActivity) getActivity();
+    private MainActivity getMainActivity() {
+        return (MainActivity) getActivity();
     }
 
     private WikipediaApp getApplication() {
@@ -343,7 +343,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         @Override
         public void onNavigate(PageTitle title) {
             HistoryEntry newEntry = new HistoryEntry(title, entrySource);
-            getPageActivity().loadPage(title, newEntry);
+            getMainActivity().loadPage(title, newEntry);
         }
     }
 
@@ -383,8 +383,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         }
     }
 
-    private class LongPressHandler extends PageActivityLongPressHandler {
-        LongPressHandler(@NonNull PageActivity activity) {
+    private class LongPressHandler extends MainActivityLongPressHandler {
+        LongPressHandler(@NonNull MainActivity activity) {
             super(activity);
         }
     }

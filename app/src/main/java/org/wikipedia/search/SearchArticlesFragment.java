@@ -30,7 +30,7 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageActivity;
+import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.FeedbackUtil;
@@ -251,9 +251,9 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         // invalidate our activity's ActionBar, so that all action items are removed, and
         // we can fill up the whole width of the ActionBar with our SearchView.
         getActivity().supportInvalidateOptionsMenu();
-        ((PageActivity)getActivity()).getSearchBarHideHandler().setForceNoFade(true);
+        ((MainActivity)getActivity()).getSearchBarHideHandler().setForceNoFade(true);
         setSearchViewEnabled(true);
-        ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
+        ((MainActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
         // show ourselves
         searchContainerView.setVisibility(View.VISIBLE);
 
@@ -269,9 +269,9 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         isSearchActive = false;
         // invalidate our activity's ActionBar, so that the original action items are restored.
         getActivity().supportInvalidateOptionsMenu();
-        ((PageActivity)getActivity()).getSearchBarHideHandler().setForceNoFade(false);
+        ((MainActivity)getActivity()).getSearchBarHideHandler().setForceNoFade(false);
         setSearchViewEnabled(false);
-        ((PageActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
+        ((MainActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
         // hide ourselves
         searchContainerView.setVisibility(View.GONE);
         hideSoftKeyboard(getActivity());
@@ -424,9 +424,9 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         // selected a page to navigate to.
         launchedFromWidget = false;
         closeSearch();
-        ((PageActivity)getActivity()).loadPage(title, historyEntry, inNewTab
-                ? PageActivity.TabPosition.NEW_TAB_BACKGROUND
-                : PageActivity.TabPosition.CURRENT_TAB, false);
+        ((MainActivity)getActivity()).loadPage(title, historyEntry, inNewTab
+                ? MainActivity.TabPosition.NEW_TAB_BACKGROUND
+                : MainActivity.TabPosition.CURRENT_TAB, false);
     }
 
     private void addRecentSearch(String title) {
