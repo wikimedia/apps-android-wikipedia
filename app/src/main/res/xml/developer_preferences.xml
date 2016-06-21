@@ -56,31 +56,6 @@
 
     </PreferenceCategory>
 
-    <!-- TODO: move this category further down the file. We don't normally touch onboarding. -->
-    <PreferenceCategory android:title="@string/preferences_developer_onboarding_heading">
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_toc_tutorial_enabled"
-            android:title="@string/preference_key_toc_tutorial_enabled" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_select_text_tutorial_enabled"
-            android:title="@string/preference_key_select_text_tutorial_enabled" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_share_tutorial_enabled"
-            android:title="@string/preference_key_share_tutorial_enabled" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_reading_list_tutorial_enabled"
-            android:title="@string/preference_key_reading_list_tutorial_enabled" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_reading_list_page_delete_tutorial_enabled"
-            android:title="@string/preference_key_reading_list_page_delete_tutorial_enabled" />
-
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/preferences_developer_logging_heading">
 
         <ListPreference
@@ -162,6 +137,30 @@
         <Preference android:key="@string/preferences_developer_crash_key"
             android:title="@string/preferences_developer_crash_title"
             android:summary="@string/preferences_developer_crash_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/preferences_developer_onboarding_heading">
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_toc_tutorial_enabled"
+            android:title="@string/preference_key_toc_tutorial_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_select_text_tutorial_enabled"
+            android:title="@string/preference_key_select_text_tutorial_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_share_tutorial_enabled"
+            android:title="@string/preference_key_share_tutorial_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_reading_list_tutorial_enabled"
+            android:title="@string/preference_key_reading_list_tutorial_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_reading_list_page_delete_tutorial_enabled"
+            android:title="@string/preference_key_reading_list_page_delete_tutorial_enabled" />
 
     </PreferenceCategory>
 
