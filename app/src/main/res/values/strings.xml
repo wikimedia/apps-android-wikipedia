@@ -253,6 +253,7 @@
     <string name="preference_title_show_link_previews">Show link previews</string>
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
     <string name="nav_item_donate">Support Wikipedia</string>
+    <string name="error_voice_search_not_available">Sorry, voice recognition is not available.</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_dialog_title">Sorry, app crashed last time</string>

@@ -7,4 +7,6 @@ import org.wikipedia.page.PageTitle;
 public interface FeedViewCallback {
     void onSelectPage(@NonNull PageTitle title);
     void onAddPageToList(@NonNull PageTitle title);
+    void onSearchRequested();
+    void onVoiceSearchRequested();
 }
