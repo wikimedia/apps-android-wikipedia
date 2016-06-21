@@ -463,6 +463,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         super.onPause();
         Prefs.setTabs(tabList);
         closePageScrollFunnel();
+
+        long time = tabList.size() >= 1 && !pageLoadStrategy.backStackEmpty()
+                ? System.currentTimeMillis()
+                : 0;
+        Prefs.pageLastShown(time);
     }
 
     @Override

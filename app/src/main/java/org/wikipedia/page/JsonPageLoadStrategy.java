@@ -236,6 +236,10 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         return false;
     }
 
+    @Override public boolean backStackEmpty() {
+        return backStack.isEmpty();
+    }
+
     @Override
     public void onHidePageContent() {
         bottomContentHandler.hide();

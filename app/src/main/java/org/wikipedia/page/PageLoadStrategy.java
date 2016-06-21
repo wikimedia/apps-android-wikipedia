@@ -65,6 +65,8 @@ public interface PageLoadStrategy {
 
     boolean popBackStack();
 
+    boolean backStackEmpty();
+
     /** Convenience method for hiding all the content of a page. */
     void onHidePageContent();
 
