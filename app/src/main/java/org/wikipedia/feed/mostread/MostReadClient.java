@@ -1,14 +1,20 @@
 package org.wikipedia.feed.mostread;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Site;
 import org.wikipedia.dataclient.retrofit.RbCachedService;
+import org.wikipedia.feed.FeedClient;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.util.log.L;
 
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
 import java.util.TimeZone;
 
 import retrofit2.Call;
@@ -16,24 +22,36 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-public class MostReadClient {
-    public interface Callback {
-        void success(@NonNull MostReadArticles articles);
-    }
-
+public class MostReadClient implements FeedClient {
     @NonNull private final RbCachedService<Service> cachedService = new RbCachedService<>(Service.class);
+    @Nullable private Call<MostReadArticles> call;
 
-    public void request(@NonNull Site site, @NonNull Callback cb) {
-        Calendar now = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-        request(cachedService.service(site), now, cb);
+    @Override public void request(@NonNull Context context, @NonNull Site site, int age,
+                                  @NonNull Callback cb) {
+        cancel();
+        Calendar time = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+
+        time.add(Calendar.DAY_OF_MONTH, -(age + 1));
+
+        call = request(cachedService.service(site), time, cb);
     }
 
-    @VisibleForTesting void request(@NonNull Service service, @NonNull Calendar date,
-                                    @NonNull Callback cb) {
+    // Only handles last request made.
+    @Override public void cancel() {
+        if (call != null) {
+            call.cancel();
+            call = null;
+        }
+    }
+
+    @VisibleForTesting Call<MostReadArticles> request(@NonNull Service service, @NonNull Calendar date,
+                                                      @NonNull Callback cb) {
         int year = date.get(Calendar.YEAR);
         String month = leftPad(date.get(Calendar.MONTH) + 1);
         String day = leftPad(date.get(Calendar.DAY_OF_MONTH));
-        service.get(year, month, day).enqueue(new CallbackAdapter(cb));
+        @SuppressWarnings("checkstyle:hiddenfield") Call<MostReadArticles> call = service.get(year, month, day);
+        call.enqueue(new CallbackAdapter(cb));
+        return call;
     }
 
     @NonNull private String leftPad(int x) {
@@ -57,7 +75,9 @@ public class MostReadClient {
         @Override public void onResponse(Call<MostReadArticles> call,
                                          Response<MostReadArticles> response) {
             if (response.isSuccessful()) {
-                cb.success(response.body());
+                MostReadArticles result = response.body();
+                List<? extends Card> cards = Collections.singletonList(new MostReadListCard(result));
+                cb.success(cards);
             } else {
                 L.v(response.message());
             }

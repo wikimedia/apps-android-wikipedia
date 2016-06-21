@@ -16,7 +16,7 @@ public class IntegerListCard extends ListCard<IntegerListItemCard> {
     }
 
     @NonNull @Override public String title() {
-        return "Trending articles";
+        return "In the news";
     }
 
     @Nullable @Override public String subtitle() {
@@ -24,7 +24,7 @@ public class IntegerListCard extends ListCard<IntegerListItemCard> {
     }
 
     @Nullable @Override public String footer() {
-        return "All top read articles on Fri, April 08";
+        return "More news from Fri, April 08";
     }
 
     private static List<IntegerListItemCard> newItems() {
