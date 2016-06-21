@@ -70,7 +70,7 @@ public class MostReadClientTest extends MockWebServerTest {
         List<MostReadListCard> rsp = captor.getValue();
         assertThat(rsp, notNullValue());
         assertThat(rsp.size(), greaterThan(0));
-        assertThat(rsp.get(0).getDate(), is(date.getTime()));
+        assertThat(rsp.get(0).date(), is(date.getTime()));
     }
 
     @NonNull private Calendar calendar(int year, int month, int day) throws Throwable {

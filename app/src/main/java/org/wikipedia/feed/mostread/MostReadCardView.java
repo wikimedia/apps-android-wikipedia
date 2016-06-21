@@ -3,11 +3,13 @@ package org.wikipedia.feed.mostread;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.R;
 import org.wikipedia.feed.demo.IntegerListCard;
 import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardView;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
@@ -26,7 +28,8 @@ public class MostReadCardView extends ListCardView<IntegerListCard> {
     private void header(@NonNull MostReadListCard card) {
         CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
-                .setSubtitle(card.subtitle());
+                .setSubtitle(card.subtitle())
+                .setImage(ResourceUtil.uri(getContext(), R.drawable.ic_most_read));
         header(header);
     }
 

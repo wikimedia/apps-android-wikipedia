@@ -1,11 +1,14 @@
 package org.wikipedia.util;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.net.Uri;
 import android.support.annotation.AnyRes;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.util.TypedValue;
 
 public final class ResourceUtil {
@@ -38,6 +41,16 @@ public final class ResourceUtil {
         TypedValue tv = new TypedValue();
         context.getTheme().resolveAttribute(id, tv, true);
         return tv.resourceId;
+    }
+
+    public static Uri uri(@NonNull Context context, @AnyRes int id) throws Resources.NotFoundException {
+        Resources res = context.getResources();
+        return new Uri.Builder()
+                .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+                .authority(res.getResourcePackageName(id))
+                .appendPath(res.getResourceTypeName(id))
+                .appendPath(res.getResourceEntryName(id))
+                .build();
     }
 
     private static void checkId(@IdRes int id) {
