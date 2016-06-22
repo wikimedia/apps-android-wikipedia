@@ -3,18 +3,21 @@ package org.wikipedia.page.leadimages;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.PointF;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
 import org.wikipedia.R;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ArticleHeaderImageView extends FrameLayout {
-    @BindView(R.id.view_article_header_image_image) ImageViewWithFace image;
+    @BindView(R.id.view_article_header_image_image) FaceAndColorDetectImageView image;
 
     public ArticleHeaderImageView(Context context) {
         super(context);
@@ -37,16 +40,16 @@ public class ArticleHeaderImageView extends FrameLayout {
         init();
     }
 
-    public void setLoadListener(@Nullable ImageViewWithFace.OnImageLoadListener listener) {
+    public void setLoadListener(@Nullable FaceAndColorDetectImageView.OnImageLoadListener listener) {
         image.setOnImageLoadListener(listener);
     }
 
     public void load(@Nullable String url) {
-        if (url == null) {
+        if (TextUtils.isEmpty(url)) {
             setVisibility(GONE);
         } else {
             setVisibility(VISIBLE);
-            image.loadImage(url);
+            image.loadImage(Uri.parse(url));
         }
     }
 
@@ -64,7 +67,7 @@ public class ArticleHeaderImageView extends FrameLayout {
         return getVisibility() != GONE;
     }
 
-    public ImageViewWithFace getImage() {
+    public FaceAndColorDetectImageView getImage() {
         return image;
     }
 

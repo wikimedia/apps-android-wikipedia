@@ -31,7 +31,6 @@ import org.wikipedia.R;
 import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
-import org.wikipedia.page.leadimages.ImageViewWithFace.OnImageLoadListener;
 import org.wikipedia.richtext.LeadingSpan;
 import org.wikipedia.richtext.ParagraphSpan;
 import org.wikipedia.richtext.AudioUrlSpan;
@@ -40,6 +39,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.AppTextView;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
@@ -114,7 +114,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         return image.getImage();
     }
 
-    public void setOnImageLoadListener(@Nullable OnImageLoadListener listener) {
+    public void setOnImageLoadListener(@Nullable FaceAndColorDetectImageView.OnImageLoadListener listener) {
         image.setLoadListener(listener);
     }
 
