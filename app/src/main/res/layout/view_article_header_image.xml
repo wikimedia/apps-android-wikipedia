@@ -11,7 +11,7 @@
         android:src="?lead_image_drawable"
         android:contentDescription="@null" />
 
-    <org.wikipedia.page.leadimages.ImageViewWithFace
+    <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/view_article_header_image_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

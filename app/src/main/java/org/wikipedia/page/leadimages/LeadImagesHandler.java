@@ -28,6 +28,7 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
 
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
@@ -358,7 +359,7 @@ public class LeadImagesHandler {
         }
     }
 
-    private class ImageLoadListener implements ImageViewWithFace.OnImageLoadListener {
+    private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
         @Override
         public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
             articleHeaderView.post(new Runnable() {

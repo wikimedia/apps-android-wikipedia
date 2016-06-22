@@ -1,4 +1,4 @@
-package org.wikipedia.page.leadimages;
+package org.wikipedia.views;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -25,7 +25,7 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import org.wikipedia.R;
 import org.wikipedia.util.log.L;
 
-public class ImageViewWithFace extends SimpleDraweeView {
+public class FaceAndColorDetectImageView extends SimpleDraweeView {
     private static final int BITMAP_COPY_WIDTH = 200;
 
     public interface OnImageLoadListener {
@@ -36,15 +36,15 @@ public class ImageViewWithFace extends SimpleDraweeView {
     private FacePostprocessor facePostprocessor = new FacePostprocessor();
     @NonNull private OnImageLoadListener listener = new DefaultListener();
 
-    public ImageViewWithFace(Context context) {
+    public FaceAndColorDetectImageView(Context context) {
         super(context);
     }
 
-    public ImageViewWithFace(Context context, AttributeSet attrs) {
+    public FaceAndColorDetectImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ImageViewWithFace(Context context, AttributeSet attrs, int defStyle) {
+    public FaceAndColorDetectImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -52,8 +52,8 @@ public class ImageViewWithFace extends SimpleDraweeView {
         this.listener = listener == null ? new DefaultListener() : listener;
     }
 
-    public void loadImage(String url) {
-        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url))
+    public void loadImage(@NonNull Uri uri) {
+        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
                 .setProgressiveRenderingEnabled(true)
                 .setPostprocessor(facePostprocessor)
                 .build();

@@ -40,6 +40,12 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
         Card item = item(position);
         CardView view = holder.getView();
 
+        if (isCardAssociatedWithView(view, item)) {
+            // Don't bother reloading the same card into the same view
+            return;
+        }
+        associateCardWithView(view, item);
+
         if (view instanceof IntegerListCardView) {
             ((IntegerListCardView) view).set((IntegerListCard) item);
         } else if (view instanceof ContinueReadingCardView) {
@@ -87,5 +93,13 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             default:
                 throw new IllegalArgumentException("viewType=" + viewType);
         }
+    }
+
+    private boolean isCardAssociatedWithView(@NonNull CardView view, @NonNull Card card) {
+        return card.equals(view.getTag());
+    }
+
+    private void associateCardWithView(@NonNull CardView view, @NonNull Card card) {
+        view.setTag(card);
     }
 }
