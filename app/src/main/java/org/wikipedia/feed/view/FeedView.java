@@ -6,6 +6,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.views.AutoFitRecyclerView;
 import org.wikipedia.views.MarginItemDecoration;
@@ -32,10 +33,10 @@ public class FeedView extends AutoFitRecyclerView {
         init();
     }
 
-    public void set(@NonNull List<Card> cards) {
+    public void set(@NonNull List<Card> cards, FeedViewCallback callback) {
         // TODO: should this class be responsible for showing a "no items in collection" view? It
         //       would be nice to show placeholder elements while it loads.
-        recyclerAdapter = new FeedRecyclerAdapter(cards);
+        recyclerAdapter = new FeedRecyclerAdapter(cards, callback);
         setAdapter(recyclerAdapter);
     }
 
@@ -53,7 +54,7 @@ public class FeedView extends AutoFitRecyclerView {
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical));
         callback(new RecyclerViewColumnCallback());
-        set(Collections.<Card>emptyList());
+        set(Collections.<Card>emptyList(), null);
     }
 
     private class RecyclerViewColumnCallback implements AutoFitRecyclerView.Callback {

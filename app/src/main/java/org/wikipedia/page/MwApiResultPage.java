@@ -7,7 +7,6 @@ import org.wikipedia.Site;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadItemCard;
 import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
-import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,19 +45,20 @@ public class MwApiResultPage {
         this.terms = new Terms(description);
     }
 
-    public static List<BecauseYouReadItemCard> searchResultsToCards(SearchResults results) {
+    public static List<BecauseYouReadItemCard> searchResultsToCards(SearchResults results, Site site) {
         List<BecauseYouReadItemCard> cards = new ArrayList<>();
         for (SearchResult result : results.getResults()) {
-            cards.add(result.toCard());
+            cards.add(result.toCard(site));
         }
         return cards;
     }
 
     @NonNull
-    public BecauseYouReadItemCard toCard() {
-        return new BecauseYouReadItemCard(StringUtil.removeUnderscores(title),
-                                          description(),
-                                          thumbUrl());
+    public BecauseYouReadItemCard toCard(Site site) {
+        PageTitle pageTitle = new PageTitle(title, site);
+        pageTitle.setThumbUrl(thumbUrl());
+        pageTitle.setDescription(description());
+        return new BecauseYouReadItemCard(pageTitle);
     }
 
     @NonNull

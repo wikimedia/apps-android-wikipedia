@@ -1,6 +1,7 @@
 package org.wikipedia.feed;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.BackPressedHandler;
+import org.wikipedia.MainActivityToolbarProvider;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.CallbackFragment;
@@ -19,6 +22,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.page.PageTitle;
 
 import java.util.List;
 
@@ -26,17 +30,21 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class FeedFragment extends Fragment implements CallbackFragment<CallbackFragment.Callback> {
+public class FeedFragment extends Fragment implements BackPressedHandler,
+        MainActivityToolbarProvider,
+        CallbackFragment<CallbackFragment.Callback> {
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
     @BindView(R.id.feed_collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
     @BindView(R.id.feed_toolbar) Toolbar toolbar;
     private Unbinder unbinder;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
+    private FeedViewCallback feedCallback = new FeedCallback();
 
     public interface Callback extends CallbackFragment.Callback {
-        void onAddToolbar(Toolbar toolbar);
-        void onRemoveToolbar(Toolbar toolbar);
+        void onFeedSearchRequested();
+        void onFeedSelectPage(PageTitle title);
+        void onFeedAddPageToList(PageTitle title);
     }
 
     public static FeedFragment newInstance() {
@@ -58,11 +66,7 @@ public class FeedFragment extends Fragment implements CallbackFragment<CallbackF
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         unbinder = ButterKnife.bind(this, view);
-        feedView.set(coordinator.getCards());
-
-        if (getCallback() != null) {
-            getCallback().onAddToolbar(toolbar);
-        }
+        feedView.set(coordinator.getCards(), feedCallback);
 
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
             @Override
@@ -84,16 +88,15 @@ public class FeedFragment extends Fragment implements CallbackFragment<CallbackF
         setHasOptionsMenu(true);
     }
 
-    @Override public void onDestroyView() {
-        if (getCallback() != null) {
-            getCallback().onRemoveToolbar(toolbar);
-        }
+    @Override
+    public void onDestroyView() {
         unbinder.unbind();
         super.onDestroyView();
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
         inflater.inflate(R.menu.menu_feed, menu);
     }
 
@@ -111,7 +114,33 @@ public class FeedFragment extends Fragment implements CallbackFragment<CallbackF
         }
     }
 
+    @Override
+    public boolean onBackPressed() {
+        return false;
+    }
+
+    @Override
+    public Toolbar getToolbar() {
+        return toolbar;
+    }
+
     @Override @Nullable public Callback getCallback() {
         return FragmentUtil.getCallback(this, Callback.class);
+    }
+
+    private class FeedCallback implements FeedViewCallback {
+        @Override
+        public void onSelectPage(@NonNull PageTitle title) {
+            if (getCallback() != null) {
+                getCallback().onFeedSelectPage(title);
+            }
+        }
+
+        @Override
+        public void onAddPageToList(@NonNull PageTitle title) {
+            if (getCallback() != null) {
+                getCallback().onFeedAddPageToList(title);
+            }
+        }
     }
 }

@@ -23,6 +23,7 @@ public class ListCardItemView extends RelativeLayout {
         super(context);
 
         inflate(getContext(), R.layout.view_list_card_item, this);
+        setClickable(true);
         ButterKnife.bind(this);
     }
 

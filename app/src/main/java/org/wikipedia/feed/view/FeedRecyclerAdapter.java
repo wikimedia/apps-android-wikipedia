@@ -2,9 +2,11 @@ package org.wikipedia.feed.view;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.view.ViewGroup;
 
+import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCard;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.continuereading.ContinueReadingCard;
@@ -28,8 +30,11 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
     private static final int VIEW_TYPE_MOST_READ = 3;
     private static final int VIEW_TYPE_INTEGER_LIST = 100;
 
-    public FeedRecyclerAdapter(@NonNull List<Card> items) {
+    @Nullable private FeedViewCallback callback;
+
+    public FeedRecyclerAdapter(@NonNull List<Card> items, @Nullable FeedViewCallback callback) {
         super(items);
+        this.callback = callback;
     }
 
     @Override public DefaultViewHolder<CardView> onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -85,7 +90,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             case VIEW_TYPE_CONTINUE_READING:
                 return new ContinueReadingCardView(context);
             case VIEW_TYPE_BECAUSE_YOU_READ:
-                return new BecauseYouReadCardView(context);
+                return new BecauseYouReadCardView(context).setCallback(callback);
             case VIEW_TYPE_SEARCH_BAR:
                 return new SearchCardView(context);
             case VIEW_TYPE_MOST_READ:

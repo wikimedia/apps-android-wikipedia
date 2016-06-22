@@ -54,11 +54,6 @@
         <meta-data android:name="net.hockeyapp.android.appIdentifier"
             android:value="@string/hockeyapp_app_id" />
 
-        <activity android:name=".feed.FeedActivity"
-                  android:theme="@style/FeedTheme"
-                  android:label="@string/activity_feed_title"
-                  android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
-
         <activity android:name=".MainActivity"
                   android:theme="@style/PageTheme"
                   android:windowSoftInputMode="stateHidden"

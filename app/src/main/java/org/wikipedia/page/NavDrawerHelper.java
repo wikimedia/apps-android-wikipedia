@@ -19,7 +19,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.NavMenuFunnel;
-import org.wikipedia.feed.FeedActivity;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
@@ -79,7 +78,7 @@ public class NavDrawerHelper {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_item_feed:
-                        launchFeedActivity();
+                        activity.showFeed();
                         // TODO: [Feed] add Feed logging.
                         break;
                     case R.id.nav_item_today:
@@ -247,11 +246,6 @@ public class NavDrawerHelper {
         for (int i = 0; i < activity.getNavMenu().size(); i++) {
             activity.getNavMenu().getItem(i).setChecked(false);
         }
-    }
-
-    private void launchFeedActivity() {
-        activity.closeNavDrawer();
-        activity.startActivity(FeedActivity.newIntent(activity));
     }
 
     private void launchSettingsActivity() {
