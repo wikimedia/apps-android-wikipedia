@@ -29,6 +29,12 @@ public class MainActivityToolbarCoordinator {
         setActivityToolbar(defaultToolbar);
     }
 
+    public void setSearchMode(boolean enabled) {
+        if (overrideToolbar != null) {
+            defaultToolbar.setVisibility(enabled ? View.VISIBLE : View.GONE);
+        }
+    }
+
     private void setActivityToolbar(Toolbar toolbar) {
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);

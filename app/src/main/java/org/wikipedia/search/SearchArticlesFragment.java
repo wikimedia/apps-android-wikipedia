@@ -248,12 +248,8 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         funnel = new SearchFunnel(WikipediaApp.getInstance());
         funnel.searchStart();
         isSearchActive = true;
-        // invalidate our activity's ActionBar, so that all action items are removed, and
-        // we can fill up the whole width of the ActionBar with our SearchView.
-        getActivity().supportInvalidateOptionsMenu();
-        ((MainActivity)getActivity()).getSearchBarHideHandler().setForceNoFade(true);
         setSearchViewEnabled(true);
-        ((MainActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(false);
+        ((MainActivity) getActivity()).setSearchMode(true);
         // show ourselves
         searchContainerView.setVisibility(View.VISIBLE);
 
@@ -267,11 +263,8 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
     public void closeSearch() {
         isSearchActive = false;
-        // invalidate our activity's ActionBar, so that the original action items are restored.
-        getActivity().supportInvalidateOptionsMenu();
-        ((MainActivity)getActivity()).getSearchBarHideHandler().setForceNoFade(false);
         setSearchViewEnabled(false);
-        ((MainActivity) getActivity()).getDrawerToggle().setDrawerIndicatorEnabled(true);
+        ((MainActivity) getActivity()).setSearchMode(false);
         // hide ourselves
         searchContainerView.setVisibility(View.GONE);
         hideSoftKeyboard(getActivity());

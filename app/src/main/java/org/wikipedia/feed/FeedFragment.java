@@ -43,6 +43,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
 
     public interface Callback extends CallbackFragment.Callback {
         void onFeedSearchRequested();
+        void onFeedVoiceSearchRequested();
         void onFeedSelectPage(PageTitle title);
         void onFeedAddPageToList(PageTitle title);
     }
@@ -140,6 +141,20 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         public void onAddPageToList(@NonNull PageTitle title) {
             if (getCallback() != null) {
                 getCallback().onFeedAddPageToList(title);
+            }
+        }
+
+        @Override
+        public void onSearchRequested() {
+            if (getCallback() != null) {
+                getCallback().onFeedSearchRequested();
+            }
+        }
+
+        @Override
+        public void onVoiceSearchRequested() {
+            if (getCallback() != null) {
+                getCallback().onFeedVoiceSearchRequested();
             }
         }
     }

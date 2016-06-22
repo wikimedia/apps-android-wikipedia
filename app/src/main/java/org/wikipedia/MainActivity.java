@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetManager;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
@@ -102,6 +104,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
+    public static final int ACTIVITY_REQUEST_VOICE_SEARCH = 3;
 
     public static final int PROGRESS_BAR_MAX_VALUE = 10000;
 
@@ -411,6 +414,15 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         return true;
     }
 
+    public void setSearchMode(boolean enabled) {
+        // invalidate our ActionBar, so that all action items are removed, and
+        // we can fill up the whole width of the ActionBar with our SearchView.
+        supportInvalidateOptionsMenu();
+        toolbarCoordinator.setSearchMode(enabled);
+        getSearchBarHideHandler().setForceNoFade(enabled);
+        getDrawerToggle().setDrawerIndicatorEnabled(!enabled);
+    }
+
     public void showToolbar() {
         ViewAnimations.ensureTranslationY(toolbarContainer, 0);
     }
@@ -456,7 +468,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             handleProcessTextIntent(intent);
         } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
             new IntentFunnel(app).logSearchWidgetTap();
-            openSearch();
+            openSearchFromIntent();
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
@@ -469,7 +481,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     private void handleShareIntent(Intent intent) {
         String text = intent.getStringExtra(Intent.EXTRA_TEXT);
-        openSearch(text == null ? null : text.trim());
+        openSearchFromIntent(text == null ? null : text.trim(), true);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -478,18 +490,18 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             return;
         }
         String text = intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT);
-        openSearch(text == null ? null : text.trim());
+        openSearchFromIntent(text == null ? null : text.trim(), true);
     }
 
-    private void openSearch() {
-        openSearch(null);
+    private void openSearchFromIntent() {
+        openSearchFromIntent(null, true);
     }
 
-    private void openSearch(@Nullable final CharSequence query) {
+    private void openSearchFromIntent(@Nullable final CharSequence query, final boolean fromWidget) {
         fragmentContainerView.post(new Runnable() {
             @Override
             public void run() {
-                searchFragment.setLaunchedFromWidget(true);
+                searchFragment.setLaunchedFromWidget(fromWidget);
                 searchFragment.openSearch();
                 if (query != null) {
                     searchFragment.setSearchText(query);
@@ -814,6 +826,16 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     }
 
     @Override
+    public void onFeedVoiceSearchRequested() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        try {
+            startActivityForResult(intent, ACTIVITY_REQUEST_VOICE_SEARCH);
+        } catch (ActivityNotFoundException a) {
+            FeedbackUtil.showMessage(this, R.string.error_voice_search_not_available);
+        }
+    }
+
+    @Override
     public void onFeedSelectPage(PageTitle title) {
         loadPage(title, new HistoryEntry(title, HistoryEntry.SOURCE_FEED));
     }
@@ -959,6 +981,8 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             handleLoginActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryFilePageSelected(requestCode, resultCode)) {
             handleLangLinkOrFilePageResult(data);
+        } else if (voiceSearchRequested(requestCode)) {
+            handleVoiceSearchResult(resultCode, data);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -1074,6 +1098,18 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     private boolean languageChanged(int resultCode) {
         return resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
+    }
+
+    private boolean voiceSearchRequested(int requestCode) {
+        return requestCode == ACTIVITY_REQUEST_VOICE_SEARCH;
+    }
+
+    private void handleVoiceSearchResult(int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && data != null
+                && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
+            String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
+            openSearchFromIntent(searchQuery, false);
+        }
     }
 
     /**
