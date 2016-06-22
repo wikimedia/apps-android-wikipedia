@@ -623,11 +623,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (!isAdded() || getMainActivity().isSearching()) {
+        if (!isAdded()) {
             return;
         }
         menu.clear();
-        inflater.inflate(R.menu.menu_page_actions, menu);
+        if (!getMainActivity().isSearching()) {
+            inflater.inflate(R.menu.menu_page_actions, menu);
+        }
     }
 
     @Override

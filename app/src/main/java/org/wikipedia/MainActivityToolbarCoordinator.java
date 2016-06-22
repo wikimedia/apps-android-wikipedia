@@ -35,7 +35,7 @@ public class MainActivityToolbarCoordinator {
 
     public void setSearchMode(boolean enabled) {
         if (overrideToolbar != null) {
-            defaultToolbar.setVisibility(enabled ? View.VISIBLE : View.GONE);
+            toolbarContainerView.setVisibility(enabled ? View.VISIBLE : View.GONE);
         }
     }
 
