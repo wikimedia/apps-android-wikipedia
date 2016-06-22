@@ -210,8 +210,8 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         setContentView(R.layout.activity_page);
 
-        toolbarCoordinator = new MainActivityToolbarCoordinator(this, (Toolbar) findViewById(R.id.main_toolbar));
         toolbarContainer = findViewById(R.id.main_toolbar_container);
+        toolbarCoordinator = new MainActivityToolbarCoordinator(this, toolbarContainer, (Toolbar) findViewById(R.id.main_toolbar));
         getSupportFragmentManager()
                 .addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
                     @Override
@@ -568,6 +568,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
         resetFragmentsToFeedOrPage();
         FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+        trans.setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out);
         trans.add(R.id.content_fragment_container, f);
         trans.addToBackStack(null);
         if (allowStateLoss) {

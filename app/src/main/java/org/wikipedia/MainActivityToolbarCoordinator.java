@@ -8,24 +8,28 @@ import android.view.View;
 
 public class MainActivityToolbarCoordinator {
     @NonNull private AppCompatActivity activity;
+    @NonNull private View toolbarContainerView;
     @NonNull private Toolbar defaultToolbar;
     @Nullable private Toolbar overrideToolbar;
 
-    public MainActivityToolbarCoordinator(@NonNull AppCompatActivity activity, @NonNull Toolbar defaultToolbar) {
+    public MainActivityToolbarCoordinator(@NonNull AppCompatActivity activity,
+                                          @NonNull View toolbarContainerView,
+                                          @NonNull Toolbar defaultToolbar) {
         this.activity = activity;
+        this.toolbarContainerView = toolbarContainerView;
         this.defaultToolbar = defaultToolbar;
         setActivityToolbar(defaultToolbar);
     }
 
     public void setOverrideToolbar(@NonNull Toolbar toolbar) {
         overrideToolbar = toolbar;
-        defaultToolbar.setVisibility(View.GONE);
+        toolbarContainerView.setVisibility(View.GONE);
         setActivityToolbar(overrideToolbar);
     }
 
     public void removeOverrideToolbar() {
         overrideToolbar = null;
-        defaultToolbar.setVisibility(View.VISIBLE);
+        toolbarContainerView.setVisibility(View.VISIBLE);
         setActivityToolbar(defaultToolbar);
     }
 
