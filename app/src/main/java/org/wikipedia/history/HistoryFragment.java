@@ -101,6 +101,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onDestroyView() {
+        historyEntryList.setEmptyView(null);
         getActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         entryFilter.removeTextChangedListener(textWatcher);
         historyEntryList.setOnItemClickListener(null);
