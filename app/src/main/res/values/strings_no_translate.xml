@@ -42,7 +42,7 @@
 
     <!-- The Feed -->
     <!-- TODO: [Feed] move translatable strings to strings.xml. -->
-    <string name="feed">Home</string>
+    <string name="feed">Explore Wikipedia</string>
     <string name="activity_feed_title">@string/feed</string>
     <string name="nav_item_feed">@string/feed</string>
     <string name="view_card_footer_button">See more</string>
