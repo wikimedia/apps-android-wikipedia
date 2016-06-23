@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,6 +36,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         MainActivityToolbarProvider,
         CallbackFragment<CallbackFragment.Callback> {
     @BindView(R.id.feed_app_bar_layout) AppBarLayout appBarLayout;
+    @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
     @BindView(R.id.feed_toolbar) Toolbar toolbar;
     private Unbinder unbinder;
@@ -75,10 +77,22 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         appBarLayout.addOnOffsetChangedListener(headerOffsetChangedListener);
         searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
 
+        swipeRefreshLayout.setProgressViewOffset(true,
+                (int) getResources().getDimension(R.dimen.view_feed_refresh_offset_start),
+                (int) getResources().getDimension(R.dimen.view_feed_refresh_offset_end));
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                coordinator.reset();
+                coordinator.more(app.getSite());
+            }
+        });
+
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
             @Override
             public void update(List<Card> cards) {
                 if (isAdded()) {
+                    swipeRefreshLayout.setRefreshing(false);
                     feedView.update();
                 }
             }
@@ -180,6 +194,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
                 searchIconVisible = shouldShowSearchIcon;
                 getActivity().supportInvalidateOptionsMenu();
             }
+            swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }
     }
 }
