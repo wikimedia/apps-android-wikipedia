@@ -57,6 +57,10 @@ public abstract class FeedCoordinatorBase {
         requestNextCard(site);
     }
 
+    public boolean finished() {
+        return pendingClients.isEmpty();
+    }
+
     protected abstract void buildScript(int age);
 
     protected void addPendingClient(FeedClient client) {
