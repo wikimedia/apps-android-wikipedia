@@ -579,14 +579,16 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         }
 
         resetFragmentsToFeedOrPage();
-        FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-        trans.setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out);
-        trans.add(R.id.content_fragment_container, f);
-        trans.addToBackStack(null);
-        if (allowStateLoss) {
-            trans.commitAllowingStateLoss();
-        } else {
-            trans.commit();
+        if (getTopFragment() == null || (getTopFragment().getClass() != f.getClass())) {
+            FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
+            trans.setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out);
+            trans.add(R.id.content_fragment_container, f);
+            trans.addToBackStack(null);
+            if (allowStateLoss) {
+                trans.commitAllowingStateLoss();
+            } else {
+                trans.commit();
+            }
         }
         afterFragmentChanged();
     }

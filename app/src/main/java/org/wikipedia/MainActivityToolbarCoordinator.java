@@ -23,6 +23,7 @@ public class MainActivityToolbarCoordinator {
 
     public void setOverrideToolbar(@NonNull Toolbar toolbar) {
         overrideToolbar = toolbar;
+        defaultToolbar.getMenu().clear();
         toolbarContainerView.setVisibility(View.GONE);
         setActivityToolbar(overrideToolbar);
     }

@@ -635,7 +635,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (!isAdded() || getMainActivity().isSearching()) {
+        if (!isAdded() || getMainActivity().isSearching()
+                || !(getMainActivity().getTopFragment() instanceof PageFragment)) {
             return;
         }
 
@@ -646,14 +647,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
         MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
         MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
-
-        if (otherLangItem == null) {
-            // On API <= 19, it looks like onPrepareOptionsMenu can be called before the menu
-            // is actually inflated.
-            // TODO: remove when this is better understood.
-            L.logRemoteErrorIfProd(new RuntimeException("onPrepareOptionsMenu called with empty menu."));
-            return;
-        }
 
         if (pageLoadStrategy.isLoading() || errorState) {
             otherLangItem.setEnabled(false);
