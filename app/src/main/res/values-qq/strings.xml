@@ -403,5 +403,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
 {{Identical|Preferences}}</string>
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
+  <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
+  <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article. The \"%s\" symbol is replaced with a translation of the language name.</string>
   <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>
 </resources>

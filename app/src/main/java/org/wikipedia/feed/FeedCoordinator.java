@@ -8,6 +8,7 @@ import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.continuereading.ContinueReadingClient;
 import org.wikipedia.feed.demo.IntegerListClient;
 import org.wikipedia.feed.mostread.MostReadClient;
+import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.feed.searchbar.SearchClient;
 
 public class FeedCoordinator extends FeedCoordinatorBase {
@@ -29,6 +30,7 @@ public class FeedCoordinator extends FeedCoordinatorBase {
         addPendingClient(new AggregatedFeedContentClient());
         addPendingClient(new IntegerListClient());
         addPendingClient(new MostReadClient());
+        addPendingClient(new RandomClient());
 
     }
 
