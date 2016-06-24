@@ -82,6 +82,7 @@ import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
@@ -846,6 +847,11 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     @Override
     public void onFeedAddPageToList(PageTitle title) {
         showAddToListDialog(title, AddToReadingListDialog.InvokeSource.FEED);
+    }
+
+    @Override
+    public void onFeedSharePage(PageTitle title) {
+        ShareUtil.shareText(this, title);
     }
 
     private void loadMainPageIfNoTabs() {

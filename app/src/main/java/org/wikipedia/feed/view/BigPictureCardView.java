@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
@@ -21,13 +22,18 @@ public class BigPictureCardView extends CardView {
     @BindView(R.id.view_big_picture_card_footer) View footerView;
     @BindView(R.id.view_big_picture_card_image) SimpleDraweeView imageView;
     @BindView(R.id.view_big_picture_card_article_title) TextView articleTitleView;
-    @BindView(R.id.view_big_picture_card_article_subtitle) TextView articleSubtitleView;
+    @BindView(R.id.view_big_picture_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_big_picture_card_extract) TextView extractView;
+    @BindView(R.id.view_big_picture_card_text_container) View textContainerView;
 
     public BigPictureCardView(@NonNull Context context) {
         super(context);
         inflate(getContext(), R.layout.view_big_picture_card, this);
         ButterKnife.bind(this);
+    }
+
+    protected void onClickListener(@Nullable OnClickListener listener) {
+        textContainerView.setOnClickListener(listener);
     }
 
     protected void articleTitle(@NonNull String articleTitle) {
@@ -36,13 +42,15 @@ public class BigPictureCardView extends CardView {
 
     protected void articleSubtitle(@Nullable String articleSubtitle) {
         articleSubtitleView.setText(articleSubtitle);
-        if (articleSubtitle != null) {
-            articleSubtitleView.setVisibility(View.VISIBLE);
-        }
     }
 
     protected void image(@Nullable Uri uri) {
-        imageView.setImageURI(uri);
+        if (uri == null) {
+            imageView.setVisibility(GONE);
+        } else {
+            imageView.setVisibility(VISIBLE);
+            imageView.setImageURI(uri);
+        }
     }
 
     protected void extract(@Nullable String extract) {

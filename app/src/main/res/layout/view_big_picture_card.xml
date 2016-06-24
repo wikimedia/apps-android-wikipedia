@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -9,68 +10,72 @@
     <View
         android:id="@+id/view_big_picture_card_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <com.facebook.drawee.view.SimpleDraweeView
-        style="@style/SimpleDraweeViewPlaceholder.Article"
-        android:id="@+id/view_big_picture_card_image"
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        app:actualImageScaleType="focusCrop" />
-
-    <TextView
-        style="@style/RtlAwareTextView"
-        android:id="@+id/view_big_picture_card_article_title"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="4dp"
-        android:textSize="28sp"
-        android:fontFamily="serif"
-        android:textColor="?attr/link_preview_text_color"
-        android:lineSpacingMultiplier="0.9"
-        android:maxLines="3"
-        android:ellipsize="end" />
-
-    <TextView
-        style="@style/RtlAwareTextView"
-        android:id="@+id/view_big_picture_card_article_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/gray_disabled"
-        android:paddingTop="4dp"
-        android:paddingBottom="8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:textSize="14sp"
-        android:maxLines="3"
-        android:ellipsize="end"
         android:visibility="gone"/>
 
-    <TextView
-        style="@style/RtlAwareTextView"
-        android:id="@+id/view_big_picture_card_extract"
+    <com.facebook.drawee.view.SimpleDraweeView
+        style="@style/SimpleDraweeViewPlaceholder"
+        android:id="@+id/view_big_picture_card_image"
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        app:actualImageScaleType="focusCrop" />
+
+    <LinearLayout
+        android:id="@+id/view_big_picture_card_text_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
+        android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:textSize="16sp"
-        android:maxLines="4"
-        android:ellipsize="end"
-        android:lineSpacingMultiplier="1.4"
-        android:textIsSelectable="true" />
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            style="@style/RtlAwareTextView"
+            android:id="@+id/view_big_picture_card_article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp"
+            android:textSize="24sp"
+            android:fontFamily="serif"
+            android:textColor="?attr/link_preview_text_color"
+            android:lineSpacingMultiplier="0.9"
+            android:maxLines="3"
+            android:ellipsize="end"
+            tools:text="Lorem ipsum"/>
+
+        <org.wikipedia.views.GoneIfEmptyTextView
+            style="@style/RtlAwareTextView"
+            android:id="@+id/view_big_picture_card_article_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_disabled"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="12sp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            tools:text="Lorem ipsum"/>
+
+        <TextView
+            style="@style/RtlAwareTextView"
+            android:id="@+id/view_big_picture_card_extract"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.4"
+            tools:text="Lorem ipsum"/>
+
+    </LinearLayout>
 
     <View
         android:id="@+id/view_big_picture_card_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
         android:visibility="gone" />
 
 </LinearLayout>

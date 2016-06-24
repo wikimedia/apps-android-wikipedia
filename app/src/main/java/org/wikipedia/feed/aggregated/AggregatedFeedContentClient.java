@@ -37,7 +37,7 @@ public class AggregatedFeedContentClient implements FeedClient {
                 String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), "http", site.authority()));
         AggregatedFeedContentClient.Service service = retrofit.create(Service.class);
         call = service.get(DATE.year(), DATE.month(), DATE.date());
-        call.enqueue(new CallbackAdapter(cb));
+        call.enqueue(new CallbackAdapter(cb, site));
     }
 
     @Override
@@ -67,16 +67,18 @@ public class AggregatedFeedContentClient implements FeedClient {
 
     private static class CallbackAdapter implements retrofit2.Callback<AggregatedFeedContent> {
         @NonNull private final Callback cb;
+        @NonNull private final Site site;
 
-        CallbackAdapter(@NonNull Callback cb) {
+        CallbackAdapter(@NonNull Callback cb, @NonNull Site site) {
             this.cb = cb;
+            this.site = site;
         }
 
         @Override public void onResponse(Call<AggregatedFeedContent> call,
                                          Response<AggregatedFeedContent> response) {
             if (response.isSuccessful()) {
                 AggregatedFeedContent content = response.body();
-                FeaturedArticleCard tfaCard = new FeaturedArticleCard(content.tfa(), DATE);
+                FeaturedArticleCard tfaCard = new FeaturedArticleCard(content.tfa(), DATE, site);
                 //MostReadCard mostReadCard = new MostReadCard(content.mostRead());
                 cb.success(Collections.singletonList((Card) tfaCard));
             } else {

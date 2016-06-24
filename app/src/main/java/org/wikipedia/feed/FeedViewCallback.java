@@ -8,6 +8,7 @@ public interface FeedViewCallback {
     void onRequestMore();
     void onSelectPage(@NonNull PageTitle title);
     void onAddPageToList(@NonNull PageTitle title);
+    void onSharePage(@NonNull PageTitle title);
     void onSearchRequested();
     void onVoiceSearchRequested();
 }

@@ -52,6 +52,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(PageTitle title);
         void onFeedAddPageToList(PageTitle title);
+        void onFeedSharePage(PageTitle title);
     }
 
     public static FeedFragment newInstance() {
@@ -168,6 +169,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         public void onAddPageToList(@NonNull PageTitle title) {
             if (getCallback() != null) {
                 getCallback().onFeedAddPageToList(title);
+            }
+        }
+
+        @Override
+        public void onSharePage(@NonNull PageTitle title) {
+            if (getCallback() != null) {
+                getCallback().onFeedSharePage(title);
             }
         }
 

@@ -110,7 +110,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             case VIEW_TYPE_MOST_READ:
                 return new MostReadCardView(context);
             case VIEW_TYPE_FEATURED_ARTICLE:
-                return new FeaturedArticleCardView(context);
+                return new FeaturedArticleCardView(context).setCallback(callback);
             default:
                 throw new IllegalArgumentException("viewType=" + viewType);
         }
