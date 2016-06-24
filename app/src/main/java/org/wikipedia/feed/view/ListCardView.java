@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 
 public abstract class ListCardView<T extends Card> extends CardView {
     @BindView(R.id.view_list_card_header) View headerView;
+    @BindView(R.id.view_list_card_large_header) View largeHeaderView;
     @BindView(R.id.view_list_card_footer) View footerView;
 
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;
@@ -48,6 +49,11 @@ public abstract class ListCardView<T extends Card> extends CardView {
     protected void header(@NonNull View view) {
         ViewUtil.replace(headerView, view);
         headerView = view;
+    }
+
+    protected void largeHeader(@NonNull View view) {
+        ViewUtil.replace(largeHeaderView, view);
+        largeHeaderView = view;
     }
 
     protected void footer(@NonNull View view) {

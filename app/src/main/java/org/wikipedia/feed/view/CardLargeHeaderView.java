@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,7 +22,6 @@ import butterknife.ButterKnife;
 public class CardLargeHeaderView extends LinearLayout {
     @BindView(R.id.view_card_header_large_background) View backgroundView;
     @BindView(R.id.view_card_header_large_image) FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_card_header_large_title) TextView titleView;
     @BindView(R.id.view_card_header_large_page_title) TextView pageTitleView;
     @BindView(R.id.view_card_header_large_subtitle) GoneIfEmptyTextView subtitleView;
 
@@ -41,16 +39,6 @@ public class CardLargeHeaderView extends LinearLayout {
         if (uri != null) {
             imageView.loadImage(uri);
         }
-        return this;
-    }
-
-    @NonNull public CardLargeHeaderView setTitle(@Nullable CharSequence title) {
-        titleView.setText(title);
-        return this;
-    }
-
-    @NonNull public CardLargeHeaderView setTitle(@StringRes int id) {
-        titleView.setText(id);
         return this;
     }
 

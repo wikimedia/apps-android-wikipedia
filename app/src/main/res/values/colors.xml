@@ -106,4 +106,5 @@
     <color name="holo_red_dark">#c00</color>
 
     <color name="feed_window_background">#eaecf0</color>
+    <color name="feed_featured_icon_background">#ffb50d</color>
 </resources>

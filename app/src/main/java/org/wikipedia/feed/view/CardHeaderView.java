@@ -1,11 +1,13 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.net.Uri;
+import android.content.res.ColorStateList;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.widget.ImageView;
+import android.support.v7.widget.AppCompatImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CardHeaderView extends LinearLayout {
-    @BindView(R.id.view_card_header_image) ImageView imageView;
+    @BindView(R.id.view_card_header_image) AppCompatImageView imageView;
     @BindView(R.id.view_card_header_title) TextView titleView;
     @BindView(R.id.view_card_header_subtitle) TextView subtitleView;
 
@@ -26,8 +28,17 @@ public class CardHeaderView extends LinearLayout {
         ButterKnife.bind(this);
     }
 
-    @NonNull public CardHeaderView setImage(@Nullable Uri uri) {
-        imageView.setImageURI(uri);
+    @NonNull public CardHeaderView setImage(@DrawableRes int resId) {
+        imageView.setImageResource(resId);
+        return this;
+    }
+
+    @NonNull public CardHeaderView setImageCircleColor(@ColorRes int color) {
+        ColorStateList colorStateList = new ColorStateList(
+                new int[][]{new int[]{}},
+                new int[]{getResources().getColor(color)}
+        );
+        imageView.setSupportBackgroundTintList(colorStateList);
         return this;
     }
 

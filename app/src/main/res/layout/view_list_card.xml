@@ -9,11 +9,18 @@
         android:layout_height="wrap_content"
         android:visibility="gone" />
 
+    <View
+        android:id="@+id/view_list_card_large_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_list_card_header"
+        android:visibility="gone" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/view_list_card_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/view_list_card_header" />
+        android:layout_below="@id/view_list_card_large_header" />
 
     <View
         android:id="@+id/view_list_card_footer"

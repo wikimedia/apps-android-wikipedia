@@ -4,7 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.R;
 import org.wikipedia.feed.FeedViewCallback;
+import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.CardLargeHeaderView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleListCardView;
@@ -30,12 +32,16 @@ public class BecauseYouReadCardView extends PageTitleListCardView<BecauseYouRead
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {
-        CardLargeHeaderView header = new CardLargeHeaderView(getContext())
+        CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
+                .setImage(R.drawable.ic_restore_black_24dp)
+                .setImageCircleColor(R.color.gray_highlight);
+        header(header);
+        CardLargeHeaderView largeHeader = new CardLargeHeaderView(getContext())
                 .setSubtitle(card.subtitle())
                 .setPageTitle(card.pageTitle())
                 .setImage(card.image());
-        header(header);
+        largeHeader(largeHeader);
     }
 
     private static class RecyclerAdapter extends PageTitleListCardView.RecyclerAdapter<BecauseYouReadItemCard> {

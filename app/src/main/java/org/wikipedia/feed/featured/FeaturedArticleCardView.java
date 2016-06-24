@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.R;
 import org.wikipedia.feed.view.BigPictureCardView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeaturedCardFooterView;
@@ -32,7 +33,9 @@ public class FeaturedArticleCardView extends BigPictureCardView {
     private void header(@NonNull FeaturedArticleCard card) {
         CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
-                .setSubtitle(card.subtitle());
+                .setSubtitle(card.subtitle())
+                .setImage(R.drawable.ic_star_black_24dp)
+                .setImageCircleColor(R.color.feed_featured_icon_background);
         header(header);
     }
 

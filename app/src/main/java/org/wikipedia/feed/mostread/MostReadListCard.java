@@ -34,7 +34,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
         //       difficult for translators to write correct format specifiers without being able to
         //       test them. We should investigate localization support in date libraries such as
         //       Joda-Time and how TWN solves this classic problem.
-        DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(context());
+        DateFormat dateFormat = android.text.format.DateFormat.getMediumDateFormat(context());
         return dateFormat.format(articles.date());
     }
 

@@ -9,7 +9,6 @@ import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.feed.view.ListCardView;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
@@ -29,7 +28,8 @@ public class MostReadCardView extends ListCardView<IntegerListCard> {
         CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
                 .setSubtitle(card.subtitle())
-                .setImage(ResourceUtil.uri(getContext(), R.drawable.ic_most_read));
+                .setImage(R.drawable.ic_most_read)
+                .setImageCircleColor(R.color.blue_progressive);
         header(header);
     }
 
