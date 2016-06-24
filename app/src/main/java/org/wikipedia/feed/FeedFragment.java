@@ -71,7 +71,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         unbinder = ButterKnife.bind(this, view);
-        feedView.set(coordinator.getCards(), feedCallback);
+        feedView.set(coordinator, feedCallback);
         appBarLayout.addOnOffsetChangedListener(headerOffsetChangedListener);
         searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
 
@@ -114,10 +114,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_feed_search:
-
-                // TODO: remove
-                coordinator.more(app.getSite());
-
+                if (getCallback() != null) {
+                    getCallback().onFeedSearchRequested();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -139,6 +138,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     }
 
     private class FeedCallback implements FeedViewCallback {
+        @Override
+        public void onRequestMore() {
+            coordinator.more(app.getSite());
+        }
+
         @Override
         public void onSelectPage(@NonNull PageTitle title) {
             if (getCallback() != null) {

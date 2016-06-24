@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.view.ViewGroup;
 
+import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCard;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
@@ -23,8 +24,6 @@ import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 
-import java.util.List;
-
 public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> {
     private static final int VIEW_TYPE_SEARCH_BAR = 0;
     private static final int VIEW_TYPE_CONTINUE_READING = 1;
@@ -33,10 +32,12 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
     private static final int VIEW_TYPE_FEATURED_ARTICLE = 4;
     private static final int VIEW_TYPE_INTEGER_LIST = 100;
 
+    @NonNull private FeedCoordinatorBase coordinator;
     @Nullable private FeedViewCallback callback;
 
-    public FeedRecyclerAdapter(@NonNull List<Card> items, @Nullable FeedViewCallback callback) {
-        super(items);
+    public FeedRecyclerAdapter(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
+        super(coordinator.getCards());
+        this.coordinator = coordinator;
         this.callback = callback;
     }
 
@@ -47,6 +48,12 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
     @Override public void onBindViewHolder(DefaultViewHolder<CardView> holder, int position) {
         Card item = item(position);
         CardView view = holder.getView();
+
+        if (coordinator.finished()
+                && position == getItemCount() - 1
+                && callback != null) {
+            callback.onRequestMore();
+        }
 
         if (isCardAssociatedWithView(view, item)) {
             // Don't bother reloading the same card into the same view
