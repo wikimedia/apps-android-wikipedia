@@ -14,7 +14,11 @@ public abstract class DummyClient<T extends Card> implements FeedClient {
     @Override
     public void request(@NonNull Context context, @NonNull Site site, int age,
                         @NonNull final FeedClient.Callback cb) {
-        cb.success(Collections.singletonList(getNewCard(site)));
+        try {
+            cb.success(Collections.singletonList(getNewCard(site)));
+        } catch (Throwable t) {
+            cb.error(t);
+        }
     }
 
     @Override

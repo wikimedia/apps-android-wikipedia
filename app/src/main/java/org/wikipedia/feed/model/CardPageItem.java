@@ -4,11 +4,17 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.gson.annotations.JsonAdapter;
+
+import org.wikipedia.page.Namespace;
+import org.wikipedia.page.NamespaceTypeAdapter;
+
 public class CardPageItem {
     @SuppressWarnings("NullableProblems") @NonNull private String title;
     @Nullable private Thumbnail thumbnail;
     @Nullable private String description;
     @Nullable private String extract;
+    @Nullable @JsonAdapter(NamespaceTypeAdapter.class) private Namespace namespace;
 
     @NonNull
     public String title() {
@@ -28,5 +34,10 @@ public class CardPageItem {
     @Nullable
     public String extract() {
         return extract;
+    }
+
+    @Nullable
+    public Namespace namespace() {
+        return namespace;
     }
 }

@@ -19,7 +19,7 @@ public final class DateUtil {
     }
 
     public static String getFeedCardDateString(Calendar cal) {
-        int flags = DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_UTC;
+        int flags = DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR;
         return DateUtils.formatDateTime(WikipediaApp.getInstance(), cal.getTimeInMillis(), flags);
     }
 
