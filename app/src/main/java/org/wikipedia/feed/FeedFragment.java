@@ -3,7 +3,7 @@ package org.wikipedia.feed;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -23,6 +23,7 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.DimenUtil;
 
 import java.util.List;
 
@@ -33,13 +34,16 @@ import butterknife.Unbinder;
 public class FeedFragment extends Fragment implements BackPressedHandler,
         MainActivityToolbarProvider,
         CallbackFragment<CallbackFragment.Callback> {
+    @BindView(R.id.feed_app_bar_layout) AppBarLayout appBarLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
-    @BindView(R.id.feed_collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
     @BindView(R.id.feed_toolbar) Toolbar toolbar;
     private Unbinder unbinder;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
     private FeedViewCallback feedCallback = new FeedCallback();
+    private FeedHeaderOffsetChangedListener headerOffsetChangedListener = new FeedHeaderOffsetChangedListener();
+    private int searchIconShowThresholdPx;
+    private boolean searchIconVisible;
 
     public interface Callback extends CallbackFragment.Callback {
         void onFeedSearchRequested();
@@ -68,6 +72,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
 
         unbinder = ButterKnife.bind(this, view);
         feedView.set(coordinator.getCards(), feedCallback);
+        appBarLayout.addOnOffsetChangedListener(headerOffsetChangedListener);
+        searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
 
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
             @Override
@@ -91,6 +97,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
 
     @Override
     public void onDestroyView() {
+        appBarLayout.removeOnOffsetChangedListener(headerOffsetChangedListener);
         unbinder.unbind();
         super.onDestroyView();
     }
@@ -98,7 +105,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.menu_feed, menu);
+        if (searchIconVisible) {
+            inflater.inflate(R.menu.menu_feed, menu);
+        }
     }
 
     @Override
@@ -155,6 +164,17 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         public void onVoiceSearchRequested() {
             if (getCallback() != null) {
                 getCallback().onFeedVoiceSearchRequested();
+            }
+        }
+    }
+
+    private class FeedHeaderOffsetChangedListener implements AppBarLayout.OnOffsetChangedListener {
+        @Override
+        public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+            boolean shouldShowSearchIcon = !((searchIconShowThresholdPx + verticalOffset) > 0);
+            if (shouldShowSearchIcon != searchIconVisible) {
+                searchIconVisible = shouldShowSearchIcon;
+                getActivity().supportInvalidateOptionsMenu();
             }
         }
     }

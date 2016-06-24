@@ -8,13 +8,13 @@
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/feed_app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="@dimen/view_feed_header_height"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/feed_collapsing_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -46,11 +46,11 @@
         android:id="@+id/fragment_feed_feed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="-100dp"
         android:scrollbars="vertical"
         android:paddingLeft="@dimen/view_list_card_margin_horizontal"
         android:paddingRight="@dimen/view_list_card_margin_horizontal"
         app:minColumnWidth="@dimen/view_feed_min_column_width"
+        app:behavior_overlapTop="100dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </android.support.design.widget.CoordinatorLayout>
