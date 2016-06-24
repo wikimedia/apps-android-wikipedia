@@ -40,7 +40,9 @@ def computeVersionName(label) {
 
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_1_7
 android {
+    // Keep version in sync with /project.properties
     compileSdkVersion 23
+
     buildToolsVersion '23.0.3'
     compileOptions {
         sourceCompatibility = JAVA_VERSION
