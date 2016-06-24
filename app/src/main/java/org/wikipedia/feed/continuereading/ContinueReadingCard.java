@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageTitle;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,6 +28,10 @@ public class ContinueReadingCard extends Card {
 
     @Override @Nullable public Uri image() {
         return TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl());
+    }
+
+    @NonNull public PageTitle pageTitle() {
+        return entry.getTitle();
     }
 
     /** @return The last visit age in days. */

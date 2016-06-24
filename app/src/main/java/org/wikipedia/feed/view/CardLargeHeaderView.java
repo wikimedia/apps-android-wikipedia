@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 
 public class CardLargeHeaderView extends LinearLayout {
     @BindView(R.id.view_card_header_large_background) View backgroundView;
+    @BindView(R.id.view_card_header_large_text_container) View textContainerView;
     @BindView(R.id.view_card_header_large_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.view_card_header_large_page_title) TextView pageTitleView;
     @BindView(R.id.view_card_header_large_subtitle) GoneIfEmptyTextView subtitleView;
@@ -49,6 +50,11 @@ public class CardLargeHeaderView extends LinearLayout {
 
     @NonNull public CardLargeHeaderView setPageTitle(@Nullable CharSequence title) {
         pageTitleView.setText(title);
+        return this;
+    }
+
+    @NonNull public CardLargeHeaderView onClickListener(@Nullable OnClickListener listener) {
+        textContainerView.setOnClickListener(listener);
         return this;
     }
 

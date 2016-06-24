@@ -6,17 +6,20 @@
         android:id="@+id/view_card_header_large_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="100dp"
         android:orientation="horizontal"
         android:background="@color/gray_background">
 
         <LinearLayout
+            android:id="@+id/view_card_header_large_text_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="center_vertical"
+            android:minHeight="100dp"
+            android:gravity="center_vertical"
             android:padding="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground">
 
             <TextView
                 android:id="@+id/view_card_header_large_page_title"

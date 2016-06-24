@@ -102,7 +102,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             case VIEW_TYPE_INTEGER_LIST:
                 return new IntegerListCardView(context);
             case VIEW_TYPE_CONTINUE_READING:
-                return new ContinueReadingCardView(context);
+                return new ContinueReadingCardView(context).setCallback(callback);
             case VIEW_TYPE_BECAUSE_YOU_READ:
                 return new BecauseYouReadCardView(context).setCallback(callback);
             case VIEW_TYPE_SEARCH_BAR:
