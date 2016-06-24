@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.wikipedia.Site;
 import org.wikipedia.feed.FeedClient.Callback;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.mostread.MostReadClient.Service;
@@ -29,6 +30,7 @@ import static org.mockito.Mockito.verify;
 @SuppressWarnings("checkstyle:magicnumber")
 public class MostReadClientTest extends MockWebServerTest {
     @NonNull private final MostReadClient subject = new MostReadClient();
+    @NonNull private final Site site = new Site("en.wikipedia.org");
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("most_read.json");
@@ -36,7 +38,7 @@ public class MostReadClientTest extends MockWebServerTest {
         Service service = service(Service.class);
         Calendar date = calendar(2016, Calendar.JUNE, 1);
         Callback cb = mock(Callback.class);
-        subject.request(service, date, cb);
+        subject.request(service, site, date, cb);
 
         RecordedRequest req = server().takeRequest();
         assertRequestIssued(req, "2016/06/01");
@@ -50,7 +52,7 @@ public class MostReadClientTest extends MockWebServerTest {
         Service service = service(Service.class);
         Calendar date = calendar(2016, Calendar.JUNE, 1);
         Callback cb = mock(Callback.class);
-        subject.request(service, date, cb);
+        subject.request(service, site, date, cb);
 
         RecordedRequest req = server().takeRequest();
         assertRequestIssued(req, "2016/06/01");

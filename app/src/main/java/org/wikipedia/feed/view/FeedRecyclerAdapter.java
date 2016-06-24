@@ -108,7 +108,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             case VIEW_TYPE_SEARCH_BAR:
                 return new SearchCardView(context).setCallback(callback);
             case VIEW_TYPE_MOST_READ:
-                return new MostReadCardView(context);
+                return new MostReadCardView(context).setCallback(callback);
             case VIEW_TYPE_FEATURED_ARTICLE:
                 return new FeaturedArticleCardView(context).setCallback(callback);
             default:

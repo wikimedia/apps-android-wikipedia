@@ -2,26 +2,29 @@ package org.wikipedia.feed.mostread;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.demo.IntegerListCard;
 import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.ListCardItemView;
-import org.wikipedia.feed.view.ListCardView;
+import org.wikipedia.feed.view.PageTitleListCardItemView;
+import org.wikipedia.feed.view.PageTitleListCardView;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
 
-public class MostReadCardView extends ListCardView<IntegerListCard> {
+public class MostReadCardView extends PageTitleListCardView<IntegerListCard> {
     public MostReadCardView(Context context) {
         super(context);
     }
 
     public void set(@NonNull MostReadListCard card) {
         header(card);
-        footer(card);
-        set(new RecyclerAdapter(card.items()));
+        //TODO: add footer when ready.
+        //footer(card);
+        set(new RecyclerAdapter(card.items(), getCallback()));
     }
 
     private void header(@NonNull MostReadListCard card) {
@@ -40,17 +43,19 @@ public class MostReadCardView extends ListCardView<IntegerListCard> {
         footer(footer);
     }
 
-    private static class RecyclerAdapter extends ListCardView.RecyclerAdapter<MostReadItemCard> {
-        RecyclerAdapter(@NonNull List<MostReadItemCard> items) {
+    private static class RecyclerAdapter extends PageTitleListCardView.RecyclerAdapter<MostReadItemCard> {
+        @Nullable private FeedViewCallback callback;
+
+        RecyclerAdapter(@NonNull List<MostReadItemCard> items, @Nullable FeedViewCallback callback) {
             super(items);
+            this.callback = callback;
         }
 
-        @Override public void onBindViewHolder(DefaultViewHolder<ListCardItemView> holder,
-                                               int position) {
+        @Override
+        public void onBindViewHolder(DefaultViewHolder<PageTitleListCardItemView> holder, int position) {
             MostReadItemCard card = item(position);
-            holder.getView().setTitle(card.title());
-            holder.getView().setSubtitle(card.subtitle());
-            holder.getView().setImage(card.image());
+            holder.getView().setPageTitle(card.pageTitle());
+            holder.getView().setCallback(callback);
         }
     }
 }

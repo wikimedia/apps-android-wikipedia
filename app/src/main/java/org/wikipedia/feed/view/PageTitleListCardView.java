@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -26,6 +27,7 @@ public abstract class PageTitleListCardView<T extends Card> extends CardView {
     @BindView(R.id.view_list_card_large_header) View largeHeaderView;
     @BindView(R.id.view_list_card_footer) View footerView;
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;
+    @Nullable private FeedViewCallback callback;
 
     public PageTitleListCardView(Context context) {
         super(context);
@@ -33,6 +35,15 @@ public abstract class PageTitleListCardView<T extends Card> extends CardView {
         inflate(getContext(), R.layout.view_list_card, this);
         ButterKnife.bind(this);
         initRecycler();
+    }
+
+    @NonNull public PageTitleListCardView setCallback(@Nullable FeedViewCallback callback) {
+        this.callback = callback;
+        return this;
+    }
+
+    @Nullable public FeedViewCallback getCallback() {
+        return callback;
     }
 
     protected void set(@Nullable RecyclerAdapter<?> adapter) {

@@ -15,20 +15,14 @@ import org.wikipedia.views.DefaultViewHolder;
 import java.util.List;
 
 public class BecauseYouReadCardView extends PageTitleListCardView<BecauseYouReadCard> {
-    @Nullable private FeedViewCallback callback;
 
     public BecauseYouReadCardView(Context context) {
         super(context);
     }
 
-    @NonNull public PageTitleListCardView setCallback(@Nullable FeedViewCallback callback) {
-        this.callback = callback;
-        return this;
-    }
-
     public void set(@NonNull final BecauseYouReadCard card) {
         header(card);
-        set(new RecyclerAdapter(card.items(), callback));
+        set(new RecyclerAdapter(card.items(), getCallback()));
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {

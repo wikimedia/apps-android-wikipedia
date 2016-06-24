@@ -33,7 +33,7 @@ public class MostReadClient implements FeedClient {
 
         time.add(Calendar.DAY_OF_MONTH, -(age + 1));
 
-        call = request(cachedService.service(site), time, cb);
+        call = request(cachedService.service(site), site, time, cb);
     }
 
     // Only handles last request made.
@@ -44,13 +44,14 @@ public class MostReadClient implements FeedClient {
         }
     }
 
-    @VisibleForTesting Call<MostReadArticles> request(@NonNull Service service, @NonNull Calendar date,
+    @VisibleForTesting Call<MostReadArticles> request(@NonNull Service service, @NonNull Site site,
+                                                      @NonNull Calendar date,
                                                       @NonNull Callback cb) {
         int year = date.get(Calendar.YEAR);
         String month = leftPad(date.get(Calendar.MONTH) + 1);
         String day = leftPad(date.get(Calendar.DAY_OF_MONTH));
         @SuppressWarnings("checkstyle:hiddenfield") Call<MostReadArticles> call = service.get(year, month, day);
-        call.enqueue(new CallbackAdapter(cb));
+        call.enqueue(new CallbackAdapter(cb, site));
         return call;
     }
 
@@ -67,16 +68,18 @@ public class MostReadClient implements FeedClient {
 
     private static class CallbackAdapter implements retrofit2.Callback<MostReadArticles> {
         @NonNull private final Callback cb;
+        @NonNull private final Site site;
 
-        CallbackAdapter(@NonNull Callback cb) {
+        CallbackAdapter(@NonNull Callback cb, @NonNull Site site) {
             this.cb = cb;
+            this.site = site;
         }
 
         @Override public void onResponse(Call<MostReadArticles> call,
                                          Response<MostReadArticles> response) {
             if (response.isSuccessful()) {
                 MostReadArticles result = response.body();
-                List<? extends Card> cards = Collections.singletonList(new MostReadListCard(result));
+                List<? extends Card> cards = Collections.singletonList(new MostReadListCard(result, site));
                 cb.success(cards);
             } else {
                 L.v(response.message());
