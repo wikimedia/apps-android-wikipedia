@@ -14,6 +14,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Locale;
 
@@ -83,6 +84,7 @@ public class AggregatedFeedContentClient implements FeedClient {
                 cb.success(Collections.singletonList((Card) tfaCard));
             } else {
                 L.v(response.message());
+                cb.error(new IOException(response.message()));
             }
         }
 
