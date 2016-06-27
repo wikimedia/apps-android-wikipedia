@@ -61,7 +61,7 @@ public abstract class ListCardView<T extends Card> extends CardView {
         footerView = view;
     }
 
-    private void initRecycler() {
+    protected void initRecycler() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 R.drawable.divider, true));

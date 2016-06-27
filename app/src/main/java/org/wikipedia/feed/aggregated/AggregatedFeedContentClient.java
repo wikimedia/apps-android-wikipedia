@@ -10,12 +10,14 @@ import org.wikipedia.feed.UtcDate;
 import org.wikipedia.feed.FeedClient;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.news.NewsListCard;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import retrofit2.Call;
@@ -78,10 +80,15 @@ public class AggregatedFeedContentClient implements FeedClient {
         @Override public void onResponse(Call<AggregatedFeedContent> call,
                                          Response<AggregatedFeedContent> response) {
             if (response.isSuccessful()) {
+                List<Card> cards = new ArrayList<>();
                 AggregatedFeedContent content = response.body();
-                FeaturedArticleCard tfaCard = new FeaturedArticleCard(content.tfa(), DATE, site);
-                //MostReadCard mostReadCard = new MostReadCard(content.mostRead());
-                cb.success(Collections.singletonList((Card) tfaCard));
+                if (content.tfa() != null) {
+                    cards.add(new FeaturedArticleCard(content.tfa(), DATE, site));
+                }
+                if (content.news() != null) {
+                    cards.add(new NewsListCard(content.news(), DATE, site));
+                }
+                cb.success(cards);
             } else {
                 L.v(response.message());
                 cb.error(new IOException(response.message()));
