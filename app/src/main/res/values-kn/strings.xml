@@ -11,7 +11,6 @@
   <string name="page_error_retry">ಪುನಃ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="menu_clear_all_history">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಿ</string>
   <string name="page_does_not_exist_error">ಈ ಪುಟವು ಆಸ್ಥಿತ್ವದಲ್ಲಿ ಇಲ್ಲ.</string>
-  <string name="nav_item_today">ಇಂದು</string>
   <string name="dialog_title_clear_history" fuzzy="true">ಇತಿಹಾಸವನ್ನು ಅಳಿಸಬೇಕೆ?</string>
   <string name="nav_item_saved_pages">ಉಳಿಸಿದ ಪುಟಗಳು</string>
   <string name="share_via">ಮೂಲಕ ಹಂಚು</string>

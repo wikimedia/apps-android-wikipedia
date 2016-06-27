@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">戻る</string>
   <string name="menu_clear_all_history">履歴を消去</string>
   <string name="page_does_not_exist_error">このページは存在しません。</string>
-  <string name="nav_item_today">今日のメインページ</string>
   <string name="dialog_title_clear_history">閲覧履歴を消去します</string>
   <string name="dialog_message_clear_history">あなたの閲覧履歴をすべて消去し、現在開いているタブをすべて閉じます。本当によろしいですか？</string>
   <string name="nav_item_saved_pages">保存したページ</string>

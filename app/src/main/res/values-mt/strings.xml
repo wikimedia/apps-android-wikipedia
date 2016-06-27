@@ -11,7 +11,6 @@
   <string name="page_error_retry">Erġa\' pprova</string>
   <string name="menu_clear_all_history">Ħassar il-kronoloġija</string>
   <string name="page_does_not_exist_error">Din il-paġna ma teżistix.</string>
-  <string name="nav_item_today">Illum</string>
   <string name="dialog_title_clear_history" fuzzy="true">Trid tħassar il-kronoloġija tan-navigazzjoni?</string>
   <string name="nav_item_saved_pages">Paġni ssejvjati</string>
   <string name="share_via">Aqsam permezz…</string>

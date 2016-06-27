@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Zréck goen</string>
   <string name="menu_clear_all_history">Historique läschen</string>
   <string name="page_does_not_exist_error">Dës Säit gëtt et net.</string>
-  <string name="nav_item_today">Haut</string>
   <string name="dialog_title_clear_history">Historique vum  Browse läschen</string>
   <string name="dialog_message_clear_history">Dëst läscht Äre kompletten Historique a mécht all Tabs déi elo op sinn zou. Sidd Dir sécher?</string>
   <string name="nav_item_saved_pages">Gespäichert Säiten</string>

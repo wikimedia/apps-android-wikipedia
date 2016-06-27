@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">பின் செல்</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
   <string name="page_does_not_exist_error">இந்தப் பக்கம் இல்லை!</string>
-  <string name="nav_item_today">இன்று</string>
   <string name="dialog_title_clear_history">உலவல் வரலாற்றை நீக்கு</string>
   <string name="nav_item_saved_pages">சேமிக்கப்பட்ட பக்கங்கள்</string>
   <string name="share_via">இதன் வழியாக பகிரவும்…</string>

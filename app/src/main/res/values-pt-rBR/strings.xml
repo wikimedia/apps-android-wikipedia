@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Voltar</string>
   <string name="menu_clear_all_history">Apagar histórico</string>
   <string name="page_does_not_exist_error">Esta página não existe.</string>
-  <string name="nav_item_today">Hoje</string>
   <string name="dialog_title_clear_history">Limpar histórico de navegação</string>
   <string name="dialog_message_clear_history">Isto apagará todo o seu histórico de navegação e fechará todas as guias abertas. Tem certeza?</string>
   <string name="nav_item_saved_pages">Páginas salvas</string>

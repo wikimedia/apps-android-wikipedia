@@ -11,7 +11,6 @@
   <string name="page_error_retry">Klask en-dro</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
   <string name="page_does_not_exist_error">N\'eus ket eus ar bajenn-se.</string>
-  <string name="nav_item_today">Hiziv</string>
   <string name="dialog_title_clear_history" fuzzy="true">Diverkañ an istor ?</string>
   <string name="dialog_message_clear_history" fuzzy="true">Ha c\'hoant ho peus da ziverkañ an istor penn-da-benn ?</string>
   <string name="nav_item_saved_pages">Pajennoù enrollet.</string>

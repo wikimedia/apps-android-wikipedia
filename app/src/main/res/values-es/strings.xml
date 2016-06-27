@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Regresar</string>
   <string name="menu_clear_all_history">Limpiar el historial</string>
   <string name="page_does_not_exist_error">Esta página no existe.</string>
-  <string name="nav_item_today">Hoy</string>
   <string name="dialog_title_clear_history">Limpiar el historial de navegación</string>
   <string name="dialog_message_clear_history">Esto eliminará todo el historial de tu navegador, y cerrará cualquier pestaña abierta. ¿Estás seguro?</string>
   <string name="nav_item_saved_pages">Páginas guardadas</string>

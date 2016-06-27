@@ -10,7 +10,6 @@
   <string name="error_network_error" fuzzy="true">ЗӀе цакарий :(</string>
   <string name="page_error_retry">ЮхагӀорта</string>
   <string name="menu_clear_all_history">ДӀацӀане истори?</string>
-  <string name="nav_item_today">Тахана</string>
   <string name="dialog_title_clear_history" fuzzy="true">ДӀацӀане истори?</string>
   <string name="nav_item_saved_pages">Ӏалашйина агӀонаш</string>
   <string name="menu_page_other_languages" fuzzy="true">Кхин меттанаш</string>

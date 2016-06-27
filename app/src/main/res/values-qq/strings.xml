@@ -22,8 +22,6 @@
   <string name="menu_clear_all_history">Menu item text for clearing your reading history.
 {{Identical|Clear history}}</string>
   <string name="page_does_not_exist_error">Text shown when the requested page does not exist</string>
-  <string name="nav_item_today">Text in navigation sidebar that when tapped leads to the Main Page.
-{{Identical|Today}}</string>
   <string name="dialog_title_clear_history">Title for dialog box asking if you want to clear your reading history.</string>
   <string name="dialog_message_clear_history">Message for the dialog box that asks if the user wants to clear their browsing history, as well close any tabs that are open.</string>
   <string name="nav_item_saved_pages">Text in navigation sidebar that when tapped leads to the saved pages.

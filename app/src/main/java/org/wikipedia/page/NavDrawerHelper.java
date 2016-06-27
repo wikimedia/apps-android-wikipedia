@@ -81,10 +81,6 @@ public class NavDrawerHelper {
                         activity.showFeed();
                         // TODO: [Feed] add Feed logging.
                         break;
-                    case R.id.nav_item_today:
-                        activity.loadMainPageInCurrentTab();
-                        funnel.logToday();
-                        break;
                     case R.id.nav_item_history:
                         activity.pushFragment(new HistoryFragment());
                         funnel.logHistory();
@@ -159,12 +155,6 @@ public class NavDrawerHelper {
 
     private void setMenuItemSelection(@IdRes int id) {
         clearItemHighlighting();
-
-        // Special case: don't highlight today if it's not the main page.
-        if (id != R.id.nav_item_today || isMainPage()) {
-            MenuItem menuItem = activity.getNavMenu().findItem(id);
-            menuItem.setChecked(true);
-        }
     }
 
     private void toggleAccountMenu() {
@@ -194,17 +184,9 @@ public class NavDrawerHelper {
         });
     }
 
-    private boolean isMainPage() {
-        return activity.getCurPageFragment() != null
-                && activity.getCurPageFragment().getPage() != null
-                && activity.getCurPageFragment().getPage().isMainPage();
-    }
-
     @Nullable @IdRes private Integer fragmentToMenuId(Class<? extends Fragment> fragment) {
         if (fragment == FeedFragment.class) {
             return R.id.nav_item_feed;
-        } else if (fragment == PageFragment.class) {
-            return R.id.nav_item_today;
         } else if (fragment == HistoryFragment.class) {
             return R.id.nav_item_history;
         } else if (fragment == ReadingListsFragment.class) {

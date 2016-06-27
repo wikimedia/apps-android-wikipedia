@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Gå tilbage</string>
   <string name="menu_clear_all_history">Ryd historik</string>
   <string name="page_does_not_exist_error">Denne side findes ikke.</string>
-  <string name="nav_item_today">I dag</string>
   <string name="dialog_title_clear_history">Ryd browserhistorikken</string>
   <string name="dialog_message_clear_history">Dette vil slette hele browserhistorikken og lukke alle åbne faner. Er du sikker?</string>
   <string name="nav_item_saved_pages">Gemte sider</string>

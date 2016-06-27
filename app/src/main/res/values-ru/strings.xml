@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Очистить историю</string>
   <string name="page_does_not_exist_error">Такой страницы не существует.</string>
-  <string name="nav_item_today">Сегодня</string>
   <string name="dialog_title_clear_history">Очистить историю</string>
   <string name="dialog_message_clear_history">Будет удалена вся история посещения страниц и закрыты все открытые вкладки. Продолжить?</string>
   <string name="nav_item_saved_pages">Сохранённые страницы</string>

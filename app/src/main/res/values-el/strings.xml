@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Επιστροφή</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
   <string name="page_does_not_exist_error">Αυτή η σελίδα δεν υπάρχει!</string>
-  <string name="nav_item_today">Σήμερα</string>
   <string name="dialog_title_clear_history">Εκκαθάριση ιστορικού περιήγησης</string>
   <string name="nav_item_saved_pages">Αποθηκευμένες σελίδες</string>
   <string name="share_via">Μοιραστείτε μέσω</string>

@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">प्रतिगम्यताम्</string>
   <string name="menu_clear_all_history">इतिहासः मार्ज्यताम्</string>
   <string name="page_does_not_exist_error">एतत् पृष्ठं न विद्यते ।</string>
-  <string name="nav_item_today">अद्य</string>
   <string name="dialog_title_clear_history">अन्वेषणस्य इतिहासः अपाकर्तव्यो वा</string>
   <string name="dialog_message_clear_history">एतत् भवतः/भवत्याः विचरणेतिहासं (search history) अपाकरिष्यति, एतत् सर्वान् टैब् पिदधास्यति । किम् एवम् इच्छति ?</string>
   <string name="nav_item_saved_pages">रक्षितपृष्ठानि</string>

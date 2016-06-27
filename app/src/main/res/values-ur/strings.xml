@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">پیچھے جائیں</string>
   <string name="menu_clear_all_history">تاریخچہ حذف کریں</string>
   <string name="page_does_not_exist_error">یہ صفحہ موجود نہیں ہے.</string>
-  <string name="nav_item_today">آج</string>
   <string name="dialog_title_clear_history">براؤزنگ کا تاریخچہ صاف کریں</string>
   <string name="dialog_message_clear_history">یہ آپ کی تمام براؤزنگ کا تاریخچہ صارف کر دے گا اور کھلی ہوئی ٹیبز بند کر دے گا۔ کیا آپ ایسا کرنا چاہتے ہیں؟</string>
   <string name="nav_item_saved_pages">محفوظ صفحات</string>

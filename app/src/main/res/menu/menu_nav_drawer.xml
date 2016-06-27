@@ -8,11 +8,6 @@
             android:icon="@drawable/ic_list_white_24dp"
             android:checkable="true"
             />
-        <item android:id="@+id/nav_item_today"
-            android:title="@string/nav_item_today"
-            android:icon="@drawable/ic_wb_sunny_black_24dp"
-            android:checkable="true"
-            />
         <item android:id="@+id/nav_item_history"
             android:title="@string/nav_item_history"
             android:icon="@drawable/ic_restore_black_24dp"

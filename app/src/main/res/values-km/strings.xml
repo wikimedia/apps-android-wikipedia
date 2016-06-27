@@ -11,7 +11,6 @@
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="menu_clear_all_history">ជម្រះ​ប្រវត្តិ</string>
   <string name="page_does_not_exist_error">គ្មានទំព័រនេះទេ។</string>
-  <string name="nav_item_today">ថ្ងៃនេះ</string>
   <string name="dialog_title_clear_history" fuzzy="true">ជម្រះ​ប្រវត្តិរាវរកអ៊ីនធើណិត?</string>
   <string name="dialog_message_clear_history" fuzzy="true">តើ​អ្នក​ពិត​ជា​ចង់​សម្អាត​ប្រវត្តិ​ទាំង​អស់ មែន​ទេ?</string>
   <string name="nav_item_saved_pages">ទំព័រដែលបានរក្សាទុក</string>

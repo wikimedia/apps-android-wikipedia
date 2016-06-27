@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Înapoi</string>
   <string name="menu_clear_all_history">Curăță istoricul</string>
   <string name="page_does_not_exist_error">Această pagină nu există.</string>
-  <string name="nav_item_today">Astăzi</string>
   <string name="dialog_title_clear_history">Curățare istoric de navigare</string>
   <string name="dialog_message_clear_history">Întreg istoricul dumneavoastră de navigare va fi șters, iar filele deschise vor fi închise. Continuați?</string>
   <string name="nav_item_saved_pages">Pagini salvate</string>

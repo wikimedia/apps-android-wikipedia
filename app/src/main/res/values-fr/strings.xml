@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Revenir en arrière</string>
   <string name="menu_clear_all_history">Effacer l’historique</string>
   <string name="page_does_not_exist_error">Cette page n’existe pas.</string>
-  <string name="nav_item_today">Aujourd’hui</string>
   <string name="dialog_title_clear_history">Effacer l’historique de navigation</string>
   <string name="dialog_message_clear_history">Cela supprimera tout l’historique de navigation, et fermera tous les onglets ouverts actuellement. Êtes-vous sûr ?</string>
   <string name="nav_item_saved_pages">Pages enregistrées</string>

@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Volver</string>
   <string name="menu_clear_all_history">Limpar o historial</string>
   <string name="page_does_not_exist_error">Esta páxina non existe.</string>
-  <string name="nav_item_today">Hoxe</string>
   <string name="dialog_title_clear_history">Limpar historial de navegación</string>
   <string name="dialog_message_clear_history">Isto borrará todo o seu historial de navegación, e pechará calquera lapela aberta. Está seguro?</string>
   <string name="nav_item_saved_pages">Páxinas gardadas</string>

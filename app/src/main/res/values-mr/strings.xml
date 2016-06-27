@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">परत जा</string>
   <string name="menu_clear_all_history">इतिहास साफ करा</string>
   <string name="page_does_not_exist_error">हे पान अस्तित्वात नाही.</string>
-  <string name="nav_item_today">आज</string>
   <string name="dialog_title_clear_history">न्याहाळकाचा इतिहास मिटवा</string>
   <string name="dialog_message_clear_history">याने आपला न्याहाळकाचा इतिहास वगळल्या जाईल व चालू असलेल्या सर्व कळी बंद होतील. आपण ते नक्की करता काय?</string>
   <string name="nav_item_saved_pages">साठवलेली पाने</string>

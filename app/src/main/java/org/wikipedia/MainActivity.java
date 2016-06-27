@@ -712,10 +712,6 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         loadPage(title, entry, TabPosition.NEW_TAB_FOREGROUND, false);
     }
 
-    public void loadMainPageInCurrentTab() {
-        loadMainPage(false, TabPosition.CURRENT_TAB, false);
-    }
-
     public void loadMainPageInForegroundTab() {
         loadMainPage(true, TabPosition.NEW_TAB_FOREGROUND, false);
     }

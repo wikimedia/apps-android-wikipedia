@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Vés enrere</string>
   <string name="menu_clear_all_history">Esborra l\'historial</string>
   <string name="page_does_not_exist_error">Aquesta pàgina no existeix</string>
-  <string name="nav_item_today">Avui</string>
   <string name="dialog_title_clear_history">Esborra l\'historial de navegació</string>
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="nav_item_saved_pages">Pàgines desades</string>

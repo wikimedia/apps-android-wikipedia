@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Kembali</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
   <string name="page_does_not_exist_error">Halaman ini tidak ada.</string>
-  <string name="nav_item_today">Hari ini</string>
   <string name="dialog_title_clear_history">Hapus riwayat penjelajahan</string>
   <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penjelajahan Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
   <string name="nav_item_saved_pages">Halaman tersimpan</string>

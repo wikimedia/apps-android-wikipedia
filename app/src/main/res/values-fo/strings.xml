@@ -10,7 +10,6 @@
   <string name="page_error_retry">Royn aftur</string>
   <string name="menu_clear_all_history">Rudda søguyvirlitið</string>
   <string name="page_does_not_exist_error">Henda síðan er ikki til.</string>
-  <string name="nav_item_today">Í dag</string>
   <string name="dialog_title_clear_history" fuzzy="true">Rudda brovsarasøguna?</string>
   <string name="dialog_message_clear_history" fuzzy="true">Ert tú vís/ur í at tú ynskir at tøma alt søguyvirlitið.</string>
   <string name="nav_item_saved_pages">Goymdar síður</string>

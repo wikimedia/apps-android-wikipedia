@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Vrátit se</string>
   <string name="menu_clear_all_history">Vymazat historii</string>
   <string name="page_does_not_exist_error">Tato stránka neexistuje.</string>
-  <string name="nav_item_today">Dnes</string>
   <string name="dialog_title_clear_history">Vymazat historii prohlížení</string>
   <string name="dialog_message_clear_history">Tímto smažete celou svoji historii prohlížení a zavřete všechny nyní otevřené karty. Jste si jisti?</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>
