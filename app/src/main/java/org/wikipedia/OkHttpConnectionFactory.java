@@ -11,15 +11,12 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.Proxy;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.Cache;
 import okhttp3.CookieJar;
 import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
 import okhttp3.OkUrlFactory;
-import okhttp3.Protocol;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
@@ -44,13 +41,6 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     }
 
     public static OkHttpClient.Builder createClient(@NonNull Context context) {
-        // Create a custom set of protocols that excludes HTTP/2, since OkHttp doesn't play
-        // nicely with nginx over HTTP/2.
-        // TODO: Remove when https://github.com/square/okhttp/issues/2543 is fixed.
-        List<Protocol> protocolList = new ArrayList<>();
-        protocolList.add(Protocol.SPDY_3);
-        protocolList.add(Protocol.HTTP_1_1);
-
         SharedPreferenceCookieManager cookieManager
                 = ((WikipediaApp) context.getApplicationContext()).getCookieManager();
         // TODO: consider using okhttp3.CookieJar implementation instead of JavaNetCookieJar wrapper
@@ -63,7 +53,6 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
         return new OkHttpClient.Builder()
                 .cookieJar(cookieJar)
                 .cache(HTTP_CACHE)
-                .protocols(protocolList)
                 .addInterceptor(loggingInterceptor);
     }
 
