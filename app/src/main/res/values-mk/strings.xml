@@ -289,4 +289,6 @@
   <string name="reading_lists_onboarding_got_it">Јасно</string>
   <string name="reading_lists_onboarding_page_delete">Совет: Повлечете ја било која страница налево или надесно за да ја отстраните од списоков.</string>
   <string name="user_option_sync_label">Поставки</string>
+  <string name="view_continue_reading_card_title">Продолжете со читање</string>
+  <string name="view_because_you_read_card_title">Бидејќи читавте</string>
 </resources>

@@ -43,7 +43,7 @@
   <string name="content_license_html">مطالب تحت &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; در دسترس است مگر اینکه غیر آن بیان گردد.</string>
   <string name="edit_save_action_license_logged_in">با ذخیره کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید.</string>
   <string name="edit_save_action_license_anon">با ذخیره کردن، &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور جبران‌ناشدنی مشارکت‌هایتان را تحت پروانه &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر کنید. ویرایش‌ها به نشانی آی‌پی دستگاه‌تان نسبت داده خواهد شد. اگر &lt;a href=\"https://#login\"&gt;وارد شوید&lt;/a&gt;، حریم خصوصی بیشتری دارید.</string>
-  <string name="preference_title_language">زبان</string>
+  <string name="preference_title_language">زبان ویکی‌پدیا</string>
   <string name="preference_languages_filter_hint">جستجو</string>
   <string name="langlinks_filter_hint">جستجو</string>
   <string name="langlinks_empty">این صفحه به زبان های دیگر در دسترس نمی‌باشد.</string>
@@ -287,4 +287,6 @@
   <string name="reading_lists_onboarding_got_it">گرفتم</string>
   <string name="reading_lists_onboarding_page_delete">نکته: هر صفحه‌ای را به راست یا چپ بکشید تا از این فهرست حذف شود.</string>
   <string name="user_option_sync_label">ترجیحات</string>
+  <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
+  <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
 </resources>

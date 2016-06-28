@@ -37,6 +37,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Inzoomen op een locatie op de kaart</string>
   <string name="last_updated_text">%1$s voor het laatst bijgewerkt</string>
+  <string name="talk_page_link_text">Overleg</string>
   <string name="content_license_html">Inhoud is beschikbaar onder de licentie &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; tenzij anders aangegeven</string>
   <string name="edit_save_action_license_logged_in">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie.</string>
   <string name="edit_save_action_license_anon">Door op te slaan, gaat u akkoord met de &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Gebruiksvoorwaarden&lt;/a&gt;, en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA-3.0&lt;/a&gt; licentie. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt;, heeft u meer privacy.</string>
@@ -246,6 +247,15 @@
   <string name="article_menu_bar_bookmark" fuzzy="true">Pagina opslaan voor offline lezen</string>
   <string name="article_menu_bar_share">Koppeling naar pagina delen</string>
   <string name="article_menu_bar_navigate">Naar de locatie van de pagina navigeren</string>
+  <string name="nav_item_reading_lists">Leeslijsten</string>
+  <string name="reading_list_untitled">Naamloos</string>
+  <string name="reading_list_edit_cancel">Annuleren</string>
+  <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>
   <string name="reading_lists_onboarding_example1">Plaatsen om te bezoeken</string>
+  <string name="reading_lists_onboarding_example2">Favoriete dieren</string>
+  <string name="reading_lists_onboarding_example3">Ruimtevaart!</string>
+  <string name="reading_lists_onboarding_got_it">Begrepen</string>
   <string name="user_option_sync_label">Voorkeuren</string>
+  <string name="view_continue_reading_card_title">Verder lezen</string>
+  <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
 </resources>

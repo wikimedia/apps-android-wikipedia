@@ -289,4 +289,6 @@
   <string name="reading_lists_onboarding_got_it">知道了</string>
   <string name="reading_lists_onboarding_page_delete">提示：向左或向右撥動任何頁面以將其從此閱讀清單裡面移除。</string>
   <string name="user_option_sync_label">偏好設定</string>
+  <string name="view_continue_reading_card_title">繼續閱讀</string>
+  <string name="view_because_you_read_card_title">因為您閱讀</string>
 </resources>

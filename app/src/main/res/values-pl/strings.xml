@@ -35,6 +35,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Przybliż lokalizacje na mapie</string>
   <string name="last_updated_text">Ostatnia aktualizacja %s</string>
+  <string name="talk_page_link_text">Dyskusja</string>
   <string name="content_license_html">O ile nie zaznaczono inaczej, treść dostępna jest na licencji &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_logged_in">Zapisując, akceptujesz &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Zapisując, akceptujesz &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu się&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
@@ -78,7 +79,7 @@
   <string name="preference_title_logout">Wyloguj</string>
   <string name="toast_logout_complete">Wylogowany(-a)</string>
   <string name="history_empty_title">Brak ostatnich zmian stron.</string>
-  <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem gdy wejdziesz na stronę możesz się tam dostać z tąd.</string>
+  <string name="history_empty_message">Prawdopodobnie usunąłeś je wszystkie. Następnym razem, gdy wejdziesz na stronę, możesz powrócić do niej stąd.</string>
   <string name="delete_selected_history">Usuń</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nazwa użytkownika</string>

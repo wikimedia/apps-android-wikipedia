@@ -18,6 +18,7 @@
   <string name="dialog_message_clear_history">هذا سيحذف تاريخ تصفحك كاملا، وسيغلق أي تبويبات مفتوحة. هل أنت متأكد؟</string>
   <string name="nav_item_saved_pages">الصفحات المحفوظة</string>
   <string name="share_via">مشاركة عبر</string>
+  <string name="search_redirect_from">محول من %s</string>
   <string name="menu_page_show_tabs">أظهر الألسنة</string>
   <string name="menu_page_other_languages">اقرأ بلغات أخرى</string>
   <string name="menu_page_find_in_page">البحث في الصفحة</string>
@@ -38,6 +39,7 @@
   <string name="nearby_distance_in_kilometers">%.2f كم</string>
   <string name="nearby_zoom_to_location">تكبير إلى الموقع على الخريطة</string>
   <string name="last_updated_text">آخر تحديث %s</string>
+  <string name="talk_page_link_text">نقاش</string>
   <string name="content_license_html">المحتوى متوفر تحت رخصة  &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; إلا إذا ذُكر غير ذلك.</string>
   <string name="edit_save_action_license_logged_in">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">بالحفظ، فإنك توافق على &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مُسجلًا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
@@ -245,7 +247,7 @@
 تريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
   <string name="crash_report_quit">خروج</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">احفظ المقالة لقراءتها دون اتصال لاحقًا</string>
+  <string name="article_menu_bar_bookmark">أضف هذه المقالة لقائمة قراءة</string>
   <string name="article_menu_bar_share">شارك وصلة المقالة</string>
   <string name="article_menu_bar_navigate">انتقل إلى موقع هذه المقالة</string>
   <string name="nav_item_reading_lists">قوائم القراءة</string>
@@ -268,6 +270,7 @@
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
   <string name="reading_list_save_for_offline">متوفر للقراءة بدون اتصال</string>
   <string name="reading_list_item_deleted">أزيلت %s من القائمة</string>
+  <string name="reading_list_deleted">أزيلت %s</string>
   <string name="reading_list_edit_ok">موافق</string>
   <string name="reading_list_edit_cancel">إلغاء</string>
   <string name="reading_lists_empty">لا قوائم قراءة هنا.</string>

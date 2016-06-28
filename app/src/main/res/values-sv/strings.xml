@@ -289,4 +289,6 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_lists_onboarding_got_it">Jag förstår</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Svep en sida vänster eller höger för att ta bort den från denna läslista.</string>
   <string name="user_option_sync_label">Inställningar</string>
+  <string name="view_continue_reading_card_title">Fortsätt läs</string>
+  <string name="view_because_you_read_card_title">Eftersom du läste</string>
 </resources>

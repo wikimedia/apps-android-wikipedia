@@ -289,4 +289,6 @@
   <string name="reading_lists_onboarding_got_it">わかりました</string>
   <string name="reading_lists_onboarding_page_delete">ヒント: 各ページは左か右にスワイプすると「あとで読むリスト」から削除できます。</string>
   <string name="user_option_sync_label">設定</string>
+  <string name="view_continue_reading_card_title">続けて読む</string>
+  <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
 </resources>

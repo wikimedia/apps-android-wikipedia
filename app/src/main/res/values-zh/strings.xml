@@ -289,4 +289,6 @@
   <string name="reading_lists_onboarding_got_it">明白了</string>
   <string name="reading_lists_onboarding_page_delete">小建议：向左或向右滑动任意页面以将其从此阅读列表中移除。</string>
   <string name="user_option_sync_label">参数设置</string>
+  <string name="view_continue_reading_card_title">继续阅读</string>
+  <string name="view_because_you_read_card_title">因为您阅读</string>
 </resources>

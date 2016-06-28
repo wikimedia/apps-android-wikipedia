@@ -266,4 +266,6 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_lists_onboarding_example3">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstan</string>
   <string name="user_option_sync_label">Astellungen</string>
+  <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
+  <string name="view_because_you_read_card_title">Well Dir liest</string>
 </resources>

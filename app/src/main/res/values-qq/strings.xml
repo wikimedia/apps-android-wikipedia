@@ -342,6 +342,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="nav_item_donate">Text in navigation sidebar that when tapped leads to a web page where the user may donate to Wikipedia.</string>
+  <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
   <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
   <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.
@@ -405,5 +406,4 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
   <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article. The \"%s\" symbol is replaced with a translation of the language name.</string>
-  <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>
 </resources>

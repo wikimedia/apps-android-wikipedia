@@ -289,4 +289,6 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_lists_onboarding_got_it">Mengerti</string>
   <string name="reading_lists_onboarding_page_delete">Tips: Geser beberapa halaman ke kiri dan kanan untuk menghapusnya dari daftar bacaan ini.</string>
   <string name="user_option_sync_label">Preferensi</string>
+  <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
+  <string name="view_because_you_read_card_title">Karena Anda membaca</string>
 </resources>

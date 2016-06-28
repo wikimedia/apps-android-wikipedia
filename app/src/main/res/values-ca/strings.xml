@@ -152,6 +152,7 @@
   <string name="about_translators_heading">Traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
+  <string name="about_app_license">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut és disponible sota una llicència &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un producte de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
@@ -286,5 +287,8 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_lists_onboarding_example2">Animals preferits</string>
   <string name="reading_lists_onboarding_example3">Espai!</string>
   <string name="reading_lists_onboarding_got_it">Entesos</string>
+  <string name="reading_lists_onboarding_page_delete">Consell: Llisca el dit a dreta o esquerra per eliminar l\'article d\'aquesta llista de lectura.</string>
   <string name="user_option_sync_label">Preferències</string>
+  <string name="view_continue_reading_card_title">Continua llegint</string>
+  <string name="view_because_you_read_card_title">Perquè vas llegir</string>
 </resources>

@@ -268,4 +268,5 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_name_hint">Název tohoto seznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinný):</string>
   <string name="user_option_sync_label">Nastavení</string>
+  <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
 </resources>

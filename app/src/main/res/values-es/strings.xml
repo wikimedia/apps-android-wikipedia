@@ -289,4 +289,6 @@
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_lists_onboarding_page_delete">Consejo: desliza cualquier página a la izquierda o a la derecha para quitarla de esta lista de lectura.</string>
   <string name="user_option_sync_label">Preferencias</string>
+  <string name="view_continue_reading_card_title">Continuar leyendo</string>
+  <string name="view_because_you_read_card_title">Porque leíste</string>
 </resources>

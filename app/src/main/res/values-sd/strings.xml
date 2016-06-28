@@ -236,4 +236,6 @@
   <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
   <string name="article_menu_bar_navigate">مضمون جي مڪانيت ڏانهن وڃو</string>
   <string name="user_option_sync_label">ترجيحات</string>
+  <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
+  <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
 </resources>

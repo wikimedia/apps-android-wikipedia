@@ -74,7 +74,7 @@
   <string name="login_activity_title">ویکیپیڈیا میں داخل (لاگ ان) ہوں</string>
   <string name="login_in_progress_dialog_message">لاگ ان ہورہے ہیں…</string>
   <string name="login_error_wrong_password">غلط پاسورڈ</string>
-  <string name="login_error_wrong_username">غکط صارف نام</string>
+  <string name="login_error_wrong_username">غلط صارف نام</string>
   <string name="login_error_illegal">غلط صارف نام</string>
   <string name="login_success_toast">داخلہ کامیاب</string>
   <string name="login_error_blocked">اس صارف پر پابندی لگی ہوئی ہے</string>
@@ -141,8 +141,8 @@
   <string name="page_protected_other">یہ صفحہ مندرجہ سطح تک محفوظ کیا گیا ہے: %s</string>
   <string name="page_protected_can_not_edit">آپ کے پاس اس صفحہ کو ترمیم کرنے کے حقوق نہیں ہیں</string>
   <string name="page_protected_can_not_edit_title">یہ صفحہ محفوظ ہے۔</string>
-  <string name="settings_item_preferences">ترجیحات</string>
-  <string name="settings_activity_title">ترجیحات</string>
+  <string name="settings_item_preferences">ترتیبات</string>
+  <string name="settings_activity_title">ترتیبات</string>
   <string name="about_description">ویکیپیڈیا ایپ کے بارے میں</string>
   <string name="privacy_policy_description">اصول براۓ اخفائے راز</string>
   <string name="terms_of_use_description">استعمال کے شرائط</string>
@@ -228,7 +228,7 @@
   <string name="error_server_response">سرور اس درخواست کو پورا نہیں کرسکتا۔</string>
   <string name="error_response_malformed">سرور کے جواب کی سکلبندی ٹھیک سے نہیں کی گئی ہے۔</string>
   <string name="error_unknown">ایک نامعلوم نقص واقع ہوا ہے ۔</string>
-  <string name="format_error_server_message">پیام:\"%s\"</string>
+  <string name="format_error_server_message">پیغام:\"%s\"</string>
   <string name="format_error_server_code">کوڈ: \"%s\"</string>
   <string name="address_copied">کلپ بورڈ پر پتے کی نقل کی گئی ہے۔</string>
   <string name="text_copied">کلپ بورڈ پر متن کی نقل کی گئی ہے۔</string>

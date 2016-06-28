@@ -198,7 +198,7 @@
   <string name="dialog_close_description">Закрыть</string>
   <string name="preference_title_show_images">Показывать изображения</string>
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
-  <string name="read_more_section">Читать подробнее</string>
+  <string name="read_more_section">Читать ещё</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Текст лицензии для библиотеки %s</string>
@@ -289,4 +289,6 @@
   <string name="reading_lists_onboarding_got_it">Понятно</string>
   <string name="reading_lists_onboarding_page_delete">Совет: проведите пальцем по любой странице влево или вправо, чтобы удалить её из списка для чтения.</string>
   <string name="user_option_sync_label">Настройки</string>
+  <string name="view_continue_reading_card_title">Продолжить чтение</string>
+  <string name="view_because_you_read_card_title">Потому что вы читали</string>
 </resources>

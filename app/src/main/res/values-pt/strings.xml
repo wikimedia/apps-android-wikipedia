@@ -289,4 +289,6 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_lists_onboarding_page_delete">Dica: Mova com o dedo qualquer página para a esquerda ou para a direita para removê-la da lista de leitura.</string>
   <string name="user_option_sync_label">Preferências</string>
+  <string name="view_continue_reading_card_title">Continuar a ler</string>
+  <string name="view_because_you_read_card_title">Porque leu</string>
 </resources>

@@ -10,7 +10,7 @@
   <string name="nav_item_history">방문 기록</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
-  <string name="page_error_back_to_main">뒤로가기</string>
+  <string name="page_error_back_to_main">뒤로 가기</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
   <string name="nav_item_today">오늘</string>
@@ -208,7 +208,7 @@
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
   <string name="gallery_save_image_write_permission_rationale">디바이스 공간을 쓰는 권한은 이미지 저장을 위해서 입니다. 다시 시도해 주시고, 이 권한을 허용해 주십시오.</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
-  <string name="snippet_share_intro">\@Wikipedia 의 \"%1$s\": %2$s</string>
+  <string name="snippet_share_intro">\@Wikipedia의 \"%1$s\": %2$s</string>
   <string name="expand_refs">펼치려면 탭</string>
   <string name="share_snippet_button">그림 공유하기</string>
   <string name="share_normal_button">텍스트 공유하기</string>
@@ -220,7 +220,7 @@
   <string name="menu_new_tab">새 탭</string>
   <string name="button_close_tab">탭 닫기</string>
   <string name="tool_tip_select_text">복사하거나 공유하기 위해 텍스트의 아무 곳이나 누르고 표시하세요.</string>
-  <string name="tool_tip_share">모든 흥미로운 사실을 드래그 한 뒤에 그것을 당신의 네트워크에 공유해 보세요!</string>
+  <string name="tool_tip_share">흥미로운 사실 하나를 강조한 다음, 즐겨쓰는 SNS에 공유해 보세요!</string>
   <string name="page_view_in_browser">브라우저에서 페이지 보기</string>
   <string name="tool_tip_toc_button">이 버튼을 누르거나 오른쪽에서 화면을 밀어 내용의 표를 보십시오.</string>
   <string name="error_server_response">서버가 요청을 완료할 수 없습니다.</string>
@@ -236,7 +236,7 @@
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
   <string name="nav_item_donate">위키백과 지원</string>
-  <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱에서 오류가 발생하였습니다</string>
+  <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>
   <string name="crash_report_dialog_always_send_button">항상 보내기</string>
@@ -262,7 +262,7 @@
   <string name="reading_list_item_count_plural">%s개의 문서</string>
   <string name="reading_list_sort">정렬</string>
   <string name="reading_list_sort_by_name">이름순</string>
-  <string name="reading_list_sort_by_name_desc">이름순(역순)</string>
+  <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
   <string name="reading_list_sort_by_recent">최근순</string>
   <string name="reading_list_sort_by_recent_desc">적은 빈도로 접근한 최신문서순</string>
   <string name="reading_list_menu_edit">읽기 목록의 세부사항 편집</string>
@@ -285,6 +285,8 @@
   <string name="reading_lists_onboarding_example2">좋아하는 동물</string>
   <string name="reading_lists_onboarding_example3">우주!</string>
   <string name="reading_lists_onboarding_got_it">알겠습니다</string>
-  <string name="reading_lists_onboarding_page_delete">이 읽고목록에서 삭제하려면, 페이지 왼쪽이나 오른쪽으로 미세요.</string>
+  <string name="reading_lists_onboarding_page_delete">알림: 이 읽기 목록에서 삭제하려면, 페이지 왼쪽이나 오른쪽으로 미세요.</string>
   <string name="user_option_sync_label">환경 설정</string>
+  <string name="view_continue_reading_card_title">계속 읽기</string>
+  <string name="view_because_you_read_card_title">읽었기 때문입니다</string>
 </resources>

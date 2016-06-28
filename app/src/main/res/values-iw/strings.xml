@@ -289,4 +289,6 @@
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="reading_lists_onboarding_page_delete">עצה: החלקה של כל דף שמאלה או ימינה תסיר אותו מרשימת הקריאה הזאת.</string>
   <string name="user_option_sync_label">העדפות</string>
+  <string name="view_continue_reading_card_title">המשך קריאה</string>
+  <string name="view_because_you_read_card_title">הצעות לקריאה</string>
 </resources>

@@ -270,4 +270,6 @@
   <string name="reading_lists_onboarding_example3">Свемир!</string>
   <string name="reading_lists_onboarding_got_it">Разумем</string>
   <string name="user_option_sync_label">Подешавања</string>
+  <string name="view_continue_reading_card_title">Настави читање</string>
+  <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
 </resources>

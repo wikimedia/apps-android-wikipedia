@@ -287,4 +287,6 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_lists_onboarding_got_it">Selvä</string>
   <string name="reading_lists_onboarding_page_delete">Vinkki: Pyyhi mikä tahansa sivu vasemmalle tai oikealle poistaaksesi sen tästä lukulistasta.</string>
   <string name="user_option_sync_label">Asetukset</string>
+  <string name="view_continue_reading_card_title">Jatka lukemista</string>
+  <string name="view_because_you_read_card_title">Koska luit</string>
 </resources>

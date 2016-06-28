@@ -289,4 +289,6 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_lists_onboarding_got_it">Capito</string>
   <string name="reading_lists_onboarding_page_delete">Suggerimento: fai scorrere una pagina a sinistra o a destra per rimuoverla dall\'elenco di lettura.</string>
   <string name="user_option_sync_label">Preferenze</string>
+  <string name="view_continue_reading_card_title">Continua a leggere</string>
+  <string name="view_because_you_read_card_title">Perché hai letto</string>
 </resources>

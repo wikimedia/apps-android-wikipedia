@@ -289,4 +289,6 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_lists_onboarding_got_it">Verstanden</string>
   <string name="reading_lists_onboarding_page_delete">Tipp: Wische eine beliebige Seite nach links oder rechts, um sie aus dieser Leseliste zu entfernen.</string>
   <string name="user_option_sync_label">Einstellungen</string>
+  <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
+  <string name="view_because_you_read_card_title">Weil du liest</string>
 </resources>

@@ -285,4 +285,6 @@
   <string name="reading_lists_onboarding_got_it">समजले</string>
   <string name="reading_lists_onboarding_page_delete">सूचना:कोणतेही पान वाचनयादीतून हटविण्यास डावीकडे किंवा उजवीकडे सरकवा.</string>
   <string name="user_option_sync_label">पसंतीक्रम</string>
+  <string name="view_continue_reading_card_title">वाचन सुरू ठेवा</string>
+  <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
 </resources>

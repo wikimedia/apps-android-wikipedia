@@ -289,4 +289,6 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_lists_onboarding_got_it">Entendido</string>
   <string name="reading_lists_onboarding_page_delete">Consello: Desprace calquera páxina á esquerda ou á dereita para eliminala desta páxina de lectura.</string>
   <string name="user_option_sync_label">Preferencias</string>
+  <string name="view_continue_reading_card_title">Continuar lendo</string>
+  <string name="view_because_you_read_card_title">Porque leu</string>
 </resources>
