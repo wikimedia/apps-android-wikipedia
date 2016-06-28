@@ -12,6 +12,7 @@ import org.wikipedia.feed.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.util.log.L;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
@@ -83,11 +84,13 @@ public class MostReadClient implements FeedClient {
                 cb.success(cards);
             } else {
                 L.v(response.message());
+                cb.error(new IOException(response.message()));
             }
         }
 
         @Override public void onFailure(Call<MostReadArticles> call, Throwable t) {
             L.v(t);
+            cb.error(t);
         }
     }
 }
