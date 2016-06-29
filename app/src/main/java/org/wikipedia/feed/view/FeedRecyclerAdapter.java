@@ -3,7 +3,7 @@ package org.wikipedia.feed.view;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
@@ -21,6 +21,8 @@ import org.wikipedia.feed.mostread.MostReadCardView;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
 import org.wikipedia.feed.news.NewsListCardView;
+import org.wikipedia.feed.progress.ProgressCard;
+import org.wikipedia.feed.progress.ProgressCardView;
 import org.wikipedia.feed.random.RandomCard;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCard;
@@ -28,7 +30,7 @@ import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 
-public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> {
+public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
     private static final int VIEW_TYPE_SEARCH_BAR = 0;
     private static final int VIEW_TYPE_CONTINUE_READING = 1;
     private static final int VIEW_TYPE_BECAUSE_YOU_READ = 2;
@@ -37,6 +39,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
     private static final int VIEW_TYPE_RANDOM = 5;
     private static final int VIEW_TYPE_MAIN_PAGE = 6;
     private static final int VIEW_TYPE_NEWS = 7;
+    private static final int VIEW_TYPE_PROGRESS = 99;
 
     @NonNull private FeedCoordinatorBase coordinator;
     @Nullable private FeedViewCallback callback;
@@ -47,13 +50,13 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
         this.callback = callback;
     }
 
-    @Override public DefaultViewHolder<CardView> onCreateViewHolder(ViewGroup parent, int viewType) {
+    @Override public DefaultViewHolder<View> onCreateViewHolder(ViewGroup parent, int viewType) {
         return new DefaultViewHolder<>(newView(parent.getContext(), viewType));
     }
 
-    @Override public void onBindViewHolder(DefaultViewHolder<CardView> holder, int position) {
+    @Override public void onBindViewHolder(DefaultViewHolder<View> holder, int position) {
         Card item = item(position);
-        CardView view = holder.getView();
+        View view = holder.getView();
 
         if (coordinator.finished()
                 && position == getItemCount() - 1
@@ -83,14 +86,14 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             ((NewsListCardView) view).set((NewsListCard) item);
         } else if (view instanceof MainPageCardView) {
             ((MainPageCardView) view).set((MainPageCard) item);
-        } else {
-            throw new IllegalStateException("Unknown type=" + view.getClass());
         }
     }
 
     @Override public int getItemViewType(int position) {
         Card item = item(position);
-        if (item instanceof ContinueReadingCard) {
+        if (item instanceof ProgressCard) {
+            return VIEW_TYPE_PROGRESS;
+        } else if (item instanceof ContinueReadingCard) {
             return VIEW_TYPE_CONTINUE_READING;
         } else if (item instanceof BecauseYouReadCard) {
             return VIEW_TYPE_BECAUSE_YOU_READ;
@@ -111,8 +114,10 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
         }
     }
 
-    @NonNull private CardView newView(@NonNull Context context, int viewType) {
+    @NonNull private View newView(@NonNull Context context, int viewType) {
         switch(viewType) {
+            case VIEW_TYPE_PROGRESS:
+                return new ProgressCardView(context);
             case VIEW_TYPE_CONTINUE_READING:
                 return new ContinueReadingCardView(context).setCallback(callback);
             case VIEW_TYPE_BECAUSE_YOU_READ:
@@ -134,11 +139,11 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
         }
     }
 
-    private boolean isCardAssociatedWithView(@NonNull CardView view, @NonNull Card card) {
+    private boolean isCardAssociatedWithView(@NonNull View view, @NonNull Card card) {
         return card.equals(view.getTag());
     }
 
-    private void associateCardWithView(@NonNull CardView view, @NonNull Card card) {
+    private void associateCardWithView(@NonNull View view, @NonNull Card card) {
         view.setTag(card);
     }
 }

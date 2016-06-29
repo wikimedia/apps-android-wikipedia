@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.Site;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.progress.ProgressCard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public abstract class FeedCoordinatorBase {
     private int currentAge;
     private List<FeedClient> pendingClients = new ArrayList<>();
     private FeedClient.Callback exhaustionClientCallback = new ExhaustionClientCallback();
+    private Card progressCard = new ProgressCard();
 
     public FeedCoordinatorBase(@NonNull Context context) {
         this.context = context;
@@ -45,11 +47,12 @@ public abstract class FeedCoordinatorBase {
         }
         pendingClients.clear();
         cards.clear();
+        appendProgressCard(cards);
     }
 
     public void more(@NonNull Site site) {
         this.site = site;
-        if (cards.size() > 0) {
+        if (cards.size() > 1) {
             currentAge++;
         }
 
@@ -82,6 +85,7 @@ public abstract class FeedCoordinatorBase {
         @Override
         public void success(@NonNull List<? extends Card> cardList) {
             cards.addAll(cardList);
+            appendProgressCard(cards);
             if (updateListener != null) {
                 updateListener.update(cards);
             }
@@ -94,5 +98,10 @@ public abstract class FeedCoordinatorBase {
             //noinspection ConstantConditions
             requestNextCard(site);
         }
+    }
+
+    private void appendProgressCard(List<Card> cards) {
+        cards.remove(progressCard);
+        cards.add(progressCard);
     }
 }
