@@ -5,7 +5,6 @@ import org.wikipedia.ApiTask;
 import org.wikipedia.Constants;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
@@ -34,7 +33,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
 
     @Override
     public RequestBuilder buildRequest(Api api) {
-        final RequestBuilder req = api.action("query")
+        return api.action("query")
                 .param("generator", "prefixsearch")
                 .param("redirects", "true")
                 .param("gpssearch", prefix)
@@ -56,10 +55,6 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
                 .param("pithumbsize", Integer.toString(Constants.PREFERRED_THUMB_SIZE))
                 .param("pilimit", NUM_RESULTS_PER_QUERY)
                 .param("continue", ""); // to avoid warning about new continuation syntax
-        if (WikipediaApp.getInstance().isFeatureSearchAutoCompleteEnabled()) {
-            req.param("cirrusUseCompletionSuggester", "yes");
-        }
-        return req;
     }
 
     @Override

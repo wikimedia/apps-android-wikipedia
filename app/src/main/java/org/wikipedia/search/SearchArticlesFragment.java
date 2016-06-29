@@ -31,6 +31,8 @@ import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.MainActivity;
+import org.wikipedia.model.EnumCode;
+import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.FeedbackUtil;
@@ -39,8 +41,39 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class SearchArticlesFragment extends Fragment implements BackPressedHandler {
+    public enum InvokeSource implements EnumCode {
+        TOOLBAR(0),
+        WIDGET(1),
+        INTENT_SHARE(2),
+        INTENT_PROCESS_TEXT(3),
+        FEED_BAR(4),
+        VOICE(5);
+
+        private static final EnumCodeMap<InvokeSource> MAP = new EnumCodeMap<>(InvokeSource.class);
+
+        private final int code;
+
+        public static InvokeSource of(int code) {
+            return MAP.get(code);
+        }
+
+        @Override public int code() {
+            return code;
+        }
+
+        InvokeSource(int code) {
+            this.code = code;
+        }
+
+        public boolean fromIntent() {
+            return code == WIDGET.code() || code == INTENT_SHARE.code()
+                    || code == INTENT_PROCESS_TEXT.code();
+        }
+    }
+
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
     private static final String ARG_SEARCH_CURRENT_PANEL = "searchCurrentPanel";
+    private static final String ARG_INVOKE_SOURCE = "invokeSource";
 
     private static final int PANEL_RECENT_SEARCHES = 0;
     private static final int PANEL_SEARCH_RESULTS = 1;
@@ -50,18 +83,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private EditText searchEditText;
     private SearchFunnel funnel;
     private TextView langButton;
-
-    public SearchFunnel getFunnel() {
-        return funnel;
-    }
-
-    private boolean launchedFromWidget = false;
-    public void setLaunchedFromWidget(boolean fromWidget) {
-        launchedFromWidget = fromWidget;
-    }
-    public boolean isLaunchedFromWidget() {
-        return launchedFromWidget;
-    }
+    private InvokeSource invokeSource = InvokeSource.TOOLBAR;
 
     /**
      * Whether the Search fragment is currently showing.
@@ -90,7 +112,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        funnel = new SearchFunnel(WikipediaApp.getInstance());
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), invokeSource);
     }
 
     @Override
@@ -147,6 +169,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
         if (savedInstanceState != null) {
             lastSearchedText = savedInstanceState.getString(ARG_LAST_SEARCHED_TEXT);
+            invokeSource = InvokeSource.of(savedInstanceState.getInt(ARG_INVOKE_SOURCE));
             showPanel(savedInstanceState.getInt(ARG_SEARCH_CURRENT_PANEL));
         }
         return parentLayout;
@@ -163,6 +186,19 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         super.onSaveInstanceState(outState);
         outState.putString(ARG_LAST_SEARCHED_TEXT, lastSearchedText);
         outState.putInt(ARG_SEARCH_CURRENT_PANEL, getActivePanel());
+        outState.putInt(ARG_INVOKE_SOURCE, invokeSource.code());
+    }
+
+    public SearchFunnel getFunnel() {
+        return funnel;
+    }
+
+    public void setInvokeSource(InvokeSource source) {
+        invokeSource = source;
+    }
+
+    public boolean isLaunchedFromIntent() {
+        return invokeSource.fromIntent();
     }
 
     public void switchToSearch(String queryText) {
@@ -245,7 +281,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
      */
     public void openSearch() {
         // create a new funnel every time Search is opened, to get a new session ID
-        funnel = new SearchFunnel(WikipediaApp.getInstance());
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), invokeSource);
         funnel.searchStart();
         isSearchActive = true;
         setSearchViewEnabled(true);
@@ -384,7 +420,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                 firstResult = searchResultsFragment.getFirstResult();
             }
             if (firstResult != null) {
-                navigateToTitle(firstResult, false);
+                navigateToTitle(firstResult, false, 0);
                 closeSearch();
             }
             return true;
@@ -405,17 +441,13 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         }
     };
 
-    public void navigateToTitle(PageTitle title, boolean inNewTab) {
+    public void navigateToTitle(PageTitle title, boolean inNewTab, int position) {
         if (!isAdded()) {
             return;
         }
-        funnel.searchClick();
+        funnel.searchClick(position);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         hideSoftKeyboard(getActivity());
-        // if this search session was started from our Widget, then clear the widget flag,
-        // so that we no longer care that we were launched from the widget, since we've now
-        // selected a page to navigate to.
-        launchedFromWidget = false;
         closeSearch();
         ((MainActivity)getActivity()).loadPage(title, historyEntry, inNewTab
                 ? MainActivity.TabPosition.NEW_TAB_BACKGROUND

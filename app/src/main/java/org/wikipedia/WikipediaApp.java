@@ -429,21 +429,6 @@ public class WikipediaApp extends Application {
         return EVENT_LOG_TESTING_ID;
     }
 
-    public boolean isFeatureSearchAutoCompleteEnabled() {
-        // Only enable for pre-production builds/releases, since the feature itself is in beta.
-        if (ReleaseUtil.isProdRelease()) {
-            return false;
-        }
-        boolean enabled;
-        if (Prefs.hasFeatureSearchAutoComplete()) {
-            enabled = Prefs.isFeatureSearchAutoCompleteEnabled();
-        } else {
-            enabled = new Random().nextInt(2) == 0;
-            Prefs.setFeatureSearchAutoCompleteEnabled(enabled);
-        }
-        return enabled;
-    }
-
     /**
      * Gets the currently-selected theme for the app.
      * @return Theme that is currently selected, which is the actual theme ID that can

@@ -89,7 +89,7 @@ public class SearchResultsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-                searchFragment.navigateToTitle(item, false);
+                searchFragment.navigateToTitle(item, false, position);
             }
         });
 
@@ -421,23 +421,26 @@ public class SearchResultsFragment extends Fragment {
 
     private class LongPressHandler extends MainActivityLongPressHandler
             implements PageLongPressHandler.ListViewContextMenuListener {
+        private int lastPositionRequested;
+
         LongPressHandler(@NonNull MainActivity activity) {
             super(activity);
         }
 
         @Override
         public PageTitle getTitleForListPosition(int position) {
+            lastPositionRequested = position;
             return ((SearchResult) getAdapter().getItem(position)).getPageTitle();
         }
 
         @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            searchFragment.navigateToTitle(title, false);
+            searchFragment.navigateToTitle(title, false, lastPositionRequested);
         }
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            searchFragment.navigateToTitle(title, true);
+            searchFragment.navigateToTitle(title, true, lastPositionRequested);
         }
     }
 

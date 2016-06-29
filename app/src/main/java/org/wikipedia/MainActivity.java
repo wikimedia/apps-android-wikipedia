@@ -249,6 +249,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         searchHintText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                searchFragment.setInvokeSource(SearchArticlesFragment.InvokeSource.TOOLBAR);
                 searchFragment.openSearch();
             }
         });
@@ -469,7 +470,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             handleProcessTextIntent(intent);
         } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
             new IntentFunnel(app).logSearchWidgetTap();
-            openSearchFromIntent();
+            openSearchFromIntent(null, SearchArticlesFragment.InvokeSource.WIDGET);
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
@@ -482,7 +483,8 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     private void handleShareIntent(Intent intent) {
         String text = intent.getStringExtra(Intent.EXTRA_TEXT);
-        openSearchFromIntent(text == null ? null : text.trim(), true);
+        openSearchFromIntent(text == null ? null : text.trim(),
+                SearchArticlesFragment.InvokeSource.INTENT_SHARE);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -491,18 +493,16 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             return;
         }
         String text = intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT);
-        openSearchFromIntent(text == null ? null : text.trim(), true);
+        openSearchFromIntent(text == null ? null : text.trim(),
+                SearchArticlesFragment.InvokeSource.INTENT_PROCESS_TEXT);
     }
 
-    private void openSearchFromIntent() {
-        openSearchFromIntent(null, true);
-    }
-
-    private void openSearchFromIntent(@Nullable final CharSequence query, final boolean fromWidget) {
+    private void openSearchFromIntent(@Nullable final CharSequence query,
+                                      final SearchArticlesFragment.InvokeSource source) {
         fragmentContainerView.post(new Runnable() {
             @Override
             public void run() {
-                searchFragment.setLaunchedFromWidget(fromWidget);
+                searchFragment.setInvokeSource(source);
                 searchFragment.openSearch();
                 if (query != null) {
                     searchFragment.setSearchText(query);
@@ -805,7 +805,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             return;
         }
         if (searchFragment.onBackPressed()) {
-            if (searchFragment.isLaunchedFromWidget()) {
+            if (searchFragment.isLaunchedFromIntent()) {
                 finish();
             }
             return;
@@ -826,6 +826,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     @Override
     public void onFeedSearchRequested() {
+        searchFragment.setInvokeSource(SearchArticlesFragment.InvokeSource.FEED_BAR);
         onSearchRequested();
     }
 
@@ -1117,7 +1118,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         if (resultCode == RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchFromIntent(searchQuery, false);
+            openSearchFromIntent(searchQuery, SearchArticlesFragment.InvokeSource.VOICE);
         }
     }
 
