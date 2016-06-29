@@ -173,7 +173,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         // and kick off the task to load all the things...
         loadContent();
 
-        funnel = new LinkPreviewFunnel(app);
+        funnel = new LinkPreviewFunnel(app, entrySource);
         funnel.logLinkClick();
 
         return rootView;

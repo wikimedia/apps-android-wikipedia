@@ -22,8 +22,8 @@ import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedView;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DimenUtil;
 
 import java.util.List;
@@ -50,9 +50,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     public interface Callback extends CallbackFragment.Callback {
         void onFeedSearchRequested();
         void onFeedVoiceSearchRequested();
-        void onFeedSelectPage(PageTitle title);
-        void onFeedAddPageToList(PageTitle title);
-        void onFeedSharePage(PageTitle title);
+        void onFeedSelectPage(HistoryEntry entry);
+        void onFeedAddPageToList(HistoryEntry entry);
+        void onFeedSharePage(HistoryEntry entry);
     }
 
     public static FeedFragment newInstance() {
@@ -159,23 +159,23 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         }
 
         @Override
-        public void onSelectPage(@NonNull PageTitle title) {
+        public void onSelectPage(@NonNull HistoryEntry entry) {
             if (getCallback() != null) {
-                getCallback().onFeedSelectPage(title);
+                getCallback().onFeedSelectPage(entry);
             }
         }
 
         @Override
-        public void onAddPageToList(@NonNull PageTitle title) {
+        public void onAddPageToList(@NonNull HistoryEntry entry) {
             if (getCallback() != null) {
-                getCallback().onFeedAddPageToList(title);
+                getCallback().onFeedAddPageToList(entry);
             }
         }
 
         @Override
-        public void onSharePage(@NonNull PageTitle title) {
+        public void onSharePage(@NonNull HistoryEntry entry) {
             if (getCallback() != null) {
-                getCallback().onFeedSharePage(title);
+                getCallback().onFeedSharePage(entry);
             }
         }
 

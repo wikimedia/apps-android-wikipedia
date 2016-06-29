@@ -2,13 +2,13 @@ package org.wikipedia.feed;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.page.PageTitle;
+import org.wikipedia.history.HistoryEntry;
 
 public interface FeedViewCallback {
     void onRequestMore();
-    void onSelectPage(@NonNull PageTitle title);
-    void onAddPageToList(@NonNull PageTitle title);
-    void onSharePage(@NonNull PageTitle title);
+    void onSelectPage(@NonNull HistoryEntry entry);
+    void onAddPageToList(@NonNull HistoryEntry entry);
+    void onSharePage(@NonNull HistoryEntry entry);
     void onSearchRequested();
     void onVoiceSearchRequested();
 }

@@ -11,6 +11,7 @@ import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.view.BigPictureCardView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeaturedCardFooterView;
+import org.wikipedia.history.HistoryEntry;
 
 public class FeaturedArticleCardView extends BigPictureCardView {
     private FeaturedArticleCard card;
@@ -62,7 +63,7 @@ public class FeaturedArticleCardView extends BigPictureCardView {
         @Override
         public void onClick(View v) {
             if (callback != null) {
-                callback.onSelectPage(card.pageTitle());
+                callback.onSelectPage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }
@@ -71,7 +72,7 @@ public class FeaturedArticleCardView extends BigPictureCardView {
         @Override
         public void onClick(View v) {
             if (callback != null) {
-                callback.onAddPageToList(card.pageTitle());
+                callback.onAddPageToList(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }
@@ -80,7 +81,7 @@ public class FeaturedArticleCardView extends BigPictureCardView {
         @Override
         public void onClick(View v) {
             if (callback != null) {
-                callback.onSharePage(card.pageTitle());
+                callback.onSharePage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }

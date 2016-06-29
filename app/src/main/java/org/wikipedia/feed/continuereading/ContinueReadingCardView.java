@@ -11,6 +11,7 @@ import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.CardLargeHeaderView;
 import org.wikipedia.feed.view.ListCardView;
+import org.wikipedia.history.HistoryEntry;
 
 public class ContinueReadingCardView extends ListCardView<ContinueReadingCard> {
     private ContinueReadingCard card;
@@ -50,7 +51,7 @@ public class ContinueReadingCardView extends ListCardView<ContinueReadingCard> {
         @Override
         public void onClick(View v) {
             if (callback != null) {
-                callback.onSelectPage(card.pageTitle());
+                callback.onSelectPage(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_CONTINUE_READING));
             }
         }
     }

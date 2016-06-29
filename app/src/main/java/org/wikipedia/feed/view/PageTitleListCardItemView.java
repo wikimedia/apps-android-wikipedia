@@ -11,19 +11,19 @@ import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedViewCallback;
-import org.wikipedia.page.PageTitle;
+import org.wikipedia.history.HistoryEntry;
 
 public class PageTitleListCardItemView extends ListCardItemView {
     @Nullable private FeedViewCallback callback;
-    @Nullable private PageTitle title;
+    @Nullable private HistoryEntry entry;
 
     public PageTitleListCardItemView(Context context) {
         super(context);
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (callback != null && title != null) {
-                    callback.onSelectPage(title);
+                if (callback != null && entry != null) {
+                    callback.onSelectPage(entry);
                 }
             }
         });
@@ -40,11 +40,11 @@ public class PageTitleListCardItemView extends ListCardItemView {
         return this;
     }
 
-    @NonNull public PageTitleListCardItemView setPageTitle(@NonNull PageTitle title) {
-        this.title = title;
-        titleView.setText(title.getDisplayText());
-        subtitleView.setText(title.getDescription());
-        imageView.setImageURI(TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl()));
+    @NonNull public PageTitleListCardItemView setHistoryEntry(@NonNull HistoryEntry entry) {
+        this.entry = entry;
+        titleView.setText(entry.getTitle().getDisplayText());
+        subtitleView.setText(entry.getTitle().getDescription());
+        imageView.setImageURI(TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl()));
         return this;
     }
 
@@ -60,13 +60,13 @@ public class PageTitleListCardItemView extends ListCardItemView {
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_feed_card_item_save:
-                    if (callback != null && title != null) {
-                        callback.onAddPageToList(title);
+                    if (callback != null && entry != null) {
+                        callback.onAddPageToList(entry);
                     }
                     break;
                 case R.id.menu_feed_card_item_share:
-                    if (callback != null && title != null) {
-                        callback.onSharePage(title);
+                    if (callback != null && entry != null) {
+                        callback.onSharePage(entry);
                     }
                     break;
                 default:

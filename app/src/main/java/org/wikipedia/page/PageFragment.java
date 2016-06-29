@@ -39,7 +39,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -389,7 +388,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (title.namespace() != Namespace.MAIN || !app.isLinkPreviewEnabled()) {
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
             getMainActivity().loadPage(title, historyEntry);
-            new LinkPreviewFunnel(app).logNavigate();
         } else {
             getMainActivity().showLinkPreview(title, HistoryEntry.SOURCE_INTERNAL_LINK);
         }

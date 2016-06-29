@@ -51,6 +51,7 @@ import net.hockeyapp.android.metrics.MetricsManager;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
+import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -655,6 +656,10 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             return;
         }
 
+        if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !app.isLinkPreviewEnabled()) {
+            new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
+        }
+
         // Close the link preview, if one is open.
         hideLinkPreview();
 
@@ -841,18 +846,18 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     }
 
     @Override
-    public void onFeedSelectPage(PageTitle title) {
-        loadPage(title, new HistoryEntry(title, HistoryEntry.SOURCE_FEED));
+    public void onFeedSelectPage(HistoryEntry entry) {
+        loadPage(entry.getTitle(), entry);
     }
 
     @Override
-    public void onFeedAddPageToList(PageTitle title) {
-        showAddToListDialog(title, AddToReadingListDialog.InvokeSource.FEED);
+    public void onFeedAddPageToList(HistoryEntry entry) {
+        showAddToListDialog(entry.getTitle(), AddToReadingListDialog.InvokeSource.FEED);
     }
 
     @Override
-    public void onFeedSharePage(PageTitle title) {
-        ShareUtil.shareText(this, title);
+    public void onFeedSharePage(HistoryEntry entry) {
+        ShareUtil.shareText(this, entry.getTitle());
     }
 
     private void loadMainPageIfNoTabs() {

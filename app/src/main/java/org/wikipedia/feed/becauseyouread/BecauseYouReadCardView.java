@@ -10,6 +10,7 @@ import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.CardLargeHeaderView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleListCardView;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
@@ -49,7 +50,7 @@ public class BecauseYouReadCardView extends PageTitleListCardView<BecauseYouRead
         @Override
         public void onBindViewHolder(DefaultViewHolder<PageTitleListCardItemView> holder, int i) {
             BecauseYouReadItemCard card = item(i);
-            holder.getView().setPageTitle(card.pageTitle());
+            holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
             holder.getView().setCallback(callback);
         }
     }

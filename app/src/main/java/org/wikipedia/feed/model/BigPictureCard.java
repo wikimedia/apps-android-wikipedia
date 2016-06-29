@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.Site;
 import org.wikipedia.feed.UtcDate;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.StringUtil;
@@ -58,7 +59,7 @@ public abstract class BigPictureCard extends Card {
     }
 
     @NonNull
-    public PageTitle pageTitle() {
+    public HistoryEntry historyEntry(int source) {
         PageTitle title = new PageTitle(articleTitle, site);
         if (image != null) {
             title.setThumbUrl(image.toString());
@@ -66,6 +67,6 @@ public abstract class BigPictureCard extends Card {
         if (!TextUtils.isEmpty(articleSubtitle)) {
             title.setDescription(articleSubtitle);
         }
-        return title;
+        return new HistoryEntry(title, source);
     }
 }

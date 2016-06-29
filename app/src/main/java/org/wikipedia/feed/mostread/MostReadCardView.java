@@ -11,6 +11,7 @@ import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleListCardView;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
@@ -54,7 +55,7 @@ public class MostReadCardView extends PageTitleListCardView<IntegerListCard> {
         @Override
         public void onBindViewHolder(DefaultViewHolder<PageTitleListCardItemView> holder, int position) {
             MostReadItemCard card = item(position);
-            holder.getView().setPageTitle(card.pageTitle());
+            holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_MOST_READ));
             holder.getView().setCallback(callback);
         }
     }
