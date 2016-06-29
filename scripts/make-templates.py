@@ -14,6 +14,11 @@ CHINESE_WIKI_LANG = "zh"
 SIMPLIFIED_CHINESE_LANG = "zh-hans"
 TRADITIONAL_CHINESE_LANG = "zh-hant"
 
+# T114042
+NORWEGIAN_BOKMAL_WIKI_LANG = "no"
+NORWEGIAN_BOKMAL_LANG = "nb"
+
+
 # Wikis that cause problems and hence we pretend
 # do not exist.
 # - "got" -> Gothic runes wiki. The name of got in got
@@ -110,6 +115,9 @@ def postprocess_wikis(wiki_list):
     traditionalWiki.props["english_name"] = "Traditional Chinese"
     traditionalWiki.props["local_name"] = "繁體"
     wiki_list.wikis.insert(chineseWikiIndex + 2, traditionalWiki)
+
+    bokmalWiki = next((wiki for wiki in wiki_list.wikis if wiki.lang == NORWEGIAN_BOKMAL_WIKI_LANG), None)
+    bokmalWiki.lang = NORWEGIAN_BOKMAL_LANG
 
     return wiki_list
 

@@ -35,7 +35,7 @@ public final class FileAliasData {
         DATA_MAP.put("uk", "Файл");
         DATA_MAP.put("ca", "Fitxer");
         DATA_MAP.put("fa", "پرونده");
-        DATA_MAP.put("no", "Fil");
+        DATA_MAP.put("nb", "Fil");
         DATA_MAP.put("sh", "Datoteka");
         DATA_MAP.put("ar", "ملف");
         DATA_MAP.put("fi", "Tiedosto");
