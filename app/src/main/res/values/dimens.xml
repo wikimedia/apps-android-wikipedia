@@ -90,8 +90,6 @@
 
     <!-- The Feed -->
     <dimen name="view_feed_header_height">260dp</dimen>
-    <dimen name="view_feed_refresh_offset_start">40dp</dimen>
-    <dimen name="view_feed_refresh_offset_end">60dp</dimen>
     <dimen name="view_feed_min_column_width">229.3dp</dimen>
     <dimen name="view_list_card_margin_vertical">8dp</dimen>
     <dimen name="view_list_card_margin_horizontal">5.3dp</dimen>

@@ -78,9 +78,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         appBarLayout.addOnOffsetChangedListener(headerOffsetChangedListener);
         searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
 
-        swipeRefreshLayout.setProgressViewOffset(true,
-                (int) getResources().getDimension(R.dimen.view_feed_refresh_offset_start),
-                (int) getResources().getDimension(R.dimen.view_feed_refresh_offset_end));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
