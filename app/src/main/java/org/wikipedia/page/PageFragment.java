@@ -496,7 +496,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void openInNewBackgroundTabFromMenu(PageTitle title, HistoryEntry entry) {
-        openInNewTabFromMenu(title, entry, getBackgroundTabPosition());
+        if (noPagesOpen()) {
+            openInNewForegroundTabFromMenu(title, entry);
+        } else {
+            openInNewTabFromMenu(title, entry, getBackgroundTabPosition());
+        }
     }
 
     public void openInNewForegroundTabFromMenu(PageTitle title, HistoryEntry entry) {
@@ -940,6 +944,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         // and... that should be it.
         tabsProvider.showAndHideTabs();
+    }
+
+    private boolean noPagesOpen() {
+        return tabList.isEmpty()
+                || (tabList.size() == 1 && tabList.get(0).getBackStack().isEmpty());
     }
 
     private Tab getTopMostTab() {

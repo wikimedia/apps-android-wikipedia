@@ -2,14 +2,18 @@ package org.wikipedia.analytics;
 
 import android.support.annotation.NonNull;
 
+import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.search.SearchArticlesFragment;
 
 public class SearchFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSearch";
-    private static final int REVISION = 10641988;
+    private static final int REVISION = 15729321;
+    private SearchArticlesFragment.InvokeSource source;
 
-    public SearchFunnel(WikipediaApp app) {
+    public SearchFunnel(WikipediaApp app, SearchArticlesFragment.InvokeSource source) {
         super(app, SCHEMA_NAME, REVISION, Funnel.SAMPLE_LOG_100);
+        this.source = source;
     }
 
     public void searchStart() {
@@ -24,9 +28,10 @@ public class SearchFunnel extends Funnel {
         );
     }
 
-    public void searchClick() {
+    public void searchClick(int position) {
         log(
-                "action", "click"
+                "action", "click",
+                "position", position
         );
     }
 
@@ -39,7 +44,7 @@ public class SearchFunnel extends Funnel {
     public void searchResults(boolean fullText, int numResults, int delayMillis) {
         log(
                 "action", "results",
-                "typeOfSearch", fullText ? "full" : WikipediaApp.getInstance().isFeatureSearchAutoCompleteEnabled() ? "autocomplete" : "prefix",
+                "typeOfSearch", fullText ? "full" : "prefix",
                 "numberOfResults", numResults,
                 "timeToDisplayResults", delayMillis
         );
@@ -48,9 +53,15 @@ public class SearchFunnel extends Funnel {
     public void searchError(boolean fullText, int delayMillis) {
         log(
                 "action", "error",
-                "typeOfSearch", fullText ? "full" : WikipediaApp.getInstance().isFeatureSearchAutoCompleteEnabled() ? "autocomplete" : "prefix",
+                "typeOfSearch", fullText ? "full" : "prefix",
                 "timeToDisplayResults", delayMillis
         );
+    }
+
+    @Override
+    protected JSONObject preprocessData(@NonNull JSONObject eventData) {
+        preprocessData(eventData, "source", source.code());
+        return super.preprocessData(eventData);
     }
 
     @NonNull
