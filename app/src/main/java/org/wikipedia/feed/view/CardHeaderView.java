@@ -94,13 +94,12 @@ public class CardHeaderView extends LinearLayout {
             switch (item.getItemId()) {
                 case R.id.menu_feed_card_dismiss:
                     if (callback != null & card != null) {
-                        callback.onRequestDismissCard(card);
+                        return callback.onRequestDismissCard(card);
                     }
-                    break;
+                    return false;
                 default:
-                    break;
+                    return false;
             }
-            return false;
         }
     }
 }
