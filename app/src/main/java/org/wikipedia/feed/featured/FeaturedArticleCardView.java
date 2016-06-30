@@ -10,8 +10,10 @@ import org.wikipedia.feed.view.BigPictureCardView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeaturedCardFooterView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
-public class FeaturedArticleCardView extends BigPictureCardView {
+public class FeaturedArticleCardView extends BigPictureCardView
+        implements ItemTouchHelperSwipeAdapter.SwipeableView {
     private FeaturedArticleCard card;
 
     public FeaturedArticleCardView(Context context) {

@@ -12,10 +12,12 @@ import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class NewsListCardView extends HorizontalScrollingListCardView {
+public class NewsListCardView extends HorizontalScrollingListCardView
+        implements ItemTouchHelperSwipeAdapter.SwipeableView {
 
     public NewsListCardView(@NonNull Context context) {
         super(context);

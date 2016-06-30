@@ -10,8 +10,10 @@ import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.CardLargeHeaderView;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
-public class ContinueReadingCardView extends ListCardView<ContinueReadingCard> {
+public class ContinueReadingCardView extends ListCardView
+        implements ItemTouchHelperSwipeAdapter.SwipeableView {
     private ContinueReadingCard card;
 
     public ContinueReadingCardView(Context context) {

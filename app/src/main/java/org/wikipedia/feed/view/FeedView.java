@@ -2,18 +2,22 @@ package org.wikipedia.feed.view;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.AttributeSet;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.views.AutoFitRecyclerView;
+import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
 
 public class FeedView extends AutoFitRecyclerView {
     private StaggeredGridLayoutManager recyclerLayoutManager;
-    private FeedRecyclerAdapter recyclerAdapter;
+    @Nullable private FeedRecyclerAdapter recyclerAdapter;
+    @Nullable private ItemTouchHelper recyclerItemTouchHelper;
 
     public FeedView(Context context) {
         super(context);
@@ -30,20 +34,25 @@ public class FeedView extends AutoFitRecyclerView {
         init();
     }
 
-    public void set(@NonNull FeedCoordinatorBase coordinator, FeedViewCallback callback) {
-        // TODO: should this class be responsible for showing a "no items in collection" view? It
-        //       would be nice to show placeholder elements while it loads.
+    public void set(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
         recyclerAdapter = new FeedRecyclerAdapter(coordinator, callback);
         setAdapter(recyclerAdapter);
+
+        if (recyclerItemTouchHelper != null) {
+            recyclerItemTouchHelper.attachToRecyclerView(null);
+            recyclerItemTouchHelper = null;
+        }
+
+        if (callback != null) {
+            recyclerItemTouchHelper = new ItemTouchHelper(new ItemTouchHelperSwipeAdapter(callback));
+            recyclerItemTouchHelper.attachToRecyclerView(this);
+        }
     }
 
     public void update() {
-        post(new Runnable() {
-            @Override
-            public void run() {
-                recyclerAdapter.notifyDataSetChanged();
-            }
-        });
+        if (recyclerAdapter != null) {
+            recyclerAdapter.notifyDataSetChanged();
+        }
     }
 
     private void init() {

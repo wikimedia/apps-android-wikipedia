@@ -12,10 +12,12 @@ import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleListCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class BecauseYouReadCardView extends PageTitleListCardView<BecauseYouReadCard> {
+public class BecauseYouReadCardView extends PageTitleListCardView
+        implements ItemTouchHelperSwipeAdapter.SwipeableView {
 
     public BecauseYouReadCardView(Context context) {
         super(context);
