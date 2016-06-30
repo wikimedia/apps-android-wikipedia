@@ -11,7 +11,6 @@
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="menu_clear_all_history">చరిత్రను తుడిచివెయ్యి</string>
   <string name="page_does_not_exist_error">ఈ పేజి లేదు.</string>
-  <string name="nav_item_today">ఈరోజు</string>
   <string name="dialog_title_clear_history" fuzzy="true">విహరణ చరిత్రను తుడిచివెయ్యాలా?</string>
   <string name="dialog_message_clear_history" fuzzy="true">మీరు నిజంగానే చరిత్రనంతా తుడిచెయ్యాలి అనుకుంటున్నారా?</string>
   <string name="nav_item_saved_pages">భద్రపరచబడిన పేజీలు</string>

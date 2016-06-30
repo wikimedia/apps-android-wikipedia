@@ -6,7 +6,6 @@ public class NavMenuFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppNavMenu";
     private static final int REV_ID = 12732211;
 
-    private static final String NAV_MENU_TODAY = "Today";
     private static final String NAV_MENU_HISTORY = "Recent";
     private static final String NAV_MENU_SAVED_PAGES = "SavedPages";
     private static final String NAV_MENU_READING_LISTS = "ReadingLists";
@@ -17,10 +16,6 @@ public class NavMenuFunnel extends Funnel {
 
     public NavMenuFunnel() {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100);
-    }
-
-    public void logToday() {
-        logSelect(NAV_MENU_TODAY);
     }
 
     public void logHistory() {

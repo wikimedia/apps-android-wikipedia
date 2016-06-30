@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">返回</string>
   <string name="menu_clear_all_history">清除歷史</string>
   <string name="page_does_not_exist_error">此頁面不存在！</string>
-  <string name="nav_item_today">今日</string>
   <string name="dialog_title_clear_history">清除瀏覽歷史</string>
   <string name="dialog_message_clear_history">這樣做會刪除所有歷史記錄，並且關閉任何目前開啟的分頁。您確定嗎？</string>
   <string name="nav_item_saved_pages">已儲存的頁面</string>

@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Wróć</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="page_does_not_exist_error">Ta strona nie istnieje.</string>
-  <string name="nav_item_today">Dzisiaj</string>
   <string name="dialog_title_clear_history">Wyczyść historię przeglądania</string>
   <string name="dialog_message_clear_history">Nastąpi usunięcie całej historii odwiedzin stron oraz zamknięcie otwartych kart. Kontynuować?</string>
   <string name="nav_item_saved_pages">Zapisane strony</string>

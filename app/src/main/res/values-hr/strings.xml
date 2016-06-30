@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Idi natrag</string>
   <string name="menu_clear_all_history">Očisti povijest</string>
   <string name="page_does_not_exist_error">Ova stranica ne postoji.</string>
-  <string name="nav_item_today">Danas</string>
   <string name="dialog_title_clear_history">Izbriši povijest</string>
   <string name="dialog_message_clear_history">Izbrisat ćete povijest i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
   <string name="nav_item_saved_pages">Spremljene strnice</string>

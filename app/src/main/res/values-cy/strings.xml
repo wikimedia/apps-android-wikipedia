@@ -11,7 +11,6 @@
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>
   <string name="page_does_not_exist_error">Does dim tudalen o\'r enw hwn ar gael.</string>
-  <string name="nav_item_today">Heddiw</string>
   <string name="dialog_title_clear_history" fuzzy="true">Clirio\'r hanes pori?</string>
   <string name="dialog_message_clear_history" fuzzy="true">Ydych chi\'n siwr eich bod am glirio\'r hanes?</string>
   <string name="nav_item_saved_pages">Tudalennau a gadwyd</string>

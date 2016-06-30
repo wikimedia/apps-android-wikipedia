@@ -11,7 +11,6 @@
   <string name="page_error_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="menu_clear_all_history">इतिहास हटाउने</string>
   <string name="page_does_not_exist_error">यो पृष्ठ उपलब्ध छैन ।</string>
-  <string name="nav_item_today">आज</string>
   <string name="nav_item_saved_pages">संग्रहित पृष्ठहरू</string>
   <string name="menu_page_other_languages" fuzzy="true">अन्य भाषाहरूमा पढ्ने</string>
   <string name="menu_page_find_in_page">पृष्ठमा खोज्ने</string>

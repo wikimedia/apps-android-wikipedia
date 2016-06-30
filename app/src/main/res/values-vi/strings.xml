@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Quay lại</string>
   <string name="menu_clear_all_history">Xóa lịch sử</string>
   <string name="page_does_not_exist_error">Trang này không tồn tại.</string>
-  <string name="nav_item_today">Hôm nay</string>
   <string name="dialog_title_clear_history">Xóa lịch sử duyệt trang</string>
   <string name="dialog_message_clear_history">Bạn có chắc chắn muốn xóa tất cả lịch sử? Điều này sẽ xóa tất cả lịch sử duyệt trang và đóng các thẻ đang mở.</string>
   <string name="nav_item_saved_pages">Trang đã lưu</string>

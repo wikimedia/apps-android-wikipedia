@@ -11,7 +11,6 @@
   <string name="page_error_retry">Subukan muli</string>
   <string name="menu_clear_all_history">Burahin ang kasaysayan</string>
   <string name="page_does_not_exist_error">Hindi umiiral ang pahinang ito</string>
-  <string name="nav_item_today">Ngayong araw na ito</string>
   <string name="dialog_title_clear_history" fuzzy="true">Burahin ang kasaysayan ng pagbabasa?</string>
   <string name="nav_item_saved_pages">Mga naitalang pahina</string>
   <string name="share_via">Ibahagi sa pamamagitan ng</string>

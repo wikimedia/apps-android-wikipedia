@@ -11,7 +11,6 @@
   <string name="page_error_retry">Assaya arta</string>
   <string name="menu_clear_all_history">Klerhe an istori</string>
   <string name="page_does_not_exist_error">Nyns eus folen henwys yndelma.</string>
-  <string name="nav_item_today">Hedhyw</string>
   <string name="dialog_title_clear_history" fuzzy="true">Klerhe an istori peuri?</string>
   <string name="nav_item_saved_pages">Folennow gwithys</string>
   <string name="share_via">Kevranna dre</string>

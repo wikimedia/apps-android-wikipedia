@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Indietro</string>
   <string name="menu_clear_all_history">Cancella la cronologia</string>
   <string name="page_does_not_exist_error">Questa pagina non esiste.</string>
-  <string name="nav_item_today">Oggi</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
   <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="nav_item_saved_pages">Pagine salvate</string>

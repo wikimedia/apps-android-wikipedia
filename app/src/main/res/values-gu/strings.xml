@@ -11,7 +11,6 @@
   <string name="page_error_retry">ફરી પ્રયત્ન કરો</string>
   <string name="menu_clear_all_history">ઇતિહાસ હટાવો</string>
   <string name="page_does_not_exist_error">આ પાનું અસ્તિત્વમાં નથી.</string>
-  <string name="nav_item_today">આજે</string>
   <string name="dialog_title_clear_history" fuzzy="true">બ્રાઉઝિંગનો ઇતિહાસ હટાવશો?</string>
   <string name="nav_item_saved_pages">સાચવેલા પાનાઓ</string>
   <string name="share_via">આના માધ્યમથી વહેંચો</string>

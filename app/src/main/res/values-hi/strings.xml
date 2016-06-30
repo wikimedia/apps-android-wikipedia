@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">वापस जाएँ</string>
   <string name="menu_clear_all_history">इतिहास साफ़ करें</string>
   <string name="page_does_not_exist_error">यह पृष्ठ अस्तित्व में नहीं है।</string>
-  <string name="nav_item_today">आज</string>
   <string name="dialog_title_clear_history">ब्राउज़िंग इतिहास साफ़ करें</string>
   <string name="dialog_message_clear_history">यह आपका सभी ब्राउज़िंग इतिहास मिटा देगा, और अभी खुले हुए टैब्स को भी बंद कर देगा। क्या आप करेंगे?</string>
   <string name="nav_item_saved_pages">सहेजे गये पृष्ठ</string>

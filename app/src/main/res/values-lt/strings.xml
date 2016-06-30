@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Grįžti atgal</string>
   <string name="menu_clear_all_history">Valyti istoriją</string>
   <string name="page_does_not_exist_error">Šis puslapis neegzistuoja.</string>
-  <string name="nav_item_today">Šiandien</string>
   <string name="dialog_title_clear_history">Išvalyti naršymo istoriją</string>
   <string name="dialog_message_clear_history">Esate tikri? Tai ištrins visą jūsų naršymo istoriją ir uždarys visus skirtukus.</string>
   <string name="nav_item_saved_pages">Įrašyti puslapiai</string>

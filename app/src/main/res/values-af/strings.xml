@@ -11,7 +11,6 @@
   <string name="page_error_retry">Probeer weer</string>
   <string name="menu_clear_all_history">Vee geskiedenis uit</string>
   <string name="page_does_not_exist_error">Hierdie bladsy bestaan nie.</string>
-  <string name="nav_item_today">Vandag</string>
   <string name="dialog_title_clear_history" fuzzy="true">Skrap webblaaier geskiedenis?</string>
   <string name="nav_item_saved_pages">Gestoorde bladsye</string>
   <string name="share_via">Deel deur</string>

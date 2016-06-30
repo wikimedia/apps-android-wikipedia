@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Очисти историју</string>
   <string name="page_does_not_exist_error">Ова страница не постоји.</string>
-  <string name="nav_item_today">Данас</string>
   <string name="dialog_title_clear_history">Чишћење историје прегледања</string>
   <string name="dialog_message_clear_history">Биће уклоњена сва историја прегледања и затворене све отворене картице. Наставити?</string>
   <string name="nav_item_saved_pages">Сачуване странице</string>

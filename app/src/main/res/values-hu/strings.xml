@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Vissza</string>
   <string name="menu_clear_all_history">Előzmények törlése</string>
   <string name="page_does_not_exist_error">Ez a lap nem létezik.</string>
-  <string name="nav_item_today">Ma</string>
   <string name="dialog_title_clear_history">Böngészési előzmények törlése</string>
   <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
   <string name="nav_item_saved_pages">Elmentett lapok</string>

@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Retornar</string>
   <string name="menu_clear_all_history">Rader historia</string>
   <string name="page_does_not_exist_error">Iste pagina non existe.</string>
-  <string name="nav_item_today">Hodie</string>
   <string name="dialog_title_clear_history">Rader historia de navigation</string>
   <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
   <string name="nav_item_saved_pages">Paginas salveguardate</string>

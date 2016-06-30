@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">חזרה</string>
   <string name="menu_clear_all_history">ניקוי היסטוריה</string>
   <string name="page_does_not_exist_error">הדף הזה אינו קיים.</string>
-  <string name="nav_item_today">היום</string>
   <string name="dialog_title_clear_history">לנקות את היסטוריית הגלישה</string>
   <string name="dialog_message_clear_history">זה ימחק את כל היסטוריית הגלישה שלך ויסגור את כל הלשוניות שפתוחות עכשיו. לעשות את זה?</string>
   <string name="nav_item_saved_pages">דפים שמורים</string>

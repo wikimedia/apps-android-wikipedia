@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">უკან</string>
   <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
   <string name="page_does_not_exist_error">ეს გვერდი არ არსებობს.</string>
-  <string name="nav_item_today">დღეს</string>
   <string name="dialog_title_clear_history">დათვალიერების ისტორიის გასუფთავება</string>
   <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ხართ?</string>
   <string name="nav_item_saved_pages">შენახული გვერდები</string>

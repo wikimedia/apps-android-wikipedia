@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Назад</string>
   <string name="menu_clear_all_history">Исчисти историја</string>
   <string name="page_does_not_exist_error">Страницата не постои.</string>
-  <string name="nav_item_today">Денес</string>
   <string name="dialog_title_clear_history">Исчисти историја на прелистување</string>
   <string name="dialog_message_clear_history">Со ова ќе ја избришете сета историја на прелистување и ќе ги затворите сите отворени јазичиња. Дали сте сигурни?</string>
   <string name="nav_item_saved_pages">Зачувани страници</string>

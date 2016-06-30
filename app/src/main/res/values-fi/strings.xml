@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Takaisin</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
   <string name="page_does_not_exist_error">Tätä sivua ei ole.</string>
-  <string name="nav_item_today">Tänään</string>
   <string name="dialog_title_clear_history">Selaushistorian tyhjennys</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi sekä sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="nav_item_saved_pages">Tallennetut sivut</string>

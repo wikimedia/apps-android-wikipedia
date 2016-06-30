@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Geri git</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="page_does_not_exist_error">Bu sayfa mevcut değil.</string>
-  <string name="nav_item_today">Bugün</string>
   <string name="dialog_title_clear_history">Göz atma geçmişini temizle</string>
   <string name="dialog_message_clear_history">Bu, tüm tarama geçmişinizi silecek ve açık bütün sekmeleri kapatacak. Emin misiniz?</string>
   <string name="nav_item_saved_pages">Kaydedilen sayfalar</string>

@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Späť</string>
   <string name="menu_clear_all_history">Vymazať históriu</string>
   <string name="page_does_not_exist_error">Táto stránka neexistuje.</string>
-  <string name="nav_item_today">Dnes</string>
   <string name="dialog_title_clear_history">Vymazať históriu prehliadania</string>
   <string name="dialog_message_clear_history">Týmto sa odstráni vaša história prehliadania a zavrú sa všetky otvorené karty. Naozaj chcete vymazať celú históriu?</string>
   <string name="nav_item_saved_pages">Uložené stránky</string>

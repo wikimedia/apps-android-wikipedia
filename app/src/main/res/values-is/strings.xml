@@ -13,7 +13,6 @@
   <string name="page_error_back_to_main">Til baka</string>
   <string name="menu_clear_all_history">Hreinsa feril</string>
   <string name="page_does_not_exist_error">Þessi síða er ekki til.</string>
-  <string name="nav_item_today">Í dag</string>
   <string name="dialog_title_clear_history">Hreinsa vafurferil</string>
   <string name="dialog_message_clear_history">Þetta mun eyða öllum ferli vafurs þíns um vefinn og loka öllum opnum flipum. Ertu alveg viss?</string>
   <string name="nav_item_saved_pages">Vistaðar síður</string>
