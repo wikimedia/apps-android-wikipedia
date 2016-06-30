@@ -2,6 +2,7 @@ package org.wikipedia.feed;
 
 import android.support.annotation.NonNull;
 
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
 
 public interface FeedViewCallback {
@@ -11,4 +12,5 @@ public interface FeedViewCallback {
     void onSharePage(@NonNull HistoryEntry entry);
     void onSearchRequested();
     void onVoiceSearchRequested();
+    void onRequestDismissCard(@NonNull Card card);
 }

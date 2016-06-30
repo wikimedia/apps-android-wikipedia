@@ -32,7 +32,9 @@ public class MostReadCardView extends PageTitleListCardView<MostReadListCard> {
                 .setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_most_read)
-                .setImageCircleColor(R.color.blue_progressive);
+                .setImageCircleColor(R.color.blue_progressive)
+                .setCard(card)
+                .setCallback(getCallback());
         header(header);
     }
 

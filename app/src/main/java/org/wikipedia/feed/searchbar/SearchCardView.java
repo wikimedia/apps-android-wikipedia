@@ -2,21 +2,18 @@ package org.wikipedia.feed.searchbar;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedViewCallback;
+import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.util.FeedbackUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SearchCardView extends CardView {
+public class SearchCardView extends FeedCardView {
     @BindView(R.id.search_container) View searchContainer;
     @BindView(R.id.voice_search_button) View voiceSearchButton;
-    @Nullable private FeedViewCallback callback;
 
     public SearchCardView(Context context) {
         super(context);
@@ -28,8 +25,8 @@ public class SearchCardView extends CardView {
         searchContainer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (callback != null) {
-                    callback.onSearchRequested();
+                if (getCallback() != null) {
+                    getCallback().onSearchRequested();
                 }
             }
         });
@@ -37,16 +34,11 @@ public class SearchCardView extends CardView {
         voiceSearchButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (callback != null) {
-                    callback.onVoiceSearchRequested();
+                if (getCallback() != null) {
+                    getCallback().onVoiceSearchRequested();
                 }
             }
         });
-    }
-
-    @NonNull public SearchCardView setCallback(@Nullable FeedViewCallback callback) {
-        this.callback = callback;
-        return this;
     }
 
     public void set(@NonNull SearchCard card) {

@@ -32,7 +32,9 @@ public class NewsListCardView extends HorizontalScrollingListCardView {
                 .setTitle(R.string.view_card_news_title)
                 .setSubtitle(DateUtil.getFeedCardDateString(card.age().baseCalendar()))
                 .setImage(R.drawable.icon_in_the_news)
-                .setImageCircleColor(R.color.gray_disabled);
+                .setImageCircleColor(R.color.gray_disabled)
+                .setCard(card)
+                .setCallback(getCallback());
         header(header);
     }
 

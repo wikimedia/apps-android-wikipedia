@@ -30,7 +30,9 @@ public class BecauseYouReadCardView extends PageTitleListCardView<BecauseYouRead
         CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
                 .setImage(R.drawable.ic_restore_black_24dp)
-                .setImageCircleColor(R.color.gray_highlight);
+                .setImageCircleColor(R.color.gray_highlight)
+                .setCard(card)
+                .setCallback(getCallback());
         header(header);
         CardLargeHeaderView largeHeader = new CardLargeHeaderView(getContext())
                 .setSubtitle(card.subtitle())

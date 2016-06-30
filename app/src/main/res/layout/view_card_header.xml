@@ -7,13 +7,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="12dp">
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="12dp">
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/view_card_header_image"
@@ -41,13 +42,33 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/view_card_header_subtitle"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical"
-            android:textSize="12sp"
-            tools:text="Lorem ipsum"/>
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/view_card_header_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:textSize="12sp"
+                tools:text="Lorem ipsum"/>
+
+            <ImageView
+                android:id="@+id/view_list_card_header_menu"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:layout_gravity="end"
+                app:srcCompat="@drawable/ic_more_vert_white_24dp"
+                android:tint="@color/gray_highlight"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@null"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

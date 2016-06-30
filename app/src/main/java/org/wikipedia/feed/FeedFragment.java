@@ -22,6 +22,7 @@ import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.view.FeedRecyclerAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
@@ -193,6 +194,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
             if (getCallback() != null) {
                 getCallback().onFeedVoiceSearchRequested();
             }
+        }
+
+        @Override
+        public void onRequestDismissCard(@NonNull Card card) {
+            int position = coordinator.dismissCard(card);
+            funnel.dismissCard(FeedRecyclerAdapter.getCardType(card), position);
         }
     }
 

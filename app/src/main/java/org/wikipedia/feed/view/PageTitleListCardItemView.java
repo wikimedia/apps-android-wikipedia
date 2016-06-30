@@ -51,11 +51,11 @@ public class PageTitleListCardItemView extends ListCardItemView {
     private void showOverflowMenu(View anchorView) {
         PopupMenu menu = new PopupMenu(getContext(), anchorView);
         menu.getMenuInflater().inflate(R.menu.menu_feed_card_item, menu.getMenu());
-        menu.setOnMenuItemClickListener(new CardMenuClickListener());
+        menu.setOnMenuItemClickListener(new CardItemMenuClickListener());
         menu.show();
     }
 
-    private class CardMenuClickListener implements PopupMenu.OnMenuItemClickListener {
+    private class CardItemMenuClickListener implements PopupMenu.OnMenuItemClickListener {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {

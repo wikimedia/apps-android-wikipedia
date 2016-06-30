@@ -68,6 +68,15 @@ public abstract class FeedCoordinatorBase {
         return currentAge;
     }
 
+    public int dismissCard(Card card) {
+        int position = cards.indexOf(card);
+        cards.remove(card);
+        if (updateListener != null) {
+            updateListener.update(cards);
+        }
+        return position;
+    }
+
     protected abstract void buildScript(int age);
 
     protected void addPendingClient(FeedClient client) {

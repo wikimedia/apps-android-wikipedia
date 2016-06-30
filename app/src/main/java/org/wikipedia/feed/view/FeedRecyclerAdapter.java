@@ -44,6 +44,30 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
     @NonNull private FeedCoordinatorBase coordinator;
     @Nullable private FeedViewCallback callback;
 
+    public static int getCardType(Card card) {
+        if (card instanceof ProgressCard) {
+            return VIEW_TYPE_PROGRESS;
+        } else if (card instanceof ContinueReadingCard) {
+            return VIEW_TYPE_CONTINUE_READING;
+        } else if (card instanceof BecauseYouReadCard) {
+            return VIEW_TYPE_BECAUSE_YOU_READ;
+        } else if (card instanceof SearchCard) {
+            return VIEW_TYPE_SEARCH_BAR;
+        } else if (card instanceof MostReadListCard) {
+            return VIEW_TYPE_MOST_READ;
+        } else if (card instanceof FeaturedArticleCard) {
+            return VIEW_TYPE_FEATURED_ARTICLE;
+        } else if (card instanceof RandomCard) {
+            return VIEW_TYPE_RANDOM;
+        } else if (card instanceof NewsListCard) {
+            return VIEW_TYPE_NEWS;
+        } else if (card instanceof MainPageCard) {
+            return VIEW_TYPE_MAIN_PAGE;
+        } else {
+            throw new IllegalStateException("Unknown type=" + card.getClass());
+        }
+    }
+
     public FeedRecyclerAdapter(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
         super(coordinator.getCards());
         this.coordinator = coordinator;
@@ -90,28 +114,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
     }
 
     @Override public int getItemViewType(int position) {
-        Card item = item(position);
-        if (item instanceof ProgressCard) {
-            return VIEW_TYPE_PROGRESS;
-        } else if (item instanceof ContinueReadingCard) {
-            return VIEW_TYPE_CONTINUE_READING;
-        } else if (item instanceof BecauseYouReadCard) {
-            return VIEW_TYPE_BECAUSE_YOU_READ;
-        } else if (item instanceof SearchCard) {
-            return VIEW_TYPE_SEARCH_BAR;
-        } else if (item instanceof MostReadListCard) {
-            return VIEW_TYPE_MOST_READ;
-        } else if (item instanceof FeaturedArticleCard) {
-            return VIEW_TYPE_FEATURED_ARTICLE;
-        } else if (item instanceof RandomCard) {
-            return VIEW_TYPE_RANDOM;
-        } else if (item instanceof NewsListCard) {
-            return VIEW_TYPE_NEWS;
-        } else if (item instanceof MainPageCard) {
-            return VIEW_TYPE_MAIN_PAGE;
-        } else {
-            throw new IllegalStateException("Unknown type=" + item.getClass());
-        }
+        return getCardType(item(position));
     }
 
     @NonNull private View newView(@NonNull Context context, int viewType) {

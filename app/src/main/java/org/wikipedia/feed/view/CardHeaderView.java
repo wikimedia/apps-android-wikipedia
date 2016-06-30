@@ -8,10 +8,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.PopupMenu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.FeedViewCallback;
+import org.wikipedia.feed.model.Card;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,12 +25,31 @@ public class CardHeaderView extends LinearLayout {
     @BindView(R.id.view_card_header_image) AppCompatImageView imageView;
     @BindView(R.id.view_card_header_title) TextView titleView;
     @BindView(R.id.view_card_header_subtitle) TextView subtitleView;
+    @BindView(R.id.view_list_card_header_menu) View menuView;
+    @Nullable private Card card;
+    @Nullable private FeedViewCallback callback;
 
     public CardHeaderView(Context context) {
         super(context);
 
         inflate(getContext(), R.layout.view_card_header, this);
         ButterKnife.bind(this);
+        menuView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showOverflowMenu(v);
+            }
+        });
+    }
+
+    @NonNull public CardHeaderView setCard(@NonNull Card card) {
+        this.card = card;
+        return this;
+    }
+
+    @NonNull public CardHeaderView setCallback(@Nullable FeedViewCallback callback) {
+        this.callback = callback;
+        return this;
     }
 
     @NonNull public CardHeaderView setImage(@DrawableRes int resId) {
@@ -55,5 +79,28 @@ public class CardHeaderView extends LinearLayout {
     @NonNull public CardHeaderView setSubtitle(@Nullable CharSequence subtitle) {
         subtitleView.setText(subtitle);
         return this;
+    }
+
+    private void showOverflowMenu(View anchorView) {
+        PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView);
+        menu.getMenuInflater().inflate(R.menu.menu_feed_card_header, menu.getMenu());
+        menu.setOnMenuItemClickListener(new CardHeaderMenuClickListener());
+        menu.show();
+    }
+
+    private class CardHeaderMenuClickListener implements PopupMenu.OnMenuItemClickListener {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_feed_card_dismiss:
+                    if (callback != null & card != null) {
+                        callback.onRequestDismissCard(card);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return false;
+        }
     }
 }

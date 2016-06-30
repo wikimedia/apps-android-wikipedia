@@ -3,11 +3,9 @@ package org.wikipedia.feed.featured;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.view.BigPictureCardView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeaturedCardFooterView;
@@ -15,15 +13,9 @@ import org.wikipedia.history.HistoryEntry;
 
 public class FeaturedArticleCardView extends BigPictureCardView {
     private FeaturedArticleCard card;
-    @Nullable private FeedViewCallback callback;
 
     public FeaturedArticleCardView(Context context) {
         super(context);
-    }
-
-    @NonNull public BigPictureCardView setCallback(@Nullable FeedViewCallback callback) {
-        this.callback = callback;
-        return this;
     }
 
     public void set(@NonNull FeaturedArticleCard card) {
@@ -49,7 +41,9 @@ public class FeaturedArticleCardView extends BigPictureCardView {
                 .setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_star_black_24dp)
-                .setImageCircleColor(R.color.feed_featured_icon_background);
+                .setImageCircleColor(R.color.feed_featured_icon_background)
+                .setCard(card)
+                .setCallback(getCallback());
         header(header);
     }
 
@@ -62,8 +56,8 @@ public class FeaturedArticleCardView extends BigPictureCardView {
     private class CardClickListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (callback != null) {
-                callback.onSelectPage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            if (getCallback() != null) {
+                getCallback().onSelectPage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }
@@ -71,8 +65,8 @@ public class FeaturedArticleCardView extends BigPictureCardView {
     private class CardSaveListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (callback != null) {
-                callback.onAddPageToList(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            if (getCallback() != null) {
+                getCallback().onAddPageToList(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }
@@ -80,8 +74,8 @@ public class FeaturedArticleCardView extends BigPictureCardView {
     private class CardShareListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (callback != null) {
-                callback.onSharePage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            if (getCallback() != null) {
+                getCallback().onSharePage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }
