@@ -11,6 +11,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -414,7 +415,7 @@ public class TabsProvider {
             // dynamically set the background color that will show through the rounded corners.
             // if it's the first last item in the tab list, we want the background to be the same
             // as the activity background, otherwise it should match the tab shadow color.
-            convertView.setBackgroundColor(parentActivity.getResources().getColor(
+            convertView.setBackgroundColor(ContextCompat.getColor(parentActivity,
                     position == 0
                             ? R.color.gallery_background
                             : getThemedAttributeId(parentActivity, R.attr.tab_shadow_color)));
