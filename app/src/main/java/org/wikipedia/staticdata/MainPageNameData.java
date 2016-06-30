@@ -35,7 +35,7 @@ public final class MainPageNameData {
         DATA_MAP.put("uk", "Головна сторінка");
         DATA_MAP.put("ca", "Portada");
         DATA_MAP.put("fa", "صفحهٔ اصلی");
-        DATA_MAP.put("no", "Portal:Forside");
+        DATA_MAP.put("nb", "Portal:Forside");
         DATA_MAP.put("sh", "Glavna stranica");
         DATA_MAP.put("ar", "الصفحة الرئيسية");
         DATA_MAP.put("fi", "Wikipedia:Etusivu");

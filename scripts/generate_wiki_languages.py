@@ -51,6 +51,9 @@ for row in itertools.islice(csv_data, start_at_row, end_at_row):
         add_lang(key='zh-hant', local_name=u'繁體',
                  eng_name='Traditional Chinese')
         continue
+    if language_code == 'no':  # T114042
+        language_code = 'nb'
+
     local_name = row[RESULT_COLUMN['local_name']]
     english_name = row[RESULT_COLUMN['english_name']]
     add_lang(key=escape(language_code), local_name=escape(local_name),

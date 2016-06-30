@@ -262,6 +262,8 @@ public class Site implements Parcelable {
             case AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE:
             case AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE:
                 return Locale.CHINA.getLanguage();
+            case "nb": // Norwegian Bokmål
+                return "no"; // T114042
             default:
                 return languageCode;
         }

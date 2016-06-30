@@ -35,7 +35,7 @@ public final class SpecialAliasData {
         DATA_MAP.put("uk", "Спеціальна");
         DATA_MAP.put("ca", "Especial");
         DATA_MAP.put("fa", "ویژه");
-        DATA_MAP.put("no", "Spesial");
+        DATA_MAP.put("nb", "Spesial");
         DATA_MAP.put("sh", "Posebno");
         DATA_MAP.put("ar", "خاص");
         DATA_MAP.put("fi", "Toiminnot");
