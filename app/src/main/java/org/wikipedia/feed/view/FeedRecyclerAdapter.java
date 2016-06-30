@@ -19,6 +19,8 @@ import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.mostread.MostReadCardView;
 import org.wikipedia.feed.mostread.MostReadListCard;
+import org.wikipedia.feed.news.NewsListCard;
+import org.wikipedia.feed.news.NewsListCardView;
 import org.wikipedia.feed.random.RandomCard;
 import org.wikipedia.feed.random.RandomCardView;
 import org.wikipedia.feed.searchbar.SearchCard;
@@ -33,6 +35,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
     private static final int VIEW_TYPE_MOST_READ = 3;
     private static final int VIEW_TYPE_FEATURED_ARTICLE = 4;
     private static final int VIEW_TYPE_RANDOM = 5;
+    private static final int VIEW_TYPE_NEWS = 7;
     private static final int VIEW_TYPE_INTEGER_LIST = 100;
 
     @NonNull private FeedCoordinatorBase coordinator;
@@ -78,6 +81,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             ((FeaturedArticleCardView) view).set((FeaturedArticleCard) item);
         } else if (view instanceof RandomCardView) {
             ((RandomCardView) view).set((RandomCard) item);
+        } else if (view instanceof NewsListCardView) {
+            ((NewsListCardView) view).set((NewsListCard) item);
         } else {
             throw new IllegalStateException("Unknown type=" + view.getClass());
         }
@@ -99,6 +104,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
             return VIEW_TYPE_FEATURED_ARTICLE;
         } else if (item instanceof RandomCard) {
             return VIEW_TYPE_RANDOM;
+        } else if (item instanceof NewsListCard) {
+            return VIEW_TYPE_NEWS;
         } else {
             throw new IllegalStateException("Unknown type=" + item.getClass());
         }
@@ -120,6 +127,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
                 return new FeaturedArticleCardView(context).setCallback(callback);
             case VIEW_TYPE_RANDOM:
                 return new RandomCardView(context);
+            case VIEW_TYPE_NEWS:
+                return new NewsListCardView(context).setCallback(callback);
             default:
                 throw new IllegalArgumentException("viewType=" + viewType);
         }

@@ -94,4 +94,6 @@
     <dimen name="view_list_card_margin_vertical">8dp</dimen>
     <dimen name="view_list_card_margin_horizontal">5.3dp</dimen>
     <dimen name="view_list_card_item_margin">16dp</dimen>
+    <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
+    <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
 </resources>

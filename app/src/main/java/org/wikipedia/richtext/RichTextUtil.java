@@ -102,5 +102,25 @@ public final class RichTextUtil {
         }
     }
 
+    public static void removeUnderlinesFromLinksAndMakeBold(@NonNull TextView textView) {
+        CharSequence text = textView.getText();
+        if (text instanceof Spanned) {
+            Spannable spannable = new SpannableString(text);
+            removeUnderlinesFromLinksAndMakeBold(spannable, spannable.getSpans(0, spannable.length(), URLSpan.class));
+            textView.setText(spannable);
+        }
+    }
+
+    public static void removeUnderlinesFromLinksAndMakeBold(@NonNull Spannable spannable,
+                                                 @NonNull URLSpan[] spans) {
+        for (URLSpan span: spans) {
+            int start = spannable.getSpanStart(span);
+            int end = spannable.getSpanEnd(span);
+            spannable.removeSpan(span);
+            span = new URLSpanBoldNoUnderline(span.getURL());
+            spannable.setSpan(span, start, end, 0);
+        }
+    }
+
     private RichTextUtil() { }
 }
