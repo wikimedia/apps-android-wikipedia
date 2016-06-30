@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.model.Card;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -20,7 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public abstract class ListCardView<T extends Card> extends FeedCardView {
+public abstract class ListCardView extends FeedCardView {
     @BindView(R.id.view_list_card_header) View headerView;
     @BindView(R.id.view_list_card_large_header) View largeHeaderView;
     @BindView(R.id.view_list_card_footer) View footerView;
