@@ -61,6 +61,10 @@ public abstract class FeedCoordinatorBase {
         return pendingClients.isEmpty();
     }
 
+    public int getAge() {
+        return currentAge;
+    }
+
     protected abstract void buildScript(int age);
 
     protected void addPendingClient(FeedClient client) {

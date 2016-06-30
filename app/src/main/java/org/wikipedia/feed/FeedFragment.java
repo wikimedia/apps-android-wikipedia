@@ -20,6 +20,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
@@ -42,6 +43,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     private Unbinder unbinder;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
+    private FeedFunnel funnel;
     private FeedViewCallback feedCallback = new FeedCallback();
     private FeedHeaderOffsetChangedListener headerOffsetChangedListener = new FeedHeaderOffsetChangedListener();
     private int searchIconShowThresholdPx;
@@ -64,6 +66,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
         coordinator = new FeedCoordinator(getContext());
+        funnel = new FeedFunnel(app);
         Prefs.pageLastShown(0);
     }
 
@@ -81,6 +84,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                funnel.refresh(coordinator.getAge());
                 coordinator.reset();
                 coordinator.more(app.getSite());
             }
@@ -152,6 +156,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     private class FeedCallback implements FeedViewCallback {
         @Override
         public void onRequestMore() {
+            funnel.requestMore(coordinator.getAge());
             coordinator.more(app.getSite());
         }
 
