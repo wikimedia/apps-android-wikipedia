@@ -9,12 +9,12 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.wikipedia.PageTitleListCardItemCallback;
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.history.HistoryEntry;
 
 public class PageTitleListCardItemView extends ListCardItemView {
-    @Nullable private FeedViewCallback callback;
+    @Nullable private PageTitleListCardItemCallback callback;
     @Nullable private HistoryEntry entry;
 
     public PageTitleListCardItemView(Context context) {
@@ -35,7 +35,7 @@ public class PageTitleListCardItemView extends ListCardItemView {
         });
     }
 
-    @NonNull public PageTitleListCardItemView setCallback(@Nullable FeedViewCallback callback) {
+    @NonNull public PageTitleListCardItemView setCallback(@Nullable PageTitleListCardItemCallback callback) {
         this.callback = callback;
         return this;
     }

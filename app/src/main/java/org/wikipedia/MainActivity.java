@@ -5,6 +5,7 @@ import android.app.SearchManager;
 import android.appwidget.AppWidgetManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -52,15 +53,16 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
-import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.feed.FeedFragment;
+import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.news.NewsActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.NavDrawerHelper;
 import org.wikipedia.page.PageFragment;
@@ -141,6 +143,15 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     private WikipediaZeroUsageFunnel zeroFunnel;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this);
     private MainActivityToolbarCoordinator toolbarCoordinator;
+
+    private DialogInterface.OnDismissListener listDialogDismissListener = new DialogInterface.OnDismissListener() {
+        @Override
+        public void onDismiss(DialogInterface dialogInterface) {
+            if (getCurPageFragment() != null) {
+                getCurPageFragment().updateBookmark();
+            }
+        }
+    };
 
     public View getContentView() {
         return fragmentContainerView;
@@ -437,6 +448,16 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     /** @return True if the contextual action bar is open. */
     public boolean isCabOpen() {
         return currentActionMode != null;
+    }
+
+    @NonNull
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull HistoryEntry entry,
+                                   @NonNull PageTitle title) {
+        return new Intent(MainActivity.ACTION_PAGE_FOR_TITLE)
+                .setClass(context, MainActivity.class)
+                .putExtra(MainActivity.EXTRA_HISTORYENTRY, entry)
+                .putExtra(MainActivity.EXTRA_PAGETITLE, title);
     }
 
     @Override
@@ -761,17 +782,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     }
 
     public void showAddToListDialog(PageTitle title, AddToReadingListDialog.InvokeSource source) {
-        AddToReadingListDialog dialog = AddToReadingListDialog.newInstance(title, source);
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                if (getCurPageFragment() != null) {
-                    getCurPageFragment().updateBookmark();
-                }
-            }
-        });
-        bottomSheetPresenter.show(dialog);
-        new ReadingListsFunnel(title.getSite()).logAddClick(source);
+        FeedbackUtil.showAddToListDialog(title, source, bottomSheetPresenter, listDialogDismissListener);
     }
 
     public void showReadingListAddedSnackbar(String message, final boolean isOnboarding) {
@@ -854,6 +865,11 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     @Override
     public void onFeedSharePage(HistoryEntry entry) {
         ShareUtil.shareText(this, entry.getTitle());
+    }
+
+    @Override
+    public void onFeedNewsItemSelected(NewsItemCard card) {
+        startActivity(NewsActivity.newIntent(app, card.item(), card.site()));
     }
 
     private void loadMainPageIfNoTabs() {

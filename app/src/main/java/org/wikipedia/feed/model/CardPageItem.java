@@ -9,7 +9,7 @@ import com.google.gson.annotations.JsonAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.NamespaceTypeAdapter;
 
-public class CardPageItem {
+public final class CardPageItem {
     @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable private String description;
@@ -19,11 +19,6 @@ public class CardPageItem {
     @NonNull
     public String title() {
         return title;
-    }
-
-    @Nullable
-    public Uri thumbnail() {
-        return thumbnail != null ? Uri.parse(thumbnail.source()) : null;
     }
 
     @Nullable
@@ -39,5 +34,10 @@ public class CardPageItem {
     @Nullable
     public Namespace namespace() {
         return namespace;
+    }
+
+    @Nullable
+    public Uri thumbnail() {
+        return thumbnail != null ? Uri.parse(thumbnail.source()) : null;
     }
 }

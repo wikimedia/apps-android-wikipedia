@@ -2,7 +2,7 @@ package org.wikipedia.feed.model;
 
 import android.support.annotation.NonNull;
 
-public class Thumbnail {
+public final class Thumbnail {
     @SuppressWarnings("unused,NullableProblems") @NonNull private String source;
     @SuppressWarnings("unused") private int height;
     @SuppressWarnings("unused") private int width;
@@ -12,11 +12,11 @@ public class Thumbnail {
         return source;
     }
 
-    public int height() {
-        return height;
-    }
-
     public int width() {
         return width;
+    }
+
+    public int height() {
+        return height;
     }
 }

@@ -24,7 +24,7 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_FEED_BECAUSE_YOU_READ = 13;
     public static final int SOURCE_FEED_MOST_READ = 14;
     public static final int SOURCE_FEED_FEATURED = 15;
-    public static final int SOURCE_FEED_NEWS = 16;
+    public static final int SOURCE_NEWS = 16;
     public static final int SOURCE_FEED_MAIN_PAGE = 17;
     public static final int SOURCE_FEED_RANDOM = 18;
 

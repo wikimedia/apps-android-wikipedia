@@ -47,6 +47,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
+import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 
 public class ArticleHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;
@@ -103,7 +104,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         updateText();
 
         setTextColor(getColor(R.color.lead_text_color));
-        setImageHeight((int) (DimenUtil.getDisplayHeightPx() * getScreenHeightRatio()));
+        setImageHeight(leadImageHeightForDevice());
         setTextHeightConstrained();
         setTextDropShadow();
         setTextGradient();
@@ -120,7 +121,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
     public void loadImage(@Nullable String url) {
         image.load(url);
-        int height = url == null ? 0 : (int) (DimenUtil.getDisplayHeightPx() * getScreenHeightRatio());
+        int height = url == null ? 0 : leadImageHeightForDevice();
         setMinimumHeight(height);
         if (url == null) {
             resetMenuBarColor();
@@ -297,9 +298,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     }
 
     private void setImageHeight(int height) {
-        ViewGroup.LayoutParams params = image.getLayoutParams();
-        params.height = height;
-        image.setLayoutParams(params);
+        DimenUtil.setViewHeight(image, height);
     }
 
     private void setTextHeightConstrained() {
@@ -331,10 +330,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         // TODO: replace with android:fontFamily="serif" attribute when our minimum API level is
         //       Jelly Bean, API 16, or if we make custom typeface attribute.
         text.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL));
-    }
-
-    private float getScreenHeightRatio() {
-        return DimenUtil.getFloat(R.dimen.articleHeaderViewScreenHeightRatio);
     }
 
     @ColorInt
