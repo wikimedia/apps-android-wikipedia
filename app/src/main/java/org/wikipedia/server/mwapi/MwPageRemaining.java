@@ -13,7 +13,7 @@ import java.util.List;
  * Gson POJO for loading remaining page content.
  */
 public class MwPageRemaining implements PageRemaining {
-    @Nullable private Mobileview mobileview;
+    @SuppressWarnings("unused") @Nullable private Mobileview mobileview;
 
     @Override
     public void mergeInto(Page page) {
@@ -28,13 +28,11 @@ public class MwPageRemaining implements PageRemaining {
         }
     }
 
-
     /**
      * Almost everything is in this inner class.
      */
     public static class Mobileview {
-
-        private List<Section> sections;
+        @SuppressWarnings("unused") private List<Section> sections;
 
         @Nullable
         public List<Section> getSections() {

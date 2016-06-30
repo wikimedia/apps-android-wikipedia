@@ -3,9 +3,9 @@ package org.wikipedia.feed.model;
 import android.support.annotation.NonNull;
 
 public class Thumbnail {
-    @SuppressWarnings("NullableProblems") @NonNull private String source;
-    private int height;
-    private int width;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private String source;
+    @SuppressWarnings("unused") private int height;
+    @SuppressWarnings("unused") private int width;
 
     @NonNull
     public String source() {

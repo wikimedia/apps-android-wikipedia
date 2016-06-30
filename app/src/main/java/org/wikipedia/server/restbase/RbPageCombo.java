@@ -18,10 +18,9 @@ import android.support.annotation.Nullable;
  * remaining.
  */
 public class RbPageCombo implements PageCombo {
-    @Nullable private RbServiceError error;
-    @Nullable private RbPageLead lead;
-    @Nullable private RbPageRemaining remaining;
-
+    @SuppressWarnings("unused") @Nullable private RbServiceError error;
+    @SuppressWarnings("unused") @Nullable private RbPageLead lead;
+    @SuppressWarnings("unused") @Nullable private RbPageRemaining remaining;
 
     @Override
     public boolean hasError() {

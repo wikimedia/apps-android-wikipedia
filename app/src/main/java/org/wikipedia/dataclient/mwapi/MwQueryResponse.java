@@ -8,10 +8,10 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
 public class MwQueryResponse<T> {
-    @Nullable
+    @SuppressWarnings("unused") @Nullable
     private MwServiceError error;
 
-    @SerializedName("batchcomplete")
+    @SuppressWarnings("unused") @SerializedName("batchcomplete")
     private boolean batchComplete;
 
     @Nullable

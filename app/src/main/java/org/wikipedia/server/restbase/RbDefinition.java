@@ -8,16 +8,14 @@ import org.wikipedia.util.log.L;
 import java.util.Map;
 
 public class RbDefinition {
-
     @NonNull private Map<String, Usage[]> usagesByLang;
+    @SuppressWarnings("unused") @Nullable private RbServiceError error;
 
-    @Nullable private RbServiceError error;
-
-    public RbDefinition(Map<String, RbDefinition.Usage[]> usages) {
+    public RbDefinition(@NonNull Map<String, RbDefinition.Usage[]> usages) {
         usagesByLang = usages;
     }
 
-    public Map<String, Usage[]> getUsagesByLang() {
+    @NonNull public Map<String, Usage[]> getUsagesByLang() {
         return usagesByLang;
     }
 

@@ -6,8 +6,8 @@ import java.util.Date;
 import java.util.List;
 
 public final class MostReadArticles {
-    @SuppressWarnings("NullableProblems") @NonNull private Date date;
-    @SuppressWarnings("NullableProblems") @NonNull private List<MostReadArticle> articles;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private Date date;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private List<MostReadArticle> articles;
 
     @NonNull public Date date() {
         return date;

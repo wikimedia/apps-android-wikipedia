@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import org.wikipedia.server.mwapi.MwServiceError;
 
 public abstract class MwPostResponse {
-    @Nullable private String servedby;
-    @Nullable private MwServiceError error;
+    @SuppressWarnings("unused") @Nullable private String servedby;
+    @SuppressWarnings("unused") @Nullable private MwServiceError error;
 
     @Nullable public String code() {
         return error == null ? null : error.getTitle();

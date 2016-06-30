@@ -8,9 +8,9 @@ import org.wikipedia.feed.news.NewsItem;
 import java.util.List;
 
 public class AggregatedFeedContent {
-    @Nullable private CardPageItem tfa;
-    @Nullable private List<NewsItem> news;
-    @Nullable private CardPageItem random;
+    @SuppressWarnings("unused") @Nullable private CardPageItem tfa;
+    @SuppressWarnings("unused") @Nullable private List<NewsItem> news;
+    @SuppressWarnings("unused") @Nullable private CardPageItem random;
 
     @Nullable
     public CardPageItem tfa() {

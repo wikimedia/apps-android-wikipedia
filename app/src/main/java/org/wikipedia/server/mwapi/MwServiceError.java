@@ -6,9 +6,9 @@ import org.wikipedia.server.ServiceError;
  * Gson POJO for a MediaWiki API error.
  */
 public class MwServiceError implements ServiceError {
-    private String code;
-    private String info;
-    private String docref;
+    @SuppressWarnings("unused") private String code;
+    @SuppressWarnings("unused") private String info;
+    @SuppressWarnings("unused") private String docref;
 
     @Override
     public String getTitle() {

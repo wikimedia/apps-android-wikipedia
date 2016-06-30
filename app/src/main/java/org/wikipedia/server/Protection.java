@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 
 /** Protection settings for a page */
 public class Protection {
-    private String[] edit = new String[]{};
+    @SuppressWarnings("MismatchedReadAndWriteOfArray") private String[] edit = new String[]{};
 
     // TODO should send them all, but callers need to be updated, too, (future patch)
     @Nullable

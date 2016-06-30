@@ -9,13 +9,13 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.feed.model.Thumbnail;
 
 public final class MostReadArticle {
-    @SerializedName("normalizedtitle") @SuppressWarnings("NullableProblems") @NonNull private String normalizedTitle;
-    @SuppressWarnings("NullableProblems") @NonNull private String title;
-    @Nullable private String description;
-    @SerializedName("pageid") private int pageId;
-    @SerializedName("thumbnail") @Nullable private Thumbnail thumbnail;
-    private int rank;
-    private int views;
+    @SerializedName("normalizedtitle") @SuppressWarnings("unused,NullableProblems") @NonNull private String normalizedTitle;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
+    @SuppressWarnings("unused") @Nullable private String description;
+    @SuppressWarnings("unused") @SerializedName("pageid") private int pageId;
+    @SuppressWarnings("unused") @SerializedName("thumbnail") @Nullable private Thumbnail thumbnail;
+    @SuppressWarnings("unused") private int rank;
+    @SuppressWarnings("unused") private int views;
 
     @NonNull public String normalizedTitle() {
         return normalizedTitle;

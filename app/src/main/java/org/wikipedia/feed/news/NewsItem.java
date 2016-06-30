@@ -9,8 +9,8 @@ import org.wikipedia.feed.model.CardPageItem;
 import java.util.List;
 
 public class NewsItem {
-    @SuppressWarnings("NullableProblems") @NonNull private String story;
-    @SuppressWarnings("NullableProblems") @NonNull private List<CardPageItem> links;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private String story;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private List<CardPageItem> links;
 
     @NonNull
     public String story() {

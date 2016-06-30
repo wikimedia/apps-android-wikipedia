@@ -9,7 +9,10 @@ import android.support.annotation.Nullable;
  * Useful for link previews coming from RESTBase.
  */
 public class RbPageSummary implements PageSummary {
-    private RbServiceError error;
+    @SuppressWarnings("unused") private RbServiceError error;
+    @SuppressWarnings("unused") @Nullable private String title;
+    @SuppressWarnings("unused") @Nullable private String extract;
+    @SuppressWarnings("unused") @Nullable private Thumb thumbnail;
 
     @Override
     public boolean hasError() {
@@ -31,12 +34,6 @@ public class RbPageSummary implements PageSummary {
         L.e(message);
     }
 
-    @Nullable private String title;
-
-    @Nullable private String extract;
-
-    @Nullable private Thumb thumbnail;
-
     @Override @Nullable
     public String getTitle() {
         return title;
@@ -56,7 +53,7 @@ public class RbPageSummary implements PageSummary {
      * For the thumbnail URL of the page
      */
     public static class Thumb {
-        private String source;
+        @SuppressWarnings("unused") private String source;
 
         public String getUrl() {
             return source;

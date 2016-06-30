@@ -29,23 +29,23 @@ import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
  * Gson POJO for loading the first stage of page content.
  */
 public class RbPageLead implements PageLead, PageLeadProperties {
-    private RbServiceError error;
-    private int id;
-    private long revision;
-    @Nullable private String lastmodified;
-    @Nullable private String displaytitle;
-    @Nullable private String redirected;
-    @Nullable private String normalizedtitle;
-    @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
-    @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location geo;
-    private int languagecount;
-    private boolean editable;
-    private boolean mainpage;
-    private boolean disambiguation;
-    @Nullable private String description;
-    @Nullable private Image image;
-    @Nullable private Protection protection;
-    @Nullable private List<Section> sections;
+    @SuppressWarnings("unused") private RbServiceError error;
+    @SuppressWarnings("unused") private int id;
+    @SuppressWarnings("unused") private long revision;
+    @SuppressWarnings("unused") @Nullable private String lastmodified;
+    @SuppressWarnings("unused") @Nullable private String displaytitle;
+    @SuppressWarnings("unused") @Nullable private String redirected;
+    @SuppressWarnings("unused") @Nullable private String normalizedtitle;
+    @SuppressWarnings("unused") @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
+    @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location geo;
+    @SuppressWarnings("unused") private int languagecount;
+    @SuppressWarnings("unused") private boolean editable;
+    @SuppressWarnings("unused") private boolean mainpage;
+    @SuppressWarnings("unused") private boolean disambiguation;
+    @SuppressWarnings("unused") @Nullable private String description;
+    @SuppressWarnings("unused") @Nullable private Image image;
+    @SuppressWarnings("unused") @Nullable private Protection protection;
+    @SuppressWarnings("unused") @Nullable private List<Section> sections;
 
     private transient int leadImageThumbWidth;
 
@@ -219,7 +219,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
      * For the lead image File: page name
      */
     public static class TitlePronunciation {
-        @NonNull private String url;
+        @SuppressWarnings("unused,NullableProblems") @NonNull private String url;
 
         @NonNull
         public String getUrl() {
@@ -231,8 +231,8 @@ public class RbPageLead implements PageLead, PageLeadProperties {
      * For the lead image File: page name
      */
     public static class Image {
-        private String file;
-        private ThumbUrls urls;
+        @SuppressWarnings("unused") private String file;
+        @SuppressWarnings("unused") private ThumbUrls urls;
 
         public String getFile() {
             return file;
@@ -251,9 +251,9 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         private static final int SMALL = 640;
         private static final int MEDIUM = 800;
         private static final int LARGE = 1024;
-        @SerializedName("640") private String small;
-        @SerializedName("800") private String medium;
-        @SerializedName("1024") private String large;
+        @SuppressWarnings("unused") @SerializedName("640") private String small;
+        @SuppressWarnings("unused") @SerializedName("800") private String medium;
+        @SuppressWarnings("unused") @SerializedName("1024") private String large;
 
         @Nullable
         public String get(int leadImageThumbWidth) {

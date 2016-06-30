@@ -10,11 +10,11 @@ import org.wikipedia.page.Namespace;
 import org.wikipedia.page.NamespaceTypeAdapter;
 
 public class CardPageItem {
-    @SuppressWarnings("NullableProblems") @NonNull private String title;
-    @Nullable private Thumbnail thumbnail;
-    @Nullable private String description;
-    @Nullable private String extract;
-    @Nullable @JsonAdapter(NamespaceTypeAdapter.class) private Namespace namespace;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
+    @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
+    @SuppressWarnings("unused") @Nullable private String description;
+    @SuppressWarnings("unused") @Nullable private String extract;
+    @SuppressWarnings("unused") @Nullable @JsonAdapter(NamespaceTypeAdapter.class) private Namespace namespace;
 
     @NonNull
     public String title() {

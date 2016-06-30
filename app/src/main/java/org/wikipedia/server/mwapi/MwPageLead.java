@@ -24,8 +24,8 @@ import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
  * Gson POJO for loading the first stage of page content.
  */
 public class MwPageLead implements PageLead {
-    private MwServiceError error;
-    private Mobileview mobileview;
+    @SuppressWarnings("unused") private MwServiceError error;
+    @SuppressWarnings("unused") private Mobileview mobileview;
 
     @Override
     public boolean hasError() {
@@ -100,22 +100,22 @@ public class MwPageLead implements PageLead {
      * Almost everything is in this inner class.
      */
     public static class Mobileview implements PageLeadProperties {
-        private int id;
-        private int namespace;
-        private long revision;
-        @Nullable private String lastmodified;
-        @Nullable private String displaytitle;
-        @Nullable private String redirected;
-        @Nullable private String normalizedtitle;
-        private int languagecount;
-        private boolean editable;
-        private boolean mainpage;
-        private boolean disambiguation;
-        @Nullable private String description;
-        @Nullable private Image image;
-        @Nullable private Thumb thumb;
-        @Nullable private Protection protection;
-        @Nullable private List<Section> sections;
+        @SuppressWarnings("unused") private int id;
+        @SuppressWarnings("unused") private int namespace;
+        @SuppressWarnings("unused") private long revision;
+        @SuppressWarnings("unused") @Nullable private String lastmodified;
+        @SuppressWarnings("unused") @Nullable private String displaytitle;
+        @SuppressWarnings("unused") @Nullable private String redirected;
+        @SuppressWarnings("unused") @Nullable private String normalizedtitle;
+        @SuppressWarnings("unused") private int languagecount;
+        @SuppressWarnings("unused") private boolean editable;
+        @SuppressWarnings("unused") private boolean mainpage;
+        @SuppressWarnings("unused") private boolean disambiguation;
+        @SuppressWarnings("unused") @Nullable private String description;
+        @SuppressWarnings("unused") @Nullable private Image image;
+        @SuppressWarnings("unused") @Nullable private Thumb thumb;
+        @SuppressWarnings("unused") @Nullable private Protection protection;
+        @SuppressWarnings("unused") @Nullable private List<Section> sections;
 
         /** Converter */
         public PageProperties toPageProperties(@NonNull Site site) {
@@ -228,7 +228,7 @@ public class MwPageLead implements PageLead {
      * For the lead image File: page name
      */
     public static class Image {
-        private String file;
+        @SuppressWarnings("unused") private String file;
 
         public String getFile() {
             return file;
@@ -239,7 +239,7 @@ public class MwPageLead implements PageLead {
      * For the lead image URL
      */
     public static class Thumb {
-        private String url;
+        @SuppressWarnings("unused") private String url;
 
         public String getUrl() {
             return url;

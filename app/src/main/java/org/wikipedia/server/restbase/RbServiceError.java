@@ -6,11 +6,11 @@ import org.wikipedia.server.ServiceError;
  * Gson POJO for a RESTBase API error.
  */
 public class RbServiceError implements ServiceError {
-    private String type;
-    private String title;
-    private String detail;
-    private String method;
-    private String uri;
+    @SuppressWarnings("unused") private String type;
+    @SuppressWarnings("unused") private String title;
+    @SuppressWarnings("unused") private String detail;
+    @SuppressWarnings("unused") private String method;
+    @SuppressWarnings("unused") private String uri;
 
     @Override
     public String getTitle() {
