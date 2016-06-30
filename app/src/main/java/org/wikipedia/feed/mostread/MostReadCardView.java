@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedViewCallback;
-import org.wikipedia.feed.demo.IntegerListCard;
 import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
@@ -16,7 +15,7 @@ import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
 
-public class MostReadCardView extends PageTitleListCardView<IntegerListCard> {
+public class MostReadCardView extends PageTitleListCardView<MostReadListCard> {
     public MostReadCardView(Context context) {
         super(context);
     }

@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.continuereading.ContinueReadingClient;
-import org.wikipedia.feed.demo.IntegerListClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.mostread.MostReadClient;
 import org.wikipedia.feed.random.RandomClient;
@@ -29,7 +28,6 @@ public class FeedCoordinator extends FeedCoordinatorBase {
         addPendingClient(new BecauseYouReadClient());
         addPendingClient(new ContinueReadingClient());
         addPendingClient(new AggregatedFeedContentClient());
-        addPendingClient(new IntegerListClient());
         addPendingClient(new MostReadClient());
         addPendingClient(new RandomClient());
         addPendingClient(new MainPageClient());

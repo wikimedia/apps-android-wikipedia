@@ -12,8 +12,6 @@ import org.wikipedia.feed.becauseyouread.BecauseYouReadCard;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.continuereading.ContinueReadingCard;
 import org.wikipedia.feed.continuereading.ContinueReadingCardView;
-import org.wikipedia.feed.demo.IntegerListCard;
-import org.wikipedia.feed.demo.IntegerListCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.mainpage.MainPageCard;
@@ -39,7 +37,6 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
     private static final int VIEW_TYPE_RANDOM = 5;
     private static final int VIEW_TYPE_MAIN_PAGE = 6;
     private static final int VIEW_TYPE_NEWS = 7;
-    private static final int VIEW_TYPE_INTEGER_LIST = 100;
 
     @NonNull private FeedCoordinatorBase coordinator;
     @Nullable private FeedViewCallback callback;
@@ -70,9 +67,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
         }
         associateCardWithView(view, item);
 
-        if (view instanceof IntegerListCardView) {
-            ((IntegerListCardView) view).set((IntegerListCard) item);
-        } else if (view instanceof ContinueReadingCardView) {
+        if (view instanceof ContinueReadingCardView) {
             ((ContinueReadingCardView) view).set((ContinueReadingCard) item);
         } else if (view instanceof BecauseYouReadCardView) {
             ((BecauseYouReadCardView) view).set((BecauseYouReadCard) item);
@@ -95,9 +90,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
 
     @Override public int getItemViewType(int position) {
         Card item = item(position);
-        if (item instanceof IntegerListCard) {
-            return VIEW_TYPE_INTEGER_LIST;
-        } else if (item instanceof ContinueReadingCard) {
+        if (item instanceof ContinueReadingCard) {
             return VIEW_TYPE_CONTINUE_READING;
         } else if (item instanceof BecauseYouReadCard) {
             return VIEW_TYPE_BECAUSE_YOU_READ;
@@ -120,8 +113,6 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, CardView> 
 
     @NonNull private CardView newView(@NonNull Context context, int viewType) {
         switch(viewType) {
-            case VIEW_TYPE_INTEGER_LIST:
-                return new IntegerListCardView(context);
             case VIEW_TYPE_CONTINUE_READING:
                 return new ContinueReadingCardView(context).setCallback(callback);
             case VIEW_TYPE_BECAUSE_YOU_READ:
