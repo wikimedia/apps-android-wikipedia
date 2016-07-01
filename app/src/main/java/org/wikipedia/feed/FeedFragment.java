@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
@@ -27,6 +28,7 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
 
 import java.util.List;
 
@@ -200,6 +202,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         public void onRequestDismissCard(@NonNull Card card) {
             int position = coordinator.dismissCard(card);
             funnel.dismissCard(FeedRecyclerAdapter.getCardType(card), position);
+            showDismissCardUndoSnackbar(card, position);
         }
     }
 
@@ -213,5 +216,18 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
             }
             swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }
+    }
+
+    private void showDismissCardUndoSnackbar(final Card card, final int position) {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(getView(),
+                getString(R.string.menu_feed_card_dismissed),
+                FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.feed_undo_dismiss_card, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                coordinator.insertCard(card, position);
+            }
+        });
+        snackbar.show();
     }
 }

@@ -407,4 +407,5 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language. The \"%s\" symbol is replaced with a translation of the language name.</string>
   <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
+  <string name="menu_feed_card_dismissed">Message to inform the user that the selected item has been hidden.</string>
 </resources>

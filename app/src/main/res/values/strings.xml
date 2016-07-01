@@ -323,5 +323,6 @@
     <string name="view_main_page_card_title">Today on %s Wikipedia</string>
     <string name="view_main_page_card_subtitle">Main page on %s</string>
     <string name="menu_feed_card_dismiss">Hide this suggestion</string>
+    <string name="menu_feed_card_dismissed">Suggestion hidden.</string>
     <!-- /The Feed -->
 </resources>
