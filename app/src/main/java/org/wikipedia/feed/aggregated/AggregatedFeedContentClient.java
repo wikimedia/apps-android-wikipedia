@@ -10,6 +10,7 @@ import org.wikipedia.feed.UtcDate;
 import org.wikipedia.feed.FeedClient;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
@@ -87,6 +88,9 @@ public class AggregatedFeedContentClient implements FeedClient {
                 }
                 if (content.news() != null) {
                     cards.add(new NewsListCard(content.news(), DATE, site));
+                }
+                if (content.mostRead() != null) {
+                    cards.add(new MostReadListCard(content.mostRead(), site));
                 }
                 cb.success(cards);
             } else {
