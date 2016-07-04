@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/view_feed_header_height"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:elevation="0dp"
             android:fitsSystemWindows="true">
 
             <android.support.design.widget.CollapsingToolbarLayout
@@ -44,6 +45,7 @@
                     app:title="@string/activity_feed_title"
                     app:background="@color/main_toolbar_background"
                     app:layout_collapseMode="pin" />
+
             </android.support.design.widget.CollapsingToolbarLayout>
 
         </android.support.design.widget.AppBarLayout>
