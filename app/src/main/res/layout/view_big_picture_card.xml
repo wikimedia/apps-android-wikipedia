@@ -68,6 +68,8 @@
             android:maxLines="4"
             android:ellipsize="end"
             android:lineSpacingMultiplier="1.4"
+            android:textSize="14sp"
+            android:textColor="?attr/view_big_picture_card_extract"
             tools:text="Lorem ipsum"/>
 
     </LinearLayout>
