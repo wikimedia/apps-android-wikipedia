@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Mostrar vistas previas de ligazóns</string>
   <string name="preference_summary_show_link_previews">Mostrar unha vista previa rápida dos artigos ó premer nas ligazóns.</string>
   <string name="nav_item_donate">Apoia a Wikimedia</string>
+  <string name="error_voice_search_not_available">O recoñecemento de voz non está dispoñible.</string>
   <string name="crash_report_dialog_title">Sentímolo, a aplicación tivo un erro a última vez</string>
   <string name="crash_report_dialog_text">Gustaríalle enviar un informe de fallo a HockeyApp / un provedor de servizos de terceiros para que Wikimedia poida revisar o seu fallo e corrixir o erro que o causou?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -290,4 +291,6 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="user_option_sync_label">Preferencias</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
+  <string name="view_random_card_title">Aleatorio</string>
+  <string name="view_random_card_subtitle">Ler un artigo aleatorio de Wikipedia en %s</string>
 </resources>

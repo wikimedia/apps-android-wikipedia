@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Zobrazovať náhľady odkazov</string>
   <string name="preference_summary_show_link_previews">Po kliknutí na odkaz zobraziť rýchly náhľad článkov.</string>
   <string name="nav_item_donate">Podporte Wikipédiu</string>
+  <string name="error_voice_search_not_available">Ospravedlňujeme sa, rozpoznávanie hlasu nie je k dispozícii.</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_text">Chcete odoslať správu o zlyhaní HockeyApp? Wikimedia tak bude môcť toto zlyhanie preskúmať a opraviť chybu, ktorá toto zlyhanie spôsobila. HockeyApp je poskytovateľ služieb (tretia strana).</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>

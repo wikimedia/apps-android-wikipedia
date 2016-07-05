@@ -197,7 +197,7 @@
   <string name="dialog_close_description">Закрыть</string>
   <string name="preference_title_show_images">Показывать изображения</string>
   <string name="preference_summary_show_images">Включить или отключить загрузку изображений на страницах. Снимите этот флажок, если у вас медленное интернет-подключение или трафик на вашем тарифном плане ограничен.</string>
-  <string name="read_more_section">Читать ещё</string>
+  <string name="read_more_section">Подробнее</string>
   <string name="menu_gallery_visit_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Текст лицензии для библиотеки %s</string>
@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Показывать предпросмотр ссылок</string>
   <string name="preference_summary_show_link_previews">Показывать быстрый предпросмотр статей при нажатии на ссылки.</string>
   <string name="nav_item_donate">Поддержать Википедию</string>
+  <string name="error_voice_search_not_available">К сожалению, распознавание речи недоступно.</string>
   <string name="crash_report_dialog_title">К сожалению, в прошлый раз приложение «упало»</string>
   <string name="crash_report_dialog_text">Вы хотите отправить отчёт об ошибке в HockeyApp / сторонний сервис-провайдер, чтобы в Викимедиа могли просмотреть информацию об аварии и исправить ошибку, вызвавшую её?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустить</string>
@@ -290,4 +291,6 @@
   <string name="user_option_sync_label">Настройки</string>
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
+  <string name="view_random_card_title">Рандомизатор</string>
+  <string name="view_random_card_subtitle">Читать случайную статью из %s Википедии</string>
 </resources>

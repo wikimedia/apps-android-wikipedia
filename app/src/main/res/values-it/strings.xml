@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Mostra anteprime collegamenti</string>
   <string name="preference_summary_show_link_previews">Mostra una piccola anteprima delle voci quando si preme sui collegamenti.</string>
   <string name="nav_item_donate">Sostieni Wikipedia</string>
+  <string name="error_voice_search_not_available">Siacenti, il riconoscimento vocale non è disponibile.</string>
   <string name="crash_report_dialog_title">Spiacenti, l\'ultima volta l\'applicazione è andata in errore</string>
   <string name="crash_report_dialog_text">Vuoi inviare una segnalazione sull\'errore a HockeyApp / un fornitore terzo di servizi, in modo che Wikimedia possa rivedere il tuo errore e correggere il bug più che lo ha causato?</string>
   <string name="crash_report_dialog_dont_send_button">Salta</string>
@@ -290,4 +291,6 @@ Vuoi riavviarla o uscire?</string>
   <string name="user_option_sync_label">Preferenze</string>
   <string name="view_continue_reading_card_title">Continua a leggere</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
+  <string name="view_random_card_title">Una pagina a caso</string>
+  <string name="view_random_card_subtitle">Leggi una voce a caso da Wikipedia in %s</string>
 </resources>

@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
   <string name="nav_item_donate">Stöd Wikipedia</string>
+  <string name="error_voice_search_not_available">Tyvärr, röststyrning är inte tillgänglig.</string>
   <string name="crash_report_dialog_title">Beklagar att appen kraschade förra gången</string>
   <string name="crash_report_dialog_text">Vill du skicka en kraschrapport till tredjepartstjänsten HockeyApp så Wikimedia kan granska din krasch och åtgärda felet som orsakade den?</string>
   <string name="crash_report_dialog_dont_send_button">Hoppa över</string>
@@ -290,4 +291,6 @@ Vill du starta om eller avsluta?</string>
   <string name="user_option_sync_label">Inställningar</string>
   <string name="view_continue_reading_card_title">Fortsätt läs</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
+  <string name="view_random_card_title">Slumpare</string>
+  <string name="view_random_card_subtitle">Läs en slumpartikel från %s Wikipedia</string>
 </resources>

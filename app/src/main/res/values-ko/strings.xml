@@ -171,8 +171,8 @@
   <string name="abusefilter_title_disallow">이 편집을 저장할 수 없습니다. 뒤로 가고 나서 바꿔주세요.</string>
   <string name="abusefilter_text_warn">자동화된 필터가 이 편집을 잠재적으로 비생산적인 것으로 식별합니다. 다음 중 하나 이상을 포함할 수 있습니다:&lt;br /&gt;&lt;br /&gt;· 모두 대문자로 입력&lt;br /&gt;· 문서가 비어 있거나 스팸을 넣음&lt;br /&gt;· 관련 없는 바깥 링크나 그림&lt;br /&gt;· 글자 반복</string>
   <string name="abusefilter_text_disallow">자동화된 필터가 이 편집을 잠재적으로 비생산적이나, 잠재적으로 훼손한 것으로 식별합니다.&lt;br /&gt;&lt;br /&gt;위키백과는 백과사전이자 중립적이며, 주목할만한 내용만이 여기에 들어갑니다.</string>
-  <string name="dialog_page_issues">문서 문제</string>
-  <string name="button_page_issues">문서 문제</string>
+  <string name="dialog_page_issues">문서 이슈</string>
+  <string name="button_page_issues">문서 이슈</string>
   <string name="text_size_select">글자 크기</string>
   <string name="color_theme_select">테마</string>
   <string name="color_theme_light">밝음</string>
@@ -235,6 +235,7 @@
   <string name="preference_title_show_link_previews">링크 미리보기 보이기</string>
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
   <string name="nav_item_donate">위키백과 지원</string>
+  <string name="error_voice_search_not_available">죄송합니다. 음성 인식을 이용할 수 없습니다.</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>
@@ -288,4 +289,6 @@
   <string name="user_option_sync_label">환경 설정</string>
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었기 때문입니다</string>
+  <string name="view_random_card_title">임의 문서 보기</string>
+  <string name="view_random_card_subtitle">%s 위키백과의 임의 문서 읽기</string>
 </resources>

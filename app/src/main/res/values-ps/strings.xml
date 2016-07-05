@@ -179,8 +179,8 @@
   <string name="reading_list_item_count_singular">1 ليکنه</string>
   <string name="reading_list_item_count_plural">%s ليکنې</string>
   <string name="reading_list_sort">اوډل</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">د نوم له مخې</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">د وروستني له مخې</string>
+  <string name="reading_list_sort_by_name">اوډنه د نوم له مخې</string>
+  <string name="reading_list_sort_by_recent">اوډنه تر ټولو تازه له مخې</string>
   <string name="reading_list_menu_edit">د لوست لړ تفصيلونه سمول</string>
   <string name="reading_list_menu_delete">لوست لړليک ړنگول</string>
   <string name="reading_list_name_sample">زما لوست لړليک</string>
@@ -197,4 +197,5 @@
   <string name="reading_lists_onboarding_example3">تشيال!</string>
   <string name="reading_lists_onboarding_got_it">وپوهېدم</string>
   <string name="user_option_sync_label">غوره توبونه</string>
+  <string name="view_because_you_read_card_title">ځکه چې تاسې لولی</string>
 </resources>

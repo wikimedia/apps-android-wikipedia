@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">リンクのプレビューを表示</string>
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
   <string name="nav_item_donate">ウィキペディアを支援する</string>
+  <string name="error_voice_search_not_available">申し訳ございません。音声認識は現在ご利用いただけません。</string>
   <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
   <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか? これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
   <string name="crash_report_dialog_dont_send_button">スキップ</string>
@@ -290,4 +291,6 @@
   <string name="user_option_sync_label">設定</string>
   <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
+  <string name="view_random_card_title">おまかせ表示</string>
+  <string name="view_random_card_subtitle">%sウィキペディアから記事をランダムに表示</string>
 </resources>

@@ -38,6 +38,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Harita üzerinde bir yere yakınlaştır</string>
   <string name="last_updated_text">Son güncelleme %s</string>
+  <string name="talk_page_link_text">Tartışma</string>
   <string name="content_license_html">Aksi belirtilmediği sürece içerik &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansı altında kullanılabilir.</string>
   <string name="edit_save_action_license_logged_in">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Kaydederek, &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
@@ -140,7 +141,7 @@
   <string name="page_protected_can_not_edit_title">Bu sayfa korumalı</string>
   <string name="settings_item_preferences">Ayarlar</string>
   <string name="settings_activity_title">Ayarlar</string>
-  <string name="about_description">Wikipedia uygulaması hakkında</string>
+  <string name="about_description">Vikipedi uygulaması hakkında</string>
   <string name="privacy_policy_description">Gizlilik politikası</string>
   <string name="terms_of_use_description">Kullanım koşulları</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
@@ -236,6 +237,7 @@
   <string name="preference_title_show_link_previews">Bağlantı ön izlemelerini görüntüle</string>
   <string name="preference_summary_show_link_previews">Bağlantılara dokununca kısa bir ön izleme görüntülenir.</string>
   <string name="nav_item_donate">Vikipediye Destek Ol</string>
+  <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
   <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
   <string name="crash_report_dialog_text">HockeyApp\'a (çökmeyi incelememizi ve sebep olan hatayı düzeltmemizi sağlayan, bir üçüncü parti servis sağlayıcısı) bir hata raporu göndermek ister misiniz?</string>
   <string name="crash_report_dialog_dont_send_button">Atla</string>
@@ -259,8 +261,10 @@
   <string name="reading_list_item_count_singular">1 madde</string>
   <string name="reading_list_item_count_plural">%s madde</string>
   <string name="reading_list_sort">Sırala</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Ada göre</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Son erişime göre</string>
+  <string name="reading_list_sort_by_name">Ada göre sırala</string>
+  <string name="reading_list_sort_by_name_desc">Ada göre sırala (tersten)</string>
+  <string name="reading_list_sort_by_recent">Son erişime göre sırala</string>
+  <string name="reading_list_sort_by_recent_desc">Son erişime göre sırala (tersten)</string>
   <string name="reading_list_menu_edit">Okuma listesi ayrıntılarını düzenle</string>
   <string name="reading_list_menu_delete">Okuma listesini sil</string>
   <string name="reading_list_name_sample">Okuma listem</string>
@@ -281,5 +285,10 @@
   <string name="reading_lists_onboarding_example2">En sevilen hayvanlar</string>
   <string name="reading_lists_onboarding_example3">Uzay!</string>
   <string name="reading_lists_onboarding_got_it">Anladım</string>
+  <string name="reading_lists_onboarding_page_delete">İpucu: Herhangi bir sayfayı sağa veya sola kaydırarak bu okuma listesinden çıkarabilirsiniz.</string>
   <string name="user_option_sync_label">Ayarlar</string>
+  <string name="view_continue_reading_card_title">Okumaya devam et</string>
+  <string name="view_because_you_read_card_title">Okuduklarına benzer</string>
+  <string name="view_random_card_title">Rastgele</string>
+  <string name="view_random_card_subtitle">%s Vikipedi\'den rastgele bir madde oku</string>
 </resources>

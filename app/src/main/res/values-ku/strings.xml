@@ -10,6 +10,7 @@
   <string name="nav_item_history">Dîrok</string>
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
+  <string name="page_error_back_to_main">Vegere</string>
   <string name="menu_clear_all_history">Dîrokê paqij bike</string>
   <string name="page_does_not_exist_error">Ev rûpel tune ye</string>
   <string name="dialog_title_clear_history">Dîroka lêgerînê jê bibe</string>
@@ -51,6 +52,7 @@
   <string name="login_password_hint">Şîfre</string>
   <string name="menu_login">Têkeve</string>
   <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
+  <string name="login_error_wrong_password">Şîfreya nerast</string>
   <string name="login_error_wrong_username">Navê bikarhêner ne rast e</string>
   <string name="login_error_illegal">Navê bikarhêner ê nederbasdar</string>
   <string name="login_success_toast">Têketin serkevtî bû!</string>
@@ -107,6 +109,7 @@
   <string name="button_clear_all_recent_searches">Lêgerînên dawî paqij bike</string>
   <string name="table_other">Zêdetir agahî</string>
   <string name="table_close">Bigre</string>
+  <string name="widget_title_featured_page">Rûpela bijarte ya îro:</string>
   <string name="dialog_close_description">Bigre</string>
   <string name="preference_title_show_images">Wêneyan nîşan bide</string>
   <string name="read_more_section">Zêdetir bixwîne</string>
@@ -119,8 +122,10 @@
   <string name="gallery_fair_use_license">Bikaranîna dadmend</string>
   <string name="gallery_uploader_unknown">Barker nenas e</string>
   <string name="menu_new_tab">Hilpekîna nû</string>
+  <string name="button_close_tab">Hilpekînê bigre</string>
   <string name="format_error_server_code">Kod:%s</string>
   <string name="button_continue_to_article">Gotarê bixwîne</string>
+  <string name="nav_item_donate">Piştgiriyê bide Wîkîpediyayê</string>
   <string name="crash_report_dialog_dont_send_button">Derbaske</string>
   <string name="crash_report_dialog_send_button">Bişîne</string>
   <string name="crash_report_activity_title">Çewtiya sepanê</string>
@@ -131,8 +136,10 @@
   <string name="reading_list_item_count_singular">gotarek</string>
   <string name="reading_list_item_count_plural">%s gotar</string>
   <string name="reading_list_sort_by_name" fuzzy="true">Li gorî nav</string>
+  <string name="reading_list_name_sample">Lîsteya min a xwendinê</string>
   <string name="reading_list_name_hint">Navê vê lîsteyê</string>
   <string name="reading_list_edit_ok">Baş e</string>
   <string name="reading_list_edit_cancel">Betal bike</string>
   <string name="reading_lists_onboarding_for_example">Wek mînak</string>
+  <string name="view_continue_reading_card_title">Xwendinê bidomîne</string>
 </resources>

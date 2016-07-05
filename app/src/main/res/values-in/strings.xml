@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Tampilkan pratinjau pranala</string>
   <string name="preference_summary_show_link_previews">Tampilkan pratinjau singkat artikel setelah menekan pranala.</string>
   <string name="nav_item_donate">Dukung Wikipedia</string>
+  <string name="error_voice_search_not_available">Maaf, pengenalan suara tidak tersedia.</string>
   <string name="crash_report_dialog_title">Maaf, aplikasi berhenti dengan sendirinya</string>
   <string name="crash_report_dialog_text">Apakah Anda ingin mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga sehingga Wikimedia dapat meninjau kerusakan Anda dan memperbaiki kesalahan yang disebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Lewati</string>
@@ -290,4 +291,6 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="user_option_sync_label">Preferensi</string>
   <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
+  <string name="view_random_card_title">Secara acak</string>
+  <string name="view_random_card_subtitle">Baca artikel yang dipilih acak dari Wikipedia %s</string>
 </resources>

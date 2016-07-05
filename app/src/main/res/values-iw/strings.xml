@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="nav_item_donate">לתמוך בוויקיפדיה</string>
+  <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="crash_report_dialog_title">סליחה, היישום קרס בפעם הקומת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>
@@ -290,4 +291,6 @@
   <string name="user_option_sync_label">העדפות</string>
   <string name="view_continue_reading_card_title">המשך קריאה</string>
   <string name="view_because_you_read_card_title">הצעות לקריאה</string>
+  <string name="view_random_card_title">ערך אקראי</string>
+  <string name="view_random_card_subtitle">קריאת ערך אקראי בוויקיפדיה ה{{GRAMMAR:תחילית|%s}}</string>
 </resources>

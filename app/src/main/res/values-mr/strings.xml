@@ -234,6 +234,7 @@
   <string name="preference_title_show_link_previews">दुव्याची झलक दाखवा</string>
   <string name="preference_summary_show_link_previews">दुव्यांवर थपकवल्यास लेखांची जलद झलक दाखवा.</string>
   <string name="nav_item_donate">विकिपीडियास साहाय्य करा</string>
+  <string name="error_voice_search_not_available">माफ करा, ध्वनी ओळख उपलब्ध नाही</string>
   <string name="crash_report_dialog_title">माफ करा, मागील वेळी अॲप क्रॲश झाले होते</string>
   <string name="crash_report_dialog_dont_send_button">पुढे जा</string>
   <string name="crash_report_dialog_always_send_button">नेहमी पाठवा</string>

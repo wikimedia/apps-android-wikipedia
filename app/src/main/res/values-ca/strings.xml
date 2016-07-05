@@ -17,7 +17,7 @@
   <string name="dialog_message_clear_history">Això esborrarà tot el vostre historial de navegació i tancarà totes les pestanyes ara obertes. N\'esteu segur?</string>
   <string name="nav_item_saved_pages">Pàgines desades</string>
   <string name="share_via">Comparteix mitjançant…</string>
-  <string name="search_redirect_from">Redirigit de %s</string>
+  <string name="search_redirect_from">Redirigit desde %s</string>
   <string name="menu_page_show_tabs">Mostra les pestanyes</string>
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cercar en la pàgina</string>
@@ -36,7 +36,7 @@
   <string name="nav_item_nearby">A prop</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
-  <string name="nearby_zoom_to_location">Zoom a una ubicació en el mapa</string>
+  <string name="nearby_zoom_to_location">Zoom a una ubicació del mapa</string>
   <string name="last_updated_text">Última actualització %1$s</string>
   <string name="talk_page_link_text">Discussió</string>
   <string name="content_license_html">El contingut està disponible sota llicència &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; si no s\'indica el contrari</string>
@@ -96,7 +96,7 @@
   <string name="create_account_email_error">Correu electrònic no vàlid</string>
   <string name="create_account_username_exists_error">El nom d\'usuari ja està en ús</string>
   <string name="create_account_ip_throttle_error">S\'han creat massa comptes d\'usuari des d\'aquesta IP. Proveu-ho més tard.</string>
-  <string name="create_account_open_proxy_error">S\'ha bloquejat aquesta IP i no pot crear comptes.</string>
+  <string name="create_account_open_proxy_error">S\'ha bloquejat la creació de comptes per a aquesta IP.</string>
   <string name="create_account_noname_error">El nom d\'usuari que heu proporcionat no és vàlid. Faciliteu-ne un altre.</string>
   <string name="create_account_invalid_email_error">L\'adreça electrònica que heu proporcionat no és vàlida.</string>
   <string name="create_account_password_too_short_error">La contrasenya que heu proporcionat és massa curta.</string>
@@ -121,7 +121,7 @@
   <string name="zero_learn_more">No es cobra per l\'ús de dades per aquesta aplicació de la Viquipèdia.</string>
   <string name="zero_learn_more_learn_more">Més informació</string>
   <string name="zero_learn_more_dismiss">Descarta</string>
-  <string name="edit_preview_fetching_dialog_message">Obtenint de la previsualització…</string>
+  <string name="edit_preview_fetching_dialog_message">Obtenint la previsualització…</string>
   <string name="send_feedback">Envia comentaris de l\'aplicació</string>
   <string name="nav_item_random">A l\'atzar</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
@@ -151,7 +151,7 @@
   <string name="about_translators_heading">Traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
-  <string name="about_app_license">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut és disponible sota una llicència &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Codi font disponible a &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Llicència Apache 2.0&lt;/a&gt;. Si no s\'indica el contrari, el contingut es troba disponible sota una llicència &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Un producte de la &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundació Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Quant a</string>
   <string name="edit_abandon_confirm">S\'ha modificat la pàgina. Segur que voleu sortir sense desar-ne els canvis?</string>
@@ -171,7 +171,7 @@
   <string name="find_previous">Cercar l\'anterior</string>
   <string name="abusefilter_title_warn">Això podria ser una modificació no constructiva. Segur que voleu desar-la?</string>
   <string name="abusefilter_title_disallow">No podeu desar aquesta modificació. Aneu enrere i canvieu-la.</string>
-  <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs irrellevants o imatges&lt;br /&gt;· Caràcters que es repeteixin</string>
+  <string name="abusefilter_text_warn">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial. Pot contenir un o més dels següents:&lt;br /&gt;&lt;br /&gt;· Introduït tot en majúscules&lt;br /&gt;· Articles blanquejats o brossa&lt;br /&gt;· Enllaços externs o imatges irrellevants&lt;br /&gt;· Caràcters que es repeteixin</string>
   <string name="abusefilter_text_disallow">Un filtre automàtic ha identificat aquesta edició com a no constructiva o vandalisme potencial.&lt;br /&gt;&lt;br /&gt;La Viquipèdia és una enciclopèdia i només hi tenen cabuda els continguts neutrals i notoris.</string>
   <string name="dialog_page_issues">Problemes de la pàgina</string>
   <string name="button_page_issues">Problemes de la pàgina</string>
@@ -184,7 +184,7 @@
   <string name="search_recent_header">Cerques recents:</string>
   <string name="button_clear_all_recent_searches">Esborrar les cerques recents</string>
   <string name="clear_recent_searches_confirm">Segur que voleu esborrar l\'historial de cerca?</string>
-  <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap aplicació del navegador).</string>
+  <string name="error_browser_not_found">No s\'ha pogut obrir la pàgina web (no s\'ha trobat cap aplicació per navegar).</string>
   <string name="table_infobox">Dades bàsiques</string>
   <string name="table_other">Més informació</string>
   <string name="table_close">Tancar</string>
@@ -193,7 +193,7 @@
   <string name="widget_name_search">Cerca a la Viquipèdia</string>
   <string name="wiktionary_no_definitions_found">No s\'han trobat definicions.</string>
   <string name="alpha_update_notification_title">Hi ha disponible una nova versió alfa</string>
-  <string name="alpha_update_notification_text">Tocar per descarregar</string>
+  <string name="alpha_update_notification_text">Toca per descarregar</string>
   <string name="dialog_close_description">Tancar</string>
   <string name="preference_title_show_images">Mostrar imatges</string>
   <string name="preference_summary_show_images">Activar o desactivar la càrrega d\'imatges a les pàgines. Desactiveu aquest paràmetre si teniu una connexió a Internet lenta o dades limitades.</string>
@@ -227,8 +227,8 @@
   <string name="error_server_response">El servidor no pot completar la petició.</string>
   <string name="error_response_malformed">La resposta del servidor no s\'ha formatat correctament.</string>
   <string name="error_unknown">S\'ha produït un error desconegut.</string>
-  <string name="format_error_server_message">Missatge \"%s\"</string>
-  <string name="format_error_server_code">Codi \"%s\"</string>
+  <string name="format_error_server_message">Missatge: \"%s\"</string>
+  <string name="format_error_server_code">Codi: \"%s\"</string>
   <string name="address_copied">Adreça copiada al porta-retalls.</string>
   <string name="text_copied">Text copiat al porta-retalls.</string>
   <string name="button_continue_to_article">Llegeix l\'article</string>
@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Mostra enllaç de vistes prèvies</string>
   <string name="preference_summary_show_link_previews">Mostra una vista prèvia ràpida d\'articles en tocar enllaços.</string>
   <string name="nav_item_donate">Doneu suport a la Viquipèdia</string>
+  <string name="error_voice_search_not_available">Ho sentim, el reconeixement de veu no està disponible.</string>
   <string name="crash_report_dialog_title">Ho sentim, l\'aplicació va fallar la darrera vegada</string>
   <string name="crash_report_dialog_text">Vols enviar d\'un informe d\'errors a HockeyApp / un proveïdor de serveis extern de manera que Wikimedia pugui revisar l\'error i corregir-ne la causa?</string>
   <string name="crash_report_dialog_dont_send_button">Omet</string>
@@ -290,4 +291,6 @@ Voleu començar de nou o sortir?</string>
   <string name="user_option_sync_label">Preferències</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Perquè vas llegir</string>
+  <string name="view_random_card_title">A l\'atzar</string>
+  <string name="view_random_card_subtitle">Llegiu un article a l\'atzar de la Viquipèdia en %s</string>
 </resources>

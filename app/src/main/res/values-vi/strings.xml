@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Hiện bản xem trước</string>
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
   <string name="nav_item_donate">Hỗ trợ Wikimedia</string>
+  <string name="error_voice_search_not_available">Rất tiếc, chức năng nhận dạng tiếng nói không có sẵn.</string>
   <string name="crash_report_dialog_title">Rất tiếc, ứng dụng gặp sự cố lần trước</string>
   <string name="crash_report_dialog_text">Bạn có muốn gửi một báo cáo đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để Wikimedia có thể xem xét và sửa lỗi gây ra sự cố này không?</string>
   <string name="crash_report_dialog_dont_send_button">Bỏ qua</string>
@@ -288,4 +289,6 @@
   <string name="user_option_sync_label">Tùy chọn</string>
   <string name="view_continue_reading_card_title">Đọc tiếp</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
+  <string name="view_random_card_title">Ngẫu nhiên</string>
+  <string name="view_random_card_subtitle">Đọc bài ngẫu nhiên từ Wikipedia %s</string>
 </resources>

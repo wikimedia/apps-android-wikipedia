@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Näytä linkkien esikatselut</string>
   <string name="preference_summary_show_link_previews">Näytä pikainen artikkelien esikatselu linkkejä napautettaessa.</string>
   <string name="nav_item_donate">Tue Wikipediaa</string>
+  <string name="error_voice_search_not_available">Pahoittelut, äänentunnistus ei ole käytettävissä.</string>
   <string name="crash_report_dialog_title">Pahoittelut, sovellus kaatui viime kerralla</string>
   <string name="crash_report_dialog_text">Haluaisitko lähettää kaatumisilmoituksen HockeyAppiin / kolmannen osapuolen palveluntarjoajalle, jotta Wikimedia voi käydä läpi kaatumisesi ja korjata sen aiheuttaneen ongelman?</string>
   <string name="crash_report_dialog_dont_send_button">Ohita</string>

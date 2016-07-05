@@ -232,6 +232,7 @@
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="nav_item_donate">Wspomóż Wikipedię</string>
+  <string name="error_voice_search_not_available">Niestety, rozpoznawanie mowy nie jest dostępne.</string>
   <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
