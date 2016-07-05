@@ -1,19 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:autoMirrored="true"
-    android:viewportWidth="24"
-    android:viewportHeight="24">
-    <path
-        android:strokeWidth="1"
-        android:pathData="M1.2,1.2 L22.8,1.2 L22.8,22.8 L1.2,22.8 Z" />
-    <path
-        android:fillColor="#FFFFFF"
-        android:strokeWidth="1"
-        android:pathData="M9.6,19.2 L16.2,10.2 L13.2,10.2 L15.6,6 L12,6 L9,12.6 L11.9985,12.6 L9,19.2 Z" />
-    <path
-        android:fillColor="#FFFFFF"
-        android:strokeWidth="1"
-        android:pathData="M9.6,19.2 L16.2,10.2 L13.2,10.2 L15.6,6 L12,6 L9,12.6 L11.9985,12.6 L9,19.2 Z" />
+<vector android:autoMirrored="true" android:height="24dp" android:viewportHeight="20.0"
+    android:viewportWidth="20.0" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillAlpha="1" android:fillColor="#ffffff"
+        android:pathData="m9.527,2.346 l4.343,0 -2.859,4.774 3.614,0 -7.93,10.384 -0.809,0 3.641,-7.579 -3.587,0z"
+        android:strokeAlpha="1" android:strokeColor="#00000000"
+        android:strokeLineCap="butt" android:strokeLineJoin="miter" android:strokeWidth="1"/>
 </vector>
