@@ -5,7 +5,7 @@
     <group android:id="@+id/group_main">
         <item android:id="@+id/nav_item_feed"
             android:title="@string/nav_item_feed"
-            android:icon="@drawable/ic_list_white_24dp"
+            android:icon="@drawable/ic_language_black_24dp"
             android:checkable="true"
             />
         <item android:id="@+id/nav_item_history"
