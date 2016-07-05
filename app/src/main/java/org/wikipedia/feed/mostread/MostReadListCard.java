@@ -10,8 +10,8 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.ListCard;
+import org.wikipedia.util.DateUtil;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,12 +31,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     }
 
     @Nullable @Override public String subtitle() {
-        // todo: consider allowing TWN date formats. It would be useful to have but might be
-        //       difficult for translators to write correct format specifiers without being able to
-        //       test them. We should investigate localization support in date libraries such as
-        //       Joda-Time and how TWN solves this classic problem.
-        DateFormat dateFormat = android.text.format.DateFormat.getMediumDateFormat(context());
-        return dateFormat.format(articles.date());
+        return DateUtil.getFeedCardDateString(articles.date());
     }
 
     @Nullable @Override public String footer() {
