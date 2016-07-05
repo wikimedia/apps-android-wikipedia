@@ -16,28 +16,28 @@ import android.widget.ImageView;
 
 import com.appenguin.onboarding.ToolTip;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.MainActivity;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.ActivityUtil;
+import org.wikipedia.analytics.ShareAFactFunnel;
+import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
-import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.NoDimBottomSheetDialog;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.ShareAFactFunnel;
 import org.wikipedia.page.Page;
-import org.wikipedia.MainActivity;
-import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.PageProperties;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.wiktionary.WiktionaryDialog;
@@ -131,7 +131,7 @@ public class ShareHandler {
             return;
         }
 
-        final String selectedText = sanitizeText(input.toString());
+        final String selectedText = StringUtil.sanitizeText(input.toString());
         final PageTitle title = curPageFragment.getTitle();
 
         (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getSite()),
@@ -160,13 +160,6 @@ public class ShareHandler {
                 Log.d(TAG, "Error fetching image license info for " + title.getDisplayText() + ": " + caught.getMessage(), caught);
             }
         }).execute();
-    }
-
-    private static String sanitizeText(String selectedText) {
-        return selectedText.replaceAll("\\[\\d+\\]", "") // [1]
-                .replaceAll("\\(\\s*;\\s*", "\\(") // (; -> (    hacky way for IPA remnants
-                .replaceAll("\\s{2,}", " ")
-                .trim();
     }
 
     /**

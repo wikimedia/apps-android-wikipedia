@@ -181,5 +181,14 @@ public final class StringUtil {
         return ret;
     }
 
+    public static String sanitizeText(@NonNull String selectedText) {
+        return selectedText.replaceAll("\\[\\d+\\]", "") // [1]
+                // https://en.wikipedia.org/wiki/Phonetic_symbols_in_Unicode
+                .replaceAll("\\s*/[^/]+/;?\\s*", "")
+                .replaceAll("\\(\\s*;\\s*", "\\(") // (; -> (    hacky way for IPA remnants
+                .replaceAll("\\s{2,}", " ")
+                .trim();
+    }
+
     private StringUtil() { }
 }
