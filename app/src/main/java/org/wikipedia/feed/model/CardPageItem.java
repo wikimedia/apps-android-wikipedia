@@ -8,6 +8,7 @@ import com.google.gson.annotations.JsonAdapter;
 
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.NamespaceTypeAdapter;
+import org.wikipedia.util.StringUtil;
 
 public class CardPageItem {
     @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
@@ -33,7 +34,8 @@ public class CardPageItem {
 
     @Nullable
     public String extract() {
-        return extract;
+        // todo: the service should strip IPA.
+        return extract == null ? null : StringUtil.sanitizeText(extract);
     }
 
     @Nullable
