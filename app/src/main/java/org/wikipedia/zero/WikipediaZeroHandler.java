@@ -188,7 +188,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
     }
 
     /** For Retrofit responses */
-    public void onHeaderCheck(@NonNull final Response response) {
+    public void onHeaderCheck(@NonNull final Response<?> response) {
         if (acquiringCarrierMessage) {
             return;
         }
@@ -295,7 +295,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
     }
 
     @Nullable
-    private String getHeader(@NonNull Response response, @NonNull String key) {
+    private String getHeader(@NonNull Response<?> response, @NonNull String key) {
         Headers headers = response.headers();
         for (String name: headers.names()) {
             if (key.equalsIgnoreCase(name)) {

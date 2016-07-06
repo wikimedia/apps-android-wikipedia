@@ -18,7 +18,7 @@ public class ParcelableTest extends TestCase {
         p.writeToParcel(parcel, 0);
 
         parcel.setDataPosition(0);
-        Parcelable.Creator creator = (Parcelable.Creator) p.getClass().getField("CREATOR").get(null);
+        Parcelable.Creator<?> creator = (Parcelable.Creator<?>) p.getClass().getField("CREATOR").get(null);
         Parcelable newObject = (Parcelable) creator.createFromParcel(parcel);
         assertEquals(p, newObject);
     }
@@ -53,7 +53,7 @@ public class ParcelableTest extends TestCase {
         oldCache.writeToParcel(parcel, 0);
 
         parcel.setDataPosition(0);
-        Parcelable.Creator creator = (Parcelable.Creator) oldCache.getClass().getField("CREATOR").get(null);
+        Parcelable.Creator<?> creator = (Parcelable.Creator<?>) oldCache.getClass().getField("CREATOR").get(null);
         //noinspection unchecked
         ParcelableLruCache<Site> newCache = (ParcelableLruCache<Site>) creator.createFromParcel(parcel);
 

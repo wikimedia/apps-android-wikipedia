@@ -12,11 +12,11 @@ import java.lang.annotation.Annotation;
  *  This is RetrofitError converted to Retrofit 2
  */
 public class RetrofitException extends RuntimeException {
-    public static RetrofitException httpError(Response response, Retrofit retrofit) {
+    public static RetrofitException httpError(Response<?> response, Retrofit retrofit) {
         return httpError(response.raw().request().url().toString(), response, retrofit);
     }
 
-    public static RetrofitException httpError(String url, Response response, Retrofit retrofit) {
+    public static RetrofitException httpError(String url, Response<?> response, Retrofit retrofit) {
         String message = response.code() + " " + response.message();
         return new RetrofitException(message, url, response, Kind.HTTP, null, retrofit);
     }
@@ -43,11 +43,11 @@ public class RetrofitException extends RuntimeException {
     }
 
     private final String url;
-    private final Response response;
+    private final Response<?> response;
     private final Kind kind;
     private final Retrofit retrofit;
 
-    RetrofitException(String message, String url, Response response, Kind kind, Throwable exception, Retrofit retrofit) {
+    RetrofitException(String message, String url, Response<?> response, Kind kind, Throwable exception, Retrofit retrofit) {
         super(message, exception);
         this.url = url;
         this.response = response;
@@ -61,7 +61,7 @@ public class RetrofitException extends RuntimeException {
     }
 
     /** Response object containing status code, headers, body, etc. */
-    public Response getResponse() {
+    public Response<?> getResponse() {
         return response;
     }
 
