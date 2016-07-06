@@ -26,6 +26,7 @@
                 android:fitsSystemWindows="true"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:contentScrim="@color/main_toolbar_background"
+                app:statusBarScrim="@color/status_bar_background"
                 app:titleEnabled="false">
 
                 <ImageView
