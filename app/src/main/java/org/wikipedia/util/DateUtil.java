@@ -1,12 +1,14 @@
 package org.wikipedia.util;
 
-import android.text.format.DateUtils;
+import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.UtcDate;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -18,9 +20,17 @@ public final class DateUtil {
         return simpleDateFormat;
     }
 
-    public static String getFeedCardDateString(Calendar cal) {
-        int flags = DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR;
-        return DateUtils.formatDateTime(WikipediaApp.getInstance(), cal.getTimeInMillis(), flags);
+    public static String getFeedCardDateString(@NonNull Calendar date) {
+        return getFeedCardDateString(date.getTime());
+    }
+
+    public static String getFeedCardDateString(@NonNull Date date) {
+        // todo: consider allowing TWN date formats. It would be useful to have but might be
+        //       difficult for translators to write correct format specifiers without being able to
+        //       test them. We should investigate localization support in date libraries such as
+        //       Joda-Time and how TWN solves this classic problem.
+        DateFormat dateFormat = android.text.format.DateFormat.getMediumDateFormat(WikipediaApp.getInstance());
+        return dateFormat.format(date);
     }
 
     public static UtcDate getUtcRequestDateFor(int age) {
