@@ -12,6 +12,7 @@ import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
+import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
@@ -91,6 +92,9 @@ public class AggregatedFeedContentClient implements FeedClient {
                 }
                 if (content.mostRead() != null) {
                     cards.add(new MostReadListCard(content.mostRead(), site));
+                }
+                if (content.potd() != null) {
+                    cards.add(new FeaturedImageCard(content.potd(), DATE, site));
                 }
                 cb.success(cards);
             } else {

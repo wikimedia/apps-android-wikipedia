@@ -40,6 +40,6 @@ public final class CardPageItem {
 
     @Nullable
     public Uri thumbnail() {
-        return thumbnail != null ? Uri.parse(thumbnail.source()) : null;
+        return thumbnail != null ? thumbnail.source() : null;
     }
 }

@@ -34,7 +34,7 @@ public final class MostReadArticle {
     }
 
     public Uri thumbnail() {
-        return thumbnail != null ? Uri.parse(thumbnail.source()) : null;
+        return thumbnail != null ? thumbnail.source() : null;
     }
 
     public int rank() {
