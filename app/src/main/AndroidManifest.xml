@@ -143,6 +143,10 @@
             android:name=".useroption.ui.UserOptionRowActivity"
             android:label="@string/user_option_activity_title" />
 
+        <activity android:name=".news.NewsActivity"
+                  android:theme="@style/PageTheme"
+                  android:exported="false"/>
+
         <provider
                 android:authorities="${applicationId}"
                 android:name=".database.AppContentProvider"

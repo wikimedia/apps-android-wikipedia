@@ -33,6 +33,9 @@
     <!-- Default font size of the Wikidata description for the page -->
     <dimen name="descriptionTextSize">14sp</dimen>
 
+    <!-- Default screen height ratio for news feature image -->
+    <item type="dimen" format="float" name="newsFeatureImageScreenHeightRatio">0.3</item>
+
     <!-- Default font size for Search text -->
     <dimen name="searchTextSize">16sp</dimen>
 

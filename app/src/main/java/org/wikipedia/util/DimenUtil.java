@@ -6,6 +6,8 @@ import android.content.res.TypedArray;
 import android.support.annotation.DimenRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 
 import org.wikipedia.R;
@@ -132,8 +134,30 @@ public final class DimenUtil {
         return context.getResources().getIdentifier("status_bar_height", "dimen", "android");
     }
 
+    public static void setViewHeight(View view, int height) {
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        params.height = height;
+        view.setLayoutParams(params);
+    }
+
     private static boolean isStatusBarTranslucent() {
         return ApiUtil.hasKitKat();
+    }
+
+    public static int leadImageHeightForDevice() {
+        return (int) (getDisplayHeightPx() * articleHeaderViewScreenHeightRatio());
+    }
+
+    public static int newsFeatureImageHeightForDevice() {
+        return (int) (getDisplayHeightPx() * newsFeatureImageScreenHeightRatio());
+    }
+
+    private static float newsFeatureImageScreenHeightRatio() {
+        return DimenUtil.getFloat(R.dimen.newsFeatureImageScreenHeightRatio);
+    }
+
+    private static float articleHeaderViewScreenHeightRatio() {
+        return DimenUtil.getFloat(R.dimen.articleHeaderViewScreenHeightRatio);
     }
 
     private DimenUtil() { }

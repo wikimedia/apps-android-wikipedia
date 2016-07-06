@@ -13,8 +13,6 @@ public final class Constants {
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
 
     public static final int PREFERRED_THUMB_SIZE = 320;
-    public static final String PREFERRED_THUMBNAIL_KEY
-            = Integer.toString(Constants.PREFERRED_THUMB_SIZE);
 
     private Constants() { }
 }

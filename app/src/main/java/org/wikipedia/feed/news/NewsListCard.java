@@ -10,13 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsListCard extends ListCard<NewsItemCard> {
-    @NonNull private Site site;
     @NonNull private UtcDate age;
 
     public NewsListCard(@NonNull List<NewsItem> news, @NonNull UtcDate age, @NonNull Site site) {
-        super(toItemCards(news));
+        super(toItemCards(news, site));
         this.age = age;
-        this.site = site;
     }
 
     @NonNull
@@ -31,10 +29,10 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     }
 
     @NonNull
-    private static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items) {
+    private static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull Site site) {
         List<NewsItemCard> itemCards = new ArrayList<>();
         for (NewsItem item : items) {
-            itemCards.add(new NewsItemCard(item));
+            itemCards.add(new NewsItemCard(item, site));
         }
         return itemCards;
     }

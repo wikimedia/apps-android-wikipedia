@@ -1,6 +1,7 @@
 package org.wikipedia.richtext;
 
 import android.support.annotation.NonNull;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -120,6 +121,10 @@ public final class RichTextUtil {
             span = new URLSpanBoldNoUnderline(span.getURL());
             spannable.setSpan(span, start, end, 0);
         }
+    }
+
+    public static String stripHtml(String html) {
+        return Html.fromHtml(html).toString();
     }
 
     private RichTextUtil() { }
