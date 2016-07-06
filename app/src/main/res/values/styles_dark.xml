@@ -59,6 +59,7 @@
         <item name="android:listViewStyle">@style/ListView</item>
 
         <item name="view_big_picture_card_extract">@color/view_big_picture_card_extract_dark</item>
+        <item name="view_list_card_item_title">@color/view_list_card_item_title_dark</item>
     </style>
 
     <style name="Theme.Dark.Dialog" parent="Theme.AppCompat.Dialog">

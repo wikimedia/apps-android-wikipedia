@@ -60,6 +60,7 @@
         <item name="android:listViewStyle">@style/ListView</item>
 
         <item name="view_big_picture_card_extract">@color/view_big_picture_card_extract_light</item>
+        <item name="view_list_card_item_title">@color/view_list_card_item_title_light</item>
     </style>
 
     <style name="Theme.Light.Dialog" parent="Theme.AppCompat.Light.Dialog">

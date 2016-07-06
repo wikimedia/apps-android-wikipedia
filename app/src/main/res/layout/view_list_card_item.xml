@@ -6,16 +6,22 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/list_item_horizontal_padding"
+        android:paddingTop="10dp"
+        android:paddingRight="@dimen/list_item_horizontal_padding"
+        android:paddingBottom="@dimen/list_item_horizontal_padding"
+        android:paddingLeft="@dimen/list_item_horizontal_padding"
         android:background="?attr/selectableItemBackground">
 
         <com.facebook.drawee.view.SimpleDraweeView
             style="@style/SimpleDraweeViewPlaceholder.Article"
             android:id="@+id/view_list_card_item_image"
-            android:layout_width="@dimen/defaultListItemSize"
-            android:layout_height="@dimen/defaultListItemSize"
+            android:layout_width="@dimen/view_list_card_item_image"
+            android:layout_height="@dimen/view_list_card_item_image"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="6dp"
+            app:roundedCornerRadius="2dp"
+            android:background="@drawable/view_list_card_item_image_background" />
 
         <TextView
             android:id="@+id/view_list_card_item_title"
@@ -27,7 +33,7 @@
             android:layout_marginRight="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:textColor="?attr/view_list_card_item_title"
             tools:text="Lorem ipsum"/>
 
         <TextView
@@ -41,6 +47,7 @@
             android:layout_marginRight="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="14sp"
+            android:textColor="?attr/view_big_picture_card_extract"
             tools:text="Lorem ipsum"/>
 
     </RelativeLayout>
@@ -49,8 +56,9 @@
         android:id="@+id/view_list_card_item_menu"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:padding="8dp"
+        android:layout_marginTop="8dp"
         android:layout_gravity="end"
+        android:padding="8dp"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
         android:tint="@color/gray_highlight"
         android:clickable="true"
