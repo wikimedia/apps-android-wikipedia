@@ -1,18 +1,18 @@
 package org.wikipedia.savedpages;
 
-import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Test;
 
-/**
- * Unit test for ImageUrlMap
- */
-public class ImageUrlMapTests extends TestCase {
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
+// todo: move to JUnit tests when https://github.com/robolectric/robolectric/issues/1605 is fixed.
+public class ImageUrlMapTest {
     private static final String BASE_DIR = "/data/short/img";
 
-    private ImageUrlMap.Builder builder = null;
+    private ImageUrlMap.Builder builder;
 
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
+    @Before public void setUp() throws Exception {
         builder = new ImageUrlMap.Builder(BASE_DIR);
     }
 
@@ -27,14 +27,14 @@ public class ImageUrlMapTests extends TestCase {
             + "{\"originalURL\":\"\\/\\/foo.org\\/bbb.png\",\"newURL\":\"file:\\/\\/\\/data\\/short\\/img\\/a0bf5f6da269a012fefb997167844e3.png\"}"
             + "]}";
 
-    public void testUrlRewrite() throws Exception {
+    @Test public void testUrlRewrite() throws Exception {
         builder.extractUrlsInSection(HTML_INPUT);
         ImageUrlMap imageUrlMap = builder.build();
-        assertEquals(2, imageUrlMap.size());
-        assertEquals(IMG_MAP_JSON_OUTPUT, imageUrlMap.toJSON().toString());
+        assertThat(imageUrlMap.size(), is(2));
+        assertThat(imageUrlMap.toJSON().toString(), is(IMG_MAP_JSON_OUTPUT));
     }
 
-    public void testNonClosedImgTag() throws Exception {
+    @Test public void testNonClosedImgTag() throws Exception {
         // abbreviated main page on 2014-06-10; like most main pages right now it has img tags that are not closed
         builder.extractUrlsInSection(
                 "<div id=\"mainpage\"><h2>Today's featured article</h2><div id=\"mp-tfa\" style=\"padding:2px 5px\">\n"
@@ -52,6 +52,6 @@ public class ImageUrlMapTests extends TestCase {
                 + "</div></div>"
         );
         ImageUrlMap imageUrlMap = builder.build();
-        assertEquals(2, imageUrlMap.size());
+        assertThat(imageUrlMap.size(), is(2));
     }
 }
