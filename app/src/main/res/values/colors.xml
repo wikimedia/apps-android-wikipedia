@@ -98,8 +98,8 @@
     <color name="widget_title_text">#606060</color>
     <color name="widget_content_text">#303030</color>
 
-    <color name="reading_list_menu_background_light">#ccc</color>
-    <color name="reading_list_menu_background_dark">#555</color>
+    <color name="view_big_picture_card_extract_dark">#ccc</color>
+    <color name="view_big_picture_card_extract_light">#555</color>
     <color name="reading_list_add_background">#4888</color>
     <color name="reading_list_delete_link">#f00</color>
 

@@ -29,6 +29,7 @@
     <attr name="nav_item_color" format="reference"/>
     <attr name="list_item_text_primary_color" format="reference"/>
     <attr name="list_item_text_secondary_color" format="reference"/>
+    <attr name="view_big_picture_card_extract" format="reference" />
 
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />
