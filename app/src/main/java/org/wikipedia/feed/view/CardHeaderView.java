@@ -20,26 +20,19 @@ import org.wikipedia.feed.model.Card;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CardHeaderView extends LinearLayout {
     @BindView(R.id.view_card_header_image) AppCompatImageView imageView;
     @BindView(R.id.view_card_header_title) TextView titleView;
     @BindView(R.id.view_card_header_subtitle) TextView subtitleView;
-    @BindView(R.id.view_list_card_header_menu) View menuView;
     @Nullable private Card card;
     @Nullable private FeedViewCallback callback;
 
     public CardHeaderView(Context context) {
         super(context);
-
-        inflate(getContext(), R.layout.view_card_header, this);
+        inflate(context, R.layout.view_card_header, this);
         ButterKnife.bind(this);
-        menuView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showOverflowMenu(v);
-            }
-        });
     }
 
     @NonNull public CardHeaderView setCard(@NonNull Card card) {
@@ -79,6 +72,10 @@ public class CardHeaderView extends LinearLayout {
     @NonNull public CardHeaderView setSubtitle(@Nullable CharSequence subtitle) {
         subtitleView.setText(subtitle);
         return this;
+    }
+
+    @OnClick(R.id.view_list_card_header_menu) protected void onMenuClick(View v) {
+        showOverflowMenu(v);
     }
 
     private void showOverflowMenu(View anchorView) {
