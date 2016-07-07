@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="?attr/window_background_color">
 
-    <!-- Height set dynamically based on device properties -->
-    <org.wikipedia.views.FaceAndColorDetectImageView
-        android:id="@+id/view_news_fullscreen_header_image"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/view_news_fullscreen_story_text"
+        <!-- Height set dynamically based on device properties -->
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/view_news_fullscreen_header_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:id="@+id/view_news_fullscreen_story_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:fontFamily="serif"
+            android:lineSpacingMultiplier="1.2"
+            style="@style/RtlAwareTextView"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/view_news_fullscreen_link_card_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/view_news_fullscreen_toolbar"
+        android:theme="@style/AppTheme.ToolbarTheme"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="serif"
-        style="@style/RtlAwareTextView"/>
+        android:layout_height="96dp"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/view_news_fullscreen_link_card_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+</FrameLayout>

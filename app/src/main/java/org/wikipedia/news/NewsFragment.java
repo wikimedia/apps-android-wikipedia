@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,10 +30,14 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.FaceAndColorDetectImageView;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.List;
 
@@ -48,8 +55,9 @@ public class NewsFragment extends Fragment implements CallbackFragment<CallbackF
     @BindView(R.id.view_news_fullscreen_header_image) FaceAndColorDetectImageView image;
     @BindView(R.id.view_news_fullscreen_story_text) TextView text;
     @BindView(R.id.view_news_fullscreen_link_card_list) RecyclerView links;
+    @BindView(R.id.view_news_fullscreen_toolbar) Toolbar toolbar;
 
-    @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getActivity());
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter;
     @SuppressWarnings("NullableProblems") @NonNull private Unbinder unbinder;
 
     @NonNull
@@ -74,6 +82,14 @@ public class NewsFragment extends Fragment implements CallbackFragment<CallbackF
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         unbinder = ButterKnife.bind(this, view);
+        bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getActivity());
+
+        ViewUtil.setTopPaddingDp(toolbar, (int) DimenUtil.getTranslucentStatusBarHeight(getContext()));
+        ViewUtil.setBackgroundDrawable(toolbar, GradientUtil.getCubicGradient(
+                getResources().getColor(R.color.lead_gradient_start), Gravity.TOP));
+        getAppCompatActivity().setSupportActionBar(toolbar);
+        getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getAppCompatActivity().getSupportActionBar().setTitle("");
 
         NewsItem item = GsonUnmarshaller.unmarshal(NewsItem.class, getActivity().getIntent().getStringExtra(EXTRA_NEWS_ITEM));
         Site site = GsonUnmarshaller.unmarshal(Site.class, getActivity().getIntent().getStringExtra(EXTRA_SITE));
@@ -93,8 +109,14 @@ public class NewsFragment extends Fragment implements CallbackFragment<CallbackF
         super.onDestroyView();
     }
 
+    private AppCompatActivity getAppCompatActivity() {
+        return (AppCompatActivity) getActivity();
+    }
+
     private void initRecycler() {
         links.setLayoutManager(new LinearLayoutManager(getContext()));
+        links.addItemDecoration(new DrawableItemDecoration(getContext(),
+                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
         links.setNestedScrollingEnabled(false);
     }
 

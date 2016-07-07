@@ -47,6 +47,11 @@ public final class ViewUtil {
         view.setPadding(padding, padding, padding, padding);
     }
 
+    public static void setTopPaddingDp(@NonNull View view, int padding) {
+        view.setPadding(view.getPaddingLeft(), (int) (padding * DimenUtil.getDensityScalar()),
+                view.getPaddingRight(), view.getPaddingBottom());
+    }
+
     public static void setBottomPaddingDp(@NonNull View view, int padding) {
         view.setPadding(view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(),
                 (int) (padding * DimenUtil.getDensityScalar()));
