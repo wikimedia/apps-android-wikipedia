@@ -224,7 +224,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         }
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-        setContentView(R.layout.activity_page);
+        setContentView(R.layout.activity_main);
 
         toolbarContainer = findViewById(R.id.main_toolbar_container);
         toolbarCoordinator = new MainActivityToolbarCoordinator(this, toolbarContainer, (Toolbar) findViewById(R.id.main_toolbar));
