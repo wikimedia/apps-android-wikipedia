@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.richtext.RichTextUtil;
@@ -68,8 +69,10 @@ public class FeaturedImageCardView extends FeedCardView
     }
 
     private void footer() {
-        footer(new FeaturedImageCardFooterView(getContext())
-                .onDownloadListener(new CardDownloadListener())
+        footer(new ActionFooterView(getContext())
+                .actionIcon(R.drawable.ic_file_download)
+                .actionText(R.string.view_featured_image_card_download)
+                .onActionListener(new CardDownloadListener())
                 .onShareListener(new CardShareListener()));
     }
 

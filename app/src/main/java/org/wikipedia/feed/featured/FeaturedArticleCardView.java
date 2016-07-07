@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.history.HistoryEntry;
@@ -84,8 +85,10 @@ public class FeaturedArticleCardView extends FeedCardView
     }
 
     private void footer() {
-        footer(new FeaturedArticleCardFooterView(getContext())
-                .onSaveListener(new CardSaveListener())
+        footer(new ActionFooterView(getContext())
+                .actionIcon(R.drawable.ic_bookmark_border_black_24dp)
+                .actionText(R.string.view_featured_article_footer_save_button_label)
+                .onActionListener(new CardSaveListener())
                 .onShareListener(new CardShareListener()));
     }
 
