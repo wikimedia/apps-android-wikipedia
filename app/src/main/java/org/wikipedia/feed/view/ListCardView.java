@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
@@ -62,7 +63,7 @@ public abstract class ListCardView extends FeedCardView {
     protected void initRecycler() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
-                R.drawable.divider, true));
+                ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
         recyclerView.setNestedScrollingEnabled(false);
     }
 
