@@ -5,15 +5,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.test.ImmediateExecutor;
 import org.wikipedia.test.MockWebServerTest;
 import org.wikipedia.test.TestApi;
 import org.wikipedia.test.TestFileUtil;
+import org.wikipedia.test.TestRunner;
 import org.wikipedia.testlib.TestLatch;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+@RunWith(TestRunner.class)
 public class WikipediaZeroTaskTest extends MockWebServerTest {
     @Test
     public void testOnFinishIneligible() throws Exception {
