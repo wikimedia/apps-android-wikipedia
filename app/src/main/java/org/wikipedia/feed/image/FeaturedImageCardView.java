@@ -13,6 +13,7 @@ import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.richtext.RichTextUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.ViewUtil;
 
@@ -37,7 +38,7 @@ public class FeaturedImageCardView extends FeedCardView
         this.card = card;
         // TODO: superimpose text onto image thumb
         image(card.image());
-        description(card.description());  //Can check language before doing this if we want
+        description(StringUtil.defaultIfNull(card.description(), ""));  //Can check language before doing this if we want
         header(card);
         footer();
         onClickListener(new CardClickListener());

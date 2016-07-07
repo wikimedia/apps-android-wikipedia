@@ -2,6 +2,7 @@ package org.wikipedia.feed.image;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -44,15 +45,15 @@ public class FeaturedImageCard extends Card {
         return featuredImage.thumbnail().source();
     }
 
-    @NonNull
+    @Nullable
     public String description() {
-        return featuredImage.description().text();
+        return featuredImage.description();
     }
 
     //Expose the language of the returned description in case we want to hide it if it doesn't match
     //the request Site language
-    @NonNull
+    @Nullable
     public String descriptionLang() {
-        return featuredImage.description().lang();
+        return featuredImage.descriptionLang();
     }
 }

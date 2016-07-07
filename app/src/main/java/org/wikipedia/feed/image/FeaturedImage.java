@@ -1,6 +1,7 @@
 package org.wikipedia.feed.image;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.feed.model.Thumbnail;
 
@@ -8,7 +9,7 @@ public final class FeaturedImage {
     @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
     @SuppressWarnings("unused,NullableProblems") @NonNull private Thumbnail thumbnail;
     @SuppressWarnings("unused,NullableProblems") @NonNull private Thumbnail image;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private Description description;
+    @SuppressWarnings("unused") @Nullable private Description description;
 
     @NonNull
     public String title() {
@@ -25,9 +26,14 @@ public final class FeaturedImage {
         return image;
     }
 
-    @NonNull
-    public Description description() {
-        return description;
+    @Nullable
+    public String description() {
+        return description == null ? null : description.text;
+    }
+
+    @Nullable
+    public String descriptionLang() {
+        return description == null ? null : description.lang;
     }
 
     /**
@@ -37,7 +43,7 @@ public final class FeaturedImage {
      * returns the translation for the request Site language, if available.  Otherwise it defaults
      * to providing the English translation.
      */
-    public static class Description {
+    private static class Description {
         @SuppressWarnings("unused,NullableProblems") @NonNull private String text;
         @SuppressWarnings("unused,NullableProblems") @NonNull private String lang;
 
