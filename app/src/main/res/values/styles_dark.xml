@@ -58,8 +58,10 @@
         <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
         <item name="android:listViewStyle">@style/ListView</item>
 
-        <item name="view_big_picture_card_extract">@color/view_big_picture_card_extract_dark</item>
-        <item name="view_list_card_item_title">@color/view_list_card_item_title_dark</item>
+        <item name="feed_window_background_color">@color/feed_window_background_dark</item>
+        <item name="feed_text_primary_color">@color/feed_text_primary_dark</item>
+        <item name="feed_text_secondary_color">@color/feed_text_secondary_dark</item>
+        <item name="feed_text_tertiary_color">@color/feed_text_tertiary_dark</item>
     </style>
 
     <style name="Theme.Dark.Dialog" parent="Theme.AppCompat.Dialog">

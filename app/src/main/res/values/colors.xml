@@ -98,15 +98,19 @@
     <color name="widget_title_text">#606060</color>
     <color name="widget_content_text">#303030</color>
 
+    <color name="feed_text_primary_light">#222</color>
+    <color name="feed_text_primary_dark">#ddd</color>
+    <color name="feed_text_secondary_light">#555</color>
+    <color name="feed_text_secondary_dark">#ccc</color>
+    <color name="feed_text_tertiary_light">#71777d</color>
+    <color name="feed_text_tertiary_dark">#aaa</color>
+    <color name="feed_image_border">#1f000000</color>
     <color name="reading_list_add_background">#4888</color>
     <color name="reading_list_delete_link">#f00</color>
 
     <color name="holo_red_dark">#c00</color>
 
-    <color name="feed_window_background">#eaecf0</color>
+    <color name="feed_window_background_light">#eaecf0</color>
+    <color name="feed_window_background_dark">#222</color>
     <color name="feed_featured_icon_background">#ffb50d</color>
-    <color name="view_big_picture_card_extract_dark">#ccc</color>
-    <color name="view_big_picture_card_extract_light">#555</color>
-    <color name="view_list_card_item_title_dark">#999</color>
-    <color name="view_list_card_item_title_light">#222</color>
 </resources>

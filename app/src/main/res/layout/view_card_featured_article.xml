@@ -13,12 +13,22 @@
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/feed_image_border"/>
+
     <com.facebook.drawee.view.SimpleDraweeView
         style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/view_featured_article_card_image"
         android:layout_width="match_parent"
         android:layout_height="192dp"
         app:actualImageScaleType="focusCrop" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/feed_image_border"/>
 
     <LinearLayout
         android:id="@+id/view_featured_article_card_text_container"
@@ -39,7 +49,7 @@
             android:paddingBottom="4dp"
             android:textSize="24sp"
             android:fontFamily="serif"
-            android:textColor="?attr/link_preview_text_color"
+            android:textColor="?attr/feed_text_primary_color"
             android:lineSpacingMultiplier="0.9"
             android:maxLines="3"
             android:ellipsize="end"
@@ -50,7 +60,7 @@
             android:id="@+id/view_featured_article_card_article_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray_disabled"
+            android:textColor="?attr/feed_text_tertiary_color"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:textSize="12sp"
@@ -68,7 +78,7 @@
             android:ellipsize="end"
             android:lineSpacingMultiplier="1.4"
             android:textSize="14sp"
-            android:textColor="?attr/view_big_picture_card_extract"
+            android:textColor="?attr/feed_text_secondary_color"
             tools:text="Lorem ipsum"/>
 
     </LinearLayout>

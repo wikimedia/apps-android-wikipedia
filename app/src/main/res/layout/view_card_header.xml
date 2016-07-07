@@ -21,6 +21,8 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
                 android:padding="3dp"
                 app:srcCompat="@drawable/ic_restore_black_24dp"
                 android:tint="@android:color/white"
@@ -35,7 +37,9 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:textStyle="bold"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="?attr/feed_text_secondary_color"
                 android:maxLines="2"
                 android:ellipsize="end"
                 tools:text="Lorem ipsum"/>
@@ -54,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|center_vertical"
                 android:textSize="12sp"
+                android:textColor="?attr/feed_text_tertiary_color"
                 tools:text="Lorem ipsum"/>
 
             <ImageView
@@ -63,7 +68,7 @@
                 android:padding="8dp"
                 android:layout_gravity="end"
                 app:srcCompat="@drawable/ic_more_vert_white_24dp"
-                android:tint="@color/gray_highlight"
+                android:tint="?attr/feed_text_tertiary_color"
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"/>

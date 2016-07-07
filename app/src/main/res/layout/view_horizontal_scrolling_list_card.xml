@@ -13,14 +13,13 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/view_horizontal_scrolling_list_card_list"
         android:layout_width="match_parent"
-        android:layout_height="204dp"
+        android:layout_height="228dp"
         android:layout_marginLeft="@dimen/view_list_card_item_margin"
         android:layout_marginRight="@dimen/view_list_card_item_margin"/>
 
     <View
         android:id="@+id/view_horizontal_scrolling_list_card_footer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/view_list_card_item_margin" />
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

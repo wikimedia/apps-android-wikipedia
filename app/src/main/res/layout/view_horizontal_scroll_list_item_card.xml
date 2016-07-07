@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="180dp"
-    android:layout_height="200dp"
+    android:layout_height="208dp"
     android:orientation="vertical">
 
     <org.wikipedia.views.FaceAndColorDetectImageView
@@ -13,17 +13,17 @@
     <TextView
         android:id="@+id/horizontal_scroll_list_item_text"
         android:layout_width="match_parent"
-        android:layout_height="104dp"
+        android:layout_height="112dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="13dp"
         android:layout_marginBottom="13dp"
-        android:textColor="@android:color/black"
-        android:textColorLink="@android:color/black"
-        android:textStyle="normal"
+        android:textColor="?attr/feed_text_primary_color"
+        android:textColorLink="?attr/feed_text_primary_color"
         android:maxLines="5"
         android:ellipsize="end"
         android:linksClickable="false"
+        android:lineSpacingMultiplier="1.2"
         android:textSize="12sp"/>
 
 </LinearLayout>

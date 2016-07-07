@@ -21,7 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="14sp"
+            android:textColor="?attr/feed_text_secondary_color"
             tools:text="Title of card"/>
 
         <TextView
@@ -30,6 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:textSize="12sp"
+            android:textColor="?attr/feed_text_tertiary_color"
+            android:alpha="0.87"
             tools:text="Subtitle of card"/>
 
     </LinearLayout>

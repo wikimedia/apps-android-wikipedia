@@ -26,7 +26,8 @@ public class NewsListCardView extends HorizontalScrollingListCardView
 
     public void set(@NonNull NewsListCard card) {
         header(card);
-        footer();
+        // TODO: enable when ready
+        // footer();
         set(new RecyclerAdapter(card.items(), getCallback()));
     }
 

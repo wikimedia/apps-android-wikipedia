@@ -33,7 +33,7 @@
             android:layout_marginRight="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="16sp"
-            android:textColor="?attr/view_list_card_item_title"
+            android:textColor="?attr/feed_text_primary_color"
             tools:text="Lorem ipsum"/>
 
         <TextView
@@ -43,11 +43,13 @@
             android:layout_toRightOf="@id/view_list_card_item_image"
             android:layout_toEndOf="@id/view_list_card_item_image"
             android:layout_below="@id/view_list_card_item_title"
+            android:layout_marginTop="2dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="14sp"
-            android:textColor="?attr/view_big_picture_card_extract"
+            android:textColor="?attr/feed_text_secondary_color"
+            android:lineSpacingMultiplier="1.2"
             tools:text="Lorem ipsum"/>
 
     </RelativeLayout>
@@ -60,7 +62,7 @@
         android:layout_gravity="end"
         android:padding="8dp"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
-        android:tint="@color/gray_highlight"
+        android:tint="?attr/feed_text_tertiary_color"
         android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@null"/>

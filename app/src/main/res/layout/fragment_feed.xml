@@ -9,7 +9,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/feed_window_background"
+        android:background="?attr/feed_window_background_color"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.AppBarLayout
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
-            app:behavior_overlapTop="100dp"
+            app:behavior_overlapTop="@dimen/view_feed_overlap_top"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:minColumnWidth="@dimen/view_feed_min_column_width"/>
 
