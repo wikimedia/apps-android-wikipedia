@@ -118,6 +118,10 @@ public final class UriUtil {
         return title.getCanonicalUri() + "?wprov=" + context.getString(provId);
     }
 
+    public static String removeInternalLinkPrefix(String link) {
+        return link.replaceFirst("/wiki/", "");
+    }
+
     private UriUtil() {
 
     }

@@ -68,6 +68,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
@@ -990,9 +991,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 try {
                     String href = decodeURL(messagePayload.getString("href"));
                     if (href.startsWith("/wiki/")) {
-                        PageTitle imageTitle = model.getTitle().getSite().titleForInternalLink(href);
+                        String filename = UriUtil.removeInternalLinkPrefix(href);
+                        Site site = model.getTitle().getSite();
                         GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
-                                imageTitle, GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
+                                filename, site, GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
                     } else {
                         linkHandler.onUrlClick(href);
                     }
@@ -1006,8 +1008,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String href = decodeURL(messagePayload.getString("href"));
+                    String filename = UriUtil.removeInternalLinkPrefix(href);
+                    Site site = model.getTitle().getSite();
                     GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
-                            new PageTitle(href, model.getTitle().getSite()), GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
+                            filename, site, GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }

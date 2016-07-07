@@ -3,6 +3,7 @@ package org.wikipedia.page.gallery;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
 
@@ -73,6 +74,18 @@ public class GalleryItem {
         this.metadata = null;
         this.width = 0;
         this.height = 0;
+        this.license = new ImageLicense();
+    }
+
+    public GalleryItem(FeaturedImage featuredImage) {
+        this.json = null;
+        this.name = featuredImage.title();
+        this.url = featuredImage.image().source().toString();
+        this.mimeType = "*/*";
+        this.thumbUrl = featuredImage.thumbnail().source().toString();
+        this.metadata = null;
+        this.width = featuredImage.image().width();
+        this.height = featuredImage.image().height();
         this.license = new ImageLicense();
     }
 

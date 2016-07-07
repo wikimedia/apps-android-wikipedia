@@ -18,4 +18,5 @@ public interface FeedViewCallback extends ItemTouchHelperSwipeAdapter.Callback,
     void onNewsItemSelected(@NonNull NewsItemCard card);
     void onShareImage(@NonNull FeaturedImageCard card);
     void onDownloadImage(@NonNull FeaturedImage image);
+    void onFeaturedImageSelected(@NonNull FeaturedImageCard card);
 }

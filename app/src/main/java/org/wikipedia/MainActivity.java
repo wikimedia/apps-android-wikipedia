@@ -52,6 +52,7 @@ import net.hockeyapp.android.metrics.MetricsManager;
 
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
+import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
@@ -906,6 +907,12 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
                 }
             }
         }.get();
+    }
+
+    @Override
+    public void onFeaturedImageSelected(@NonNull FeaturedImageCard card) {
+        GalleryActivity.showGallery(this, card.baseImage(), card.filename(), card.site(),
+                GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE);
     }
 
     @Override

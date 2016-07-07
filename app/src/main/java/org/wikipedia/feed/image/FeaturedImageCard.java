@@ -49,6 +49,11 @@ public class FeaturedImageCard extends Card {
         return site;
     }
 
+    @NonNull
+    public String filename() {
+        return featuredImage.title();
+    }
+
     @Override
     @NonNull
     public Uri image() {

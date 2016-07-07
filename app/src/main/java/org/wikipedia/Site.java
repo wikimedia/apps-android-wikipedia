@@ -11,6 +11,7 @@ import com.google.gson.annotations.SerializedName;
 import org.wikipedia.interlanguage.AppLanguageLookUpTable;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.UriUtil;
 
 import java.util.Locale;
 
@@ -193,7 +194,7 @@ public class Site implements Parcelable {
     public PageTitle titleForInternalLink(String internalLink) {
         // FIXME: Handle language variant links properly
         // Strip the /wiki/ from the href
-        return new PageTitle(internalLink.replaceFirst("/wiki/", ""), this);
+        return new PageTitle(UriUtil.removeInternalLinkPrefix(internalLink), this);
     }
 
     // TODO: this method doesn't have much to do with Site. Move to PageTitle?

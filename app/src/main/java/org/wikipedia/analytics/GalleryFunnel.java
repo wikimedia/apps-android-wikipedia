@@ -11,6 +11,7 @@ public class GalleryFunnel extends TimedFunnel {
     public static final int SOURCE_LEAD_IMAGE = 0;
     public static final int SOURCE_NON_LEAD_IMAGE = 1;
     public static final int SOURCE_LINK_PREVIEW = 2;
+    public static final int SOURCE_FEED_FEATURED_IMAGE = 3;
 
     private static final String SCHEMA_NAME = "MobileWikiAppMediaGallery";
     private static final int REV_ID = 12588701;

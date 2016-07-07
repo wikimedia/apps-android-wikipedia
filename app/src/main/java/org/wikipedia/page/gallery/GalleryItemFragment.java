@@ -1,6 +1,7 @@
 package org.wikipedia.page.gallery;
 
 import org.wikipedia.Constants;
+import org.wikipedia.Site;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -8,6 +9,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.log.L;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -19,7 +21,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -46,37 +47,36 @@ import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermissio
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 
 public class GalleryItemFragment extends Fragment {
-    public static final String TAG = "GalleryItemFragment";
     public static final String ARG_PAGETITLE = "pageTitle";
     public static final String ARG_MEDIATITLE = "imageTitle";
     public static final String ARG_MIMETYPE = "mimeType";
+    public static final String ARG_SITE = "site";
 
-    private WikipediaApp app;
-    private GalleryActivity parentActivity;
-    private PageTitle pageTitle;
-    private PageTitle imageTitle;
-    private String mimeType;
     private ProgressBar progressBar;
-
     private ZoomableDraweeView imageView;
-
     private View videoContainer;
     private VideoView videoView;
     private SimpleDraweeView videoThumbnail;
     private View videoPlayButton;
     private MediaController mediaController;
 
-    private GalleryItem galleryItem;
+    @NonNull private WikipediaApp app = WikipediaApp.getInstance();;
+    @Nullable private GalleryActivity parentActivity;
+    @Nullable private PageTitle pageTitle;
+    @SuppressWarnings("NullableProblems") @NonNull private PageTitle imageTitle;
+    @Nullable private Site site;
+    @Nullable private String mimeType;
 
-    public GalleryItem getGalleryItem() {
+    @Nullable private GalleryItem galleryItem;
+    @Nullable public GalleryItem getGalleryItem() {
         return galleryItem;
     }
 
-    public static GalleryItemFragment newInstance(PageTitle pageTitle, GalleryItem galleryItemProto) {
+    public static GalleryItemFragment newInstance(PageTitle pageTitle, Site site, GalleryItem galleryItemProto) {
         GalleryItemFragment f = new GalleryItemFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_PAGETITLE, pageTitle);
-        args.putParcelable(ARG_MEDIATITLE, new PageTitle(galleryItemProto.getName(), pageTitle.getSite()));
+        args.putParcelable(ARG_MEDIATITLE, new PageTitle(galleryItemProto.getName(), site));
         args.putString(ARG_MIMETYPE, galleryItemProto.getMimeType());
         f.setArguments(args);
         return f;
@@ -85,9 +85,9 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = WikipediaApp.getInstance();
         pageTitle = getArguments().getParcelable(ARG_PAGETITLE);
         imageTitle = getArguments().getParcelable(ARG_MEDIATITLE);
+        site = getArguments().getParcelable(ARG_SITE);
         mimeType = getArguments().getString(ARG_MIMETYPE);
     }
 
@@ -228,8 +228,8 @@ public class GalleryItemFragment extends Fragment {
      */
     private void loadGalleryItem() {
         updateProgressBar(true, true, 0);
-        new GalleryItemFetchTask(app.getAPIForSite(pageTitle.getSite()),
-                pageTitle.getSite(), imageTitle, FileUtil.isVideo(mimeType)) {
+        new GalleryItemFetchTask(app.getAPIForSite(imageTitle.getSite()),
+                imageTitle.getSite(), imageTitle, FileUtil.isVideo(mimeType)) {
             @Override
             public void onFinish(Map<PageTitle, GalleryItem> result) {
                 if (!isAdded()) {
@@ -248,7 +248,7 @@ public class GalleryItemFragment extends Fragment {
 
             @Override
             public void onCatch(Throwable caught) {
-                Log.e("Wikipedia", "caught " + caught.getMessage());
+                L.e("caught " + caught.getMessage());
                 if (!isAdded()) {
                     return;
                 }
@@ -279,7 +279,7 @@ public class GalleryItemFragment extends Fragment {
         }
 
         parentActivity.supportInvalidateOptionsMenu();
-        parentActivity.layoutGalleryDescription();
+        parentActivity.layOutGalleryDescription();
     }
 
     private View.OnClickListener videoThumbnailClickListener = new View.OnClickListener() {
@@ -291,7 +291,7 @@ public class GalleryItemFragment extends Fragment {
                 return;
             }
             loading = true;
-            Log.d(TAG, "Loading video from url: " + galleryItem.getUrl());
+            L.d("Loading video from url: " + galleryItem.getUrl());
             videoView.setVisibility(View.VISIBLE);
             mediaController = new MediaController(parentActivity);
             updateProgressBar(true, true, 0);
@@ -301,7 +301,7 @@ public class GalleryItemFragment extends Fragment {
                 public void onPrepared(MediaPlayer mp) {
                     updateProgressBar(false, true, 0);
                     // ...update the parent activity, which will trigger us to start playing!
-                    parentActivity.layoutGalleryDescription();
+                    parentActivity.layOutGalleryDescription();
                     // hide the video thumbnail, since we're about to start playback
                     videoThumbnail.setVisibility(View.GONE);
                     videoPlayButton.setVisibility(View.GONE);
@@ -357,7 +357,7 @@ public class GalleryItemFragment extends Fragment {
 
     private void loadImage(String url) {
         imageView.setVisibility(View.VISIBLE);
-        Log.d(TAG, "Loading image from url: " + url);
+        L.v("Loading image from url: " + url);
 
         imageView.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(url)
@@ -428,7 +428,7 @@ public class GalleryItemFragment extends Fragment {
                 if (PermissionUtil.isPermitted(grantResults)) {
                     saveImage();
                 } else {
-                    Log.e(TAG, "Write permission was denied by user");
+                    L.e("Write permission was denied by user");
                     FeedbackUtil.showMessage(getActivity(),
                             R.string.gallery_save_image_write_permission_rationale);
                 }
@@ -443,7 +443,7 @@ public class GalleryItemFragment extends Fragment {
             return;
         }
         parentActivity.getFunnel().logGallerySave(pageTitle, galleryItem.getName());
-        ((GalleryActivity) getActivity()).getDownloadReceiver().download(galleryItem);
+        parentActivity.getDownloadReceiver().download(galleryItem);
     }
 
     private boolean shouldHaveWhiteBackground(String mimeType) {
