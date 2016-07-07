@@ -7,6 +7,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
@@ -53,7 +54,7 @@ public class CardHeaderView extends FrameLayout {
     @NonNull public CardHeaderView setImageCircleColor(@ColorRes int color) {
         ColorStateList colorStateList = new ColorStateList(
                 new int[][]{new int[]{}},
-                new int[]{getResources().getColor(color)}
+                new int[]{ContextCompat.getColor(getContext(), color)}
         );
         imageView.setSupportBackgroundTintList(colorStateList);
         return this;

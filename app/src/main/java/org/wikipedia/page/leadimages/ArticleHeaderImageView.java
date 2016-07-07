@@ -82,15 +82,7 @@ public class ArticleHeaderImageView extends FrameLayout {
         // Clip the Ken Burns zoom animation applied to the image.
         setClipChildren(true);
 
-        inflate();
-        bind();
-    }
-
-    private void inflate() {
         inflate(getContext(), R.layout.view_article_header_image, this);
-    }
-
-    private void bind() {
         ButterKnife.bind(this);
     }
 }

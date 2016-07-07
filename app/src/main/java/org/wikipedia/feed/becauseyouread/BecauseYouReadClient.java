@@ -124,6 +124,7 @@ public class BecauseYouReadClient implements FeedClient {
     }
 
     public class Pages {
+        @SuppressWarnings("unused")
         @SerializedName("pages")
         private MwApiResultPage[] pages;
         public SearchResults results(Site site) {

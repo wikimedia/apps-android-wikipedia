@@ -25,11 +25,12 @@ public class ListCardItemView extends FrameLayout {
     public ListCardItemView(Context context) {
         super(context);
 
-        inflate(getContext(), R.layout.view_list_card_item, this);
-        setClickable(true);
-        ButterKnife.bind(this);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
+        setClickable(true);
+
+        inflate(getContext(), R.layout.view_list_card_item, this);
+        ButterKnife.bind(this);
     }
 
     @NonNull public ListCardItemView setImage(@Nullable Uri uri) {

@@ -412,10 +412,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="feed">Menu item label for discovering Feed cards.</string>
   <string name="view_card_footer_button">Feed card button label for requesting more similar cards.</string>
   <string name="most_read_list_card_title">Feed card title for recently popular articles.</string>
-  <string name="most_read_list_card_footer">Feed card button label for requesting more recently popular articles.</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
-  <string name="view_card_news_footer_text">Feed card button label for requesting more news articles.</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Phrase for one day ago.</item>
     <item quantity="other">Phrase for more than one day ago.</item>

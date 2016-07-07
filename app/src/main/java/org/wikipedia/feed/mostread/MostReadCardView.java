@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedViewCallback;
-import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleListCardView;
@@ -24,8 +23,6 @@ public class MostReadCardView extends PageTitleListCardView
 
     public void set(@NonNull MostReadListCard card) {
         header(card);
-        //TODO: add footer when ready.
-        //footer(card);
         set(new RecyclerAdapter(card.items(), getCallback()));
     }
 
@@ -38,13 +35,6 @@ public class MostReadCardView extends PageTitleListCardView
                 .setCard(card)
                 .setCallback(getCallback());
         header(header);
-    }
-
-    private void footer(@NonNull MostReadListCard card) {
-        CardFooterView footer = new CardFooterView(getContext())
-                .setText(card.footer());
-        footer.setVisibility(card.items().size() > 2 ? VISIBLE : GONE);
-        footer(footer);
     }
 
     private static class RecyclerAdapter extends PageTitleListCardView.RecyclerAdapter<MostReadItemCard> {

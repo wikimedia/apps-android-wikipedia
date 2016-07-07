@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -59,7 +60,7 @@ public class CardLargeHeaderView extends FrameLayout {
     }
 
     private void resetBackgroundColor() {
-        backgroundView.setBackgroundColor(getResources().getColor(R.color.gray_background));
+        backgroundView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.gray_background));
     }
 
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {

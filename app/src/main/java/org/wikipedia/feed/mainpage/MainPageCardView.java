@@ -24,8 +24,7 @@ public class MainPageCardView extends StaticCardView {
     }
 
     public void set(@NonNull final MainPageCard card) {
-        setTitle(String.format(getString(R.string.view_main_page_card_title),
-                WikipediaApp.getInstance().getAppLanguageLocalizedName(card.site().languageCode())));
+        setTitle(getString(R.string.view_main_page_card_title));
         setSubtitle(String.format(getString(R.string.view_main_page_card_subtitle),
                 DateFormat.getDateInstance().format(new Date())));
         setIcon(R.drawable.icon_feed_today);

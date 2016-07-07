@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -13,7 +12,6 @@ import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.util.DateUtil;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MostReadListCard extends ListCard<MostReadItemCard> {
@@ -32,14 +30,6 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
 
     @Nullable @Override public String subtitle() {
         return DateUtil.getFeedCardDateString(articles.date());
-    }
-
-    @Nullable @Override public String footer() {
-        return getString(R.string.most_read_list_card_footer);
-    }
-
-    @VisibleForTesting @NonNull Date date() {
-        return articles.date();
     }
 
     @NonNull private static List<MostReadItemCard> toItems(@NonNull List<MostReadArticle> articles,

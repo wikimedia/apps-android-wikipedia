@@ -116,14 +116,6 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_auto_upload_crash_reports, true);
     }
 
-    @Nullable public static String dismissedContinueReadingTitle() {
-        return getString(R.string.preference_key_dismissed_continue_reading_title, null);
-    }
-
-    public static void dismissContinueReadingTitle(@Nullable String title) {
-        setString(R.string.preference_key_dismissed_continue_reading_title, title);
-    }
-
     public static boolean isShowDeveloperSettingsEnabled() {
         return getBoolean(R.string.preference_key_show_developer_settings, isDevRelease());
     }

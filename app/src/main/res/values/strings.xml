@@ -330,10 +330,8 @@
     <string name="feed">Explore Wikipedia</string>
     <string name="view_card_footer_button">See more</string>
     <string name="most_read_list_card_title">Trending</string>
-    <string name="most_read_list_card_footer">MORE LIKE THIS</string>
     <string name="view_static_card_icon_content_description">Card icon</string>
     <string name="view_card_news_title">In the news</string>
-    <string name="view_card_news_footer_text">More current events</string>
     <plurals name="view_continue_reading_card_subtitle">
         <item quantity="one">1 day ago</item>
         <item quantity="other">%d days ago</item>

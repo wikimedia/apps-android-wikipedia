@@ -55,16 +55,10 @@ public abstract class ListCardView extends FeedCardView {
         largeHeaderView = view;
     }
 
-    protected void footer(@NonNull View view) {
-        ViewUtil.replace(footerView, view);
-        footerView = view;
-    }
-
     protected void initRecycler() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
-        recyclerView.setNestedScrollingEnabled(false);
     }
 
     protected abstract static class RecyclerAdapter<T>

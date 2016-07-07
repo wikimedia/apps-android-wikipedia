@@ -17,10 +17,6 @@ public abstract class Card extends BaseModel {
         return null;
     }
 
-    @Nullable public String footer() {
-        return null;
-    }
-
     @Nullable public String extract() {
         return null;
     }

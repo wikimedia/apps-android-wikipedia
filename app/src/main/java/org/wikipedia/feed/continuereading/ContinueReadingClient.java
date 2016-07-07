@@ -8,7 +8,6 @@ import org.wikipedia.Site;
 import org.wikipedia.feed.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -48,14 +47,5 @@ public class ContinueReadingClient implements FeedClient {
             lastPageReadTask.cancel();
             lastPageReadTask = null;
         }
-    }
-
-    @Nullable public String lastDismissedTitle() {
-        return Prefs.dismissedContinueReadingTitle();
-    }
-
-    // todo: [Feed] dismissal of the Continue Reading card should invoke this method.
-    public void dismissContinueReadingTitle(@Nullable String title) {
-        Prefs.dismissContinueReadingTitle(title);
     }
 }
