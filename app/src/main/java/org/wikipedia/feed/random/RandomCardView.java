@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.view.StaticCardView;
 import org.wikipedia.history.HistoryEntry;
@@ -23,8 +22,7 @@ public class RandomCardView extends StaticCardView {
 
     public void set(@NonNull final RandomCard card) {
         setTitle(getString(R.string.view_random_card_title));
-        setSubtitle(String.format(getString(R.string.view_random_card_subtitle),
-                WikipediaApp.getInstance().getAppLanguageLocalizedName(card.site().languageCode())));
+        setSubtitle(getString(R.string.view_random_card_subtitle));
         setIcon(R.drawable.icon_feed_random);
         setOnClickListener(new CallbackAdapter(card, callback));
     }
