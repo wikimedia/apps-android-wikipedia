@@ -98,8 +98,6 @@
     <color name="widget_title_text">#606060</color>
     <color name="widget_content_text">#303030</color>
 
-    <color name="view_big_picture_card_extract_dark">#ccc</color>
-    <color name="view_big_picture_card_extract_light">#555</color>
     <color name="reading_list_add_background">#4888</color>
     <color name="reading_list_delete_link">#f00</color>
 
@@ -107,4 +105,8 @@
 
     <color name="feed_window_background">#eaecf0</color>
     <color name="feed_featured_icon_background">#ffb50d</color>
+    <color name="view_big_picture_card_extract_dark">#ccc</color>
+    <color name="view_big_picture_card_extract_light">#555</color>
+    <color name="view_list_card_item_title_dark">#999</color>
+    <color name="view_list_card_item_title_light">#222</color>
 </resources>
