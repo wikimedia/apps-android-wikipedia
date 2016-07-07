@@ -402,8 +402,8 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="view_continue_reading_card_title">Label for card in the feed that reminds the user to continue reading an article from their browsing history.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
-  <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article. The \"%s\" symbol is replaced with a translation of the language name.</string>
-  <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language. The \"%s\" symbol is replaced with a translation of the language name.</string>
+  <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
+  <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_main_page_card_subtitle">Message indicating that the user will be shown the project\'s main page for the current date. The \"%s\" symbol is replaced with the current date.</string>
   <string name="menu_feed_card_dismiss">Menu item used for hiding a certain item in the list of feed cards.</string>
   <string name="menu_feed_card_dismissed">Message to inform the user that the selected item has been hidden.</string>
