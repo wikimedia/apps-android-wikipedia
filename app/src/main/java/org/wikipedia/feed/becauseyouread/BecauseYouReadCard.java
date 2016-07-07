@@ -36,4 +36,8 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     public String pageTitle() {
         return title.getDisplayText();
     }
+
+    @NonNull public PageTitle getPageTitle() {
+        return title;
+    }
 }

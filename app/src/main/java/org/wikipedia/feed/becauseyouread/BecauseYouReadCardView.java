@@ -3,6 +3,7 @@ package org.wikipedia.feed.becauseyouread;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedViewCallback;
@@ -37,10 +38,26 @@ public class BecauseYouReadCardView extends PageTitleListCardView
                 .setCallback(getCallback());
         header(header);
         CardLargeHeaderView largeHeader = new CardLargeHeaderView(getContext())
-                .setSubtitle(card.subtitle())
                 .setPageTitle(card.pageTitle())
+                .setSubtitle(card.subtitle())
                 .setImage(card.image());
+        largeHeader.setOnClickListener(new SelectPageCallbackAdapter(card));
         largeHeader(largeHeader);
+    }
+
+    private class SelectPageCallbackAdapter implements OnClickListener {
+        @NonNull private final BecauseYouReadCard card;
+
+        SelectPageCallbackAdapter(@NonNull BecauseYouReadCard card) {
+            this.card = card;
+        }
+
+        @Override public void onClick(View view) {
+            if (getCallback() != null) {
+                getCallback().onSelectPage(new HistoryEntry(card.getPageTitle(),
+                        HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
+            }
+        }
     }
 
     private static class RecyclerAdapter extends PageTitleListCardView.RecyclerAdapter<BecauseYouReadItemCard> {

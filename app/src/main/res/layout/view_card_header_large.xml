@@ -12,25 +12,20 @@
         <LinearLayout
             android:id="@+id/view_card_header_large_text_container"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:minHeight="100dp"
-            android:gravity="center_vertical"
             android:padding="16dp"
             android:orientation="vertical"
-            android:clickable="true"
             android:background="?attr/selectableItemBackground">
 
             <TextView
                 android:id="@+id/view_card_header_large_page_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:maxLines="2"
                 android:ellipsize="end"
-                android:fontFamily="serif"
                 android:textColor="@android:color/white"
                 tools:text="Lorem ipsum"/>
 
@@ -38,6 +33,7 @@
                 android:id="@+id/view_card_header_large_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:textColor="@android:color/white"
                 tools:text="Lorem ipsum"/>
 
@@ -46,8 +42,8 @@
         <org.wikipedia.views.FaceAndColorDetectImageView
             style="@style/SimpleDraweeViewPlaceholder"
             android:id="@+id/view_card_header_large_image"
-            android:layout_width="128dp"
-            android:layout_height="match_parent" />
+            android:layout_width="96dp"
+            android:layout_height="96dp" />
 
     </LinearLayout>
 
