@@ -14,9 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.wikipedia.BuildConfig;
+import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.NavMenuFunnel;
 import org.wikipedia.feed.FeedFragment;
@@ -26,7 +26,6 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.readinglist.ReadingListsFragment;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.UriUtil;
@@ -66,10 +65,6 @@ public class NavDrawerHelper {
         updateWikipediaZeroStatus();
         accountToggle = false;
         updateMenuGroupToggle();
-
-        if (!Prefs.enableFeed()) {
-            activity.getNavMenu().findItem(R.id.nav_item_feed).setVisible(false);
-        }
     }
 
     public NavigationView.OnNavigationItemSelectedListener getNewListener() {

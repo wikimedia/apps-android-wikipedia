@@ -13,7 +13,6 @@
     <string name="preferences_developer_feature_testing_heading">A/B feature testing</string>
     <string name="preferences_developer_restbase_heading">RESTBase access</string>
     <string name="preferences_developer_logging_heading">Logging</string>
-    <string name="preferences_developer_feed_heading">Feed</string>
     <string name="preferences_developer_retrofit_log_level">Retrofit Log Level (restart required)</string>
     <string name="preferences_developer_cookies_key">cookies</string>
     <string name="preferences_developer_edit_tokens_key">edit_tokens</string>

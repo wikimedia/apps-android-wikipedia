@@ -496,7 +496,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
-        } else if (!Prefs.enableFeed() || TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) == 0) {
+        } else if (TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) == 0) {
             loadMainPageIfNoTabs();
         } else {
             showFeed();

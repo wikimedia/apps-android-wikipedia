@@ -79,12 +79,6 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/preferences_developer_feed_heading">
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_enable_feed"
-            android:title="@string/preference_key_enable_feed" />
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
         <org.wikipedia.settings.LongPreference
             style="@style/LongPreference"

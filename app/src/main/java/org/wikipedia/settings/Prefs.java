@@ -146,10 +146,6 @@ public final class Prefs {
         remove(getEditTokenForWikiKey(wiki));
     }
 
-    public static boolean enableFeed() {
-        return getBoolean(R.string.preference_key_enable_feed, isDevRelease());
-    }
-
     public static void removeLoginUsername() {
         remove(R.string.preference_key_login_username);
     }
