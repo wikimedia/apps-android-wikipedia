@@ -322,6 +322,8 @@
     <string name="view_random_card_subtitle">Read a random article from Wikipedia</string>
     <string name="view_main_page_card_title">Today on Wikipedia</string>
     <string name="view_main_page_card_subtitle">Main page on %s</string>
+    <string name="view_featured_image_card_title">Picture of the day</string>
+    <string name="view_featured_image_card_download">Download</string>
     <string name="menu_feed_card_dismiss">Hide this card</string>
     <string name="menu_feed_card_dismissed">Card hidden.</string>
 

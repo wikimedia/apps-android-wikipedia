@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_featured_image_card_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/SimpleDraweeViewPlaceholder"
+            android:id="@+id/view_featured_image_card_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:actualImageScaleType="focusCrop" />
+
+        <TextView
+            android:id="@+id/featured_image_description_Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="10dp"
+            style="@style/RtlAwareTextView"
+            android:textColor="@android:color/white"
+            android:textIsSelectable="true"
+            tools:text="Description of featured image here"
+            android:ellipsize="end"
+            android:singleLine="true"/>
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/view_featured_image_card_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

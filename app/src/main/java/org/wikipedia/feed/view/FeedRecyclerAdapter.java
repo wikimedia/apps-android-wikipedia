@@ -21,6 +21,8 @@ import org.wikipedia.feed.mostread.MostReadCardView;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
 import org.wikipedia.feed.news.NewsListCardView;
+import org.wikipedia.feed.image.FeaturedImageCard;
+import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.progress.ProgressCard;
 import org.wikipedia.feed.progress.ProgressCardView;
 import org.wikipedia.feed.random.RandomCard;
@@ -39,6 +41,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
     private static final int VIEW_TYPE_RANDOM = 5;
     private static final int VIEW_TYPE_MAIN_PAGE = 6;
     private static final int VIEW_TYPE_NEWS = 7;
+    private static final int VIEW_TYPE_FEATURED_IMAGE = 8;
     private static final int VIEW_TYPE_PROGRESS = 99;
 
     @NonNull private FeedCoordinatorBase coordinator;
@@ -63,6 +66,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
             return VIEW_TYPE_NEWS;
         } else if (card instanceof MainPageCard) {
             return VIEW_TYPE_MAIN_PAGE;
+        } else if (card instanceof FeaturedImageCard) {
+            return VIEW_TYPE_FEATURED_IMAGE;
         } else {
             throw new IllegalStateException("Unknown type=" + card.getClass());
         }
@@ -110,6 +115,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
             ((NewsListCardView) view).set((NewsListCard) item);
         } else if (view instanceof MainPageCardView) {
             ((MainPageCardView) view).set((MainPageCard) item);
+        } else if (view instanceof FeaturedImageCardView) {
+            ((FeaturedImageCardView) view).set((FeaturedImageCard) item);
         }
     }
 
@@ -137,6 +144,8 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
                 return new NewsListCardView(context).setCallback(callback);
             case VIEW_TYPE_MAIN_PAGE:
                 return new MainPageCardView(context).setCallback(callback);
+            case VIEW_TYPE_FEATURED_IMAGE:
+                return new FeaturedImageCardView(context).setCallback(callback);
             default:
                 throw new IllegalArgumentException("viewType=" + viewType);
         }

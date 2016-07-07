@@ -8,20 +8,20 @@
     android:orientation="vertical">
 
     <View
-        android:id="@+id/view_big_picture_card_header"
+        android:id="@+id/view_featured_article_card_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
     <com.facebook.drawee.view.SimpleDraweeView
         style="@style/SimpleDraweeViewPlaceholder"
-        android:id="@+id/view_big_picture_card_image"
+        android:id="@+id/view_featured_article_card_image"
         android:layout_width="match_parent"
         android:layout_height="192dp"
         app:actualImageScaleType="focusCrop" />
 
     <LinearLayout
-        android:id="@+id/view_big_picture_card_text_container"
+        android:id="@+id/view_featured_article_card_text_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -32,7 +32,7 @@
 
         <TextView
             style="@style/RtlAwareTextView"
-            android:id="@+id/view_big_picture_card_article_title"
+            android:id="@+id/view_featured_article_card_article_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="12dp"
@@ -47,7 +47,7 @@
 
         <org.wikipedia.views.GoneIfEmptyTextView
             style="@style/RtlAwareTextView"
-            android:id="@+id/view_big_picture_card_article_subtitle"
+            android:id="@+id/view_featured_article_card_article_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/gray_disabled"
@@ -60,11 +60,10 @@
 
         <TextView
             style="@style/RtlAwareTextView"
-            android:id="@+id/view_big_picture_card_extract"
+            android:id="@+id/view_featured_article_card_extract"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"
             android:maxLines="4"
             android:ellipsize="end"
             android:lineSpacingMultiplier="1.4"
@@ -75,7 +74,7 @@
     </LinearLayout>
 
     <View
-        android:id="@+id/view_big_picture_card_footer"
+        android:id="@+id/view_featured_article_card_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" />

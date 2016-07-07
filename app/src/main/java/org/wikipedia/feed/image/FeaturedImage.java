@@ -1,0 +1,52 @@
+package org.wikipedia.feed.image;
+
+import android.support.annotation.NonNull;
+
+import org.wikipedia.feed.model.Thumbnail;
+
+public final class FeaturedImage {
+    @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private Thumbnail thumbnail;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private Thumbnail image;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private Description description;
+
+    @NonNull
+    public String title() {
+        return title;
+    }
+
+    @NonNull
+    public Thumbnail thumbnail() {
+        return thumbnail;
+    }
+
+    @NonNull
+    public Thumbnail image() {
+        return image;
+    }
+
+    @NonNull
+    public Description description() {
+        return description;
+    }
+
+    /**
+     * An object containing a description of the featured image and a language code for that description.
+     *
+     * The content service gets all available translations of the featured image description and
+     * returns the translation for the request Site language, if available.  Otherwise it defaults
+     * to providing the English translation.
+     */
+    public static class Description {
+        @SuppressWarnings("unused,NullableProblems") @NonNull private String text;
+        @SuppressWarnings("unused,NullableProblems") @NonNull private String lang;
+
+        public String text() {
+            return text;
+        }
+
+        public String lang() {
+            return lang;
+        }
+    }
+}

@@ -3,21 +3,39 @@ package org.wikipedia.feed.featured;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.view.BigPictureCardView;
 import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.FeaturedCardFooterView;
+import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
+import org.wikipedia.views.ViewUtil;
 
-public class FeaturedArticleCardView extends BigPictureCardView
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class FeaturedArticleCardView extends FeedCardView
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
+    @BindView(R.id.view_featured_article_card_header) View headerView;
+    @BindView(R.id.view_featured_article_card_footer) View footerView;
+    @BindView(R.id.view_featured_article_card_image) SimpleDraweeView imageView;
+    @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
+    @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
+    @BindView(R.id.view_featured_article_card_extract) TextView extractView;
+    @BindView(R.id.view_featured_article_card_text_container) View textContainerView;
+
     private FeaturedArticleCard card;
 
     public FeaturedArticleCardView(Context context) {
         super(context);
+        inflate(getContext(), R.layout.view_card_featured_article, this);
+        ButterKnife.bind(this);
     }
 
     public void set(@NonNull FeaturedArticleCard card) {
@@ -38,6 +56,22 @@ public class FeaturedArticleCardView extends BigPictureCardView
         onClickListener(new CardClickListener());
     }
 
+    private void articleTitle(@NonNull String articleTitle) {
+        articleTitleView.setText(articleTitle);
+    }
+
+    private void articleSubtitle(@Nullable String articleSubtitle) {
+        articleSubtitleView.setText(articleSubtitle);
+    }
+
+    private void extract(@Nullable String extract) {
+        extractView.setText(extract);
+    }
+
+    private void onClickListener(@Nullable OnClickListener listener) {
+        textContainerView.setOnClickListener(listener);
+    }
+
     private void header(@NonNull FeaturedArticleCard card) {
         CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
@@ -50,9 +84,28 @@ public class FeaturedArticleCardView extends BigPictureCardView
     }
 
     private void footer() {
-        footer(new FeaturedCardFooterView(getContext())
+        footer(new FeaturedArticleCardFooterView(getContext())
                 .onSaveListener(new CardSaveListener())
                 .onShareListener(new CardShareListener()));
+    }
+
+    private void image(@Nullable Uri uri) {
+        if (uri == null) {
+            imageView.setVisibility(GONE);
+        } else {
+            imageView.setVisibility(VISIBLE);
+            imageView.setImageURI(uri);
+        }
+    }
+
+    private void header(@NonNull View view) {
+        ViewUtil.replace(headerView, view);
+        headerView = view;
+    }
+
+    private void footer(@NonNull View view) {
+        ViewUtil.replace(footerView, view);
+        footerView = view;
     }
 
     private class CardClickListener implements OnClickListener {
