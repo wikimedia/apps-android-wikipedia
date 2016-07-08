@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -58,6 +59,7 @@ import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.feed.FeedFragment;
+import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
@@ -69,6 +71,7 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageLoadStrategy;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.page.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.random.RandomHandler;
@@ -84,6 +87,7 @@ import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ApiUtil;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
@@ -91,6 +95,7 @@ import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.zero.ZeroConfig;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -870,6 +875,27 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     @Override
     public void onFeedNewsItemSelected(NewsItemCard card) {
         startActivity(NewsActivity.newIntent(app, card.item(), card.site()));
+    }
+
+    @Override
+    public void onFeedShareImage(final FeaturedImageCard card) {
+        final String thumbUrl = card.baseImage().thumbnail().source().toString();
+        final String fullSizeUrl = card.baseImage().image().source().toString();
+        new ImagePipelineBitmapGetter(this, thumbUrl){
+            @Override
+            public void onSuccess(@Nullable Bitmap bitmap) {
+                if (bitmap != null) {
+                    ShareUtil.shareImage(MainActivity.this,
+                            bitmap,
+                            new File(thumbUrl).getName(),
+                            getString(R.string.feed_featured_image_share_subject) + " | "
+                                    + DateUtil.getFeedCardDateString(card.date().baseCalendar()),
+                            fullSizeUrl);
+                } else {
+                    FeedbackUtil.showMessage(MainActivity.this, getString(R.string.gallery_share_error, card.baseImage().title()));
+                }
+            }
+        }.get();
     }
 
     private void loadMainPageIfNoTabs() {

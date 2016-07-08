@@ -22,6 +22,16 @@ public class FeaturedImageCard extends Card {
         this.date = date;
     }
 
+    @NonNull
+    public FeaturedImage baseImage() {
+        return this.featuredImage;
+    }
+
+    @NonNull
+    public UtcDate date() {
+        return date;
+    }
+
     @Override
     @NonNull
     public String title() {

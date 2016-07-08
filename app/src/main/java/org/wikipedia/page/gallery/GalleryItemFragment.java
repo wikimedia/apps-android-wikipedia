@@ -41,6 +41,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.samples.zoomable.ZoomableDraweeView;
 
+import java.io.File;
 import java.util.Map;
 
 public class GalleryItemFragment extends Fragment {
@@ -399,7 +400,7 @@ public class GalleryItemFragment extends Fragment {
                 if (bitmap != null) {
                     ShareUtil.shareImage(parentActivity,
                             bitmap,
-                            new java.io.File(galleryItem.getUrl()).getName(),
+                            new File(galleryItem.getUrl()).getName(),
                             pageTitle.getDisplayText(),
                             imageTitle.getCanonicalUri());
                 } else {
