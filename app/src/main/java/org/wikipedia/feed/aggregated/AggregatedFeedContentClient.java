@@ -6,13 +6,13 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.Site;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
-import org.wikipedia.feed.UtcDate;
 import org.wikipedia.feed.FeedClient;
+import org.wikipedia.feed.UtcDate;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
+import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.mostread.MostReadListCard;
 import org.wikipedia.feed.news.NewsListCard;
-import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
@@ -42,7 +42,7 @@ public class AggregatedFeedContentClient implements FeedClient {
                 String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), "http", site.authority()));
         AggregatedFeedContentClient.Service service = retrofit.create(Service.class);
         call = service.get(DATE.year(), DATE.month(), DATE.date());
-        call.enqueue(new CallbackAdapter(cb, site));
+        call.enqueue(new CallbackAdapter(cb, site, age));
     }
 
     @Override
@@ -73,10 +73,12 @@ public class AggregatedFeedContentClient implements FeedClient {
     private static class CallbackAdapter implements retrofit2.Callback<AggregatedFeedContent> {
         @NonNull private final Callback cb;
         @NonNull private final Site site;
+        private final int age;
 
-        CallbackAdapter(@NonNull Callback cb, @NonNull Site site) {
+        CallbackAdapter(@NonNull Callback cb, @NonNull Site site, int age) {
             this.cb = cb;
             this.site = site;
+            this.age = age;
         }
 
         @Override public void onResponse(Call<AggregatedFeedContent> call,
@@ -87,7 +89,8 @@ public class AggregatedFeedContentClient implements FeedClient {
                 if (content.tfa() != null) {
                     cards.add(new FeaturedArticleCard(content.tfa(), DATE, site));
                 }
-                if (content.news() != null) {
+                // todo: remove age check when news endpoint provides dated content, T139481.
+                if (age == 0 && content.news() != null) {
                     cards.add(new NewsListCard(content.news(), DATE, site));
                 }
                 if (content.mostRead() != null) {
