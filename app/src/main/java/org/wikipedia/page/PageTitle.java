@@ -177,7 +177,11 @@ public class PageTitle implements Parcelable {
     }
 
     public boolean isMainPage() {
-        return properties != null && properties.isMainPage();
+        if (properties != null) {
+            return properties.isMainPage();
+        }
+        String mainPageTitle = MainPageNameData.valueFor(getSite().languageCode());
+        return mainPageTitle.equals(getDisplayText());
     }
 
     public boolean isDisambiguationPage() {

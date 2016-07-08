@@ -36,7 +36,7 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
             if (c.moveToPosition(age)) {
                 HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
                 entry.getTitle().setThumbUrl(PageImageHistoryContract.Col.IMAGE_NAME.val(c));
-                return entry.getTitle();
+                return entry.getTitle().isMainPage() ? null : entry.getTitle();
             }
             return null;
         } finally {

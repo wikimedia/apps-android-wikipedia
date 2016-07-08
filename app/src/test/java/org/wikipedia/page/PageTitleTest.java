@@ -9,6 +9,8 @@ import org.wikipedia.test.TestRunner;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @RunWith(TestRunner.class) public class PageTitleTest {
     @Test public void testEquals() throws Throwable {
@@ -99,6 +101,40 @@ import static org.hamcrest.Matchers.nullValue;
     @Test public void testMainPage() throws Throwable {
         Site enwiki = new Site("en.wikipedia.org");
         assertThat(new PageTitle("", enwiki), is(new PageTitle(MainPageNameData.valueFor("en"), enwiki)));
+    }
+
+    @Test public void testIsMainPageNoTitleNoProps() throws Throwable {
+        final String text = null;
+        Site site = Site.forLanguageCode("test");
+        final String thumbUrl = null;
+        final String desc = null;
+        final PageProperties props = null;
+        PageTitle subject = new PageTitle(text, site, thumbUrl, desc, props);
+
+        assertThat(subject.isMainPage(), is(true));
+    }
+
+    @Test public void testIsMainPageTitleNoProps() throws Throwable {
+        String text = "text";
+        Site site = Site.forLanguageCode("test");
+        final String thumbUrl = null;
+        final String desc = null;
+        final PageProperties props = null;
+        PageTitle subject = new PageTitle(text, site, thumbUrl, desc, props);
+
+        assertThat(subject.isMainPage(), is(false));
+    }
+
+    @Test public void testIsMainPageProps() throws Throwable {
+        String text = "text";
+        Site site = Site.forLanguageCode("test");
+        final String thumbUrl = null;
+        final String desc = null;
+        PageProperties props = mock(PageProperties.class);
+        when(props.isMainPage()).thenReturn(true);
+        PageTitle subject = new PageTitle(text, site, thumbUrl, desc, props);
+
+        assertThat(subject.isMainPage(), is(true));
     }
 
     /** https://bugzilla.wikimedia.org/66151 */
