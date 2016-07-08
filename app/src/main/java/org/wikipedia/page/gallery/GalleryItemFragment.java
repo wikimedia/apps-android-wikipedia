@@ -1,5 +1,6 @@
 package org.wikipedia.page.gallery;
 
+import org.wikipedia.Constants;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -8,8 +9,6 @@ import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Animatable;
@@ -19,7 +18,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,13 +42,14 @@ import com.facebook.samples.zoomable.ZoomableDraweeView;
 import java.io.File;
 import java.util.Map;
 
+import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
+import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
+
 public class GalleryItemFragment extends Fragment {
     public static final String TAG = "GalleryItemFragment";
     public static final String ARG_PAGETITLE = "pageTitle";
     public static final String ARG_MEDIATITLE = "imageTitle";
     public static final String ARG_MIMETYPE = "mimeType";
-    private static final int WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST = 44;
-
 
     private WikipediaApp app;
     private GalleryActivity parentActivity;
@@ -178,7 +177,7 @@ public class GalleryItemFragment extends Fragment {
                 }
                 return true;
             case R.id.menu_gallery_save:
-                checkPermissionsToSaveImage();
+                handleImageSaveRequest();
                 return true;
             case R.id.menu_gallery_share:
                 shareImage();
@@ -212,6 +211,19 @@ public class GalleryItemFragment extends Fragment {
                 }
             }
         }
+    }
+
+    private void handleImageSaveRequest() {
+        if (!(hasWriteExternalStoragePermission(this.getActivity()))) {
+            requestWriteExternalStoragePermission();
+        } else {
+            saveImage();
+        }
+    }
+
+    private void requestWriteExternalStoragePermission() {
+        requestWriteStorageRuntimePermissions(this,
+                Constants.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST);
     }
 
     /**
@@ -410,30 +422,12 @@ public class GalleryItemFragment extends Fragment {
         }.get();
     }
 
-    /**
-     * Checks runtime permissions first. If allowed it then proceeds with saving the image
-     * to the MediaStore.
-     */
-    private void checkPermissionsToSaveImage() {
-        if (ContextCompat.checkSelfPermission(getActivity(),
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requestWriteStorageRuntimePermissions(WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST);
-        } else {
-            saveImage();
-        }
-    }
-
-    private void requestWriteStorageRuntimePermissions(int requestCode) {
-        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
-        // once permission is granted/denied it will continue with onRequestPermissionsResult
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         switch (requestCode) {
-            case WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST:
+            case Constants.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST:
                 if (PermissionUtil.isPermitted(grantResults)) {
                     saveImage();
                 } else {

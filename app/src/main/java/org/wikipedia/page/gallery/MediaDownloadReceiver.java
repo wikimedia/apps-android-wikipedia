@@ -10,8 +10,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;
 
@@ -26,6 +29,12 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         downloadManager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
+    public void download(FeaturedImage featuredImage) {
+        String filename = FileUtil.sanitizeFileName(featuredImage.title());
+        String targetDirectory = Environment.DIRECTORY_PICTURES;
+        performDownloadRequest(featuredImage.image().source(), targetDirectory, filename, null);
+    }
+
     public void download(GalleryItem galleryItem) {
         String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(galleryItem.getName()));
         String targetDirectory;
@@ -38,11 +47,20 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         } else {
             targetDirectory = Environment.DIRECTORY_DOWNLOADS;
         }
-        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(galleryItem.getUrl()));
-        request.setDestinationInExternalFilesDir(activity, targetDirectory, saveFilename);
-        request.setMimeType(galleryItem.getMimeType());
+        performDownloadRequest(Uri.parse(galleryItem.getUrl()), targetDirectory, saveFilename,
+                galleryItem.getMimeType());
+    }
+
+    private void performDownloadRequest(@NonNull Uri uri, @NonNull String targetDirectory,
+                                        @NonNull String filename, @Nullable String mimeType) {
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+        request.setDestinationInExternalFilesDir(activity, targetDirectory, filename);
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        if (mimeType != null) {
+            request.setMimeType(mimeType);
+        }
         request.allowScanningByMediaScanner();
+
         downloadManager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
         downloadManager.enqueue(request);
         FeedbackUtil.showMessage(activity, R.string.gallery_save_progress);
