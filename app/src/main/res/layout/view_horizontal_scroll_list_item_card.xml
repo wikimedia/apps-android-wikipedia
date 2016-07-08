@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="180dp"
     android:layout_height="208dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/selectableItemBackground">
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/horizontal_scroll_list_item_image"
