@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
-import android.text.Spanned;
 import android.widget.TextView;
 
 import org.wikipedia.R;
@@ -36,7 +35,7 @@ public class HorizontalScrollingListCardItemView extends CardView {
         return callback;
     }
 
-    public void setText(@NonNull Spanned text) {
+    public void setText(@NonNull CharSequence text) {
         textView.setText(text);
         RichTextUtil.removeUnderlinesFromLinksAndMakeBold(textView);
     }
