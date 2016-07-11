@@ -24,7 +24,7 @@ public class FeaturedImageCard extends Card {
 
     @NonNull
     public FeaturedImage baseImage() {
-        return this.featuredImage;
+        return featuredImage;
     }
 
     @NonNull

@@ -60,6 +60,7 @@ import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImageCard;
+import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
@@ -72,6 +73,7 @@ import org.wikipedia.page.PageLoadStrategy;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.gallery.ImagePipelineBitmapGetter;
+import org.wikipedia.page.gallery.MediaDownloadReceiver;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.random.RandomHandler;
@@ -89,6 +91,7 @@ import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
@@ -101,6 +104,8 @@ import java.util.concurrent.TimeUnit;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
+import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
+import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 
 public class MainActivity extends ThemedActionBarActivity implements FeedFragment.Callback {
 
@@ -148,6 +153,11 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     private WikipediaZeroUsageFunnel zeroFunnel;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this);
     private MainActivityToolbarCoordinator toolbarCoordinator;
+
+    // The permissions request API doesn't take a callback, so in the event we have to
+    // ask for permission to download a featured image from the feed, we'll have to hold
+    // the image we're waiting for permission to download as a bit of state here. :(
+    private FeaturedImage pendingDownloadImage;
 
     private DialogInterface.OnDismissListener listDialogDismissListener = new DialogInterface.OnDismissListener() {
         @Override
@@ -881,7 +891,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     public void onFeedShareImage(final FeaturedImageCard card) {
         final String thumbUrl = card.baseImage().thumbnail().source().toString();
         final String fullSizeUrl = card.baseImage().image().source().toString();
-        new ImagePipelineBitmapGetter(this, thumbUrl){
+        new ImagePipelineBitmapGetter(this, thumbUrl) {
             @Override
             public void onSuccess(@Nullable Bitmap bitmap) {
                 if (bitmap != null) {
@@ -896,6 +906,25 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
                 }
             }
         }.get();
+    }
+
+    @Override
+    public void onFeedDownloadImage(@NonNull FeaturedImage image) {
+        if (!(hasWriteExternalStoragePermission(this))) {
+            setPendingDownload(image);
+            requestWriteExternalStoragePermission();
+        } else {
+            download(image);
+        }
+    }
+
+    private void download(@NonNull FeaturedImage image) {
+        new MediaDownloadReceiver(MainActivity.this).download(image);
+    }
+
+    private void requestWriteExternalStoragePermission() {
+        requestWriteStorageRuntimePermissions(this,
+                Constants.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST);
     }
 
     private void loadMainPageIfNoTabs() {
@@ -1191,5 +1220,33 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
                 new ComponentName(this, WidgetProviderFeaturedPage.class));
         widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         sendBroadcast(widgetIntent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case Constants.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST:
+                if (PermissionUtil.isPermitted(grantResults)) {
+                    if (pendingDownloadImage != null) {
+                        new MediaDownloadReceiver(this).download(pendingDownloadImage);
+                        setPendingDownload(null);
+                    }
+                } else {
+                    setPendingDownload(null);
+                    L.i("Write permission was denied by user");
+                    FeedbackUtil.showMessage(this,
+                            R.string.gallery_save_image_write_permission_rationale);
+                }
+                break;
+            default:
+                setPendingDownload(null);
+                throw new RuntimeException("unexpected permission request code " + requestCode);
+        }
+    }
+
+    private void setPendingDownload(@Nullable FeaturedImage image) {
+        pendingDownloadImage = image;
     }
 }
