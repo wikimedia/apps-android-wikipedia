@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedRecyclerAdapter;
 import org.wikipedia.feed.news.NewsItemCard;
@@ -61,6 +62,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         void onFeedAddPageToList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsItemCard card);
+        void onFeedShareImage(FeaturedImageCard card);
     }
 
     public static FeedFragment newInstance() {
@@ -218,6 +220,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         public void onNewsItemSelected(@NonNull NewsItemCard card) {
             if (getCallback() != null) {
                 getCallback().onFeedNewsItemSelected(card);
+            }
+        }
+
+        @Override
+        public void onShareImage(@NonNull FeaturedImageCard card) {
+            if (getCallback() != null) {
+                getCallback().onFeedShareImage(card);
             }
         }
     }

@@ -327,6 +327,7 @@
     <string name="menu_feed_card_dismiss">Hide this card</string>
     <string name="menu_feed_card_dismissed">Card hidden.</string>
 
+    <string name="feed_featured_image_share_subject">Featured image from Wikimedia Commons</string>
     <string name="feed">Explore Wikipedia</string>
     <string name="view_card_footer_button">See more</string>
     <string name="most_read_list_card_title">Trending</string>

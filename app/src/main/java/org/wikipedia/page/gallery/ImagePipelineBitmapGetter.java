@@ -22,7 +22,7 @@ public abstract class ImagePipelineBitmapGetter {
     private Context context;
     private String imageUrl;
 
-    ImagePipelineBitmapGetter(Context context, String imageUrl) {
+    public ImagePipelineBitmapGetter(Context context, String imageUrl) {
         this.context = context;
         this.imageUrl = imageUrl;
     }
