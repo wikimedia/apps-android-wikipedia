@@ -1,10 +1,13 @@
 package org.wikipedia.richtext;
 
+import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.SpannedString;
+import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.widget.TextView;
 
@@ -123,8 +126,14 @@ public final class RichTextUtil {
         }
     }
 
-    public static String stripHtml(String html) {
+    public static String stripHtml(@NonNull String html) {
         return Html.fromHtml(html).toString();
+    }
+
+
+    public static CharSequence remove(@NonNull CharSequence text, @IntRange(from = 1) int start, int end) {
+        return new SpannedString(TextUtils.concat(text.subSequence(0, start - 1),
+                text.subSequence(end, text.length())));
     }
 
     private RichTextUtil() { }
