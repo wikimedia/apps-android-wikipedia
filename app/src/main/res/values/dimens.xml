@@ -94,9 +94,9 @@
     <!-- The Feed -->
     <dimen name="view_feed_header_height">232dp</dimen>
     <dimen name="view_feed_overlap_top">84dp</dimen>
-    <dimen name="view_feed_min_column_width">229.3dp</dimen>
-    <dimen name="view_list_card_margin_vertical">4dp</dimen>
-    <dimen name="view_list_card_margin_horizontal">10.6dp</dimen>
+    <dimen name="view_feed_min_column_width">320dp</dimen>
+    <dimen name="view_list_card_margin_vertical">5dp</dimen>
+    <dimen name="view_list_card_margin_horizontal">7dp</dimen>
     <dimen name="view_list_card_item_margin">16dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
