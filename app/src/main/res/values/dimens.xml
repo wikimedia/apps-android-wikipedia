@@ -92,7 +92,7 @@
     <dimen name="view_article_menu_bar_button_padding">12dp</dimen>
 
     <!-- The Feed -->
-    <dimen name="view_feed_header_height">232dp</dimen>
+    <dimen name="view_feed_header_height">240dp</dimen>
     <dimen name="view_feed_overlap_top">84dp</dimen>
     <dimen name="view_feed_min_column_width">229.3dp</dimen>
     <dimen name="view_list_card_margin_vertical">4dp</dimen>

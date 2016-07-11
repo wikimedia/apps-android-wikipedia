@@ -32,10 +32,11 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
+                    android:scaleType="center"
                     android:fitsSystemWindows="true"
-                    android:src="@drawable/feed_app_bar"
+                    android:background="@drawable/feed_header_background"
                     android:contentDescription="@null"
+                    app:srcCompat="@drawable/feed_header_wordmark"
                     app:layout_collapseMode="parallax"
                     />
 
