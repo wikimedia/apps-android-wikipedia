@@ -17,23 +17,28 @@
   <string name="dialog_message_clear_history">Ez a művelet töröl minden böngészési előzményt és bezár minden nyitott fület. Biztosan ezt szeretnéd?</string>
   <string name="nav_item_saved_pages">Elmentett lapok</string>
   <string name="share_via">Megosztás ezzel:</string>
+  <string name="search_redirect_from">%s szócikkből átirányítva</string>
   <string name="menu_page_show_tabs">Fülek megjelenítése</string>
   <string name="menu_page_other_languages">Nyelvváltás</string>
   <string name="menu_page_find_in_page">Keresés a lapon</string>
   <string name="menu_page_content_issues">Tartalmi problémák</string>
   <string name="menu_page_similar_titles">Hasonló címek</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
+  <string name="menu_page_add_to_list">Hozzáadás az olvasási listához</string>
   <string name="menu_page_share">Link megosztása</string>
   <string name="menu_long_press_open_page">Megnyitás</string>
   <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
   <string name="menu_long_press_copy_page">Hivatkozás címének másolása</string>
   <string name="menu_text_select_copy">Másol</string>
+  <string name="menu_text_select_define">Definiálás</string>
   <string name="menu_text_select_share">Megosztás</string>
+  <string name="menu_text_select_edit_here">Szerkesztés itt</string>
   <string name="nav_item_nearby">Közeli</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Közelíts egy helyre a térképen</string>
   <string name="last_updated_text">Utoljára frissítve: %s</string>
+  <string name="talk_page_link_text">Vita</string>
   <string name="content_license_html">A tartalom a &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt elérhető, ha nincs másképp feltüntetve</string>
   <string name="edit_save_action_license_logged_in">A mentéssel elfogadod a &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
   <string name="edit_save_action_license_anon">A mentéssel elfogadod a &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
@@ -138,10 +143,12 @@
   <string name="about_description">A Wikipédia appról</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
-  <string name="about_libraries_heading" fuzzy="true">felhasznált könyvtárak</string>
-  <string name="about_contributors_heading" fuzzy="true">közreműködők</string>
-  <string name="about_translators_heading" fuzzy="true">fordítók</string>
+  <string name="about_libraries_heading">Felhasznált könyvtárak</string>
+  <string name="about_contributors_heading">Közreműködők</string>
+  <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ez az alkalmazást önkéntesek fordítótták a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
+  <string name="about_app_license_heading">Licenc</string>
+  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. Biztos mentés nélkül akarsz kilépni?</string>
@@ -159,6 +166,7 @@
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
   <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan el akarod menteni?</string>
+  <string name="abusefilter_title_disallow">Nem mentheted el ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
   <string name="dialog_page_issues">A lap problémái</string>
   <string name="button_page_issues">A lap problémái</string>
   <string name="text_size_select">Betűméret</string>
@@ -177,24 +185,39 @@
   <string name="widget_name_featured_page">Wikipédia kiemelt oldal</string>
   <string name="widget_title_featured_page">Mai kiemelt lap</string>
   <string name="widget_name_search">Wikipédia keresés</string>
+  <string name="wiktionary_no_definitions_found">Nem találhatók definíciók.</string>
   <string name="alpha_update_notification_title">Új alfa frissítés érhető el</string>
   <string name="alpha_update_notification_text">Koppints a letöltéshez</string>
   <string name="dialog_close_description">Bezár</string>
   <string name="preference_title_show_images">Képek megjelenítése</string>
+  <string name="preference_summary_show_images">Képek betöltésének engedélyezése vagy letiltása. Kapcsold ki, ha az internetkapcsolatod lassú vagy az adatcsomagod korlátozott.</string>
   <string name="read_more_section">További információ</string>
+  <string name="menu_gallery_visit_page">Fájl leírólapjának megnyitása</string>
   <string name="gallery_error_draw_failed">Nem tudta megrajzolni a képet.</string>
+  <string name="license_title">A(z) %s könyvtár licencének szövege</string>
   <string name="gallery_menu_share">Megosztás</string>
+  <string name="gallery_share_error">A kép megosztása sikertelen: %s</string>
   <string name="gallery_menu_save">Mentés az eszközre</string>
+  <string name="gallery_save_progress">Fájl letöltése folyamatban…</string>
   <string name="gallery_save_success">A fájl sikeresen mentve.</string>
+  <string name="gallery_error_video_failed">A videó lejátszása sikertelen.</string>
+  <string name="gallery_save_image_write_permission_rationale">Képek elmentéséhez szükséges engedély az eszközöd tárhelyére íráshoz. Próbáld újra és add meg a szükséges engedélyt.</string>
+  <string name="err_cannot_save_file">Fájl mentése sikertelen</string>
+  <string name="snippet_share_intro">„%1$s” a @Wikipedia szabad enciklopédiában: %2$s</string>
+  <string name="expand_refs">Érintsd meg a kinyitáshoz</string>
   <string name="share_snippet_button">Megosztás képként</string>
   <string name="share_normal_button">Megosztás szövegként</string>
   <string name="snippet_share_preview_image_desc">Előnézeti kép</string>
   <string name="cc_logo">Creative Commons licenc</string>
   <string name="captcha_image">Captcha kép</string>
+  <string name="gallery_fair_use_license">Fair use (méltányos használat)</string>
   <string name="gallery_uploader_unknown">Feltöltő ismeretlen</string>
   <string name="menu_new_tab">Új lap</string>
   <string name="button_close_tab">Lap bezárása</string>
+  <string name="tool_tip_select_text">Érints meg hosszan egy szövegdarabot a kijelöléshez, hogy másolhasd vagy megoszthasd.</string>
+  <string name="tool_tip_share">Egy érdekes adat kijelölése után próbáld meg megosztani a kedvenc hálózataidban!</string>
   <string name="page_view_in_browser">Lap megtekintés böngészőben</string>
+  <string name="tool_tip_toc_button">A tartalomjegyzék bármikor megjeleníthető ennek az ikonnak a megérintésével vagy a képernyő jobb széléről legyintéssel.</string>
   <string name="error_server_response">A kiszolgáló nem tudta befejezni a kérést.</string>
   <string name="error_response_malformed">Válasz a kiszolgálótól nincs megfelelően formázva.</string>
   <string name="error_unknown">Ismeretlen hiba történt.</string>
@@ -203,23 +226,69 @@
   <string name="address_copied">Cím másolva a vágólapra.</string>
   <string name="text_copied">Szöveg másolva a vágólapra.</string>
   <string name="button_continue_to_article">Olvasd el a cikket</string>
+  <string name="button_get_directions">Útvonalterv</string>
+  <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
+  <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
+  <string name="preference_summary_show_link_previews">A szócikk rövid előnézetének megjelenítése linkek megérintésekor.</string>
+  <string name="nav_item_donate">Támogasd a Wikipédiát!</string>
+  <string name="error_voice_search_not_available">Sajnáljuk, a hangfelismerés nem elérhető.</string>
+  <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
+  <string name="crash_report_dialog_text">Szeretnél küldeni egy összeomlási jelentést a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy a Wikimédia átnézhesse az összeomlást és kijavíthassa az ezt okozó hibát?</string>
   <string name="crash_report_dialog_dont_send_button">Kihagy</string>
   <string name="crash_report_dialog_always_send_button">Mindig küld</string>
   <string name="crash_report_dialog_send_button">Küldés</string>
   <string name="crash_report_activity_title">Alkalmazás hiba</string>
+  <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.
+
+Szeretnéd újrakezdeni, vagy kilépnél?</string>
+  <string name="crash_report_relaunch">Újrakezdés</string>
   <string name="crash_report_quit">Kilépés</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Cikk mentése a későbbi offline olvasáshoz</string>
+  <string name="article_menu_bar_bookmark">Cikk hozzáadása egy olvasólistához</string>
   <string name="article_menu_bar_share">Ossza meg a cikk linkjét</string>
+  <string name="article_menu_bar_navigate">Navigálás a szócikk helyéhez</string>
+  <string name="nav_item_reading_lists">Olvasólisták</string>
+  <string name="reading_list_untitled">Névtelen</string>
+  <string name="reading_list_save_to">Mentés olvasólistára</string>
+  <string name="reading_list_create_new">Új létrehozása</string>
+  <string name="reading_list_added_to_named">Hozzáadva a(z) %s olvasólistához.</string>
+  <string name="reading_list_added_to_unnamed">Hozzáadva az olvasólistához.</string>
+  <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
+  <string name="reading_list_added_view_button">Lista megtekintése</string>
   <string name="reading_list_item_count_singular">1 szócikk</string>
   <string name="reading_list_item_count_plural">%s szócikk</string>
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
+  <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>
+  <string name="reading_list_sort_by_recent">Rendezés a legújabb szerint</string>
+  <string name="reading_list_sort_by_recent_desc">Rendezés a legrégebbi szerint</string>
+  <string name="reading_list_menu_edit">Az olvasólista részleteinek szerkesztése</string>
+  <string name="reading_list_menu_delete">Az olvasólista törlése</string>
+  <string name="reading_list_name_sample">Saját olvasólista</string>
+  <string name="reading_list_name_hint">A lista neve</string>
+  <string name="reading_list_description_hint">Leírás (opcionális)</string>
+  <string name="reading_list_save_for_offline">Elérhető offline olvasásra</string>
+  <string name="reading_list_item_deleted">%s eltávolítva a listáról</string>
   <string name="reading_list_item_delete_undo">Visszavonás</string>
   <string name="reading_list_deleted">%s törölve</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Mégse</string>
+  <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni ezt az olvasólistát?</string>
+  <string name="reading_lists_empty">Nincs olvasólista.</string>
+  <string name="reading_lists_empty_message">Rendezd a böngészett szócikkeket olvasólistákba! Amikor olvasol egy szócikket, érintsd meg a könyvjelző ikont a cikk tetején, hogy hozzáadd egy olvasólistához.</string>
+  <string name="reading_lists_onboarding_intro">Készíts olvasólistát szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
   <string name="reading_lists_onboarding_for_example">Például</string>
   <string name="reading_lists_onboarding_example1">Látványosságok</string>
   <string name="reading_lists_onboarding_example2">Kedvenc állatok</string>
+  <string name="reading_lists_onboarding_example3">Űr!</string>
+  <string name="reading_lists_onboarding_got_it">Értem</string>
+  <string name="reading_lists_onboarding_page_delete">Tipp: Legyints egy cikket jobbra vagy balra, hogy eltávolítsd erről az olvasási listáról.</string>
   <string name="user_option_sync_label">Beállítások</string>
+  <string name="view_continue_reading_card_title">Olvasás folytatása</string>
+  <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
+  <string name="view_random_card_title">Randomizáló</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Olvass egy véletlenszerű cikket a(z) %s Wikipédián</string>
+  <string name="view_main_page_card_title" fuzzy="true">Ma a(z) %s Wikipédián</string>
+  <string name="view_main_page_card_subtitle">Kezdőlap ma – %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Javaslat elrejtése</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Javaslat elrejtve.</string>
 </resources>

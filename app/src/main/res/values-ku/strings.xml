@@ -29,6 +29,7 @@
   <string name="menu_text_select_share">Parve bike</string>
   <string name="nearby_distance_in_meters">%d metre</string>
   <string name="nearby_distance_in_kilometers">%.2f kîlometre</string>
+  <string name="talk_page_link_text">Gotûbêj</string>
   <string name="preference_title_language">Zimanê Wîkîpediyayê</string>
   <string name="preference_languages_filter_hint">Lêgerîn</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
@@ -98,6 +99,7 @@
   <string name="edit_next">Pêşve</string>
   <string name="edit_done">Tomar bike</string>
   <string name="edit_preview">Pêşdîtin</string>
+  <string name="edit_summary_tag_grammar">Rêziman sererast kir</string>
   <string name="edit_summary_tag_links">Girêdan lê hatin zêdekirin</string>
   <string name="edit_summary_tag_other">Yên din</string>
   <string name="dialog_page_issues">Pirsgirêkên rûpelê</string>
@@ -123,6 +125,7 @@
   <string name="gallery_uploader_unknown">Barker nenas e</string>
   <string name="menu_new_tab">Hilpekîna nû</string>
   <string name="button_close_tab">Hilpekînê bigre</string>
+  <string name="format_error_server_message">Peyam:\"%s\"</string>
   <string name="format_error_server_code">Kod:%s</string>
   <string name="button_continue_to_article">Gotarê bixwîne</string>
   <string name="nav_item_donate">Piştgiriyê bide Wîkîpediyayê</string>
@@ -142,4 +145,5 @@
   <string name="reading_list_edit_cancel">Betal bike</string>
   <string name="reading_lists_onboarding_for_example">Wek mînak</string>
   <string name="view_continue_reading_card_title">Xwendinê bidomîne</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Vê pêşniyariyê veşêre</string>
 </resources>

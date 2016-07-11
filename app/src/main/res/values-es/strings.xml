@@ -45,7 +45,7 @@
   <string name="preference_title_language">Idioma de Wikipedia</string>
   <string name="preference_languages_filter_hint">Buscar</string>
   <string name="langlinks_filter_hint">Buscar</string>
-  <string name="langlinks_empty">Esta página no está disponible en otros idiomas</string>
+  <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
   <string name="langlinks_no_match">No se encontraron idiomas que coincidan con tu consulta.</string>
   <string name="langlinks_activity_title">Otros idiomas</string>
   <string name="menu_save_changes">Guardar cambios</string>
@@ -292,5 +292,9 @@
   <string name="view_continue_reading_card_title">Continuar leyendo</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>
-  <string name="view_random_card_subtitle">Leer un artículo al azar de Wikipedia en %s</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Leer un artículo al azar de Wikipedia en %s</string>
+  <string name="view_main_page_card_title" fuzzy="true">Hoy en Wikipedia en %s</string>
+  <string name="view_main_page_card_subtitle">Página principal al %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Ocultar esta sugerencia</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Sugerencia ocultada.</string>
 </resources>

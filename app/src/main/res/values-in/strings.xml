@@ -292,5 +292,9 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Secara acak</string>
-  <string name="view_random_card_subtitle">Baca artikel yang dipilih acak dari Wikipedia %s</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Baca artikel yang dipilih acak dari Wikipedia %s</string>
+  <string name="view_main_page_card_title" fuzzy="true">Hari ini di Wikipedia %s</string>
+  <string name="view_main_page_card_subtitle">Halaman utama pada %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Sembunyikan saran ini</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Saran disembunyikan.</string>
 </resources>

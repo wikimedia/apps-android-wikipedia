@@ -292,5 +292,9 @@
   <string name="view_continue_reading_card_title">Продолжить чтение</string>
   <string name="view_because_you_read_card_title">Потому что вы читали</string>
   <string name="view_random_card_title">Рандомизатор</string>
-  <string name="view_random_card_subtitle">Читать случайную статью из %s Википедии</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Читать случайную статью из %s Википедии</string>
+  <string name="view_main_page_card_title" fuzzy="true">Сегодня в %s Википедии</string>
+  <string name="view_main_page_card_subtitle">Главная страница на %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Скрыть это предложение</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Предложение скрыто.</string>
 </resources>

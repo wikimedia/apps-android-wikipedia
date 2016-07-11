@@ -290,5 +290,9 @@
   <string name="view_continue_reading_card_title">Okumaya devam et</string>
   <string name="view_because_you_read_card_title">Okuduklarına benzer</string>
   <string name="view_random_card_title">Rastgele</string>
-  <string name="view_random_card_subtitle">%s Vikipedi\'den rastgele bir madde oku</string>
+  <string name="view_random_card_subtitle" fuzzy="true">%s Vikipedi\'den rastgele bir madde oku</string>
+  <string name="view_main_page_card_title" fuzzy="true">%s Vikipedi\'de bugün</string>
+  <string name="view_main_page_card_subtitle">%s tarihli ana sayfa</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Bu öneriyi gizle</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Öneri gizlendi.</string>
 </resources>

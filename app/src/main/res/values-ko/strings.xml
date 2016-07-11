@@ -205,7 +205,7 @@
   <string name="gallery_save_progress">파일을 내려받고 있습니다…</string>
   <string name="gallery_save_success">파일 저장에 성공했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
-  <string name="gallery_save_image_write_permission_rationale">디바이스 공간을 쓰는 권한은 이미지 저장을 위해서 입니다. 다시 시도해 주시고, 이 권한을 허용해 주십시오.</string>
+  <string name="gallery_save_image_write_permission_rationale">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다. 다시 시도한 다음 요청 권한을 부여해 주시기 바랍니다.</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
   <string name="snippet_share_intro">\@Wikipedia의 \"%1$s\": %2$s</string>
   <string name="expand_refs">펼치려면 탭</string>
@@ -290,5 +290,9 @@
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었기 때문입니다</string>
   <string name="view_random_card_title">임의 문서 보기</string>
-  <string name="view_random_card_subtitle">%s 위키백과의 임의 문서 읽기</string>
+  <string name="view_random_card_subtitle" fuzzy="true">%s 위키백과의 임의 문서 읽기</string>
+  <string name="view_main_page_card_title" fuzzy="true">오늘의 %s 위키백과</string>
+  <string name="view_main_page_card_subtitle">%s의 대문</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">이 제안 숨기기</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">제안이 숨겨짐.</string>
 </resources>

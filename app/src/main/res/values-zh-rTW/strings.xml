@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
   <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
   <string name="nav_item_donate">支持維基百科</string>
+  <string name="error_voice_search_not_available">很抱歉，語音辨識不可用。</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
@@ -290,4 +291,10 @@
   <string name="user_option_sync_label">偏好設定</string>
   <string name="view_continue_reading_card_title">繼續閱讀</string>
   <string name="view_because_you_read_card_title">因為您閱讀</string>
+  <string name="view_random_card_title">隨機條目產生器</string>
+  <string name="view_random_card_subtitle" fuzzy="true">閱讀來自 %s 維基百科的隨機條目</string>
+  <string name="view_main_page_card_title" fuzzy="true">%s 維基百科今日</string>
+  <string name="view_main_page_card_subtitle">%s 首頁</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">隱藏此建議</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">建議已隱藏。</string>
 </resources>

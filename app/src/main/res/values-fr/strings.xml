@@ -292,5 +292,9 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="view_continue_reading_card_title">Continuer à lire</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
   <string name="view_random_card_title">Aléatoire</string>
-  <string name="view_random_card_subtitle">Lire un article quelconque du Wikipédia %s</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Lire un article quelconque du Wikipédia %s</string>
+  <string name="view_main_page_card_title" fuzzy="true">Aujourd’hui sur Wikipédia en %s</string>
+  <string name="view_main_page_card_subtitle">Page principale le %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Masquer cette suggestion</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Suggestion masquée.</string>
 </resources>

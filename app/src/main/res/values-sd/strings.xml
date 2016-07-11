@@ -270,5 +270,5 @@
   <string name="user_option_sync_label">ترجيحات</string>
   <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
-  <string name="view_random_card_subtitle">%s وڪيپيڊيا مان ڪو بلاترتيب مضمون پڙھو</string>
+  <string name="view_random_card_subtitle" fuzzy="true">%s وڪيپيڊيا مان ڪو بلاترتيب مضمون پڙھو</string>
 </resources>

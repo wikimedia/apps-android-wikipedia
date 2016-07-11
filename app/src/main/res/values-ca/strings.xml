@@ -292,5 +292,9 @@ Voleu començar de nou o sortir?</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Perquè vas llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
-  <string name="view_random_card_subtitle">Llegiu un article a l\'atzar de la Viquipèdia en %s</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Llegiu un article a l\'atzar de la Viquipèdia en %s</string>
+  <string name="view_main_page_card_title" fuzzy="true">Avui a la Viquipèdia en %s</string>
+  <string name="view_main_page_card_subtitle">Pàgina principal el %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Amaga aquest suggeriment</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">S\'ha amagat el suggeriment.</string>
 </resources>

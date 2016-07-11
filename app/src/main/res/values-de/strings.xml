@@ -292,5 +292,9 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="view_continue_reading_card_title">Mit dem Lesen fortfahren</string>
   <string name="view_because_you_read_card_title">Weil du liest</string>
   <string name="view_random_card_title">Zufallsgenerator</string>
-  <string name="view_random_card_subtitle">Einen zufälligen Artikel aus der %s Wikipedia lesen</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Einen zufälligen Artikel aus der %s Wikipedia lesen</string>
+  <string name="view_main_page_card_title" fuzzy="true">Heute auf der %s Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Hauptseite auf %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Diesen Vorschlag ausblenden</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Vorschlag ausgeblendet.</string>
 </resources>

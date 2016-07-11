@@ -23,6 +23,7 @@
   <string name="menu_page_add_to_list">لوست لړليک کې ورگډول</string>
   <string name="menu_page_share">تړنه شريکول</string>
   <string name="menu_long_press_open_page">پرانيستل</string>
+  <string name="menu_long_press_open_in_new_tab">تړنه په نوې کړکۍ کې پرانيستل</string>
   <string name="menu_long_press_copy_page">د تړنې پته لمېسل</string>
   <string name="menu_text_select_copy">لمېسل</string>
   <string name="menu_text_select_define">تعريفول</string>
@@ -193,9 +194,15 @@
   <string name="reading_list_edit_ok">ښه</string>
   <string name="reading_list_edit_cancel">ناگارل</string>
   <string name="reading_lists_onboarding_for_example">د بېلگې په توگه</string>
+  <string name="reading_lists_onboarding_example1">د کتلو ځايونه</string>
   <string name="reading_lists_onboarding_example2">خواپوري ژوي</string>
   <string name="reading_lists_onboarding_example3">تشيال!</string>
   <string name="reading_lists_onboarding_got_it">وپوهېدم</string>
   <string name="user_option_sync_label">غوره توبونه</string>
+  <string name="view_continue_reading_card_title">پرله پورې لوستل</string>
   <string name="view_because_you_read_card_title">ځکه چې تاسې لولی</string>
+  <string name="view_main_page_card_title" fuzzy="true">نن په %s ويکيپېډيا کې</string>
+  <string name="view_main_page_card_subtitle">لومړی مخ په %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">همدا وړانديز پټول</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">وړانديز پټ شو.</string>
 </resources>

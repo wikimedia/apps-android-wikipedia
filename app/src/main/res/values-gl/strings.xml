@@ -292,5 +292,9 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
-  <string name="view_random_card_subtitle">Ler un artigo aleatorio de Wikipedia en %s</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Ler un artigo aleatorio de Wikipedia en %s</string>
+  <string name="view_main_page_card_title" fuzzy="true">Hoxe na Wikipedia en %s</string>
+  <string name="view_main_page_card_subtitle">Páxina principal en %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Agochar esta suxestión</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Suxestión agochada.</string>
 </resources>

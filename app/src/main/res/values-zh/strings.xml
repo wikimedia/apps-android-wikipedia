@@ -292,5 +292,9 @@
   <string name="view_continue_reading_card_title">继续阅读</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
-  <string name="view_random_card_subtitle">阅读来自%s维基百科的随机条目</string>
+  <string name="view_random_card_subtitle" fuzzy="true">阅读来自%s维基百科的随机条目</string>
+  <string name="view_main_page_card_title" fuzzy="true">%s维基百科今日</string>
+  <string name="view_main_page_card_subtitle">%s首页</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">隐藏该建议</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">建议已隐藏。</string>
 </resources>

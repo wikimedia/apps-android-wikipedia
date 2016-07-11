@@ -267,5 +267,9 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
-  <string name="view_random_card_subtitle">Liest en zoufällegen Artikel aus der Wikipedia op %s</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Liest en zoufällegen Artikel aus der Wikipedia op %s</string>
+  <string name="view_main_page_card_title" fuzzy="true">Haut op der Wikipedia op %s</string>
+  <string name="view_main_page_card_subtitle">Haaptsäit op %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Dës Propos verstoppen</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Propos verstoppt</string>
 </resources>

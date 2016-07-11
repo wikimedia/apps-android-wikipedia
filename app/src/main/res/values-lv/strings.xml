@@ -113,4 +113,6 @@
   <string name="button_continue_to_article">Lasīt rakstu</string>
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Paslēpt šo ierosinājumu</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Ieteikums slēpts.</string>
 </resources>

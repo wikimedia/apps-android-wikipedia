@@ -290,5 +290,5 @@
   <string name="view_continue_reading_card_title">Đọc tiếp</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
   <string name="view_random_card_title">Ngẫu nhiên</string>
-  <string name="view_random_card_subtitle">Đọc bài ngẫu nhiên từ Wikipedia %s</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Đọc bài ngẫu nhiên từ Wikipedia %s</string>
 </resources>

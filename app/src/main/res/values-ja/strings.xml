@@ -129,7 +129,7 @@
   <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
   <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
-  <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的に第三者の HockeyApp に対してクラッシュレポートを送信することを許可する。これによって、クラッシュを確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
+  <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的に第三者の HockeyApp に対してクラッシュレポートを送信することを許可します。これによって、クラッシュを確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
   <string name="history_search_list_hint">検索履歴</string>
   <string name="history_search_empty_message">キーワードに一致するページが見つかりません。</string>
@@ -151,7 +151,7 @@
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
-  <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 ライセンス&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;クリエイティブ・コモンズ表示 - 継承ライセンス&lt;/a&gt; の下で提供されます。</string>
+  <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 ライセンス&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;クリエイティブ・コモンズ表示 - 継承ライセンス&lt;/a&gt;の下で提供されます。</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ウィキメディア財団&lt;/a&gt;の製品です</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
@@ -177,8 +177,8 @@
   <string name="button_page_issues">ページの問題点</string>
   <string name="text_size_select">フォントサイズ</string>
   <string name="color_theme_select">テーマ</string>
-  <string name="color_theme_light">明るく</string>
-  <string name="color_theme_dark">暗く</string>
+  <string name="color_theme_light">明</string>
+  <string name="color_theme_dark">暗</string>
   <string name="page_similar_titles">類似したページ</string>
   <string name="search_did_you_mean">もしかして: 「%s」</string>
   <string name="search_recent_header">最近の検索:</string>
@@ -225,7 +225,7 @@
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
   <string name="tool_tip_toc_button">このボタンをタップするか、画面右側からスライドすると、いつでも目次が呼び出せます。</string>
   <string name="error_server_response">サーバーがリクエストを完了できませんでした。</string>
-  <string name="error_response_malformed">サーバーからのレスポンスが正しく整形されていませんでした。</string>
+  <string name="error_response_malformed">サーバーからのレスポンスが正しいフォーマットではありませんでした。</string>
   <string name="error_unknown">不明なエラーが発生しました。</string>
   <string name="format_error_server_message">メッセージ: 「%s」</string>
   <string name="format_error_server_code">コード: 「%s」</string>
@@ -239,7 +239,7 @@
   <string name="nav_item_donate">ウィキペディアを支援する</string>
   <string name="error_voice_search_not_available">申し訳ございません。音声認識は現在ご利用いただけません。</string>
   <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
-  <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか? これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
+  <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか?　これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
   <string name="crash_report_dialog_dont_send_button">スキップ</string>
   <string name="crash_report_dialog_always_send_button">常に送信</string>
   <string name="crash_report_dialog_send_button">送信</string>
@@ -292,5 +292,9 @@
   <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
-  <string name="view_random_card_subtitle">%sウィキペディアから記事をランダムに表示</string>
+  <string name="view_random_card_subtitle" fuzzy="true">%sウィキペディアから記事をランダムに表示</string>
+  <string name="view_main_page_card_title" fuzzy="true">%s語版ウィキペディアの今日のページ</string>
+  <string name="view_main_page_card_subtitle">%sのメインページ</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">提案を隠す</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">提案を隠しました</string>
 </resources>

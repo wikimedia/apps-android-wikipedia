@@ -287,4 +287,8 @@
   <string name="user_option_sync_label">पसंतीक्रम</string>
   <string name="view_continue_reading_card_title">वाचन सुरू ठेवा</string>
   <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
+  <string name="view_main_page_card_title" fuzzy="true">आज %s विकिपीडियावर</string>
+  <string name="view_main_page_card_subtitle">%s वरील मुख्य पान</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">ही सुचवणी लपवा</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">सुचवणी लपलेली आहे.</string>
 </resources>

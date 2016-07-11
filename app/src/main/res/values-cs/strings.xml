@@ -290,5 +290,9 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>
-  <string name="view_random_card_subtitle">Přečíst si náhodný článek z %s Wikipedie</string>
+  <string name="view_random_card_subtitle" fuzzy="true">Přečíst si náhodný článek z %s Wikipedie</string>
+  <string name="view_main_page_card_title" fuzzy="true">Dnes na %s Wikipedii</string>
+  <string name="view_main_page_card_subtitle">Hlavní strana %s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">Skrýt tento návrh</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">Návrh skryt.</string>
 </resources>

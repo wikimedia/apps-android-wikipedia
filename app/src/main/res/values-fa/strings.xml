@@ -13,15 +13,15 @@
   <string name="page_error_back_to_main">بازگشت به عقب</string>
   <string name="menu_clear_all_history">پاک کردن تاریخچه</string>
   <string name="page_does_not_exist_error">این صفحه وجود ندارد!</string>
-  <string name="dialog_title_clear_history">پاک کردن تاریخچه جستجو</string>
-  <string name="dialog_message_clear_history">این ممکن است که تاریخچهٔ مرورگر شما را حذف خواهد کرد و همه تب‌های باز را خواهد بست. آیا مطمئن هستید؟</string>
+  <string name="dialog_title_clear_history">پاک کردن تاریخچه مرور</string>
+  <string name="dialog_message_clear_history">این کار ممکن است که تاریخچهٔ مرورگر شما را حذف کرد ه و همه تب‌های باز را ببندد. آیا مطمئن هستید؟</string>
   <string name="nav_item_saved_pages">صفحه‌های ذخیره‌شده</string>
-  <string name="share_via">اشتراک با</string>
+  <string name="share_via">اشتراک از طریق</string>
   <string name="search_redirect_from">تغییرمسیر از %s</string>
   <string name="menu_page_show_tabs">نمایش برگه‌ها</string>
   <string name="menu_page_other_languages">تغییر زبان</string>
   <string name="menu_page_find_in_page">در صفحه پیدا کنید</string>
-  <string name="menu_page_content_issues">موضوع‌های محتوی</string>
+  <string name="menu_page_content_issues">مشکلات محتوایی</string>
   <string name="menu_page_similar_titles">عنوان‌های مشابه</string>
   <string name="menu_page_font_and_theme">تغییر فونت و پوسته</string>
   <string name="menu_page_add_to_list">افزودن به فهرست مطالعه</string>
@@ -34,7 +34,7 @@
   <string name="menu_text_select_share">به‌اشتراک‌گذاشتن</string>
   <string name="menu_text_select_edit_here">ویرایش اینجا</string>
   <string name="nav_item_nearby">در نزدیکی</string>
-  <string name="nearby_distance_in_meters">%d m</string>
+  <string name="nearby_distance_in_meters">%d متر</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">بزرگنمایی مکان در نقشه</string>
   <string name="last_updated_text"> %1$s آخرین به‌روزرسانی</string>
@@ -61,7 +61,7 @@
   <string name="menu_show_toc">فهرست مندرجات</string>
   <string name="search_no_results_found">نتیجه‌ای یافت نشد</string>
   <string name="edit_section_captcha_message">برای محافظت در برابر اسپم لطفا کلمات زیر را وارد کنید</string>
-  <string name="edit_section_captcha_hint">تکرار کلمات از بالا</string>
+  <string name="edit_section_captcha_hint">تکرار کلمات بالا</string>
   <string name="title_captcha">کپچا را وارد کنید</string>
   <string name="edit_section_captcha_reload">بر روی کپچا با انگشت بزنید تا تغییر کند</string>
   <string name="edit_saved_page_refresh">با توجه به تغییرهای احتمالی، برای ویرایش این صفحه باید آن را دوباره بارگذاری نمایید. آیا مایل به بارگذاری مجدد هستید؟</string>
@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">نمایش پیوند پیش‌نمایش‌ها</string>
   <string name="preference_summary_show_link_previews">نمایش سریع مقاله زمانی که بر روی لینک‌ها تپ می‌کنید.</string>
   <string name="nav_item_donate">حمایت از ویکی‌پدیا</string>
+  <string name="error_voice_search_not_available">با عرض پوزش، تشخیص صوتی میسر نیست</string>
   <string name="crash_report_dialog_title">باعرض پوزش از بابت خطای اخیر</string>
   <string name="crash_report_dialog_text">آیا ممکن است که به نرم‌افزار برای ارسال گزارش خطا به صورت خودکار به سرورهای  شخص سوم اجازه دهید؟ با این کار به بنیاد مدیاویکی برای رفع کردن سریع‌تر آنها کمک می‌کنید.</string>
   <string name="crash_report_dialog_dont_send_button">رها کردن</string>
@@ -288,4 +289,10 @@
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
+  <string name="view_random_card_title">تصادفی</string>
+  <string name="view_random_card_subtitle" fuzzy="true">خواندن مقاله‌ای تصادفی از ویکی‌پدیای %s</string>
+  <string name="view_main_page_card_title" fuzzy="true">امروز در ویکی‌پدیای %s</string>
+  <string name="view_main_page_card_subtitle">صفحه اصلی در%s</string>
+  <string name="menu_feed_card_dismiss" fuzzy="true">مخفی کردن این پیشنهاد</string>
+  <string name="menu_feed_card_dismissed" fuzzy="true">پیشنهادات مخفی شده‌اند</string>
 </resources>
