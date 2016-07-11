@@ -334,7 +334,7 @@
     <string name="view_static_card_icon_content_description">Card icon</string>
     <string name="view_card_news_title">In the news</string>
     <plurals name="view_continue_reading_card_subtitle">
-        <item quantity="one">1 day ago</item>
+        <item quantity="one">yesterday</item>
         <item quantity="other">%d days ago</item>
     </plurals>
     <!-- /The Feed -->
