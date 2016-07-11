@@ -82,9 +82,6 @@ public class GalleryItemFragment extends Fragment {
         return f;
     }
 
-    public GalleryItemFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -223,7 +220,7 @@ public class GalleryItemFragment extends Fragment {
 
     private void requestWriteExternalStoragePermission() {
         requestWriteStorageRuntimePermissions(this,
-                Constants.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST);
+                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
     /**
@@ -427,7 +424,7 @@ public class GalleryItemFragment extends Fragment {
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         switch (requestCode) {
-            case Constants.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST:
+            case Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
                 if (PermissionUtil.isPermitted(grantResults)) {
                     saveImage();
                 } else {

@@ -35,9 +35,5 @@ public final class PermissionUtil {
         // once permission is granted/denied it will continue with onRequestPermissionsResult
     }
 
-    public interface Callback {
-        void hasPermission();
-    }
-
     private PermissionUtil() { }
 }
