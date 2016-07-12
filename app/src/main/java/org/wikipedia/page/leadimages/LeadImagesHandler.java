@@ -242,7 +242,8 @@ public class LeadImagesHandler {
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
             String fullUrl = getTitle().getSite().scheme() + ":" + url;
-            articleHeaderView.setImageYScalar(0);
+            final float center = .5f;
+            articleHeaderView.setImageScalar(center, center);
             articleHeaderView.loadImage(fullUrl);
         } else {
             articleHeaderView.loadImage(null);
@@ -381,7 +382,9 @@ public class LeadImagesHandler {
 
         private void applyFaceLocationOffset(int bmpHeight, @Nullable PointF faceLocation) {
             faceYOffsetNormalized = faceYScalar(bmpHeight, faceLocation);
-            articleHeaderView.setImageYScalar(constrainScalar(faceYOffsetNormalized));
+            final float center = .5f;
+            articleHeaderView.setImageScalar(constrainScalar(faceLocation == null ? center : faceLocation.x),
+                    constrainScalar(faceYOffsetNormalized));
         }
 
         private float constrainScalar(float scalar) {
@@ -391,7 +394,7 @@ public class LeadImagesHandler {
         }
 
         private float faceYScalar(int bmpHeight, @Nullable PointF faceLocation) {
-            final float defaultOffsetScalar = .25f;
+            final float defaultOffsetScalar = .5f;
             float scalar = defaultOffsetScalar;
             if (faceLocation != null) {
                 scalar = faceLocation.y;
@@ -399,7 +402,7 @@ public class LeadImagesHandler {
                 //       value with a proportion. FaceDetector.eyesDistance() presumably provides
                 //       the interpupillary distance in pixels. We can multiply this measurement by
                 //       the proportion of the length of the nose to the IPD.
-                scalar -= getDimension(R.dimen.face_detection_nose_y_offset) / bmpHeight;
+                //scalar -= ipd / bmpHeight;
             }
             return scalar;
         }
