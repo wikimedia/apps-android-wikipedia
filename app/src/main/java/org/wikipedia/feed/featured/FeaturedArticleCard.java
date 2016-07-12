@@ -45,7 +45,7 @@ public class FeaturedArticleCard extends Card {
 
     @NonNull
     public String articleTitle() {
-        return page.title();
+        return page.normalizedTitle();
     }
 
     @Nullable

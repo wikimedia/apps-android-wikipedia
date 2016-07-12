@@ -41,7 +41,7 @@ public class RandomSummaryService {
                     CardPageItem item = response.body();
                     String namespace = item.namespace() == null ? null
                             : item.namespace().toLegacyString();
-                    PageTitle title = new PageTitle(namespace, item.title(), site);
+                    PageTitle title = new PageTitle(namespace, item.normalizedTitle(), site);
                     cb.onSuccess(title);
                 } else {
                     L.v(response.message());

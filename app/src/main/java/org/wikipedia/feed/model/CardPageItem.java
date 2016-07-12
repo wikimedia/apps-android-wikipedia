@@ -12,6 +12,7 @@ import org.wikipedia.util.StringUtil;
 
 public final class CardPageItem {
     @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private String normalizedtitle;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private String extract;
@@ -20,6 +21,11 @@ public final class CardPageItem {
     @NonNull
     public String title() {
         return title;
+    }
+
+    @NonNull
+    public String normalizedTitle() {
+        return normalizedtitle;
     }
 
     @Nullable
