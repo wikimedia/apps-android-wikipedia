@@ -50,8 +50,12 @@ public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
         try {
             Uri uri = PageHistoryContract.PageWithImage.URI;
             final String[] projection = null;
-            final String selection = PageHistoryContract.Col.TIMESTAMP.getName() + " < ?";
-            final String[] selectionArgs = {Long.toString(earlierThanTime)};
+            final String selection = ":timestampCol < ? and :sourceCol != ? and :sourceCol != ? "
+                    .replaceAll(":timestampCol", PageHistoryContract.Col.TIMESTAMP.getName())
+                    .replaceAll(":sourceCol", PageHistoryContract.Page.SOURCE.qualifiedName());
+            final String[] selectionArgs = {Long.toString(earlierThanTime),
+                    Integer.toString(HistoryEntry.SOURCE_MAIN_PAGE),
+                    Integer.toString(HistoryEntry.SOURCE_FEED_MAIN_PAGE)};
             String order = PageHistoryContract.PageWithImage.ORDER_MRU + " limit " + (age + 1);
             return client.query(uri, projection, selection, selectionArgs, order);
         } catch (RemoteException e) {
