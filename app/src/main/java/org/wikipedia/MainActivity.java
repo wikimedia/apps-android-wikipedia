@@ -1226,6 +1226,8 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
         switch (requestCode) {
             case Constants.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST:
                 if (PermissionUtil.isPermitted(grantResults)) {
@@ -1241,8 +1243,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
                 }
                 break;
             default:
-                setPendingDownload(null);
-                throw new RuntimeException("unexpected permission request code " + requestCode);
+                // Do nothing, this is coming from an attached fragment and will be handled there
         }
     }
 
