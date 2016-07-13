@@ -40,8 +40,8 @@ public class BecauseYouReadCardView extends PageTitleListCardView
         CardLargeHeaderView largeHeader = new CardLargeHeaderView(getContext())
                 .setPageTitle(card.pageTitle())
                 .setSubtitle(card.subtitle())
-                .setImage(card.image());
-        largeHeader.setOnClickListener(new SelectPageCallbackAdapter(card));
+                .setImage(card.image())
+                .onClickListener(new SelectPageCallbackAdapter(card));
         largeHeader(largeHeader);
     }
 

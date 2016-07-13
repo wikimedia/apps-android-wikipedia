@@ -55,7 +55,7 @@ public class CardLargeHeaderView extends FrameLayout {
     }
 
     @NonNull public CardLargeHeaderView onClickListener(@Nullable OnClickListener listener) {
-        textContainerView.setOnClickListener(listener);
+        setOnClickListener(listener);
         return this;
     }
 
