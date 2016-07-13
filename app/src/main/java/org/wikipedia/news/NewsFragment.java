@@ -51,7 +51,7 @@ import static org.wikipedia.util.DimenUtil.newsFeatureImageHeightForDevice;
 import static org.wikipedia.news.NewsActivity.EXTRA_NEWS_ITEM;
 import static org.wikipedia.news.NewsActivity.EXTRA_SITE;
 
-public class NewsFragment extends Fragment implements CallbackFragment<CallbackFragment.Callback> {
+public class NewsFragment extends Fragment implements CallbackFragment {
     @BindView(R.id.view_news_fullscreen_header_image) FaceAndColorDetectImageView image;
     @BindView(R.id.view_news_fullscreen_story_text) TextView text;
     @BindView(R.id.view_news_fullscreen_link_card_list) RecyclerView links;

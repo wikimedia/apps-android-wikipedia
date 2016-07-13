@@ -13,8 +13,7 @@ import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.crash.CrashReportFragment.Callback;
 
-public class CrashReportFragment extends Fragment
-        implements CallbackFragment<Callback> {
+public class CrashReportFragment extends Fragment implements CallbackFragment {
     public interface Callback extends CallbackFragment.Callback {
         void onStartOver();
         void onQuit();

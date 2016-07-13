@@ -4,8 +4,8 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.activity.CallbackFragment.Callback;
 
-public interface CallbackFragment<T extends Callback> {
+public interface CallbackFragment {
     interface Callback { }
 
-    @Nullable T getCallback();
+    @Nullable Callback getCallback();
 }
