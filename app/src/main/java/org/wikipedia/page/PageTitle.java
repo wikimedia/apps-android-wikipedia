@@ -9,7 +9,10 @@ import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.util.log.L;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -50,37 +53,46 @@ public class PageTitle implements Parcelable {
     //       isn't consistent across titles. e.g., articles with colons, such as RTÉ News: Six One,
     //       are broken.
     @Nullable private final String namespace;
-    private final String text;
-    private final String fragment;
+    @NonNull private final String text;
+    @Nullable private final String fragment;
     @Nullable private String thumbUrl;
-    private final Site site;
-    private String description = null;
-    private PageProperties properties = null;
+    @NonNull private final Site site;
+    @Nullable private String description;
+    @Nullable private final PageProperties properties;
 
-    public PageTitle(@Nullable final String namespace, final String text, final String fragment, @Nullable final String thumbUrl, final Site site) {
+    public PageTitle(@Nullable final String namespace, @NonNull String text, @Nullable String fragment, @Nullable String thumbUrl, @NonNull Site site) {
         this.namespace = namespace;
         this.text = text;
         this.fragment = fragment;
         this.site = site;
         this.thumbUrl = thumbUrl;
+        properties = null;
     }
 
-    public PageTitle(final String text, final Site site, @Nullable final String thumbUrl, final String description, final PageProperties properties) {
-        this(text, site, thumbUrl);
-        this.properties = properties;
+    public PageTitle(@Nullable String text, @NonNull Site site, @Nullable String thumbUrl, @Nullable String description, @Nullable PageProperties properties) {
+        this(text, site, thumbUrl, properties);
         this.description = description;
     }
 
-    public PageTitle(final String text, final Site site, @Nullable final String thumbUrl, final String description) {
+    public PageTitle(@Nullable String text, @NonNull Site site, @Nullable String thumbUrl, @Nullable String description) {
         this(text, site, thumbUrl);
         this.description = description;
     }
 
-    public PageTitle(@Nullable final String namespace, final String text, final Site site) {
+    public PageTitle(@Nullable String namespace, @NonNull String text, @NonNull Site site) {
         this(namespace, text, null, null, site);
     }
 
-    public PageTitle(String text, final Site site, @Nullable String thumbUrl) {
+    public PageTitle(@Nullable String text, @NonNull Site site, @Nullable String thumbUrl) {
+        this(text, site, thumbUrl, (PageProperties) null);
+    }
+
+    public PageTitle(String text, final Site site) {
+        this(text, site, null);
+    }
+
+    private PageTitle(@Nullable String text, @NonNull Site site, @Nullable String thumbUrl,
+                      @Nullable PageProperties properties) {
         // FIXME: Does not handle mainspace articles with a colon in the title well at all
         if (TextUtils.isEmpty(text)) {
             // If empty, this refers to the main page.
@@ -106,10 +118,7 @@ public class PageTitle implements Parcelable {
 
         this.thumbUrl = thumbUrl;
         this.site = site;
-    }
-
-    public PageTitle(String text, final Site site) {
-        this(text, site, null);
+        this.properties = properties;
     }
 
     @Nullable
@@ -126,7 +135,7 @@ public class PageTitle implements Parcelable {
         return Namespace.fromLegacyString(site, namespace);
     }
 
-    public Site getSite() {
+    @NonNull public Site getSite() {
         return site;
     }
 
@@ -134,7 +143,7 @@ public class PageTitle implements Parcelable {
         return text.replace(" ", "_");
     }
 
-    public String getFragment() {
+    @Nullable public String getFragment() {
         return fragment;
     }
 
@@ -163,16 +172,16 @@ public class PageTitle implements Parcelable {
         return properties != null;
     }
 
-    public PageProperties getProperties() {
+    @Nullable public PageProperties getProperties() {
         return properties;
     }
 
     public boolean isMainPage() {
-        return hasProperties() && properties.isMainPage();
+        return properties != null && properties.isMainPage();
     }
 
     public boolean isDisambiguationPage() {
-        return hasProperties() && properties.isDisambiguationPage();
+        return properties != null && properties.isDisambiguationPage();
     }
 
     /** Please keep the ID stable. */
@@ -198,8 +207,8 @@ public class PageTitle implements Parcelable {
         try {
             JSONObject json = toIdentifierJSON();
             json.put(LANGUAGE_CODE_KEY, site.languageCode());
-            if (hasProperties()) {
-                json.put("properties", getProperties().toJSON());
+            if (properties != null) {
+                json.put("properties", properties.toJSON());
             }
             json.put("thumbUrl", getThumbUrl());
             json.put("description", getDescription());
@@ -221,7 +230,8 @@ public class PageTitle implements Parcelable {
                 site = new Site(json.optString("site"));
             }
         } else {
-            site = null;
+            L.logRemoteErrorIfProd(new RemoteLogException("site is null").put("json", json.toString()));
+            site = WikipediaApp.getInstance().getSite();
         }
         this.properties = json.has("properties") ? new PageProperties(json.optJSONObject("properties")) : null;
         this.thumbUrl = json.optString("thumbUrl", null);
