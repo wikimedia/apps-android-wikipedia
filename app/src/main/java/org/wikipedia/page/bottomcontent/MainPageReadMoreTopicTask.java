@@ -49,10 +49,11 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
         try {
             Uri uri = PageHistoryContract.PageWithImage.URI;
             final String[] projection = null;
-            String selection = ":sourceCol != ? and :sourceCol != ? "
+            String selection = ":sourceCol != ? and :sourceCol != ? and :sourceCol != ?"
                     .replaceAll(":sourceCol", PageHistoryContract.Page.SOURCE.qualifiedName());
             String[] selectionArgs = new String[] {Integer.toString(HistoryEntry.SOURCE_MAIN_PAGE),
-                    Integer.toString(HistoryEntry.SOURCE_RANDOM)};
+                    Integer.toString(HistoryEntry.SOURCE_RANDOM),
+                    Integer.toString(HistoryEntry.SOURCE_FEED_MAIN_PAGE)};
             String order = PageHistoryContract.PageWithImage.ORDER_MRU;
             return client.query(uri, projection, selection, selectionArgs, order);
         } catch (RemoteException e) {
