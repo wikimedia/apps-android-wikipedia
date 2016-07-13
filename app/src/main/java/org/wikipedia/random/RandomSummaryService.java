@@ -51,14 +51,14 @@ public class RandomSummaryService {
 
             @Override
             public void onFailure(Call<CardPageItem> call, Throwable t) {
-                L.w("Failed to get random page title", t);
+                L.w("Failed to get random page title/summary", t);
                 cb.onError(t);
             }
         });
     }
 
     private interface RbRandomSummaryClient {
-        @GET("page/random/title")
+        @GET("page/random/summary")
         @NonNull Call<CardPageItem> get();
     }
 
