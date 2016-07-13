@@ -3,7 +3,7 @@ package org.wikipedia.util;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.UtcDate;
+import org.wikipedia.feed.model.UtcDate;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

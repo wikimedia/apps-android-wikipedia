@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedViewCallback;
+import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;

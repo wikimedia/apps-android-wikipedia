@@ -16,7 +16,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.model.Card;
 
 import butterknife.BindView;

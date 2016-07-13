@@ -12,7 +12,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.feed.FeedClient;
+import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.page.MwApiResultPage;
 import org.wikipedia.page.PageTitle;

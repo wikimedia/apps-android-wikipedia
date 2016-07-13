@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.Site;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
-import org.wikipedia.feed.FeedClient;
-import org.wikipedia.feed.UtcDate;
+import org.wikipedia.feed.dataclient.FeedClient;
+import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;

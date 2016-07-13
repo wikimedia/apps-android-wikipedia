@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.Site;
-import org.wikipedia.feed.FeedClient;
+import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 
 import java.util.Collections;

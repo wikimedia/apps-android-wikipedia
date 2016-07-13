@@ -1,7 +1,7 @@
 package org.wikipedia.feed.random;
 
 import org.wikipedia.Site;
-import org.wikipedia.feed.DummyClient;
+import org.wikipedia.feed.dataclient.DummyClient;
 
 public class RandomClient extends DummyClient<RandomCard> {
     @Override

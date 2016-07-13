@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
-import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCard;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.continuereading.ContinueReadingCard;
