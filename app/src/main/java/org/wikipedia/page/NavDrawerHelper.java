@@ -74,7 +74,7 @@ public class NavDrawerHelper {
                 switch (menuItem.getItemId()) {
                     case R.id.nav_item_feed:
                         activity.showFeed();
-                        // TODO: [Feed] add Feed logging.
+                        funnel.logFeed();
                         break;
                     case R.id.nav_item_history:
                         activity.pushFragment(new HistoryFragment());
