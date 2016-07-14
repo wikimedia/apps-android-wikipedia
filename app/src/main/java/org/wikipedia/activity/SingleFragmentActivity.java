@@ -7,13 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import org.wikipedia.R;
-import org.wikipedia.activity.CallbackFragment.Callback;
 
 /**
  * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
  * Fragments.
  */
-public abstract class SingleFragmentActivity<T extends Fragment & CallbackFragment<? extends Callback>>
+public abstract class SingleFragmentActivity<T extends Fragment & CallbackFragment>
         extends ThemedActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {

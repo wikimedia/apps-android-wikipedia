@@ -33,7 +33,7 @@ import butterknife.Unbinder;
 import static org.wikipedia.Constants.USER_OPTION_ROW_FRAGMENT_LOADER_ID;
 
 public class UserOptionRowFragment extends Fragment
-        implements CallbackFragment<Callback> {
+        implements CallbackFragment {
     @BindView(R.id.fragment_user_option_list) ListView list;
     private Unbinder unbinder;
 

@@ -41,8 +41,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class FeedFragment extends Fragment implements BackPressedHandler,
-        MainActivityToolbarProvider,
-        CallbackFragment<CallbackFragment.Callback> {
+        MainActivityToolbarProvider, CallbackFragment {
     @BindView(R.id.feed_app_bar_layout) AppBarLayout appBarLayout;
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;

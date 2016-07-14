@@ -9,7 +9,7 @@ import org.wikipedia.activity.CallbackFragment.Callback;
 import org.wikipedia.activity.FragmentUtil;
 
 abstract class PreferenceLoaderFragment extends PreferenceFragmentCompat
-        implements PreferenceLoader, CallbackFragment<Callback> {
+        implements PreferenceLoader, CallbackFragment {
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
         loadPreferences();
