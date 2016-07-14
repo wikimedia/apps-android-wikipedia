@@ -48,19 +48,16 @@ public final class SnippetImage {
 
     private final Context context;
     private final Bitmap leadImageBitmap;
-    private final float leadImageFocusY;
     private final String title;
     private final String description;
     private final CharSequence textSnippet;
     private boolean isArticleRTL;
     private ImageLicense license;
 
-    public SnippetImage(Context context, Bitmap leadImageBitmap,
-                        float leadImageFocusY, String title, String description,
+    public SnippetImage(Context context, Bitmap leadImageBitmap, String title, String description,
                         CharSequence textSnippet, ImageLicense license) {
         this.context = context;
         this.leadImageBitmap = leadImageBitmap;
-        this.leadImageFocusY = leadImageFocusY;
         this.title = title;
         this.description = description;
         this.textSnippet = textSnippet;
@@ -73,7 +70,7 @@ public final class SnippetImage {
      * just use a black background.
      */
     public Bitmap drawBitmap() {
-        Bitmap resultBitmap = drawBackground(leadImageBitmap, leadImageFocusY);
+        Bitmap resultBitmap = drawBackground(leadImageBitmap);
         Canvas canvas = new Canvas(resultBitmap);
         if (leadImageBitmap != null) {
             drawGradient(canvas);
@@ -94,11 +91,11 @@ public final class SnippetImage {
         return resultBitmap;
     }
 
-    private Bitmap drawBackground(Bitmap leadImageBitmap, float leadImageFocusY) {
+    private Bitmap drawBackground(Bitmap leadImageBitmap) {
         Bitmap resultBitmap;
         if (leadImageBitmap != null && license.hasLicenseInfo()) {
             // use lead image
-            resultBitmap = scaleCropToFitFace(leadImageBitmap, WIDTH, HEIGHT, leadImageFocusY);
+            resultBitmap = scaleCropToFit(leadImageBitmap, WIDTH, HEIGHT);
         } else {
             resultBitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888);
             final int backgroundColor = 0xff242438;
@@ -368,8 +365,7 @@ public final class SnippetImage {
 
     // Borrowed from http://stackoverflow.com/questions/5226922/crop-to-fit-image-in-android
     // Modified to allow for face detection adjustment, startY
-    private Bitmap scaleCropToFitFace(Bitmap original, int targetWidth, int targetHeight,
-                                      float normalizedYOffset) {
+    private Bitmap scaleCropToFit(Bitmap original, int targetWidth, int targetHeight) {
         // Need to scale the image, keeping the aspect ratio first
         int width = original.getWidth();
         int height = original.getHeight();
@@ -385,13 +381,7 @@ public final class SnippetImage {
         if (widthScale > heightScale) {
             scaledWidth = targetWidth;
             scaledHeight = height * widthScale;
-            // crop height by...
-            startY = (int) (normalizedYOffset * scaledHeight - targetHeight / 2);
-            // Adjust the face position by a slight amount.
-            // The face recognizer gives the location of the *eyes*, whereas we actually
-            // want to center on the *nose*...
-            final int faceBoost = 32;
-            startY += faceBoost;
+            startY = (int) (scaledHeight - targetHeight) / 2;
             if (startY < 0) {
                 startY = 0;
             } else if (startY + targetHeight > scaledHeight) {
@@ -400,8 +390,6 @@ public final class SnippetImage {
         } else {
             scaledHeight = targetHeight;
             scaledWidth = width * heightScale;
-            // crop width by..
-            // startX = (int) ((scaledWidth - targetWidth) / 2);
         }
 
         Bitmap scaledBitmap

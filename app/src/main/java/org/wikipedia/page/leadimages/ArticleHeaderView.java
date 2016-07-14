@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.PointF;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -140,8 +141,8 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         return ViewUtil.getBitmapFromView(image);
     }
 
-    public void setImageScalar(float horizontalOffset, float verticalOffset) {
-        image.setFocusOffset(horizontalOffset, verticalOffset);
+    public void setImageFocus(PointF focusPoint) {
+        image.setFocusPoint(focusPoint);
         updateParallaxScroll();
     }
 

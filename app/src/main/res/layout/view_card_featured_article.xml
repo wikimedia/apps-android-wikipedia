@@ -18,7 +18,7 @@
         android:layout_height="1dp"
         android:background="@color/feed_image_border"/>
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <org.wikipedia.views.FaceAndColorDetectImageView
         style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/view_featured_article_card_image"
         android:layout_width="match_parent"

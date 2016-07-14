@@ -40,6 +40,8 @@ public class HorizontalScrollingListCardItemView extends CardView {
     }
 
     public void setImage(@Nullable Uri image) {
-        imageView.setImageURI(image);
+        if (image != null) {
+            imageView.loadImage(image);
+        }
     }
 }

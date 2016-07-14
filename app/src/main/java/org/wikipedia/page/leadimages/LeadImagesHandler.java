@@ -1,11 +1,9 @@
 package org.wikipedia.page.leadimages;
 
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.location.Location;
 import android.support.annotation.ColorInt;
-import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -54,7 +52,6 @@ public class LeadImagesHandler {
     private View image;
 
     private int displayHeightDp;
-    private float faceYOffsetNormalized;
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull CommunicationBridge bridge,
@@ -102,18 +99,6 @@ public class LeadImagesHandler {
 
     public void setAnimationPaused(boolean paused) {
         articleHeaderView.setAnimationPaused(paused);
-    }
-
-    /**
-     * Returns the normalized (0.0 to 1.0) vertical focus position of the lead image.
-     * A value of 0.0 represents the top of the image, and 1.0 represents the bottom.
-     * The "focus position" is currently defined by automatic face detection, but may be
-     * defined by other factors in the future.
-     *
-     * @return Normalized vertical focus position.
-     */
-    public float getLeadImageFocusY() {
-        return faceYOffsetNormalized;
     }
 
     /**
@@ -243,8 +228,6 @@ public class LeadImagesHandler {
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
             String fullUrl = getTitle().getSite().scheme() + ":" + url;
-            final float center = .5f;
-            articleHeaderView.setImageScalar(center, center);
             articleHeaderView.loadImage(fullUrl);
         } else {
             articleHeaderView.loadImage(null);
@@ -323,14 +306,6 @@ public class LeadImagesHandler {
         return parentFragment.isAdded();
     }
 
-    private float getDimension(@DimenRes int id) {
-        return getResources().getDimension(id);
-    }
-
-    private Resources getResources() {
-        return getActivity().getResources();
-    }
-
     private FragmentActivity getActivity() {
         return parentFragment.getActivity();
     }
@@ -368,7 +343,9 @@ public class LeadImagesHandler {
                 @Override
                 public void run() {
                     if (isFragmentAdded()) {
-                        applyFaceLocationOffset(bmpHeight, faceLocation);
+                        if (faceLocation != null) {
+                            articleHeaderView.setImageFocus(faceLocation);
+                        }
                         articleHeaderView.setMenuBarColor(mainColor);
                         startKenBurnsAnimation();
                     }
@@ -379,33 +356,6 @@ public class LeadImagesHandler {
         @Override
         public void onImageFailed() {
             articleHeaderView.resetMenuBarColor();
-        }
-
-        private void applyFaceLocationOffset(int bmpHeight, @Nullable PointF faceLocation) {
-            faceYOffsetNormalized = faceYScalar(bmpHeight, faceLocation);
-            final float center = .5f;
-            articleHeaderView.setImageScalar(constrainScalar(faceLocation == null ? center : faceLocation.x),
-                    constrainScalar(faceYOffsetNormalized));
-        }
-
-        private float constrainScalar(float scalar) {
-            scalar = Math.max(0, scalar);
-            scalar = Math.min(scalar, 1);
-            return scalar;
-        }
-
-        private float faceYScalar(int bmpHeight, @Nullable PointF faceLocation) {
-            final float defaultOffsetScalar = .5f;
-            float scalar = defaultOffsetScalar;
-            if (faceLocation != null) {
-                scalar = faceLocation.y;
-                // TODO: if it is desirable to offset to the nose, replace this arbitrary hardcoded
-                //       value with a proportion. FaceDetector.eyesDistance() presumably provides
-                //       the interpupillary distance in pixels. We can multiply this measurement by
-                //       the proportion of the length of the nose to the IPD.
-                //scalar -= ipd / bmpHeight;
-            }
-            return scalar;
         }
     }
 }

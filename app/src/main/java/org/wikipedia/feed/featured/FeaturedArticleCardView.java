@@ -7,13 +7,12 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-
 import org.wikipedia.R;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.ViewUtil;
@@ -25,7 +24,7 @@ public class FeaturedArticleCardView extends FeedCardView
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
     @BindView(R.id.view_featured_article_card_header) View headerView;
     @BindView(R.id.view_featured_article_card_footer) View footerView;
-    @BindView(R.id.view_featured_article_card_image) SimpleDraweeView imageView;
+    @BindView(R.id.view_featured_article_card_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
@@ -97,7 +96,7 @@ public class FeaturedArticleCardView extends FeedCardView
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            imageView.setImageURI(uri);
+            imageView.loadImage(uri);
         }
     }
 

@@ -23,6 +23,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import org.wikipedia.R;
+import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
 
 public class FaceAndColorDetectImageView extends SimpleDraweeView {
@@ -76,9 +77,11 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
         if (numFound > 0) {
             facePos = new PointF();
             faces[0].getMidPoint(facePos);
+            // center on the nose, not on the eyes
+            facePos.y += faces[0].eyesDistance() / 2;
             // normalize the position to [0, 1]
-            facePos.x /= testBitmap.getWidth();
-            facePos.y /= testBitmap.getHeight();
+            facePos.set(MathUtil.constrain(facePos.x / testBitmap.getWidth(), 0, 1),
+                    MathUtil.constrain(facePos.y / testBitmap.getHeight(), 0, 1));
             L.d("Found face at " + facePos.x + ", " + facePos.y);
         }
         L.d("Face detection took " + (System.currentTimeMillis() - millis) + "ms");
@@ -141,8 +144,21 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
         }
     }
 
-    private static class DefaultListener implements OnImageLoadListener {
-        @Override public void onImageLoaded(int bmpHeight, PointF faceLocation, @ColorInt int mainColor) { }
-        @Override public void onImageFailed() { }
+    private class DefaultListener implements OnImageLoadListener {
+        @Override
+        public void onImageLoaded(int bmpHeight, @Nullable final PointF faceLocation, @ColorInt int mainColor) {
+            post(new Runnable() {
+                @Override
+                public void run() {
+                    if (faceLocation != null) {
+                        getHierarchy().setActualImageFocusPoint(faceLocation);
+                    }
+                }
+            });
+        }
+
+        @Override
+        public void onImageFailed() {
+        }
     }
 }
