@@ -14,6 +14,7 @@
         <!-- Height set dynamically based on device properties -->
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/view_news_fullscreen_header_image"
+            app:actualImageScaleType="focusCrop"
             android:layout_width="match_parent"
             android:layout_height="0dp" />
 
@@ -23,7 +24,6 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
             android:fontFamily="serif"
             android:lineSpacingMultiplier="1.2"
             style="@style/RtlAwareTextView"/>
