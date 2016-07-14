@@ -65,6 +65,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         void onFeedNewsItemSelected(NewsItemCard card);
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
+        void onFeaturedImageSelected(FeaturedImageCard card);
     }
 
     public static FeedFragment newInstance() {
@@ -236,6 +237,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         public void onDownloadImage(@NonNull FeaturedImage image) {
             if (getCallback() != null) {
                 getCallback().onFeedDownloadImage(image);
+            }
+        }
+
+        @Override
+        public void onFeaturedImageSelected(@NonNull FeaturedImageCard card) {
+            if (getCallback() != null) {
+                getCallback().onFeaturedImageSelected(card);
             }
         }
     }

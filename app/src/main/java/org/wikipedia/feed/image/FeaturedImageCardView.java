@@ -90,7 +90,7 @@ public class FeaturedImageCardView extends FeedCardView
         @Override
         public void onClick(View v) {
             if (getCallback() != null) {
-                //getCallback().onSelectPage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                getCallback().onFeaturedImageSelected(card);
             }
         }
     }

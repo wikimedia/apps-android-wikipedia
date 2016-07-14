@@ -69,9 +69,8 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             = new GalleryThumbnailScrollView.GalleryViewListener() {
         @Override
         public void onGalleryItemClicked(String imageName) {
-            PageTitle imageTitle = new PageTitle(imageName, pageTitle.getSite());
-            GalleryActivity.showGallery(getActivity(), pageTitle, imageTitle,
-                    GalleryFunnel.SOURCE_LINK_PREVIEW);
+            GalleryActivity.showGallery(getActivity(), pageTitle, imageName,
+                    pageTitle.getSite(), GalleryFunnel.SOURCE_LINK_PREVIEW);
         }
     };
 

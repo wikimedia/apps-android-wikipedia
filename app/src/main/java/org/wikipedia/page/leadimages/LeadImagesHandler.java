@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
+import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -292,10 +293,10 @@ public class LeadImagesHandler {
                 if (getPage() != null && isLeadImageEnabled() && y < (articleHeaderView.getHeight() - webView.getScrollY())) {
                     String imageName = getPage().getPageProperties().getLeadImageName();
                     if (imageName != null) {
-                        PageTitle imageTitle = new PageTitle("File:" + imageName,
-                                getTitle().getSite());
+                        String filename = "File:" + imageName;
+                        Site site = getTitle().getSite();
                         GalleryActivity.showGallery(getActivity(),
-                                parentFragment.getTitleOriginal(), imageTitle,
+                                parentFragment.getTitleOriginal(), filename, site,
                                 GalleryFunnel.SOURCE_LEAD_IMAGE);
                     }
                     return true;

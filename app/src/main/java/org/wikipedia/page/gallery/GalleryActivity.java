@@ -2,6 +2,11 @@ package org.wikipedia.page.gallery;
 
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.MainActivity;
+import org.wikipedia.feed.image.FeaturedImage;
+import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageCache;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -11,11 +16,10 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageCache;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
 import android.app.Activity;
@@ -24,6 +28,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -31,7 +37,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -41,7 +46,10 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
@@ -49,54 +57,60 @@ import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.StringUtil.trim;
 
 public class GalleryActivity extends ThemedActionBarActivity {
-    private static final String TAG = "GalleryActivity";
     public static final int ACTIVITY_RESULT_FILEPAGE_SELECT = 1;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
-    public static final String EXTRA_IMAGETITLE = "imageTitle";
+    public static final String EXTRA_FILENAME = "filename";
+    public static final String EXTRA_SITE = "site";
     public static final String EXTRA_SOURCE = "source";
+    public static final String EXTRA_FEATURED_IMAGE = "card";
 
-    private WikipediaApp app;
-    private PageTitle pageTitle;
-    private Page page;
+    private static final String FEED_FEATURED_IMAGE_TITLE = "FeedFeaturedImage";
+
+    @NonNull private WikipediaApp app = WikipediaApp.getInstance();
+    @Nullable private PageTitle pageTitle;
+    @Nullable private Page page;
     private boolean cacheOnLoad;
+    @Nullable private Site site;
 
-    private GalleryFunnel funnel;
-    public GalleryFunnel getFunnel() {
+    @SuppressWarnings("NullableProblems") @NonNull private ViewGroup toolbarContainer;
+    @SuppressWarnings("NullableProblems") @NonNull private ViewGroup infoContainer;
+    @SuppressWarnings("NullableProblems") @NonNull private ProgressBar progressBar;
+    @SuppressWarnings("NullableProblems") @NonNull private TextView descriptionText;
+    @SuppressWarnings("NullableProblems") @NonNull private ImageView licenseIcon;
+    @SuppressWarnings("NullableProblems") @NonNull private TextView creditText;
+    private boolean controlsShowing = true;
+
+    @Nullable private GalleryFunnel funnel;
+    @Nullable protected GalleryFunnel getFunnel() {
         return funnel;
-    }
-
-    private ViewPager galleryPager;
-    private GalleryItemAdapter galleryAdapter;
-    private MediaDownloadReceiver downloadReceiver;
-
-    /**
-     * Cache that stores GalleryItem information for each corresponding media item in
-     * our gallery collection.
-     */
-    private Map<PageTitle, GalleryItem> galleryCache;
-    public Map<PageTitle, GalleryItem> getGalleryCache() {
-        return galleryCache;
     }
 
     /**
      * If we have an intent that tells us a specific image to jump to within the gallery,
      * then this will be non-null.
      */
-    private PageTitle initialImageTitle;
+    private String initialFilename;
 
     /**
      * If we come back from savedInstanceState, then this will be the previous pager position.
      */
     private int initialImageIndex = -1;
 
-    private ViewGroup toolbarContainer;
-    private ViewGroup infoContainer;
-    private ProgressBar progressBar;
-    private TextView descriptionText;
-    private ImageView licenseIcon;
-    private TextView creditText;
-    private boolean controlsShowing = true;
+    @SuppressWarnings("NullableProblems") @NonNull private ViewPager galleryPager;
+    @SuppressWarnings("NullableProblems") @NonNull private GalleryItemAdapter galleryAdapter;
+    @SuppressWarnings("NullableProblems") @NonNull private MediaDownloadReceiver downloadReceiver;
+
+    /**
+     * Cache that stores GalleryItem information for each corresponding media item in
+     * our gallery collection.
+     */
+    @Nullable private Map<PageTitle, GalleryItem> galleryCache;
+
+    @Nullable
+    public Map<PageTitle, GalleryItem> getGalleryCache() {
+        return galleryCache;
+    }
 
     private View.OnClickListener licenseShortClickListener = new View.OnClickListener() {
         @Override
@@ -119,30 +133,51 @@ public class GalleryActivity extends ThemedActionBarActivity {
         }
     };
 
+    /**
+     * Launch the image gallery activity with the single provided image.
+     * @param image FeaturedImage object loaded from the MCS aggregated feed endpoint
+     * @param imageTitle PageTitle object containing the filename and site.
+     */
+    public static void showGallery(Activity activity, FeaturedImage image, String filename, Site site, int source) {
+        Intent galleryIntent = new Intent();
+        galleryIntent.setClass(activity, GalleryActivity.class);
+        galleryIntent.putExtra(EXTRA_FILENAME, filename);
+        galleryIntent.putExtra(EXTRA_SITE, site);
+        galleryIntent.putExtra(EXTRA_PAGETITLE, new PageTitle(FEED_FEATURED_IMAGE_TITLE, site));
+        galleryIntent.putExtra(EXTRA_SOURCE, source);
+        galleryIntent.putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image));
+        activity.startActivityForResult(galleryIntent, MainActivity.ACTIVITY_REQUEST_GALLERY);
+    }
+
+    /**
+     * Launch the image gallery activity, and start with the provided image.
+     * @param imageTitle Image with which to begin the gallery.
+     */
+    public static void showGallery(Activity activity, PageTitle pageTitle, String filename, Site site,
+                                   int source) {
+        Intent galleryIntent = new Intent();
+        galleryIntent.setClass(activity, GalleryActivity.class);
+        galleryIntent.putExtra(EXTRA_FILENAME, filename);
+        galleryIntent.putExtra(EXTRA_SITE, site);
+        galleryIntent.putExtra(EXTRA_PAGETITLE, pageTitle);
+        galleryIntent.putExtra(EXTRA_SOURCE, source);
+        activity.startActivityForResult(galleryIntent, MainActivity.ACTIVITY_REQUEST_GALLERY);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // force the theme to dark...
         setTheme(Theme.DARK.getResourceId());
-        app = (WikipediaApp)getApplicationContext();
         downloadReceiver = new MediaDownloadReceiver(this);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_gallery);
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.gallery_toolbar);
-        // give it a gradient background
-        ViewUtil.setBackgroundDrawable(toolbar, GradientUtil.getCubicGradient(
-                getResources().getColor(R.color.lead_gradient_start), Gravity.TOP));
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("");
+        initToolbar();
 
         toolbarContainer = (ViewGroup) findViewById(R.id.gallery_toolbar_container);
         infoContainer = (ViewGroup) findViewById(R.id.gallery_info_container);
-        // give it a gradient background
-        ViewUtil.setBackgroundDrawable(infoContainer, GradientUtil.getCubicGradient(
-                getResources().getColor(R.color.lead_gradient_start), Gravity.BOTTOM));
+        setBackgroundGradient(infoContainer, Gravity.BOTTOM);
 
         progressBar = (ProgressBar) findViewById(R.id.gallery_progressbar);
 
@@ -158,27 +193,27 @@ public class GalleryActivity extends ThemedActionBarActivity {
         creditText.setShadowLayer(2, 1, 1, getResources().getColor(R.color.lead_text_shadow));
 
         pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
-        initialImageTitle = getIntent().getParcelableExtra(EXTRA_IMAGETITLE);
+        initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
+        site = getIntent().getParcelableExtra(EXTRA_SITE);
 
         galleryCache = new HashMap<>();
-        galleryPager = (ViewPager) findViewById(R.id.gallery_item_pager);
         galleryAdapter = new GalleryItemAdapter(this);
+        galleryPager = (ViewPager) findViewById(R.id.gallery_item_pager);
         galleryPager.setAdapter(galleryAdapter);
         galleryPager.setOnPageChangeListener(new GalleryPageChangeListener());
 
-        funnel = new GalleryFunnel(app, pageTitle.getSite(),
-                                   getIntent().getIntExtra(EXTRA_SOURCE, 0));
+        funnel = new GalleryFunnel(app, site, getIntent().getIntExtra(EXTRA_SOURCE, 0));
 
         if (savedInstanceState == null) {
-            if (initialImageTitle != null) {
-                funnel.logGalleryOpen(pageTitle, initialImageTitle.getDisplayText());
+            if (initialFilename != null) {
+                funnel.logGalleryOpen(pageTitle, initialFilename);
             }
         } else {
             controlsShowing = savedInstanceState.getBoolean("controlsShowing");
             initialImageIndex = savedInstanceState.getInt("pagerIndex");
             // if we have a savedInstanceState, then the initial index overrides
             // the initial Title from our intent.
-            initialImageTitle = null;
+            initialFilename = null;
             if (getSupportFragmentManager().getFragments() != null) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 for (Fragment f : getSupportFragmentManager().getFragments()) {
@@ -198,29 +233,45 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         updateProgressBar(false, true, 0);
 
-        // find our Page in the page cache...
-        app.getPageCache().get(pageTitle, 0, new PageCache.CacheGetListener() {
-            @Override
-            public void onGetComplete(Page page, int sequence) {
-                GalleryActivity.this.page = page;
-                if (page != null && page.getGalleryCollection() != null
-                    && page.getGalleryCollection().getItemList().size() > 0) {
-                    applyGalleryCollection(page.getGalleryCollection());
-                    cacheOnLoad = false;
-                } else {
-                    // fetch the gallery from the network...
+        if (pageTitle == null) {
+            throw new IllegalStateException("pageTitle should not be null");
+        } else if (FEED_FEATURED_IMAGE_TITLE.equals(pageTitle.getText())) {
+            FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
+                    getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
+            if (featuredImage != null) {
+                loadGalleryItemFor(featuredImage);
+            }
+        } else {
+            // find our Page in the page cache...
+            app.getPageCache().get(pageTitle, 0, new PageCache.CacheGetListener() {
+                @Override
+                public void onGetComplete(Page page, int sequence) {
+                    GalleryActivity.this.page = page;
+                    if (page != null && page.getGalleryCollection() != null
+                            && page.getGalleryCollection().getItemList().size() > 0) {
+                        applyGalleryCollection(page.getGalleryCollection());
+                        cacheOnLoad = false;
+                    } else {
+                        // fetch the gallery from the network...
+                        fetchGalleryCollection();
+                        cacheOnLoad = true;
+                    }
+                }
+
+                @Override
+                public void onGetError(Throwable e, int sequence) {
+                    L.e("Failed to get page from cache.", e);
                     fetchGalleryCollection();
                     cacheOnLoad = true;
                 }
-            }
+            });
+        }
+    }
 
-            @Override
-            public void onGetError(Throwable e, int sequence) {
-                Log.e(TAG, "Failed to get page from cache.", e);
-                fetchGalleryCollection();
-                cacheOnLoad = true;
-            }
-        });
+    private void loadGalleryItemFor(FeaturedImage image) {
+        List<GalleryItem> list = new ArrayList<>();
+        list.add(new GalleryItem(image));
+        applyGalleryCollection(new GalleryCollection(list));
     }
 
     @Override
@@ -235,20 +286,6 @@ public class GalleryActivity extends ThemedActionBarActivity {
         unregisterReceiver(downloadReceiver);
     }
 
-    /**
-     * Launch the image gallery activity, and start with the provided image.
-     * @param imageTitle Image with which to begin the gallery.
-     */
-    public static void showGallery(Activity activity, PageTitle pageTitle, PageTitle imageTitle,
-                                   int source) {
-        Intent galleryIntent = new Intent();
-        galleryIntent.setClass(activity, GalleryActivity.class);
-        galleryIntent.putExtra(EXTRA_IMAGETITLE, imageTitle);
-        galleryIntent.putExtra(EXTRA_PAGETITLE, pageTitle);
-        galleryIntent.putExtra(EXTRA_SOURCE, source);
-        activity.startActivityForResult(galleryIntent, MainActivity.ACTIVITY_REQUEST_GALLERY);
-    }
-
     private class GalleryPageChangeListener implements ViewPager.OnPageChangeListener {
         private int currentPosition = -1;
         @Override
@@ -257,7 +294,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         @Override
         public void onPageSelected(int position) {
             // the pager has settled on a new position
-            layoutGalleryDescription();
+            layOutGalleryDescription();
             galleryAdapter.notifyFragments(position);
             if (currentPosition != -1 && getCurrentItem() != null) {
                 if (position < currentPosition) {
@@ -342,23 +379,23 @@ public class GalleryActivity extends ThemedActionBarActivity {
             new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
         @Override
         public void onUrlClick(String url) {
-            Log.v(TAG, "Link clicked was " + url);
+            L.v("Link clicked was " + url);
             url = resolveProtocolRelativeUrl(url);
-            Site site = app.getSite();
+            Site appSite = app.getSite();
             if (url.startsWith("/wiki/")) {
-                PageTitle title = site.titleForInternalLink(url);
+                PageTitle title = appSite.titleForInternalLink(url);
                 finishWithPageResult(title);
             } else {
                 Uri uri = Uri.parse(url);
                 String authority = uri.getAuthority();
                 if (authority != null && Site.supportedAuthority(authority)
                     && uri.getPath().startsWith("/wiki/")) {
-                    PageTitle title = site.titleForUri(uri);
+                    PageTitle title = appSite.titleForUri(uri);
                     finishWithPageResult(title);
                 } else {
                     // if it's a /w/ URI, turn it into a full URI and go external
                     if (url.startsWith("/w/")) {
-                        url = String.format("%1$s://%2$s", site.scheme(), site.authority()) + url;
+                        url = String.format("%1$s://%2$s", appSite.scheme(), appSite.authority()) + url;
                     }
                     handleExternalLink(GalleryActivity.this, Uri.parse(url));
                 }
@@ -387,6 +424,10 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * Retrieve the complete list of media items for the current page.
      * When retrieved, the list will be passed to the ViewPager, and will become a
      * scrollable gallery of media.
+     *
+     * WARNING: This may be useful if/when we start loading multiple images into the gallery from
+     * the feed, but it won't work with the current dummy PageTitle we're using when coming from
+     * the feed.
      */
     private void fetchGalleryCollection() {
         updateProgressBar(true, true, 0);
@@ -405,7 +446,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
                         @Override
                         public void onPutError(Throwable e) {
-                            Log.e(TAG, "Failed to add page to cache.", e);
+                            L.e("Failed to add page to cache.", e);
                         }
                     });
                 }
@@ -413,7 +454,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             }
             @Override
             public void onCatch(Throwable caught) {
-                Log.e(TAG, "Failed to fetch gallery collection.", caught);
+                L.e("Failed to fetch gallery collection.", caught);
                 updateProgressBar(false, true, 0);
                 FeedbackUtil.showError(GalleryActivity.this, caught);
             }
@@ -424,15 +465,15 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * Apply a complete collection of media to our scrollable gallery.
      * @param collection GalleryCollection to apply to the ViewPager.
      */
-    private void applyGalleryCollection(GalleryCollection collection) {
+    protected void applyGalleryCollection(GalleryCollection collection) {
         // remove the page transformer while we operate on the pager...
         galleryPager.setPageTransformer(false, null);
         // first, verify that the collection contains the item that the user
         // initially requested, if we have one...
         int initialImagePos = -1;
-        if (initialImageTitle != null) {
+        if (initialFilename != null) {
             for (GalleryItem item : collection.getItemList()) {
-                if (item.getName().equals(initialImageTitle.getDisplayText())) {
+                if (item.getName().equals(initialFilename)) {
                     initialImagePos = collection.getItemList().indexOf(item);
                     break;
                 }
@@ -444,7 +485,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 // by default in the gallery)
                 initialImagePos = 0;
                 collection.getItemList().add(initialImagePos,
-                                             new GalleryItem(initialImageTitle.getDisplayText()));
+                        new GalleryItem(initialFilename));
             }
         }
 
@@ -454,7 +495,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             // if we have a target image to jump to, then do it!
             galleryPager.setCurrentItem(initialImagePos, false);
         } else if (initialImageIndex >= 0
-                   && initialImageIndex < galleryAdapter.getCount()) {
+                && initialImageIndex < galleryAdapter.getCount()) {
             // if we have a target image index to jump to, then do it!
             galleryPager.setCurrentItem(initialImageIndex, false);
         }
@@ -472,7 +513,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     /**
      * Populate the description and license text fields with data from the current gallery item.
      */
-    public void layoutGalleryDescription() {
+    public void layOutGalleryDescription() {
         GalleryItem item = getCurrentItem();
         if (item == null) {
             infoContainer.setVisibility(View.GONE);
@@ -528,6 +569,19 @@ public class GalleryActivity extends ThemedActionBarActivity {
      */
     private static int getLicenseIcon(GalleryItem item) {
         return item.getLicense().getLicenseIcon();
+    }
+
+    private void setBackgroundGradient(View view, int gravity) {
+        ViewUtil.setBackgroundDrawable(view, GradientUtil.getCubicGradient(
+                getResources().getColor(R.color.lead_gradient_start), gravity));
+    }
+
+    private void initToolbar() {
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.gallery_toolbar);
+        setBackgroundGradient(toolbar, Gravity.TOP);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
     }
 
     /**
@@ -590,7 +644,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             // instantiate a new fragment if it doesn't exist
             if (fragmentArray.get(position) == null) {
                 fragmentArray.put(position, GalleryItemFragment
-                        .newInstance(pageTitle, galleryCollection.getItemList().get(position)));
+                        .newInstance(pageTitle, site, galleryCollection.getItemList().get(position)));
             }
             return fragmentArray.get(position);
         }
