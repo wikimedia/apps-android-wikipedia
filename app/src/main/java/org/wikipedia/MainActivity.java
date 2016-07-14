@@ -577,6 +577,9 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     }
 
     public void showFeed() {
+        if (getTopFragment() instanceof FeedFragment) {
+            ((FeedFragment) getTopFragment()).scrollToTop();
+        }
         // pop fragments until we see a FeedFragment. If there's no FeedFragment, then add it.
         while (getSupportFragmentManager().getBackStackEntryCount() > 0
                 && !(getTopFragment() instanceof FeedFragment)) {

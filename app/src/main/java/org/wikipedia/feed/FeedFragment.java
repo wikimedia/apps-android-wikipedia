@@ -164,6 +164,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         return FragmentUtil.getCallback(this, Callback.class);
     }
 
+    public void scrollToTop() {
+        feedView.smoothScrollToPosition(0);
+    }
+
     private class FeedCallback implements FeedViewCallback {
         @Override
         public void onRequestMore() {
