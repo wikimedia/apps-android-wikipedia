@@ -374,7 +374,7 @@ public class BottomContentHandler implements BottomContentInterface,
         readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle title = ((SearchResult) adapter.getItem(position)).getPageTitle();
+                PageTitle title = adapter.getItem(position).getPageTitle();
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
                 activity.loadPage(title, historyEntry);
                 funnel.logSuggestionClicked(pageTitle, results.getResults(), position);
