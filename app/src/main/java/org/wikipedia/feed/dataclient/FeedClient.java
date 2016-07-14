@@ -1,4 +1,4 @@
-package org.wikipedia.feed;
+package org.wikipedia.feed.dataclient;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

@@ -6,8 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 
-import org.wikipedia.feed.FeedViewCallback;
-
 public class FeedCardView extends CardView {
     @Nullable private FeedViewCallback callback;
 

@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedViewCallback;
+import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleListCardView;

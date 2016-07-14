@@ -1,7 +1,7 @@
 package org.wikipedia.feed.mainpage;
 
 import org.wikipedia.Site;
-import org.wikipedia.feed.DummyClient;
+import org.wikipedia.feed.dataclient.DummyClient;
 
 public class MainPageClient extends DummyClient<MainPageCard> {
     public MainPageClient() {

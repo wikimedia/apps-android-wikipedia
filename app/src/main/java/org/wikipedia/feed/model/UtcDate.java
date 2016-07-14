@@ -1,4 +1,4 @@
-package org.wikipedia.feed;
+package org.wikipedia.feed.model;
 
 import android.support.annotation.NonNull;
 

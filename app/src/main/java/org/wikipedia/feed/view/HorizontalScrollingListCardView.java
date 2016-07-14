@@ -13,7 +13,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MarginItemDecoration;

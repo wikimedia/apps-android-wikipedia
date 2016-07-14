@@ -29,6 +29,7 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedRecyclerAdapter;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.FeedView;
+import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;

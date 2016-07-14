@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.UtcDate;
+import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.history.HistoryEntry;

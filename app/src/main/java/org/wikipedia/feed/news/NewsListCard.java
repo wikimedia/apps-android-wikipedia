@@ -3,7 +3,7 @@ package org.wikipedia.feed.news;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.Site;
-import org.wikipedia.feed.UtcDate;
+import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.model.ListCard;
 
 import java.util.ArrayList;

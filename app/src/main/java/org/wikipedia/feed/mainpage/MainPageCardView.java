@@ -7,7 +7,7 @@ import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.FeedViewCallback;
+import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.feed.view.StaticCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;

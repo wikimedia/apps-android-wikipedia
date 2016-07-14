@@ -8,7 +8,6 @@ import android.support.v7.widget.CardView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 

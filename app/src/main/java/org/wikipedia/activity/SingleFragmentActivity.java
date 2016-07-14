@@ -29,6 +29,7 @@ public abstract class SingleFragmentActivity<T extends Fragment & CallbackFragme
         return ActivityUtil.defaultOnOptionsItemSelected(this, item)
                 || super.onOptionsItemSelected(item);
     }
+
     protected void addFragment(T fragment) {
         getSupportFragmentManager().beginTransaction().add(getContainerId(), fragment).commit();
     }

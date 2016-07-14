@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedCoordinatorBase;
-import org.wikipedia.feed.FeedViewCallback;
 import org.wikipedia.views.AutoFitRecyclerView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
