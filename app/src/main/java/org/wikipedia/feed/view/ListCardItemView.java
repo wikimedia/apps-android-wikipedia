@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
+import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.GoneIfEmptyTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,7 +21,7 @@ import butterknife.ButterKnife;
 public class ListCardItemView extends FrameLayout {
     @BindView(R.id.view_list_card_item_image) SimpleDraweeView imageView;
     @BindView(R.id.view_list_card_item_title) TextView titleView;
-    @BindView(R.id.view_list_card_item_subtitle) TextView subtitleView;
+    @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;
     @BindView(R.id.view_list_card_item_menu) View menuView;
 
     public ListCardItemView(Context context) {
@@ -44,7 +46,7 @@ public class ListCardItemView extends FrameLayout {
     }
 
     @NonNull public ListCardItemView setSubtitle(@Nullable CharSequence subtitle) {
-        subtitleView.setText(subtitle);
+        subtitleView.setText(StringUtil.emptyIfNull(subtitle).toString());
         return this;
     }
 }
