@@ -15,7 +15,7 @@ public class ItemTouchHelperSwipeAdapter extends ItemTouchHelper.SimpleCallback 
     @NonNull private final Callback callback;
 
     public ItemTouchHelperSwipeAdapter(@NonNull Callback callback) {
-        super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
+        super(0, ItemTouchHelper.END);
         this.callback = callback;
     }
 
