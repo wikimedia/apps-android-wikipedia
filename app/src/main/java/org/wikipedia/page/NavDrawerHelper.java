@@ -150,6 +150,7 @@ public class NavDrawerHelper {
 
     private void setMenuItemSelection(@IdRes int id) {
         clearItemHighlighting();
+        activity.getNavMenu().findItem(id).setChecked(true);
     }
 
     private void toggleAccountMenu() {
