@@ -5,7 +5,6 @@
     android:id="@+id/view_card_header_large_background"
     android:layout_width="match_parent"
     android:layout_height="96dp"
-    android:orientation="horizontal"
     android:background="@color/gray_background">
 
     <LinearLayout

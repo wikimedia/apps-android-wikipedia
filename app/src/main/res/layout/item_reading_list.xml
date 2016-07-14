@@ -18,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="@dimen/readingListItemSize"
-            android:orientation="horizontal"
             android:clickable="true"
             android:background="?attr/selectableItemBackground">
 
@@ -30,8 +29,7 @@
                     android:id="@+id/item_image_row_1"
                     android:layout_width="@dimen/readingListItemSize"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:layout_weight="1">
                     <com.facebook.drawee.view.SimpleDraweeView
                         style="@style/SimpleDraweeViewPlaceholder.Article"
                         android:id="@+id/item_image_1"
@@ -55,8 +53,7 @@
                     android:id="@+id/item_image_row_2"
                     android:layout_width="@dimen/readingListItemSize"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:layout_weight="1">
                     <com.facebook.drawee.view.SimpleDraweeView
                         style="@style/SimpleDraweeViewPlaceholder.Article"
                         android:id="@+id/item_image_3"

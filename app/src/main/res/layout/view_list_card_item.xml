@@ -10,7 +10,6 @@
         android:paddingRight="@dimen/list_item_horizontal_padding"
         android:paddingBottom="@dimen/list_item_horizontal_padding"
         android:paddingLeft="@dimen/list_item_horizontal_padding"
-        android:orientation="horizontal"
         android:background="?attr/selectableItemBackground">
 
         <com.facebook.drawee.view.SimpleDraweeView

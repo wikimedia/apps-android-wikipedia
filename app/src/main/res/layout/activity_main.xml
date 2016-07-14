@@ -97,7 +97,6 @@
                                 android:id="@+id/search_bar_enabled"
                                 android:layout_width="match_parent"
                                 android:layout_height="36dp"
-                                android:orientation="horizontal"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="4dp"
                                 android:layout_marginEnd="4dp"
