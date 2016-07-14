@@ -6,8 +6,8 @@ public class NavMenuFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppNavMenu";
     private static final int REV_ID = 12732211;
 
+    private static final String NAV_MENU_FEED = "Feed";
     private static final String NAV_MENU_HISTORY = "Recent";
-    private static final String NAV_MENU_SAVED_PAGES = "SavedPages";
     private static final String NAV_MENU_READING_LISTS = "ReadingLists";
     private static final String NAV_MENU_NEARBY = "Nearby";
     private static final String NAV_MENU_MORE = "More";
@@ -18,12 +18,12 @@ public class NavMenuFunnel extends Funnel {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100);
     }
 
-    public void logHistory() {
-        logSelect(NAV_MENU_HISTORY);
+    public void logFeed() {
+        logSelect(NAV_MENU_FEED);
     }
 
-    public void logSavedPages() {
-        logSelect(NAV_MENU_SAVED_PAGES);
+    public void logHistory() {
+        logSelect(NAV_MENU_HISTORY);
     }
 
     public void logReadingLists() {
