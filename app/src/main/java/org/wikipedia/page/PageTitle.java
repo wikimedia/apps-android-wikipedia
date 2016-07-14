@@ -87,7 +87,7 @@ public class PageTitle implements Parcelable {
         this(text, site, thumbUrl, (PageProperties) null);
     }
 
-    public PageTitle(String text, final Site site) {
+    public PageTitle(@Nullable String text, @NonNull Site site) {
         this(text, site, null);
     }
 

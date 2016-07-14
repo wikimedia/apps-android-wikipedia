@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 
 import butterknife.BindView;
@@ -46,7 +45,7 @@ public class ListCardItemView extends FrameLayout {
     }
 
     @NonNull public ListCardItemView setSubtitle(@Nullable CharSequence subtitle) {
-        subtitleView.setText(StringUtil.emptyIfNull(subtitle).toString());
+        subtitleView.setText((String) subtitle);
         return this;
     }
 }

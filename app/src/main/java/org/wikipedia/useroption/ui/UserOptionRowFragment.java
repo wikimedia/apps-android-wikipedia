@@ -64,6 +64,7 @@ public class UserOptionRowFragment extends Fragment
     @Override public void onDestroyView() {
         getActivity().getSupportLoaderManager().destroyLoader(USER_OPTION_ROW_FRAGMENT_LOADER_ID);
         unbinder.unbind();
+        unbinder = null;
         super.onDestroyView();
     }
 
