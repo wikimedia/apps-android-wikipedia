@@ -70,6 +70,9 @@ public class CardLargeHeaderView extends FrameLayout {
                 @Override
                 public void run() {
                     animateBackgroundColor(backgroundView, mainColor);
+                    if (faceLocation != null) {
+                        imageView.getHierarchy().setActualImageFocusPoint(faceLocation);
+                    }
                 }
             });
         }

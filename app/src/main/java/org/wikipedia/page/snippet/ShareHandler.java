@@ -144,7 +144,6 @@ public class ShareHandler {
 
                 final SnippetImage snippetImage = new SnippetImage(activity,
                         curPageFragment.getLeadImageBitmap(),
-                        curPageFragment.getLeadImageFocusY(),
                         title.getDisplayText(),
                         curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
                         selectedText,

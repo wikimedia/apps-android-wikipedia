@@ -1,6 +1,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/view_card_header_large_background"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -41,6 +42,7 @@
         style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/view_card_header_large_image"
         android:layout_width="96dp"
-        android:layout_height="96dp" />
+        android:layout_height="96dp"
+        app:actualImageScaleType="focusCrop"/>
 
 </LinearLayout>

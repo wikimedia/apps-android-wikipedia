@@ -7,14 +7,13 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-
 import org.wikipedia.R;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.FeedCardView;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.ViewUtil;
 
@@ -26,7 +25,7 @@ public class FeaturedImageCardView extends FeedCardView
     @Nullable private FeaturedImageCard card;
     @BindView(R.id.view_featured_image_card_header) View headerView;
     @BindView(R.id.view_featured_image_card_footer) View footerView;
-    @BindView(R.id.view_featured_image_card_image) SimpleDraweeView imageView;
+    @BindView(R.id.view_featured_image_card_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.featured_image_description_Text) TextView descriptionView;
 
     public FeaturedImageCardView(Context context) {
@@ -46,7 +45,7 @@ public class FeaturedImageCardView extends FeedCardView
     }
 
     private void image(@NonNull Uri uri) {
-        imageView.setImageURI(uri);
+        imageView.loadImage(uri);
     }
 
     private void description(@NonNull String text) {
