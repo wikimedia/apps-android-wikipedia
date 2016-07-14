@@ -31,17 +31,16 @@ import retrofit2.http.Path;
 public class AggregatedFeedContentClient implements FeedClient {
 
     @Nullable private Call<AggregatedFeedContent> call;
-    @Nullable private static UtcDate DATE;
 
     @Override
     public void request(@NonNull Context context, @NonNull Site site, int age, @NonNull Callback cb) {
         cancel();
-        DATE = DateUtil.getUtcRequestDateFor(age);
+        UtcDate date = DateUtil.getUtcRequestDateFor(age);
         // TODO: Use app retrofit, etc., when feed endpoints are deployed to production
         Retrofit retrofit = RetrofitFactory.newInstance(site,
                 String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), "http", site.authority()));
         AggregatedFeedContentClient.Service service = retrofit.create(Service.class);
-        call = service.get(DATE.year(), DATE.month(), DATE.date());
+        call = service.get(date.year(), date.month(), date.date());
         call.enqueue(new CallbackAdapter(cb, site, age));
     }
 
@@ -84,20 +83,21 @@ public class AggregatedFeedContentClient implements FeedClient {
         @Override public void onResponse(Call<AggregatedFeedContent> call,
                                          Response<AggregatedFeedContent> response) {
             if (response.isSuccessful()) {
+                UtcDate date = DateUtil.getUtcRequestDateFor(age);
                 List<Card> cards = new ArrayList<>();
                 AggregatedFeedContent content = response.body();
                 if (content.tfa() != null) {
-                    cards.add(new FeaturedArticleCard(content.tfa(), DATE, site));
+                    cards.add(new FeaturedArticleCard(content.tfa(), date, site));
                 }
                 // todo: remove age check when news endpoint provides dated content, T139481.
                 if (age == 0 && content.news() != null) {
-                    cards.add(new NewsListCard(content.news(), DATE, site));
+                    cards.add(new NewsListCard(content.news(), date, site));
                 }
                 if (content.mostRead() != null) {
                     cards.add(new MostReadListCard(content.mostRead(), site));
                 }
                 if (content.potd() != null) {
-                    cards.add(new FeaturedImageCard(content.potd(), DATE, site));
+                    cards.add(new FeaturedImageCard(content.potd(), date, site));
                 }
                 cb.success(cards);
             } else {
