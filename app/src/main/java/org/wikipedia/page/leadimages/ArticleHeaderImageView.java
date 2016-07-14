@@ -71,9 +71,8 @@ public class ArticleHeaderImageView extends FrameLayout {
         return image;
     }
 
-    public void setFocusOffset(float verticalOffset) {
-        final float centerHorizontal = 0.5f;
-        image.getHierarchy().setActualImageFocusPoint(new PointF(centerHorizontal, verticalOffset));
+    public void setFocusOffset(float horizontalOffset, float verticalOffset) {
+        image.getHierarchy().setActualImageFocusPoint(new PointF(horizontalOffset, verticalOffset));
     }
 
     private void init() {

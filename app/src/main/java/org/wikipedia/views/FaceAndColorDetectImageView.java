@@ -66,10 +66,11 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
     }
 
     @Nullable private PointF detectFace(Bitmap testBitmap) {
+        final int maxFaces = 1;
         long millis = System.currentTimeMillis();
         // initialize the face detector, and look for only one face...
-        FaceDetector fd = new FaceDetector(testBitmap.getWidth(), testBitmap.getHeight(), 1);
-        FaceDetector.Face[] faces = new FaceDetector.Face[1];
+        FaceDetector fd = new FaceDetector(testBitmap.getWidth(), testBitmap.getHeight(), maxFaces);
+        FaceDetector.Face[] faces = new FaceDetector.Face[maxFaces];
         int numFound = fd.findFaces(testBitmap, faces);
         PointF facePos = null;
         if (numFound > 0) {

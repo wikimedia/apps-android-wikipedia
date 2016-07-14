@@ -66,8 +66,6 @@
     <dimen name="floating_action_button_margin_right">8dp</dimen>
     <dimen name="floating_action_button_margin_bottom">0dp</dimen>
 
-    <dimen name="face_detection_nose_y_offset">-24dp</dimen>
-
     <dimen name="nav_drawer_header_height">150dp</dimen>
 
     <dimen name="shadow_thickness">3dp</dimen>

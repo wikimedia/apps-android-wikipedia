@@ -140,8 +140,8 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         return ViewUtil.getBitmapFromView(image);
     }
 
-    public void setImageYScalar(float offset) {
-        image.setFocusOffset(offset);
+    public void setImageScalar(float horizontalOffset, float verticalOffset) {
+        image.setFocusOffset(horizontalOffset, verticalOffset);
         updateParallaxScroll();
     }
 
