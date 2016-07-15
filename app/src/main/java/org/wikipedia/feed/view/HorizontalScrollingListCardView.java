@@ -80,6 +80,7 @@ public abstract class HorizontalScrollingListCardView extends CardView {
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_horizontal,
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical));
         recyclerView.addOnItemTouchListener(new DontInterceptTouchListener());
+        recyclerView.setNestedScrollingEnabled(false);
     }
 
     protected abstract static class RecyclerAdapter<T>

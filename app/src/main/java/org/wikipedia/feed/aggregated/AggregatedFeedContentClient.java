@@ -86,12 +86,12 @@ public class AggregatedFeedContentClient implements FeedClient {
                 UtcDate date = DateUtil.getUtcRequestDateFor(age);
                 List<Card> cards = new ArrayList<>();
                 AggregatedFeedContent content = response.body();
-                if (content.tfa() != null) {
-                    cards.add(new FeaturedArticleCard(content.tfa(), date, site));
-                }
                 // todo: remove age check when news endpoint provides dated content, T139481.
                 if (age == 0 && content.news() != null) {
                     cards.add(new NewsListCard(content.news(), date, site));
+                }
+                if (content.tfa() != null) {
+                    cards.add(new FeaturedArticleCard(content.tfa(), date, site));
                 }
                 if (content.mostRead() != null) {
                     cards.add(new MostReadListCard(content.mostRead(), site));
