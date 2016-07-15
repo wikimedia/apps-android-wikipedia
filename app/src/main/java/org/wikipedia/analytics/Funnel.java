@@ -2,11 +2,11 @@ package org.wikipedia.analytics;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.util.log.L;
 
 import java.util.UUID;
 
@@ -30,11 +30,6 @@ import java.util.UUID;
     @Nullable private final Site site;
 
     private final String sessionToken = UUID.randomUUID().toString();
-
-    /**
-     * The tag used for any analytics-related events sent to the Log.
-     */
-    public static final String ANALYTICS_TAG = "Analytics";
 
     /*package*/ Funnel(WikipediaApp app, String schemaName, int revision) {
         this(app, schemaName, revision, SAMPLE_LOG_ALL);
@@ -142,7 +137,7 @@ import java.util.UUID;
                     preprocessData(eventData, params[i].toString(), params[i + 1]);
                     logString += ", event_" + params[i] + " = " + params[i + 1];
                 }
-                Log.d(ANALYTICS_TAG, logString);
+                L.d(logString);
 
                 new EventLoggingEvent(
                         schemaName,
