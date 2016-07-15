@@ -41,7 +41,7 @@
     <!-- /Crash reporter -->
 
     <!-- The Feed -->
-    <string name="activity_feed_title">@string/feed</string>
+    <string name="fragment_feed_title">@string/feed</string>
     <string name="nav_item_feed">@string/feed</string>
     <string name="feed_undo_dismiss_card">@string/reading_list_item_delete_undo</string>
 
