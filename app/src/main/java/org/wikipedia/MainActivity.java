@@ -233,7 +233,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        MetricsManager.register(this, app);
+        MetricsManager.register(app, app);
         app.checkCrashes(this);
 
         if (ApiUtil.hasKitKat()) {
