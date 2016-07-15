@@ -227,15 +227,18 @@ public class NavDrawerHelper {
     }
 
     private void launchSettingsActivity() {
-        activity.closeNavDrawer();
-        activity.startActivityForResult(new Intent().setClass(app, SettingsActivity.class),
+        startActivityForResult(SettingsActivity.newIntent(app),
                 SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
     }
 
     private void launchLoginActivity() {
-        activity.closeNavDrawer();
-        activity.startActivityForResult(LoginActivity.newIntent(app, LoginFunnel.SOURCE_NAV),
+        startActivityForResult(LoginActivity.newIntent(app, LoginFunnel.SOURCE_NAV),
                 LoginActivity.REQUEST_LOGIN);
+    }
+
+    private void startActivityForResult(@NonNull Intent intent, int reqCode) {
+        activity.closeNavDrawer();
+        activity.startActivityForResult(intent, reqCode);
     }
 
     private void logOut() {
