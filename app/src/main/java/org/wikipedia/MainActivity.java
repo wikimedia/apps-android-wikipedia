@@ -50,6 +50,7 @@ import com.squareup.otto.Subscribe;
 
 import net.hockeyapp.android.metrics.MetricsManager;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.GalleryFunnel;
@@ -579,20 +580,10 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     public void showFeed() {
         if (getTopFragment() instanceof FeedFragment) {
             ((FeedFragment) getTopFragment()).scrollToTop();
-        }
-        // pop fragments until we see a FeedFragment. If there's no FeedFragment, then add it.
-        while (getSupportFragmentManager().getBackStackEntryCount() > 0
-                && !(getTopFragment() instanceof FeedFragment)) {
-            getSupportFragmentManager().popBackStackImmediate();
-        }
-        pushFragment(new FeedFragment());
-    }
+        } else {
 
-    private void resetFragmentsToFeedOrPage() {
-        while (getSupportFragmentManager().getBackStackEntryCount() > 0
-                && !(getTopFragment() instanceof FeedFragment)
-                && !(getTopFragment() instanceof PageFragment)) {
-            getSupportFragmentManager().popBackStackImmediate();
+            popTopFragmentsExcept(FeedFragment.class);
+            pushFragment(FeedFragment.newInstance());
         }
     }
 
@@ -620,7 +611,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             return;
         }
 
-        resetFragmentsToFeedOrPage();
+        popTopFragmentsExcept(FeedFragment.class, PageFragment.class);
         if (getTopFragment() == null || (getTopFragment().getClass() != f.getClass())) {
             FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
             trans.setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out);
@@ -1257,5 +1248,12 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     private void setPendingDownload(@Nullable FeaturedImage image) {
         pendingDownloadImage = image;
+    }
+
+    private void popTopFragmentsExcept(Class<?>... frags) {
+        while (getSupportFragmentManager().getBackStackEntryCount() > 0
+                && !ArrayUtils.contains(frags, getTopFragment().getClass())) {
+            getSupportFragmentManager().popBackStackImmediate();
+        }
     }
 }
