@@ -40,9 +40,11 @@ public class MainActivityToolbarCoordinator {
         }
     }
 
-    private void setActivityToolbar(Toolbar toolbar) {
+    private void setActivityToolbar(@Nullable Toolbar toolbar) {
         activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        activity.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
+        if (activity.getSupportActionBar() != null) {
+            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            activity.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
+        }
     }
 }
