@@ -846,11 +846,13 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
                 && ((BackPressedHandler) getTopFragment()).onBackPressed()) {
             return;
         }
-        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             beforeFragmentChanged();
             getSupportFragmentManager().popBackStackImmediate();
             afterFragmentChanged();
-            return;
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                return;
+            }
         }
         finish();
     }
