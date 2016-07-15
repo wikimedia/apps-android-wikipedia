@@ -24,12 +24,14 @@ public class FeedCoordinator extends FeedCoordinatorBase {
             init();
         }
 
-        addPendingClient(new BecauseYouReadClient());
-        addPendingClient(new ContinueReadingClient());
         addPendingClient(new AggregatedFeedContentClient());
+        addPendingClient(new ContinueReadingClient());
+        if (age == 0) {
+            addPendingClient(new MainPageClient());
+        }
+        addPendingClient(new BecauseYouReadClient());
         if (age == 0) {
             addPendingClient(new RandomClient());
-            addPendingClient(new MainPageClient());
         }
     }
 
