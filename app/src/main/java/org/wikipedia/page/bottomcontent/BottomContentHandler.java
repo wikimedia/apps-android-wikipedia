@@ -292,8 +292,8 @@ public class BottomContentHandler implements BottomContentInterface,
         if (parentFragment.getPage().isMainPage()) {
             new MainPageReadMoreTopicTask(activity) {
                 @Override
-                public void onFinish(PageTitle myTitle) {
-                    requestReadMoreItems(layoutInflater, myTitle);
+                public void onFinish(HistoryEntry entry) {
+                    requestReadMoreItems(layoutInflater, entry);
                 }
 
                 @Override
@@ -305,20 +305,20 @@ public class BottomContentHandler implements BottomContentInterface,
                 }
             }.execute();
         } else {
-            requestReadMoreItems(layoutInflater, pageTitle);
+            requestReadMoreItems(layoutInflater, new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
         }
     }
 
     private void requestReadMoreItems(final LayoutInflater layoutInflater,
-                                      final PageTitle myTitle) {
-        if (myTitle == null || TextUtils.isEmpty(myTitle.getPrefixedText())) {
+                                      final HistoryEntry entry) {
+        if (entry == null || TextUtils.isEmpty(entry.getTitle().getPrefixedText())) {
             hideReadMore();
             layoutContent();
             return;
         }
         final long timeMillis = System.currentTimeMillis();
-        new SuggestionsTask(app.getAPIForSite(myTitle.getSite()), myTitle.getSite(),
-                            myTitle.getPrefixedText(), false) {
+        new SuggestionsTask(app.getAPIForSite(entry.getTitle().getSite()),
+                entry.getTitle().getSite(), entry.getTitle().getPrefixedText(), false) {
             @Override
             public void onFinish(SearchResults results) {
                 funnel.setLatency(System.currentTimeMillis() - timeMillis);

@@ -3,6 +3,7 @@ package org.wikipedia.feed.becauseyouread;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.PluralsRes;
 import android.view.View;
 
 import org.wikipedia.R;
@@ -30,8 +31,11 @@ public class BecauseYouReadCardView extends PageTitleListCardView
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {
+        @PluralsRes int subtitle = R.plurals.view_continue_reading_card_subtitle;
+        int age = (int) card.daysOld();
         CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
+                .setSubtitle(getResources().getQuantityString(subtitle, age, age))
                 .setImage(R.drawable.ic_restore_black_24dp)
                 .setImageCircleColor(R.color.gray_highlight)
                 .setCard(card)
