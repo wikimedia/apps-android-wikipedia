@@ -305,5 +305,7 @@
   <string name="most_read_list_card_title">В трендах</string>
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true"/>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+      <item quantity="other">%d days ago</item>
+  </plurals>
 </resources>

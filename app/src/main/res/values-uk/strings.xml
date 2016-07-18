@@ -307,5 +307,6 @@
   <string name="view_card_news_title">У новинах</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">1 день тому</item>
+    <item quantity="other">%d days ago</item>
   </plurals>
 </resources>
