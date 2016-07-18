@@ -292,9 +292,21 @@ Vill du starta om eller avsluta?</string>
   <string name="view_continue_reading_card_title">Fortsätt läs</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>
   <string name="view_random_card_title">Slumpare</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Läs en slumpartikel från %s Wikipedia</string>
-  <string name="view_main_page_card_title" fuzzy="true">Idag på %s Wikipedia</string>
+  <string name="view_random_card_subtitle">Läs en slumpartikel från Wikipedia</string>
+  <string name="view_main_page_card_title">Idag på Wikipedia</string>
   <string name="view_main_page_card_subtitle">Huvudsidan på %s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Dölj detta förslag</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">Förslaget doldes.</string>
+  <string name="view_featured_image_card_title">Dagens bild</string>
+  <string name="view_featured_image_card_download">Ladda ned</string>
+  <string name="menu_feed_card_dismiss">Dölj detta kort</string>
+  <string name="menu_feed_card_dismissed">Kortet doldes.</string>
+  <string name="feed_featured_image_share_subject">Utmärkt bild från Wikimedia Commons</string>
+  <string name="feed" fuzzy="true">Utforska Wikipedia</string>
+  <string name="view_card_footer_button">Se mer</string>
+  <string name="most_read_list_card_title">Trender</string>
+  <string name="view_static_card_icon_content_description">Kortikon</string>
+  <string name="view_card_news_title">På nyheterna</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">1 dag sedan</item>
+    <item quantity="other">%d dagar sedan</item>
+  </plurals>
 </resources>

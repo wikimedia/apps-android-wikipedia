@@ -178,4 +178,20 @@
   <string name="crash_report_activity_title">Error de l\'aplicacion</string>
   <string name="crash_report_relaunch">Reaviar</string>
   <string name="crash_report_quit">Quitar</string>
+  <string name="view_random_card_subtitle">Legissètz un article de la Wikipèdia a l\'azard</string>
+  <string name="view_main_page_card_title">Uèi sus Wikipèdia</string>
+  <string name="view_featured_image_card_title">Imatge del jorn</string>
+  <string name="view_featured_image_card_download">Telecargar</string>
+  <string name="menu_feed_card_dismiss">Amagar aquesta carta</string>
+  <string name="menu_feed_card_dismissed">Carta amagada.</string>
+  <string name="feed_featured_image_share_subject">Imatge destacat de Wikimedia Commons</string>
+  <string name="feed" fuzzy="true">Explorar Wikipèdia</string>
+  <string name="view_card_footer_button">Veire mai</string>
+  <string name="most_read_list_card_title">Tendéncia</string>
+  <string name="view_static_card_icon_content_description">Icòna de la carta</string>
+  <string name="view_card_news_title">Dins l’actualitat</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">i a 1 jorn</item>
+    <item quantity="other">i a %d jorns</item>
+  </plurals>
 </resources>

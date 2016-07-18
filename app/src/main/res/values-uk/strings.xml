@@ -45,7 +45,7 @@
   <string name="preference_title_language">Мова Вікіпедії</string>
   <string name="preference_languages_filter_hint">Пошук</string>
   <string name="langlinks_filter_hint">Пошук</string>
-  <string name="langlinks_empty">Ця сторінка не доступна на інших мовах</string>
+  <string name="langlinks_empty">Ця сторінка не доступна іншими мовами.</string>
   <string name="langlinks_no_match">Нема мов, що відповідають вашому запиту.</string>
   <string name="langlinks_activity_title">Інші мови</string>
   <string name="menu_save_changes">Зберегти зміни</string>
@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
   <string name="nav_item_donate">Підтримати Вікіпедію</string>
+  <string name="error_voice_search_not_available">На жаль, розпізнавання голосу не підтримується.</string>
   <string name="crash_report_dialog_title">Перепрошуємо, минулого разу програма «впала»</string>
   <string name="crash_report_dialog_text">Ви хочете відправити звіт про помилку в HockeyApp / сторонній сервіс-провайдер, щоб у Вікімедіа змогли розглянути Ваш збій і виправити помилку, яка його зумовила?</string>
   <string name="crash_report_dialog_dont_send_button">Пропустити</string>
@@ -288,4 +289,23 @@
   <string name="reading_lists_onboarding_got_it">Зрозуміло</string>
   <string name="reading_lists_onboarding_page_delete">Порада: Проведіть по будь-якій сторінці вліво чи вправо, щоб видалити її зі списку читання.</string>
   <string name="user_option_sync_label">Налаштування</string>
+  <string name="view_continue_reading_card_title">Продовжити читання</string>
+  <string name="view_because_you_read_card_title">Тому, що Ви читали</string>
+  <string name="view_random_card_title">Рандомайзер</string>
+  <string name="view_random_card_subtitle">Читати випадкову статтю з Вікіпедії</string>
+  <string name="view_main_page_card_title">Сьогодні у Вікіпедії</string>
+  <string name="view_main_page_card_subtitle">Головна сторінка на %s</string>
+  <string name="view_featured_image_card_title">Зображення дня</string>
+  <string name="view_featured_image_card_download">Завантажити</string>
+  <string name="menu_feed_card_dismiss">Сховати цю картку</string>
+  <string name="menu_feed_card_dismissed">Картку приховано.</string>
+  <string name="feed_featured_image_share_subject">Вибране зображення з Вікісховища</string>
+  <string name="feed" fuzzy="true">Дослідити Вікіпедію</string>
+  <string name="view_card_footer_button">Дивіться більше</string>
+  <string name="most_read_list_card_title">Популярне</string>
+  <string name="view_static_card_icon_content_description">Значок картки</string>
+  <string name="view_card_news_title">У новинах</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">1 день тому</item>
+  </plurals>
 </resources>

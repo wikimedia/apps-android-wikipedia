@@ -145,5 +145,8 @@
   <string name="reading_list_edit_cancel">Betal bike</string>
   <string name="reading_lists_onboarding_for_example">Wek mînak</string>
   <string name="view_continue_reading_card_title">Xwendinê bidomîne</string>
+  <string name="view_featured_image_card_title">Wêneyê rojê</string>
+  <string name="view_featured_image_card_download">Daxe</string>
   <string name="menu_feed_card_dismiss" fuzzy="true">Vê pêşniyariyê veşêre</string>
+  <string name="view_card_news_title">Di nûçeyan de</string>
 </resources>

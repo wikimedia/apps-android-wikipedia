@@ -257,4 +257,9 @@
   <string name="user_option_sync_label">Voorkeuren</string>
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
+  <string name="view_main_page_card_title">Vandaag op Wikipedia</string>
+  <string name="view_featured_image_card_title">Afbeelding van de dag</string>
+  <string name="view_featured_image_card_download">Downloaden</string>
+  <string name="most_read_list_card_title">Populair</string>
+  <string name="view_card_news_title">Actueel</string>
 </resources>

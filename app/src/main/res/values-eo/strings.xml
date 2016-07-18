@@ -224,4 +224,10 @@
   <string name="reading_list_edit_cancel">Nuligi</string>
   <string name="reading_lists_onboarding_for_example">Ekzemple</string>
   <string name="user_option_sync_label">Preferoj</string>
+  <string name="view_because_you_read_card_title">Ĉar vi legas</string>
+  <string name="view_main_page_card_title">Hodiaŭ sur Vikipedio</string>
+  <string name="view_featured_image_card_title">Bildo de la tago</string>
+  <string name="view_featured_image_card_download">Elŝuti</string>
+  <string name="menu_feed_card_dismiss">Kaŝu la karton</string>
+  <string name="view_card_footer_button">Vidi pli</string>
 </resources>

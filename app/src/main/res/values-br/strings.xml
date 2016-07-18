@@ -3,32 +3,42 @@
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="wikimedia">Wikipedia</string>
   <string name="yes">Ya</string>
   <string name="no">Ket</string>
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="nav_item_history">Istor</string>
-  <string name="error_network_error" fuzzy="true">N\'eus ket bet gallet kevreañ ouzh ar rouedad :(</string>
+  <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad.</string>
   <string name="page_error_retry">Klask en-dro</string>
+  <string name="page_error_back_to_main">Distreiñ</string>
   <string name="menu_clear_all_history">Diverkañ an istor</string>
   <string name="page_does_not_exist_error">N\'eus ket eus ar bajenn-se.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Diverkañ an istor ?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Ha c\'hoant ho peus da ziverkañ an istor penn-da-benn ?</string>
+  <string name="dialog_title_clear_history">Diverkañ istor ar merdeiñ ?</string>
+  <string name="dialog_message_clear_history">An dra-se a zilamo istor ar merdeiñ hag a serro an holl ivinelloù zo digor bremañ. Ha suc\'h oc\'h ?</string>
   <string name="nav_item_saved_pages">Pajennoù enrollet.</string>
   <string name="share_via">Rannañ dre</string>
+  <string name="search_redirect_from" fuzzy="true">Adkaset eus %s</string>
   <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
-  <string name="menu_page_other_languages" fuzzy="true">Lenn e yezhoù all</string>
+  <string name="menu_page_other_languages">Cheñch yezh</string>
   <string name="menu_page_find_in_page">Klask er bajenn</string>
+  <string name="menu_page_content_issues">Kudennoù endalc\'had</string>
+  <string name="menu_page_similar_titles">Titloù heñvel</string>
   <string name="menu_page_font_and_theme">Font ha tem</string>
+  <string name="menu_page_add_to_list">Ouzhpennañ d\'ar roll lenn</string>
   <string name="menu_page_share">Rannañ al liamm</string>
   <string name="menu_long_press_open_page">Digeriñ</string>
   <string name="menu_long_press_open_in_new_tab">Digeriñ en un ivinell nevez</string>
   <string name="menu_long_press_copy_page">Eilañ chomlec\'h al liamm</string>
   <string name="menu_text_select_copy">Eilañ</string>
+  <string name="menu_text_select_define">Termenañ</string>
   <string name="menu_text_select_share">Rannañ</string>
+  <string name="menu_text_select_edit_here">Kemmañ amañ</string>
   <string name="nav_item_nearby">Tostik</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="nearby_zoom_to_location">Zoumañ war ul lec\'h eus ar gartenn</string>
   <string name="last_updated_text">Hizivadenn ziwezhañ %1$s</string>
+  <string name="talk_page_link_text">Kaozeal</string>
   <string name="content_license_html">An endalc\'had a c\'haller kaout e &lt;a  href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; nemet e vefe merket ar c\'hontrol</string>
   <string name="edit_save_action_license_logged_in">Pa\'z enrollit e tegemerit an &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
   <string name="edit_save_action_license_anon">Pa\'z enrollit e tegemerit an &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
@@ -60,7 +70,7 @@
   <string name="login_password_hint">Ger-tremen</string>
   <string name="login_password_show_check">Diskwel ar ger-tremen</string>
   <string name="menu_login">Kevreañ</string>
-  <string name="login_activity_title" fuzzy="true">Kevreañ ouzh Wikipedia</string>
+  <string name="login_activity_title">Kevreañ ouzh Wikipedia</string>
   <string name="login_in_progress_dialog_message">O kevreañ ouzh…</string>
   <string name="login_error_wrong_password">Ger-tremen direizh</string>
   <string name="login_error_wrong_username">Anv implijer direizh</string>
@@ -134,10 +144,12 @@
   <string name="terms_of_use_description">Termenoù implijout</string>
   <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
-  <string name="about_libraries_heading" fuzzy="true">levraouegoù implijet</string>
-  <string name="about_contributors_heading" fuzzy="true">kenlabourerien</string>
-  <string name="about_translators_heading" fuzzy="true">troerien</string>
+  <string name="about_libraries_heading">Levraouegoù implijet</string>
+  <string name="about_contributors_heading">Kenlabourerien</string>
+  <string name="about_translators_heading">Troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Aotre-implijout</string>
+  <string name="about_app_license">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Ur produ gant &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>
   <string name="edit_abandon_confirm">Kemmet eo bet ar bajenn. Ha sur oc\'h e fell deoc\'h mont kuit anez enrollañ ho kemmoù ?</string>
@@ -177,6 +189,7 @@
   <string name="widget_name_featured_page">Pajenn a-zoare Wikipedia</string>
   <string name="widget_title_featured_page">Pajennoù a-zoare hiziv :</string>
   <string name="widget_name_search">Klask Wikipedia</string>
+  <string name="wiktionary_no_definitions_found">N\'eus bet kavet termenadur ebet.</string>
   <string name="alpha_update_notification_title">Un hizadenn alpha nevez a c\'haller kaout</string>
   <string name="alpha_update_notification_text">Pouezañ evit pellgargañ</string>
   <string name="dialog_close_description">Serriñ</string>
@@ -189,7 +202,8 @@
   <string name="gallery_menu_share">Rannañ</string>
   <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>
   <string name="gallery_menu_save">Enrollañ en ardivink</string>
-  <string name="gallery_save_success" fuzzy="true">Pajenn enrollet mat.</string>
+  <string name="gallery_save_progress">Pellgargañ ar restr...</string>
+  <string name="gallery_save_success">Restr enrollet mat.</string>
   <string name="gallery_error_video_failed">Ne c\'haller ket lenn ar video.</string>
   <string name="err_cannot_save_file">Ne c\'haller ket enrollañ ar restr</string>
   <string name="snippet_share_intro">Fed dedennus e @Wikipedia %1$s : %2$s</string>
@@ -213,8 +227,68 @@
   <string name="format_error_server_message">Kemennad : %s</string>
   <string name="format_error_server_code">Kod : \"%s\"</string>
   <string name="address_copied">Chomlec\'h eilet er golver</string>
-  <string name="button_continue_to_article" fuzzy="true">Kenderc\'hel war-zu ar pennad</string>
+  <string name="text_copied">Testenn kopiet er golver.</string>
+  <string name="button_continue_to_article">Lenn ar pennad</string>
+  <string name="nav_item_donate">Skoazellañ Wikimedia</string>
+  <string name="error_voice_search_not_available">Ho tigarez, ne c\'haller ket digejañ ar gomz.</string>
+  <string name="crash_report_dialog_dont_send_button">Lezel a-gostez</string>
   <string name="crash_report_dialog_always_send_button">Kas atav</string>
   <string name="crash_report_dialog_send_button">Kas</string>
+  <string name="crash_report_relaunch">Adloc\'hañ</string>
   <string name="crash_report_quit">Kuitaat</string>
+  <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
+  <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
+  <string name="article_menu_bar_navigate">Merdeiñ el lec\'h ma oa ar pennad</string>
+  <string name="nav_item_reading_lists">Rolloù lenn</string>
+  <string name="reading_list_untitled">Hep titl</string>
+  <string name="reading_list_save_to">Enrollañ er roll lenn</string>
+  <string name="reading_list_create_new">Krouiñ unan nevez</string>
+  <string name="reading_list_added_to_named">Ouzhpennet da%s</string>
+  <string name="reading_list_added_to_unnamed">Ouzhpennet d\'ar roll lenn.</string>
+  <string name="reading_list_already_exists">Ar pennad-mañ zo er roll-se dija.</string>
+  <string name="reading_list_added_view_button">Diskwel ar roll</string>
+  <string name="reading_list_item_count_singular">1 pennad</string>
+  <string name="reading_list_item_count_plural">%s pennad</string>
+  <string name="reading_list_sort">Rummañ</string>
+  <string name="reading_list_sort_by_name">Rummañ dre anv</string>
+  <string name="reading_list_sort_by_name_desc">Rummañ dre anv (eilpennet)</string>
+  <string name="reading_list_sort_by_recent">Rummañ hervez ar re nevez</string>
+  <string name="reading_list_sort_by_recent_desc">Rummañ dre ar re goshañ</string>
+  <string name="reading_list_menu_edit">Kemmañ ar munudoù er roll lenn</string>
+  <string name="reading_list_menu_delete">Dilemel ar roll lenn</string>
+  <string name="reading_list_name_sample">Ma roll lenn</string>
+  <string name="reading_list_name_hint">Anv ar roll-mañ</string>
+  <string name="reading_list_description_hint">Deskrivadur (diret)</string>
+  <string name="reading_list_save_for_offline">A c\'haller kaout evit ul lennadenn ezlinenn</string>
+  <string name="reading_list_item_deleted">%s dilamet eus ar roll</string>
+  <string name="reading_list_item_delete_undo">Dizober</string>
+  <string name="reading_list_deleted">%s dilamet</string>
+  <string name="reading_list_edit_ok">Mat eo</string>
+  <string name="reading_list_edit_cancel">Nullañ</string>
+  <string name="reading_list_delete_confirm">Ha sur eo hoc\'h eus c\'hoant da zilemel ar roll-mañ ?</string>
+  <string name="reading_lists_empty">Roll lenn ebet amañ.</string>
+  <string name="reading_lists_onboarding_intro">Krouiñ rolloù lenn evit ar pennadoù ho peus c\'hoant da lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn !</string>
+  <string name="reading_lists_onboarding_for_example">Da skouer</string>
+  <string name="reading_lists_onboarding_example1">Lec\'hioù da weladenniñ</string>
+  <string name="reading_lists_onboarding_example3">Egor !</string>
+  <string name="user_option_sync_label">Penndibaboù</string>
+  <string name="view_continue_reading_card_title">Kenderc\'hel da lenn</string>
+  <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
+  <string name="view_random_card_title">Dre zegouezh</string>
+  <string name="view_random_card_subtitle">Lenn ur pennad eus Wikipedia dre zegouezh</string>
+  <string name="view_main_page_card_title">Hiziv e Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Pajenn bennañ d\'an %s</string>
+  <string name="view_featured_image_card_title">Skeudenn an deiz</string>
+  <string name="view_featured_image_card_download">Pellgargañ</string>
+  <string name="menu_feed_card_dismiss">Kuzhat ar gartenn-mañ</string>
+  <string name="menu_feed_card_dismissed">Kartenn kuzhet</string>
+  <string name="feed_featured_image_share_subject">Skeudenn dibabet e Wikimedia Commons</string>
+  <string name="feed" fuzzy="true">Ergerzhet Wikipedia</string>
+  <string name="view_card_footer_button">Gwelet muioc\'h</string>
+  <string name="view_static_card_icon_content_description">Arlun ar gartenn</string>
+  <string name="view_card_news_title">Er C\'heleier</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">1 devezhzo</item>
+    <item quantity="other">%d devezhzo</item>
+  </plurals>
 </resources>

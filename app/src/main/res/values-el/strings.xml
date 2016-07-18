@@ -31,6 +31,7 @@
   <string name="nearby_distance_in_kilometers">%.2f χιλιόμετρα</string>
   <string name="nearby_zoom_to_location">Ζουμ σε μια θέση στο χάρτη</string>
   <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
+  <string name="talk_page_link_text">Συζήτηση</string>
   <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Με την αποθήκευση, συμφωνείτε με τους &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
@@ -180,6 +181,7 @@
   <string name="widget_name_featured_page">Προβεβλημένο λήμμα της Βικιπαίδειας</string>
   <string name="widget_title_featured_page">Προβεβλημένο λήμμα της ημέρας:</string>
   <string name="widget_name_search">Αναζήτηση στη Wikipedia</string>
+  <string name="wiktionary_no_definitions_found">Δε βρέθηκαν ορισμοί.</string>
   <string name="alpha_update_notification_title">Νέα έκδοση alpha είναι διαθέσιμη</string>
   <string name="alpha_update_notification_text">Πατήστε για να κατεβάσετε</string>
   <string name="dialog_close_description">Κλείσιμο</string>
@@ -191,6 +193,7 @@
   <string name="license_title">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>
   <string name="gallery_menu_share">Κοινοποίηση</string>
   <string name="gallery_menu_save">Αποθήκευση στη συσκευή</string>
+  <string name="gallery_save_progress">Λήψη αρχείου σε εκτέλεση...</string>
   <string name="gallery_save_success">Το αρχείο αποθηκεύτηκε με επιτυχία.</string>
   <string name="snippet_share_intro">\"%1$s\" στη @Wikipedia: %2$s</string>
   <string name="expand_refs">Πατήστε για να επεκτείνετε</string>
@@ -206,11 +209,34 @@
   <string name="tool_tip_share">Μετά την επισήμανση ενός ενδιαφέροντος γεγονός, προσπαθήστε να την μοιραστείτε στα αγαπημένα σας δίκτυα!</string>
   <string name="page_view_in_browser">Προβολή σελίδας στον περιηγητή</string>
   <string name="tool_tip_toc_button">Δείτε τον πίνακα περιεχομένων ανά πάσα στιγμή πατώντας αυτό το κουμπί, ή σέρνοντας από τη δεξιά άκρη της οθόνης.</string>
+  <string name="format_error_server_message">Μήνυμα: «%s»</string>
+  <string name="format_error_server_code">Κωδικός: «%s»</string>
   <string name="button_continue_to_article">Πλήρες άρθρο</string>
+  <string name="nav_item_donate">Υποστηρίξτε τη Βικιπαίδεια</string>
   <string name="crash_report_dialog_dont_send_button">Παράβλεψη</string>
   <string name="crash_report_dialog_always_send_button">Αποστολή πάντα</string>
   <string name="crash_report_dialog_send_button">Αποστολή</string>
   <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
+  <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
+  <string name="article_menu_bar_bookmark">Προσθέστε αυτό το άρθρο σε λίστα ανάγνωσης</string>
+  <string name="nav_item_reading_lists">Λίστες ανάγνωσης</string>
+  <string name="reading_list_untitled">Χωρίς τίτλο</string>
+  <string name="reading_list_save_to">Αποθήκευση στη λίστα ανάγνωσης</string>
+  <string name="reading_list_create_new">Δημιουργία νέας</string>
+  <string name="reading_list_added_to_named">Προστέθηκε στη %s.</string>
+  <string name="reading_list_item_count_singular">1 άρθρο</string>
+  <string name="reading_list_item_count_plural">%s άρθρα</string>
+  <string name="reading_list_sort">Ταξινόμηση</string>
+  <string name="reading_list_sort_by_name">Ταξινόμηση κατά όνομα</string>
+  <string name="reading_list_sort_by_name_desc">Ταξινόμηση κατά όνομα (αντίστροφα)</string>
+  <string name="reading_list_item_delete_undo">Αναίρεση</string>
+  <string name="reading_list_deleted">Διεγράφη η %s</string>
+  <string name="reading_lists_onboarding_for_example">Παραδείγματος χάριν</string>
+  <string name="reading_lists_onboarding_example2">Αγαπημένα ζώα</string>
+  <string name="reading_lists_onboarding_example3">Το διάστημα!</string>
+  <string name="reading_lists_onboarding_got_it">Κατάλαβα</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
+  <string name="view_featured_image_card_download">Λήψη</string>
+  <string name="view_card_news_title">Στις ειδήσεις</string>
 </resources>

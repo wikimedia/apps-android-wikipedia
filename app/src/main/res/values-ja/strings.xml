@@ -225,7 +225,7 @@
   <string name="page_view_in_browser">ブラウザーで閲覧</string>
   <string name="tool_tip_toc_button">このボタンをタップするか、画面右側からスライドすると、いつでも目次が呼び出せます。</string>
   <string name="error_server_response">サーバーがリクエストを完了できませんでした。</string>
-  <string name="error_response_malformed">サーバーからのレスポンスが正しいフォーマットではありませんでした。</string>
+  <string name="error_response_malformed">サーバーからの応答が正しくフォーマットされていませんでした。</string>
   <string name="error_unknown">不明なエラーが発生しました。</string>
   <string name="format_error_server_message">メッセージ: 「%s」</string>
   <string name="format_error_server_code">コード: 「%s」</string>
@@ -292,9 +292,21 @@
   <string name="view_continue_reading_card_title">続けて読む</string>
   <string name="view_because_you_read_card_title">こんな記事も読まれています</string>
   <string name="view_random_card_title">おまかせ表示</string>
-  <string name="view_random_card_subtitle" fuzzy="true">%sウィキペディアから記事をランダムに表示</string>
-  <string name="view_main_page_card_title" fuzzy="true">%s語版ウィキペディアの今日のページ</string>
+  <string name="view_random_card_subtitle">ウィキペディアから記事をランダムに表示</string>
+  <string name="view_main_page_card_title">今日の記事</string>
   <string name="view_main_page_card_subtitle">%sのメインページ</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">提案を隠す</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">提案を隠しました</string>
+  <string name="view_featured_image_card_title">今日の一枚</string>
+  <string name="view_featured_image_card_download">ダウンロード</string>
+  <string name="menu_feed_card_dismiss">カードを隠す</string>
+  <string name="menu_feed_card_dismissed">カードを隠しました。</string>
+  <string name="feed_featured_image_share_subject">ウィキメディア・コモンズの注目の画像</string>
+  <string name="feed" fuzzy="true">ウィキペディアを探索する</string>
+  <string name="view_card_footer_button">もっと見る</string>
+  <string name="most_read_list_card_title">トレンド</string>
+  <string name="view_static_card_icon_content_description">カードアイコン</string>
+  <string name="view_card_news_title">新着情報</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">1日前</item>
+    <item quantity="other">%d日前</item>
+  </plurals>
 </resources>

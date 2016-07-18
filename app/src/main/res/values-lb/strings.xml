@@ -222,6 +222,7 @@
   <string name="text_copied">Text an den Tëschespäicher kopéiert.</string>
   <string name="button_continue_to_article">Artikel liesen</string>
   <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
+  <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
   <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>
   <string name="crash_report_dialog_always_send_button">Ëmmer schécken</string>
@@ -267,9 +268,20 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Liest en zoufällegen Artikel aus der Wikipedia op %s</string>
-  <string name="view_main_page_card_title" fuzzy="true">Haut op der Wikipedia op %s</string>
+  <string name="view_random_card_title">Zoufallsgenerator</string>
+  <string name="view_random_card_subtitle">Liest en zoufällegen Artikel vu Wikipedia</string>
+  <string name="view_main_page_card_title">Haut op Wikipedia</string>
   <string name="view_main_page_card_subtitle">Haaptsäit op %s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Dës Propos verstoppen</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">Propos verstoppt</string>
+  <string name="view_featured_image_card_title">Bild vum Dag</string>
+  <string name="view_featured_image_card_download">Eroflueden</string>
+  <string name="menu_feed_card_dismiss">Dës Kaart verstoppen</string>
+  <string name="menu_feed_card_dismissed">Kaart verstoppt.</string>
+  <string name="feed_featured_image_share_subject">Qualitéitsbild vu Wikimedia Commons</string>
+  <string name="feed" fuzzy="true">Wikipedia entdecken</string>
+  <string name="view_card_footer_button">Méi gesinn</string>
+  <string name="view_card_news_title">An den Neiegkeeten</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">virun engem Dag</item>
+    <item quantity="other">viru(n) %d Deeg</item>
+  </plurals>
 </resources>

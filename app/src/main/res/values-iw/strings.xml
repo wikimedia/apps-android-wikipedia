@@ -292,9 +292,21 @@
   <string name="view_continue_reading_card_title">המשך קריאה</string>
   <string name="view_because_you_read_card_title">הצעות לקריאה</string>
   <string name="view_random_card_title">ערך אקראי</string>
-  <string name="view_random_card_subtitle" fuzzy="true">קריאת ערך אקראי בוויקיפדיה ה{{GRAMMAR:תחילית|%s}}</string>
-  <string name="view_main_page_card_title" fuzzy="true">היום בוויקיפדיה ה%s</string>
+  <string name="view_random_card_subtitle">קריאת ערך אקראי בוויקיפדיה</string>
+  <string name="view_main_page_card_title">היום בוויקיפדיה</string>
   <string name="view_main_page_card_subtitle">הדף הראשי ב־%s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">הסתרת ההצעה הזאת</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">ההצעה הוסתרה.</string>
+  <string name="view_featured_image_card_title">תמונת היום</string>
+  <string name="view_featured_image_card_download">הורדה</string>
+  <string name="menu_feed_card_dismiss">הסתרת הכרטיס הזה</string>
+  <string name="menu_feed_card_dismissed">הכרטיס הוסתר.</string>
+  <string name="feed_featured_image_share_subject">תמונה מומלצת מוויקישיתוף</string>
+  <string name="feed" fuzzy="true">לחקור את ויקיפדיה</string>
+  <string name="view_card_footer_button">לראות עוד</string>
+  <string name="most_read_list_card_title">נושאים חמים</string>
+  <string name="view_static_card_icon_content_description">סמל כרטיס</string>
+  <string name="view_card_news_title">בחדשות</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">לפני יום</item>
+    <item quantity="other">לפני %d ימים</item>
+  </plurals>
 </resources>

@@ -249,4 +249,10 @@ Gostaria de reiniciá-lo ou sair?</string>
   <string name="article_menu_bar_navigate">Navegar à localização do artigo</string>
   <string name="reading_list_create_new">Criar novo</string>
   <string name="user_option_sync_label">Preferências</string>
+  <string name="view_random_card_subtitle">Ler um artigo aleatório da Wikipédia</string>
+  <string name="view_main_page_card_title">Hoje na Wikipédia</string>
+  <string name="view_featured_image_card_title">Imagem do dia</string>
+  <string name="feed" fuzzy="true">Explorar a Wikipédia</string>
+  <string name="view_card_footer_button">Ver mais</string>
+  <string name="most_read_list_card_title">Tendências</string>
 </resources>

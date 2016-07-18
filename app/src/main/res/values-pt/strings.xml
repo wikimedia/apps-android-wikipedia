@@ -292,9 +292,21 @@ Gostaria de recomeçar ou sair?</string>
   <string name="view_continue_reading_card_title">Continuar a ler</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatório</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Leia um artigo aleatório da Wikipédia em %s</string>
-  <string name="view_main_page_card_title" fuzzy="true">Hoje na Wikipédia em %s</string>
+  <string name="view_random_card_subtitle">Leia um artigo aleatório da Wikipédia</string>
+  <string name="view_main_page_card_title">Hoje na Wikipédia</string>
   <string name="view_main_page_card_subtitle">Página principal a %s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Ocultar esta sugestão</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">Sugestão ocultada.</string>
+  <string name="view_featured_image_card_title">Imagem do dia</string>
+  <string name="view_featured_image_card_download">Descarregar</string>
+  <string name="menu_feed_card_dismiss">Ocultar este cartão</string>
+  <string name="menu_feed_card_dismissed">Cartão ocultado.</string>
+  <string name="feed_featured_image_share_subject">Imagem destacada no Wikimedia Commons</string>
+  <string name="feed" fuzzy="true">Explorar Wikipédia</string>
+  <string name="view_card_footer_button">Ver mais</string>
+  <string name="most_read_list_card_title">Tendências</string>
+  <string name="view_static_card_icon_content_description">Ícone de cartão</string>
+  <string name="view_card_news_title">Atualidade</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">há um dia</item>
+    <item quantity="other">há %d dias</item>
+  </plurals>
 </resources>

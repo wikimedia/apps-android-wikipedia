@@ -292,9 +292,12 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="view_continue_reading_card_title">Continuar lendo</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Ler un artigo aleatorio de Wikipedia en %s</string>
-  <string name="view_main_page_card_title" fuzzy="true">Hoxe na Wikipedia en %s</string>
+  <string name="view_random_card_subtitle">Ler un artigo aleatorio de Wikipedia</string>
+  <string name="view_main_page_card_title">Hoxe na Wikipedia</string>
   <string name="view_main_page_card_subtitle">Páxina principal en %s</string>
+  <string name="view_featured_image_card_title">Imaxe do día</string>
+  <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss" fuzzy="true">Agochar esta suxestión</string>
   <string name="menu_feed_card_dismissed" fuzzy="true">Suxestión agochada.</string>
+  <string name="view_card_news_title">Actualidade</string>
 </resources>

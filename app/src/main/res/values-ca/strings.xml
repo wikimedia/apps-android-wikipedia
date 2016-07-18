@@ -292,9 +292,21 @@ Voleu començar de nou o sortir?</string>
   <string name="view_continue_reading_card_title">Continua llegint</string>
   <string name="view_because_you_read_card_title">Perquè vas llegir</string>
   <string name="view_random_card_title">A l\'atzar</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Llegiu un article a l\'atzar de la Viquipèdia en %s</string>
-  <string name="view_main_page_card_title" fuzzy="true">Avui a la Viquipèdia en %s</string>
+  <string name="view_random_card_subtitle">Llegiu un article a l\'atzar de la Viquipèdia</string>
+  <string name="view_main_page_card_title">Avui a la Viquipèdia</string>
   <string name="view_main_page_card_subtitle">Pàgina principal el %s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Amaga aquest suggeriment</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">S\'ha amagat el suggeriment.</string>
+  <string name="view_featured_image_card_title">Foto del dia</string>
+  <string name="view_featured_image_card_download">Baixa</string>
+  <string name="menu_feed_card_dismiss">Amaga la targeta</string>
+  <string name="menu_feed_card_dismissed">S\'ha amagat la targeta.</string>
+  <string name="feed_featured_image_share_subject">Imatge destacada de Wikimedia Commons</string>
+  <string name="feed" fuzzy="true">Explora la Viquipèdia</string>
+  <string name="view_card_footer_button">Més informació</string>
+  <string name="most_read_list_card_title">Tendències</string>
+  <string name="view_static_card_icon_content_description">Icona de targeta</string>
+  <string name="view_card_news_title">Actualitat</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">fa 1 dia</item>
+    <item quantity="other">fa %d dies</item>
+  </plurals>
 </resources>

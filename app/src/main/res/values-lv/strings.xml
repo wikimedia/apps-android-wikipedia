@@ -28,6 +28,7 @@
   <string name="nav_item_nearby">Tuvumā</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
+  <string name="talk_page_link_text">Diskusijas</string>
   <string name="preference_title_language">Vikipēdijas valoda</string>
   <string name="preference_languages_filter_hint">Meklēt</string>
   <string name="langlinks_filter_hint">Meklēt</string>
@@ -43,6 +44,8 @@
   <string name="dialog_message_leaving_edit_stay">Palikt</string>
   <string name="menu_show_toc">Satura rādītājs</string>
   <string name="search_no_results_found">Nav atrasts neviens rezultāts</string>
+  <string name="title_captcha">Ievadiet CAPTCHA</string>
+  <string name="edit_section_captcha_reload">Pieskarieties CAPTCHA, lai pārlādētu</string>
   <string name="nav_item_login">Pieslēgties Vikipēdijai</string>
   <string name="login_username_hint">Lietotājvārds</string>
   <string name="login_password_hint">Parole</string>
@@ -75,6 +78,7 @@
   <string name="nav_item_random">Nejaušs raksts</string>
   <string name="create_account_account_created_toast">Konts izveidots!</string>
   <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
+  <string name="history_search_list_hint">Meklēšanas vēsture</string>
   <string name="page_protected_can_not_edit_title">Šī lapa ir aizsargāta</string>
   <string name="settings_item_preferences">Iestatījumi</string>
   <string name="settings_activity_title">Iestatījumi</string>
@@ -111,8 +115,21 @@
   <string name="format_error_server_code">Kods: \"%s\"</string>
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
   <string name="button_continue_to_article">Lasīt rakstu</string>
+  <string name="crash_report_dialog_dont_send_button">Izlaist</string>
+  <string name="crash_report_dialog_always_send_button">Vienmēr sūtīt</string>
+  <string name="crash_report_dialog_send_button">Sūtīt</string>
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
+  <string name="crash_report_quit">Iziet</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>
+  <string name="reading_list_deleted">%s izdzēsts</string>
+  <string name="reading_list_edit_cancel">Atcelt</string>
+  <string name="reading_lists_onboarding_got_it">Sapratu</string>
+  <string name="user_option_sync_label">Izvēles</string>
+  <string name="view_main_page_card_title">Šodien Vikipēdijā</string>
+  <string name="view_featured_image_card_title">Dienas attēls</string>
+  <string name="view_featured_image_card_download">Lejupielādēt</string>
   <string name="menu_feed_card_dismiss" fuzzy="true">Paslēpt šo ierosinājumu</string>
   <string name="menu_feed_card_dismissed" fuzzy="true">Ieteikums slēpts.</string>
+  <string name="view_card_footer_button">Skatīt vairāk</string>
+  <string name="view_card_news_title">Ziņās</string>
 </resources>

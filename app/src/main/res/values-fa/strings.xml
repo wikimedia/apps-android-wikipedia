@@ -290,9 +290,21 @@
   <string name="view_continue_reading_card_title">ادامه دادن به خواندن</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>
-  <string name="view_random_card_subtitle" fuzzy="true">خواندن مقاله‌ای تصادفی از ویکی‌پدیای %s</string>
-  <string name="view_main_page_card_title" fuzzy="true">امروز در ویکی‌پدیای %s</string>
+  <string name="view_random_card_subtitle">خواندن مقاله‌ای تصادفی از ویکی‌پدیا</string>
+  <string name="view_main_page_card_title">امروز در ویکی‌پدیا</string>
   <string name="view_main_page_card_subtitle">صفحه اصلی در%s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">مخفی کردن این پیشنهاد</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">پیشنهادات مخفی شده‌اند</string>
+  <string name="view_featured_image_card_title">تصویر روز</string>
+  <string name="view_featured_image_card_download">بارگیری</string>
+  <string name="menu_feed_card_dismiss">مخفی کردن این کارت</string>
+  <string name="menu_feed_card_dismissed">کارت مخفی شده‌اند</string>
+  <string name="feed_featured_image_share_subject">تصویر برگزیده ویکی‌انبار</string>
+  <string name="feed" fuzzy="true">مرور ویکی‌پدیا</string>
+  <string name="view_card_footer_button">بیشتر ببینید</string>
+  <string name="most_read_list_card_title">گریش‌ها</string>
+  <string name="view_static_card_icon_content_description">آیکون کارت</string>
+  <string name="view_card_news_title">در اخبار</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">۱ روز پیش</item>
+    <item quantity="other">%02d روز پیش</item>
+  </plurals>
 </resources>

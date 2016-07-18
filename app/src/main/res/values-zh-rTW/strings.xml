@@ -136,7 +136,7 @@
   <string name="error_can_not_process_link">無法顯示此連結</string>
   <string name="page_protected_autoconfirmed">此頁面已受半保護。</string>
   <string name="page_protected_sysop">此頁面已受全保護。</string>
-  <string name="page_protected_other">此頁面已受到以下層級的保護：$1</string>
+  <string name="page_protected_other">此頁面已受到以下層級的保護：%s</string>
   <string name="page_protected_can_not_edit">您沒有編輯本頁面的權限</string>
   <string name="page_protected_can_not_edit_title">此頁面受到保護</string>
   <string name="settings_item_preferences">設定</string>
@@ -180,7 +180,7 @@
   <string name="color_theme_light">日間模式</string>
   <string name="color_theme_dark">夜間模式</string>
   <string name="page_similar_titles">相似的頁面</string>
-  <string name="search_did_you_mean">您指的是不是 \"$s\"？</string>
+  <string name="search_did_you_mean">您指的是不是 \"%s\"？</string>
   <string name="search_recent_header">近期搜尋：</string>
   <string name="button_clear_all_recent_searches">清除近期搜尋</string>
   <string name="clear_recent_searches_confirm">您確定要清除您的搜尋歷史嗎？</string>
@@ -292,9 +292,21 @@
   <string name="view_continue_reading_card_title">繼續閱讀</string>
   <string name="view_because_you_read_card_title">因為您閱讀</string>
   <string name="view_random_card_title">隨機條目產生器</string>
-  <string name="view_random_card_subtitle" fuzzy="true">閱讀來自 %s 維基百科的隨機條目</string>
-  <string name="view_main_page_card_title" fuzzy="true">%s 維基百科今日</string>
+  <string name="view_random_card_subtitle">閱讀來自維基百科的隨機條目</string>
+  <string name="view_main_page_card_title">維基百科今日</string>
   <string name="view_main_page_card_subtitle">%s 首頁</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">隱藏此建議</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">建議已隱藏。</string>
+  <string name="view_featured_image_card_title">每日圖片</string>
+  <string name="view_featured_image_card_download">下載</string>
+  <string name="menu_feed_card_dismiss">隱藏此卡片</string>
+  <string name="menu_feed_card_dismissed">卡片已隱藏。</string>
+  <string name="feed_featured_image_share_subject">來自維基共享資源的特色圖片</string>
+  <string name="feed" fuzzy="true">探索維基百科</string>
+  <string name="view_card_footer_button">查看更多</string>
+  <string name="most_read_list_card_title">趨勢</string>
+  <string name="view_static_card_icon_content_description">卡片圖示</string>
+  <string name="view_card_news_title">新聞動態</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">1 日前</item>
+    <item quantity="other">%d 日前</item>
+  </plurals>
 </resources>

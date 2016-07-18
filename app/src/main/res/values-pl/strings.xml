@@ -262,5 +262,13 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="reading_lists_onboarding_example2">Ulubione zwierzęta</string>
   <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="user_option_sync_label">Preferencje</string>
+  <string name="view_main_page_card_title">Dzisiaj w Wikipedii</string>
   <string name="view_main_page_card_subtitle">Strona główna na %s</string>
+  <string name="view_featured_image_card_title">Grafika dnia</string>
+  <string name="view_featured_image_card_download">Pobierz</string>
+  <string name="view_card_footer_button">Zobacz więcej</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">1 dzień temu</item>
+    <item quantity="other">%d dni temu</item>
+  </plurals>
 </resources>

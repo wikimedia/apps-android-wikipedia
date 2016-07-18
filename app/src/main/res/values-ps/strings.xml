@@ -52,6 +52,7 @@
   <string name="menu_show_toc">نيوليک</string>
   <string name="search_no_results_found">کومې پايلې و نه موندل شوې</string>
   <string name="title_captcha">کېپچا ورکړئ</string>
+  <string name="edit_section_captcha_reload">په کپچا گوته ووهئ چې بيابرسېره شي</string>
   <string name="nav_item_login">ويکيپېډيا کې ننوتل</string>
   <string name="login_username_hint">کارن-نوم</string>
   <string name="login_password_hint">پټنوم</string>
@@ -120,6 +121,7 @@
   <string name="edit_next">راتلونکی</string>
   <string name="edit_done">خوندي کول</string>
   <string name="edit_preview">مخليدنه</string>
+  <string name="edit_summary_tag_grammar">ژبښود سم شو</string>
   <string name="edit_summary_tag_links">تړنې ورگډې کړې</string>
   <string name="edit_summary_tag_other">بل</string>
   <string name="find_next">بل موندل</string>
@@ -201,8 +203,15 @@
   <string name="user_option_sync_label">غوره توبونه</string>
   <string name="view_continue_reading_card_title">پرله پورې لوستل</string>
   <string name="view_because_you_read_card_title">ځکه چې تاسې لولی</string>
-  <string name="view_main_page_card_title" fuzzy="true">نن په %s ويکيپېډيا کې</string>
+  <string name="view_random_card_subtitle">د ويکيپېډيا يوه ناټاکلې ليکنه لوستل</string>
+  <string name="view_main_page_card_title">نن په ويکيپېډيا کې</string>
   <string name="view_main_page_card_subtitle">لومړی مخ په %s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">همدا وړانديز پټول</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">وړانديز پټ شو.</string>
+  <string name="view_featured_image_card_title">د نن ورځې انځور</string>
+  <string name="view_featured_image_card_download">ښکته کول</string>
+  <string name="menu_feed_card_dismiss">همدا کارت پټول</string>
+  <string name="menu_feed_card_dismissed">پټ شوی کارت.</string>
+  <string name="feed" fuzzy="true">ويکيپېډيا سپړل</string>
+  <string name="view_card_footer_button">نور کتل</string>
+  <string name="view_static_card_icon_content_description">ايکان کارت</string>
+  <string name="view_card_news_title">په خبرونو کې</string>
 </resources>

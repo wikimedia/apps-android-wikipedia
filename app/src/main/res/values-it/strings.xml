@@ -292,9 +292,18 @@ Vuoi riavviarla o uscire?</string>
   <string name="view_continue_reading_card_title">Continua a leggere</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
   <string name="view_random_card_title">Una pagina a caso</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Leggi una voce a caso da Wikipedia in %s</string>
-  <string name="view_main_page_card_title" fuzzy="true">Oggi su Wikipedia in %s</string>
+  <string name="view_random_card_subtitle">Leggi una voce a caso da Wikipedia</string>
+  <string name="view_main_page_card_title">Oggi su Wikipedia</string>
   <string name="view_main_page_card_subtitle">Pagina principale del %s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Nascondi questo suggerimento</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">Suggerimento nascosto.</string>
+  <string name="view_featured_image_card_title">Immagine del giorno</string>
+  <string name="view_featured_image_card_download">Scarica</string>
+  <string name="menu_feed_card_dismiss">Nascondi questa scheda</string>
+  <string name="menu_feed_card_dismissed">Scheda nascosta.</string>
+  <string name="feed_featured_image_share_subject">Immagine in vetrina da Wikimedia Commons</string>
+  <string name="feed" fuzzy="true">Esplora Wikipedia</string>
+  <string name="view_card_footer_button">Vedi altro</string>
+  <string name="most_read_list_card_title">Tendenze</string>
+  <string name="view_static_card_icon_content_description">Icona scheda</string>
+  <string name="view_card_news_title">Nelle notizie</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true"/>
 </resources>

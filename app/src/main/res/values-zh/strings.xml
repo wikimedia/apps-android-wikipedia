@@ -292,9 +292,21 @@
   <string name="view_continue_reading_card_title">继续阅读</string>
   <string name="view_because_you_read_card_title">因为您阅读</string>
   <string name="view_random_card_title">随机产生条目器</string>
-  <string name="view_random_card_subtitle" fuzzy="true">阅读来自%s维基百科的随机条目</string>
-  <string name="view_main_page_card_title" fuzzy="true">%s维基百科今日</string>
+  <string name="view_random_card_subtitle">阅读来自维基百科的随机条目</string>
+  <string name="view_main_page_card_title">维基百科今日</string>
   <string name="view_main_page_card_subtitle">%s首页</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">隐藏该建议</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">建议已隐藏。</string>
+  <string name="view_featured_image_card_title">每日图片</string>
+  <string name="view_featured_image_card_download">下载</string>
+  <string name="menu_feed_card_dismiss">隐藏此卡片</string>
+  <string name="menu_feed_card_dismissed">卡片已隐藏。</string>
+  <string name="feed_featured_image_share_subject">来自维基共享资源的特色图片</string>
+  <string name="feed" fuzzy="true">探索维基百科</string>
+  <string name="view_card_footer_button">查看更多</string>
+  <string name="most_read_list_card_title">趋势</string>
+  <string name="view_static_card_icon_content_description">卡片图标</string>
+  <string name="view_card_news_title">新闻动态</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">1天前</item>
+    <item quantity="other">%d天前</item>
+  </plurals>
 </resources>

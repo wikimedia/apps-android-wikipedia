@@ -290,9 +290,21 @@
   <string name="view_continue_reading_card_title">계속 읽기</string>
   <string name="view_because_you_read_card_title">읽었기 때문입니다</string>
   <string name="view_random_card_title">임의 문서 보기</string>
-  <string name="view_random_card_subtitle" fuzzy="true">%s 위키백과의 임의 문서 읽기</string>
-  <string name="view_main_page_card_title" fuzzy="true">오늘의 %s 위키백과</string>
+  <string name="view_random_card_subtitle">위키백과의 임의 문서 읽기</string>
+  <string name="view_main_page_card_title">오늘의 위키백과</string>
   <string name="view_main_page_card_subtitle">%s의 대문</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">이 제안 숨기기</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">제안이 숨겨짐.</string>
+  <string name="view_featured_image_card_title">오늘의 그림</string>
+  <string name="view_featured_image_card_download">다운로드</string>
+  <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
+  <string name="menu_feed_card_dismissed">카드 숨겨짐.</string>
+  <string name="feed_featured_image_share_subject">위키미디어 공용의 알찬 그림</string>
+  <string name="feed" fuzzy="true">위키백과 탐색</string>
+  <string name="view_card_footer_button">더 보기</string>
+  <string name="most_read_list_card_title">유행</string>
+  <string name="view_static_card_icon_content_description">카드 아이콘</string>
+  <string name="view_card_news_title">새로 들어온 소식</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">하루 전</item>
+    <item quantity="other">%d일 전</item>
+  </plurals>
 </resources>
