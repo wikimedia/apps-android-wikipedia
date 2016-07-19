@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.KeyEvent;
 import android.view.View;
@@ -17,7 +16,6 @@ import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.NonEmptyValidator;
 import org.wikipedia.R;
@@ -25,11 +23,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
-import org.wikipedia.createaccount.authmanager.AMCreateAccountInfoResult;
-import org.wikipedia.createaccount.authmanager.AMCreateAccountInfoTask;
-import org.wikipedia.createaccount.authmanager.AMCreateAccountResult;
-import org.wikipedia.createaccount.authmanager.AMCreateAccountSuccessResult;
-import org.wikipedia.createaccount.authmanager.AMCreateAccountTask;
 import org.wikipedia.editing.CaptchaHandler;
 import org.wikipedia.editing.CaptchaResult;
 import org.wikipedia.util.FeedbackUtil;
@@ -38,8 +31,6 @@ import org.wikipedia.views.PasswordTextInput;
 
 import java.util.List;
 
-import static org.wikipedia.util.FeedbackUtil.showMessage;
-import static org.wikipedia.util.FeedbackUtil.showError;
 import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -66,13 +57,11 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     private Button createAccountButton;
     private Button createAccountButtonCaptcha;
 
-    private WikipediaApp app;
-
     private ProgressDialog progressDialog;
 
     private CaptchaHandler captchaHandler;
 
-    private CompatCreateAccountResult compatCreateAccountResult;
+    private CreateAccountResult createAccountResult;
 
     private Validator validator;
 
@@ -81,8 +70,6 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = (WikipediaApp) getApplicationContext();
-
         setContentView(R.layout.activity_create_account);
 
         usernameEdit = (EditText) findViewById(R.id.create_account_username);
@@ -100,9 +87,9 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
 
-        captchaHandler = new CaptchaHandler(this, app.getSite(), progressDialog, primaryContainer,
-                                            getString(R.string.create_account_activity_title),
-                                            getString(R.string.create_account_button));
+        captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getSite(),
+                progressDialog, primaryContainer, getString(R.string.create_account_activity_title),
+                getString(R.string.create_account_button));
 
         // We enable the menu item as soon as the username and password fields are filled
         // Tapping does further validation
@@ -111,10 +98,10 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         validator.setValidationListener(new Validator.ValidationListener() {
             @Override
             public void onValidationSucceeded() {
-                if (captchaHandler.isActive() && captchaHandler.isAuthManagerRequest()) {
-                    doAMCreateAccount();
+                if (captchaHandler.isActive() && captchaHandler.token() != null) {
+                    doCreateAccount(captchaHandler.token());
                 } else {
-                    doCreateAccount();
+                    getCreateAccountInfo();
                 }
             }
 
@@ -177,12 +164,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         });
 
         if (savedInstanceState != null && savedInstanceState.containsKey("result")) {
-            compatCreateAccountResult = savedInstanceState.getParcelable("result");
-            if (compatCreateAccountResult instanceof CreateAccountCaptchaResult) {
-                captchaHandler.handleCaptcha(
-                        ((CreateAccountCaptchaResult) compatCreateAccountResult)
-                                .getCaptchaResult());
-            }
+            createAccountResult = savedInstanceState.getParcelable("result");
         }
 
         findViewById(R.id.create_account_login_link).setOnClickListener(new View.OnClickListener() {
@@ -193,7 +175,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
         });
 
-        funnel = new CreateAccountFunnel(app, getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
+        funnel = new CreateAccountFunnel(WikipediaApp.getInstance(),
+                getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
@@ -211,7 +194,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable("result", compatCreateAccountResult);
+        outState.putParcelable("result", createAccountResult);
     }
 
     public void showPrivacyPolicy(View v) {
@@ -223,58 +206,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         L.w("Account creation failed with result " + message);
     }
 
-    public void handleLegacyError(@NonNull Throwable e) {
-        if (e instanceof ApiException && ((ApiException) e).getCode() != null) {
-            String errorCode = ((ApiException) e).getCode();
-            funnel.logError(errorCode);
-            switch (errorCode) {
-                case "blocked":
-                    if (app.getUserInfoStorage().isLoggedIn()) {
-                        showMessage(this, R.string.create_account_blocked_error);
-                    } else {
-                        showMessage(this, R.string.create_account_blocked_anon_error);
-                    }
-                    break;
-                case "acct_creation_throttle_hit":
-                    showMessage(this, R.string.create_account_ip_throttle_error);
-                    break;
-                case "sorbs_create_account_reason":
-                    showMessage(this, R.string.create_account_open_proxy_error);
-                    break;
-                case "userexists":
-                    //Request focus before displaying error message, so that it pops up on its own
-                    usernameEdit.requestFocus();
-                    setErrorPopup(usernameEdit, getString(R.string.create_account_username_exists_error));
-                    break;
-                case "noname":
-                    showMessage(this, R.string.create_account_noname_error);
-                    break;
-                case "invalidemailaddress":
-                    showMessage(this, R.string.create_account_invalid_email_error);
-                    break;
-                case "passwordtooshort":
-                    //FIXME: Find the value of $wgMinimalPasswordLength and tell the user the minimum pwd length
-                    showMessage(this, R.string.create_account_password_too_short_error);
-                    break;
-                case "password-name-match":
-                    showMessage(this, R.string.create_account_password_name_match_error);
-                    break;
-                case "createaccount-hook-aborted":
-                    // show the actual message provided by the hook
-                    showMessage(this, Html.fromHtml(((ApiException) e).getInfo()),
-                            FeedbackUtil.LENGTH_DEFAULT);
-                    break;
-                default:
-                    showMessage(this, R.string.create_account_generic_error);
-                    break;
-            }
-        } else {
-            showError(this, e);
-        }
-    }
-
-    public void doCreateAccount() {
-        new AMCreateAccountInfoTask() {
+    public void getCreateAccountInfo() {
+        new CreateAccountInfoTask() {
             @Override
             public void onCatch(Throwable caught) {
                 handleError(caught.getMessage());
@@ -282,27 +215,25 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
 
             @Override
-            public void onFinish(AMCreateAccountInfoResult result) {
-                if (result.getEnabled()) {
-                    L.i("Creating account with AuthManager");
-                    captchaHandler.handleCaptcha(new CaptchaResult(result.getCaptchaId()), true);
+            public void onFinish(CreateAccountInfoResult result) {
+                if (result.token() == null) {
+                    handleError(getString(R.string.create_account_generic_error));
+                } else if (result.hasCaptcha()) {
+                    captchaHandler.handleCaptcha(result.token(), new CaptchaResult(result.captchaId()));
                 } else {
-                    L.i("Creating account with legacy API");
-                    doLegacyCreateAccount();
+                    doCreateAccount(result.token());
                 }
             }
         }.execute();
     }
 
-    public void doAMCreateAccount() {
+    public void doCreateAccount(@NonNull String token) {
         String email = null;
         if (emailEdit.getText().length() != 0) {
             email = emailEdit.getText().toString();
         }
-        new AMCreateAccountTask(usernameEdit.getText().toString(),
-                              passwordEdit.getText().toString(),
-                              passwordRepeatEdit.getText().toString(),
-                              email) {
+        new CreateAccountTask(usernameEdit.getText().toString(), passwordEdit.getText().toString(),
+                              passwordRepeatEdit.getText().toString(), token, email) {
             @Override
             public void onBeforeExecute() {
                 progressDialog.show();
@@ -328,77 +259,13 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
 
             @Override
-            public void onFinish(final AMCreateAccountResult result) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                compatCreateAccountResult = result;
-                if (result instanceof AMCreateAccountSuccessResult) {
-                    progressDialog.dismiss();
-                    captchaHandler.cancelCaptcha();
-                    funnel.logSuccess();
-                    hideSoftKeyboard(CreateAccountActivity.this);
-                    Intent resultIntent = new Intent();
-                    resultIntent.putExtra("username", ((AMCreateAccountSuccessResult) result).getUsername());
-                    resultIntent.putExtra("password", passwordEdit.getText().toString());
-                    setResult(RESULT_ACCOUNT_CREATED, resultIntent);
-                    finish();
-                } else if ("FAIL".equals(result.getStatus())) {
-                    progressDialog.dismiss();
-                    captchaHandler.cancelCaptcha();
-                    handleError(result.getMessage());
-                }
-            }
-        }.execute();
-    }
-
-    public void doLegacyCreateAccount() {
-        String email = null;
-        if (emailEdit.getText().length() != 0) {
-            email = emailEdit.getText().toString();
-        }
-        new CreateAccountTask(this, usernameEdit.getText().toString(), passwordEdit.getText().toString(), email) {
-            @Override
-            public void onBeforeExecute() {
-                progressDialog.show();
-            }
-
-            @Override
-            public RequestBuilder buildRequest(Api api) {
-                if (compatCreateAccountResult != null
-                        && compatCreateAccountResult instanceof CreateAccountCaptchaResult) {
-                    return captchaHandler.populateBuilder(super.buildRequest(api));
-                }
-                return super.buildRequest(api);
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                L.d("Caught " + caught.toString());
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                handleLegacyError(caught);
-            }
-
-            @Override
             public void onFinish(final CreateAccountResult result) {
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
                     return;
                 }
-                compatCreateAccountResult = result;
-                if (result instanceof CreateAccountCaptchaResult) {
-                    if (captchaHandler.isActive()) {
-                        funnel.logCaptchaFailure();
-                    } else {
-                        funnel.logCaptchaShown();
-                    }
-                    captchaHandler.handleCaptcha(((CreateAccountCaptchaResult)result).getCaptchaResult());
-                } else if (result instanceof CreateAccountSuccessResult) {
+                createAccountResult = result;
+                if (result instanceof CreateAccountSuccessResult) {
                     progressDialog.dismiss();
                     captchaHandler.cancelCaptcha();
                     funnel.logSuccess();
@@ -411,12 +278,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
                 } else {
                     progressDialog.dismiss();
                     captchaHandler.cancelCaptcha();
-                    if (result.getResult().equals("captcha-createaccount-fail")) {
-                        // So for now we just need to do the entire set of requests again. sigh
-                        // Eventually this should be fixed to have the new captcha info come back.
-                        compatCreateAccountResult = null;
-                        doCreateAccount();
-                    }
+                    handleError(result.getMessage());
                 }
             }
         }.execute();

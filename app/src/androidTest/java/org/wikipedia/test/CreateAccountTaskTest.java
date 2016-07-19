@@ -1,154 +1,85 @@
 package org.wikipedia.test;
 
+import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mediawiki.api.json.Api;
 import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.createaccount.CompatCreateAccountResult;
-import org.wikipedia.createaccount.CreateAccountCaptchaResult;
-import org.wikipedia.createaccount.authmanager.AMCreateAccountResult;
-import org.wikipedia.createaccount.authmanager.AMCreateAccountSuccessResult;
-import org.wikipedia.createaccount.authmanager.AMCreateAccountTask;
-import org.wikipedia.createaccount.CreateAccountResult;
-import org.wikipedia.createaccount.CreateAccountSuccessResult;
-import org.wikipedia.createaccount.CreateAccountTask;
+import org.wikipedia.createaccount.CreateAccountInfoResult;
+import org.wikipedia.createaccount.CreateAccountInfoTask;
 import org.wikipedia.editing.CaptchaResult;
-import org.wikipedia.login.authmanager.AMLoginInfoResult;
-import org.wikipedia.login.authmanager.AMLoginInfoTask;
 import org.wikipedia.testlib.TestLatch;
 import org.wikipedia.util.log.L;
 
+import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertTrue;
 import static junit.framework.Assert.fail;
-import static android.support.test.InstrumentationRegistry.getTargetContext;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.isEmptyOrNullString;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.Matchers.startsWith;
 
+/**
+ * Automated tests for the account creation flow.
+ *
+ * Note that we won't be able to test for successful account creation directly, since the WPs are
+ * configured to require a CAPTCHA for account creation and by design we won't be able to pass
+ * a CAPTCHA.  The most we can do is check that we are able to retrieve the createaccount token and
+ * CAPTCHA image as expected.
+ */
 @RunWith(AndroidJUnit4.class)
 public class CreateAccountTaskTest {
-    private static Site TEST_WIKI = new Site("test.wikipedia.org");
-    private boolean isAuthManagerEnabled = false;
+    private static Api TEST_WIKI_API = new Api("test.wikipedia.org");
+    private static Site TEST_WIKI_SITE = new Site("test.wikipedia.org");
+    private Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-    private LoginInfo loginInfo = new LoginInfo() {
+    private CreateAccountTestInfoTask createAccountInfoTask
+            = new CreateAccountTestInfoTask(TEST_WIKI_API) {
         @Override
         public void onCatch(Throwable caught) {
             L.e(caught);
             fail();
         }
-
-        @Override
-        public void onFinish(AMLoginInfoResult result) {
-            super.onFinish(result);
-            if (result.getEnabled()) {
-                L.i("Logging in with AuthManager");
-                isAuthManagerEnabled = true;
-            } else {
-                L.i("Logging in with legacy login");
-            }
-        }
     };
 
     @Test
-    public void testTokenFetch() {
-        long millis = System.currentTimeMillis();
-        CompatCreateAccountResult result;
-
-        final String username = "someusername" + millis;
-        final String password = "somepassword" + millis;
-
-        loginInfo.execute();
-        loginInfo.await();
-
-        if (isAuthManagerEnabled) {
-            AMSubject amSubject = new AMSubject(username, password, password, null);
-            amSubject.execute();
-            result = amSubject.await();
-        } else {
-            Subject subject = new Subject(username, password, null);
-            subject.execute();
-            result = subject.await();
-        }
-        handleCreateAccountResult(result);
+    public void testCreateAccountInfoFetch() {
+        createAccountInfoTask.execute();
+        CreateAccountInfoResult result = createAccountInfoTask.await();
+        assertNotNull(result.token());
+        assertTrue(result.hasCaptcha());
+        assertNotNull(result.captchaId());
     }
 
-    private void handleCreateAccountResult(CompatCreateAccountResult result) {
-        // We don't always get a CAPTCHA when running this test repeatedly
-        if (result instanceof AMCreateAccountSuccessResult
-                || result instanceof CreateAccountSuccessResult) {
-            return;
-        }
-
-        // If we made it here, we did get a CAPTCHA (this won't happen at this stage with AM)
-        assertThat(result, instanceOf(CreateAccountCaptchaResult.class));
-        CaptchaResult captchaResult = ((CreateAccountCaptchaResult) result).getCaptchaResult();
-        assertThat(captchaResult, notNullValue());
-        assertThat(captchaResult.getCaptchaId(), not(isEmptyOrNullString()));
-
-        String expectedCaptchaUrlPrefix = WikipediaApp.getInstance().getSite().scheme()
-                + "://test.wikipedia.org/w/index.php?title=Special:Captcha/image";
-        assertThat(captchaResult.getCaptchaUrl(TEST_WIKI), startsWith(expectedCaptchaUrlPrefix));
+    @Test
+    public void testFetchCaptchaImage() {
+        createAccountInfoTask.execute();
+        CreateAccountInfoResult result = createAccountInfoTask.await();
+        CaptchaResult captcha = new CaptchaResult(result.captchaId());
+        SimpleDraweeView captchaView = new SimpleDraweeView(context);
+        captchaView.setImageURI(Uri.parse(captcha.getCaptchaUrl(TEST_WIKI_SITE)));
+        assertNotNull(captchaView.getDrawable());
     }
 
-    private static class LoginInfo extends AMLoginInfoTask {
+    private static class CreateAccountTestInfoTask extends CreateAccountInfoTask {
         @NonNull private final TestLatch latch = new TestLatch();
-        private AMLoginInfoResult result;
+        private CreateAccountInfoResult result;
+
+        CreateAccountTestInfoTask(Api api) {
+            super(api);
+        }
 
         @Override
-        public void onFinish(AMLoginInfoResult result) {
+        public void onFinish(CreateAccountInfoResult result) {
             super.onFinish(result);
             this.result = result;
             latch.countDown();
         }
 
-        public AMLoginInfoResult await() {
-            latch.await();
-            return result;
-        }
-    }
-
-    private static class AMSubject extends AMCreateAccountTask {
-        @NonNull private final TestLatch latch = new TestLatch();
-        private CompatCreateAccountResult result;
-
-        AMSubject(String username, String password, String repeat, String email) {
-            super(username, password, repeat, email);
-        }
-
-        @Override
-        public void onFinish(AMCreateAccountResult result) {
-            super.onFinish(result);
-            this.result = result;
-            latch.countDown();
-        }
-
-        public CompatCreateAccountResult await() {
-            latch.await();
-            return result;
-        }
-    }
-
-    private static class Subject extends CreateAccountTask {
-        @NonNull private final TestLatch latch = new TestLatch();
-        private CompatCreateAccountResult result;
-
-        Subject(String username, String password, String email) {
-            super(getTargetContext(), username, password, email);
-        }
-
-        @Override
-        public void onFinish(CreateAccountResult result) {
-            super.onFinish(result);
-            this.result = result;
-            latch.countDown();
-        }
-
-        public CompatCreateAccountResult await() {
+        public CreateAccountInfoResult await() {
             latch.await();
             return result;
         }

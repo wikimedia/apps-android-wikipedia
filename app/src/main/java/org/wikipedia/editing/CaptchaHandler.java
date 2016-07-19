@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -31,8 +33,9 @@ public class CaptchaHandler {
     private final View primaryView;
     private final String prevTitle;
     private ProgressDialog progressDialog;
-    private CaptchaResult captchaResult;
-    private boolean authManagerRequest;
+
+    @Nullable private String token;
+    @Nullable private CaptchaResult captchaResult;
 
     public CaptchaHandler(final Activity activity, final Site site, final ProgressDialog progressDialog,
                           final View primaryView, final String prevTitle, final String submitButtonText) {
@@ -63,7 +66,7 @@ public class CaptchaHandler {
                     }
 
                     @Override
-                    public void onFinish(CaptchaResult result) {
+                    public void onFinish(@NonNull CaptchaResult result) {
                         captchaResult = result;
                         captchaProgress.setVisibility(View.GONE);
                         handleCaptcha(true);
@@ -80,32 +83,32 @@ public class CaptchaHandler {
         });
     }
 
+    @Nullable
+    public String token() {
+        return token;
+    }
+
     public void restoreState(Bundle savedInstanceState) {
-        if (savedInstanceState != null && savedInstanceState.containsKey("captcha")) {
-            handleCaptcha((CaptchaResult) savedInstanceState.getParcelable("captcha"));
+        if (savedInstanceState != null
+                && savedInstanceState.containsKey("token")
+                && savedInstanceState.containsKey("captcha")) {
+            handleCaptcha(savedInstanceState.getString("token"),
+                    (CaptchaResult) savedInstanceState.getParcelable("captcha"));
         }
     }
 
     public void saveState(Bundle outState) {
+        outState.putString("token", token);
         outState.putParcelable("captcha", captchaResult);
-    }
-
-    public boolean isAuthManagerRequest() {
-        return authManagerRequest;
     }
 
     public boolean isActive() {
         return captchaResult != null;
     }
 
-    public void handleCaptcha(CaptchaResult captchaResult) {
+    public void handleCaptcha(@Nullable String token, @NonNull CaptchaResult captchaResult) {
+        this.token = token;
         this.captchaResult = captchaResult;
-        handleCaptcha(false);
-    }
-
-    public void handleCaptcha(CaptchaResult captchaResult, boolean authManagerRequest) {
-        this.captchaResult = captchaResult;
-        this.authManagerRequest = authManagerRequest;
         handleCaptcha(false);
     }
 
@@ -149,7 +152,7 @@ public class CaptchaHandler {
     }
 
     public void hideCaptcha() {
-        ((AppCompatActivity)activity).getSupportActionBar().setTitle(prevTitle);
+        ((AppCompatActivity) activity).getSupportActionBar().setTitle(prevTitle);
         ViewAnimations.crossFade(captchaContainer, primaryView);
     }
 
@@ -168,14 +171,8 @@ public class CaptchaHandler {
             return builder;
         }
 
-        if (authManagerRequest) {
-            authManagerRequest = false;
-            return builder.param("captchaId", captchaResult.getCaptchaId())
-                    .param("captchaWord", captchaText.getText().toString());
-        }
-
-        return builder.param("captchaid", captchaResult.getCaptchaId())
-                .param("captchaword", captchaText.getText().toString());
+        return builder.param("captchaId", captchaResult.getCaptchaId())
+                      .param("captchaWord", captchaText.getText().toString());
     }
 
 }

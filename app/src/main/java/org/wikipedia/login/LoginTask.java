@@ -1,61 +1,82 @@
 package org.wikipedia.login;
 
-import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
+
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
-import org.wikipedia.Site;
+import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.ApiTask;
+import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.util.log.L;
 
-public class LoginTask extends SaneAsyncTask<LoginResult> {
-    private final String username;
-    private final String password;
-    private final Api api;
-    private final WikipediaApp app;
+public abstract class LoginTask extends ApiTask<LoginResult> {
+    @NonNull private final String username;
+    @NonNull private final String password;
 
-    public LoginTask(Context context, Site site, String username, String password) {
-        app = (WikipediaApp)context.getApplicationContext();
-        api = app.getAPIForSite(site);
+    public LoginTask(@NonNull String username, @NonNull String password) {
+        this(WikipediaApp.getInstance().getSiteApi(), username, password);
+    }
+
+    @VisibleForTesting
+    public LoginTask(@NonNull Api api, @NonNull String username, @NonNull String password) {
+        super(api);
         this.username = username;
         this.password = password;
     }
 
     @Override
-    public void onFinish(LoginResult result) {
-        if (result.getCode().equals("Success")) {
-            // Clear the edit tokens - clears out any anon tokens we might have had
-            app.getEditTokenStorage().clearAllTokens();
+    public RequestBuilder buildRequest(@NonNull Api api) {
+        // HACK: T124384
+        WikipediaApp.getInstance().getEditTokenStorage().clearAllTokens();
 
-            // Set userinfo
-            app.getUserInfoStorage().setUser(result.getUser());
+        JSONObject preReqResult;
+        String token = "";
+        try {
+            ApiResult preReq = api.action("query")
+                    .param("meta", "tokens")
+                    .param("type", "login")
+                    .post();
+            preReqResult = preReq.asObject();
+            token = preReqResult.optJSONObject("query")
+                    .optJSONObject("tokens")
+                    .optString("logintoken");
+        } catch (ApiException e) {
+            L.e("Failed to fetch login token");
+        }
+
+        return api.action("clientlogin")
+                .param("username", username)
+                .param("password", password)
+                .param("logintoken", token)
+                .param("loginreturnurl", Constants.WIKIPEDIA_URL);
+    }
+
+    @Override
+    public void onFinish(LoginResult result) {
+        if (result.pass()) {
+            WikipediaApp.getInstance().getUserInfoStorage().setUser(result.getUser());
         }
     }
 
     @Override
-    public LoginResult performTask() throws Throwable {
-        // HACK: T124384
-        app.getEditTokenStorage().clearAllTokens();
+    protected ApiResult makeRequest(@NonNull RequestBuilder builder) throws ApiException {
+        return builder.post();
+    }
 
-        ApiResult preReq = api.action("login")
-                .param("lgname", username)
-                .param("lgpassword", password)
-                .post();
-        JSONObject preReqResult = preReq.asObject();
-        String token = preReqResult.optJSONObject("login").optString("token");
-
-        ApiResult req = api.action("login")
-                .param("lgname", username)
-                .param("lgpassword", password)
-                .param("lgtoken", token)
-                .post();
-
-        JSONObject result = req.asObject().optJSONObject("login");
-
+    @Override
+    public LoginResult processResult(@NonNull ApiResult result) throws Throwable {
+        JSONObject clientlogin = result.asObject().optJSONObject("clientlogin");
         User user = null;
-        if (result.optString("result").equals("Success")) {
-            user = new User(result.optString("lgusername"), password, result.optInt("lguserid"));
+        String message = null;
+        if ("PASS".equals(clientlogin.optString("status"))) {
+            user = new User(clientlogin.optString("username"), password, 0);
+        } else if ("FAIL".equals(clientlogin.optString("status"))) {
+            message = clientlogin.optString("message");
         }
-        return new LoginResult(result.optString("result"), user);
+        return new LoginResult(clientlogin.optString("status"), user, message);
     }
 }

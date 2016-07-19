@@ -1,19 +1,39 @@
 package org.wikipedia.login;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 public class LoginResult {
-    private final String code;
-    private final User user;
+    @NonNull private final String status;
+    @Nullable private final User user;
+    @Nullable private final String message;
 
-    public LoginResult(String code, User user) {
-        this.code = code;
+    public LoginResult(@NonNull String status, @Nullable User user, @Nullable String message) {
+        this.status = status;
         this.user = user;
+        this.message = message;
     }
 
-    public String getCode() {
-        return code;
+    @NonNull
+    public String getStatus() {
+        return status;
     }
 
+    public boolean pass() {
+        return "PASS".equals(status);
+    }
+
+    public boolean fail() {
+        return "FAIL".equals(status);
+    }
+
+    @Nullable
     public User getUser() {
         return user;
+    }
+
+    @Nullable
+    public String getMessage() {
+        return message;
     }
 }

@@ -13,7 +13,6 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,8 +31,6 @@ import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.LoginTask;
-import org.wikipedia.login.authmanager.AMLoginInfoResult;
-import org.wikipedia.login.authmanager.AMLoginInfoTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.activity.ThemedActionBarActivity;
@@ -44,8 +41,6 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.editing.summaries.EditSummaryFragment;
 import org.wikipedia.editing.richtext.SyntaxHighlighter;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.login.authmanager.AMLoginResult;
-import org.wikipedia.login.authmanager.AMLoginTask;
 import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
@@ -297,7 +292,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                         } else {
                             // If it's not an API exception, we have no idea what's wrong.
                             // Show the user a generic error message.
-                            Log.w("Wikipedia", "Caught " + caught.toString());
+                            L.w("Caught " + caught.toString());
                             showRetryDialog();
                         }
                     }
@@ -323,7 +318,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                                 // Captcha entry failed!
                                 funnel.logCaptchaFailure();
                             }
-                            captchaHandler.handleCaptcha((CaptchaResult) result);
+                            captchaHandler.handleCaptcha(null, (CaptchaResult) result);
                             funnel.logCaptchaShown();
                         } else if (result instanceof AbuseFilterEditResult) {
                             abusefilterEditResult = (AbuseFilterEditResult) result;
@@ -393,7 +388,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             app.getCookieManager().clearAllCookies();
 
             User user = app.getUserInfoStorage().getUser();
-            attemptLoginAndSave(user);
+            doLoginAndSave(user);
         } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
@@ -436,46 +431,11 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         }
     }
 
-    private void attemptLoginAndSave(final User user) {
-        new AMLoginInfoTask() {
-            @Override
-            public void onCatch(Throwable caught) {
-                L.e("AMLoginInfoTask failed: " + caught.getMessage());
-            }
-
-            @Override
-            public void onFinish(AMLoginInfoResult result) {
-                if (result.getEnabled()) {
-                    L.i("Logging in with AuthManager");
-                    doAuthManagerLoginAndSave(user);
-                } else {
-                    L.i("Logging in with legacy login");
-                    doLegacyLoginAndSave(user);
-                }
-            }
-        }.execute();
-    }
-
-    private void doAuthManagerLoginAndSave(final User user) {
-        new AMLoginTask(user.getUsername(), user.getPassword()) {
-            @Override
-            public void onFinish(AMLoginResult result) {
-                if (result.pass()) {
-                    doSave();
-                } else {
-                    progressDialog.dismiss();
-                    ViewAnimations.crossFade(sectionText, sectionError);
-                    sectionError.setVisibility(View.VISIBLE);
-                }
-            }
-        }.execute();
-    }
-
-    private void doLegacyLoginAndSave(final User user) {
-        new LoginTask(app, app.getSite(), user.getUsername(), user.getPassword()) {
+    private void doLoginAndSave(final User user) {
+        new LoginTask(user.getUsername(), user.getPassword()) {
             @Override
             public void onFinish(LoginResult result) {
-                if ("Success".equals(result.getCode())) {
+                if (result.pass()) {
                     doSave();
                 } else {
                     progressDialog.dismiss();
@@ -768,7 +728,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         if (bus != null) {
             bus.unregister(this);
             bus = null;
-            Log.d("Wikipedia", "Deregistering bus");
+            L.d("Deregistering bus");
         }
         syntaxHighlighter.cleanup();
         super.onStop();

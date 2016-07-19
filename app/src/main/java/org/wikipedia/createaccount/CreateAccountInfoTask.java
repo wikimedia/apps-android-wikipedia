@@ -1,4 +1,6 @@
-package org.wikipedia.createaccount.authmanager;
+package org.wikipedia.createaccount;
+
+import android.support.annotation.VisibleForTesting;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,18 +13,23 @@ import org.wikipedia.ApiTask;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
-public class AMCreateAccountInfoTask extends ApiTask<AMCreateAccountInfoResult> {
+public class CreateAccountInfoTask extends ApiTask<CreateAccountInfoResult> {
 
-    public AMCreateAccountInfoTask() {
+    public CreateAccountInfoTask() {
         super(WikipediaApp.getInstance().getSiteApi());
+    }
+
+    @VisibleForTesting
+    public CreateAccountInfoTask(Api api) {
+        super(api);
     }
 
     @Override
     public RequestBuilder buildRequest(Api api) {
         return api.action("query")
-                .param("meta", "authmanagerinfo")
-                .param("amirequestsfor", "create");
-
+                .param("meta", "authmanagerinfo|tokens")
+                .param("amirequestsfor", "create")
+                .param("type", "createaccount");
     }
 
     @Override
@@ -31,15 +38,14 @@ public class AMCreateAccountInfoTask extends ApiTask<AMCreateAccountInfoResult> 
     }
 
     @Override
-    public AMCreateAccountInfoResult processResult(ApiResult result) throws Throwable {
-        boolean enabled = result.asObject().optJSONObject("query") != null;
-        if (!enabled) {
-            return new AMCreateAccountInfoResult(false, null);
-        }
-
+    public CreateAccountInfoResult processResult(ApiResult result) throws Throwable {
+        String token = null;
         String captchaId = null;
         try {
             JSONObject query = result.asObject().getJSONObject("query");
+
+            token = query.getJSONObject("tokens").getString("createaccounttoken");
+
             JSONObject authManagerInfo = query.getJSONObject("authmanagerinfo");
             JSONArray requests = authManagerInfo.getJSONArray("requests");
             for (int i = 0; i < requests.length(); i++) {
@@ -53,6 +59,6 @@ public class AMCreateAccountInfoTask extends ApiTask<AMCreateAccountInfoResult> 
         } catch (JSONException e) {
             L.e("Error parsing createaccountinfo json", e);
         }
-        return new AMCreateAccountInfoResult(true, captchaId);
+        return new CreateAccountInfoResult(token, captchaId);
     }
 }

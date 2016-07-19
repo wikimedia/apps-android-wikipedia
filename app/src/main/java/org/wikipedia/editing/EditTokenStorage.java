@@ -27,7 +27,7 @@ public class EditTokenStorage {
     public EditTokenStorage(Context context) {
         this.context = context;
         List<String> wikis = makeList(Prefs.getEditTokenWikis());
-        for (String wiki: wikis) {
+        for (String wiki : wikis) {
             tokenJar.put(wiki, Prefs.getEditTokenForWiki(wiki));
         }
     }

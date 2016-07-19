@@ -23,15 +23,10 @@ import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
-import org.wikipedia.login.authmanager.AMLoginInfoResult;
-import org.wikipedia.login.authmanager.AMLoginInfoTask;
-import org.wikipedia.login.authmanager.AMLoginResult;
-import org.wikipedia.login.authmanager.AMLoginTask;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PasswordTextInput;
 
-import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class LoginActivity extends ThemedActionBarActivity {
@@ -48,21 +43,17 @@ public class LoginActivity extends ThemedActionBarActivity {
     private EditText passwordText;
     private View loginButton;
 
-    private WikipediaApp app;
-
     private LoginFunnel funnel;
     private String loginSource;
 
     private ProgressDialog progressDialog;
     private boolean wentStraightToCreateAccount;
 
-    public static Intent newIntent(@NonNull Context context,
-                                   @NonNull String source) {
+    public static Intent newIntent(@NonNull Context context, @NonNull String source) {
         return newIntent(context, source, null);
     }
 
-    public static Intent newIntent(@NonNull Context context,
-                                   @NonNull String source,
+    public static Intent newIntent(@NonNull Context context, @NonNull String source,
                                    @Nullable String token) {
         return new Intent(context, LoginActivity.class)
                 .putExtra(LOGIN_REQUEST_SOURCE, source)
@@ -72,8 +63,6 @@ public class LoginActivity extends ThemedActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        app = (WikipediaApp)getApplicationContext();
-
         setContentView(R.layout.activity_wiki_login);
 
         usernameText = (EditText) findViewById(R.id.login_username_text);
@@ -118,7 +107,7 @@ public class LoginActivity extends ThemedActionBarActivity {
         progressDialog.setMessage(getString(R.string.login_in_progress_dialog_message));
         progressDialog.setCancelable(false);
 
-        funnel = new LoginFunnel(app);
+        funnel = new LoginFunnel(WikipediaApp.getInstance());
 
         loginSource = getIntent().getStringExtra(LOGIN_REQUEST_SOURCE);
 
@@ -183,29 +172,9 @@ public class LoginActivity extends ThemedActionBarActivity {
     }
 
     private void doLogin() {
-        new AMLoginInfoTask() {
-            @Override
-            public void onCatch(Throwable caught) {
-                L.e("AMLoginInfoTask failed: " + caught.getMessage());
-            }
-
-            @Override
-            public void onFinish(AMLoginInfoResult result) {
-                if (result.getEnabled()) {
-                    L.i("Logging in with AuthManager");
-                    doAuthManagerLogin();
-                } else {
-                    L.i("Logging in with legacy login");
-                    doLegacyLogin();
-                }
-            }
-        }.execute();
-    }
-
-    private void doLegacyLogin() {
         final String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();
-        new LoginTask(this, app.getSite(), username, password) {
+        new LoginTask(username, password) {
             @Override
             public void onBeforeExecute() {
                 progressDialog.show();
@@ -213,7 +182,6 @@ public class LoginActivity extends ThemedActionBarActivity {
 
             @Override
             public void onCatch(Throwable caught) {
-                L.e("Caught " + caught.toString());
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
                     return;
@@ -224,54 +192,6 @@ public class LoginActivity extends ThemedActionBarActivity {
 
             @Override
             public void onFinish(LoginResult result) {
-                super.onFinish(result);
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                if (result.getCode().equals("Success")) {
-                    funnel.logSuccess();
-
-                    Bundle extras = getIntent().getExtras();
-                    AccountAuthenticatorResponse response = extras == null
-                            ? null
-                            : extras.<AccountAuthenticatorResponse>getParcelable(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE);
-                    AccountUtil.createAccount(response, username, password);
-
-                    hideSoftKeyboard(LoginActivity.this);
-                    setResult(RESULT_LOGIN_SUCCESS);
-
-                    finish();
-                } else {
-                    funnel.logError(result.getCode());
-                    handleLegacyError(result.getCode());
-                }
-            }
-        }.execute();
-    }
-
-    private void doAuthManagerLogin() {
-        final String username = usernameText.getText().toString();
-        final String password = passwordText.getText().toString();
-        new AMLoginTask(username, password) {
-            @Override
-            public void onBeforeExecute() {
-                progressDialog.show();
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                FeedbackUtil.showError(LoginActivity.this, caught);
-            }
-
-            @Override
-            public void onFinish(AMLoginResult result) {
                 super.onFinish(result);
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
@@ -293,7 +213,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                     finish();
                 } else if (result.fail()) {
                     funnel.logError(result.getMessage());
-                    handleAuthManagerError(result.getMessage());
+                    handleError(result.getMessage());
                 }
             }
         }.execute();
@@ -311,42 +231,9 @@ public class LoginActivity extends ThemedActionBarActivity {
         super.onBackPressed();
     }
 
-    private void handleAuthManagerError(String message) {
+    private void handleError(String message) {
         FeedbackUtil.showMessage(this, message);
         L.e("Login failed with result " + message);
-    }
-
-    private void handleLegacyError(String result) {
-        switch (result) {
-            case "WrongPass":
-            case "WrongPluginPass":
-                // Authentication extensions, like CentralAuth, return "WrongPluginPass" if there
-                // is no local account with the specified username, but there is a global account
-                // with that name and the user didn't specify the correct password. To a user with
-                // a global account (i.e. almost every single user), there is no difference between
-                // WrongPass and WrongPluginPass, so we treat them the same here.
-                passwordText.requestFocus();
-                setErrorPopup(passwordText, getString(R.string.login_error_wrong_password));
-                break;
-            case "NotExists":
-                usernameText.requestFocus();
-                setErrorPopup(usernameText, getString(R.string.login_error_wrong_username));
-                break;
-            case "Illegal":
-                usernameText.requestFocus();
-                setErrorPopup(usernameText, getString(R.string.login_error_illegal));
-                break;
-            case "Blocked":
-                FeedbackUtil.showMessage(this, R.string.login_error_blocked);
-                break;
-            case "Throttled":
-                FeedbackUtil.showMessage(this, R.string.login_error_throttled);
-                break;
-            default:
-                FeedbackUtil.showMessage(this, R.string.login_error_unknown);
-                L.e("Login failed with result " + result);
-                break;
-        }
     }
 
     @Override

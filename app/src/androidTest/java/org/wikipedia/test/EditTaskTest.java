@@ -114,8 +114,7 @@ public class EditTaskTest {
 
         EditingResult result = Subject.execute(title, wikitext);
         assertThat(result, instanceOf(AbuseFilterEditResult.class));
-        // For now we handle arbitrary error codes as TYPE_ERROR. This may change.
-        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_ERROR));
+        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_WARNING));
     }
 
     private void validateCaptcha(EditingResult result) {

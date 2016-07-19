@@ -2,27 +2,44 @@ package org.wikipedia.createaccount;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
-public class CreateAccountResult extends CompatCreateAccountResult {
-    private final String result;
+public class CreateAccountResult implements Parcelable {
+    @NonNull private final String status;
+    @NonNull private final String message;
 
-    public CreateAccountResult(String result) {
-        this.result = result;
+    public CreateAccountResult(@NonNull String status, @NonNull String message) {
+        this.status = status;
+        this.message = message;
     }
 
-    public String getResult() {
-        return result;
+    @NonNull
+    public String getStatus() {
+        return status;
+    }
+
+    @NonNull
+    public String getMessage() {
+        return message;
     }
 
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeString(result);
+        parcel.writeString(status);
+        parcel.writeString(message);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     protected CreateAccountResult(Parcel in) {
-        result = in.readString();
+        status = in.readString();
+        message = in.readString();
     }
 
+    @NonNull
     public static final Parcelable.Creator<CreateAccountResult> CREATOR
             = new Parcelable.Creator<CreateAccountResult>() {
         @Override

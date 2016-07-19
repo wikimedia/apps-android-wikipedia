@@ -7,7 +7,7 @@ public class CreateAccountSuccessResult extends CreateAccountResult implements P
     private final String username;
 
     public CreateAccountSuccessResult(String username) {
-        super("Success");
+        super("PASS", "Account created");
         this.username = username;
     }
 
@@ -38,5 +38,4 @@ public class CreateAccountSuccessResult extends CreateAccountResult implements P
             return new CreateAccountSuccessResult[size];
         }
     };
-
 }
