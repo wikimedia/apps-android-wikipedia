@@ -72,6 +72,14 @@ public final class DeviceUtil {
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
     }
 
+    public static boolean isOnline(Context context) {
+        ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return ((connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null
+                && connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected())
+                || (connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null
+                && connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected()));
+    }
+
     private DeviceUtil() {
 
     }

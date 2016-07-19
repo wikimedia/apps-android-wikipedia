@@ -16,6 +16,7 @@ import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.readinglist.page.database.disk.ReadingListPageDiskRow;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageServiceFactory;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -45,6 +46,11 @@ public class SavedPageSyncService extends IntentService {
 
     @Override
     protected void onHandleIntent(@NonNull Intent intent) {
+        if (!DeviceUtil.isOnline(this)) {
+            L.i("Device is offline; aborting sync service");
+            return;
+        }
+
         List<ReadingListPageDiskRow> queue = new ArrayList<>();
         Collection<ReadingListPageDiskRow> rows = dao.startDiskTransaction();
         L.i("Syncing saved rlp pages with saved pages service");
