@@ -10,13 +10,12 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageTitle;
 
 /**
  * Get a Read More topic for the main page. This is looking at the history table.
  * We're looking at the last history entry that is not of source main page or random.
  */
-public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
+public class MainPageReadMoreTopicTask extends SaneAsyncTask<HistoryEntry> {
     private final Context context;
     private int age;
 
@@ -30,13 +29,13 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<PageTitle> {
     }
 
     @Override
-    public PageTitle performTask() throws Throwable {
+    public HistoryEntry performTask() throws Throwable {
         Cursor c = getInterestedHistoryEntry();
         try {
             if (c.moveToPosition(age)) {
                 HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(c);
                 entry.getTitle().setThumbUrl(PageImageHistoryContract.Col.IMAGE_NAME.val(c));
-                return entry.getTitle().isMainPage() ? null : entry.getTitle();
+                return entry.getTitle().isMainPage() ? null : entry;
             }
             return null;
         } finally {

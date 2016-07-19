@@ -8,17 +8,19 @@ import android.text.TextUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.ListCard;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
-    @NonNull private PageTitle title;
+    @NonNull private HistoryEntry entry;
 
-    public BecauseYouReadCard(@NonNull final PageTitle title,
+    public BecauseYouReadCard(@NonNull final HistoryEntry entry,
                               @NonNull final List<BecauseYouReadItemCard> itemCards) {
         super(itemCards);
-        this.title = title;
+        this.entry = entry;
     }
 
     @Override
@@ -30,14 +32,21 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     @Override
     @Nullable
     public Uri image() {
-        return TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
+        return TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl());
     }
 
     public String pageTitle() {
-        return title.getDisplayText();
+        return entry.getTitle().getDisplayText();
     }
 
     @NonNull public PageTitle getPageTitle() {
-        return title;
+        return entry.getTitle();
+    }
+
+    /** @return The last visit age in days. */
+    public long daysOld() {
+        long now = System.currentTimeMillis();
+        long lastVisited = entry.getTimestamp().getTime();
+        return TimeUnit.MILLISECONDS.toDays(now - lastVisited);
     }
 }

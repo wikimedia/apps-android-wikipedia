@@ -14,8 +14,8 @@ import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.MwApiResultPage;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.log.L;
@@ -51,12 +51,12 @@ public class BecauseYouReadClient implements FeedClient {
         cancel();
         readMoreTopicTask = new MainPageReadMoreTopicTask(context, age) {
             @Override
-            public void onFinish(@Nullable PageTitle title) {
-                if (title == null) {
+            public void onFinish(@Nullable HistoryEntry entry) {
+                if (entry == null) {
                     cb.error(new IOException("Error fetching suggestions"));
                     return;
                 }
-                getSuggestionsForTitle(site, title, cb);
+                getSuggestionsForTitle(site, entry, cb);
             }
 
             @Override
@@ -81,10 +81,10 @@ public class BecauseYouReadClient implements FeedClient {
     }
 
     private void getSuggestionsForTitle(@NonNull Site site,
-                                        @NonNull final PageTitle title,
+                                        @NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
         final Retrofit retrofit = cachedService.retrofit(site);
-        readMoreCall = cachedService.service(site).get(MORELIKE + title.getDisplayText());
+        readMoreCall = cachedService.service(site).get(MORELIKE + entry.getTitle().getDisplayText());
         readMoreCall.enqueue(new retrofit2.Callback<MwQueryResponse<Pages>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<Pages>> call,
@@ -92,11 +92,11 @@ public class BecauseYouReadClient implements FeedClient {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
                     MwQueryResponse<Pages> pages = response.body();
-                    if (pages.success() && pages.query() != null && pages.query().results(title.getSite()) != null) {
-                        SearchResults results = SearchResults.filter(pages.query().results(title.getSite()), title.getText(), false);
-                        List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results, title.getSite());
+                    if (pages.success() && pages.query() != null && pages.query().results(entry.getTitle().getSite()) != null) {
+                        SearchResults results = SearchResults.filter(pages.query().results(entry.getTitle().getSite()), entry.getTitle().getText(), false);
+                        List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results, entry.getTitle().getSite());
 
-                        cb.success(Collections.singletonList((Card) new BecauseYouReadCard(title, itemCards)));
+                        cb.success(Collections.singletonList((Card) new BecauseYouReadCard(entry, itemCards)));
                     } else {
                         cb.error(new IOException("Error fetching suggestions."));
                     }
