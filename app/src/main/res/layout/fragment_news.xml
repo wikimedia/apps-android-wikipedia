@@ -13,6 +13,7 @@
 
         <!-- Height set dynamically based on device properties -->
         <org.wikipedia.views.FaceAndColorDetectImageView
+            style="@style/SimpleDraweeViewPlaceholder"
             android:id="@+id/view_news_fullscreen_header_image"
             app:actualImageScaleType="focusCrop"
             android:layout_width="match_parent"

@@ -1,17 +1,16 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 
 import org.wikipedia.PageTitleListCardItemCallback;
 import org.wikipedia.R;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.views.ViewUtil;
 
 public class PageTitleListCardItemView extends ListCardItemView {
     @Nullable private PageTitleListCardItemCallback callback;
@@ -44,7 +43,7 @@ public class PageTitleListCardItemView extends ListCardItemView {
         this.entry = entry;
         titleView.setText(entry.getTitle().getDisplayText());
         subtitleView.setText(entry.getTitle().getDescription());
-        imageView.setImageURI(TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl()));
+        ViewUtil.loadImageUrlInto(imageView, entry.getTitle().getThumbUrl());
         return this;
     }
 

@@ -23,6 +23,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
 
@@ -53,7 +54,11 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
         this.listener = listener == null ? new DefaultListener() : listener;
     }
 
-    public void loadImage(@NonNull Uri uri) {
+    public void loadImage(@Nullable Uri uri) {
+        if (!WikipediaApp.getInstance().isImageDownloadEnabled() || uri == null) {
+            setImageURI(null);
+            return;
+        }
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
                 .setProgressiveRenderingEnabled(true)
                 .setPostprocessor(facePostprocessor)

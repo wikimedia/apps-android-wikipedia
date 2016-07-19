@@ -8,6 +8,7 @@
     android:background="?attr/selectableItemBackground">
 
     <org.wikipedia.views.FaceAndColorDetectImageView
+        style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/horizontal_scroll_list_item_image"
         android:layout_width="match_parent"
         android:layout_height="96dp"

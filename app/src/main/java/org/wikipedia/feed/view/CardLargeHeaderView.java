@@ -38,9 +38,7 @@ public class CardLargeHeaderView extends FrameLayout {
 
     @NonNull public CardLargeHeaderView setImage(@Nullable Uri uri) {
         imageView.setVisibility(uri == null ? GONE : VISIBLE);
-        if (uri != null) {
-            imageView.loadImage(uri);
-        }
+        imageView.loadImage(uri);
         return this;
     }
 

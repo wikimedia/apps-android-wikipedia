@@ -97,9 +97,7 @@ public class NewsFragment extends Fragment implements CallbackFragment {
         Uri imageUri = item.featureImage();
         int height = imageUri == null ? 0 : newsFeatureImageHeightForDevice();
         DimenUtil.setViewHeight(image, height);
-        if (imageUri != null) {
-            image.loadImage(imageUri);
-        }
+        image.loadImage(imageUri);
         text.setText(stripHtml(item.story()));
         initRecycler();
         links.setAdapter(new RecyclerAdapter(item.linkCards(site), new Callback()));
