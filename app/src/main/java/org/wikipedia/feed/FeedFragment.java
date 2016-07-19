@@ -1,5 +1,6 @@
 package org.wikipedia.feed;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
@@ -95,6 +96,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         feedView.set(coordinator, feedCallback);
         appBarLayout.addOnOffsetChangedListener(headerOffsetChangedListener);
         searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
+
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
+            // TODO: remove when handled correctly by appcompat.
+            swipeRefreshLayout.setFitsSystemWindows(true);
+        }
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
