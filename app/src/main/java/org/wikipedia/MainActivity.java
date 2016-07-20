@@ -19,6 +19,7 @@ import android.os.Looper;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.NavigationView;
@@ -71,6 +72,7 @@ import org.wikipedia.news.NewsActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.NavDrawerHelper;
 import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.PageLoadCallbacks;
 import org.wikipedia.page.PageLoadStrategy;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
@@ -192,6 +194,14 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     public RandomHandler getRandomHandler() {
         return randomHandler;
+    }
+
+    @Nullable
+    private PageLoadCallbacks pageLoadCallbacks;
+
+    @Nullable
+    public PageLoadCallbacks pageLoadCallbacks() {
+        return pageLoadCallbacks;
     }
 
     /**
@@ -1257,5 +1267,10 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
                 && !ArrayUtils.contains(frags, getTopFragment().getClass())) {
             getSupportFragmentManager().popBackStackImmediate();
         }
+    }
+
+    @VisibleForTesting
+    public void setPageLoadCallbacks(@Nullable PageLoadCallbacks pageLoadCallbacks) {
+        this.pageLoadCallbacks = pageLoadCallbacks;
     }
 }

@@ -29,7 +29,7 @@ public abstract class BasePageLoadTest {
     public final ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
 
     protected void loadPageSync(String title) {
-        loadPage(title, TEST_SITE);
+        loadPage(title);
     }
 
     protected void loadPageSync(String title, @NonNull PageLoadLatchCallback callback) {
@@ -43,7 +43,7 @@ public abstract class BasePageLoadTest {
     protected void loadPageSync(String title,
                                 @NonNull Site site,
                                 @NonNull PageLoadLatchCallback callback) {
-        getFragment().setPageLoadCallbacks(callback);
+        getActivity().setPageLoadCallbacks(callback);
         loadPage(title, site);
         callback.await();
     }
@@ -57,10 +57,10 @@ public abstract class BasePageLoadTest {
         runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                getFragment().loadPage(pageTitle,
-                        new HistoryEntry(pageTitle, HistoryEntry.SOURCE_RANDOM),
-                        PageLoadStrategy.Cache.FALLBACK,
-                        false);
+                getActivity().loadPage(pageTitle, new HistoryEntry(pageTitle,
+                        HistoryEntry.SOURCE_RANDOM),
+                        MainActivity.TabPosition.CURRENT_TAB,
+                        true);
             }
         });
     }
@@ -86,10 +86,6 @@ public abstract class BasePageLoadTest {
 
     protected void runOnMainSync(Runnable runnable) {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(runnable);
-    }
-
-    protected PageFragment getFragment() {
-        return (PageFragment) getActivity().getTopFragment();
     }
 
     protected MainActivity getActivity() {

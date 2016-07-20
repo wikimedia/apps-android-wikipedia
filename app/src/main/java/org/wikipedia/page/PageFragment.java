@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -159,9 +158,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             tocButton.hide();
         }
     };
-
-    @Nullable
-    private PageLoadCallbacks pageLoadCallbacks;
 
     public ObservableWebView getWebView() {
         return webView;
@@ -789,8 +785,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         updateNavDrawerSelection();
 
-        if (pageLoadCallbacks != null) {
-            pageLoadCallbacks.onLoadComplete();
+        if (getMainActivity() != null && getMainActivity().pageLoadCallbacks() != null) {
+            getMainActivity().pageLoadCallbacks().onLoadComplete();
         }
     }
 
@@ -816,8 +812,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
         errorState = true;
 
-        if (pageLoadCallbacks != null) {
-            pageLoadCallbacks.onLoadError(caught);
+        if (getMainActivity() != null && getMainActivity().pageLoadCallbacks() != null) {
+            getMainActivity().pageLoadCallbacks().onLoadError(caught);
         }
     }
 
@@ -1150,11 +1146,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     // TODO: don't assume host is MainActivity. Use Fragment callbacks pattern.
     private MainActivity getMainActivity() {
         return (MainActivity) getActivity();
-    }
-
-    @VisibleForTesting
-    public void setPageLoadCallbacks(@Nullable PageLoadCallbacks pageLoadCallbacks) {
-        this.pageLoadCallbacks = pageLoadCallbacks;
     }
 
     private class LongPressHandler extends MainActivityLongPressHandler
