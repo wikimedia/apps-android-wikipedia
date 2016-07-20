@@ -30,6 +30,7 @@ public final class DateUtil {
         //       test them. We should investigate localization support in date libraries such as
         //       Joda-Time and how TWN solves this classic problem.
         DateFormat dateFormat = android.text.format.DateFormat.getMediumDateFormat(WikipediaApp.getInstance());
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         return dateFormat.format(date);
     }
 
