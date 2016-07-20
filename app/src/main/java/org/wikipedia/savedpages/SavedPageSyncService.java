@@ -29,11 +29,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import static org.wikipedia.readinglist.page.database.disk.DiskStatus.DELETED;
-import static org.wikipedia.readinglist.page.database.disk.DiskStatus.ONLINE;
-import static org.wikipedia.readinglist.page.database.disk.DiskStatus.OUTDATED;
-import static org.wikipedia.readinglist.page.database.disk.DiskStatus.SAVED;
-import static org.wikipedia.readinglist.page.database.disk.DiskStatus.UNSAVED;
 import static org.wikipedia.util.FileUtil.writeFile;
 
 public class SavedPageSyncService extends IntentService {
