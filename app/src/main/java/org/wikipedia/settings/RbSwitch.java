@@ -18,7 +18,7 @@ import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
  */
 public final class RbSwitch {
     private static final int HUNDRED_PERCENT = 100;
-    private static final int SUCCESS_THRESHOLD = 100; // page loads
+    private static final int SUCCESS_THRESHOLD = 5; // page loads
     private static final int FAILED = -1;
 
     public static final RbSwitch INSTANCE = new RbSwitch();
