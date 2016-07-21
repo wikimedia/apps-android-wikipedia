@@ -68,7 +68,7 @@ public class NavDrawerHelper {
         accountToggle = false;
         updateMenuGroupToggle();
 
-        if (!ReleaseUtil.isPreBetaRelease()) {
+        if (!ReleaseUtil.isDevRelease()) {
             activity.getNavMenu().findItem(R.id.nav_item_feed).setVisible(false);
         }
     }
