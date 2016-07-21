@@ -11,6 +11,9 @@
         <item name="android:statusBarColor" tools:ignore="NewApi">@color/status_bar_background</item>
     </style>
 
+    <style name="OverhaulTheme" parent="PageTheme">
+    </style>
+
     <style name="PageTheme" parent="AppTheme">
         <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
     </style>

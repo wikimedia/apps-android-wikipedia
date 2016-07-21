@@ -24,10 +24,12 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
+import org.wikipedia.overhaul.OverhaulActivity;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.UriUtil;
 
 public class NavDrawerHelper {
@@ -65,6 +67,10 @@ public class NavDrawerHelper {
         updateWikipediaZeroStatus();
         accountToggle = false;
         updateMenuGroupToggle();
+
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            activity.getNavMenu().findItem(R.id.nav_item_feed).setVisible(false);
+        }
     }
 
     public NavigationView.OnNavigationItemSelectedListener getNewListener() {
@@ -72,6 +78,9 @@ public class NavDrawerHelper {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
+                    case R.id.nav_item_nav:
+                        launchOverhaulActivity();
+                        break;
                     case R.id.nav_item_feed:
                         activity.showFeed();
                         funnel.logFeed();
@@ -226,6 +235,10 @@ public class NavDrawerHelper {
         }
     }
 
+    private void launchOverhaulActivity() {
+        startActivity(OverhaulActivity.newIntent(app));
+    }
+
     private void launchSettingsActivity() {
         startActivityForResult(SettingsActivity.newIntent(app),
                 SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
@@ -234,6 +247,11 @@ public class NavDrawerHelper {
     private void launchLoginActivity() {
         startActivityForResult(LoginActivity.newIntent(app, LoginFunnel.SOURCE_NAV),
                 LoginActivity.REQUEST_LOGIN);
+    }
+
+    private void startActivity(@NonNull Intent intent) {
+        activity.closeNavDrawer();
+        activity.startActivity(intent);
     }
 
     private void startActivityForResult(@NonNull Intent intent, int reqCode) {

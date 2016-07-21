@@ -50,4 +50,10 @@
     <string name="view_featured_article_footer_save_button_label">Save</string>
 
     <!-- /The Feed -->
+
+    <!-- Nav -->
+    <string name="overhaul">Overhaul</string>
+    <string name="activity_overhaul_title">@string/overhaul</string>
+    <string name="nav_item_overhaul">@string/overhaul</string>
+    <!-- /Nav -->
 </resources>

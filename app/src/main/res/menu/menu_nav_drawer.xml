@@ -3,6 +3,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools">
     <group android:id="@+id/group_main">
+        <item android:id="@+id/nav_item_nav"
+            android:title="@string/nav_item_overhaul"
+            android:icon="@drawable/ic_error_black"
+            android:checkable="true"
+            />
         <item android:id="@+id/nav_item_feed"
             android:title="@string/nav_item_feed"
             android:icon="@drawable/ic_globe"
