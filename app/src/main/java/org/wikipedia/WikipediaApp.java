@@ -162,7 +162,12 @@ public class WikipediaApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initExceptionHandling();
+
+        // HockeyApp exception handling interferes with the test runner, so enable it only for
+        // beta and stable releases
+        if (!isPreBetaRelease()) {
+            initExceptionHandling();
+        }
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
