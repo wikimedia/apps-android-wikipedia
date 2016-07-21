@@ -136,6 +136,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     public void onDestroyView() {
         appBarLayout.removeOnOffsetChangedListener(headerOffsetChangedListener);
         unbinder.unbind();
+        unbinder = null;
         super.onDestroyView();
     }
 

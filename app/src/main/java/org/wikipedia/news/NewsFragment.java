@@ -58,7 +58,7 @@ public class NewsFragment extends Fragment implements CallbackFragment {
     @BindView(R.id.view_news_fullscreen_toolbar) Toolbar toolbar;
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
-    @SuppressWarnings("NullableProblems") @NonNull private Unbinder unbinder;
+    private Unbinder unbinder;
 
     @NonNull
     public static NewsFragment newInstance(@NonNull NewsItem item, @NonNull Site site) {
@@ -106,6 +106,7 @@ public class NewsFragment extends Fragment implements CallbackFragment {
 
     @Override public void onDestroyView() {
         unbinder.unbind();
+        unbinder = null;
         super.onDestroyView();
     }
 

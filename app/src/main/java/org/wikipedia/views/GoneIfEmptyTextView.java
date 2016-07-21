@@ -3,6 +3,7 @@ package org.wikipedia.views;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ public class GoneIfEmptyTextView extends TextView {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public void setText(String text) {
+    public void setText(@Nullable String text) {
         super.setText(text);
         setVisibility(StringUtil.emptyIfNull(text).equals("") ? View.GONE : View.VISIBLE);
     }

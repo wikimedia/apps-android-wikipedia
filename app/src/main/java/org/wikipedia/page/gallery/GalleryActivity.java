@@ -1,27 +1,5 @@
 package org.wikipedia.page.gallery;
 
-import org.wikipedia.activity.ActivityUtil;
-import org.wikipedia.MainActivity;
-import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.json.GsonMarshaller;
-import org.wikipedia.json.GsonUnmarshaller;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageCache;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.Site;
-import org.wikipedia.activity.ThemedActionBarActivity;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.theme.Theme;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.GradientUtil;
-import org.wikipedia.util.log.L;
-import org.wikipedia.views.ViewUtil;
-
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Intent;
@@ -47,14 +25,36 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.wikipedia.MainActivity;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.ActivityUtil;
+import org.wikipedia.activity.ThemedActionBarActivity;
+import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.feed.image.FeaturedImage;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.json.GsonUnmarshaller;
+import org.wikipedia.page.LinkMovementMethodExt;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageCache;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.theme.Theme;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.log.L;
+import org.wikipedia.views.ViewUtil;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
-import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.StringUtil.trim;
+import static org.wikipedia.util.UriUtil.handleExternalLink;
+import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
 
 public class GalleryActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_RESULT_FILEPAGE_SELECT = 1;
@@ -73,12 +73,12 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private boolean cacheOnLoad;
     @Nullable private Site site;
 
-    @SuppressWarnings("NullableProblems") @NonNull private ViewGroup toolbarContainer;
-    @SuppressWarnings("NullableProblems") @NonNull private ViewGroup infoContainer;
-    @SuppressWarnings("NullableProblems") @NonNull private ProgressBar progressBar;
-    @SuppressWarnings("NullableProblems") @NonNull private TextView descriptionText;
-    @SuppressWarnings("NullableProblems") @NonNull private ImageView licenseIcon;
-    @SuppressWarnings("NullableProblems") @NonNull private TextView creditText;
+    private ViewGroup toolbarContainer;
+    private ViewGroup infoContainer;
+    private ProgressBar progressBar;
+    private TextView descriptionText;
+    private ImageView licenseIcon;
+    private TextView creditText;
     private boolean controlsShowing = true;
 
     @Nullable private GalleryFunnel funnel;
@@ -97,9 +97,9 @@ public class GalleryActivity extends ThemedActionBarActivity {
      */
     private int initialImageIndex = -1;
 
-    @SuppressWarnings("NullableProblems") @NonNull private ViewPager galleryPager;
-    @SuppressWarnings("NullableProblems") @NonNull private GalleryItemAdapter galleryAdapter;
-    @SuppressWarnings("NullableProblems") @NonNull private MediaDownloadReceiver downloadReceiver;
+    private ViewPager galleryPager;
+    private GalleryItemAdapter galleryAdapter;
+    private MediaDownloadReceiver downloadReceiver;
 
     /**
      * Cache that stores GalleryItem information for each corresponding media item in
@@ -133,12 +133,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
         }
     };
 
-    /**
-     * Launch the image gallery activity with the single provided image.
-     * @param image FeaturedImage object loaded from the MCS aggregated feed endpoint
-     * @param imageTitle PageTitle object containing the filename and site.
-     */
-    public static void showGallery(Activity activity, FeaturedImage image, String filename, Site site, int source) {
+    public static void showGallery(@NonNull Activity activity, @NonNull FeaturedImage image,
+                                   String filename, @NonNull Site site, int source) {
         Intent galleryIntent = new Intent();
         galleryIntent.setClass(activity, GalleryActivity.class);
         galleryIntent.putExtra(EXTRA_FILENAME, filename);
@@ -149,12 +145,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
         activity.startActivityForResult(galleryIntent, MainActivity.ACTIVITY_REQUEST_GALLERY);
     }
 
-    /**
-     * Launch the image gallery activity, and start with the provided image.
-     * @param imageTitle Image with which to begin the gallery.
-     */
-    public static void showGallery(Activity activity, PageTitle pageTitle, String filename, Site site,
-                                   int source) {
+    public static void showGallery(@NonNull Activity activity, @NonNull PageTitle pageTitle,
+                                   String filename, @NonNull Site site, int source) {
         Intent galleryIntent = new Intent();
         galleryIntent.setClass(activity, GalleryActivity.class);
         galleryIntent.putExtra(EXTRA_FILENAME, filename);

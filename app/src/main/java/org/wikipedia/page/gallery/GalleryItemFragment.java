@@ -1,16 +1,5 @@
 package org.wikipedia.page.gallery;
 
-import org.wikipedia.Constants;
-import org.wikipedia.Site;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.FileUtil;
-import org.wikipedia.util.PermissionUtil;
-import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.log.L;
-
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Animatable;
@@ -40,6 +29,17 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.samples.zoomable.ZoomableDraweeView;
 
+import org.wikipedia.Constants;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.FileUtil;
+import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.log.L;
+
 import java.io.File;
 import java.util.Map;
 
@@ -64,7 +64,6 @@ public class GalleryItemFragment extends Fragment {
     @Nullable private GalleryActivity parentActivity;
     @Nullable private PageTitle pageTitle;
     @SuppressWarnings("NullableProblems") @NonNull private PageTitle imageTitle;
-    @Nullable private Site site;
     @Nullable private String mimeType;
 
     @Nullable private GalleryItem galleryItem;
@@ -72,7 +71,8 @@ public class GalleryItemFragment extends Fragment {
         return galleryItem;
     }
 
-    public static GalleryItemFragment newInstance(PageTitle pageTitle, Site site, GalleryItem galleryItemProto) {
+    public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull Site site,
+                                                  @NonNull GalleryItem galleryItemProto) {
         GalleryItemFragment f = new GalleryItemFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_PAGETITLE, pageTitle);
@@ -86,8 +86,8 @@ public class GalleryItemFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pageTitle = getArguments().getParcelable(ARG_PAGETITLE);
+        //noinspection ConstantConditions
         imageTitle = getArguments().getParcelable(ARG_MEDIATITLE);
-        site = getArguments().getParcelable(ARG_SITE);
         mimeType = getArguments().getString(ARG_MIMETYPE);
     }
 
