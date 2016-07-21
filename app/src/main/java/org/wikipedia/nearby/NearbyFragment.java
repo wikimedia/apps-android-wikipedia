@@ -31,11 +31,11 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Projection;
 import com.mapbox.mapboxsdk.telemetry.MapboxEventManager;
 
+import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -129,6 +129,13 @@ public class NearbyFragment extends Fragment {
         mapView.onResume();
     }
 
+    @Override public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            checkLocationPermissionsToGoToUserLocation();
+        }
+    }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -180,6 +187,7 @@ public class NearbyFragment extends Fragment {
                         NearbyPage page = findNearbyPageFromMarker(marker);
                         if (page != null) {
                             PageTitle title = new PageTitle(page.getTitle(), site, page.getThumblUrl());
+                            // todo: [overhaul] fix.
                             ((MainActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
                             return true;
                         } else {
@@ -187,8 +195,6 @@ public class NearbyFragment extends Fragment {
                         }
                     }
                 });
-
-                checkLocationPermissionsToGoToUserLocation();
 
                 if (currentLocation != null && lastResult != null) {
                     showNearbyPages(lastResult);
@@ -422,7 +428,10 @@ public class NearbyFragment extends Fragment {
         MapboxEventManager.getMapboxEventManager().setTelemetryEnabled(false);
     }
 
+    // todo: [overhaul] remove.
     private void setRefreshingState(boolean isRefreshing) {
-        ((MainActivity)getActivity()).updateProgressBar(isRefreshing, true, 0);
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).updateProgressBar(isRefreshing, true, 0);
+        }
     }
 }
