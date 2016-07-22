@@ -483,11 +483,15 @@ public class WikipediaApp extends Application {
     }
 
     public void putCrashReportProperty(String key, String value) {
-        crashReporter.putReportProperty(key, value);
+        if (!isPreBetaRelease()) {
+            crashReporter.putReportProperty(key, value);
+        }
     }
 
     public void checkCrashes(@NonNull Activity activity) {
-        crashReporter.checkCrashes(activity);
+        if (!isPreBetaRelease()) {
+            crashReporter.checkCrashes(activity);
+        }
     }
 
     public void runOnMainThread(Runnable runnable) {
