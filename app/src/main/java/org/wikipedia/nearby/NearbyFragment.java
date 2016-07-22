@@ -190,7 +190,6 @@ public class NearbyFragment extends Fragment {
                 if (currentLocation != null && lastResult != null) {
                     showNearbyPages(lastResult);
                 } else if (locationPermitted()) {
-                    mapboxMap.setMyLocationEnabled(true);
                     goToUserLocation();
                 }
             }
@@ -211,7 +210,6 @@ public class NearbyFragment extends Fragment {
         if (!locationPermitted()) {
             requestLocationRuntimePermissions(GO_TO_LOCATION_PERMISSION_REQUEST);
         } else if (mapboxMap != null) {
-            mapboxMap.setMyLocationEnabled(true);
             goToUserLocation();
         }
     }
