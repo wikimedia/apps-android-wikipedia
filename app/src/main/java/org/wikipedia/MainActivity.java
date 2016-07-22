@@ -691,6 +691,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
      * @param allowStateLoss Whether to allow state loss.
      * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
+    @TargetApi(17)
     public void loadPage(final PageTitle title,
                          final HistoryEntry entry,
                          final TabPosition position,

@@ -131,6 +131,8 @@ android {
     lintOptions {
         disable 'MissingTranslation'
         disable 'InvalidPackage' // required by Butter Knife
+        warning 'MissingQuantity'
+        warning 'ImpliedQuantity'
     }
 
     packagingOptions {

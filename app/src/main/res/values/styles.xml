@@ -8,14 +8,14 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
-        <item name="android:statusBarColor" tools:ignore="NewApi">@color/status_bar_background</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@color/status_bar_background</item>
     </style>
 
     <style name="OverhaulTheme" parent="PageTheme">
     </style>
 
     <style name="PageTheme" parent="AppTheme">
-        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="19">true</item>
     </style>
 
     <style name="FullScreen" parent="AppTheme">
@@ -23,7 +23,7 @@
     </style>
 
     <style name="AppTheme.ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:colorControlNormal">@android:color/white</item>
+        <item name="android:colorControlNormal" tools:targetApi="21">@android:color/white</item>
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlActivated">@color/actionbar_highlight</item>
         <item name="colorControlHighlight">@color/actionbar_highlight</item>
@@ -80,12 +80,12 @@
         <item name="android:dividerHeight">0dp</item>
     </style>
 
-    <style name="RtlAwareTextView" parent="@android:style/Widget.TextView">
+    <style name="RtlAwareTextView" parent="@android:style/Widget.TextView" tools:targetApi="17">
         <item name="android:textDirection">anyRtl</item>
         <item name="android:textAlignment">viewStart</item>
     </style>
 
-    <style name="ToolTipTextView" parent="@style/RtlAwareTextView">
+    <style name="ToolTipTextView" parent="@style/RtlAwareTextView" tools:targetApi="17">
         <item name="android:layoutDirection">locale</item>
         <item name="android:maxWidth">@dimen/tool_tip_max_width</item>
         <item name="android:textColor">@android:color/white</item>
@@ -144,7 +144,7 @@
 
     <style name="LinkPreviewDialog" parent="BottomDialog">
         <item name="android:backgroundDimAmount">0.5</item>
-        <item name="android:colorControlNormal">@android:color/white</item>
+        <item name="android:colorControlNormal" tools:targetApi="21">@android:color/white</item>
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlActivated">@color/link_preview_button_background_light_highlight</item>
         <item name="colorControlHighlight">@color/link_preview_button_background_light_highlight</item>
@@ -168,7 +168,7 @@
 
     <!-- Preferences -->
 
-    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay.v14.Material">
+    <style name="AppPreferenceTheme" parent="PreferenceThemeOverlay.v14.Material" tools:targetApi="17">
         <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragment</item>
         <item name="android:listPreferredItemPaddingLeft">@dimen/activity_horizontal_margin</item>
         <item name="android:listPreferredItemPaddingStart">@dimen/activity_horizontal_margin</item>

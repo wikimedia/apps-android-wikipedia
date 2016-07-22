@@ -320,7 +320,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 historyEmptyTitle.setText(R.string.history_empty_title);
                 historyEmptyMessage.setVisibility(View.VISIBLE);
             } else {
-                historyEmptyTitle.setText(getString(R.string.history_search_empty_message, editable.toString()));
+                historyEmptyTitle.setText(getString(R.string.history_search_empty_message));
                 historyEmptyMessage.setVisibility(View.GONE);
             }
         }

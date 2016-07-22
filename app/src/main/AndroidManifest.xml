@@ -132,7 +132,8 @@
                   android:exported="false"
                 />
         <activity android:name=".settings.LicenseActivity"
-                  android:exported="false">
+                  android:exported="false"
+                  tools:ignore="GoogleAppIndexingUrlError">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
