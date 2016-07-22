@@ -201,28 +201,9 @@ dependencies {
 
     // Required by Android JUnit Runner.
     androidTestCompile "com.android.support:support-annotations:$supportVersion"
-
     androidTestCompile "com.android.support.test:rules:$testingSupportVersion" // JUnit Rules
     androidTestCompile "com.android.support.test:runner:$testingSupportVersion" // Android JUnit Runner
     androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
-
-    // Espresso-contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks,
-    // CountingIdlingResource
-    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$espressoVersion") {
-        // http://stackoverflow.com/questions/30578243/why-would-adding-espresso-contrib-cause-an-inflateexception
-        exclude group: 'com.android.support', module: 'appcompat'
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'com.android.support', module: 'design'
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude module: 'recyclerview-v7'
-    }
-
-    // Espresso-web for WebView support
-    androidTestCompile "com.android.support.test.espresso:espresso-web:$espressoVersion"
-
-    // Espresso-idling-resource for synchronization with background jobs.
-    androidTestCompile "com.android.support.test.espresso:espresso-idling-resource:$espressoVersion"
-
     androidTestCompile 'com.squareup.spoon:spoon-client:1.5.3'
 }
 
