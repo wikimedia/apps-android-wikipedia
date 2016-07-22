@@ -51,12 +51,7 @@
   <string name="menu_login">Кирүү</string>
   <string name="login_activity_title" fuzzy="true">Уикипедияга кирүү</string>
   <string name="login_in_progress_dialog_message">Системге кирип жатасыз…</string>
-  <string name="login_error_wrong_password">Сырсөзүңүз туура эмес</string>
-  <string name="login_error_wrong_username">Колдонуучу атыңыз туура эмес</string>
   <string name="login_success_toast" fuzzy="true">Сиз ийгиликтүү кирдиңиз!</string>
-  <string name="login_error_blocked">Бул колдонуучу бөгөттөлгөн</string>
-  <string name="login_error_throttled">Кирүүгө өтө көп аракет жасадыңыз. Бир нече мүнөт күтө туруңуз жана кайрадан аракет кылып көрүңүз.</string>
-  <string name="login_error_unknown">Кирүүгө мүмкүнчүлүк болбоду :(</string>
   <string name="preference_title_logout">Чыгуу</string>
   <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
   <string name="history_empty_title">Жакында каралган барактар жок!</string>
@@ -72,15 +67,6 @@
   <string name="create_account_password_repeat_hint">Сырсөздү кайталаңыз</string>
   <string name="create_account_passwords_mismatch_error">Сырсөздөр дал келген жок</string>
   <string name="create_account_email_error">Туура эмес электрондук почта дареги</string>
-  <string name="create_account_username_exists_error">Колдонуучу аты бош эмес</string>
-  <string name="create_account_ip_throttle_error">Бул IP-даректен өтө көп эсеп жазуулары түзүлгөн. Кийинчерээк кайра аракет кылып көрүңүз.</string>
-  <string name="create_account_open_proxy_error">Бул IP-дарек эсеп жазуусун түзүүдөн бөгөттөлгөн.</string>
-  <string name="create_account_noname_error">Сиз мүмкүн болбогон колдонуучу атын көрсөттүңүз. Сураныч, башкасын териңиз.</string>
-  <string name="create_account_invalid_email_error">Сиз мүмкүн болбогон электрондук почта дарегин көрсөттүңүз.</string>
-  <string name="create_account_password_too_short_error">Сиз терген сырсөз өтө кыска.</string>
-  <string name="create_account_blocked_anon_error">Сиз жаңы эсеп жазуусун түзө албайсыз, анткени сиздин IP-дарегиңиз бөгөттөлгөн.</string>
-  <string name="create_account_blocked_error">Сиз жаңы эсеп жазуусун түзө албайсыз, анткени сиздин IP-дарегиңиз бөгөттөлгөн.</string>
-  <string name="create_account_password_name_match_error">Сиздин колдонуучу атыңыз жана сырсөзүңүз окшош болбошу керек.</string>
   <string name="create_account_generic_error">Эсеп жазуусун түзүү мүмкүн эмес</string>
   <string name="create_account_next">Кийинки</string>
   <string name="create_account_button">Катталуу</string>

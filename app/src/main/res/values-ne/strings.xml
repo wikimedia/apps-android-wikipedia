@@ -41,9 +41,6 @@
   <string name="menu_login">प्रवेश</string>
   <string name="login_activity_title" fuzzy="true">विकिपीडियामा प्रवेश गर्ने</string>
   <string name="login_in_progress_dialog_message">प्रवेश गर्दै</string>
-  <string name="login_error_wrong_password">गलत पासवर्ड</string>
-  <string name="login_error_wrong_username">गलत प्रयोगकर्ता नाम</string>
-  <string name="login_error_illegal">अबैध प्रयोगकर्ता नाम</string>
   <string name="login_success_toast" fuzzy="true">प्रवेश सफल!</string>
   <string name="preference_title_logout">निर्गमन</string>
   <string name="toast_logout_complete">निर्गमन भयो</string>
@@ -58,12 +55,6 @@
   <string name="create_account_password_repeat_hint">पासर्वड पुनः राख्नुहोस्</string>
   <string name="create_account_passwords_mismatch_error">पासवर्डहरू मिलेन</string>
   <string name="create_account_email_error">अवैध इमेल ठेगाना</string>
-  <string name="create_account_username_exists_error">प्रयोगकर्ताको नाम पहिला देखि नै प्रयोगमा रहेको</string>
-  <string name="create_account_invalid_email_error">तपाईंले उपलब्ध गराउनु भएको इमेल ठेगाना अवैध छ ।</string>
-  <string name="create_account_password_too_short_error">तपाईंले राख्नु भएको पासवर्ड ज्यादै सानो भयो ।</string>
-  <string name="create_account_blocked_anon_error">तपाईंको आइपि ठेगाना प्रतिवन्धित गरिएको हुँदा तपाईंले कुनै खाता खोल्न सक्नु हुन्छ ।</string>
-  <string name="create_account_blocked_error">तपाईंको खाता प्रतिवन्धित गरिएकोले तपाईंले खाता खोल्न सक्नु हुन्न ।</string>
-  <string name="create_account_password_name_match_error">तपाईंको प्रयोगकर्ता नाम तथा तपाईंको पासवर्ड फरक हुनु पर्नेछ ।</string>
   <string name="create_account_generic_error">खाता खोल्न सकिएन</string>
   <string name="create_account_next">अर्को</string>
   <string name="create_account_button">खाता खोल्नुहोस्</string>

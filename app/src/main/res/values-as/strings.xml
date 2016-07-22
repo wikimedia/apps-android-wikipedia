@@ -63,13 +63,7 @@
   <string name="menu_login">প্ৰৱেশ</string>
   <string name="login_activity_title" fuzzy="true">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
-  <string name="login_error_wrong_password">ভুল গুপ্তশব্দ</string>
-  <string name="login_error_wrong_username">ভুল সদস্যনাম</string>
-  <string name="login_error_illegal">অগ্ৰহণযোগ্য সদস্যনাম</string>
   <string name="login_success_toast">প্ৰৱেশ সফল হ\'ল!</string>
-  <string name="login_error_blocked">এই সদস্যজনক বাৰণ কৰা হৈছে।</string>
-  <string name="login_error_throttled">কেইবাবৰো প্ৰৱেশৰ চেষ্টা। অনুগ্ৰহ কৰি কেইমিনিটমানৰ পাছত পুনৰ চেষ্টা কৰক।</string>
-  <string name="login_error_unknown">প্ৰৱেশ ব্যৰ্থ :(</string>
   <string name="preference_title_logout">প্ৰস্থান</string>
   <string name="toast_logout_complete">প্ৰস্থান হ\'ল</string>
   <string name="history_empty_title">ইয়াত কোনো শেহতীয়া পৃষ্ঠা নাই!</string>
@@ -85,15 +79,6 @@
   <string name="create_account_password_repeat_hint">গুপ্তশব্দ আকৌ লিখক</string>
   <string name="create_account_passwords_mismatch_error">গুপ্তশব্দ মিলা নাই</string>
   <string name="create_account_email_error">অগ্ৰহণযোগ্য ইমেইল ঠিকনা</string>
-  <string name="create_account_username_exists_error">এই সদস্যনাম ইতিমধ্যে আছেই</string>
-  <string name="create_account_ip_throttle_error">এই আই পি ঠিকনাৰ পৰা কেইবাটাও একাউণ্ট সৃষ্টি কৰা হৈছে। অলপ সময়ৰ পাছত চেষ্টা কৰক।</string>
-  <string name="create_account_open_proxy_error">এই আই পি ঠিকনাৰ পৰা নতুন একাউণ্ট সৃষ্টি বাৰণ কৰা হৈছে।</string>
-  <string name="create_account_noname_error">আপুনি দিয়া সদস্যনামটো অবৈধ। অনুগ্ৰহ কৰি আন এটা সদস্যনাম দিয়ক।</string>
-  <string name="create_account_invalid_email_error">আপুনি দিয়া ইমেইল ঠিকনাটো অবৈধ।</string>
-  <string name="create_account_password_too_short_error">আপুনি দিয়া গুপ্তশব্দটো বৰ চুটি।</string>
-  <string name="create_account_blocked_anon_error">আপুনি একাউণ্ট সৃষ্টি কৰিব নোৱাৰে কাৰণ আপোনাৰ আই পি ঠিকনা অৱৰোধ কৰা হৈছে।</string>
-  <string name="create_account_blocked_error">আপুনি একাউণ্ট সৃষ্টি কৰিব নোৱাৰে কাৰণ আপোনাৰ একাউণ্ট অৱৰোধ কৰা হৈছে।</string>
-  <string name="create_account_password_name_match_error">আপোনাৰ সদস্যনাম আৰু গুপ্তশব্দ বেলেগ হ\'ব লাগিব।</string>
   <string name="create_account_generic_error">একাউণ্ট সৃষ্টি কৰিব পৰা নগ\'ল</string>
   <string name="create_account_next">পৰৱৰ্তী</string>
   <string name="create_account_button">একাউণ্ট সৃষ্টি কৰক</string>

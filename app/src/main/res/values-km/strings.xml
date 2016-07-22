@@ -53,13 +53,7 @@
   <string name="menu_login">កត់ឈ្មោះចូល</string>
   <string name="login_activity_title" fuzzy="true">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
   <string name="login_in_progress_dialog_message">កំពុង​កត់ឈ្មោះ​ចូល…</string>
-  <string name="login_error_wrong_password">ពាក្យ​សម្ងាត់​មិនត្រឹមត្រូវ</string>
-  <string name="login_error_wrong_username">អត្តនាមមិនត្រឹមត្រូវ</string>
-  <string name="login_error_illegal">អត្តនាមមិនមានប្រើ</string>
   <string name="login_success_toast" fuzzy="true">កត់ឈ្មោះចូល​បាន​សម្រេច!</string>
-  <string name="login_error_blocked">អ្នក​ប្រើ​ប្រាស់ម្នាក់​នេះ​ត្រូវ​បាន​រាំងខ្ទប់ហើយ។</string>
-  <string name="login_error_throttled">អ្នកបានព្យាយាមកត់ឈ្មោះចូលច្រើនដងពេកហើយ។ សូមរង់ចាំប៉ុន្មាននាទីសិន មុននឹងសាកល្បងម្ដងទៀត។</string>
-  <string name="login_error_unknown">កត់ឈ្មោះចូលមិនបានសម្រេច :(</string>
   <string name="preference_title_logout">កត់ឈ្មោះចេញ</string>
   <string name="toast_logout_complete">បាន​កត់ឈ្មោះចេញ​ហើយ</string>
   <string name="history_empty_title">គ្មានទំព័រថ្មីៗនៅទីនេះទេ!</string>
@@ -75,15 +69,6 @@
   <string name="create_account_password_repeat_hint">ពាក្យ​សម្ងាត់​ម្ដង​ទៀត</string>
   <string name="create_account_passwords_mismatch_error">ពាក្យ​សម្ងាត់​មិន​ត្រូវ​គ្នា</string>
   <string name="create_account_email_error">អាសយដ្ឋាន​អ៊ីមែល​មិន​ត្រឹម​ត្រូវ</string>
-  <string name="create_account_username_exists_error">អត្តនាមមានប្រើ​រួច​ហើយ</string>
-  <string name="create_account_ip_throttle_error">មានគណនីច្រើនពេកហើយដែលបានបង្កើតចេញពីអាសយដ្ឋានIPនេះ។ សូមសាកល្បងម្ដងទៀតនៅពេលក្រោយ។</string>
-  <string name="create_account_open_proxy_error">អាសយដ្ឋានIPនេះត្រូវបានហាមឃាត់មិនអោយបង្កើតគណនីទេ។</string>
-  <string name="create_account_noname_error">អត្តនាមដែលអ្នកបានផ្ដល់អោយមិនត្រឹមត្រូវទេ។ សូមផ្ដល់អត្តនាមមួយផ្សេងទៀត។</string>
-  <string name="create_account_invalid_email_error">អាសយដ្ឋានអ៊ីមែលដែលអ្នកបានផ្ដល់អោយមិនត្រឹមត្រូវទេ។</string>
-  <string name="create_account_password_too_short_error">ពាក្យសម្ងាត់ដែលអ្នកបានផ្ដល់អោយខ្លីពេកហើយ។</string>
-  <string name="create_account_blocked_anon_error">អ្នកមិនអាចបង្កើតគណនីទេព្រោះអាសយដ្ឋានIPរបស់អ្នកត្រូវបានហាមឃាត់ហើយ។</string>
-  <string name="create_account_blocked_error">អ្នកមិនអាចបង្កើតគណនីទេព្រោះគណនីរបស់អ្នកត្រូវបានហាមឃាត់ហើយ។</string>
-  <string name="create_account_password_name_match_error">អត្តនាមនិងពាក្យសម្ងាត់របស់អ្នកត្រូវតែខុសគ្នា។</string>
   <string name="create_account_generic_error">មិនអាចបង្កើតគណនីបានទេ</string>
   <string name="create_account_next">បន្ទាប់</string>
   <string name="create_account_button">បង្កើតគណនី</string>

@@ -43,12 +43,7 @@
   <string name="menu_login">Kɔ mu</string>
   <string name="login_activity_title" fuzzy="true">Kɔ Wikipedia mu</string>
   <string name="login_in_progress_dialog_message">Rekɔ mu</string>
-  <string name="login_error_wrong_password">Woati password no</string>
-  <string name="login_error_wrong_username">Woati username no</string>
   <string name="login_success_toast" fuzzy="true">Mo! Woakɔmu</string>
-  <string name="login_error_blocked">Saa onipa yi nni hokwan</string>
-  <string name="login_error_throttled">Woapɛ sɛ wohyɛn mu mpɛn pii. Twɛn simma kakra na san yɛ bio</string>
-  <string name="login_error_unknown">Dabi! Anyɛ yiye</string>
   <string name="preference_title_logout">Pue</string>
   <string name="toast_logout_complete">W\'apue</string>
   <string name="history_empty_message" fuzzy="true">Wonni hwɛɛ wɔ wo nneɛma a atwam</string>
@@ -61,9 +56,6 @@
   <string name="create_account_password_repeat_hint">Bɔ wo password bio</string>
   <string name="create_account_passwords_mismatch_error">Password no nhyia</string>
   <string name="create_account_email_error">email address no nyɛ papa</string>
-  <string name="create_account_username_exists_error">Obi afa username yi dedaw</string>
-  <string name="create_account_ip_throttle_error">Nnipa pii bue account wɔ IP address yi so. San yɛ bio akyire</string>
-  <string name="create_account_open_proxy_error">Saa IP address nni hokwan bio sɛ ebue accounts</string>
   <string name="create_account_generic_error">Antumi anbue account no</string>
   <string name="create_account_next">Nea edi hɔ</string>
   <string name="create_account_button">Bue account</string>

@@ -60,13 +60,7 @@
   <string name="menu_login">Mewngofnodi</string>
   <string name="login_activity_title" fuzzy="true">Mewngofnodi i Wicipedia</string>
   <string name="login_in_progress_dialog_message">Yn eich logio i fewn…</string>
-  <string name="login_error_wrong_password">Cyfrinair anghywir</string>
-  <string name="login_error_wrong_username">Enw defnyddiwr anghywir</string>
-  <string name="login_error_illegal">Mae\'r enw defnyddiwr yn annilys</string>
   <string name="login_success_toast">Llwyddodd y mewngofnodi!</string>
-  <string name="login_error_blocked">Mae\'r defnyddiwr hwn wedi\' i rwystro</string>
-  <string name="login_error_throttled">Ceisiwyd mewngofnodi gormod o weithiau. Arhoswch am ychydig funudau a cheisio eto?</string>
-  <string name="login_error_unknown">Methodd y mewngofnodi :(</string>
   <string name="preference_title_logout">Allgofnodi</string>
   <string name="toast_logout_complete">Wedi allgofnodi</string>
   <string name="history_empty_title">Does yr un tudalen diweddar yma!</string>
@@ -82,15 +76,6 @@
   <string name="create_account_password_repeat_hint">Ailosodwch y cyfrinair</string>
   <string name="create_account_passwords_mismatch_error">Mae\'r cyfrineiriau\'n wahanol</string>
   <string name="create_account_email_error">Cyfeiriad e-bost annilys</string>
-  <string name="create_account_username_exists_error">Mae\'r enw defnyddiwr eisioes yn bodoli</string>
-  <string name="create_account_ip_throttle_error">Crewyd gormod o cyfrifon wedi\'u creu gan y cyfeiriad IP hwn. Ceisiwch eto\'n ddiweddarach.</string>
-  <string name="create_account_open_proxy_error">Mae\'r IP hwn wedi\'i rwystro rhag creu cyfrifon.</string>
-  <string name="create_account_noname_error">Mae\'r enw defnyddiwr rydych wedi\'i ddarparu yn annilys. Ceisiwch eto, gydag enw gwahanol.</string>
-  <string name="create_account_invalid_email_error">Dyw\'r cyfeiriad ebost ddim yn ddilys.</string>
-  <string name="create_account_password_too_short_error">Dyw\'r cyfrinair ddim digon hir.</string>
-  <string name="create_account_blocked_anon_error">Methwyd creu cyfrif gan fod eich cyfeiriad IP wedi\'i rwystro.</string>
-  <string name="create_account_blocked_error">Ni allech greu cyfrif gan fod eich cyfrif wedi\'i rwystro.</string>
-  <string name="create_account_password_name_match_error">Rhaid i\'ch cyfrinair fod yn wahanol i\'ch enw defnyddiwr.</string>
   <string name="create_account_generic_error">Ni lwyddwyd i greu\'r cyfrif</string>
   <string name="create_account_next">Nesaf</string>
   <string name="create_account_button">Creu cyfrif</string>

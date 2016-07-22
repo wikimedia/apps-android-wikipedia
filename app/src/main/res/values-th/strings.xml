@@ -64,13 +64,7 @@
   <string name="menu_login">ล็อกอิน</string>
   <string name="login_activity_title">ล็อกอินเข้าสู่วิกิพีเดีย</string>
   <string name="login_in_progress_dialog_message">กำลังล็อกอิน…</string>
-  <string name="login_error_wrong_password">รหัสผ่านไม่ถูกต้อง</string>
-  <string name="login_error_wrong_username">ชื่อผู้ใช้ไม่ถูกต้อง</string>
-  <string name="login_error_illegal">ชื่อผู้ใช้ไม่ถูกต้อง</string>
   <string name="login_success_toast">ล็อกอินสำเร็จ!</string>
-  <string name="login_error_blocked">ผู้ใช้นี้ถูกบล็อก</string>
-  <string name="login_error_throttled">การพยายามล็อกอินมากเกินไป ให้รอสักสองสามนาทีแล้วลองอีกครั้ง</string>
-  <string name="login_error_unknown">ล็อกอินล้มเหลว :(</string>
   <string name="preference_title_logout">ล็อกเอาต์</string>
   <string name="toast_logout_complete">ล็อกเอาต์แล้ว</string>
   <string name="delete_selected_history">ลบ</string>

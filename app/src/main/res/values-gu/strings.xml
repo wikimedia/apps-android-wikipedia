@@ -49,12 +49,7 @@
   <string name="menu_login">પ્રવેશ</string>
   <string name="login_activity_title" fuzzy="true">વિકિપીડિયા પર લોગીન કરો</string>
   <string name="login_in_progress_dialog_message">તમે લોગઈન થઈ રહ્યા છો…</string>
-  <string name="login_error_wrong_password">અયોગ્ય પાસવર્ડ</string>
-  <string name="login_error_wrong_username">અયોગ્ય સભ્યનામ</string>
-  <string name="login_error_illegal">અમાન્ય સભ્યનામ</string>
   <string name="login_success_toast" fuzzy="true">પ્રવેશ સફળ!</string>
-  <string name="login_error_blocked">આ સભ્યને પ્રતિબંધિત કરાયા છે</string>
-  <string name="login_error_unknown">પ્રવેશ નિષ્ફળ :(</string>
   <string name="preference_title_logout">પ્રસ્થાન</string>
   <string name="toast_logout_complete">બહાર નીકળી ગયા</string>
   <string name="history_empty_title">અહીં તાજેતરનાં પાનાઓ નથી!</string>
@@ -70,7 +65,6 @@
   <string name="create_account_password_repeat_hint">પાસવર્ડ ફરી લખો</string>
   <string name="create_account_passwords_mismatch_error">પાસવર્ડ મેચ થતો નથી</string>
   <string name="create_account_email_error">અયોગ્ય ઇમેલ સરનામું</string>
-  <string name="create_account_username_exists_error">સભ્યનામ અગાઉથી જ વપરાશમાં છે</string>
   <string name="create_account_generic_error">ખાતું બનાવી શકાયું નહી</string>
   <string name="create_account_next">આગળ</string>
   <string name="create_account_button">ખાતું બનાવો</string>

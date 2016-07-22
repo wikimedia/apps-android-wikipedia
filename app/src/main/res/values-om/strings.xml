@@ -36,11 +36,7 @@
   <string name="login_password_show_check">Iggitaa agarsiisi</string>
   <string name="menu_login">Seeni</string>
   <string name="login_activity_title" fuzzy="true">Wiikippidiyaa seeni</string>
-  <string name="login_error_wrong_password">Iggitaa dogoggoraa</string>
-  <string name="login_error_wrong_username">Maqaa fayyadamaa dogoggoraa</string>
-  <string name="login_error_illegal">Iggita fashalaa</string>
   <string name="login_success_toast" fuzzy="true">Seenun milkaa\'e</string>
-  <string name="login_error_unknown">Seenun fashale :(</string>
   <string name="preference_title_logout">Ba\'i</string>
   <string name="toast_logout_complete">Baatee jirta</string>
   <string name="delete_selected_history">Balleessi</string>
@@ -53,7 +49,6 @@
   <string name="create_account_password_repeat_hint">Iggitarra deebi\'i</string>
   <string name="create_account_passwords_mismatch_error">Iggitni wal hinfakkaatu</string>
   <string name="create_account_email_error">Teessoo imeelii fashalaa</string>
-  <string name="create_account_username_exists_error">Maqaan fayyadamaa kun duraan qabameera</string>
   <string name="create_account_generic_error">Eenyummeessa uumuu hindandeenye</string>
   <string name="create_account_next">Itti fufi</string>
   <string name="create_account_button">Eenyummeessa uumi</string>

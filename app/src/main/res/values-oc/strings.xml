@@ -59,12 +59,7 @@
   <string name="menu_login">Connexion</string>
   <string name="login_activity_title">Se connectar a Wikipèdia</string>
   <string name="login_in_progress_dialog_message">Connexion en cors…</string>
-  <string name="login_error_wrong_password">Senhal incorrècte</string>
-  <string name="login_error_wrong_username">Nom d’utilizaire incorrècte</string>
-  <string name="login_error_illegal">Nom d\'utilizaire invalid</string>
   <string name="login_success_toast">Connectat amb succès !</string>
-  <string name="login_error_blocked">Aqueste utilizaire es estat blocat</string>
-  <string name="login_error_unknown">Fracàs de la connexion :(</string>
   <string name="preference_title_logout">Se desconnectar</string>
   <string name="toast_logout_complete">Desconnectat</string>
   <string name="history_empty_title">Pas cap de pagina recenta aicí !</string>
@@ -80,7 +75,6 @@
   <string name="create_account_password_repeat_hint">Repetir lo senhal</string>
   <string name="create_account_passwords_mismatch_error">Los senhals son pas identics</string>
   <string name="create_account_email_error">Adreça de corrièr electronic invalida</string>
-  <string name="create_account_username_exists_error">Lo nom d’utilizaire es ja utilizat</string>
   <string name="create_account_generic_error">Impossible de crear lo compte</string>
   <string name="create_account_next">Seguent</string>
   <string name="create_account_button">Crear un compte</string>

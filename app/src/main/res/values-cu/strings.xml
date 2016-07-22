@@ -44,11 +44,7 @@
   <string name="menu_login">въниди</string>
   <string name="login_activity_title">въниди въ Википєдїѭ</string>
   <string name="login_in_progress_dialog_message">въходъ···</string>
-  <string name="login_error_wrong_password">таино слово ложьно ѥстъ</string>
-  <string name="login_error_wrong_username">польꙃєвтєлꙗ имѧ ложьно ѥстъ</string>
-  <string name="login_error_illegal">сѥго польꙁєватєльска имєни нѣстъ</string>
   <string name="login_success_toast">тꙑ въшьлъ ѥси</string>
-  <string name="login_error_blocked">польꙃєватєл҄ь ꙁаграждєнъ ѥстъ</string>
   <string name="preference_title_logout">ис̾ходъ</string>
   <string name="toast_logout_complete">ис̾ходъ сътворѥнъ ѥстъ</string>
   <string name="delete_selected_history">поничьжєниѥ</string>
@@ -58,8 +54,6 @@
   <string name="create_account_email_hint">Эл.почта (нѣобязываѣмо)</string>
   <string name="create_account_password_repeat_hint">таино слово опакꙑ напьши</string>
   <string name="create_account_passwords_mismatch_error">таинꙑ слова ѥдина вида нє имѫтъ</string>
-  <string name="create_account_username_exists_error">сѥ польꙃєватєльско имѧ ю сѫщєѥ ѥстъ</string>
-  <string name="create_account_ip_throttle_error">польꙃєватєльскъ мѣстъ вєльми мъного сѫтъ ⁙ послѣди искоуси сѧ опакꙑ</string>
   <string name="create_account_button">съꙁижди си мѣсто</string>
   <string name="about_translators_heading">тльци</string>
   <string name="edit_done">съхранѥниѥ</string>

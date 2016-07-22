@@ -55,12 +55,7 @@
   <string name="menu_login">Omgelmi</string>
   <string name="login_activity_title" fuzzy="true">Omgelmi orth Wikipedya</string>
   <string name="login_in_progress_dialog_message">Orth agas omgelmi…</string>
-  <string name="login_error_wrong_password">Ger tremena kamm</string>
-  <string name="login_error_wrong_username">Hanow devnydhyer kamm</string>
   <string name="login_success_toast" fuzzy="true">Omgelmys!</string>
-  <string name="login_error_blocked">Lettyes yw an devnydher ma</string>
-  <string name="login_error_throttled">Re a assayow omgelmi. Gortewgh nebes mynysennow hag assayewgh arta.</string>
-  <string name="login_error_unknown">Omgelmi a fyllis :(</string>
   <string name="preference_title_logout">Digelmi</string>
   <string name="toast_logout_complete">Omgelmys</string>
   <string name="history_empty_title">Nyns eus folennow a-dhiwedhes omma!</string>
@@ -76,15 +71,6 @@
   <string name="create_account_password_repeat_hint">Skrifa an ger tremena arta</string>
   <string name="create_account_passwords_mismatch_error">Dihaval yw an geryow tremena</string>
   <string name="create_account_email_error">Trigva ebost drog</string>
-  <string name="create_account_username_exists_error">Yma devnydhyer owth usya an hanow na seulabrys</string>
-  <string name="create_account_ip_throttle_error">Re a akontow re beu gwrys gans an drigva IP ma. Assayewgh arta diwettha.</string>
-  <string name="create_account_open_proxy_error">Lettyes re beu an drigva IP ma rag gwruthyl akontow.</string>
-  <string name="create_account_noname_error">Drog yw an hanow devnydhyer res genowgh. Rewgh hanow aral.</string>
-  <string name="create_account_invalid_email_error">Drog yw an drigva ebost res genowgh.</string>
-  <string name="create_account_password_too_short_error">Re goth yw an ger tremena res genowgh.</string>
-  <string name="create_account_blocked_anon_error">Ny yllowgh gwruthyl akont drefen bos lettyes agas trigva IP.</string>
-  <string name="create_account_blocked_error">Ny yllowgh gwruthyl akont drefen bos lettyes agas akont.</string>
-  <string name="create_account_password_name_match_error">Res yw dh\'agas hanow devnydhyer ha ger tremena bos dihaval.</string>
   <string name="create_account_generic_error">Ny ylles gwruthyl an akont</string>
   <string name="create_account_next">Nessa</string>
   <string name="create_account_button">Gwruthyl akont</string>

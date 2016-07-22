@@ -51,12 +51,7 @@
   <string name="menu_login">ଲଗଇନ</string>
   <string name="login_activity_title" fuzzy="true">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
   <string name="login_in_progress_dialog_message">ଆପଣଙ୍କୁ ଲଗ ଇନ କରାଉଛି</string>
-  <string name="login_error_wrong_password">ପାସୱାର୍ଡ଼ଟି ଭୁଲ</string>
-  <string name="login_error_wrong_username">ସଭ୍ୟ ନାମଟି ଭୁଲ</string>
   <string name="login_success_toast" fuzzy="true">ଲଗ ଇନ ହୋଇଗଲା!</string>
-  <string name="login_error_blocked">ଏହି ସଭ୍ୟଙ୍କୁ ଅଟକାଯାଇଛି କିଳା ଯାଇଛି</string>
-  <string name="login_error_throttled">ଖୁବ ଅଧିକଥର ଲଗ ଇନ କରିବା ପାଇଁ ଚେଷ୍ଟା କରିସାରିଛନ୍ତି । କିଛି ସମୟ ଛାଡ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
-  <string name="login_error_unknown">ଲଗଇନ ହେଲାନାହିଁ :(</string>
   <string name="preference_title_logout">ଲଗ ଆଉଟ</string>
   <string name="toast_logout_complete">ଲଗ ଆଉଟ ହୋଇଗଲା</string>
   <string name="history_empty_message">ଆପଣ ବୋଧେ ସବୁ ଲିଭାଇ ଦେଇଛନ୍ତି । ଆଗକୁ ଆପଣ ଏକ ପୃଷ୍ଠାକୁ ଗଲେ ଏଇଠି ଦେଖିପାରିବେ ।</string>
@@ -69,9 +64,6 @@
   <string name="create_account_password_repeat_hint">ପାସୱାର୍ଡ଼ଟି ଆଉଥରେ ଦିଅନ୍ତୁ</string>
   <string name="create_account_passwords_mismatch_error">ପାସୱାର୍ଡ଼ ଦୁଇଟି ସମାନ ନୁହଁନ୍ତି</string>
   <string name="create_account_email_error">ଭୁଲ ଇମେଲ ଠିକଣା</string>
-  <string name="create_account_username_exists_error">ଏହି ସଭ୍ୟ ନାମଟି ଆଗରୁ ଅଛି</string>
-  <string name="create_account_ip_throttle_error">ଏହି IP ଠିକଣାରୁ ଖୁବ ଅଧିକ ଖାତା ଖୋଲାଯାଇଛି । ପରେ ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
-  <string name="create_account_open_proxy_error">ଏହି IP ଠିକଣାକୁ ନୂଆ ଖାତା ଖୋଲିବାରୁ ରୋକାଯାଇଛି ।</string>
   <string name="create_account_generic_error">ଖାତାଟିଏ ଗଢ଼ା ଯାଇପାରିଲା ନାହିଁ</string>
   <string name="preferences_general_heading">ସାଧାରଣ</string>
   <string name="zero_charged_verbiage">ଉଇକିପିଡ଼ିଆ ଜିରୋ ବନ୍ଦ</string>

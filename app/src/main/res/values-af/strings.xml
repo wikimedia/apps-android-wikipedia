@@ -59,13 +59,7 @@
   <string name="menu_login">Meld aan</string>
   <string name="login_activity_title" fuzzy="true">Meld aan by Wikipedia</string>
   <string name="login_in_progress_dialog_message">Meld u aan…</string>
-  <string name="login_error_wrong_password">Verkeerde wagwoord</string>
-  <string name="login_error_wrong_username">Verkeerde gebruikersnaam</string>
-  <string name="login_error_illegal">Ongeldige gebruikersnaam</string>
   <string name="login_success_toast">Suksesvolle Aanmelding!</string>
-  <string name="login_error_blocked">Hierdie gebruiker is geblok</string>
-  <string name="login_error_throttled">Te veel aanmeldpogings. Wag \'n paar minute en probeer weer.</string>
-  <string name="login_error_unknown">Aanmelding het misluk :(</string>
   <string name="preference_title_logout">Teken uit</string>
   <string name="toast_logout_complete">Uitgeteken</string>
   <string name="history_empty_title">Geen gestoorde blasye hier nie!</string>
@@ -81,15 +75,6 @@
   <string name="create_account_password_repeat_hint">Herhaal wagwoord</string>
   <string name="create_account_passwords_mismatch_error">Wagwoorde stem nie ooreen nie</string>
   <string name="create_account_email_error">Ongeldige e-posadres</string>
-  <string name="create_account_username_exists_error">Die gebruikersnaam is al in gebruik</string>
-  <string name="create_account_ip_throttle_error">Te veel rekeninge geskep van hierdie IP-adres. Probeer weer later.</string>
-  <string name="create_account_open_proxy_error">Hierdie IP-adres is geblok om gebruikers te skep.</string>
-  <string name="create_account_noname_error">Die gebruikersnaam verskaf is ongeldig. Verskaf asseblief \'n ander gebruikersnaam.</string>
-  <string name="create_account_invalid_email_error">Die e-posadres verskaf is ongeldig.</string>
-  <string name="create_account_password_too_short_error">Die wagwoord verskaf is te kort.</string>
-  <string name="create_account_blocked_anon_error">U kan nie \'n gebruiker skep nie want u IP-adres is geblok.</string>
-  <string name="create_account_blocked_error">U kan nie \'n gebruiker skep nie want u gebruiker is geblok.</string>
-  <string name="create_account_password_name_match_error">U gebruikernaam en wagwoord moet verskil.</string>
   <string name="create_account_generic_error">Kon nie gebruiker skep nie</string>
   <string name="create_account_next">Volgende</string>
   <string name="create_account_button">Skep gebruiker</string>

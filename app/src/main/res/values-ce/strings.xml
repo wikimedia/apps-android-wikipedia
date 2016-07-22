@@ -43,11 +43,7 @@
   <string name="menu_login">ЧугӀо</string>
   <string name="login_activity_title" fuzzy="true">Википедин чугӀо</string>
   <string name="login_in_progress_dialog_message">Системан чудахар…</string>
-  <string name="login_error_wrong_password">Пароль нийса яц</string>
-  <string name="login_error_wrong_username">Декъашхочун цӀе нийса яц</string>
   <string name="login_success_toast" fuzzy="true">Хьан пароль кхиамца тӀеэца!</string>
-  <string name="login_error_blocked">ХӀокху декъашхочун блоктоьхна ю</string>
-  <string name="login_error_unknown">Чудаха цаделира :(</string>
   <string name="preference_title_logout">Болх дӀаберзор</string>
   <string name="history_empty_title">Кеста хьаьжжина агӀонаш яц.</string>
   <string name="history_empty_message" fuzzy="true">Хьа истори еса ю.</string>
@@ -61,7 +57,6 @@
   <string name="create_account_password_repeat_hint">Юху а язъе пароль</string>
   <string name="create_account_passwords_mismatch_error">Паролаш цхьана йогӀуш яц</string>
   <string name="create_account_email_error">Магийна доцу электронан поштан адрес</string>
-  <string name="create_account_username_exists_error">Иштта декъашхочун цӀе йолуш ю</string>
   <string name="create_account_generic_error">Декъашхочун дӀаяздар кхолла йиш яц</string>
   <string name="create_account_next">Кхин дӀа</string>
   <string name="preferences_general_heading">Юкъара</string>

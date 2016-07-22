@@ -62,9 +62,6 @@
   <string name="login_password_show_check">Ցույց տալ գաղտնաբառը</string>
   <string name="menu_login">Մուտք գործել</string>
   <string name="login_activity_title">Մուտք գործել Վիքիպեդիա</string>
-  <string name="login_error_wrong_password">Սխալ գաղտնաբառ</string>
-  <string name="login_error_wrong_username">Սխալ մասնակցային անուն</string>
-  <string name="login_error_illegal">Սխալ մասնակցային անուն</string>
   <string name="login_success_toast">Հաջող մուտք</string>
   <string name="preference_title_logout">Դուրս գալ</string>
   <string name="history_empty_title">Վերջնադիտված էջեր չկան</string>
@@ -79,8 +76,6 @@
   <string name="create_account_password_repeat_hint">Կրկնել գաղտնաբառը</string>
   <string name="create_account_passwords_mismatch_error">Գաղտնաբառերը չեն համընկնում</string>
   <string name="create_account_email_error">Սխալ էլփոստի հասցե</string>
-  <string name="create_account_username_exists_error">Մասնակցային անունը զբաղված է</string>
-  <string name="create_account_ip_throttle_error">Տվյալ IP հասցեից ստեղծվել են շատ մասնակցային հաշիվներ: Փորձեք կրկին:</string>
   <string name="create_account_next">Հաջորդ</string>
   <string name="create_account_button">Ստեղծել մասնակցային հաշիվ</string>
   <string name="preferences_general_heading">Ընդհանուր</string>

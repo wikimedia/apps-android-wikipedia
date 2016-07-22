@@ -46,11 +46,7 @@
   <string name="menu_login">Ingia</string>
   <string name="login_activity_title" fuzzy="true">Ingia katika Wikipedia</string>
   <string name="login_in_progress_dialog_message">Inakuingiza…</string>
-  <string name="login_error_wrong_password">Neno la siri batili</string>
-  <string name="login_error_wrong_username">Jina la mtumiaji batili</string>
-  <string name="login_error_illegal">Jina la mtumiaji lisilo halali</string>
   <string name="login_success_toast" fuzzy="true">Umefaulu kuingia</string>
-  <string name="login_error_blocked">Mtumiaji amefungiwa</string>
   <string name="preference_title_logout">Toka</string>
   <string name="delete_selected_history">Futa</string>
   <string name="wp_stylized">big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
@@ -63,7 +59,6 @@
   <string name="create_account_password_repeat_hint">Rudia neno la siri</string>
   <string name="create_account_passwords_mismatch_error">Maneno ya siri hayafanani</string>
   <string name="create_account_email_error">Anwani batili ya barua pepe</string>
-  <string name="create_account_username_exists_error">Jina la mtumiaji tayari linatumika</string>
   <string name="create_account_generic_error">Haikufaulu kuunda akaunti</string>
   <string name="create_account_next">Inayofuata</string>
   <string name="create_account_button">Unda akaunti</string>

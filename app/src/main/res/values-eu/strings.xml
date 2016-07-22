@@ -63,13 +63,7 @@
   <string name="menu_login">Saioa hasi</string>
   <string name="login_activity_title">Saioa hasi Wikipedian</string>
   <string name="login_in_progress_dialog_message">Saioa hasten…</string>
-  <string name="login_error_wrong_password">Pasahitz okerra</string>
-  <string name="login_error_wrong_username">Erabiltzaile izen okerra</string>
-  <string name="login_error_illegal">Erabiltzaile izen baliogabea</string>
   <string name="login_success_toast">Saio hasiera egina!</string>
-  <string name="login_error_blocked">Erabiltzaile hau blokeatua izan da</string>
-  <string name="login_error_throttled">Saioa hasteko saiakera gehiegi. Itxaron minutu batzuk eta saiatu berriro.</string>
-  <string name="login_error_unknown">Ezin izan da saioa hasi :(</string>
   <string name="preference_title_logout">Saioa itxi</string>
   <string name="toast_logout_complete">Saioa itxita</string>
   <string name="history_empty_title">Ez dauge azkenaldiko orririk hemen!</string>
@@ -84,13 +78,6 @@
   <string name="create_account_password_repeat_hint">Pasahitza errepikatu</string>
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_email_error">E-posta helbide okerra</string>
-  <string name="create_account_username_exists_error">Lankide izena dagoeneko erabiltzen</string>
-  <string name="create_account_noname_error">Sartu duzun erabiltzaile izenak ez du balio. Saiatu beste batekin mesedez.</string>
-  <string name="create_account_invalid_email_error">Eman duzun email helbidea ez da baliagarria.</string>
-  <string name="create_account_password_too_short_error">Eman duzun pasahitza laburregia da.</string>
-  <string name="create_account_blocked_anon_error">Ezin duzu konturik sortu zure IP helbidea blokeatuta baitago.</string>
-  <string name="create_account_blocked_error">Ezin duzu kontu bat sortu zure kontua blokeatuta baitago.</string>
-  <string name="create_account_password_name_match_error">Zure lankide izena eta pasahitza desberdinak behar dute izan.</string>
   <string name="create_account_generic_error">Ezin izan da kontua sortu</string>
   <string name="create_account_next">Hurrengoa</string>
   <string name="create_account_button">Kontua sortu</string>

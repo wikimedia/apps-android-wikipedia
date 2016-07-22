@@ -48,12 +48,7 @@
   <string name="menu_login">Kirish</string>
   <string name="login_activity_title" fuzzy="true">Vikipediaga kirish</string>
   <string name="login_in_progress_dialog_message">Saytga kiryapsiz…</string>
-  <string name="login_error_wrong_password">Maxfiy so‘z noto‘g‘ri</string>
-  <string name="login_error_wrong_username">Foydalanuvchi nomida xato</string>
   <string name="login_success_toast" fuzzy="true">Kirish muvaffaqiyatli amalga oshdi!</string>
-  <string name="login_error_blocked">Bu foydalanuvchi chetlatilgan</string>
-  <string name="login_error_throttled">Juda ko‘p marta kirishga harakat qilindi. Bir necha daqiqa kuting va yana kirishga harakat qilib koʻring.</string>
-  <string name="login_error_unknown">Kirish amalga oshmadi :(</string>
   <string name="preference_title_logout">Chiqish</string>
   <string name="toast_logout_complete">Chiqildi</string>
   <string name="history_empty_title">Bu yerda so‘nggi sahifalar yo‘q!</string>
@@ -68,14 +63,6 @@
   <string name="create_account_password_repeat_hint">Maxfiy so‘zni takrorlang</string>
   <string name="create_account_passwords_mismatch_error">Maxfiy so‘zlar mos kelmadi</string>
   <string name="create_account_email_error">Noto‘g‘ri elektron pochta manzili</string>
-  <string name="create_account_username_exists_error">Ushbu foydalanuvchi nomi band</string>
-  <string name="create_account_ip_throttle_error">Bu IP manzildan juda ko‘p hisoblar yaratilgan. Keyinroq harakat qilib ko‘ring.</string>
-  <string name="create_account_open_proxy_error">Bu IP manzil oraqali hisob yaratish to‘sib qo‘yildi.</string>
-  <string name="create_account_invalid_email_error">Siz bergan elektron pochta adresi xato.</string>
-  <string name="create_account_password_too_short_error">Siz yozgan maxfiy soʻz juda qisqa.</string>
-  <string name="create_account_blocked_anon_error">Sizning IP adresingiz to‘sib qo‘yilgani uchun hisob yozuvi yarata olmaysiz.</string>
-  <string name="create_account_blocked_error">Sizning hisobingiz to‘sib qo‘yilgani uchun hisob yozuvi yarata olmaysiz.</string>
-  <string name="create_account_password_name_match_error">Sizning foydalanuvchi ismingiz va maxfiy so‘zingiz har xil bo‘lishi kerak.</string>
   <string name="create_account_generic_error">Hisob yozuvini yaratib bo‘lmadi</string>
   <string name="create_account_next">Keyingi</string>
   <string name="create_account_button">Hisob yaratish</string>

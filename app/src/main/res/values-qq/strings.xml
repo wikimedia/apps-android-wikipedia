@@ -103,19 +103,7 @@ The Share list contains the following menu items (localized):
   <string name="menu_login">{{Identical|Log in}}</string>
   <string name="login_activity_title">Used as window title.</string>
   <string name="login_in_progress_dialog_message">A bubble that describes the in-progress action.</string>
-  <string name="login_error_wrong_password">An error message.
-{{Related|Wikipedia-android-strings-login error}}</string>
-  <string name="login_error_wrong_username">Used as error message if the specified user does not exist.
-{{Related|Wikipedia-android-strings-login error}}</string>
-  <string name="login_error_illegal">Used as an error message if the user tries to log in using a username which is invalid.
-{{Identical|Invalid username}}</string>
   <string name="login_success_toast">A bubble that appears after logging in.</string>
-  <string name="login_error_blocked">Used as alert message.
-{{Related|Wikipedia-android-strings-login error}}</string>
-  <string name="login_error_throttled">An error message.
-{{Related|Wikipedia-android-strings-login error}}</string>
-  <string name="login_error_unknown">Used as alert message.
-{{Related|Wikipedia-android-strings-login error}}</string>
   <string name="preference_title_logout">{{Identical|Log out}}</string>
   <string name="toast_logout_complete">Toast popup message notifying the user that they have been logged out.
 {{Identical|Logged out}}</string>
@@ -139,21 +127,6 @@ See also:
   <string name="create_account_password_repeat_hint">{{Identical|Repeat password}}</string>
   <string name="create_account_passwords_mismatch_error">{{Identical|Passwords do not match}}</string>
   <string name="create_account_email_error">Used as an error message on creating a user account where the email address the user entered does not appear to be a valid email address.</string>
-  <string name="create_account_username_exists_error">Used as error message on creating a user account.</string>
-  <string name="create_account_ip_throttle_error">Used as an error message on creating a user account where the user\'s IP has created too many accounts already and hit the account creation throttle.</string>
-  <string name="create_account_open_proxy_error">Used as error message on creating a user account where the user is trying to create an account from a blocked open proxy.</string>
-  <string name="create_account_noname_error">Used as an error message during account creation when the account creation failed because username that was provided is invalid.</string>
-  <string name="create_account_invalid_email_error">Used as an error message during account creation when the account creation failed because the email that was provided is invalid.</string>
-  <string name="create_account_password_too_short_error">Used as an error message during account creation when the account creation failed because the password that was entered is too short.</string>
-  <string name="create_account_blocked_anon_error">Used as an error message during account creation when the account creation failed because their IP address is blocked.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-create account blocked error}}</string>
-  <string name="create_account_blocked_error">Used as an error message during account creation when the the account creation failed because their account is blocked.
-
-See also:
-* {{msg-wm|Wikipedia-android-strings-create account blocked anon error}}</string>
-  <string name="create_account_password_name_match_error">Used as an error message during account creation when the the account creation failed because the username and password provided are the same.</string>
   <string name="create_account_generic_error">Used as a generic error message during account creation when a more specific error message cannot be given to the user.</string>
   <string name="create_account_next">Button text on Create Account screen to go \"next\" (to CAPTCHA).
 {{Identical|Next}}</string>

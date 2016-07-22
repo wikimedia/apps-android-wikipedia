@@ -48,12 +48,7 @@
   <string name="menu_login">ಲಾಗ್ ಇನ್</string>
   <string name="login_activity_title" fuzzy="true">ವಿಕಿಪೀಡಿಯಾಕ್ಕೆ ಲಾಗಿನ್ ಆಗು</string>
   <string name="login_in_progress_dialog_message">ನೀವು ಲಾಗ್-ಇನ್ ಆಗುತ್ತಿದ್ದೀರಿ…</string>
-  <string name="login_error_wrong_password">ಅಸಮರ್ಪಕ ಪ್ರವೇಶಪದ</string>
-  <string name="login_error_wrong_username">ಅಸಮರ್ಪಕ ಬಳಕೆದಾರ ಹೆಸರು</string>
-  <string name="login_error_illegal">ಅಮಾನ್ಯವಾದ ಬಳಕೆದಾರಹೆಸರು</string>
   <string name="login_success_toast" fuzzy="true">ಲಾಗಿನ್ ಯಶಸ್ವಿ!</string>
-  <string name="login_error_blocked">ಈ ಬಳಕೆದಾರರನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ</string>
-  <string name="login_error_unknown">ಲಾಗಿನ್ ಸಾಧ್ಯವಾಗಿಲ್ಲ!</string>
   <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
   <string name="toast_logout_complete">ನಿರ್ಗಮನ</string>
   <string name="history_empty_title">ಇಲ್ಲಿ ಯಾವುದೇ ಇತ್ತೀಚಿನ ಪುಟಗಳು ಇಲ್ಲ</string>
@@ -68,15 +63,6 @@
   <string name="create_account_password_repeat_hint">ಪ್ರವೇಶಪದವನ್ನು ಪುನಃಸ್ಥಾಪಿಸಿ.</string>
   <string name="create_account_passwords_mismatch_error">ಗುಪ್ತಪದಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ</string>
   <string name="create_account_email_error">ಸಮರ್ಪಕ ಮಿಂಚಂಚೆ ವಿಳಾಸ</string>
-  <string name="create_account_username_exists_error">ಬಳಕೆದಾರ ಹೆಸರು ಈಗಾಗಲೇ ಉಪಯೋಗದಲ್ಲಿದೆ</string>
-  <string name="create_account_ip_throttle_error">ಈ IP ವಿಳಾಸದಿಂದ  ತುಂಬಾ ಖಾತೆಗಳನ್ನು ರಚಿಸಲಾಗಿದೆ.ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ .</string>
-  <string name="create_account_open_proxy_error">ಈ IP ವಿಳಾಸವನ್ನು ಖಾತೆಗಳನ್ನು ರಚಿಸುವುದರಿಂದ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ .</string>
-  <string name="create_account_noname_error">ನೀವು ಒದಗಿಸಲಾದ ಬಳಕೆದಾರ ಹೆಸರು ಅಮಾನ್ಯವಾಗಿದೆ. ಮತ್ತೊಂದು ಬಳಕೆದಾರ ಹೆಸರು ಒದಗಿಸಿ.</string>
-  <string name="create_account_invalid_email_error">ನೀವು ಒದಗಿಸಿದ ಮಿಂಚಂಚೆ ವಿಳಾಸವು ಅಮಾನ್ಯವಾಗಿದೆ.</string>
-  <string name="create_account_password_too_short_error">ನೀವು ಒದಗಿಸಿದ ಗುಪ್ತಪದವನ್ನು ತುಂಬಾ ಚಿಕ್ಕದಾಗಿದೆ.</string>
-  <string name="create_account_blocked_anon_error">ನಿಮ್ಮ IP ವಿಳಾಸವನ್ನು ನಿರ್ಬಂಧಿಸಿರುವುದರಿಂದ ನಿಮಗೆ ಖಾತೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ .</string>
-  <string name="create_account_blocked_error">ನೀವು ಖಾತೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಏಕೆಂದರೆ  ನಿಮ್ಮ ಖಾತೆಯನ್ನು ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ .</string>
-  <string name="create_account_password_name_match_error">ನಿಮ್ಮ ಬಳಕೆದಾರ ಹೆಸರು ಮತ್ತು ನಿಮ್ಮ ಗುಪ್ತಪದ ಬೇರೆ ಬೇರೆ ಇರಬೇಕು .</string>
   <string name="create_account_generic_error">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಗುತ್ತಿಲ್ಲ</string>
   <string name="create_account_next">ಮುಂದಿನ</string>
   <string name="create_account_button">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಿ</string>

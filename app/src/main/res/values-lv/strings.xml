@@ -51,11 +51,7 @@
   <string name="login_password_hint">Parole</string>
   <string name="login_password_show_check">Rādīt paroli</string>
   <string name="menu_login">Pieslēgties</string>
-  <string name="login_error_wrong_password">Kļūdaina parole</string>
-  <string name="login_error_wrong_username">Nepareizs lietotājvārds</string>
-  <string name="login_error_illegal">Nederīgs lietotājvārds</string>
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
-  <string name="login_error_blocked">Šis dalībnieks ir bloķēts</string>
   <string name="preference_title_logout">Iziet</string>
   <string name="toast_logout_complete">Jūs esat izgājis</string>
   <string name="delete_selected_history">Dzēst</string>
@@ -67,9 +63,6 @@
   <string name="create_account_password_repeat_hint">Atkārtojiet paroli</string>
   <string name="create_account_passwords_mismatch_error">Paroles nesakrīt</string>
   <string name="create_account_email_error">Nederīga e-pasta adrese</string>
-  <string name="create_account_username_exists_error">Lietotājvārds tiek jau izmantots</string>
-  <string name="create_account_ip_throttle_error">Pārāk daudz kontu, kas izveidots no šīs IP adreses. Mēģiniet vēlāk vēlreiz.</string>
-  <string name="create_account_open_proxy_error">Šī IP adrese ir bloķēta, no kontu izveidošanas.</string>
   <string name="create_account_next">Tālāk</string>
   <string name="create_account_button">Izveidot kontu</string>
   <string name="zero_interstitial_continue">Pamest</string>

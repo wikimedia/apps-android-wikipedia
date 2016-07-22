@@ -38,12 +38,7 @@
   <string name="menu_login">Нэвтрэх</string>
   <string name="login_activity_title">Википедия руу нэвтрэх</string>
   <string name="login_in_progress_dialog_message">… руу нэвтэрч байна.</string>
-  <string name="login_error_wrong_password">Нууц үг буруу</string>
-  <string name="login_error_wrong_username">Хэрэглэгчийн нэр буруу байна</string>
   <string name="login_success_toast">Нэвтрэлт амжилттай боллоо</string>
-  <string name="login_error_blocked">Энэ хэрэглэгч блоклогдсон</string>
-  <string name="login_error_throttled">Хэтэрхий олон удаа хандах оролдлого хийсэн байна. Хэсэг хүлээзнээд дахин оролдоно уу.</string>
-  <string name="login_error_unknown">Нэвтэрч чадсангүй!</string>
   <string name="preference_title_logout">Гарах</string>
   <string name="toast_logout_complete">Гарлаа</string>
   <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
@@ -54,7 +49,6 @@
   <string name="create_account_password_repeat_hint">Нууц үгээ давтана уу</string>
   <string name="create_account_passwords_mismatch_error">Нууц үг буруу</string>
   <string name="create_account_email_error">Емайл хаяг буруу</string>
-  <string name="create_account_username_exists_error">Энэ хэрэглэгчийн нэр бүртгэлтэй байна</string>
   <string name="create_account_generic_error">Бүртгүүлэх боломжгүй байна</string>
   <string name="create_account_next">Дараагийн</string>
   <string name="create_account_button">Бүртгүүлэх</string>

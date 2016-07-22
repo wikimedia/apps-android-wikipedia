@@ -60,12 +60,7 @@
   <string name="menu_login">ننوتل</string>
   <string name="login_activity_title">ويکيپېډيا کې ننوتل</string>
   <string name="login_in_progress_dialog_message">په ننوتلو کې دی…</string>
-  <string name="login_error_wrong_password">ناسم پټنوم</string>
-  <string name="login_error_wrong_username">ناسم کارن-نوم</string>
-  <string name="login_error_illegal">ناسم کارن-نوم</string>
   <string name="login_success_toast">برياليتوب سره ننوتلي ياست!</string>
-  <string name="login_error_blocked">په دې کارن بنديز لگېدلی</string>
-  <string name="login_error_unknown">ننوتنه نابريالې شوه :(</string>
   <string name="preference_title_logout">وتل</string>
   <string name="toast_logout_complete">ووتلۍ</string>
   <string name="delete_selected_history">ړنگول</string>
@@ -79,7 +74,6 @@
   <string name="create_account_password_repeat_hint">پټنوم بياليکل</string>
   <string name="create_account_passwords_mismatch_error">پټنومونه مو سره ورته نه دي</string>
   <string name="create_account_email_error">ناسمه برېښليک پته</string>
-  <string name="create_account_username_exists_error">دا کارن-نوم بل څوک کاروي</string>
   <string name="create_account_generic_error">گڼون مو جوړ نه شو</string>
   <string name="create_account_next">راتلونکی</string>
   <string name="create_account_button">گڼون جوړول</string>

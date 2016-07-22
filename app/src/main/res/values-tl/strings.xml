@@ -58,13 +58,7 @@
   <string name="menu_login">Lumagda (login)</string>
   <string name="login_activity_title">Lumagda (login) sa Wikipedia</string>
   <string name="login_in_progress_dialog_message">Inilalagda ka na…</string>
-  <string name="login_error_wrong_password">Hindi tamang hudyat</string>
-  <string name="login_error_wrong_username">Di-tamang pangalan ng tagagamit</string>
-  <string name="login_error_illegal">Hindi tanggap na pangalan ng tagagamit</string>
   <string name="login_success_toast" fuzzy="true">Paglalagda ay tagumpay!</string>
-  <string name="login_error_blocked">Hinarang ang tagagamit na ito</string>
-  <string name="login_error_throttled">Napakaraming tangka sa paglagda. Maghintay ng kaunting minuto at subukang muli.</string>
-  <string name="login_error_unknown">Paglagda ay di-tagumpay :\'(</string>
   <string name="preference_title_logout">Umalis sa pagkaka-lagda</string>
   <string name="toast_logout_complete">Nakaalis na sa pagkakalagda</string>
   <string name="history_empty_title">Walang makabagong mga pahina rito!</string>
@@ -80,15 +74,6 @@
   <string name="create_account_password_repeat_hint">Ulitin ang hudyat</string>
   <string name="create_account_passwords_mismatch_error">Hindi tugma ang mga hudyat</string>
   <string name="create_account_email_error">Di-tanggap na direksyon ng e-liham</string>
-  <string name="create_account_username_exists_error">Pangalan ng tagagamit ay ginagamit na</string>
-  <string name="create_account_ip_throttle_error">Napakaraming mga akawnt na nilikha sa direksyong IP na ito. Subukang muli maya-maya.</string>
-  <string name="create_account_open_proxy_error">Hinarang ang direksyong IP na ito dahilan sa paglikha ng mga akawnt.</string>
-  <string name="create_account_noname_error">Di-tanggap ang pangalan ng tagagamit na iyon inilagay. Mangyaring maglagay ng ibang pangalan ng tagagamit.</string>
-  <string name="create_account_invalid_email_error">Di-tanggap ang direksyong e-liham na iyon inilagay.</string>
-  <string name="create_account_password_too_short_error">Napaka-ikli ng hudyat (password) na iyon inilagay.</string>
-  <string name="create_account_blocked_anon_error">Hindi ka makakalikha ng akawnt dahil nakaharang ang iyong direksyong IP</string>
-  <string name="create_account_blocked_error">Hindi ka makakalikha ng akawnt dahil nakaharang ang iyong akawnt.</string>
-  <string name="create_account_password_name_match_error">Magkaiba dapat ang iyong pangalan ng tagagamit at iyong hudyat.</string>
   <string name="create_account_generic_error">Hindi malikha ang akawnt.</string>
   <string name="create_account_next">Kasunod</string>
   <string name="create_account_button">Lumikha ng akawnt</string>

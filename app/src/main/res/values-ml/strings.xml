@@ -56,13 +56,7 @@
   <string name="menu_login">പ്രവേശിക്കുക</string>
   <string name="login_activity_title" fuzzy="true">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
-  <string name="login_error_wrong_password">തെറ്റായ രഹസ്യവാക്ക്</string>
-  <string name="login_error_wrong_username">തെറ്റായ ഉപയോക്തൃനാമം</string>
-  <string name="login_error_illegal">അസാധുവായ ഉപയോക്തൃനാമം</string>
   <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
-  <string name="login_error_blocked">ഈ ഉപയോക്താവ് തടയപ്പെട്ടിരിക്കുന്നു</string>
-  <string name="login_error_throttled">പ്രവേശിക്കാനായി നിരവധി ശ്രമങ്ങൾ നടത്തിയിരിക്കുന്നു. ഏതാനം മിനിറ്റുകൾ കാത്തിരുന്ന ശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
-  <string name="login_error_unknown">പ്രവേശനം പരാജയപ്പെട്ടു :(</string>
   <string name="preference_title_logout">ലോഗൗട്ട്</string>
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
   <string name="history_empty_message" fuzzy="true">താങ്കളുടെ ഉപയോഗത്തിന്റെ നാൾവഴി ശൂന്യമാണ്.</string>
@@ -76,9 +70,6 @@
   <string name="create_account_password_repeat_hint">രഹസ്യവാക്ക് ആവർത്തിക്കുക</string>
   <string name="create_account_passwords_mismatch_error">രഹസ്യവാക്കുകൾ ഒത്തുപോകുന്നില്ല</string>
   <string name="create_account_email_error">അസാധുവായ ഇമെയിൽ വിലാസം.</string>
-  <string name="create_account_username_exists_error">ഉപയോക്തൃനാമം മുമ്പേ ഉപയോഗത്തിലുണ്ട്</string>
-  <string name="create_account_ip_throttle_error">ഈ ഐ.പി. വിലാസത്തിൽ നിന്നും നിരവധി അംഗത്വങ്ങൾ സൃഷ്ടിച്ചിരിക്കുന്നു. പിന്നീട് വീണ്ടും ശ്രമിക്കുക.</string>
-  <string name="create_account_open_proxy_error">അംഗത്വം സൃഷ്ടിക്കുന്നതിൽ നിന്നും ഈ ഐ.പി. വിലാസം തടയപ്പെട്ടിരിക്കുന്നു.</string>
   <string name="create_account_generic_error">അംഗത്വം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല</string>
   <string name="create_account_next">അടുത്തത്</string>
   <string name="create_account_button">അംഗത്വമെടുക്കുക</string>

@@ -47,13 +47,7 @@
   <string name="menu_login">Rita inn</string>
   <string name="login_activity_title" fuzzy="true">Rita inn á Wikipedia</string>
   <string name="login_in_progress_dialog_message">Ritar teg inn…</string>
-  <string name="login_error_wrong_password">Skeivt loyniorð</string>
-  <string name="login_error_wrong_username">Skeivt brúkaranavn</string>
-  <string name="login_error_illegal">Ógyldugt brúkaranavn</string>
   <string name="login_success_toast" fuzzy="true">Væleydnað innritan!</string>
-  <string name="login_error_blocked">Hesin brúkarin er sperraður</string>
-  <string name="login_error_throttled">Ov nógvar royndir at rita inn. Bíða nakrir minuttir og royn so aftur.</string>
-  <string name="login_error_unknown">Innritan miseydnaðist :(</string>
   <string name="preference_title_logout">Rita út</string>
   <string name="toast_logout_complete">Tú ert ritað/ur út</string>
   <string name="history_empty_message" fuzzy="true">Títt søguyvirlit er tómt.</string>
@@ -68,9 +62,6 @@
   <string name="create_account_password_repeat_hint">Endurtak loyniorð</string>
   <string name="create_account_passwords_mismatch_error">Loyniorðini eru ikki eins</string>
   <string name="create_account_email_error">Ógyldug t-post adressa</string>
-  <string name="create_account_username_exists_error">Brúkaranavnið er longu í brúk</string>
-  <string name="create_account_ip_throttle_error">Ov nógvar kontur eru stovnaðar frá hesi IP adreseeuni. Royn aftur seinni.</string>
-  <string name="create_account_open_proxy_error">Henda IP adressan er blivin sperrað fyri upprættan av kontum.</string>
   <string name="create_account_generic_error">Tað bar ikki til at upprætta kontu</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="zero_charged_verbiage">Wikipedia Zero er sløkt</string>

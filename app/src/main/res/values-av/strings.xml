@@ -40,10 +40,7 @@
   <string name="menu_login">Жаниве лъугьине</string>
   <string name="login_activity_title">Википедиялда жаниве лъугьине</string>
   <string name="login_in_progress_dialog_message">Системалда жаниве лъугьи…</string>
-  <string name="login_error_wrong_password">Мекъаб пароль</string>
-  <string name="login_error_wrong_username">Мекъаб цӀар</string>
   <string name="login_success_toast" fuzzy="true">Мун системалда лъана!</string>
-  <string name="login_error_unknown">Жаниве лъугьине кӀвечӀо :(</string>
   <string name="preference_title_logout">Къватlиве вачIизе</string>
   <string name="toast_logout_complete">Сеанс лъугьана</string>
   <string name="create_account_username_hint">ХӀалтӀизабулчиясул цӀар</string>
@@ -54,7 +51,6 @@
   <string name="create_account_password_repeat_hint">Пароль такрар гьабе</string>
   <string name="create_account_passwords_mismatch_error">Паролял данде ккечӀо</string>
   <string name="create_account_email_error">Гьадинаб эллектронияб почалъул адрес данде кколаро</string>
-  <string name="create_account_username_exists_error">Гьединаб цӀар уже буго</string>
   <string name="create_account_generic_error">Аккаунт гьабизе кӀвечӀо</string>
   <string name="create_account_next">Хаду</string>
   <string name="create_account_button">Аккаунт гьабизе</string>

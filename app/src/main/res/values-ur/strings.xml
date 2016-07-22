@@ -72,13 +72,7 @@
   <string name="menu_login">داخل ہوں</string>
   <string name="login_activity_title">ویکیپیڈیا میں داخل (لاگ ان) ہوں</string>
   <string name="login_in_progress_dialog_message">لاگ ان ہورہے ہیں…</string>
-  <string name="login_error_wrong_password">غلط پاسورڈ</string>
-  <string name="login_error_wrong_username">غلط صارف نام</string>
-  <string name="login_error_illegal">غلط صارف نام</string>
   <string name="login_success_toast">داخلہ کامیاب</string>
-  <string name="login_error_blocked">اس صارف پر پابندی لگی ہوئی ہے</string>
-  <string name="login_error_throttled">بہت زیادہ لاگ ان ہونے کی کوششیں. کچھ دیر انتظار کریں اور دوبارہ کوشش کریں</string>
-  <string name="login_error_unknown">لاگ ان میں ناکامی :(</string>
   <string name="preference_title_logout">خارج ہوجائیں</string>
   <string name="toast_logout_complete">لاگ آؤٹ ہوگئے</string>
   <string name="history_empty_title">کوئی حالیہ صفحہ نہیں ہے!</string>
@@ -94,16 +88,6 @@
   <string name="create_account_password_repeat_hint">پاسور ڈ دہرائیں</string>
   <string name="create_account_passwords_mismatch_error">پاس ورڈز نہیں ملتے</string>
   <string name="create_account_email_error">برقی خط پتہ ٹھیک نہیں ہے</string>
-  <string name="create_account_username_exists_error">صارف نام پہلے سے استعمال میں ہے</string>
-  <string name="create_account_ip_throttle_error">اس آئی پی ایڈریس سے بہت زیادہ کھاتے تخلیق کیے گئے ہیں.
-کچھ دیر بعد دوبارہ کوشش کریں.</string>
-  <string name="create_account_open_proxy_error">اس آئی پی ایڈریس سے کھاتے تخلیق کرنے پر پابندی ہے.</string>
-  <string name="create_account_noname_error">یہ صارف نام درست نہیں ہے، براہ مہربانی کوئی دوسرا نام درج کریں</string>
-  <string name="create_account_invalid_email_error">یہ برقی خط پتہ درست نہیں ہے</string>
-  <string name="create_account_password_too_short_error">آپ کا پاسور ڈ بہت مختصر ہے</string>
-  <string name="create_account_blocked_anon_error">آپ کھاتا نہیں بناسکتے کیونکہ آپ کے آئی پی ایڈریس پر پابندی ہے.</string>
-  <string name="create_account_blocked_error">آپ کھاتا نہیں بناسکتے کیونکہ آپ کے کھاتے پر پابندی ہے</string>
-  <string name="create_account_password_name_match_error">آپکا صارف نام اور پاسور ڈ مخلتف ہونا چاہیے.</string>
   <string name="create_account_generic_error">کھاتا نہیں بنایا جاسکا</string>
   <string name="create_account_next">اگلا</string>
   <string name="create_account_button">کھاتا بنائیں</string>

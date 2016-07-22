@@ -53,12 +53,7 @@
   <string name="login_password_hint">Şîfre</string>
   <string name="menu_login">Têkeve</string>
   <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
-  <string name="login_error_wrong_password">Şîfreya nerast</string>
-  <string name="login_error_wrong_username">Navê bikarhêner ne rast e</string>
-  <string name="login_error_illegal">Navê bikarhêner ê nederbasdar</string>
   <string name="login_success_toast">Têketin serkevtî bû!</string>
-  <string name="login_error_blocked">Ev bikarhêner hatiye astengkirin</string>
-  <string name="login_error_unknown">Têketin biser neket :(</string>
   <string name="preference_title_logout">Derkeve</string>
   <string name="history_empty_title">Li vir rûpelên dawî tune ne!</string>
   <string name="delete_selected_history">Jê bibe</string>
@@ -72,11 +67,6 @@
   <string name="create_account_password_repeat_hint">Şîfreyê dîsa binivîse</string>
   <string name="create_account_passwords_mismatch_error">Şîfre li hev nayên</string>
   <string name="create_account_email_error">Navnîşana enameyê ya derbasdar</string>
-  <string name="create_account_username_exists_error">Navê bikarhêner niha tê bikaranîn</string>
-  <string name="create_account_open_proxy_error">Navnîşana te bo çêkirina hesaban hatiye astengkirin.</string>
-  <string name="create_account_blocked_anon_error">Tu nikarî hesabekî çêkî, ji ber ku navnîşana te ya IP hatiye astengkirin.</string>
-  <string name="create_account_blocked_error">Tu nikarî hesabekî çêkî, ji ber ku hesabê te hatiye astengkirin.</string>
-  <string name="create_account_password_name_match_error">Navê te yê bikarhêneriyê û şîfreya te divê ji hev cuda bin.</string>
   <string name="create_account_generic_error">Hesab nikarîbû were çêkirin</string>
   <string name="create_account_next">Pêşve</string>
   <string name="create_account_button">Hesabekî çêke</string>
