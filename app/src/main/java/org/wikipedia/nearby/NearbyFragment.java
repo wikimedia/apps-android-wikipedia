@@ -127,13 +127,6 @@ public class NearbyFragment extends Fragment {
         mapView.onResume();
     }
 
-    @Override public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
-            checkLocationPermissionsToGoToUserLocation();
-        }
-    }
-
     @Override
     public void onPause() {
         super.onPause();
@@ -196,6 +189,9 @@ public class NearbyFragment extends Fragment {
 
                 if (currentLocation != null && lastResult != null) {
                     showNearbyPages(lastResult);
+                } else if (locationPermitted()) {
+                    mapboxMap.setMyLocationEnabled(true);
+                    goToUserLocation();
                 }
             }
         });
@@ -212,13 +208,17 @@ public class NearbyFragment extends Fragment {
     }
 
     private void checkLocationPermissionsToGoToUserLocation() {
-        if (ContextCompat.checkSelfPermission(getActivity(),
-                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (!locationPermitted()) {
             requestLocationRuntimePermissions(GO_TO_LOCATION_PERMISSION_REQUEST);
         } else if (mapboxMap != null) {
             mapboxMap.setMyLocationEnabled(true);
             goToUserLocation();
         }
+    }
+
+    private boolean locationPermitted() {
+        return ContextCompat.checkSelfPermission(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void requestLocationRuntimePermissions(int requestCode) {
