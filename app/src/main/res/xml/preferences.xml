@@ -43,8 +43,7 @@
                 android:summary="@string/zero_warn_when_leaving_summary"
                 />
         <org.wikipedia.settings.PreferenceMultiLine
-                android:title="@string/zero_webpage_title"
-                android:summary="@string/zero_webpage_url">
+                android:title="@string/zero_webpage_title">
             <intent android:action="android.intent.action.VIEW"
                     android:data="@string/zero_webpage_url"
                     />
