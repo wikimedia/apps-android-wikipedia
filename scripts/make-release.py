@@ -75,14 +75,13 @@ def push_to_gerrit(target, version_name):
     sh.git.push('gerrit', tag_name)
 
 
-def make_release(flavors, custom_channel, custom_app):
+def make_release(flavors, custom_channel):
     sh.cd(PATH_PREFIX)
     # ./gradlew -q assembleDevDebug
     args = [GRADLEW,
             '-q',
             'clean',
-            '-PcustomChannel=' + custom_channel,
-            '-PcustomApplicationId=' + custom_app]
+            '-PcustomChannel=' + custom_channel]
     tasks = ['assemble{0}Release'.format(flavor.title()) for flavor in flavors]
     args += tasks
     subprocess.call(args)
@@ -172,13 +171,11 @@ def main():
     group.add_argument('--channel',
                        help='Step 1: Custom versionName&channel. OEMs w/ Play')
     group.add_argument('--app',
-                       help='Step 1: Custom versionName&channel&applicationId '
-                            '(aka. package name). OEMs wout/ Play.')
+                       help='Step 1: Custom versionName&channel. OEMs wout/ Play.')
     parser.add_argument('--push', help='Step 2: create&push git tag to gerrit remote.',
                         action='store_true')
     args = parser.parse_args()
     custom_channel = 'ignore'
-    custom_app = 'org.wikipedia'
     if args.beta:
         flavors = ['beta']
         targets = flavors
@@ -196,7 +193,6 @@ def main():
         flavors = ['custom']
         targets = [args.app]
         custom_channel = args.app
-        custom_app = 'org.wikipedia.' + args.app
     else:
         print('Error. Please specify --beta, --prod, or --amazon')
         sys.exit(-1)
@@ -212,7 +208,7 @@ def main():
             git_tag(target, version_name)
             push_to_gerrit(target, version_name)
     else:
-        make_release(flavors, custom_channel, custom_app)
+        make_release(flavors, custom_channel)
         copy_artifacts(flavors[0])
         if flavors[0] == 'prod':
             copy_artifacts(flavors[1])
