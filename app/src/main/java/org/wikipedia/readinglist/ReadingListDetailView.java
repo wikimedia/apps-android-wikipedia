@@ -53,7 +53,6 @@ public class ReadingListDetailView extends LinearLayout {
 
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
     private EditButtonClickListener editButtonListener = new EditButtonClickListener();
-    private ItemTouchHelper itemTouchHelper;
     private Bitmap deleteIcon = getDeleteBitmap();
 
     public interface ReadingListItemActionListener {
@@ -129,7 +128,7 @@ public class ReadingListDetailView extends LinearLayout {
         setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         ItemTouchHelper.Callback touchCallback = new ReadingListItemTouchHelperCallback();
-        itemTouchHelper = new ItemTouchHelper(touchCallback);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
         itemTouchHelper.attachToRecyclerView(contentsListView);
     }
 
