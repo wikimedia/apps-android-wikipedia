@@ -290,9 +290,21 @@
   <string name="view_continue_reading_card_title">Okumaya devam et</string>
   <string name="view_because_you_read_card_title">Okuduklarına benzer</string>
   <string name="view_random_card_title">Rastgele</string>
-  <string name="view_random_card_subtitle" fuzzy="true">%s Vikipedi\'den rastgele bir madde oku</string>
-  <string name="view_main_page_card_title" fuzzy="true">%s Vikipedi\'de bugün</string>
+  <string name="view_random_card_subtitle">Vikipedi\'den rastgele bir madde oku</string>
+  <string name="view_main_page_card_title">Vikipedi\'de bugün</string>
   <string name="view_main_page_card_subtitle">%s tarihli ana sayfa</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Bu öneriyi gizle</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">Öneri gizlendi.</string>
+  <string name="view_featured_image_card_title">Günün resmi</string>
+  <string name="view_featured_image_card_download">İndir</string>
+  <string name="menu_feed_card_dismiss">Bu kartı gizle</string>
+  <string name="menu_feed_card_dismissed">Kart gizlendi.</string>
+  <string name="feed_featured_image_share_subject">Wikimedia Commons\'tan seçkin resim</string>
+  <string name="feed">Keşfet</string>
+  <string name="view_card_footer_button">Daha fazlasını gör</string>
+  <string name="most_read_list_card_title">Popüler</string>
+  <string name="view_static_card_icon_content_description">Kart simgesi</string>
+  <string name="view_card_news_title">Haberler</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">dün</item>
+    <item quantity="other">%d gün önce</item>
+  </plurals>
 </resources>

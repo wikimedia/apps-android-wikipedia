@@ -300,13 +300,13 @@
   <string name="menu_feed_card_dismiss">隐藏此卡片</string>
   <string name="menu_feed_card_dismissed">卡片已隐藏。</string>
   <string name="feed_featured_image_share_subject">来自维基共享资源的特色图片</string>
-  <string name="feed" fuzzy="true">探索维基百科</string>
+  <string name="feed">探索</string>
   <string name="view_card_footer_button">查看更多</string>
   <string name="most_read_list_card_title">趋势</string>
   <string name="view_static_card_icon_content_description">卡片图标</string>
   <string name="view_card_news_title">新闻动态</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">1天前</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">昨天</item>
     <item quantity="other">%d天前</item>
   </plurals>
 </resources>

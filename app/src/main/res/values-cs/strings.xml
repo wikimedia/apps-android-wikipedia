@@ -77,7 +77,7 @@
   <string name="login_error_illegal">Neplatné uživatelské jméno</string>
   <string name="login_success_toast">Přihlášení uspělo!</string>
   <string name="login_error_blocked">Tento uživatel byl zablokován</string>
-  <string name="login_error_throttled">Příliš mnoho pokusů o přihlášení. Počkejte několik minut a zkuste to znovu?</string>
+  <string name="login_error_throttled">Příliš mnoho pokusů o přihlášení. Počkejte několik minut a zkuste to znovu.</string>
   <string name="login_error_unknown">Přihlášení se nezdařilo :(</string>
   <string name="preference_title_logout">Odhlásit se</string>
   <string name="toast_logout_complete">Odhlášeno</string>
@@ -290,17 +290,21 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="view_continue_reading_card_title">Pokračovat ve čtení</string>
   <string name="view_because_you_read_card_title">Protože čtete</string>
   <string name="view_random_card_title">Náhodný článek</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Přečíst si náhodný článek z %s Wikipedie</string>
+  <string name="view_random_card_subtitle">Přečíst si náhodný článek z Wikipedie</string>
   <string name="view_main_page_card_title">Dnes na Wikipedii</string>
   <string name="view_main_page_card_subtitle">Hlavní strana %s</string>
   <string name="view_featured_image_card_title">Obrázek dne</string>
   <string name="view_featured_image_card_download">Stáhnout</string>
   <string name="menu_feed_card_dismiss">Skrýt tento návrh</string>
   <string name="menu_feed_card_dismissed">Návrh skryt.</string>
-  <string name="feed_featured_image_share_subject">Související obrázek z Wikimedia Commons</string>
-  <string name="feed" fuzzy="true">Podpořte Wikipedii</string>
+  <string name="feed_featured_image_share_subject">Dobrý obrázek z Wikimedia Commons</string>
+  <string name="feed">Prozkoumat</string>
   <string name="view_card_footer_button">Zobrazit více</string>
-  <string name="most_read_list_card_title">Vyhledávat</string>
-  <string name="view_static_card_icon_content_description">Ikona návrhu</string>
+  <string name="most_read_list_card_title">Populární</string>
+  <string name="view_static_card_icon_content_description">Ikona záložky</string>
   <string name="view_card_news_title">Ve zprávách</string>
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+    <item quantity="one">včera</item>
+    <item quantity="other">včera</item>
+  </plurals>
 </resources>

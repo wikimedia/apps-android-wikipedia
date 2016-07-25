@@ -297,7 +297,16 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="view_main_page_card_subtitle">Páxina principal en %s</string>
   <string name="view_featured_image_card_title">Imaxe do día</string>
   <string name="view_featured_image_card_download">Descargar</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Agochar esta suxestión</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">Suxestión agochada.</string>
+  <string name="menu_feed_card_dismiss">Agochar esta tarxeta</string>
+  <string name="menu_feed_card_dismissed">Tarxeta agochada.</string>
+  <string name="feed_featured_image_share_subject">Imaxe destacada en Wikimedia Commons</string>
+  <string name="feed">Explorar</string>
+  <string name="view_card_footer_button">Ver máis</string>
+  <string name="most_read_list_card_title">Tendencias</string>
+  <string name="view_static_card_icon_content_description">Icona de tarxeta</string>
   <string name="view_card_news_title">Actualidade</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">onte</item>
+    <item quantity="other">fai %d días</item>
+  </plurals>
 </resources>

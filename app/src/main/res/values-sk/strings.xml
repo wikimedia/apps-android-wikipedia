@@ -292,5 +292,6 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
   <string name="view_featured_image_card_title">Obrázok dňa</string>
   <string name="view_featured_image_card_download">Prevziať</string>
+  <string name="feed">Preskúmať</string>
   <string name="view_card_footer_button">Zobraziť viac</string>
 </resources>

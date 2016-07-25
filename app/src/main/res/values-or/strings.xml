@@ -44,7 +44,7 @@
   <string name="edit_section_captcha_hint">ଉପର ଶବ୍ଦ ଦେଖି ଆଉଥରେ ଭରନ୍ତୁ</string>
   <string name="title_captcha">CAPTCHA ଭରନ୍ତୁ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ଆଉଥରେ ଭରିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ</string>
-  <string name="nav_item_login" fuzzy="true">ଲଗ ଇନ</string>
+  <string name="nav_item_login">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
   <string name="login_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="login_password_hint">ପାସୱାର୍ଡ଼</string>
   <string name="login_password_show_check">ପାସୱାର୍ଡ଼ ଦେଖାନ୍ତୁ</string>
@@ -107,4 +107,16 @@
   <string name="edit_preview">ଦେଖଣା</string>
   <string name="edit_summary_tag_typo">ଫିକ୍ସଡ଼ ବନାନ</string>
   <string name="edit_summary_tag_other">ଅନ୍ୟ</string>
+  <string name="view_random_card_subtitle">ଉଇକିପିଡିଆରୁ ଯେକୌଣସି ଏକ ଲେଖା ପଢନ୍ତୁ</string>
+  <string name="view_main_page_card_title">ଆଜି ଦିନରେ ଉଇକିପିଡିଆର ଅବସ୍ଥା</string>
+  <string name="view_featured_image_card_title">ଦିନର ବଛା ଛବି</string>
+  <string name="view_featured_image_card_download">ଡାଉନଲୋଡ଼</string>
+  <string name="menu_feed_card_dismiss">ଏହି କାର୍ଡଟି ଲୁଚାନ୍ତୁ</string>
+  <string name="menu_feed_card_dismissed">ଆପଣଙ୍କ କାର୍ଡ ଲୁଚାଗଲା</string>
+  <string name="feed_featured_image_share_subject">ଉଇକିମିଡିଆ କମନ୍ସ ରୁ ବଛା ଛବି</string>
+  <string name="feed">ଅଧିକ ଦେଖନ୍ତୁ</string>
+  <string name="view_card_footer_button">ଅଧିକା ଦେଖନ୍ତୁ</string>
+  <string name="most_read_list_card_title">ଅଧିକ ବ୍ୟବହୃତ</string>
+  <string name="view_static_card_icon_content_description">କାର୍ଡ ଆଇକନ</string>
+  <string name="view_card_news_title">ଖବରରେ</string>
 </resources>

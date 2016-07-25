@@ -300,13 +300,13 @@
   <string name="menu_feed_card_dismiss">הסתרת הכרטיס הזה</string>
   <string name="menu_feed_card_dismissed">הכרטיס הוסתר.</string>
   <string name="feed_featured_image_share_subject">תמונה מומלצת מוויקישיתוף</string>
-  <string name="feed" fuzzy="true">לחקור את ויקיפדיה</string>
+  <string name="feed">לחקור</string>
   <string name="view_card_footer_button">לראות עוד</string>
   <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">לפני יום</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">אתמול</item>
     <item quantity="other">לפני %d ימים</item>
   </plurals>
 </resources>

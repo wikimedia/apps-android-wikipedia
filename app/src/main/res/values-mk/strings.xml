@@ -300,13 +300,13 @@
   <string name="menu_feed_card_dismiss">Скриј ја картичкава</string>
   <string name="menu_feed_card_dismissed">Картичката е скриена.</string>
   <string name="feed_featured_image_share_subject">Избрана слика од Ризницата</string>
-  <string name="feed" fuzzy="true">Истражете ја Википедија</string>
+  <string name="feed">Истражете</string>
   <string name="view_card_footer_button">Поврзано</string>
   <string name="most_read_list_card_title">Најчитани</string>
   <string name="view_static_card_icon_content_description">Икона за картичка</string>
   <string name="view_card_news_title">Вести</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">пред 1 ден</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">вчера</item>
     <item quantity="other">пред %d дена</item>
   </plurals>
 </resources>
