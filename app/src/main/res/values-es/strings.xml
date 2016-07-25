@@ -300,13 +300,13 @@
   <string name="menu_feed_card_dismiss">Ocultar esta tarjeta</string>
   <string name="menu_feed_card_dismissed">Tarjeta ocultada.</string>
   <string name="feed_featured_image_share_subject">Imagen destacada de Wikimedia Commons</string>
-  <string name="feed" fuzzy="true">Explorar Wikipedia</string>
+  <string name="feed">Explorar</string>
   <string name="view_card_footer_button">Ver más</string>
   <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icono de tarjeta</string>
   <string name="view_card_news_title">En las noticias</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">hace 1 día</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ayer</item>
     <item quantity="other">hace %d días</item>
   </plurals>
 </resources>

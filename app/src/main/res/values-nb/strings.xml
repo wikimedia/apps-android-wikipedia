@@ -237,6 +237,7 @@
   <string name="preference_title_show_link_previews">Forhåndsvis lenker</string>
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="nav_item_donate">Støtt Wikipedia</string>
+  <string name="error_voice_search_not_available">Beklager, stemmegjenkjenning er ikke tilgjengelig.</string>
   <string name="crash_report_dialog_title">Beklager, appen krasjet forrige gang</string>
   <string name="crash_report_dialog_text">Vil du sende en krasjrapport til tredjepartstjenesten HockeyApp slik at Wikimedia kan gjennomgå den og fikse feilen som førte til krasjet?</string>
   <string name="crash_report_dialog_dont_send_button">Hopp over</string>
@@ -290,4 +291,22 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="user_option_sync_label">Innstillinger</string>
   <string name="view_continue_reading_card_title">Fortsett å lese</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
+  <string name="view_random_card_title">Tilfeldighetsgenerator</string>
+  <string name="view_random_card_subtitle">Les en tilfeldig artikkel på Wikipedia</string>
+  <string name="view_main_page_card_title">I dag på Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
+  <string name="view_featured_image_card_title">Dagens bilde</string>
+  <string name="view_featured_image_card_download">Last ned</string>
+  <string name="menu_feed_card_dismiss">Skjul dette kortet</string>
+  <string name="menu_feed_card_dismissed">Kortet ble skjult.</string>
+  <string name="feed_featured_image_share_subject">Utvalgt bilde på Wikimedia Commons</string>
+  <string name="feed">Utforsk</string>
+  <string name="view_card_footer_button">Vis mer</string>
+  <string name="most_read_list_card_title">Populært</string>
+  <string name="view_static_card_icon_content_description">Kortsymbol</string>
+  <string name="view_card_news_title">I nyhetene</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">i går</item>
+    <item quantity="other">for %d dager siden</item>
+  </plurals>
 </resources>

@@ -300,13 +300,13 @@
   <string name="menu_feed_card_dismiss">এই কার্ড লুকান</string>
   <string name="menu_feed_card_dismissed">কার্ড লুকানো।</string>
   <string name="feed_featured_image_share_subject">উইকিমিডিয়া কমন্স থেকে নির্বাচিত চিত্র</string>
-  <string name="feed" fuzzy="true">উইকিপিডিয়া অন্বেষণ করুন</string>
+  <string name="feed">অন্বেষণ</string>
   <string name="view_card_footer_button">আরো দেখুন</string>
   <string name="most_read_list_card_title">প্রবণতা</string>
   <string name="view_static_card_icon_content_description">কার্ড আইকন</string>
   <string name="view_card_news_title">সংবাদে</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">১ দিন আগে</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">গতকাল</item>
     <item quantity="other">%d দিন আগে</item>
   </plurals>
 </resources>

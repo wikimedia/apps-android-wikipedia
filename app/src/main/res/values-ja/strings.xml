@@ -300,13 +300,13 @@
   <string name="menu_feed_card_dismiss">カードを隠す</string>
   <string name="menu_feed_card_dismissed">カードを隠しました。</string>
   <string name="feed_featured_image_share_subject">ウィキメディア・コモンズの注目の画像</string>
-  <string name="feed" fuzzy="true">ウィキペディアを探索する</string>
+  <string name="feed">探索する</string>
   <string name="view_card_footer_button">もっと見る</string>
   <string name="most_read_list_card_title">トレンド</string>
   <string name="view_static_card_icon_content_description">カードアイコン</string>
   <string name="view_card_news_title">新着情報</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">1日前</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">昨日</item>
     <item quantity="other">%d日前</item>
   </plurals>
 </resources>

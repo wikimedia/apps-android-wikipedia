@@ -298,13 +298,13 @@
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
   <string name="menu_feed_card_dismissed">카드 숨겨짐.</string>
   <string name="feed_featured_image_share_subject">위키미디어 공용의 알찬 그림</string>
-  <string name="feed" fuzzy="true">위키백과 탐색</string>
+  <string name="feed">탐색</string>
   <string name="view_card_footer_button">더 보기</string>
   <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">하루 전</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">어제</item>
     <item quantity="other">%d일 전</item>
   </plurals>
 </resources>

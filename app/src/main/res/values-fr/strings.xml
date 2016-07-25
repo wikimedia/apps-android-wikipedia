@@ -41,7 +41,8 @@
   <string name="talk_page_link_text">Discussion</string>
   <string name="content_license_html">Le contenu est disponible sous &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;licence CC BY-SA 3.0&lt;/a&gt; sauf indication contraire</string>
   <string name="edit_save_action_license_logged_in">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre appareil. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
+  <string name="edit_save_action_license_anon">En enregistrant, vous acceptez les &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Conditions d’utilisation&lt;/a&gt;, et placez de façon irrévocable vos contributions sous la licence &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC-BY-SA 3.0&lt;/a&gt;. 
+Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="preference_title_language">Langue de Wikipédia</string>
   <string name="preference_languages_filter_hint">Rechercher</string>
   <string name="langlinks_filter_hint">Rechercher</string>
@@ -114,7 +115,7 @@
   <string name="zero_warn_when_leaving_summary">Si votre opérateur mobile renonce aux frais de données liés à l’utilisation de l’application Wikipédia dans le cadre d’un partenariat Wikipédia Zéro, laisser ce paramètre activé vous permettra d’être prévenu lorsque vous quittez l’application Wikipédia et risquez de payer des frais de données.</string>
   <string name="zero_webpage_title">FAQ de Wikipédia Zéro</string>
   <string name="zero_wikipedia_zero_heading">Wikipédia Zéro</string>
-  <string name="zero_interstitial_title">Sortie de Wikipédia Zéro</string>
+  <string name="zero_interstitial_title">Quitter Wikipédia Zéro</string>
   <string name="zero_interstitial_leave_app">Des frais de données pourront s’appliquer. Continuer vers le site externe ?</string>
   <string name="zero_interstitial_continue">Quitter</string>
   <string name="zero_interstitial_cancel">Rester ici</string>
@@ -137,7 +138,7 @@
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
   <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
   <string name="page_protected_other">Cette page a été protégée pour les niveaux suivants : %s</string>
-  <string name="page_protected_can_not_edit">Vous n’avez pas le droit de modifier cette page</string>
+  <string name="page_protected_can_not_edit">Vous n’avez pas les droits pour modifier cette page</string>
   <string name="page_protected_can_not_edit_title">Cette page est protégée</string>
   <string name="settings_item_preferences">Paramètres</string>
   <string name="settings_activity_title">Paramètres</string>
@@ -207,7 +208,7 @@
   <string name="gallery_save_progress">Téléchargement du fichier…</string>
   <string name="gallery_save_success">Fichier bien enregistré.</string>
   <string name="gallery_error_video_failed">Impossible de jouer la vidéo.</string>
-  <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans le stockage de votre appareil est nécessaire pour enregistrer des images. Veuillez réessayer, et accorder la permission demandée.</string>
+  <string name="gallery_save_image_write_permission_rationale">Le droit d’écrire dans l\'espace de stockage de votre appareil est nécessaire pour enregistrer des images. Veuillez réessayer, et accorder la permission demandée.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrer le fichier</string>
   <string name="snippet_share_intro">Fait intéressant sur @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Taper pour développer</string>
@@ -300,13 +301,13 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="menu_feed_card_dismiss">Masquer cette carte</string>
   <string name="menu_feed_card_dismissed">Carte cachée.</string>
   <string name="feed_featured_image_share_subject">Image sélectionnée de Wikimedia Commons</string>
-  <string name="feed" fuzzy="true">Explorer Wikipédia</string>
+  <string name="feed">Explorer</string>
   <string name="view_card_footer_button">Voir davantage</string>
   <string name="most_read_list_card_title">Tendance</string>
   <string name="view_static_card_icon_content_description">Icône de la carte</string>
   <string name="view_card_news_title">Dans l’actualité</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">il y a 1 jour</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">hier</item>
     <item quantity="other">il y a %d jours</item>
   </plurals>
 </resources>

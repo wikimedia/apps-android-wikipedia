@@ -300,13 +300,13 @@ Vill du starta om eller avsluta?</string>
   <string name="menu_feed_card_dismiss">Dölj detta kort</string>
   <string name="menu_feed_card_dismissed">Kortet doldes.</string>
   <string name="feed_featured_image_share_subject">Utmärkt bild från Wikimedia Commons</string>
-  <string name="feed" fuzzy="true">Utforska Wikipedia</string>
+  <string name="feed">Utforska</string>
   <string name="view_card_footer_button">Se mer</string>
   <string name="most_read_list_card_title">Trender</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">På nyheterna</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">1 dag sedan</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">igår</item>
     <item quantity="other">%d dagar sedan</item>
   </plurals>
 </resources>

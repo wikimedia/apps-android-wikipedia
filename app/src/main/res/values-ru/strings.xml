@@ -300,12 +300,13 @@
   <string name="menu_feed_card_dismiss">Скрыть эту карточку</string>
   <string name="menu_feed_card_dismissed">Карточка скрыта.</string>
   <string name="feed_featured_image_share_subject">Лучшие изображения Викисклада</string>
-  <string name="feed" fuzzy="true">Исследуйте Википедию</string>
+  <string name="feed">Исследуйте</string>
   <string name="view_card_footer_button">См. также</string>
   <string name="most_read_list_card_title">В трендах</string>
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
   <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-      <item quantity="other">%d days ago</item>
+    <item quantity="one">вчера</item>
+    <item quantity="other">вчера</item>
   </plurals>
 </resources>

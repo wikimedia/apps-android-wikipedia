@@ -239,6 +239,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="nav_item_reading_lists">Lieslëschten</string>
   <string name="reading_list_untitled">Ouni Titel</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
+  <string name="reading_list_added_to_named">Bei %s dobäigesat.</string>
   <string name="reading_list_added_to_unnamed">Op d\'Lieslëscht derbäigesat.</string>
   <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
@@ -277,11 +278,11 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="menu_feed_card_dismiss">Dës Kaart verstoppen</string>
   <string name="menu_feed_card_dismissed">Kaart verstoppt.</string>
   <string name="feed_featured_image_share_subject">Qualitéitsbild vu Wikimedia Commons</string>
-  <string name="feed" fuzzy="true">Wikipedia entdecken</string>
+  <string name="feed">Entdecken</string>
   <string name="view_card_footer_button">Méi gesinn</string>
   <string name="view_card_news_title">An den Neiegkeeten</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">virun engem Dag</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">gëschter</item>
     <item quantity="other">viru(n) %d Deeg</item>
   </plurals>
 </resources>
