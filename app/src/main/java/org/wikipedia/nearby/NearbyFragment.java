@@ -31,10 +31,10 @@ import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Projection;
 import com.mapbox.mapboxsdk.telemetry.MapboxEventManager;
 
-import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
@@ -50,6 +50,12 @@ import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
  * Displays a list of nearby pages.
  */
 public class NearbyFragment extends Fragment {
+    public interface Callback {
+        void onLoading();
+        void onLoaded();
+        void onLoadPage(PageTitle title, int entrySource, @Nullable Location location);
+    }
+
     private static final String NEARBY_LAST_RESULT = "lastRes";
     private static final String NEARBY_CURRENT_LOCATION = "currentLoc";
     private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 50;
@@ -99,7 +105,7 @@ public class NearbyFragment extends Fragment {
             }
         }
 
-        setRefreshingState(true);
+        onLoading();
         initializeMap();
 
         return rootView;
@@ -178,8 +184,7 @@ public class NearbyFragment extends Fragment {
                         NearbyPage page = findNearbyPageFromMarker(marker);
                         if (page != null) {
                             PageTitle title = new PageTitle(page.getTitle(), site, page.getThumblUrl());
-                            // todo: [overhaul] fix.
-                            ((MainActivity) getActivity()).showLinkPreview(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
+                            onPinTap(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
                             return true;
                         } else {
                             return false;
@@ -234,7 +239,7 @@ public class NearbyFragment extends Fragment {
                     mapboxMap.setMyLocationEnabled(true);
                     goToUserLocation();
                 } else {
-                    setRefreshingState(false);
+                    onLoaded();
                     FeedbackUtil.showMessage(getActivity(), R.string.nearby_zoom_to_location);
                 }
                 break;
@@ -280,7 +285,7 @@ public class NearbyFragment extends Fragment {
             }
 
             LatLng latLng = mapboxMap.getCameraPosition().target;
-            setRefreshingState(true);
+            onLoading();
             new NearbyFetchTask(getActivity(), site, latLng.getLatitude(), latLng.getLongitude(), getMapRadius()) {
                 @Override
                 public void onFinish(NearbyResult result) {
@@ -289,7 +294,7 @@ public class NearbyFragment extends Fragment {
                     }
                     lastResult = result;
                     showNearbyPages(result);
-                    setRefreshingState(false);
+                    onLoaded();
                 }
 
                 @Override
@@ -299,7 +304,7 @@ public class NearbyFragment extends Fragment {
                     }
                     L.e(caught);
                     FeedbackUtil.showError(getActivity(), caught);
-                    setRefreshingState(false);
+                    onLoaded();
                 }
             }.execute();
         }
@@ -423,10 +428,28 @@ public class NearbyFragment extends Fragment {
         MapboxEventManager.getMapboxEventManager().setTelemetryEnabled(false);
     }
 
-    // todo: [overhaul] remove.
-    private void setRefreshingState(boolean isRefreshing) {
-        if (getActivity() instanceof MainActivity) {
-            ((MainActivity) getActivity()).updateProgressBar(isRefreshing, true, 0);
+    private void onLoading() {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onLoading();
         }
+    }
+
+    private void onLoaded() {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onLoaded();
+        }
+    }
+
+    private void onPinTap(PageTitle title, int entrySource, @Nullable Location location) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onLoadPage(title, entrySource, location);
+        }
+    }
+
+    @Nullable private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }

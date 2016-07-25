@@ -1,5 +1,6 @@
 package org.wikipedia.overhaul;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,13 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.overhaul.navtab.NavViewPagerAdapter;
+import org.wikipedia.page.PageTitle;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class OverhaulFragment extends Fragment {
+public class OverhaulFragment extends Fragment implements NearbyFragment.Callback {
     @BindView(R.id.fragment_overhaul_view_pager) ViewPager viewPager;
     private Unbinder unbinder;
 
@@ -38,5 +41,17 @@ public class OverhaulFragment extends Fragment {
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
+    }
+
+    @Override public void onLoading() {
+        // todo: [overhaul] update loading indicator.
+    }
+
+    @Override public void onLoaded() {
+        // todo: [overhaul] update loading indicator.
+    }
+
+    @Override public void onLoadPage(PageTitle title, int entrySource, @Nullable Location location) {
+        // todo: [overhaul] show link preview.
     }
 }
