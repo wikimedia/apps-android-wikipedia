@@ -21,14 +21,13 @@ import org.wikipedia.BackPressedHandler;
 import org.wikipedia.MainActivityToolbarProvider;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.image.FeaturedImage;
+import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.feed.view.FeedRecyclerAdapter;
 import org.wikipedia.feed.news.NewsItemCard;
+import org.wikipedia.feed.view.FeedRecyclerAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.history.HistoryEntry;
@@ -43,7 +42,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class FeedFragment extends Fragment implements BackPressedHandler,
-        MainActivityToolbarProvider, CallbackFragment {
+        MainActivityToolbarProvider {
     @BindView(R.id.feed_app_bar_layout) AppBarLayout appBarLayout;
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
@@ -57,7 +56,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     private int searchIconShowThresholdPx;
     private boolean searchIconVisible;
 
-    public interface Callback extends CallbackFragment.Callback {
+    public interface Callback {
         void onFeedSearchRequested();
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
@@ -167,12 +166,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         return toolbar;
     }
 
-    @Override @Nullable public Callback getCallback() {
-        return FragmentUtil.getCallback(this, Callback.class);
-    }
-
     public void scrollToTop() {
         feedView.smoothScrollToPosition(0);
+    }
+
+    @Nullable private Callback getCallback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 
     private class FeedCallback implements FeedViewCallback {

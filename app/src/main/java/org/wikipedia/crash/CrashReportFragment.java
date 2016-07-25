@@ -9,12 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
-import org.wikipedia.activity.CallbackFragment;
 import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.crash.CrashReportFragment.Callback;
 
-public class CrashReportFragment extends Fragment implements CallbackFragment {
-    public interface Callback extends CallbackFragment.Callback {
+public class CrashReportFragment extends Fragment {
+    public interface Callback {
         void onStartOver();
         void onQuit();
     }
@@ -35,12 +33,12 @@ public class CrashReportFragment extends Fragment implements CallbackFragment {
         return view;
     }
 
-    @Override @Nullable public Callback getCallback() {
-        return FragmentUtil.getCallback(this, Callback.class);
-    }
-
     private void setOnClickListener(View view, @IdRes int id, View.OnClickListener listener) {
         view.findViewById(id).setOnClickListener(listener);
+    }
+
+    @Nullable private Callback getCallback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 
     private class StartOverOnClickListener implements View.OnClickListener {
