@@ -36,6 +36,7 @@
                 android:layout_marginRight="16dp"
                 android:textSize="16sp"
                 android:textColor="?attr/feed_text_primary_color"
+                style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
 
             <org.wikipedia.views.GoneIfEmptyTextView
@@ -48,6 +49,7 @@
                 android:textSize="14sp"
                 android:textColor="?attr/feed_text_secondary_color"
                 android:lineSpacingMultiplier="1.2"
+                style="@style/RtlAwareTextView"
                 tools:text="Lorem ipsum"/>
         </LinearLayout>
 
