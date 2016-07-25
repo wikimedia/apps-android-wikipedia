@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="contributors_list">Adam Baso, Amir E. Aharoni, Anirudh S, Bernd Sitzmann, Brion Vibber, Dan Garry, Dmitry Brant, Elena Tonkovidova, Kaity Hammerstein, Kenan Wang, Maryana Pinchuk, Matanya Moses, Max Semenik, Michael Holloway, Moiz Syed, Monte Hurd, Mun May Tee, Nicole Borrelli, Niklas Laxström, Rummana Yasmeen, Stephen Niedzielski, Thomas PT, Tomasz Finc, Vibha Bamba, Yuvi Panda</string>
-    <string name="libraries_list"><a href="https://github.com/JakeWharton/ButterKnife">ButterKnife</a>
-        <!-- https://github.com/JakeWharton/ButterKnife/blob/master/LICENSE.txt -->
+    <string name="libraries_list"><a href="https://jakewharton.github.io/butterknife/">ButterKnife</a>
+        <!-- https://raw.githubusercontent.com/JakeWharton/butterknife/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/ButterKnife">license</a>),
 
         <a href="https://commons.apache.org/proper/commons-lang/">Commons Lang</a>
-        <!-- https://git-wip-us.apache.org/repos/asf?p=commons-lang.git;a=blob_plain;f=LICENSE.txt;hb=HEAD -->
+        <!-- https://www.apache.org/licenses/ -->
         (<a href="file:///android_asset/licenses/CommonsLang3">license</a>),
 
         <a href="https://github.com/JakeWharton/DiskLruCache">DiskLruCache</a>
-        <!-- https://github.com/JakeWharton/DiskLruCache/blob/master/LICENSE.txt -->
+        <!-- https://raw.githubusercontent.com/JakeWharton/DiskLruCache/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/DiskLruCache">license</a>),
 
-        <a href="https://github.com/facebook/fresco">Fresco</a>
+        <a href="http://frescolib.org/">Fresco</a>
         <!-- https://raw.githubusercontent.com/facebook/fresco/master/LICENSE -->
         (<a href="file:///android_asset/licenses/Fresco">license</a>),
 
-        <a href="https://github.com/bitstadium/HockeySDK-Android">HockeySDK-Android</a>
+        <a href="https://hockeyapp.net/">HockeySDK-Android</a>
         <!-- https://raw.githubusercontent.com/bitstadium/HockeySDK-Android/develop/LICENSE -->
         (<a href="file:///android_asset/licenses/HockeySDK-Android">license</a>),
 
@@ -25,28 +25,28 @@
         <!-- https://raw.githubusercontent.com/kevinsawicki/http-request/master/LICENSE.md -->
         (<a href="file:///android_asset/licenses/Http-Request">license</a>),
 
-        <a href="https://github.com/mapbox/mapbox-android-sdk">Mapbox Android SDK</a>
-        <!-- end of https://github.com/mapbox/mapbox-android-sdk/blob/mb-pages/LICENSE.md -->
+        <a href="https://www.mapbox.com/android-sdk/">Mapbox Android SDK</a>
+        <!-- https://raw.githubusercontent.com/mapbox/mapbox-gl-native/master/LICENSE.md-->
         (<a href="file:///android_asset/licenses/Mapbox">license</a>),
 
         <a href="https://square.github.io/okhttp/">OkHttp</a>
-        <!-- end of https://square.github.io/okhttp -->
+        <!-- https://raw.githubusercontent.com/square/okhttp/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/OkHttp">license</a>),
 
         <a href="https://github.com/ryanjohn1/onboarding/">Onboarding</a>
-        <!-- end of https://github.com/ryanjohn1/onboarding/ -->
+        <!-- https://github.com/ryanjohn1/onboarding/#license -->
         (<a href="file:///android_asset/licenses/Onboarding">license</a>),
 
         <a href="https://square.github.io/otto/">Otto</a>
-        <!-- end of http://square.github.io/otto -->
+        <!-- https://raw.githubusercontent.com/square/otto/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/Otto">license</a>),
 
         <a href="https://square.github.io/retrofit/">Retrofit</a>
-        <!-- end of http://square.github.io/retrofit/ -->
+        <!-- https://raw.githubusercontent.com/square/retrofit/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/Retrofit">license</a>),
 
         <a href="https://github.com/ragunathjawahar/android-saripaar">Saripaar</a>
-        <!-- end of https://github.com/ragunathjawahar/android-saripaar/blob/master/README.md -->
+        <!-- https://github.com/ragunathjawahar/android-saripaar#license -->
         (<a href="file:///android_asset/licenses/Saripaar">license</a>)
     </string>
 </resources>
