@@ -10,14 +10,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.MainActivityToolbarProvider;
@@ -50,7 +48,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
     @BindView(R.id.feed_toolbar) Toolbar toolbar;
-    @BindView(R.id.feed_header_text) TextView headerText;
     private Unbinder unbinder;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
@@ -92,7 +89,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         unbinder = ButterKnife.bind(this, view);
-        headerText.setText(Html.fromHtml(getString(R.string.wp_stylized)));
         feedView.set(coordinator, feedCallback);
         appBarLayout.addOnOffsetChangedListener(headerOffsetChangedListener);
         searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
