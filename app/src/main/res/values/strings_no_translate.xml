@@ -56,4 +56,8 @@
     <string name="activity_overhaul_title">@string/overhaul</string>
     <string name="nav_item_overhaul">@string/overhaul</string>
     <!-- /Nav -->
+
+    <!-- Find in page -->
+    <string name="find_in_page_result">%1$d/%2$d</string>
+
 </resources>

@@ -139,11 +139,8 @@ public class FindInPageActionProvider extends ActionProvider {
                         return;
                     }
                     if (numberOfMatches > 0) {
-                        findInPageMatch.setText(
-                                Integer.toString(activeMatchOrdinal + 1)
-                                        + "/"
-                                        + Integer.toString(numberOfMatches)
-                        );
+                        findInPageMatch.setText(getContext().getString(R.string.find_in_page_result,
+                                activeMatchOrdinal + 1, numberOfMatches));
                         findInPageNext.setEnabled(true);
                         findInPagePrev.setEnabled(true);
                     } else {
