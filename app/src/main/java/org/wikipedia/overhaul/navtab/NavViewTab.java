@@ -21,17 +21,17 @@ public enum NavViewTab implements EnumCode {
     },
     NEARBY(R.string.nav_item_nearby, R.drawable.ic_explore_black_24dp) {
         @NonNull @Override public Fragment newInstance() {
-            return new NearbyFragment();
+            return NearbyFragment.newInstance();
         }
     },
     HISTORY(R.string.nav_item_history, R.drawable.ic_restore_black_24dp) {
         @NonNull @Override public Fragment newInstance() {
-            return new HistoryFragment();
+            return HistoryFragment.newInstance();
         }
     },
     READING_LISTS(R.string.nav_item_reading_lists, R.drawable.ic_bookmark_black_24dp) {
         @NonNull @Override public Fragment newInstance() {
-            return new ReadingListsFragment();
+            return ReadingListsFragment.newInstance();
         }
     };
 

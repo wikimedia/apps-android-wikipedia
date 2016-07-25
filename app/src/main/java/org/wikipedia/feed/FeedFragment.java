@@ -68,7 +68,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         void onFeaturedImageSelected(FeaturedImageCard card);
     }
 
-    public static FeedFragment newInstance() {
+    @NonNull public static FeedFragment newInstance() {
         return new FeedFragment();
     }
 
