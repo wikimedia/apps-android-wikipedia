@@ -8,8 +8,6 @@ import android.graphics.drawable.LevelListDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.util.ApiUtil;
-
 /** A {@link LevelListDrawable} that applies color filters and tints to each level. */
 public class AppLevelListDrawable extends LevelListDrawable {
     @Nullable private ColorFilter colorFilter;
@@ -47,7 +45,7 @@ public class AppLevelListDrawable extends LevelListDrawable {
         boolean invalidate = false;
         if (drawable != null) {
             drawable.setColorFilter(colorFilter);
-            if (ApiUtil.hasLollipop()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 drawable.setTintList(tint);
             }
             invalidate = true;

@@ -3,6 +3,7 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.support.annotation.DimenRes;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -141,7 +142,7 @@ public final class DimenUtil {
     }
 
     private static boolean isStatusBarTranslucent() {
-        return ApiUtil.hasKitKat();
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
     }
 
     public static int leadImageHeightForDevice() {

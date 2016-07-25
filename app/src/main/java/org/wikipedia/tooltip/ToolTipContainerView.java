@@ -11,7 +11,6 @@ import android.view.View;
 import com.appenguin.onboarding.ToolTipRelativeLayout;
 import com.appenguin.onboarding.ToolTipView;
 
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.views.ViewUtil;
 
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
@@ -88,7 +87,7 @@ public class ToolTipContainerView extends ToolTipRelativeLayout {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void disableLayoutMirroring() {
-        if (ApiUtil.hasJellyBeanMr1()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             // Onboarding does not handle mirroring when calculating layout offsets.
             setLayoutDirection(LAYOUT_DIRECTION_LTR);
         }

@@ -1,5 +1,6 @@
 package org.wikipedia.page.snippet;
 
+import android.os.Build;
 import android.support.v7.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -7,7 +8,6 @@ import android.webkit.WebView;
 
 import org.wikipedia.R;
 import org.wikipedia.MainActivity;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.log.L;
 
 import static org.wikipedia.views.ViewUtil.getOriginatingView;
@@ -69,10 +69,7 @@ public class CompatActionMode {
      * @return true if originated by a WebView.
      */
     private boolean isOriginatedByWebViewOnMarshmallow() {
-        if (ApiUtil.hasMarshmallow()) {
-            return isOriginatedByWebView();
-        }
-        return true;
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || isOriginatedByWebView();
     }
 
     private boolean isOriginatedByWebView() {

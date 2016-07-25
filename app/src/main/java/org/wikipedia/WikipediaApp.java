@@ -54,7 +54,6 @@ import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.database.UserOptionDao;
 import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
@@ -579,7 +578,7 @@ public class WikipediaApp extends Application {
 
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void enableWebViewDebugging() {
-        if (BuildConfig.DEBUG && ApiUtil.hasKitKat()) {
+        if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
     }

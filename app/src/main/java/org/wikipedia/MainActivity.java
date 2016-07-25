@@ -94,7 +94,6 @@ import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -243,13 +242,14 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     }
 
     @Override
+    @TargetApi(17)
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
         MetricsManager.register(app, app);
         app.checkCrashes(this);
 
-        if (ApiUtil.hasKitKat()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
@@ -276,7 +276,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         updateProgressBar(false, true, 0);
 
         drawerLayout = (WikiDrawerLayout) findViewById(R.id.drawer_layout);
-        if (!ApiUtil.hasLollipop()) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             drawerLayout.setDrawerShadow(R.drawable.nav_drawer_shadow, GravityCompat.START);
         }
         NavigationView navDrawer = (NavigationView) findViewById(R.id.navdrawer);
@@ -541,7 +541,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     @TargetApi(Build.VERSION_CODES.M)
     private void handleProcessTextIntent(Intent intent) {
-        if (!ApiUtil.hasMarshmallow()) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return;
         }
         String text = intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT);

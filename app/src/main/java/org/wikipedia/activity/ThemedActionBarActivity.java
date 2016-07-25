@@ -13,7 +13,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.ApiUtil;
 
 import java.lang.reflect.Field;
 
@@ -53,7 +52,7 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
 
     @Override
     public boolean isDestroyed() {
-        if (ApiUtil.hasJellyBeanMr1()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             return super.isDestroyed();
         }
         return mDestroyed;

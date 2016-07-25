@@ -130,7 +130,6 @@ android {
     // while we still have lint errors; remove once those are fixed
     lintOptions {
         disable 'MissingTranslation'
-        warning 'NewApi' // until https://code.google.com/p/android/issues/detail?id=137195 is released
         disable 'InvalidPackage' // required by Butter Knife
     }
 

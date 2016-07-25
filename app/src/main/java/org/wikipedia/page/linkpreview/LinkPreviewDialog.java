@@ -18,13 +18,13 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageSummary;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ViewUtil;
 
 import android.content.DialogInterface;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -135,10 +135,10 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
         setConditionalLayoutDirection(rootView, pageTitle.getSite().languageCode());
-        if (!ApiUtil.hasKitKat()) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             // for oldish devices, reset line spacing to 1, since it truncates the descenders.
             titleText.setLineSpacing(0, 1.0f);
-        } else if (!ApiUtil.hasLollipop()) {
+        } else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             // for <5.0, give the title a bit more bottom padding, since these versions
             // incorrectly cut off the bottom of the text when line spacing is <1.
             final int bottomPadding = 8;

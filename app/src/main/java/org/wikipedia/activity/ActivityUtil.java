@@ -10,12 +10,10 @@ import android.support.annotation.Nullable;
 import android.view.MenuItem;
 import android.view.View;
 
-import org.wikipedia.util.ApiUtil;
-
 public final class ActivityUtil {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     public static void requestFullUserOrientation(Activity activity) {
-        if (ApiUtil.hasJellyBeanMr2()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_USER);
         }
     }

@@ -6,6 +6,7 @@ import android.content.pm.LabeledIntent;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -96,7 +97,7 @@ public final class ShareUtil {
 
 
     private static Uri getUri(Context context, File processedBitmap) {
-        return ApiUtil.hasMarshmallow()
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 ? FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, processedBitmap)
                 : Uri.parse(FILE_PREFIX + processedBitmap.getAbsolutePath());
     }
@@ -152,7 +153,7 @@ public final class ShareUtil {
     }
 
     public static File getShareFolder(Context context) {
-        return ApiUtil.hasMarshmallow() ? context.getCacheDir() : context.getExternalFilesDir(null);
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? context.getCacheDir() : context.getExternalFilesDir(null);
     }
 
     private static String cleanFileName(String fileName) {

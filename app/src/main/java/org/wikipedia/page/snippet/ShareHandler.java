@@ -3,6 +3,7 @@ package org.wikipedia.page.snippet;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
@@ -34,7 +35,6 @@ import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
@@ -196,7 +196,7 @@ public class ShareHandler {
         }
         MenuItem editItem = menu.findItem(R.id.menu_text_edit_here);
         editItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_EDIT_HERE));
-        if (!ApiUtil.hasJellyBean() || !activity.getCurPageFragment().getPage().isArticle()) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN || !activity.getCurPageFragment().getPage().isArticle()) {
             editItem.setVisible(false);
         }
 

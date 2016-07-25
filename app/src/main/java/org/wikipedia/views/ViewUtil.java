@@ -19,7 +19,6 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DimenUtil;
 
 import java.lang.reflect.Field;
@@ -28,7 +27,7 @@ public final class ViewUtil {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @SuppressWarnings("deprecation")
     public static void setBackgroundDrawable(View view, Drawable drawable) {
-        if (ApiUtil.hasJellyBean()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackground(drawable);
         } else {
             view.setBackgroundDrawable(drawable);

@@ -13,7 +13,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.login.User;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.log.L;
 
 public final class AccountUtil {
@@ -61,7 +60,7 @@ public final class AccountUtil {
     public static void removeAccount() {
         Account account = account();
         if (account != null) {
-            if (ApiUtil.hasLollipopMr1()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
                 accountManager().removeAccountExplicitly(account);
             } else {
                 //noinspection deprecation

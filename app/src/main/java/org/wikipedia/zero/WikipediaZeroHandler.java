@@ -6,7 +6,6 @@ import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
-import org.wikipedia.util.ApiUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
@@ -20,6 +19,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -226,7 +226,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         rootView.setMinimumHeight(BANNER_HEIGHT);
         textView.setTextColor(foreground);
         textView.setTextSize(BANNER_TEXT_SIZE);
-        if (ApiUtil.hasJellyBeanMr1()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         }
         textView.setGravity(Gravity.CENTER_HORIZONTAL);

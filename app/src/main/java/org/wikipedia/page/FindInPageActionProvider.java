@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import org.wikipedia.R;
 import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.FindInPageFunnel;
-import org.wikipedia.util.ApiUtil;
 
 import android.annotation.TargetApi;
 import android.graphics.Color;
@@ -131,7 +130,7 @@ public class FindInPageActionProvider extends ActionProvider {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void findInPage(String s) {
         // to make it stop complaining
-        if (ApiUtil.hasJellyBean()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             parentActivity.getCurPageFragment().getWebView().setFindListener(new FindListener() {
                 @Override
                 public void onFindResultReceived(int activeMatchOrdinal, int numberOfMatches, boolean isDoneCounting) {
