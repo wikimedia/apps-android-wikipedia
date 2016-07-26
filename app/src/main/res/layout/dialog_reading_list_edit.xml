@@ -20,6 +20,7 @@
                 android:id="@+id/reading_list_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textCapSentences"
                 style="?android:textAppearanceMedium"
                 android:imeOptions="flagNoExtractUi"
                 />
