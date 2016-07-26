@@ -203,7 +203,7 @@ public class NearbyFragment extends Fragment {
                         NearbyPage page = findNearbyPageFromMarker(marker);
                         if (page != null) {
                             PageTitle title = new PageTitle(page.getTitle(), site, page.getThumblUrl());
-                            onPinTap(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
+                            onLoadPage(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
                             return true;
                         } else {
                             return false;
@@ -477,7 +477,7 @@ public class NearbyFragment extends Fragment {
         }
     }
 
-    private void onPinTap(PageTitle title, int entrySource, @Nullable Location location) {
+    private void onLoadPage(PageTitle title, int entrySource, @Nullable Location location) {
         Callback callback = callback();
         if (callback != null) {
             callback.onLoadPage(title, entrySource, location);

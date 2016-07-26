@@ -31,7 +31,9 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     private Unbinder unbinder;
 
     public static OverhaulFragment newInstance() {
-        return new OverhaulFragment();
+        OverhaulFragment fragment = new OverhaulFragment();
+        fragment.setRetainInstance(true);
+        return fragment;
     }
 
     @Nullable @Override public View onCreateView(LayoutInflater inflater,
