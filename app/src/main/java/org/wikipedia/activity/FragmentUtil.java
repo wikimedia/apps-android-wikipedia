@@ -16,12 +16,16 @@ public final class FragmentUtil {
         if (callback.isInstance(fragment.getTargetFragment())) {
             //noinspection unchecked
             return (T) fragment.getTargetFragment();
-        } else if (callback.isInstance(fragment.getActivity())) {
+        }
+        if (callback.isInstance(fragment.getParentFragment())) {
+            //noinspection unchecked
+            return (T) fragment.getParentFragment();
+        }
+        if (callback.isInstance(fragment.getActivity())) {
             //noinspection unchecked
             return (T) fragment.getActivity();
-        } else {
-            return null;
         }
+        return null;
     }
 
     private FragmentUtil() { }
