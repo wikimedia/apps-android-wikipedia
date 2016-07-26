@@ -66,6 +66,7 @@ public class NearbyFragment extends Fragment {
     private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 50;
 
     @BindView(R.id.mapview) MapView mapView;
+    private boolean mapViewResumed;
     private Unbinder unbinder;
 
     @Nullable private MapboxMap mapboxMap;
@@ -73,9 +74,9 @@ public class NearbyFragment extends Fragment {
 
     private Site site;
     private NearbyResult lastResult;
-    @Nullable private Location currentLocation;
 
-    private boolean firstLocationLock = false;
+    @Nullable private Location currentLocation;
+    private boolean firstLocationLock;
 
     @NonNull public static NearbyFragment newInstance() {
         return new NearbyFragment();
@@ -95,9 +96,9 @@ public class NearbyFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
 
         // todo: [overhaul] remove.
-        view.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
+        view.setPadding(0, getContentTopOffsetPx(getContext()), 0, 0);
 
-        markerIconPassive = IconFactory.getInstance(getActivity()).fromResource(R.drawable.ic_map_marker);
+        markerIconPassive = IconFactory.getInstance(getContext()).fromResource(R.drawable.ic_map_marker);
 
         mapView.onCreate(savedInstanceState);
 
@@ -113,11 +114,15 @@ public class NearbyFragment extends Fragment {
         onLoading();
         initializeMap();
 
+        // setUserVisibleHint() lifecycle occurs prior to onCreateView().
+        updateMapView();
+
         return view;
     }
 
     @Override
     public void onDestroyView() {
+        mapViewResumed = false;
         mapboxMap = null;
         unbinder.unbind();
         unbinder = null;
@@ -134,16 +139,15 @@ public class NearbyFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapView.onResume();
-    }
+    @Override public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapView.onPause();
+        if (mapView == null || mapboxMap == null) {
+            return;
+        }
+
+        updateMapView();
+        updateLocationEnabled(mapboxMap);
     }
 
     @Override
@@ -206,6 +210,7 @@ public class NearbyFragment extends Fragment {
                 if (currentLocation != null && lastResult != null) {
                     showNearbyPages(lastResult);
                 } else if (locationPermitted()) {
+                    updateLocationEnabled(mapboxMap);
                     goToUserLocation();
                 }
             }
@@ -226,6 +231,7 @@ public class NearbyFragment extends Fragment {
         if (!locationPermitted()) {
             requestLocationRuntimePermissions(GO_TO_LOCATION_PERMISSION_REQUEST);
         } else if (mapboxMap != null) {
+            updateLocationEnabled(mapboxMap);
             goToUserLocation();
         }
     }
@@ -247,7 +253,7 @@ public class NearbyFragment extends Fragment {
         switch (requestCode) {
             case GO_TO_LOCATION_PERMISSION_REQUEST:
                 if (PermissionUtil.isPermitted(grantResults) && mapboxMap != null) {
-                    mapboxMap.setMyLocationEnabled(true);
+                    updateLocationEnabled(mapboxMap);
                     goToUserLocation();
                 } else {
                     onLoaded();
@@ -417,6 +423,20 @@ public class NearbyFragment extends Fragment {
                 .position(new LatLng(location.getLatitude(), location.getLongitude()))
                 .title(page.getTitle())
                 .icon(markerIconPassive);
+    }
+
+    private void updateLocationEnabled(@NonNull MapboxMap map) {
+        map.setMyLocationEnabled(getUserVisibleHint());
+    }
+
+    private void updateMapView() {
+        if (getUserVisibleHint() && !mapViewResumed) {
+            mapViewResumed = true;
+            mapView.onResume();
+        } else if (!getUserVisibleHint() && mapViewResumed) {
+            mapView.onPause();
+            mapViewResumed = false;
+        }
     }
 
     @SuppressLint("CommitPrefEdits")
