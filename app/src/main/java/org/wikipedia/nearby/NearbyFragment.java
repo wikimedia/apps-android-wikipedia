@@ -54,8 +54,6 @@ public class NearbyFragment extends Fragment {
     private static final String NEARBY_CURRENT_LOCATION = "currentLoc";
     private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 50;
 
-    private final List<Marker> mMarkerList = new ArrayList<>();
-
     private MapView mapView;
     @Nullable private MapboxMap mapboxMap;
 
@@ -386,7 +384,6 @@ public class NearbyFragment extends Fragment {
         }
 
         getActivity().invalidateOptionsMenu();
-        mMarkerList.clear();
         // Since Marker is a descendant of Annotation, this will remove all Markers.
         mapboxMap.removeAnnotations();
 
@@ -396,7 +393,7 @@ public class NearbyFragment extends Fragment {
                 optionsList.add(createMarkerOptions(item));
             }
         }
-        mMarkerList.addAll(mapboxMap.addMarkers(optionsList));
+        mapboxMap.addMarkers(optionsList);
     }
 
     @NonNull
