@@ -829,7 +829,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
                     navDrawerHelper.setTempExplicitHighlight(ReadingListsFragment.class);
                     drawerLayout.openDrawer(GravityCompat.START);
                 } else {
-                    pushFragment(new ReadingListsFragment());
+                    pushFragment(ReadingListsFragment.newInstance());
                 }
             }
         });

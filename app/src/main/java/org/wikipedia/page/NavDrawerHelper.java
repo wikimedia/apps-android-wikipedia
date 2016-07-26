@@ -86,15 +86,15 @@ public class NavDrawerHelper {
                         funnel.logFeed();
                         break;
                     case R.id.nav_item_history:
-                        activity.pushFragment(new HistoryFragment());
+                        activity.pushFragment(HistoryFragment.newInstance());
                         funnel.logHistory();
                         break;
                     case R.id.nav_item_reading_lists:
-                        activity.pushFragment(new ReadingListsFragment());
+                        activity.pushFragment(ReadingListsFragment.newInstance());
                         funnel.logReadingLists();
                         break;
                     case R.id.nav_item_nearby:
-                        activity.pushFragment(new NearbyFragment());
+                        activity.pushFragment(NearbyFragment.newInstance());
                         funnel.logNearby();
                         break;
                     case R.id.nav_item_more:

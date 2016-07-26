@@ -71,6 +71,10 @@ public class NearbyFragment extends Fragment {
 
     private boolean firstLocationLock = false;
 
+    @NonNull public static NearbyFragment newInstance() {
+        return new NearbyFragment();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

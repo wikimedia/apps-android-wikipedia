@@ -63,6 +63,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private HistoryItemLongClickListener itemLongClickListener = new HistoryItemLongClickListener();
     private boolean firstRun = true;
 
+    @NonNull public static HistoryFragment newInstance() {
+        return new HistoryFragment();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

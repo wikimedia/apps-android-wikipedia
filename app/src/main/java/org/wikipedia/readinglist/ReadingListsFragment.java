@@ -1,6 +1,7 @@
 package org.wikipedia.readinglist;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -51,6 +52,10 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     private int readingListSortMode;
     private int readingListPageSortMode;
+
+    @NonNull public static ReadingListsFragment newInstance() {
+        return new ReadingListsFragment();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
