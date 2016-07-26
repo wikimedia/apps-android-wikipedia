@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.FeedFragment;
+import org.wikipedia.feed.image.FeaturedImage;
+import org.wikipedia.feed.image.FeaturedImageCard;
+import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.nearby.NearbyFragment;
@@ -21,8 +25,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class OverhaulFragment extends Fragment implements NearbyFragment.Callback,
-        HistoryFragment.Callback, ReadingListsFragment.Callback {
+public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
+        NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback {
     @BindView(R.id.fragment_overhaul_view_pager) ViewPager viewPager;
     private Unbinder unbinder;
 
@@ -45,6 +49,42 @@ public class OverhaulFragment extends Fragment implements NearbyFragment.Callbac
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
+    }
+
+    @Override public void onFeedSearchRequested() {
+        // todo: [overhaul] search.
+    }
+
+    @Override public void onFeedVoiceSearchRequested() {
+        // todo: [overhaul] voice search.
+    }
+
+    @Override public void onFeedSelectPage(HistoryEntry entry) {
+        // todo: [overhaul] load page.
+    }
+
+    @Override public void onFeedAddPageToList(HistoryEntry entry) {
+        // todo: [overhaul] add page to list.
+    }
+
+    @Override public void onFeedSharePage(HistoryEntry entry) {
+        // todo: [overhaul] share page.
+    }
+
+    @Override public void onFeedNewsItemSelected(NewsItemCard card) {
+        // todo: [overhaul] load page.
+    }
+
+    @Override public void onFeedShareImage(FeaturedImageCard card) {
+        // todo: [overhaul] share image.
+    }
+
+    @Override public void onFeedDownloadImage(FeaturedImage image) {
+        // todo: [overhaul] download image.
+    }
+
+    @Override public void onFeaturedImageSelected(FeaturedImageCard card) {
+        // todo: [overhaul] update loading indicator.
     }
 
     @Override public void onLoading() {
