@@ -1,12 +1,15 @@
 package org.wikipedia.analytics;
 
 import android.net.Uri;
-import android.util.Log;
-import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.util.log.L;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Base class for all various types of events that are logged to EventLogging.
@@ -59,23 +62,26 @@ public class EventLoggingEvent {
 
     private class LogEventTask extends SaneAsyncTask<Integer> {
         private final JSONObject data;
+
         LogEventTask(JSONObject data) {
             this.data = data;
         }
 
         @Override
         public Integer performTask() throws Throwable {
-            String elUrl = EVENTLOG_URL;
-            String dataURL = Uri.parse(elUrl)
+            String dataURL = Uri.parse(EVENTLOG_URL)
                     .buildUpon().query(data.toString())
                     .build().toString();
-            return HttpRequest.get(dataURL).header("User-Agent", userAgent).code();
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder().url(dataURL).header("User-Agent", userAgent).build();
+            Response response = client.newCall(request).execute();
+            return response.code();
         }
 
         @Override
         public void onCatch(Throwable caught) {
             // Do nothing bad. EL data is ok to lose.
-            Log.d(Funnel.ANALYTICS_TAG, "Lost EL data: " + data.toString());
+            L.d("Lost EL data: " + data.toString());
         }
     }
 }

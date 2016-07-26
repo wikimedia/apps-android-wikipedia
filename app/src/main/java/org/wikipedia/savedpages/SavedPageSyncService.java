@@ -6,8 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import com.github.kevinsawicki.http.HttpRequest;
-
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
@@ -28,6 +26,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import static org.wikipedia.util.FileUtil.writeFile;
 
@@ -154,12 +156,16 @@ public class SavedPageSyncService extends IntentService {
             return true;
         }
 
-        HttpRequest request = HttpRequest.get(url).userAgent(WikipediaApp.getInstance()
-                .getUserAgent());
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(url)
+                                               .header("User-Agent", WikipediaApp.getInstance().getUserAgent())
+                                               .build();
+        Response response = client.newCall(request).execute();
+
         try {
-            if (request.ok()) {
-                InputStream response = request.stream();
-                writeFile(response, file);
+            if (response.isSuccessful()) {
+                InputStream stream = response.body().byteStream();
+                writeFile(stream, file);
                 response.close();
                 L.v("downloaded image " + url + " to " + file.getAbsolutePath());
                 return true;

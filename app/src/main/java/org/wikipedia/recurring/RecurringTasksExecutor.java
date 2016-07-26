@@ -19,7 +19,7 @@ public class RecurringTasksExecutor {
             public Void performTask() throws Throwable {
                 RecurringTask[] allTasks = new RecurringTask[] {
                         // Has list of all rotating tasks that need to be run
-                        new RemoteConfigRefreshTask(app),
+                        new RemoteConfigRefreshTask(),
                         new SharedImageCleanupTask(app),
                         new DailyEventTask(app)
                 };
