@@ -11,9 +11,7 @@
         android:layout_height="match_parent"
         app:access_token="@string/mapbox_public_token"
         app:attribution_enabled="false"
-        app:logo_enabled="false"
-        app:my_location_enabled="true"
-        />
+        app:logo_enabled="false" />
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/user_location_button"
         android:layout_width="wrap_content"
