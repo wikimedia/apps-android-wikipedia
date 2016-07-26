@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -31,11 +32,13 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.BackPressedHandler;
+import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.database.contract.PageHistoryContract;
-import org.wikipedia.MainActivity;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
@@ -46,6 +49,11 @@ import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class HistoryFragment extends Fragment implements BackPressedHandler {
+    public interface Callback {
+        void onLoadPage(PageTitle title, HistoryEntry entry);
+        void onClearHistory();
+    }
+
     private ListView historyEntryList;
     private View historyEmptyContainer;
     private TextView historyEmptyTitle;
@@ -55,7 +63,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     private WikipediaApp app;
 
-    private LoaderCallback callback;
+    private LoaderCallback loaderCallback;
 
     private ActionMode actionMode;
     private HistorySearchTextWatcher textWatcher = new HistorySearchTextWatcher();
@@ -78,7 +86,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
-        rootView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
+        rootView.setPadding(0, getContentTopOffsetPx(getContext()), 0, 0);
         historyEntryList = (ListView) rootView.findViewById(R.id.history_entry_list);
         historyEmptyContainer = rootView.findViewById(R.id.history_empty_container);
         historyEmptyTitle = (TextView) rootView.findViewById(R.id.history_empty_title);
@@ -90,8 +98,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyEntryList.setOnItemClickListener(itemClickListener);
         historyEntryList.setOnItemLongClickListener(itemLongClickListener);
 
-        callback = new LoaderCallback(getContext(), adapter);
-        getActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, callback);
+        loaderCallback = new LoaderCallback(getContext(), adapter);
+        getActivity().getSupportLoaderManager().initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
 
         return rootView;
     }
@@ -193,7 +201,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_clear_all_history:
-                new AlertDialog.Builder(getActivity())
+                new AlertDialog.Builder(getContext())
                         .setTitle(R.string.dialog_title_clear_history)
                         .setMessage(R.string.dialog_message_clear_history)
                         .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
@@ -202,8 +210,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                                 // Clear history!
                                 new DeleteAllHistoryTask(app).execute();
                                 entryFilter.setVisibility(View.GONE);
-                                ((MainActivity) getActivity()).resetAfterClearHistory();
-                            }
+                                onClearHistoryClick();
+                        }
                         })
                         .setNegativeButton(R.string.no, null).create().show();
                 return true;
@@ -218,7 +226,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             if (actionMode == null) {
                 HistoryEntry oldEntry = (HistoryEntry) view.getTag();
                 HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
-                ((MainActivity) getActivity()).loadPage(oldEntry.getTitle(), newEntry);
+                onPageClick(oldEntry.getTitle(), newEntry);
             } else {
                 actionMode.invalidate();
             }
@@ -307,7 +315,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, callback);
+            getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
             if (editable.length() == 0) {
                 historyEmptyTitle.setText(R.string.history_empty_title);
                 historyEmptyMessage.setVisibility(View.VISIBLE);
@@ -362,5 +370,23 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     private void setActionModeIntTitle(int count, ActionMode mode) {
         mode.setTitle(NumberFormat.getInstance().format(count));
+    }
+
+    private void onPageClick(PageTitle title, HistoryEntry entry) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onLoadPage(title, entry);
+        }
+    }
+
+    private void onClearHistoryClick() {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onClearHistory();
+        }
+    }
+
+    @Nullable private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }

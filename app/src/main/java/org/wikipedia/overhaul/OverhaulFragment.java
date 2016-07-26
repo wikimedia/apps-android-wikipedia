@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.overhaul.navtab.NavViewPagerAdapter;
 import org.wikipedia.page.PageTitle;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class OverhaulFragment extends Fragment implements NearbyFragment.Callback,
-        ReadingListsFragment.Callback {
+        HistoryFragment.Callback, ReadingListsFragment.Callback {
     @BindView(R.id.fragment_overhaul_view_pager) ViewPager viewPager;
     private Unbinder unbinder;
 
@@ -60,5 +61,9 @@ public class OverhaulFragment extends Fragment implements NearbyFragment.Callbac
 
     @Override public void onLoadPage(PageTitle title, HistoryEntry entry) {
         // todo: [overhaul] show link preview.
+    }
+
+    @Override public void onClearHistory() {
+        // todo: [overhaul] clear history.
     }
 }

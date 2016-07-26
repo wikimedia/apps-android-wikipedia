@@ -66,6 +66,7 @@ import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
@@ -113,7 +114,7 @@ import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermis
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class MainActivity extends ThemedActionBarActivity implements FeedFragment.Callback,
-        NearbyFragment.Callback, ReadingListsFragment.Callback {
+        NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback {
 
     public enum TabPosition {
         CURRENT_TAB,
@@ -797,6 +798,10 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     @Override public void onLoadPage(PageTitle title, HistoryEntry entry) {
         loadPage(title, entry);
+    }
+
+    @Override public void onClearHistory() {
+        resetAfterClearHistory();
     }
 
     private void hideLinkPreview() {
