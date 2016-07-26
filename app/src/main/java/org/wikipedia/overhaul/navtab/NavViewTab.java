@@ -11,6 +11,7 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.nearby.NearbyFragment;
+import org.wikipedia.readinglist.ReadingListsFragment;
 
 public enum NavViewTab implements EnumCode {
     EXPLORE(R.string.nav_item_feed, R.drawable.ic_globe) {
@@ -23,9 +24,14 @@ public enum NavViewTab implements EnumCode {
             return new NearbyFragment();
         }
     },
-    LIBRARY(R.string.nav_item_reading_lists, R.drawable.ic_bookmark_black_24dp) {
+    HISTORY(R.string.nav_item_history, R.drawable.ic_restore_black_24dp) {
         @NonNull @Override public Fragment newInstance() {
             return new HistoryFragment();
+        }
+    },
+    READING_LISTS(R.string.nav_item_reading_lists, R.drawable.ic_bookmark_black_24dp) {
+        @NonNull @Override public Fragment newInstance() {
+            return new ReadingListsFragment();
         }
     };
 
