@@ -113,7 +113,7 @@ import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermis
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class MainActivity extends ThemedActionBarActivity implements FeedFragment.Callback,
-        NearbyFragment.Callback {
+        NearbyFragment.Callback, ReadingListsFragment.Callback {
 
     public enum TabPosition {
         CURRENT_TAB,
@@ -793,6 +793,10 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     @Override public void onLoadPage(PageTitle title, int entrySource, @Nullable Location location) {
         showLinkPreview(title, entrySource, location);
+    }
+
+    @Override public void onLoadPage(PageTitle title, HistoryEntry entry) {
+        loadPage(title, entry);
     }
 
     private void hideLinkPreview() {

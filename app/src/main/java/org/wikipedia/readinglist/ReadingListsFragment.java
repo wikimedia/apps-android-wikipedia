@@ -2,6 +2,7 @@ package org.wikipedia.readinglist;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -17,10 +18,10 @@ import android.view.ViewGroup;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
@@ -34,6 +35,10 @@ import java.util.List;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class ReadingListsFragment extends Fragment implements BackPressedHandler {
+    public interface Callback {
+        void onLoadPage(PageTitle title, HistoryEntry entry);
+    }
+
     private static final int PAGE_READING_LISTS = 0;
     private static final int PAGE_LIST_DETAIL = 1;
 
@@ -68,16 +73,18 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_reading_lists, container, false);
-        rootView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
+        // todo: [overhaul] remove.
+        rootView.setPadding(0, getContentTopOffsetPx(getContext()), 0, 0);
         readingListView = (RecyclerView) rootView.findViewById(R.id.reading_list_list);
         emptyContainer = rootView.findViewById(R.id.empty_container);
 
+        // todo: use butter knife.
         pager = (ViewPager) rootView.findViewById(R.id.pager);
         listDetailView = (ReadingListDetailView) rootView.findViewById(R.id.list_detail_view);
         listDetailView.setActionListener(actionListener);
         listDetailView.setOnItemActionListener(itemActionListener);
 
-        readingListView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
 
         pager = (ViewPager) rootView.findViewById(R.id.pager);
@@ -269,7 +276,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         public void onClick(ReadingList readingList, ReadingListPage page) {
             PageTitle title = ReadingListDaoProxy.pageTitle(page);
             HistoryEntry newEntry = new HistoryEntry(title, HistoryEntry.SOURCE_READING_LIST);
-            ((MainActivity) getActivity()).loadPage(title, newEntry);
+            onPageClick(title, newEntry);
 
             ReadingList.DAO.makeListMostRecent(readingList);
         }
@@ -286,6 +293,17 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             funnel.logDeleteItem(readingList, readingLists.size());
             updateLists();
         }
+    }
+
+    private void onPageClick(PageTitle title, HistoryEntry entry) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onLoadPage(title, entry);
+        }
+    }
+
+    @Nullable private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 
     private void showDeleteListUndoSnackbar(final ReadingList readingList) {
