@@ -69,7 +69,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     }
 
     @NonNull public static FeedFragment newInstance() {
-        return new FeedFragment();
+        FeedFragment fragment = new FeedFragment();
+        fragment.setRetainInstance(true);
+        return fragment;
     }
 
     @Override
@@ -77,6 +79,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
         coordinator = new FeedCoordinator(getContext());
+        coordinator.more(app.getSite());
         funnel = new FeedFunnel(app);
         Prefs.pageLastShown(0);
     }
@@ -116,8 +119,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
             }
         });
 
-        coordinator.more(app.getSite());
-
         return view;
     }
 
@@ -129,6 +130,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
 
     @Override
     public void onDestroyView() {
+        coordinator.setFeedUpdateListener(null);
+        swipeRefreshLayout.setOnRefreshListener(null);
         appBarLayout.removeOnOffsetChangedListener(headerOffsetChangedListener);
         unbinder.unbind();
         unbinder = null;
