@@ -177,6 +177,19 @@ body {
 .content div.magnify {
   display: none;
 }
+h1 {
+  font-size: 1.7em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+h4 {
+  font-weight: bold;
+}
 .pre-content h1,
 .content h1,
 .content h2,
@@ -195,19 +208,6 @@ h6 {
 .content h5,
 .content h6 {
   padding: 0.5em 0;
-}
-h1 {
-  font-size: 1.7em;
-}
-h2 {
-  font-size: 1.5em;
-}
-h3 {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-h4 {
-  font-weight: bold;
 }
 blockquote {
   font-family: 'Linux Libertine', 'Georgia', ' Times', serif;
@@ -232,6 +232,27 @@ blockquote:after {
   right: 0;
   bottom: 0;
 }
+.hlist > ul li,
+ul.hlist li {
+  display: inline-block;
+  margin-right: 8px;
+}
+.content {
+  /* stylelint-disable no-descending-specificity */
+  /* stylelint-enable no-descending-specificity */
+}
+.content ul {
+  list-style: square inside;
+}
+.content ul > li > ul {
+  list-style-type: disc;
+}
+.content ul > li > ul > li > ul {
+  list-style-type: circle;
+}
+.content ol {
+  list-style: decimal inside;
+}
 .content ol ol,
 .content ul ol,
 .content ol ul,
@@ -246,28 +267,11 @@ blockquote:after {
 .content ul li:last-child {
   margin-bottom: inherit;
 }
-.content ul {
-  list-style: square inside;
-}
-.content ul > li > ul {
-  list-style-type: disc;
-}
-.content ul > li > ul > li > ul {
-  list-style-type: circle;
-}
-.content ol {
-  list-style: decimal inside;
-}
 dl {
   margin-left: 1em;
 }
 dl dt {
   font-weight: bold;
-}
-.hlist > ul li,
-ul.hlist li {
-  display: inline-block;
-  margin-right: 8px;
 }
 a {
   text-decoration: none;
@@ -382,6 +386,9 @@ https://www.mediawiki.org/wiki/Requests_for_comment/Allow_styling_in_templates
 
 FIXME: Review all of these hacks to see if they still apply.
 */
+.collapsible td {
+  width: auto !important;
+}
 .content .tmbox,
 .content .ambox,
 .content #coordinates,
@@ -427,9 +434,6 @@ FIXME: Review all of these hacks to see if they still apply.
   float: none;
   width: 100%;
 }
-.collapsible td {
-  width: auto !important;
-}
 /* bug 34878: Set an optimal width for a column.
  * Makes sure that on small screens column-count is only honored if column-width hint is not violated.
  * https://developer.mozilla.org/en-US/docs/CSS/column-width
@@ -461,8 +465,8 @@ FIXME: Review all of these hacks to see if they still apply.
   .gallery .gallerybox div {
     width: 100% !important;
   }
-  .content table.multicol > tbody > tr > td,
-  .content table.multicol > tr > td {
+  .content table.multicol > tr > td,
+  .content table.multicol > tbody > tr > td {
     display: block !important;
     width: auto !important;
   }
@@ -631,6 +635,16 @@ div.gallerytext {
 	font-size: 94%;
 	padding: 2px 4px;
 	word-wrap: break-word;
+}
+
+.galleryfilename {
+	display: block;
+}
+
+.galleryfilename-truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 /* new gallery stuff */
