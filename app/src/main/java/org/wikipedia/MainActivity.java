@@ -68,6 +68,7 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.news.NewsActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.NavDrawerHelper;
@@ -111,7 +112,8 @@ import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermissio
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class MainActivity extends ThemedActionBarActivity implements FeedFragment.Callback {
+public class MainActivity extends ThemedActionBarActivity implements FeedFragment.Callback,
+        NearbyFragment.Callback {
 
     public enum TabPosition {
         CURRENT_TAB,
@@ -779,6 +781,18 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
 
     public void showLinkPreview(PageTitle title, int entrySource, @Nullable Location location) {
         bottomSheetPresenter.show(LinkPreviewDialog.newInstance(title, entrySource, location));
+    }
+
+    @Override public void onLoading() {
+        updateProgressBar(true, true, 0);
+    }
+
+    @Override public void onLoaded() {
+        updateProgressBar(false, true, 0);
+    }
+
+    @Override public void onLoadPage(PageTitle title, int entrySource, @Nullable Location location) {
+        showLinkPreview(title, entrySource, location);
     }
 
     private void hideLinkPreview() {
