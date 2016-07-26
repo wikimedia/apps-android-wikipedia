@@ -19,8 +19,6 @@ import org.wikipedia.MainActivity;
 import org.wikipedia.PageTitleListCardItemCallback;
 import org.wikipedia.R;
 import org.wikipedia.Site;
-import org.wikipedia.activity.CallbackFragment;
-import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.feed.news.NewsItem;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.history.HistoryEntry;
@@ -45,13 +43,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static org.wikipedia.news.NewsActivity.EXTRA_NEWS_ITEM;
+import static org.wikipedia.news.NewsActivity.EXTRA_SITE;
 import static org.wikipedia.richtext.RichTextUtil.stripHtml;
 import static org.wikipedia.util.DimenUtil.newsFeatureImageHeightForDevice;
 
-import static org.wikipedia.news.NewsActivity.EXTRA_NEWS_ITEM;
-import static org.wikipedia.news.NewsActivity.EXTRA_SITE;
-
-public class NewsFragment extends Fragment implements CallbackFragment {
+public class NewsFragment extends Fragment {
     @BindView(R.id.view_news_fullscreen_header_image) FaceAndColorDetectImageView image;
     @BindView(R.id.view_news_fullscreen_story_text) TextView text;
     @BindView(R.id.view_news_fullscreen_link_card_list) RecyclerView links;
@@ -68,12 +65,6 @@ public class NewsFragment extends Fragment implements CallbackFragment {
         args.putString(EXTRA_SITE, GsonMarshaller.marshal(site));
         instance.setArguments(args);
         return instance;
-    }
-
-    @Nullable
-    @Override
-    public CallbackFragment.Callback getCallback() {
-        return FragmentUtil.getCallback(this);
     }
 
     @Nullable

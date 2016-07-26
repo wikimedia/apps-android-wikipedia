@@ -19,9 +19,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import org.wikipedia.R;
-import org.wikipedia.activity.CallbackFragment;
-import org.wikipedia.activity.CallbackFragment.Callback;
-import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.database.contract.UserOptionContract;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
@@ -32,8 +29,7 @@ import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.USER_OPTION_ROW_FRAGMENT_LOADER_ID;
 
-public class UserOptionRowFragment extends Fragment
-        implements CallbackFragment {
+public class UserOptionRowFragment extends Fragment {
     @BindView(R.id.fragment_user_option_list) ListView list;
     private Unbinder unbinder;
 
@@ -83,10 +79,6 @@ public class UserOptionRowFragment extends Fragment
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Nullable @Override public Callback getCallback() {
-        return FragmentUtil.getCallback(this);
     }
 
     private static class LoaderCallback extends CursorAdapterLoaderCallback {

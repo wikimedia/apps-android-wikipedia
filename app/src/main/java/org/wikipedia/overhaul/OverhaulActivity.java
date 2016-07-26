@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 
-public class OverhaulActivity extends SingleFragmentActivity<OverhaulFragment> implements OverhaulFragment.Callback {
+public class OverhaulActivity extends SingleFragmentActivity<OverhaulFragment> {
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, OverhaulActivity.class);
     }
