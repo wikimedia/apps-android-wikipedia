@@ -25,4 +25,8 @@ public class EnumCodeMap<T extends Enum<T> & EnumCode> {
         }
         return ret;
     }
+
+    public int size() {
+        return map.size();
+    }
 }
