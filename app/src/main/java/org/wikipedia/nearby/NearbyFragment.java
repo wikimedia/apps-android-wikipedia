@@ -44,6 +44,11 @@ import org.wikipedia.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 /**
@@ -60,9 +65,10 @@ public class NearbyFragment extends Fragment {
     private static final String NEARBY_CURRENT_LOCATION = "currentLoc";
     private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 50;
 
-    private MapView mapView;
-    @Nullable private MapboxMap mapboxMap;
+    @BindView(R.id.mapview) MapView mapView;
+    private Unbinder unbinder;
 
+    @Nullable private MapboxMap mapboxMap;
     private Icon markerIconPassive;
 
     private Site site;
@@ -85,20 +91,15 @@ public class NearbyFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_nearby, container, false);
-        rootView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
+        View view = inflater.inflate(R.layout.fragment_nearby, container, false);
+        unbinder = ButterKnife.bind(this, view);
 
-        mapView = (MapView) rootView.findViewById(R.id.mapview);
+        // todo: [overhaul] remove.
+        view.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
+
         markerIconPassive = IconFactory.getInstance(getActivity()).fromResource(R.drawable.ic_map_marker);
 
         mapView.onCreate(savedInstanceState);
-
-        rootView.findViewById(R.id.user_location_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkLocationPermissionsToGoToUserLocation();
-            }
-        });
 
         setHasOptionsMenu(true);
 
@@ -112,12 +113,14 @@ public class NearbyFragment extends Fragment {
         onLoading();
         initializeMap();
 
-        return rootView;
+        return view;
     }
 
     @Override
     public void onDestroyView() {
         mapboxMap = null;
+        unbinder.unbind();
+        unbinder = null;
         super.onDestroyView();
     }
 
@@ -153,6 +156,10 @@ public class NearbyFragment extends Fragment {
     public void onLowMemory() {
         super.onLowMemory();
         mapView.onLowMemory();
+    }
+
+    @OnClick(R.id.user_location_button) public void onClick() {
+        checkLocationPermissionsToGoToUserLocation();
     }
 
     private void initializeMap() {
