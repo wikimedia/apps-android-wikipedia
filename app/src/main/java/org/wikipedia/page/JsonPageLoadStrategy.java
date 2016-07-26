@@ -176,7 +176,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             // function, which will continue the loading process.
             leadImagesHandler.hide();
             bottomContentHandler.hide();
-            activity.getSearchBarHideHandler().setFadeEnabled(false);
+            fragment.getSearchBarHideHandler().setFadeEnabled(false);
             try {
                 JSONObject wrapper = new JSONObject();
                 // whatever we pass to this event will be passed back to us by the WebView!

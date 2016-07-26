@@ -2,9 +2,6 @@ package org.wikipedia.search;
 
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.MainActivity;
-import org.wikipedia.page.MainActivityLongPressHandler;
-import org.wikipedia.page.PageLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -128,9 +125,9 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(getMainActivity());
-        new PageLongPressHandler(getActivity(), searchResultsList, HistoryEntry.SOURCE_SEARCH,
-                contextMenuListener);
+        //org.wikipedia.page.LongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(this);
+        //new org.wikipedia.page.LongPressHandler(getActivity(), searchResultsList, HistoryEntry.SOURCE_SEARCH,
+                //contextMenuListener);
     }
 
     @Override
@@ -207,7 +204,7 @@ public class SearchResultsFragment extends Fragment {
         TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getSite()), app.getSite(), searchTerm) {
             @Override
             public void onBeforeExecute() {
-                getMainActivity().updateProgressBar(true, true, 0);
+                updateProgressBar(true, true, 0);
             }
 
             @Override
@@ -224,7 +221,7 @@ public class SearchResultsFragment extends Fragment {
                     searchFragment.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
                 }
 
-                getMainActivity().updateProgressBar(false, true, 0);
+                updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
                 if (!resultList.isEmpty()) {
                     clearResults();
@@ -269,7 +266,7 @@ public class SearchResultsFragment extends Fragment {
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(false, timeToDisplay);
-                getMainActivity().updateProgressBar(false, true, 0);
+                updateProgressBar(false, true, 0);
 
                 searchErrorView.setVisibility(View.VISIBLE);
                 searchErrorView.setError(caught);
@@ -285,7 +282,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void cancelSearchTask() {
-        getMainActivity().updateProgressBar(false, true, 0);
+        updateProgressBar(false, true, 0);
         searchHandler.removeMessages(MESSAGE_SEARCH);
         if (curSearchTask != null) {
             // This does not cancel the HTTP request itself
@@ -305,7 +302,7 @@ public class SearchResultsFragment extends Fragment {
                                    searchTerm, BATCH_SIZE, continueOffset, false) {
             @Override
             public void onBeforeExecute() {
-                getMainActivity().updateProgressBar(true, true, 0);
+                updateProgressBar(true, true, 0);
             }
 
             @Override
@@ -333,7 +330,7 @@ public class SearchResultsFragment extends Fragment {
                     cachedTitles.addAll(resultList);
                 }
 
-                getMainActivity().updateProgressBar(false, true, 0);
+                updateProgressBar(false, true, 0);
                 searchErrorView.setVisibility(View.GONE);
 
                 // full text special:
@@ -350,7 +347,7 @@ public class SearchResultsFragment extends Fragment {
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(true, timeToDisplay);
-                getMainActivity().updateProgressBar(false, true, 0);
+                updateProgressBar(false, true, 0);
 
                 // since this is a follow-up search just show a message
                 FeedbackUtil.showError(getView(), caught);
@@ -371,6 +368,11 @@ public class SearchResultsFragment extends Fragment {
         clearResults(true);
     }
 
+    // TODO: implement
+    private void updateProgressBar(boolean visible, boolean indeterminate, int value) {
+
+    }
+
     private void clearResults(boolean clearSuggestion) {
         searchResultsContainer.setVisibility(View.GONE);
         searchNoResults.setVisibility(View.GONE);
@@ -388,11 +390,6 @@ public class SearchResultsFragment extends Fragment {
 
     private BaseAdapter getAdapter() {
         return (BaseAdapter) searchResultsList.getAdapter();
-    }
-
-    // TODO: don't assume host is MainActivity. Use Fragment callbacks pattern.
-    private MainActivity getMainActivity() {
-        return (MainActivity) getActivity();
     }
 
     /**
@@ -419,26 +416,27 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private class LongPressHandler extends MainActivityLongPressHandler
-            implements PageLongPressHandler.ListViewContextMenuListener {
+    // TODO: Necessary interface implementation
+    private class LongPressHandler extends SearchResultsFragmentLongPressHandler {
+            //implements org.wikipedia.page.LongPressHandler.ListViewContextMenuListener {
         private int lastPositionRequested;
 
-        LongPressHandler(@NonNull MainActivity activity) {
-            super(activity);
+        LongPressHandler(@NonNull SearchResultsFragment fragment) {
+            super(fragment);
         }
 
-        @Override
+        //@Override
         public PageTitle getTitleForListPosition(int position) {
             lastPositionRequested = position;
             return ((SearchResult) getAdapter().getItem(position)).getPageTitle();
         }
 
-        @Override
+        //@Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
             searchFragment.navigateToTitle(title, false, lastPositionRequested);
         }
 
-        @Override
+        //@Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
             searchFragment.navigateToTitle(title, true, lastPositionRequested);
         }

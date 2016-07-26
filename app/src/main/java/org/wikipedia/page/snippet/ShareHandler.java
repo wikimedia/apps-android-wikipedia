@@ -8,6 +8,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,7 +20,6 @@ import com.appenguin.onboarding.ToolTip;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
@@ -60,21 +60,21 @@ public class ShareHandler {
 
     @ColorRes private static final int SHARE_TOOL_TIP_COLOR = R.color.blue_liberal;
 
-    private final MainActivity activity;
-    private final CommunicationBridge bridge;
-    private CompatActionMode webViewActionMode;
-    private ShareAFactFunnel funnel;
+    @NonNull private final PageFragment fragment;
+    @NonNull private final CommunicationBridge bridge;
+    @Nullable private CompatActionMode webViewActionMode;
+    @Nullable private ShareAFactFunnel funnel;
 
     private void createFunnel() {
-        WikipediaApp app = (WikipediaApp) activity.getApplicationContext();
-        final Page page = activity.getCurPageFragment().getPage();
+        WikipediaApp app = WikipediaApp.getInstance();
+        final Page page = fragment.getPage();
         final PageProperties pageProperties = page.getPageProperties();
         funnel = new ShareAFactFunnel(app, page.getTitle(), pageProperties.getPageId(),
                 pageProperties.getRevisionId());
     }
 
-    public ShareHandler(MainActivity activity, CommunicationBridge bridge) {
-        this.activity = activity;
+    public ShareHandler(@NonNull PageFragment fragment, @NonNull CommunicationBridge bridge) {
+        this.fragment = fragment;
         this.bridge = bridge;
 
         bridge.addListener("onGetTextSelection", new CommunicationBridge.JSEventListener() {
@@ -100,8 +100,8 @@ public class ShareHandler {
     }
 
     public void showWiktionaryDefinition(String text) {
-        PageTitle title = activity.getCurPageFragment().getTitle();
-        activity.showBottomSheet(WiktionaryDialog.newInstance(title, text));
+        PageTitle title = fragment.getTitle();
+        fragment.showBottomSheet(WiktionaryDialog.newInstance(title, text));
     }
 
     private void onSharePayload(String text) {
@@ -117,41 +117,36 @@ public class ShareHandler {
     }
 
     private void onEditHerePayload(int sectionID, String text) {
-        activity.getCurPageFragment().getEditHandler().startEditingSection(sectionID, text);
+        fragment.getEditHandler().startEditingSection(sectionID, text);
     }
 
     private void showCopySnackbar() {
-        FeedbackUtil.showMessage(activity, R.string.text_copied);
+        FeedbackUtil.showMessage(fragment.getActivity(), R.string.text_copied);
     }
 
     /** Call #setFunnel before #shareSnippet. */
     private void shareSnippet(CharSequence input) {
-        final PageFragment curPageFragment = activity.getCurPageFragment();
-        if (curPageFragment == null) {
-            return;
-        }
-
         final String selectedText = StringUtil.sanitizeText(input.toString());
-        final PageTitle title = curPageFragment.getTitle();
+        final PageTitle title = fragment.getTitle();
 
         (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getSite()),
                     title.getSite(),
-                    new PageTitle("File:" + curPageFragment.getPage().getPageProperties().getLeadImageName(), title.getSite())) {
+                    new PageTitle("File:" + fragment.getPage().getPageProperties().getLeadImageName(), title.getSite())) {
 
             @Override
             public void onFinish(@NonNull Map<PageTitle, ImageLicense> result) {
                 ImageLicense leadImageLicense = (ImageLicense) result.values().toArray()[0];
 
-                final SnippetImage snippetImage = new SnippetImage(activity,
-                        curPageFragment.getLeadImageBitmap(),
+                final SnippetImage snippetImage = new SnippetImage(fragment.getContext(),
+                        fragment.getLeadImageBitmap(),
                         title.getDisplayText(),
-                        curPageFragment.getPage().isMainPage() ? "" : title.getDescription(),
+                        fragment.getPage().isMainPage() ? "" : title.getDescription(),
                         selectedText,
                         leadImageLicense);
 
                 final Bitmap snippetBitmap = snippetImage.drawBitmap();
 
-                activity.showBottomSheet(new PreviewDialog(activity, snippetBitmap, title, selectedText, funnel));
+                fragment.showBottomSheet(new PreviewDialog(fragment, snippetBitmap, title, selectedText, funnel));
             }
 
             @Override
@@ -183,7 +178,7 @@ public class ShareHandler {
         copyItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-                activity.getCurPageFragment().getWebView().copyToClipboard();
+                fragment.getWebView().copyToClipboard();
                 showCopySnackbar();
                 leaveActionMode();
                 return true;
@@ -196,7 +191,7 @@ public class ShareHandler {
         }
         MenuItem editItem = menu.findItem(R.id.menu_text_edit_here);
         editItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_EDIT_HERE));
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN || !activity.getCurPageFragment().getPage().isArticle()) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN || !fragment.getPage().isArticle()) {
             editItem.setVisible(false);
         }
 
@@ -210,7 +205,7 @@ public class ShareHandler {
 
     private boolean isWiktionaryDialogEnabledForArticleLanguage() {
         return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
-                .contains(activity.getCurPageFragment().getTitle().getSite().languageCode());
+                .contains(fragment.getTitle().getSite().languageCode());
     }
 
     private void showShareOnboarding(MenuItem shareItem) {
@@ -222,7 +217,7 @@ public class ShareHandler {
         // There doesn't seem to be good lifecycle event accessible at the time this called to
         // ensure the tool tip is shown after CAB animation.
 
-        final View shareItemView = ActivityUtil.getMenuItemView(activity, shareItem);
+        final View shareItemView = ActivityUtil.getMenuItemView(fragment.getActivity(), shareItem);
         if (shareItemView != null) {
             int delay = getInteger(android.R.integer.config_longAnimTime);
             shareItemView.postDelayed(new Runnable() {
@@ -235,7 +230,7 @@ public class ShareHandler {
     }
 
     private void showShareToolTip(View shareItemView) {
-        ToolTipUtil.showToolTip(activity, shareItemView, R.layout.inflate_tool_tip_share,
+        ToolTipUtil.showToolTip(fragment.getActivity(), shareItemView, R.layout.inflate_tool_tip_share,
                 getColor(SHARE_TOOL_TIP_COLOR), ToolTip.Position.CENTER);
     }
 
@@ -249,7 +244,7 @@ public class ShareHandler {
     }
 
     private Resources getResources() {
-        return activity.getResources();
+        return fragment.getContext().getResources();
     }
 
     private void leaveActionMode() {
@@ -305,10 +300,10 @@ public class ShareHandler {
 class PreviewDialog extends NoDimBottomSheetDialog {
     private boolean completed = false;
 
-    PreviewDialog(final MainActivity activity, final Bitmap resultBitmap, final PageTitle title,
+    PreviewDialog(final PageFragment fragment, final Bitmap resultBitmap, final PageTitle title,
                   final String selectedText, final ShareAFactFunnel funnel) {
-        super(activity);
-        View rootView = LayoutInflater.from(activity).inflate(R.layout.dialog_share_preview, null);
+        super(fragment.getContext());
+        View rootView = LayoutInflater.from(fragment.getContext()).inflate(R.layout.dialog_share_preview, null);
         setContentView(rootView);
         ImageView previewImage = (ImageView) rootView.findViewById(R.id.preview_img);
         previewImage.setImageBitmap(resultBitmap);
@@ -316,10 +311,10 @@ class PreviewDialog extends NoDimBottomSheetDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String introText = activity.getString(R.string.snippet_share_intro,
+                        String introText = fragment.getContext().getString(R.string.snippet_share_intro,
                                 title.getDisplayText(),
-                                UriUtil.getUrlWithProvenance(activity, title, R.string.prov_share_image));
-                        ShareUtil.shareImage(activity, resultBitmap, title.getDisplayText(),
+                                UriUtil.getUrlWithProvenance(fragment.getContext(), title, R.string.prov_share_image));
+                        ShareUtil.shareImage(fragment.getContext(), resultBitmap, title.getDisplayText(),
                                 title.getDisplayText(), introText);
                         funnel.logShareIntent(selectedText, ShareMode.image);
                         completed = true;
@@ -329,10 +324,10 @@ class PreviewDialog extends NoDimBottomSheetDialog {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String introText = activity.getString(R.string.snippet_share_intro,
+                        String introText = fragment.getContext().getString(R.string.snippet_share_intro,
                                 title.getDisplayText(),
-                                UriUtil.getUrlWithProvenance(activity, title, R.string.prov_share_text));
-                        ShareUtil.shareText(activity, title.getDisplayText(),
+                                UriUtil.getUrlWithProvenance(fragment.getContext(), title, R.string.prov_share_text));
+                        ShareUtil.shareText(fragment.getContext(), title.getDisplayText(),
                                 constructShareText(selectedText, introText));
                         funnel.logShareIntent(selectedText, ShareMode.text);
                         completed = true;

@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
 import org.wikipedia.Site;
 import org.wikipedia.MainActivity;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.tabs.TabsProvider;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -59,7 +60,7 @@ public abstract class BasePageLoadTest {
             public void run() {
                 getActivity().loadPage(pageTitle, new HistoryEntry(pageTitle,
                         HistoryEntry.SOURCE_RANDOM),
-                        MainActivity.TabPosition.CURRENT_TAB,
+                        TabsProvider.TabPosition.CURRENT_TAB,
                         true);
             }
         });

@@ -1,7 +1,7 @@
 package org.wikipedia.page;
 
+import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
 import org.wikipedia.R;
-import org.wikipedia.MainActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 
@@ -25,9 +25,9 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
     private final Button issuesHeading;
     private final ListView disambigList;
 
-    public PageInfoDialog(final MainActivity activity, PageInfo pageInfo, boolean startAtDisambig) {
-        super(activity);
-        View parentView = LayoutInflater.from(activity).inflate(R.layout.dialog_page_info, null);
+    public PageInfoDialog(final PageFragment fragment, PageInfo pageInfo, boolean startAtDisambig) {
+        super(fragment.getContext());
+        View parentView = LayoutInflater.from(fragment.getContext()).inflate(R.layout.dialog_page_info, null);
         setContentView(parentView);
 
         flipper = (ViewFlipper) parentView.findViewById(R.id.page_info_flipper);
@@ -48,20 +48,24 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
             }
         });
 
-        issuesList.setAdapter(new IssuesListAdapter(activity, pageInfo.getContentIssues()));
-        disambigList.setAdapter(new DisambigListAdapter(activity, pageInfo.getSimilarTitles()));
+        issuesList.setAdapter(new IssuesListAdapter(fragment.getActivity(), pageInfo.getContentIssues()));
+        disambigList.setAdapter(new DisambigListAdapter(fragment.getActivity(), pageInfo.getSimilarTitles()));
         disambigList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = ((DisambigResult) disambigList.getAdapter().getItem(position)).getTitle();
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_DISAMBIG);
                 dismiss();
-                activity.loadPage(title, historyEntry);
+                fragment.loadPage(title, historyEntry);
             }
         });
-        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(activity);
-        new PageLongPressHandler(getContext(), disambigList, HistoryEntry.SOURCE_DISAMBIG,
-                contextMenuListener);
+
+        if (fragment.callback() != null) {
+            ListViewContextMenuListener contextMenuListener
+                    = new LongPressHandler(fragment.callback());
+            new org.wikipedia.LongPressHandler(getContext(), disambigList,
+                    HistoryEntry.SOURCE_DISAMBIG, contextMenuListener);
+        }
 
         if (pageInfo.getSimilarTitles().length > 0) {
             disambigHeading.setOnClickListener(new View.OnClickListener() {
@@ -120,10 +124,10 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         issuesHeading.setEnabled(false);
     }
 
-    private class LongPressHandler extends MainActivityLongPressHandler
-            implements PageLongPressHandler.ListViewContextMenuListener {
-        LongPressHandler(@NonNull MainActivity activity) {
-            super(activity);
+    private class LongPressHandler extends PageContainerLongPressHandler
+            implements ListViewContextMenuListener {
+        LongPressHandler(@NonNull PageFragment.Callback callback) {
+            super(callback);
         }
 
         @Override

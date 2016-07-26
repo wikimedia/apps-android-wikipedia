@@ -470,14 +470,15 @@ public class NearbyFragment extends Fragment {
         }
     }
 
-    private void onLoadPage(PageTitle title, int entrySource, @Nullable Location location) {
+    private void onLoadPage(@NonNull PageTitle title, int entrySource, @Nullable Location location) {
         Callback callback = callback();
         if (callback != null) {
             callback.onLoadPage(title, entrySource, location);
         }
     }
 
-    @Nullable private Callback callback() {
+    @Nullable
+    private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
 }

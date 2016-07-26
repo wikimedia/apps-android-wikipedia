@@ -34,6 +34,7 @@ import org.wikipedia.MainActivity;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.FeedbackUtil;
 
@@ -450,8 +451,8 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         hideSoftKeyboard(getActivity());
         closeSearch();
         ((MainActivity)getActivity()).loadPage(title, historyEntry, inNewTab
-                ? MainActivity.TabPosition.NEW_TAB_BACKGROUND
-                : MainActivity.TabPosition.CURRENT_TAB, false);
+                ? TabsProvider.TabPosition.NEW_TAB_BACKGROUND
+                : TabsProvider.TabPosition.CURRENT_TAB, false);
     }
 
     private void addRecentSearch(String title) {

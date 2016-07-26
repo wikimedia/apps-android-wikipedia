@@ -3,11 +3,11 @@ package org.wikipedia.page;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ConfigurableListView;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
@@ -15,9 +15,7 @@ import org.json.JSONObject;
 
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +44,7 @@ public class ToCHandler {
     private final CommunicationBridge bridge;
     private final WikiDrawerLayout slidingPane;
     private final TextView headerView;
-    private final AppCompatActivity parentActivity;
+    private final PageFragment fragment;
     private ToCInteractionFunnel funnel;
 
     /**
@@ -56,21 +54,21 @@ public class ToCHandler {
      */
     private boolean wasClicked = false;
 
-    public ToCHandler(final AppCompatActivity activity, final WikiDrawerLayout slidingPane,
+    public ToCHandler(final PageFragment fragment, final WikiDrawerLayout slidingPane,
                       final CommunicationBridge bridge) {
-        this.parentActivity = activity;
+        this.fragment = fragment;
         this.bridge = bridge;
         this.slidingPane = slidingPane;
 
         this.tocList = (ConfigurableListView) slidingPane.findViewById(R.id.page_toc_list);
-        ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, getContentTopOffsetPx(activity), 0, 0);
+        ((FrameLayout.LayoutParams) tocList.getLayoutParams()).setMargins(0, getContentTopOffsetPx(fragment.getContext()), 0, 0);
         this.tocProgress = (ProgressBar) slidingPane.findViewById(R.id.page_toc_in_progress);
 
         bridge.addListener("currentSectionResponse", new CommunicationBridge.JSEventListener() {
             @Override
             public void onMessage(String messageType, JSONObject messagePayload) {
                 int sectionID = messagePayload.optInt("sectionID");
-                Log.d("Wikipedia", "current section is " + sectionID);
+                L.d("current section is " + sectionID);
                 if (tocList.getAdapter() == null) {
                     return;
                 }
@@ -106,7 +104,7 @@ public class ToCHandler {
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                parentActivity.supportInvalidateOptionsMenu();
+                fragment.getActivity().supportInvalidateOptionsMenu();
                 funnel.logOpen();
                 wasClicked = false;
             }
@@ -114,7 +112,7 @@ public class ToCHandler {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                parentActivity.supportInvalidateOptionsMenu();
+                fragment.getActivity().supportInvalidateOptionsMenu();
                 if (!wasClicked) {
                     funnel.logClose();
                 }
@@ -125,8 +123,8 @@ public class ToCHandler {
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
                 // make sure the ActionBar is showing
-                ((MainActivity) parentActivity).showToolbar();
-                ((MainActivity) parentActivity).getSearchBarHideHandler().setForceNoFade(slideOffset != 0);
+                fragment.showToolbar();
+                fragment.getSearchBarHideHandler().setForceNoFade(slideOffset != 0);
                 // request the current section to highlight, if we haven't yet
                 if (!sectionRequested) {
                     bridge.sendMessage("requestCurrentSection", new JSONObject());
@@ -262,18 +260,18 @@ public class ToCHandler {
 
             if (section.getLevel() > 1) {
                 sectionHeading.setTextColor(
-                        WikipediaApp.getInstance().getResources().getColor(getThemedAttributeId(parentActivity, R.attr.toc_subsection_text_color)));
+                        WikipediaApp.getInstance().getResources().getColor(getThemedAttributeId(fragment.getContext(), R.attr.toc_subsection_text_color)));
             } else {
                 sectionHeading.setTextColor(
-                        WikipediaApp.getInstance().getResources().getColor(getThemedAttributeId(parentActivity, R.attr.toc_section_text_color)));
+                        WikipediaApp.getInstance().getResources().getColor(getThemedAttributeId(fragment.getContext(), R.attr.toc_section_text_color)));
             }
             return convertView;
         }
     }
 
     private void showTocOnboarding() {
-        View tocButton = parentActivity.findViewById(R.id.floating_toc_button);
-        ToolTipUtil.showToolTip(parentActivity,
+        View tocButton = fragment.getActivity().findViewById(R.id.floating_toc_button);
+        ToolTipUtil.showToolTip(fragment.getActivity(),
                                 tocButton,
                                 R.layout.inflate_tool_tip_toc_button,
                                 ToolTip.Position.CENTER);

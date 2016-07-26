@@ -1,12 +1,13 @@
 package org.wikipedia.page;
 
 import org.wikipedia.R;
-import org.wikipedia.MainActivity;
 import org.wikipedia.analytics.FindInPageFunnel;
+import org.wikipedia.util.DeviceUtil;
 
 import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ActionProvider;
 import android.support.v7.widget.SearchView;
 import android.view.View;
@@ -14,19 +15,18 @@ import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView.FindListener;
 import android.widget.TextView;
 
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-
 public class FindInPageActionProvider extends ActionProvider {
-    private final MainActivity parentActivity;
-    private final FindInPageFunnel funnel;
+    @NonNull private final PageFragment fragment;
+    @NonNull private final FindInPageFunnel funnel;
 
     private View findInPageNext;
     private View findInPagePrev;
     private TextView findInPageMatch;
 
-    public FindInPageActionProvider(MainActivity parentActivity, FindInPageFunnel funnel) {
-        super(parentActivity);
-        this.parentActivity = parentActivity;
+    public FindInPageActionProvider(@NonNull PageFragment fragment,
+                                    @NonNull FindInPageFunnel funnel) {
+        super(fragment.getContext());
+        this.fragment = fragment;
         this.funnel = funnel;
     }
 
@@ -37,17 +37,17 @@ public class FindInPageActionProvider extends ActionProvider {
 
     @Override
     public View onCreateActionView() {
-        View view = View.inflate(parentActivity, R.layout.group_find_in_page, null);
+        View view = View.inflate(fragment.getContext(), R.layout.group_find_in_page, null);
         findInPageNext = view.findViewById(R.id.find_in_page_next);
         findInPageNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideSoftKeyboard(parentActivity);
+                DeviceUtil.hideSoftKeyboard(view);
                 if (!pageFragmentValid()) {
                     return;
                 }
                 funnel.addFindNext();
-                parentActivity.getCurPageFragment().getWebView().findNext(true);
+                fragment.getWebView().findNext(true);
             }
         });
 
@@ -55,19 +55,19 @@ public class FindInPageActionProvider extends ActionProvider {
         findInPagePrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                hideSoftKeyboard(parentActivity);
+                fragment.hideSoftKeyboard();
                 if (!pageFragmentValid()) {
                     return;
                 }
                 funnel.addFindPrev();
-                parentActivity.getCurPageFragment().getWebView().findNext(false);
+                fragment.getWebView().findNext(false);
             }
         });
 
         findInPageMatch = (TextView) view.findViewById(R.id.find_in_page_match);
 
         SearchView searchView = (SearchView) view.findViewById(R.id.find_in_page_input);
-        searchView.setQueryHint(parentActivity.getString(R.string.menu_page_find_in_page));
+        searchView.setQueryHint(fragment.getContext().getString(R.string.menu_page_find_in_page));
         searchView.setFocusable(true);
         searchView.requestFocusFromTouch();
         searchView.setOnQueryTextListener(searchQueryListener);
@@ -100,7 +100,7 @@ public class FindInPageActionProvider extends ActionProvider {
             if (s.length() > 0) {
                 findInPage(s);
             } else {
-                parentActivity.getCurPageFragment().getWebView().clearMatches();
+                fragment.getWebView().clearMatches();
                 findInPageMatch.setVisibility(View.GONE);
             }
             return true;
@@ -110,28 +110,20 @@ public class FindInPageActionProvider extends ActionProvider {
     private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
         @Override
         public boolean onClose() {
-            parentActivity.getCurPageFragment().closeFindInPage();
+            fragment.closeFindInPage();
             return false;
         }
     };
 
     private boolean pageFragmentValid() {
-        if (parentActivity.getCurPageFragment() == null) {
-            // could happen when we restore state
-            return false;
-        }
-        if (parentActivity.getCurPageFragment().getWebView() == null) {
-            // fragment instantiated, but not yet bound to activity
-            return false;
-        }
-        return true;
+        return fragment.getWebView() != null;
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void findInPage(String s) {
         // to make it stop complaining
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            parentActivity.getCurPageFragment().getWebView().setFindListener(new FindListener() {
+            fragment.getWebView().setFindListener(new FindListener() {
                 @Override
                 public void onFindResultReceived(int activeMatchOrdinal, int numberOfMatches, boolean isDoneCounting) {
                     if (!isDoneCounting) {
@@ -150,10 +142,10 @@ public class FindInPageActionProvider extends ActionProvider {
                     findInPageMatch.setVisibility(View.VISIBLE);
                 }
             });
-            parentActivity.getCurPageFragment().getWebView().findAllAsync(s);
+            fragment.getWebView().findAllAsync(s);
         } else {
             //noinspection deprecation
-            parentActivity.getCurPageFragment().getWebView().findAll(s);
+            fragment.getWebView().findAll(s);
         }
     }
 }

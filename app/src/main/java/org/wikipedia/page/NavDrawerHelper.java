@@ -25,6 +25,7 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.overhaul.OverhaulActivity;
+import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.settings.SettingsActivity;
@@ -128,7 +129,7 @@ public class NavDrawerHelper {
                     @Override
                     public void onRandomPageReceived(@Nullable PageTitle title) {
                         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM);
-                        activity.loadPage(title, historyEntry, MainActivity.TabPosition.CURRENT_TAB, true);
+                        activity.loadPage(title, historyEntry, TabsProvider.TabPosition.CURRENT_TAB, true);
                     }
 
                     @Override

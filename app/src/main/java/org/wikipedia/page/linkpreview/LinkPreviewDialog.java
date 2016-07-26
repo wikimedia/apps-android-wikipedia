@@ -1,13 +1,14 @@
 package org.wikipedia.page.linkpreview;
 
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LinkPreviewFunnel;
-import org.wikipedia.MainActivity;
 import org.wikipedia.page.Page;
-import org.wikipedia.page.MainActivityLongPressHandler;
+import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.PageContainerLongPressHandler;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
@@ -20,6 +21,7 @@ import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
 import android.content.DialogInterface;
@@ -29,7 +31,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.PopupMenu;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,7 +45,9 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogInterface.OnDismissListener {
-    private static final String TAG = "LinkPreviewDialog";
+    public interface Callback {
+        void onLinkPreviewLoadPage(PageTitle title, HistoryEntry entry);
+    }
 
     private boolean navigateSuccess = false;
 
@@ -196,7 +199,9 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     @Override
     public void onStart() {
         super.onStart();
-        overflowMenuHandler = new LongPressHandler(getMainActivity());
+        if (getActivity() instanceof PageFragment.Callback) {
+            overflowMenuHandler = new LongPressHandler((PageFragment.Callback) getActivity());
+        }
     }
 
     @Override
@@ -223,7 +228,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     private void loadContentFromCache() {
-        Log.v(TAG, "Loading link preview from cache");
+        L.v("Loading link preview from cache");
         getApplication().getPageCache()
                 .get(pageTitle, 0, new PageCache.CacheGetListener() {
                     @Override
@@ -243,14 +248,14 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
                         if (!isAdded()) {
                             return;
                         }
-                        Log.e(TAG, "Failed to get page from cache.", e);
+                        L.e("Failed to get page from cache.", e);
                         loadContentFromSavedPage();
                     }
                 });
     }
 
     private void loadContentFromSavedPage() {
-        Log.v(TAG, "Loading link preview from Saved Pages");
+        L.v("Loading link preview from Saved Pages");
         new LoadSavedPageTask(pageTitle) {
             @Override
             public void onFinish(Page page) {
@@ -299,13 +304,9 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             if (!isAdded()) {
                 return;
             }
-            Log.e(TAG, "Link preview fetch error: " + throwable);
+            L.e("Link preview fetch error: " + throwable);
         }
     };
-
-    private MainActivity getMainActivity() {
-        return (MainActivity) getActivity();
-    }
 
     private WikipediaApp getApplication() {
         return WikipediaApp.getInstance();
@@ -342,7 +343,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         @Override
         public void onNavigate(PageTitle title) {
             HistoryEntry newEntry = new HistoryEntry(title, entrySource);
-            getMainActivity().loadPage(title, newEntry);
+            loadPage(title, newEntry);
         }
     }
 
@@ -378,13 +379,13 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         @Override
         public void onCatch(Throwable caught) {
             // Don't worry about showing a notification to the user if this fails.
-            Log.w(TAG, "Failed to fetch gallery collection.", caught);
+            L.w("Failed to fetch gallery collection.", caught);
         }
     }
 
-    private class LongPressHandler extends MainActivityLongPressHandler {
-        LongPressHandler(@NonNull MainActivity activity) {
-            super(activity);
+    private class LongPressHandler extends PageContainerLongPressHandler {
+        LongPressHandler(@NonNull PageFragment.Callback callback) {
+            super(callback);
         }
     }
 
@@ -393,5 +394,16 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             dismiss();
             UriUtil.sendGeoIntent(getActivity(), location, pageTitle.getDisplayText());
         }
+    }
+
+    private void loadPage(PageTitle title, HistoryEntry entry) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onLinkPreviewLoadPage(title, entry);
+        }
+    }
+
+    @Nullable private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }

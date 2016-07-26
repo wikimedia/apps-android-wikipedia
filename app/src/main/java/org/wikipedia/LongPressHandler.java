@@ -1,8 +1,7 @@
-package org.wikipedia.page;
+package org.wikipedia;
 
-import org.wikipedia.R;
-import org.wikipedia.Site;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 
 import android.content.Context;
@@ -19,7 +18,7 @@ import android.widget.ListView;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.isValidPageLink;
 
-public class PageLongPressHandler implements View.OnCreateContextMenuListener,
+public class LongPressHandler implements View.OnCreateContextMenuListener,
         MenuItem.OnMenuItemClickListener {
     private final Context context;
     private final ContextMenuListener contextMenuListener;
@@ -28,10 +27,10 @@ public class PageLongPressHandler implements View.OnCreateContextMenuListener,
     private PageTitle title;
     private HistoryEntry entry;
 
-    public PageLongPressHandler(@NonNull Context context,
-                                @NonNull View view,
-                                int historySource,
-                                @NonNull ContextMenuListener listener) {
+    public LongPressHandler(@NonNull Context context,
+                            @NonNull View view,
+                            int historySource,
+                            @NonNull ContextMenuListener listener) {
         this.context = context;
         this.historySource = historySource;
         this.contextMenuListener = listener;

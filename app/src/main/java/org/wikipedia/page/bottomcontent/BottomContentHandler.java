@@ -22,9 +22,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.MainActivity;
-import org.wikipedia.page.MainActivityLongPressHandler;
-import org.wikipedia.page.PageLongPressHandler;
+import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
+import org.wikipedia.page.PageContainerLongPressHandler;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -61,7 +60,6 @@ public class BottomContentHandler implements BottomContentInterface,
     private final WebView webView;
     private final LinkHandler linkHandler;
     private PageTitle pageTitle;
-    private final MainActivity activity;
     private final WikipediaApp app;
     private boolean firstTimeShown = false;
 
@@ -74,15 +72,14 @@ public class BottomContentHandler implements BottomContentInterface,
     private SuggestedPagesFunnel funnel;
     private SearchResults readMoreItems;
 
-    public BottomContentHandler(PageFragment parentFragment,
+    public BottomContentHandler(final PageFragment parentFragment,
                                 CommunicationBridge bridge, ObservableWebView webview,
                                 LinkHandler linkHandler, ViewGroup hidingView) {
         this.parentFragment = parentFragment;
         this.bridge = bridge;
         this.webView = webview;
         this.linkHandler = linkHandler;
-        activity = (MainActivity) parentFragment.getActivity();
-        app = (WikipediaApp) activity.getApplicationContext();
+        app = WikipediaApp.getInstance();
 
         bottomContentContainer = hidingView;
         webview.addOnScrollChangeListener(this);
@@ -98,12 +95,17 @@ public class BottomContentHandler implements BottomContentInterface,
         pageExternalLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                visitInExternalBrowser(activity, Uri.parse(pageTitle.getMobileUri()));
+                visitInExternalBrowser(parentFragment.getContext(), Uri.parse(pageTitle.getMobileUri()));
             }
         });
-        PageLongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(activity);
-        new PageLongPressHandler(activity, readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
-                contextMenuListener);
+
+        if (parentFragment.callback() != null) {
+            ListViewContextMenuListener contextMenuListener
+                    = new LongPressHandler((PageFragment.Callback) parentFragment.getActivity());
+
+            new org.wikipedia.LongPressHandler(parentFragment.getActivity(), readMoreList,
+                    HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
+        }
 
         // set up pass-through scroll functionality for the ListView
         readMoreList.setOnTouchListener(new View.OnTouchListener() {
@@ -214,7 +216,7 @@ public class BottomContentHandler implements BottomContentInterface,
         firstTimeShown = false;
         setupAttribution();
         if (parentFragment.getPage().couldHaveReadMoreSection()) {
-            preRequestReadMoreItems(activity.getLayoutInflater());
+            preRequestReadMoreItems(parentFragment.getActivity().getLayoutInflater());
         } else {
             bottomContentContainer.findViewById(R.id.read_more_container).setVisibility(View.GONE);
             layoutContent();
@@ -266,7 +268,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private void setupAttribution() {
         Page page = parentFragment.getPage();
-        pageLicenseText.setText(Html.fromHtml(activity.getString(R.string.content_license_html)));
+        pageLicenseText.setText(Html.fromHtml(parentFragment.getContext().getString(R.string.content_license_html)));
         pageLicenseText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
 
         // Don't display last updated message for main page or file pages, because it's always wrong
@@ -275,13 +277,13 @@ public class BottomContentHandler implements BottomContentInterface,
         } else {
             PageTitle title = page.getTitle();
             String lastUpdatedHtml = "<a href=\"" + title.getUriForAction("history")
-                    + "\">" + activity.getString(R.string.last_updated_text,
+                    + "\">" + parentFragment.getContext().getString(R.string.last_updated_text,
                     formatDateRelative(page.getPageProperties().getLastModified())
                             + "</a>");
             // TODO: Hide the Talk link if already on a talk page
             PageTitle talkPageTitle = new PageTitle("Talk", title.getPrefixedText(), title.getSite());
             String discussionHtml = "<a href=\"" + talkPageTitle.getCanonicalUri() + "\">"
-                    + activity.getString(R.string.talk_page_link_text) + "</a>";
+                    + parentFragment.getContext().getString(R.string.talk_page_link_text) + "</a>";
             pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml + " &mdash; " + discussionHtml));
             pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
             pageLastUpdatedText.setVisibility(View.VISIBLE);
@@ -290,7 +292,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private void preRequestReadMoreItems(final LayoutInflater layoutInflater) {
         if (parentFragment.getPage().isMainPage()) {
-            new MainPageReadMoreTopicTask(activity) {
+            new MainPageReadMoreTopicTask(parentFragment.getContext()) {
                 @Override
                 public void onFinish(HistoryEntry entry) {
                     requestReadMoreItems(layoutInflater, entry);
@@ -376,18 +378,18 @@ public class BottomContentHandler implements BottomContentInterface,
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle title = adapter.getItem(position).getPageTitle();
                 HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
-                activity.loadPage(title, historyEntry);
+                parentFragment.loadPage(title, historyEntry);
                 funnel.logSuggestionClicked(pageTitle, results.getResults(), position);
             }
         });
         adapter.notifyDataSetChanged();
     }
 
-    private class LongPressHandler extends MainActivityLongPressHandler
-            implements PageLongPressHandler.ListViewContextMenuListener {
+    private class LongPressHandler extends PageContainerLongPressHandler
+            implements ListViewContextMenuListener {
         private int lastPosition;
-        LongPressHandler(@NonNull MainActivity activity) {
-            super(activity);
+        LongPressHandler(@NonNull PageFragment.Callback callback) {
+            super(callback);
         }
 
         @Override

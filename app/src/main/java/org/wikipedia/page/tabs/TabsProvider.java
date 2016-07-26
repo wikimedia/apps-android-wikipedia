@@ -1,8 +1,8 @@
 package org.wikipedia.page.tabs;
 
 import org.wikipedia.R;
-import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageBackStackItem;
+import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.ViewUtil;
@@ -39,7 +39,13 @@ public class TabsProvider {
         void onCloseTabRequested(int position);
     }
 
-    private MainActivity parentActivity;
+    public enum TabPosition {
+        CURRENT_TAB,
+        NEW_TAB_BACKGROUND,
+        NEW_TAB_FOREGROUND
+    }
+
+    private PageFragment fragment;
 
     private View pageContentView;
     private View tabContainerView;
@@ -59,14 +65,14 @@ public class TabsProvider {
         providerListener = DefaultTabsProviderListener.defaultIfNull(listener);
     }
 
-    public TabsProvider(MainActivity parentActivity, List<Tab> tabList) {
-        this.parentActivity = parentActivity;
+    public TabsProvider(PageFragment fragment, List<Tab> tabList) {
+        this.fragment = fragment;
         this.tabList = tabList;
 
-        pageContentView = parentActivity.getContentView();
-        tabContainerView = parentActivity.getTabsContainerView();
+        pageContentView = fragment.getContentView();
+        tabContainerView = fragment.getTabsContainerView();
         tabListView = (ListView) tabContainerView.findViewById(R.id.tabs_list);
-        tabListAdapter = new TabListAdapter(parentActivity.getLayoutInflater());
+        tabListAdapter = new TabListAdapter(fragment.getActivity().getLayoutInflater());
         tabListView.setAdapter(tabListAdapter);
 
         tabContainerView.setOnClickListener(new View.OnClickListener() {
@@ -115,8 +121,7 @@ public class TabsProvider {
             }
             return;
         }
-        parentActivity.startSupportActionMode(new TabActionModeCallback(onTabModeEntered));
-
+        fragment.startSupportActionMode(new TabActionModeCallback(onTabModeEntered));
     }
 
     private class TabActionModeCallback implements ActionMode.Callback {
@@ -132,7 +137,7 @@ public class TabsProvider {
             tabActionMode = mode;
             mode.getMenuInflater().inflate(R.menu.menu_tabs, menu);
             Animation anim = loadPageContentViewAnimation();
-            parentActivity.getContentView().startAnimation(anim);
+            fragment.getContentView().startAnimation(anim);
             layoutTabList(onTabModeEntered);
 
             return true;
@@ -146,7 +151,7 @@ public class TabsProvider {
             // otherwise click events within the empty area of the action mode will be passed
             // down to the view beneath it, which is the Search bar, and we don't want to
             // unintentionally initiate Search.
-            parentActivity.findViewById(R.id.action_mode_bar).setClickable(true);
+            getActionBar().setClickable(true);
 
             return false;
         }
@@ -164,15 +169,20 @@ public class TabsProvider {
 
         @Override
         public void onDestroyActionMode(ActionMode mode) {
-            Animation anim = AnimationUtils.loadAnimation(parentActivity, R.anim.tab_list_zoom_exit);
-            parentActivity.getContentView().startAnimation(anim);
+            Animation anim = AnimationUtils.loadAnimation(fragment.getContext(), R.anim.tab_list_zoom_exit);
+            fragment.getContentView().startAnimation(anim);
             hideTabList();
             tabActionMode = null;
-            parentActivity.showToolbar();
+            fragment.showToolbar();
             if (!isActionModeDismissedIndirectly) {
                 providerListener.onCancelTabView();
             }
             isActionModeDismissedIndirectly = false;
+        }
+
+        @NonNull
+        private View getActionBar() {
+            return fragment.getActivity().findViewById(R.id.action_mode_bar);
         }
     }
 
@@ -236,7 +246,7 @@ public class TabsProvider {
     }
 
     private void hideTabList() {
-        Animation anim = AnimationUtils.loadAnimation(parentActivity,
+        Animation anim = AnimationUtils.loadAnimation(fragment.getContext(),
                                                       R.anim.tab_list_items_exit);
         anim.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -271,7 +281,7 @@ public class TabsProvider {
                 providerListener.onCloseTabRequested(position);
             } else {
                 Animation anim = AnimationUtils
-                        .loadAnimation(parentActivity, R.anim.slide_out_right);
+                        .loadAnimation(fragment.getContext(), R.anim.slide_out_right);
                     anim.setAnimationListener(new Animation.AnimationListener() {
                     @Override public void onAnimationStart(Animation animation) { }
 
@@ -292,7 +302,7 @@ public class TabsProvider {
         final float proportionHorz = 0.15f;
         final float proportionVert = 0.4f;
         final int heightOffset = 16;
-        int contentOffset = getContentTopOffsetPx(parentActivity);
+        int contentOffset = getContentTopOffsetPx(fragment.getContext());
         int maxHeight = (int) (pageContentView.getHeight() * proportionVert
                 + pageContentView.getHeight() * proportionHorz
                 - contentOffset - heightOffset * DimenUtil.getDensityScalar());
@@ -309,11 +319,11 @@ public class TabsProvider {
     }
 
     private Animation loadPageContentViewAnimation() {
-        return AnimationUtils.loadAnimation(parentActivity, R.anim.tab_list_zoom_enter);
+        return AnimationUtils.loadAnimation(fragment.getContext(), R.anim.tab_list_zoom_enter);
     }
 
     private Animation loadTabListViewAnimation() {
-        return AnimationUtils.loadAnimation(parentActivity, R.anim.tab_list_items_enter);
+        return AnimationUtils.loadAnimation(fragment.getContext(), R.anim.tab_list_items_enter);
     }
 
     private class ViewLayoutListener implements View.OnLayoutChangeListener {
@@ -415,10 +425,10 @@ public class TabsProvider {
             // dynamically set the background color that will show through the rounded corners.
             // if it's the first last item in the tab list, we want the background to be the same
             // as the activity background, otherwise it should match the tab shadow color.
-            convertView.setBackgroundColor(ContextCompat.getColor(parentActivity,
+            convertView.setBackgroundColor(ContextCompat.getColor(fragment.getContext(),
                     position == 0
                             ? R.color.gallery_background
-                            : getThemedAttributeId(parentActivity, R.attr.tab_shadow_color)));
+                            : getThemedAttributeId(fragment.getContext(), R.attr.tab_shadow_color)));
 
             List<PageBackStackItem> backstack = tabList.get(position).getBackStack();
             if (backstack.size() > 0) {

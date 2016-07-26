@@ -2,30 +2,31 @@ package org.wikipedia.page;
 
 import android.support.annotation.NonNull;
 
+import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
-import org.wikipedia.MainActivity;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 
-public abstract class MainActivityLongPressHandler implements PageLongPressHandler.ContextMenuListener {
+public abstract class PageContainerLongPressHandler implements LongPressHandler.ContextMenuListener {
     @NonNull
-    private final MainActivity activity;
+    private final PageFragment.Callback container;
 
-    public MainActivityLongPressHandler(@NonNull MainActivity activity) {
-        this.activity = activity;
+    public PageContainerLongPressHandler(@NonNull PageFragment.Callback container) {
+        this.container = container;
     }
 
     @Override
     public void onOpenLink(PageTitle title, HistoryEntry entry) {
-        activity.loadPage(title, entry);
+        container.onPageLoadPage(title, entry);
     }
 
     @Override
     public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-        activity.loadPage(title, entry, MainActivity.TabPosition.NEW_TAB_BACKGROUND, false);
+        container.onPageLoadPage(title, entry, TabsProvider.TabPosition.NEW_TAB_BACKGROUND, false);
     }
 
     @Override
@@ -36,19 +37,19 @@ public abstract class MainActivityLongPressHandler implements PageLongPressHandl
 
     @Override
     public void onShareLink(PageTitle title) {
-        ShareUtil.shareText(activity, title);
+        ShareUtil.shareText(container.getActivity(), title);
     }
 
     @Override
     public void onAddToList(PageTitle title, AddToReadingListDialog.InvokeSource source) {
-        activity.showAddToListDialog(title, source);
+        container.onPageAddToReadingList(title, source);
     }
 
     private void copyLink(String url) {
-        ClipboardUtil.setPlainText(activity, null, url);
+        ClipboardUtil.setPlainText(container.getActivity(), null, url);
     }
 
     private void showCopySuccessMessage() {
-        FeedbackUtil.showMessage(activity, R.string.address_copied);
+        FeedbackUtil.showMessage(container.getActivity(), R.string.address_copied);
     }
 }

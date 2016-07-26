@@ -32,6 +32,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
@@ -91,10 +92,12 @@ import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
+import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
@@ -106,21 +109,14 @@ import org.wikipedia.zero.ZeroConfig;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class MainActivity extends ThemedActionBarActivity implements FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback {
-
-    public enum TabPosition {
-        CURRENT_TAB,
-        NEW_TAB_BACKGROUND,
-        NEW_TAB_FOREGROUND
-    }
-
+public class MainActivity extends ThemedActionBarActivity implements PageFragment.Callback,
+        FeedFragment.Callback, NearbyFragment.Callback, HistoryFragment.Callback,
+        ReadingListsFragment.Callback, LinkPreviewDialog.Callback {
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
@@ -159,6 +155,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     private WikipediaZeroUsageFunnel zeroFunnel;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this);
     private MainActivityToolbarCoordinator toolbarCoordinator;
+    @Nullable private PageLoadCallbacks pageLoadCallbacks;
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -178,16 +175,8 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         return fragmentContainerView;
     }
 
-    public View getTabsContainerView() {
-        return tabsContainerView;
-    }
-
     public ActionBarDrawerToggle getDrawerToggle() {
         return mDrawerToggle;
-    }
-
-    public SearchBarHideHandler getSearchBarHideHandler() {
-        return searchBarHideHandler;
     }
 
     public Menu getNavMenu() {
@@ -198,14 +187,6 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         return randomHandler;
     }
 
-    @Nullable
-    private PageLoadCallbacks pageLoadCallbacks;
-
-    @Nullable
-    public PageLoadCallbacks pageLoadCallbacks() {
-        return pageLoadCallbacks;
-    }
-
     /**
      * Get the Fragment that is currently at the top of the Activity's backstack.
      * This activity's fragment container will hold multiple fragments stacked onto
@@ -214,6 +195,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
      * fragment class, and perform actions on it.
      * @return Fragment at the top of the backstack.
      */
+    @Nullable
     public Fragment getTopFragment() {
         return getSupportFragmentManager().findFragmentById(R.id.content_fragment_container);
     }
@@ -224,7 +206,8 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
      * @return The PageViewFragment at the top of the backstack, or null if the current
      * top fragment is not a PageViewFragment.
      */
-    @Nullable public PageFragment getCurPageFragment() {
+    @Nullable
+    public PageFragment getCurPageFragment() {
         Fragment f = getTopFragment();
         if (f instanceof PageFragment) {
             return (PageFragment) f;
@@ -397,7 +380,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
             super.onDrawerSlide(drawerView, 0);
             if (!oncePerSlideLock) {
                 // Hide the keyboard when the drawer is opened
-                hideSoftKeyboard(MainActivity.this);
+                hideSoftKeyboard();
                 //also make sure ToC is hidden
                 if (getCurPageFragment() != null) {
                     getCurPageFragment().toggleToC(PageFragment.TOC_ACTION_HIDE);
@@ -417,6 +400,10 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
                 oncePerSlideLock = false;
             }
         }
+    }
+
+    public void hideSoftKeyboard() {
+        DeviceUtil.hideSoftKeyboard(this);
     }
 
     @Override
@@ -463,7 +450,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         // we can fill up the whole width of the ActionBar with our SearchView.
         supportInvalidateOptionsMenu();
         toolbarCoordinator.setSearchMode(enabled);
-        getSearchBarHideHandler().setForceNoFade(enabled);
+        searchBarHideHandler.setForceNoFade(enabled);
         getDrawerToggle().setDrawerIndicatorEnabled(!enabled);
     }
 
@@ -813,22 +800,6 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         bottomSheetPresenter.dismiss();
     }
 
-    public void showThemeChooser() {
-        bottomSheetPresenter.show(new ThemeChooserDialog());
-    }
-
-    public void dismissBottomSheet() {
-        bottomSheetPresenter.dismiss();
-    }
-
-    public void showBottomSheet(BottomSheetDialog dialog) {
-        bottomSheetPresenter.show(dialog);
-    }
-
-    public void showBottomSheet(BottomSheetDialogFragment dialog) {
-        bottomSheetPresenter.show(dialog);
-    }
-
     public void showAddToListDialog(PageTitle title, AddToReadingListDialog.InvokeSource source) {
         FeedbackUtil.showAddToListDialog(title, source, bottomSheetPresenter, listDialogDismissListener);
     }
@@ -957,6 +928,125 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         } else {
             download(image);
         }
+    }
+
+    @Override
+    public void onPageShowBottomSheet(@NonNull BottomSheetDialog dialog) {
+        bottomSheetPresenter.show(dialog);
+    }
+
+    @Override
+    public void onPageShowBottomSheet(@NonNull BottomSheetDialogFragment dialog) {
+        bottomSheetPresenter.show(dialog);
+    }
+
+    @Override
+    public void onPageDismissBottomSheet() {
+        bottomSheetPresenter.dismiss();
+    }
+
+    @Nullable
+    @Override
+    public SearchBarHideHandler onPageGetSearchBarHideHandler() {
+        return searchBarHideHandler;
+    }
+
+    @Override
+    public void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
+        loadPage(title, entry);
+    }
+
+    @Override
+    public void onPageShowLinkPreview(@NonNull PageTitle title, int source) {
+        showLinkPreview(title, source);
+    }
+
+    @Override
+    public void onPageLoadMainPageInForegroundTab() {
+        loadMainPageInForegroundTab();
+    }
+
+    @Override
+    public void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value) {
+        updateProgressBar(visible, indeterminate, value);
+    }
+
+    @Override
+    public boolean onPageIsSearching() {
+        return isSearching();
+    }
+
+    @Nullable
+    @Override
+    public Fragment onPageGetTopFragment() {
+        return getTopFragment();
+    }
+
+    @Override
+    public void onPageShowThemeChooser() {
+        bottomSheetPresenter.show(new ThemeChooserDialog());
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onPageStartSupportActionMode(@NonNull ActionMode.Callback callback) {
+        return startSupportActionMode(callback);
+    }
+
+    @Override
+    public void onPageShowToolbar() {
+        showToolbar();
+    }
+
+    @Override
+    public void onPageHideSoftKeyboard() {
+        hideSoftKeyboard();
+    }
+
+    @Nullable
+    @Override
+    public PageLoadCallbacks onPageGetPageLoadCallbacks() {
+        return pageLoadCallbacks;
+    }
+
+    @Override
+    public void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
+                               @NonNull TabPosition tabPosition, boolean allowStateLoss) {
+        loadPage(title, entry, tabPosition, allowStateLoss);
+    }
+
+    @Override
+    public void onPageAddToReadingList(@NonNull PageTitle title,
+                                @NonNull AddToReadingListDialog.InvokeSource source) {
+        showAddToListDialog(title, source);
+    }
+
+    @Nullable
+    @Override
+    public View onPageGetContentView() {
+        return getContentView();
+    }
+
+    @Nullable
+    @Override
+    public View onPageGetTabsContainerView() {
+        return tabsContainerView;
+    }
+
+    @Override
+    public void onPageUpdateNavDrawerSelection(@NonNull Fragment fragment) {
+        updateNavDrawerSelection(fragment);
+    }
+
+    @Override
+    public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
+        loadPage(title, entry);
+    }
+
+    @Nullable
+    @Override
+    public AppCompatActivity getActivity() {
+        return this;
     }
 
     private void download(@NonNull FeaturedImage image) {
@@ -1199,7 +1289,7 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
     }
 
     private void freezeToolbar() {
-        getSearchBarHideHandler().setForceNoFade(true);
+        searchBarHideHandler.setForceNoFade(true);
     }
 
     private void registerBus() {
