@@ -8,17 +8,17 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.drawable.DrawableUtil;
+import org.wikipedia.readinglist.NoSwipeViewPager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NavViewPager extends ViewPager {
+public class NavViewPager extends NoSwipeViewPager {
     @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
 
     public NavViewPager(Context context) {
