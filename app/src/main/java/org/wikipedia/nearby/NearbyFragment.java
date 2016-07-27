@@ -124,6 +124,7 @@ public class NearbyFragment extends Fragment {
     public void onDestroyView() {
         mapViewResumed = false;
         mapboxMap = null;
+        mapView.onDestroy();
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -148,14 +149,6 @@ public class NearbyFragment extends Fragment {
 
         updateMapView();
         updateLocationEnabled(mapboxMap);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mapView != null) {
-            mapView.onDestroy();
-        }
     }
 
     @Override
