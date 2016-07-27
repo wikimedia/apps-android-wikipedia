@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.overhaul.navtab.NavViewPager
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_overhaul_view_pager"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+    <org.wikipedia.overhaul.navtab.NavTabLayout
+        android:id="@+id/view_nav_view_pager_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_nav_view_pager_tab_layout_height"
+        android:layout_alignParentBottom="true"
+        app:tabGravity="fill"
+        android:elevation="12dp"
+        android:background="@android:color/white"
+        app:tabIndicatorColor="@color/blue_liberal" />
+
+    <org.wikipedia.readinglist.NoSwipeViewPager
+        android:id="@+id/fragment_overhaul_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/view_nav_view_pager_tab_layout" />
+</RelativeLayout>

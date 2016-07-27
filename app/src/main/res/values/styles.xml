@@ -9,6 +9,7 @@
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:statusBarColor" tools:targetApi="21">@color/status_bar_background</item>
+        <item name="navTabViewStyle">@style/NavTabView</item>
     </style>
 
     <style name="OverhaulTheme" parent="PageTheme">
@@ -204,6 +205,13 @@
         <item name="radix">16</item>
         <item name="summaryFormat">%08x</item>
         <item name="android:maxLength">8</item>
+    </style>
+
+    <style name="NavTabView" parent="TextAppearance.Design.Tab">
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@drawable/view_nav_tab_text_color</item>
     </style>
 
     <style name="ArticleMenuBarViewButton" parent="@style/Widget.AppCompat.Button.Borderless">

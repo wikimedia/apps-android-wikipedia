@@ -3,6 +3,7 @@ package org.wikipedia.overhaul;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import butterknife.Unbinder;
 public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback {
     @BindView(R.id.fragment_overhaul_view_pager) ViewPager viewPager;
+    @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
 
     public static OverhaulFragment newInstance() {
@@ -43,7 +45,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         View view = inflater.inflate(R.layout.fragment_overhaul, container, false);
         unbinder = ButterKnife.bind(this, view);
         viewPager.setAdapter(new NavViewPagerAdapter(getFragmentManager()));
-
+        tabLayout.setupWithViewPager(viewPager);
         return view;
     }
 

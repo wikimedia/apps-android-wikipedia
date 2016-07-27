@@ -62,4 +62,8 @@
         <attr name="link_preview_button_background" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="NavTabView">
+        <attr name="navTabViewStyle" format="reference" />
+    </declare-styleable>
+
 </resources>
