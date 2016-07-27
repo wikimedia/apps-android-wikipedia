@@ -14,9 +14,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.wikipedia.R;
 import org.wikipedia.MainActivity;
+import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
+import org.wikipedia.overhaul.OverhaulActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -126,6 +127,8 @@ public final class FeedbackUtil {
         if (activity instanceof MainActivity
                 && ((MainActivity) activity).getCurPageFragment() != null) {
             return activity.findViewById(R.id.page_contents_container);
+        } else if (activity instanceof OverhaulActivity) {
+            return activity.findViewById(R.id.fragment_overhaul_view_pager_container);
         } else {
             return activity.findViewById(android.R.id.content);
         }
