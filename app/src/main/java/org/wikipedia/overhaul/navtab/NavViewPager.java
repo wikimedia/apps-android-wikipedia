@@ -66,13 +66,13 @@ public class NavViewPager extends NoSwipeViewPager {
         private void setTabIconsAndTitles() {
             for (int i = 0; i < tabLayout.getTabCount(); i++) {
                 TabLayout.Tab tab = tabLayout.getTabAt(i);
-                NavViewTab navViewTab = NavViewTab.of(i);
+                NavTab navTab = NavTab.of(i);
                 //noinspection ConstantConditions
-                tab.setIcon(navViewTab.icon());
+                tab.setIcon(navTab.icon());
                 if (showTitles) {
                     // todo: [overhaul] consider using a custom View for the tabs so we show text
                     //                  on the same line as the icon in landscape.
-                    tab.setText(navViewTab.text());
+                    tab.setText(navTab.text());
                 }
             }
         }
@@ -102,8 +102,8 @@ public class NavViewPager extends NoSwipeViewPager {
         }
 
         private void setTabIconColor(@NonNull TabLayout.Tab tab, @ColorRes int id) {
-            NavViewTab navViewTab = NavViewTab.of(tab.getPosition());
-            Drawable icon = getDrawable(navViewTab.icon());
+            NavTab navTab = NavTab.of(tab.getPosition());
+            Drawable icon = getDrawable(navTab.icon());
             DrawableUtil.setTint(icon, getColor(id));
             tab.setIcon(icon);
         }

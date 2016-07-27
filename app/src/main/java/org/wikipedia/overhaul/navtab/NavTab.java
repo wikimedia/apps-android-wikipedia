@@ -13,7 +13,7 @@ import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.readinglist.ReadingListsFragment;
 
-public enum NavViewTab implements EnumCode {
+public enum NavTab implements EnumCode {
     EXPLORE(R.string.nav_item_feed, R.drawable.ic_globe) {
         @NonNull @Override public Fragment newInstance() {
             return FeedFragment.newInstance();
@@ -35,12 +35,12 @@ public enum NavViewTab implements EnumCode {
         }
     };
 
-    private static final EnumCodeMap<NavViewTab> MAP = new EnumCodeMap<>(NavViewTab.class);
+    private static final EnumCodeMap<NavTab> MAP = new EnumCodeMap<>(NavTab.class);
 
     @StringRes private final int text;
     @DrawableRes private final int icon;
 
-    @NonNull public static NavViewTab of(int code) {
+    @NonNull public static NavTab of(int code) {
         return MAP.get(code);
     }
 
@@ -64,7 +64,7 @@ public enum NavViewTab implements EnumCode {
         return ordinal();
     }
 
-    NavViewTab(@StringRes int text, @DrawableRes int icon) {
+    NavTab(@StringRes int text, @DrawableRes int icon) {
         this.text = text;
         this.icon = icon;
     }

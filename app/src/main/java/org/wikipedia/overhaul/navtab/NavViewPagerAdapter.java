@@ -10,10 +10,10 @@ public class NavViewPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override public Fragment getItem(int pos) {
-        return NavViewTab.of(pos).newInstance();
+        return NavTab.of(pos).newInstance();
     }
 
     @Override public int getCount() {
-        return NavViewTab.size();
+        return NavTab.size();
     }
 }
