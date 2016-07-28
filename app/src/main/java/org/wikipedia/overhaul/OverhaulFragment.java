@@ -110,4 +110,9 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     @Override public void onClearHistory() {
         // todo: [overhaul] clear history.
     }
+
+    @Override public boolean isMenuAllowed() {
+        // todo: [overhaul] logic for menu state.
+        return false;
+    }
 }

@@ -32,7 +32,6 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.BackPressedHandler;
-import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -52,6 +51,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onLoadPage(PageTitle title, HistoryEntry entry);
         void onClearHistory();
+        boolean isMenuAllowed();
     }
 
     private ListView historyEntryList;
@@ -178,7 +178,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (!isMenuToBeSetUp()) {
+        if (!isMenuAllowed()) {
             return;
         }
         menu.clear();
@@ -188,7 +188,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (!isMenuToBeSetUp()) {
+        if (!isMenuAllowed()) {
             return;
         }
         boolean isHistoryAvailable = historyEntryList.getCount() > 0;
@@ -231,10 +231,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 actionMode.invalidate();
             }
         }
-    }
-
-    private boolean isMenuToBeSetUp() {
-        return isAdded() && !((MainActivity)getActivity()).isSearching();
     }
 
     private class HistoryItemLongClickListener implements AdapterView.OnItemLongClickListener {
@@ -384,6 +380,14 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         if (callback != null) {
             callback.onClearHistory();
         }
+    }
+
+    private boolean isMenuAllowed() {
+        Callback callback = callback();
+        if (callback != null) {
+            return callback.isMenuAllowed();
+        }
+        return false;
     }
 
     @Nullable private Callback callback() {

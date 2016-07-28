@@ -805,6 +805,10 @@ public class MainActivity extends ThemedActionBarActivity implements FeedFragmen
         resetAfterClearHistory();
     }
 
+    @Override public boolean isMenuAllowed() {
+        return !isSearching();
+    }
+
     private void hideLinkPreview() {
         bottomSheetPresenter.dismiss();
     }
