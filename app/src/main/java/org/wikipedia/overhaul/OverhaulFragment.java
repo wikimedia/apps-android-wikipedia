@@ -18,7 +18,7 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.nearby.NearbyFragment;
-import org.wikipedia.overhaul.navtab.NavViewPagerAdapter;
+import org.wikipedia.overhaul.navtab.NavTabViewPagerAdapter;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingListsFragment;
 
@@ -44,7 +44,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_overhaul, container, false);
         unbinder = ButterKnife.bind(this, view);
-        viewPager.setAdapter(new NavViewPagerAdapter(getFragmentManager()));
+        viewPager.setAdapter(new NavTabViewPagerAdapter(getFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
         return view;
     }

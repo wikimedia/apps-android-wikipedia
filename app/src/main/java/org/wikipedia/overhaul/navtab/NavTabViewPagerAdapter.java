@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class NavViewPagerAdapter extends FragmentPagerAdapter {
-    public NavViewPagerAdapter(FragmentManager mgr) {
+public class NavTabViewPagerAdapter extends FragmentPagerAdapter {
+    public NavTabViewPagerAdapter(FragmentManager mgr) {
         super(mgr);
     }
 
