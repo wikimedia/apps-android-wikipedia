@@ -454,6 +454,7 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     content.innerHTML = payload.section.text;
     content.id = "content_block_0";
 
+    document.head.getElementsByTagName("base")[0].setAttribute("href", payload.siteBaseUrl);
     window.apiLevel = payload.apiLevel;
     window.string_table_infobox = payload.string_table_infobox;
     window.string_table_other = payload.string_table_other;
