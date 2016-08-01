@@ -183,7 +183,7 @@
   <string name="read_more_section">اقرأ المزيد</string>
   <string name="menu_gallery_visit_page">الذهاب إلى صفحة الملف</string>
   <string name="gallery_error_draw_failed">خطأ في إظهار الصورة.</string>
-  <string name="license_title">نص الترخيص لمكتبة %s</string>
+  <string name="license_title" fuzzy="true">نص الترخيص لمكتبة %s</string>
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_menu_save">الحفظ في الجهاز</string>
@@ -237,14 +237,15 @@
   <string name="nav_item_reading_lists">قوائم القراءة</string>
   <string name="reading_list_untitled">غير معنونة</string>
   <string name="reading_list_save_to">احفظ في قائمة القراءة</string>
-  <string name="reading_list_create_new" fuzzy="true">أنشئ قائمة قراءة جديدة</string>
+  <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
   <string name="reading_list_added_to_named">أضيفت إلى %s.</string>
   <string name="reading_list_added_to_unnamed">أضيفتت إلى قائمة القراءة</string>
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
-  <string name="reading_list_added_view_button" fuzzy="true">اعرض</string>
+  <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="reading_list_item_count_singular">مقالة واحدة</string>
   <string name="reading_list_sort">رتب</string>
   <string name="reading_list_sort_by_name">فرز خسب الأسم</string>
+  <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>
   <string name="reading_list_sort_by_recent">فرز حسب الأحدث</string>
   <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>
   <string name="reading_list_menu_edit">عدل تفاصيل قائمة القراءة</string>
@@ -254,13 +255,35 @@
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
   <string name="reading_list_save_for_offline">متوفر للقراءة بدون اتصال</string>
   <string name="reading_list_item_deleted">أزيلت %s من القائمة</string>
+  <string name="reading_list_item_delete_undo">تراجع</string>
   <string name="reading_list_deleted">أزيلت %s</string>
   <string name="reading_list_edit_ok">موافق</string>
   <string name="reading_list_edit_cancel">إلغاء</string>
+  <string name="reading_list_delete_confirm">هل أنت متأكد من رغبتك في حذف قائمة القراءة هذه؟</string>
   <string name="reading_lists_empty">لا قوائم قراءة هنا.</string>
   <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
   <string name="reading_lists_onboarding_example1">اماكن للزيارة</string>
   <string name="reading_lists_onboarding_example2">الحيوانات المفضلة</string>
+  <string name="reading_lists_onboarding_example3">الفضاء</string>
   <string name="reading_lists_onboarding_got_it">فهمت</string>
   <string name="user_option_sync_label">تفضيلات</string>
+  <string name="view_continue_reading_card_title">واصل القراءة</string>
+  <string name="view_because_you_read_card_title">لأنك قرأت</string>
+  <string name="view_random_card_subtitle">اقرأ مقالة عشوائية من ويكيبيديا</string>
+  <string name="view_main_page_card_title">اليوم في ويكيبيديا</string>
+  <string name="view_main_page_card_subtitle">الصفحة الرئيسية في %s</string>
+  <string name="view_featured_image_card_title">صورة اليوم</string>
+  <string name="view_featured_image_card_download">تنزيل</string>
+  <string name="menu_feed_card_dismiss">أخف هذه البطاقة</string>
+  <string name="menu_feed_card_dismissed">أخفيت البطاقة.</string>
+  <string name="feed_featured_image_share_subject">صورة مختارة من ويكيميديا كومنز</string>
+  <string name="feed">استكشف</string>
+  <string name="view_card_footer_button">طالع المزيد</string>
+  <string name="most_read_list_card_title">الأكثر زيارة</string>
+  <string name="view_static_card_icon_content_description">أيقونة بطاقة</string>
+  <string name="view_card_news_title">في الأخبار</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">أمس</item>
+    <item quantity="other">قبل %d أيام</item>
+  </plurals>
 </resources>

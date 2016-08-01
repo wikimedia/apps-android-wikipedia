@@ -182,7 +182,7 @@
   <string name="read_more_section">अधिक वाचन</string>
   <string name="menu_gallery_visit_page">संचिका पानावर जा</string>
   <string name="gallery_error_draw_failed">चित्र काढता आले नाही.</string>
-  <string name="license_title">%s ग्रंथालयासाठी परवाना मजकूर</string>
+  <string name="license_title" fuzzy="true">%s ग्रंथालयासाठी परवाना मजकूर</string>
   <string name="gallery_menu_share">सहभाग करा</string>
   <string name="gallery_share_error">चित्र सहभागी करु शकलो नाही:%s</string>
   <string name="gallery_menu_save">उपकरणात जतन करा</string>
@@ -272,8 +272,8 @@
   <string name="user_option_sync_label">पसंतीक्रम</string>
   <string name="view_continue_reading_card_title">वाचन सुरू ठेवा</string>
   <string name="view_because_you_read_card_title">कारण आपण वाचले</string>
-  <string name="view_main_page_card_title" fuzzy="true">आज %s विकिपीडियावर</string>
+  <string name="view_main_page_card_title">विकिपीडियावर आज</string>
   <string name="view_main_page_card_subtitle">%s वरील मुख्य पान</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">ही सुचवणी लपवा</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">सुचवणी लपलेली आहे.</string>
+  <string name="menu_feed_card_dismiss">हा पत्ता लपवा</string>
+  <string name="menu_feed_card_dismissed">पत्ता लपला आहे.</string>
 </resources>

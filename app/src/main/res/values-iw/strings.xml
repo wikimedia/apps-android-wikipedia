@@ -129,7 +129,7 @@
   <string name="about_description">אודות יישומון ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
@@ -185,7 +185,7 @@
   <string name="read_more_section">מידע נוסף</string>
   <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>
   <string name="gallery_error_draw_failed">לא היה אפשר לצייר את התמונה.</string>
-  <string name="license_title">טקסט הרישיון עבור הספרייה %s</string>
+  <string name="license_title" fuzzy="true">טקסט הרישיון עבור הספרייה %s</string>
   <string name="gallery_menu_share">שיתוף</string>
   <string name="gallery_share_error">לא היה ניתן לשתף את התמונה: %s</string>
   <string name="gallery_menu_save">שמירה למכשיר</string>

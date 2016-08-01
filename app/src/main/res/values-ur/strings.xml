@@ -184,7 +184,7 @@
   <string name="read_more_section">مزید پڑھیں</string>
   <string name="menu_gallery_visit_page">ملف کے صفحے پر جائیں</string>
   <string name="gallery_error_draw_failed">تصویر کو اتارا نہیں جاسکا۔</string>
-  <string name="license_title">اجازہ متن برائے %s لائبریری</string>
+  <string name="license_title" fuzzy="true">اجازہ متن برائے %s لائبریری</string>
   <string name="gallery_menu_share">دوسروں کو بھیجیں</string>
   <string name="gallery_share_error">تصویر دوسروں کو بھیجی نہیں جا سکی: %s</string>
   <string name="gallery_menu_save">آلے پر محفوظ کریں</string>

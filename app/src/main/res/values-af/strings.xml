@@ -162,7 +162,7 @@
   <string name="read_more_section">Lees meer</string>
   <string name="menu_gallery_visit_page">Gaan na lêer blad</string>
   <string name="gallery_error_draw_failed">Kon nie die beeld teken nie.</string>
-  <string name="license_title">Lisensie teks vir die %s biblioteek</string>
+  <string name="license_title" fuzzy="true">Lisensie teks vir die %s biblioteek</string>
   <string name="gallery_menu_share">Deel</string>
   <string name="gallery_share_error">Kon nie beeld deel nie: %s</string>
   <string name="gallery_menu_save">Stoor na toestel</string>

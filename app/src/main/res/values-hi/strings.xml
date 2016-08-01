@@ -182,7 +182,7 @@
   <string name="read_more_section">और पढ़ें</string>
   <string name="menu_gallery_visit_page">फ़ाइल पेज पर जाएँ</string>
   <string name="gallery_error_draw_failed">चित्र को प्रदर्शित नहीं किया जा सका।</string>
-  <string name="license_title">%s लाइब्ररी के लिए लाइसेंस टेक्स्ट</string>
+  <string name="license_title" fuzzy="true">%s लाइब्ररी के लिए लाइसेंस टेक्स्ट</string>
   <string name="gallery_menu_share">साझा करें</string>
   <string name="gallery_share_error">%s चित्र की साँझा नहीं किया जा सका</string>
   <string name="gallery_menu_save">डिवाइस पर सहेजें</string>

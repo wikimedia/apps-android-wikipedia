@@ -129,7 +129,7 @@
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
   <string name="privacy_policy_description">Política de privacidad</string>
   <string name="terms_of_use_description">Términos de uso</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/es</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
@@ -185,7 +185,7 @@
   <string name="read_more_section">Leer más</string>
   <string name="menu_gallery_visit_page">Ir a la página del archivo</string>
   <string name="gallery_error_draw_failed">No se pudo dibujar la imagen.</string>
-  <string name="license_title">Texto de la licencia de la biblioteca %s</string>
+  <string name="license_title" fuzzy="true">Texto de la licencia de la biblioteca %s</string>
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">No se pudo compartir la imagen: %s</string>
   <string name="gallery_menu_save">Guardar en dispositivo</string>

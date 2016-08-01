@@ -170,7 +170,7 @@
   <string name="read_more_section">మరింత చదువు</string>
   <string name="menu_gallery_visit_page">దస్త్ర పేజీకి వెళ్ళు</string>
   <string name="gallery_error_draw_failed">బొమ్మను పొందలేకపోతున్నాము.</string>
-  <string name="license_title">%s లైబ్రరీకి లైసెన్స్ వచనం</string>
+  <string name="license_title" fuzzy="true">%s లైబ్రరీకి లైసెన్స్ వచనం</string>
   <string name="gallery_menu_share">పంచుకోండి</string>
   <string name="gallery_share_error">చిత్రాన్ని భాగ్యపరచలేకపోయాము : %s</string>
   <string name="gallery_menu_save">పరికరానికి భద్రపరుచు</string>

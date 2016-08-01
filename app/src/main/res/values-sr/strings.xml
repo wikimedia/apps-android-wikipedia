@@ -174,7 +174,7 @@
   <string name="read_more_section">Детаљније</string>
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
   <string name="gallery_error_draw_failed">Не могу да исцртам слику.</string>
-  <string name="license_title">Текст лиценце за библиотеку %s</string>
+  <string name="license_title" fuzzy="true">Текст лиценце за библиотеку %s</string>
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_share_error">Не могу да делим слику: %s</string>
   <string name="gallery_menu_save">Сачувај на уређај</string>
@@ -256,4 +256,7 @@
   <string name="user_option_sync_label">Подешавања</string>
   <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
+  <string name="view_main_page_card_title">Данас на Википедији</string>
+  <string name="view_featured_image_card_title">Слика дана</string>
+  <string name="view_featured_image_card_download">Преузми</string>
 </resources>

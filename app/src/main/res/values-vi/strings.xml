@@ -129,7 +129,7 @@
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
   <string name="privacy_policy_description">Quy định về quyền riêng tư</string>
   <string name="terms_of_use_description">Điều khoản sử dụng</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Quy_định_quyền_riêng_tư?uselang=vi</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Quy_định_quyền_riêng_tư?uselang=vi</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/vi?uselang=vi</string>
   <string name="about_libraries_heading">Thư viện được sử dụng</string>
   <string name="about_contributors_heading">Người đóng góp</string>
@@ -185,7 +185,7 @@
   <string name="read_more_section">Đọc tiếp</string>
   <string name="menu_gallery_visit_page">Xem trang tập tin</string>
   <string name="gallery_error_draw_failed">Không thể hiển thị hình.</string>
-  <string name="license_title">Văn bản giấy phép của thư viện %s</string>
+  <string name="license_title" fuzzy="true">Văn bản giấy phép của thư viện %s</string>
   <string name="gallery_menu_share">Chia sẻ</string>
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
   <string name="gallery_menu_save">Lưu vào thiết bị</string>

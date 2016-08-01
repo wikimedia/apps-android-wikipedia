@@ -181,7 +181,7 @@
   <string name="read_more_section">Тулыраҡ уҡырға</string>
   <string name="menu_gallery_visit_page">Файл битенә күсергә</string>
   <string name="gallery_error_draw_failed">Һүрәтте сығарып булманы</string>
-  <string name="license_title"> %s китапханаһы өсөн текст лицензияһы</string>
+  <string name="license_title" fuzzy="true"> %s китапханаһы өсөн текст лицензияһы</string>
   <string name="gallery_menu_share">Уртаҡлашырға</string>
   <string name="gallery_share_error">%s һүрәте менән  уртаҡлашып булманы</string>
   <string name="gallery_menu_save">Ҡорамалда һаҡлау</string>

@@ -8,16 +8,17 @@
   <string name="no">ਨਹੀਂ</string>
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
-  <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ :(</string>
+  <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
-  <string name="page_error_back_to_main">ਪਿੱਛੇ ਮੁੜੋ</string>
+  <string name="page_error_back_to_main">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="page_does_not_exist_error">ਇਹ ਪੰਨਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="dialog_title_clear_history"> ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
+  <string name="dialog_message_clear_history">ਇਹ ਤੁਹਾਡਾ ਸਾਰਾ ਬ੍ਰਾਉਜ਼ਿੰਗ ਇਤਿਹਾਸ ਸਾਫ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਇਸ ਵੇਲੇ ਖੁੱਲੇ ਹੋਏ ਕੋਈ ਵੀ ਤੈਬ ਬੰਦ ਕਰ ਦੇਵੇਗਾ। ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ?</string>
   <string name="nav_item_saved_pages">ਸਾਂਭੇ ਹੋਏ ਪੰਨੇ</string>
-  <string name="share_via">...ਰਾਹੀਂ ਸਾਂਝਾ ਕਰੋ</string>
+  <string name="share_via">ਇਸ ਰਾਹੀਂ ਸਾਂਝਾ ਕਰੋ</string>
   <string name="search_redirect_from">%s ਤੋਂ ਮੋੜਿਆ ਗਿਆ</string>
-  <string name="menu_page_show_tabs">ਟੈਬਾਂ ਵਿਖਾਉ</string>
+  <string name="menu_page_show_tabs">ਟੈਬ ਵਿਖਾਉ</string>
   <string name="menu_page_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="menu_page_find_in_page">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
   <string name="menu_page_content_issues">ਸਮੱਗਰੀ ਸਮੱਸਿਆਵਾਂ</string>
@@ -35,7 +36,9 @@
   <string name="nav_item_nearby">ਨੇੜੇ-ਤੇੜੇ</string>
   <string name="nearby_distance_in_meters">%d ਮੀਟਰ</string>
   <string name="nearby_distance_in_kilometers">%.2f ਕਿਃ ਮੀਃ</string>
+  <string name="nearby_zoom_to_location">ਨਕਸ਼ੇ \'ਤੇ ਥਾੰ ਉੱਪਰ ਜ਼ੂਮ ਕਰੋ</string>
   <string name="last_updated_text">ਆਖ਼ਰੀ ਉੱਨਤੀਕਰਨ %s</string>
+  <string name="talk_page_link_text">ਗੱਲ-ਬਾਤ</string>
   <string name="content_license_html">ਕੁਝ ਹੋਰ ਨਾ ਦੱਸੇ ਜਾਣ ਦੀ ਸੂਰਤ ਵਿੱਚ ਸਮੱਗਰੀ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਹੇਠ ਮੌਜੂਦ ਹੈ</string>
   <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
   <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
@@ -54,6 +57,7 @@
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਅਾਂ ਸੋਧਾਂ ਅਜੇ ਸਾਂਭੀਅਾਂ ਨਹੀਂ ਗੲੀਅਾਂ। ਕੀ ਤੁਸੀ ਸਫ਼ਾ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="dialog_message_leaving_edit_leave">ਰਵਾਨਾ ਹੋਵੋ</string>
+  <string name="dialog_message_leaving_edit_stay">ਰਹੋ</string>
   <string name="menu_show_toc">ਸਮੱਗਰੀ ਸਾਰਣੀ</string>
   <string name="search_no_results_found">ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਲੱਭਿਆ</string>
   <string name="edit_section_captcha_message">ਆਪੇ ਚੱਲਦੇ ਊਲ-ਜਲੂਲ ਤੋਂ ਬਚਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਵਾਸਤੇ ਹੇਠਾਂ ਵਿਖ ਰਹੇ ਸ਼ਬਦ ਭਰੋ ਜੀ।</string>
@@ -109,6 +113,7 @@
   <string name="preferences_privacy_settings_heading">ਪਰਦੇਦਾਰੀ</string>
   <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
   <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
+  <string name="preference_title_auto_upload_crash_reports">ਕਰੈਸ਼ ਰਿਪੋਰਟ ਭੇਜੋ</string>
   <string name="history_search_list_hint">ਅਤੀਤ ਖੋਜੋ</string>
   <string name="history_search_empty_message">ਤੁਹਾਡੀ ਪੁੱਛ ਨਾਲ਼ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਵਰਕਾ ਨਹੀਂ ਲੱਭਿਆ।</string>
   <string name="error_can_not_process_link">ਇਹ ਕੜੀ ਵਿਖਾਈ ਨਾ ਜਾ ਸਕੀ</string>
@@ -122,7 +127,7 @@
   <string name="about_description">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਬਤ</string>
   <string name="privacy_policy_description">ਪਰਦਾ ਨੀਤੀ</string>
   <string name="terms_of_use_description">ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
@@ -159,6 +164,7 @@
   <string name="search_recent_header">ਹਾਲੀਆ ਖੋਜਾਂ</string>
   <string name="button_clear_all_recent_searches">ਹਾਲੀਆ ਖੋਜਾਂ ਮਿਟਾਓ</string>
   <string name="clear_recent_searches_confirm">ਕੀ ਤੁਸੀਂ ਖੋਜਕੀ ਅਤੀਤ ਸਾਫ਼ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="error_browser_not_found">ਵੈੱਬ ਸਫ਼ੇ ਨੂੰ ਖੋਲ ਨਹੀ ਸਕੇ (ਕੋਈ ਬਰਾਊਜ਼ਰ ਐਪਲੀਕੇਸ਼ ਲੱਭੀ ਨਹੀੰ)।</string>
   <string name="table_infobox">ਵਿਸ਼ੇਸ਼ ਤੱਥ</string>
   <string name="table_other">ਹੋਰ ਜਾਣਕਾਰੀ</string>
   <string name="table_close">ਬੰਦ ਕਰੋ</string>
@@ -172,7 +178,8 @@
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="menu_gallery_visit_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
-  <string name="license_title">%s ਲਾਇਬ੍ਰੇਰੀ ਲਈ ਲਸੰਸ ਲਿਖਤ</string>
+  <string name="gallery_error_draw_failed">ਤਸਵੀਰ ਬਣਾ ਨਹੀੰ ਸਕੇ।</string>
+  <string name="license_title" fuzzy="true">%s ਲਾਇਬ੍ਰੇਰੀ ਲਈ ਲਸੰਸ ਲਿਖਤ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
   <string name="gallery_menu_save">ੳੁਪਕਰਨ \'ਚ ਸੰਭਾਲੋ</string>
@@ -180,25 +187,33 @@
   <string name="gallery_save_success">ਫਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਸਾਂਭੀ ਗਈ।</string>
   <string name="gallery_error_video_failed">ਵੀਡੀਓ ਨਹੀਂ ਚਲਾ ਸਕੇ।</string>
   <string name="err_cannot_save_file">ਫਾਈਲ ਸਾਂਭੀ ਨਹੀਂ ਗਈ</string>
+  <string name="snippet_share_intro">\"%1$s\" @Wikipedia ਉੱਤੇ: %2$s</string>
   <string name="expand_refs">ਫੈਲਾਉਣ ਲਈ ਦਬਾਉ</string>
   <string name="share_snippet_button">ਤਸਵੀਰ ਦੇ ਤੌਰ \'ਤੇ ਸਾਂਝਾ ਕਰੋ</string>
   <string name="share_normal_button">ਲਿਖਤ ਦੇ ਤੌਰ \'ਤੇ ਸਾਂਭੋ</string>
   <string name="snippet_share_preview_image_desc">ਤਸਵੀਰ ਦੀ ਝਲਕ</string>
   <string name="cc_logo">Creative Commons license</string>
+  <string name="captcha_image">ਕੈਪਚਾ ਤਸਵੀਰ</string>
+  <string name="gallery_fair_use_license">ਨਿਰਪੱਖ ਵਰਤਣ</string>
   <string name="gallery_uploader_unknown">ਚੜ੍ਹਾਉਣ ਵਾਲਾ ਅਣਪਛਾਤਾ ਹੈ</string>
   <string name="menu_new_tab">ਨਵਾਂ ਟੈਬ</string>
   <string name="button_close_tab">ਟੈਬ ਬੰਦ ਕਰੋ</string>
   <string name="page_view_in_browser">ਬ੍ਰਾਉਜ਼ਰ \'ਚ ਦੇਖੋ</string>
   <string name="error_server_response">ਸਰਵਰ ਬੇਨਤੀ ਨੂੰ ਪੂਰਾ ਨਹੀਂ ਕਰ ਸਕਿਆ</string>
+  <string name="error_response_malformed">ਸਰਵਰ ਦਾ ਜਵਾਬ ਸਹੀ ਰੂਪ ਵਿੱਚ ਨਹੀਂ ਸੀ।</string>
   <string name="error_unknown">ਇੱਕ ਅਣਪਛਾਤੀ ਗਲਤੀ ਵਾਪਰੀ।</string>
   <string name="format_error_server_message">ਸੁਨੇਹਾ: \"%s\"</string>
   <string name="format_error_server_code">ਕੋਡ: \"%s\"</string>
   <string name="address_copied">ਪਤਾ ਗੱਤੇ \'ਤੇ ਉਤਾਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="text_copied">ਲਿਖਤ ਗੱਤੇ \'ਤੇ ਉਤਾਰੀ ਗਈ ਹੈ।</string>
   <string name="button_continue_to_article">ਲੇਖ ਪੜ੍ਹੋ</string>
+  <string name="button_get_directions">ਨਿਰਦੇਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ</string>
+  <string name="error_no_maps_app">ਦਿਸ਼ਾਵਾਂ ਮੁਹੱਈਆ ਕਰਵਾਉਣ ਲਾਇ ਕੋਈ ਐਪ ਨਹੀਂ ਲੱਭੀ।</string>
   <string name="preference_title_show_link_previews">ਕੜੀ ਦੀ ਝਲਕ ਵਿਖਾਉ</string>
   <string name="preference_summary_show_link_previews">ਜਦੋਂ ਕੜੀ ਨੂੰ ਦਬਾਇਆ ਜਾਵੇ ਤਾਂ ਲੇਖ ਦੀ ਥੋੜ੍ਹੀ ਜਿਹੀ ਝਲਕ ਦਿਖਾਈ ਜਾਵੇ।</string>
   <string name="nav_item_donate">ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਸਹਿਯੋਗ ਦੇਵੋ</string>
+  <string name="error_voice_search_not_available">ਮੁਆਫ ਕਰਨਾ, ਆਵਾਜ਼ ਪਛਾਣ ਉਪਲਬਧ ਨਹੀੰ ਹੈ।</string>
+  <string name="crash_report_dialog_title">ਮੁਅਾਫ਼ ਕਰਨਾ, ਪਿਛਲੀ ਵਾਰ ਐਪ ਟੁੱਟ ਗੲੀ ਸੀ</string>
   <string name="crash_report_dialog_dont_send_button">ਛੱਡ ਦਿਉ</string>
   <string name="crash_report_dialog_always_send_button">ਹਮੇਸ਼ਾ ਭੇਜੋ</string>
   <string name="crash_report_dialog_send_button">ਭੇਜੋ</string>
@@ -219,8 +234,9 @@
   <string name="reading_list_item_count_singular">1 ਲੇਖ</string>
   <string name="reading_list_item_count_plural">%s ਲੇਖ</string>
   <string name="reading_list_sort">ਤਰਤੀਬਵਾਰ ਕਰੋ</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">ਨਾਂ ਅਨੁਸਾਰ</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">ਹਾਲੀਆ ਖੋਲ੍ਹੇ ਅਨੁਸਾਰ</string>
+  <string name="reading_list_sort_by_name">ਨਾਂ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
+  <string name="reading_list_sort_by_name_desc">ਨਾਮ ਦੁਆਰਾ ਕ੍ਰਮਬੱਧ (ਉਲਟ)</string>
+  <string name="reading_list_sort_by_recent">ਹਾਲੀਆ ਖੋਲ੍ਹੇ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
   <string name="reading_list_menu_edit">ਪੜ੍ਹਤ ਸੂਚੀ ਦੀ ਜਾਣਕਾਰੀ ਸੋਧੋ</string>
   <string name="reading_list_menu_delete">ਪੜ੍ਹਤ ਸੂਚੀ ਮਿਟਾਉ</string>
   <string name="reading_list_name_sample">ਮੇਰੀ ਪੜ੍ਹਤ ਸੂਚੀ</string>
@@ -228,14 +244,37 @@
   <string name="reading_list_description_hint">ਵੇਰਵਾ (ਚੋਣਵਾਂ)</string>
   <string name="reading_list_save_for_offline">ਆਫਲਾਈਨ ਪੜ੍ਹਨ ਲਈ ਉਪਲੱਬਧ ਹੈ</string>
   <string name="reading_list_item_deleted">%s ਨੂੰ ਸੂਚੀ \'ਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
+  <string name="reading_list_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="reading_list_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="reading_list_edit_ok">ਠੀਕ ਹੈ</string>
   <string name="reading_list_edit_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="reading_list_delete_confirm">ਕੀ ਤੁਸੀਂ ਇਹ ਪੜ੍ਹਤ ਸੂਚੀ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="reading_lists_empty">ਇੱਥੇ ਕੋਈ ਪੜ੍ਹਤ ਸੂਚੀ ਨਹੀਂ ਹੈ...</string>
   <string name="reading_lists_onboarding_for_example">ਮਿਸਾਲ ਦੇ ਤੌਰ \'ਤੇ</string>
+  <string name="reading_lists_onboarding_example1">ਦੌਰਾ ਕਰਨ ਲਈ ਸਥਾਨ</string>
   <string name="reading_lists_onboarding_example2">ਪਸੰਦੀਦਾ ਜਾਨਵਰ</string>
   <string name="reading_lists_onboarding_example3">ਖਾਲੀ ਥਾਂ</string>
   <string name="reading_lists_onboarding_got_it">ਸਮਝ ਗਿਆ</string>
+  <string name="reading_lists_onboarding_page_delete">ਟਿਪ: ਕਿੱਸੇ ਵੀ ਸਾਫ਼ ਨੂੰ ਆਪਣੀ ਪੜ੍ਹਨ ਸੂਚੀ ਵਿੱਚੋਂ ਕੱਢਣ ਲਾਇ ਉਸ ਨੂੰ ਸੱਜੇ ਜਾ ਖੱਬੇ ਸਵਾਈਪ ਕਰੋ।</string>
   <string name="user_option_sync_label">ਤਰਜੀਹਾਂ</string>
+  <string name="view_continue_reading_card_title">ਪੜ੍ਹਦੇ ਰਹੋ</string>
+  <string name="view_because_you_read_card_title">ਕਿਓੰਕਿ ਤੁਸੀੰ ਇਹ ਪੜ੍ਹਿਆ ਸੀ</string>
+  <string name="view_random_card_title">ਰੈੰਡੋਮਾਈਜ਼ਰ</string>
+  <string name="view_random_card_subtitle">ਵਿਕੀਪੀਡੀਆ ਤੋੰ ਕੋਈ ਰਲ਼ਵਾਂ ਸਫ਼ਾ ਪੜ੍ਹੋ</string>
+  <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
+  <string name="view_main_page_card_subtitle">ਮੁੱਖ ਸਫ਼ਾ %s ਨੂੰ</string>
+  <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
+  <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
+  <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>
+  <string name="menu_feed_card_dismissed">ਕਾਰਡ ਲੁਕਾਇਆ</string>
+  <string name="feed_featured_image_share_subject">ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼ ਤੋਂ ਵਿਸ਼ੇਸ਼ ਤਸਵੀਰ</string>
+  <string name="feed">ਵਿਚਰੋ</string>
+  <string name="view_card_footer_button">ਹੋਰ ਵੇਖੋ</string>
+  <string name="most_read_list_card_title">ਪ੍ਰਚਲਤ</string>
+  <string name="view_static_card_icon_content_description">ਕਾਰਡ ਆਈਕਾਨ</string>
+  <string name="view_card_news_title">ਖ਼ਬਰਾਂ \'ਚ</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ਕੱਲ੍ਹ</item>
+    <item quantity="other">%d ਦਿਨ ਪਹਿਲਾਂ</item>
+  </plurals>
 </resources>

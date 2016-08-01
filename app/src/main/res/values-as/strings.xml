@@ -169,7 +169,7 @@
   <string name="preference_summary_show_images">পৃষ্ঠাত ছবিৰ ল\'ডিং সক্ৰিয় বা নিষ্ক্ৰিয় কৰক। আপোনাৰ ইণ্টাৰনেট সংযোগ লেহেমীয়া হ\'লে বা আপোনাৰ ডে\'টা প্লেন সীমিত হ\'লে এই ছেটিংটো অচিহ্নিত কৰক।</string>
   <string name="read_more_section">আৰু পঢ়ক</string>
   <string name="menu_gallery_visit_page">ফাইল পৃষ্ঠালৈ যাওক</string>
-  <string name="license_title">%s পুথিভঁৰালৰ বাবে অনুজ্ঞাপত্ৰ পাঠ্য</string>
+  <string name="license_title" fuzzy="true">%s পুথিভঁৰালৰ বাবে অনুজ্ঞাপত্ৰ পাঠ্য</string>
   <string name="gallery_menu_share">শ্বেয়াৰ কৰক</string>
   <string name="gallery_share_error">ছবিখন শ্বেয়াৰ কৰিব পৰা নগ\'ল: %s</string>
   <string name="gallery_menu_save">সঁজুলিত সাঁচি থওক</string>

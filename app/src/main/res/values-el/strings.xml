@@ -121,7 +121,7 @@
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="privacy_policy_description">Πολιτική ιδιωτικού απορρήτου</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">Βιβλιοθήκες που χρησιμοποιούνται</string>
   <string name="about_contributors_heading">Συνεισφέροντες</string>
@@ -175,7 +175,7 @@
   <string name="read_more_section">Διαβάστε περισσότερα</string>
   <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
   <string name="gallery_error_draw_failed">Δεν θα μπορούσε να αντλήσει από την εικόνα.</string>
-  <string name="license_title">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>
+  <string name="license_title" fuzzy="true">Κείμενο της άδειας χρήσης για τη βιβλιοθήκη %s</string>
   <string name="gallery_menu_share">Κοινοποίηση</string>
   <string name="gallery_menu_save">Αποθήκευση στη συσκευή</string>
   <string name="gallery_save_progress">Λήψη αρχείου σε εκτέλεση...</string>

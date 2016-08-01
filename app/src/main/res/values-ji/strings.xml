@@ -17,6 +17,7 @@
   <string name="dialog_message_clear_history">דאס וועט אויסמעקן אלע אייערע נאכקוקן היסטאריע און צומאכן אפענע טאבן. זענט איר זיכער?</string>
   <string name="nav_item_saved_pages">אײַנגעשפייכלערטע בלעטער</string>
   <string name="share_via">טיילן דורך</string>
+  <string name="search_redirect_from">אַריבערגעפֿירט פון %s</string>
   <string name="menu_page_show_tabs">ווײַזן טאבן</string>
   <string name="menu_page_other_languages">ענדערן שפראך</string>
   <string name="menu_page_find_in_page">טרעפן אין בלאט</string>
@@ -37,6 +38,7 @@
   <string name="nearby_distance_in_kilometers">%.2f ק\"מ</string>
   <string name="nearby_zoom_to_location">פֿארגרעסערן צו א לאקאציע אויף דער מאפע</string>
   <string name="last_updated_text">לעצט דערהײַנטיקט %s</string>
+  <string name="talk_page_link_text">רעדן</string>
   <string name="content_license_html">אינהאלט איז פֿאראן אונטער &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; אחוץ ווען געוויזן אנדערשט</string>
   <string name="preference_title_language">וויקיפעדיע־שפראך</string>
   <string name="preference_languages_filter_hint">זוכן</string>

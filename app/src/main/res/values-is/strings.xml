@@ -125,7 +125,7 @@
   <string name="about_description">Um Wikipedia-appið</string>
   <string name="privacy_policy_description">Meðferð persónuupplýsinga</string>
   <string name="terms_of_use_description">Notkunarskilmálar</string>
-  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://m.wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">notuð söfn</string>
   <string name="about_contributors_heading">framlög frá</string>
@@ -179,7 +179,7 @@
   <string name="read_more_section">Lesa meira</string>
   <string name="menu_gallery_visit_page">Fara á síðu skráarinnar</string>
   <string name="gallery_error_draw_failed">Gat ekki dregið upp myndina.</string>
-  <string name="license_title">Leyfistexti fyrir %s safnið</string>
+  <string name="license_title" fuzzy="true">Leyfistexti fyrir %s safnið</string>
   <string name="gallery_menu_share">Deila</string>
   <string name="gallery_share_error">Gat ekki deilt myndinni: %s</string>
   <string name="gallery_menu_save">Vista á tæki</string>

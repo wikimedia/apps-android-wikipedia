@@ -129,7 +129,7 @@
   <string name="about_description">關於維基百科應用程式</string>
   <string name="privacy_policy_description">隱私政策</string>
   <string name="terms_of_use_description">使用條款</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">使用的函式庫</string>
   <string name="about_contributors_heading">貢獻者</string>
@@ -185,7 +185,7 @@
   <string name="read_more_section">閱讀更多</string>
   <string name="menu_gallery_visit_page">前往檔案頁面</string>
   <string name="gallery_error_draw_failed">無法產生圖片。</string>
-  <string name="license_title">%s 函式庫的授權條款</string>
+  <string name="license_title" fuzzy="true">%s 函式庫的授權條款</string>
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">無法分享圖片：%s</string>
   <string name="gallery_menu_save">儲存至裝置</string>

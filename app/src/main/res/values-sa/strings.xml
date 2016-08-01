@@ -179,7 +179,7 @@
   <string name="read_more_section">अधिकं पठ्यताम्</string>
   <string name="menu_gallery_visit_page">सञ्चिकां पश्यतु</string>
   <string name="gallery_error_draw_failed">चित्रं कर्षितुं न शक्यते</string>
-  <string name="license_title">%s इत्यस्मै सङ्ग्रहालयाय अधिकारपाठः</string>
+  <string name="license_title" fuzzy="true">%s इत्यस्मै सङ्ग्रहालयाय अधिकारपाठः</string>
   <string name="gallery_menu_share">वितरतु</string>
   <string name="gallery_share_error">चित्रस्य वितरणं न जातम् : %s</string>
   <string name="gallery_menu_save">यन्त्रे रक्ष्यताम्</string>

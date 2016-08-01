@@ -129,13 +129,14 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Behandling af personlige oplysninger</string>
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
   <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
+  <string name="about_app_license">Kildekode tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Kreditering-DelPåSammeVilkår-licensen&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
@@ -172,7 +173,7 @@
   <string name="table_infobox">Hurtige fakta</string>
   <string name="table_other">Flere oplysninger</string>
   <string name="table_close">Luk</string>
-  <string name="widget_name_featured_page">Udvalgt Wikipedia-side</string>
+  <string name="widget_name_featured_page">Fremhævet Wikipedia-side</string>
   <string name="widget_title_featured_page">Dagens udvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søgning</string>
   <string name="wiktionary_no_definitions_found">Ingen definitioner fundet.</string>
@@ -184,7 +185,7 @@
   <string name="read_more_section">Læs mere</string>
   <string name="menu_gallery_visit_page">Gå til filside</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne billede.</string>
-  <string name="license_title">Licenstekst for biblioteket %s</string>
+  <string name="license_title" fuzzy="true">Licenstekst for biblioteket %s</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_menu_save">Gem til enhed</string>
@@ -221,6 +222,7 @@
   <string name="preference_title_show_link_previews">Vis forhåndsvisning af links</string>
   <string name="preference_summary_show_link_previews">Viser en kort forhåndsvisning af artikler når du trykker på links.</string>
   <string name="nav_item_donate">Støt Wikipedia</string>
+  <string name="error_voice_search_not_available">Beklager, stemmegenkendelse er ikke tilgængelig.</string>
   <string name="crash_report_dialog_title">Beklager, appen brød ned sidste gang</string>
   <string name="crash_report_dialog_text">Ønsker du at sende en nedbrudsrapport til HockeyApp / en tredjepart tjenesteudbyder, så Wikimedia kan gennemgå nedbruddet og rette den fejl, der forårsagede det?</string>
   <string name="crash_report_dialog_dont_send_button">Spring over</string>
@@ -272,4 +274,24 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_lists_onboarding_got_it">Forstået</string>
   <string name="reading_lists_onboarding_page_delete">Tip: Stryg en side til venstre eller højre for at fjerne den fra denne læseliste.</string>
   <string name="user_option_sync_label">Indstillinger</string>
+  <string name="view_continue_reading_card_title">Fortsæt læsning</string>
+  <string name="view_because_you_read_card_title">Fordi du læste</string>
+  <string name="view_random_card_title">Tilfældighedsgenerator</string>
+  <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia</string>
+  <string name="view_main_page_card_title">I dag på Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Hovedsiden på %s</string>
+  <string name="view_featured_image_card_title">Dagens billede</string>
+  <string name="view_featured_image_card_download">Download</string>
+  <string name="menu_feed_card_dismiss">Skjul dette kort</string>
+  <string name="menu_feed_card_dismissed">Kort skjult.</string>
+  <string name="feed_featured_image_share_subject">Fremhævet billede fra Wikimedia Commons</string>
+  <string name="feed">Udforsk</string>
+  <string name="view_card_footer_button">Se mere</string>
+  <string name="most_read_list_card_title">Populært</string>
+  <string name="view_static_card_icon_content_description">Kortikon</string>
+  <string name="view_card_news_title">I nyhederne</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">i går</item>
+    <item quantity="other">for %d dage siden</item>
+  </plurals>
 </resources>

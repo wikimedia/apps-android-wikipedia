@@ -176,7 +176,7 @@
   <string name="read_more_section">წაიკითხე მეტი</string>
   <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
-  <string name="license_title">ლიცენზიის ტექსტი ბიბლიოთეკისთვის: %s</string>
+  <string name="license_title" fuzzy="true">ლიცენზიის ტექსტი ბიბლიოთეკისთვის: %s</string>
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
@@ -262,7 +262,11 @@
   <string name="view_continue_reading_card_title">განაგრძე კითხვა</string>
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
   <string name="view_random_card_subtitle" fuzzy="true">წაიკითხე შემთხვევითი სტატია %s-ს ვიკიპედიაში</string>
+  <string name="view_main_page_card_title">დღეს ვიკიპედიაში</string>
   <string name="view_main_page_card_subtitle">მთავარი გვერდი %s-ზე</string>
+  <string name="view_featured_image_card_title">დღის სურათი</string>
+  <string name="view_featured_image_card_download">გადმოწერა</string>
   <string name="menu_feed_card_dismiss" fuzzy="true">შეთავაზების დამალვა</string>
   <string name="menu_feed_card_dismissed" fuzzy="true">დამალული შეთავაზება.</string>
+  <string name="view_card_footer_button">იხილეთ მეტი</string>
 </resources>

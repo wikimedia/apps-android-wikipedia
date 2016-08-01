@@ -129,7 +129,7 @@
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/id</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
   <string name="about_contributors_heading">Kontributor</string>
@@ -185,7 +185,7 @@
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
-  <string name="license_title">Teks lisensi untuk pustaka %s</string>
+  <string name="license_title" fuzzy="true">Teks lisensi untuk pustaka %s</string>
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
@@ -219,8 +219,8 @@
   <string name="button_continue_to_article">Baca artikel</string>
   <string name="button_get_directions">Dapatkan petunjuk arah</string>
   <string name="error_no_maps_app">Tidak dapat menemukan aplikasi yang memberikan petunjuk arah.</string>
-  <string name="preference_title_show_link_previews">Tampilkan pratinjau pranala</string>
-  <string name="preference_summary_show_link_previews">Tampilkan pratinjau singkat artikel setelah menekan pranala.</string>
+  <string name="preference_title_show_link_previews">Tampilkan pratayang pranala</string>
+  <string name="preference_summary_show_link_previews">Tampilkan pratayang singkat artikel setelah menekan pranala.</string>
   <string name="nav_item_donate">Dukung Wikipedia</string>
   <string name="error_voice_search_not_available">Maaf, pengenalan suara tidak tersedia.</string>
   <string name="crash_report_dialog_title">Maaf, aplikasi berhenti dengan sendirinya</string>

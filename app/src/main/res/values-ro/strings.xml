@@ -129,7 +129,7 @@
   <string name="about_description">Despre aplicația Wikipedia</string>
   <string name="privacy_policy_description">Politica de confidențialitate</string>
   <string name="terms_of_use_description">Termeni de utilizare</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">Biblioteci utilizate</string>
   <string name="about_contributors_heading">Contribuitori</string>
@@ -185,7 +185,7 @@
   <string name="read_more_section">Citiți mai multe</string>
   <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>
   <string name="gallery_error_draw_failed">Imposibil de afișat imaginea.</string>
-  <string name="license_title">Textul licenței pentru biblioteca %s</string>
+  <string name="license_title" fuzzy="true">Textul licenței pentru biblioteca %s</string>
   <string name="gallery_menu_share">Distribuie</string>
   <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
   <string name="gallery_menu_save">Salvează în dispozitiv</string>

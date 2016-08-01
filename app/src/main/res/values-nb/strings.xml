@@ -129,7 +129,7 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Personvernpolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">Bibliotek brukt</string>
   <string name="about_contributors_heading">Bidragsytere</string>
@@ -185,7 +185,7 @@
   <string name="read_more_section">Les mer</string>
   <string name="menu_gallery_visit_page">Gå til filsiden</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne bildet.</string>
-  <string name="license_title">Lisenstekst for biblioteket %s</string>
+  <string name="license_title" fuzzy="true">Lisenstekst for biblioteket %s</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
   <string name="gallery_menu_save">Lagre på enheten</string>

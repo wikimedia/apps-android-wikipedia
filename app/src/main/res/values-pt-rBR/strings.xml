@@ -125,7 +125,7 @@
   <string name="about_description">Sobre o aplicativo da Wikipédia</string>
   <string name="privacy_policy_description">Política de privacidade</string>
   <string name="terms_of_use_description">Termos de uso</string>
-  <string name="privacy_policy_url">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Termos_de_Uso</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
@@ -181,7 +181,7 @@
   <string name="read_more_section">Ler mais</string>
   <string name="menu_gallery_visit_page">Ir para a página do arquivo</string>
   <string name="gallery_error_draw_failed">Não foi possível desenhar a imagem.</string>
-  <string name="license_title">Licença para %s</string>
+  <string name="license_title" fuzzy="true">Licença para %s</string>
   <string name="gallery_menu_share">Compartilhar</string>
   <string name="gallery_share_error">Não foi possível compartilhar a imagem: %s</string>
   <string name="gallery_menu_save">Salvar no dispositivo</string>

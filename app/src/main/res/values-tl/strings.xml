@@ -159,7 +159,7 @@
   <string name="preference_title_show_images">Ipakita ang mga larawan</string>
   <string name="menu_gallery_visit_page">Pumunta sa talakasang (file) pahina</string>
   <string name="gallery_error_draw_failed">Hindi maiguhit ang larawan.</string>
-  <string name="license_title">Lisensyang teksto para sa %s na aklatan</string>
+  <string name="license_title" fuzzy="true">Lisensyang teksto para sa %s na aklatan</string>
   <string name="gallery_menu_share">Ibahagi</string>
   <string name="gallery_share_error">Hindi maibahagi ang larawan: %s</string>
   <string name="gallery_menu_save">Itala (save) sa aparato</string>
