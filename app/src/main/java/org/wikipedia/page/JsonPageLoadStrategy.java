@@ -628,6 +628,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                     .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
                     .put("isBeta", app.isPreProdRelease()) // True for any non-production release type
                     .put("siteLanguage", model.getTitle().getSite().languageCode())
+                    .put("siteBaseUrl", model.getTitle().getSite().scheme() + "://" + model.getTitle().getSite().host())
                     .put("isMainPage", page.isMainPage())
                     .put("fromRestBase", page.isFromRestBase())
                     .put("isNetworkMetered", DeviceUtil.isNetworkMetered(app))
