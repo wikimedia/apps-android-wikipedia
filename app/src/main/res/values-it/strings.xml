@@ -185,7 +185,7 @@
   <string name="read_more_section">Per saperne di più</string>
   <string name="menu_gallery_visit_page">Vai alla pagina del file</string>
   <string name="gallery_error_draw_failed">Impossibile rendere l\'immagine.</string>
-  <string name="license_title" fuzzy="true">Testo di licenza per la libreria %s</string>
+  <string name="license_title">Licenza per %s</string>
   <string name="gallery_menu_share">Condividi</string>
   <string name="gallery_share_error">Impossibile condividere l\'immagine: %s</string>
   <string name="gallery_menu_save">Salva sul dispositivo</string>
