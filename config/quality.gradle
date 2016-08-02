@@ -21,41 +21,6 @@ task checkstyle(type: Checkstyle) {
     classpath = configurations.compile
 }
 
-// --- testAll tasks ---
-// These tasks execute both JVM JUnit and Android instrumentation tests (per variant).
-
-def addTestAllTask = { testAllName, jvmJUnitName, androidInstrumentationName ->
-    task (testAllName) {
-        // Run JVM JUnit tests and Android instrumentation tests.
-        dependsOn ([jvmJUnitName, androidInstrumentationName])
-
-        // JVM JUnit tests execute quickest and should be attempted prior to Android instrumentation tests.
-        shouldRunAfter jvmJUnitName
-    }
-}
-
-// Specify debug or release build type for connectedAndroidTest. Both cannot be used simultaneously.
-// Note: if both are specified, defaults to release.
-android.testBuildType project.gradle.startParameter.taskNames.find { it.contains('Release') } ?
-        'release' :
-        'debug'
-
-// Add testAll tasks for each build variant of the current build type.
-android.applicationVariants.all { variant ->
-    if (variant.name.toLowerCase().endsWith(android.testBuildType)) {
-        def variantName = variant.name.capitalize()
-        def testAllName = "testAll${variantName}"
-        def jvmJUnitName = "test${variantName}UnitTest"
-        def androidInstrumentationName = "connected${variantName}AndroidTest"
-
-        addTestAllTask(testAllName, jvmJUnitName, androidInstrumentationName)
-    }
-}
-
-// Add testAll task for all configurations.
-addTestAllTask('testAll', 'test', 'connectedAndroidTest')
-// --- /testAll ---
-
 spoon {
     adbTimeout = 600
 

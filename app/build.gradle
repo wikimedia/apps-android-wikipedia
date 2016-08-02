@@ -1,9 +1,11 @@
 apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+
+apply from: '../config/test.gradle'
 apply from: '../config/quality.gradle'
 
-import com.android.build.gradle.internal.dsl.ProductFlavor;
+import com.android.build.gradle.internal.dsl.ProductFlavor
 import com.android.ddmlib.DdmPreferences
 
 import java.util.concurrent.TimeUnit
