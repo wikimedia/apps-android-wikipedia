@@ -1,0 +1,11 @@
+apply plugin: 'spoon'
+
+spoon {
+    adbTimeout = 600
+
+    // only run on the CI job's devices. https://github.com/stanfy/spoon-gradle-plugin/issues/49
+    String serial = System.env['ANDROID_SERIAL'];
+    if (serial) {
+        devices = [serial];
+    }
+}

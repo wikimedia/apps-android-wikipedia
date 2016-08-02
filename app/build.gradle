@@ -4,7 +4,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 
 apply from: '../config/test.gradle'
 apply from: '../config/checkstyle.gradle'
-apply from: '../config/quality.gradle'
+apply from: '../config/spoon.gradle'
 
 import com.android.build.gradle.internal.dsl.ProductFlavor
 import com.android.ddmlib.DdmPreferences
