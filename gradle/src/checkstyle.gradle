@@ -4,7 +4,7 @@ apply plugin: 'checkstyle'
 check.dependsOn 'checkstyle'
 
 checkstyle {
-    configFile = file('../config/checkstyle.xml')
+    configFile = file('../gradle/src/checkstyle.xml')
     toolVersion = '6.11.2'
 }
 
