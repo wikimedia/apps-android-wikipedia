@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
 apply from: '../config/test.gradle'
+apply from: '../config/checkstyle.gradle'
 apply from: '../config/quality.gradle'
 
 import com.android.build.gradle.internal.dsl.ProductFlavor
