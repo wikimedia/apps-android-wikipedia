@@ -475,12 +475,10 @@ public class SearchResultsFragment extends Fragment {
             SearchResult result = (SearchResult) getItem(position);
 
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
-            descriptionText.setText(result.getPageTitle().getDescription());
-
             View redirectContainer = convertView.findViewById(R.id.page_list_item_redirect_container);
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
                 redirectContainer.setVisibility(View.GONE);
-                descriptionText.setVisibility(View.VISIBLE);
+                descriptionText.setText(result.getPageTitle().getDescription());
             } else {
                 redirectContainer.setVisibility(View.VISIBLE);
                 descriptionText.setVisibility(View.GONE);
