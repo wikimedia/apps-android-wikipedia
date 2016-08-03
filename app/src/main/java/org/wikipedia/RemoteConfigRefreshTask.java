@@ -32,11 +32,15 @@ public class RemoteConfigRefreshTask extends RecurringTask {
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder().url(REMOTE_CONFIG_URL).build();
                 Response response = client.newCall(request).execute();
-                JSONObject config = new JSONObject(response.body().string());
-                WikipediaApp.getInstance().getRemoteConfig().updateConfig(config);
-                RbSwitch.INSTANCE.update();
-                L.d(config.toString());
-                return true;
+                try {
+                    JSONObject config = new JSONObject(response.body().string());
+                    WikipediaApp.getInstance().getRemoteConfig().updateConfig(config);
+                    RbSwitch.INSTANCE.update();
+                    L.d(config.toString());
+                    return true;
+                } finally {
+                    response.close();
+                }
             }
 
             @Override

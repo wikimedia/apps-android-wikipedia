@@ -41,18 +41,21 @@ public class AlphaUpdateChecker extends RecurringTask {
 
     @Override
     protected void run(Date lastRun) {
-
-
         // Check for updates!
         JSONObject config;
+        Response response = null;
         try {
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder().url(ALPHA_BUILD_DATA_URL).build();
-            Response response = client.newCall(request).execute();
+            response = client.newCall(request).execute();
             config = new JSONObject(response.body().string());
         } catch (IOException | JSONException e) {
             // It's ok, we can do nothing.
             return;
+        } finally {
+            if (response != null) {
+                response.close();
+            }
         }
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (prefs.contains(PREFERENCE_KEY_ALPHA_COMMIT)) {

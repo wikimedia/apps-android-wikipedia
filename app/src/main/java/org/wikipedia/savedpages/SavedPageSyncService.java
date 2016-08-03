@@ -166,12 +166,13 @@ public class SavedPageSyncService extends IntentService {
             if (response.isSuccessful()) {
                 InputStream stream = response.body().byteStream();
                 writeFile(stream, file);
-                response.close();
                 L.v("downloaded image " + url + " to " + file.getAbsolutePath());
                 return true;
             }
         } catch (Exception e) {
             L.e("could not download image " + url, e);
+        } finally {
+            response.close();
         }
         return false;
     }

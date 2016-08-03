@@ -75,7 +75,11 @@ public class EventLoggingEvent {
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder().url(dataURL).header("User-Agent", userAgent).build();
             Response response = client.newCall(request).execute();
-            return response.code();
+            try {
+                return response.code();
+            } finally {
+                response.close();
+            }
         }
 
         @Override
