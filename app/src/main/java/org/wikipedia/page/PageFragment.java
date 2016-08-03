@@ -1165,6 +1165,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private class PageFragmentLongPressHandler extends PageContainerLongPressHandler
             implements LongPressHandler.WebViewContextMenuListener {
+
         PageFragmentLongPressHandler(@NonNull PageFragment.Callback callback) {
             super(callback);
         }

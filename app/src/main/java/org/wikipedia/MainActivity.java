@@ -89,6 +89,7 @@ import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
@@ -96,6 +97,7 @@ import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
+import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -116,7 +118,7 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class MainActivity extends ThemedActionBarActivity implements PageFragment.Callback,
         FeedFragment.Callback, NearbyFragment.Callback, HistoryFragment.Callback,
-        ReadingListsFragment.Callback, LinkPreviewDialog.Callback {
+        ReadingListsFragment.Callback, LinkPreviewDialog.Callback, SearchResultsFragment.Callback {
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
@@ -1039,8 +1041,32 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
+    public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
+        showAddToListDialog(title, source);
+    }
+
+    @Override
+    public void onSearchResultShareLink(@NonNull PageTitle title) {
+        ShareUtil.shareText(this, title);
+    }
+
+    @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         loadPage(title, entry);
+    }
+
+    @Override
+    public void onSearchResultCopyLink(@NonNull PageTitle title) {
+        copyLink(title.getCanonicalUri());
+        showCopySuccessMessage();
+    }
+
+    private void copyLink(@NonNull String url) {
+        ClipboardUtil.setPlainText(this, null, url);
+    }
+
+    private void showCopySuccessMessage() {
+        FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
     @Nullable

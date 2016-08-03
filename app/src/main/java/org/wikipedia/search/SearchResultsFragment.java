@@ -1,10 +1,13 @@
 package org.wikipedia.search;
 
+import org.wikipedia.LongPressHandler;
 import org.wikipedia.ParcelableLruCache;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
@@ -33,6 +36,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchResultsFragment extends Fragment {
+    public interface Callback {
+        void onSearchResultCopyLink(@NonNull PageTitle title);
+        void onSearchResultAddToList(@NonNull PageTitle title,
+                                     @NonNull AddToReadingListDialog.InvokeSource source);
+        void onSearchResultShareLink(@NonNull PageTitle title);
+    }
+
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
     private static final int MESSAGE_SEARCH = 1;
@@ -125,9 +135,10 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //org.wikipedia.page.LongPressHandler.ListViewContextMenuListener contextMenuListener = new LongPressHandler(this);
-        //new org.wikipedia.page.LongPressHandler(getActivity(), searchResultsList, HistoryEntry.SOURCE_SEARCH,
-                //contextMenuListener);
+        LongPressHandler.ListViewContextMenuListener contextMenuListener
+                = new SearchResultsFragmentLongPressHandler(this);
+        new LongPressHandler(getActivity(), searchResultsList,
+                HistoryEntry.SOURCE_SEARCH, contextMenuListener);
     }
 
     @Override
@@ -416,27 +427,26 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    // TODO: Necessary interface implementation
-    private class LongPressHandler extends SearchResultsFragmentLongPressHandler {
-            //implements org.wikipedia.page.LongPressHandler.ListViewContextMenuListener {
+    private class SearchResultsFragmentLongPressHandler extends SearchResultsLongPressHandler
+            implements org.wikipedia.LongPressHandler.ListViewContextMenuListener {
         private int lastPositionRequested;
 
-        LongPressHandler(@NonNull SearchResultsFragment fragment) {
+        SearchResultsFragmentLongPressHandler(@NonNull SearchResultsFragment fragment) {
             super(fragment);
         }
 
-        //@Override
+        @Override
         public PageTitle getTitleForListPosition(int position) {
             lastPositionRequested = position;
             return ((SearchResult) getAdapter().getItem(position)).getPageTitle();
         }
 
-        //@Override
+        @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
             searchFragment.navigateToTitle(title, false, lastPositionRequested);
         }
 
-        //@Override
+        @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
             searchFragment.navigateToTitle(title, true, lastPositionRequested);
         }
@@ -528,6 +538,33 @@ public class SearchResultsFragment extends Fragment {
             }
             return -1;
         }
+    }
+
+    public void copyLink(@NonNull PageTitle title) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchResultCopyLink(title);
+        }
+    }
+
+    public void addToReadingList(@NonNull PageTitle title,
+                                 @NonNull AddToReadingListDialog.InvokeSource source) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchResultAddToList(title, source);
+        }
+    }
+
+    public void shareLink(@NonNull PageTitle title) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchResultShareLink(title);
+        }
+    }
+
+    @Nullable
+    private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }
 
