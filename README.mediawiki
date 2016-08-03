@@ -5,3 +5,7 @@ This repository contains the source code for the Wikipedia Android app.
 == Documentation ==
 
 All documentation is kept on [https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Wikipedia_Android_app_hacking our wiki]. Check it out!
+
+== Download ==
+
+<a href='https://play.google.com/store/apps/details?id=org.wikipedia'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="20px"/></a>
