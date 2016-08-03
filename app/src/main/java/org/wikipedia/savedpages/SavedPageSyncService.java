@@ -137,20 +137,15 @@ public class SavedPageSyncService extends IntentService {
         for (Map.Entry<String, String> entry : imageUrlMap.entrySet()) {
             final String url = UriUtil.resolveProtocolRelativeUrl(entry.getKey());
             final File file = new File(entry.getValue());
-            boolean success = false;
             try {
-                success = downloadImage(url, file);
+                downloadImage(url, file);
             } catch (IOException e) {
                 L.e("Failed to download image: " + url, e);
-            }
-
-            if (!success) {
-                imageUrlMap.remove(url);
             }
         }
     }
 
-    private boolean downloadImage(@NonNull  String url, @NonNull File file) throws IOException {
+    private boolean downloadImage(@NonNull String url, @NonNull File file) throws IOException {
         if (!url.startsWith("http")) {
             L.e("ignoring non-HTTP URL " + url);
             return true;
