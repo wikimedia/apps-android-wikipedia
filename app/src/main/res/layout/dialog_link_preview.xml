@@ -39,7 +39,8 @@
                     android:layout_height="@dimen/defaultListItemSize"
                     android:layout_margin="16dp"
                     android:layout_gravity="center_vertical"
-                    android:contentDescription="@null" />
+                    android:contentDescription="@null"
+                    android:background="@drawable/view_list_card_item_image_background"/>
                 <TextView
                     android:id="@+id/link_preview_title"
                     android:layout_width="0dp"

@@ -38,6 +38,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
@@ -150,8 +151,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView title = (TextView) view.findViewById(R.id.page_list_item_title);
+            GoneIfEmptyTextView description = (GoneIfEmptyTextView) view.findViewById(R.id.page_list_item_description);
             HistoryEntry entry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
             title.setText(entry.getTitle().getDisplayText());
+            description.setText(null);
             view.setTag(entry);
             ViewUtil.loadImageUrlInto((SimpleDraweeView) view.findViewById(R.id.page_list_item_image),
                     PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor));

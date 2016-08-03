@@ -14,70 +14,72 @@
     android:background="?attr/selectableItemBackground"
     android:gravity="top">
 
-  <com.facebook.drawee.view.SimpleDraweeView
-      style="@style/SimpleDraweeViewPlaceholder.Article"
-      android:id="@+id/page_list_item_image"
-      android:layout_width="@dimen/defaultListItemSize"
-      android:layout_height="@dimen/defaultListItemSize"
-      android:layout_gravity="center_vertical"
-      android:contentDescription="@null" />
+    <com.facebook.drawee.view.SimpleDraweeView
+        style="@style/SimpleDraweeViewPlaceholder.Article"
+        android:id="@+id/page_list_item_image"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_marginTop="6dp"
+        app:roundedCornerRadius="2dp"
+        android:background="@drawable/view_list_card_item_image_background" />
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center_vertical"
-      android:layout_marginLeft="@dimen/list_item_text_horizontal_padding"
-      android:layout_marginStart="@dimen/list_item_text_horizontal_padding"
-      android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
 
-      <TextView
-          android:id="@+id/page_list_item_title"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          style="@style/RtlAwareTextView"
-          android:textSize="@dimen/textSize"
-          android:ellipsize="end"
-          android:maxLines="2"
-          android:textColor="?attr/list_item_text_primary_color"
-          tools:text="Lorem ipsum" />
+        <TextView
+            android:id="@+id/page_list_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textSize="16sp"
+            android:textColor="?attr/feed_text_primary_color"
+            style="@style/RtlAwareTextView"
+            tools:text="Lorem ipsum"/>
 
-      <LinearLayout
-          android:id="@+id/page_list_item_redirect_container"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="16dp"
-          android:layout_marginStart="16dp"
-          android:layout_marginBottom="4dp"
-          android:alpha="0.5">
-          <ImageView
-              android:layout_width="16dp"
-              android:layout_height="16dp"
-              app:srcCompat="@drawable/ic_subdirectory_arrow_right_black_24dp"
-              android:tint="?attr/list_item_text_secondary_color"
-              android:contentDescription="@null"/>
-          <org.wikipedia.views.GoneIfEmptyTextView
-              android:id="@+id/page_list_item_redirect"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              style="@style/RtlAwareTextView"
-              android:textAppearance="?android:attr/textAppearanceSmall"
-              android:ellipsize="end"
-              android:maxLines="2"
-              android:textColor="?attr/list_item_text_secondary_color"
-              tools:text="Redirected from..."
-              />
-      </LinearLayout>
+        <LinearLayout
+            android:id="@+id/page_list_item_redirect_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:alpha="0.5">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                app:srcCompat="@drawable/ic_subdirectory_arrow_right_black_24dp"
+                android:tint="?attr/list_item_text_secondary_color"
+                android:contentDescription="@null"/>
+            <org.wikipedia.views.GoneIfEmptyTextView
+                android:id="@+id/page_list_item_redirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/RtlAwareTextView"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="?attr/list_item_text_secondary_color"
+                tools:text="Redirected from..."
+                />
+        </LinearLayout>
 
-      <org.wikipedia.views.GoneIfEmptyTextView
-          android:id="@+id/page_list_item_description"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          style="@style/RtlAwareTextView"
-          android:textAppearance="?android:attr/textAppearanceSmall"
-          android:ellipsize="end"
-          android:maxLines="2"
-          android:textColor="?attr/list_item_text_secondary_color"
-          tools:text="Sample description"
-          />
-  </LinearLayout>
+        <org.wikipedia.views.GoneIfEmptyTextView
+            android:id="@+id/page_list_item_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textSize="14sp"
+            android:textColor="?attr/feed_text_secondary_color"
+            android:lineSpacingMultiplier="1.2"
+            style="@style/RtlAwareTextView"
+            tools:text="Lorem ipsum"/>
+    </LinearLayout>
+
 </LinearLayout>

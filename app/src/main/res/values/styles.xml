@@ -234,8 +234,10 @@
     </style>
 
     <style name="SimpleDraweeViewPlaceholder.Article">
-        <item name="placeholderImage">@drawable/ic_pageimage_placeholder</item>
-        <item name="failureImage">@drawable/ic_pageimage_placeholder</item>
+        <item name="placeholderImage">@drawable/ic_image_gray_24dp</item>
+        <item name="placeholderImageScaleType">center</item>
+        <item name="failureImage">@drawable/ic_image_gray_24dp</item>
+        <item name="failureImageScaleType">center</item>
     </style>
 
 </resources>

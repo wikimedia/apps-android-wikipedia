@@ -34,50 +34,46 @@
         android:layout_height="wrap_content">
 
         <com.facebook.drawee.view.SimpleDraweeView
+            style="@style/SimpleDraweeViewPlaceholder.Article"
             android:id="@+id/page_list_item_image"
-            android:layout_width="@dimen/defaultListItemSize"
-            android:layout_height="@dimen/defaultListItemSize"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@null"
-            app:placeholderImage="@drawable/ic_pageimage_placeholder"
-            app:placeholderImageScaleType="centerCrop"
-            app:failureImage="@drawable/ic_pageimage_placeholder"
-            app:failureImageScaleType="centerCrop"
-            app:actualImageScaleType="centerCrop"
-            android:background="@color/window_background_light"/>
+            android:layout_width="@dimen/view_list_card_item_image"
+            android:layout_height="@dimen/view_list_card_item_image"
+            android:layout_marginTop="6dp"
+            app:roundedCornerRadius="2dp"
+            android:background="@drawable/view_list_card_item_image_background" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/list_item_text_horizontal_padding"
-            android:layout_marginStart="@dimen/list_item_text_horizontal_padding"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
 
             <TextView
                 android:id="@+id/page_list_item_title"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textSize="16sp"
+                android:textColor="?attr/feed_text_primary_color"
                 style="@style/RtlAwareTextView"
-                android:textSize="@dimen/textSize"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="?attr/list_item_text_primary_color"
-                tools:text="Sample title" />
+                tools:text="Lorem ipsum"/>
 
             <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/page_list_item_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:textSize="14sp"
+                android:textColor="?attr/feed_text_secondary_color"
+                android:lineSpacingMultiplier="1.2"
                 style="@style/RtlAwareTextView"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="?attr/list_item_text_secondary_color"
-                android:visibility="gone"
-                tools:text="Sample description"
-                />
-
+                tools:text="Lorem ipsum"/>
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>
