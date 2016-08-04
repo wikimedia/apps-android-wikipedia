@@ -41,6 +41,7 @@ public class SearchResultsFragment extends Fragment {
         void onSearchResultAddToList(@NonNull PageTitle title,
                                      @NonNull AddToReadingListDialog.InvokeSource source);
         void onSearchResultShareLink(@NonNull PageTitle title);
+        void onSearchProgressBar(boolean enabled);
     }
 
     private static final int BATCH_SIZE = 20;
@@ -80,7 +81,7 @@ public class SearchResultsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
         searchResultsDisplay = rootView.findViewById(R.id.search_results_display);
-        searchFragment = (SearchArticlesFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        searchFragment = (SearchArticlesFragment) getParentFragment();
 
         searchResultsContainer = rootView.findViewById(R.id.search_results_container);
         searchResultsList = (ListView) rootView.findViewById(R.id.search_results_list);
@@ -137,7 +138,7 @@ public class SearchResultsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         LongPressHandler.ListViewContextMenuListener contextMenuListener
                 = new SearchResultsFragmentLongPressHandler(this);
-        new LongPressHandler(getActivity(), searchResultsList,
+        new LongPressHandler(getContext(), searchResultsList,
                 HistoryEntry.SOURCE_SEARCH, contextMenuListener);
     }
 
@@ -215,7 +216,7 @@ public class SearchResultsFragment extends Fragment {
         TitleSearchTask searchTask = new TitleSearchTask(app.getAPIForSite(app.getSite()), app.getSite(), searchTerm) {
             @Override
             public void onBeforeExecute() {
-                updateProgressBar(true, true, 0);
+                updateProgressBar(true);
             }
 
             @Override
@@ -232,7 +233,7 @@ public class SearchResultsFragment extends Fragment {
                     searchFragment.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
                 }
 
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
                 searchErrorView.setVisibility(View.GONE);
                 if (!resultList.isEmpty()) {
                     clearResults();
@@ -277,7 +278,7 @@ public class SearchResultsFragment extends Fragment {
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(false, timeToDisplay);
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
 
                 searchErrorView.setVisibility(View.VISIBLE);
                 searchErrorView.setError(caught);
@@ -293,7 +294,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void cancelSearchTask() {
-        updateProgressBar(false, true, 0);
+        updateProgressBar(false);
         searchHandler.removeMessages(MESSAGE_SEARCH);
         if (curSearchTask != null) {
             // This does not cancel the HTTP request itself
@@ -313,7 +314,7 @@ public class SearchResultsFragment extends Fragment {
                                    searchTerm, BATCH_SIZE, continueOffset, false) {
             @Override
             public void onBeforeExecute() {
-                updateProgressBar(true, true, 0);
+                updateProgressBar(true);
             }
 
             @Override
@@ -341,7 +342,7 @@ public class SearchResultsFragment extends Fragment {
                     cachedTitles.addAll(resultList);
                 }
 
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
                 searchErrorView.setVisibility(View.GONE);
 
                 // full text special:
@@ -358,7 +359,7 @@ public class SearchResultsFragment extends Fragment {
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
                 searchFragment.getFunnel().searchError(true, timeToDisplay);
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
 
                 // since this is a follow-up search just show a message
                 FeedbackUtil.showError(getView(), caught);
@@ -379,9 +380,11 @@ public class SearchResultsFragment extends Fragment {
         clearResults(true);
     }
 
-    // TODO: implement
-    private void updateProgressBar(boolean visible, boolean indeterminate, int value) {
-
+    private void updateProgressBar(boolean enabled) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchProgressBar(enabled);
+        }
     }
 
     private void clearResults(boolean clearSuggestion) {

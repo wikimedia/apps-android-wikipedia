@@ -33,7 +33,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_recent, container, false);
-        searchFragment = (SearchArticlesFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.search_fragment);
+        searchFragment = (SearchArticlesFragment) getParentFragment();
         this.container = rootView.findViewById(R.id.recent_searches_container);
         recentSearchesList = (ListView) rootView.findViewById(R.id.recent_searches_list);
         deleteButton = (ImageView) rootView.findViewById(R.id.recent_searches_delete_button);
@@ -51,7 +51,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        adapter = new RecentSearchesAdapter(getActivity(), null, true);
+        adapter = new RecentSearchesAdapter(getContext(), null, true);
         recentSearchesList.setAdapter(adapter);
 
         recentSearchesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -62,14 +62,14 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             }
         });
 
-        LoaderManager supportLoaderManager = getActivity().getSupportLoaderManager();
+        LoaderManager supportLoaderManager = getLoaderManager();
         supportLoaderManager.initLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
         supportLoaderManager.restartLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID, null, this);
     }
 
     @Override
     public void onDestroyView() {
-        getActivity().getSupportLoaderManager().destroyLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID);
+        getLoaderManager().destroyLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID);
         super.onDestroyView();
     }
 
@@ -91,7 +91,6 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
         adapter.swapCursor(cursorLoader);
         boolean visible = recentSearchesList.getCount() > 0;
         deleteButton.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
-        getActivity().supportInvalidateOptionsMenu();
     }
 
     @Override
@@ -110,7 +109,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
-            return getActivity().getLayoutInflater().inflate(R.layout.item_search_recent, viewGroup, false);
+            return getLayoutInflater(null).inflate(R.layout.item_search_recent, viewGroup, false);
         }
 
         @Override

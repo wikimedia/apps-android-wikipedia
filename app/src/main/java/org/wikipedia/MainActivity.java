@@ -83,6 +83,7 @@ import org.wikipedia.page.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.page.gallery.MediaDownloadReceiver;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
+import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.random.RandomHandler;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
@@ -118,7 +119,8 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class MainActivity extends ThemedActionBarActivity implements PageFragment.Callback,
         FeedFragment.Callback, NearbyFragment.Callback, HistoryFragment.Callback,
-        ReadingListsFragment.Callback, LinkPreviewDialog.Callback, SearchResultsFragment.Callback {
+        ReadingListsFragment.Callback, LinkPreviewDialog.Callback, SearchArticlesFragment.Callback,
+        SearchResultsFragment.Callback {
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
@@ -1041,6 +1043,28 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
+    public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
+        loadPage(entry.getTitle(), entry, inNewTab ? TabsProvider.TabPosition.NEW_TAB_BACKGROUND
+                : TabsProvider.TabPosition.CURRENT_TAB, false);
+    }
+
+    @Override
+    public void onSearchOpen() {
+        setSearchMode(true);
+    }
+
+    @Override
+    public void onSearchClose() {
+        setSearchMode(false);
+        hideSoftKeyboard();
+    }
+
+    @Override
+    public View getSearchToolbarView() {
+        return toolbarContainer;
+    }
+
+    @Override
     public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
         showAddToListDialog(title, source);
     }
@@ -1048,6 +1072,11 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public void onSearchResultShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(this, title);
+    }
+
+    @Override
+    public void onSearchProgressBar(boolean enabled) {
+        updateProgressBar(enabled, true, 0);
     }
 
     @Override

@@ -3,6 +3,8 @@ package org.wikipedia.search;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
@@ -25,20 +27,18 @@ import com.squareup.otto.Subscribe;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.MainActivity;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.FeedbackUtil;
 
-import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class SearchArticlesFragment extends Fragment implements BackPressedHandler {
@@ -70,6 +70,13 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
             return code == WIDGET.code() || code == INTENT_SHARE.code()
                     || code == INTENT_PROCESS_TEXT.code();
         }
+    }
+
+    public interface Callback {
+        void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab);
+        void onSearchOpen();
+        void onSearchClose();
+        View getSearchToolbarView();
     }
 
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
@@ -106,9 +113,6 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private RecentSearchesFragment recentSearchesFragment;
     private SearchResultsFragment searchResultsFragment;
 
-    public SearchArticlesFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,12 +128,12 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        app = (WikipediaApp) getActivity().getApplicationContext();
+        app = WikipediaApp.getInstance();
         app.getBus().register(this);
         View parentLayout = inflater.inflate(R.layout.fragment_search, container, false);
 
         searchContainerView = parentLayout.findViewById(R.id.search_container);
-        searchContainerView.setPadding(0, getContentTopOffsetPx(getActivity()), 0, 0);
+        searchContainerView.setPadding(0, getContentTopOffsetPx(getContext()), 0, 0);
         searchContainerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,7 +147,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(getActivity())
+                new AlertDialog.Builder(getContext())
                         .setMessage(getString(R.string.clear_recent_searches_confirm))
                         .setPositiveButton(
                                 getString(R.string.yes),
@@ -286,7 +290,10 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         funnel.searchStart();
         isSearchActive = true;
         setSearchViewEnabled(true);
-        ((MainActivity) getActivity()).setSearchMode(true);
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchOpen();
+        }
         // show ourselves
         searchContainerView.setVisibility(View.VISIBLE);
 
@@ -301,10 +308,12 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     public void closeSearch() {
         isSearchActive = false;
         setSearchViewEnabled(false);
-        ((MainActivity) getActivity()).setSearchMode(false);
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchClose();
+        }
         // hide ourselves
         searchContainerView.setVisibility(View.GONE);
-        hideSoftKeyboard(getActivity());
         addRecentSearch(lastSearchedText);
     }
 
@@ -327,10 +336,18 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     }
 
     private void setSearchViewEnabled(boolean enabled) {
-        LinearLayout enabledSearchBar = (LinearLayout) getActivity().findViewById(R.id.search_bar_enabled);
-        TextView searchButton = (TextView) getActivity().findViewById(R.id.main_search_bar_text);
-        langButton = (TextView) getActivity().findViewById(R.id.search_lang_button);
-        FrameLayout langButtonContainer = (FrameLayout) getActivity().findViewById(R.id.search_lang_button_container);
+        View toolbarContainer = null;
+        Callback callback = callback();
+        if (callback != null) {
+            toolbarContainer = callback.getSearchToolbarView();
+        }
+        if (toolbarContainer == null) {
+            return;
+        }
+        LinearLayout enabledSearchBar = (LinearLayout) toolbarContainer.findViewById(R.id.search_bar_enabled);
+        TextView searchButton = (TextView) toolbarContainer.findViewById(R.id.main_search_bar_text);
+        langButton = (TextView) toolbarContainer.findViewById(R.id.search_lang_button);
+        FrameLayout langButtonContainer = (FrameLayout) toolbarContainer.findViewById(R.id.search_lang_button_container);
 
         if (enabled) {
             // set up the language picker
@@ -346,7 +363,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
             // set up the SearchView
             if (searchView == null) {
-                searchView = (SearchView) getActivity().findViewById(R.id.main_search_view);
+                searchView = (SearchView) toolbarContainer.findViewById(R.id.main_search_view);
                 searchView.setOnQueryTextListener(searchQueryListener);
                 searchView.setOnCloseListener(searchCloseListener);
 
@@ -437,7 +454,8 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
         @Override
         public boolean onClose() {
-            getActivity().onBackPressed();
+            closeSearch();
+            funnel.searchCancel();
             return false;
         }
     };
@@ -448,11 +466,11 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         }
         funnel.searchClick(position);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-        hideSoftKeyboard(getActivity());
         closeSearch();
-        ((MainActivity)getActivity()).loadPage(title, historyEntry, inNewTab
-                ? TabsProvider.TabPosition.NEW_TAB_BACKGROUND
-                : TabsProvider.TabPosition.CURRENT_TAB, false);
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchSelectPage(historyEntry, inNewTab);
+        }
     }
 
     private void addRecentSearch(String title) {
@@ -504,8 +522,13 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         langButton.setTextSize(langButtonTextSizeLarger);
     }
 
+    @Nullable
+    private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
+    }
+
     public void showLangPreferenceDialog() {
-        LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), true);
+        LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getContext(), true);
         langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
