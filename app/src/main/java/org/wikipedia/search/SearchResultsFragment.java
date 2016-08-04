@@ -3,6 +3,7 @@ package org.wikipedia.search;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
@@ -44,6 +45,13 @@ public class SearchResultsFragment extends Fragment {
         void onSearchProgressBar(boolean enabled);
     }
 
+    public interface Parent {
+        void navigateToTitle(@NonNull PageTitle item, boolean inNewTab, int position);
+        void setSearchText(@NonNull CharSequence text);
+        @NonNull SearchFunnel getFunnel();
+        void setProgressBarEnabled(boolean enabled);
+    }
+
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
     private static final int MESSAGE_SEARCH = 1;
@@ -54,7 +62,7 @@ public class SearchResultsFragment extends Fragment {
      */
     private static final int NANO_TO_MILLI = 1_000_000;
 
-    private SearchArticlesFragment searchFragment;
+    private Parent parentFragment;
     private View searchResultsDisplay;
     private View searchResultsContainer;
     private ListView searchResultsList;
@@ -81,7 +89,7 @@ public class SearchResultsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
         searchResultsDisplay = rootView.findViewById(R.id.search_results_display);
-        searchFragment = (SearchArticlesFragment) getParentFragment();
+        parentFragment = (Parent) getParentFragment();
 
         searchResultsContainer = rootView.findViewById(R.id.search_results_container);
         searchResultsList = (ListView) rootView.findViewById(R.id.search_results_list);
@@ -97,7 +105,7 @@ public class SearchResultsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-                searchFragment.navigateToTitle(item, false, position);
+                parentFragment.navigateToTitle(item, false, position);
             }
         });
 
@@ -110,8 +118,8 @@ public class SearchResultsFragment extends Fragment {
             public void onClick(View view) {
                 String suggestion = (String) searchSuggestion.getTag();
                 if (suggestion != null) {
-                    searchFragment.getFunnel().searchDidYouMean();
-                    searchFragment.setSearchText(suggestion);
+                    parentFragment.getFunnel().searchDidYouMean();
+                    parentFragment.setSearchText(suggestion);
                     startSearch(suggestion, true);
                 }
             }
@@ -230,7 +238,7 @@ public class SearchResultsFragment extends Fragment {
                 if (!resultList.isEmpty()) {
                     // Calculate total time taken to display results, in milliseconds
                     final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                    searchFragment.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
+                    parentFragment.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
                 }
 
                 updateProgressBar(false);
@@ -277,7 +285,7 @@ public class SearchResultsFragment extends Fragment {
                 }
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                searchFragment.getFunnel().searchError(false, timeToDisplay);
+                parentFragment.getFunnel().searchError(false, timeToDisplay);
                 updateProgressBar(false);
 
                 searchErrorView.setVisibility(View.VISIBLE);
@@ -333,7 +341,7 @@ public class SearchResultsFragment extends Fragment {
                 if (!resultList.isEmpty()) {
                     // Calculate total time taken to display results, in milliseconds
                     final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                    searchFragment.getFunnel().searchResults(true, resultList.size(), timeToDisplay);
+                    parentFragment.getFunnel().searchResults(true, resultList.size(), timeToDisplay);
                 }
 
                 // append results to cache...
@@ -358,7 +366,7 @@ public class SearchResultsFragment extends Fragment {
                 }
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                searchFragment.getFunnel().searchError(true, timeToDisplay);
+                parentFragment.getFunnel().searchError(true, timeToDisplay);
                 updateProgressBar(false);
 
                 // since this is a follow-up search just show a message
@@ -381,8 +389,10 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void updateProgressBar(boolean enabled) {
+        parentFragment.setProgressBarEnabled(enabled);
         Callback callback = callback();
         if (callback != null) {
+            // TODO: remove this callback item after overhaul
             callback.onSearchProgressBar(enabled);
         }
     }
@@ -446,12 +456,12 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            searchFragment.navigateToTitle(title, false, lastPositionRequested);
+            parentFragment.navigateToTitle(title, false, lastPositionRequested);
         }
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            searchFragment.navigateToTitle(title, true, lastPositionRequested);
+            parentFragment.navigateToTitle(title, true, lastPositionRequested);
         }
     }
 

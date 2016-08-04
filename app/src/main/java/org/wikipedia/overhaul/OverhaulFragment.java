@@ -23,18 +23,23 @@ import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.overhaul.navtab.NavTab;
 import org.wikipedia.overhaul.navtab.NavTabViewPagerAdapter;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
+import org.wikipedia.search.OverhaulSearchFragment;
+import org.wikipedia.search.SearchResultsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
-        NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback {
+        NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
+        OverhaulSearchFragment.Callback, SearchResultsFragment.Callback {
     @BindView(R.id.fragment_overhaul_view_pager) ViewPager viewPager;
     @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
     private NavTabChangeListener pagerChangeListener = new NavTabChangeListener();
+    private OverhaulSearchFragment searchFragment;
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab, @NonNull Fragment fragment);
@@ -57,6 +62,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         viewPager.setAdapter(new NavTabViewPagerAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
+        searchFragment = (OverhaulSearchFragment) getChildFragmentManager().findFragmentById(R.id.search_fragment);
         return view;
     }
 
@@ -68,7 +74,8 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public void onFeedSearchRequested() {
-        // todo: [overhaul] search.
+        searchFragment.setInvokeSource(OverhaulSearchFragment.InvokeSource.FEED_BAR);
+        searchFragment.openSearch();
     }
 
     @Override public void onFeedVoiceSearchRequested() {
@@ -144,5 +151,40 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
             onTabChanged(NavTab.of(position),
                     ((NavTabViewPagerAdapter) viewPager.getAdapter()).getCurrentFragment());
         }
+    }
+
+    @Override
+    public void onSearchResultCopyLink(@NonNull PageTitle title) {
+        // TODO: implement
+    }
+
+    @Override
+    public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
+        // TODO: implement
+    }
+
+    @Override
+    public void onSearchResultShareLink(@NonNull PageTitle title) {
+        // TODO: implement
+    }
+
+    @Override
+    public void onSearchProgressBar(boolean enabled) {
+        // TODO: implement
+    }
+
+    @Override
+    public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
+        // TODO: implement
+    }
+
+    @Override
+    public void onSearchOpen() {
+        // TODO: implement
+    }
+
+    @Override
+    public void onSearchClose() {
+        // TODO: implement
     }
 }

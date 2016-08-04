@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <org.wikipedia.overhaul.navtab.NavTabLayout
-        android:id="@+id/view_nav_view_pager_tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/view_nav_view_pager_tab_layout_height"
-        android:layout_alignParentBottom="true"
-        app:tabGravity="fill"
-        android:elevation="12dp"
-        android:background="@android:color/white"
-        app:tabIndicatorColor="@color/blue_liberal" />
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/fragment_overhaul_view_pager_container"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <org.wikipedia.overhaul.navtab.NavTabLayout
+            android:id="@+id/view_nav_view_pager_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_nav_view_pager_tab_layout_height"
+            android:layout_alignParentBottom="true"
+            app:tabGravity="fill"
+            android:elevation="12dp"
+            android:background="@android:color/white"
+            app:tabIndicatorColor="@color/blue_liberal" />
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/fragment_overhaul_view_pager_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/view_nav_view_pager_tab_layout">
+            <org.wikipedia.readinglist.NoSwipeViewPager
+                android:id="@+id/fragment_overhaul_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.design.widget.CoordinatorLayout>
+
+    </RelativeLayout>
+
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/view_nav_view_pager_tab_layout">
-        <org.wikipedia.readinglist.NoSwipeViewPager
-            android:id="@+id/fragment_overhaul_view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </android.support.design.widget.CoordinatorLayout>
-</RelativeLayout>
+        android:id="@+id/search_fragment"
+        android:name="org.wikipedia.search.OverhaulSearchFragment"
+        android:layout="@id/view_nav_view_pager_tab_layout"
+        tools:layout="@layout/fragment_search_overhaul" />
+
+</FrameLayout>

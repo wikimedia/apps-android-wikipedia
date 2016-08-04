@@ -8,17 +8,17 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
@@ -37,10 +37,13 @@ import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.ViewUtil;
 
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
-public class SearchArticlesFragment extends Fragment implements BackPressedHandler,
+public class OverhaulSearchFragment extends Fragment implements BackPressedHandler,
         SearchResultsFragment.Parent, RecentSearchesFragment.Parent {
     public enum InvokeSource implements EnumCode {
         TOOLBAR(0),
@@ -76,7 +79,6 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab);
         void onSearchOpen();
         void onSearchClose();
-        View getSearchToolbarView();
     }
 
     private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
@@ -86,11 +88,17 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     private static final int PANEL_RECENT_SEARCHES = 0;
     private static final int PANEL_SEARCH_RESULTS = 1;
 
+    @BindView(R.id.search_container) View searchContainer;
+    @BindView(R.id.search_toolbar) Toolbar toolbar;
+    @BindView(R.id.search_cab_view) SearchView searchView;
+    @BindView(R.id.search_progress_bar) ProgressBar progressBar;
+    @BindView(R.id.search_lang_button_container) View langButtonContainer;
+    @BindView(R.id.search_lang_button) TextView langButton;
+    private Unbinder unbinder;
+
     private WikipediaApp app;
-    private SearchView searchView;
     private EditText searchEditText;
     private SearchFunnel funnel;
-    private TextView langButton;
     private InvokeSource invokeSource = InvokeSource.TOOLBAR;
 
     /**
@@ -104,12 +112,6 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
      */
     private String lastSearchedText;
 
-    /**
-     * View that contains the whole Search fragment. This is what should be shown/hidden when
-     * the search is called for from the main activity.
-     */
-    private View searchContainerView;
-
     private RecentSearchesFragment recentSearchesFragment;
     private SearchResultsFragment searchResultsFragment;
 
@@ -117,7 +119,7 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        funnel = new SearchFunnel(WikipediaApp.getInstance(), invokeSource);
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), SearchArticlesFragment.InvokeSource.of(invokeSource.code()));
     }
 
     @Override
@@ -129,12 +131,10 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         app = WikipediaApp.getInstance();
-        app.getBus().register(this);
-        View parentLayout = inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_overhaul, container, false);
+        unbinder = ButterKnife.bind(this, view);
 
-        searchContainerView = parentLayout.findViewById(R.id.search_container);
-        searchContainerView.setPadding(0, getContentTopOffsetPx(getContext()), 0, 0);
-        searchContainerView.setOnClickListener(new View.OnClickListener() {
+        searchContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Give the root container view an empty click handler, so that click events won't
@@ -150,20 +150,24 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
                 R.id.fragment_search_results);
 
         // make sure we're hidden by default
-        searchContainerView.setVisibility(View.GONE);
+        searchContainer.setVisibility(View.GONE);
 
         if (savedInstanceState != null) {
             lastSearchedText = savedInstanceState.getString(ARG_LAST_SEARCHED_TEXT);
             invokeSource = InvokeSource.of(savedInstanceState.getInt(ARG_INVOKE_SOURCE));
             showPanel(savedInstanceState.getInt(ARG_SEARCH_CURRENT_PANEL));
         }
-        return parentLayout;
+
+        initSearchView();
+        initLangButton();
+        return view;
     }
 
     @Override
     public void onDestroyView() {
+        unbinder.unbind();
+        unbinder = null;
         super.onDestroyView();
-        app.getBus().unregister(this);
     }
 
     @Override
@@ -270,16 +274,15 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
      */
     public void openSearch() {
         // create a new funnel every time Search is opened, to get a new session ID
-        funnel = new SearchFunnel(WikipediaApp.getInstance(), invokeSource);
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), SearchArticlesFragment.InvokeSource.of(invokeSource.code()));
         funnel.searchStart();
         isSearchActive = true;
-        setSearchViewEnabled(true);
         Callback callback = callback();
         if (callback != null) {
             callback.onSearchOpen();
         }
         // show ourselves
-        searchContainerView.setVisibility(View.VISIBLE);
+        ViewUtil.fadeIn(searchContainer);
 
         // if the current search string is empty, then it's a fresh start, so we'll show
         // recent searches by default. Otherwise, the currently-selected panel should already
@@ -287,17 +290,25 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
         if (TextUtils.isEmpty(lastSearchedText)) {
             showPanel(PANEL_RECENT_SEARCHES);
         }
+
+        searchView.setIconified(false);
+        searchView.requestFocusFromTouch();
+        // if we already have a previous search query, then put it into the SearchView, and it will
+        // automatically trigger the showing of the corresponding search results.
+        if (isValidQuery(lastSearchedText)) {
+            searchView.setQuery(lastSearchedText, false);
+            searchEditText.selectAll();
+        }
     }
 
     public void closeSearch() {
         isSearchActive = false;
-        setSearchViewEnabled(false);
         Callback callback = callback();
         if (callback != null) {
             callback.onSearchClose();
         }
         // hide ourselves
-        searchContainerView.setVisibility(View.GONE);
+        ViewUtil.fadeOut(searchContainer);
         addRecentSearch(lastSearchedText);
     }
 
@@ -321,85 +332,45 @@ public class SearchArticlesFragment extends Fragment implements BackPressedHandl
 
     @Override
     public void setProgressBarEnabled(boolean enabled) {
+        progressBar.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
-    private void setSearchViewEnabled(boolean enabled) {
-        View toolbarContainer = null;
-        Callback callback = callback();
-        if (callback != null) {
-            toolbarContainer = callback.getSearchToolbarView();
-        }
-        if (toolbarContainer == null) {
-            return;
-        }
-        LinearLayout enabledSearchBar = (LinearLayout) toolbarContainer.findViewById(R.id.search_bar_enabled);
-        TextView searchButton = (TextView) toolbarContainer.findViewById(R.id.main_search_bar_text);
-        langButton = (TextView) toolbarContainer.findViewById(R.id.search_lang_button);
-        FrameLayout langButtonContainer = (FrameLayout) toolbarContainer.findViewById(R.id.search_lang_button_container);
+    private void initSearchView() {
+        searchView.setOnQueryTextListener(searchQueryListener);
+        searchView.setOnCloseListener(searchCloseListener);
 
-        if (enabled) {
-            // set up the language picker
-            langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
-            formatLangButtonText();
-            langButtonContainer.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showLangPreferenceDialog();
-                }
-            });
-            FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);
+        searchEditText = (EditText) searchView
+                .findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        // reset its background
+        searchEditText.setBackgroundColor(Color.TRANSPARENT);
+        // make the search frame match_parent
+        View searchEditFrame = searchView
+                .findViewById(android.support.v7.appcompat.R.id.search_edit_frame);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        searchEditFrame.setLayoutParams(params);
+        // center the search text in it
+        searchEditText.setGravity(Gravity.CENTER_VERTICAL);
+        // remove focus line from search plate
+        View searchEditPlate = searchView
+                .findViewById(android.support.v7.appcompat.R.id.search_plate);
+        searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
 
-            // set up the SearchView
-            if (searchView == null) {
-                searchView = (SearchView) toolbarContainer.findViewById(R.id.main_search_view);
-                searchView.setOnQueryTextListener(searchQueryListener);
-                searchView.setOnCloseListener(searchCloseListener);
+        ImageView searchClose = (ImageView) searchView.findViewById(
+                android.support.v7.appcompat.R.id.search_close_btn);
+        FeedbackUtil.setToolbarButtonLongPressToast(searchClose);
+    }
 
-                searchEditText = (EditText) searchView
-                        .findViewById(android.support.v7.appcompat.R.id.search_src_text);
-                // make the text size be the same as the size of the search field
-                // placeholder in the main activity
-                searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, searchButton.getTextSize());
-                // reset its background
-                searchEditText.setBackgroundColor(Color.TRANSPARENT);
-                // make the search frame match_parent
-                View searchEditFrame = searchView
-                        .findViewById(android.support.v7.appcompat.R.id.search_edit_frame);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-                searchEditFrame.setLayoutParams(params);
-                // center the search text in it
-                searchEditText.setGravity(Gravity.CENTER_VERTICAL);
-                // remove focus line from search plate
-                View searchEditPlate = searchView
-                        .findViewById(android.support.v7.appcompat.R.id.search_plate);
-                searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
-
-                ImageView searchClose = (ImageView) searchView.findViewById(
-                        android.support.v7.appcompat.R.id.search_close_btn);
-                FeedbackUtil.setToolbarButtonLongPressToast(searchClose);
+    private void initLangButton() {
+        langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
+        formatLangButtonText();
+        langButtonContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showLangPreferenceDialog();
             }
-
-            updateZeroChrome();
-            searchView.setIconified(false);
-            searchView.requestFocusFromTouch();
-
-            // if we already have a previous search query, then put it into the SearchView, and it will
-            // automatically trigger the showing of the corresponding search results.
-            if (isValidQuery(lastSearchedText)) {
-                searchView.setQuery(lastSearchedText, false);
-                // automatically select all text in the search field, so that typing a new character
-                // will clear it by default
-                if (searchEditText != null) {
-                    searchEditText.selectAll();
-                }
-            }
-            searchButton.setVisibility(View.GONE);
-            enabledSearchBar.setVisibility(View.VISIBLE);
-        } else {
-            enabledSearchBar.setVisibility(View.GONE);
-            searchButton.setVisibility(View.VISIBLE);
-        }
+        });
+        FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);
     }
 
     /*

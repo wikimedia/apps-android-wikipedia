@@ -1,14 +1,17 @@
 package org.wikipedia.search;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.CursorAdapter;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +21,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.SearchHistoryContract;
+import org.wikipedia.util.FeedbackUtil;
 
 import static org.wikipedia.Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID;
 
 /** Displays a list of recent searches */
 public class RecentSearchesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    private SearchArticlesFragment searchFragment;
+    public interface Parent {
+        void switchToSearch(@NonNull String text);
+    }
+
+    private Parent parentFragment;
     private View container;
     private ListView recentSearchesList;
     private RecentSearchesAdapter adapter;
@@ -33,10 +42,30 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_recent, container, false);
-        searchFragment = (SearchArticlesFragment) getParentFragment();
+        parentFragment = (Parent) getParentFragment();
         this.container = rootView.findViewById(R.id.recent_searches_container);
         recentSearchesList = (ListView) rootView.findViewById(R.id.recent_searches_list);
+
         deleteButton = (ImageView) rootView.findViewById(R.id.recent_searches_delete_button);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(getContext())
+                        .setMessage(getString(R.string.clear_recent_searches_confirm))
+                        .setPositiveButton(
+                                getString(R.string.yes),
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        new DeleteAllRecentSearchesTask(WikipediaApp.getInstance()).execute();
+                                    }
+                                })
+                        .setNegativeButton(getString(R.string.no), null)
+                        .create().show();
+            }
+        });
+        FeedbackUtil.setToolbarButtonLongPressToast(deleteButton);
+
         return rootView;
     }
 
@@ -58,7 +87,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 RecentSearch entry = (RecentSearch) view.getTag();
-                searchFragment.switchToSearch(entry.getText());
+                parentFragment.switchToSearch(entry.getText());
             }
         });
 
