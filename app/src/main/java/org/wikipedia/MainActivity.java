@@ -768,6 +768,23 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         loadPage(title, historyEntry, position, allowStateLoss, mustBeEmpty);
     }
 
+    @TargetApi(17)
+    private void showTabList() {
+        if (isDestroyed()) {
+            return;
+        }
+        pushFragment(new PageFragment());
+        fragmentContainerView.post(new Runnable() {
+            @Override
+            public void run() {
+                PageFragment frag = getCurPageFragment();
+                if (frag != null) {
+                    frag.showTabList();
+                }
+            }
+        });
+    }
+
     public void showLinkPreview(PageTitle title, int entrySource) {
         showLinkPreview(title, entrySource, null);
     }
@@ -850,15 +867,17 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
                 && ((BackPressedHandler) getTopFragment()).onBackPressed()) {
             return;
         }
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            beforeFragmentChanged();
-            getSupportFragmentManager().popBackStackImmediate();
-            afterFragmentChanged();
-            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                return;
-            }
-        }
-        finish();
+        popFragment();
+    }
+
+    @Override
+    public void onPagePopFragment() {
+        popFragment();
+    }
+
+    @Override
+    public void onFeedTabListRequested() {
+        showTabList();
     }
 
     @Override
@@ -1102,6 +1121,18 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public AppCompatActivity getActivity() {
         return this;
+    }
+
+    private void popFragment() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+            beforeFragmentChanged();
+            getSupportFragmentManager().popBackStackImmediate();
+            afterFragmentChanged();
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                return;
+            }
+        }
+        finish();
     }
 
     private void download(@NonNull FeaturedImage image) {

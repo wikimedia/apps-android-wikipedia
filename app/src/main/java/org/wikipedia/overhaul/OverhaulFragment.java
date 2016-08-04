@@ -73,6 +73,11 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         super.onDestroyView();
     }
 
+    @Override
+    public void onFeedTabListRequested() {
+        // todo: [overhaul] tab list.
+    }
+
     @Override public void onFeedSearchRequested() {
         searchFragment.setInvokeSource(OverhaulSearchFragment.InvokeSource.FEED_BAR);
         searchFragment.openSearch();

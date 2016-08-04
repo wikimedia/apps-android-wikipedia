@@ -70,6 +70,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
@@ -113,6 +114,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                                     @NonNull AddToReadingListDialog.InvokeSource source);
         @Nullable View onPageGetContentView();
         @Nullable View onPageGetTabsContainerView();
+        void onPagePopFragment();
         @Nullable AppCompatActivity getActivity();
         void onPageUpdateNavDrawerSelection(@NonNull Fragment fragment);
     }
@@ -435,6 +437,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             tabsProvider.exitTabMode();
             tabFunnel.logCancel(tabList.size());
             leadImagesHandler.setAnimationPaused(false);
+            if (tabsProvider.shouldPopFragment()) {
+                Callback callback = callback();
+                if (callback != null) {
+                    callback.onPagePopFragment();
+                }
+            }
         }
 
         @Override
@@ -472,10 +480,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             tabList.remove(position);
             tabFunnel.logClose(tabList.size(), position);
             tabsProvider.invalidate();
+            getActivity().supportInvalidateOptionsMenu();
             if (tabList.size() == 0) {
                 tabFunnel.logCancel(tabList.size());
+                tabsProvider.exitTabMode();
                 // and if the last tab was closed, then finish the activity!
-                getActivity().finish();
+                if (!tabsProvider.shouldPopFragment()) {
+                    getActivity().finish();
+                }
             } else if (position == tabList.size()) {
                 // if it's the topmost tab, then load the topmost page in the next tab.
                 pageLoadStrategy.setBackStack(getCurrentTab().getBackStack());
@@ -520,6 +532,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     public void invalidateTabs() {
         tabsProvider.invalidate();
+    }
+
+    public void showTabList() {
+        tabsProvider.enterTabMode(true);
     }
 
     public void openInNewBackgroundTabFromMenu(PageTitle title, HistoryEntry entry) {
@@ -669,6 +685,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         MenuItem contentIssues = menu.findItem(R.id.menu_page_content_issues);
         MenuItem similarTitles = menu.findItem(R.id.menu_page_similar_titles);
         MenuItem themeChooserItem = menu.findItem(R.id.menu_page_font_and_theme);
+        MenuItem tabsItem = menu.findItem(R.id.menu_page_show_tabs);
+
+        tabsItem.setIcon(ResourceUtil.getTabListIcon(getContext(), tabList.size()));
 
         if (pageLoadStrategy.isLoading() || errorState) {
             otherLangItem.setEnabled(false);
@@ -723,7 +742,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 showThemeChooser();
                 return true;
             case R.id.menu_page_show_tabs:
-                tabsProvider.enterTabMode();
+                tabsProvider.enterTabMode(false);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -952,6 +971,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             tabsProvider.invalidate();
             // add the requested page to its backstack
             tab.getBackStack().add(new PageBackStackItem(title, entry));
+            getActivity().supportInvalidateOptionsMenu();
         } else {
             getTopMostTab().getBackStack().add(new PageBackStackItem(title, entry));
         }

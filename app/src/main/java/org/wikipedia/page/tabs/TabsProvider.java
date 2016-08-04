@@ -58,6 +58,7 @@ public class TabsProvider {
     private boolean isActionModeDismissedIndirectly;
 
     private List<Tab> tabList;
+    private boolean launchedExternally;
 
     @NonNull
     private TabsProviderListener providerListener = new DefaultTabsProviderListener();
@@ -78,6 +79,7 @@ public class TabsProvider {
         tabContainerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isActionModeDismissedIndirectly = true;
                 providerListener.onCancelTabView();
             }
         });
@@ -101,16 +103,21 @@ public class TabsProvider {
         return false;
     }
 
-    public void enterTabMode() {
-        enterTabMode(null);
+    public void enterTabMode(boolean launchedExternally) {
+        enterTabMode(launchedExternally, null);
         providerListener.onEnterTabView();
+    }
+
+    public boolean shouldPopFragment() {
+        return launchedExternally && !isActionModeDismissedIndirectly;
     }
 
     private boolean isTabMode() {
         return tabActionMode != null;
     }
 
-    private void enterTabMode(@Nullable Runnable onTabModeEntered) {
+    private void enterTabMode(boolean launchedExternally, @Nullable Runnable onTabModeEntered) {
+        this.launchedExternally = launchedExternally;
         if (isTabMode()) {
             // already inside action mode...
             // but make sure to update the list of tabs.
@@ -177,7 +184,6 @@ public class TabsProvider {
             if (!isActionModeDismissedIndirectly) {
                 providerListener.onCancelTabView();
             }
-            isActionModeDismissedIndirectly = false;
         }
 
         @NonNull
@@ -193,7 +199,7 @@ public class TabsProvider {
     }
 
     public void showAndHideTabs() {
-        enterTabMode(new Runnable() {
+        enterTabMode(false, new Runnable() {
             private final int animDelay = 500;
 
             @Override

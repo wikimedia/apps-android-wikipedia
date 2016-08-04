@@ -7,9 +7,12 @@ import android.content.res.TypedArray;
 import android.net.Uri;
 import android.support.annotation.AnyRes;
 import android.support.annotation.ArrayRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.util.TypedValue;
+
+import org.wikipedia.R;
 
 public final class ResourceUtil {
     private static final int NO_ID = 0;
@@ -28,6 +31,18 @@ public final class ResourceUtil {
         }
         typedArray.recycle();
         return ids;
+    }
+
+    @DrawableRes
+    public static int getTabListIcon(@NonNull Context context, int numTabs) {
+        final int maxTabIcon = 9;
+        if (numTabs <= 0) {
+            return R.drawable.ic_tab_list_white_24dp;
+        } else if (numTabs > maxTabIcon) {
+            return R.drawable.ic_tab_list_9_plus;
+        } else {
+            return context.getResources().getIdentifier("ic_tab_list_" + numTabs, "drawable", context.getPackageName());
+        }
     }
 
     /**

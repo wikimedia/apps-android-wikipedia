@@ -34,6 +34,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 
 import java.util.List;
 
@@ -57,6 +58,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     private boolean searchIconVisible;
 
     public interface Callback {
+        void onFeedTabListRequested();
         void onFeedSearchRequested();
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
@@ -141,8 +143,20 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        if (searchIconVisible) {
-            inflater.inflate(R.menu.menu_feed, menu);
+        inflater.inflate(R.menu.menu_feed, menu);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        MenuItem searchItem = menu.findItem(R.id.menu_feed_search);
+        MenuItem tabsItem = menu.findItem(R.id.menu_feed_tabs);
+        if (searchItem != null) {
+            searchItem.setVisible(searchIconVisible);
+        }
+        if (tabsItem != null) {
+            int tabCount = Prefs.getTabs().size();
+            tabsItem.setIcon(ResourceUtil.getTabListIcon(getContext(), tabCount));
+            tabsItem.setVisible(tabCount > 0);
         }
     }
 
@@ -152,6 +166,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
             case R.id.menu_feed_search:
                 if (getCallback() != null) {
                     getCallback().onFeedSearchRequested();
+                }
+                return true;
+            case R.id.menu_feed_tabs:
+                if (getCallback() != null) {
+                    getCallback().onFeedTabListRequested();
                 }
                 return true;
             default:
