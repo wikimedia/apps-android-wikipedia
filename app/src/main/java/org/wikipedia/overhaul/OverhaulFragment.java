@@ -2,6 +2,7 @@ package org.wikipedia.overhaul;
 
 import android.location.Location;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -18,6 +20,7 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.nearby.NearbyFragment;
+import org.wikipedia.overhaul.navtab.NavTab;
 import org.wikipedia.overhaul.navtab.NavTabViewPagerAdapter;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingListsFragment;
@@ -31,6 +34,11 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     @BindView(R.id.fragment_overhaul_view_pager) ViewPager viewPager;
     @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
+    private NavTabChangeListener pagerChangeListener = new NavTabChangeListener();
+
+    public interface Callback {
+        void onTabChanged(@NonNull NavTab tab, @NonNull Fragment fragment);
+    }
 
     public static OverhaulFragment newInstance() {
         OverhaulFragment fragment = new OverhaulFragment();
@@ -44,12 +52,16 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_overhaul, container, false);
         unbinder = ButterKnife.bind(this, view);
-        viewPager.setAdapter(new NavTabViewPagerAdapter(getFragmentManager()));
+
+        viewPager.addOnPageChangeListener(pagerChangeListener);
+        viewPager.setAdapter(new NavTabViewPagerAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
+
         return view;
     }
 
     @Override public void onDestroyView() {
+        viewPager.removeOnPageChangeListener(pagerChangeListener);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -112,7 +124,25 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public boolean isMenuAllowed() {
-        // todo: [overhaul] logic for menu state.
-        return false;
+        return true;
+    }
+
+    private void onTabChanged(@NonNull NavTab tab, @Nullable Fragment fragment) {
+        Callback callback = callback();
+        if (callback != null && fragment != null) {
+            callback.onTabChanged(tab, fragment);
+        }
+    }
+
+    @Nullable private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
+    }
+
+    private class NavTabChangeListener extends ViewPager.SimpleOnPageChangeListener {
+        @Override
+        public void onPageSelected(int position) {
+            onTabChanged(NavTab.of(position),
+                    ((NavTabViewPagerAdapter) viewPager.getAdapter()).getCurrentFragment());
+        }
     }
 }

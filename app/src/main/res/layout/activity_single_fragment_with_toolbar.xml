@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/window_background_color"
+    tools:context=".activity.SingleFragmentActivityWithToolbar">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/single_fragment_toolbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <org.wikipedia.views.StatusBarBlankView
+            android:id="@+id/single_fragment_empty_status_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_toolbar_background" />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/single_fragment_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/AppTheme.ToolbarStyle"
+            app:theme="@style/AppTheme.ToolbarTheme"
+            app:titleTextColor="@android:color/white"
+            android:elevation="4dp">
+        </android.support.v7.widget.Toolbar>
+
+    </LinearLayout>
+
+</FrameLayout>
