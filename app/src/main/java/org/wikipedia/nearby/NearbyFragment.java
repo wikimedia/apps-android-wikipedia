@@ -121,6 +121,18 @@ public class NearbyFragment extends Fragment {
     }
 
     @Override
+    public void onPause() {
+        mapView.onPause();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        mapView.onResume();
+        super.onResume();
+    }
+
+    @Override
     public void onDestroyView() {
         mapViewResumed = false;
         mapboxMap = null;
