@@ -228,7 +228,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
         editLicenseText.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
             @Override
-            public void onUrlClick(String url) {
+            public void onUrlClick(@NonNull String url, @Nullable String notUsed) {
                 if (url.equals("https://#login")) {
                     funnel.logLoginAttempt();
                     Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,

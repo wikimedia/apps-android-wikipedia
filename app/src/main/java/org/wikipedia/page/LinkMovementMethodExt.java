@@ -1,6 +1,9 @@
 package org.wikipedia.page;
 
+import org.wikipedia.util.UriUtil;
+
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
@@ -32,7 +35,7 @@ public class LinkMovementMethodExt extends LinkMovementMethod {
             final URLSpan[] links = buffer.getSpans(off, off, URLSpan.class);
             if (links.length != 0) {
                 String url = decodeURL(links[0].getURL());
-                handler.onUrlClick(url);
+                handler.onUrlClick(url, UriUtil.getTitleFromUrl(url));
                 return true;
             }
         }
@@ -41,6 +44,6 @@ public class LinkMovementMethodExt extends LinkMovementMethod {
 
 
     public interface UrlHandler {
-        void onUrlClick(String url);
+        void onUrlClick(@NonNull String url, @Nullable String titleString);
     }
 }
