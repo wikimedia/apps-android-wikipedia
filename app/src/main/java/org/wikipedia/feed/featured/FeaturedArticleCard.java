@@ -75,4 +75,9 @@ public class FeaturedArticleCard extends Card {
         title.setDescription(articleSubtitle());
         return new HistoryEntry(title, source);
     }
+
+    @Override
+    public int hashCode() {
+        return page.title().hashCode();
+    }
 }

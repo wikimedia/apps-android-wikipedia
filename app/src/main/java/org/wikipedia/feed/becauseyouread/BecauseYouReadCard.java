@@ -49,4 +49,9 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
         long lastVisited = entry.getTimestamp().getTime();
         return TimeUnit.MILLISECONDS.toDays(now - lastVisited);
     }
+
+    @Override
+    public int hashCode() {
+        return entry.getTitle().hashCode();
+    }
 }

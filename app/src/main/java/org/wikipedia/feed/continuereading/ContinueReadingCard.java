@@ -40,4 +40,9 @@ public class ContinueReadingCard extends Card {
         long lastVisited = entry.getTimestamp().getTime();
         return TimeUnit.MILLISECONDS.toDays(now - lastVisited);
     }
+
+    @Override
+    public int hashCode() {
+        return entry.getTitle().hashCode();
+    }
 }

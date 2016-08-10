@@ -11,6 +11,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.json.SessionUnmarshaller;
 import org.wikipedia.json.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
@@ -18,7 +19,9 @@ import org.wikipedia.theme.Theme;
 import org.wikipedia.util.StringUtil;
 
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 
@@ -227,6 +230,21 @@ public final class Prefs {
 
     public static void clearTabs() {
         remove(R.string.preference_key_tabs);
+    }
+
+    public static Set<String> getHiddenCards() {
+        Set<String> emptySet = new LinkedHashSet<>();
+        //noinspection unchecked
+        return hasHiddenCards() ? GsonUnmarshaller.unmarshal(emptySet.getClass(),
+                getString(R.string.preference_key_feed_hidden_cards, null)) : emptySet;
+    }
+
+    public static void setHiddenCards(@NonNull Set<String> cards) {
+        setString(R.string.preference_key_feed_hidden_cards, GsonMarshaller.marshal(cards));
+    }
+
+    public static boolean hasHiddenCards() {
+        return contains(R.string.preference_key_feed_hidden_cards);
     }
 
     public static void setSessionData(@NonNull SessionData data) {

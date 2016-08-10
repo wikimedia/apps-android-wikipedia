@@ -13,6 +13,7 @@ import org.wikipedia.util.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MostReadListCard extends ListCard<MostReadItemCard> {
     private static final int MAX_SIZE = 5;
@@ -47,5 +48,10 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
 
     @NonNull private Context context() {
         return WikipediaApp.getInstance();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) TimeUnit.MILLISECONDS.toDays(articles.date().getTime());
     }
 }

@@ -8,6 +8,7 @@ import org.wikipedia.feed.model.ListCard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class NewsListCard extends ListCard<NewsItemCard> {
     @NonNull private UtcDate age;
@@ -35,5 +36,10 @@ public class NewsListCard extends ListCard<NewsItemCard> {
             itemCards.add(new NewsItemCard(item, site));
         }
         return itemCards;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) TimeUnit.MILLISECONDS.toDays(age.baseCalendar().getTime().getTime());
     }
 }

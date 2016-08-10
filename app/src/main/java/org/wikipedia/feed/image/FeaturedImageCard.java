@@ -71,4 +71,9 @@ public class FeaturedImageCard extends Card {
     public String descriptionLang() {
         return featuredImage.descriptionLang();
     }
+
+    @Override
+    public int hashCode() {
+        return featuredImage.title().hashCode();
+    }
 }

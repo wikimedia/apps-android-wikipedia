@@ -8,11 +8,17 @@ import org.wikipedia.Site;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.progress.ProgressCard;
+import org.wikipedia.settings.Prefs;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public abstract class FeedCoordinatorBase {
+    private static final int MAX_HIDDEN_CARDS = 100;
 
     public interface FeedUpdateListener {
         void update(List<Card> cards);
@@ -27,8 +33,16 @@ public abstract class FeedCoordinatorBase {
     private FeedClient.Callback exhaustionClientCallback = new ExhaustionClientCallback();
     private Card progressCard = new ProgressCard();
 
+    private Set<String> hiddenCards = Collections.newSetFromMap(new LinkedHashMap<String, Boolean>() {
+        @Override
+        public boolean removeEldestEntry(Map.Entry<String, Boolean> eldest) {
+            return size() > MAX_HIDDEN_CARDS;
+        }
+    });
+
     public FeedCoordinatorBase(@NonNull Context context) {
         this.context = context;
+        hiddenCards.addAll(Prefs.getHiddenCards());
     }
 
     @NonNull
@@ -72,6 +86,7 @@ public abstract class FeedCoordinatorBase {
     public int dismissCard(@NonNull Card card) {
         int position = cards.indexOf(card);
         cards.remove(card);
+        addHiddenCard(card);
         if (updateListener != null) {
             updateListener.update(cards);
         }
@@ -80,6 +95,7 @@ public abstract class FeedCoordinatorBase {
 
     public void insertCard(@NonNull Card card, int position) {
         cards.add(position, card);
+        unHideCard(card);
         if (updateListener != null) {
             updateListener.update(cards);
         }
@@ -101,7 +117,11 @@ public abstract class FeedCoordinatorBase {
     private class ExhaustionClientCallback implements FeedClient.Callback {
         @Override
         public void success(@NonNull List<? extends Card> cardList) {
-            cards.addAll(cardList);
+            for (Card card : cardList) {
+                if (!isCardHidden(card)) {
+                    cards.add(card);
+                }
+            }
             appendProgressCard(cards);
             if (updateListener != null) {
                 updateListener.update(cards);
@@ -120,5 +140,19 @@ public abstract class FeedCoordinatorBase {
     private void appendProgressCard(List<Card> cards) {
         cards.remove(progressCard);
         cards.add(progressCard);
+    }
+
+    private void addHiddenCard(@NonNull Card card) {
+        hiddenCards.add(card.getHideKey());
+        Prefs.setHiddenCards(hiddenCards);
+    }
+
+    private boolean isCardHidden(@NonNull Card card) {
+        return hiddenCards.contains(card.getHideKey());
+    }
+
+    private void unHideCard(@NonNull Card card) {
+        hiddenCards.remove(card.getHideKey());
+        Prefs.setHiddenCards(hiddenCards);
     }
 }
