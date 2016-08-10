@@ -278,11 +278,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
         unregisterReceiver(downloadReceiver);
     }
 
-    private class GalleryPageChangeListener implements ViewPager.OnPageChangeListener {
+    private class GalleryPageChangeListener extends ViewPager.SimpleOnPageChangeListener {
         private int currentPosition = -1;
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        }
         @Override
         public void onPageSelected(int position) {
             // the pager has settled on a new position
