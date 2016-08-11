@@ -69,8 +69,10 @@ public final class UriUtil {
                 : url);
     }
 
-    public static boolean isValidPageLink(Uri uri) {
-        return ("wikipedia.org".equals(uri.getAuthority()) && !TextUtils.isEmpty(uri.getPath())
+    public static boolean isValidPageLink(@NonNull Uri uri) {
+        return (!TextUtils.isEmpty(uri.getAuthority())
+                && uri.getAuthority().endsWith("wikipedia.org")
+                && !TextUtils.isEmpty(uri.getPath())
                 && uri.getPath().startsWith("/wiki"));
     }
 
