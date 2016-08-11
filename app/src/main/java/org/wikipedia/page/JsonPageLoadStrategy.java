@@ -104,7 +104,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private PageViewModel model;
     private PageFragment fragment;
     private CommunicationBridge bridge;
-    private MainActivity activity;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
     @NonNull private final WikipediaApp app = WikipediaApp.getInstance();
@@ -126,7 +125,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                       @NonNull List<PageBackStackItem> backStack) {
         this.model = model;
         this.fragment = fragment;
-        activity = (MainActivity) fragment.getActivity();
         this.refreshView = refreshView;
         this.webView = webView;
         this.bridge = bridge;
@@ -298,7 +296,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         networkErrorCallback = null;
         cacheOnComplete = false;
         state = STATE_COMPLETE_FETCH;
-        activity.supportInvalidateOptionsMenu();
+        if (fragment.callback() != null) {
+            fragment.callback().onPageInvalidateOptionsMenu();
+        }
         if (!sequenceNumber.inSync(startSequenceNum)) {
             return;
         }
@@ -363,7 +363,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             @Override
             public void onMessage(JSONObject payload) {
                 // Do any other stuff that should happen upon page load completion...
-                activity.updateProgressBar(false, true, 0);
+                if (fragment.callback() != null) {
+                    fragment.callback().onPageUpdateProgressBar(false, true, 0);
+                }
 
                 // trigger layout of the bottom content
                 // Check to see if the page title has changed (e.g. due to following a redirect),
@@ -391,7 +393,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }
         switch (forState) {
             case STATE_NO_FETCH:
-                activity.updateProgressBar(true, true, 0);
+                if (fragment.callback() != null) {
+                    fragment.callback().onPageUpdateProgressBar(true, true, 0);
+                }
                 loadLeadSection(sequenceNumber.get());
                 break;
             case STATE_INITIAL_FETCH:
@@ -416,7 +420,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             return;
         }
         this.state = state;
-        activity.supportInvalidateOptionsMenu();
+        if (fragment.callback() != null) {
+            fragment.callback().onPageInvalidateOptionsMenu();
+        }
 
         // FIXME: Move this out into a PageComplete event of sorts
         if (state == STATE_COMPLETE_FETCH) {
@@ -585,7 +591,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         }
 
         refreshView.setRefreshing(false);
-        activity.updateProgressBar(true, true, 0);
+        if (fragment.callback() != null) {
+            fragment.callback().onPageUpdateProgressBar(true, true, 0);
+        }
 
         leadImagesHandler.updateNavigate(page.getPageProperties().getGeo());
     }
@@ -640,7 +648,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private SparseArray<String> localizedStrings(Page page) {
         return getStringsForArticleLanguage(page.getTitle(),
-                ResourceUtil.getIdArray(activity, R.array.page_localized_string_ids));
+                ResourceUtil.getIdArray(fragment.getContext(), R.array.page_localized_string_ids));
     }
 
 
@@ -682,9 +690,11 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private void displayNonLeadSection(int index, boolean savedPage) {
-        activity.updateProgressBar(true, false,
-                MainActivity.PROGRESS_BAR_MAX_VALUE / model.getPage()
-                        .getSections().size() * index);
+        if (fragment.callback() != null) {
+            fragment.callback().onPageUpdateProgressBar(true, false,
+                    MainActivity.PROGRESS_BAR_MAX_VALUE / model.getPage()
+                            .getSections().size() * index);
+        }
         try {
             final Page page = model.getPage();
             JSONObject wrapper = new JSONObject();
@@ -822,7 +832,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private Resources getResources() {
-        return activity.getResources();
+        return fragment.getResources();
     }
 
     private class LeadImageLayoutListener implements LeadImagesHandler.OnLeadImageLayoutListener {
