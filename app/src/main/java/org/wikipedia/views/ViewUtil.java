@@ -1,5 +1,7 @@
 package org.wikipedia.views;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -118,6 +120,25 @@ public final class ViewUtil {
         int index = parent.indexOfChild(current);
         remove(current);
         parent.addView(next, index);
+    }
+
+    public static void fadeIn(@NonNull View view) {
+        view.setAlpha(0f);
+        view.setVisibility(View.VISIBLE);
+        view.animate().alpha(1f)
+                .setDuration(view.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(null);
+    }
+
+    public static void fadeOut(@NonNull final View view) {
+        view.animate().alpha(0f)
+                .setDuration(view.getResources().getInteger(android.R.integer.config_shortAnimTime))
+                .setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.GONE);
+            }
+        });
     }
 
     private ViewUtil() { }
