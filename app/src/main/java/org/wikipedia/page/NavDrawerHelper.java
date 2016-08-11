@@ -70,7 +70,7 @@ public class NavDrawerHelper {
         updateMenuGroupToggle();
 
         if (!ReleaseUtil.isDevRelease()) {
-            activity.getNavMenu().findItem(R.id.nav_item_feed).setVisible(false);
+            activity.getNavMenu().findItem(R.id.nav_item_nav).setVisible(false);
         }
     }
 
