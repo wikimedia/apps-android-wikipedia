@@ -81,6 +81,11 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+        <activity android:name=".page.PageActivity"
+            android:theme="@style/PageTheme"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask"/>
         <activity android:name=".crash.CrashReportActivity"
                   android:label="@string/crash_report_activity_title"
                   android:noHistory="true"
