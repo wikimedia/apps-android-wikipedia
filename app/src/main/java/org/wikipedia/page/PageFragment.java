@@ -117,6 +117,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPagePopFragment();
         @Nullable AppCompatActivity getActivity();
         void onPageUpdateNavDrawerSelection(@NonNull Fragment fragment);
+        void onPageInvalidateOptionsMenu();
     }
 
     public static final int TOC_ACTION_SHOW = 0;
