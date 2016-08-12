@@ -247,6 +247,13 @@ public final class Prefs {
         return contains(R.string.preference_key_feed_hidden_cards);
     }
 
+    public static int getTabCount() {
+        List<Tab> tabs = getTabs();
+        // handle the case where we have a single tab with an empty backstack,
+        // which shouldn't count as a valid tab:
+        return tabs.isEmpty() ? 0 : tabs.get(0).getBackStack().isEmpty() ? 0 : tabs.size();
+    }
+
     public static void setSessionData(@NonNull SessionData data) {
         setString(R.string.preference_key_session_data, GsonMarshaller.marshal(data));
     }

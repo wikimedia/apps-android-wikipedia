@@ -154,7 +154,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
             searchItem.setVisible(searchIconVisible);
         }
         if (tabsItem != null) {
-            int tabCount = Prefs.getTabs().size();
+            int tabCount = Prefs.getTabCount();
             tabsItem.setIcon(ResourceUtil.getTabListIcon(getContext(), tabCount));
             tabsItem.setVisible(tabCount > 0);
         }
