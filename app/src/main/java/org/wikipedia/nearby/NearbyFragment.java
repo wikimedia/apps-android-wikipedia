@@ -66,7 +66,6 @@ public class NearbyFragment extends Fragment {
     private static final int GO_TO_LOCATION_PERMISSION_REQUEST = 50;
 
     @BindView(R.id.mapview) MapView mapView;
-    private boolean mapViewResumed;
     private Unbinder unbinder;
 
     @Nullable private MapboxMap mapboxMap;
@@ -113,10 +112,6 @@ public class NearbyFragment extends Fragment {
 
         onLoading();
         initializeMap();
-
-        // setUserVisibleHint() lifecycle occurs prior to onCreateView().
-        updateMapView();
-
         return view;
     }
 
@@ -133,13 +128,12 @@ public class NearbyFragment extends Fragment {
     }
 
     @Override
-    public void onDestroyView() {
-        mapViewResumed = false;
-        mapboxMap = null;
+    public void onDestroy() {
         mapView.onDestroy();
+        mapboxMap = null;
         unbinder.unbind();
         unbinder = null;
-        super.onDestroyView();
+        super.onDestroy();
     }
 
     @Override
@@ -159,7 +153,6 @@ public class NearbyFragment extends Fragment {
             return;
         }
 
-        updateMapView();
         updateLocationEnabled(mapboxMap);
     }
 
@@ -436,16 +429,6 @@ public class NearbyFragment extends Fragment {
 
     private void updateLocationEnabled(@NonNull MapboxMap map) {
         map.setMyLocationEnabled(getUserVisibleHint());
-    }
-
-    private void updateMapView() {
-        if (getUserVisibleHint() && !mapViewResumed) {
-            mapViewResumed = true;
-            mapView.onResume();
-        } else if (!getUserVisibleHint() && mapViewResumed) {
-            mapView.onPause();
-            mapViewResumed = false;
-        }
     }
 
     @SuppressLint("CommitPrefEdits")
