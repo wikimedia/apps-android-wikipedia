@@ -88,6 +88,7 @@ import org.wikipedia.random.RandomHandler;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.recurring.RecurringTasksExecutor;
+import org.wikipedia.search.MainSearchBarHideHandler;
 import org.wikipedia.search.SearchArticlesFragment;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.search.SearchResultsFragment;
@@ -296,7 +297,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
                 getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
         getSupportActionBar().setTitle("");
 
-        searchBarHideHandler = new SearchBarHideHandler(this, toolbarContainer);
+        searchBarHideHandler = new MainSearchBarHideHandler(this, toolbarContainer);
 
         boolean languageChanged = false;
 
