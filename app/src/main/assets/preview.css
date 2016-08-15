@@ -1243,3 +1243,21 @@ th .sortkey {
   max-width: 100%;
   overflow: auto;
 }
+
+h2.section_heading {
+  padding: 20px 0 10px;
+  margin-bottom: 0;
+}
+h3.section_heading {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Nimbus Sans L', 'Arial', 'Liberation Sans', sans-serif;
+  font-weight: 700;
+  padding: 15px 0 0!important;
+}
+h3.section_heading a.edit_section_button {
+  display: none !important;
+}
+h2.section_heading a.edit_section_button {
+  position: relative;
+  top: -5px;
+  left: 6px;
+}
