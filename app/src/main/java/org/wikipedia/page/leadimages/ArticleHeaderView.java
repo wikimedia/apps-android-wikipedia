@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PointF;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -21,10 +20,8 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -37,11 +34,11 @@ import org.wikipedia.richtext.ParagraphSpan;
 import org.wikipedia.richtext.AudioUrlSpan;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.AppTextView;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.StatusBarBlankView;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
@@ -50,11 +47,12 @@ import butterknife.ButterKnife;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 
-public class ArticleHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
+public class ArticleHeaderView extends LinearLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;
-    @BindView(R.id.view_article_header_text)
-    AppTextView text;
+    @BindView(R.id.view_article_header_text) AppTextView text;
     @BindView(R.id.view_article_header_menu_bar) ArticleMenuBarView menuBar;
+    @BindView(R.id.view_article_header_container) LinearLayout container;
+    @BindView(R.id.view_article_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
 
     @NonNull private CharSequence title = "";
     @NonNull private CharSequence subtitle = "";
@@ -89,26 +87,25 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
     public void showText() {
         setVisibility(View.VISIBLE);
+        setTopOffset();
 
         updateText();
 
         setTextColor(getColor(getThemedAttributeId(getContext(),
-                R.attr.lead_disabled_text_color)));
+                R.attr.lead_text_color)));
         setTextHeightUnconstrained();
-        clearTextDropShadow();
-        clearTextGradient();
     }
 
     public void showTextImage() {
         setVisibility(View.VISIBLE);
+        unsetTopOffset();
 
         updateText();
 
-        setTextColor(getColor(R.color.lead_text_color));
+        setTextColor(getColor(getThemedAttributeId(getContext(),
+                R.attr.lead_text_color)));
         setImageHeight(leadImageHeightForDevice());
         setTextHeightConstrained();
-        setTextDropShadow();
-        setTextGradient();
     }
 
     // TODO: remove.
@@ -280,24 +277,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
                 new ParagraphSpan(paragraphScalar));
     }
 
-    private void setTextDropShadow() {
-        text.setShadowLayer(2, 1, 1, getColor(R.color.lead_text_shadow));
-    }
-
-    private void clearTextDropShadow() {
-        text.setShadowLayer(0, 0, 0, Color.TRANSPARENT);
-    }
-
-    private void clearTextGradient() {
-        text.setBackgroundColor(Color.TRANSPARENT);
-    }
-
-    private void setTextGradient() {
-        Drawable gradient = GradientUtil.getCubicGradient(getColor(R.color.lead_gradient_start),
-                Gravity.BOTTOM);
-        ViewUtil.setBackgroundDrawable(text, gradient);
-    }
-
     private void setImageHeight(int height) {
         DimenUtil.setViewHeight(image, height);
     }
@@ -340,5 +319,23 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
     private int getDimensionPixelSize(@DimenRes int id) {
         return getResources().getDimensionPixelSize(id);
+    }
+
+    private void setTopOffset() {
+        setTopOffset(true);
+    }
+
+    private void unsetTopOffset() {
+        setTopOffset(false);
+    }
+
+    private void setTopOffset(boolean noImage) {
+        statusBarPlaceholder.setVisibility(noImage ? View.VISIBLE : View.GONE);
+        int offset = noImage ? getDimensionPixelOffset(R.dimen.lead_no_image_top_offset_dp) : 0;
+        setPadding(0, offset, 0, 0);
+    }
+
+    private int getDimensionPixelOffset(@DimenRes int id) {
+        return getContext().getResources().getDimensionPixelOffset(id);
     }
 }
