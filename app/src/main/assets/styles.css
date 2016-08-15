@@ -111,7 +111,7 @@ body {
 }
 @media all and (max-width: 280px) {
   body {
-    font-size: .8em;
+    font-size: 0.8em;
   }
   .content {
     margin: 0 12px;
@@ -121,7 +121,7 @@ body {
   display: none !important;
 }
 .content .thumb {
-  margin: .6em 0;
+  margin: 0.6em 0;
   /* bug 20030 */
 }
 .content .thumb .thumbinner {
@@ -141,8 +141,8 @@ body {
   max-width: none !important;
 }
 .content .thumbcaption {
-  margin: .5em 0 0;
-  font-size: .8em;
+  margin: 0.5em 0 0;
+  font-size: 0.8em;
   line-height: 1.5;
   padding: 0 !important;
   color: #555555;
@@ -160,7 +160,7 @@ body {
   /* @noflip */
   float: right;
   /* @noflip */
-  margin: 0 0 .6em .6em;
+  margin: 0 0 0.6em 0.6em;
 }
 .content .floatleft {
   /* @noflip */
@@ -168,7 +168,7 @@ body {
   /* @noflip */
   float: left;
   /* @noflip */
-  margin: 0 .6em .6em 0;
+  margin: 0 0.6em 0.6em 0;
 }
 .content a > img {
   max-width: 100% !important;
@@ -304,7 +304,7 @@ a.external {
 .return-link,
 #mw-mf-last-modified {
   display: block;
-  font-size: .9em;
+  font-size: 0.9em;
   margin-top: 1.5em;
 }
 /* Plainlinks - this can be used to switch
@@ -314,7 +314,7 @@ a.external {
   padding: 0 !important;
 }
 .content p {
-  margin: .5em 0 1em 0;
+  margin: 0.5em 0 1em 0;
 }
 strong,
 b {
@@ -369,7 +369,7 @@ sup {
 .content table.wikitable > * > tr > th,
 .content table.wikitable > * > tr > td {
   border: 1px solid #cccccc;
-  padding: .2em;
+  padding: 0.2em;
 }
 .content table.wikitable > tr > th,
 .content table.wikitable > * > tr > th {
@@ -416,7 +416,7 @@ FIXME: Review all of these hacks to see if they still apply.
   vertical-align: top;
   border: 0;
   border-bottom: 1px solid #dddddd;
-  padding: .2em;
+  padding: 0.2em;
 }
 .content table.infobox tr:last-child th,
 .content table.infobox tr:last-child td {
@@ -449,9 +449,9 @@ FIXME: Review all of these hacks to see if they still apply.
 .hatnote,
 .dablink,
 .rellink {
-  padding: 0 0 .6em 0;
+  padding: 0 0 0.6em 0;
   color: #777777;
-  font-size: .8em;
+  font-size: 0.8em;
   font-style: italic;
 }
 .quotebox {
