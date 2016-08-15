@@ -177,6 +177,11 @@ public class RbPageService implements PageService {
      * Retrofit endpoints for mobile content service endpoints.
      */
     interface RbEndpoints {
+        String ACCEPT_HEADER_MOBILE_SECTIONS = "accept: application/json; charset=utf-8; "
+                + "profile=\"https://www.mediawiki.org/wiki/Specs/mobile-sections/0.8.0\"";
+        String ACCEPT_HEADER_DEFINITION = "accept: application/json; charset=utf-8; "
+                + "profile=\"https://www.mediawiki.org/wiki/Specs/definition/0.7.0\"";
+
         /**
          * Gets a page summary for a given title -- for link previews
          *
@@ -192,7 +197,10 @@ public class RbPageService implements PageService {
          * @param title the page title with prefix if necessary
          * @param noImages add the noimages flag to the request if true
          */
-        @Headers("x-analytics: pageview=1")
+        @Headers({
+                "x-analytics: pageview=1",
+                ACCEPT_HEADER_MOBILE_SECTIONS
+        })
         @GET("page/mobile-sections-lead/{title}")
         Call<RbPageLead> pageLead(@Path("title") String title, @Query("noimages") Boolean noImages);
 
@@ -202,6 +210,7 @@ public class RbPageService implements PageService {
          * @param title the page title to be used including prefix
          * @param noImages add the noimages flag to the request if true
          */
+        @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
         @GET("page/mobile-sections-remaining/{title}")
         Call<RbPageRemaining> pageRemaining(@Path("title") String title,
                                             @Query("noimages") Boolean noImages);
@@ -213,6 +222,7 @@ public class RbPageService implements PageService {
          * @param title the page title to be used including prefix
          * @param noImages add the noimages flag to the request if true
          */
+        @Headers(ACCEPT_HEADER_MOBILE_SECTIONS)
         @GET("page/mobile-sections/{title}")
         Call<RbPageCombo> pageCombo(@Path("title") String title,
                                     @Query("noimages") Boolean noImages);
@@ -222,6 +232,7 @@ public class RbPageService implements PageService {
          *
          * @param title the Wiktionary page title derived from user-selected Wikipedia article text
          */
+        @Headers(ACCEPT_HEADER_DEFINITION)
         @GET("page/definition/{title}")
         Call<Map<String, RbDefinition.Usage[]>> define(@Path("title") String title);
     }
