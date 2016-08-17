@@ -40,6 +40,7 @@
   <string name="talk_page_link_text">Әңгәмә</string>
   <string name="content_license_html">Эстәлек &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһына ярашлы ҡулланыла</string>
   <string name="edit_save_action_license_logged_in">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru ҡулланыу шарттарына ризалыҡ бирәһегеҙ\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Үҙгәрештәрҙе һаҡлап, һеҙ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/ru ҡулланыу шарттары\"&gt; &lt;/a&gt; менән килешәһегеҙ, шулай уҡ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ru\"&gt;CC-BY-SA 3.0&lt;/a&gt; лицензияһы буйынса баҫманы кире таптырып алмаҫҡа килешәһегеҙ. Төҙәтмәләр һеҙҙең ҡоролманың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
   <string name="preference_title_language">Википедия теле</string>
   <string name="preference_languages_filter_hint">Эҙләү</string>
   <string name="langlinks_filter_hint">Эҙләү</string>
@@ -129,6 +130,7 @@
   <string name="about_libraries_heading">Файҙаланған китапханалар</string>
   <string name="about_contributors_heading">Авторҙар</string>
   <string name="about_translators_heading">Тәржемәселәр</string>
+  <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; төркөмө ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>
   <string name="about_app_license">&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;Apache 2.0&lt;/a&gt; лицензияһы буйынса
 башланғыс код бында &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Gerrit&lt;/a&gt; алырға мөмкин. Әгәр ҙә башҡа күрһәтмә булмаһа, йөкмәтке &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; лицезияһына ярашлы алына.</string>
@@ -181,7 +183,7 @@
   <string name="read_more_section">Тулыраҡ уҡырға</string>
   <string name="menu_gallery_visit_page">Файл битенә күсергә</string>
   <string name="gallery_error_draw_failed">Һүрәтте сығарып булманы</string>
-  <string name="license_title" fuzzy="true"> %s китапханаһы өсөн текст лицензияһы</string>
+  <string name="license_title">%s өсөн лицензия</string>
   <string name="gallery_menu_share">Уртаҡлашырға</string>
   <string name="gallery_share_error">%s һүрәте менән  уртаҡлашып булманы</string>
   <string name="gallery_menu_save">Ҡорамалда һаҡлау</string>

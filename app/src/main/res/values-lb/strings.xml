@@ -179,7 +179,7 @@
   <string name="read_more_section">Liest méi</string>
   <string name="menu_gallery_visit_page">Op d\'Säit vum Fichier goen</string>
   <string name="gallery_error_draw_failed">D\'Bild konnt net gezeechent ginn.</string>
-  <string name="license_title" fuzzy="true">Lizenztext fir d\'Bibliothek %s</string>
+  <string name="license_title">Lizenz fir %s</string>
   <string name="gallery_menu_share">Deelen</string>
   <string name="gallery_share_error">Bild konnt net gedeelt ginn: %s</string>
   <string name="gallery_menu_save">Um Apparat späicheren</string>
@@ -188,6 +188,7 @@
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
   <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
+  <string name="expand_refs">Tippe fir opzeklappen</string>
   <string name="share_snippet_button">Als Bild deelen</string>
   <string name="share_normal_button">Als Text deelen</string>
   <string name="snippet_share_preview_image_desc">Bild kucken ouni ze späicheren</string>
@@ -232,6 +233,8 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_item_count_plural">%s Artikelen</string>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
+  <string name="reading_list_sort_by_recent">No de Rezentesten zortéieren</string>
+  <string name="reading_list_sort_by_recent_desc">No den Eelsten zortéieren</string>
   <string name="reading_list_menu_edit">Detailer vun der Lieslëscht änneren</string>
   <string name="reading_list_menu_delete">Lieslëscht läschen</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>

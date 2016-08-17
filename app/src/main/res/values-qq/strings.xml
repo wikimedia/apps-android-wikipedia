@@ -190,7 +190,7 @@ Please test the URL to make sure it works</string>
 {{Identical|Contributor}}</string>
   <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.
 {{Identical|Translator}}</string>
-  <string name="about_translators_translatewiki">Credit given to translatewiki translators.
+  <string name="about_translators_translatewiki">Credit given to translatewiki.net translators.
 
 {{doc-important|Please don\'t translate the link and the site title.}}</string>
   <string name="about_app_license_heading">Heading for section that describes the license for the app itself.

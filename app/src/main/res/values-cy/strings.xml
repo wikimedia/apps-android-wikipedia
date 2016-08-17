@@ -3,33 +3,42 @@
   <string name="app_name_prod">Wicipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
   <string name="app_name_alpha">Wicipedia Alffa</string>
+  <string name="wikimedia">Wicimedia</string>
   <string name="yes">Ydw/Ie/Iawn</string>
   <string name="no">Nac ydw / Na</string>
   <string name="search_hint">Chwilio Wicipedia</string>
   <string name="nav_item_history">Hanes</string>
   <string name="error_network_error">Ni ellir cysylltu â\'r rhyngrwyd.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
+  <string name="page_error_back_to_main">Ewch yn ôl</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>
   <string name="page_does_not_exist_error">Does dim tudalen o\'r enw hwn ar gael.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Clirio\'r hanes pori?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Ydych chi\'n siwr eich bod am glirio\'r hanes?</string>
+  <string name="dialog_title_clear_history">Clirio hanes y pori?</string>
+  <string name="dialog_message_clear_history">Ydych chi\'n siwr eich bod am glirio\'r hanes?</string>
   <string name="nav_item_saved_pages">Tudalennau a gadwyd</string>
   <string name="share_via">Rhannu drwy</string>
+  <string name="search_redirect_from">Ailgyfeiriad o %s</string>
   <string name="menu_page_show_tabs">Dangos y tabiau</string>
-  <string name="menu_page_other_languages" fuzzy="true">Darllen mewn ieithoedd eraill</string>
+  <string name="menu_page_other_languages">Efallai y dylid uwchraddio\'r cyfieithiad hwn</string>
   <string name="menu_page_find_in_page">Chwilio yn y dudalen</string>
+  <string name="menu_page_content_issues">Problemau efo\'r cynnwys</string>
+  <string name="menu_page_similar_titles">Teitlau rhy debyg</string>
   <string name="menu_page_font_and_theme">Ffont a thema</string>
+  <string name="menu_page_add_to_list">Ychwanegu at y rhestr ddarllen</string>
   <string name="menu_page_share">Rhannwch y dolennau</string>
   <string name="menu_long_press_open_page">Agor</string>
   <string name="menu_long_press_open_in_new_tab">Agor mewn tab newydd</string>
   <string name="menu_long_press_copy_page">Copio cyfeiriad y ddolen</string>
   <string name="menu_text_select_copy">Copio</string>
+  <string name="menu_text_select_define">Diffiniwch</string>
   <string name="menu_text_select_share">Rhannu</string>
+  <string name="menu_text_select_edit_here">Golygwch yma</string>
   <string name="nav_item_nearby">Gerllaw</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Swmiwch i\'r lleoliad ar y map</string>
   <string name="last_updated_text">Diweddarwyd ddiwethaf%1$s</string>
+  <string name="talk_page_link_text">Sgwrs</string>
   <string name="content_license_html">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
   <string name="edit_save_action_license_logged_in">Drwy arbed, rydych yn cytuno i &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ol ar drwydded &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="preference_title_language">Wicipedia pa iaith?</string>
@@ -45,6 +54,7 @@
   <string name="dialog_message_edit_failed">Methodd y golygiad!</string>
   <string name="dialog_message_edit_failed_retry">Ailgeisio</string>
   <string name="dialog_message_edit_failed_cancel">Canslo</string>
+  <string name="dialog_message_leaving_edit">Nid arbedwyd eich newidiadau eto. Ydych chi\'n sicr eich bod am adael y ddalen?</string>
   <string name="dialog_message_leaving_edit_leave">Gadael</string>
   <string name="dialog_message_leaving_edit_stay">Aros</string>
   <string name="menu_show_toc">Tabl cynnwys</string>
@@ -109,6 +119,7 @@
   <string name="page_protected_other">Gwarchodwyd y ddalen i\'r lefelau canlynol: %s</string>
   <string name="page_protected_can_not_edit">Nid oes gennych hawl i olygu\'r ddalen</string>
   <string name="page_protected_can_not_edit_title">Mae\'r ddalen hon wedi\'i gwarchod</string>
+  <string name="settings_item_preferences">Gosodiadau</string>
   <string name="settings_activity_title">Gosodiadau</string>
   <string name="about_activity_title">Amdanom</string>
   <string name="edit_abandon_confirm">Mae\'r dudalen wedi cael ei newid. Ydych chi\'n siwr eich bod chi am ymadael heb roi eich newidiadau ar gadw?</string>

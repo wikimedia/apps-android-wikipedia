@@ -185,7 +185,7 @@
   <string name="read_more_section">আরও জানুন</string>
   <string name="menu_gallery_visit_page">ফাইলের পৃষ্ঠাতে যান</string>
   <string name="gallery_error_draw_failed">ছবিটি আঁকা যায়নি।</string>
-  <string name="license_title" fuzzy="true">%s গ্রন্থাগারের জন্য অনুমতি পাঠ</string>
+  <string name="license_title">%s-এর জন্য লাইসেন্স</string>
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
   <string name="gallery_menu_save">ডিভাইসে সংরক্ষণ করুন</string>

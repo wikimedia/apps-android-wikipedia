@@ -129,7 +129,7 @@
   <string name="about_app_license_heading">Licencija</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt; produktas</string>
   <string name="about_activity_title">Apie</string>
-  <string name="edit_abandon_confirm">Puslapis buvo keistas. Ar tikrai norite išeiti neįrašydami pakeitimų?</string>
+  <string name="edit_abandon_confirm">Puslapis buvo pakeistas. Ar tikrai norite išeiti neįrašydami pakeitimų?</string>
   <string name="user_blocked_from_editing_title">Užblokuota</string>
   <string name="user_logged_in_blocked_from_editing">Jūsų vartotojo paskyra buvo užblokuota nuo redagavimo šiame vikiprojekte.</string>
   <string name="user_anon_blocked_from_editing">Jūsų IP adresas yra užblokuotas nuo redagavimo.</string>
@@ -171,7 +171,7 @@
   <string name="read_more_section">Skaityti daugiau</string>
   <string name="menu_gallery_visit_page">Eikite į failo puslapį</string>
   <string name="gallery_error_draw_failed">Negalima pavaizduoti paveikslėlio</string>
-  <string name="license_title" fuzzy="true">Licencijos tekstas %s bibliotekai</string>
+  <string name="license_title">Licencija %s</string>
   <string name="gallery_menu_share">Dalintis</string>
   <string name="gallery_share_error">Negalima pasidalinti vaizdu: %s</string>
   <string name="gallery_menu_save">Išsaugoti prietaise</string>

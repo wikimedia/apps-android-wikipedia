@@ -14,7 +14,7 @@
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
-  <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려있는 모든 창을 닫습니다. 정말 그렇게 하시겠습니까?</string>
+  <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려있는 모든 탭을 닫습니다. 정말 그렇게 하시겠습니까?</string>
   <string name="nav_item_saved_pages">저장된 문서</string>
   <string name="share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>
@@ -68,7 +68,7 @@
   <string name="nav_item_login">위키백과에 로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
-  <string name="login_password_show_check">비밀번호 보이기</string>
+  <string name="login_password_show_check">비밀번호 표시</string>
   <string name="menu_login">로그인</string>
   <string name="login_activity_title">위키백과에 로그인</string>
   <string name="login_in_progress_dialog_message">로그인 중…</string>
@@ -183,7 +183,7 @@
   <string name="read_more_section">더 읽어보기</string>
   <string name="menu_gallery_visit_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
-  <string name="license_title" fuzzy="true">%s 라이브러리의 라이선스 텍스트</string>
+  <string name="license_title">%s의 라이선스</string>
   <string name="gallery_menu_share">공유</string>
   <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>
   <string name="gallery_menu_save">장치에 저장</string>

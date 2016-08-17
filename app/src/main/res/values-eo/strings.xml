@@ -20,6 +20,7 @@
   <string name="menu_page_show_tabs">Montri langetojn</string>
   <string name="menu_page_other_languages">Ŝanĝi lingvon</string>
   <string name="menu_page_find_in_page">Trovi en la paĝo</string>
+  <string name="menu_page_content_issues">Problemoj kun la enhavo</string>
   <string name="menu_page_similar_titles">Similaj titoloj</string>
   <string name="menu_page_font_and_theme">Fonto kaj etoso</string>
   <string name="menu_page_share">Diskonigi ligilon</string>
@@ -169,7 +170,7 @@
   <string name="read_more_section">Legi plu</string>
   <string name="menu_gallery_visit_page">Iru al la dosiera paĝo</string>
   <string name="gallery_error_draw_failed">Ne eblis montri la bildon.</string>
-  <string name="license_title" fuzzy="true">Teksto de la biblioteka permesilo %s</string>
+  <string name="license_title">Permesilo por %s</string>
   <string name="gallery_menu_share">Kundividi</string>
   <string name="gallery_share_error">Ne eblis kundividi la bildon: %s</string>
   <string name="gallery_menu_save">Konservi en la aparato</string>
@@ -192,6 +193,8 @@
   <string name="format_error_server_message">Mesaĝo: \"%s\"</string>
   <string name="format_error_server_code">Kodo: \"%s\"</string>
   <string name="button_continue_to_article">Legi artikolon</string>
+  <string name="nav_item_donate">Subtenu Vikipedion</string>
+  <string name="crash_report_dialog_dont_send_button">Preterpasi</string>
   <string name="crash_report_dialog_always_send_button">Ĉiam sendi</string>
   <string name="crash_report_dialog_send_button">Sendi</string>
   <string name="reading_list_untitled">Sentitola</string>
@@ -201,7 +204,8 @@
   <string name="reading_list_item_count_singular">1 artikolo</string>
   <string name="reading_list_item_count_plural">%s artikoloj</string>
   <string name="reading_list_sort">Ordigi</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Laŭ nomo</string>
+  <string name="reading_list_sort_by_name">Ordigi laŭ nomo</string>
+  <string name="reading_list_sort_by_name_desc">Ordigi laŭ nomo (inverse)</string>
   <string name="reading_list_description_hint">Priskribo (malnepra)</string>
   <string name="reading_list_item_delete_undo">Malfari</string>
   <string name="reading_list_deleted">%s forigita</string>
@@ -210,9 +214,17 @@
   <string name="reading_lists_onboarding_for_example">Ekzemple</string>
   <string name="user_option_sync_label">Preferoj</string>
   <string name="view_because_you_read_card_title">Ĉar vi legas</string>
+  <string name="view_random_card_title">Hazardilo</string>
   <string name="view_main_page_card_title">Hodiaŭ sur Vikipedio</string>
+  <string name="view_main_page_card_subtitle">Ĉefpaĝo je %s</string>
   <string name="view_featured_image_card_title">Bildo de la tago</string>
   <string name="view_featured_image_card_download">Elŝuti</string>
   <string name="menu_feed_card_dismiss">Kaŝu la karton</string>
+  <string name="menu_feed_card_dismissed">Karto kaŝita.</string>
+  <string name="feed">Esploru</string>
   <string name="view_card_footer_button">Vidi pli</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">hieraŭ</item>
+    <item quantity="other">antaŭ %d tagoj</item>
+  </plurals>
 </resources>

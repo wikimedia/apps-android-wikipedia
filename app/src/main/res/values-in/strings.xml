@@ -185,7 +185,7 @@
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
-  <string name="license_title" fuzzy="true">Teks lisensi untuk pustaka %s</string>
+  <string name="license_title">Lisensi untuk %s</string>
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>

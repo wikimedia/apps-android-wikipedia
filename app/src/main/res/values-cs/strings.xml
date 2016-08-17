@@ -290,6 +290,6 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="view_card_news_title">Ve zprávách</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">včera</item>
-    <item quantity="other">%d včera</item>
+    <item quantity="other">před %d dny</item>
   </plurals>
 </resources>

@@ -38,6 +38,7 @@
   <string name="nearby_distance_in_kilometers">%.2f किमी</string>
   <string name="nearby_zoom_to_location">नक़्शे पर किसी स्थान तक ज़ूम करें</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट हुई।</string>
+  <string name="talk_page_link_text">वार्ता</string>
   <string name="content_license_html">सामग्री &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
   <string name="edit_save_action_license_logged_in">इसे सहेजते हुये आप &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदान को &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; मुद्राधिकार के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हो।</string>
   <string name="edit_save_action_license_anon">इसको सहेजते हुये आप &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हो और अपने योगदानों को अपरिवर्तनीय रूप से मुद्राधिकार नियम &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हो। यह सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हो तो अधिक सुरक्षा प्रदान की जायेगी।</string>
@@ -182,7 +183,7 @@
   <string name="read_more_section">और पढ़ें</string>
   <string name="menu_gallery_visit_page">फ़ाइल पेज पर जाएँ</string>
   <string name="gallery_error_draw_failed">चित्र को प्रदर्शित नहीं किया जा सका।</string>
-  <string name="license_title" fuzzy="true">%s लाइब्ररी के लिए लाइसेंस टेक्स्ट</string>
+  <string name="license_title">%s के लिए लाइसेंस</string>
   <string name="gallery_menu_share">साझा करें</string>
   <string name="gallery_share_error">%s चित्र की साँझा नहीं किया जा सका</string>
   <string name="gallery_menu_save">डिवाइस पर सहेजें</string>
@@ -219,6 +220,7 @@
   <string name="preference_title_show_link_previews">कड़ी की झलक दिखायें</string>
   <string name="preference_summary_show_link_previews">लिंक्स पर टैप करने पर लेख का छोटा प्रीव्यू दिखाएँ।</string>
   <string name="nav_item_donate">विकिपीडिया का साथ दें</string>
+  <string name="error_voice_search_not_available">क्षमा करें, वॉइस रिकग्निशन उपलब्ध नहीं है।</string>
   <string name="crash_report_dialog_title">क्षमा करें, आखिरी बार एप क्रैश हो गयी थी।</string>
   <string name="crash_report_dialog_text">क्या आप HockeyApp/ एक थर्ड-पार्टी सर्विस प्रोवाइडर को क्रैश रिपोर्ट भेजना चाहते हैं ताकि विकिमीडिया आपके क्रैश को जाँच कर कर सके और उस बग को फिक्स कर सके?</string>
   <string name="crash_report_dialog_dont_send_button">छोड़ें</string>
@@ -244,8 +246,10 @@
   <string name="reading_list_item_count_singular">1 लेख</string>
   <string name="reading_list_item_count_plural">%s लेख</string>
   <string name="reading_list_sort">छांटें</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">नाम से</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">पिछलों में से</string>
+  <string name="reading_list_sort_by_name">नाम से छांटें</string>
+  <string name="reading_list_sort_by_name_desc">नाम से छांटें (उल्टा)</string>
+  <string name="reading_list_sort_by_recent">हाल ही के में से छांटें</string>
+  <string name="reading_list_sort_by_recent_desc">पहले के में से छांटें</string>
   <string name="reading_list_menu_edit">पठन सूची विवरण सम्पादित करें</string>
   <string name="reading_list_menu_delete">पठन सूची को मिटायें</string>
   <string name="reading_list_name_sample">मेरी पठन सूची</string>
@@ -267,5 +271,26 @@
   <string name="reading_lists_onboarding_example2">पसंदीदा पशु</string>
   <string name="reading_lists_onboarding_example3">ब्रह्माण्ड!</string>
   <string name="reading_lists_onboarding_got_it">समझ गया</string>
+  <string name="reading_lists_onboarding_page_delete">सलाह: रीडिंग लिस्ट में से किसी भी पेज को हटाने के लिए उसे दाएं या बाएं स्वाइप करें।</string>
   <string name="user_option_sync_label">वरीयता</string>
+  <string name="view_continue_reading_card_title">पढ़ना जारी रखें</string>
+  <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
+  <string name="view_random_card_title">रैंडमाइज़र</string>
+  <string name="view_random_card_subtitle">विकिपीडिया से कोई बेतरतीब लेख पढ़ें</string>
+  <string name="view_main_page_card_title">विकिपीडिया पर आज</string>
+  <string name="view_main_page_card_subtitle">%s पर मुख्य पृष्ठ</string>
+  <string name="view_featured_image_card_title">आज का चित्र</string>
+  <string name="view_featured_image_card_download">डाउनलोड</string>
+  <string name="menu_feed_card_dismiss">इस कार्ड को छुपाएं</string>
+  <string name="menu_feed_card_dismissed">कार्ड छुपा हुआ</string>
+  <string name="feed_featured_image_share_subject">विकिपीडिया कॉमन्स से निर्वाचित चित्र</string>
+  <string name="feed">खोज करें</string>
+  <string name="view_card_footer_button">अधिक देखें</string>
+  <string name="most_read_list_card_title">रुझानों में</string>
+  <string name="view_static_card_icon_content_description">कार्ड आइकॉन</string>
+  <string name="view_card_news_title">समाचारों में</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">कल</item>
+    <item quantity="other">%d दिन पहले</item>
+  </plurals>
 </resources>

@@ -185,7 +185,7 @@
   <string name="read_more_section">بیشتر بخوانید</string>
   <string name="menu_gallery_visit_page">رفتن به صفحه پرونده</string>
   <string name="gallery_error_draw_failed">امکان ترسیم تصویر نیست.</string>
-  <string name="license_title" fuzzy="true">متن مجوز برای کتابخانهٔ %s</string>
+  <string name="license_title">مجوز برای %s</string>
   <string name="gallery_menu_share">به‌اشتراک‌گذاشتن</string>
   <string name="gallery_share_error">امکان به اشتراک‌گذاری تصویر نیست: %s</string>
   <string name="gallery_menu_save">ذخیره در ابزار</string>
@@ -288,8 +288,8 @@
   <string name="most_read_list_card_title">گریش‌ها</string>
   <string name="view_static_card_icon_content_description">آیکون کارت</string>
   <string name="view_card_news_title">در اخبار</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">دیروز</item>
-    <item quantity="other">%02d روز پیش</item>
+    <item quantity="other">%d روز پیش</item>
   </plurals>
 </resources>

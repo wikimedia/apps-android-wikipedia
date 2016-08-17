@@ -186,7 +186,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="read_more_section">En savoir plus</string>
   <string name="menu_gallery_visit_page">Aller à la page du fichier</string>
   <string name="gallery_error_draw_failed">Impossible d\'afficher l’image.</string>
-  <string name="license_title" fuzzy="true">Texte de la licence pour la bibliothèque %s</string>
+  <string name="license_title">Licence pour la bibliothèque %s</string>
   <string name="gallery_menu_share">Partager</string>
   <string name="gallery_share_error">Impossible de partager l’image : %s</string>
   <string name="gallery_menu_save">Enregistrer sur l’appareil</string>

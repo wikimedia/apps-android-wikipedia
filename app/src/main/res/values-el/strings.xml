@@ -25,6 +25,7 @@
   <string name="menu_long_press_open_in_new_tab">Άνοιγμα σε νέα καρτέλα</string>
   <string name="menu_long_press_copy_page">Αντιγραφή διεύθυνσης συνδέσμου</string>
   <string name="menu_text_select_copy">Αντιγραφή</string>
+  <string name="menu_text_select_define">Ορισμός</string>
   <string name="menu_text_select_share">Κοινοποίηση</string>
   <string name="nav_item_nearby">Κοντινά</string>
   <string name="nearby_distance_in_meters">%d m</string>

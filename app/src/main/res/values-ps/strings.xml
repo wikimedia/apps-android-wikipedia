@@ -139,7 +139,7 @@
   <string name="preference_title_show_images">انځورونه ښکاره کول</string>
   <string name="read_more_section">نور لوستل</string>
   <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
-  <string name="license_title" fuzzy="true">د %s کتابتون لپاره د منښتليک متن</string>
+  <string name="license_title">د %s منښتليک</string>
   <string name="gallery_menu_share">شريکول</string>
   <string name="gallery_menu_save">وزلې کې خوندي کول</string>
   <string name="gallery_save_progress">دوتنه ښکته کېږي…</string>

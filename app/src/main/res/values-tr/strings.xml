@@ -185,7 +185,7 @@
   <string name="read_more_section">Devamı</string>
   <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
   <string name="gallery_error_draw_failed">Resim gösterilemedi.</string>
-  <string name="license_title" fuzzy="true">%s kütüphanesi için lisans metni</string>
+  <string name="license_title">%s için lisans</string>
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
   <string name="gallery_menu_save">Cihaza kaydet</string>
@@ -287,7 +287,7 @@
   <string name="view_card_footer_button">Daha fazlasını gör</string>
   <string name="most_read_list_card_title">Popüler</string>
   <string name="view_static_card_icon_content_description">Kart simgesi</string>
-  <string name="view_card_news_title">Haberler</string>
+  <string name="view_card_news_title">Haberlerde</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">dün</item>
     <item quantity="other">%d gün önce</item>
