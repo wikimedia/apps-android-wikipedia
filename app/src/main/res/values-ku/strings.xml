@@ -128,7 +128,7 @@
   <string name="reading_list_added_view_button">Lîsteyê bibîne</string>
   <string name="reading_list_item_count_singular">gotarek</string>
   <string name="reading_list_item_count_plural">%s gotar</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">Li gorî nav</string>
+  <string name="reading_list_sort_by_name">Li gorî nav rêz bike</string>
   <string name="reading_list_name_sample">Lîsteya min a xwendinê</string>
   <string name="reading_list_name_hint">Navê vê lîsteyê</string>
   <string name="reading_list_edit_ok">Baş e</string>
@@ -139,4 +139,8 @@
   <string name="view_featured_image_card_download">Daxe</string>
   <string name="menu_feed_card_dismiss" fuzzy="true">Vê pêşniyariyê veşêre</string>
   <string name="view_card_news_title">Di nûçeyan de</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">doh</item>
+    <item quantity="other">berî %d rojan</item>
+  </plurals>
 </resources>

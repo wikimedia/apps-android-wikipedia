@@ -182,7 +182,7 @@
   <string name="read_more_section">Meer lezen</string>
   <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>
   <string name="gallery_error_draw_failed">De afbeelding kon niet weergegeven worden.</string>
-  <string name="license_title" fuzzy="true">Licentietekst voor de bibliotheek %s</string>
+  <string name="license_title">Licentietekst voor %s</string>
   <string name="gallery_menu_share">Delen</string>
   <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
   <string name="gallery_menu_save">Opslaan op apparaat</string>

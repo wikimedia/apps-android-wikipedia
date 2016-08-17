@@ -180,7 +180,7 @@
   <string name="read_more_section">Czytaj więcej</string>
   <string name="menu_gallery_visit_page">Przejdź do strony pliku</string>
   <string name="gallery_error_draw_failed">Nie udało się wyświetlić obrazu.</string>
-  <string name="license_title" fuzzy="true">Tekst licencji dla biblioteki %s</string>
+  <string name="license_title">Licencja dla %s</string>
   <string name="gallery_menu_share">Udostępnij</string>
   <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
   <string name="gallery_menu_save">Zapisz na urządzeniu</string>

@@ -185,7 +185,7 @@
   <string name="read_more_section">Läs mer</string>
   <string name="menu_gallery_visit_page">Gå till filsida</string>
   <string name="gallery_error_draw_failed">Kunde inte rita bilden.</string>
-  <string name="license_title" fuzzy="true">Licenstext för biblioteket %s</string>
+  <string name="license_title">Licens för %s</string>
   <string name="gallery_menu_share">Dela</string>
   <string name="gallery_share_error">Kunde inte dela bilden: %s</string>
   <string name="gallery_menu_save">Spara till enheten</string>

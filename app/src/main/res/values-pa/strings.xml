@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name_prod">ਵਿਕੀਪੀਡੀਆ</string>
-  <string name="app_name_beta">ਵਿਕੀਪੀਡੀਆ ਬੀਟਾ</string>
+  <string name="app_name_beta">ਵਿਕੀਪੀਡੀਆ ਬੇਟਾ</string>
   <string name="app_name_alpha">ਵਿਕੀਪੀਡੀਆ ਅਲਫ਼ਾ</string>
   <string name="wikimedia">ਵਿਕੀਮੀਡੀਆ</string>
   <string name="yes">ਹਾਂ</string>
@@ -134,6 +134,7 @@
   <string name="about_translators_heading">ਤਰਜਮਾਕਾਰ</string>
   <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਵਿਖੇ ਸਵੈਇੱਛਕ ਤਰਜਮਾਕਾਰਾਂ ਨੇ ਕੀਤਾ ਸੀ।</string>
   <string name="about_app_license_heading">ਲਸੰਸ</string>
+  <string name="about_app_license">ਸਰੋਤ ਕੋਡ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ਅਤੇ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ਉੱਪਰ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ਹੇਠ  ਉਪਲੱਬਧ ਹੈ। ਜੇ ਹੋਰ ਕੁਝ ਨਹੀੰ ਕਿਹਾ ਗਿਆ ਤਾੰ ਸਮੱਗਰੀ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ਹੇਠ ਉਪਲੱਬਧ ਹੈ।</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ&lt;/a&gt; ਦੀ ਇੱਕ ਉਪਜ</string>
   <string name="about_activity_title">ਬਾਬਤ</string>
   <string name="edit_abandon_confirm">ਇਹ ਸਫ਼ਾ ਬਦਲਿਆ ਗਿਆ ਹੈ? ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਤਬਦੀਲੀਆਂ ਬਿਨਾਂ ਸਾਂਭੇ ਕੂਚ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
@@ -179,7 +180,7 @@
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="menu_gallery_visit_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
   <string name="gallery_error_draw_failed">ਤਸਵੀਰ ਬਣਾ ਨਹੀੰ ਸਕੇ।</string>
-  <string name="license_title" fuzzy="true">%s ਲਾਇਬ੍ਰੇਰੀ ਲਈ ਲਸੰਸ ਲਿਖਤ</string>
+  <string name="license_title">%s ਲਈ ਲਸੰਸ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
   <string name="gallery_menu_save">ੳੁਪਕਰਨ \'ਚ ਸੰਭਾਲੋ</string>

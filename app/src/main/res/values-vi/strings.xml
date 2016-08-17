@@ -185,11 +185,11 @@
   <string name="read_more_section">Đọc tiếp</string>
   <string name="menu_gallery_visit_page">Xem trang tập tin</string>
   <string name="gallery_error_draw_failed">Không thể hiển thị hình.</string>
-  <string name="license_title" fuzzy="true">Văn bản giấy phép của thư viện %s</string>
+  <string name="license_title">Giấy phép của %s</string>
   <string name="gallery_menu_share">Chia sẻ</string>
   <string name="gallery_share_error">Không thể chia sẻ hình: %s</string>
   <string name="gallery_menu_save">Lưu vào thiết bị</string>
-  <string name="gallery_save_progress">Đang tải tập tin xuống…</string>
+  <string name="gallery_save_progress">Đang tải tập tin về…</string>
   <string name="gallery_save_success">Đã lưu tập tin thành công.</string>
   <string name="gallery_error_video_failed">Không thể phát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Để lưu ảnh, bạn cần cho phép ghi dữ liệu vào bộ nhớ thiết bị. Xin hãy thử lại và đồng ý cấp phép cho yêu cầu.</string>
@@ -275,5 +275,21 @@
   <string name="view_continue_reading_card_title">Đọc tiếp</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
   <string name="view_random_card_title">Ngẫu nhiên</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Đọc bài ngẫu nhiên từ Wikipedia %s</string>
+  <string name="view_random_card_subtitle">Đọc bài ngẫu nhiên từ Wikipedia</string>
+  <string name="view_main_page_card_title">Hôm nay tại Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Trang chính vào %s</string>
+  <string name="view_featured_image_card_title">Hình ảnh trong ngày</string>
+  <string name="view_featured_image_card_download">Tải về</string>
+  <string name="menu_feed_card_dismiss">Ẩn thẻ này</string>
+  <string name="menu_feed_card_dismissed">Thẻ đã ẩn.</string>
+  <string name="feed_featured_image_share_subject">Hình ảnh chọn lọc từ Wikimedia Commons</string>
+  <string name="feed">Thám hiểm</string>
+  <string name="view_card_footer_button">Xem thêm</string>
+  <string name="most_read_list_card_title">Xu hướng</string>
+  <string name="view_static_card_icon_content_description">Hình tượng thẻ</string>
+  <string name="view_card_news_title">Tin tức</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">hôm qua</item>
+    <item quantity="other">%d ngày trước</item>
+  </plurals>
 </resources>

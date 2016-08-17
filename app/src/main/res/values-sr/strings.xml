@@ -174,7 +174,7 @@
   <string name="read_more_section">Детаљније</string>
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
   <string name="gallery_error_draw_failed">Не могу да исцртам слику.</string>
-  <string name="license_title" fuzzy="true">Текст лиценце за библиотеку %s</string>
+  <string name="license_title">Лиценца за %s</string>
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_share_error">Не могу да делим слику: %s</string>
   <string name="gallery_menu_save">Сачувај на уређај</string>

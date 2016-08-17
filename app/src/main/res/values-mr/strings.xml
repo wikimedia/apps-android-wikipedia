@@ -182,7 +182,7 @@
   <string name="read_more_section">अधिक वाचन</string>
   <string name="menu_gallery_visit_page">संचिका पानावर जा</string>
   <string name="gallery_error_draw_failed">चित्र काढता आले नाही.</string>
-  <string name="license_title" fuzzy="true">%s ग्रंथालयासाठी परवाना मजकूर</string>
+  <string name="license_title">%s साठी परवाना</string>
   <string name="gallery_menu_share">सहभाग करा</string>
   <string name="gallery_share_error">चित्र सहभागी करु शकलो नाही:%s</string>
   <string name="gallery_menu_save">उपकरणात जतन करा</string>

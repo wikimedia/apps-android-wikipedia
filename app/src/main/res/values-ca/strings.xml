@@ -185,7 +185,7 @@
   <string name="read_more_section">Llegir més</string>
   <string name="menu_gallery_visit_page">Vés a la pàgina del fitxer</string>
   <string name="gallery_error_draw_failed">No s\'ha pogut carregar la imatge.</string>
-  <string name="license_title" fuzzy="true">Text de la llicència per la biblioteca %s</string>
+  <string name="license_title">Llicència de %s</string>
   <string name="gallery_menu_share">Comparteix</string>
   <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
   <string name="gallery_menu_save">Desar al dispositiu</string>
@@ -285,13 +285,13 @@ Voleu començar de nou o sortir?</string>
   <string name="menu_feed_card_dismiss">Amaga la targeta</string>
   <string name="menu_feed_card_dismissed">S\'ha amagat la targeta.</string>
   <string name="feed_featured_image_share_subject">Imatge destacada de Wikimedia Commons</string>
-  <string name="feed" fuzzy="true">Explora la Viquipèdia</string>
+  <string name="feed">Explora</string>
   <string name="view_card_footer_button">Més informació</string>
   <string name="most_read_list_card_title">Tendències</string>
   <string name="view_static_card_icon_content_description">Icona de targeta</string>
   <string name="view_card_news_title">Actualitat</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">fa 1 dia</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ahir</item>
     <item quantity="other">fa %d dies</item>
   </plurals>
 </resources>

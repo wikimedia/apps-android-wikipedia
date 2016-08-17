@@ -148,6 +148,7 @@
   <string name="edit_summary_tag_grammar">Nyelvtani javítás</string>
   <string name="edit_summary_tag_links">Hozzáadott linkek</string>
   <string name="edit_summary_tag_other">Egyéb</string>
+  <string name="edit_summary_tag_other_hint">Más módok, ahogy javítottad a lapot</string>
   <string name="find_next">Következő keresése</string>
   <string name="find_previous">Előző keresése</string>
   <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan el akarod menteni?</string>
@@ -179,7 +180,7 @@
   <string name="read_more_section">További információ</string>
   <string name="menu_gallery_visit_page">Fájl leírólapjának megnyitása</string>
   <string name="gallery_error_draw_failed">Nem tudta megrajzolni a képet.</string>
-  <string name="license_title" fuzzy="true">A(z) %s könyvtár licencének szövege</string>
+  <string name="license_title">A(z) %s licence</string>
   <string name="gallery_menu_share">Megosztás</string>
   <string name="gallery_share_error">A kép megosztása sikertelen: %s</string>
   <string name="gallery_menu_save">Mentés az eszközre</string>
@@ -271,9 +272,18 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="view_continue_reading_card_title">Olvasás folytatása</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Randomizáló</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Olvass egy véletlenszerű cikket a(z) %s Wikipédián</string>
-  <string name="view_main_page_card_title" fuzzy="true">Ma a(z) %s Wikipédián</string>
+  <string name="view_random_card_subtitle">Olvass egy véletlenszerű cikket a Wikipédiáról</string>
+  <string name="view_main_page_card_title">Ma a Wikipédián</string>
   <string name="view_main_page_card_subtitle">Kezdőlap ma – %s</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">Javaslat elrejtése</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">Javaslat elrejtve.</string>
+  <string name="view_featured_image_card_title">A nap képe</string>
+  <string name="view_featured_image_card_download">Letöltés</string>
+  <string name="menu_feed_card_dismiss">Kártya elrejtése</string>
+  <string name="menu_feed_card_dismissed">Kártya elrejtve.</string>
+  <string name="feed_featured_image_share_subject">Kiemelt kép a Wikimédia Commonsból</string>
+  <string name="feed">Felfedezés</string>
+  <string name="view_card_news_title">Hírek</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">tegnap</item>
+    <item quantity="other">%d napja</item>
+  </plurals>
 </resources>

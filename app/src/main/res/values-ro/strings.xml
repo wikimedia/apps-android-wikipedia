@@ -185,7 +185,7 @@
   <string name="read_more_section">Citiți mai multe</string>
   <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>
   <string name="gallery_error_draw_failed">Imposibil de afișat imaginea.</string>
-  <string name="license_title" fuzzy="true">Textul licenței pentru biblioteca %s</string>
+  <string name="license_title">Licența pentru %s</string>
   <string name="gallery_menu_share">Distribuie</string>
   <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
   <string name="gallery_menu_save">Salvează în dispozitiv</string>
@@ -222,6 +222,7 @@
   <string name="preference_title_show_link_previews">Afișează previzualizarea legăturilor</string>
   <string name="preference_summary_show_link_previews">Se afișează o previzualizare rapidă a articolelor atunci când apăsați pe legături.</string>
   <string name="nav_item_donate">Susțineți Wikipedia</string>
+  <string name="error_voice_search_not_available">Din păcate, recunoașterea vocală nu este disponibilă.</string>
   <string name="crash_report_dialog_title">Ne pare rău, aplicația s-a blocat ultima dată</string>
   <string name="crash_report_dialog_text">Doriți să trimiteți un raport de erori către HockeyApp / un furnizor de servicii terț, astfel încât Wikimedia să poată verifica erorile dumnevoastră, înlăturând cauza care a produs blocarea?</string>
   <string name="crash_report_dialog_dont_send_button">Omite</string>
@@ -247,8 +248,10 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_item_count_singular">1 articol</string>
   <string name="reading_list_item_count_plural">%s (de) articole</string>
   <string name="reading_list_sort">Sortare</string>
-  <string name="reading_list_sort_by_name" fuzzy="true">După titlu</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">După dată</string>
+  <string name="reading_list_sort_by_name">Sortare după titlu</string>
+  <string name="reading_list_sort_by_name_desc">Sortare după titlu (invers)</string>
+  <string name="reading_list_sort_by_recent">Sortare după dată</string>
+  <string name="reading_list_sort_by_recent_desc">Sortare după cea mai veche dată</string>
   <string name="reading_list_menu_edit">Modifică detaliile listei de lecturi</string>
   <string name="reading_list_menu_delete">Șterge lista de lecturi</string>
   <string name="reading_list_name_sample">Lista mea de lecturi</string>
@@ -269,5 +272,26 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_lists_onboarding_example2">Animale preferate</string>
   <string name="reading_lists_onboarding_example3">Cosmos!</string>
   <string name="reading_lists_onboarding_got_it">Am înțeles</string>
+  <string name="reading_lists_onboarding_page_delete">Sfat: glisați cu degetul pe orice pagină la stânga sau la dreapta pentru a șterge din lista de lectură.</string>
   <string name="user_option_sync_label">Preferințe</string>
+  <string name="view_continue_reading_card_title">Continuă lectura</string>
+  <string name="view_because_you_read_card_title">Pentru că ați citit</string>
+  <string name="view_random_card_title">Aleatoriu</string>
+  <string name="view_random_card_subtitle">Citiți un articol aleatoriu din Wikipedia</string>
+  <string name="view_main_page_card_title">Astăzi la Wikipedia</string>
+  <string name="view_main_page_card_subtitle">Pagina principală la %s</string>
+  <string name="view_featured_image_card_title">Imaginea zilei</string>
+  <string name="view_featured_image_card_download">Descarcă</string>
+  <string name="menu_feed_card_dismiss">Ascunde acest card</string>
+  <string name="menu_feed_card_dismissed">Card ascuns.</string>
+  <string name="feed_featured_image_share_subject">Imagini de calitate de la Wikimedia Commons</string>
+  <string name="feed">Explorare</string>
+  <string name="view_card_footer_button">Vezi mai multe</string>
+  <string name="most_read_list_card_title">În tendințe</string>
+  <string name="view_static_card_icon_content_description">Pictograma cardului</string>
+  <string name="view_card_news_title">De actualitate</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ieri</item>
+    <item quantity="other">acum %d zile</item>
+  </plurals>
 </resources>
