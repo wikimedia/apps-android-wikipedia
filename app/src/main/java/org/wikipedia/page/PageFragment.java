@@ -9,10 +9,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -156,8 +154,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private WikiErrorView errorView;
     private WikiDrawerLayout tocDrawer;
 
-    private FloatingActionButton tocButton;
-
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
     private EditHandler editHandler;
@@ -172,23 +168,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onRefresh() {
             refreshPage();
-        }
-    };
-
-    @NonNull
-    private final View.OnClickListener tocButtonOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            hideSoftKeyboard();
-            showToCButton();
-            toggleToC(TOC_ACTION_TOGGLE);
-        }
-    };
-
-    @NonNull private final Runnable hideToCButtonRunnable = new Runnable() {
-        @Override
-        public void run() {
-            tocButton.hide();
         }
     };
 
@@ -240,9 +219,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         tocDrawer = (WikiDrawerLayout) rootView.findViewById(R.id.page_toc_drawer);
         tocDrawer.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
-
-        tocButton = (FloatingActionButton) rootView.findViewById(R.id.floating_toc_button);
-        tocButton.setOnClickListener(tocButtonOnClickListener);
 
         refreshView = (SwipeRefreshLayoutWithScroll) rootView
                 .findViewById(R.id.page_refresh_container);
@@ -370,32 +346,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.addOnUpOrCancelMotionEventListener(new ObservableWebView.OnUpOrCancelMotionEventListener() {
             @Override
             public void onUpOrCancelMotionEvent() {
-                // queue the button to be hidden when the user stops scrolling.
-                hideToCButton(true);
                 // update our session, since it's possible for the user to remain on the page for
                 // a long time, and we wouldn't want the session to time out.
                 app.getSessionFunnel().touchSession();
             }
         });
-        webView.setOnFastScrollListener(new ObservableWebView.OnFastScrollListener() {
-            @Override
-            public void onFastScroll() {
-                // show the ToC button...
-                showToCButton();
-                // and immediately queue it to be hidden after a short delay, but only if we're
-                // not at the top of the page.
-                if (webView.getScrollY() > 0) {
-                    hideToCButton(true);
-                }
-            }
-        });
         webView.addOnScrollChangeListener(new ObservableWebView.OnScrollChangeListener() {
             @Override
             public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
-                if (scrollY <= 0) {
-                    // always show the ToC button when we're at the top of the page.
-                    showToCButton();
-                }
                 if (pageScrollFunnel != null) {
                     pageScrollFunnel.onPageScrolled(oldScrollY, scrollY, isHumanScroll);
                 }
@@ -588,7 +546,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                          boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
         // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
-        hideToCButton(false);
 
         errorState = false;
         errorView.setVisibility(View.GONE);
@@ -773,7 +730,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 findInPageActionMode = mode;
                 MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
                 MenuItemCompat.setActionProvider(menuItem, findInPageActionProvider);
-                hideToCButton(false);
                 return true;
             }
 
@@ -795,7 +751,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 funnel.logDone();
                 webView.clearMatches();
                 showToolbar();
-                showToCButton();
                 hideSoftKeyboard();
             }
         });
@@ -821,7 +776,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void onPageLoadComplete() {
-        showToCButton();
         refreshView.setEnabled(true);
         editHandler.setPage(model.getPage());
         initPageScrollFunnel();
@@ -1052,35 +1006,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 }
             }
         });
-    }
-
-    private void showToCButton() {
-        tocButton.removeCallbacks(hideToCButtonRunnable);
-
-        if (!errorState) {
-            // HACK: there appears to be a bug in FloatingActionButton on API 13+ wherein quickly
-            //       calling show() after hide() fails because show() only works when the View is
-            //       not VISIBLE, which is false for a 200 ms window while the hide animation plays.
-            //       The proper fix seems to be to also check if mIsHiding, which hide() does, and
-            //       to not reset scale and alpha when playing the show animation.
-            final int floatingActionButtonShowDuration = 200;
-            tocButton.animate()
-                    .scaleX(1f)
-                    .scaleY(1f)
-                    .alpha(1f)
-                    .setDuration(floatingActionButtonShowDuration)
-                    .setInterpolator(new FastOutSlowInInterpolator());
-
-            tocButton.show();
-        }
-    }
-
-    private void hideToCButton(boolean delay) {
-        if (delay) {
-            tocButton.postDelayed(hideToCButtonRunnable, TOC_BUTTON_HIDE_DELAY);
-        } else {
-            tocButton.hide();
-        }
     }
 
     /**

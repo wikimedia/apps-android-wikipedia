@@ -5,7 +5,6 @@ import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ConfigurableListView;
@@ -26,8 +25,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.appenguin.onboarding.ToolTip;
 
 import java.util.ArrayList;
 
@@ -270,11 +267,11 @@ public class ToCHandler {
     }
 
     private void showTocOnboarding() {
-        View tocButton = fragment.getActivity().findViewById(R.id.floating_toc_button);
-        ToolTipUtil.showToolTip(fragment.getActivity(),
-                                tocButton,
-                                R.layout.inflate_tool_tip_toc_button,
-                                ToolTip.Position.CENTER);
-        WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
+        // TODO: Update TOC onboarding to point to TOC page action tab
+        //ToolTipUtil.showToolTip(fragment.getActivity(),
+        //                        tocButton,
+        //                        R.layout.inflate_tool_tip_toc_button,
+        //                        ToolTip.Position.CENTER);
+        //WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
     }
 }
