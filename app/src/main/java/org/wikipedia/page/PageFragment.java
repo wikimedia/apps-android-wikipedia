@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -153,6 +154,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiErrorView errorView;
     private WikiDrawerLayout tocDrawer;
+    private TabLayout tabLayout;
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -168,6 +170,25 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onRefresh() {
             refreshPage();
+        }
+    };
+
+    @NonNull
+    private final TabLayout.OnTabSelectedListener pageActionTabListener
+            = new TabLayout.OnTabSelectedListener() {
+        @Override
+        public void onTabSelected(TabLayout.Tab tab) {
+
+        }
+
+        @Override
+        public void onTabUnselected(TabLayout.Tab tab) {
+
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+
         }
     };
 
@@ -228,6 +249,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
+
+        tabLayout = (TabLayout) rootView.findViewById(R.id.page_actions_tab_layout);
+        tabLayout.addOnTabSelectedListener(pageActionTabListener);
 
         errorView = (WikiErrorView)rootView.findViewById(R.id.page_error);
 

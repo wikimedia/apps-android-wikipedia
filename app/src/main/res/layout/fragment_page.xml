@@ -33,6 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+                <!-- Read More + bottom content (view in browser link, license, last updated) -->
                 <LinearLayout
                     android:id="@+id/bottom_content_container"
                     android:layout_width="match_parent"
@@ -42,6 +43,7 @@
                     android:orientation="vertical"
                     android:visibility="gone">
 
+                    <!-- Read more -->
                     <LinearLayout
                         android:id="@+id/read_more_container"
                         android:layout_width="match_parent"
@@ -67,6 +69,7 @@
                             android:layout_height="0dp" />
                     </LinearLayout>
 
+                    <!-- Bottom content (view in browser link, license, last updated) -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -114,10 +117,43 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <!-- Page action tabs -->
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/page_actions_tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:tabGravity="fill"
+                    android:background="#37393d"
+                    app:tabSelectedTextColor="@color/gray_disabled"
+                    app:tabIndicatorColor="@color/gray_disabled">
+                    <android.support.design.widget.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:icon="@drawable/ic_bookmark_border_white_24dp"/>
+                    <android.support.design.widget.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:icon="@drawable/ic_share_white_24dp"/>
+                    <android.support.design.widget.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:icon="@drawable/ic_translate_white_24dp"/>
+                    <android.support.design.widget.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:icon="@drawable/ic_find_in_page" />
+                    <android.support.design.widget.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:icon="@drawable/ic_list_white_24dp" />
+                </android.support.design.widget.TabLayout>
+
             </android.support.design.widget.CoordinatorLayout>
 
         </org.wikipedia.views.SwipeRefreshLayoutWithScroll>
 
+        <!-- Table of contents -->
         <FrameLayout
                 android:layout_width="288dp"
                 android:layout_height="match_parent"
@@ -145,8 +181,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:background="?attr/toc_background_color"
-                        >
+                        android:background="?attr/toc_background_color">
+
                     <org.wikipedia.views.ConfigurableListView
                             android:id="@+id/page_toc_list"
                             android:layout_width="match_parent"
