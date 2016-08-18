@@ -114,21 +114,6 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/floating_toc_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/FloatingActionButton"
-                    android:layout_gravity="bottom|end"
-                    app:srcCompat="@drawable/ic_list_white_24dp"
-                    android:contentDescription="@string/menu_show_toc"
-                    app:fabSize="mini"
-                    app:elevation="4dp"
-                    app:borderWidth="0dp"
-                    app:backgroundTint="?attr/toc_button_color"
-                    app:layout_anchor="@id/bottom_content_container"
-                    app:layout_anchorGravity="bottom|right|end" />
-
             </android.support.design.widget.CoordinatorLayout>
 
         </org.wikipedia.views.SwipeRefreshLayoutWithScroll>
