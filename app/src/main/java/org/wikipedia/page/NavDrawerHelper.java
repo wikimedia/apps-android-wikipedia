@@ -68,10 +68,6 @@ public class NavDrawerHelper {
         updateWikipediaZeroStatus();
         accountToggle = false;
         updateMenuGroupToggle();
-
-        if (!ReleaseUtil.isDevRelease()) {
-            activity.getNavMenu().findItem(R.id.nav_item_nav).setVisible(false);
-        }
     }
 
     public NavigationView.OnNavigationItemSelectedListener getNewListener() {
@@ -174,6 +170,10 @@ public class NavDrawerHelper {
         accountNameArrow.setVisibility(app.getUserInfoStorage().isLoggedIn() ? View.VISIBLE : View.INVISIBLE);
         accountNameArrow.setImageResource(accountToggle ? R.drawable.ic_arrow_drop_up_white_24dp
                 : R.drawable.ic_arrow_drop_down_white_24dp);
+
+        if (!ReleaseUtil.isDevRelease()) {
+            activity.getNavMenu().findItem(R.id.nav_item_nav).setVisible(false);
+        }
     }
 
     private void setLoginOnClick(View view) {
