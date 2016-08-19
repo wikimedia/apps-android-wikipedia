@@ -217,6 +217,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         public void onViewToCTabSelected() {
             toggleToC(TOC_ACTION_TOGGLE);
         }
+
+        @Override
+        public void updateBookmark(boolean pageSaved) {
+            setBookmarkIconForPageSavedState(pageSaved);
+        }
     };
 
     public ObservableWebView getWebView() {
@@ -635,7 +640,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                             return;
                         }
                         if (page != null) {
-                            //articleHeaderView.updateBookmark(true);
+                            pageActionTabsCallback.updateBookmark(true);
                             page.touch();
                             ReadingListPageDao.instance().upsert(page);
                             if (page.savedOrSaving()) {
@@ -644,7 +649,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                                 ReadingListPageDao.instance().markOutdated(page);
                             }
                         } else {
-                            //articleHeaderView.updateBookmark(false);
+                            pageActionTabsCallback.updateBookmark(false);
                         }
                     }
                 });
@@ -946,6 +951,15 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         contentIssues.setEnabled(true);
         similarTitles.setVisible(pageInfo != null && pageInfo.hasSimilarTitles());
         similarTitles.setEnabled(true);
+    }
+
+    private void setBookmarkIconForPageSavedState(boolean pageSaved) {
+        TabLayout.Tab bookmarkTab
+                = tabLayout.getTabAt(PageActionTab.ADD_TO_READING_LIST.code());
+        if (bookmarkTab != null) {
+            bookmarkTab.setIcon(pageSaved ? R.drawable.ic_bookmark_white_24dp
+                    : R.drawable.ic_bookmark_border_white_24dp);
+        }
     }
 
     private void showContentIssues() {
