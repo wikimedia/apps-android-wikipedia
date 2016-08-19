@@ -178,7 +178,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             = new TabLayout.OnTabSelectedListener() {
         @Override
         public void onTabSelected(TabLayout.Tab tab) {
-
+            PageActionTab.of(tab.getPosition()).select(pageActionTabsCallback);
         }
 
         @Override
@@ -188,7 +188,34 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onTabReselected(TabLayout.Tab tab) {
+            onTabSelected(tab);
+        }
+    };
 
+    private PageActionTab.Callback pageActionTabsCallback = new PageActionTab.Callback() {
+        @Override
+        public void onAddToReadingListTabSelected() {
+            addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
+        }
+
+        @Override
+        public void onSharePageTabSelected() {
+            sharePageLink();
+        }
+
+        @Override
+        public void onChooseLangTabSelected() {
+            startLangLinksActivity();
+        }
+
+        @Override
+        public void onFindInPageTabSelected() {
+            showFindInPage();
+        }
+
+        @Override
+        public void onViewToCTabSelected() {
+            toggleToC(TOC_ACTION_TOGGLE);
         }
     };
 
@@ -698,12 +725,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 // TODO SEARCH: add up navigation, see also http://developer.android.com/training/implementing-navigation/ancestral.html
                 return true;
             case R.id.menu_page_other_languages:
-                Intent langIntent = new Intent();
-                langIntent.setClass(getActivity(), LangLinksActivity.class);
-                langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
-                langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
-                getActivity().startActivityForResult(langIntent,
-                                                     MainActivity.ACTIVITY_REQUEST_LANGLINKS);
+                startLangLinksActivity();
                 return true;
             case R.id.menu_page_share:
                 sharePageLink();
@@ -1313,6 +1335,14 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (callback != null) {
             callback.onPageUpdateNavDrawerSelection(this);
         }
+    }
+
+    private void startLangLinksActivity() {
+        Intent langIntent = new Intent();
+        langIntent.setClass(getActivity(), LangLinksActivity.class);
+        langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
+        langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
+        getActivity().startActivityForResult(langIntent, MainActivity.ACTIVITY_REQUEST_LANGLINKS);
     }
 
     @Nullable
