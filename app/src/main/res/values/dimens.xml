@@ -88,9 +88,6 @@
     <!-- Crash report -->
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
 
-    <!-- Article menu bar -->
-    <dimen name="view_article_menu_bar_button_padding">12dp</dimen>
-
     <!-- The Feed -->
     <dimen name="view_feed_header_height">240dp</dimen>
     <dimen name="view_feed_overlap_top">84dp</dimen>

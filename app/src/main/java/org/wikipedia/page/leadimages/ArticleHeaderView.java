@@ -50,7 +50,6 @@ import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 public class ArticleHeaderView extends LinearLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;
     @BindView(R.id.view_article_header_text) AppTextView text;
-    @BindView(R.id.view_article_header_menu_bar) ArticleMenuBarView menuBar;
     @BindView(R.id.view_article_header_container) LinearLayout container;
     @BindView(R.id.view_article_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
 
@@ -121,9 +120,6 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         image.load(url);
         int height = url == null ? 0 : leadImageHeightForDevice();
         setMinimumHeight(height);
-        if (url == null) {
-            resetMenuBarColor();
-        }
     }
 
     public boolean hasImage() {
@@ -180,26 +176,6 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     public boolean hasPronunciation() {
         return pronunciationUrl != null;
-    }
-
-    public void updateBookmark(boolean bookmarkSaved) {
-        menuBar.updateBookmark(bookmarkSaved);
-    }
-
-    public void updateNavigate(boolean geoLocated) {
-        menuBar.updateNavigate(geoLocated);
-    }
-
-    public void resetMenuBarColor() {
-        menuBar.resetMenuBarColor();
-    }
-
-    public void setMenuBarColor(@ColorInt int color) {
-        menuBar.setMenuBarColor(color);
-    }
-
-    public void setMenuBarCallback(@Nullable ArticleMenuBarView.Callback callback) {
-        menuBar.setCallback(callback);
     }
 
     @Override
