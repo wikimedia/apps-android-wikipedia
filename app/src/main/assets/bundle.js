@@ -1145,11 +1145,6 @@ var utilities = require("../utilities");
 
 var maxStretchRatioAllowedBeforeRequestingHigherResolution = 1.3;
 
-// If enabled, widened images will have thin red dashed border and
-// and widened images for which a higher resolution version was
-// requested will have thick red dashed border.
-var enableDebugBorders = false;
-
 function widenAncestors (el) {
     while ((el = el.parentElement) && !el.classList.contains('content_block')) {
         // Only widen if there was a width setting. Keeps changes minimal.
@@ -1211,10 +1206,6 @@ function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
             });
 
             image.src = srcsetDict[largestSrcsetDictKey];
-
-            if (enableDebugBorders) {
-                image.style.borderWidth = '10px';
-            }
         }
     }
 }
@@ -1222,13 +1213,6 @@ function useHigherResolutionImageSrcFromSrcsetIfNecessary(image) {
 function widenImage(image) {
     makeRoomForImageWidening (image);
     image.classList.add("wideImageOverride");
-
-    if (enableDebugBorders) {
-        image.style.borderStyle = 'dashed';
-        image.style.borderWidth = '1px';
-        image.style.borderColor = '#f00';
-    }
-
     useHigherResolutionImageSrcFromSrcsetIfNecessary(image);
 }
 
