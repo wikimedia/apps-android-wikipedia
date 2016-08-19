@@ -104,7 +104,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         transformer.transform( "moveFirstGoodParagraphUp" );
 
         transformer.transform( "hideRedLinks", content );
-        transformer.transform( "setMathFormulaImageMaxWidth", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
     } else {
@@ -178,7 +177,6 @@ function elementsForSection( section ) {
     // Content service transformations
     if (!window.fromRestBase) {
         transformer.transform( "hideRedLinks", content );
-        transformer.transform( "setMathFormulaImageMaxWidth", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
     } else {

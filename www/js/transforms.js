@@ -7,6 +7,5 @@ require("./transforms/clickIpa");
 require("./transforms/service/hideRedLinks");
 require("./transforms/hideRefs");
 require("./transforms/service/relocateFirstParagraph");
-require("./transforms/service/setMathFormulaImageMaxWidth");
 require("./transforms/setDivWidth");
 require("./transforms/widenImages");

@@ -78,7 +78,7 @@ document.onclick = function() {
 
 module.exports = new ActionsHandler();
 
-},{"./bridge":2,"./utilities":25}],2:[function(require,module,exports){
+},{"./bridge":2,"./utilities":24}],2:[function(require,module,exports){
 function Bridge() {
 }
 
@@ -322,7 +322,7 @@ module.exports = {
 	setImageBackgroundsForDarkMode: setImageBackgroundsForDarkMode
 };
 
-},{"./bridge":2,"./loader":6,"./utilities":25}],9:[function(require,module,exports){
+},{"./bridge":2,"./loader":6,"./utilities":24}],9:[function(require,module,exports){
 var bridge = require("./bridge");
 
 /*
@@ -476,7 +476,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
         transformer.transform( "moveFirstGoodParagraphUp" );
 
         transformer.transform( "hideRedLinks", content );
-        transformer.transform( "setMathFormulaImageMaxWidth", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
     } else {
@@ -550,7 +549,6 @@ function elementsForSection( section ) {
     // Content service transformations
     if (!window.fromRestBase) {
         transformer.transform( "hideRedLinks", content );
-        transformer.transform( "setMathFormulaImageMaxWidth", content );
         transformer.transform( "anchorPopUpMediaTransforms", content );
         transformer.transform( "hideIPA", content );
     } else {
@@ -758,7 +756,7 @@ transformer.register( "addImageOverflowXContainers", function( content ) {
         images[i].addEventListener('load', maybeAddImageOverflowXContainer, false);
     }
 } );
-},{"../transformer":13,"../utilities":25}],16:[function(require,module,exports){
+},{"../transformer":13,"../utilities":24}],16:[function(require,module,exports){
 var transformer = require("../transformer");
 
 /*
@@ -1124,23 +1122,6 @@ function addTrailingNodes( span, nodes, startIndex ) {
 }
 
 },{"../../transformer":13}],22:[function(require,module,exports){
-var transformer = require("../../transformer");
-
-transformer.register( "setMathFormulaImageMaxWidth", function( content ) {
-    // Prevent horizontally scrollable pages by checking for math formula images (which are
-    // often quite wide), and explicitly setting their maximum width to fit the viewport.
-    var allImgs = content.querySelectorAll( 'img' );
-    for ( var i = 0; i < allImgs.length; i++ ) {
-        var imgItem = allImgs[i];
-        // is the image a math formula?
-        for ( var c = 0; c < imgItem.classList.length; c++ ) {
-            if (imgItem.classList[c].indexOf("math") > -1) {
-                imgItem.style.maxWidth = "100%";
-            }
-        }
-    }
-} );
-},{"../../transformer":13}],23:[function(require,module,exports){
 var transformer = require("../transformer");
 
 transformer.register( "setDivWidth", function( content ) {
@@ -1158,7 +1139,7 @@ transformer.register( "setDivWidth", function( content ) {
         }
     }
 } );
-},{"../transformer":13}],24:[function(require,module,exports){
+},{"../transformer":13}],23:[function(require,module,exports){
 var transformer = require("../transformer");
 var utilities = require("../utilities");
 
@@ -1267,7 +1248,7 @@ transformer.register( "widenImages", function( content ) {
         images[i].addEventListener('load', maybeWidenImage, false);
     }
 } );
-},{"../transformer":13,"../utilities":25}],25:[function(require,module,exports){
+},{"../transformer":13,"../utilities":24}],24:[function(require,module,exports){
 
 function hasAncestor( el, tagName ) {
     if (el !== null && el.tagName === tagName) {
@@ -1362,4 +1343,4 @@ module.exports = {
     firstAncestorWithMultipleChildren: firstAncestorWithMultipleChildren
 };
 
-},{}]},{},[2,7,25,13,14,15,16,17,23,24,18,19,20,21,22,1,3,4,5,6,8,10,11,12]);
+},{}]},{},[2,7,24,13,14,15,16,17,22,23,18,19,20,21,1,3,4,5,6,8,10,11,12]);
