@@ -140,7 +140,7 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     public void setImageFocus(PointF focusPoint) {
         image.setFocusPoint(focusPoint);
-        updateParallaxScroll();
+        updateScroll();
     }
 
     public int getLineCount() {
@@ -204,7 +204,7 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
-        updateParallaxScroll(scrollY);
+        updateScroll(scrollY);
     }
 
     @Override
@@ -216,7 +216,7 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        updateParallaxScroll();
+        updateScroll();
     }
 
     @Override
@@ -225,14 +225,13 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         avPlayer.deinit();
     }
 
-    private void updateParallaxScroll() {
-        updateParallaxScroll((int) -getTranslationY());
+    private void updateScroll() {
+        updateScroll((int) -getTranslationY());
     }
 
-    private void updateParallaxScroll(int scrollY) {
+    private void updateScroll(int scrollY) {
         int offset = Math.min(getHeight(), scrollY);
         setTranslationY(-offset);
-        image.setTranslationY(offset / 2);
     }
 
     private void updateText() {
