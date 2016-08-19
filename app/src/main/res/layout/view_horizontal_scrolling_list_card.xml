@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clipChildren="false">
 
     <View
         android:id="@+id/view_horizontal_scrolling_list_card_header"
@@ -14,8 +15,9 @@
         android:id="@+id/view_horizontal_scrolling_list_card_list"
         android:layout_width="match_parent"
         android:layout_height="228dp"
-        android:layout_marginLeft="@dimen/view_list_card_item_margin"
-        android:layout_marginRight="@dimen/view_list_card_item_margin"/>
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:clipChildren="false"/>
 
     <View
         android:id="@+id/view_horizontal_scrolling_list_card_footer"
