@@ -5,6 +5,7 @@ import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ConfigurableListView;
@@ -12,6 +13,7 @@ import org.wikipedia.views.WikiDrawerLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.text.Html;
@@ -26,6 +28,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.appenguin.onboarding.ToolTip;
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
@@ -183,10 +188,8 @@ public class ToCHandler {
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), site,
                 page.getPageProperties().getPageId(), tocList.getAdapter().getCount());
 
-        if (!page.isMainPage() && !firstPage) {
-            if (WikipediaApp.getInstance().getOnboardingStateMachine().isTocTutorialEnabled()) {
-                showTocOnboarding();
-            }
+        if (onboardingEnabled() && !page.isMainPage() && !firstPage) {
+            showTocOnboarding();
         }
     }
 
@@ -206,6 +209,10 @@ public class ToCHandler {
 
     public void setEnabled(boolean enabled) {
         slidingPane.setSlidingEnabled(enabled);
+    }
+
+    private boolean onboardingEnabled() {
+        return WikipediaApp.getInstance().getOnboardingStateMachine().isTocTutorialEnabled();
     }
 
     private final class ToCAdapter extends BaseAdapter {
@@ -267,11 +274,22 @@ public class ToCHandler {
     }
 
     private void showTocOnboarding() {
-        // TODO: Update TOC onboarding to point to TOC page action tab
-        //ToolTipUtil.showToolTip(fragment.getActivity(),
-        //                        tocButton,
-        //                        R.layout.inflate_tool_tip_toc_button,
-        //                        ToolTip.Position.CENTER);
-        //WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
+        TabLayout pageActionTabLayout = (TabLayout) fragment.getActivity().findViewById(R.id.page_actions_tab_layout);
+        TabLayout.Tab tocTab = pageActionTabLayout.getTabAt(PageActionTab.VIEW_TOC.code());
+        try {
+            Field f = tocTab.getClass().getDeclaredField("mView");
+            f.setAccessible(true);
+            View tabView = (View) f.get(tocTab);
+            ToolTipUtil.showToolTip(fragment.getActivity(),
+                    tabView,
+                    R.layout.inflate_tool_tip_toc_button,
+                    ToolTip.Position.CENTER);
+            WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
+        } catch (Exception e) {
+            // If this fails once it will likely always fail for the same reason, so let's prevent
+            // the onboarding from being attempted and failing on every page view forever.
+            WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
+            L.w("ToC onboarding failed", e);
+        }
     }
 }
