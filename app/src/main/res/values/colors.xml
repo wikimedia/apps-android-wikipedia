@@ -84,8 +84,8 @@
     <color name="list_item_selected">#20808080</color>
     <color name="lead_text_color">#f0f0f0</color>
     <color name="lead_text_shadow">#80000000</color>
-    <color name="lead_disabled_text_light">#000</color>
-    <color name="lead_disabled_text_dark">#fff</color>
+    <color name="lead_text_light">#000</color>
+    <color name="lead_text_dark">#fff</color>
 
     <color name="gallery_background">#303030</color>
     <color name="gallery_license_text">#aaa</color>

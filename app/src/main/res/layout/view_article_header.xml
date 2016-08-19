@@ -2,27 +2,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <org.wikipedia.page.leadimages.ArticleHeaderImageView
-        android:id="@+id/view_article_header_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <LinearLayout
+        android:id="@+id/view_article_header_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="64dp"
         android:gravity="bottom"
         android:orientation="vertical">
 
         <org.wikipedia.views.StatusBarBlankView
+            android:id="@+id/view_article_header_status_bar_placeholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <org.wikipedia.page.leadimages.ArticleHeaderImageView
+            android:id="@+id/view_article_header_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <org.wikipedia.views.AppTextView
             style="@style/RtlAwareTextView"
             android:id="@+id/view_article_header_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="12dp"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingBottom="16dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"

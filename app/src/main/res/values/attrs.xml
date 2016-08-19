@@ -12,7 +12,7 @@
     <attr name="abusefilter_background_color" format="reference"/>
     <attr name="lead_image_drawable" format="reference"/>
     <!-- TODO: rename? -->
-    <attr name="lead_disabled_text_color" format="reference"/>
+    <attr name="lead_text_color" format="reference"/>
     <attr name="list_separator_color" format="reference"/>
     <attr name="list_separator_drawable" format="reference"/>
     <attr name="syntax_highlight_template_color" format="reference"/>
