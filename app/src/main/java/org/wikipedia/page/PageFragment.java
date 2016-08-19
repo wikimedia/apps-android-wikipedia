@@ -599,6 +599,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         webView.getSettings().setDefaultFontSize((int) app.getFontSize(getActivity().getWindow()));
     }
 
+    // TODO: Update bookmark icon on the page action toolbar
     public void updateBookmark() {
         ReadingList.DAO.anyListContainsTitleAsync(ReadingListDaoProxy.key(getTitle()),
                 new CallbackTask.Callback<ReadingListPage>() {
@@ -607,7 +608,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                             return;
                         }
                         if (page != null) {
-                            articleHeaderView.updateBookmark(true);
+                            //articleHeaderView.updateBookmark(true);
                             page.touch();
                             ReadingListPageDao.instance().upsert(page);
                             if (page.savedOrSaving()) {
@@ -616,7 +617,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                                 ReadingListPageDao.instance().markOutdated(page);
                             }
                         } else {
-                            articleHeaderView.updateBookmark(false);
+                            //articleHeaderView.updateBookmark(false);
                         }
                     }
                 });

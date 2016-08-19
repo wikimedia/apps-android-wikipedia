@@ -165,7 +165,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             loadOnWebViewReady(cachePreference);
         } else {
             fragment.updatePageInfo(null);
-            leadImagesHandler.updateNavigate(null);
 
             // kick off an event to the WebView that will cause it to clear its contents,
             // and then report back to us when the clearing is complete, so that we can synchronize
@@ -594,8 +593,6 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
         }
-
-        leadImagesHandler.updateNavigate(page.getPageProperties().getGeo());
     }
 
     private void sendMarginPayload() {

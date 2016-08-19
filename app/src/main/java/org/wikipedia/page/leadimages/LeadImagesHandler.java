@@ -24,9 +24,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
 
@@ -58,7 +56,6 @@ public class LeadImagesHandler {
                              @NonNull ObservableWebView webView,
                              @NonNull ArticleHeaderView articleHeaderView) {
         this.articleHeaderView = articleHeaderView;
-        this.articleHeaderView.setMenuBarCallback(new MenuBarCallback());
         this.parentFragment = parentFragment;
         this.bridge = bridge;
         this.webView = webView;
@@ -91,10 +88,6 @@ public class LeadImagesHandler {
         return WikipediaApp.getInstance().isImageDownloadEnabled()
                 && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
                 && !TextUtils.isEmpty(getLeadImageUrl());
-    }
-
-    public void updateNavigate(@Nullable Location geo) {
-        articleHeaderView.updateNavigate(geo != null);
     }
 
     public void setAnimationPaused(boolean paused) {
@@ -310,32 +303,6 @@ public class LeadImagesHandler {
         return parentFragment.getActivity();
     }
 
-    private class MenuBarCallback extends ArticleMenuBarView.DefaultCallback {
-        @Override
-        public void onBookmarkClick() {
-            if (getPage() == null) {
-                return;
-            }
-            parentFragment.addToReadingList(AddToReadingListDialog.InvokeSource.BOOKMARK_BUTTON);
-        }
-
-        @Override
-        public void onShareClick() {
-            parentFragment.sharePageLink();
-        }
-
-        @Override
-        public void onNavigateClick() {
-            openGeoIntent();
-        }
-
-        private void openGeoIntent() {
-            if (getGeo() != null) {
-                UriUtil.sendGeoIntent(getActivity(), getGeo(), getTitle().getDisplayText());
-            }
-        }
-    }
-
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {
         @Override
         public void onImageLoaded(final int bmpHeight, @Nullable final PointF faceLocation, @ColorInt final int mainColor) {
@@ -346,7 +313,6 @@ public class LeadImagesHandler {
                         if (faceLocation != null) {
                             articleHeaderView.setImageFocus(faceLocation);
                         }
-                        articleHeaderView.setMenuBarColor(mainColor);
                         startKenBurnsAnimation();
                     }
                 }
@@ -355,7 +321,6 @@ public class LeadImagesHandler {
 
         @Override
         public void onImageFailed() {
-            articleHeaderView.resetMenuBarColor();
         }
     }
 }
