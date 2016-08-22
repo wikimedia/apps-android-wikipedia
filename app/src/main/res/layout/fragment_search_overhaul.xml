@@ -88,8 +88,8 @@
             android:layout_gravity="bottom"
             android:elevation="4dp"
             android:indeterminate="true"
-            android:indeterminateTint="@color/blue_progressive"
-            android:progressBackgroundTint="@color/blue_progressive_dark"
+            android:indeterminateTint="@color/foundation_blue"
+            android:progressBackgroundTint="@color/dark_blue"
             android:visibility="gone"
             tools:visibility="visible"/>
 

@@ -1176,7 +1176,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
             if (leftZeroRatedNetwork(latestZeroEnabledState)) {
                 app.getWikipediaZeroHandler().showZeroOffBanner(MainActivity.this,
                         getString(R.string.zero_charged_verbiage),
-                        ContextCompat.getColor(MainActivity.this, R.color.holo_red_dark),
+                        ContextCompat.getColor(MainActivity.this, R.color.foundation_red),
                         ContextCompat.getColor(MainActivity.this, android.R.color.white));
                 navDrawerHelper.setupDynamicNavDrawerItems();
             }

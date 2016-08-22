@@ -84,7 +84,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("<", ">", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(context.getResources().getColor(R.color.syntax_highlight_htmltag),
+                return new ColorSpanEx(context.getResources().getColor(R.color.dark_green),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));

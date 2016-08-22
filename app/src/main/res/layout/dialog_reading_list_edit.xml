@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textColor="@color/reading_list_delete_link"
+            android:textColor="@color/foundation_red"
             android:clickable="true"
             android:text="@string/reading_list_menu_delete"/>
     </LinearLayout>

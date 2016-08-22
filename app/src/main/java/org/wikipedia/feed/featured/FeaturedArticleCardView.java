@@ -77,7 +77,7 @@ public class FeaturedArticleCardView extends FeedCardView
                 .setTitle(card.title())
                 .setSubtitle(card.subtitle())
                 .setImage(R.drawable.ic_star_black_24dp)
-                .setImageCircleColor(R.color.feed_featured_icon_background)
+                .setImageCircleColor(R.color.foundation_yellow)
                 .setCard(card)
                 .setCallback(getCallback());
         header(header);

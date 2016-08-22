@@ -433,7 +433,7 @@ public class TabsProvider {
             // as the activity background, otherwise it should match the tab shadow color.
             convertView.setBackgroundColor(ContextCompat.getColor(fragment.getContext(),
                     position == 0
-                            ? R.color.gallery_background
+                            ? R.color.darkest_gray
                             : getThemedAttributeId(fragment.getContext(), R.attr.tab_shadow_color)));
 
             List<PageBackStackItem> backstack = tabList.get(position).getBackStack();

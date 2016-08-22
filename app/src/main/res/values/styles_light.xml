@@ -35,7 +35,7 @@
         <item name="toc_section_text_color">@color/toc_section_text_light</item>
         <item name="toc_subsection_text_color">@color/toc_subsection_text_light</item>
         <item name="edit_text_color">@color/edit_text_light</item>
-        <item name="link_color">@color/link_light</item>
+        <item name="link_color">@color/foundation_blue</item>
         <item name="abusefilter_background_color">@color/abusefilter_background_light</item>
         <!-- TODO: rename? -->
         <item name="lead_image_drawable">@drawable/lead_default</item>
@@ -47,7 +47,6 @@
         <item name="tab_item_selector">@drawable/tab_item_selector_light</item>
         <item name="tab_shadow_drawable">@drawable/tab_item_bottom_gradient_light</item>
         <item name="tab_shadow_color">@color/tab_shadow_light</item>
-        <item name="toc_button_color">@color/toc_button_light</item>
         <item name="tool_tip_default_color">@color/tool_tip_default_light</item>
         <item name="link_preview_toolbar_color">@color/link_preview_toolbar_light</item>
         <item name="link_preview_background_color">@color/link_preview_background_light</item>
