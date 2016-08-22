@@ -75,8 +75,8 @@
   <string name="login_success_toast">Innloggingen var vellykket!</string>
   <string name="preference_title_logout">Logg ut</string>
   <string name="toast_logout_complete">Logget ut</string>
-  <string name="history_empty_title">Ingen besøkte sider her!</string>
-  <string name="history_empty_message">Du har antakelig fjernet alle sammen. Neste gang du besøker en side så kan du finne den igjen her etterpå.</string>
+  <string name="history_empty_title">Ingen nylig besøkte sider!</string>
+  <string name="history_empty_message">Kanskje du har tømt loggen. Neste gang du besøker en side vil du kunne finne den igjen her i etterkant.</string>
   <string name="delete_selected_history">Fjern</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Brukernavn</string>
@@ -264,7 +264,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Avbryt</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du ønsker å slette denne listen?</string>
-  <string name="reading_lists_empty">Ingen leselister her.</string>
+  <string name="reading_lists_empty">Ingen leselister her enda.</string>
   <string name="reading_lists_empty_message">Organiser artiklene du holder på med i leselister! Når du er inne på en artikkel kan du trykke på bokmerke-ikonet på toppen av artikkelen for å legge den til i en leseliste.</string>
   <string name="reading_lists_onboarding_intro">Opprett leselister fra artikler du ønsker å lese på et senere tidspunkt, selv når du er uten nettilgang!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
