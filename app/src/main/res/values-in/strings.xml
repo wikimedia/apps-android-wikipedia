@@ -37,7 +37,7 @@
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Perbesar ke lokasi di peta</string>
-  <string name="last_updated_text">Terakhir diperbarui %1$s</string>
+  <string name="last_updated_text">Terakhir diperbarui %s</string>
   <string name="talk_page_link_text">Bicara</string>
   <string name="content_license_html">Konten tersedia di bawah &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; kecuali dinyatakan lain</string>
   <string name="edit_save_action_license_logged_in">Dengan menyimpan, Anda setuju terhadap &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
@@ -45,7 +45,7 @@
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="preference_languages_filter_hint">Cari</string>
   <string name="langlinks_filter_hint">Cari</string>
-  <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain</string>
+  <string name="langlinks_empty">Halaman ini tidak tersedia dalam bahasa lain.</string>
   <string name="langlinks_no_match">Tidak ada bahasa yang ditemukan yang cocok dengan permintaan Anda.</string>
   <string name="langlinks_activity_title">Bahasa lain</string>
   <string name="menu_save_changes">Simpan perubahan</string>
@@ -55,9 +55,9 @@
   <string name="dialog_message_edit_failed">Penyuntingan gagal!</string>
   <string name="dialog_message_edit_failed_retry">Coba lagi</string>
   <string name="dialog_message_edit_failed_cancel">Batal</string>
-  <string name="dialog_message_leaving_edit">Perubahan anda belum disimpan. Anda yakin ingin meninggalkan halaman ini?</string>
+  <string name="dialog_message_leaving_edit">Perubahan Anda belum disimpan. Anda yakin ingin meninggalkan halaman ini?</string>
   <string name="dialog_message_leaving_edit_leave">Tinggalkan</string>
-  <string name="dialog_message_leaving_edit_stay">Tetap</string>
+  <string name="dialog_message_leaving_edit_stay">Tetap di sini</string>
   <string name="menu_show_toc">Daftar isi</string>
   <string name="search_no_results_found">Tidak ada hasil yang ditemukan</string>
   <string name="edit_section_captcha_message">Untuk membantu melindungi terhadap spam otomatis, masukkan kata-kata yang muncul di bawah ini</string>
@@ -80,8 +80,8 @@
   <string name="delete_selected_history">Hapus</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Nama pengguna</string>
-  <string name="login_create_account_link">Belum punya akun? Bergabung dengan Wikipedia</string>
-  <string name="create_account_login_link">Sudah memiliki akun? Masuk.</string>
+  <string name="login_create_account_link">Belum punya akun? Gabung ke Wikipedia</string>
+  <string name="create_account_login_link">Sudah memiliki akun? Masuk log.</string>
   <string name="create_account_activity_title">Buat akun baru</string>
   <string name="dialog_create_account_checking_progress">Memverifikasi</string>
   <string name="create_account_email_hint">Alamat surel (opsional)</string>
@@ -114,10 +114,10 @@
   <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi untuk membuat aplikasi yang lebih baik</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Ijinkan aplikasi untuk mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
   <string name="history_search_list_hint">Cari riwayat</string>
-  <string name="history_search_empty_message">Tidak ada halaman yang cocok dengan \'%s\'</string>
+  <string name="history_search_empty_message">Tidak ada halaman yang cocok dengan kueri Anda.</string>
   <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi semi.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
@@ -144,7 +144,7 @@
   <string name="user_logged_in_blocked_from_editing">Akun pengguna Anda telah diblokir dari penyuntingan di wiki ini.</string>
   <string name="user_anon_blocked_from_editing">Alamat IP Anda telah diblokir dari penyuntingan.</string>
   <string name="edit_how_page_improved">Bagaimana Anda menyempurnakan halaman ini?</string>
-  <string name="edit_next">Selanjutnya</string>
+  <string name="edit_next">Lanjut</string>
   <string name="edit_done">Simpan</string>
   <string name="edit_preview">Pratayang</string>
   <string name="edit_summary_tag_typo">Perbaikan kesalahan ketik</string>
@@ -158,24 +158,24 @@
   <string name="abusefilter_title_disallow">Anda tidak dapat menyimpan suntingan ini. Harap kembali dan mengubahnya.</string>
   <string name="abusefilter_text_warn">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif. Ini mungkin berisi satu atau lebih hal berikut:&lt;br /&gt;&lt;br /&gt;· Mengetik dengan semua huruf besar&lt;br /&gt;· Mengosongkan artikel atau spam &lt;br /&gt;· Pranala luar atau yang tidak relevan &lt;br /&gt;· Karakter berulang</string>
   <string name="abusefilter_text_disallow">Penyaring otomatis telah mengidentifikasi suntingan ini sebagai berpotensi tidak konstruktif, atau berpotensi vandalisme.&lt;br /&gt;&lt;br /&gt;Wikipedia adalah merupakan ensiklopedia dan selalu netral, konten penting berada di sini.</string>
-  <string name="dialog_page_issues">Tag pada halaman</string>
-  <string name="button_page_issues">Tag pada halaman</string>
+  <string name="dialog_page_issues">Masalah halaman</string>
+  <string name="button_page_issues">Masalah halaman</string>
   <string name="text_size_select">Ukuran huruf</string>
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Terang</string>
   <string name="color_theme_dark">Gelap</string>
   <string name="page_similar_titles">Halaman yang serupa</string>
   <string name="search_did_you_mean">Apakah maksud Anda \"%s\"?</string>
-  <string name="search_recent_header">Pencarian terkini:</string>
-  <string name="button_clear_all_recent_searches">Hapus pencarian terkini</string>
-  <string name="clear_recent_searches_confirm">Apakah Anda yakin ingin menghapus riwayat penelusuran?</string>
-  <string name="error_browser_not_found">Tidak dapat membuka halaman web (tidak ada peramban yang ditemukan)</string>
+  <string name="search_recent_header">Penelusuran terkini:</string>
+  <string name="button_clear_all_recent_searches">Hapus penelusuran terkini</string>
+  <string name="clear_recent_searches_confirm">Apakah Anda yakin ingin menghapus riwayat penelusuran Anda?</string>
+  <string name="error_browser_not_found">Tidak dapat membuka halaman web (tidak ada aplikasi peramban yang ditemukan)</string>
   <string name="table_infobox">Fakta cepat</string>
   <string name="table_other">Informasi lebih lanjut</string>
   <string name="table_close">Tutup</string>
   <string name="widget_name_featured_page">Artikel pilihan Wikipedia</string>
   <string name="widget_title_featured_page">Artikel pilihan hari ini:</string>
-  <string name="widget_name_search">Pencarian Wikipedia</string>
+  <string name="widget_name_search">Penelusuran Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Tidak ada definisi yang ditemukan.</string>
   <string name="alpha_update_notification_title">Pemutakhiran alpha baru telah tersedia</string>
   <string name="alpha_update_notification_text">Sentuh untuk mengunduh</string>
@@ -187,7 +187,7 @@
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
   <string name="license_title">Lisensi untuk %s</string>
   <string name="gallery_menu_share">Bagikan</string>
-  <string name="gallery_share_error">Tidak dapat membagi gambar: %s</string>
+  <string name="gallery_share_error">Tidak dapat membagikan gambar: %s</string>
   <string name="gallery_menu_save">Simpan ke dalam perangkat</string>
   <string name="gallery_save_progress">Mengunduh berkas…</string>
   <string name="gallery_save_success">Berkas berhasil disimpan.</string>
@@ -210,7 +210,7 @@
   <string name="page_view_in_browser">Lihat halaman di peramban</string>
   <string name="tool_tip_toc_button">Lihat daftar isi kapan saja dengan menekan tombol ini, atau geser dari tepi kanan layar.</string>
   <string name="error_server_response">Peladen tidak dapat menyelesaikan permintaan.</string>
-  <string name="error_response_malformed">Respon dari server tidak diformat dengan benar.</string>
+  <string name="error_response_malformed">Respon dari peladen tidak diformat dengan benar.</string>
   <string name="error_unknown">Terjadi sebuah kesalahan yang tidak diketahui.</string>
   <string name="format_error_server_message">Pesan: \"%s\"</string>
   <string name="format_error_server_code">Kode: \"%s\"</string>
@@ -250,8 +250,8 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_sort">Urutkan</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>
-  <string name="reading_list_sort_by_recent">Urutkan berdasarkan baru-baru ini</string>
-  <string name="reading_list_sort_by_recent_desc">Urutkan berdasarkan setidaknya baru-baru ini</string>
+  <string name="reading_list_sort_by_recent">Urutkan berdasarkan yang terbaru</string>
+  <string name="reading_list_sort_by_recent_desc">Urutkan berdasarkan yang terlama</string>
   <string name="reading_list_menu_edit">Sunting rincian daftar bacaan</string>
   <string name="reading_list_menu_delete">Hapus daftar bacaan</string>
   <string name="reading_list_name_sample">Daftar bacaan saya</string>
@@ -277,7 +277,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="view_continue_reading_card_title">Lanjutkan membaca</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
   <string name="view_random_card_title">Artikel sembarang</string>
-  <string name="view_random_card_subtitle">Baca artikel sembarang dari Wikipedia</string>
+  <string name="view_random_card_subtitle">Baca sembarang artikel dari Wikipedia</string>
   <string name="view_main_page_card_title">Hari ini di Wikipedia</string>
   <string name="view_main_page_card_subtitle">Halaman utama pada %s</string>
   <string name="view_featured_image_card_title">Gambar pilihan</string>

@@ -115,6 +115,7 @@
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
   <string name="preference_summary_auto_upload_crash_reports">Az app automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, és gyorsabban és könnyebben kijavíthassuk a hibát.</string>
+  <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
   <string name="history_search_list_hint">Keresési előzmények</string>
   <string name="history_search_empty_message">Nem található a kérésnek megfelelő lap.</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
@@ -153,6 +154,8 @@
   <string name="find_previous">Előző keresése</string>
   <string name="abusefilter_title_warn">Ez a szerkesztés nem biztos, hogy javított a lapon. Biztosan el akarod menteni?</string>
   <string name="abusefilter_title_disallow">Nem mentheted el ezt a szerkesztést. Lépj vissza és változtass rajta.</string>
+  <string name="abusefilter_text_warn">Egy automatikus szűrő potenciálisan nem konstruktívnak találta a szerkesztésedet. Az alábbiak közül egyet vagy többet tartalmazhat:&lt;br /&gt;&lt;br /&gt;· Csupa nagybetűs szöveg&lt;br /&gt;· A szócikk teljes tartalmának eltávolítása vagy spam&lt;br /&gt;· Irreleváns külső linkek vagy képek&lt;br /&gt;· Karakterismétlés</string>
+  <string name="abusefilter_text_disallow">Egy automatikus szűrő potenciálisan nem konstruktívnak vagy vandálnak találta a szerkesztésedet.&lt;br /&gt;&lt;br /&gt;A Wikipédia egy enciklopédia és csak semleges, nevezetes tartalom való ide.</string>
   <string name="dialog_page_issues">A lap problémái</string>
   <string name="button_page_issues">A lap problémái</string>
   <string name="text_size_select">Betűméret</string>
@@ -281,6 +284,9 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="menu_feed_card_dismissed">Kártya elrejtve.</string>
   <string name="feed_featured_image_share_subject">Kiemelt kép a Wikimédia Commonsból</string>
   <string name="feed">Felfedezés</string>
+  <string name="view_card_footer_button">Több</string>
+  <string name="most_read_list_card_title">Felkapott</string>
+  <string name="view_static_card_icon_content_description">Kártyaikon</string>
   <string name="view_card_news_title">Hírek</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">tegnap</item>

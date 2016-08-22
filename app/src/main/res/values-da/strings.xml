@@ -185,7 +185,7 @@
   <string name="read_more_section">Læs mere</string>
   <string name="menu_gallery_visit_page">Gå til filside</string>
   <string name="gallery_error_draw_failed">Kunne ikke tegne billede.</string>
-  <string name="license_title" fuzzy="true">Licenstekst for biblioteket %s</string>
+  <string name="license_title">Licens for %s</string>
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_menu_save">Gem til enhed</string>
@@ -279,7 +279,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="view_random_card_title">Tilfældighedsgenerator</string>
   <string name="view_random_card_subtitle">Læs en tilfældig artikel fra Wikipedia</string>
   <string name="view_main_page_card_title">I dag på Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Hovedsiden på %s</string>
+  <string name="view_main_page_card_subtitle">Hovedsiden den %s</string>
   <string name="view_featured_image_card_title">Dagens billede</string>
   <string name="view_featured_image_card_download">Download</string>
   <string name="menu_feed_card_dismiss">Skjul dette kort</string>

@@ -171,7 +171,7 @@
   <string name="read_more_section">Skaityti daugiau</string>
   <string name="menu_gallery_visit_page">Eikite į failo puslapį</string>
   <string name="gallery_error_draw_failed">Negalima pavaizduoti paveikslėlio</string>
-  <string name="license_title">Licencija %s</string>
+  <string name="license_title">%s licencija</string>
   <string name="gallery_menu_share">Dalintis</string>
   <string name="gallery_share_error">Negalima pasidalinti vaizdu: %s</string>
   <string name="gallery_menu_save">Išsaugoti prietaise</string>
