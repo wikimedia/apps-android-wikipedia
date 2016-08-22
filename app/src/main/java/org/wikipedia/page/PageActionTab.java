@@ -58,5 +58,6 @@ public enum PageActionTab implements EnumCode {
         void onChooseLangTabSelected();
         void onFindInPageTabSelected();
         void onViewToCTabSelected();
+        void updateBookmark(boolean pageSaved);
     }
 }
