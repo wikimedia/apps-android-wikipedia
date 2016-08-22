@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/ref_background"
+    android:background="@color/darkest_gray"
     android:orientation="vertical">
 
     <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="@color/nav_border" />
@@ -20,8 +20,8 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         tools:text="Reference text"
-        android:textColor="@color/reference_text"
-        android:textColorLink="@color/link_dark"
+        android:textColor="@color/foundation_gray"
+        android:textColorLink="@color/foundation_blue"
         android:textSize="18sp"
         android:lineSpacingMultiplier="1.4" />
 

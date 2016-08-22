@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
-            android:textColor="@color/reference_text"
+            android:textColor="@color/foundation_gray"
             android:text="@string/search_no_results_found"
             style="?android:textAppearanceMedium"
             android:visibility="gone"

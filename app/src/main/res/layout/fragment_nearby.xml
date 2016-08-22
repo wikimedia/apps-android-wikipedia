@@ -22,6 +22,6 @@
         android:contentDescription="@string/menu_show_toc"
         app:elevation="4dp"
         app:borderWidth="0dp"
-        app:backgroundTint="@color/blue_progressive"
+        app:backgroundTint="@color/foundation_blue"
         app:layout_anchorGravity="bottom|right|end" />
 </FrameLayout>

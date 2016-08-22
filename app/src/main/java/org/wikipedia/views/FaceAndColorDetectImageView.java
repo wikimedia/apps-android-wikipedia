@@ -133,7 +133,7 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
                 Bitmap testBmp = new565ScaledBitmap(sourceBitmap);
                 Palette colorPalette = Palette.from(testBmp).generate();
                 PointF facePos = detectFace(testBmp);
-                int defaultColor = getContext().getResources().getColor(R.color.grey_700);
+                int defaultColor = getContext().getResources().getColor(R.color.dark_gray);
                 listener.onImageLoaded(destBitmap.getHeight(), facePos, extractMainColor(colorPalette, defaultColor));
             } else {
                 listener.onImageFailed();

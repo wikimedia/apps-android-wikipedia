@@ -111,12 +111,12 @@
 
     <style name="ButtonSecondary" parent="ButtonProgressive">
         <item name="android:background">@drawable/button_selector_white</item>
-        <item name="android:textColor">@color/green_complete_dark</item>
+        <item name="android:textColor">@color/dark_green</item>
     </style>
 
     <style name="ButtonBlueOnWhite" parent="ButtonProgressive">
         <item name="android:background">@drawable/button_selector_white</item>
-        <item name="android:textColor">@color/blue_progressive_dark</item>
+        <item name="android:textColor">@color/dark_blue</item>
         <item name="android:layout_marginTop">0dp</item>
     </style>
 

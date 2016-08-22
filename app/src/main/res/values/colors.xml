@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ref_background">#0c0c0c</color>
+
+    <color name="darkest_gray">#2F3133</color>
+    <color name="dark_gray">#71777D</color>
+    <color name="foundation_gray">#9AA0A7</color>
+    <color name="light_gray">#C8CCD1</color>
+    <color name="lightest_gray">#EAECF0</color>
+
+    <color name="dark_blue">#2A4B8D</color>
+    <color name="foundation_blue">#3366CC</color>
+    <color name="light_blue">#EAF3FF</color>
+
+    <color name="dark_green">#296054</color>
+    <color name="foundation_green">#00AF89</color>
+    <color name="light_green">#D5FDF4</color>
+
+    <color name="dark_red">#873636</color>
+    <color name="foundation_red">#CC3333</color>
+    <color name="light_red">#FFE7E6</color>
+
+    <color name="dark_yellow">#7B4E10</color>
+    <color name="foundation_yellow">#FFCC33</color>
+    <color name="light_yellow">#FEF6E7</color>
+
+    <!-- TODO: consolidate and map all of the below colors to all of the above colors. -->
+
     <color name="nav_border">#505050</color>
-    <color name="license_text_light">#a0a0a0</color>
     <color name="actionbar_disabled">#a0a0a0</color>
     <color name="button_disabled">#bebebe</color>
     <color name="preview_header_background">#d0d0d0</color>
-    <color name="blue_progressive">#347bff</color>
-    <color name="blue_progressive_dark">#1a3d7f</color>
-    <color name="blue_liberal">#36b</color>
-    <color name="green_progressive">#42a078</color>
-    <color name="green_progressive_dark">#3a8761</color>
-    <color name="green_complete">#00af89</color>
-    <color name="green_complete_dark">#005744</color>
     <color name="white_progressive_dark">#f0f0f0</color>
-    <color name="reference_text">#929497</color>
     <color name="issues_subtext">#555</color>
     <color name="gray_background">#606060</color>
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#808080</color>
     <color name="page_info_heading">#555</color>
-    <color name="window_background">#303030</color>
     <!-- TODO: replace this color when changing the toolbar color. -->
-    <color name="actionbar_background">@color/window_background</color>
+    <color name="actionbar_background">@color/darkest_gray</color>
     <color name="actionbar_highlight">#808080</color>
     <color name="search_text_hint">#808080</color>
     <color name="lead_gradient_start">#b8000000</color>
     <color name="main_toolbar_background">@color/actionbar_background</color>
     <color name="status_bar_background">@color/primary_dark_material_dark</color>
-    <color name="grey_700">#616161</color>
 
-    <color name="link_light">#347bff</color>
     <color name="button_light">#777</color>
     <color name="window_background_light">#fff</color>
     <color name="page_background_light">#fff</color>
@@ -43,7 +55,6 @@
     <color name="subtle_gray_light">#f0f0f0</color>
     <color name="list_separator_light">#ccc</color>
     <color name="tab_shadow_light">#c0c0c0</color>
-    <color name="toc_button_light">#009688</color>
     <color name="tool_tip_default_light">@android:color/black</color>
     <color name="link_preview_toolbar_light">#404040</color>
     <color name="link_preview_background_light">#f0f0f0</color>
@@ -55,8 +66,6 @@
     <color name="list_item_text_primary_light">#333</color>
     <color name="list_item_text_secondary_light">#777</color>
 
-    <color name="link_dark">#2b6fb2</color>
-    <color name="button_dark">#2b6fb2</color>
     <color name="window_background_dark">#000</color>
     <color name="page_background_dark">#000</color>
     <color name="search_background_dark">#303030</color>
@@ -68,7 +77,6 @@
     <color name="subtle_gray_dark">#141414</color>
     <color name="list_separator_dark">#606060</color>
     <color name="tab_shadow_dark">#505050</color>
-    <color name="toc_button_dark">#005850</color>
     <color name="tool_tip_default_dark">#303030</color>
     <color name="link_preview_toolbar_dark">#606060</color>
     <color name="link_preview_background_dark">#303030</color>
@@ -87,12 +95,8 @@
     <color name="lead_text_light">#000</color>
     <color name="lead_text_dark">#fff</color>
 
-    <color name="gallery_background">#303030</color>
-    <color name="gallery_license_text">#aaa</color>
-
     <color name="syntax_highlight_template_light">#a0a0a0</color>
     <color name="syntax_highlight_template_dark">#505050</color>
-    <color name="syntax_highlight_htmltag">#484</color>
 
     <color name="widget_background">#80ffffff</color>
     <color name="widget_title_text">#606060</color>
@@ -106,11 +110,7 @@
     <color name="feed_text_tertiary_dark">#aaa</color>
     <color name="feed_image_border">#1f000000</color>
     <color name="reading_list_add_background">#4888</color>
-    <color name="reading_list_delete_link">#f00</color>
-
-    <color name="holo_red_dark">#c00</color>
 
     <color name="feed_window_background_light">#eaecf0</color>
     <color name="feed_window_background_dark">#222</color>
-    <color name="feed_featured_icon_background">#ffb50d</color>
 </resources>

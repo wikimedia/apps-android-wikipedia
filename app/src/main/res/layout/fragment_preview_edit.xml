@@ -65,7 +65,7 @@
                     android:layout_marginRight="8dp"
                     tools:text="Sample section license text"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/license_text_light"
+                    android:textColor="@color/foundation_gray"
                     android:textColorLink="?attr/link_color"/>
 
         </LinearLayout>

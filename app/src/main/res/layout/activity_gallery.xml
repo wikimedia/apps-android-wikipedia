@@ -5,7 +5,7 @@
     android:id="@+id/gallery_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gallery_background">
+    android:background="@color/darkest_gray">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/gallery_item_pager"
@@ -77,8 +77,8 @@
                 android:paddingRight="2dp"
                 android:textIsSelectable="true"
                 tools:text="Credits"
-                android:textColor="@color/gallery_license_text"
-                android:textColorLink="@color/gallery_license_text"
+                android:textColor="@color/foundation_gray"
+                android:textColorLink="@color/foundation_gray"
                 android:ellipsize="end"
                 android:maxLines="2"/>
         </LinearLayout>

@@ -74,6 +74,6 @@ public class EditSummaryTag extends TextView {
 
     private void updateState() {
         setBackgroundResource(selected ? R.drawable.editpage_improve_tag_selected : R.drawable.editpage_improve_tag_unselected);
-        setTextColor(resources.getColor(selected ? android.R.color.white : R.color.blue_progressive));
+        setTextColor(resources.getColor(selected ? android.R.color.white : R.color.foundation_blue));
     }
 }

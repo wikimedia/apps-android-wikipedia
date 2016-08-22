@@ -23,7 +23,7 @@
             app:srcCompat="@drawable/ic_restore_black_24dp"
             android:tint="@android:color/white"
             android:background="@drawable/shape_circle"
-            app:backgroundTint="@color/blue_liberal"
+            app:backgroundTint="@color/foundation_blue"
             android:contentDescription="@null"/>
 
         <TextView
