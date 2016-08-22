@@ -25,6 +25,7 @@
         <item name="android:autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:panelBackground">@color/background_floating_material_dark</item>
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
+        <item name="popupMenuStyle">@style/Theme.Dark.PopupMenuStyle</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="window_background_color">@color/window_background_dark</item>
         <item name="window_inverse_color">@android:color/white</item>
@@ -69,4 +70,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Theme.Dark.PopupMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="overlapAnchor">true</item>
+    </style>
+
 </resources>
