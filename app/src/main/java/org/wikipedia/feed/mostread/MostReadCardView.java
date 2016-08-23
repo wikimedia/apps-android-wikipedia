@@ -5,17 +5,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.feed.view.CardHeaderView;
+import org.wikipedia.feed.view.FeedViewCallback;
+import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
-import org.wikipedia.feed.view.PageTitleListCardView;
+import org.wikipedia.feed.view.PageTitleRecyclerAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class MostReadCardView extends PageTitleListCardView
+public class MostReadCardView extends ListCardView
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
     public MostReadCardView(Context context) {
         super(context);
@@ -37,7 +38,7 @@ public class MostReadCardView extends PageTitleListCardView
         header(header);
     }
 
-    private static class RecyclerAdapter extends PageTitleListCardView.RecyclerAdapter<MostReadItemCard> {
+    private static class RecyclerAdapter extends PageTitleRecyclerAdapter<MostReadItemCard> {
         @Nullable private FeedViewCallback callback;
 
         RecyclerAdapter(@NonNull List<MostReadItemCard> items, @Nullable FeedViewCallback callback) {

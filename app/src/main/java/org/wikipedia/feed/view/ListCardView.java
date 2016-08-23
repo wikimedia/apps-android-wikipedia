@@ -6,16 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.views.DefaultRecyclerAdapter;
-import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.ViewUtil;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,8 +18,6 @@ import butterknife.ButterKnife;
 public abstract class ListCardView extends FeedCardView {
     @BindView(R.id.view_list_card_header) View headerView;
     @BindView(R.id.view_list_card_large_header) View largeHeaderView;
-    @BindView(R.id.view_list_card_footer) View footerView;
-
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;
 
     public ListCardView(Context context) {
@@ -35,7 +28,7 @@ public abstract class ListCardView extends FeedCardView {
         initRecycler();
     }
 
-    protected void set(@Nullable RecyclerAdapter<?> adapter) {
+    protected void set(@Nullable RecyclerView.Adapter<?> adapter) {
         recyclerView.setAdapter(adapter);
     }
 
@@ -55,21 +48,10 @@ public abstract class ListCardView extends FeedCardView {
         largeHeaderView = view;
     }
 
-    protected void initRecycler() {
+    private void initRecycler() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
-    }
-
-    protected abstract static class RecyclerAdapter<T>
-            extends DefaultRecyclerAdapter<T, ListCardItemView> {
-        protected RecyclerAdapter(@NonNull List<T> items) {
-            super(items);
-        }
-
-        @Override public DefaultViewHolder<ListCardItemView> onCreateViewHolder(ViewGroup parent,
-                                                                                int viewType) {
-            return new DefaultViewHolder<>(new ListCardItemView(parent.getContext()));
-        }
+        recyclerView.setNestedScrollingEnabled(false);
     }
 }

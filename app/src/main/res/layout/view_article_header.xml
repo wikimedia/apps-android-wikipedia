@@ -34,7 +34,7 @@
             android:maxLines="5"
             android:ellipsize="end"
             tools:text="Title\nSubtitle" />
-        
+
         <View
             android:layout_width="53.5dp"
             android:layout_height="1dp"

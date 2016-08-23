@@ -7,18 +7,19 @@ import android.support.annotation.PluralsRes;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.CardLargeHeaderView;
+import org.wikipedia.feed.view.FeedViewCallback;
+import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
-import org.wikipedia.feed.view.PageTitleListCardView;
+import org.wikipedia.feed.view.PageTitleRecyclerAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class BecauseYouReadCardView extends PageTitleListCardView
+public class BecauseYouReadCardView extends ListCardView
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
 
     public BecauseYouReadCardView(Context context) {
@@ -64,7 +65,7 @@ public class BecauseYouReadCardView extends PageTitleListCardView
         }
     }
 
-    private static class RecyclerAdapter extends PageTitleListCardView.RecyclerAdapter<BecauseYouReadItemCard> {
+    private static class RecyclerAdapter extends PageTitleRecyclerAdapter<BecauseYouReadItemCard> {
         @Nullable private FeedViewCallback callback;
 
         RecyclerAdapter(@NonNull List<BecauseYouReadItemCard> items, @Nullable FeedViewCallback callback) {

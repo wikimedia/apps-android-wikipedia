@@ -22,12 +22,4 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/view_list_card_large_header" />
 
-    <View
-        android:id="@+id/view_list_card_footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/view_list_card_list"
-        android:layout_margin="@dimen/view_list_card_item_margin"
-        android:visibility="gone" />
-
 </RelativeLayout>
