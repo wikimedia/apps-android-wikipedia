@@ -158,6 +158,13 @@ public class OverhaulSearchFragment extends Fragment implements BackPressedHandl
             showPanel(savedInstanceState.getInt(ARG_SEARCH_CURRENT_PANEL));
         }
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
         initSearchView();
         initLangButton();
         return view;

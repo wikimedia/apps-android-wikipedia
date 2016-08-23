@@ -24,26 +24,21 @@
             android:theme="@style/AppTheme.ToolbarTheme"
             android:id="@+id/search_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/abc_ic_ab_back_material">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="4dp"
-                android:layout_marginEnd="4dp"
                 style="@style/AppTheme.SearchViewStyle">
 
                 <org.wikipedia.views.CabSearchView
                     android:id="@+id/search_cab_view"
                     android:layout_width="0dp"
-                    android:layout_height="36dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
                     android:textSize="12sp"
                     android:focusable="true"
                     android:inputType="text"

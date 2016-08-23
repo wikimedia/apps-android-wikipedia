@@ -110,6 +110,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @BindView(R.id.tabs_container) View tabsContainerView;
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
+    @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
     private Unbinder unbinder;
 
@@ -235,12 +236,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         showToolbar();
         searchFragment.openSearch();
         return true;
-    }
-
-    public void setSearchMode(boolean enabled) {
-        // invalidate our ActionBar, so that all action items are removed, and
-        // we can fill up the whole width of the ActionBar with our SearchView.
-        supportInvalidateOptionsMenu();
     }
 
     public void showToolbar() {
@@ -626,6 +621,12 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
+    public void onPageSearchRequested() {
+        searchFragment.setInvokeSource(OverhaulSearchFragment.InvokeSource.TOOLBAR);
+        searchFragment.openSearch();
+    }
+
+    @Override
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
         loadPage(entry.getTitle(), entry, inNewTab ? TabsProvider.TabPosition.NEW_TAB_BACKGROUND
                 : TabsProvider.TabPosition.CURRENT_TAB);
@@ -633,12 +634,12 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onSearchOpen() {
-        setSearchMode(true);
+        toolbarContainerView.setVisibility(View.GONE);
     }
 
     @Override
     public void onSearchClose() {
-        setSearchMode(false);
+        toolbarContainerView.setVisibility(View.VISIBLE);
         hideSoftKeyboard();
     }
 
