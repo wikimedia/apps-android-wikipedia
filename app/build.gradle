@@ -169,6 +169,7 @@ dependencies {
     String butterKnifeVersion = '8.0.1'
     String frescoVersion = '0.10.0'
     String testingSupportVersion = '0.5'
+    String mockitoCore = 'org.mockito:mockito-core:1.9.5'
 
     compile "com.android.support:appcompat-v7:$supportVersion" // includes support-v4
     compile "com.android.support:cardview-v7:$supportVersion"
@@ -199,9 +200,14 @@ dependencies {
     apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
     testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.9.5'
+    testCompile mockitoCore
     testCompile 'org.robolectric:robolectric:3.1'
     testCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+
+    androidTestCompile mockitoCore
+    androidTestApk 'com.crittercism.dexmaker:dexmaker:1.4'
+    androidTestCompile 'com.crittercism.dexmaker:dexmaker-mockito:1.4'
+    androidTestApk 'com.crittercism.dexmaker:dexmaker-dx:1.4'
 
     // Required by Android JUnit Runner.
     androidTestCompile "com.android.support:support-annotations:$supportVersion"
