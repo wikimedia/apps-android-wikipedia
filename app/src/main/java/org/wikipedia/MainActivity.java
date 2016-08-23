@@ -1110,8 +1110,24 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
-    public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
-        loadPage(title, entry);
+    public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
+        loadPage(title, entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND : TabPosition.CURRENT_TAB, false);
+    }
+
+    @Override
+    public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
+        copyLink(title.getCanonicalUri());
+        showCopySuccessMessage();
+    }
+
+    @Override
+    public void onLinkPreviewAddToList(@NonNull PageTitle title) {
+        showAddToListDialog(title, AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU);
+    }
+
+    @Override
+    public void onLinkPreviewShareLink(@NonNull PageTitle title) {
+        ShareUtil.shareText(this, title);
     }
 
     @Override
