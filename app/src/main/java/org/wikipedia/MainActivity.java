@@ -158,7 +158,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     private NavDrawerHelper navDrawerHelper;
     private boolean navItemSelected;
     private WikipediaZeroUsageFunnel zeroFunnel;
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this);
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this.getSupportFragmentManager());
     private MainActivityToolbarCoordinator toolbarCoordinator;
     @Nullable private PageLoadCallbacks pageLoadCallbacks;
 

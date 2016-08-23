@@ -73,7 +73,7 @@ public class NewsFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         unbinder = ButterKnife.bind(this, view);
-        bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getActivity());
+        bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getFragmentManager());
 
         ViewUtil.setTopPaddingDp(toolbar, (int) DimenUtil.getTranslucentStatusBarHeight(getContext()));
         ViewUtil.setBackgroundDrawable(toolbar, GradientUtil.getCubicGradient(

@@ -3,20 +3,20 @@ package org.wikipedia.page;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 
 public class ExclusiveBottomSheetPresenter {
     private static final String BOTTOM_SHEET_FRAGMENT_TAG = "bottom_sheet_fragment";
-    private FragmentActivity activity;
+    private FragmentManager fragmentManager;
     private Dialog currentDialog;
 
-    public ExclusiveBottomSheetPresenter(FragmentActivity activity) {
-        this.activity = activity;
+    public ExclusiveBottomSheetPresenter(FragmentManager fragmentManager) {
+        this.fragmentManager = fragmentManager;
     }
 
     public void show(DialogFragment dialog) {
         dismiss();
-        dialog.show(activity.getSupportFragmentManager(), BOTTOM_SHEET_FRAGMENT_TAG);
+        dialog.show(fragmentManager, BOTTOM_SHEET_FRAGMENT_TAG);
     }
 
     public void show(Dialog dialog) {
@@ -32,7 +32,7 @@ public class ExclusiveBottomSheetPresenter {
     }
 
     public void dismiss() {
-        DialogFragment dialog = (DialogFragment) activity.getSupportFragmentManager().findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG);
+        DialogFragment dialog = (DialogFragment) fragmentManager.findFragmentByTag(BOTTOM_SHEET_FRAGMENT_TAG);
         if (dialog != null) {
             dialog.dismiss();
         }

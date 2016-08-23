@@ -102,6 +102,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
+    public static final String EXTRA_NEWTAB = "org.wikipedia.newtab";
     public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
     public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
 
@@ -129,7 +130,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     // TODO: remove after overhaul (replace with CoordinatorLayout)
     private SearchBarHideHandler searchBarHideHandler = new SearchBarHideHandler();
 
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this);
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter;
     @Nullable private PageLoadCallbacks pageLoadCallbacks;
 
     // The permissions request API doesn't take a callback, so in the event we have to
@@ -168,6 +169,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
         searchFragment = (OverhaulSearchFragment) getSupportFragmentManager().findFragmentById(R.id.page_search_fragment);
+        bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this.getSupportFragmentManager());
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
@@ -250,11 +252,13 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @NonNull
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull HistoryEntry entry,
-                                   @NonNull PageTitle title) {
+                                   @NonNull PageTitle title,
+                                   boolean inNewTab) {
         return new Intent(ACTION_PAGE_FOR_TITLE)
                 .setClass(context, PageActivity.class)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title);
+                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtra(EXTRA_NEWTAB, inNewTab);
     }
 
     @Override
@@ -273,7 +277,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            loadPage(title, historyEntry);
+            if (intent.getBooleanExtra(EXTRA_NEWTAB, false)) {
+                loadPage(title, historyEntry, TabPosition.NEW_TAB_BACKGROUND);
+            } else {
+                loadPage(title, historyEntry);
+            }
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getSite());

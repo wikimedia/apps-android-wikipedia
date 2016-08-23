@@ -27,13 +27,17 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.overhaul.navtab.NavTab;
 import org.wikipedia.overhaul.navtab.NavTabViewPagerAdapter;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.OverhaulSearchFragment;
 import org.wikipedia.search.SearchResultsFragment;
+import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ShareUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,12 +45,14 @@ import butterknife.Unbinder;
 
 public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
-        OverhaulSearchFragment.Callback, SearchResultsFragment.Callback {
+        OverhaulSearchFragment.Callback, SearchResultsFragment.Callback,
+        LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_overhaul_view_pager) ViewPager viewPager;
     @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
     private NavTabChangeListener pagerChangeListener = new NavTabChangeListener();
     private OverhaulSearchFragment searchFragment;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter;
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab, @NonNull Fragment fragment);
@@ -69,6 +75,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         viewPager.setAdapter(new NavTabViewPagerAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
+        bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getChildFragmentManager());
         searchFragment = (OverhaulSearchFragment) getChildFragmentManager().findFragmentById(R.id.search_fragment);
         return view;
     }
@@ -112,15 +119,16 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), false));
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
-        // todo: [overhaul] add page to list.
+        FeedbackUtil.showAddToListDialog(entry.getTitle(), AddToReadingListDialog.InvokeSource.FEED,
+                bottomSheetPresenter, null);
     }
 
     @Override public void onFeedSharePage(HistoryEntry entry) {
-        // todo: [overhaul] share page.
+        ShareUtil.shareText(getContext(), entry.getTitle());
     }
 
     @Override public void onFeedNewsItemSelected(NewsItemCard card) {
@@ -148,11 +156,11 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public void onLoadPage(PageTitle title, int entrySource, @Nullable Location location) {
-        // todo: [overhaul] show link preview.
+        showLinkPreview(title, entrySource, location);
     }
 
     @Override public void onLoadPage(PageTitle title, HistoryEntry entry) {
-        // todo: [overhaul] show link preview.
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), false));
     }
 
     @Override public void onClearHistory() {
@@ -163,38 +171,20 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         return true;
     }
 
-    private void onTabChanged(@NonNull NavTab tab, @Nullable Fragment fragment) {
-        Callback callback = callback();
-        if (callback != null && fragment != null) {
-            callback.onTabChanged(tab, fragment);
-        }
-    }
-
-    @Nullable private Callback callback() {
-        return FragmentUtil.getCallback(this, Callback.class);
-    }
-
-    private class NavTabChangeListener extends ViewPager.SimpleOnPageChangeListener {
-        @Override
-        public void onPageSelected(int position) {
-            onTabChanged(NavTab.of(position),
-                    ((NavTabViewPagerAdapter) viewPager.getAdapter()).getCurrentFragment());
-        }
-    }
-
     @Override
     public void onSearchResultCopyLink(@NonNull PageTitle title) {
-        // TODO: implement
+        copyLink(title.getCanonicalUri());
     }
+
 
     @Override
     public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
-        // TODO: implement
+        FeedbackUtil.showAddToListDialog(title, source, bottomSheetPresenter, null);
     }
 
     @Override
     public void onSearchResultShareLink(@NonNull PageTitle title) {
-        // TODO: implement
+        ShareUtil.shareText(getContext(), title);
     }
 
     @Override
@@ -204,7 +194,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
 
     @Override
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
-        // TODO: implement
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), inNewTab));
     }
 
     @Override
@@ -215,6 +205,35 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     @Override
     public void onSearchClose() {
         // TODO: implement
+    }
+
+    @Override
+    public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), inNewTab));
+    }
+
+    @Override
+    public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
+        copyLink(title.getCanonicalUri());
+    }
+
+    @Override
+    public void onLinkPreviewAddToList(@NonNull PageTitle title) {
+        FeedbackUtil.showAddToListDialog(title, AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU, bottomSheetPresenter, null);
+    }
+
+    @Override
+    public void onLinkPreviewShareLink(@NonNull PageTitle title) {
+        ShareUtil.shareText(getContext(), title);
+    }
+
+    private void showLinkPreview(PageTitle title, int entrySource, @Nullable Location location) {
+        bottomSheetPresenter.show(LinkPreviewDialog.newInstance(title, entrySource, location));
+    }
+
+    private void copyLink(@NonNull String url) {
+        ClipboardUtil.setPlainText(getContext(), null, url);
+        FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
     private void openSearchFromIntent(@Nullable final CharSequence query,
@@ -229,5 +248,24 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
                 }
             }
         });
+    }
+
+    private void onTabChanged(@NonNull NavTab tab, @Nullable Fragment fragment) {
+        Callback callback = callback();
+        if (callback != null && fragment != null) {
+            callback.onTabChanged(tab, fragment);
+        }
+    }
+
+    private class NavTabChangeListener extends ViewPager.SimpleOnPageChangeListener {
+        @Override
+        public void onPageSelected(int position) {
+            onTabChanged(NavTab.of(position),
+                    ((NavTabViewPagerAdapter) viewPager.getAdapter()).getCurrentFragment());
+        }
+    }
+
+    @Nullable private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }
