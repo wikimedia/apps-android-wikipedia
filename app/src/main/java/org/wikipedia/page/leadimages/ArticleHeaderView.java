@@ -19,6 +19,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -249,7 +250,8 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
                 new AbsoluteSizeSpan(getDimensionPixelSize(R.dimen.descriptionTextSize),
                         false),
                 new LeadingSpan(leadingScalar),
-                new ParagraphSpan(paragraphScalar));
+                new ParagraphSpan(paragraphScalar),
+                new ForegroundColorSpan(getColor(R.color.foundation_gray)));
     }
 
     private void setImageHeight(int height) {
