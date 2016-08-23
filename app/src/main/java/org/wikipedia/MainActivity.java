@@ -121,7 +121,7 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public class MainActivity extends ThemedActionBarActivity implements PageFragment.Callback,
         FeedFragment.Callback, NearbyFragment.Callback, HistoryFragment.Callback,
         ReadingListsFragment.Callback, LinkPreviewDialog.Callback, SearchArticlesFragment.Callback,
-        SearchResultsFragment.Callback {
+        SearchResultsFragment.Callback, AddToReadingListDialog.Callback {
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
@@ -826,7 +826,8 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         FeedbackUtil.showAddToListDialog(title, source, bottomSheetPresenter, listDialogDismissListener);
     }
 
-    public void showReadingListAddedSnackbar(String message, final boolean isOnboarding) {
+    @Override
+    public void showReadingListAddedMessage(@NonNull String message, final boolean isOnboarding) {
         Snackbar snackbar = FeedbackUtil.makeSnackbar(fragmentContainerView, message,
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {

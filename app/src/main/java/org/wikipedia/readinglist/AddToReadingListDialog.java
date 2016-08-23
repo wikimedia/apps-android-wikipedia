@@ -3,6 +3,7 @@ package org.wikipedia.readinglist;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,12 +14,12 @@ import android.view.ViewGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
-import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
@@ -53,6 +54,10 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         InvokeSource(int code) {
             this.code = code;
         }
+    }
+
+    public interface Callback {
+        void showReadingListAddedMessage(@NonNull String message, boolean isOnboarding);
     }
 
     private PageTitle pageTitle;
@@ -196,15 +201,18 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             @Override
             public void success(Boolean contains) {
                 if (isAdded()) {
+                    Callback callback = callback();
                     if (contains) {
-                        ((MainActivity) getActivity())
-                                .showReadingListAddedSnackbar(getString(R.string.reading_list_already_exists), isOnboarding);
+                        if (callback != null) {
+                            callback.showReadingListAddedMessage(getString(R.string.reading_list_already_exists), isOnboarding);
+                        }
                     } else {
-                        ((MainActivity) getActivity())
-                                .showReadingListAddedSnackbar(TextUtils.isEmpty(readingList.getTitle())
-                                        ? getString(R.string.reading_list_added_to_unnamed)
-                                        : String.format(getString(R.string.reading_list_added_to_named),
-                                        readingList.getTitle()), isOnboarding);
+                        if (callback != null) {
+                            callback.showReadingListAddedMessage(TextUtils.isEmpty(readingList.getTitle())
+                                    ? getString(R.string.reading_list_added_to_unnamed)
+                                    : String.format(getString(R.string.reading_list_added_to_named),
+                                    readingList.getTitle()), isOnboarding);
+                        }
 
                         new ReadingListsFunnel(pageTitle.getSite()).logAddToList(readingList, readingLists.size(), invokeSource);
                         ReadingList.DAO.makeListMostRecent(readingList);
@@ -261,5 +269,10 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         public void onBindViewHolder(ReadingListItemHolder holder, int pos) {
             holder.bindItem(readingLists.get(pos));
         }
+    }
+
+    @Nullable
+    private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }
