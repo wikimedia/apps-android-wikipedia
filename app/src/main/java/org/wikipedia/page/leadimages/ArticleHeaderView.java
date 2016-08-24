@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PointF;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -20,6 +19,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -215,6 +215,8 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         avPlayer.stop();
 
         SpannableStringBuilder builder = new SpannableStringBuilder(title);
+        builder.setSpan(new TypefaceSpan("serif"), 0, title.length(),
+                Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
 
         if (hasPronunciation()) {
             builder.append(" ");
@@ -271,7 +273,6 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     private void init() {
         inflate();
         bind();
-        initText();
         hide();
     }
 
@@ -281,12 +282,6 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     private void bind() {
         ButterKnife.bind(this);
-    }
-
-    private void initText() {
-        // TODO: replace with android:fontFamily="serif" attribute when our minimum API level is
-        //       Jelly Bean, API 16, or if we make custom typeface attribute.
-        text.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL));
     }
 
     @ColorInt
