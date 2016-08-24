@@ -2,10 +2,6 @@ apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
-apply from: '../gradle/src/test.gradle'
-apply from: '../gradle/src/checkstyle.gradle'
-apply from: '../gradle/src/spoon.gradle'
-
 import com.android.build.gradle.internal.dsl.ProductFlavor
 import com.android.ddmlib.DdmPreferences
 
@@ -60,7 +56,7 @@ android {
         targetSdkVersion 23
         versionCode 152
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -95,6 +91,7 @@ android {
             versionName computeVersionName('dev')
             applicationIdSuffix 'dev'
             signingConfig signingConfigs.debug
+            testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
         }
         prod {
             versionName computeVersionName('r')
@@ -108,6 +105,7 @@ android {
             versionName computeVersionName('alpha')
             applicationIdSuffix 'alpha'
             signingConfig signingConfigs.debug
+            testInstrumentationRunner 'org.wikipedia.test.AndroidTestRunner'
         }
         beta {
             versionName computeVersionName('beta')
@@ -146,6 +144,11 @@ android {
         exclude 'META-INF/maven/com.google.guava/guava/pom.properties'
     }
 }
+
+apply from: '../gradle/src/test.gradle'
+apply from: '../gradle/src/checkstyle.gradle'
+apply from: '../gradle/src/spoon.gradle'
+apply from: '../gradle/src/screenshot.gradle'
 
 def compileSubprojectOrModule = { String projectName,
                                   String moduleName,

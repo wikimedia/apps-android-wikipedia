@@ -52,6 +52,11 @@
 -dontwarn okio.*
 # --- /OkHttp + Okio ---
 
+# --- Commons Lang ---
+-keep class org.apache.commons.lang3.** { <init>(...); *; }
+-keep enum org.apache.commons.lang3.** { <init>(...); *; }
+# --- /Commons Lang ---
+
 # --- Gson ---
 # https://github.com/google/gson/blob/master/examples/android-proguard-example/proguard.cfg
 
