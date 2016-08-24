@@ -207,6 +207,7 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     private void updateScroll(int scrollY) {
         int offset = Math.min(getHeight(), scrollY);
+        image.getImage().setTranslationY(offset / 2);
         setTranslationY(-offset);
     }
 
