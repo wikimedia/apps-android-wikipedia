@@ -3,6 +3,7 @@ package org.wikipedia.wiktionary;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +15,10 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.WiktionaryDialogFunnel;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageService;
@@ -33,6 +34,10 @@ import static org.wikipedia.util.StringUtil.hasSectionAnchor;
 import static org.wikipedia.util.StringUtil.removeSectionAnchor;
 
 public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
+    public interface Callback {
+        void wiktionaryShowDialogForTerm(@NonNull String term);
+    }
+
     private static final String WIKTIONARY_DOMAIN = ".wiktionary.org";
     private static final String TITLE = "title";
     private static final String SELECTED_TEXT = "selected_text";
@@ -202,17 +207,10 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
                 public void onUrlClick(String url) {
                     if (url.startsWith(PATH_WIKI) || url.startsWith(PATH_CURRENT)) {
                         dismiss();
-                        if (currentPageFragmentExists()) {
-                            showNewDialogForLink(url);
-                        }
+                        showNewDialogForLink(url);
                     }
                 }
             });
-
-    private boolean currentPageFragmentExists() {
-        return getActivity() != null && getActivity() instanceof MainActivity
-                && ((MainActivity) getActivity()).getCurPageFragment() != null;
-    }
 
     private String getTermFromWikiLink(String url) {
         return removeLinkFragment(url.substring(url.lastIndexOf("/") + 1));
@@ -223,8 +221,10 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void showNewDialogForLink(String url) {
-        ((MainActivity) getActivity()).getCurPageFragment().getShareHandler()
-                .showWiktionaryDefinition(getTermFromWikiLink(url));
+        Callback callback = callback();
+        if (callback != null) {
+            callback.wiktionaryShowDialogForTerm(getTermFromWikiLink(url));
+        }
     }
 
     private String sanitizeForDialogTitle(String text) {
@@ -232,5 +232,10 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
             text = removeSectionAnchor(text);
         }
         return removeUnderscores(text);
+    }
+
+    @Nullable
+    private Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }

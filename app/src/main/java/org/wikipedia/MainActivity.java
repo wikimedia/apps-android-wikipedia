@@ -108,6 +108,7 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
+import org.wikipedia.wiktionary.WiktionaryDialog;
 import org.wikipedia.zero.ZeroConfig;
 
 import java.io.File;
@@ -121,7 +122,7 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public class MainActivity extends ThemedActionBarActivity implements PageFragment.Callback,
         FeedFragment.Callback, NearbyFragment.Callback, HistoryFragment.Callback,
         ReadingListsFragment.Callback, LinkPreviewDialog.Callback, SearchArticlesFragment.Callback,
-        SearchResultsFragment.Callback, AddToReadingListDialog.Callback {
+        SearchResultsFragment.Callback, AddToReadingListDialog.Callback, WiktionaryDialog.Callback {
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
@@ -1134,6 +1135,13 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     public void onSearchResultCopyLink(@NonNull PageTitle title) {
         copyLink(title.getCanonicalUri());
         showCopySuccessMessage();
+    }
+
+    @Override
+    public void wiktionaryShowDialogForTerm(@NonNull String term) {
+        if (getCurPageFragment() != null) {
+            getCurPageFragment().getShareHandler().showWiktionaryDefinition(term);
+        }
     }
 
     private void copyLink(@NonNull String url) {
