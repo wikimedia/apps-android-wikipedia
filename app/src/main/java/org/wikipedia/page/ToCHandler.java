@@ -5,6 +5,7 @@ import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;

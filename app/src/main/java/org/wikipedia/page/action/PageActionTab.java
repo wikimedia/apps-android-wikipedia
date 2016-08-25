@@ -1,4 +1,4 @@
-package org.wikipedia.page;
+package org.wikipedia.page.action;
 
 import android.support.annotation.NonNull;
 

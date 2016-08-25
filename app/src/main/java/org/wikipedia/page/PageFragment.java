@@ -50,6 +50,8 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.page.action.PageActionTab;
+import org.wikipedia.page.action.PageActionToolbarHideHandler;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.leadimages.ArticleHeaderView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
@@ -151,6 +153,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ArticleHeaderView articleHeaderView;
     private LeadImagesHandler leadImagesHandler;
     private SearchBarHideHandler searchBarHideHandler;
+    private PageActionToolbarHideHandler pageActionToolbarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiErrorView errorView;
@@ -285,6 +288,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         tabLayout = (TabLayout) rootView.findViewById(R.id.page_actions_tab_layout);
         tabLayout.addOnTabSelectedListener(pageActionTabListener);
+
+        pageActionToolbarHideHandler = new PageActionToolbarHideHandler(tabLayout);
+        pageActionToolbarHideHandler.setScrollView(webView);
 
         errorView = (WikiErrorView)rootView.findViewById(R.id.page_error);
 
