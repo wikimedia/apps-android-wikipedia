@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
@@ -56,6 +57,10 @@ public final class FeedbackUtil {
     public static void showMessageAsPlainText(Activity activity, CharSequence possibleHtml) {
         CharSequence richText = Html.fromHtml(possibleHtml.toString());
         showMessage(activity, richText.toString());
+    }
+
+    public static void showMessage(Fragment fragment, @StringRes int text) {
+        makeSnackbar(fragment.getView(), fragment.getString(text), Snackbar.LENGTH_LONG).show();
     }
 
     private static void showMessage(View containerView, CharSequence text, int duration) {

@@ -1,7 +1,11 @@
 package org.wikipedia.overhaul;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -11,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.feed.FeedFragment;
@@ -28,6 +33,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.OverhaulSearchFragment;
 import org.wikipedia.search.SearchResultsFragment;
+import org.wikipedia.util.FeedbackUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,6 +81,18 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH
+                && resultCode == Activity.RESULT_OK && data != null
+                && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
+            String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
+            openSearchFromIntent(searchQuery, OverhaulSearchFragment.InvokeSource.VOICE);
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
     public void onFeedTabListRequested() {
         // todo: [overhaul] tab list.
     }
@@ -85,7 +103,12 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public void onFeedVoiceSearchRequested() {
-        // todo: [overhaul] voice search.
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        try {
+            startActivityForResult(intent, Constants.ACTIVITY_REQUEST_VOICE_SEARCH);
+        } catch (ActivityNotFoundException a) {
+            FeedbackUtil.showMessage(this, R.string.error_voice_search_not_available);
+        }
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
@@ -192,5 +215,19 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     @Override
     public void onSearchClose() {
         // TODO: implement
+    }
+
+    private void openSearchFromIntent(@Nullable final CharSequence query,
+                                      final OverhaulSearchFragment.InvokeSource source) {
+        tabLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                searchFragment.setInvokeSource(source);
+                searchFragment.openSearch();
+                if (query != null) {
+                    searchFragment.setSearchText(query);
+                }
+            }
+        });
     }
 }

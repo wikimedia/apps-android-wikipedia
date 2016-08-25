@@ -10,6 +10,7 @@ public final class Constants {
     public static final String WIKIPEDIA_URL = "https://wikipedia.org/";
 
     public static final int ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 44;
+    public static final int ACTIVITY_REQUEST_VOICE_SEARCH = 45;
 
     public static final int MAX_SUGGESTION_RESULTS = 3;
     public static final int SUGGESTION_REQUEST_ITEMS = 5;
