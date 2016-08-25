@@ -1,15 +1,12 @@
-package org.wikipedia;
+package org.wikipedia.page;
 
 import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetManager;
-import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -22,15 +19,9 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
@@ -40,56 +31,40 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
 import net.hockeyapp.android.metrics.MetricsManager;
 
-import org.apache.commons.lang3.ArrayUtils;
+import org.wikipedia.Constants;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
-import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.feed.image.FeaturedImageCard;
-import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.nearby.NearbyFragment;
-import org.wikipedia.news.NewsActivity;
-import org.wikipedia.page.ExclusiveBottomSheetPresenter;
-import org.wikipedia.page.NavDrawerHelper;
-import org.wikipedia.page.PageFragment;
-import org.wikipedia.page.PageLoadCallbacks;
-import org.wikipedia.page.PageLoadStrategy;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.page.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.page.gallery.MediaDownloadReceiver;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
-import org.wikipedia.random.RandomHandler;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.recurring.RecurringTasksExecutor;
-import org.wikipedia.search.MainSearchBarHideHandler;
-import org.wikipedia.search.SearchArticlesFragment;
+import org.wikipedia.search.OverhaulSearchFragment;
 import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.Prefs;
@@ -100,34 +75,29 @@ import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ClipboardUtil;
-import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.zero.ZeroConfig;
 
-import java.io.File;
-import java.util.concurrent.TimeUnit;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
-import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
 import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class MainActivity extends ThemedActionBarActivity implements PageFragment.Callback,
-        FeedFragment.Callback, NearbyFragment.Callback, HistoryFragment.Callback,
-        ReadingListsFragment.Callback, LinkPreviewDialog.Callback, SearchArticlesFragment.Callback,
+public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
+        LinkPreviewDialog.Callback, OverhaulSearchFragment.Callback,
         SearchResultsFragment.Callback {
     public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
     public static final int ACTIVITY_REQUEST_GALLERY = 2;
     public static final int ACTIVITY_REQUEST_VOICE_SEARCH = 3;
-
-    public static final int PROGRESS_BAR_MAX_VALUE = 10000;
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
@@ -138,28 +108,27 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
     private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
 
+    @BindView(R.id.tabs_container) View tabsContainerView;
+    @BindView(R.id.page_progress_bar) ProgressBar progressBar;
+    @BindView(R.id.page_toolbar) Toolbar toolbar;
+    private Unbinder unbinder;
+
+    private PageFragment pageFragment;
+    private OverhaulSearchFragment searchFragment;
+
+    private WikipediaApp app;
     private Bus bus;
     private EventBusMethods busMethods;
-    private WikipediaApp app;
-    private View fragmentContainerView;
-    private View tabsContainerView;
-    private WikiDrawerLayout drawerLayout;
-    private Menu navMenu;
-    private SearchArticlesFragment searchFragment;
-    private TextView searchHintText;
-    private ProgressBar progressBar;
-    private View toolbarContainer;
     private CompatActionMode currentActionMode;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private SearchBarHideHandler searchBarHideHandler;
+
     private boolean isZeroEnabled;
     private ZeroConfig currentZeroConfig;
-    private RandomHandler randomHandler;
-    private NavDrawerHelper navDrawerHelper;
-    private boolean navItemSelected;
     private WikipediaZeroUsageFunnel zeroFunnel;
+
+    // TODO: remove after overhaul (replace with CoordinatorLayout)
+    private SearchBarHideHandler searchBarHideHandler = new SearchBarHideHandler();
+
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this);
-    private MainActivityToolbarCoordinator toolbarCoordinator;
     @Nullable private PageLoadCallbacks pageLoadCallbacks;
 
     // The permissions request API doesn't take a callback, so in the event we have to
@@ -170,64 +139,9 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     private DialogInterface.OnDismissListener listDialogDismissListener = new DialogInterface.OnDismissListener() {
         @Override
         public void onDismiss(DialogInterface dialogInterface) {
-            if (getCurPageFragment() != null) {
-                getCurPageFragment().updateBookmark();
-            }
+            pageFragment.updateBookmark();
         }
     };
-
-    public View getContentView() {
-        return fragmentContainerView;
-    }
-
-    public ActionBarDrawerToggle getDrawerToggle() {
-        return mDrawerToggle;
-    }
-
-    public Menu getNavMenu() {
-        return navMenu;
-    }
-
-    public RandomHandler getRandomHandler() {
-        return randomHandler;
-    }
-
-    /**
-     * Get the Fragment that is currently at the top of the Activity's backstack.
-     * This activity's fragment container will hold multiple fragments stacked onto
-     * each other using FragmentManager, and this function will return the current
-     * topmost Fragment. It's up to the caller to cast the result to a more specific
-     * fragment class, and perform actions on it.
-     * @return Fragment at the top of the backstack.
-     */
-    @Nullable
-    public Fragment getTopFragment() {
-        return getSupportFragmentManager().findFragmentById(R.id.content_fragment_container);
-    }
-
-    /**
-     * Get the PageViewFragment that is currently at the top of the Activity's backstack.
-     * If the current topmost fragment is not a PageViewFragment, return null.
-     * @return The PageViewFragment at the top of the backstack, or null if the current
-     * top fragment is not a PageViewFragment.
-     */
-    @Nullable
-    public PageFragment getCurPageFragment() {
-        Fragment f = getTopFragment();
-        if (f instanceof PageFragment) {
-            return (PageFragment) f;
-        } else {
-            return null;
-        }
-    }
-
-    public void setNavItemSelected(boolean wasSelected) {
-        navItemSelected = wasSelected;
-    }
-
-    private boolean wasNavItemSelected() {
-        return navItemSelected;
-    }
 
     @Override
     @TargetApi(17)
@@ -238,69 +152,27 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         app.checkCrashes(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-        setContentView(R.layout.activity_main);
-
-        toolbarContainer = findViewById(R.id.main_toolbar_container);
-        toolbarCoordinator = new MainActivityToolbarCoordinator(this, toolbarContainer, (Toolbar) findViewById(R.id.main_toolbar));
-        getSupportFragmentManager()
-                .addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-                    @Override
-                    public void onBackStackChanged() {
-                        updateToolbarForFragment();
-                    }
-                });
+        setContentView(R.layout.activity_page);
+        unbinder = ButterKnife.bind(this);
 
         busMethods = new EventBusMethods();
         registerBus();
 
-        fragmentContainerView = findViewById(R.id.content_fragment_container);
-        tabsContainerView = findViewById(R.id.tabs_container);
-        progressBar = (ProgressBar)findViewById(R.id.main_progressbar);
-        progressBar.setMax(PROGRESS_BAR_MAX_VALUE);
         updateProgressBar(false, true, 0);
 
-        drawerLayout = (WikiDrawerLayout) findViewById(R.id.drawer_layout);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            drawerLayout.setDrawerShadow(R.drawable.nav_drawer_shadow, GravityCompat.START);
-        }
-        NavigationView navDrawer = (NavigationView) findViewById(R.id.navdrawer);
-        navMenu = navDrawer.getMenu();
-        navDrawerHelper = new NavDrawerHelper(this, navDrawer.getHeaderView(0));
-        navDrawer.setNavigationItemSelectedListener(navDrawerHelper.getNewListener());
+        pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
+        searchFragment = (OverhaulSearchFragment) getSupportFragmentManager().findFragmentById(R.id.page_search_fragment);
 
-        randomHandler = navDrawerHelper.getNewRandomHandler();
-
-        searchFragment = (SearchArticlesFragment) getSupportFragmentManager().findFragmentById(R.id.search_fragment);
-        searchHintText = (TextView) findViewById(R.id.main_search_bar_text);
-        searchHintText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchFragment.setInvokeSource(SearchArticlesFragment.InvokeSource.TOOLBAR);
-                searchFragment.openSearch();
-            }
-        });
-
-        mDrawerToggle = new MainDrawerToggle(
-                this,                  /* host Activity */
-                drawerLayout,          /* DrawerLayout object */
-                R.string.app_name,     /* "open drawer" description */
-                R.string.app_name      /* "close drawer" description */
-        );
-
-        // Set the drawer toggle as the DrawerListener
-        drawerLayout.setDrawerListener(mDrawerToggle);
-        drawerLayout.setDragEdgeWidth(
-                getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
+        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
-
-        searchBarHideHandler = new MainSearchBarHideHandler(this, toolbarContainer);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         boolean languageChanged = false;
-
         zeroFunnel = app.getWikipediaZeroHandler().getZeroFunnel();
         if (savedInstanceState != null) {
             isZeroEnabled = savedInstanceState.getBoolean("pausedZeroEnabledState");
@@ -315,7 +187,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
             // the app, MRU languages are not updated. There's no harm in doing that here but since
             // the user didin't choose that language in app, it may be unexpected.
         }
-        searchHintText.setText(getString(isZeroEnabled ? R.string.zero_search_hint : R.string.search_hint));
 
         if (languageChanged) {
             app.resetSite();
@@ -342,86 +213,8 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         currentActionMode = null;
     }
 
-    private class MainDrawerToggle extends ActionBarDrawerToggle {
-        private boolean oncePerSlideLock = false;
-
-        MainDrawerToggle(android.app.Activity activity,
-                         android.support.v4.widget.DrawerLayout drawerLayout,
-                         int openDrawerContentDescRes, int closeDrawerContentDescRes) {
-            super(activity, drawerLayout, openDrawerContentDescRes, closeDrawerContentDescRes);
-        }
-
-        @Override
-        public void onDrawerClosed(View view) {
-            super.onDrawerClosed(view);
-            // if we want to change the title upon closing:
-            //getSupportActionBar().setTitle("");
-            if (!wasNavItemSelected()) {
-                navDrawerHelper.getFunnel().logCancel();
-            }
-            navDrawerHelper.clearTempExplicitHighlight();
-            setNavItemSelected(false);
-        }
-
-        @Override
-        public void onDrawerOpened(View drawerView) {
-            super.onDrawerOpened(drawerView);
-            // if we want to change the title upon opening:
-            //getSupportActionBar().setTitle("");
-            // If we're in the search state, then get out of it.
-            if (isSearching()) {
-                searchFragment.closeSearch();
-            }
-            // also make sure we're not inside an action mode
-            if (isCabOpen()) {
-                finishActionMode();
-            }
-            updateNavDrawerSelection(getTopFragment());
-            navDrawerHelper.getFunnel().logOpen();
-        }
-
-        @Override
-        public void onDrawerSlide(View drawerView, float slideOffset) {
-            super.onDrawerSlide(drawerView, 0);
-            if (!oncePerSlideLock) {
-                // Hide the keyboard when the drawer is opened
-                hideSoftKeyboard();
-                //also make sure ToC is hidden
-                if (getCurPageFragment() != null) {
-                    getCurPageFragment().toggleToC(PageFragment.TOC_ACTION_HIDE);
-                }
-                //and make sure to update dynamic items and highlights
-                navDrawerHelper.setupDynamicNavDrawerItems();
-                oncePerSlideLock = true;
-            }
-            // and make sure the Toolbar is showing
-            showToolbar();
-        }
-
-        @Override
-        public void onDrawerStateChanged(int newState) {
-            super.onDrawerStateChanged(newState);
-            if (newState == DrawerLayout.STATE_IDLE) {
-                oncePerSlideLock = false;
-            }
-        }
-    }
-
     public void hideSoftKeyboard() {
         DeviceUtil.hideSoftKeyboard(this);
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
     // Note: this method is invoked even when in CAB mode.
@@ -433,12 +226,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Pass the event to ActionBarDrawerToggle, if it returns
-        // true, then it has handled the app icon touch event
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        // Handle other action bar items...
         return ActivityUtil.defaultOnOptionsItemSelected(this, item)
                 || super.onOptionsItemSelected(item);
     }
@@ -454,17 +241,10 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         // invalidate our ActionBar, so that all action items are removed, and
         // we can fill up the whole width of the ActionBar with our SearchView.
         supportInvalidateOptionsMenu();
-        toolbarCoordinator.setSearchMode(enabled);
-        searchBarHideHandler.setForceNoFade(enabled);
-        getDrawerToggle().setDrawerIndicatorEnabled(!enabled);
     }
 
     public void showToolbar() {
-        ViewAnimations.ensureTranslationY(toolbarContainer, 0);
-    }
-
-    public void setNavMenuItemRandomEnabled(boolean enabled) {
-        navMenu.findItem(R.id.nav_item_random).setEnabled(enabled);
+        // TODO: make toolbar visible, via CoordinatorLayout
     }
 
     /** @return True if the contextual action bar is open. */
@@ -476,10 +256,10 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull HistoryEntry entry,
                                    @NonNull PageTitle title) {
-        return new Intent(MainActivity.ACTION_PAGE_FOR_TITLE)
-                .setClass(context, MainActivity.class)
-                .putExtra(MainActivity.EXTRA_HISTORYENTRY, entry)
-                .putExtra(MainActivity.EXTRA_PAGETITLE, title);
+        return new Intent(ACTION_PAGE_FOR_TITLE)
+                .setClass(context, PageActivity.class)
+                .putExtra(EXTRA_HISTORYENTRY, entry)
+                .putExtra(EXTRA_PAGETITLE, title);
     }
 
     @Override
@@ -514,21 +294,19 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
             handleProcessTextIntent(intent);
         } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
             new IntentFunnel(app).logSearchWidgetTap();
-            openSearchFromIntent(null, SearchArticlesFragment.InvokeSource.WIDGET);
+            openSearchFromIntent(null, OverhaulSearchFragment.InvokeSource.WIDGET);
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
-        } else if (TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) == 0) {
-            loadMainPageIfNoTabs();
         } else {
-            showFeed();
+            loadMainPageIfNoTabs();
         }
     }
 
     private void handleShareIntent(Intent intent) {
         String text = intent.getStringExtra(Intent.EXTRA_TEXT);
         openSearchFromIntent(text == null ? null : text.trim(),
-                SearchArticlesFragment.InvokeSource.INTENT_SHARE);
+                OverhaulSearchFragment.InvokeSource.INTENT_SHARE);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -538,12 +316,12 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         }
         String text = intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT);
         openSearchFromIntent(text == null ? null : text.trim(),
-                SearchArticlesFragment.InvokeSource.INTENT_PROCESS_TEXT);
+                OverhaulSearchFragment.InvokeSource.INTENT_PROCESS_TEXT);
     }
 
     private void openSearchFromIntent(@Nullable final CharSequence query,
-                                      final SearchArticlesFragment.InvokeSource source) {
-        fragmentContainerView.post(new Runnable() {
+                                      final OverhaulSearchFragment.InvokeSource source) {
+        tabsContainerView.post(new Runnable() {
             @Override
             public void run() {
                 searchFragment.setInvokeSource(source);
@@ -578,83 +356,9 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         return searchFragment != null && searchFragment.isSearchActive();
     }
 
-    public void closeNavDrawer() {
-        drawerLayout.closeDrawer(GravityCompat.START);
-    }
-
-    public void showFeed() {
-        if (getTopFragment() instanceof FeedFragment) {
-            ((FeedFragment) getTopFragment()).scrollToTop();
-        } else {
-
-            popTopFragmentsExcept(FeedFragment.class);
-            pushFragment(FeedFragment.newInstance());
-        }
-    }
-
-    /**
-     * Add a new fragment to the top of the activity's backstack.
-     * @param f New fragment to place on top.
-     */
-    public void pushFragment(Fragment f) {
-        pushFragment(f, false);
-    }
-
-    /**
-     * Add a new fragment to the top of the activity's backstack, and optionally  allow state loss.
-     * Useful for cases where we might push a fragment from an AsyncTask result.
-     * @param f New fragment to place on top.
-     * @param allowStateLoss Whether to allow state loss.
-     */
-    public void pushFragment(Fragment f, boolean allowStateLoss) {
-        beforeFragmentChanged();
-        // if the new fragment is the same class as the current topmost fragment,
-        // then just keep the previous fragment there.
-        // e.g. if the user selected History, and there's already a History fragment on top,
-        // then there's no need to load a new History fragment.
-        if (getTopFragment() != null && (getTopFragment().getClass() == f.getClass())) {
-            return;
-        }
-
-        popTopFragmentsExcept(FeedFragment.class, PageFragment.class);
-        if (getTopFragment() == null || (getTopFragment().getClass() != f.getClass())) {
-            FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-            trans.setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out);
-            trans.add(R.id.content_fragment_container, f);
-            trans.addToBackStack(null);
-            if (allowStateLoss) {
-                trans.commitAllowingStateLoss();
-            } else {
-                trans.commit();
-            }
-        }
-        afterFragmentChanged();
-    }
-
     public void resetAfterClearHistory() {
+        // TODO: move this somewhere else
         Prefs.clearTabs();
-        showFeed();
-    }
-
-    private void beforeFragmentChanged() {
-        closeNavDrawer();
-        searchBarHideHandler.setForceNoFade(false);
-        searchBarHideHandler.setFadeEnabled(false);
-    }
-
-    private void afterFragmentChanged() {
-        //make sure the ActionBar is visible
-        showToolbar();
-        //also make sure the progress bar is not showing
-        updateProgressBar(false, true, 0);
-    }
-
-    private void updateToolbarForFragment() {
-        if (getTopFragment() instanceof MainActivityToolbarProvider) {
-            toolbarCoordinator.setOverrideToolbar(((MainActivityToolbarProvider) getTopFragment()).getToolbar());
-        } else {
-            toolbarCoordinator.removeOverrideToolbar();
-        }
     }
 
     /**
@@ -663,14 +367,13 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
      * @param entry HistoryEntry associated with this page.
      */
     public void loadPage(PageTitle title, HistoryEntry entry) {
-        loadPage(title, entry, TabPosition.CURRENT_TAB, false);
+        loadPage(title, entry, TabPosition.CURRENT_TAB);
     }
 
     public void loadPage(PageTitle title,
                          HistoryEntry entry,
-                         TabPosition position,
-                         boolean allowStateLoss) {
-        loadPage(title, entry, position, allowStateLoss, false);
+                         TabPosition position) {
+        loadPage(title, entry, position, false);
     }
 
     /**
@@ -680,14 +383,12 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
      * @param entry HistoryEntry associated with this page.
      * @param position Whether to open this page in the current tab, a new background tab, or new
      *                 foreground tab.
-     * @param allowStateLoss Whether to allow state loss.
      * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
     @TargetApi(17)
     public void loadPage(final PageTitle title,
                          final HistoryEntry entry,
                          final TabPosition position,
-                         boolean allowStateLoss,
                          final boolean mustBeEmpty) {
         if (isDestroyed()) {
             return;
@@ -703,42 +404,36 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         app.putCrashReportProperty("api", title.getSite().authority());
         app.putCrashReportProperty("title", title.toString());
 
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            closeNavDrawer();
-        }
         if (title.isSpecial()) {
             visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
             return;
         }
 
-        pushFragment(new PageFragment(), allowStateLoss);
-
-        fragmentContainerView.post(new Runnable() {
+        tabsContainerView.post(new Runnable() {
             @Override
             public void run() {
-                PageFragment frag = getCurPageFragment();
-                if (frag == null) {
+                if (!pageFragment.isAdded()) {
                     return;
                 }
                 //is the new title the same as what's already being displayed?
                 if (position == TabPosition.CURRENT_TAB
-                        && !frag.getCurrentTab().getBackStack().isEmpty()
-                        && frag.getCurrentTab().getBackStack()
-                        .get(frag.getCurrentTab().getBackStack().size() - 1).getTitle()
-                        .equals(title) || mustBeEmpty && !frag.getCurrentTab().getBackStack().isEmpty()) {
+                        && !pageFragment.getCurrentTab().getBackStack().isEmpty()
+                        && pageFragment.getCurrentTab().getBackStack()
+                        .get(pageFragment.getCurrentTab().getBackStack().size() - 1).getTitle()
+                        .equals(title) || mustBeEmpty && !pageFragment.getCurrentTab().getBackStack().isEmpty()) {
                     //if we have a section to scroll to, then pass it to the fragment
                     if (!TextUtils.isEmpty(title.getFragment())) {
-                        frag.scrollToSection(title.getFragment());
+                        pageFragment.scrollToSection(title.getFragment());
                     }
                     return;
                 }
-                frag.closeFindInPage();
+                pageFragment.closeFindInPage();
                 if (position == TabPosition.CURRENT_TAB) {
-                    frag.loadPage(title, entry, PageLoadStrategy.Cache.FALLBACK, true);
+                    pageFragment.loadPage(title, entry, PageLoadStrategy.Cache.FALLBACK, true);
                 } else if (position == TabPosition.NEW_TAB_BACKGROUND) {
-                    frag.openInNewBackgroundTabFromMenu(title, entry);
+                    pageFragment.openInNewBackgroundTabFromMenu(title, entry);
                 } else {
-                    frag.openInNewForegroundTabFromMenu(title, entry);
+                    pageFragment.openInNewForegroundTabFromMenu(title, entry);
                 }
                 app.getSessionFunnel().pageViewed(entry);
             }
@@ -746,44 +441,22 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     public void loadPageInForegroundTab(PageTitle title, HistoryEntry entry) {
-        loadPage(title, entry, TabPosition.NEW_TAB_FOREGROUND, false);
+        loadPage(title, entry, TabPosition.NEW_TAB_FOREGROUND);
     }
 
     public void loadMainPageInForegroundTab() {
-        loadMainPage(true, TabPosition.NEW_TAB_FOREGROUND, false);
+        loadMainPage(TabPosition.NEW_TAB_FOREGROUND, false);
     }
 
     /**
      * Go directly to the Main Page of the current Wiki, optionally allowing state loss of the
      * fragment manager. Useful for when this function is called from an AsyncTask result.
-     * @param allowStateLoss Allows the {@link android.support.v4.app.FragmentManager} commit to be
-     *                       executed after an activity's state is saved.  This is dangerous because
-     *                       the commit can be lost if the activity needs to later be restored from
-     *                       its state, so this should only be used for cases where it is okay for
-     *                       the UI state to change unexpectedly on the user.
      * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
-    public void loadMainPage(boolean allowStateLoss, TabPosition position, boolean mustBeEmpty) {
+    public void loadMainPage(TabPosition position, boolean mustBeEmpty) {
         PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getSite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
-        loadPage(title, historyEntry, position, allowStateLoss, mustBeEmpty);
-    }
-
-    @TargetApi(17)
-    private void showTabList() {
-        if (isDestroyed()) {
-            return;
-        }
-        pushFragment(new PageFragment());
-        fragmentContainerView.post(new Runnable() {
-            @Override
-            public void run() {
-                PageFragment frag = getCurPageFragment();
-                if (frag != null) {
-                    frag.showTabList();
-                }
-            }
-        });
+        loadPage(title, historyEntry, position, mustBeEmpty);
     }
 
     public void showLinkPreview(PageTitle title, int entrySource) {
@@ -794,30 +467,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         bottomSheetPresenter.show(LinkPreviewDialog.newInstance(title, entrySource, location));
     }
 
-    @Override public void onLoading() {
-        updateProgressBar(true, true, 0);
-    }
-
-    @Override public void onLoaded() {
-        updateProgressBar(false, true, 0);
-    }
-
-    @Override public void onLoadPage(PageTitle title, int entrySource, @Nullable Location location) {
-        showLinkPreview(title, entrySource, location);
-    }
-
-    @Override public void onLoadPage(PageTitle title, HistoryEntry entry) {
-        loadPage(title, entry);
-    }
-
-    @Override public void onClearHistory() {
-        resetAfterClearHistory();
-    }
-
-    @Override public boolean isMenuAllowed() {
-        return !isSearching();
-    }
-
     private void hideLinkPreview() {
         bottomSheetPresenter.dismiss();
     }
@@ -826,18 +475,12 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         FeedbackUtil.showAddToListDialog(title, source, bottomSheetPresenter, listDialogDismissListener);
     }
 
-    public void showReadingListAddedSnackbar(String message, final boolean isOnboarding) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(fragmentContainerView, message,
-                FeedbackUtil.LENGTH_DEFAULT);
+    public void showReadingListAddedSnackbar(String message) {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, message, FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isOnboarding) {
-                    navDrawerHelper.setTempExplicitHighlight(ReadingListsFragment.class);
-                    drawerLayout.openDrawer(GravityCompat.START);
-                } else {
-                    pushFragment(ReadingListsFragment.newInstance());
-                }
+                // TODO: finish this activity with a result that signals MainActivity to show reading lists.
             }
         });
         snackbar.show();
@@ -853,10 +496,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
             finishActionMode();
             return;
         }
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            closeNavDrawer();
-            return;
-        }
         if (searchFragment.onBackPressed()) {
             if (searchFragment.isLaunchedFromIntent()) {
                 finish();
@@ -864,94 +503,10 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
             return;
         }
         app.getSessionFunnel().backPressed();
-        if (getTopFragment() instanceof BackPressedHandler
-                && ((BackPressedHandler) getTopFragment()).onBackPressed()) {
+        if (pageFragment.onBackPressed()) {
             return;
         }
-        popFragment();
-    }
-
-    @Override
-    public void onPagePopFragment() {
-        popFragment();
-    }
-
-    @Override
-    public void onFeedTabListRequested() {
-        showTabList();
-    }
-
-    @Override
-    public void onFeedSearchRequested() {
-        searchFragment.setInvokeSource(SearchArticlesFragment.InvokeSource.FEED_BAR);
-        onSearchRequested();
-    }
-
-    @Override
-    public void onFeedVoiceSearchRequested() {
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        try {
-            startActivityForResult(intent, ACTIVITY_REQUEST_VOICE_SEARCH);
-        } catch (ActivityNotFoundException a) {
-            FeedbackUtil.showMessage(this, R.string.error_voice_search_not_available);
-        }
-    }
-
-    @Override
-    public void onFeedSelectPage(HistoryEntry entry) {
-        loadPage(entry.getTitle(), entry);
-    }
-
-    @Override
-    public void onFeedAddPageToList(HistoryEntry entry) {
-        showAddToListDialog(entry.getTitle(), AddToReadingListDialog.InvokeSource.FEED);
-    }
-
-    @Override
-    public void onFeedSharePage(HistoryEntry entry) {
-        ShareUtil.shareText(this, entry.getTitle());
-    }
-
-    @Override
-    public void onFeedNewsItemSelected(NewsItemCard card) {
-        startActivity(NewsActivity.newIntent(app, card.item(), card.site()));
-    }
-
-    @Override
-    public void onFeedShareImage(final FeaturedImageCard card) {
-        final String thumbUrl = card.baseImage().thumbnail().source().toString();
-        final String fullSizeUrl = card.baseImage().image().source().toString();
-        new ImagePipelineBitmapGetter(this, thumbUrl) {
-            @Override
-            public void onSuccess(@Nullable Bitmap bitmap) {
-                if (bitmap != null) {
-                    ShareUtil.shareImage(MainActivity.this,
-                            bitmap,
-                            new File(thumbUrl).getName(),
-                            getString(R.string.feed_featured_image_share_subject) + " | "
-                                    + DateUtil.getFeedCardDateString(card.date().baseCalendar()),
-                            fullSizeUrl);
-                } else {
-                    FeedbackUtil.showMessage(MainActivity.this, getString(R.string.gallery_share_error, card.baseImage().title()));
-                }
-            }
-        }.get();
-    }
-
-    @Override
-    public void onFeaturedImageSelected(@NonNull FeaturedImageCard card) {
-        GalleryActivity.showGallery(this, card.baseImage(), card.filename(), card.site(),
-                GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE);
-    }
-
-    @Override
-    public void onFeedDownloadImage(@NonNull FeaturedImage image) {
-        if (!(hasWriteExternalStoragePermission(this))) {
-            setPendingDownload(image);
-            requestWriteExternalStoragePermission();
-        } else {
-            download(image);
-        }
+        finish();
     }
 
     @Override
@@ -1003,7 +558,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     @Nullable
     @Override
     public Fragment onPageGetTopFragment() {
-        return getTopFragment();
+        return pageFragment;
     }
 
     @Override
@@ -1036,7 +591,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
                                @NonNull TabPosition tabPosition) {
-        loadPage(title, entry, tabPosition, false);
+        loadPage(title, entry, tabPosition);
     }
 
     @Override
@@ -1048,7 +603,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     @Nullable
     @Override
     public View onPageGetContentView() {
-        return getContentView();
+        return pageFragment.getView();
     }
 
     @Nullable
@@ -1058,8 +613,11 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
+    public void onPagePopFragment() {
+    }
+
+    @Override
     public void onPageUpdateNavDrawerSelection(@NonNull Fragment fragment) {
-        updateNavDrawerSelection(fragment);
     }
 
     @Override
@@ -1070,7 +628,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
         loadPage(entry.getTitle(), entry, inNewTab ? TabsProvider.TabPosition.NEW_TAB_BACKGROUND
-                : TabsProvider.TabPosition.CURRENT_TAB, false);
+                : TabsProvider.TabPosition.CURRENT_TAB);
     }
 
     @Override
@@ -1082,11 +640,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     public void onSearchClose() {
         setSearchMode(false);
         hideSoftKeyboard();
-    }
-
-    @Override
-    public View getSearchToolbarView() {
-        return toolbarContainer;
     }
 
     @Override
@@ -1129,21 +682,9 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         return this;
     }
 
-    private void popFragment() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            beforeFragmentChanged();
-            getSupportFragmentManager().popBackStackImmediate();
-            afterFragmentChanged();
-            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                return;
-            }
-        }
-        finish();
-    }
-
     private void download(@NonNull FeaturedImage image) {
         setPendingDownload(null);
-        new MediaDownloadReceiver(MainActivity.this).download(image);
+        new MediaDownloadReceiver(this).download(image);
     }
 
     private void requestWriteExternalStoragePermission() {
@@ -1152,20 +693,20 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private void loadMainPageIfNoTabs() {
-        loadMainPage(false, TabPosition.CURRENT_TAB, true);
+        loadMainPage(TabPosition.CURRENT_TAB, true);
     }
 
     private class EventBusMethods {
         @Subscribe
         public void onChangeTextSize(ChangeTextSizeEvent event) {
-            if (getCurPageFragment() != null && getCurPageFragment().getWebView() != null) {
-                getCurPageFragment().updateFontSize();
+            if (pageFragment != null && pageFragment.getWebView() != null) {
+                pageFragment.updateFontSize();
             }
         }
 
         @Subscribe
         public void onChangeTheme(ThemeChangeEvent event) {
-            MainActivity.this.recreate();
+            PageActivity.this.recreate();
         }
 
         @Subscribe
@@ -1174,28 +715,22 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
             ZeroConfig latestZeroConfig = app.getWikipediaZeroHandler().getZeroConfig();
 
             if (leftZeroRatedNetwork(latestZeroEnabledState)) {
-                app.getWikipediaZeroHandler().showZeroOffBanner(MainActivity.this,
+                app.getWikipediaZeroHandler().showZeroOffBanner(PageActivity.this,
                         getString(R.string.zero_charged_verbiage),
-                        ContextCompat.getColor(MainActivity.this, R.color.foundation_red),
-                        ContextCompat.getColor(MainActivity.this, android.R.color.white));
-                navDrawerHelper.setupDynamicNavDrawerItems();
+                        ContextCompat.getColor(PageActivity.this, R.color.foundation_red),
+                        ContextCompat.getColor(PageActivity.this, android.R.color.white));
             }
 
             if (enteredNewZeroRatedNetwork(latestZeroConfig, latestZeroEnabledState)) {
-                app.getWikipediaZeroHandler().showZeroBanner(MainActivity.this, latestZeroConfig);
+                app.getWikipediaZeroHandler().showZeroBanner(PageActivity.this, latestZeroConfig);
                 if (Prefs.isShowZeroInfoDialogEnabled()) {
                     showZeroInfoDialog(latestZeroConfig);
                     Prefs.setShowZeroInfoDialogEnable(false);
                 }
-                navDrawerHelper.setupDynamicNavDrawerItems();
             }
 
             isZeroEnabled = latestZeroEnabledState;
             currentZeroConfig = latestZeroConfig;
-            searchHintText.setText(getString(
-                    latestZeroEnabledState
-                            ? R.string.zero_search_hint
-                            : R.string.search_hint));
         }
     }
 
@@ -1216,7 +751,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         return new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
-                visitInExternalBrowser(MainActivity.this, (Uri.parse(getString(R.string.zero_webpage_url))));
+                visitInExternalBrowser(PageActivity.this, (Uri.parse(getString(R.string.zero_webpage_url))));
                 zeroFunnel.logExtLinkMore();
             }
         };
@@ -1252,7 +787,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         if (isZeroEnabled && !latestWikipediaZeroDisposition) {
             bus.post(new WikipediaZeroStateChangeEvent());
         }
-        navDrawerHelper.setupDynamicNavDrawerItems();
     }
 
     @Override
@@ -1266,10 +800,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         saveState(outState);
-    }
-
-    public void updateNavDrawerSelection(Fragment fragment) {
-        navDrawerHelper.updateItemSelection(fragment);
     }
 
     private void saveState(Bundle outState) {
@@ -1295,7 +825,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private void handleLangLinkOrFilePageResult(final Intent data) {
-        fragmentContainerView.post(new Runnable() {
+        tabsContainerView.post(new Runnable() {
             @Override
             public void run() {
                 handleIntent(data);
@@ -1311,6 +841,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onDestroy() {
+        unbinder.unbind();
         unregisterBus();
         super.onDestroy();
     }
@@ -1320,7 +851,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
      * @param mode ActionMode under which this context is starting.
      */
     @Override
-    public void onSupportActionModeStarted(ActionMode mode) {
+    public void onSupportActionModeStarted(@NonNull ActionMode mode) {
         if (!isCabOpen()) {
             conditionallyInjectCustomCabMenu(mode);
         }
@@ -1329,10 +860,9 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
-    public void onSupportActionModeFinished(ActionMode mode) {
+    public void onSupportActionModeFinished(@NonNull ActionMode mode) {
         super.onSupportActionModeFinished(mode);
         nullifyActionMode();
-        searchBarHideHandler.setForceNoFade(false);
     }
 
     @Override
@@ -1348,7 +878,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     public void onActionModeFinished(android.view.ActionMode mode) {
         super.onActionModeFinished(mode);
         nullifyActionMode();
-        searchBarHideHandler.setForceNoFade(false);
     }
 
     @Override
@@ -1375,13 +904,14 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
 
     private <T> void conditionallyInjectCustomCabMenu(T mode) {
         currentActionMode = new CompatActionMode(mode);
-        if (currentActionMode.shouldInjectCustomMenu(MainActivity.this)) {
-            currentActionMode.injectCustomMenu(MainActivity.this);
-        }
+        // TODO: make action modes work
+        //if (currentActionMode.shouldInjectCustomMenu(PageActivity.this)) {
+        //    currentActionMode.injectCustomMenu(PageActivity.this);
+        //}
     }
 
     private void freezeToolbar() {
-        searchBarHideHandler.setForceNoFade(true);
+        // TODO: remove this, if necessary
     }
 
     private void registerBus() {
@@ -1436,7 +966,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         if (resultCode == RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchFromIntent(searchQuery, SearchArticlesFragment.InvokeSource.VOICE);
+            openSearchFromIntent(searchQuery, OverhaulSearchFragment.InvokeSource.VOICE);
         }
     }
 
@@ -1470,13 +1000,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
 
     private void setPendingDownload(@Nullable FeaturedImage image) {
         pendingDownloadImage = image;
-    }
-
-    private void popTopFragmentsExcept(Class<?>... frags) {
-        while (getSupportFragmentManager().getBackStackEntryCount() > 0
-                && !ArrayUtils.contains(frags, getTopFragment().getClass())) {
-            getSupportFragmentManager().popBackStackImmediate();
-        }
     }
 
     @VisibleForTesting

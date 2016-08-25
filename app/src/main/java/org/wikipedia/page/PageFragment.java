@@ -98,7 +98,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Nullable SearchBarHideHandler onPageGetSearchBarHideHandler();
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
-                            @NonNull TabsProvider.TabPosition tabPosition, boolean allowStateLoss);
+                            @NonNull TabsProvider.TabPosition tabPosition);
         void onPageShowLinkPreview(@NonNull PageTitle title, int source);
         void onPageLoadMainPageInForegroundTab();
         void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
@@ -1218,14 +1218,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         Callback callback = callback();
         if (callback != null) {
             callback.onPageLoadPage(title, entry);
-        }
-    }
-
-    public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
-                         @NonNull TabsProvider.TabPosition tabPosition, boolean allowStateLoss) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageLoadPage(title, entry, tabPosition, allowStateLoss);
         }
     }
 

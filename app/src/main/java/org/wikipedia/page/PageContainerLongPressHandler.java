@@ -26,7 +26,7 @@ public abstract class PageContainerLongPressHandler implements LongPressHandler.
 
     @Override
     public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-        container.onPageLoadPage(title, entry, TabsProvider.TabPosition.NEW_TAB_BACKGROUND, false);
+        container.onPageLoadPage(title, entry, TabsProvider.TabPosition.NEW_TAB_BACKGROUND);
     }
 
     @Override

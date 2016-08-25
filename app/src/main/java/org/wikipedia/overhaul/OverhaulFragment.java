@@ -22,6 +22,7 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.overhaul.navtab.NavTab;
 import org.wikipedia.overhaul.navtab.NavTabViewPagerAdapter;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
@@ -88,7 +89,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        // todo: [overhaul] load page.
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
