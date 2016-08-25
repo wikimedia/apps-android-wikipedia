@@ -3,7 +3,6 @@ package org.wikipedia.page.leadimages;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.PointF;
 import android.os.Build;
 import android.support.annotation.ColorInt;
@@ -123,10 +122,6 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         setMinimumHeight(height);
     }
 
-    public boolean hasImage() {
-        return image.hasImage();
-    }
-
     public void setAnimationPaused(boolean paused) {
         image.setAnimationPaused(paused);
     }
@@ -235,7 +230,7 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     private Spanned pronunciationSpanned() {
         AudioUrlSpan span = new AudioUrlSpan(text, avPlayer, pronunciationUrl,
                 AudioUrlSpan.ALIGN_BASELINE);
-        span.setTint(hasImage() ? Color.WHITE : getColor(getThemedAttributeId(getContext(), R.attr.window_inverse_color)));
+        span.setTint(getColor(getThemedAttributeId(getContext(), R.attr.window_inverse_color)));
         return RichTextUtil.setSpans(new SpannableString(" "),
                 0,
                 1,
