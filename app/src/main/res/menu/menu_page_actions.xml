@@ -3,6 +3,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:id="@+id/menu_page_search"
+        android:title="@string/search_hint"
+        android:icon="@drawable/ic_search_white_24dp"
+        app:showAsAction="ifRoom" />
     <item android:id="@+id/menu_page_show_tabs"
           android:title="@string/menu_page_show_tabs"
           app:showAsAction="ifRoom" />

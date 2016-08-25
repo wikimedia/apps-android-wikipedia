@@ -1068,6 +1068,10 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
+    public void onPageSearchRequested() {
+    }
+
+    @Override
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
         loadPage(entry.getTitle(), entry, inNewTab ? TabsProvider.TabPosition.NEW_TAB_BACKGROUND
                 : TabsProvider.TabPosition.CURRENT_TAB, false);

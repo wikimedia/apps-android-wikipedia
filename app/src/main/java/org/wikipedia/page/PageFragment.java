@@ -102,6 +102,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageShowLinkPreview(@NonNull PageTitle title, int source);
         void onPageLoadMainPageInForegroundTab();
         void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
+        void onPageSearchRequested();
         boolean onPageIsSearching();
         @Nullable Fragment onPageGetTopFragment();
         void onPageShowThemeChooser();
@@ -753,6 +754,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 return true;
             case R.id.menu_page_show_tabs:
                 tabsProvider.enterTabMode(false);
+                return true;
+            case R.id.menu_page_search:
+                if (callback() != null) {
+                    callback().onPageSearchRequested();
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
