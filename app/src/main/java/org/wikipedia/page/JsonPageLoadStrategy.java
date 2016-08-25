@@ -16,7 +16,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.ApiException;
 import org.wikipedia.Constants;
-import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -689,7 +688,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private void displayNonLeadSection(int index, boolean savedPage) {
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, false,
-                    MainActivity.PROGRESS_BAR_MAX_VALUE / model.getPage()
+                    Constants.PROGRESS_BAR_MAX_VALUE / model.getPage()
                             .getSections().size() * index);
         }
         try {

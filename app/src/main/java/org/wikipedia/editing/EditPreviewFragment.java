@@ -2,7 +2,6 @@ package org.wikipedia.editing;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -213,11 +212,7 @@ public class EditPreviewFragment extends Fragment {
                     showLeavingEditDialogue(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent = new Intent(getActivity(), MainActivity.class);
-                            intent.setAction(MainActivity.ACTION_PAGE_FOR_TITLE);
-                            intent.putExtra(MainActivity.EXTRA_PAGETITLE, title);
-                            intent.putExtra(MainActivity.EXTRA_HISTORYENTRY, new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK));
-                            startActivity(intent);
+                            startActivity(MainActivity.newIntent(getContext(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                         }
                     });
                 }

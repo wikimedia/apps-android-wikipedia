@@ -11,6 +11,11 @@ public final class Constants {
 
     public static final int ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 44;
     public static final int ACTIVITY_REQUEST_VOICE_SEARCH = 45;
+    public static final int ACTIVITY_REQUEST_LANGLINKS = 50;
+    public static final int ACTIVITY_REQUEST_EDIT_SECTION = 51;
+    public static final int ACTIVITY_REQUEST_GALLERY = 52;
+
+    public static final int PROGRESS_BAR_MAX_VALUE = 10000;
 
     public static final int MAX_SUGGESTION_RESULTS = 3;
     public static final int SUGGESTION_REQUEST_ITEMS = 5;

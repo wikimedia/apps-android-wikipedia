@@ -123,13 +123,6 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         FeedFragment.Callback, NearbyFragment.Callback, HistoryFragment.Callback,
         ReadingListsFragment.Callback, LinkPreviewDialog.Callback, SearchArticlesFragment.Callback,
         SearchResultsFragment.Callback, AddToReadingListDialog.Callback, WiktionaryDialog.Callback {
-    public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
-    public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
-    public static final int ACTIVITY_REQUEST_GALLERY = 2;
-    public static final int ACTIVITY_REQUEST_VOICE_SEARCH = 3;
-
-    public static final int PROGRESS_BAR_MAX_VALUE = 10000;
-
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
@@ -261,7 +254,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
         fragmentContainerView = findViewById(R.id.content_fragment_container);
         tabsContainerView = findViewById(R.id.tabs_container);
         progressBar = (ProgressBar)findViewById(R.id.main_progressbar);
-        progressBar.setMax(PROGRESS_BAR_MAX_VALUE);
+        progressBar.setMax(Constants.PROGRESS_BAR_MAX_VALUE);
         updateProgressBar(false, true, 0);
 
         drawerLayout = (WikiDrawerLayout) findViewById(R.id.drawer_layout);
@@ -893,7 +886,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     public void onFeedVoiceSearchRequested() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         try {
-            startActivityForResult(intent, ACTIVITY_REQUEST_VOICE_SEARCH);
+            startActivityForResult(intent, Constants.ACTIVITY_REQUEST_VOICE_SEARCH);
         } catch (ActivityNotFoundException a) {
             FeedbackUtil.showMessage(this, R.string.error_voice_search_not_available);
         }
@@ -1446,11 +1439,11 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private boolean newArticleLanguageSelected(int requestCode, int resultCode) {
-        return requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT;
+        return requestCode == Constants.ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT;
     }
 
     private boolean galleryFilePageSelected(int requestCode, int resultCode) {
-        return requestCode == ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT;
+        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT;
     }
 
     private boolean languageChanged(int resultCode) {
@@ -1458,7 +1451,7 @@ public class MainActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private boolean voiceSearchRequested(int requestCode) {
-        return requestCode == ACTIVITY_REQUEST_VOICE_SEARCH;
+        return requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH;
     }
 
     private void handleVoiceSearchResult(int resultCode, Intent data) {

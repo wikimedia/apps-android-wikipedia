@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -142,7 +143,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         galleryIntent.putExtra(EXTRA_PAGETITLE, new PageTitle(FEED_FEATURED_IMAGE_TITLE, site));
         galleryIntent.putExtra(EXTRA_SOURCE, source);
         galleryIntent.putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image));
-        activity.startActivityForResult(galleryIntent, MainActivity.ACTIVITY_REQUEST_GALLERY);
+        activity.startActivityForResult(galleryIntent, Constants.ACTIVITY_REQUEST_GALLERY);
     }
 
     public static void showGallery(@NonNull Activity activity, @NonNull PageTitle pageTitle,
@@ -153,7 +154,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         galleryIntent.putExtra(EXTRA_SITE, site);
         galleryIntent.putExtra(EXTRA_PAGETITLE, pageTitle);
         galleryIntent.putExtra(EXTRA_SOURCE, source);
-        activity.startActivityForResult(galleryIntent, MainActivity.ACTIVITY_REQUEST_GALLERY);
+        activity.startActivityForResult(galleryIntent, Constants.ACTIVITY_REQUEST_GALLERY);
     }
 
     @Override
@@ -400,11 +401,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     public void finishWithPageResult(PageTitle resultTitle) {
         HistoryEntry historyEntry = new HistoryEntry(resultTitle,
                                                      HistoryEntry.SOURCE_INTERNAL_LINK);
-        Intent intent = new Intent();
-        intent.setClass(GalleryActivity.this, MainActivity.class);
-        intent.setAction(MainActivity.ACTION_PAGE_FOR_TITLE);
-        intent.putExtra(MainActivity.EXTRA_PAGETITLE, resultTitle);
-        intent.putExtra(MainActivity.EXTRA_HISTORYENTRY, historyEntry);
+        Intent intent = MainActivity.newIntent(GalleryActivity.this, historyEntry, resultTitle);
         setResult(ACTIVITY_RESULT_FILEPAGE_SELECT, intent);
         finish();
     }

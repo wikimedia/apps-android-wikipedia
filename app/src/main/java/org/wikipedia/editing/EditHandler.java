@@ -5,13 +5,13 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import org.json.JSONObject;
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.Page;
-import org.wikipedia.MainActivity;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.Section;
 
@@ -41,7 +41,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         intent.putExtra(EditSectionActivity.EXTRA_TITLE, currentPage.getTitle());
         intent.putExtra(EditSectionActivity.EXTRA_PAGE_PROPS, currentPage.getPageProperties());
         intent.putExtra(EditSectionActivity.EXTRA_HIGHLIGHT_TEXT, highlightText);
-        fragment.startActivityForResult(intent, MainActivity.ACTIVITY_REQUEST_EDIT_SECTION);
+        fragment.startActivityForResult(intent, Constants.ACTIVITY_REQUEST_EDIT_SECTION);
     }
 
     private void showUneditableDialog() {

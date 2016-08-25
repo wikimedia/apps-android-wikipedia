@@ -33,12 +33,12 @@ import com.appenguin.onboarding.ToolTip;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
+import org.wikipedia.Constants;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.MainActivity;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
@@ -666,7 +666,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == MainActivity.ACTIVITY_REQUEST_EDIT_SECTION
+        if (requestCode == Constants.ACTIVITY_REQUEST_EDIT_SECTION
             && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             pageLoadStrategy.backFromEditing(data);
             FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
@@ -1355,7 +1355,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         langIntent.setClass(getActivity(), LangLinksActivity.class);
         langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
         langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
-        getActivity().startActivityForResult(langIntent, MainActivity.ACTIVITY_REQUEST_LANGLINKS);
+        getActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS);
     }
 
     @Nullable

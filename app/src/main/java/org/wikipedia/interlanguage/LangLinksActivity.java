@@ -97,11 +97,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
                 PageTitle langLink = (PageTitle) parent.getAdapter().getItem(position);
                 app.setMruLanguageCode(langLink.getSite().languageCode());
                 HistoryEntry historyEntry = new HistoryEntry(langLink, HistoryEntry.SOURCE_LANGUAGE_LINK);
-                Intent intent = new Intent()
-                        .setClass(LangLinksActivity.this, MainActivity.class)
-                        .setAction(MainActivity.ACTION_PAGE_FOR_TITLE)
-                        .putExtra(MainActivity.EXTRA_PAGETITLE, langLink)
-                        .putExtra(MainActivity.EXTRA_HISTORYENTRY, historyEntry);
+                Intent intent = MainActivity.newIntent(LangLinksActivity.this, historyEntry, langLink);
                 setResult(ACTIVITY_RESULT_LANGLINK_SELECT, intent);
                 hideSoftKeyboard(LangLinksActivity.this);
                 finish();
