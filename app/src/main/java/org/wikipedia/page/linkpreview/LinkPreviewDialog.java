@@ -15,7 +15,6 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.gallery.GalleryCollection;
 import org.wikipedia.page.gallery.GalleryCollectionFetchTask;
 import org.wikipedia.page.gallery.GalleryThumbnailScrollView;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageSummary;
@@ -46,7 +45,11 @@ import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogInterface.OnDismissListener {
     public interface Callback {
-        void onLinkPreviewLoadPage(PageTitle title, HistoryEntry entry);
+        void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
+                                   boolean inNewTab);
+        void onLinkPreviewCopyLink(@NonNull PageTitle title);
+        void onLinkPreviewAddToList(@NonNull PageTitle title);
+        void onLinkPreviewShareLink(@NonNull PageTitle title);
     }
 
     private boolean navigateSuccess = false;
@@ -66,7 +69,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     private LinkPreviewFunnel funnel;
     private LinkPreviewContents contents;
     private OnNavigateListener onNavigateListener;
-    private LongPressHandler overflowMenuHandler;
 
     private GalleryThumbnailScrollView.GalleryViewListener galleryViewListener
             = new GalleryThumbnailScrollView.GalleryViewListener() {
@@ -197,14 +199,6 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        if (getActivity() instanceof PageFragment.Callback) {
-            overflowMenuHandler = new LongPressHandler((PageFragment.Callback) getActivity());
-        }
-    }
-
-    @Override
     public void onDestroyView() {
         thumbnailGallery.setGalleryViewListener(null);
         toolbarView.setOnClickListener(null);
@@ -315,21 +309,26 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     private PopupMenu.OnMenuItemClickListener menuListener = new PopupMenu.OnMenuItemClickListener() {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
+            Callback callback = callback();
             switch (item.getItemId()) {
                 case R.id.menu_link_preview_open_in_new_tab:
-                    overflowMenuHandler.onOpenInNewTab(pageTitle,
-                            new HistoryEntry(pageTitle, entrySource));
+                    loadPage(pageTitle, new HistoryEntry(pageTitle, entrySource), true);
                     dismiss();
                     return true;
                 case R.id.menu_link_preview_add_to_list:
-                    overflowMenuHandler.onAddToList(pageTitle,
-                            AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU);
+                    if (callback != null) {
+                        callback.onLinkPreviewAddToList(pageTitle);
+                    }
                     return true;
                 case R.id.menu_link_preview_share_page:
-                    overflowMenuHandler.onShareLink(pageTitle);
+                    if (callback != null) {
+                        callback.onLinkPreviewShareLink(pageTitle);
+                    }
                     return true;
                 case R.id.menu_link_preview_copy_link:
-                    overflowMenuHandler.onCopyLink(pageTitle);
+                    if (callback != null) {
+                        callback.onLinkPreviewCopyLink(pageTitle);
+                    }
                     dismiss();
                     return true;
                 default:
@@ -343,7 +342,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         @Override
         public void onNavigate(PageTitle title) {
             HistoryEntry newEntry = new HistoryEntry(title, entrySource);
-            loadPage(title, newEntry);
+            loadPage(title, newEntry, false);
         }
     }
 
@@ -396,10 +395,10 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         }
     }
 
-    private void loadPage(PageTitle title, HistoryEntry entry) {
+    private void loadPage(PageTitle title, HistoryEntry entry, boolean inNewTab) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onLinkPreviewLoadPage(title, entry);
+            callback.onLinkPreviewLoadPage(title, entry, inNewTab);
         }
     }
 
