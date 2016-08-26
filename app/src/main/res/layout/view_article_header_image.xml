@@ -21,6 +21,7 @@
     <View
         android:id="@+id/view_article_header_image_gradient"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"/>
 
 </merge>

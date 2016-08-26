@@ -49,6 +49,7 @@ import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 
 public class ArticleHeaderView extends LinearLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;
+    @BindView(R.id.view_article_header_image_gradient) View gradient;
     @BindView(R.id.view_article_header_text) AppTextView text;
     @BindView(R.id.view_article_header_container) LinearLayout container;
     @BindView(R.id.view_article_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
@@ -252,8 +253,10 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
                 new ForegroundColorSpan(getColor(R.color.foundation_gray)));
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private void setImageHeight(int height) {
         DimenUtil.setViewHeight(image, height);
+        DimenUtil.setViewHeight(gradient, height / 3);
     }
 
     private void setTextHeightConstrained() {
