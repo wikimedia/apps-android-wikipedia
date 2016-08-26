@@ -2,7 +2,7 @@ package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.PluralsRes;
+import android.support.annotation.VisibleForTesting;
 import android.view.View;
 
 import org.wikipedia.R;
@@ -32,14 +32,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
 
     private void header(@NonNull final BecauseYouReadCard card) {
         int age = (int) card.daysOld();
-        @PluralsRes int subtitlePlural;
-        String subtitle;
-        if (age == 0) {
-            subtitle = getResources().getString(R.string.view_continue_reading_card_subtitle_today);
-        } else {
-            subtitlePlural = R.plurals.view_continue_reading_card_subtitle;
-            subtitle = getResources().getQuantityString(subtitlePlural, age, age);
-        }
+        String subtitle = getSubtitle(age);
         CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
                 .setSubtitle(subtitle)
@@ -53,6 +46,13 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
                 .setImage(card.image())
                 .onClickListener(new SelectPageCallbackAdapter(card));
         largeHeader(largeHeader);
+    }
+
+    @VisibleForTesting @NonNull String getSubtitle(int age) {
+        if (age == 0) {
+            return getResources().getString(R.string.view_continue_reading_card_subtitle_today);
+        }
+        return getResources().getQuantityString(R.plurals.view_continue_reading_card_subtitle, age, age);
     }
 
     private class SelectPageCallbackAdapter implements OnClickListener {
