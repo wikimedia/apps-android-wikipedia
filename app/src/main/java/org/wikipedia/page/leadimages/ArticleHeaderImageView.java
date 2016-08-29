@@ -91,8 +91,8 @@ public class ArticleHeaderImageView extends FrameLayout {
         inflate(getContext(), R.layout.view_article_header_image, this);
         ButterKnife.bind(this);
 
-        Drawable gradient = getCubicGradient(getResources().getColor(R.color.lead_gradient_start),
-                Gravity.BOTTOM);
+        Drawable gradient = getCubicGradient(
+                getResources().getColor(R.color.new_lead_gradient_start), Gravity.BOTTOM);
         ViewUtil.setBackgroundDrawable(gradientView, gradient);
     }
 }
