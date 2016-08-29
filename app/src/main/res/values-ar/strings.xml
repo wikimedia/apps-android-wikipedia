@@ -78,7 +78,7 @@
   <string name="history_empty_title">لا صفحات مفتوحة مؤخرًا هنا!</string>
   <string name="history_empty_message">تاريخ تصفحك فارغ، يبدو بأنك قد حذفت جميع مدخلات التاريخ. في المرة القادمة التي تزور فيها إحدى الصفحات بإمكانك العودة إليها مباشرةً من هنا.</string>
   <string name="delete_selected_history">حذف</string>
-  <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يكيبيدي&lt;big&gt;ا&lt;/big&gt;</string>
+  <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يكيبيد&lt;big&gt;يا&lt;/big&gt;</string>
   <string name="create_account_username_hint">اسم المستخدم</string>
   <string name="login_create_account_link">ليس لديك حساب؟ انضم إلى ويكيبيديا</string>
   <string name="create_account_login_link">لديك حساب؟ سجل دخولك</string>
@@ -207,7 +207,7 @@
   <string name="tool_tip_share">بعد تسليط الضوء على حقيقة مثيرة للاهتمام، حاول مشاركتها على شبكات التواصل المفضلة لديك!</string>
   <string name="page_view_in_browser">اعرض الصفحة في المتصفح</string>
   <string name="tool_tip_toc_button">انظر جدول المحتويات في أي وقت عن طريق النقر على هذا الزر، أو السحب من الحافة اليسري من الشاشة.</string>
-  <string name="error_server_response">خادم تعذر إتمام الطلب.</string>
+  <string name="error_server_response">تعذر الخادم عن إتمام الطلب.</string>
   <string name="error_response_malformed">الاستجابة من الملقم لم تكن مهيأة بشكل صحيح.</string>
   <string name="error_unknown">حدث خطأ غير معروف.</string>
   <string name="format_error_server_message">الرسالة: \"%s\"</string>
@@ -222,9 +222,9 @@
   <string name="nav_item_donate">ادعم ويكيبيديا</string>
   <string name="error_voice_search_not_available">عفوا، التعرف على الصوت ليس متاح.</string>
   <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
-  <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعةالعطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
+  <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعة العطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
   <string name="crash_report_dialog_dont_send_button">تجاوز</string>
-  <string name="crash_report_dialog_always_send_button">دائماأرسل</string>
+  <string name="crash_report_dialog_always_send_button">أرسل دائما</string>
   <string name="crash_report_dialog_send_button">أرسل</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.
@@ -246,7 +246,7 @@
   <string name="reading_list_item_count_singular">مقالة واحدة</string>
   <string name="reading_list_item_count_plural">%s مقالات</string>
   <string name="reading_list_sort">رتب</string>
-  <string name="reading_list_sort_by_name">فرز خسب الأسم</string>
+  <string name="reading_list_sort_by_name">فرز حسب الاسم</string>
   <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>
   <string name="reading_list_sort_by_recent">فرز حسب الأحدث</string>
   <string name="reading_list_sort_by_recent_desc">فرز حسب الأقدم</string>

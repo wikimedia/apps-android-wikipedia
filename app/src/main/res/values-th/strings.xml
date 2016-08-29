@@ -19,7 +19,8 @@
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages" fuzzy="true">อ่านในภาษาอื่น</string>
   <string name="menu_page_find_in_page">ค้นหาในหน้า</string>
-  <string name="menu_page_share" fuzzy="true">แบ่งปัน</string>
+  <string name="menu_page_share">แบ่งปันลิงก์</string>
+  <string name="menu_long_press_open_page">เปิด</string>
   <string name="menu_long_press_open_in_new_tab">เปิดในหน้าต่างใหม่</string>
   <string name="menu_long_press_copy_page">คัดลอกที่อยู่ลิงค์</string>
   <string name="menu_text_select_copy">คัดลอก</string>

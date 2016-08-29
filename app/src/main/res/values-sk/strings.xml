@@ -275,12 +275,14 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="user_option_sync_label">Nastavenia</string>
   <string name="view_continue_reading_card_title">Pokračovať v čítaní</string>
   <string name="view_because_you_read_card_title">Pretože ste čítali</string>
+  <string name="view_random_card_title">Randomizér</string>
   <string name="view_random_card_subtitle">Prečítajte si náhodný článok z Wikipédie</string>
   <string name="view_main_page_card_title">Dnes na Wikipédii</string>
   <string name="view_featured_image_card_title">Obrázok dňa</string>
   <string name="view_featured_image_card_download">Prevziať</string>
   <string name="menu_feed_card_dismiss">Skryť túto kartu</string>
   <string name="menu_feed_card_dismissed">Karta bola skrytá.</string>
+  <string name="feed_featured_image_share_subject">Odporúčaný obrázok z Wikimedia Commons</string>
   <string name="feed">Preskúmať</string>
   <string name="view_card_footer_button">Zobraziť viac</string>
   <string name="most_read_list_card_title">Trendy</string>

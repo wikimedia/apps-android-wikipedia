@@ -17,7 +17,7 @@
   <string name="dialog_message_clear_history">An dra-se a zilamo istor ar merdeiñ hag a serro an holl ivinelloù zo digor bremañ. Ha suc\'h oc\'h ?</string>
   <string name="nav_item_saved_pages">Pajennoù enrollet.</string>
   <string name="share_via">Rannañ dre</string>
-  <string name="search_redirect_from" fuzzy="true">Adkaset eus %s</string>
+  <string name="search_redirect_from">Adkaset eus %s</string>
   <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
   <string name="menu_page_other_languages">Cheñch yezh</string>
   <string name="menu_page_find_in_page">Klask er bajenn</string>
@@ -113,6 +113,8 @@
   <string name="preferences_privacy_settings_heading">Prevezded</string>
   <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
   <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
+  <string name="preference_title_auto_upload_crash_reports">Kas danevelloù implij</string>
+  <string name="preference_summary_auto_upload_crash_reports">Reiñ tro d\'an arload da gas danevelloù implij da HockeyApp - ur pourchaser servijoù tredeour - en un doare emgefreek, abalamour ma c\'hallimp kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
   <string name="history_search_list_hint">Klask er roll-istor</string>
   <string name="history_search_empty_message">N\'eus bet kavet pajenn ebet hag a glot gant ho reked.</string>
@@ -183,13 +185,14 @@
   <string name="read_more_section">Lenn muioc\'h</string>
   <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
   <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
-  <string name="license_title" fuzzy="true">Testenn aotre-imoplijout evit al levraoueg %s</string>
+  <string name="license_title">Aotre-imoplijout evit %s</string>
   <string name="gallery_menu_share">Rannañ</string>
   <string name="gallery_share_error">Ne c\'haller ket rannañ ar skeudenn : %s</string>
   <string name="gallery_menu_save">Enrollañ en ardivink</string>
   <string name="gallery_save_progress">Pellgargañ ar restr...</string>
   <string name="gallery_save_success">Restr enrollet mat.</string>
   <string name="gallery_error_video_failed">Ne c\'haller ket lenn ar video.</string>
+  <string name="gallery_save_image_write_permission_rationale">Ret eo kaout gwir da skrivañ e lec\'h stokañ hoc\'h ardivink evit enrollañ skeudennoù. Klaskit en-dro, ha roit aotre d\'en ober, mar plij.</string>
   <string name="err_cannot_save_file">Ne c\'haller ket enrollañ ar restr</string>
   <string name="snippet_share_intro">Fed dedennus e @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Pouezañ war ur stokell evit diorren</string>
@@ -214,11 +217,21 @@
   <string name="address_copied">Chomlec\'h eilet er golver</string>
   <string name="text_copied">Testenn kopiet er golver.</string>
   <string name="button_continue_to_article">Lenn ar pennad</string>
+  <string name="button_get_directions">Kaout an tuioù</string>
+  <string name="error_no_maps_app">Ne c\'haller kavout arload ebet hag a ro tuioù.</string>
+  <string name="preference_title_show_link_previews">Diskwel alberzoù al liammoù</string>
+  <string name="preference_summary_show_link_previews">Diskwel un alberz buan eus ar pennadoù en ur skrivañ war al liammoù.</string>
   <string name="nav_item_donate">Skoazellañ Wikimedia</string>
   <string name="error_voice_search_not_available">Ho tigarez, ne c\'haller ket digejañ ar gomz.</string>
+  <string name="crash_report_dialog_title">Hon digarezit, c\'hwitet eo an arload ar wech diwezhañ</string>
+  <string name="crash_report_dialog_text">Ha c\'hoant ho peus da gas un danevell implij da HockeyApp - ur pourchaser servijoù tredeour - abalamour ma c\'hallo Wikimedia kompren war ho tarvoud ha reizhañ an draen degaset gantañ ?</string>
   <string name="crash_report_dialog_dont_send_button">Lezel a-gostez</string>
   <string name="crash_report_dialog_always_send_button">Kas atav</string>
   <string name="crash_report_dialog_send_button">Kas</string>
+  <string name="crash_report_activity_title">Fazi an arload</string>
+  <string name="crash_report_relaunch_or_quit">Hon digarezit, ur fazi zo degouezhet gant an arolad Wikimedia ha chomet eo a-sav.
+
+Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_relaunch">Adloc\'hañ</string>
   <string name="crash_report_quit">Kuitaat</string>
   <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
@@ -255,7 +268,10 @@
   <string name="reading_lists_onboarding_intro">Krouiñ rolloù lenn evit ar pennadoù ho peus c\'hoant da lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn !</string>
   <string name="reading_lists_onboarding_for_example">Da skouer</string>
   <string name="reading_lists_onboarding_example1">Lec\'hioù da weladenniñ</string>
+  <string name="reading_lists_onboarding_example2">Loened karetañ</string>
   <string name="reading_lists_onboarding_example3">Egor !</string>
+  <string name="reading_lists_onboarding_got_it">Kaout anezhañ</string>
+  <string name="reading_lists_onboarding_page_delete">Alioù : Lakaat ur bajenn da riklañ a-zehoù pe a-gleiz evit lemel anezhi eus ar roll lenn-se.</string>
   <string name="user_option_sync_label">Penndibaboù</string>
   <string name="view_continue_reading_card_title">Kenderc\'hel da lenn</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
@@ -268,12 +284,12 @@
   <string name="menu_feed_card_dismiss">Kuzhat ar gartenn-mañ</string>
   <string name="menu_feed_card_dismissed">Kartenn kuzhet</string>
   <string name="feed_featured_image_share_subject">Skeudenn dibabet e Wikimedia Commons</string>
-  <string name="feed" fuzzy="true">Ergerzhet Wikipedia</string>
+  <string name="feed">Ergerzhet</string>
   <string name="view_card_footer_button">Gwelet muioc\'h</string>
   <string name="view_static_card_icon_content_description">Arlun ar gartenn</string>
   <string name="view_card_news_title">Er C\'heleier</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">1 devezhzo</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">dec\'hzo</item>
     <item quantity="other">%d devezhzo</item>
   </plurals>
 </resources>

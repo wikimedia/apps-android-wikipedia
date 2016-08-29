@@ -234,6 +234,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_item_count_plural">%s Artikelen</string>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
+  <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
   <string name="reading_list_sort_by_recent">No de Rezentesten zortéieren</string>
   <string name="reading_list_sort_by_recent_desc">No den Eelsten zortéieren</string>
   <string name="reading_list_menu_edit">Detailer vun der Lieslëscht änneren</string>
