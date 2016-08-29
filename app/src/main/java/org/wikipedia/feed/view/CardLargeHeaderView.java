@@ -80,7 +80,7 @@ public class CardLargeHeaderView extends FrameLayout {
             resetBackgroundColor();
         }
 
-        public void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
+        private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {
             final int animDuration = 500;
             final ObjectAnimator animator = ObjectAnimator.ofObject(view.getBackground(), "color",
                     new ArgbEvaluator(), targetColor);
