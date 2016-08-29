@@ -16,7 +16,7 @@ import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.backends.pipeline.PipelineDraweeController;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import com.facebook.imagepipeline.request.ImageRequest;
@@ -63,8 +63,7 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
                 .setProgressiveRenderingEnabled(true)
                 .setPostprocessor(facePostprocessor)
                 .build();
-        PipelineDraweeController controller = (PipelineDraweeController)
-                Fresco.newDraweeControllerBuilder()
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
                         .setImageRequest(request)
                         .setAutoPlayAnimations(true)
                         .build();
