@@ -32,8 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:ellipsize="end"
             android:textColor="@android:color/white"
-            tools:text="Lorem ipsum"/>
+            tools:text="Lorem ipsum" />
 
     </LinearLayout>
 
