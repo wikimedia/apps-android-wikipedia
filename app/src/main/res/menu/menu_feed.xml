@@ -9,4 +9,8 @@
     <item android:id="@+id/menu_feed_tabs"
         android:title="@string/menu_page_show_tabs"
         app:showAsAction="ifRoom"/>
+    <item android:id="@+id/explore_menu_overflow"
+        android:title="@null"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        app:showAsAction="ifRoom"/>
 </menu>

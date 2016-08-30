@@ -52,8 +52,8 @@
         <item name="link_preview_background_color">@color/link_preview_background_light</item>
         <item name="link_preview_text_color">@color/link_preview_text_light</item>
         <item name="link_preview_button_background">@drawable/link_preview_button_background_light</item>
-        <item name="nav_background_color">@color/nav_background_light</item>
-        <item name="nav_item_color">@color/nav_item_selector_light</item>
+        <item name="nav_background_color">@android:color/white</item>
+        <item name="nav_item_color">@color/darkest_gray</item>
         <item name="list_item_text_primary_color">@color/list_item_text_primary_light</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_light</item>
 

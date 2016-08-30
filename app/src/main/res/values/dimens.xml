@@ -98,6 +98,7 @@
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
+    <dimen name="overflow_elevation">16dp</dimen>
 
     <!-- Overhaul -->
     <dimen name="view_nav_view_pager_tab_layout_height">72dp</dimen>

@@ -1,0 +1,96 @@
+package org.wikipedia.views;
+
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.widget.PopupWindowCompat;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class ExploreOverflowView extends FrameLayout {
+
+    public interface Callback {
+        void loginClick();
+        void logoutClick();
+        void settingsClick();
+        void donateClick();
+    }
+
+    @BindView(R.id.explore_overflow_account_name) TextView accountName;
+    @BindView(R.id.explore_overflow_log_out) View logout;
+    @Nullable private Callback callback;
+    @Nullable private PopupWindow popupWindowHost;
+
+    public ExploreOverflowView(Context context) {
+        super(context);
+        init();
+    }
+
+    public void show(@NonNull View anchorView, @Nullable Callback callback) {
+        this.callback = callback;
+        popupWindowHost = new PopupWindow(getContext());
+        popupWindowHost.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            popupWindowHost.setElevation(getResources().getDimension(R.dimen.overflow_elevation));
+        }
+        PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
+        popupWindowHost.setFocusable(true);
+        popupWindowHost.setContentView(this);
+        popupWindowHost.showAsDropDown(anchorView);
+    }
+
+    @OnClick({R.id.explore_overflow_settings, R.id.explore_overflow_donate,
+            R.id.explore_overflow_account_container, R.id.explore_overflow_log_out})
+    protected void onItemClick(View view) {
+        if (popupWindowHost != null) {
+            popupWindowHost.dismiss();
+            popupWindowHost = null;
+        }
+        if (callback == null) {
+            return;
+        }
+        switch (view.getId()) {
+            case R.id.explore_overflow_account_container:
+                if (!WikipediaApp.getInstance().getUserInfoStorage().isLoggedIn()) {
+                    callback.loginClick();
+                }
+                break;
+            case R.id.explore_overflow_settings:
+                callback.settingsClick();
+                break;
+            case R.id.explore_overflow_donate:
+                callback.donateClick();
+                break;
+            case R.id.explore_overflow_log_out:
+                callback.logoutClick();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void init() {
+        inflate(getContext(), R.layout.view_explore_overflow, this);
+        ButterKnife.bind(this);
+
+        if (WikipediaApp.getInstance().getUserInfoStorage().isLoggedIn()) {
+            accountName.setText(WikipediaApp.getInstance().getUserInfoStorage().getUser().getUsername());
+            logout.setVisibility(VISIBLE);
+        } else {
+            accountName.setText(R.string.nav_item_login);
+            logout.setVisibility(GONE);
+        }
+    }
+}
