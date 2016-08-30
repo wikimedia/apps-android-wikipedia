@@ -59,6 +59,7 @@
 
         <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
         <item name="android:listViewStyle">@style/ListView</item>
+        <item name="navTabViewStyle">@style/NavTabView</item>
 
         <item name="feed_window_background_color">@color/feed_window_background_light</item>
         <item name="feed_text_primary_color">@color/feed_text_primary_light</item>
