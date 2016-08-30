@@ -1,7 +1,7 @@
 package org.wikipedia.analytics;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.MainActivity;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
@@ -90,7 +90,7 @@ public final class InstallReceiver extends BroadcastReceiver {
     private void openPageFromUrl(Context context, String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setClass(context, MainActivity.class);
+        intent.setClass(context, PageActivity.class);
         context.startActivity(intent);
     }
 }

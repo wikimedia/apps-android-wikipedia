@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.wikipedia.MainActivity;
 import org.wikipedia.PageTitleListCardItemCallback;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -25,6 +24,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -135,7 +135,7 @@ public class NewsFragment extends Fragment {
     private class Callback implements PageTitleListCardItemCallback {
         @Override
         public void onSelectPage(@NonNull HistoryEntry entry) {
-            startActivity(MainActivity.newIntent(getContext(), entry, entry.getTitle()));
+            startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), false));
         }
 
         @Override

@@ -95,10 +95,6 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
         LinkPreviewDialog.Callback, OverhaulSearchFragment.Callback,
         SearchResultsFragment.Callback, WiktionaryDialog.Callback {
-    public static final int ACTIVITY_REQUEST_LANGLINKS = 0;
-    public static final int ACTIVITY_REQUEST_EDIT_SECTION = 1;
-    public static final int ACTIVITY_REQUEST_GALLERY = 2;
-    public static final int ACTIVITY_REQUEST_VOICE_SEARCH = 3;
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
@@ -978,11 +974,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private boolean newArticleLanguageSelected(int requestCode, int resultCode) {
-        return requestCode == ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT;
+        return requestCode == Constants.ACTIVITY_REQUEST_LANGLINKS && resultCode == LangLinksActivity.ACTIVITY_RESULT_LANGLINK_SELECT;
     }
 
     private boolean galleryFilePageSelected(int requestCode, int resultCode) {
-        return requestCode == ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT;
+        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT;
     }
 
     private boolean languageChanged(int resultCode) {
@@ -990,7 +986,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private boolean voiceSearchRequested(int requestCode) {
-        return requestCode == ACTIVITY_REQUEST_VOICE_SEARCH;
+        return requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH;
     }
 
     private void handleVoiceSearchResult(int resultCode, Intent data) {

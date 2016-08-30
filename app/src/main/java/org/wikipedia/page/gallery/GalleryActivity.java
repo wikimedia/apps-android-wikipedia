@@ -26,7 +26,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.Constants;
-import org.wikipedia.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.ViewAnimations;
@@ -40,6 +39,7 @@ import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageCache;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.theme.Theme;
@@ -401,7 +401,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     public void finishWithPageResult(PageTitle resultTitle) {
         HistoryEntry historyEntry = new HistoryEntry(resultTitle,
                                                      HistoryEntry.SOURCE_INTERNAL_LINK);
-        Intent intent = MainActivity.newIntent(GalleryActivity.this, historyEntry, resultTitle);
+        Intent intent = PageActivity.newIntent(GalleryActivity.this, historyEntry, resultTitle, false);
         setResult(ACTIVITY_RESULT_FILEPAGE_SELECT, intent);
         finish();
     }

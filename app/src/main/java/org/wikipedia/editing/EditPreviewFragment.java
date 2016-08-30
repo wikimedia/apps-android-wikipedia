@@ -24,7 +24,7 @@ import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.StyleBundle;
-import org.wikipedia.MainActivity;
+import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -212,7 +212,7 @@ public class EditPreviewFragment extends Fragment {
                     showLeavingEditDialogue(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(MainActivity.newIntent(getContext(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
+                            startActivity(PageActivity.newIntent(getContext(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title, false));
                         }
                     });
                 }
