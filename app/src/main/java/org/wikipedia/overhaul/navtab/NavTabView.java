@@ -2,6 +2,7 @@ package org.wikipedia.overhaul.navtab;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.BoolRes;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -10,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.wikipedia.R;
@@ -25,7 +25,8 @@ public class NavTabView extends TextView {
     public NavTabView icon(@DrawableRes int id) {
         boolean wide = bool(R.bool.wide);
         icon = drawable(id);
-        setCompoundDrawablesWithIntrinsicBounds(wide ? icon : null, wide ? null : icon, null, null);
+        setCompoundDrawablesRelativeWithIntrinsicBounds(wide ? icon : null, wide ? null : icon,
+                null, null);
         return this;
     }
 
@@ -34,10 +35,15 @@ public class NavTabView extends TextView {
         return this;
     }
 
-    @Override protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
-        getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+    @Override public void setCompoundDrawablesRelativeWithIntrinsicBounds(@Nullable Drawable start,
+                                                                          @Nullable Drawable top,
+                                                                          @Nullable Drawable end,
+                                                                          @Nullable Drawable bottom) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            super.setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom);
+        } else {
+            setCompoundDrawablesWithIntrinsicBounds(start, top, end, bottom);
+        }
     }
 
     // It doesn't appear practical to tint an XML Drawable that itself is referenced in another XML
