@@ -70,10 +70,6 @@ public class ArticleHeaderImageView extends FrameLayout {
         }
     }
 
-    public boolean hasImage() {
-        return getVisibility() != GONE;
-    }
-
     public FaceAndColorDetectImageView getImage() {
         return image;
     }
