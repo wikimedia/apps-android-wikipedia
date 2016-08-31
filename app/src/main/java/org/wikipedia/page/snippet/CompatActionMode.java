@@ -7,7 +7,7 @@ import android.view.MenuInflater;
 import android.webkit.WebView;
 
 import org.wikipedia.R;
-import org.wikipedia.MainActivity;
+import org.wikipedia.page.PageFragment;
 import org.wikipedia.util.log.L;
 
 import static org.wikipedia.views.ViewUtil.getOriginatingView;
@@ -31,13 +31,13 @@ public class CompatActionMode {
         }
     }
 
-    public boolean shouldInjectCustomMenu(MainActivity activity) {
-        return !isTagged() && isOriginatedByWebViewOnMarshmallow() && activity.getCurPageFragment() != null;
+    public boolean shouldInjectCustomMenu() {
+        return !isTagged() && isOriginatedByWebViewOnMarshmallow();
     }
 
-    public void injectCustomMenu(MainActivity activity) {
+    public void injectCustomMenu(PageFragment fragment) {
         replaceTextSelectMenu();
-        activity.getCurPageFragment().onActionModeShown(this);
+        fragment.onActionModeShown(this);
     }
 
     public Menu getMenu() {

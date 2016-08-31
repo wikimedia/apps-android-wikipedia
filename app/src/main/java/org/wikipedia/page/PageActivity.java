@@ -931,10 +931,9 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     private <T> void conditionallyInjectCustomCabMenu(T mode) {
         currentActionMode = new CompatActionMode(mode);
-        // TODO: make action modes work
-        //if (currentActionMode.shouldInjectCustomMenu(PageActivity.this)) {
-        //    currentActionMode.injectCustomMenu(PageActivity.this);
-        //}
+        if (currentActionMode.shouldInjectCustomMenu()) {
+            currentActionMode.injectCustomMenu(pageFragment);
+        }
     }
 
     private void freezeToolbar() {

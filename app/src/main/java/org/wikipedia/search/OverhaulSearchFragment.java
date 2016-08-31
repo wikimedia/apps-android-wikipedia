@@ -119,7 +119,7 @@ public class OverhaulSearchFragment extends Fragment implements BackPressedHandl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        funnel = new SearchFunnel(WikipediaApp.getInstance(), SearchArticlesFragment.InvokeSource.of(invokeSource.code()));
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), InvokeSource.of(invokeSource.code()));
     }
 
     @Override
@@ -281,7 +281,7 @@ public class OverhaulSearchFragment extends Fragment implements BackPressedHandl
      */
     public void openSearch() {
         // create a new funnel every time Search is opened, to get a new session ID
-        funnel = new SearchFunnel(WikipediaApp.getInstance(), SearchArticlesFragment.InvokeSource.of(invokeSource.code()));
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), InvokeSource.of(invokeSource.code()));
         funnel.searchStart();
         isSearchActive = true;
         Callback callback = callback();

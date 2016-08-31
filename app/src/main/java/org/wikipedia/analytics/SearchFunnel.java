@@ -4,14 +4,14 @@ import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.search.SearchArticlesFragment;
+import org.wikipedia.search.OverhaulSearchFragment;
 
 public class SearchFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppSearch";
     private static final int REVISION = 15729321;
-    private SearchArticlesFragment.InvokeSource source;
+    private OverhaulSearchFragment.InvokeSource source;
 
-    public SearchFunnel(WikipediaApp app, SearchArticlesFragment.InvokeSource source) {
+    public SearchFunnel(WikipediaApp app, OverhaulSearchFragment.InvokeSource source) {
         super(app, SCHEMA_NAME, REVISION, Funnel.SAMPLE_LOG_100);
         this.source = source;
     }

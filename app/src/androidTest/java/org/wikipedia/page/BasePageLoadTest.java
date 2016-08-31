@@ -15,7 +15,6 @@ import com.squareup.spoon.Spoon;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.wikipedia.Site;
-import org.wikipedia.MainActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.tabs.TabsProvider;
 
@@ -27,7 +26,7 @@ public abstract class BasePageLoadTest {
 
     @Rule
     @NonNull
-    public final ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
+    public final ActivityTestRule<PageActivity> activityRule = new ActivityTestRule<>(PageActivity.class);
 
     protected void loadPageSync(String title) {
         loadPage(title);
@@ -61,7 +60,7 @@ public abstract class BasePageLoadTest {
                 getActivity().loadPage(pageTitle, new HistoryEntry(pageTitle,
                         HistoryEntry.SOURCE_RANDOM),
                         TabsProvider.TabPosition.CURRENT_TAB,
-                        true);
+                        false);
             }
         });
     }
@@ -89,7 +88,7 @@ public abstract class BasePageLoadTest {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(runnable);
     }
 
-    protected MainActivity getActivity() {
+    protected PageActivity getActivity() {
         return activityRule.getActivity();
     }
 

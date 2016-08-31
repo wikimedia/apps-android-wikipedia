@@ -7,8 +7,8 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import org.wikipedia.R;
-import org.wikipedia.MainActivity;
 import org.wikipedia.model.BaseModel;
+import org.wikipedia.page.PageActivity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -24,17 +24,17 @@ import java.util.Locale;
  *
  * TODO: check content_license_html is valid HTML
  */
-public class TranslationTests extends ActivityInstrumentationTestCase2<MainActivity> {
+public class TranslationTests extends ActivityInstrumentationTestCase2<PageActivity> {
     private static final String TAG = "TrTest";
 
     /** Add more if needed, but then also add some tests. */
     private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d", "%.2f"};
 
-    private MainActivity activity;
+    private PageActivity activity;
     private final StringBuilder mismatches = new StringBuilder();
 
     public TranslationTests() {
-        super(MainActivity.class);
+        super(PageActivity.class);
     }
 
     @Override
