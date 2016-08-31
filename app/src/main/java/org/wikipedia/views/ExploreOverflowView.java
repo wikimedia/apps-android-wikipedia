@@ -7,7 +7,9 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.PopupWindowCompat;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -40,15 +42,14 @@ public class ExploreOverflowView extends FrameLayout {
 
     public void show(@NonNull View anchorView, @Nullable Callback callback) {
         this.callback = callback;
-        popupWindowHost = new PopupWindow(getContext());
+        popupWindowHost = new PopupWindow(this, ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT, true);
         popupWindowHost.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             popupWindowHost.setElevation(getResources().getDimension(R.dimen.overflow_elevation));
         }
         PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
-        popupWindowHost.setFocusable(true);
-        popupWindowHost.setContentView(this);
-        popupWindowHost.showAsDropDown(anchorView);
+        PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, 0, Gravity.END);
     }
 
     @OnClick({R.id.explore_overflow_settings, R.id.explore_overflow_donate,
