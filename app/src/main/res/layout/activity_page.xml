@@ -75,8 +75,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/page_search_fragment"
-        android:name="org.wikipedia.search.OverhaulSearchFragment"
-        android:layout="@layout/fragment_search_overhaul"
-        tools:layout="@layout/fragment_search_overhaul" />
+        android:name="org.wikipedia.search.SearchFragment"
+        android:layout="@layout/fragment_search"
+        tools:layout="@layout/fragment_search" />
 
 </FrameLayout>

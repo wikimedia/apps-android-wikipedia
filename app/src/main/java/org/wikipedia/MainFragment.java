@@ -1,4 +1,4 @@
-package org.wikipedia.overhaul;
+package org.wikipedia;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -15,8 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.wikipedia.Constants;
-import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -25,15 +23,15 @@ import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.nearby.NearbyFragment;
-import org.wikipedia.overhaul.navtab.NavTab;
-import org.wikipedia.overhaul.navtab.NavTabViewPagerAdapter;
+import org.wikipedia.navtab.NavTab;
+import org.wikipedia.navtab.NavTabViewPagerAdapter;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
-import org.wikipedia.search.OverhaulSearchFragment;
+import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -44,22 +42,22 @@ import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
-public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
+public class MainFragment extends Fragment implements FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
-        OverhaulSearchFragment.Callback, SearchResultsFragment.Callback,
+        SearchFragment.Callback, SearchResultsFragment.Callback,
         LinkPreviewDialog.Callback {
-    @BindView(R.id.fragment_overhaul_view_pager) ViewPager viewPager;
+    @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
-    private OverhaulSearchFragment searchFragment;
+    private SearchFragment searchFragment;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab, @NonNull Fragment fragment);
     }
 
-    public static OverhaulFragment newInstance() {
-        OverhaulFragment fragment = new OverhaulFragment();
+    public static MainFragment newInstance() {
+        MainFragment fragment = new MainFragment();
         fragment.setRetainInstance(true);
         return fragment;
     }
@@ -68,14 +66,14 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
                                                  @Nullable ViewGroup container,
                                                  @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_overhaul, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         viewPager.setAdapter(new NavTabViewPagerAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getChildFragmentManager());
-        searchFragment = (OverhaulSearchFragment) getChildFragmentManager().findFragmentById(R.id.search_fragment);
+        searchFragment = (SearchFragment) getChildFragmentManager().findFragmentById(R.id.search_fragment);
         return view;
     }
 
@@ -91,7 +89,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchFromIntent(searchQuery, OverhaulSearchFragment.InvokeSource.VOICE);
+            openSearchFromIntent(searchQuery, SearchFragment.InvokeSource.VOICE);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -103,7 +101,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public void onFeedSearchRequested() {
-        searchFragment.setInvokeSource(OverhaulSearchFragment.InvokeSource.FEED_BAR);
+        searchFragment.setInvokeSource(SearchFragment.InvokeSource.FEED_BAR);
         searchFragment.openSearch();
     }
 
@@ -225,7 +223,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
         ShareUtil.shareText(getContext(), title);
     }
 
-    @OnPageChange(R.id.fragment_overhaul_view_pager) void onTabChanged(int position) {
+    @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
         Callback callback = callback();
         Fragment fragment = ((NavTabViewPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
         if (callback != null && fragment != null) {
@@ -244,7 +242,7 @@ public class OverhaulFragment extends Fragment implements FeedFragment.Callback,
     }
 
     private void openSearchFromIntent(@Nullable final CharSequence query,
-                                      final OverhaulSearchFragment.InvokeSource source) {
+                                      final SearchFragment.InvokeSource source) {
         tabLayout.post(new Runnable() {
             @Override
             public void run() {

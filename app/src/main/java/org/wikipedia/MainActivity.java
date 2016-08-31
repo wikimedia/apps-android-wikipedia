@@ -1,4 +1,4 @@
-package org.wikipedia.overhaul;
+package org.wikipedia;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,18 +6,17 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import org.wikipedia.MainActivityToolbarProvider;
 import org.wikipedia.activity.SingleFragmentActivityWithToolbar;
-import org.wikipedia.overhaul.navtab.NavTab;
+import org.wikipedia.navtab.NavTab;
 
-public class OverhaulActivity extends SingleFragmentActivityWithToolbar<OverhaulFragment>
-        implements OverhaulFragment.Callback {
+public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment>
+        implements MainFragment.Callback {
     public static Intent newIntent(@NonNull Context context) {
-        return new Intent(context, OverhaulActivity.class);
+        return new Intent(context, MainActivity.class);
     }
 
-    @Override protected OverhaulFragment createFragment() {
-        return OverhaulFragment.newInstance();
+    @Override protected MainFragment createFragment() {
+        return MainFragment.newInstance();
     }
 
     @Override protected void setTheme() { }

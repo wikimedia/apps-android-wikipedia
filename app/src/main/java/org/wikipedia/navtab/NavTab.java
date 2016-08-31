@@ -1,4 +1,4 @@
-package org.wikipedia.overhaul.navtab;
+package org.wikipedia.navtab;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;

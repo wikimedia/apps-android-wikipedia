@@ -100,6 +100,6 @@
     <dimen name="view_list_card_item_image">40dp</dimen>
     <dimen name="overflow_elevation">16dp</dimen>
 
-    <!-- Overhaul -->
+    <!-- Navigation -->
     <dimen name="view_nav_view_pager_tab_layout_height">72dp</dimen>
 </resources>

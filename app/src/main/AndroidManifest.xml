@@ -54,7 +54,7 @@
         <meta-data android:name="net.hockeyapp.android.appIdentifier"
             android:value="@string/hockeyapp_app_id" />
 
-        <activity android:name=".overhaul.OverhaulActivity"
+        <activity android:name=".MainActivity"
                   android:theme="@style/PageTheme"
                   android:windowSoftInputMode="stateHidden"
                   android:configChanges="orientation|screenSize"

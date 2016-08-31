@@ -1,4 +1,4 @@
-package org.wikipedia.overhaul.navtab;
+package org.wikipedia.navtab;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

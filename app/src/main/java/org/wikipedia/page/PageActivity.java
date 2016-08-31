@@ -64,8 +64,8 @@ import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.recurring.RecurringTasksExecutor;
-import org.wikipedia.search.OverhaulSearchFragment;
 import org.wikipedia.search.SearchBarHideHandler;
+import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
@@ -93,7 +93,7 @@ import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermis
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, OverhaulSearchFragment.Callback,
+        LinkPreviewDialog.Callback, SearchFragment.Callback,
         SearchResultsFragment.Callback, WiktionaryDialog.Callback {
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
@@ -113,7 +113,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     private Unbinder unbinder;
 
     private PageFragment pageFragment;
-    private OverhaulSearchFragment searchFragment;
+    private SearchFragment searchFragment;
 
     private WikipediaApp app;
     private Bus bus;
@@ -165,7 +165,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         updateProgressBar(false, true, 0);
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
-        searchFragment = (OverhaulSearchFragment) getSupportFragmentManager().findFragmentById(R.id.page_search_fragment);
+        searchFragment = (SearchFragment) getSupportFragmentManager().findFragmentById(R.id.page_search_fragment);
         bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this.getSupportFragmentManager());
 
         setSupportActionBar(toolbar);
@@ -294,7 +294,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             handleProcessTextIntent(intent);
         } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
             new IntentFunnel(app).logSearchWidgetTap();
-            openSearchFromIntent(null, OverhaulSearchFragment.InvokeSource.WIDGET);
+            openSearchFromIntent(null, SearchFragment.InvokeSource.WIDGET);
         } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
@@ -306,7 +306,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     private void handleShareIntent(Intent intent) {
         String text = intent.getStringExtra(Intent.EXTRA_TEXT);
         openSearchFromIntent(text == null ? null : text.trim(),
-                OverhaulSearchFragment.InvokeSource.INTENT_SHARE);
+                SearchFragment.InvokeSource.INTENT_SHARE);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -316,11 +316,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         }
         String text = intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT);
         openSearchFromIntent(text == null ? null : text.trim(),
-                OverhaulSearchFragment.InvokeSource.INTENT_PROCESS_TEXT);
+                SearchFragment.InvokeSource.INTENT_PROCESS_TEXT);
     }
 
     private void openSearchFromIntent(@Nullable final CharSequence query,
-                                      final OverhaulSearchFragment.InvokeSource source) {
+                                      final SearchFragment.InvokeSource source) {
         tabsContainerView.post(new Runnable() {
             @Override
             public void run() {
@@ -627,7 +627,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onPageSearchRequested() {
-        searchFragment.setInvokeSource(OverhaulSearchFragment.InvokeSource.TOOLBAR);
+        searchFragment.setInvokeSource(SearchFragment.InvokeSource.TOOLBAR);
         searchFragment.openSearch();
     }
 
@@ -992,7 +992,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         if (resultCode == RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchFromIntent(searchQuery, OverhaulSearchFragment.InvokeSource.VOICE);
+            openSearchFromIntent(searchQuery, SearchFragment.InvokeSource.VOICE);
         }
     }
 

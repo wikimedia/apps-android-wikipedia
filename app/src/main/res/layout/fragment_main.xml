@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <org.wikipedia.overhaul.navtab.NavTabLayout
+        <org.wikipedia.navtab.NavTabLayout
             android:id="@+id/view_nav_view_pager_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/view_nav_view_pager_tab_layout_height"
@@ -20,12 +20,12 @@
             app:tabIndicatorColor="@color/foundation_blue" />
 
         <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/fragment_overhaul_view_pager_container"
+            android:id="@+id/fragment_main_view_pager_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/view_nav_view_pager_tab_layout">
             <org.wikipedia.readinglist.NoSwipeViewPager
-                android:id="@+id/fragment_overhaul_view_pager"
+                android:id="@+id/fragment_main_view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </android.support.design.widget.CoordinatorLayout>
@@ -36,8 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/search_fragment"
-        android:name="org.wikipedia.search.OverhaulSearchFragment"
+        android:name="org.wikipedia.search.SearchFragment"
         android:layout="@id/view_nav_view_pager_tab_layout"
-        tools:layout="@layout/fragment_search_overhaul" />
+        tools:layout="@layout/fragment_search" />
 
 </FrameLayout>

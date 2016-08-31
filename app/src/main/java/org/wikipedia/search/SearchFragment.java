@@ -43,7 +43,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class OverhaulSearchFragment extends Fragment implements BackPressedHandler,
+public class SearchFragment extends Fragment implements BackPressedHandler,
         SearchResultsFragment.Parent, RecentSearchesFragment.Parent {
     public enum InvokeSource implements EnumCode {
         TOOLBAR(0),
@@ -131,7 +131,7 @@ public class OverhaulSearchFragment extends Fragment implements BackPressedHandl
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         app = WikipediaApp.getInstance();
-        View view = inflater.inflate(R.layout.fragment_search_overhaul, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, view);
 
         searchContainer.setOnClickListener(new View.OnClickListener() {
