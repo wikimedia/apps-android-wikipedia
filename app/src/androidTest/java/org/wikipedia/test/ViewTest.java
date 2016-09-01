@@ -34,34 +34,36 @@ import java.util.Locale;
     protected static final int WIDTH_DP_XS = 120;
 
     protected enum LayoutDirection { LOCALE, RTL }
-    protected enum Select { SELECTED, DESELECTED }
 
     private int widthDp;
     private Locale locale;
     private LayoutDirection layoutDirection;
+    private float fontScale;
     private Theme theme;
     private Context ctx;
 
     @DataPoints public static final Locale[] LOCALES = {Locale.ENGLISH};
     @DataPoints public static final LayoutDirection[] LAYOUT_DIRECTIONS = LayoutDirection.values();
+    @DataPoints("fontScales") public static final float[] FONT_SCALES = {1, 1.5f};
     @DataPoints public static final Theme[] THEMES = Theme.values();
-    @DataPoints public static final Select[] SELECTS = Select.values();
 
-    protected void setUp(int widthDp, @NonNull LayoutDirection layoutDirection,
+    protected void setUp(int widthDp, @NonNull LayoutDirection layoutDirection, float fontScale,
                          @NonNull Theme theme) {
-        setUp(widthDp, LOCALES[0], layoutDirection, theme);
+        setUp(widthDp, LOCALES[0], layoutDirection, fontScale, theme);
     }
 
     protected void setUp(int widthDp, @NonNull Locale locale,
-                         @NonNull LayoutDirection layoutDirection, @NonNull Theme theme) {
+                         @NonNull LayoutDirection layoutDirection, float fontScale,
+                         @NonNull Theme theme) {
         this.widthDp = widthDp;
         this.locale = locale;
         this.layoutDirection = layoutDirection;
+        this.fontScale = fontScale;
         this.theme = theme;
         ctx = new ContextThemeWrapper(InstrumentationRegistry.getTargetContext(),
                 theme.getResourceId());
         Locale.setDefault(locale);
-        config(widthDp, ctx, locale);
+        config();
     }
 
     protected void snap(@NonNull View subject, @Nullable String... dataPoints) {
@@ -79,6 +81,7 @@ import java.util.Locale;
         list.add(widthDp + "dp");
         list.add(locale.toString().toLowerCase());
         list.add(layoutDirection == LayoutDirection.RTL ? "rtl" : "ltr");
+        list.add("font" + fontScale + "x");
         list.add(theme.toString().toLowerCase());
         list.addAll(Arrays.asList(ArrayUtils.nullToEmpty(dataPoints)));
         Screenshot.snap(subject).setName(testName(list)).record();
@@ -88,9 +91,10 @@ import java.util.Locale;
         return ctx;
     }
 
-    private void config(int widthDp, @NonNull Context ctx, @NonNull Locale locale) {
+    private void config() {
         Configuration cfg = new Configuration(ctx.getResources().getConfiguration());
         cfg.screenWidthDp = widthDp;
+        cfg.fontScale = fontScale;
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             cfg.setLocales(new LocaleList(locale));
@@ -105,7 +109,8 @@ import java.util.Locale;
         ctx.getResources().updateConfiguration(cfg, null);
     }
 
-    // todo: identify method name by @Theory / @Test name instead of depth
+    // todo: identify method name by @Theory / @Test annotation instead of depth and remove repeated
+    //       calls to snap()
     private String testName(@NonNull Iterable<String> dataPoints) {
         final int depth = 4;
         StackTraceElement element = Thread.currentThread().getStackTrace()[depth];
