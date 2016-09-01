@@ -1,7 +1,5 @@
 package org.wikipedia.feed;
 
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
@@ -10,7 +8,6 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,13 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.BackPressedHandler;
-import org.wikipedia.BuildConfig;
-import org.wikipedia.MainActivityToolbarProvider;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
-import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
@@ -34,14 +28,10 @@ import org.wikipedia.feed.view.FeedRecyclerAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.login.LoginActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.UriUtil;
-import org.wikipedia.views.ExploreOverflowView;
 
 import java.util.List;
 
@@ -49,18 +39,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class FeedFragment extends Fragment implements BackPressedHandler,
-        MainActivityToolbarProvider {
-    @BindView(R.id.feed_app_bar_layout) AppBarLayout appBarLayout;
+public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
-    @BindView(R.id.feed_toolbar) Toolbar toolbar;
     private Unbinder unbinder;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
     private FeedFunnel funnel;
     private FeedViewCallback feedCallback = new FeedCallback();
-    private OverflowCallback overflowCallback = new OverflowCallback();
     private FeedHeaderOffsetChangedListener headerOffsetChangedListener = new FeedHeaderOffsetChangedListener();
     private int searchIconShowThresholdPx;
     private boolean searchIconVisible;
@@ -102,13 +88,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
 
         unbinder = ButterKnife.bind(this, view);
         feedView.set(coordinator, feedCallback);
-        appBarLayout.addOnOffsetChangedListener(headerOffsetChangedListener);
         searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
-
-        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
-            // TODO: remove when handled correctly by appcompat.
-            swipeRefreshLayout.setFitsSystemWindows(true);
-        }
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -142,7 +122,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     public void onDestroyView() {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
-        appBarLayout.removeOnOffsetChangedListener(headerOffsetChangedListener);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -150,14 +129,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.clear();
         inflater.inflate(R.menu.menu_feed, menu);
-        toolbar.post(new Runnable() {
-            @Override
-            public void run() {
-                setUpOverflowButton();
-            }
-        });
     }
 
     @Override
@@ -187,12 +159,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
                     getCallback().onFeedTabListRequested();
                 }
                 return true;
-            case R.id.explore_menu_overflow:
-                View overflowButton = toolbar.findViewById(item.getItemId());
-                if (overflowButton != null) {
-                    showOverflowMenu(overflowButton);
-                }
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -201,60 +167,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler,
     @Override
     public boolean onBackPressed() {
         return false;
-    }
-
-    @Override
-    public Toolbar getToolbar() {
-        return toolbar;
-    }
-
-    public void scrollToTop() {
-        feedView.smoothScrollToPosition(0);
-    }
-
-    private void setUpOverflowButton() {
-        View overflowButton = toolbar.findViewById(R.id.explore_menu_overflow);
-        if (overflowButton != null) {
-            overflowButton.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    showOverflowMenu(view);
-                    return true;
-                }
-            });
-        }
-    }
-
-    private void showOverflowMenu(@NonNull View anchor) {
-        ExploreOverflowView overflowView = new ExploreOverflowView(getContext());
-        overflowView.show(anchor, overflowCallback);
-    }
-
-    private class OverflowCallback implements ExploreOverflowView.Callback {
-        @Override
-        public void loginClick() {
-            startActivityForResult(LoginActivity.newIntent(app, LoginFunnel.SOURCE_NAV),
-                    LoginActivity.REQUEST_LOGIN);
-        }
-
-        @Override
-        public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(app),
-                    SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
-        }
-
-        @Override
-        public void donateClick() {
-            UriUtil.visitInExternalBrowser(getContext(),
-                    Uri.parse(String.format(getString(R.string.donate_url),
-                            BuildConfig.VERSION_NAME, app.getSystemLanguageCode())));
-        }
-
-        @Override
-        public void logoutClick() {
-            app.logOut();
-            FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
-        }
     }
 
     @Nullable private Callback getCallback() {

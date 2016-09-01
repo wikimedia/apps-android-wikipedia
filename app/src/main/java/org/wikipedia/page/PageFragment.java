@@ -680,7 +680,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!isAdded()) {
             return;
         }
-        menu.clear();
         if (!isSearching()) {
             inflater.inflate(R.menu.menu_page_actions, menu);
         }

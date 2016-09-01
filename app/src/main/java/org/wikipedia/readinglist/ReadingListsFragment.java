@@ -32,8 +32,6 @@ import org.wikipedia.util.FeedbackUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
-
 public class ReadingListsFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onLoadPage(PageTitle title, HistoryEntry entry);
@@ -73,8 +71,6 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_reading_lists, container, false);
-        // todo: [overhaul] remove.
-        rootView.setPadding(0, getContentTopOffsetPx(getContext()), 0, 0);
         readingListView = (RecyclerView) rootView.findViewById(R.id.reading_list_list);
         emptyContainer = rootView.findViewById(R.id.empty_container);
 
@@ -124,7 +120,6 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.clear();
         inflater.inflate(R.menu.menu_reading_lists, menu);
     }
 

@@ -6,62 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/fragment_feed_coordinator__save_state"
+    <org.wikipedia.feed.view.FeedView
+        android:id="@+id/fragment_feed_feed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/feed_window_background_color"
-        android:fitsSystemWindows="true">
-
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/feed_app_bar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/view_feed_header_height"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:elevation="0dp"
-            android:fitsSystemWindows="true">
-
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:contentScrim="@color/main_toolbar_background"
-                app:statusBarScrim="@color/status_bar_background"
-                app:titleEnabled="false">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="center"
-                    android:fitsSystemWindows="true"
-                    android:background="@drawable/feed_header_background"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/feed_header_wordmark"
-                    app:layout_collapseMode="parallax"
-                    />
-
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/feed_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:title="@string/fragment_feed_title"
-                    app:background="@color/main_toolbar_background"
-                    app:layout_collapseMode="pin" />
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-
-        </android.support.design.widget.AppBarLayout>
-
-        <org.wikipedia.feed.view.FeedView
-            android:id="@+id/fragment_feed_feed"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            app:behavior_overlapTop="@dimen/view_feed_overlap_top"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:minColumnWidth="@dimen/view_feed_min_column_width"/>
-
-    </android.support.design.widget.CoordinatorLayout>
+        android:scrollbars="vertical"
+        app:minColumnWidth="@dimen/view_feed_min_column_width"/>
 
 </android.support.v4.widget.SwipeRefreshLayout>

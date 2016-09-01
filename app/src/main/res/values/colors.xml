@@ -25,6 +25,7 @@
 
     <!-- TODO: consolidate and map all of the below colors to all of the above colors. -->
 
+    <color name="main_toolbar">@color/foundation_blue</color>
     <color name="nav_border">#505050</color>
     <color name="actionbar_disabled">#a0a0a0</color>
     <color name="button_disabled">#bebebe</color>
@@ -35,7 +36,6 @@
     <color name="gray_disabled">#80606060</color>
     <color name="gray_highlight">#808080</color>
     <color name="page_info_heading">#555</color>
-    <!-- TODO: replace this color when changing the toolbar color. -->
     <color name="actionbar_background">@color/darkest_gray</color>
     <color name="actionbar_highlight">#808080</color>
     <color name="search_text_hint">#808080</color>

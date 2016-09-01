@@ -3,7 +3,7 @@ package org.wikipedia;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.activity.SingleFragmentActivityWithToolbar;
@@ -22,15 +22,29 @@ public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment
     @Override protected void setTheme() { }
 
     @Override
-    public void onTabChanged(@NonNull NavTab tab, @NonNull Fragment fragment) {
-        getToolbar().setTitle(tab.text());
-        if (fragment instanceof MainActivityToolbarProvider) {
-            setSupportActionBar(((MainActivityToolbarProvider) fragment).getToolbar());
-            getToolbarContainer().setVisibility(View.GONE);
+    public void onTabChanged(@NonNull NavTab tab) {
+        if (tab.equals(NavTab.EXPLORE)) {
+            getToolbarWordmark().setVisibility(View.VISIBLE);
+            getSupportActionBar().setTitle("");
         } else {
-            getToolbarContainer().setVisibility(View.VISIBLE);
-            setSupportActionBar(getToolbar());
+            getToolbarWordmark().setVisibility(View.GONE);
+            getSupportActionBar().setTitle(tab.text());
         }
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    public void onSearchOpen() {
+        getToolbar().setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onSearchClose() {
+        getToolbar().setVisibility(View.VISIBLE);
+    }
+
+    @Nullable
+    @Override
+    public View getOverflowMenuButton() {
+        return getToolbar().findViewById(R.id.main_menu_overflow);
     }
 }

@@ -89,7 +89,7 @@
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
 
     <!-- The Feed -->
-    <dimen name="view_feed_header_height">240dp</dimen>
+    <dimen name="view_feed_header_height">160dp</dimen>
     <dimen name="view_feed_overlap_top">84dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>
     <dimen name="view_list_card_margin_vertical">5dp</dimen>

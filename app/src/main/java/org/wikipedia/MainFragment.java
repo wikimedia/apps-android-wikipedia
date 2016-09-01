@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
@@ -12,18 +13,23 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
-import org.wikipedia.nearby.NearbyFragment;
+import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
+import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.navtab.NavTabViewPagerAdapter;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -33,9 +39,12 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchResultsFragment;
+import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.UriUtil;
+import org.wikipedia.views.ExploreOverflowView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,9 +60,13 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
     private Unbinder unbinder;
     private SearchFragment searchFragment;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
+    private OverflowCallback overflowCallback = new OverflowCallback();
 
     public interface Callback {
-        void onTabChanged(@NonNull NavTab tab, @NonNull Fragment fragment);
+        void onTabChanged(@NonNull NavTab tab);
+        void onSearchOpen();
+        void onSearchClose();
+        @Nullable View getOverflowMenuButton();
     }
 
     public static MainFragment newInstance() {
@@ -92,6 +105,59 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
             openSearchFromIntent(searchQuery, SearchFragment.InvokeSource.VOICE);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_main, menu);
+        viewPager.post(new Runnable() {
+            @Override
+            public void run() {
+                setUpOverflowButton();
+            }
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.main_menu_overflow:
+                Callback callback = callback();
+                if (callback == null) {
+                    return false;
+                }
+                View overflowButton = callback.getOverflowMenuButton();
+                if (overflowButton != null) {
+                    showOverflowMenu(overflowButton);
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void setUpOverflowButton() {
+        Callback callback = callback();
+        if (callback == null) {
+            return;
+        }
+        View overflowButton = callback.getOverflowMenuButton();
+        if (overflowButton != null) {
+            overflowButton.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    showOverflowMenu(view);
+                    return true;
+                }
+            });
         }
     }
 
@@ -163,10 +229,6 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
         // todo: [overhaul] clear history.
     }
 
-    @Override public boolean isMenuAllowed() {
-        return true;
-    }
-
     @Override
     public void onSearchResultCopyLink(@NonNull PageTitle title) {
         copyLink(title.getCanonicalUri());
@@ -195,12 +257,18 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
 
     @Override
     public void onSearchOpen() {
-        // TODO: implement
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchOpen();
+        }
     }
 
     @Override
     public void onSearchClose() {
-        // TODO: implement
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchClose();
+        }
     }
 
     @Override
@@ -225,10 +293,9 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
 
     @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
         Callback callback = callback();
-        Fragment fragment = ((NavTabViewPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
-        if (callback != null && fragment != null) {
+        if (callback != null) {
             NavTab tab = NavTab.of(position);
-            callback.onTabChanged(tab, fragment);
+            callback.onTabChanged(tab);
         }
     }
 
@@ -253,6 +320,39 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
                 }
             }
         });
+    }
+
+    private void showOverflowMenu(@NonNull View anchor) {
+        ExploreOverflowView overflowView = new ExploreOverflowView(getContext());
+        overflowView.show(anchor, overflowCallback);
+    }
+
+    private class OverflowCallback implements ExploreOverflowView.Callback {
+        @Override
+        public void loginClick() {
+            startActivityForResult(LoginActivity.newIntent(getContext(), LoginFunnel.SOURCE_NAV),
+                    LoginActivity.REQUEST_LOGIN);
+        }
+
+        @Override
+        public void settingsClick() {
+            startActivityForResult(SettingsActivity.newIntent(getContext()),
+                    SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
+        }
+
+        @Override
+        public void donateClick() {
+            UriUtil.visitInExternalBrowser(getContext(),
+                    Uri.parse(String.format(getString(R.string.donate_url),
+                            BuildConfig.VERSION_NAME,
+                            WikipediaApp.getInstance().getSystemLanguageCode())));
+        }
+
+        @Override
+        public void logoutClick() {
+            WikipediaApp.getInstance().logOut();
+            FeedbackUtil.showMessage(MainFragment.this, R.string.toast_logout_complete);
+        }
     }
 
     @Nullable private Callback callback() {

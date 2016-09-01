@@ -49,8 +49,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
-
 /**
  * Displays a list of nearby pages.
  */
@@ -93,9 +91,6 @@ public class NearbyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_nearby, container, false);
         unbinder = ButterKnife.bind(this, view);
-
-        // todo: [overhaul] remove.
-        view.setPadding(0, getContentTopOffsetPx(getContext()), 0, 0);
 
         markerIconPassive = IconFactory.getInstance(getContext()).fromResource(R.drawable.ic_map_marker);
 

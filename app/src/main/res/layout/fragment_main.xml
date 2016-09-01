@@ -23,6 +23,7 @@
             android:id="@+id/fragment_main_view_pager_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
             android:layout_above="@id/view_nav_view_pager_tab_layout">
             <org.wikipedia.readinglist.NoSwipeViewPager
                 android:id="@+id/fragment_main_view_pager"
@@ -37,7 +38,7 @@
         android:layout_height="match_parent"
         android:id="@+id/search_fragment"
         android:name="org.wikipedia.search.SearchFragment"
-        android:layout="@id/view_nav_view_pager_tab_layout"
+        android:layout="@layout/fragment_search"
         tools:layout="@layout/fragment_search" />
 
 </FrameLayout>

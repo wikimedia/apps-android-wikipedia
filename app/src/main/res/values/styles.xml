@@ -12,6 +12,10 @@
         <item name="navTabViewStyle">@style/NavTabView</item>
     </style>
 
+    <style name="MainTheme" parent="AppTheme">
+        <item name="android:statusBarColor" tools:targetApi="21">@color/dark_blue</item>
+    </style>
+
     <style name="PageTheme" parent="AppTheme">
         <item name="android:windowTranslucentStatus" tools:targetApi="19">true</item>
     </style>

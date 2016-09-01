@@ -46,13 +46,11 @@ import java.text.NumberFormat;
 import java.util.Date;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
-import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class HistoryFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onLoadPage(PageTitle title, HistoryEntry entry);
         void onClearHistory();
-        boolean isMenuAllowed();
     }
 
     private ListView historyEntryList;
@@ -87,7 +85,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
-        rootView.setPadding(0, getContentTopOffsetPx(getContext()), 0, 0);
         historyEntryList = (ListView) rootView.findViewById(R.id.history_entry_list);
         historyEmptyContainer = rootView.findViewById(R.id.history_empty_container);
         historyEmptyTitle = (TextView) rootView.findViewById(R.id.history_empty_title);
@@ -181,19 +178,12 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        if (!isMenuAllowed()) {
-            return;
-        }
-        menu.clear();
         inflater.inflate(R.menu.menu_history, menu);
     }
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if (!isMenuAllowed()) {
-            return;
-        }
         boolean isHistoryAvailable = historyEntryList.getCount() > 0;
         menu.findItem(R.id.menu_clear_all_history)
                 .setVisible(isHistoryAvailable)
@@ -383,14 +373,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         if (callback != null) {
             callback.onClearHistory();
         }
-    }
-
-    private boolean isMenuAllowed() {
-        Callback callback = callback();
-        if (callback != null) {
-            return callback.isMenuAllowed();
-        }
-        return false;
     }
 
     @Nullable private Callback callback() {

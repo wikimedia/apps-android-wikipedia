@@ -13,29 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <LinearLayout
-        android:id="@+id/single_fragment_toolbar_container"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/single_fragment_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_height="?attr/actionBarSize"
+        style="@style/AppTheme.ToolbarStyle"
+        android:background="@color/main_toolbar"
+        app:theme="@style/AppTheme.ToolbarTheme"
+        app:titleTextColor="@android:color/white"
+        android:elevation="4dp">
 
-        <org.wikipedia.views.StatusBarBlankView
-            android:id="@+id/single_fragment_empty_status_bar"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/single_fragment_toolbar_wordmark"
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:background="@color/main_toolbar_background" />
+            app:srcCompat="@drawable/feed_header_wordmark"
+            android:contentDescription="@null"/>
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/single_fragment_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            style="@style/AppTheme.ToolbarStyle"
-            app:theme="@style/AppTheme.ToolbarTheme"
-            app:titleTextColor="@android:color/white"
-            android:elevation="4dp">
-        </android.support.v7.widget.Toolbar>
-
-    </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
 </FrameLayout>
