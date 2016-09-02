@@ -37,7 +37,7 @@ public class ContinueReadingCardView extends ListCardView
                 .setCallback(getCallback());
         header(header);
         CardLargeHeaderView largeHeader = new CardLargeHeaderView(getContext())
-                .setPageTitle(card.title())
+                .setTitle(card.title())
                 .setImage(card.image())
                 .onClickListener(new CardClickListener());
         largeHeader(largeHeader);

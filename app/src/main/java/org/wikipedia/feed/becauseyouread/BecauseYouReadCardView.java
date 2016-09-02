@@ -43,8 +43,7 @@ public class BecauseYouReadCardView extends ListCardView
                 .setCallback(getCallback());
         header(header);
         CardLargeHeaderView largeHeader = new CardLargeHeaderView(getContext())
-                .setPageTitle(card.pageTitle())
-                .setSubtitle(card.subtitle())
+                .setTitle(card.pageTitle())
                 .setImage(card.image())
                 .onClickListener(new SelectPageCallbackAdapter(card));
         largeHeader(largeHeader);
