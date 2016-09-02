@@ -19,6 +19,12 @@ android.productFlavors.all { flavor ->
     String variantName = flavor.name.capitalize() + android.testBuildType.capitalize()
     String testAllName = "testAll${variantName}"
     String jvmJUnitName = "test${variantName}UnitTest"
-    String androidInstrumentationName = "connected${variantName}AndroidTest"
+    String androidInstrumentationName
+    if (variantName == 'DevDebug' || variantName == 'AlphaRelease') {
+        androidInstrumentationName = "screenshotTests${variantName}"
+    } else {
+        androidInstrumentationName = "connected${variantName}AndroidTest"
+    }
+
     testAllTask testAllName, jvmJUnitName, androidInstrumentationName
 }

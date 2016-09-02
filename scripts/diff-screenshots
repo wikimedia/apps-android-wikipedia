@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+exec make -C "$(dirname "$0")"/.. -j4 -ksf- "$@" << 'eof'
+
+ref_dir := app/screenshots-ref
+draft_dir := app/screenshots
+diff_dir := app/screenshots-diff
+
+.SECONDARY:
+.PHONY: all
+all: $(wildcard $(ref_dir)/*)
+
+$(ref_dir)/%: $(diff_dir)/%
+	[ ! -e '$<' ] && touch '$@' && printf '\033[32m✓\033[00m $*\n' || \
+	! printf '\033[31m✗\033[00m $*\n'
+
+$(diff_dir)/%: $(draft_dir)/% | $(diff_dir)
+	compare -metric ae -fuzz 5% '$(ref_dir)/$*' '$<' '$@' 2> /dev/null && rm '$@' || \
+	[ $$? -eq 1 ]
+
+$(diff_dir):; mkdir '$@'

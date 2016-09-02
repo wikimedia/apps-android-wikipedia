@@ -40,3 +40,7 @@ www/preview.css
 *.apk
 # Older releases
 /releases
+
+# diff-screenshots
+/app/screenshots
+/app/screenshots-diff
