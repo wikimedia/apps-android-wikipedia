@@ -17,6 +17,7 @@ import org.wikipedia.util.StringUtil;
  *  @see <a href='https://www.mediawiki.org/wiki/Extension_default_namespaces'>Extension default namespaces</a>
  *  @see <a href='https://github.com/wikimedia/wikipedia-ios/blob/master/Wikipedia/Code/NSNumber+MWKTitleNamespace.h'>NSNumber+MWKTitleNamespace.h (iOS implementation)</a>
  *  @see <a href='https://www.mediawiki.org/wiki/Manual:Namespace#Built-in_namespaces'>Manual:Namespace</a>
+ *  @see <a href='https://en.wikipedia.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces|namespacealiases'>Namespaces reported by API</a>
  */
 public enum Namespace implements EnumCode {
     MEDIA(-2),
@@ -30,10 +31,10 @@ public enum Namespace implements EnumCode {
     TALK(1),
     USER(2),
     USER_TALK(3),
-    PROJECT(4),
-    PROJECT_TALK(5),
-    FILE(6),
-    FILE_TALK(7),
+    PROJECT(4), // WP alias
+    PROJECT_TALK(5), // WT alias
+    FILE(6), // Image alias
+    FILE_TALK(7), // Image talk alias
     MEDIAWIKI(8),
     MEDIAWIKI_TALK(9),
     TEMPLATE(10),
