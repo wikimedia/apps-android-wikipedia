@@ -2,16 +2,20 @@ package org.wikipedia.test;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.test.InstrumentationRegistry;
 import android.support.v4.text.TextUtilsCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.view.ContextThemeWrapper;
 import android.view.View;
 
+import com.facebook.common.util.UriUtil;
 import com.facebook.testing.screenshot.Screenshot;
 import com.facebook.testing.screenshot.ViewHelpers;
 
@@ -85,6 +89,38 @@ import java.util.Locale;
         list.add(theme.toString().toLowerCase());
         list.addAll(Arrays.asList(ArrayUtils.nullToEmpty(dataPoints)));
         Screenshot.snap(subject).setName(testName(list)).record();
+    }
+
+    protected void runOnMainSync(@NonNull Runnable runnable) {
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(runnable);
+    }
+
+    @NonNull protected String len(@StringRes int id) {
+        if (id == 0) {
+            return "no_";
+        }
+
+        String str = str(id);
+        final int medium = 30;
+        if (str.length() < medium) {
+            return "short_";
+        }
+        final int lng = 80;
+        if (str.length() < lng) {
+            return "medium_";
+        }
+        return "long_";
+    }
+
+    @Nullable protected Uri frescoUri(@DrawableRes int id) {
+        return id == 0 ? null : new Uri.Builder()
+                .scheme(UriUtil.LOCAL_RESOURCE_SCHEME)
+                .path(String.valueOf(id))
+                .build();
+    }
+
+    protected String str(@StringRes int id, Object... formatArgs) {
+        return id == 0 ? null : ctx().getString(id, formatArgs);
     }
 
     protected Context ctx() {
