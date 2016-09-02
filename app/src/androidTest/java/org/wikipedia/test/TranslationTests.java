@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.DisplayMetrics;
 import android.util.Log;
-//import org.wikimedia.wikipedia.test.R;
 import org.wikipedia.R;
 import org.wikipedia.MainActivity;
 import org.wikipedia.model.BaseModel;
