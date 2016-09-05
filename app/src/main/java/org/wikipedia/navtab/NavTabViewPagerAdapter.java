@@ -2,9 +2,9 @@ package org.wikipedia.navtab;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class NavTabViewPagerAdapter extends FragmentPagerAdapter {
+public class NavTabViewPagerAdapter extends FragmentStatePagerAdapter {
     public NavTabViewPagerAdapter(FragmentManager mgr) {
         super(mgr);
     }
