@@ -32,6 +32,11 @@ import org.wikipedia.util.FeedbackUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnPageChange;
+import butterknife.Unbinder;
+
 public class ReadingListsFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onLoadPage(PageTitle title, HistoryEntry entry);
@@ -40,13 +45,14 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private static final int PAGE_READING_LISTS = 0;
     private static final int PAGE_LIST_DETAIL = 1;
 
-    private RecyclerView readingListView;
-    private View emptyContainer;
-    private ViewPager pager;
+    private Unbinder unbinder;
+    @BindView(R.id.reading_list_list) RecyclerView readingListView;
+    @BindView(R.id.empty_container) View emptyContainer;
+    @BindView(R.id.pager) ViewPager pager;
     private List<ReadingList> readingLists = new ArrayList<>();
     private ReadingListsFunnel funnel = new ReadingListsFunnel();
 
-    private ReadingListDetailView listDetailView;
+    @BindView(R.id.list_detail_view) ReadingListDetailView listDetailView;
     private ReadingListAdapter adapter = new ReadingListAdapter();
     private ReadingListPagerAdapter pagerAdapter = new ReadingListPagerAdapter();
 
@@ -70,30 +76,19 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_reading_lists, container, false);
-        readingListView = (RecyclerView) rootView.findViewById(R.id.reading_list_list);
-        emptyContainer = rootView.findViewById(R.id.empty_container);
+        View view = inflater.inflate(R.layout.fragment_reading_lists, container, false);
+        unbinder = ButterKnife.bind(this, view);
 
-        // todo: use butter knife.
-        pager = (ViewPager) rootView.findViewById(R.id.pager);
-        listDetailView = (ReadingListDetailView) rootView.findViewById(R.id.list_detail_view);
         listDetailView.setActionListener(actionListener);
         listDetailView.setOnItemActionListener(itemActionListener);
 
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
 
-        pager = (ViewPager) rootView.findViewById(R.id.pager);
         pager.setAdapter(pagerAdapter);
-        pager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-                getActivity().supportInvalidateOptionsMenu();
-            }
-        });
 
         updateLists();
-        return rootView;
+        return view;
     }
 
     @Override
@@ -104,7 +99,12 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     @Override
     public void onDestroyView() {
+        listDetailView.setOnItemActionListener(null);
+        listDetailView.setActionListener(null);
         readingListView.setAdapter(null);
+        pager.setAdapter(null);
+        unbinder.unbind();
+        unbinder = null;
         super.onDestroyView();
     }
 
@@ -149,6 +149,10 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @OnPageChange(R.id.pager) void onListChanged() {
+        getActivity().supportInvalidateOptionsMenu();
     }
 
     private void updateLists() {
