@@ -114,7 +114,7 @@
   <string name="about_description">Wikipediaren aplikazioari buruz</string>
   <string name="privacy_policy_description">Pribatutasun politika</string>
   <string name="terms_of_use_description">Erabilera-baldintzak</string>
-  <string name="about_libraries_heading" fuzzy="true">erabilitako liburutegiak</string>
+  <string name="about_libraries_heading">Erabilitako liburutegiak</string>
   <string name="about_contributors_heading">Ekarleak</string>
   <string name="about_translators_heading">Itzultzaileak</string>
   <string name="about_app_license_heading">Lizentzia</string>
@@ -188,6 +188,8 @@
   <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
   <string name="article_menu_bar_navigate">Nabigatu artikuluaren kokagunera</string>
   <string name="reading_list_create_new">Sortu berria</string>
+  <string name="reading_list_sort">Sailkatu</string>
+  <string name="reading_list_sort_by_name">Sailkatu izenaren arabera</string>
   <string name="reading_list_item_delete_undo">Desegin</string>
   <string name="reading_list_edit_ok">Ados</string>
   <string name="reading_list_edit_cancel">Utzi</string>

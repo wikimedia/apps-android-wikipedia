@@ -37,6 +37,7 @@
   <string name="preference_title_language">Lenga de Wikipèdia</string>
   <string name="preference_languages_filter_hint">Recercar</string>
   <string name="langlinks_filter_hint">Recercar</string>
+  <string name="langlinks_empty">Aquesta pagina es pas disponibla dins d’autras lengas</string>
   <string name="langlinks_activity_title">Autras lengas</string>
   <string name="menu_save_changes">Enregistrar las modificacions</string>
   <string name="edit_section_error_retry">Ensajar tornarmai</string>

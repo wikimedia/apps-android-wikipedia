@@ -208,6 +208,8 @@
   <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="text_copied">Text an den Tëschespäicher kopéiert.</string>
   <string name="button_continue_to_article">Artikel liesen</string>
+  <string name="button_get_directions">Richtunge kréien</string>
+  <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
   <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
@@ -226,6 +228,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="nav_item_reading_lists">Lieslëschten</string>
   <string name="reading_list_untitled">Ouni Titel</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
+  <string name="reading_list_create_new">Neier uleeën</string>
   <string name="reading_list_added_to_named">Bei %s dobäigesat.</string>
   <string name="reading_list_added_to_unnamed">Op d\'Lieslëscht derbäigesat.</string>
   <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
