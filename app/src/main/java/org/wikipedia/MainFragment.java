@@ -30,7 +30,7 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.nearby.NearbyFragment;
-import org.wikipedia.navtab.NavTabViewPagerAdapter;
+import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -82,7 +82,7 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        viewPager.setAdapter(new NavTabViewPagerAdapter(getChildFragmentManager()));
+        viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
 
         bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getChildFragmentManager());
