@@ -97,6 +97,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         SearchResultsFragment.Callback, WiktionaryDialog.Callback {
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
+    public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     public static final String EXTRA_NEWTAB = "org.wikipedia.newtab";
@@ -143,7 +144,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     };
 
     @Override
-    @TargetApi(17)
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
@@ -258,6 +259,12 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
                 .putExtra(EXTRA_NEWTAB, inNewTab);
     }
 
+    @NonNull
+    public static Intent newIntentForTabList(@NonNull Context context) {
+        return new Intent(ACTION_SHOW_TAB_LIST)
+                .setClass(context, PageActivity.class);
+    }
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -279,6 +286,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             } else {
                 loadPage(title, historyEntry);
             }
+        } else if (ACTION_SHOW_TAB_LIST.equals(intent.getAction())) {
+            showTabList();
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getSite());
@@ -385,7 +394,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
      *                 foreground tab.
      * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
-    @TargetApi(17)
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void loadPage(final PageTitle title,
                          final HistoryEntry entry,
                          final TabPosition position,
@@ -614,6 +623,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onPagePopFragment() {
+        finish();
     }
 
     @Override
@@ -693,6 +703,19 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public void wiktionaryShowDialogForTerm(@NonNull String term) {
         pageFragment.getShareHandler().showWiktionaryDefinition(term);
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private void showTabList() {
+        if (isDestroyed()) {
+            return;
+        }
+        tabsContainerView.post(new Runnable() {
+            @Override
+            public void run() {
+                pageFragment.showTabList();
+            }
+        });
     }
 
     private void copyLink(@NonNull String url) {

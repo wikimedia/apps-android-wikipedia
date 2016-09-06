@@ -174,7 +174,7 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
 
     @Override
     public void onFeedTabListRequested() {
-        // todo: [overhaul] tab list.
+        startActivity(PageActivity.newIntentForTabList(getContext()));
     }
 
     @Override public void onFeedSearchRequested() {

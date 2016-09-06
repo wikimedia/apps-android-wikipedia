@@ -52,7 +52,7 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     }
 
     @Override
-    @TargetApi(17)
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public boolean isDestroyed() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             return super.isDestroyed();
