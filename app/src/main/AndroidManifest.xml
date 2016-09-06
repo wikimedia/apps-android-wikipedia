@@ -56,7 +56,7 @@
 
         <activity android:name=".MainActivity"
                   android:theme="@style/MainTheme"
-                  android:windowSoftInputMode="stateHidden"
+                  android:windowSoftInputMode="stateAlwaysHidden"
                   android:configChanges="orientation|screenSize"
                   android:launchMode="singleTask">
             <intent-filter>
