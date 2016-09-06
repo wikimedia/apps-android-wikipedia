@@ -35,11 +35,13 @@ public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment
     @Override
     public void onSearchOpen() {
         getToolbar().setVisibility(View.GONE);
+        setStatusBarColor(android.R.color.black);
     }
 
     @Override
     public void onSearchClose() {
         getToolbar().setVisibility(View.VISIBLE);
+        setStatusBarColor(R.color.dark_blue);
     }
 
     @Nullable

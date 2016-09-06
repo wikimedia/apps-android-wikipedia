@@ -88,6 +88,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private static final int PANEL_RECENT_SEARCHES = 0;
     private static final int PANEL_SEARCH_RESULTS = 1;
 
+    @BindView(R.id.empty_status_bar) View statusBarView;
     @BindView(R.id.search_container) View searchContainer;
     @BindView(R.id.search_toolbar) Toolbar toolbar;
     @BindView(R.id.search_cab_view) SearchView searchView;
@@ -189,6 +190,10 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     @NonNull
     public SearchFunnel getFunnel() {
         return funnel;
+    }
+
+    public void setStatusBarVisible(boolean visible) {
+        statusBarView.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     public void setInvokeSource(InvokeSource source) {

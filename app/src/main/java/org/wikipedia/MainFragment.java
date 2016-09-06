@@ -95,6 +95,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
         bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getChildFragmentManager());
         searchFragment = (SearchFragment) getChildFragmentManager().findFragmentById(R.id.search_fragment);
+        searchFragment.setStatusBarVisible(false);
         return view;
     }
 
@@ -323,7 +324,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public boolean onBackPressed() {
         Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
-        if (fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed()) {
+        if (searchFragment.onBackPressed()) {
+            return true;
+        } else if (fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed()) {
             return true;
         }
         return false;
