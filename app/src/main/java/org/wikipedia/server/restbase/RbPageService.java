@@ -123,7 +123,7 @@ public class RbPageService implements PageService {
 
     @Override
     public RbPageCombo pageCombo(String title, boolean noImages) throws IOException {
-        Response<RbPageCombo> rsp = webService.pageCombo(title, noImages).execute();
+        Response<RbPageCombo> rsp = webService.pageCombo(title, optional(noImages)).execute();
         if (rsp.isSuccessful() && !rsp.body().hasError()) {
             return rsp.body();
         }
