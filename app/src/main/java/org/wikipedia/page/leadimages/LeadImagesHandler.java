@@ -15,6 +15,7 @@ import android.view.animation.AnimationUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
@@ -271,9 +272,10 @@ public class LeadImagesHandler {
                     if (imageName != null) {
                         String filename = "File:" + imageName;
                         Site site = getTitle().getSite();
-                        GalleryActivity.showGallery(getActivity(),
+                        getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
                                 parentFragment.getTitleOriginal(), filename, site,
-                                GalleryFunnel.SOURCE_LEAD_IMAGE);
+                                GalleryFunnel.SOURCE_LEAD_IMAGE),
+                                Constants.ACTIVITY_REQUEST_GALLERY);
                     }
                     return true;
                 }

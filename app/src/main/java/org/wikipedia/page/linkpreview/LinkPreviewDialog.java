@@ -1,5 +1,6 @@
 package org.wikipedia.page.linkpreview;
 
+import org.wikipedia.Constants;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.history.HistoryEntry;
@@ -24,6 +25,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -74,8 +76,9 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             = new GalleryThumbnailScrollView.GalleryViewListener() {
         @Override
         public void onGalleryItemClicked(String imageName) {
-            GalleryActivity.showGallery(getActivity(), pageTitle, imageName,
-                    pageTitle.getSite(), GalleryFunnel.SOURCE_LINK_PREVIEW);
+            startActivityForResult(GalleryActivity.newIntent(getContext(), pageTitle, imageName,
+                    pageTitle.getSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
+                    Constants.ACTIVITY_REQUEST_GALLERY);
         }
     };
 
@@ -212,6 +215,16 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         super.onDismiss(dialogInterface);
         if (!navigateSuccess) {
             funnel.logCancel();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
+                && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT) {
+            startActivity(data);
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 

@@ -3,6 +3,7 @@ package org.wikipedia;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -31,9 +33,12 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
+import org.wikipedia.news.NewsActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.page.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
@@ -41,10 +46,13 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.ClipboardUtil;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ExploreOverflowView;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -103,6 +111,9 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
             openSearchFromIntent(searchQuery, SearchFragment.InvokeSource.VOICE);
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
+                && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT) {
+            startActivity(data);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -194,11 +205,27 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public void onFeedNewsItemSelected(NewsItemCard card) {
-        // todo: [overhaul] load page.
+        startActivity(NewsActivity.newIntent(getContext(), card.item(), card.site()));
     }
 
-    @Override public void onFeedShareImage(FeaturedImageCard card) {
-        // todo: [overhaul] share image.
+    @Override public void onFeedShareImage(final FeaturedImageCard card) {
+        final String thumbUrl = card.baseImage().thumbnail().source().toString();
+        final String fullSizeUrl = card.baseImage().image().source().toString();
+        new ImagePipelineBitmapGetter(getContext(), thumbUrl) {
+            @Override
+            public void onSuccess(@Nullable Bitmap bitmap) {
+                if (bitmap != null) {
+                    ShareUtil.shareImage(getContext(),
+                            bitmap,
+                            new File(thumbUrl).getName(),
+                            getString(R.string.feed_featured_image_share_subject) + " | "
+                                    + DateUtil.getFeedCardDateString(card.date().baseCalendar()),
+                            fullSizeUrl);
+                } else {
+                    FeedbackUtil.showMessage(MainFragment.this, getString(R.string.gallery_share_error, card.baseImage().title()));
+                }
+            }
+        }.get();
     }
 
     @Override public void onFeedDownloadImage(FeaturedImage image) {
@@ -206,7 +233,9 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
     }
 
     @Override public void onFeaturedImageSelected(FeaturedImageCard card) {
-        // todo: [overhaul] update loading indicator.
+        startActivityForResult(GalleryActivity.newIntent(getActivity(), card.baseImage(),
+                card.filename(), card.site(), GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE),
+                Constants.ACTIVITY_REQUEST_GALLERY);
     }
 
     @Override public void onLoading() {

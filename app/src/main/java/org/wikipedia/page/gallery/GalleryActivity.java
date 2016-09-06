@@ -2,6 +2,7 @@ package org.wikipedia.page.gallery;
 
 import android.app.Activity;
 import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
@@ -25,7 +26,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.ViewAnimations;
@@ -134,27 +134,22 @@ public class GalleryActivity extends ThemedActionBarActivity {
         }
     };
 
-    public static void showGallery(@NonNull Activity activity, @NonNull FeaturedImage image,
-                                   String filename, @NonNull Site site, int source) {
-        Intent galleryIntent = new Intent();
-        galleryIntent.setClass(activity, GalleryActivity.class);
-        galleryIntent.putExtra(EXTRA_FILENAME, filename);
-        galleryIntent.putExtra(EXTRA_SITE, site);
-        galleryIntent.putExtra(EXTRA_PAGETITLE, new PageTitle(FEED_FEATURED_IMAGE_TITLE, site));
-        galleryIntent.putExtra(EXTRA_SOURCE, source);
-        galleryIntent.putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image));
-        activity.startActivityForResult(galleryIntent, Constants.ACTIVITY_REQUEST_GALLERY);
+    @NonNull
+    public static Intent newIntent(@NonNull Context context, @NonNull FeaturedImage image,
+                                   @NonNull String filename, @NonNull Site site, int source) {
+        return newIntent(context, new PageTitle(FEED_FEATURED_IMAGE_TITLE, site), filename, site,
+                source).putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image));
     }
 
-    public static void showGallery(@NonNull Activity activity, @NonNull PageTitle pageTitle,
-                                   String filename, @NonNull Site site, int source) {
-        Intent galleryIntent = new Intent();
-        galleryIntent.setClass(activity, GalleryActivity.class);
-        galleryIntent.putExtra(EXTRA_FILENAME, filename);
-        galleryIntent.putExtra(EXTRA_SITE, site);
-        galleryIntent.putExtra(EXTRA_PAGETITLE, pageTitle);
-        galleryIntent.putExtra(EXTRA_SOURCE, source);
-        activity.startActivityForResult(galleryIntent, Constants.ACTIVITY_REQUEST_GALLERY);
+    @NonNull
+    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle pageTitle,
+                                   @NonNull String filename, @NonNull Site site, int source) {
+        return new Intent()
+                .setClass(context, GalleryActivity.class)
+                .putExtra(EXTRA_FILENAME, filename)
+                .putExtra(EXTRA_SITE, site)
+                .putExtra(EXTRA_PAGETITLE, pageTitle)
+                .putExtra(EXTRA_SOURCE, source);
     }
 
     @Override
@@ -400,7 +395,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
      */
     public void finishWithPageResult(PageTitle resultTitle) {
         HistoryEntry historyEntry = new HistoryEntry(resultTitle,
-                                                     HistoryEntry.SOURCE_INTERNAL_LINK);
+                HistoryEntry.SOURCE_INTERNAL_LINK);
         Intent intent = PageActivity.newIntent(GalleryActivity.this, historyEntry, resultTitle, false);
         setResult(ACTIVITY_RESULT_FILEPAGE_SELECT, intent);
         finish();
