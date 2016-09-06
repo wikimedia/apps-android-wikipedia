@@ -47,4 +47,12 @@ public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment
     public View getOverflowMenuButton() {
         return getToolbar().findViewById(R.id.main_menu_overflow);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragment().onBackPressed()) {
+            return;
+        }
+        finish();
+    }
 }

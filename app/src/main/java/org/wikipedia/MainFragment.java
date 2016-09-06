@@ -59,7 +59,7 @@ import butterknife.ButterKnife;
 import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
-public class MainFragment extends Fragment implements FeedFragment.Callback,
+public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
         SearchFragment.Callback, SearchResultsFragment.Callback,
         LinkPreviewDialog.Callback {
@@ -318,6 +318,15 @@ public class MainFragment extends Fragment implements FeedFragment.Callback,
     @Override
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(getContext(), title);
+    }
+
+    @Override
+    public boolean onBackPressed() {
+        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        if (fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed()) {
+            return true;
+        }
+        return false;
     }
 
     @OnPageChange(R.id.fragment_main_view_pager) void onTabChanged(int position) {
