@@ -1054,8 +1054,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     if (href.startsWith("/wiki/")) {
                         String filename = UriUtil.removeInternalLinkPrefix(href);
                         Site site = model.getTitle().getSite();
-                        GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
-                                filename, site, GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
+                        startActivityForResult(GalleryActivity.newIntent(getContext(),
+                                model.getTitleOriginal(), filename, site,
+                                GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                                Constants.ACTIVITY_REQUEST_GALLERY);
                     } else {
                         linkHandler.onUrlClick(href);
                     }
@@ -1071,8 +1073,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     String href = decodeURL(messagePayload.getString("href"));
                     String filename = UriUtil.removeInternalLinkPrefix(href);
                     Site site = model.getTitle().getSite();
-                    GalleryActivity.showGallery(getActivity(), model.getTitleOriginal(),
-                            filename, site, GalleryFunnel.SOURCE_NON_LEAD_IMAGE);
+                    startActivityForResult(GalleryActivity.newIntent(getContext(),
+                            model.getTitleOriginal(), filename, site,
+                            GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
+                            Constants.ACTIVITY_REQUEST_GALLERY);
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
                 }
