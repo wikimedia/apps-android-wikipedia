@@ -113,7 +113,7 @@ public class MwPageService implements PageService {
 
     @Override
     public MwPageCombo pageCombo(String title, boolean noImages) throws IOException {
-        Response<MwPageCombo> rsp = webService.pageCombo(title, noImages).execute();
+        Response<MwPageCombo> rsp = webService.pageCombo(title, optional(noImages)).execute();
         if (rsp.isSuccessful() && !rsp.body().hasError()) {
             return rsp.body();
         }
