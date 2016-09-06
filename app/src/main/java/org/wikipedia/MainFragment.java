@@ -39,6 +39,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.gallery.ImagePipelineBitmapGetter;
+import org.wikipedia.page.gallery.MediaDownloadReceiver;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
@@ -48,8 +49,10 @@ import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ExploreOverflowView;
 
 import java.io.File;
@@ -69,6 +72,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private SearchFragment searchFragment;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
     private OverflowCallback overflowCallback = new OverflowCallback();
+
+    // The permissions request API doesn't take a callback, so in the event we have to
+    // ask for permission to download a featured image from the feed, we'll have to hold
+    // the image we're waiting for permission to download as a bit of state here. :(
+    @Nullable private FeaturedImage pendingDownloadImage;
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab);
@@ -156,6 +164,28 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
+                if (PermissionUtil.isPermitted(grantResults)) {
+                    if (pendingDownloadImage != null) {
+                        download(pendingDownloadImage);
+                    }
+                } else {
+                    setPendingDownload(null);
+                    L.i("Write permission was denied by user");
+                    FeedbackUtil.showMessage(this,
+                            R.string.gallery_save_image_write_permission_rationale);
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
     private void setUpOverflowButton() {
         Callback callback = callback();
         if (callback == null) {
@@ -230,7 +260,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedDownloadImage(FeaturedImage image) {
-        // todo: [overhaul] download image.
+        if (!(PermissionUtil.hasWriteExternalStoragePermission(getContext()))) {
+            setPendingDownload(image);
+            requestWriteExternalStoragePermission();
+        } else {
+            download(image);
+        }
     }
 
     @Override public void onFeaturedImageSelected(FeaturedImageCard card) {
@@ -361,6 +396,20 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 }
             }
         });
+    }
+
+    private void download(@NonNull FeaturedImage image) {
+        setPendingDownload(null);
+        new MediaDownloadReceiver(getActivity()).download(image);
+    }
+
+    private void setPendingDownload(@Nullable FeaturedImage image) {
+        pendingDownloadImage = image;
+    }
+
+    private void requestWriteExternalStoragePermission() {
+        PermissionUtil.requestWriteStorageRuntimePermissions(this,
+                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
     private void showOverflowMenu(@NonNull View anchor) {

@@ -53,12 +53,10 @@ import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.page.gallery.MediaDownloadReceiver;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
@@ -77,7 +75,6 @@ import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
@@ -89,7 +86,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
-import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermissions;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
@@ -130,11 +126,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
     @Nullable private PageLoadCallbacks pageLoadCallbacks;
-
-    // The permissions request API doesn't take a callback, so in the event we have to
-    // ask for permission to download a featured image from the feed, we'll have to hold
-    // the image we're waiting for permission to download as a bit of state here. :(
-    @Nullable private FeaturedImage pendingDownloadImage;
 
     private DialogInterface.OnDismissListener listDialogDismissListener = new DialogInterface.OnDismissListener() {
         @Override
@@ -363,11 +354,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
      */
     public boolean isSearching() {
         return searchFragment != null && searchFragment.isSearchActive();
-    }
-
-    public void resetAfterClearHistory() {
-        // TODO: move this somewhere else
-        Prefs.clearTabs();
     }
 
     /**
@@ -732,16 +718,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         return this;
     }
 
-    private void download(@NonNull FeaturedImage image) {
-        setPendingDownload(null);
-        new MediaDownloadReceiver(this).download(image);
-    }
-
-    private void requestWriteExternalStoragePermission() {
-        requestWriteStorageRuntimePermissions(this,
-                Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
-    }
-
     private void loadMainPageIfNoTabs() {
         loadMainPage(TabPosition.CURRENT_TAB, true);
     }
@@ -930,28 +906,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         nullifyActionMode();
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
-                if (PermissionUtil.isPermitted(grantResults)) {
-                    if (pendingDownloadImage != null) {
-                        download(pendingDownloadImage);
-                    }
-                } else {
-                    setPendingDownload(null);
-                    L.i("Write permission was denied by user");
-                    FeedbackUtil.showMessage(this,
-                            R.string.gallery_save_image_write_permission_rationale);
-                }
-                break;
-            default:
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
-
     private <T> void conditionallyInjectCustomCabMenu(T mode) {
         currentActionMode = new CompatActionMode(mode);
         if (currentActionMode.shouldInjectCustomMenu()) {
@@ -1045,10 +999,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
                 new ComponentName(this, WidgetProviderFeaturedPage.class));
         widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
         sendBroadcast(widgetIntent);
-    }
-
-    private void setPendingDownload(@Nullable FeaturedImage image) {
-        pendingDownloadImage = image;
     }
 
     @VisibleForTesting

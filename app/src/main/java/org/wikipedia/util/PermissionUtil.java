@@ -1,7 +1,7 @@
 package org.wikipedia.util;
 
 import android.Manifest;
-import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -20,8 +20,8 @@ public final class PermissionUtil {
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED;
     }
 
-    public static boolean hasWriteExternalStoragePermission(@NonNull Activity activity) {
-        return ContextCompat.checkSelfPermission(activity,
+    public static boolean hasWriteExternalStoragePermission(@NonNull Context context) {
+        return ContextCompat.checkSelfPermission(context,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
 
