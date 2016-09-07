@@ -44,7 +44,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
@@ -214,8 +213,16 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return ActivityUtil.defaultOnOptionsItemSelected(this, item)
-                || super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (shouldRecreateMainActivity()) {
+                    startActivity(getSupportParentActivityIntent());
+                }
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -671,6 +678,10 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public AppCompatActivity getActivity() {
         return this;
+    }
+
+    private boolean shouldRecreateMainActivity() {
+        return getIntent().getAction().equals(Intent.ACTION_VIEW);
     }
 
     private void loadMainPageIfNoTabs() {
