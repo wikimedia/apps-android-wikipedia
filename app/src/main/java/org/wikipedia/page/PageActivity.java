@@ -60,7 +60,6 @@ import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.recurring.RecurringTasksExecutor;
-import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.Prefs;
@@ -116,8 +115,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     private ZeroConfig currentZeroConfig;
     private WikipediaZeroUsageFunnel zeroFunnel;
 
-    // TODO: remove after overhaul (replace with CoordinatorLayout)
-    private SearchBarHideHandler searchBarHideHandler = new SearchBarHideHandler();
+    private PageToolbarHideHandler toolbarHideHandler;
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
     @Nullable private PageLoadCallbacks pageLoadCallbacks;
@@ -158,6 +156,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbarHideHandler = new PageToolbarHideHandler(this, toolbarContainerView);
 
         boolean languageChanged = false;
         zeroFunnel = app.getWikipediaZeroHandler().getZeroFunnel();
@@ -483,8 +483,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Nullable
     @Override
-    public SearchBarHideHandler onPageGetSearchBarHideHandler() {
-        return searchBarHideHandler;
+    public PageToolbarHideHandler onPageGetToolbarHideHandler() {
+        return toolbarHideHandler;
     }
 
     @Override

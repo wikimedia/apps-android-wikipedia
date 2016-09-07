@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
-import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 
@@ -44,7 +43,7 @@ public interface PageLoadStrategy {
                @NonNull SwipeRefreshLayoutWithScroll refreshView,
                @NonNull ObservableWebView webView,
                @NonNull CommunicationBridge bridge,
-               @NonNull SearchBarHideHandler searchBarHideHandler,
+               @NonNull PageToolbarHideHandler toolbarHideHandler,
                @NonNull LeadImagesHandler leadImagesHandler,
                @NonNull List<PageBackStackItem> backStack);
 

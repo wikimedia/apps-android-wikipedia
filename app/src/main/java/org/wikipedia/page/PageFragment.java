@@ -66,7 +66,6 @@ import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;
 import org.wikipedia.readinglist.page.database.ReadingListPageDao;
 import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
-import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.util.DimenUtil;
@@ -97,7 +96,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageShowBottomSheet(@NonNull BottomSheetDialog dialog);
         void onPageShowBottomSheet(@NonNull BottomSheetDialogFragment dialog);
         void onPageDismissBottomSheet();
-        @Nullable SearchBarHideHandler onPageGetSearchBarHideHandler();
+        @Nullable PageToolbarHideHandler onPageGetToolbarHideHandler();
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry,
                             @NonNull TabsProvider.TabPosition tabPosition);
@@ -152,7 +151,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     private ArticleHeaderView articleHeaderView;
     private LeadImagesHandler leadImagesHandler;
-    private SearchBarHideHandler searchBarHideHandler;
+    private PageToolbarHideHandler toolbarHideHandler;
     private PageActionToolbarHideHandler pageActionToolbarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
@@ -302,7 +301,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         //uninitialize the bridge, so that no further JS events can have any effect.
         bridge.cleanup();
         tabsProvider.setTabsProviderListener(null);
-        searchBarHideHandler.setScrollView(null);
+        toolbarHideHandler.setScrollView(null);
         webView.clearAllListeners();
         super.onDestroyView();
     }
@@ -387,8 +386,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // TODO: initialize View references in onCreateView().
         articleHeaderView = findById(getView(), R.id.page_header_view);
         leadImagesHandler = new LeadImagesHandler(this, bridge, webView, articleHeaderView);
-        searchBarHideHandler = getSearchBarHideHandler();
-        searchBarHideHandler.setScrollView(webView);
+        toolbarHideHandler = getSearchBarHideHandler();
+        toolbarHideHandler.setScrollView(webView);
 
         shareHandler = new ShareHandler(this, bridge);
         tabsProvider = new TabsProvider(this, tabList);
@@ -401,7 +400,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     contextMenuListener);
         }
 
-        pageLoadStrategy.setUp(model, this, refreshView, webView, bridge, searchBarHideHandler,
+        pageLoadStrategy.setUp(model, this, refreshView, webView, bridge, toolbarHideHandler,
                 leadImagesHandler, getCurrentTab().getBackStack());
     }
 
@@ -1089,7 +1088,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      */
     private void hidePageContent() {
         leadImagesHandler.hide();
-        searchBarHideHandler.setFadeEnabled(false);
+        toolbarHideHandler.setFadeEnabled(false);
         pageLoadStrategy.onHidePageContent();
         webView.setVisibility(View.INVISIBLE);
     }
@@ -1220,11 +1219,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     @Nullable
-    public SearchBarHideHandler getSearchBarHideHandler() {
-        SearchBarHideHandler handler = null;
+    public PageToolbarHideHandler getSearchBarHideHandler() {
+        PageToolbarHideHandler handler = null;
         Callback callback = callback();
         if (callback != null) {
-            handler = callback.onPageGetSearchBarHideHandler();
+            handler = callback.onPageGetToolbarHideHandler();
         }
         return handler;
     }

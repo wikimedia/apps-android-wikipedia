@@ -30,7 +30,6 @@ import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.savedpages.LoadSavedPageTask;
-import org.wikipedia.search.SearchBarHideHandler;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;
 import org.wikipedia.server.PageServiceFactory;
@@ -107,7 +106,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     private SwipeRefreshLayoutWithScroll refreshView;
     @NonNull private final WikipediaApp app = WikipediaApp.getInstance();
     private LeadImagesHandler leadImagesHandler;
-    private SearchBarHideHandler searchBarHideHandler;
+    private PageToolbarHideHandler toolbarHideHandler;
     private EditHandler editHandler;
 
     private BottomContentInterface bottomContentHandler;
@@ -119,7 +118,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
                       @NonNull SwipeRefreshLayoutWithScroll refreshView,
                       @NonNull ObservableWebView webView,
                       @NonNull CommunicationBridge bridge,
-                      @NonNull SearchBarHideHandler searchBarHideHandler,
+                      @NonNull PageToolbarHideHandler toolbarHideHandler,
                       @NonNull LeadImagesHandler leadImagesHandler,
                       @NonNull List<PageBackStackItem> backStack) {
         this.model = model;
@@ -127,7 +126,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
         this.refreshView = refreshView;
         this.webView = webView;
         this.bridge = bridge;
-        this.searchBarHideHandler = searchBarHideHandler;
+        this.toolbarHideHandler = toolbarHideHandler;
         this.leadImagesHandler = leadImagesHandler;
 
         setUpBridgeListeners();
@@ -260,7 +259,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             @Override
             public void onLayoutComplete(int sequence) {
                 if (fragment.isAdded()) {
-                    searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+                    toolbarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
                 }
             }
         }, sequenceNumber.get());
@@ -843,7 +842,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
             if (!fragment.isAdded() || !sequenceNumber.inSync(sequence)) {
                 return;
             }
-            searchBarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
+            toolbarHideHandler.setFadeEnabled(leadImagesHandler.isLeadImageEnabled());
 
             if (runnable != null) {
                 // when the lead image is laid out, load the lead section and the rest

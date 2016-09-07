@@ -38,13 +38,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/main_toolbar_background"
+        android:background="@drawable/toolbar_background"
         android:elevation="4dp">
 
         <org.wikipedia.views.StatusBarBlankView
             android:id="@+id/empty_status_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@color/main_toolbar_background"/>
 
         <FrameLayout
             android:layout_width="match_parent"

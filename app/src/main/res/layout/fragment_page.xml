@@ -124,9 +124,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     app:tabGravity="fill"
-                    android:background="#37393d"
-                    app:tabSelectedTextColor="#37393d"
-                    app:tabIndicatorColor="#37393d">
+                    android:background="@color/darkest_gray"
+                    app:tabSelectedTextColor="@color/darkest_gray"
+                    app:tabIndicatorColor="@color/darkest_gray">
                     <android.support.design.widget.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
