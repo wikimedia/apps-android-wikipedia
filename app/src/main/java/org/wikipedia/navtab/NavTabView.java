@@ -54,7 +54,7 @@ public class NavTabView extends TextView {
             return;
         }
 
-        int color = color(isSelected() ? R.color.foundation_blue : R.color.gray_highlight);
+        int color = color(isSelected() ? R.color.foundation_blue : R.color.foundation_gray);
         DrawableCompat.setTint(icon, color);
     }
 

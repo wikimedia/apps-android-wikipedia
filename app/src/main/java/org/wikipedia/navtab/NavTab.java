@@ -19,9 +19,9 @@ public enum NavTab implements EnumCode {
             return FeedFragment.newInstance();
         }
     },
-    NEARBY(R.string.nav_item_nearby, R.drawable.ic_explore_black_24dp) {
+    READING_LISTS(R.string.nav_item_reading_lists, R.drawable.ic_collections_bookmark_black_24dp) {
         @NonNull @Override public Fragment newInstance() {
-            return NearbyFragment.newInstance();
+            return ReadingListsFragment.newInstance();
         }
     },
     HISTORY(R.string.nav_item_history, R.drawable.ic_restore_black_24dp) {
@@ -29,9 +29,9 @@ public enum NavTab implements EnumCode {
             return HistoryFragment.newInstance();
         }
     },
-    READING_LISTS(R.string.nav_item_reading_lists, R.drawable.ic_bookmark_black_24dp) {
+    NEARBY(R.string.nav_item_nearby, R.drawable.ic_explore_black_24dp) {
         @NonNull @Override public Fragment newInstance() {
-            return ReadingListsFragment.newInstance();
+            return NearbyFragment.newInstance();
         }
     };
 
