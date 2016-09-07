@@ -223,6 +223,7 @@
         <item name="android:gravity">center</item>
         <item name="android:drawablePadding">4dp</item>
         <item name="android:maxLines">1</item>
+        <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@drawable/view_nav_tab_text_color</item>
     </style>
 
