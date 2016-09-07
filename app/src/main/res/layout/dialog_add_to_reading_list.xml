@@ -31,9 +31,10 @@
 
             <ImageButton
                 android:id="@+id/close_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:tint="?attr/link_preview_text_color"
                 app:srcCompat="@drawable/ic_close_white_24dp"
                 android:contentDescription="@string/dialog_close_description"/>
