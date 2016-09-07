@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
@@ -97,11 +96,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     public static final String EXTRA_NEWTAB = "org.wikipedia.newtab";
-    public static final String EXTRA_SEARCH_FROM_WIDGET = "searchFromWidget";
-    public static final String EXTRA_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
-    private static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
 
     @BindView(R.id.tabs_container) View tabsContainerView;
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
@@ -284,53 +280,12 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             PageTitle title = new PageTitle(query, app.getSite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
             loadPageInForegroundTab(title, historyEntry);
-        } else if (Intent.ACTION_SEND.equals(intent.getAction())
-                && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
-            new IntentFunnel(app).logShareIntent();
-            handleShareIntent(intent);
-        } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
-                && PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
-            new IntentFunnel(app).logProcessTextIntent();
-            handleProcessTextIntent(intent);
-        } else if (intent.hasExtra(EXTRA_SEARCH_FROM_WIDGET)) {
-            new IntentFunnel(app).logSearchWidgetTap();
-            openSearchFromIntent(null, SearchFragment.InvokeSource.WIDGET);
-        } else if (intent.hasExtra(EXTRA_FEATURED_ARTICLE_FROM_WIDGET)) {
+        } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
             new IntentFunnel(app).logFeaturedArticleWidgetTap();
             loadMainPageInForegroundTab();
         } else {
             loadMainPageIfNoTabs();
         }
-    }
-
-    private void handleShareIntent(Intent intent) {
-        String text = intent.getStringExtra(Intent.EXTRA_TEXT);
-        openSearchFromIntent(text == null ? null : text.trim(),
-                SearchFragment.InvokeSource.INTENT_SHARE);
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    private void handleProcessTextIntent(Intent intent) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return;
-        }
-        String text = intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT);
-        openSearchFromIntent(text == null ? null : text.trim(),
-                SearchFragment.InvokeSource.INTENT_PROCESS_TEXT);
-    }
-
-    private void openSearchFromIntent(@Nullable final CharSequence query,
-                                      final SearchFragment.InvokeSource source) {
-        tabsContainerView.post(new Runnable() {
-            @Override
-            public void run() {
-                searchFragment.setInvokeSource(source);
-                searchFragment.openSearch();
-                if (query != null) {
-                    searchFragment.setSearchText(query);
-                }
-            }
-        });
     }
 
     /**
@@ -843,8 +798,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             handleLoginActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryFilePageSelected(requestCode, resultCode)) {
             handleLangLinkOrFilePageResult(data);
-        } else if (voiceSearchRequested(requestCode)) {
-            handleVoiceSearchResult(resultCode, data);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -959,18 +912,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     private boolean languageChanged(int resultCode) {
         return resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
-    }
-
-    private boolean voiceSearchRequested(int requestCode) {
-        return requestCode == Constants.ACTIVITY_REQUEST_VOICE_SEARCH;
-    }
-
-    private void handleVoiceSearchResult(int resultCode, Intent data) {
-        if (resultCode == RESULT_OK && data != null
-                && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
-            String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchFromIntent(searchQuery, SearchFragment.InvokeSource.VOICE);
-        }
     }
 
     /**
