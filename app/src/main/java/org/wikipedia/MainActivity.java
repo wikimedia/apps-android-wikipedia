@@ -39,15 +39,25 @@ public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment
     }
 
     @Override
-    public void onSearchClose() {
+    public void onSearchClose(boolean shouldFinishActivity) {
         getToolbar().setVisibility(View.VISIBLE);
         setStatusBarColor(R.color.dark_blue);
+        if (shouldFinishActivity) {
+            finish();
+        }
     }
 
     @Nullable
     @Override
     public View getOverflowMenuButton() {
         return getToolbar().findViewById(R.id.main_menu_overflow);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        getFragment().handleIntent(intent);
     }
 
     @Override

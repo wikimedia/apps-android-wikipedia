@@ -1,11 +1,13 @@
 package org.wikipedia;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
@@ -22,6 +24,7 @@ import android.view.ViewGroup;
 
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -81,7 +84,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab);
         void onSearchOpen();
-        void onSearchClose();
+        void onSearchClose(boolean shouldFinishActivity);
         @Nullable View getOverflowMenuButton();
     }
 
@@ -104,6 +107,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getChildFragmentManager());
         searchFragment = (SearchFragment) getChildFragmentManager().findFragmentById(R.id.search_fragment);
         searchFragment.setStatusBarVisible(false);
+
+        if (savedInstanceState == null) {
+            handleIntent(getActivity().getIntent());
+        }
         return view;
     }
 
@@ -183,6 +190,26 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 break;
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    public void handleIntent(Intent intent) {
+        IntentFunnel funnel = new IntentFunnel(WikipediaApp.getInstance());
+        if (Intent.ACTION_SEND.equals(intent.getAction())
+                && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
+            funnel.logShareIntent();
+            openSearchFromIntent(intent.getStringExtra(Intent.EXTRA_TEXT),
+                    SearchFragment.InvokeSource.INTENT_SHARE);
+        } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
+                && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())
+                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            funnel.logProcessTextIntent();
+            openSearchFromIntent(intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT),
+                    SearchFragment.InvokeSource.INTENT_PROCESS_TEXT);
+        } else if (intent.hasExtra(Constants.INTENT_SEARCH_FROM_WIDGET)) {
+            funnel.logSearchWidgetTap();
+            openSearchFromIntent(null, SearchFragment.InvokeSource.WIDGET);
         }
     }
 
@@ -332,7 +359,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void onSearchClose() {
         Callback callback = callback();
         if (callback != null) {
-            callback.onSearchClose();
+            callback.onSearchClose(searchFragment.isLaunchedFromIntent());
         }
     }
 
@@ -384,7 +411,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
-    private void openSearchFromIntent(@Nullable final CharSequence query,
+    public void openSearchFromIntent(@Nullable final String query,
                                       final SearchFragment.InvokeSource source) {
         tabLayout.post(new Runnable() {
             @Override
@@ -392,7 +419,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 searchFragment.setInvokeSource(source);
                 searchFragment.openSearch();
                 if (query != null) {
-                    searchFragment.setSearchText(query);
+                    searchFragment.setSearchText(query.trim());
                 }
             }
         });
