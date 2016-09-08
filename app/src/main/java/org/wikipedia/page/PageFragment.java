@@ -280,8 +280,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 .findViewById(R.id.page_refresh_container);
         int swipeOffset = getContentTopOffsetPx(getActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
         refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
-        // if we want to give it a custom color:
-        //refreshView.setProgressBackgroundColor(R.color.swipe_refresh_circle);
+        refreshView.setColorSchemeResources(R.color.foundation_blue);
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
 
