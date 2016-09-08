@@ -89,6 +89,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         feedView.set(coordinator, feedCallback);
         searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
 
+        swipeRefreshLayout.setColorSchemeResources(R.color.foundation_blue);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

@@ -63,11 +63,7 @@
                 android:layout_marginTop="-7dp"
                 android:layout_gravity="top"
                 android:max="10000"
-                android:progressTint="@color/foundation_blue"
-                android:progressTintMode="src_in"
-                android:indeterminateTint="@color/foundation_blue"
-                android:indeterminateTintMode="src_in"
-                style="?android:attr/progressBarStyleHorizontal" />
+                style="@style/ProgressBarHorizontal" />
         </FrameLayout>
 
     </LinearLayout>

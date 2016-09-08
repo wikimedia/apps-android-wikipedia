@@ -245,4 +245,18 @@
         <item name="failureImageScaleType">center</item>
     </style>
 
+    <style name="ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:progressTint" tools:targetApi="21">@color/foundation_blue</item>
+        <item name="android:progressTintMode" tools:targetApi="21">src_in</item>
+        <item name="android:indeterminateTint" tools:targetApi="21">@color/foundation_blue</item>
+        <item name="android:indeterminateTintMode" tools:targetApi="21">src_in</item>
+    </style>
+
+    <style name="ProgressBarHorizontal" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressTint" tools:targetApi="21">@color/foundation_blue</item>
+        <item name="android:progressTintMode" tools:targetApi="21">src_in</item>
+        <item name="android:indeterminateTint" tools:targetApi="21">@color/foundation_blue</item>
+        <item name="android:indeterminateTintMode" tools:targetApi="21">src_in</item>
+    </style>
+
 </resources>
