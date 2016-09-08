@@ -46,7 +46,7 @@ public final class DeviceUtil {
      */
     public static void showSoftKeyboard(View view) {
         InputMethodManager keyboard = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        keyboard.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+        keyboard.toggleSoftInput(0, 0);
     }
 
     /**

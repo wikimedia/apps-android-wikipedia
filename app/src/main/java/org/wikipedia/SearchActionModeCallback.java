@@ -6,6 +6,8 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.wikipedia.util.DeviceUtil;
+
 public abstract class SearchActionModeCallback implements ActionMode.Callback {
     private SearchView searchView;
 
@@ -34,6 +36,7 @@ public abstract class SearchActionModeCallback implements ActionMode.Callback {
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
         searchView.requestFocus();
+        DeviceUtil.showSoftKeyboard(searchView);
         return true;
     }
 
