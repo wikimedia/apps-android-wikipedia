@@ -70,6 +70,7 @@ public class FeaturedArticleCardView extends FeedCardView
 
     private void onClickListener(@Nullable OnClickListener listener) {
         textContainerView.setOnClickListener(listener);
+        imageView.setOnClickListener(listener);
     }
 
     private void header(@NonNull FeaturedArticleCard card) {
