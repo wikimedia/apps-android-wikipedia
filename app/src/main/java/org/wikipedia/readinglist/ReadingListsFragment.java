@@ -7,6 +7,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ import android.view.ViewGroup;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
+import org.wikipedia.SearchActionModeCallback;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
@@ -58,6 +61,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     private ReadingListItemActionListener itemActionListener = new ReadingListItemActionListener();
     private ReadingListActionListener actionListener = new ReadingListActionListener();
+    private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
 
     private int readingListSortMode;
     private int readingListPageSortMode;
@@ -146,6 +150,10 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             case R.id.menu_sort_by_recent:
                 setSortMode(ReadingList.SORT_BY_RECENT_DESC, ReadingList.SORT_BY_RECENT_ASC);
                 return true;
+            case R.id.menu_search_lists:
+                ((AppCompatActivity) getActivity())
+                        .startSupportActionMode(searchActionModeCallback);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -156,7 +164,12 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     private void updateLists() {
-        ReadingList.DAO.queryMruLists(new CallbackTask.Callback<List<ReadingList>>() {
+        updateLists(null);
+    }
+
+    private void updateLists(String searchQuery) {
+        ReadingList.DAO.queryMruLists(searchQuery,
+                new CallbackTask.Callback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> rows) {
                 readingLists = rows;
@@ -362,5 +375,26 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private void sortLists() {
         ReadingList.sortReadingLists(readingLists, readingListSortMode);
         adapter.notifyDataSetChanged();
+    }
+
+    private class ReadingListsSearchCallback extends SearchActionModeCallback {
+        @Override
+        protected void onQueryChange(String s) {
+            if (pager.getCurrentItem() == PAGE_READING_LISTS) {
+                updateLists(s);
+            } else if (pager.getCurrentItem() == PAGE_LIST_DETAIL) {
+                listDetailView.setSearchQuery(s);
+            }
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            super.onDestroyActionMode(mode);
+            if (pager.getCurrentItem() == PAGE_READING_LISTS) {
+                updateLists();
+            } else if (pager.getCurrentItem() == PAGE_LIST_DETAIL) {
+                listDetailView.setSearchQuery(null);
+            }
+        }
     }
 }

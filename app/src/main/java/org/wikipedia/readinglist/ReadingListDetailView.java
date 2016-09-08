@@ -35,6 +35,9 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -47,6 +50,7 @@ public class ReadingListDetailView extends LinearLayout {
     @BindView(R.id.indicator_offline) ImageView offlineView;
 
     @Nullable private ReadingList readingList;
+    @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
     @Nullable private ReadingListItemActionListener itemActionListener;
     @Nullable private ReadingListActionListener actionListener;
 
@@ -88,6 +92,7 @@ public class ReadingListDetailView extends LinearLayout {
 
     public void setReadingList(@NonNull ReadingList readingList) {
         this.readingList = readingList;
+        setSearchQuery(null);
         editButton.setOnClickListener(editButtonListener);
 
         contentsListView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -125,6 +130,24 @@ public class ReadingListDetailView extends LinearLayout {
         }
         readingList.setSort(sortMode);
         adapter.notifyDataSetChanged();
+    }
+
+    public void setSearchQuery(@Nullable String query) {
+        displayedPages.clear();
+        adapter.notifyDataSetChanged();
+        if (readingList == null) {
+            return;
+        }
+        if (TextUtils.isEmpty(query)) {
+            displayedPages.addAll(readingList.getPages());
+            return;
+        }
+        query = query.toUpperCase();
+        for (ReadingListPage page : readingList.getPages()) {
+            if (page.title().toUpperCase().contains(query.toUpperCase())) {
+                displayedPages.add(page);
+            }
+        }
     }
 
     private void init() {
@@ -229,7 +252,7 @@ public class ReadingListDetailView extends LinearLayout {
     private final class ReadingListPageItemAdapter extends RecyclerView.Adapter<ReadingListPageItemHolder> {
         @Override
         public int getItemCount() {
-            return readingList == null ? 0 : readingList.getPages().size();
+            return displayedPages == null ? 0 : displayedPages.size();
         }
 
         @Override
@@ -240,7 +263,7 @@ public class ReadingListDetailView extends LinearLayout {
 
         @Override
         public void onBindViewHolder(ReadingListPageItemHolder holder, int pos) {
-            holder.bindItem(readingList.getPages().get(pos));
+            holder.bindItem(displayedPages.get(pos));
         }
     }
 

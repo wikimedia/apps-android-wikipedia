@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.CallbackTask;
@@ -23,11 +24,12 @@ public final class ReadingListData {
         return INSTANCE;
     }
 
-    public void queryMruLists(@NonNull CallbackTask.Callback<List<ReadingList>> callback) {
+    public void queryMruLists(@Nullable final String searchQuery,
+                              @NonNull CallbackTask.Callback<List<ReadingList>> callback) {
         CallbackTask.execute(new CallbackTask.Task<List<ReadingList>>() {
             @Override public List<ReadingList> execute() {
                 List<ReadingList> rows = new ArrayList<>();
-                Cursor cursor = lists();
+                Cursor cursor = lists(searchQuery);
                 try {
                     while (cursor.moveToNext()) {
                         rows.add(ReadingList.fromCursor(cursor));
@@ -40,10 +42,17 @@ public final class ReadingListData {
         }, callback);
     }
 
-    @NonNull public Cursor lists() {
+    @NonNull public Cursor lists(@Nullable String searchQuery) {
         Uri uri = ReadingListContract.ListWithPagesAndDisk.URI;
-        final String selection = null;
-        final String[] selectionArgs = null;
+        String selection = null;
+        String[] selectionArgs = null;
+        String searchStr = searchQuery;
+        if (!TextUtils.isEmpty(searchStr)) {
+            String titleCol = ReadingListContract.List.TITLE.qualifiedName();
+            searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
+            selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
+            selectionArgs = new String[]{"%" + searchStr + "%"};
+        }
         String order = ReadingListContract.ListWithPagesAndDisk.ORDER_KEY + ','
                 + ReadingListContract.ListWithPagesAndDisk.ORDER_MRU;
         return listClient().select(uri, selection, selectionArgs, order);

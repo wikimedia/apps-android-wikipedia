@@ -14,8 +14,7 @@ import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.TextUtils;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,7 +24,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,6 +31,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
+import org.wikipedia.SearchActionModeCallback;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
@@ -58,17 +57,16 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private TextView historyEmptyTitle;
     private TextView historyEmptyMessage;
     private HistoryEntryAdapter adapter;
-    private EditText entryFilter;
 
     private WikipediaApp app;
 
+    private String currentSearchQuery;
     private LoaderCallback loaderCallback;
 
     private ActionMode actionMode;
-    private HistorySearchTextWatcher textWatcher = new HistorySearchTextWatcher();
+    private SearchActionModeCallback searchActionModeCallback = new HistorySearchCallback();
     private HistoryItemClickListener itemClickListener = new HistoryItemClickListener();
     private HistoryItemLongClickListener itemLongClickListener = new HistoryItemLongClickListener();
-    private boolean firstRun = true;
 
     @NonNull public static HistoryFragment newInstance() {
         return new HistoryFragment();
@@ -89,9 +87,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyEmptyContainer = rootView.findViewById(R.id.history_empty_container);
         historyEmptyTitle = (TextView) rootView.findViewById(R.id.history_empty_title);
         historyEmptyMessage = (TextView) rootView.findViewById(R.id.history_empty_message);
-        entryFilter = (EditText) rootView.findViewById(R.id.history_search_list);
 
-        entryFilter.addTextChangedListener(textWatcher);
         historyEntryList.setAdapter(adapter);
         historyEntryList.setOnItemClickListener(itemClickListener);
         historyEntryList.setOnItemLongClickListener(itemLongClickListener);
@@ -113,7 +109,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     public void onDestroyView() {
         historyEntryList.setEmptyView(null);
         getActivity().getSupportLoaderManager().destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
-        entryFilter.removeTextChangedListener(textWatcher);
         historyEntryList.setOnItemClickListener(null);
         historyEntryList.setOnItemLongClickListener(null);
         historyEntryList.setAdapter(null);
@@ -202,11 +197,16 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                             public void onClick(DialogInterface dialog, int which) {
                                 // Clear history!
                                 new DeleteAllHistoryTask(app).execute();
-                                entryFilter.setVisibility(View.GONE);
                                 onClearHistoryClick();
                         }
                         })
                         .setNegativeButton(R.string.no, null).create().show();
+                return true;
+            case R.id.menu_search_history:
+                if (actionMode == null) {
+                    actionMode = ((AppCompatActivity) getActivity())
+                            .startSupportActionMode(searchActionModeCallback);
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -267,9 +267,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                                         PageHistoryContract.PageWithImage.SELECTION);
                             }
                         }
-                        if (checkedItems.size() == historyEntryList.getAdapter().getCount()) {
-                            entryFilter.setVisibility(View.GONE);
-                        }
                         mode.finish();
                         return true;
                     } else {
@@ -291,30 +288,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private class HistorySearchTextWatcher implements TextWatcher {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            // Do nothing
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            // Do nothing
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-            getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
-            if (editable.length() == 0) {
-                historyEmptyTitle.setText(R.string.history_empty_title);
-                historyEmptyMessage.setVisibility(View.VISIBLE);
-            } else {
-                historyEmptyTitle.setText(getString(R.string.history_search_empty_message));
-                historyEmptyMessage.setVisibility(View.GONE);
-            }
-        }
-    }
-
     private class LoaderCallback extends CursorAdapterLoaderCallback {
         LoaderCallback(@NonNull Context context, @NonNull CursorAdapter adapter) {
             super(context, adapter);
@@ -326,8 +299,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             String selection = null;
             String[] selectionArgs = null;
             historyEmptyContainer.setVisibility(View.GONE);
-            String searchStr = entryFilter.getText().toString();
-            if (!searchStr.isEmpty()) {
+            String searchStr = currentSearchQuery;
+            if (!TextUtils.isEmpty(searchStr)) {
                 searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
                 selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
                 selectionArgs = new String[]{"%" + searchStr + "%"};
@@ -342,17 +315,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
             super.onLoadFinished(cursorLoader, cursor);
-
             if (!isAdded()) {
                 return;
             }
-
-            // Hide search bar if history is empty, but not when a search turns up no results
-            if (firstRun && cursor.getCount() == 0) {
-                entryFilter.setVisibility(View.GONE);
-            }
-            firstRun = false;
-
             getActivity().supportInvalidateOptionsMenu();
         }
     }
@@ -372,6 +337,43 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         Callback callback = callback();
         if (callback != null) {
             callback.onClearHistory();
+        }
+    }
+
+    private void restartLoader() {
+        getActivity().getSupportLoaderManager().restartLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+    }
+
+    private class HistorySearchCallback extends SearchActionModeCallback {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            actionMode = mode;
+            return super.onCreateActionMode(mode, menu);
+        }
+
+        @Override
+        protected void onQueryChange(String s) {
+            currentSearchQuery = s;
+            restartLoader();
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            historyEmptyTitle.setText(getString(R.string.history_search_empty_message));
+            historyEmptyMessage.setVisibility(View.GONE);
+            return super.onPrepareActionMode(mode, menu);
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            super.onDestroyActionMode(mode);
+            if (!TextUtils.isEmpty(currentSearchQuery)) {
+                currentSearchQuery = "";
+                restartLoader();
+            }
+            historyEmptyTitle.setText(R.string.history_empty_title);
+            historyEmptyMessage.setVisibility(View.VISIBLE);
+            actionMode = null;
         }
     }
 

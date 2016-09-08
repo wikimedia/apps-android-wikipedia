@@ -148,7 +148,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void updateLists() {
-        ReadingList.DAO.queryMruLists(new CallbackTask.Callback<List<ReadingList>>() {
+        ReadingList.DAO.queryMruLists(null, new CallbackTask.Callback<List<ReadingList>>() {
             @Override
             public void success(List<ReadingList> rows) {
                 readingLists = rows;
