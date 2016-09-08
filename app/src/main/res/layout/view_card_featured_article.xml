@@ -23,6 +23,7 @@
         android:id="@+id/view_featured_article_card_image"
         android:layout_width="match_parent"
         android:layout_height="192dp"
+        android:clickable="true"
         app:actualImageScaleType="focusCrop" />
 
     <View
