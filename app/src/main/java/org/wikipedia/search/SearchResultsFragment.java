@@ -423,7 +423,14 @@ public class SearchResultsFragment extends Fragment {
      */
     private void displayResults(List<SearchResult> results) {
         for (SearchResult newResult : results) {
-            if (!totalResults.contains(newResult)) {
+            boolean contains = false;
+            for (SearchResult result : totalResults) {
+                if (newResult.getPageTitle().equals(result.getPageTitle())) {
+                    contains = true;
+                    break;
+                }
+            }
+            if (!contains) {
                 totalResults.add(newResult);
             }
         }
