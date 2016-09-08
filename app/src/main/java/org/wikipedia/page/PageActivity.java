@@ -92,6 +92,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
+    public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     public static final String EXTRA_NEWTAB = "org.wikipedia.newtab";
@@ -242,6 +243,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @NonNull
+    public static Intent newIntent(@NonNull Context context) {
+        return new Intent(ACTION_RESUME_READING).setClass(context, PageActivity.class);
+    }
+
+    @NonNull
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull HistoryEntry entry,
                                    @NonNull PageTitle title,
@@ -255,8 +261,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @NonNull
     public static Intent newIntentForTabList(@NonNull Context context) {
-        return new Intent(ACTION_SHOW_TAB_LIST)
-                .setClass(context, PageActivity.class);
+        return new Intent(ACTION_SHOW_TAB_LIST).setClass(context, PageActivity.class);
     }
 
     @Override
@@ -282,6 +287,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             }
         } else if (ACTION_SHOW_TAB_LIST.equals(intent.getAction())) {
             showTabList();
+        } else if (ACTION_RESUME_READING.equals(intent.getAction())) {
+            loadMainPageIfNoTabs();
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getSite());

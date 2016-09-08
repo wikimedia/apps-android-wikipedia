@@ -77,7 +77,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         coordinator = new FeedCoordinator(getContext());
         coordinator.more(app.getSite());
         funnel = new FeedFunnel(app);
-        Prefs.pageLastShown(0);
     }
 
     @Nullable @Override public View onCreateView(LayoutInflater inflater,

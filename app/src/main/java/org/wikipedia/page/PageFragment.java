@@ -521,6 +521,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onPause() {
         super.onPause();
+        pageLoadStrategy.updateCurrentBackStackItem();
         Prefs.setTabs(tabList);
         closePageScrollFunnel();
 

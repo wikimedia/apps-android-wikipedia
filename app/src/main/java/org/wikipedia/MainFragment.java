@@ -48,6 +48,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchResultsFragment;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DateUtil;
@@ -59,6 +60,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ExploreOverflowView;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -112,6 +114,14 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             handleIntent(getActivity().getIntent());
         }
         return view;
+    }
+
+    @Override public void onResume() {
+        super.onResume();
+        // update toolbar, since Tab count might have changed
+        getActivity().supportInvalidateOptionsMenu();
+        // reset the last-page-viewed timer
+        Prefs.pageLastShown(0);
     }
 
     @Override public void onDestroyView() {
@@ -210,6 +220,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (intent.hasExtra(Constants.INTENT_SEARCH_FROM_WIDGET)) {
             funnel.logSearchWidgetTap();
             openSearchFromIntent(null, SearchFragment.InvokeSource.WIDGET);
+        } else if (lastPageViewedWithin(1)) {
+            startActivity(PageActivity.newIntent(getContext()));
         }
     }
 
@@ -423,6 +435,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 }
             }
         });
+    }
+
+    private boolean lastPageViewedWithin(int days) {
+        return TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) < days;
     }
 
     private void download(@NonNull FeaturedImage image) {
