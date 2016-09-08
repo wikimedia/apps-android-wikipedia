@@ -267,7 +267,7 @@ public class LeadImagesHandler {
             public boolean onClick(float x, float y) {
                 // if the click event is within the area of the lead image, then the user
                 // must have wanted to click on the lead image!
-                if (getPage() != null && isLeadImageEnabled() && y < (articleHeaderView.getHeight() - webView.getScrollY())) {
+                if (getPage() != null && isLeadImageEnabled() && y < (image.getHeight() - webView.getScrollY())) {
                     String imageName = getPage().getPageProperties().getLeadImageName();
                     if (imageName != null) {
                         String filename = "File:" + imageName;
