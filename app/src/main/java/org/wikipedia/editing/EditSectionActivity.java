@@ -28,6 +28,7 @@ import com.squareup.otto.Bus;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.Constants;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.LoginTask;
@@ -233,7 +234,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     funnel.logLoginAttempt();
                     Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
                             LoginFunnel.SOURCE_EDIT, funnel.getSessionToken());
-                    startActivityForResult(loginIntent, LoginActivity.REQUEST_LOGIN);
+                    startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN);
                 } else {
                     handleExternalLink(EditSectionActivity.this, Uri.parse(url));
                 }
@@ -243,7 +244,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == LoginActivity.REQUEST_LOGIN) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN) {
             if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
                 updateEditLicenseText();
                 funnel.logLoginSuccess();

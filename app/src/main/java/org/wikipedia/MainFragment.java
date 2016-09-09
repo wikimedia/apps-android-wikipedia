@@ -140,6 +140,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT) {
             startActivity(data);
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN
+                && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            FeedbackUtil.showMessage(this, R.string.login_success_toast);
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -464,7 +467,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void loginClick() {
             startActivityForResult(LoginActivity.newIntent(getContext(), LoginFunnel.SOURCE_NAV),
-                    LoginActivity.REQUEST_LOGIN);
+                    Constants.ACTIVITY_REQUEST_LOGIN);
         }
 
         @Override

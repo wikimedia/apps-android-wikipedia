@@ -15,6 +15,7 @@ public final class Constants {
     public static final int ACTIVITY_REQUEST_LANGLINKS = 50;
     public static final int ACTIVITY_REQUEST_EDIT_SECTION = 51;
     public static final int ACTIVITY_REQUEST_GALLERY = 52;
+    public static final int ACTIVITY_REQUEST_LOGIN = 53;
 
     public static final String INTENT_SEARCH_FROM_WIDGET = "searchFromWidget";
     public static final String INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget";

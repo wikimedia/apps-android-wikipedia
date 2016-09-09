@@ -53,7 +53,6 @@ import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.LangLinksActivity;
-import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
@@ -812,8 +811,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (settingsActivityRequested(requestCode)) {
             handleSettingsActivityResult(resultCode);
-        } else if (loginActivityRequested(requestCode)) {
-            handleLoginActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryFilePageSelected(requestCode, resultCode)) {
             handleLangLinkOrFilePageResult(data);
         } else {
@@ -908,16 +905,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     private boolean settingsActivityRequested(int requestCode) {
         return requestCode == SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS;
-    }
-
-    private void handleLoginActivityResult(int resultCode) {
-        if (resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            FeedbackUtil.showMessage(this, R.string.login_success_toast);
-        }
-    }
-
-    private boolean loginActivityRequested(int requestCode) {
-        return requestCode == LoginActivity.REQUEST_LOGIN;
     }
 
     private boolean newArticleLanguageSelected(int requestCode, int resultCode) {
