@@ -60,11 +60,11 @@ public final class FeedbackUtil {
     }
 
     public static void showMessage(Fragment fragment, @StringRes int text) {
-        makeSnackbar(fragment.getView(), fragment.getString(text), Snackbar.LENGTH_LONG).show();
+        makeSnackbar(fragment.getActivity(), fragment.getString(text), Snackbar.LENGTH_LONG).show();
     }
 
     public static void showMessage(Fragment fragment, @NonNull String text) {
-        makeSnackbar(fragment.getView(), text, Snackbar.LENGTH_LONG).show();
+        makeSnackbar(fragment.getActivity(), text, Snackbar.LENGTH_LONG).show();
     }
 
     private static void showMessage(View containerView, CharSequence text, int duration) {
