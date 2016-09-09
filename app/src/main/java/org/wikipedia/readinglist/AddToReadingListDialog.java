@@ -57,7 +57,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     public interface Callback {
-        void showReadingListAddedMessage(@NonNull String message, boolean isOnboarding);
+        void showReadingListAddedMessage(@NonNull String message);
     }
 
     private PageTitle pageTitle;
@@ -66,7 +66,6 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View onboardingContainer;
     private View onboardingButton;
     private InvokeSource invokeSource;
-    private boolean isOnboarding;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private List<ReadingList> readingLists = new ArrayList<>();
     private DialogInterface.OnDismissListener dismissListener;
@@ -131,7 +130,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     private void checkAndShowOnboarding() {
-        isOnboarding = WikipediaApp.getInstance().getOnboardingStateMachine().isReadingListTutorialEnabled();
+        boolean isOnboarding = WikipediaApp.getInstance().getOnboardingStateMachine().isReadingListTutorialEnabled();
         onboardingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -204,14 +203,14 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     Callback callback = callback();
                     if (contains) {
                         if (callback != null) {
-                            callback.showReadingListAddedMessage(getString(R.string.reading_list_already_exists), isOnboarding);
+                            callback.showReadingListAddedMessage(getString(R.string.reading_list_already_exists));
                         }
                     } else {
                         if (callback != null) {
                             callback.showReadingListAddedMessage(TextUtils.isEmpty(readingList.getTitle())
                                     ? getString(R.string.reading_list_added_to_unnamed)
                                     : String.format(getString(R.string.reading_list_added_to_named),
-                                    readingList.getTitle()), isOnboarding);
+                                    readingList.getTitle()));
                         }
 
                         new ReadingListsFunnel(pageTitle.getSite()).logAddToList(readingList, readingLists.size(), invokeSource);

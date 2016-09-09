@@ -126,6 +126,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     public void onResume() {
         super.onResume();
         pager.setCurrentItem(PAGE_READING_LISTS);
+        updateLists();
     }
 
     @Override
@@ -162,6 +163,15 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean visible) {
+        super.setUserVisibleHint(visible);
+        if (isAdded() && visible) {
+            pager.setCurrentItem(PAGE_READING_LISTS);
+            updateLists();
         }
     }
 
@@ -208,7 +218,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         }
     }
 
-    class ReadingListPagerAdapter extends PagerAdapter {
+    private class ReadingListPagerAdapter extends PagerAdapter {
         @Override
         public Object instantiateItem(ViewGroup collection, int position) {
             int resId;

@@ -69,8 +69,8 @@ import butterknife.Unbinder;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
-        SearchFragment.Callback, SearchResultsFragment.Callback,
-        LinkPreviewDialog.Callback {
+        SearchFragment.Callback, SearchResultsFragment.Callback, LinkPreviewDialog.Callback,
+        AddToReadingListDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
@@ -393,6 +393,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(getContext(), title);
+    }
+
+    @Override
+    public void showReadingListAddedMessage(@NonNull String message) {
+        FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        viewPager.setCurrentItem(NavTab.READING_LISTS.code());
+                    }
+                }).show();
     }
 
     @Override
