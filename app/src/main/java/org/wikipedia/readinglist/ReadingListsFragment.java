@@ -123,6 +123,12 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        pager.setCurrentItem(PAGE_READING_LISTS);
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_reading_lists, menu);
     }

@@ -53,6 +53,7 @@ public class ReadingListDetailView extends LinearLayout {
     @NonNull private List<ReadingListPage> displayedPages = new ArrayList<>();
     @Nullable private ReadingListItemActionListener itemActionListener;
     @Nullable private ReadingListActionListener actionListener;
+    private String currentSearchQuery;
 
     private ReadingListPageItemAdapter adapter = new ReadingListPageItemAdapter();
     private EditButtonClickListener editButtonListener = new EditButtonClickListener();
@@ -92,7 +93,6 @@ public class ReadingListDetailView extends LinearLayout {
 
     public void setReadingList(@NonNull ReadingList readingList) {
         this.readingList = readingList;
-        setSearchQuery(null);
         editButton.setOnClickListener(editButtonListener);
 
         contentsListView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -121,7 +121,7 @@ public class ReadingListDetailView extends LinearLayout {
                 : String.format(getResources().getString(R.string.reading_list_item_count_plural), readingList.getPages().size()));
         descriptionView.setText(readingList.getDescription());
         offlineView.setImageResource(readingList.getSaveOffline() ? R.drawable.ic_cloud_download_black_24dp : R.drawable.ic_cloud_off_black_24dp);
-        adapter.notifyDataSetChanged();
+        setSearchQuery(currentSearchQuery);
     }
 
     public void setSort(int sortMode) {
@@ -133,6 +133,7 @@ public class ReadingListDetailView extends LinearLayout {
     }
 
     public void setSearchQuery(@Nullable String query) {
+        currentSearchQuery = query;
         displayedPages.clear();
         adapter.notifyDataSetChanged();
         if (readingList == null) {
