@@ -62,6 +62,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     private ReadingListItemActionListener itemActionListener = new ReadingListItemActionListener();
     private ReadingListActionListener actionListener = new ReadingListActionListener();
     private ReadingListsSearchCallback searchActionModeCallback = new ReadingListsSearchCallback();
+    @Nullable private ActionMode actionMode;
 
     private int readingListSortMode;
     private int readingListPageSortMode;
@@ -169,9 +170,14 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
     @Override
     public void setUserVisibleHint(boolean visible) {
         super.setUserVisibleHint(visible);
-        if (isAdded() && visible) {
+        if (!isAdded()) {
+            return;
+        }
+        if (visible) {
             pager.setCurrentItem(PAGE_READING_LISTS);
             updateLists();
+        } else if (actionMode != null) {
+            actionMode.finish();
         }
     }
 
@@ -395,6 +401,12 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
 
     private class ReadingListsSearchCallback extends SearchActionModeCallback {
         @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            actionMode = mode;
+            return super.onCreateActionMode(mode, menu);
+        }
+
+        @Override
         protected void onQueryChange(String s) {
             if (pager.getCurrentItem() == PAGE_READING_LISTS) {
                 updateLists(s);
@@ -406,6 +418,7 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             super.onDestroyActionMode(mode);
+            actionMode = null;
             if (pager.getCurrentItem() == PAGE_READING_LISTS) {
                 updateLists();
             } else if (pager.getCurrentItem() == PAGE_LIST_DETAIL) {

@@ -116,6 +116,16 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
+    public void setUserVisibleHint(boolean visible) {
+        if (!isAdded()) {
+            return;
+        }
+        if (!visible && actionMode != null) {
+            actionMode.finish();
+        }
+    }
+
+    @Override
     public boolean onBackPressed() {
         if (actionMode != null) {
             actionMode.finish();
