@@ -17,7 +17,7 @@ import org.wikipedia.util.log.L;
 
 public final class AccountUtil {
     public static void createAccountForLoggedInUser() {
-        User user = app().getUserInfoStorage().getUser();
+        User user = User.getUser();
         if (user != null && account() == null) {
             createAccount(null, user.getUsername(), user.getPassword());
         }
@@ -50,7 +50,7 @@ public final class AccountUtil {
     }
 
     public static void logOutIfAccountRemoved() {
-        User user = app().getUserInfoStorage().getUser();
+        User user = User.getUser();
         if (user != null && account() == null) {
             app().logOut();
         }
@@ -75,7 +75,7 @@ public final class AccountUtil {
 
     @Nullable
     public static Account account() {
-        User user = app().getUserInfoStorage().getUser();
+        User user = User.getUser();
         return user == null ? null : account(user.getUsername());
     }
 

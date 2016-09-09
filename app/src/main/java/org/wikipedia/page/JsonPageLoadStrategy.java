@@ -24,6 +24,7 @@ import org.wikipedia.editing.EditHandler;
 import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SaveHistoryTask;
+import org.wikipedia.login.User;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
@@ -661,7 +662,7 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     }
 
     private boolean isPageEditable(Page page) {
-        return (app.getUserInfoStorage().isLoggedIn() || !isAnonEditingDisabled())
+        return (User.isLoggedIn() || !isAnonEditingDisabled())
                 && !page.isFilePage()
                 && !page.isMainPage();
     }

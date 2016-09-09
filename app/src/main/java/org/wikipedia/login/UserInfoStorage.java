@@ -1,42 +1,34 @@
 package org.wikipedia.login;
 
-import android.support.annotation.Nullable;
-
 import org.wikipedia.settings.Prefs;
 
-public class UserInfoStorage {
-    private User currentUser;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
-    public boolean isLoggedIn() {
-        return getUser() != null;
-    }
+class UserInfoStorage {
 
-    public void setUser(User user) {
+    void setUser(@NonNull User user) {
         Prefs.setLoginUsername(user.getUsername());
         Prefs.setLoginPassword(user.getPassword());
         Prefs.setLoginUserId(user.getUserID());
     }
 
     @Nullable
-    public User getUser() {
-        if (currentUser == null) {
-            if (Prefs.hasLoginUsername() && Prefs.hasLoginPassword()) {
-                currentUser = new User(
-                        Prefs.getLoginUsername(),
-                        Prefs.getLoginPassword(),
-                        Prefs.getLoginUserId()
-                );
-            }
+    User getUser() {
+        if (Prefs.hasLoginUsername() && Prefs.hasLoginPassword()) {
+            //noinspection ConstantConditions
+            return new User(
+                    Prefs.getLoginUsername(),
+                    Prefs.getLoginPassword(),
+                    Prefs.getLoginUserId()
+            );
         }
-
-        return currentUser;
+        return null;
     }
 
-    public void clearUser() {
+    void clearUser() {
         Prefs.removeLoginUsername();
         Prefs.removeLoginPassword();
         Prefs.removeLoginUserId();
-        currentUser = null;
     }
-
 }

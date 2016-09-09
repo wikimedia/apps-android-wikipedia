@@ -36,7 +36,7 @@ import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.interlanguage.AcceptLanguageUtil;
 import org.wikipedia.interlanguage.AppLanguageState;
-import org.wikipedia.login.UserInfoStorage;
+import org.wikipedia.login.User;
 import org.wikipedia.onboarding.OnboardingStateMachine;
 import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.PageCache;
@@ -80,7 +80,6 @@ public class WikipediaApp extends Application {
     private static final float FONT_SIZE_FACTOR = 0.1f;
 
     private final RemoteConfig remoteConfig = new RemoteConfig();
-    private final UserInfoStorage userInfoStorage = new UserInfoStorage();
     private final Map<Class<?>, DatabaseClient<?>> databaseClients = Collections.synchronizedMap(new HashMap<Class<?>, DatabaseClient<?>>());
     private final Map<String, Api> apis = new HashMap<>();
     private AppLanguageState appLanguageState;
@@ -385,17 +384,13 @@ public class WikipediaApp extends Application {
         return cookieManager;
     }
 
-    public UserInfoStorage getUserInfoStorage() {
-        return userInfoStorage;
-    }
-
     public void logOut() {
         L.v("logging out");
         AccountUtil.removeAccount();
         UserOptionDao.instance().clear();
         getEditTokenStorage().clearAllTokens();
         getCookieManager().clearAllCookies();
-        getUserInfoStorage().clearUser();
+        User.clearUser();
     }
 
     public FunnelManager getFunnelManager() {

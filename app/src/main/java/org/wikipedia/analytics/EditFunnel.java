@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.json.JSONObject;
+
+import org.wikipedia.login.User;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -149,13 +151,13 @@ public class EditFunnel extends Funnel {
 
     @Override
     protected JSONObject preprocessData(@NonNull JSONObject eventData) {
-        if (getApp().getUserInfoStorage().isLoggedIn()) {
-            if (getApp().getUserInfoStorage().getUser().getUserID() == 0) {
+        if (User.isLoggedIn()) {
+            if (User.getUser().getUserID() == 0) {
                 // Means we are logged in, but before we started counting UserID.
                 // Send -1 to record these
                 preprocessData(eventData, "userID", -1);
             } else {
-                preprocessData(eventData, "userID", getApp().getUserInfoStorage().getUser().getUserID());
+                preprocessData(eventData, "userID", User.getUser().getUserID());
             }
         }
         preprocessData(eventData, "pageNS", title.getNamespace());

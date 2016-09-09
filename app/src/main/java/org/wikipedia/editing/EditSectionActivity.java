@@ -223,7 +223,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private void updateEditLicenseText() {
         TextView editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
-        if (app.getUserInfoStorage().isLoggedIn()) {
+        if (User.isLoggedIn()) {
             editLicenseText.setText(StringUtil.fromHtml(getString(R.string.edit_save_action_license_logged_in)));
         } else {
             editLicenseText.setText(StringUtil.fromHtml(getString(R.string.edit_save_action_license_anon)));
@@ -270,7 +270,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 summaryText = StringUtil.fromHtml(summaryText).toString();
 
                 new EditTask(EditSectionActivity.this, title, sectionText.getText().toString(),
-                        sectionID, token, summaryText, app.getUserInfoStorage().isLoggedIn()) {
+                        sectionID, token, summaryText, User.isLoggedIn()) {
                     @Override
                     public void onBeforeExecute() {
                         if (!isFinishing()) {
@@ -384,13 +384,13 @@ public class EditSectionActivity extends ThemedActionBarActivity {
      */
     private void handleEditingException(@NonNull ApiException e) {
         String code = e.getCode();
-        if (app.getUserInfoStorage().isLoggedIn() && ("badtoken".equals(code)
+        if (User.isLoggedIn() && ("badtoken".equals(code)
                 || "assertuserfailed".equals(code))) {
             // looks like our session expired.
             app.getEditTokenStorage().clearAllTokens();
             app.getCookieManager().clearAllCookies();
 
-            User user = app.getUserInfoStorage().getUser();
+            User user = User.getUser();
             doLoginAndSave(user);
         } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
@@ -400,7 +400,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             progressDialog.dismiss();
             AlertDialog.Builder builder = new AlertDialog.Builder(EditSectionActivity.this);
             builder.setTitle(R.string.user_blocked_from_editing_title);
-            if (app.getUserInfoStorage().isLoggedIn()) {
+            if (User.isLoggedIn()) {
                 builder.setMessage(R.string.user_logged_in_blocked_from_editing);
                 builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override

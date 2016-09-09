@@ -57,8 +57,8 @@ public abstract class LoginTask extends ApiTask<LoginResult> {
 
     @Override
     public void onFinish(LoginResult result) {
-        if (result.pass()) {
-            WikipediaApp.getInstance().getUserInfoStorage().setUser(result.getUser());
+        if (result.pass() && result.getUser() != null) {
+            User.setUser(result.getUser());
         }
     }
 

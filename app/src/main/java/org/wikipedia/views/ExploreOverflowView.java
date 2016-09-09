@@ -15,7 +15,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.login.User;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,7 +64,7 @@ public class ExploreOverflowView extends FrameLayout {
         }
         switch (view.getId()) {
             case R.id.explore_overflow_account_container:
-                if (!WikipediaApp.getInstance().getUserInfoStorage().isLoggedIn()) {
+                if (!User.isLoggedIn()) {
                     callback.loginClick();
                 }
                 break;
@@ -86,8 +86,8 @@ public class ExploreOverflowView extends FrameLayout {
         inflate(getContext(), R.layout.view_explore_overflow, this);
         ButterKnife.bind(this);
 
-        if (WikipediaApp.getInstance().getUserInfoStorage().isLoggedIn()) {
-            accountName.setText(WikipediaApp.getInstance().getUserInfoStorage().getUser().getUsername());
+        if (User.isLoggedIn()) {
+            accountName.setText(User.getUser().getUsername());
             logout.setVisibility(VISIBLE);
         } else {
             accountName.setText(R.string.nav_item_login);
