@@ -30,8 +30,6 @@ import org.wikipedia.views.PasswordTextInput;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class LoginActivity extends ThemedActionBarActivity {
-    public static final int REQUEST_LOGIN = 100;
-
     public static final int RESULT_LOGIN_SUCCESS = 1;
     public static final int RESULT_LOGIN_FAIL = 2;
 
