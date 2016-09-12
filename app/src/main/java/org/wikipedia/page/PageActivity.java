@@ -18,7 +18,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -85,8 +84,8 @@ import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, SearchFragment.Callback,
-        SearchResultsFragment.Callback, WiktionaryDialog.Callback {
+        LinkPreviewDialog.Callback, SearchFragment.Callback, SearchResultsFragment.Callback,
+        WiktionaryDialog.Callback, AddToReadingListDialog.Callback {
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
@@ -438,15 +437,9 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         FeedbackUtil.showAddToListDialog(title, source, bottomSheetPresenter, listDialogDismissListener);
     }
 
-    public void showReadingListAddedSnackbar(String message) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, message, FeedbackUtil.LENGTH_DEFAULT);
-        snackbar.setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO: finish this activity with a result that signals MainActivity to show reading lists.
-            }
-        });
-        snackbar.show();
+    @Override
+    public void showReadingListAddedMessage(@NonNull String message) {
+        FeedbackUtil.makeSnackbar(this, message, FeedbackUtil.LENGTH_DEFAULT).show();
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
