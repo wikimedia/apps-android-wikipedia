@@ -21,11 +21,11 @@
         <item name="actionBarTheme">@style/AppTheme.ToolbarTheme</item>
         <item name="actionBarStyle">@style/AppTheme.ToolbarStyle</item>
         <item name="actionModeStyle">@style/AppTheme.ActionModeStyle</item>
-        <item name="android:actionModeStyle">@style/AppTheme.ActionModeStyle</item>
-        <item name="android:autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:panelBackground">@color/background_floating_material_dark</item>
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="popupMenuStyle">@style/Theme.Dark.PopupMenuStyle</item>
+        <item name="alertDialogTheme">@style/Theme.Light.Dialog.Alert</item>
+        <item name="colorAccent">@color/foundation_blue</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="window_background_color">@color/window_background_dark</item>
         <item name="window_inverse_color">@android:color/white</item>
@@ -64,6 +64,10 @@
         <item name="feed_text_primary_color">@color/feed_text_primary_dark</item>
         <item name="feed_text_secondary_color">@color/feed_text_secondary_dark</item>
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_dark</item>
+    </style>
+
+    <style name="Theme.Dark.Dialog.Alert" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/foundation_blue</item>
     </style>
 
     <style name="Theme.Dark.Dialog" parent="Theme.AppCompat.Dialog">

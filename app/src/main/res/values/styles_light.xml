@@ -21,11 +21,11 @@
         <item name="actionBarTheme">@style/AppTheme.ToolbarTheme</item>
         <item name="actionBarStyle">@style/AppTheme.ToolbarStyle</item>
         <item name="actionModeStyle">@style/AppTheme.ActionModeStyle</item>
-        <item name="android:actionModeStyle">@style/AppTheme.ActionModeStyle</item>
-        <item name="android:autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="android:panelBackground">@color/background_floating_material_light</item>
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="popupMenuStyle">@style/Theme.Light.PopupMenuStyle</item>
+        <item name="alertDialogTheme">@style/Theme.Light.Dialog.Alert</item>
+        <item name="colorAccent">@color/foundation_blue</item>
         <item name="android:windowBackground">@color/window_background_light</item>
         <item name="window_background_color">@color/window_background_light</item>
         <item name="window_inverse_color">@android:color/black</item>
@@ -67,9 +67,14 @@
         <item name="feed_text_tertiary_color">@color/feed_text_tertiary_light</item>
     </style>
 
+    <style name="Theme.Light.Dialog.Alert" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/foundation_blue</item>
+    </style>
+
     <style name="Theme.Light.Dialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/foundation_blue</item>
     </style>
 
     <style name="Theme.Light.PopupMenuStyle" parent="Widget.AppCompat.Light.PopupMenu">

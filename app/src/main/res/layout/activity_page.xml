@@ -63,7 +63,7 @@
                 android:layout_marginTop="-7dp"
                 android:layout_gravity="top"
                 android:max="10000"
-                style="@style/ProgressBarHorizontal" />
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
         </FrameLayout>
 
     </LinearLayout>

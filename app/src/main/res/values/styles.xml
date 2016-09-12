@@ -25,14 +25,12 @@
     </style>
 
     <style name="AppTheme.ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:colorControlNormal" tools:targetApi="21">@android:color/white</item>
         <item name="colorControlNormal">@android:color/white</item>
         <item name="colorControlActivated">@color/actionbar_highlight</item>
         <item name="colorControlHighlight">@color/actionbar_highlight</item>
     </style>
 
     <style name="AppTheme.ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/actionbar_background</item>
         <item name="background">@color/actionbar_background</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">4dp</item>
@@ -45,13 +43,11 @@
     </style>
 
     <style name="AppTheme.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="android:color">@android:color/white</item>
         <item name="color">@android:color/white</item>
     </style>
 
     <style name="AppTheme.ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
         <item name="background">@color/actionbar_background</item>
-        <item name="android:background">@color/actionbar_background</item>
         <item name="backgroundSplit">@color/actionbar_background</item>
         <item name="titleTextStyle">@style/AppTheme.ActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/AppTheme.ActionModeSubtitleStyle</item>
@@ -243,20 +239,6 @@
         <item name="placeholderImageScaleType">center</item>
         <item name="failureImage">@drawable/ic_image_gray_24dp</item>
         <item name="failureImageScaleType">center</item>
-    </style>
-
-    <style name="ProgressBar" parent="Widget.AppCompat.ProgressBar">
-        <item name="android:progressTint" tools:targetApi="21">@color/foundation_blue</item>
-        <item name="android:progressTintMode" tools:targetApi="21">src_in</item>
-        <item name="android:indeterminateTint" tools:targetApi="21">@color/foundation_blue</item>
-        <item name="android:indeterminateTintMode" tools:targetApi="21">src_in</item>
-    </style>
-
-    <style name="ProgressBarHorizontal" parent="Widget.AppCompat.ProgressBar.Horizontal">
-        <item name="android:progressTint" tools:targetApi="21">@color/foundation_blue</item>
-        <item name="android:progressTintMode" tools:targetApi="21">src_in</item>
-        <item name="android:indeterminateTint" tools:targetApi="21">@color/foundation_blue</item>
-        <item name="android:indeterminateTintMode" tools:targetApi="21">src_in</item>
     </style>
 
 </resources>
