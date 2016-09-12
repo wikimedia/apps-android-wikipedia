@@ -237,7 +237,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="article_menu_bar_bookmark">Füge diesen Artikel zu einer Leseliste hinzu</string>
   <string name="article_menu_bar_share">Artikellink teilen</string>
   <string name="article_menu_bar_navigate">Zum Standort des Artikels navigieren</string>
-  <string name="nav_item_reading_lists">Leselisten</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Leselisten</string>
   <string name="reading_list_untitled">Unbenannt</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
   <string name="reading_list_create_new">Neue erstellen</string>

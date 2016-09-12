@@ -237,7 +237,7 @@
   <string name="article_menu_bar_bookmark">添加此条目至阅读列表</string>
   <string name="article_menu_bar_share">分享条目链接</string>
   <string name="article_menu_bar_navigate">导航至条目的位置</string>
-  <string name="nav_item_reading_lists">阅读列表</string>
+  <string name="nav_item_reading_lists" fuzzy="true">阅读列表</string>
   <string name="reading_list_untitled">未命名标题</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
   <string name="reading_list_create_new">创建新的</string>

@@ -166,7 +166,7 @@
   <string name="crash_report_activity_title">د کاريال تېروتنه</string>
   <string name="crash_report_relaunch">سر له نوي پيلول</string>
   <string name="crash_report_quit">بندول</string>
-  <string name="nav_item_reading_lists">لوست لړليک</string>
+  <string name="nav_item_reading_lists" fuzzy="true">لوست لړليک</string>
   <string name="reading_list_untitled">بې سرليکه</string>
   <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>
   <string name="reading_list_create_new">نوی جوړول</string>

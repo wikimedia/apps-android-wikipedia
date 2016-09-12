@@ -237,7 +237,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
   <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
   <string name="article_menu_bar_navigate">Merdeiñ el lec\'h ma oa ar pennad</string>
-  <string name="nav_item_reading_lists">Rolloù lenn</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Rolloù lenn</string>
   <string name="reading_list_untitled">Hep titl</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>

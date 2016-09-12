@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">Maddeyi, bir okuma listsine ekle</string>
   <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
   <string name="article_menu_bar_navigate">Makale konumuna gidin</string>
-  <string name="nav_item_reading_lists">Okuma listeleri</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Okuma listeleri</string>
   <string name="reading_list_untitled">Başlıksız</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_create_new">Yeni oluştur</string>

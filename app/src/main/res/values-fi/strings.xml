@@ -237,7 +237,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulistaan</string>
   <string name="article_menu_bar_share">Jaa artikkelin linkki</string>
   <string name="article_menu_bar_navigate">Navigoi artikkelin sijaintiin</string>
-  <string name="nav_item_reading_lists">Lukulistat</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Lukulistat</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_create_new">Luo uusi</string>

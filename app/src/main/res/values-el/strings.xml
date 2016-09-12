@@ -206,7 +206,7 @@
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
   <string name="article_menu_bar_bookmark">Προσθέστε αυτό το άρθρο σε λίστα ανάγνωσης</string>
-  <string name="nav_item_reading_lists">Λίστες ανάγνωσης</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Λίστες ανάγνωσης</string>
   <string name="reading_list_untitled">Χωρίς τίτλο</string>
   <string name="reading_list_save_to">Αποθήκευση στη λίστα ανάγνωσης</string>
   <string name="reading_list_create_new">Δημιουργία νέας</string>

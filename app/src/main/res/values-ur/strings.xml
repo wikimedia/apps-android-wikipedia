@@ -236,7 +236,7 @@
   <string name="article_menu_bar_bookmark">اس مضمون کو کسی فہرست مطالعہ میں شامل کریں</string>
   <string name="article_menu_bar_share">مضمون کا ربط دوسروں کو بھیجیں</string>
   <string name="article_menu_bar_navigate">مضمون کے مقام کو پہنچنے کے لیے گھمائیں</string>
-  <string name="nav_item_reading_lists">مطالعہ کی فہرستیں</string>
+  <string name="nav_item_reading_lists" fuzzy="true">مطالعہ کی فہرستیں</string>
   <string name="reading_list_untitled">بلا عنوان</string>
   <string name="reading_list_save_to">فہرست مطالعہ میں محفوظ کریں</string>
   <string name="reading_list_create_new">نیا بنائیں</string>

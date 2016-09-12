@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">Мәҡәләне уҡыу теҙмәһенә өҫтәргә</string>
   <string name="article_menu_bar_share">Мәҡәләгә һылтанма менән уртаҡлашырға</string>
   <string name="article_menu_bar_navigate">Мәҡәлә урынлашҡан урынға күсегеҙ</string>
-  <string name="nav_item_reading_lists">Уҡыу өсөн исемлектәр</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Уҡыу өсөн исемлектәр</string>
   <string name="reading_list_untitled">Исемһеҙ</string>
   <string name="reading_list_save_to">Уҡыу исемлегенә һаҡларға</string>
   <string name="reading_list_create_new">Яңыны төҙөргә</string>

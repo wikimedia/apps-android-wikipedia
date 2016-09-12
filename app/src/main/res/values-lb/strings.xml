@@ -225,7 +225,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="article_menu_bar_bookmark">Dësen Artikel op eng Lieslëscht dobäisetzen</string>
   <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
   <string name="article_menu_bar_navigate">Op d\'Plaz vum Artikel navigéieren</string>
-  <string name="nav_item_reading_lists">Lieslëschten</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Lieslëschten</string>
   <string name="reading_list_untitled">Ouni Titel</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_create_new">Neier uleeën</string>

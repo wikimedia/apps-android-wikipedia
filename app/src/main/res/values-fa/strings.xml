@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">افزودن این مقاله به فهرست مطالعه</string>
   <string name="article_menu_bar_share">اشتراک‌گذاری پیوند مقاله</string>
   <string name="article_menu_bar_navigate">هدایت شدن به موقعیت مقاله</string>
-  <string name="nav_item_reading_lists">فهرست‌های مطالعه</string>
+  <string name="nav_item_reading_lists" fuzzy="true">فهرست‌های مطالعه</string>
   <string name="reading_list_untitled">بدون عنوان</string>
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
   <string name="reading_list_create_new">ایجاد جدید</string>

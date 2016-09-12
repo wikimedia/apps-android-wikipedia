@@ -229,7 +229,7 @@
   <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ شامل ڪريو</string>
   <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
   <string name="article_menu_bar_navigate">مضمون جي مڪانيت ڏانهن وڃو</string>
-  <string name="nav_item_reading_lists">پڙھڻ جون فھرستون</string>
+  <string name="nav_item_reading_lists" fuzzy="true">پڙھڻ جون فھرستون</string>
   <string name="reading_list_untitled">بلاعنوان</string>
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
   <string name="reading_list_create_new">نئين تخليق ڪريو</string>

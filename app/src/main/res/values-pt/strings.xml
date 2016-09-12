@@ -237,7 +237,7 @@ Gostaria de recomeçar ou sair?</string>
   <string name="article_menu_bar_bookmark">Adicionar este artigo a uma lista de leitura</string>
   <string name="article_menu_bar_share">Partilhar a ligação do artigo</string>
   <string name="article_menu_bar_navigate">Navegar ao local do artigo</string>
-  <string name="nav_item_reading_lists">Listas de leitura</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Listas de leitura</string>
   <string name="reading_list_untitled">Sem título</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
   <string name="reading_list_create_new">Criar nova</string>

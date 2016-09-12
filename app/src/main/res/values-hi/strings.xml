@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">इस लेख को पठन सूची में जोड़ें</string>
   <string name="article_menu_bar_share">आर्टिकल लिंक को साझा करें</string>
   <string name="article_menu_bar_navigate">लेख के स्थान पर जायें</string>
-  <string name="nav_item_reading_lists">पठन सूची</string>
+  <string name="nav_item_reading_lists" fuzzy="true">पठन सूची</string>
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>

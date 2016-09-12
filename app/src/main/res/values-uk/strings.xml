@@ -237,7 +237,7 @@
   <string name="article_menu_bar_bookmark">Зберегти статтю до списку читання</string>
   <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
   <string name="article_menu_bar_navigate">Перейти до розташування статті</string>
-  <string name="nav_item_reading_lists">Списки читання</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Списки читання</string>
   <string name="reading_list_untitled">Без назви</string>
   <string name="reading_list_save_to">Зберегти в список для читання</string>
   <string name="reading_list_create_new">Створити новий</string>

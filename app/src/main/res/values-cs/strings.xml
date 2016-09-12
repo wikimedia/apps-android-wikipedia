@@ -237,7 +237,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="article_menu_bar_bookmark">Přidat tento článek do seznamu k přečtení</string>
   <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
   <string name="article_menu_bar_navigate">Navigovat na místo článku</string>
-  <string name="nav_item_reading_lists">Seznamy k přečtení</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Seznamy k přečtení</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>

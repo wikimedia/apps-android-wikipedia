@@ -238,7 +238,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="article_menu_bar_bookmark">Ajouter cet article à une liste de lecture</string>
   <string name="article_menu_bar_share">Partager le lien vers la page</string>
   <string name="article_menu_bar_navigate">Naviguer à l’emplacement de l’article</string>
-  <string name="nav_item_reading_lists">Listes de lecture</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Listes de lecture</string>
   <string name="reading_list_untitled">Sans titre</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
   <string name="reading_list_create_new">Créer un nouveau</string>

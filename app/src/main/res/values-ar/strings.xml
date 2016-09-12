@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">أضف هذه المقالة لقائمة قراءة</string>
   <string name="article_menu_bar_share">شارك وصلة المقالة</string>
   <string name="article_menu_bar_navigate">انتقل إلى موقع هذه المقالة</string>
-  <string name="nav_item_reading_lists">قوائم القراءة</string>
+  <string name="nav_item_reading_lists" fuzzy="true">قوائم القراءة</string>
   <string name="reading_list_untitled">غير معنونة</string>
   <string name="reading_list_save_to">احفظ في قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>

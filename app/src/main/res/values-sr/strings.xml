@@ -220,7 +220,7 @@
   <string name="article_menu_bar_bookmark">Додај овај чланак на списак за читање</string>
   <string name="article_menu_bar_share">Дели везу чланка</string>
   <string name="article_menu_bar_navigate">Иди на локацију чланка</string>
-  <string name="nav_item_reading_lists">Спискови за читање</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Спискови за читање</string>
   <string name="reading_list_untitled">Без наслова</string>
   <string name="reading_list_save_to">Сачувај на списак за читање</string>
   <string name="reading_list_create_new">Направи нови</string>

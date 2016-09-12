@@ -237,7 +237,7 @@
   <string name="article_menu_bar_bookmark">একটি পড়ার তালিকা এই নিবন্ধটি যোগ করে</string>
   <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
   <string name="article_menu_bar_navigate">নিবন্ধের অবস্থান থেকে পরিভ্রমণ করুন</string>
-  <string name="nav_item_reading_lists">পড়ার তালিকা</string>
+  <string name="nav_item_reading_lists" fuzzy="true">পড়ার তালিকা</string>
   <string name="reading_list_untitled">শিরোনামহীন</string>
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>

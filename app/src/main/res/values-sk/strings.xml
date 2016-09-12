@@ -237,7 +237,7 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="article_menu_bar_bookmark">Pridať tento článok do zoznamu na prečítanie</string>
   <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
   <string name="article_menu_bar_navigate">Prejsť na umiestnenie článku</string>
-  <string name="nav_item_reading_lists">Zoznamy na prečítanie</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Zoznamy na prečítanie</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_create_new">Vytvoriť nový</string>

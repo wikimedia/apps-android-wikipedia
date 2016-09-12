@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">Thêm bài này vào một danh sách đọc</string>
   <string name="article_menu_bar_share">Chia sẻ liên kết đến bài</string>
   <string name="article_menu_bar_navigate">Chuyển đến vị trí của bài</string>
-  <string name="nav_item_reading_lists">Danh sách đọc</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Danh sách đọc</string>
   <string name="reading_list_untitled">Không tên</string>
   <string name="reading_list_save_to">Lưu vào danh sách đọc</string>
   <string name="reading_list_create_new">Tạo mới</string>

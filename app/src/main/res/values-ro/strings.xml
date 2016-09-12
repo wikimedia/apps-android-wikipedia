@@ -237,7 +237,7 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="article_menu_bar_bookmark">Adaugă acest articol într-o listă de lecturi</string>
   <string name="article_menu_bar_share">Distribuie legătura către articol</string>
   <string name="article_menu_bar_navigate">Navighează către locul din articol</string>
-  <string name="nav_item_reading_lists">Liste de lecturi</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Liste de lecturi</string>
   <string name="reading_list_untitled">Fără titlu</string>
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>
   <string name="reading_list_create_new">Creează una nouă</string>

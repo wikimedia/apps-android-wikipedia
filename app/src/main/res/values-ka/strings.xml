@@ -226,7 +226,7 @@
   <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
   <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_menu_bar_navigate">სტატიის მდებარეობაზე გადასვლა</string>
-  <string name="nav_item_reading_lists">საკითხავი სიები</string>
+  <string name="nav_item_reading_lists" fuzzy="true">საკითხავი სიები</string>
   <string name="reading_list_untitled">უსათაურო</string>
   <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>
   <string name="reading_list_create_new">ახლის შექმნა</string>

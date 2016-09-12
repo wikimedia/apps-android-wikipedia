@@ -235,7 +235,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="article_menu_bar_bookmark">Cikk hozzáadása egy olvasólistához</string>
   <string name="article_menu_bar_share">Ossza meg a cikk linkjét</string>
   <string name="article_menu_bar_navigate">Navigálás a szócikk helyéhez</string>
-  <string name="nav_item_reading_lists">Olvasólisták</string>
+  <string name="nav_item_reading_lists" fuzzy="true">Olvasólisták</string>
   <string name="reading_list_untitled">Névtelen</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_create_new">Új létrehozása</string>
