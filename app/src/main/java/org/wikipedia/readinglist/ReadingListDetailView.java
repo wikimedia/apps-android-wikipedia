@@ -40,6 +40,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ReadingListDetailView extends LinearLayout {
     @BindView(R.id.reading_list_title) TextView titleView;
@@ -68,6 +69,7 @@ public class ReadingListDetailView extends LinearLayout {
     public interface ReadingListActionListener {
         void onUpdate(ReadingList readingList, String newTitle, String newDescription, boolean saveOffline);
         void onDelete(ReadingList readingList);
+        void onBackPressed();
     }
 
     public ReadingListDetailView(Context context) {
@@ -148,6 +150,12 @@ public class ReadingListDetailView extends LinearLayout {
             if (page.title().toUpperCase().contains(query.toUpperCase())) {
                 displayedPages.add(page);
             }
+        }
+    }
+
+    @OnClick(R.id.reading_list_detail_back_button) void onBackPressed(View v) {
+        if (actionListener != null) {
+            actionListener.onBackPressed();
         }
     }
 
