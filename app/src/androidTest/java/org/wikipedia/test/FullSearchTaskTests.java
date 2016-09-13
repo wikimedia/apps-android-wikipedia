@@ -1,5 +1,6 @@
 package org.wikipedia.test;
 
+import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 
 import org.wikipedia.Site;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Tests for full text search.
  */
+@SmallTest
 public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
     private static final int BATCH_SIZE = 12;

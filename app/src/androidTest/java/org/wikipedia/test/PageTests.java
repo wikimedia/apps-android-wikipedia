@@ -1,5 +1,7 @@
 package org.wikipedia.test;
 
+import android.support.test.filters.SmallTest;
+
 import junit.framework.TestCase;
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
@@ -11,6 +13,7 @@ import org.wikipedia.page.Section;
 import java.util.ArrayList;
 import java.util.List;
 
+@SmallTest
 public class PageTests extends TestCase {
 
     private static final int NUM_SECTIONS = 10;

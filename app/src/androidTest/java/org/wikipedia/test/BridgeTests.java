@@ -1,5 +1,6 @@
 package org.wikipedia.test;
 
+import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
 import android.webkit.WebView;
 import org.json.JSONException;
@@ -14,6 +15,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 
+@SmallTest
 @RunWith(AndroidJUnit4.class)
 public class BridgeTests {
     private static final String TEST_FILE_URI = "file:///android_asset/tests/index.html";

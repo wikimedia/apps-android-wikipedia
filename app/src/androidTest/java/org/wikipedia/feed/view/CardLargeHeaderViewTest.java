@@ -3,6 +3,7 @@ package org.wikipedia.feed.view;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
+import android.support.test.filters.SmallTest;
 import android.view.View;
 
 import org.junit.experimental.theories.Theory;
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class CardLargeHeaderViewTest extends ViewTest {
+@SmallTest public class CardLargeHeaderViewTest extends ViewTest {
     private CardLargeHeaderView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,

@@ -4,6 +4,8 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.wikidata.GetDescriptionsTask;
+
+import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Tests retrieval of Wikidata descriptions through enwiki.
  */
+@SmallTest
 public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 200000;
     private static final Site SITE = Site.forLanguageCode("en");

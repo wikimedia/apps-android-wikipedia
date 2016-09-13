@@ -1,5 +1,6 @@
 package org.wikipedia.test;
 
+import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 
 import org.wikipedia.Constants;
@@ -18,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Tests for getting suggestions for further reading.
  */
+@SmallTest
 public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 200000;
     private static final Site SITE = new Site("en.wikipedia.org"); // suggestions don't seem to work on testwiki

@@ -1,6 +1,7 @@
 
 package org.wikipedia.test;
 
+import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
@@ -9,6 +10,7 @@ import org.wikipedia.editing.FetchSectionWikitextTask;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+@SmallTest
 public class FetchSectionWikitextTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
 

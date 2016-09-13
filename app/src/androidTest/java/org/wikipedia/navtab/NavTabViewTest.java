@@ -1,6 +1,7 @@
 package org.wikipedia.navtab;
 
 import android.support.annotation.NonNull;
+import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -13,7 +14,7 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
-public class NavTabViewTest extends ViewTest {
+@SmallTest public class NavTabViewTest extends ViewTest {
     private NavTabView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_XL, WIDTH_DP_XS}) int widthDp,

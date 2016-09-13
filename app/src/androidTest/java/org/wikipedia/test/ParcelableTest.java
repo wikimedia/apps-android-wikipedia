@@ -2,6 +2,8 @@ package org.wikipedia.test;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.test.filters.SmallTest;
+
 import junit.framework.TestCase;
 import org.json.JSONObject;
 import org.wikipedia.page.PageTitle;
@@ -11,6 +13,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.pageimages.PageImage;
 
+@SmallTest
 public class ParcelableTest extends TestCase {
 
     private void parcelAndTestObjects(Parcelable p) throws Exception {

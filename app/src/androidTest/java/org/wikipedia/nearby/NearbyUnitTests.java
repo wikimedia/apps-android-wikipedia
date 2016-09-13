@@ -4,6 +4,7 @@ import org.wikipedia.R;
 import org.json.JSONObject;
 import android.location.Location;
 import android.support.annotation.StringRes;
+import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
 
 import java.util.Collections;
@@ -14,6 +15,7 @@ import java.util.List;
 /**
  * Unit tests for Nearby related classes. Probably should refactor this into a model class.
  */
+@SmallTest
 public class NearbyUnitTests extends AndroidTestCase {
     // can't seem to suppress the checkstyle warnings for MagicNumbers. Oh well.
     private static final int THREE = 3;

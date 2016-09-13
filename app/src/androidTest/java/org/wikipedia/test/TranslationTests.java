@@ -3,6 +3,7 @@ package org.wikipedia.test;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.support.test.filters.SmallTest;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -24,6 +25,7 @@ import java.util.Locale;
  *
  * TODO: check content_license_html is valid HTML
  */
+@SmallTest
 public class TranslationTests extends ActivityInstrumentationTestCase2<PageActivity> {
     private static final String TAG = "TrTest";
 

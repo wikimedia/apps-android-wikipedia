@@ -1,9 +1,12 @@
 package org.wikipedia.test;
 
+import android.support.test.filters.SmallTest;
+
 import junit.framework.TestCase;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;
 
+@SmallTest
 public class SiteTests extends TestCase {
 
     public void testEquals() throws Exception {

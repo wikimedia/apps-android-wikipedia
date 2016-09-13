@@ -1,6 +1,7 @@
 package org.wikipedia.test;
 
 import android.support.annotation.NonNull;
+import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
@@ -21,7 +22,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-
+@SmallTest
 @RunWith(AndroidJUnit4.class)
 public class EditTaskTest {
     private static final Site TEST_WIKI_SITE = new Site("test.wikipedia.org");

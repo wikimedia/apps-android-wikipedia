@@ -1,6 +1,7 @@
 package org.wikipedia.editing;
 
 import android.support.annotation.NonNull;
+import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
@@ -13,6 +14,7 @@ import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
+@SmallTest
 @RunWith(AndroidJUnit4.class)
 public class EditPreviewTaskTest {
     @Test

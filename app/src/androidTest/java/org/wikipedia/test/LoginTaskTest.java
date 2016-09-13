@@ -2,6 +2,7 @@ package org.wikipedia.test;
 
 import android.support.annotation.StringRes;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
@@ -19,6 +20,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 
+@SmallTest
 @RunWith(AndroidJUnit4.class)
 public class LoginTaskTest {
     private static final String TEST_WIKI = "test.wikipedia.org";
