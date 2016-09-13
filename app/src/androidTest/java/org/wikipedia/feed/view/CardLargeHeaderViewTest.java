@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.View;
 
-import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
 import org.wikipedia.R;
@@ -64,14 +63,16 @@ public class CardLargeHeaderViewTest extends ViewTest {
         assertText(subject, R.id.view_card_header_large_title, text);
     }
 
-    @Test public void testOnClickListener() {
+    @Theory public void testOnClickListener(@TestedOn(ints = {0, 1}) int nonnull) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, R.drawable.checkerboard,
                 R.string.reading_list_name_sample);
 
-        OnClickListener listener = mock(View.OnClickListener.class);
+        OnClickListener listener = nonnull == 0 ? null : mock(View.OnClickListener.class);
         subject.onClickListener(listener);
         subject.performClick();
-        verify(listener);
+        if (listener != null) {
+            verify(listener);
+        }
     }
 
     private void setUp(int widthDp, @NonNull LayoutDirection layoutDirection, float fontScale,
