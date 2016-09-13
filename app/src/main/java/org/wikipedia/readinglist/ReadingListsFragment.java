@@ -216,6 +216,11 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
             pager.setCurrentItem(PAGE_READING_LISTS);
             updateLists();
         }
+
+        @Override
+        public void onBackPressed() {
+            ReadingListsFragment.this.onBackPressed();
+        }
     }
 
     private class ReadingListPagerAdapter extends PagerAdapter {

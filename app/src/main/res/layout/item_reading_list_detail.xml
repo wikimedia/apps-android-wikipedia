@@ -21,31 +21,50 @@
             android:paddingBottom="@dimen/list_item_vertical_padding"
             android:paddingLeft="@dimen/list_item_horizontal_padding"
             android:paddingRight="@dimen/list_item_horizontal_padding"
-            android:background="@color/actionbar_background"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/reading_list_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                tools:text="Lorem ipsum"/>
-            <TextView
-                android:id="@+id/reading_list_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="4dp"
-                android:textSize="14sp"
-                android:textColor="@color/list_item_text_primary_dark"
-                tools:text="3 articles"/>
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/reading_list_description"
+            android:background="@color/actionbar_background">
+
+            <ImageView
+                android:id="@+id/reading_list_detail_back_button"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:srcCompat="@drawable/abc_ic_ab_back_material"
+                android:tint="@android:color/white"
+                android:scaleType="center"
+                android:contentDescription="@null"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="6dp"
-                android:textColor="@android:color/white"
-                tools:text="Description"/>
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/reading_list_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    tools:text="Lorem ipsum"/>
+                <TextView
+                    android:id="@+id/reading_list_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/list_item_text_primary_dark"
+                    tools:text="3 articles"/>
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/reading_list_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="6dp"
+                    android:textColor="@android:color/white"
+                    tools:text="Description"/>
+            </LinearLayout>
+
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
