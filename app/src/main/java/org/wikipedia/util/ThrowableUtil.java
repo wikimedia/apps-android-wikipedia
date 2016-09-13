@@ -1,6 +1,8 @@
 package org.wikipedia.util;
 
 import org.wikipedia.R;
+import org.wikipedia.login.LoginClient;
+
 import org.mediawiki.api.json.ApiException;
 import org.json.JSONException;
 
@@ -53,6 +55,8 @@ public final class ThrowableUtil {
             result = new AppError(context.getString(R.string.error_network_error),
                                   context.getString(R.string.format_error_server_message,
                                       inner.getLocalizedMessage()));
+        } else if (inner instanceof LoginClient.LoginFailedException) {
+            result = new AppError(inner.getLocalizedMessage(), "");
         } else if (ThrowableUtil.throwableContainsException(e, JSONException.class)) {
             // it's a json exception
             result = new AppError(context.getString(R.string.error_response_malformed),

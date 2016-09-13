@@ -40,11 +40,11 @@ public class LoginActivity extends ThemedActionBarActivity {
     private EditText usernameText;
     private EditText passwordText;
     private View loginButton;
+    private ProgressDialog progressDialog;
 
     private LoginFunnel funnel;
     private String loginSource;
-
-    private ProgressDialog progressDialog;
+    private LoginClient loginClient;
     private boolean wentStraightToCreateAccount;
 
     public static Intent newIntent(@NonNull Context context, @NonNull String source) {
@@ -172,25 +172,15 @@ public class LoginActivity extends ThemedActionBarActivity {
     private void doLogin() {
         final String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();
-        new LoginTask(username, password) {
-            @Override
-            public void onBeforeExecute() {
-                progressDialog.show();
-            }
 
+        if (loginClient == null) {
+            loginClient = new LoginClient();
+        }
+        progressDialog.show();
+        loginClient.request(WikipediaApp.getInstance().getSite(), username, password,
+                new LoginClient.LoginCallback() {
             @Override
-            public void onCatch(Throwable caught) {
-                if (!progressDialog.isShowing()) {
-                    // no longer attached to activity!
-                    return;
-                }
-                progressDialog.dismiss();
-                FeedbackUtil.showError(LoginActivity.this, caught);
-            }
-
-            @Override
-            public void onFinish(LoginResult result) {
-                super.onFinish(result);
+            public void success(@NonNull LoginResult result) {
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
                     return;
@@ -214,7 +204,17 @@ public class LoginActivity extends ThemedActionBarActivity {
                     handleError(result.getMessage());
                 }
             }
-        }.execute();
+
+            @Override
+            public void error(@NonNull Throwable caught) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
+                    return;
+                }
+                progressDialog.dismiss();
+                FeedbackUtil.showError(LoginActivity.this, caught);
+            }
+        });
     }
 
     @Override

@@ -1,5 +1,32 @@
 package org.wikipedia.editing;
 
+import org.wikipedia.Constants;
+import org.wikipedia.R;
+import org.wikipedia.ViewAnimations;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.ActivityUtil;
+import org.wikipedia.activity.ThemedActionBarActivity;
+import org.wikipedia.analytics.EditFunnel;
+import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.editing.richtext.SyntaxHighlighter;
+import org.wikipedia.editing.summaries.EditSummaryFragment;
+import org.wikipedia.login.LoginActivity;
+import org.wikipedia.login.LoginClient;
+import org.wikipedia.login.LoginResult;
+import org.wikipedia.login.User;
+import org.wikipedia.page.LinkMovementMethodExt;
+import org.wikipedia.page.PageProperties;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
+
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiException;
+import org.mediawiki.api.json.RequestBuilder;
+
+import com.squareup.otto.Bus;
+
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,32 +50,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
-import com.squareup.otto.Bus;
-
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiException;
-import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.Constants;
-import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.ActivityUtil;
-import org.wikipedia.activity.ThemedActionBarActivity;
-import org.wikipedia.analytics.EditFunnel;
-import org.wikipedia.analytics.LoginFunnel;
-import org.wikipedia.editing.richtext.SyntaxHighlighter;
-import org.wikipedia.editing.summaries.EditSummaryFragment;
-import org.wikipedia.login.LoginActivity;
-import org.wikipedia.login.LoginResult;
-import org.wikipedia.login.LoginTask;
-import org.wikipedia.login.User;
-import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
@@ -435,18 +436,34 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     }
 
     private void doLoginAndSave(final User user) {
-        new LoginTask(user.getUsername(), user.getPassword()) {
-            @Override
-            public void onFinish(LoginResult result) {
-                if (result.pass()) {
-                    doSave();
-                } else {
-                    progressDialog.dismiss();
-                    ViewAnimations.crossFade(sectionText, sectionError);
-                    sectionError.setVisibility(View.VISIBLE);
-                }
-            }
-        }.execute();
+        new LoginClient().request(WikipediaApp.getInstance().getSite(),
+                user.getUsername(),
+                user.getPassword(),
+                new LoginClient.LoginCallback() {
+                    @Override
+                    public void success(@NonNull LoginResult result) {
+                        if (result.pass()) {
+                            doSave();
+                        } else {
+                            onLoginError();
+                        }
+                    }
+
+                    @Override
+                    public void error(@NonNull Throwable caught) {
+                        onLoginError();
+                    }
+
+                    private void onLoginError() {
+                        if (!progressDialog.isShowing()) {
+                            // no longer attached to activity!
+                            return;
+                        }
+                        progressDialog.dismiss();
+                        ViewAnimations.crossFade(sectionText, sectionError);
+                        sectionError.setVisibility(View.VISIBLE);
+                    }
+                });
     }
 
     private void handleAbuseFilter() {
