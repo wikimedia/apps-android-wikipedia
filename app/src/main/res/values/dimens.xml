@@ -101,5 +101,7 @@
     <dimen name="overflow_elevation">16dp</dimen>
 
     <!-- Navigation -->
-    <dimen name="view_nav_view_pager_tab_layout_height">72dp</dimen>
+    <dimen name="view_nav_view_pager_tab_layout_height">56dp</dimen>
+    <dimen name="nav_tab_inactive_text_size">12sp</dimen>
+    <dimen name="nav_tab_active_text_size">14sp</dimen>
 </resources>
