@@ -64,7 +64,6 @@
         android:padding="8dp"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
         android:tint="?attr/feed_text_tertiary_color"
-        android:clickable="true"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@null"/>
 

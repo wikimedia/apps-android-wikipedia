@@ -61,7 +61,6 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
-                    android:clickable="true"
                     android:padding="12dp"
                     android:background="?attr/actionBarItemBackground"
                     android:contentDescription="@string/abc_action_menu_overflow_description"

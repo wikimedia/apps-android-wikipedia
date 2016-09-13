@@ -31,26 +31,20 @@
             tools:text="99/99"
             style="?android:textAppearanceSmall"
             />
-    <ImageButton
+    <ImageView
+            style="@style/Widget.AppCompat.ImageButton"
             android:id="@+id/find_in_page_prev"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:gravity="center"
-            android:clickable="true"
-            android:background="@drawable/selectable_item_background"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/find_previous"
             app:srcCompat="@drawable/ic_expand_less_white_24dp"/>
-    <ImageButton
+    <ImageView
+            style="@style/Widget.AppCompat.ImageButton"
             android:id="@+id/find_in_page_next"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:gravity="center"
-            android:clickable="true"
-            android:background="@drawable/selectable_item_background"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/find_next"
             app:srcCompat="@drawable/ic_expand_more_white_24dp"/>
 </LinearLayout>

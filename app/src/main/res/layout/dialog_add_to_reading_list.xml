@@ -29,7 +29,8 @@
                 android:textSize="18sp"
                 android:text="@string/reading_list_save_to" />
 
-            <ImageButton
+            <ImageView
+                style="@style/Widget.AppCompat.ImageButton"
                 android:id="@+id/close_button"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
