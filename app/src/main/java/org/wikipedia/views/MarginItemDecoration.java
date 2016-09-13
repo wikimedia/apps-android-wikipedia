@@ -34,7 +34,7 @@ public class MarginItemDecoration extends RecyclerView.ItemDecoration {
         outRect.set(offsets);
     }
 
-    private static int pixelSize(@NonNull Context context, @DimenRes int id) {
+    protected static int pixelSize(@NonNull Context context, @DimenRes int id) {
         return context.getResources().getDimensionPixelSize(id);
     }
 }

@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import org.wikipedia.R;
 import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.views.AutoFitRecyclerView;
+import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
 
@@ -63,6 +64,8 @@ public class FeedView extends AutoFitRecyclerView {
         addItemDecoration(new MarginItemDecoration(getContext(),
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical));
+        addItemDecoration(new HeaderMarginItemDecoration(getContext(),
+                R.dimen.view_list_first_card_margin_top));
         callback(new RecyclerViewColumnCallback());
     }
 
