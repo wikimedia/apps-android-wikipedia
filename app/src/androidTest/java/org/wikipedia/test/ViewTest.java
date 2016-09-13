@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -14,6 +15,7 @@ import android.support.v4.text.TextUtilsCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.view.ContextThemeWrapper;
 import android.view.View;
+import android.widget.TextView;
 
 import com.facebook.common.util.UriUtil;
 import com.facebook.testing.screenshot.Screenshot;
@@ -29,6 +31,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+
+import static butterknife.ButterKnife.findById;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 @RunWith(Theories.class) public abstract class ViewTest {
     protected static final int WIDTH_DP_XL = 720;
@@ -89,6 +96,11 @@ import java.util.Locale;
         list.add(theme.toString().toLowerCase());
         list.addAll(Arrays.asList(ArrayUtils.nullToEmpty(dataPoints)));
         Screenshot.snap(subject).setName(testName(list)).record();
+    }
+
+    protected void assertText(@NonNull View subject, @IdRes int id, @StringRes int text) {
+        TextView textView = findById(subject, id);
+        assertThat(textView.getText().toString(), is(emptyIfNull(str(text))));
     }
 
     protected void runOnMainSync(@NonNull Runnable runnable) {
