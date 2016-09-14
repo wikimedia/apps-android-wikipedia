@@ -14,7 +14,6 @@ import java.util.List;
 public class AggregatedFeedContent {
     @SuppressWarnings("unused") @Nullable private CardPageItem tfa;
     @SuppressWarnings("unused") @Nullable private List<NewsItem> news;
-    @SuppressWarnings("unused") @Nullable private CardPageItem random;
     @SuppressWarnings("unused") @SerializedName("mostread") @Nullable private MostReadArticles mostRead;
     @SuppressWarnings("unused") @Nullable private FeaturedImage image;
 
