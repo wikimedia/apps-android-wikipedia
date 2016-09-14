@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <bool name="wide">true</bool>
-
-    <!-- Navigation -->
-    <dimen name="view_nav_view_pager_tab_layout_height">48dp</dimen>
-</resources>

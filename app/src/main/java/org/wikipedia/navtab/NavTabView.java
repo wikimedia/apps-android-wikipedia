@@ -3,7 +3,6 @@ package org.wikipedia.navtab;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.BoolRes;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -11,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.util.TypedValue;
 import android.widget.TextView;
 
 import org.wikipedia.R;
@@ -23,10 +23,9 @@ public class NavTabView extends TextView {
     }
 
     public NavTabView icon(@DrawableRes int id) {
-        boolean wide = bool(R.bool.wide);
         icon = drawable(id);
-        setCompoundDrawablesRelativeWithIntrinsicBounds(wide ? icon : null, wide ? null : icon,
-                null, null);
+        setCompoundDrawablesRelativeWithIntrinsicBounds(null, icon, null, null);
+        setCompoundDrawablePadding(0);
         return this;
     }
 
@@ -56,14 +55,13 @@ public class NavTabView extends TextView {
 
         int color = color(isSelected() ? R.color.foundation_blue : R.color.foundation_gray);
         DrawableCompat.setTint(icon, color);
+        setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimension(isSelected()
+                        ? R.dimen.nav_tab_active_text_size : R.dimen.nav_tab_inactive_text_size));
     }
 
     private Drawable drawable(@DrawableRes int id) {
         return ContextCompat.getDrawable(getContext(), id);
-    }
-
-    private boolean bool(@BoolRes int id) {
-        return getResources().getBoolean(id);
     }
 
     @ColorInt private int color(@ColorRes int id) {
