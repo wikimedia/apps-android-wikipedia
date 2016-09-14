@@ -37,9 +37,9 @@ public class AggregatedFeedContentClient implements FeedClient {
     public void request(@NonNull Context context, @NonNull Site site, int age, @NonNull Callback cb) {
         cancel();
         UtcDate date = DateUtil.getUtcRequestDateFor(age);
-        // TODO: Use app retrofit, etc., when feed endpoints are deployed to production
-        Retrofit retrofit = RetrofitFactory.newInstance(site,
-                String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), "http", site.authority()));
+        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(),
+                site.authority());
+        Retrofit retrofit = RetrofitFactory.newInstance(site, endpoint);
         AggregatedFeedContentClient.Service service = retrofit.create(Service.class);
         call = service.get(date.year(), date.month(), date.date());
         call.enqueue(new CallbackAdapter(cb, site, age));
