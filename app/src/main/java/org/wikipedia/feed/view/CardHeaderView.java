@@ -74,7 +74,7 @@ public class CardHeaderView extends FrameLayout {
         return this;
     }
 
-    @OnClick(R.id.view_list_card_header_menu) protected void onMenuClick(View v) {
+    @OnClick(R.id.view_list_card_header_menu) void onMenuClick(View v) {
         showOverflowMenu(v);
     }
 

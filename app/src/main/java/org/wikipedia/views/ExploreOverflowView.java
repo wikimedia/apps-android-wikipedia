@@ -54,7 +54,7 @@ public class ExploreOverflowView extends FrameLayout {
 
     @OnClick({R.id.explore_overflow_settings, R.id.explore_overflow_donate,
             R.id.explore_overflow_account_container, R.id.explore_overflow_log_out})
-    protected void onItemClick(View view) {
+    void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();
             popupWindowHost = null;

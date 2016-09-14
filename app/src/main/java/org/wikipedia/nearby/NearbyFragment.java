@@ -159,7 +159,7 @@ public class NearbyFragment extends Fragment {
         }
     }
 
-    @OnClick(R.id.user_location_button) public void onClick() {
+    @OnClick(R.id.user_location_button) void onClick() {
         checkLocationPermissionsToGoToUserLocation();
     }
 
