@@ -148,11 +148,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
     @Nullable
     private PageScrollFunnel pageScrollFunnel;
-
-    private ArticleHeaderView articleHeaderView;
     private LeadImagesHandler leadImagesHandler;
     private PageToolbarHideHandler toolbarHideHandler;
-    private PageActionToolbarHideHandler pageActionToolbarHideHandler;
     private ObservableWebView webView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiErrorView errorView;
@@ -287,7 +284,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tabLayout = (TabLayout) rootView.findViewById(R.id.page_actions_tab_layout);
         tabLayout.addOnTabSelectedListener(pageActionTabListener);
 
-        pageActionToolbarHideHandler = new PageActionToolbarHideHandler(tabLayout);
+        PageActionToolbarHideHandler pageActionToolbarHideHandler = new PageActionToolbarHideHandler(tabLayout);
         pageActionToolbarHideHandler.setScrollView(webView);
 
         errorView = (WikiErrorView)rootView.findViewById(R.id.page_error);
@@ -383,7 +380,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler = new ToCHandler(this, tocDrawer, bridge);
 
         // TODO: initialize View references in onCreateView().
-        articleHeaderView = findById(getView(), R.id.page_header_view);
+        ArticleHeaderView articleHeaderView = findById(getView(), R.id.page_header_view);
         leadImagesHandler = new LeadImagesHandler(this, bridge, webView, articleHeaderView);
         toolbarHideHandler = getSearchBarHideHandler();
         toolbarHideHandler.setScrollView(webView);
