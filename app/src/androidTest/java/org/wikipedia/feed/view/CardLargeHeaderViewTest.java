@@ -4,7 +4,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.View;
-import android.widget.TextView;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -19,7 +18,6 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class CardLargeHeaderViewTest extends ViewTest {
     private CardLargeHeaderView subject;
@@ -61,10 +59,9 @@ public class CardLargeHeaderViewTest extends ViewTest {
     }
 
     @Theory public void testSetTitle(@TestedOn(ints = {0,
-            R.string.reading_list_name_sample}) int title) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, 0, title);
-        TextView text = findById(subject, R.id.view_card_header_large_title);
-        assertThat(text.getText().toString(), is(emptyIfNull(str(title))));
+            R.string.reading_list_name_sample}) int text) {
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, 0, text);
+        assertText(subject, R.id.view_card_header_large_title, text);
     }
 
     @Test public void testOnClickListener() {
