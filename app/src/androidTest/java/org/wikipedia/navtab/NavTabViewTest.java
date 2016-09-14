@@ -23,9 +23,8 @@ import static org.junit.Assert.assertThat;
         snap(subject);
     }
 
-    @Theory public void testLayoutDirection(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_XS}) int widthDp,
-                                            LayoutDirection direction) {
-        setUp(widthDp, direction, 1, Theme.LIGHT);
+    @Theory public void testLayoutDirection(LayoutDirection direction) {
+        setUp(WIDTH_DP_XS, direction, 1, Theme.LIGHT);
         snap(subject);
     }
 

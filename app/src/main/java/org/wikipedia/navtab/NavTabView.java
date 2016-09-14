@@ -25,7 +25,6 @@ public class NavTabView extends TextView {
     public NavTabView icon(@DrawableRes int id) {
         icon = drawable(id);
         setCompoundDrawablesRelativeWithIntrinsicBounds(null, icon, null, null);
-        setCompoundDrawablePadding(0);
         return this;
     }
 
