@@ -4,6 +4,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.view.View;
+import android.widget.TextView;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -13,8 +14,12 @@ import org.wikipedia.test.ViewTest;
 import org.wikipedia.theme.Theme;
 
 import static android.view.View.OnClickListener;
+import static butterknife.ButterKnife.findById;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class CardLargeHeaderViewTest extends ViewTest {
     private CardLargeHeaderView subject;
@@ -47,6 +52,19 @@ public class CardLargeHeaderViewTest extends ViewTest {
             }
         });
         snap(subject);
+    }
+
+    @Theory public void testSetImage(@TestedOn(ints = {0, R.drawable.checkerboard}) int image) {
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, image, 0);
+        View imageView = findById(subject, R.id.view_card_header_large_image);
+        assertThat(imageView.getVisibility(), is(image == 0 ? View.GONE : View.VISIBLE));
+    }
+
+    @Theory public void testSetTitle(@TestedOn(ints = {0,
+            R.string.reading_list_name_sample}) int title) {
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, 0, title);
+        TextView text = findById(subject, R.id.view_card_header_large_title);
+        assertThat(text.getText().toString(), is(emptyIfNull(str(title))));
     }
 
     @Test public void testOnClickListener() {
