@@ -39,6 +39,7 @@ import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class SearchFragment extends Fragment implements BackPressedHandler,
@@ -118,7 +119,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        funnel = new SearchFunnel(WikipediaApp.getInstance(), SearchInvokeSource.of(invokeSource.code()));
+        funnel = new SearchFunnel(app, SearchInvokeSource.of(invokeSource.code()));
     }
 
     @Override
@@ -132,15 +133,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         app = WikipediaApp.getInstance();
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, view);
-
-        searchContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Give the root container view an empty click handler, so that click events won't
-                // get passed down to any underlying views (e.g. a PageFragment on top of which
-                // this fragment is shown)
-            }
-        });
 
         FragmentManager childFragmentManager = getChildFragmentManager();
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
@@ -332,6 +324,16 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         updateZeroChrome();
     }
 
+    @OnClick(R.id.search_container) void onSearchContainerClick() {
+        // Give the root container view an empty click handler, so that click events won't
+        // get passed down to any underlying views (e.g. a PageFragment on top of which
+        // this fragment is shown)
+    }
+
+    @OnClick(R.id.search_lang_button_container) void onLangButtonClick() {
+        showLangPreferenceDialog();
+    }
+
     /**
      * Show a particular panel, which can be one of:
      * - PANEL_RECENT_SEARCHES
@@ -390,12 +392,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private void initLangButton() {
         langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
         formatLangButtonText();
-        langButtonContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showLangPreferenceDialog();
-            }
-        });
         FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);
     }
 
