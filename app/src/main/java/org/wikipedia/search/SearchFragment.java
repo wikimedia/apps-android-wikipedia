@@ -140,9 +140,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
 
-        // make sure we're hidden by default
-        searchContainer.setVisibility(View.GONE);
-
         if (savedInstanceState != null) {
             lastSearchedText = savedInstanceState.getString(ARG_LAST_SEARCHED_TEXT);
             invokeSource = SearchInvokeSource.of(savedInstanceState.getInt(ARG_INVOKE_SOURCE));
