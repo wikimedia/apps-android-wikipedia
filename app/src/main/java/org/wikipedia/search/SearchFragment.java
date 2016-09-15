@@ -98,14 +98,14 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private Unbinder unbinder;
 
     private WikipediaApp app;
-    private EditText searchEditText;
+    @BindView(android.support.v7.appcompat.R.id.search_src_text) EditText searchEditText;
     private SearchFunnel funnel;
     private InvokeSource invokeSource = InvokeSource.TOOLBAR;
 
     /**
      * Whether the Search fragment is currently showing.
      */
-    private boolean isSearchActive = false;
+    private boolean isSearchActive;
 
     /**
      * The last search term that the user entered. This will be passed into
@@ -354,8 +354,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         searchView.setOnQueryTextListener(searchQueryListener);
         searchView.setOnCloseListener(searchCloseListener);
 
-        searchEditText = (EditText) searchView
-                .findViewById(android.support.v7.appcompat.R.id.search_src_text);
         // reset its background
         searchEditText.setBackgroundColor(Color.TRANSPARENT);
         // make the search frame match_parent
