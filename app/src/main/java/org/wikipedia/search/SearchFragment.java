@@ -32,8 +32,6 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.model.EnumCode;
-import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.FeedbackUtil;
@@ -45,36 +43,6 @@ import butterknife.Unbinder;
 
 public class SearchFragment extends Fragment implements BackPressedHandler,
         SearchResultsFragment.Parent, RecentSearchesFragment.Parent {
-    public enum InvokeSource implements EnumCode {
-        TOOLBAR(0),
-        WIDGET(1),
-        INTENT_SHARE(2),
-        INTENT_PROCESS_TEXT(3),
-        FEED_BAR(4),
-        VOICE(5);
-
-        private static final EnumCodeMap<InvokeSource> MAP = new EnumCodeMap<>(InvokeSource.class);
-
-        private final int code;
-
-        public static InvokeSource of(int code) {
-            return MAP.get(code);
-        }
-
-        @Override public int code() {
-            return code;
-        }
-
-        InvokeSource(int code) {
-            this.code = code;
-        }
-
-        public boolean fromIntent() {
-            return code == WIDGET.code() || code == INTENT_SHARE.code()
-                    || code == INTENT_PROCESS_TEXT.code();
-        }
-    }
-
     public interface Callback {
         void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab);
         void onSearchOpen();
@@ -100,7 +68,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private WikipediaApp app;
     @BindView(android.support.v7.appcompat.R.id.search_src_text) EditText searchEditText;
     private SearchFunnel funnel;
-    private InvokeSource invokeSource = InvokeSource.TOOLBAR;
+    private SearchInvokeSource invokeSource = SearchInvokeSource.TOOLBAR;
 
     /**
      * Whether the Search fragment is currently showing.
@@ -116,11 +84,41 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private RecentSearchesFragment recentSearchesFragment;
     private SearchResultsFragment searchResultsFragment;
 
+    private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
+        @Override
+        public boolean onClose() {
+            closeSearch();
+            funnel.searchCancel();
+            return false;
+        }
+    };
+
+    private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String queryText) {
+            PageTitle firstResult = null;
+            if (getActivePanel() == PANEL_SEARCH_RESULTS) {
+                firstResult = searchResultsFragment.getFirstResult();
+            }
+            if (firstResult != null) {
+                navigateToTitle(firstResult, false, 0);
+                closeSearch();
+            }
+            return true;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String queryText) {
+            startSearch(queryText.trim(), false);
+            return true;
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        funnel = new SearchFunnel(WikipediaApp.getInstance(), InvokeSource.of(invokeSource.code()));
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), SearchInvokeSource.of(invokeSource.code()));
     }
 
     @Override
@@ -155,7 +153,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
         if (savedInstanceState != null) {
             lastSearchedText = savedInstanceState.getString(ARG_LAST_SEARCHED_TEXT);
-            invokeSource = InvokeSource.of(savedInstanceState.getInt(ARG_INVOKE_SOURCE));
+            invokeSource = SearchInvokeSource.of(savedInstanceState.getInt(ARG_INVOKE_SOURCE));
             showPanel(savedInstanceState.getInt(ARG_SEARCH_CURRENT_PANEL));
         }
 
@@ -198,7 +196,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         statusBarView.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
-    public void setInvokeSource(InvokeSource source) {
+    public void setInvokeSource(SearchInvokeSource source) {
         invokeSource = source;
     }
 
@@ -219,42 +217,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     @Override
     public void setSearchText(@NonNull CharSequence text) {
         searchView.setQuery(text, false);
-    }
-
-    /**
-     * Show a particular panel, which can be one of:
-     * - PANEL_RECENT_SEARCHES
-     * - PANEL_SEARCH_RESULTS
-     * Automatically hides the previous panel.
-     * @param panel Which panel to show.
-     */
-    private void showPanel(int panel) {
-        switch (panel) {
-            case PANEL_RECENT_SEARCHES:
-                searchResultsFragment.hide();
-                recentSearchesFragment.show();
-                break;
-            case PANEL_SEARCH_RESULTS:
-                recentSearchesFragment.hide();
-                searchResultsFragment.show();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private int getActivePanel() {
-        if (searchResultsFragment.isShowing()) {
-            return PANEL_SEARCH_RESULTS;
-        } else {
-            //otherwise, the recent searches must be showing:
-            return PANEL_RECENT_SEARCHES;
-        }
-    }
-
-    @Subscribe
-    public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-        updateZeroChrome();
     }
 
     /**
@@ -291,7 +253,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
      */
     public void openSearch() {
         // create a new funnel every time Search is opened, to get a new session ID
-        funnel = new SearchFunnel(WikipediaApp.getInstance(), InvokeSource.of(invokeSource.code()));
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), SearchInvokeSource.of(invokeSource.code()));
         funnel.searchStart();
         isSearchActive = true;
         Callback callback = callback();
@@ -352,6 +314,55 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         progressBar.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
+    @Override
+    public void navigateToTitle(@NonNull PageTitle title, boolean inNewTab, int position) {
+        if (!isAdded()) {
+            return;
+        }
+        funnel.searchClick(position);
+        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
+        closeSearch();
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchSelectPage(historyEntry, inNewTab);
+        }
+    }
+
+    @Subscribe public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
+        updateZeroChrome();
+    }
+
+    /**
+     * Show a particular panel, which can be one of:
+     * - PANEL_RECENT_SEARCHES
+     * - PANEL_SEARCH_RESULTS
+     * Automatically hides the previous panel.
+     * @param panel Which panel to show.
+     */
+    private void showPanel(int panel) {
+        switch (panel) {
+            case PANEL_RECENT_SEARCHES:
+                searchResultsFragment.hide();
+                recentSearchesFragment.show();
+                break;
+            case PANEL_SEARCH_RESULTS:
+                recentSearchesFragment.hide();
+                searchResultsFragment.show();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private int getActivePanel() {
+        if (searchResultsFragment.isShowing()) {
+            return PANEL_SEARCH_RESULTS;
+        } else {
+            //otherwise, the recent searches must be showing:
+            return PANEL_RECENT_SEARCHES;
+        }
+    }
+
     private void initSearchView() {
         searchView.setOnQueryTextListener(searchQueryListener);
         searchView.setOnCloseListener(searchCloseListener);
@@ -402,50 +413,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     private boolean isValidQuery(String queryText) {
         return queryText != null && TextUtils.getTrimmedLength(queryText) > 0;
-    }
-
-    private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
-        @Override
-        public boolean onQueryTextSubmit(String queryText) {
-            PageTitle firstResult = null;
-            if (getActivePanel() == PANEL_SEARCH_RESULTS) {
-                firstResult = searchResultsFragment.getFirstResult();
-            }
-            if (firstResult != null) {
-                navigateToTitle(firstResult, false, 0);
-                closeSearch();
-            }
-            return true;
-        }
-
-        @Override
-        public boolean onQueryTextChange(String queryText) {
-            startSearch(queryText.trim(), false);
-            return true;
-        }
-    };
-
-    private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
-        @Override
-        public boolean onClose() {
-            closeSearch();
-            funnel.searchCancel();
-            return false;
-        }
-    };
-
-    @Override
-    public void navigateToTitle(@NonNull PageTitle title, boolean inNewTab, int position) {
-        if (!isAdded()) {
-            return;
-        }
-        funnel.searchClick(position);
-        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-        closeSearch();
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onSearchSelectPage(historyEntry, inNewTab);
-        }
     }
 
     private void addRecentSearch(String title) {
@@ -502,7 +469,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         return FragmentUtil.getCallback(this, Callback.class);
     }
 
-    public void showLangPreferenceDialog() {
+    private void showLangPreferenceDialog() {
         LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getContext(), true);
         langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override

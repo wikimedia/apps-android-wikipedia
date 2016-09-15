@@ -47,6 +47,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchFragment;
+import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
@@ -136,7 +137,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchFromIntent(searchQuery, SearchFragment.InvokeSource.VOICE);
+            openSearchFromIntent(searchQuery, SearchInvokeSource.VOICE);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT) {
             startActivity(data);
@@ -213,16 +214,16 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             funnel.logShareIntent();
             openSearchFromIntent(intent.getStringExtra(Intent.EXTRA_TEXT),
-                    SearchFragment.InvokeSource.INTENT_SHARE);
+                    SearchInvokeSource.INTENT_SHARE);
         } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             funnel.logProcessTextIntent();
             openSearchFromIntent(intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT),
-                    SearchFragment.InvokeSource.INTENT_PROCESS_TEXT);
+                    SearchInvokeSource.INTENT_PROCESS_TEXT);
         } else if (intent.hasExtra(Constants.INTENT_SEARCH_FROM_WIDGET)) {
             funnel.logSearchWidgetTap();
-            openSearchFromIntent(null, SearchFragment.InvokeSource.WIDGET);
+            openSearchFromIntent(null, SearchInvokeSource.WIDGET);
         } else if (lastPageViewedWithin(1)) {
             startActivity(PageActivity.newIntent(getContext()));
         }
@@ -251,7 +252,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSearchRequested() {
-        searchFragment.setInvokeSource(SearchFragment.InvokeSource.FEED_BAR);
+        searchFragment.setInvokeSource(SearchInvokeSource.FEED_BAR);
         searchFragment.openSearch();
     }
 
@@ -438,7 +439,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     public void openSearchFromIntent(@Nullable final String query,
-                                      final SearchFragment.InvokeSource source) {
+                                      final SearchInvokeSource source) {
         tabLayout.post(new Runnable() {
             @Override
             public void run() {
