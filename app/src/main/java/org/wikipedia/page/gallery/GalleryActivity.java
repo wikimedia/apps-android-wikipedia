@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
@@ -570,7 +570,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * Each media item will be represented by a GalleryItemFragment, which will be instantiated
      * lazily, and then cached for future use.
      */
-    private class GalleryItemAdapter extends FragmentStatePagerAdapter {
+    private class GalleryItemAdapter extends FragmentPagerAdapter {
         private GalleryCollection galleryCollection;
         private SparseArray<GalleryItemFragment> fragmentArray;
 
