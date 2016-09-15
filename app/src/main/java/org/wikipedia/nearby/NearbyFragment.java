@@ -123,18 +123,20 @@ public class NearbyFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroyView() {
         mapView.onDestroy();
         mapboxMap = null;
         unbinder.unbind();
         unbinder = null;
-        super.onDestroy();
+        super.onDestroyView();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
+        if (mapView != null) {
+            mapView.onSaveInstanceState(outState);
+        }
         if (lastResult != null) {
             outState.putParcelable(NEARBY_CURRENT_LOCATION, currentLocation);
             outState.putParcelable(NEARBY_LAST_RESULT, lastResult);
