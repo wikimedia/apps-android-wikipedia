@@ -173,6 +173,8 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     @Override
     public void onDestroyView() {
+        searchView.setOnCloseListener(null);
+        searchView.setOnQueryTextListener(null);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
