@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.util.DateUtil;
 
 public class FeaturedImageCard extends Card {
@@ -63,13 +63,6 @@ public class FeaturedImageCard extends Card {
     @Nullable
     public String description() {
         return featuredImage.description();
-    }
-
-    //Expose the language of the returned description in case we want to hide it if it doesn't match
-    //the request Site language
-    @Nullable
-    public String descriptionLang() {
-        return featuredImage.descriptionLang();
     }
 
     @Override
