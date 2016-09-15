@@ -56,14 +56,15 @@ import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
+import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchFragment;
+import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
-import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.tooltip.ToolTipUtil;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
@@ -584,7 +585,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onPageSearchRequested() {
-        searchFragment.setInvokeSource(SearchFragment.InvokeSource.TOOLBAR);
+        searchFragment.setInvokeSource(SearchInvokeSource.TOOLBAR);
         searchFragment.openSearch();
     }
 
