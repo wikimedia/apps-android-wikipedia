@@ -73,7 +73,7 @@ public class FeaturedImageCard extends Card {
     }
 
     @Override
-    public int hashCode() {
+    protected int dismissHashCode() {
         return featuredImage.title().hashCode();
     }
 }

@@ -42,7 +42,7 @@ public class ContinueReadingCard extends Card {
     }
 
     @Override
-    public int hashCode() {
+    protected int dismissHashCode() {
         return entry.getTitle().hashCode();
     }
 }

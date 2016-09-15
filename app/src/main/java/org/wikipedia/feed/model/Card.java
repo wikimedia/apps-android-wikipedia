@@ -22,8 +22,11 @@ public abstract class Card extends BaseModel {
         return null;
     }
 
-    // TODO: enforce a contract for subclasses of Card to implement hashCode()
     public String getHideKey() {
-        return Long.toString(FeedRecyclerAdapter.getCardType(this) + hashCode());
+        return Long.toString(FeedRecyclerAdapter.getCardType(this) + dismissHashCode());
+    }
+
+    protected int dismissHashCode() {
+        return hashCode();
     }
 }

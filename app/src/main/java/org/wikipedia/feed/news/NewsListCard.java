@@ -39,7 +39,7 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     }
 
     @Override
-    public int hashCode() {
+    protected int dismissHashCode() {
         return (int) TimeUnit.MILLISECONDS.toDays(age.baseCalendar().getTime().getTime());
     }
 }

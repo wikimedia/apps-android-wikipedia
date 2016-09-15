@@ -77,7 +77,7 @@ public class FeaturedArticleCard extends Card {
     }
 
     @Override
-    public int hashCode() {
+    protected int dismissHashCode() {
         return page.title().hashCode();
     }
 }

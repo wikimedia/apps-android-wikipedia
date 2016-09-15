@@ -51,7 +51,7 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     }
 
     @Override
-    public int hashCode() {
+    protected int dismissHashCode() {
         return (int) TimeUnit.MILLISECONDS.toDays(articles.date().getTime());
     }
 }

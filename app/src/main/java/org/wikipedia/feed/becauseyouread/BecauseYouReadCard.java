@@ -51,11 +51,7 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     }
 
     @Override
-    public int hashCode() {
+    protected int dismissHashCode() {
         return entry.getTitle().hashCode();
-    }
-
-    @Override public boolean equals(Object other) {
-        return entry.getTitle().equals(other);
     }
 }
