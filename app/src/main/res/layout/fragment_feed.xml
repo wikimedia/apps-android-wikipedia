@@ -7,11 +7,23 @@
     android:layout_height="match_parent"
     android:background="?attr/feed_window_background_color">
 
-    <org.wikipedia.feed.view.FeedView
-        android:id="@+id/fragment_feed_feed"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        app:minColumnWidth="@dimen/view_feed_min_column_width"/>
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/fragment_feed_header"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:background="@color/dark_blue" />
+
+        <org.wikipedia.feed.view.FeedView
+            android:id="@+id/fragment_feed_feed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            app:minColumnWidth="@dimen/view_feed_min_column_width"/>
+
+    </FrameLayout>
 
 </android.support.v4.widget.SwipeRefreshLayout>

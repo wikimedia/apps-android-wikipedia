@@ -64,7 +64,7 @@ public class FeedView extends AutoFitRecyclerView {
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical,
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical));
         addItemDecoration(new HeaderMarginItemDecoration(getContext(),
-                R.dimen.view_list_first_card_margin_top));
+                R.dimen.view_feed_padding_top));
         setCallback(new RecyclerViewColumnCallback());
     }
 

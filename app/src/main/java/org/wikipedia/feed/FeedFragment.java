@@ -49,6 +49,7 @@ import butterknife.Unbinder;
 public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
+    @BindView(R.id.fragment_feed_header) View feedHeader;
     private Unbinder unbinder;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
@@ -282,6 +283,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
+            int yOffset = feedView.computeVerticalScrollOffset() * 2;
+            if (yOffset <= feedHeader.getHeight()
+                    || feedHeader.getTranslationY() > -feedHeader.getHeight()) {
+                feedHeader.setTranslationY(-yOffset);
+            }
             boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
             if (shouldShowSearchIcon != searchIconVisible) {
                 searchIconVisible = shouldShowSearchIcon;

@@ -90,9 +90,8 @@
 
     <!-- The Feed -->
     <dimen name="view_feed_header_height">160dp</dimen>
-    <dimen name="view_feed_overlap_top">84dp</dimen>
+    <dimen name="view_feed_padding_top">10dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>
-    <dimen name="view_list_first_card_margin_top">10dp</dimen>
     <dimen name="view_list_card_margin_vertical">5dp</dimen>
     <dimen name="view_list_card_margin_horizontal">7dp</dimen>
     <dimen name="view_list_card_item_margin">16dp</dimen>
