@@ -1,5 +1,6 @@
 package org.wikipedia.feed;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
@@ -16,10 +17,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.BackPressedHandler;
+import org.wikipedia.BuildConfig;
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
@@ -28,9 +32,13 @@ import org.wikipedia.feed.view.FeedRecyclerAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.login.LoginActivity;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.UriUtil;
+import org.wikipedia.views.ExploreOverflowView;
 
 import java.util.List;
 
@@ -47,6 +55,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private FeedFunnel funnel;
     private FeedViewCallback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
+    private OverflowCallback overflowCallback = new OverflowCallback();
     private boolean searchIconVisible;
 
     public interface Callback {
@@ -60,6 +69,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
+        @Nullable View getOverflowMenuButton();
     }
 
     @NonNull public static FeedFragment newInstance() {
@@ -128,7 +138,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_feed, menu);
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                setUpOverflowButton();
+            }
+        });
     }
 
     @Override
@@ -156,6 +173,16 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             case R.id.menu_feed_tabs:
                 if (getCallback() != null) {
                     getCallback().onFeedTabListRequested();
+                }
+                return true;
+            case R.id.menu_overflow_button:
+                Callback callback = getCallback();
+                if (callback == null) {
+                    return false;
+                }
+                View overflowButton = callback.getOverflowMenuButton();
+                if (overflowButton != null) {
+                    showOverflowMenu(overflowButton);
                 }
                 return true;
             default:
@@ -279,5 +306,55 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
         });
         snackbar.show();
+    }
+
+    private void setUpOverflowButton() {
+        Callback callback = getCallback();
+        if (callback == null) {
+            return;
+        }
+        View overflowButton = callback.getOverflowMenuButton();
+        if (overflowButton != null) {
+            overflowButton.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    showOverflowMenu(view);
+                    return true;
+                }
+            });
+        }
+    }
+
+    private void showOverflowMenu(@NonNull View anchor) {
+        ExploreOverflowView overflowView = new ExploreOverflowView(getContext());
+        overflowView.show(anchor, overflowCallback);
+    }
+
+    private class OverflowCallback implements ExploreOverflowView.Callback {
+        @Override
+        public void loginClick() {
+            startActivityForResult(LoginActivity.newIntent(getContext(), LoginFunnel.SOURCE_NAV),
+                    Constants.ACTIVITY_REQUEST_LOGIN);
+        }
+
+        @Override
+        public void settingsClick() {
+            startActivityForResult(SettingsActivity.newIntent(getContext()),
+                    SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
+        }
+
+        @Override
+        public void donateClick() {
+            UriUtil.visitInExternalBrowser(getContext(),
+                    Uri.parse(String.format(getString(R.string.donate_url),
+                            BuildConfig.VERSION_NAME,
+                            WikipediaApp.getInstance().getSystemLanguageCode())));
+        }
+
+        @Override
+        public void logoutClick() {
+            WikipediaApp.getInstance().logOut();
+            FeedbackUtil.showMessage(FeedFragment.this, R.string.toast_logout_complete);
+        }
     }
 }

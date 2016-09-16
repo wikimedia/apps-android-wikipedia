@@ -6,7 +6,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -16,16 +15,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
-import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -50,15 +45,12 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ExploreOverflowView;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -77,7 +69,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private Unbinder unbinder;
     private SearchFragment searchFragment;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
-    private OverflowCallback overflowCallback = new OverflowCallback();
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -156,36 +147,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_main, menu);
-        viewPager.post(new Runnable() {
-            @Override
-            public void run() {
-                setUpOverflowButton();
-            }
-        });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.main_menu_overflow:
-                Callback callback = callback();
-                if (callback == null) {
-                    return false;
-                }
-                View overflowButton = callback.getOverflowMenuButton();
-                if (overflowButton != null) {
-                    showOverflowMenu(overflowButton);
-                }
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -226,23 +187,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             openSearchFromIntent(null, SearchInvokeSource.WIDGET);
         } else if (lastPageViewedWithin(1)) {
             startActivity(PageActivity.newIntent(getContext()));
-        }
-    }
-
-    private void setUpOverflowButton() {
-        Callback callback = callback();
-        if (callback == null) {
-            return;
-        }
-        View overflowButton = callback.getOverflowMenuButton();
-        if (overflowButton != null) {
-            overflowButton.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    showOverflowMenu(view);
-                    return true;
-                }
-            });
         }
     }
 
@@ -315,6 +259,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         startActivityForResult(GalleryActivity.newIntent(getActivity(), card.baseImage(),
                 card.filename(), card.site(), GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE),
                 Constants.ACTIVITY_REQUEST_GALLERY);
+    }
+
+    @Nullable
+    @Override
+    public View getOverflowMenuButton() {
+        Callback callback = callback();
+        return callback == null ? null : callback.getOverflowMenuButton();
     }
 
     @Override public void onLoading() {
@@ -468,39 +419,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void requestWriteExternalStoragePermission() {
         PermissionUtil.requestWriteStorageRuntimePermissions(this,
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
-    }
-
-    private void showOverflowMenu(@NonNull View anchor) {
-        ExploreOverflowView overflowView = new ExploreOverflowView(getContext());
-        overflowView.show(anchor, overflowCallback);
-    }
-
-    private class OverflowCallback implements ExploreOverflowView.Callback {
-        @Override
-        public void loginClick() {
-            startActivityForResult(LoginActivity.newIntent(getContext(), LoginFunnel.SOURCE_NAV),
-                    Constants.ACTIVITY_REQUEST_LOGIN);
-        }
-
-        @Override
-        public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(getContext()),
-                    SettingsActivity.ACTIVITY_REQUEST_SHOW_SETTINGS);
-        }
-
-        @Override
-        public void donateClick() {
-            UriUtil.visitInExternalBrowser(getContext(),
-                    Uri.parse(String.format(getString(R.string.donate_url),
-                            BuildConfig.VERSION_NAME,
-                            WikipediaApp.getInstance().getSystemLanguageCode())));
-        }
-
-        @Override
-        public void logoutClick() {
-            WikipediaApp.getInstance().logOut();
-            FeedbackUtil.showMessage(MainFragment.this, R.string.toast_logout_complete);
-        }
     }
 
     @Nullable private Callback callback() {
