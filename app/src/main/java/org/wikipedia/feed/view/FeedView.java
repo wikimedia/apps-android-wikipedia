@@ -16,8 +16,8 @@ import org.wikipedia.views.MarginItemDecoration;
 
 public class FeedView extends AutoFitRecyclerView {
     private StaggeredGridLayoutManager recyclerLayoutManager;
-    @Nullable private FeedRecyclerAdapter recyclerAdapter;
-    @Nullable private ItemTouchHelper recyclerItemTouchHelper;
+    @Nullable private FeedAdapter adapter;
+    @Nullable private ItemTouchHelper itemTouchHelper;
 
     public FeedView(Context context) {
         super(context);
@@ -35,23 +35,23 @@ public class FeedView extends AutoFitRecyclerView {
     }
 
     public void set(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
-        recyclerAdapter = new FeedRecyclerAdapter(coordinator, callback);
-        setAdapter(recyclerAdapter);
+        adapter = new FeedAdapter(coordinator, callback);
+        setAdapter(adapter);
 
-        if (recyclerItemTouchHelper != null) {
-            recyclerItemTouchHelper.attachToRecyclerView(null);
-            recyclerItemTouchHelper = null;
+        if (itemTouchHelper != null) {
+            itemTouchHelper.attachToRecyclerView(null);
+            itemTouchHelper = null;
         }
 
         if (callback != null) {
-            recyclerItemTouchHelper = new ItemTouchHelper(new ItemTouchHelperSwipeAdapter(callback));
-            recyclerItemTouchHelper.attachToRecyclerView(this);
+            itemTouchHelper = new ItemTouchHelper(new ItemTouchHelperSwipeAdapter(callback));
+            itemTouchHelper.attachToRecyclerView(this);
         }
     }
 
     public void update() {
-        if (recyclerAdapter != null) {
-            recyclerAdapter.notifyDataSetChanged();
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
         }
     }
 
@@ -78,9 +78,10 @@ public class FeedView extends AutoFitRecyclerView {
 
     private class RecyclerViewColumnCallback implements AutoFitRecyclerView.Callback {
         @Override public void onColumns(int columns) {
-            // todo: when there is only one column, should we setSpanCount to 1? e.g.:
-            //   recyclerAdapter.getItemCount() <= 1 ? 1 : columns;
-            // We would need to also notify the layout manager when the data set changes though.
+            // todo: when there is only one element, should we setSpanCount to 1? e.g.:
+            //       adapter.getItemCount() <= 1 ? 1 : columns;
+            //       we would need to also notify the layout manager when the data set changes
+            //       though.
             recyclerLayoutManager.setSpanCount(columns);
         }
     }

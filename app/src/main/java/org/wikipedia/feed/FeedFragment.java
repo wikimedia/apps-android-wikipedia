@@ -28,7 +28,7 @@ import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.news.NewsItemCard;
-import org.wikipedia.feed.view.FeedRecyclerAdapter;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.history.HistoryEntry;
@@ -244,7 +244,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public boolean onRequestDismissCard(@NonNull Card card) {
             int position = coordinator.dismissCard(card);
-            funnel.dismissCard(FeedRecyclerAdapter.getCardType(card), position);
+            funnel.dismissCard(FeedAdapter.getCardType(card), position);
             showDismissCardUndoSnackbar(card, position);
             return true;
         }
