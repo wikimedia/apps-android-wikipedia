@@ -50,7 +50,6 @@ public class GalleryItemFragment extends Fragment {
     public static final String ARG_PAGETITLE = "pageTitle";
     public static final String ARG_MEDIATITLE = "imageTitle";
     public static final String ARG_MIMETYPE = "mimeType";
-    public static final String ARG_SITE = "site";
 
     private ProgressBar progressBar;
     private ZoomableDraweeView imageView;
