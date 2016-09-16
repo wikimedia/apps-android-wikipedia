@@ -15,6 +15,7 @@ task checkstyle(type: Checkstyle) {
     source 'src/testlib/java'
     include '**/*.java'
     exclude '**/gen/**'
+    exclude '**/com/facebook/samples/**/*.java'
 
     classpath = configurations.compile
 }

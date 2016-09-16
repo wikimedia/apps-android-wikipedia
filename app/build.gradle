@@ -170,7 +170,7 @@ dependencies {
     String supportVersion = '24.1.1'
     String espressoVersion = '2.2.2'
     String butterKnifeVersion = '8.4.0'
-    String frescoVersion = '0.10.0'
+    String frescoVersion = '0.13.0'
     String testingSupportVersion = '0.5'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
 
