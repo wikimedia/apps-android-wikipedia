@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,7 +29,6 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 
@@ -47,8 +46,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private FeedCoordinator coordinator;
     private FeedFunnel funnel;
     private FeedViewCallback feedCallback = new FeedCallback();
-    private FeedHeaderOffsetChangedListener headerOffsetChangedListener = new FeedHeaderOffsetChangedListener();
-    private int searchIconShowThresholdPx;
+    private FeedScrollListener feedScrollListener = new FeedScrollListener();
     private boolean searchIconVisible;
 
     public interface Callback {
@@ -87,7 +85,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         unbinder = ButterKnife.bind(this, view);
         feedView.set(coordinator, feedCallback);
-        searchIconShowThresholdPx = (int) getResources().getDimension(R.dimen.view_feed_header_height) - DimenUtil.getContentTopOffsetPx(getContext());
+        feedView.addOnScrollListener(feedScrollListener);
 
         swipeRefreshLayout.setColorSchemeResources(R.color.foundation_blue);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -122,6 +120,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public void onDestroyView() {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
+        feedView.removeOnScrollListener(feedScrollListener);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -257,15 +256,15 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private class FeedHeaderOffsetChangedListener implements AppBarLayout.OnOffsetChangedListener {
+    private class FeedScrollListener extends RecyclerView.OnScrollListener {
         @Override
-        public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-            boolean shouldShowSearchIcon = !((searchIconShowThresholdPx + verticalOffset) > 0);
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
             if (shouldShowSearchIcon != searchIconVisible) {
                 searchIconVisible = shouldShowSearchIcon;
                 getActivity().supportInvalidateOptionsMenu();
             }
-            swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }
     }
 

@@ -55,6 +55,13 @@ public class FeedView extends AutoFitRecyclerView {
         }
     }
 
+    public int getFirstVisibleItemPosition() {
+        StaggeredGridLayoutManager manager = ((StaggeredGridLayoutManager) getLayoutManager());
+        int[] visibleItems = new int[manager.getSpanCount()];
+        manager.findFirstVisibleItemPositions(visibleItems);
+        return visibleItems[0];
+    }
+
     private void init() {
         setVerticalScrollBarEnabled(true);
         minColumnWidth((int) getResources().getDimension(R.dimen.view_feed_min_column_width));
