@@ -361,9 +361,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
 
-        // Close the link preview, if one is open.
-        hideLinkPreview();
-
         app.putCrashReportProperty("api", title.getSite().authority());
         app.putCrashReportProperty("title", title.toString());
 
@@ -378,6 +375,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
                 if (!pageFragment.isAdded()) {
                     return;
                 }
+                // Close the link preview, if one is open.
+                hideLinkPreview();
                 //is the new title the same as what's already being displayed?
                 if (position == TabPosition.CURRENT_TAB
                         && !pageFragment.getCurrentTab().getBackStack().isEmpty()
