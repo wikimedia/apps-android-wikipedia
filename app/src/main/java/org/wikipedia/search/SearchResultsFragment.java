@@ -10,6 +10,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
@@ -175,7 +176,7 @@ public class SearchResultsFragment extends Fragment {
      *              search may be delayed by a small time, so that network requests are not sent
      *              too often.  If the search is forced, the network request is sent immediately.
      */
-    public void startSearch(String term, boolean force) {
+    public void startSearch(@Nullable String term, boolean force) {
         if (!force && currentSearchTerm.equals(term)) {
             return;
         }
@@ -183,7 +184,7 @@ public class SearchResultsFragment extends Fragment {
         cancelSearchTask();
         currentSearchTerm = term;
 
-        if (term.isEmpty()) {
+        if (StringUtil.isBlank(term)) {
             clearResults();
             return;
         }

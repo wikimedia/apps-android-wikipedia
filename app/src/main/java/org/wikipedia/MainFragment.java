@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
@@ -29,8 +30,8 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
-import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
+import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.news.NewsActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -67,7 +68,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
-    private SearchFragment searchFragment;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
 
     // The permissions request API doesn't take a callback, so in the event we have to
@@ -99,8 +99,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         tabLayout.setupWithViewPager(viewPager);
 
         bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getChildFragmentManager());
-        searchFragment = (SearchFragment) getChildFragmentManager().findFragmentById(R.id.search_fragment);
-        searchFragment.setStatusBarVisible(false);
 
         if (savedInstanceState == null) {
             handleIntent(getActivity().getIntent());
@@ -128,7 +126,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && resultCode == Activity.RESULT_OK && data != null
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
-            openSearchFromIntent(searchQuery, SearchInvokeSource.VOICE);
+            openSearchFragment(SearchInvokeSource.VOICE, searchQuery);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_FILEPAGE_SELECT) {
             startActivity(data);
@@ -174,17 +172,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (Intent.ACTION_SEND.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())) {
             funnel.logShareIntent();
-            openSearchFromIntent(intent.getStringExtra(Intent.EXTRA_TEXT),
-                    SearchInvokeSource.INTENT_SHARE);
+            openSearchFragment(SearchInvokeSource.INTENT_SHARE,
+                    intent.getStringExtra(Intent.EXTRA_TEXT));
         } else if (Intent.ACTION_PROCESS_TEXT.equals(intent.getAction())
                 && Constants.PLAIN_TEXT_MIME_TYPE.equals(intent.getType())
                 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             funnel.logProcessTextIntent();
-            openSearchFromIntent(intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT),
-                    SearchInvokeSource.INTENT_PROCESS_TEXT);
+            openSearchFragment(SearchInvokeSource.INTENT_PROCESS_TEXT,
+                    intent.getStringExtra(Intent.EXTRA_PROCESS_TEXT));
         } else if (intent.hasExtra(Constants.INTENT_SEARCH_FROM_WIDGET)) {
             funnel.logSearchWidgetTap();
-            openSearchFromIntent(null, SearchInvokeSource.WIDGET);
+            openSearchFragment(SearchInvokeSource.WIDGET, null);
         } else if (lastPageViewedWithin(1)) {
             startActivity(PageActivity.newIntent(getContext()));
         }
@@ -196,8 +194,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSearchRequested() {
-        searchFragment.setInvokeSource(SearchInvokeSource.FEED_BAR);
-        searchFragment.openSearch();
+        openSearchFragment(SearchInvokeSource.FEED_BAR, null);
     }
 
     @Override public void onFeedVoiceSearchRequested() {
@@ -323,10 +320,15 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override
-    public void onSearchClose() {
+    public void onSearchClose(boolean launchedFromIntent) {
+        SearchFragment fragment = searchFragment();
+        if (fragment != null) {
+            closeSearchFragment(fragment);
+        }
+
         Callback callback = callback();
         if (callback != null) {
-            callback.onSearchClose(searchFragment.isLaunchedFromIntent());
+            callback.onSearchClose(launchedFromIntent);
         }
     }
 
@@ -363,12 +365,16 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public boolean onBackPressed() {
-        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
-        if (searchFragment.onBackPressed()) {
-            return true;
-        } else if (fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed()) {
+        SearchFragment searchFragment = searchFragment();
+        if (searchFragment != null && searchFragment.onBackPressed()) {
             return true;
         }
+
+        Fragment fragment = ((NavTabFragmentPagerAdapter) viewPager.getAdapter()).getCurrentFragment();
+        if (fragment instanceof BackPressedHandler && ((BackPressedHandler) fragment).onBackPressed()) {
+            return true;
+        }
+
         return false;
     }
 
@@ -389,20 +395,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
-    public void openSearchFromIntent(@Nullable final String query,
-                                      final SearchInvokeSource source) {
-        tabLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                searchFragment.setInvokeSource(source);
-                searchFragment.openSearch();
-                if (query != null) {
-                    searchFragment.setSearchText(query.trim());
-                }
-            }
-        });
-    }
-
     private boolean lastPageViewedWithin(int days) {
         return TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown()) < days;
     }
@@ -419,6 +411,25 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void requestWriteExternalStoragePermission() {
         PermissionUtil.requestWriteStorageRuntimePermissions(this,
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
+    }
+
+    private void openSearchFragment(@NonNull SearchInvokeSource source, @Nullable String query) {
+        Fragment fragment = searchFragment();
+        if (fragment == null) {
+            fragment = SearchFragment.newInstance(source, StringUtils.trim(query), false);
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment_main_container, fragment)
+                    .commit();
+        }
+    }
+
+    private void closeSearchFragment(@NonNull SearchFragment fragment) {
+        getChildFragmentManager().beginTransaction().remove(fragment).commitNowAllowingStateLoss();
+    }
+
+    @Nullable private SearchFragment searchFragment() {
+        return (SearchFragment) getChildFragmentManager().findFragmentById(R.id.fragment_main_container);
     }
 
     @Nullable private Callback callback() {

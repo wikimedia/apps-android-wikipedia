@@ -39,6 +39,7 @@ import com.squareup.otto.Subscribe;
 
 import net.hockeyapp.android.metrics.MetricsManager;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.Site;
@@ -104,7 +105,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     private Unbinder unbinder;
 
     private PageFragment pageFragment;
-    private SearchFragment searchFragment;
 
     private WikipediaApp app;
     private Bus bus;
@@ -150,7 +150,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         updateProgressBar(false, true, 0);
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
-        searchFragment = (SearchFragment) getSupportFragmentManager().findFragmentById(R.id.page_search_fragment);
         bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this.getSupportFragmentManager());
 
         setSupportActionBar(toolbar);
@@ -165,7 +164,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             isZeroEnabled = savedInstanceState.getBoolean("pausedZeroEnabledState");
             currentZeroConfig = savedInstanceState.getParcelable("pausedZeroConfig");
             if (savedInstanceState.getBoolean("isSearching")) {
-                searchFragment.openSearch();
+                openSearchFragment(SearchInvokeSource.TOOLBAR, null);
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -228,7 +227,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public boolean onSearchRequested() {
         showToolbar();
-        searchFragment.openSearch();
+        openSearchFragment(SearchInvokeSource.TOOLBAR, null);
         return true;
     }
 
@@ -321,6 +320,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
      * @return True if currently searching, false otherwise.
      */
     public boolean isSearching() {
+        SearchFragment searchFragment = searchFragment();
         return searchFragment != null && searchFragment.isSearchActive();
     }
 
@@ -452,12 +452,15 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             finishActionMode();
             return;
         }
-        if (searchFragment.onBackPressed()) {
+
+        SearchFragment searchFragment = searchFragment();
+        if (searchFragment != null && searchFragment.onBackPressed()) {
             if (searchFragment.isLaunchedFromIntent()) {
                 finish();
             }
             return;
         }
+
         app.getSessionFunnel().backPressed();
         if (pageFragment.onBackPressed()) {
             return;
@@ -584,8 +587,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onPageSearchRequested() {
-        searchFragment.setInvokeSource(SearchInvokeSource.TOOLBAR);
-        searchFragment.openSearch();
+        openSearchFragment(SearchInvokeSource.TOOLBAR, null);
     }
 
     @Override
@@ -600,7 +602,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     @Override
-    public void onSearchClose() {
+    public void onSearchClose(boolean launchedFromIntent) {
+        SearchFragment fragment = searchFragment();
+        if (fragment != null) {
+            closeSearchFragment(fragment);
+        }
         toolbarContainerView.setVisibility(View.VISIBLE);
         hideSoftKeyboard();
     }
@@ -943,5 +949,25 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @VisibleForTesting
     public void setPageLoadCallbacks(@Nullable PageLoadCallbacks pageLoadCallbacks) {
         this.pageLoadCallbacks = pageLoadCallbacks;
+    }
+
+    private void openSearchFragment(@NonNull SearchInvokeSource source, @Nullable String query) {
+        Fragment fragment = searchFragment();
+        if (fragment == null) {
+            fragment = SearchFragment.newInstance(source, StringUtils.trim(query), true);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.activity_page_container, fragment)
+                    .commit();
+        }
+    }
+
+    private void closeSearchFragment(@NonNull SearchFragment fragment) {
+        getSupportFragmentManager().beginTransaction().remove(fragment).commitNowAllowingStateLoss();
+    }
+
+    @Nullable private SearchFragment searchFragment() {
+        return (SearchFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.activity_page_container);
     }
 }

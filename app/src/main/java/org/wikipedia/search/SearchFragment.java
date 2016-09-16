@@ -34,7 +34,9 @@ import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.LanguagePreferenceDialog;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
@@ -47,12 +49,12 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     public interface Callback {
         void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab);
         void onSearchOpen();
-        void onSearchClose();
+        void onSearchClose(boolean launchedFromIntent);
     }
 
-    private static final String ARG_LAST_SEARCHED_TEXT = "lastSearchedText";
-    private static final String ARG_SEARCH_CURRENT_PANEL = "searchCurrentPanel";
     private static final String ARG_INVOKE_SOURCE = "invokeSource";
+    private static final String ARG_QUERY = "lastQuery";
+    private static final String ARG_STATUS_BAR_VISIBLE = "statusBarVisible";
 
     private static final int PANEL_RECENT_SEARCHES = 0;
     private static final int PANEL_SEARCH_RESULTS = 1;
@@ -69,7 +71,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     private WikipediaApp app;
     @BindView(android.support.v7.appcompat.R.id.search_src_text) EditText searchEditText;
     private SearchFunnel funnel;
-    private SearchInvokeSource invokeSource = SearchInvokeSource.TOOLBAR;
+    private SearchInvokeSource invokeSource;
 
     /**
      * Whether the Search fragment is currently showing.
@@ -80,7 +82,8 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
      * The last search term that the user entered. This will be passed into
      * the TitleSearch and FullSearch sub-fragments.
      */
-    private String lastSearchedText;
+    @Nullable private String query;
+    private boolean statusBarVisible;
 
     private RecentSearchesFragment recentSearchesFragment;
     private SearchResultsFragment searchResultsFragment;
@@ -115,11 +118,30 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         }
     };
 
+    @NonNull public static SearchFragment newInstance(@NonNull SearchInvokeSource source,
+                                                      @Nullable String query,
+                                                      boolean statusBarVisible) {
+        SearchFragment fragment = new SearchFragment();
+
+        Bundle args = new Bundle();
+        args.putInt(ARG_INVOKE_SOURCE, source.code());
+        args.putString(ARG_QUERY, query);
+        args.putBoolean(ARG_STATUS_BAR_VISIBLE, statusBarVisible);
+
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        funnel = new SearchFunnel(app, SearchInvokeSource.of(invokeSource.code()));
+
+        invokeSource = SearchInvokeSource.of(getArguments().getInt(ARG_INVOKE_SOURCE));
+        query = getArguments().getString(ARG_QUERY);
+        statusBarVisible = getArguments().getBoolean(ARG_STATUS_BAR_VISIBLE);
+
+        funnel = new SearchFunnel(app, invokeSource);
     }
 
     @Override
@@ -134,17 +156,13 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        statusBarView.setVisibility(statusBarVisible ? View.VISIBLE : View.GONE);
+
         FragmentManager childFragmentManager = getChildFragmentManager();
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
                 R.id.search_panel_recent);
         searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
-
-        if (savedInstanceState != null) {
-            lastSearchedText = savedInstanceState.getString(ARG_LAST_SEARCHED_TEXT);
-            invokeSource = SearchInvokeSource.of(savedInstanceState.getInt(ARG_INVOKE_SOURCE));
-            showPanel(savedInstanceState.getInt(ARG_SEARCH_CURRENT_PANEL));
-        }
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,6 +173,13 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
         initSearchView();
         initLangButton();
+
+        if (!TextUtils.isEmpty(query)) {
+            showPanel(PANEL_SEARCH_RESULTS);
+        }
+
+        startSearch(query, false);
+
         return view;
     }
 
@@ -168,25 +193,9 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(ARG_LAST_SEARCHED_TEXT, lastSearchedText);
-        outState.putInt(ARG_SEARCH_CURRENT_PANEL, getActivePanel());
-        outState.putInt(ARG_INVOKE_SOURCE, invokeSource.code());
-    }
-
-    @Override
     @NonNull
     public SearchFunnel getFunnel() {
         return funnel;
-    }
-
-    public void setStatusBarVisible(boolean visible) {
-        statusBarView.setVisibility(visible ? View.VISIBLE : View.GONE);
-    }
-
-    public void setInvokeSource(SearchInvokeSource source) {
-        invokeSource = source;
     }
 
     public boolean isLaunchedFromIntent() {
@@ -209,78 +218,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     }
 
     /**
-     * Kick off a search, based on a given search term. Will automatically pass the search to
-     * Title search or Full search, based on which one is currently displayed.
-     * If the search term is empty, the "recent searches" view will be shown.
-     * @param term Phrase to search for.
-     * @param force Whether to "force" starting this search. If the search is not forced, the
-     *              search may be delayed by a small time, so that network requests are not sent
-     *              too often.  If the search is forced, the network request is sent immediately.
-     */
-    public void startSearch(String term, boolean force) {
-        if (TextUtils.isEmpty(term) && !force) {
-            return;
-        }
-        if (!isSearchActive) {
-            openSearch();
-        }
-
-        if (TextUtils.isEmpty(term)) {
-            showPanel(PANEL_RECENT_SEARCHES);
-        } else if (getActivePanel() == PANEL_RECENT_SEARCHES) {
-            //start with title search...
-            showPanel(PANEL_SEARCH_RESULTS);
-        }
-
-        lastSearchedText = term;
-
-        searchResultsFragment.startSearch(term, force);
-    }
-
-    /**
-     * Activate the Search fragment.
-     */
-    public void openSearch() {
-        // create a new funnel every time Search is opened, to get a new session ID
-        funnel = new SearchFunnel(WikipediaApp.getInstance(), SearchInvokeSource.of(invokeSource.code()));
-        funnel.searchStart();
-        isSearchActive = true;
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onSearchOpen();
-        }
-        // show ourselves
-        ViewUtil.fadeIn(searchContainer);
-
-        // if the current search string is empty, then it's a fresh start, so we'll show
-        // recent searches by default. Otherwise, the currently-selected panel should already
-        // be visible, so we don't need to do anything.
-        if (TextUtils.isEmpty(lastSearchedText)) {
-            showPanel(PANEL_RECENT_SEARCHES);
-        }
-
-        searchView.setIconified(false);
-        searchView.requestFocusFromTouch();
-        // if we already have a previous search query, then put it into the SearchView, and it will
-        // automatically trigger the showing of the corresponding search results.
-        if (isValidQuery(lastSearchedText)) {
-            searchView.setQuery(lastSearchedText, false);
-            searchEditText.selectAll();
-        }
-    }
-
-    public void closeSearch() {
-        isSearchActive = false;
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onSearchClose();
-        }
-        // hide ourselves
-        ViewUtil.fadeOut(searchContainer);
-        addRecentSearch(lastSearchedText);
-    }
-
-    /**
      * Determine whether the Search fragment is currently active.
      * @return Whether the Search fragment is active.
      */
@@ -291,6 +228,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     @Override
     public boolean onBackPressed() {
         if (isSearchActive) {
+            // todo: activity or fragment transition
             closeSearch();
             funnel.searchCancel();
             return true;
@@ -310,11 +248,11 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         }
         funnel.searchClick(position);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
-        closeSearch();
         Callback callback = callback();
         if (callback != null) {
             callback.onSearchSelectPage(historyEntry, inNewTab);
         }
+        closeSearch();
     }
 
     @Subscribe public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
@@ -329,6 +267,73 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
 
     @OnClick(R.id.search_lang_button_container) void onLangButtonClick() {
         showLangPreferenceDialog();
+    }
+
+    /**
+     * Kick off a search, based on a given search term. Will automatically pass the search to
+     * Title search or Full search, based on which one is currently displayed.
+     * If the search term is empty, the "recent searches" view will be shown.
+     * @param term Phrase to search for.
+     * @param force Whether to "force" starting this search. If the search is not forced, the
+     *              search may be delayed by a small time, so that network requests are not sent
+     *              too often.  If the search is forced, the network request is sent immediately.
+     */
+    private void startSearch(@Nullable String term, boolean force) {
+        if (!isSearchActive) {
+            openSearch();
+        }
+
+        if (TextUtils.isEmpty(term)) {
+            showPanel(PANEL_RECENT_SEARCHES);
+        } else if (getActivePanel() == PANEL_RECENT_SEARCHES) {
+            //start with title search...
+            showPanel(PANEL_SEARCH_RESULTS);
+        }
+
+        query = term;
+
+        if (StringUtil.isBlank(term) && !force) {
+            return;
+        }
+
+        searchResultsFragment.startSearch(term, force);
+    }
+
+    /**
+     * Activate the Search fragment.
+     */
+    private void openSearch() {
+        // create a new funnel every time Search is opened, to get a new session ID
+        funnel = new SearchFunnel(WikipediaApp.getInstance(), invokeSource);
+        funnel.searchStart();
+        isSearchActive = true;
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchOpen();
+        }
+        // show ourselves
+        ViewUtil.fadeIn(searchContainer);
+
+        searchView.setIconified(false);
+        searchView.requestFocusFromTouch();
+        // if we already have a previous search query, then put it into the SearchView, and it will
+        // automatically trigger the showing of the corresponding search results.
+        if (isValidQuery(query)) {
+            searchView.setQuery(query, false);
+            searchEditText.selectAll();
+        }
+    }
+
+    private void closeSearch() {
+        isSearchActive = false;
+        // hide ourselves
+        ViewUtil.fadeOut(searchContainer);
+        DeviceUtil.hideSoftKeyboard(getView());
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchClose(invokeSource.fromIntent());
+        }
+        addRecentSearch(query);
     }
 
     /**
@@ -469,8 +474,8 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             public void onDismiss(DialogInterface dialog) {
                 langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
                 formatLangButtonText();
-                if (!TextUtils.isEmpty(lastSearchedText)) {
-                    startSearch(lastSearchedText, true);
+                if (!TextUtils.isEmpty(query)) {
+                    startSearch(query, true);
                 }
             }
         });
