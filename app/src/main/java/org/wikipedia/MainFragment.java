@@ -79,7 +79,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         void onTabChanged(@NonNull NavTab tab);
         void onSearchOpen();
         void onSearchClose(boolean shouldFinishActivity);
-        @Nullable View getOverflowMenuButton();
+        @Nullable View getOverflowMenuAnchor();
     }
 
     public static MainFragment newInstance() {
@@ -258,11 +258,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_GALLERY);
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public View getOverflowMenuButton() {
+    public View getOverflowMenuAnchor() {
         Callback callback = callback();
-        return callback == null ? null : callback.getOverflowMenuButton();
+        return callback == null ? viewPager : callback.getOverflowMenuAnchor();
     }
 
     @Override public void onLoading() {

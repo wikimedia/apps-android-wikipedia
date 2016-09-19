@@ -69,7 +69,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedShareImage(FeaturedImageCard card);
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
-        @Nullable View getOverflowMenuButton();
+        @NonNull View getOverflowMenuAnchor();
     }
 
     @NonNull public static FeedFragment newInstance() {
@@ -140,12 +140,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_feed, menu);
-        swipeRefreshLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                setUpOverflowButton();
-            }
-        });
     }
 
     @Override
@@ -180,10 +174,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 if (callback == null) {
                     return false;
                 }
-                View overflowButton = callback.getOverflowMenuButton();
-                if (overflowButton != null) {
-                    showOverflowMenu(overflowButton);
-                }
+                showOverflowMenu(callback.getOverflowMenuAnchor());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -306,23 +297,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
         });
         snackbar.show();
-    }
-
-    private void setUpOverflowButton() {
-        Callback callback = getCallback();
-        if (callback == null) {
-            return;
-        }
-        View overflowButton = callback.getOverflowMenuButton();
-        if (overflowButton != null) {
-            overflowButton.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    showOverflowMenu(view);
-                    return true;
-                }
-            });
-        }
     }
 
     private void showOverflowMenu(@NonNull View anchor) {

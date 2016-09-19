@@ -3,7 +3,6 @@ package org.wikipedia;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.activity.SingleFragmentActivityWithToolbar;
@@ -47,10 +46,11 @@ public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment
         }
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public View getOverflowMenuButton() {
-        return getToolbar().findViewById(R.id.menu_overflow_button);
+    public View getOverflowMenuAnchor() {
+        View view = getToolbar().findViewById(R.id.menu_overflow_button);
+        return view == null ? getToolbar() : view;
     }
 
     @Override
