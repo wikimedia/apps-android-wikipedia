@@ -311,6 +311,7 @@
     <string name="view_featured_image_card_download">Download</string>
     <string name="menu_feed_card_dismiss">Hide this card</string>
     <string name="menu_feed_card_dismissed">Card hidden.</string>
+    <string name="menu_feed_overflow_label">More options</string>
 
     <string name="feed_featured_image_share_subject">Featured image from Wikimedia Commons</string>
     <string name="feed">Explore</string>
