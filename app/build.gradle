@@ -217,7 +217,7 @@ dependencies {
     androidTestCompile "com.android.support.test:rules:$testingSupportVersion" // JUnit Rules
     androidTestCompile "com.android.support.test:runner:$testingSupportVersion" // Android JUnit Runner
     androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
-    androidTestCompile 'com.squareup.spoon:spoon-client:1.5.3'
+    androidTestCompile 'com.squareup.spoon:spoon-client:1.7.0'
 }
 
 private setSigningConfigKey(config, Properties props) {
