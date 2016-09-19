@@ -185,7 +185,7 @@
   <string name="read_more_section">Číst dál</string>
   <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
   <string name="gallery_error_draw_failed">Nepodařilo se vykreslit obrázek.</string>
-  <string name="license_title" fuzzy="true">Text licence ke knihovně %s</string>
+  <string name="license_title">Licence pro %s</string>
   <string name="gallery_menu_share">Sdílet</string>
   <string name="gallery_share_error">Není možno sdílet obrázek: %s</string>
   <string name="gallery_menu_save">Uložit na zařízení</string>
@@ -237,7 +237,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="article_menu_bar_bookmark">Přidat tento článek do seznamu k přečtení</string>
   <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
   <string name="article_menu_bar_navigate">Navigovat na místo článku</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Seznamy k přečtení</string>
+  <string name="nav_item_reading_lists">Moje seznamy</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>
@@ -265,6 +265,8 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_edit_cancel">Storno</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit tento seznam?</string>
   <string name="reading_lists_empty">Žádné seznamy ke čtení.</string>
+  <string name="reading_lists_empty_message">Vytvářejte si z článků, které procházíte, seznamy k přečtení! Když čtete článek, stisknutím tlačítka záložky nad článkem ho můžete přidat do seznamu k přečtení.</string>
+  <string name="reading_lists_onboarding_intro">Vytvářejte si seznamy k přečtení z článků, které si chcete přečíst později, třeba až budete offline!</string>
   <string name="reading_lists_onboarding_for_example">Například</string>
   <string name="reading_lists_onboarding_example1">Místa k navštívení</string>
   <string name="reading_lists_onboarding_example2">Oblíbená zvířata</string>

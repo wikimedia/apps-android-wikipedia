@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">이 문서를 읽기 목록에 추가하기</string>
   <string name="article_menu_bar_share">문서 링크 공유</string>
   <string name="article_menu_bar_navigate">문서의 위치 찾기</string>
-  <string name="nav_item_reading_lists" fuzzy="true">읽기 목록</string>
+  <string name="nav_item_reading_lists">내 목록</string>
   <string name="reading_list_untitled">제목 없음</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
   <string name="reading_list_create_new">새로 만들기</string>

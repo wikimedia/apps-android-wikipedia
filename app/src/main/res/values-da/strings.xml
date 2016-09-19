@@ -237,7 +237,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="article_menu_bar_bookmark">Tilføj denne artikel til en læseliste</string>
   <string name="article_menu_bar_share">Del link til artiklen</string>
   <string name="article_menu_bar_navigate">Naviger til det omtalte sted</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Læselister</string>
+  <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_untitled">Unavngivet</string>
   <string name="reading_list_save_to">Gem til læseliste</string>
   <string name="reading_list_create_new">Opret ny</string>

@@ -237,7 +237,7 @@
   <string name="article_menu_bar_bookmark">Añadir este artículo a una lista de lectura</string>
   <string name="article_menu_bar_share">Compartir el enlace del artículo</string>
   <string name="article_menu_bar_navigate">Navegar a la ubicación del artículo</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Listas de lectura</string>
+  <string name="nav_item_reading_lists">Mis listas</string>
   <string name="reading_list_untitled">Sin título</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
   <string name="reading_list_create_new">Crear una nueva</string>

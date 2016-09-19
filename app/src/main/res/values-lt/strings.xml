@@ -220,7 +220,7 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>
   <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_menu_bar_navigate">Eiti į straipsnį</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Skaitymo sąrašai</string>
+  <string name="nav_item_reading_lists">Mano sąrašai</string>
   <string name="reading_list_untitled">Be pavadinimo</string>
   <string name="reading_list_save_to">Įtraukti į skaitymo sąrašą</string>
   <string name="reading_list_create_new">Sukurti naują</string>

@@ -237,7 +237,7 @@
   <string name="article_menu_bar_bookmark">הוספת הערך הזה לרשימת קריאה</string>
   <string name="article_menu_bar_share">שיתוף קישור לערך</string>
   <string name="article_menu_bar_navigate">מעבר למקום בתוך ערך</string>
-  <string name="nav_item_reading_lists" fuzzy="true">רשימות קריאה</string>
+  <string name="nav_item_reading_lists">הרשימות שלי</string>
   <string name="reading_list_untitled">ללא כותרת</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>

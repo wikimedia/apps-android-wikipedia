@@ -127,6 +127,7 @@
   <string name="crash_report_dialog_send_button">Sūtīt</string>
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
   <string name="crash_report_quit">Iziet</string>
+  <string name="nav_item_reading_lists">Mani saraksti</string>
   <string name="reading_list_untitled">Bez nosaukuma</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>
   <string name="reading_list_deleted">%s izdzēsts</string>

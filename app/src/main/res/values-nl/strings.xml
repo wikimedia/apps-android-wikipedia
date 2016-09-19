@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">Dit artikel toevoegen aan een leeslijst</string>
   <string name="article_menu_bar_share">Koppeling naar pagina delen</string>
   <string name="article_menu_bar_navigate">Naar de locatie van de pagina navigeren</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Leeslijsten</string>
+  <string name="nav_item_reading_lists">Mijn lijsten</string>
   <string name="reading_list_untitled">Naamloos</string>
   <string name="reading_list_save_to">Opslaan in leeslijst</string>
   <string name="reading_list_create_new">Nieuwe aanmaken</string>

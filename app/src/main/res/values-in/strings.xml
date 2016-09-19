@@ -237,7 +237,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="article_menu_bar_bookmark">Tambahkan artikel ini ke dalam daftar bacaan</string>
   <string name="article_menu_bar_share">Berbagi pranala artikel</string>
   <string name="article_menu_bar_navigate">Navigasikan ke lokasi dari artikel</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Daftar bacaan</string>
+  <string name="nav_item_reading_lists">Daftar saya</string>
   <string name="reading_list_untitled">Tidak berjudul</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_create_new">Buat baru</string>

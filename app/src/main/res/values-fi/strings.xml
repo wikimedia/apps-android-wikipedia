@@ -237,7 +237,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulistaan</string>
   <string name="article_menu_bar_share">Jaa artikkelin linkki</string>
   <string name="article_menu_bar_navigate">Navigoi artikkelin sijaintiin</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Lukulistat</string>
+  <string name="nav_item_reading_lists">Omat listat</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_create_new">Luo uusi</string>
@@ -282,6 +282,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="menu_feed_card_dismissed">Kortti piilotettu.</string>
   <string name="feed_featured_image_share_subject">Suositeltu kuva Wikimedia Commonsista</string>
   <string name="feed">Tutki</string>
+  <string name="view_card_footer_button">Katso lisää</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
   <plurals name="view_continue_reading_card_subtitle">

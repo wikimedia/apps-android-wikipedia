@@ -237,7 +237,7 @@
   <string name="article_menu_bar_bookmark">Додај ја статијава во списокот за читање</string>
   <string name="article_menu_bar_share">Сподели врска за статијата</string>
   <string name="article_menu_bar_navigate">Оди на местото на статијата</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Списоци за читање</string>
+  <string name="nav_item_reading_lists">Мои списоци</string>
   <string name="reading_list_untitled">Без наслов</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
   <string name="reading_list_create_new">Создај нов</string>

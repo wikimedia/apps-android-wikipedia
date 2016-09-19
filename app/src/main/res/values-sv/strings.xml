@@ -237,7 +237,7 @@ Vill du starta om eller avsluta?</string>
   <string name="article_menu_bar_bookmark">Lägg till denna artikel i en läslista</string>
   <string name="article_menu_bar_share">Dela länk till artikeln</string>
   <string name="article_menu_bar_navigate">Navigera till artikelns plats</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Läslistor</string>
+  <string name="nav_item_reading_lists">Mina listor</string>
   <string name="reading_list_untitled">Namnlös</string>
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>

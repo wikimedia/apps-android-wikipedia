@@ -96,7 +96,7 @@
   <string name="zero_charged_verbiage">विकिपीडिया शून्य बन्द है</string>
   <string name="zero_search_hint">विकिपीडिया शून्य खोजें</string>
   <string name="zero_warn_when_leaving">विकिपीडिया शून्य छोड़ने पर चेतावनी दीजिये</string>
-  <string name="zero_warn_when_leaving_summary">अगर आपका मोबाइल ऑपरेटर डेटा इस्तेमाल के चार्जों को विकिपीडिया एप के लिए छोड़ता है, विकिपीडिया ज़ीरो पार्टनरशिप के अनुसार तो इस सेटिंग को चैक छोड़ने से आपको यह जानने में सहायता मिलेगी कि कब आप विकिपीडिया एप छोड़ रहे हैं और आपको चार्ज लग सकता है।</string>
+  <string name="zero_warn_when_leaving_summary">यदि आपका दूरभाष ऑपरेटर डेटा इस्तेमाल के चार्जों को विकिपीडिया एप के लिए छोड़ता है, विकिपीडिया ज़ीरो पार्टनरशिप के अनुसार तो इस सेटिंग को चैक छोड़ने से आपको यह जानने में सहायता मिलेगी कि कब आप विकिपीडिया एप छोड़ रहे हैं और आपको चार्ज लग सकता है।</string>
   <string name="zero_webpage_title">विकिपीडिया ज़ीरो FAQ</string>
   <string name="zero_wikipedia_zero_heading">विकिपीडिया शून्य</string>
   <string name="zero_interstitial_title">विकिपीडिया ज़ीरो छोड़ रहे हैं</string>

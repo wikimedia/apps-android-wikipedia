@@ -237,7 +237,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="article_menu_bar_bookmark">Legg til denne artikkelen i en leseliste</string>
   <string name="article_menu_bar_share">Del lenke til artikkelen</string>
   <string name="article_menu_bar_navigate">Naviger til det omtalte stedet</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Leselister</string>
+  <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_untitled">Uten navn</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>
   <string name="reading_list_create_new">Opprett ny</string>
