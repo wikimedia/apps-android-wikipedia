@@ -56,7 +56,7 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
 
     public void loadImage(@Nullable Uri uri) {
         if (!WikipediaApp.getInstance().isImageDownloadEnabled() || uri == null) {
-            setImageURI(null);
+            setImageURI((Uri) null);
             return;
         }
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
