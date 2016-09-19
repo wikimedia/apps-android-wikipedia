@@ -25,7 +25,6 @@ import butterknife.ButterKnife;
 
 public abstract class HorizontalScrollingListCardView extends CardView {
     @BindView(R.id.view_horizontal_scrolling_list_card_header) View headerView;
-    @BindView(R.id.view_horizontal_scrolling_list_card_footer) View footerView;
     @BindView(R.id.view_horizontal_scrolling_list_card_list) RecyclerView recyclerView;
 
     @Nullable private FeedViewCallback callback;
@@ -56,11 +55,6 @@ public abstract class HorizontalScrollingListCardView extends CardView {
     protected void header(@NonNull View view) {
         ViewUtil.replace(headerView, view);
         headerView = view;
-    }
-
-    protected void footer(@NonNull View view) {
-        ViewUtil.replace(footerView, view);
-        footerView = view;
     }
 
     @Nullable
