@@ -72,6 +72,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -1067,7 +1068,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String href = decodeURL(messagePayload.getString("href"));
-                    String filename = UriUtil.removeInternalLinkPrefix(href);
+                    String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
                     Site site = model.getTitle().getSite();
                     startActivityForResult(GalleryActivity.newIntent(getContext(),
                             model.getTitleOriginal(), filename, site,
