@@ -9,7 +9,7 @@ Step 1: (e.g., --beta):
 
 Step 2: (e.g., --beta --push):
     - Creates an annotated tag called 'releases/versionName'
-    - Pushes the git tag to gerrit for history
+    - Pushes the git tag to origin for history
     - TODO (Not implemented yet): Uploads certain bits to releases.mediawiki.org: releasesprod, beta
 
 To run
@@ -66,13 +66,13 @@ def git_tag(target, version_name):
     sh.git.tag('-a', get_git_tag_name(target, version_name), '-m', target)
 
 
-def push_to_gerrit(target, version_name):
+def git_push_tag(target, version_name):
     """
-    Pushes the git tag to gerrit
+    Pushes the git tag to origin
     """
     tag_name = get_git_tag_name(target, version_name)
     print('pushing tag ' + tag_name)
-    sh.git.push('gerrit', tag_name)
+    sh.git.push('origin', tag_name)
 
 
 def make_release(flavors, custom_channel):
@@ -172,7 +172,7 @@ def main():
                        help='Step 1: Custom versionName&channel. OEMs w/ Play')
     group.add_argument('--app',
                        help='Step 1: Custom versionName&channel. OEMs wout/ Play.')
-    parser.add_argument('--push', help='Step 2: create&push git tag to gerrit remote.',
+    parser.add_argument('--push', help='Step 2: create&push git tag to origin.',
                         action='store_true')
     args = parser.parse_args()
     custom_channel = 'ignore'
@@ -206,7 +206,7 @@ def main():
         version_name = get_version_name_from_apk(apk_file)
         for target in targets:
             git_tag(target, version_name)
-            push_to_gerrit(target, version_name)
+            git_push_tag(target, version_name)
     else:
         make_release(flavors, custom_channel)
         copy_artifacts(flavors[0])
