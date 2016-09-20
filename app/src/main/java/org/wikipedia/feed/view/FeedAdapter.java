@@ -31,7 +31,7 @@ import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 
-public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
+public class FeedAdapter extends DefaultRecyclerAdapter<Card, View> {
     private static final int VIEW_TYPE_SEARCH_BAR = 0;
     private static final int VIEW_TYPE_CONTINUE_READING = 1;
     private static final int VIEW_TYPE_BECAUSE_YOU_READ = 2;
@@ -72,7 +72,7 @@ public class FeedRecyclerAdapter extends DefaultRecyclerAdapter<Card, View> {
         }
     }
 
-    public FeedRecyclerAdapter(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
+    public FeedAdapter(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
         super(coordinator.getCards());
         this.coordinator = coordinator;
         this.callback = callback;
