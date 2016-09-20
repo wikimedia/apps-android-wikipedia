@@ -19,9 +19,4 @@
         android:layout_marginRight="12dp"
         android:clipChildren="false"/>
 
-    <View
-        android:id="@+id/view_horizontal_scrolling_list_card_footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
 </LinearLayout>
