@@ -245,7 +245,7 @@
   <string name="reading_list_already_exists">یہ مضمون پہلے سے ہی ‫اُس‬ فہرست ميں ہے۔</string>
   <string name="reading_list_added_view_button">فہرست دیکھیں</string>
   <string name="reading_list_item_count_singular">ایک مضمون</string>
-  <string name="reading_list_item_count_plural">%s مضامین</string>
+  <string name="reading_list_item_count_plural">%d مضامین</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_by_name">نام سے ترتیب دیں</string>
   <string name="reading_list_sort_by_name_desc">نام سے ترتیب دیں (الٹا)</string>

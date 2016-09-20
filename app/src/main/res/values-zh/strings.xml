@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">此条目已在列表中。</string>
   <string name="reading_list_added_view_button">查看列表</string>
   <string name="reading_list_item_count_singular">1个条目</string>
-  <string name="reading_list_item_count_plural">%s个条目</string>
+  <string name="reading_list_item_count_plural">%d个条目</string>
   <string name="reading_list_sort">排序</string>
   <string name="reading_list_sort_by_name">按名称排序</string>
   <string name="reading_list_sort_by_name_desc">按名称排序（反向）</string>

@@ -246,7 +246,7 @@ Gostaria de recomeçar ou sair?</string>
   <string name="reading_list_already_exists">Este artigo já se encontra nesta lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="reading_list_item_count_singular">1 artigo</string>
-  <string name="reading_list_item_count_plural">%s artigos</string>
+  <string name="reading_list_item_count_plural">%d artigos</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nome</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nome (inverso)</string>

@@ -229,7 +229,7 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="reading_list_already_exists">Šis straipsnis jau yra šiame sąraše.</string>
   <string name="reading_list_added_view_button">Žiūrėti sąrašą</string>
   <string name="reading_list_item_count_singular">1 straipsnis</string>
-  <string name="reading_list_item_count_plural">%s straipsniai</string>
+  <string name="reading_list_item_count_plural">%d straipsniai</string>
   <string name="reading_list_sort">Rūšiuoti</string>
   <string name="reading_list_sort_by_name">Rūšiuoti pagal pavadinimą</string>
   <string name="reading_list_sort_by_name_desc">Rūšiuoti pagal pavadinimą (atvirkščiai)</string>

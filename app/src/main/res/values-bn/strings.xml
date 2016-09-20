@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">এই নিবন্ধটি ইতিমধ্যে সেই তালিকায় রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
   <string name="reading_list_item_count_singular">১টি নিবন্ধ</string>
-  <string name="reading_list_item_count_plural">%sটি নিবন্ধ</string>
+  <string name="reading_list_item_count_plural">%dটি নিবন্ধ</string>
   <string name="reading_list_sort">বাছাই করুন</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>

@@ -81,14 +81,16 @@ public final class AccountUtil {
 
     @Nullable
     private static Account account(@NonNull String username) {
-        Account[] accounts = accountManager().getAccountsByType(accountType());
-
-        for (Account account : accounts) {
-            if (username.equalsIgnoreCase(account.name)) {
-                return account;
+        try {
+            Account[] accounts = accountManager().getAccountsByType(accountType());
+            for (Account account : accounts) {
+                if (username.equalsIgnoreCase(account.name)) {
+                    return account;
+                }
             }
+        } catch (SecurityException e) {
+            L.logRemoteErrorIfProd(e);
         }
-
         return null;
     }
 

@@ -246,7 +246,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_already_exists">Tento článek už v tomto seznamu je.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
   <string name="reading_list_item_count_singular">1 článek</string>
-  <string name="reading_list_item_count_plural">%s článků</string>
+  <string name="reading_list_item_count_plural">%d článků</string>
   <string name="reading_list_sort">Seřadit</string>
   <string name="reading_list_sort_by_name">Seřadit podle názvu</string>
   <string name="reading_list_sort_by_name_desc">Seřadit podle názvu (v obráceném pořadí)</string>

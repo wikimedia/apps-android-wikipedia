@@ -246,7 +246,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_already_exists">Tämä artikkeli on jo listalla.</string>
   <string name="reading_list_added_view_button">Näytä luettelo</string>
   <string name="reading_list_item_count_singular">1 artikkeli</string>
-  <string name="reading_list_item_count_plural">%s artikkelia</string>
+  <string name="reading_list_item_count_plural">%d artikkelia</string>
   <string name="reading_list_sort">Lajittele</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan (käänteinen)</string>

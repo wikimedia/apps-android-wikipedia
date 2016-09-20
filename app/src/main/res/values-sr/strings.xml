@@ -229,7 +229,7 @@
   <string name="reading_list_already_exists">Чланак се већ налази на том списку.</string>
   <string name="reading_list_added_view_button">Погледај списак</string>
   <string name="reading_list_item_count_singular">1 чланак</string>
-  <string name="reading_list_item_count_plural">Чланака: %s</string>
+  <string name="reading_list_item_count_plural">Чланака: %d</string>
   <string name="reading_list_sort">Сортирај</string>
   <string name="reading_list_sort_by_name">Сортирај по имену</string>
   <string name="reading_list_sort_by_name_desc">Сортирај по имену (обрнуто)</string>

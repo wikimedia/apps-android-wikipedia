@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">Был исемлектә мәҡәлә бар инде.</string>
   <string name="reading_list_added_view_button">Исемлекте ҡарау</string>
   <string name="reading_list_item_count_singular">1 мәҡәлә</string>
-  <string name="reading_list_item_count_plural">%s мәҡәләләр</string>
+  <string name="reading_list_item_count_plural">%d мәҡәләләр</string>
   <string name="reading_list_sort">Сортҡа айырыу</string>
   <string name="reading_list_sort_by_name">Исем буйынса айырыу</string>
   <string name="reading_list_sort_by_name_desc">Атама буйынса айырыу (киреһенсә)</string>

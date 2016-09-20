@@ -338,7 +338,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="reading_list_already_exists">Message shown when an article already exists in the selected reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
   <string name="reading_list_item_count_singular">Label when a reading list contains one article (singular).</string>
-  <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%s\" symbol is replaced with the number of articles.
+  <string name="reading_list_item_count_plural">Label when a reading list contains more than one article. The \"%d\" symbol is replaced with the number of articles.
 {{Identical|Article}}</string>
   <string name="reading_list_sort">Button label to sort reading lists.
 {{Identical|Sort}}</string>

@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="reading_list_item_count_singular">ערך אחד</string>
-  <string name="reading_list_item_count_plural">%s ערכים</string>
+  <string name="reading_list_item_count_plural">%d ערכים</string>
   <string name="reading_list_sort">מיון</string>
   <string name="reading_list_sort_by_name">מיון לפי שם</string>
   <string name="reading_list_sort_by_name_desc">מיון לפי שם (אחורה)</string>

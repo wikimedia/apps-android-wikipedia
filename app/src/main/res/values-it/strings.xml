@@ -246,7 +246,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_already_exists">Questa voce è già presente in questo elenco.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="reading_list_item_count_singular">1 voce</string>
-  <string name="reading_list_item_count_plural">%s voci</string>
+  <string name="reading_list_item_count_plural">%d voci</string>
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
