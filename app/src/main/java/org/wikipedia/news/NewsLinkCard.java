@@ -9,6 +9,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.Site;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardPageItem;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
@@ -33,6 +34,10 @@ public class NewsLinkCard extends Card {
     @Nullable @Override public Uri image() {
         Uri image = page.thumbnail();
         return image != null ? getUrlForSize(image, Constants.PREFERRED_THUMB_SIZE) : null;
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.NEWS_ITEM_LINK;
     }
 
     @NonNull public PageTitle pageTitle() {

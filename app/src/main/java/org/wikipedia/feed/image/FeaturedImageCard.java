@@ -8,6 +8,7 @@ import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.util.DateUtil;
 
@@ -58,6 +59,10 @@ public class FeaturedImageCard extends Card {
     @NonNull
     public Uri image() {
         return featuredImage.thumbnail().source();
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.FEATURED_IMAGE;
     }
 
     @Nullable

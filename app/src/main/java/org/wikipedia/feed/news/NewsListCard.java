@@ -3,6 +3,7 @@ package org.wikipedia.feed.news;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.Site;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.model.ListCard;
 
@@ -22,6 +23,10 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     @Override
     public String title() {
         return "";
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.NEWS_LIST;
     }
 
     @NonNull

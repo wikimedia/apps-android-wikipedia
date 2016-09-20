@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 
@@ -28,6 +29,10 @@ public class ContinueReadingCard extends Card {
 
     @Override @Nullable public Uri image() {
         return TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl());
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.CONTINUE_READING;
     }
 
     @NonNull public PageTitle pageTitle() {

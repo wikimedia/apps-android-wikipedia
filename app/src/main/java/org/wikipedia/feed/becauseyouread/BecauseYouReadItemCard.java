@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
 public class BecauseYouReadItemCard extends Card {
@@ -33,5 +34,9 @@ public class BecauseYouReadItemCard extends Card {
     @Nullable
     @Override public Uri image() {
         return TextUtils.isEmpty(title.getThumbUrl()) ? null : Uri.parse(title.getThumbUrl());
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.BECAUSE_YOU_READ_ITEM;
     }
 }

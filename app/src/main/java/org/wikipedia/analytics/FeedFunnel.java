@@ -1,6 +1,9 @@
 package org.wikipedia.analytics;
 
+import android.support.annotation.NonNull;
+
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.feed.model.CardType;
 
 public class FeedFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppFeed";
@@ -24,10 +27,10 @@ public class FeedFunnel extends Funnel {
         );
     }
 
-    public void dismissCard(int cardType, int position) {
+    public void dismissCard(@NonNull CardType cardType, int position) {
         log(
                 "action", "dismiss",
-                "cardType", cardType,
+                "cardType", cardType.code(),
                 "position", position
         );
     }

@@ -1,0 +1,94 @@
+package org.wikipedia.feed.model;
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.view.View;
+
+import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
+import org.wikipedia.feed.continuereading.ContinueReadingCardView;
+import org.wikipedia.feed.featured.FeaturedArticleCardView;
+import org.wikipedia.feed.image.FeaturedImageCardView;
+import org.wikipedia.feed.mainpage.MainPageCardView;
+import org.wikipedia.feed.mostread.MostReadCardView;
+import org.wikipedia.feed.news.NewsListCardView;
+import org.wikipedia.feed.progress.ProgressCardView;
+import org.wikipedia.feed.random.RandomCardView;
+import org.wikipedia.feed.searchbar.SearchCardView;
+import org.wikipedia.model.EnumCode;
+import org.wikipedia.model.EnumCodeMap;
+
+public enum CardType implements EnumCode {
+    SEARCH_BAR(0) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new SearchCardView(ctx);
+        }
+    },
+    CONTINUE_READING(1) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new ContinueReadingCardView(ctx);
+        }
+    },
+    BECAUSE_YOU_READ_LIST(2) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new BecauseYouReadCardView(ctx);
+        }
+    },
+    MOST_READ_LIST(3) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new MostReadCardView(ctx);
+        }
+    },
+    FEATURED_ARTICLE(4) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new FeaturedArticleCardView(ctx);
+        }
+    },
+    RANDOM(5) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new RandomCardView(ctx);
+        }
+    },
+    MAIN_PAGE(6) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new MainPageCardView(ctx);
+        }
+    },
+    NEWS_LIST(7) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new NewsListCardView(ctx);
+        }
+    },
+    FEATURED_IMAGE(8) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new FeaturedImageCardView(ctx);
+        }
+    },
+    BECAUSE_YOU_READ_ITEM(9),
+    MOST_READ_ITEM(10),
+    NEWS_ITEM(11),
+    NEWS_ITEM_LINK(12),
+    PROGRESS(99) {
+        @NonNull @Override public View newView(@NonNull Context ctx) {
+            return new ProgressCardView(ctx);
+        }
+    };
+
+    private static final EnumCodeMap<CardType> MAP = new EnumCodeMap<>(CardType.class);
+    private final int code;
+
+    @NonNull public static CardType of(int code) {
+        return MAP.get(code);
+    }
+
+    @NonNull public View newView(@NonNull Context ctx) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override public int code() {
+        return code;
+    }
+
+    CardType(int code) {
+        this.code = code;
+    }
+}

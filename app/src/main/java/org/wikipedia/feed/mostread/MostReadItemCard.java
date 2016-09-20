@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.Site;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
 public class MostReadItemCard extends Card {
@@ -28,6 +29,10 @@ public class MostReadItemCard extends Card {
 
     @Nullable @Override public Uri image() {
         return article.thumbnail();
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.MOST_READ_ITEM;
     }
 
     @NonNull public PageTitle pageTitle() {

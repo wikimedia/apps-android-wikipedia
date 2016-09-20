@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.model.BaseModel;
 
 public abstract class Card extends BaseModel {
@@ -22,8 +21,10 @@ public abstract class Card extends BaseModel {
         return null;
     }
 
+    @NonNull public abstract CardType type();
+
     public String getHideKey() {
-        return Long.toString(FeedAdapter.getCardType(this) + dismissHashCode());
+        return Long.toString(type().code() + dismissHashCode());
     }
 
     protected int dismissHashCode() {

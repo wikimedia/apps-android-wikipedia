@@ -8,6 +8,7 @@ import android.support.annotation.StringRes;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.util.DateUtil;
 
@@ -31,6 +32,10 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
 
     @Nullable @Override public String subtitle() {
         return DateUtil.getFeedCardDateString(articles.date());
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.MOST_READ_LIST;
     }
 
     @NonNull private static List<MostReadItemCard> toItems(@NonNull List<MostReadArticle> articles,

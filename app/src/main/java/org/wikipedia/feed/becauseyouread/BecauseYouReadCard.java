@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
@@ -33,6 +34,10 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     @Nullable
     public Uri image() {
         return TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl());
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.BECAUSE_YOU_READ_LIST;
     }
 
     public String pageTitle() {

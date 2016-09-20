@@ -11,6 +11,7 @@ import android.text.style.StyleSpan;
 import org.wikipedia.Site;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardPageItem;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.log.L;
 
@@ -39,6 +40,10 @@ public class NewsItemCard extends Card {
     @Override
     public Uri image() {
         return newsItem.thumb();
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.NEWS_ITEM;
     }
 
     @NonNull

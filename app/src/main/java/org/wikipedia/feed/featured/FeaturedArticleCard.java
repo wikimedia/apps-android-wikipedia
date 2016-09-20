@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardPageItem;
@@ -64,6 +65,10 @@ public class FeaturedArticleCard extends Card {
     @Override
     public String extract() {
         return page.extract();
+    }
+
+    @NonNull @Override public CardType type() {
+        return CardType.FEATURED_ARTICLE;
     }
 
     @NonNull
