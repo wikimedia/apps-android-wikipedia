@@ -420,7 +420,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             getChildFragmentManager()
                     .beginTransaction()
                     .add(R.id.fragment_main_container, fragment)
-                    .commit();
+                    .commitNowAllowingStateLoss();
         }
     }
 

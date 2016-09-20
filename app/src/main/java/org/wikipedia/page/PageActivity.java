@@ -958,7 +958,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.activity_page_container, fragment)
-                    .commit();
+                    .commitNowAllowingStateLoss();
         }
     }
 
