@@ -246,7 +246,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_list_already_exists">Ar pennad-mañ zo er roll-se dija.</string>
   <string name="reading_list_added_view_button">Diskwel ar roll</string>
   <string name="reading_list_item_count_singular">1 pennad</string>
-  <string name="reading_list_item_count_plural">%s pennad</string>
+  <string name="reading_list_item_count_plural">%d pennad</string>
   <string name="reading_list_sort">Rummañ</string>
   <string name="reading_list_sort_by_name">Rummañ dre anv</string>
   <string name="reading_list_sort_by_name_desc">Rummañ dre anv (eilpennet)</string>

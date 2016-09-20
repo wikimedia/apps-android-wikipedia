@@ -246,7 +246,7 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_already_exists">Acest articol se află deja în acea listă.</string>
   <string name="reading_list_added_view_button">Vezi lista</string>
   <string name="reading_list_item_count_singular">1 articol</string>
-  <string name="reading_list_item_count_plural">%s (de) articole</string>
+  <string name="reading_list_item_count_plural">%d (de) articole</string>
   <string name="reading_list_sort">Sortare</string>
   <string name="reading_list_sort_by_name">Sortare după titlu</string>
   <string name="reading_list_sort_by_name_desc">Sortare după titlu (invers)</string>

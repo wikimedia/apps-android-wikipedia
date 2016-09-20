@@ -235,7 +235,7 @@
   <string name="reading_list_already_exists">ეს სტატია უკვე ამ სიაშია.</string>
   <string name="reading_list_added_view_button">სიის ხილვა</string>
   <string name="reading_list_item_count_singular">1 სტატია</string>
-  <string name="reading_list_item_count_plural">%s სტატია</string>
+  <string name="reading_list_item_count_plural">%d სტატია</string>
   <string name="reading_list_sort">სორტირება</string>
   <string name="reading_list_sort_by_name">დალაგება სახელის მიხედვით</string>
   <string name="reading_list_sort_by_recent">დალაგება ყველაზე ბოლოების მიხედვით</string>

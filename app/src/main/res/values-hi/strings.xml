@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
   <string name="reading_list_added_view_button">देखें</string>
   <string name="reading_list_item_count_singular">1 लेख</string>
-  <string name="reading_list_item_count_plural">%s लेख</string>
+  <string name="reading_list_item_count_plural">%d लेख</string>
   <string name="reading_list_sort">छांटें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
   <string name="reading_list_sort_by_name_desc">नाम से छांटें (उल्टा)</string>

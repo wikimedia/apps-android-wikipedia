@@ -238,7 +238,7 @@
   <string name="reading_list_already_exists">ھي مضمون اڳ ئي ان فھرست ۾ آھي.</string>
   <string name="reading_list_added_view_button">فهرست ڏسو</string>
   <string name="reading_list_item_count_singular">1 مضمون</string>
-  <string name="reading_list_item_count_plural">%s مضمون</string>
+  <string name="reading_list_item_count_plural">%d مضمون</string>
   <string name="reading_list_menu_edit">پڙھڻ جي فھرست جون تفصيلون ترميميو</string>
   <string name="reading_list_menu_delete">پڙھڻ جي فھرست ڊاھيو</string>
   <string name="reading_list_name_sample">منھنجي پڙھڻ جي فھرست</string>

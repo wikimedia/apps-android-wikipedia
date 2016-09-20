@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">Статијава веќе стои на тој список.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
   <string name="reading_list_item_count_singular">1 статија</string>
-  <string name="reading_list_item_count_plural">%s статии</string>
+  <string name="reading_list_item_count_plural">%d статии</string>
   <string name="reading_list_sort">Подреди</string>
   <string name="reading_list_sort_by_name">Подреди по назив</string>
   <string name="reading_list_sort_by_name_desc">Подреди по назив (обратно)</string>

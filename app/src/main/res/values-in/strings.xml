@@ -246,7 +246,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_already_exists">Artikel ini sudah ada dalam daftar itu.</string>
   <string name="reading_list_added_view_button">Lihat daftar</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
-  <string name="reading_list_item_count_plural">%s artikel</string>
+  <string name="reading_list_item_count_plural">%d artikel</string>
   <string name="reading_list_sort">Urutkan</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>

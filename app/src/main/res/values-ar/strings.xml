@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="reading_list_item_count_singular">مقالة واحدة</string>
-  <string name="reading_list_item_count_plural">%s مقالات</string>
+  <string name="reading_list_item_count_plural">%d مقالات</string>
   <string name="reading_list_sort">رتب</string>
   <string name="reading_list_sort_by_name">فرز حسب الاسم</string>
   <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>

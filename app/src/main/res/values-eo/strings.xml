@@ -202,7 +202,7 @@
   <string name="reading_list_added_to_named">Aldonita al %s.</string>
   <string name="reading_list_added_view_button">Montri liston</string>
   <string name="reading_list_item_count_singular">1 artikolo</string>
-  <string name="reading_list_item_count_plural">%s artikoloj</string>
+  <string name="reading_list_item_count_plural">%d artikoloj</string>
   <string name="reading_list_sort">Ordigi</string>
   <string name="reading_list_sort_by_name">Ordigi laŭ nomo</string>
   <string name="reading_list_sort_by_name_desc">Ordigi laŭ nomo (inverse)</string>

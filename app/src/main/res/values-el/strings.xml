@@ -212,7 +212,7 @@
   <string name="reading_list_create_new">Δημιουργία νέας</string>
   <string name="reading_list_added_to_named">Προστέθηκε στη %s.</string>
   <string name="reading_list_item_count_singular">1 άρθρο</string>
-  <string name="reading_list_item_count_plural">%s άρθρα</string>
+  <string name="reading_list_item_count_plural">%d άρθρα</string>
   <string name="reading_list_sort">Ταξινόμηση</string>
   <string name="reading_list_sort_by_name">Ταξινόμηση κατά όνομα</string>
   <string name="reading_list_sort_by_name_desc">Ταξινόμηση κατά όνομα (αντίστροφα)</string>

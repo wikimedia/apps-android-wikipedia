@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">این مقاله در فهرست مطالعه موجود است.</string>
   <string name="reading_list_added_view_button">مشاهدهٔ فهرست</string>
   <string name="reading_list_item_count_singular">۱ مقاله</string>
-  <string name="reading_list_item_count_plural">%s مقاله</string>
+  <string name="reading_list_item_count_plural">%d مقاله</string>
   <string name="reading_list_sort">مرتب‌کردن</string>
   <string name="reading_list_sort_by_name">مرتب بر پایهٔ نام</string>
   <string name="reading_list_sort_by_name_desc">مرتب بر پایهٔ نام (معکوس)</string>

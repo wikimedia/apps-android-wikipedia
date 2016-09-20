@@ -233,7 +233,7 @@
   <string name="reading_list_already_exists">ਇਹ ਲੇਖ ਸੂਚੀ ਵਿੱਚ ਪਹਿਲਾਂ ਹੀ ਸ਼ਾਮਿਲ ਹੈ।</string>
   <string name="reading_list_added_view_button">ਸੂਚੀ ਵੇਖੋ</string>
   <string name="reading_list_item_count_singular">1 ਲੇਖ</string>
-  <string name="reading_list_item_count_plural">%s ਲੇਖ</string>
+  <string name="reading_list_item_count_plural">%d ਲੇਖ</string>
   <string name="reading_list_sort">ਤਰਤੀਬਵਾਰ ਕਰੋ</string>
   <string name="reading_list_sort_by_name">ਨਾਂ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
   <string name="reading_list_sort_by_name_desc">ਨਾਮ ਦੁਆਰਾ ਕ੍ਰਮਬੱਧ (ਉਲਟ)</string>

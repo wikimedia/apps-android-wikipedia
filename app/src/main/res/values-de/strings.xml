@@ -246,7 +246,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="reading_list_already_exists">Dieser Artikel ist bereits in dieser Liste.</string>
   <string name="reading_list_added_view_button">Liste ansehen</string>
   <string name="reading_list_item_count_singular">Ein Artikel</string>
-  <string name="reading_list_item_count_plural">%s Artikel</string>
+  <string name="reading_list_item_count_plural">%d Artikel</string>
   <string name="reading_list_sort">Sortieren</string>
   <string name="reading_list_sort_by_name">Nach Name sortieren</string>
   <string name="reading_list_sort_by_name_desc">Nach Name sortieren (umgekehrt)</string>

@@ -267,7 +267,7 @@
     <string name="reading_list_already_exists">This article is already in that list.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="reading_list_item_count_singular">1 article</string>
-    <string name="reading_list_item_count_plural">%s articles</string>
+    <string name="reading_list_item_count_plural">%d articles</string>
     <string name="reading_list_sort">Sort</string>
     <string name="reading_list_sort_by_name">Sort by name</string>
     <string name="reading_list_sort_by_name_desc">Sort by name (reverse)</string>

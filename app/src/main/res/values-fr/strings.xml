@@ -247,7 +247,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_already_exists">Cet article est déjà dans cette liste.</string>
   <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="reading_list_item_count_singular">1 article</string>
-  <string name="reading_list_item_count_plural">%s articles</string>
+  <string name="reading_list_item_count_plural">%d articles</string>
   <string name="reading_list_sort">Trier</string>
   <string name="reading_list_sort_by_name">Trier par nom</string>
   <string name="reading_list_sort_by_name_desc">Trier par nom (inverse)</string>

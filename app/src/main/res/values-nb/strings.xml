@@ -246,7 +246,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="reading_list_already_exists">Denne artikkelen er allerede i listen.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
   <string name="reading_list_item_count_singular">1 artikkel</string>
-  <string name="reading_list_item_count_plural">%s artikler</string>
+  <string name="reading_list_item_count_plural">%d artikler</string>
   <string name="reading_list_sort">Sorter</string>
   <string name="reading_list_sort_by_name">Sorter etter navn</string>
   <string name="reading_list_sort_by_name_desc">Sorter etter navn (omvendt)</string>

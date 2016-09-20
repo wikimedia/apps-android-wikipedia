@@ -244,7 +244,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
   <string name="reading_list_item_count_singular">1 szócikk</string>
-  <string name="reading_list_item_count_plural">%s szócikk</string>
+  <string name="reading_list_item_count_plural">%d szócikk</string>
   <string name="reading_list_sort">Rendezés</string>
   <string name="reading_list_sort_by_name">Rendezés név szerint</string>
   <string name="reading_list_sort_by_name_desc">Rendezés név szerint (fordítva)</string>
