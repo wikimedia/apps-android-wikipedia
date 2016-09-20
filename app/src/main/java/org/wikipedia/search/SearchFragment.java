@@ -106,7 +106,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             }
             if (firstResult != null) {
                 navigateToTitle(firstResult, false, 0);
-                closeSearch();
             }
             return true;
         }
