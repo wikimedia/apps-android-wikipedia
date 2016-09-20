@@ -94,7 +94,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         unbinder = ButterKnife.bind(this, view);
-        feedView.set(coordinator, feedCallback);
+        feedView.setAdapter(new FeedAdapter(coordinator, feedCallback));
+        feedView.callback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
 
         swipeRefreshLayout.setColorSchemeResources(R.color.foundation_blue);
@@ -133,6 +134,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
         feedView.removeOnScrollListener(feedScrollListener);
+        feedView.callback((FeedViewCallback) null);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();

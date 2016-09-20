@@ -1,14 +1,12 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.AttributeSet;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.FeedCoordinatorBase;
 import org.wikipedia.views.AutoFitRecyclerView;
 import org.wikipedia.views.HeaderMarginItemDecoration;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
@@ -33,10 +31,7 @@ public class FeedView extends AutoFitRecyclerView {
         init();
     }
 
-    public void set(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
-        FeedAdapter adapter = new FeedAdapter(coordinator, callback);
-        setAdapter(adapter);
-
+    public void callback(@Nullable ItemTouchHelperSwipeAdapter.Callback callback) {
         if (itemTouchHelper != null) {
             itemTouchHelper.attachToRecyclerView(null);
             itemTouchHelper = null;
