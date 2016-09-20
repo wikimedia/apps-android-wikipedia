@@ -16,7 +16,6 @@ import org.wikipedia.views.MarginItemDecoration;
 
 public class FeedView extends AutoFitRecyclerView {
     private StaggeredGridLayoutManager recyclerLayoutManager;
-    @Nullable private FeedAdapter adapter;
     @Nullable private ItemTouchHelper itemTouchHelper;
 
     public FeedView(Context context) {
@@ -35,7 +34,7 @@ public class FeedView extends AutoFitRecyclerView {
     }
 
     public void set(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
-        adapter = new FeedAdapter(coordinator, callback);
+        FeedAdapter adapter = new FeedAdapter(coordinator, callback);
         setAdapter(adapter);
 
         if (itemTouchHelper != null) {
@@ -46,12 +45,6 @@ public class FeedView extends AutoFitRecyclerView {
         if (callback != null) {
             itemTouchHelper = new ItemTouchHelper(new ItemTouchHelperSwipeAdapter(callback));
             itemTouchHelper.attachToRecyclerView(this);
-        }
-    }
-
-    public void update() {
-        if (adapter != null) {
-            adapter.notifyDataSetChanged();
         }
     }
 

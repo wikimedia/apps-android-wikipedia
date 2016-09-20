@@ -112,7 +112,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             public void update(List<Card> cards) {
                 if (isAdded()) {
                     swipeRefreshLayout.setRefreshing(false);
-                    feedView.update();
+                    if (feedView.getAdapter() != null) {
+                        feedView.getAdapter().notifyDataSetChanged();
+                    }
                 }
             }
         });
