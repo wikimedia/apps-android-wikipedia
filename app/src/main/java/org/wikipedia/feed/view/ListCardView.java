@@ -25,7 +25,7 @@ public abstract class ListCardView extends FeedCardView {
 
         inflate(getContext(), R.layout.view_list_card, this);
         ButterKnife.bind(this);
-        initRecycler();
+        initRecycler(recyclerView);
     }
 
     protected void set(@Nullable RecyclerView.Adapter<?> adapter) {
@@ -48,7 +48,7 @@ public abstract class ListCardView extends FeedCardView {
         largeHeaderView = view;
     }
 
-    private void initRecycler() {
+    protected void initRecycler(@NonNull RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
                 ResourceUtil.getThemedAttributeId(getContext(), R.attr.list_separator_drawable), true));
