@@ -2,15 +2,14 @@ package org.wikipedia.feed.view;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.PageTitleListCardItemCallback;
-import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.feed.news.NewsItemCard;
+import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 public interface FeedViewCallback extends ItemTouchHelperSwipeAdapter.Callback,
-        PageTitleListCardItemCallback {
+        PageTitleListCardItemView.Callback {
     void onRequestMore();
     void onSearchRequested();
     void onVoiceSearchRequested();

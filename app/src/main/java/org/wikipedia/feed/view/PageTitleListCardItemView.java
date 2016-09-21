@@ -7,13 +7,18 @@ import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
 import android.view.View;
 
-import org.wikipedia.PageTitleListCardItemCallback;
 import org.wikipedia.R;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.ViewUtil;
 
 public class PageTitleListCardItemView extends ListCardItemView {
-    @Nullable private PageTitleListCardItemCallback callback;
+    public interface Callback {
+        void onSelectPage(@NonNull HistoryEntry entry);
+        void onAddPageToList(@NonNull HistoryEntry entry);
+        void onSharePage(@NonNull HistoryEntry entry);
+    }
+
+    @Nullable private Callback callback;
     @Nullable private HistoryEntry entry;
 
     public PageTitleListCardItemView(Context context) {
@@ -34,7 +39,7 @@ public class PageTitleListCardItemView extends ListCardItemView {
         });
     }
 
-    @NonNull public PageTitleListCardItemView setCallback(@Nullable PageTitleListCardItemCallback callback) {
+    @NonNull public PageTitleListCardItemView setCallback(@Nullable Callback callback) {
         this.callback = callback;
         return this;
     }
