@@ -50,7 +50,7 @@ public class AutoFitRecyclerView extends RecyclerView {
         }
     }
 
-    public void callback(@Nullable Callback callback) {
+    public void setCallback(@Nullable Callback callback) {
         this.callback = callback == null ? new DefaultCallback() : callback;
     }
 

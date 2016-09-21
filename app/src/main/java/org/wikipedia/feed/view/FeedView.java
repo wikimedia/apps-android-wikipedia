@@ -35,7 +35,7 @@ public class FeedView extends AutoFitRecyclerView {
         init();
     }
 
-    public void callback(@Nullable ItemTouchHelperSwipeAdapter.Callback callback) {
+    public void setCallback(@Nullable ItemTouchHelperSwipeAdapter.Callback callback) {
         if (itemTouchHelper != null) {
             itemTouchHelper.attachToRecyclerView(new DummyView(getContext()));
             itemTouchHelper = null;
@@ -65,7 +65,7 @@ public class FeedView extends AutoFitRecyclerView {
                 R.dimen.view_list_card_margin_horizontal, R.dimen.view_list_card_margin_vertical));
         addItemDecoration(new HeaderMarginItemDecoration(getContext(),
                 R.dimen.view_list_first_card_margin_top));
-        callback(new RecyclerViewColumnCallback());
+        setCallback(new RecyclerViewColumnCallback());
     }
 
     /* Workaround for https://code.google.com/p/android/issues/detail?id=205947.
