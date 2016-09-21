@@ -16,13 +16,14 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class MostReadCardView extends ListCardView
+public class MostReadCardView extends ListCardView<MostReadListCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
     public MostReadCardView(Context context) {
         super(context);
     }
 
-    public void set(@NonNull MostReadListCard card) {
+    @Override public void setCard(@NonNull MostReadListCard card) {
+        super.setCard(card);
         header(card);
         set(new RecyclerAdapter(card.items(), getCallback()));
     }

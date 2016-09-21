@@ -1,23 +1,11 @@
 package org.wikipedia.feed.view;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
 
-public class FeedCardView extends CardView {
-    @Nullable private FeedViewCallback callback;
+import org.wikipedia.feed.model.Card;
 
-    public FeedCardView(Context context) {
-        super(context);
-    }
-
-    @NonNull public FeedCardView setCallback(@Nullable FeedViewCallback callback) {
-        this.callback = callback;
-        return this;
-    }
-
-    @Nullable protected FeedViewCallback getCallback() {
-        return callback;
-    }
+public interface FeedCardView<T extends Card> {
+    void setCard(@NonNull T card);
+    void setCallback(@Nullable FeedViewCallback callback);
 }

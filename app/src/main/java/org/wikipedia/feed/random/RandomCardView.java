@@ -13,37 +13,35 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomSummaryService;
 import org.wikipedia.util.log.L;
 
-public class RandomCardView extends StaticCardView {
-    @Nullable private FeedViewCallback callback;
-
+public class RandomCardView extends StaticCardView<RandomCard> {
     public RandomCardView(@NonNull Context context) {
         super(context);
     }
 
-    public void set(@NonNull final RandomCard card) {
+    @Override public void setCard(@NonNull RandomCard card) {
+        super.setCard(card);
         setTitle(getString(R.string.view_random_card_title));
         setSubtitle(getString(R.string.view_random_card_subtitle));
         setIcon(R.drawable.icon_feed_random);
-        setOnClickListener(new CallbackAdapter(card, callback));
     }
 
-    @NonNull public RandomCardView setCallback(@Nullable FeedViewCallback callback) {
-        this.callback = callback;
-        return this;
+    @Override public void setCallback(@Nullable FeedViewCallback callback) {
+        super.setCallback(callback);
+        setOnClickListener(new CallbackAdapter(callback));
     }
 
-    private static class CallbackAdapter implements OnClickListener {
-        @NonNull private final RandomCard card;
+    private class CallbackAdapter implements OnClickListener {
         @Nullable private final FeedViewCallback callback;
 
-        CallbackAdapter(@NonNull final RandomCard card, @Nullable FeedViewCallback callback) {
-            this.card = card;
+        CallbackAdapter(@Nullable FeedViewCallback callback) {
             this.callback = callback;
         }
 
         @Override
         public void onClick(View view) {
-            new RandomSummaryService(card.site(), serviceCallback).get();
+            if (callback != null && getCard() != null) {
+                new RandomSummaryService(getCard().site(), serviceCallback).get();
+            }
         }
 
         private RandomSummaryService.RandomSummaryCallback serviceCallback

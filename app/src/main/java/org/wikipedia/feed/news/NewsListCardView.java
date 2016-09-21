@@ -16,14 +16,15 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class NewsListCardView extends HorizontalScrollingListCardView
+public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
 
     public NewsListCardView(@NonNull Context context) {
         super(context);
     }
 
-    public void set(@NonNull NewsListCard card) {
+    @Override public void setCard(@NonNull NewsListCard card) {
+        super.setCard(card);
         header(card);
         set(new RecyclerAdapter(card.items(), getCallback()));
     }

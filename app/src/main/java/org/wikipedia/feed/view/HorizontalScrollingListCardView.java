@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
@@ -15,7 +16,7 @@ import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.List;
 
-public abstract class HorizontalScrollingListCardView extends ListCardView {
+public abstract class HorizontalScrollingListCardView<T extends Card> extends ListCardView<T> {
     public HorizontalScrollingListCardView(@NonNull Context context) {
         super(context);
     }

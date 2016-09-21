@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import org.wikipedia.R;
+import org.wikipedia.feed.model.Card;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.ViewUtil;
@@ -15,7 +16,7 @@ import org.wikipedia.views.ViewUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public abstract class ListCardView extends FeedCardView {
+public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T> {
     @BindView(R.id.view_list_card_header) View headerView;
     @BindView(R.id.view_list_card_large_header) View largeHeaderView;
     @BindView(R.id.view_list_card_list) RecyclerView recyclerView;

@@ -1,17 +1,16 @@
 package org.wikipedia.feed.searchbar;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.view.FeedCardView;
+import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.util.FeedbackUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SearchCardView extends FeedCardView {
+public class SearchCardView extends DefaultFeedCardView<SearchCard> {
     @BindView(R.id.search_container) View searchContainer;
     @BindView(R.id.voice_search_button) View voiceSearchButton;
 
@@ -39,8 +38,5 @@ public class SearchCardView extends FeedCardView {
                 }
             }
         });
-    }
-
-    public void set(@NonNull SearchCard card) {
     }
 }

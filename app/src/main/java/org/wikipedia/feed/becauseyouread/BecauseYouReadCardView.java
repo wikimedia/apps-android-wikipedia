@@ -19,14 +19,15 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class BecauseYouReadCardView extends ListCardView
+public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
 
     public BecauseYouReadCardView(Context context) {
         super(context);
     }
 
-    public void set(@NonNull final BecauseYouReadCard card) {
+    @Override public void setCard(@NonNull BecauseYouReadCard card) {
+        super.setCard(card);
         header(card);
         set(new RecyclerAdapter(card.items(), getCallback()));
     }

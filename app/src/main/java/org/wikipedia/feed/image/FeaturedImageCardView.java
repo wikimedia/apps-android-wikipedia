@@ -3,14 +3,13 @@ package org.wikipedia.feed.image;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.FeedCardView;
+import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -20,9 +19,8 @@ import org.wikipedia.views.ViewUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FeaturedImageCardView extends FeedCardView
+public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
-    @Nullable private FeaturedImageCard card;
     @BindView(R.id.view_featured_image_card_header) View headerView;
     @BindView(R.id.view_featured_image_card_footer) View footerView;
     @BindView(R.id.view_featured_image_card_image) FaceAndColorDetectImageView imageView;
@@ -34,8 +32,8 @@ public class FeaturedImageCardView extends FeedCardView
         ButterKnife.bind(this);
     }
 
-    public void set(@NonNull FeaturedImageCard card) {
-        this.card = card;
+    @Override public void setCard(@NonNull FeaturedImageCard card) {
+        super.setCard(card);
         // TODO: superimpose text onto image thumb
         image(card.image());
         description(StringUtil.defaultIfNull(card.description(), ""));  //Can check language before doing this if we want
@@ -88,8 +86,8 @@ public class FeaturedImageCardView extends FeedCardView
     private class CardClickListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (getCallback() != null) {
-                getCallback().onFeaturedImageSelected(card);
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onFeaturedImageSelected(getCard());
             }
         }
     }
@@ -97,8 +95,8 @@ public class FeaturedImageCardView extends FeedCardView
     private class CardDownloadListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (getCallback() != null) {
-                getCallback().onDownloadImage(card.baseImage());
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onDownloadImage(getCard().baseImage());
             }
         }
     }
@@ -106,8 +104,8 @@ public class FeaturedImageCardView extends FeedCardView
     private class CardShareListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (getCallback() != null) {
-                getCallback().onShareImage(card);
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onShareImage(getCard());
             }
         }
     }

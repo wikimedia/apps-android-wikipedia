@@ -94,7 +94,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         unbinder = ButterKnife.bind(this, view);
-        feedView.setAdapter(new FeedAdapter(coordinator, feedCallback));
+        feedView.setAdapter(new FeedAdapter<>(coordinator, feedCallback));
         feedView.callback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
 

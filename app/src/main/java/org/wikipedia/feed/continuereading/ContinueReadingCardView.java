@@ -12,16 +12,14 @@ import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
-public class ContinueReadingCardView extends ListCardView
+public class ContinueReadingCardView extends ListCardView<ContinueReadingCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
-    private ContinueReadingCard card;
-
     public ContinueReadingCardView(Context context) {
         super(context);
     }
 
-    public void set(@NonNull ContinueReadingCard card) {
-        this.card = card;
+    @Override public void setCard(@NonNull ContinueReadingCard card) {
+        super.setCard(card);
         header(card);
     }
 
@@ -46,8 +44,9 @@ public class ContinueReadingCardView extends ListCardView
     private class CardClickListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (getCallback() != null) {
-                getCallback().onSelectPage(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_CONTINUE_READING));
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onSelectPage(new HistoryEntry(getCard().pageTitle(),
+                        HistoryEntry.SOURCE_FEED_CONTINUE_READING));
             }
         }
     }

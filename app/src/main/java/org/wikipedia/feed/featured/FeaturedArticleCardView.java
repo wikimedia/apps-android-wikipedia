@@ -10,7 +10,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.FeedCardView;
+import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -20,7 +20,7 @@ import org.wikipedia.views.ViewUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FeaturedArticleCardView extends FeedCardView
+public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
     @BindView(R.id.view_featured_article_card_header) View headerView;
     @BindView(R.id.view_featured_article_card_footer) View footerView;
@@ -30,16 +30,15 @@ public class FeaturedArticleCardView extends FeedCardView
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
     @BindView(R.id.view_featured_article_card_text_container) View textContainerView;
 
-    private FeaturedArticleCard card;
-
     public FeaturedArticleCardView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_card_featured_article, this);
         ButterKnife.bind(this);
     }
 
-    public void set(@NonNull FeaturedArticleCard card) {
-        this.card = card;
+    @Override public void setCard(@NonNull FeaturedArticleCard card) {
+        super.setCard(card);
+
         String articleTitle = card.articleTitle();
         String articleSubtitle = card.articleSubtitle();
         String extract = card.extract();
@@ -114,8 +113,8 @@ public class FeaturedArticleCardView extends FeedCardView
     private class CardClickListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (getCallback() != null) {
-                getCallback().onSelectPage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onSelectPage(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }
@@ -123,8 +122,8 @@ public class FeaturedArticleCardView extends FeedCardView
     private class CardSaveListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (getCallback() != null) {
-                getCallback().onAddPageToList(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }
@@ -132,8 +131,8 @@ public class FeaturedArticleCardView extends FeedCardView
     private class CardShareListener implements OnClickListener {
         @Override
         public void onClick(View v) {
-            if (getCallback() != null) {
-                getCallback().onSharePage(card.historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onSharePage(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
             }
         }
     }

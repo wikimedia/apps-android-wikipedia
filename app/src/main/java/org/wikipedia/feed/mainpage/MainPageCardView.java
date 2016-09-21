@@ -16,24 +16,22 @@ import org.wikipedia.staticdata.MainPageNameData;
 import java.text.DateFormat;
 import java.util.Date;
 
-public class MainPageCardView extends StaticCardView {
-    @Nullable private FeedViewCallback callback;
-
+public class MainPageCardView extends StaticCardView<MainPageCard> {
     public MainPageCardView(@NonNull Context context) {
         super(context);
     }
 
-    public void set(@NonNull final MainPageCard card) {
+    @Override public void setCard(@NonNull final MainPageCard card) {
+        super.setCard(card);
         setTitle(getString(R.string.view_main_page_card_title));
         setSubtitle(String.format(getString(R.string.view_main_page_card_subtitle),
                 DateFormat.getDateInstance().format(new Date())));
         setIcon(R.drawable.icon_feed_today);
-        setOnClickListener(new CallbackAdapter(callback));
     }
 
-    @NonNull public MainPageCardView setCallback(@Nullable FeedViewCallback callback) {
-        this.callback = callback;
-        return this;
+    @Override public void setCallback(@Nullable FeedViewCallback callback) {
+        super.setCallback(callback);
+        setOnClickListener(new CallbackAdapter(callback));
     }
 
     private static class CallbackAdapter implements OnClickListener {
