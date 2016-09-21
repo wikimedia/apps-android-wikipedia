@@ -56,7 +56,6 @@ public class FeedView extends AutoFitRecyclerView {
 
     private void init() {
         setVerticalScrollBarEnabled(true);
-        minColumnWidth((int) getResources().getDimension(R.dimen.view_feed_min_column_width));
         recyclerLayoutManager = new StaggeredGridLayoutManager(getColumns(),
                 StaggeredGridLayoutManager.VERTICAL);
         setLayoutManager(recyclerLayoutManager);
