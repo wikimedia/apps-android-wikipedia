@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.view.FeedViewCallback;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.StaticCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
@@ -25,15 +25,15 @@ public class RandomCardView extends StaticCardView<RandomCard> {
         setIcon(R.drawable.icon_feed_random);
     }
 
-    @Override public void setCallback(@Nullable FeedViewCallback callback) {
+    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
         setOnClickListener(new CallbackAdapter(callback));
     }
 
     private class CallbackAdapter implements OnClickListener {
-        @Nullable private final FeedViewCallback callback;
+        @Nullable private final FeedAdapter.Callback callback;
 
-        CallbackAdapter(@Nullable FeedViewCallback callback) {
+        CallbackAdapter(@Nullable FeedAdapter.Callback callback) {
             this.callback = callback;
         }
 

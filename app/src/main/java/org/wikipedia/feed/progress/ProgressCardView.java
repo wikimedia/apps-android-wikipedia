@@ -7,8 +7,8 @@ import android.widget.FrameLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedCardView;
-import org.wikipedia.feed.view.FeedViewCallback;
 
 public class ProgressCardView extends FrameLayout implements FeedCardView<Card> {
     public ProgressCardView(Context context) {
@@ -17,5 +17,5 @@ public class ProgressCardView extends FrameLayout implements FeedCardView<Card> 
     }
 
     @Override public void setCard(@NonNull Card card) { }
-    @Override public void setCallback(@Nullable FeedViewCallback callback) { }
+    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) { }
 }

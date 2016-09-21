@@ -9,7 +9,7 @@ import android.view.View;
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.CardLargeHeaderView;
-import org.wikipedia.feed.view.FeedViewCallback;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleRecyclerAdapter;
@@ -66,9 +66,10 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
     }
 
     private static class RecyclerAdapter extends PageTitleRecyclerAdapter<BecauseYouReadItemCard> {
-        @Nullable private FeedViewCallback callback;
+        @Nullable private FeedAdapter.Callback callback;
 
-        RecyclerAdapter(@NonNull List<BecauseYouReadItemCard> items, @Nullable FeedViewCallback callback) {
+        RecyclerAdapter(@NonNull List<BecauseYouReadItemCard> items,
+                        @Nullable FeedAdapter.Callback callback) {
             super(items);
             this.callback = callback;
         }

@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 public class HorizontalScrollingListCardItemView extends CardView {
     @BindView(R.id.horizontal_scroll_list_item_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.horizontal_scroll_list_item_text) TextView textView;
-    @Nullable private FeedViewCallback callback;
+    @Nullable private FeedAdapter.Callback callback;
 
     public HorizontalScrollingListCardItemView(@NonNull Context context) {
         super(context);
@@ -25,12 +25,12 @@ public class HorizontalScrollingListCardItemView extends CardView {
         ButterKnife.bind(this);
     }
 
-    public void setCallback(@Nullable FeedViewCallback callback) {
+    public void setCallback(@Nullable FeedAdapter.Callback callback) {
         this.callback = callback;
     }
 
     @Nullable
-    public FeedViewCallback getCallback() {
+    public FeedAdapter.Callback getCallback() {
         return callback;
     }
 

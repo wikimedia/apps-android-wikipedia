@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.FeedViewCallback;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleRecyclerAdapter;
@@ -40,9 +40,10 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
     }
 
     private static class RecyclerAdapter extends PageTitleRecyclerAdapter<MostReadItemCard> {
-        @Nullable private FeedViewCallback callback;
+        @Nullable private FeedAdapter.Callback callback;
 
-        RecyclerAdapter(@NonNull List<MostReadItemCard> items, @Nullable FeedViewCallback callback) {
+        RecyclerAdapter(@NonNull List<MostReadItemCard> items,
+                        @Nullable FeedAdapter.Callback callback) {
             super(items);
             this.callback = callback;
         }

@@ -9,7 +9,7 @@ import org.wikipedia.feed.model.Card;
 
 public abstract class DefaultFeedCardView<T extends Card> extends CardView implements FeedCardView<T> {
     @Nullable private T card;
-    @Nullable private FeedViewCallback callback;
+    @Nullable private FeedAdapter.Callback callback;
 
     public DefaultFeedCardView(Context context) {
         super(context);
@@ -19,7 +19,7 @@ public abstract class DefaultFeedCardView<T extends Card> extends CardView imple
         this.card = card;
     }
 
-    @Override public void setCallback(@Nullable FeedViewCallback callback) {
+    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
         this.callback = callback;
     }
 
@@ -27,7 +27,7 @@ public abstract class DefaultFeedCardView<T extends Card> extends CardView imple
         return card;
     }
 
-    @Nullable protected FeedViewCallback getCallback() {
+    @Nullable protected FeedAdapter.Callback getCallback() {
         return callback;
     }
 }
