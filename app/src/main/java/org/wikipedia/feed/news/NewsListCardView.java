@@ -2,12 +2,10 @@ package org.wikipedia.feed.news;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;
 import org.wikipedia.util.DateUtil;
@@ -29,7 +27,7 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
     @Override public void setCard(@NonNull NewsListCard card) {
         super.setCard(card);
         header(card);
-        set(new RecyclerAdapter(card.items(), getCallback()));
+        set(new RecyclerAdapter(card.items()));
     }
 
     private void header(@NonNull NewsListCard card) {
@@ -43,12 +41,9 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
         header(header);
     }
 
-    private static class RecyclerAdapter extends HorizontalScrollingListCardView.RecyclerAdapter<NewsItemCard> {
-        @Nullable private FeedAdapter.Callback callback;
-
-        RecyclerAdapter(@NonNull List<NewsItemCard> items, @Nullable FeedAdapter.Callback callback) {
+    private class RecyclerAdapter extends HorizontalScrollingListCardView.RecyclerAdapter<NewsItemCard> {
+        RecyclerAdapter(@NonNull List<NewsItemCard> items) {
             super(items);
-            this.callback = callback;
         }
 
         @Override
@@ -56,12 +51,12 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
             final NewsItemCard card = item(i);
             holder.getView().setText(card.text());
             holder.getView().setImage(card.image());
-            holder.getView().setCallback(callback);
+            holder.getView().setCallback(getCallback());
             holder.getView().setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (callback != null) {
-                        callback.onNewsItemSelected(card);
+                    if (getCallback() != null) {
+                        getCallback().onNewsItemSelected(card);
                     }
                 }
             });

@@ -2,11 +2,9 @@ package org.wikipedia.feed.mostread;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
-import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleRecyclerAdapter;
@@ -25,7 +23,7 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
     @Override public void setCard(@NonNull MostReadListCard card) {
         super.setCard(card);
         header(card);
-        set(new RecyclerAdapter(card.items(), getCallback()));
+        set(new RecyclerAdapter(card.items()));
     }
 
     private void header(@NonNull MostReadListCard card) {
@@ -39,20 +37,16 @@ public class MostReadCardView extends ListCardView<MostReadListCard>
         header(header);
     }
 
-    private static class RecyclerAdapter extends PageTitleRecyclerAdapter<MostReadItemCard> {
-        @Nullable private FeedAdapter.Callback callback;
-
-        RecyclerAdapter(@NonNull List<MostReadItemCard> items,
-                        @Nullable FeedAdapter.Callback callback) {
+    private class RecyclerAdapter extends PageTitleRecyclerAdapter<MostReadItemCard> {
+        RecyclerAdapter(@NonNull List<MostReadItemCard> items) {
             super(items);
-            this.callback = callback;
         }
 
         @Override
         public void onBindViewHolder(DefaultViewHolder<PageTitleListCardItemView> holder, int position) {
             MostReadItemCard card = item(position);
             holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_MOST_READ));
-            holder.getView().setCallback(callback);
+            holder.getView().setCallback(getCallback());
         }
     }
 }

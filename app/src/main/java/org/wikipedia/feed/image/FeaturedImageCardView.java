@@ -3,6 +3,7 @@ package org.wikipedia.feed.image;
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,6 +11,7 @@ import org.wikipedia.R;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -46,6 +48,13 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         header(card);
         footer();
         onClickListener(new CardClickListener());
+    }
+
+    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
+        super.setCallback(callback);
+        if (headerView instanceof CardHeaderView) {
+            ((CardHeaderView) headerView).setCallback(callback);
+        }
     }
 
     private void image(@NonNull Uri uri) {

@@ -56,15 +56,23 @@ public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecycl
         ((FeedCardView<Card>) view).setCard(item);
     }
 
+    @Override public void onViewAttachedToWindow(DefaultViewHolder<T> holder) {
+        super.onViewAttachedToWindow(holder);
+        holder.getView().setCallback(callback);
+    }
+
+    @Override public void onViewDetachedFromWindow(DefaultViewHolder<T> holder) {
+        holder.getView().setCallback(null);
+        super.onViewDetachedFromWindow(holder);
+    }
+
     @Override public int getItemViewType(int position) {
         return item(position).type().code();
     }
 
     @NonNull private T newView(@NonNull Context context, int viewType) {
-        FeedCardView<?> view = CardType.of(viewType).newView(context);
-        view.setCallback(callback);
         //noinspection unchecked
-        return (T) view;
+        return (T) CardType.of(viewType).newView(context);
     }
 
     private boolean isCardAssociatedWithView(@NonNull View view, @NonNull Card card) {

@@ -31,23 +31,18 @@ public class MainPageCardView extends StaticCardView<MainPageCard> {
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
-        setOnClickListener(new CallbackAdapter(callback));
+        setOnClickListener(new CallbackAdapter());
     }
 
-    private static class CallbackAdapter implements OnClickListener {
+    private class CallbackAdapter implements OnClickListener {
         @NonNull private WikipediaApp app = WikipediaApp.getInstance();
-        @Nullable private final FeedAdapter.Callback callback;
-
-        CallbackAdapter(@Nullable FeedAdapter.Callback callback) {
-            this.callback = callback;
-        }
 
         @Override
         public void onClick(View view) {
-            if (callback != null) {
+            if (getCallback() != null) {
                 PageTitle title = new PageTitle(MainPageNameData
                         .valueFor(app.getAppOrSystemLanguageCode()), app.getSite());
-                callback.onSelectPage(new HistoryEntry(title, HistoryEntry.SOURCE_FEED_MAIN_PAGE));
+                getCallback().onSelectPage(new HistoryEntry(title, HistoryEntry.SOURCE_FEED_MAIN_PAGE));
             }
         }
     }

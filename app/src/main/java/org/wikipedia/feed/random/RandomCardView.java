@@ -27,19 +27,13 @@ public class RandomCardView extends StaticCardView<RandomCard> {
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
-        setOnClickListener(new CallbackAdapter(callback));
+        setOnClickListener(new CallbackAdapter());
     }
 
     private class CallbackAdapter implements OnClickListener {
-        @Nullable private final FeedAdapter.Callback callback;
-
-        CallbackAdapter(@Nullable FeedAdapter.Callback callback) {
-            this.callback = callback;
-        }
-
         @Override
         public void onClick(View view) {
-            if (callback != null && getCard() != null) {
+            if (getCallback() != null && getCard() != null) {
                 new RandomSummaryService(getCard().site(), serviceCallback).get();
             }
         }
@@ -48,8 +42,9 @@ public class RandomCardView extends StaticCardView<RandomCard> {
                 = new RandomSummaryService.RandomSummaryCallback() {
             @Override
             public void onSuccess(PageTitle title) {
-                if (callback != null) {
-                    callback.onSelectPage(new HistoryEntry(title, HistoryEntry.SOURCE_FEED_RANDOM));
+                if (getCallback() != null) {
+                    getCallback().onSelectPage(new HistoryEntry(title,
+                            HistoryEntry.SOURCE_FEED_RANDOM));
                 }
             }
 

@@ -29,6 +29,13 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         initRecycler(recyclerView);
     }
 
+    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
+        super.setCallback(callback);
+        if (headerView instanceof CardHeaderView) {
+            ((CardHeaderView) headerView).setCallback(callback);
+        }
+    }
+
     protected void set(@Nullable RecyclerView.Adapter<?> adapter) {
         recyclerView.setAdapter(adapter);
     }
