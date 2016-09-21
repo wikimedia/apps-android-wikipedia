@@ -10,6 +10,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SearchCardView extends DefaultFeedCardView<SearchCard> {
+    public interface Callback {
+        void onSearchRequested();
+        void onVoiceSearchRequested();
+    }
+
     public SearchCardView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_search_bar, this);
