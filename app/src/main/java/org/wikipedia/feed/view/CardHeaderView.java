@@ -23,11 +23,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class CardHeaderView extends FrameLayout {
+    public interface Callback {
+        boolean onRequestDismissCard(@NonNull Card card);
+    }
+
     @BindView(R.id.view_card_header_image) AppCompatImageView imageView;
     @BindView(R.id.view_card_header_title) TextView titleView;
     @BindView(R.id.view_card_header_subtitle) TextView subtitleView;
     @Nullable private Card card;
-    @Nullable private FeedViewCallback callback;
+    @Nullable private Callback callback;
 
     public CardHeaderView(Context context) {
         super(context);
@@ -40,7 +44,7 @@ public class CardHeaderView extends FrameLayout {
         return this;
     }
 
-    @NonNull public CardHeaderView setCallback(@Nullable FeedViewCallback callback) {
+    @NonNull public CardHeaderView setCallback(@Nullable Callback callback) {
         this.callback = callback;
         return this;
     }
