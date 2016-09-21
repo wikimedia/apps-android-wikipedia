@@ -13,7 +13,7 @@
         android:layout_alignParentBottom="true"
         app:tabGravity="fill"
         android:elevation="12dp"
-        android:background="@android:color/white"
+        android:background="?attr/nav_tab_background_color"
         app:tabIndicatorColor="@android:color/transparent" />
 
     <android.support.design.widget.CoordinatorLayout

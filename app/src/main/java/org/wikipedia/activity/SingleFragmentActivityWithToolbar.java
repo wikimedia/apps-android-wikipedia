@@ -21,6 +21,7 @@ public abstract class SingleFragmentActivityWithToolbar<T extends Fragment> exte
             getSupportActionBar().setTitle("");
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
+        setStatusBarColor(R.color.dark_blue);
     }
 
     @LayoutRes

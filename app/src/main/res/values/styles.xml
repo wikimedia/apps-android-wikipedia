@@ -8,12 +8,7 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
-        <item name="android:statusBarColor" tools:targetApi="21">@color/status_bar_background</item>
         <item name="navTabViewStyle">@style/NavTabView</item>
-    </style>
-
-    <style name="MainTheme" parent="AppTheme">
-        <item name="android:statusBarColor" tools:targetApi="21">@color/dark_blue</item>
     </style>
 
     <style name="PageTheme" parent="AppTheme">

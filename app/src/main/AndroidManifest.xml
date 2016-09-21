@@ -55,7 +55,7 @@
             android:value="@string/hockeyapp_app_id" />
 
         <activity android:name=".MainActivity"
-                  android:theme="@style/MainTheme"
+                  android:theme="@style/AppTheme"
                   android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
                   android:configChanges="orientation|screenSize"
                   android:launchMode="singleTask">

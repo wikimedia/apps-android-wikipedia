@@ -24,7 +24,7 @@
         <item name="android:panelBackground">@color/background_floating_material_dark</item>
         <item name="autoCompleteTextViewStyle">@style/AppTheme.SearchViewEditTextStyle</item>
         <item name="popupMenuStyle">@style/Theme.Dark.PopupMenuStyle</item>
-        <item name="alertDialogTheme">@style/Theme.Light.Dialog.Alert</item>
+        <item name="alertDialogTheme">@style/Theme.Dark.Dialog.Alert</item>
         <item name="colorAccent">@color/foundation_blue</item>
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="window_background_color">@color/window_background_dark</item>
@@ -55,6 +55,7 @@
         <item name="nav_item_color">@android:color/white</item>
         <item name="list_item_text_primary_color">@color/list_item_text_primary_dark</item>
         <item name="list_item_text_secondary_color">@color/list_item_text_secondary_dark</item>
+        <item name="nav_tab_background_color">@color/darkest_gray</item>
 
         <!-- TODO: move to AppTheme when style hierarchy is corrected. -->
         <item name="android:listViewStyle">@style/ListView</item>

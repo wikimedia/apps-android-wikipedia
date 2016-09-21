@@ -18,8 +18,6 @@ public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment
         return MainFragment.newInstance();
     }
 
-    @Override protected void setTheme() { }
-
     @Override
     public void onTabChanged(@NonNull NavTab tab) {
         if (tab.equals(NavTab.EXPLORE)) {
