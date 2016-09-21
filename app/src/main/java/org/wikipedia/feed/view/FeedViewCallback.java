@@ -10,7 +10,6 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 public interface FeedViewCallback extends ItemTouchHelperSwipeAdapter.Callback,
         PageTitleListCardItemView.Callback {
-    void onRequestMore();
     void onSearchRequested();
     void onVoiceSearchRequested();
     boolean onRequestDismissCard(@NonNull Card card);
