@@ -53,7 +53,7 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
             final NewsItemCard card = item(i);
             holder.getView().setText(card.text());
             holder.getView().setImage(card.image());
-            holder.getView().callback(callback);
+            holder.getView().setCallback(callback);
             holder.getView().setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {

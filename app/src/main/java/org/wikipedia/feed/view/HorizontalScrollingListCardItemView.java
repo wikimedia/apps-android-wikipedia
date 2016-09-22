@@ -25,12 +25,12 @@ public class HorizontalScrollingListCardItemView extends CardView {
         ButterKnife.bind(this);
     }
 
-    public void callback(@Nullable FeedViewCallback callback) {
+    public void setCallback(@Nullable FeedViewCallback callback) {
         this.callback = callback;
     }
 
     @Nullable
-    public FeedViewCallback callback() {
+    public FeedViewCallback getCallback() {
         return callback;
     }
 
