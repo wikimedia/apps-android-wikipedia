@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.wikipedia.PageTitleListCardItemCallback;
 import org.wikipedia.R;
 import org.wikipedia.Site;
 import org.wikipedia.feed.news.NewsItem;
@@ -115,7 +114,7 @@ public class NewsFragment extends Fragment {
     protected static class RecyclerAdapter extends DefaultRecyclerAdapter<NewsLinkCard, PageTitleListCardItemView> {
         @Nullable private Callback callback;
 
-        protected RecyclerAdapter(@NonNull List<NewsLinkCard> items, @NonNull Callback callback) {
+        RecyclerAdapter(@NonNull List<NewsLinkCard> items, @NonNull Callback callback) {
             super(items);
             this.callback = callback;
         }
@@ -132,7 +131,7 @@ public class NewsFragment extends Fragment {
         }
     }
 
-    private class Callback implements PageTitleListCardItemCallback {
+    private class Callback implements PageTitleListCardItemView.Callback {
         @Override
         public void onSelectPage(@NonNull HistoryEntry entry) {
             startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), false));
