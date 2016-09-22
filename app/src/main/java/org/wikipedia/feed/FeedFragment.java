@@ -53,7 +53,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private WikipediaApp app;
     private FeedCoordinator coordinator;
     private FeedFunnel funnel;
-    private FeedViewCallback feedCallback = new FeedCallback();
+    private FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
     private OverflowCallback overflowCallback = new OverflowCallback();
     private boolean searchIconVisible;
@@ -194,7 +194,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         return FragmentUtil.getCallback(this, Callback.class);
     }
 
-    private class FeedCallback implements FeedViewCallback {
+    private class FeedCallback implements FeedAdapter.Callback {
         @Override
         public void onRequestMore() {
             funnel.requestMore(coordinator.getAge());

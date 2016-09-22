@@ -13,10 +13,14 @@ import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 
 public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecyclerAdapter<Card, T> {
-    @NonNull private FeedCoordinatorBase coordinator;
-    @Nullable private FeedViewCallback callback;
+    public interface Callback extends FeedViewCallback {
+        void onRequestMore();
+    }
 
-    public FeedAdapter(@NonNull FeedCoordinatorBase coordinator, @Nullable FeedViewCallback callback) {
+    @NonNull private FeedCoordinatorBase coordinator;
+    @Nullable private Callback callback;
+
+    public FeedAdapter(@NonNull FeedCoordinatorBase coordinator, @Nullable Callback callback) {
         super(coordinator.getCards());
         this.coordinator = coordinator;
         this.callback = callback;
