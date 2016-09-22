@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.feed.view.CardHeaderView;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;
 import org.wikipedia.util.DateUtil;
@@ -44,9 +44,9 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
     }
 
     private static class RecyclerAdapter extends HorizontalScrollingListCardView.RecyclerAdapter<NewsItemCard> {
-        @Nullable private FeedViewCallback callback;
+        @Nullable private FeedAdapter.Callback callback;
 
-        RecyclerAdapter(@NonNull List<NewsItemCard> items, @Nullable FeedViewCallback callback) {
+        RecyclerAdapter(@NonNull List<NewsItemCard> items, @Nullable FeedAdapter.Callback callback) {
             super(items);
             this.callback = callback;
         }

@@ -30,7 +30,6 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.news.NewsItemCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedView;
-import org.wikipedia.feed.view.FeedViewCallback;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.settings.Prefs;
@@ -135,7 +134,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
         feedView.removeOnScrollListener(feedScrollListener);
-        feedView.setCallback((FeedViewCallback) null);
+        feedView.setCallback((FeedAdapter.Callback) null);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();

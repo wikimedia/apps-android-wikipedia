@@ -7,5 +7,5 @@ import org.wikipedia.feed.model.Card;
 
 public interface FeedCardView<T extends Card> {
     void setCard(@NonNull T card);
-    void setCallback(@Nullable FeedViewCallback callback);
+    void setCallback(@Nullable FeedAdapter.Callback callback);
 }

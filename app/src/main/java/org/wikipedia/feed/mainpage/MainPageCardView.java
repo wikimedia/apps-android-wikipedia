@@ -7,7 +7,7 @@ import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.view.FeedViewCallback;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.StaticCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
@@ -29,16 +29,16 @@ public class MainPageCardView extends StaticCardView<MainPageCard> {
         setIcon(R.drawable.icon_feed_today);
     }
 
-    @Override public void setCallback(@Nullable FeedViewCallback callback) {
+    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
         super.setCallback(callback);
         setOnClickListener(new CallbackAdapter(callback));
     }
 
     private static class CallbackAdapter implements OnClickListener {
         @NonNull private WikipediaApp app = WikipediaApp.getInstance();
-        @Nullable private final FeedViewCallback callback;
+        @Nullable private final FeedAdapter.Callback callback;
 
-        CallbackAdapter(@Nullable FeedViewCallback callback) {
+        CallbackAdapter(@Nullable FeedAdapter.Callback callback) {
             this.callback = callback;
         }
 

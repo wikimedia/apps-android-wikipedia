@@ -7,13 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
+import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.news.NewsListCardView;
+import org.wikipedia.feed.searchbar.SearchCardView;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
+import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecyclerAdapter<Card, T> {
-    public interface Callback extends FeedViewCallback {
+    public interface Callback extends ItemTouchHelperSwipeAdapter.Callback,
+            PageTitleListCardItemView.Callback, CardHeaderView.Callback,
+            FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback {
         void onRequestMore();
     }
 
