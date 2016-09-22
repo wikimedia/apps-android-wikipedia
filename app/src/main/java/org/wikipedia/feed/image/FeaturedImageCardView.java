@@ -21,6 +21,12 @@ import butterknife.ButterKnife;
 
 public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
+    public interface Callback {
+        void onShareImage(@NonNull FeaturedImageCard card);
+        void onDownloadImage(@NonNull FeaturedImage image);
+        void onFeaturedImageSelected(@NonNull FeaturedImageCard card);
+    }
+
     @BindView(R.id.view_featured_image_card_header) View headerView;
     @BindView(R.id.view_featured_image_card_footer) View footerView;
     @BindView(R.id.view_featured_image_card_image) FaceAndColorDetectImageView imageView;
