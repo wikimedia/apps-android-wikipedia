@@ -30,12 +30,12 @@ public abstract class HorizontalScrollingListCardView<T extends Card> extends Li
                 R.dimen.view_horizontal_scrolling_list_card_item_margin_vertical));
         recyclerView.addOnItemTouchListener(new DontInterceptTouchListener());
         recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setClipChildren(false);
+        recyclerView.setClipToPadding(false);
         MarginLayoutParams params = (MarginLayoutParams) recyclerView.getLayoutParams();
         final int height = DimenUtil.roundedDpToPx(228);
         params.height = height;
-        final int margin = DimenUtil.roundedDpToPx(12);
-        params.setMargins(margin, 0, margin, 0);
+        final int padding = DimenUtil.roundedDpToPx(12);
+        recyclerView.setPadding(padding, 0, padding, 0);
     }
 
     protected abstract static class RecyclerAdapter<T>
