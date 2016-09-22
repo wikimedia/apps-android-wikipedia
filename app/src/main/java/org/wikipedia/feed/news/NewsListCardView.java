@@ -18,6 +18,9 @@ import java.util.List;
 
 public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
+    public interface Callback {
+        void onNewsItemSelected(@NonNull NewsItemCard card);
+    }
 
     public NewsListCardView(@NonNull Context context) {
         super(context);
