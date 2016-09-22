@@ -117,8 +117,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- Page action tabs -->
-                <android.support.design.widget.TabLayout
+                <org.wikipedia.page.ArticleTabLayout
                     android:id="@+id/page_actions_tab_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -126,28 +125,7 @@
                     app:tabGravity="fill"
                     android:background="@color/darkest_gray"
                     app:tabSelectedTextColor="@color/darkest_gray"
-                    app:tabIndicatorColor="@color/darkest_gray">
-                    <android.support.design.widget.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:icon="@drawable/ic_bookmark_border_white_24dp"/>
-                    <android.support.design.widget.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:icon="@drawable/ic_share_white_24dp"/>
-                    <android.support.design.widget.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:icon="@drawable/ic_translate_white_24dp"/>
-                    <android.support.design.widget.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:icon="@drawable/ic_find_in_page" />
-                    <android.support.design.widget.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:icon="@drawable/ic_list_white_24dp" />
-                </android.support.design.widget.TabLayout>
+                    app:tabIndicatorColor="@color/darkest_gray" />
 
             </android.support.design.widget.CoordinatorLayout>
 
