@@ -135,7 +135,7 @@ public final class FeedbackUtil {
         if (activity instanceof PageActivity) {
             return activity.findViewById(R.id.page_contents_container);
         } else if (activity instanceof MainActivity) {
-            return activity.findViewById(R.id.fragment_main_view_pager_container);
+            return activity.findViewById(R.id.fragment_main_feedback);
         } else {
             return activity.findViewById(android.R.id.content);
         }

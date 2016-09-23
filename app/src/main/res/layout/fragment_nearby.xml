@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<com.mapbox.mapboxsdk.maps.MapView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mapview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/page_background_color">
-    <com.mapbox.mapboxsdk.maps.MapView
-        android:id="@+id/mapview"
+    android:background="?attr/page_background_color"
+    app:access_token="@string/mapbox_public_token"
+    app:attribution_enabled="false"
+    app:logo_enabled="false">
+
+    <!-- todo: replace FrameLayout with Behavior. this is a hack to move the FAB up and isn't good
+               practice -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:access_token="@string/mapbox_public_token"
-        app:attribution_enabled="false"
-        app:logo_enabled="false" />
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/user_location_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/FloatingActionButton"
-        android:layout_gravity="bottom|end"
-        app:srcCompat="@drawable/ic_my_location_white_24dp"
-        android:contentDescription="@string/menu_show_toc"
-        app:elevation="4dp"
-        app:borderWidth="0dp"
-        app:backgroundTint="@color/foundation_blue"
-        app:layout_anchorGravity="bottom|right|end" />
-</FrameLayout>
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:paddingBottom="?attr/actionBarSize">
+
+        <android.support.design.widget.FloatingActionButton
+            style="@style/FloatingActionButton"
+            android:id="@+id/user_location_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@drawable/ic_my_location_white_24dp"
+            android:contentDescription="@string/nearby_zoom_to_location"
+            app:elevation="4dp"
+            app:borderWidth="0dp"
+            app:backgroundTint="@color/foundation_blue" />
+
+    </FrameLayout>
+
+</com.mapbox.mapboxsdk.maps.MapView>

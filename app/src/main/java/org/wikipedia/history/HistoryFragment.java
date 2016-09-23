@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.CursorAdapter;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -88,6 +89,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyEmptyTitle = (TextView) rootView.findViewById(R.id.history_empty_title);
         historyEmptyMessage = (TextView) rootView.findViewById(R.id.history_empty_message);
 
+        ViewCompat.setNestedScrollingEnabled(historyEntryList, true); // NavTabLayout coordination
         historyEntryList.setAdapter(adapter);
         historyEntryList.setOnItemClickListener(itemClickListener);
         historyEntryList.setOnItemLongClickListener(itemLongClickListener);

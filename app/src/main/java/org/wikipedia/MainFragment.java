@@ -66,7 +66,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         SearchFragment.Callback, SearchResultsFragment.Callback, LinkPreviewDialog.Callback,
         AddToReadingListDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
-    @BindView(R.id.view_nav_view_pager_tab_layout) TabLayout tabLayout;
+    @BindView(R.id.fragment_main_nav_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter;
 
