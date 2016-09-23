@@ -20,6 +20,7 @@ import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard>
         implements ItemTouchHelperSwipeAdapter.SwipeableView {
@@ -29,7 +30,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
     @BindView(R.id.view_featured_article_card_extract) TextView extractView;
-    @BindView(R.id.view_featured_article_card_text_container) View textContainerView;
 
     public FeaturedArticleCardView(Context context) {
         super(context);
@@ -52,8 +52,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
         header(card);
         footer();
+    }
 
-        onClickListener(new CardClickListener());
+    @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_text_container})
+    void onCardClick() {
+        if (getCallback() != null && getCard() != null) {
+            getCallback().onSelectPage(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+        }
     }
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
@@ -73,11 +78,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private void extract(@Nullable String extract) {
         extractView.setText(extract);
-    }
-
-    private void onClickListener(@Nullable OnClickListener listener) {
-        textContainerView.setOnClickListener(listener);
-        imageView.setOnClickListener(listener);
     }
 
     private void header(@NonNull FeaturedArticleCard card) {
@@ -116,15 +116,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     private void footer(@NonNull View view) {
         ViewUtil.replace(footerView, view);
         footerView = view;
-    }
-
-    private class CardClickListener implements OnClickListener {
-        @Override
-        public void onClick(View v) {
-            if (getCallback() != null && getCard() != null) {
-                getCallback().onSelectPage(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
-            }
-        }
     }
 
     private class CardSaveListener implements OnClickListener {
