@@ -50,10 +50,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
     @BindView(R.id.fragment_feed_header) View feedHeader;
     private Unbinder unbinder;
+    private FeedAdapter<?> feedAdapter;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
     private FeedFunnel funnel;
-    private FeedAdapter.Callback feedCallback = new FeedCallback();
+    private final FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
     private OverflowCallback overflowCallback = new OverflowCallback();
     private boolean searchIconVisible;
@@ -94,7 +95,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         unbinder = ButterKnife.bind(this, view);
-        feedView.setAdapter(new FeedAdapter<>(coordinator, feedCallback));
+        feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
+        feedView.setAdapter(feedAdapter);
         feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
 
@@ -113,8 +115,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             public void update(List<Card> cards) {
                 if (isAdded()) {
                     swipeRefreshLayout.setRefreshing(false);
-                    if (feedView.getAdapter() != null) {
-                        feedView.getAdapter().notifyDataSetChanged();
+                    if (feedView != null && feedAdapter != null) {
+                        feedAdapter.notifyDataSetChanged();
                     }
                 }
             }
@@ -135,6 +137,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         swipeRefreshLayout.setOnRefreshListener(null);
         feedView.removeOnScrollListener(feedScrollListener);
         feedView.setCallback((FeedAdapter.Callback) null);
+        feedView.setAdapter(null);
+        feedAdapter = null;
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();

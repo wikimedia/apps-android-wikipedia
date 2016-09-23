@@ -11,6 +11,7 @@ import org.wikipedia.R;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
+import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -53,6 +54,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         footer();
 
         onClickListener(new CardClickListener());
+    }
+
+    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
+        super.setCallback(callback);
+        if (headerView instanceof CardHeaderView) {
+            ((CardHeaderView) headerView).setCallback(callback);
+        }
     }
 
     private void articleTitle(@NonNull String articleTitle) {

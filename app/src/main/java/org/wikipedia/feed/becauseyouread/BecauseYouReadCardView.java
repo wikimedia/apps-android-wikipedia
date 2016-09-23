@@ -2,14 +2,12 @@ package org.wikipedia.feed.becauseyouread;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.PluralsRes;
 import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.CardLargeHeaderView;
-import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.feed.view.PageTitleRecyclerAdapter;
@@ -29,7 +27,7 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
     @Override public void setCard(@NonNull BecauseYouReadCard card) {
         super.setCard(card);
         header(card);
-        set(new RecyclerAdapter(card.items(), getCallback()));
+        set(new RecyclerAdapter(card.items()));
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {
@@ -65,20 +63,16 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
         }
     }
 
-    private static class RecyclerAdapter extends PageTitleRecyclerAdapter<BecauseYouReadItemCard> {
-        @Nullable private FeedAdapter.Callback callback;
-
-        RecyclerAdapter(@NonNull List<BecauseYouReadItemCard> items,
-                        @Nullable FeedAdapter.Callback callback) {
+    private class RecyclerAdapter extends PageTitleRecyclerAdapter<BecauseYouReadItemCard> {
+        RecyclerAdapter(@NonNull List<BecauseYouReadItemCard> items) {
             super(items);
-            this.callback = callback;
         }
 
         @Override
         public void onBindViewHolder(DefaultViewHolder<PageTitleListCardItemView> holder, int i) {
             BecauseYouReadItemCard card = item(i);
             holder.getView().setHistoryEntry(new HistoryEntry(card.pageTitle(), HistoryEntry.SOURCE_FEED_BECAUSE_YOU_READ));
-            holder.getView().setCallback(callback);
+            holder.getView().setCallback(getCallback());
         }
     }
 }
