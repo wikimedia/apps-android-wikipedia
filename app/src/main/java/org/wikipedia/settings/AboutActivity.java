@@ -3,7 +3,6 @@ package org.wikipedia.settings;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +16,7 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,14 +41,14 @@ public class AboutActivity extends ThemedActionBarActivity {
         ButterKnife.bind(this);
 
         mScrollView = (ScrollView) findViewById(R.id.about_scrollview);
-        translatorsTextView.setText(Html.fromHtml(getString(R.string.about_translators_translatewiki)));
+        translatorsTextView.setText(StringUtil.fromHtml(getString(R.string.about_translators_translatewiki)));
         RichTextUtil.removeUnderlinesFromLinks(translatorsTextView);
-        wmfTextView.setText(Html.fromHtml(getString(R.string.about_wmf)));
+        wmfTextView.setText(StringUtil.fromHtml(getString(R.string.about_wmf)));
         RichTextUtil.removeUnderlinesFromLinks(wmfTextView);
-        appLicenseTextView.setText(Html.fromHtml(getString(R.string.about_app_license)));
+        appLicenseTextView.setText(StringUtil.fromHtml(getString(R.string.about_app_license)));
         RichTextUtil.removeUnderlinesFromLinks(appLicenseTextView);
         ((TextView) findViewById(R.id.about_version_text)).setText(BuildConfig.VERSION_NAME);
-        feedbackTextView.setText(Html.fromHtml(
+        feedbackTextView.setText(StringUtil.fromHtml(
                 "<a href=\"mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "
                 + BuildConfig.VERSION_NAME
                 + " Feedback\">"

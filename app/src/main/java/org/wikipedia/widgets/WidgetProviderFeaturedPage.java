@@ -7,7 +7,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
@@ -24,6 +23,7 @@ import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
@@ -103,7 +103,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         // have the correct API for it):
         // Parse the HTML, and look for the first link, which should be the
         // article of the day.
-        Spanned text = Html.fromHtml(pageLeadContent);
+        Spanned text = StringUtil.fromHtml(pageLeadContent);
         URLSpan[] spans = text.getSpans(0, text.length(), URLSpan.class);
         String titleText = "";
         for (URLSpan span : spans) {

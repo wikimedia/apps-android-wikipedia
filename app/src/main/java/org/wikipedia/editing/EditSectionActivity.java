@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
-import android.text.Html;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -24,32 +23,35 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
 import com.squareup.otto.Bus;
+
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.Constants;
-import org.wikipedia.activity.ActivityUtil;
-import org.wikipedia.login.LoginResult;
-import org.wikipedia.login.LoginTask;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
-import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.ActivityUtil;
+import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
-import org.wikipedia.editing.summaries.EditSummaryFragment;
 import org.wikipedia.editing.richtext.SyntaxHighlighter;
+import org.wikipedia.editing.summaries.EditSummaryFragment;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.login.LoginResult;
+import org.wikipedia.login.LoginTask;
 import org.wikipedia.login.User;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageProperties;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 public class EditSectionActivity extends ThemedActionBarActivity {
@@ -222,9 +224,9 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private void updateEditLicenseText() {
         TextView editLicenseText = (TextView) findViewById(R.id.edit_section_license_text);
         if (app.getUserInfoStorage().isLoggedIn()) {
-            editLicenseText.setText(Html.fromHtml(getString(R.string.edit_save_action_license_logged_in)));
+            editLicenseText.setText(StringUtil.fromHtml(getString(R.string.edit_save_action_license_logged_in)));
         } else {
-            editLicenseText.setText(Html.fromHtml(getString(R.string.edit_save_action_license_anon)));
+            editLicenseText.setText(StringUtil.fromHtml(getString(R.string.edit_save_action_license_anon)));
         }
 
         editLicenseText.setMovementMethod(new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
@@ -265,7 +267,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 String summaryText = TextUtils.isEmpty(sectionHeading) ? "" : ("/* " + sectionHeading + " */ ");
                 summaryText += editPreviewFragment.getSummary();
                 // Summaries are plaintext, so remove any HTML that's made its way into the summary
-                summaryText = Html.fromHtml(summaryText).toString();
+                summaryText = StringUtil.fromHtml(summaryText).toString();
 
                 new EditTask(EditSectionActivity.this, title, sectionText.getText().toString(),
                         sectionID, token, summaryText, app.getUserInfoStorage().isLoggedIn()) {
@@ -455,12 +457,12 @@ public class EditSectionActivity extends ThemedActionBarActivity {
             funnel.logAbuseFilterError(abusefilterEditResult.getCode());
             abuseFilterImage.setImageResource(R.drawable.abusefilter_disallow);
             abusefilterTitle.setText(getString(R.string.abusefilter_title_disallow));
-            abusefilterText.setText(Html.fromHtml(getString(R.string.abusefilter_text_disallow)));
+            abusefilterText.setText(StringUtil.fromHtml(getString(R.string.abusefilter_text_disallow)));
         } else {
             funnel.logAbuseFilterWarning(abusefilterEditResult.getCode());
             abuseFilterImage.setImageResource(R.drawable.abusefilter_warn);
             abusefilterTitle.setText(getString(R.string.abusefilter_title_warn));
-            abusefilterText.setText(Html.fromHtml(getString(R.string.abusefilter_text_warn)));
+            abusefilterText.setText(StringUtil.fromHtml(getString(R.string.abusefilter_text_warn)));
         }
 
         hideSoftKeyboard(this);

@@ -9,10 +9,12 @@ import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.Section;
+import org.wikipedia.util.StringUtil;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 
 import static org.wikipedia.util.StringUtil.md5string;
 
@@ -120,7 +122,7 @@ public final class ImageUrlMap {
          */
         @VisibleForTesting
         public void extractUrlsInSection(String html) {
-            Html.fromHtml(html, imageGetter, null);
+            StringUtil.fromHtml(html, imageGetter, null);
         }
 
         /** Custom ImageGetter which collects all img src URLs. */

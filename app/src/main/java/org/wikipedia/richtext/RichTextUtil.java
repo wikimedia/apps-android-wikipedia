@@ -2,7 +2,6 @@ package org.wikipedia.richtext;
 
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
-import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -10,6 +9,8 @@ import android.text.SpannedString;
 import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.widget.TextView;
+
+import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -127,7 +128,7 @@ public final class RichTextUtil {
     }
 
     public static String stripHtml(@NonNull String html) {
-        return Html.fromHtml(html).toString();
+        return StringUtil.fromHtml(html).toString();
     }
 
 

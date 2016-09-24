@@ -1,29 +1,11 @@
 package org.wikipedia.search;
 
-import org.wikipedia.LongPressHandler;
-import org.wikipedia.ParcelableLruCache;
-import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.analytics.SearchFunnel;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.StringUtil;
-import org.wikipedia.views.GoneIfEmptyTextView;
-import org.wikipedia.views.ViewUtil;
-import org.wikipedia.views.WikiErrorView;
-
-import com.facebook.drawee.view.SimpleDraweeView;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +14,23 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.wikipedia.LongPressHandler;
+import org.wikipedia.ParcelableLruCache;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.SearchFunnel;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.ViewUtil;
+import org.wikipedia.views.WikiErrorView;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -255,7 +254,7 @@ public class SearchResultsFragment extends Fragment {
 
                 final String suggestion = results.getSuggestion();
                 if (!suggestion.isEmpty()) {
-                    searchSuggestion.setText(Html.fromHtml("<u>"
+                    searchSuggestion.setText(StringUtil.fromHtml("<u>"
                             + String.format(getString(R.string.search_did_you_mean), suggestion)
                             + "</u>"));
                     searchSuggestion.setTag(suggestion);
@@ -525,7 +524,7 @@ public class SearchResultsFragment extends Fragment {
                       + "</strong>"
                       + displayText.substring(startIndex + currentSearchTerm.length(),
                                               displayText.length());
-                pageTitleText.setText(Html.fromHtml(displayText));
+                pageTitleText.setText(StringUtil.fromHtml(displayText));
             } else {
                 pageTitleText.setText(displayText);
             }

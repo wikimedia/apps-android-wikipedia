@@ -1,23 +1,8 @@
 package org.wikipedia.page;
 
-import org.wikipedia.R;
-import org.wikipedia.Site;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.ToCInteractionFunnel;
-import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.page.action.PageActionTab;
-import org.wikipedia.tooltip.ToolTipUtil;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.log.L;
-import org.wikipedia.views.ConfigurableListView;
-import org.wikipedia.views.WikiDrawerLayout;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +16,26 @@ import android.widget.TextView;
 
 import com.appenguin.onboarding.ToolTip;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.R;
+import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ToCInteractionFunnel;
+import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.page.action.PageActionTab;
+import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
+import org.wikipedia.views.ConfigurableListView;
+import org.wikipedia.views.WikiDrawerLayout;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ToCHandler {
@@ -163,7 +163,7 @@ public class ToCHandler {
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
 
-        headerView.setText(Html.fromHtml(page.getDisplayTitle()));
+        headerView.setText(StringUtil.fromHtml(page.getDisplayTitle()));
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -261,7 +261,7 @@ public class ToCHandler {
             indentLayoutParameters.width = (section.getLevel() - 1) * (int) (INDENTATION_WIDTH_DP * DimenUtil.getDensityScalar());
             sectionFiller.setLayoutParams(indentLayoutParameters);
 
-            sectionHeading.setText(Html.fromHtml(section.getHeading()));
+            sectionHeading.setText(StringUtil.fromHtml(section.getHeading()));
 
             if (section.getLevel() > 1) {
                 sectionHeading.setTextColor(

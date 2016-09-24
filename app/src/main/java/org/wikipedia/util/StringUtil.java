@@ -1,7 +1,10 @@
 package org.wikipedia.util;
 
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -190,5 +193,32 @@ public final class StringUtil {
                 .trim();
     }
 
+    /** Fix Html.fromHtml is deprecated problem
+     * @param source provided Html string
+     * @return returned Spanned of appropriate method according to version check
+     * */
+    @NonNull public static Spanned fromHtml(@NonNull String source) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            return Html.fromHtml(source);
+        }
+    }
+
+    /** Overloaded #fromHtml(@NonNull String source) to fix Html.fromHtml(String source, Html.ImageGetter imageGetter, Html.TagHandler tagHandler) occurrences
+     * @param source provided Html string
+     * @param imageGetter <img> tags in the HTML will use this ImageGetter
+     * @param tagHandler to handle unknown tags
+     * @return returned Spanned of appropriate method according to version check
+     * */
+    @NonNull public static Spanned fromHtml(@NonNull String source, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY, imageGetter, tagHandler);
+        } else {
+            return Html.fromHtml(source, imageGetter, tagHandler);
+        }
+    }
+
     private StringUtil() { }
+
 }
