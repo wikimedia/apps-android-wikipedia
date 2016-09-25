@@ -307,6 +307,13 @@ class PreviewDialog extends NoDimBottomSheetDialog {
         setContentView(rootView);
         ImageView previewImage = (ImageView) rootView.findViewById(R.id.preview_img);
         previewImage.setImageBitmap(resultBitmap);
+        rootView.findViewById(R.id.close_button)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dismiss();
+                    }
+                });
         rootView.findViewById(R.id.share_as_image_button)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
