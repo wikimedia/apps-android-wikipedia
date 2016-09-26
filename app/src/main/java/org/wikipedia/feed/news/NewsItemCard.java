@@ -4,7 +4,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.Html;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 
@@ -13,6 +12,7 @@ import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.richtext.RichTextUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
@@ -48,7 +48,7 @@ public class NewsItemCard extends Card {
 
     @NonNull
     public CharSequence text() {
-        return removeImageCaption(Html.fromHtml(newsItem.story()));
+        return removeImageCaption(StringUtil.fromHtml(newsItem.story()));
     }
 
     public List<CardPageItem> links() {

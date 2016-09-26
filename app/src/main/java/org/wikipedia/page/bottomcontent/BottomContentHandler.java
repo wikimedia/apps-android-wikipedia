@@ -4,7 +4,6 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,8 +22,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
-import org.wikipedia.page.PageContainerLongPressHandler;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedPagesFunnel;
@@ -33,21 +30,24 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageContainerLongPressHandler;
 import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ConfigurableListView;
+import org.wikipedia.views.ConfigurableTextView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ObservableWebView;
-import org.wikipedia.views.ConfigurableTextView;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.List;
 
-import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.formatDateRelative;
+import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class BottomContentHandler implements BottomContentInterface,
@@ -268,7 +268,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private void setupAttribution() {
         Page page = parentFragment.getPage();
-        pageLicenseText.setText(Html.fromHtml(parentFragment.getContext().getString(R.string.content_license_html)));
+        pageLicenseText.setText(StringUtil.fromHtml(parentFragment.getContext().getString(R.string.content_license_html)));
         pageLicenseText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
 
         // Don't display last updated message for main page or file pages, because it's always wrong
@@ -284,7 +284,7 @@ public class BottomContentHandler implements BottomContentInterface,
             PageTitle talkPageTitle = new PageTitle("Talk", title.getPrefixedText(), title.getSite());
             String discussionHtml = "<a href=\"" + talkPageTitle.getCanonicalUri() + "\">"
                     + parentFragment.getContext().getString(R.string.talk_page_link_text) + "</a>";
-            pageLastUpdatedText.setText(Html.fromHtml(lastUpdatedHtml + " &mdash; " + discussionHtml));
+            pageLastUpdatedText.setText(StringUtil.fromHtml(lastUpdatedHtml + " &mdash; " + discussionHtml));
             pageLastUpdatedText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
             pageLastUpdatedText.setVisibility(View.VISIBLE);
         }

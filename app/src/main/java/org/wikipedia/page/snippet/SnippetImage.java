@@ -11,17 +11,17 @@ import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.text.Html;
 import android.text.Layout;
 import android.text.Spanned;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 
+import org.wikipedia.R;
 import org.wikipedia.drawable.DrawableUtil;
 import org.wikipedia.page.ImageLicense;
-import org.wikipedia.R;
 import org.wikipedia.util.L10nUtil;
+import org.wikipedia.util.StringUtil;
 
 import static android.text.Layout.Alignment.ALIGN_NORMAL;
 import static android.text.Layout.Alignment.ALIGN_OPPOSITE;
@@ -271,7 +271,7 @@ public final class SnippetImage {
         textPaint.setTypeface(SERIF);
         textPaint.setTextScaleX(scaleX);
 
-        Spanned wikipedia = Html.fromHtml(context.getString(R.string.wp_stylized));
+        Spanned wikipedia = StringUtil.fromHtml(context.getString(R.string.wp_stylized));
         Layout.Alignment align = L10nUtil.isDeviceRTL() ? ALIGN_OPPOSITE : ALIGN_NORMAL;
         StaticLayout wordmarkLayout = buildLayout(
                 new TextLayoutParams(wikipedia, textPaint, maxWidth, 1.0f, align));

@@ -25,7 +25,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.KeyEvent;
@@ -73,6 +72,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
@@ -741,7 +741,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private CharSequence buildZeroDialogMessage(String title, String warning) {
-        return Html.fromHtml("<b>" + title + "</b><br/><br/>" + warning);
+        return StringUtil.fromHtml("<b>" + title + "</b><br/><br/>" + warning);
     }
 
     private DialogInterface.OnClickListener getZeroMoreInfoListener() {

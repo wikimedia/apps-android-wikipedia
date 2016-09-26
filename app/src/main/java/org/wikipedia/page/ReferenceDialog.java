@@ -1,11 +1,12 @@
 package org.wikipedia.page;
 
-import org.wikipedia.R;
 import android.content.Context;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import org.wikipedia.R;
+import org.wikipedia.util.StringUtil;
 
 /**
  * A dialog that displays the currently clicked reference.
@@ -17,7 +18,7 @@ public class ReferenceDialog extends NoDimBottomSheetDialog {
         setContentView(rootView);
 
         TextView referenceText = (TextView) rootView.findViewById(R.id.reference_text);
-        referenceText.setText(Html.fromHtml(html));
+        referenceText.setText(StringUtil.fromHtml(html));
         referenceText.setMovementMethod(new LinkMovementMethodExt(linkHandler));
     }
 }

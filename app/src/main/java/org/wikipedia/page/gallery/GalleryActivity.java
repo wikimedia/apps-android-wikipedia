@@ -45,6 +45,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
@@ -531,7 +532,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         String creditStr = "";
         if (item.getMetadata().containsKey("Artist")) {
-            creditStr = Html.fromHtml(item.getMetadata().get("Artist")).toString().trim();
+            creditStr = StringUtil.fromHtml(item.getMetadata().get("Artist")).toString().trim();
         }
         // if we couldn't find a attribution string, then default to unknown
         if (TextUtils.isEmpty(creditStr)) {

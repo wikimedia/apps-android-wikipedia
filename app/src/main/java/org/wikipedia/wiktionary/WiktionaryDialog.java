@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,18 +19,19 @@ import org.wikipedia.analytics.WiktionaryDialogFunnel;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageService;
-import org.wikipedia.server.restbase.RbPageService;
+import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.restbase.RbDefinition;
+import org.wikipedia.server.restbase.RbPageService;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.AppTextView;
 
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 import static org.wikipedia.util.StringUtil.addUnderscores;
-import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.hasSectionAnchor;
 import static org.wikipedia.util.StringUtil.removeSectionAnchor;
+import static org.wikipedia.util.StringUtil.removeUnderscores;
 
 public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {
@@ -179,7 +179,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     private void layOutDefinitionWithExamples(RbDefinition.Definition currentDefinition, View definitionContainerView, LayoutInflater inflater, int count) {
         AppTextView definitionView = (AppTextView) definitionContainerView.findViewById(R.id.wiktionary_definition);
         String definitionWithCount = getCounterString(count) + currentDefinition.getDefinition();
-        definitionView.setText(Html.fromHtml(definitionWithCount));
+        definitionView.setText(StringUtil.fromHtml(definitionWithCount));
         definitionView.setMovementMethod(linkMovementMethod);
 
         LinearLayout examplesView = (LinearLayout) definitionContainerView.findViewById(R.id.wiktionary_examples);
@@ -195,7 +195,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
     private void layoutExamples(String[] examples, LinearLayout examplesView, LayoutInflater inflater) {
         for (String example : examples) {
             AppTextView exampleView = (AppTextView) inflater.inflate(R.layout.item_wiktionary_example, (ViewGroup) rootView, false);
-            exampleView.setText(Html.fromHtml(example));
+            exampleView.setText(StringUtil.fromHtml(example));
             exampleView.setMovementMethod(linkMovementMethod);
             examplesView.addView(exampleView);
         }

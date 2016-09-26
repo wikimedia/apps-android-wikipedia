@@ -1,16 +1,17 @@
 package org.wikipedia.page.linkpreview;
 
-import android.text.Html;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.wikipedia.page.Page;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.xml.sax.InputSource;
+
+import java.io.StringReader;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.StringReader;
 
 /**
  * Logic to obtain an extract text from a page. This extract text should be suitable to display
@@ -44,7 +45,7 @@ public class PageExtract {
             }
         }
         // Strip the unwanted XML
-        firstSection = Html.fromHtml(firstSection).toString();
+        firstSection = StringUtil.fromHtml(firstSection).toString();
         // Strip the reference texts ([1], [2]...)
         firstSection = firstSection.replaceAll("\\[\\d+\\]", "");
         return firstSection;

@@ -7,7 +7,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
@@ -26,6 +25,7 @@ import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
 
@@ -128,7 +128,7 @@ public class LeadImagesHandler {
 
         // set the page title text, and honor any HTML formatting in the title
         loadLeadImage();
-        articleHeaderView.setTitle(Html.fromHtml(getPage().getDisplayTitle()));
+        articleHeaderView.setTitle(StringUtil.fromHtml(getPage().getDisplayTitle()));
         articleHeaderView.setLocale(getPage().getTitle().getSite().languageCode());
         articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
         // Set the subtitle, too, so text measurements are accurate.

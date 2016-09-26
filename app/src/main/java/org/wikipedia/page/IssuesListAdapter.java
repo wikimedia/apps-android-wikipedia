@@ -1,14 +1,15 @@
 package org.wikipedia.page;
 
-import org.wikipedia.R;
 import android.app.Activity;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.wikipedia.R;
+import org.wikipedia.util.StringUtil;
 
 /**
  *
@@ -69,11 +70,11 @@ class IssuesListAdapter extends ArrayAdapter<String> {
         if (start != -1 && end != -1) {
             String text1 = fullText.substring(0, start);
             String text2 = fullText.substring(start + SEPARATOR.length(), end);
-            holder.text.setText(Html.fromHtml(text1));
-            holder.subText.setText(Html.fromHtml(text2));
+            holder.text.setText(StringUtil.fromHtml(text1));
+            holder.subText.setText(StringUtil.fromHtml(text2));
             holder.subText.setVisibility(View.VISIBLE);
         } else {
-            holder.text.setText(Html.fromHtml(fullText));
+            holder.text.setText(StringUtil.fromHtml(fullText));
             holder.subText.setVisibility(View.GONE);
         }
     }
