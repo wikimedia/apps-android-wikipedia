@@ -215,7 +215,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         switch (item.getItemId()) {
             case android.R.id.home:
                 if (shouldRecreateMainActivity()) {
-                    startActivity(getSupportParentActivityIntent());
+                    startActivity(getSupportParentActivityIntent()
+                            .putExtra(Constants.INTENT_RETURN_TO_MAIN, true));
                 }
                 finish();
                 return true;
