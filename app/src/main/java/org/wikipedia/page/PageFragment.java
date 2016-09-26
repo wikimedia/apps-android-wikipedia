@@ -1064,7 +1064,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             public void onMessage(String messageType, JSONObject messagePayload) {
                 try {
                     String href = decodeURL(messagePayload.getString("href"));
-                    String filename = UriUtil.removeInternalLinkPrefix(href);
+                    String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
                     Site site = model.getTitle().getSite();
                     startActivityForResult(GalleryActivity.newIntent(getContext(),
                             model.getTitleOriginal(), filename, site,
