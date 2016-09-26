@@ -78,6 +78,7 @@
   <string name="history_empty_title">Яңыраҡ ҡаралған биттәр юҡ!</string>
   <string name="history_empty_message">Һеҙ, моғайын, уларҙың бөтәһен дә юйғанһығыҙ. Икенсе тапҡыр, биткә инһәгеҙ, уға ошо урындан кире әйләнеп ҡайта алаһығыҙ.</string>
   <string name="delete_selected_history">Юйырға</string>
+  <string name="wp_stylized"><![CDATA[<big>W</big>IKIPEDI<big>A</big>]]></string>
   <string name="create_account_username_hint">Ҡатнашыусы исеме</string>
   <string name="login_create_account_link">Һеҙҙең иҫәп яҙыуығыҙ юҡ. Википедияға ҡушылығыҙ</string>
   <string name="create_account_login_link">Һеҙ теркәлдегеҙме? Инегеҙ</string>
@@ -244,7 +245,7 @@
   <string name="reading_list_already_exists">Был исемлектә мәҡәлә бар инде.</string>
   <string name="reading_list_added_view_button">Исемлекте ҡарау</string>
   <string name="reading_list_item_count_singular">1 мәҡәлә</string>
-  <string name="reading_list_item_count_plural">%d мәҡәләләр</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d мәҡәләләр</string>
   <string name="reading_list_sort">Сортҡа айырыу</string>
   <string name="reading_list_sort_by_name">Исем буйынса айырыу</string>
   <string name="reading_list_sort_by_name_desc">Атама буйынса айырыу (киреһенсә)</string>

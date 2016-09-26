@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">この記事は既にリストにあります</string>
   <string name="reading_list_added_view_button">リストを表示</string>
   <string name="reading_list_item_count_singular">1記事</string>
-  <string name="reading_list_item_count_plural">%d記事</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d記事</string>
   <string name="reading_list_sort">並べ替え</string>
   <string name="reading_list_sort_by_name">名前順に並べ替え</string>
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>

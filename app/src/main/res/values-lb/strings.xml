@@ -234,7 +234,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
   <string name="reading_list_item_count_singular">1 Artikel</string>
-  <string name="reading_list_item_count_plural">%d Artikelen</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d Artikelen</string>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>

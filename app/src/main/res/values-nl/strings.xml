@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">Dit artikel staat al in die lijst.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
-  <string name="reading_list_item_count_plural">%d artikels</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d artikels</string>
   <string name="reading_list_sort">Sorteren</string>
   <string name="reading_list_sort_by_name">Sorteren op naam</string>
   <string name="reading_list_sort_by_name_desc">Sorteren op naam (achterstevoren)</string>

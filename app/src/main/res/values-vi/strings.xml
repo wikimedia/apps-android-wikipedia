@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">Bài này đã có trong danh sách đó.</string>
   <string name="reading_list_added_view_button">Xem danh sách</string>
   <string name="reading_list_item_count_singular">1 bài</string>
-  <string name="reading_list_item_count_plural">%d bài</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d bài</string>
   <string name="reading_list_sort">Sắp xếp</string>
   <string name="reading_list_sort_by_name">Sắp xếp theo tên</string>
   <string name="reading_list_sort_by_name_desc">Sắp xếp theo tên (ngược)</string>

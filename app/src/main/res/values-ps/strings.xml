@@ -174,7 +174,7 @@
   <string name="reading_list_added_to_unnamed">لوست لړليک کې ورگډ شوی.</string>
   <string name="reading_list_added_view_button">لړليک کتل</string>
   <string name="reading_list_item_count_singular">1 ليکنه</string>
-  <string name="reading_list_item_count_plural">%d ليکنې</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d ليکنې</string>
   <string name="reading_list_sort">اوډل</string>
   <string name="reading_list_sort_by_name">اوډنه د نوم له مخې</string>
   <string name="reading_list_sort_by_recent">اوډنه تر ټولو تازه له مخې</string>

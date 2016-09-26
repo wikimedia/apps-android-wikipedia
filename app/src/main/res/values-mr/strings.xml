@@ -242,7 +242,7 @@
   <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
   <string name="reading_list_added_view_button">यादी बघा</string>
   <string name="reading_list_item_count_singular">१ लेख</string>
-  <string name="reading_list_item_count_plural">%d लेख</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d लेख</string>
   <string name="reading_list_sort">निवडा</string>
   <string name="reading_list_sort_by_name">नावानुसार निवडा</string>
   <string name="reading_list_sort_by_name_desc">नावानुसार निवडा (उलट)</string>

@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">Ця стаття вже знаходиться у цьому списку.</string>
   <string name="reading_list_added_view_button">Перегляд списку</string>
   <string name="reading_list_item_count_singular">1 статья</string>
-  <string name="reading_list_item_count_plural">%d статей</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d статей</string>
   <string name="reading_list_sort">Сортувати</string>
   <string name="reading_list_sort_by_name">Сортування за назвою</string>
   <string name="reading_list_sort_by_name_desc">Сортування за назвою (зворотнє)</string>
@@ -292,6 +292,7 @@
   <string name="view_card_news_title">У новинах</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">вчора</item>
-    <item quantity="other">%d days ago</item>
+    <item quantity="few">%d дні тому</item>
+    <item quantity="other">%d днів тому</item>
   </plurals>
 </resources>

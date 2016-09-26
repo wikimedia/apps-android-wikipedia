@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">Bu madde, seçtiğiniz listede mevcut.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
   <string name="reading_list_item_count_singular">1 madde</string>
-  <string name="reading_list_item_count_plural">%d madde</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d madde</string>
   <string name="reading_list_sort">Sırala</string>
   <string name="reading_list_sort_by_name">Ada göre sırala</string>
   <string name="reading_list_sort_by_name_desc">Ada göre sırala (tersten)</string>

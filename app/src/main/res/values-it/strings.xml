@@ -246,7 +246,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_already_exists">Questa voce è già presente in questo elenco.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="reading_list_item_count_singular">1 voce</string>
-  <string name="reading_list_item_count_plural">%d voci</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d voci</string>
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
@@ -290,4 +290,8 @@ Vuoi riavviarla o uscire?</string>
   <string name="most_read_list_card_title">Tendenze</string>
   <string name="view_static_card_icon_content_description">Icona scheda</string>
   <string name="view_card_news_title">Nelle notizie</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ieri</item>
+    <item quantity="other">%d giorni fa</item>
+  </plurals>
 </resources>

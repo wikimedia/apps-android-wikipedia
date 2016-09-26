@@ -246,7 +246,7 @@ Voleu començar de nou o sortir?</string>
   <string name="reading_list_already_exists">L\'article ja és a la llista.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
   <string name="reading_list_item_count_singular">1 article</string>
-  <string name="reading_list_item_count_plural">%d articles</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d articles</string>
   <string name="reading_list_sort">Ordena</string>
   <string name="reading_list_sort_by_name">Ordena per nom</string>
   <string name="reading_list_sort_by_name_desc">Ordena per nom (invers)</string>

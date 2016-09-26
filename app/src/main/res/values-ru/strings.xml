@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">Эта статья уже находится в данном списке.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
   <string name="reading_list_item_count_singular">1 статья</string>
-  <string name="reading_list_item_count_plural">%d статей</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d статей</string>
   <string name="reading_list_sort">Сортировать</string>
   <string name="reading_list_sort_by_name">Сортировка по названию</string>
   <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>

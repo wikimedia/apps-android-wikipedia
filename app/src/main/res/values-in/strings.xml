@@ -96,7 +96,7 @@
   <string name="zero_charged_verbiage">Wikipedia Nol dimatikan</string>
   <string name="zero_search_hint">Telusuri Wikipedia Nol</string>
   <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Nol</string>
-  <string name="zero_warn_when_leaving_summary">Jika operator selular membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Nol, meninggalkan pengaturan ini memeriksa membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan.</string>
+  <string name="zero_warn_when_leaving_summary">Jika operator selular membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Nol, meninggalkan pengaturan ini dicentang membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan biaya.</string>
   <string name="zero_webpage_title">Tanya jawab Wikipedia Nol</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Nol</string>
   <string name="zero_interstitial_title">Meninggalkan Wikipedia Nol</string>
@@ -170,7 +170,7 @@
   <string name="button_clear_all_recent_searches">Hapus penelusuran terkini</string>
   <string name="clear_recent_searches_confirm">Apakah Anda yakin ingin menghapus riwayat penelusuran Anda?</string>
   <string name="error_browser_not_found">Tidak dapat membuka halaman web (tidak ada aplikasi peramban yang ditemukan)</string>
-  <string name="table_infobox">Fakta cepat</string>
+  <string name="table_infobox">Fakta singkat</string>
   <string name="table_other">Informasi lebih lanjut</string>
   <string name="table_close">Tutup</string>
   <string name="widget_name_featured_page">Artikel pilihan Wikipedia</string>
@@ -181,7 +181,7 @@
   <string name="alpha_update_notification_text">Sentuh untuk mengunduh</string>
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Tampilkan gambar</string>
-  <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan jika sambungan Internet Anda lambat, atau jika paket data Anda terbatas.</string>
+  <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan ini jika sambungan Internet Anda lambat, atau jika paket data Anda terbatas.</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
@@ -229,7 +229,7 @@
   <string name="crash_report_dialog_always_send_button">Selalu kirim</string>
   <string name="crash_report_dialog_send_button">Kirim</string>
   <string name="crash_report_activity_title">Kesalahan aplikasi</string>
-  <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.
+  <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.
 
 Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
@@ -238,7 +238,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="article_menu_bar_share">Berbagi pranala artikel</string>
   <string name="article_menu_bar_navigate">Navigasikan ke lokasi dari artikel</string>
   <string name="nav_item_reading_lists">Daftar saya</string>
-  <string name="reading_list_untitled">Tidak berjudul</string>
+  <string name="reading_list_untitled">Tanpa judul</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
   <string name="reading_list_create_new">Buat baru</string>
   <string name="reading_list_added_to_named">Ditambahkan ke %s.</string>
@@ -246,7 +246,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_already_exists">Artikel ini sudah ada dalam daftar itu.</string>
   <string name="reading_list_added_view_button">Lihat daftar</string>
   <string name="reading_list_item_count_singular">1 artikel</string>
-  <string name="reading_list_item_count_plural">%d artikel</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d artikel</string>
   <string name="reading_list_sort">Urutkan</string>
   <string name="reading_list_sort_by_name">Urutkan berdasarkan nama</string>
   <string name="reading_list_sort_by_name_desc">Urutkan berdasarkan nama (terbalik)</string>

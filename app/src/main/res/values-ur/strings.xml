@@ -134,7 +134,7 @@
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">اس ایپ کو &lt;a href=\"https://translatewiki.net\"&gt;ٹرانسللیٹ ویکی ڈاٹ نیٹ&lt;/a&gt; کے رضاکار مترجمین کی جانب سے ترجمہ کیا گیا ہے۔</string>
   <string name="about_app_license_heading">اجازہ</string>
-  <string name="about_app_license">ماخد کا کوڈ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;گیریٹ (Gerrit)&lt;/a&gt; اور &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;گِٹہَب (GitHub)&lt;/a&gt; پر &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt; اپاچے 2.0 اجازہ (Apache 2.0 License)&lt;/a&gt; کے تحت موجود ہے۔ تاوقتیکہ تخصیص نہ کی جائے متن  کریئیٹیو کامنز انتساب / یکساں-شراکت اجازت نامہ کے تحت دستیاب ہے۔</string>
+  <string name="about_app_license">سورس کوڈ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;گیریٹ (Gerrit)&lt;/a&gt; اور &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;گِٹ ہَب (GitHub)&lt;/a&gt; پر &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt; اپاچے 2.0 اجازت نامے (Apache 2.0 License)&lt;/a&gt; کے تحت دستیاب ہے۔ جب تک تخصیص نہ کی جائے، جملہ مواد کریئیٹیو کامنز انتساب/یکساں-شراکت اجازت نامہ کے تحت دستیاب ہے۔</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ویکیمیڈیا فاؤنڈیشن&lt;/a&gt; کا تیارکردہ۔</string>
   <string name="about_activity_title">کے بارے میں</string>
   <string name="edit_abandon_confirm">اس صفحہ کی ترمیم ہوچکی ہے۔ کیا آپ یقینی طور پر اپنی ترامیم محفوظ کیے بغیر باہر ہونا چاہتے ہیں۔</string>
@@ -245,7 +245,7 @@
   <string name="reading_list_already_exists">یہ مضمون پہلے سے ہی ‫اُس‬ فہرست ميں ہے۔</string>
   <string name="reading_list_added_view_button">فہرست دیکھیں</string>
   <string name="reading_list_item_count_singular">ایک مضمون</string>
-  <string name="reading_list_item_count_plural">%d مضامین</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d مضامین</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_by_name">نام سے ترتیب دیں</string>
   <string name="reading_list_sort_by_name_desc">نام سے ترتیب دیں (الٹا)</string>

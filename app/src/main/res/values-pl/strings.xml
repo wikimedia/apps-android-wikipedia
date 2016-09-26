@@ -231,6 +231,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="article_menu_bar_bookmark" fuzzy="true">Zapisz artykuł do późniejszego odczytu w trybie offline</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_menu_bar_navigate">Przejdź do lokalizacji artykułu</string>
+  <string name="nav_item_reading_lists">Moje listy</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="reading_list_item_count_singular">1 artykuł</string>
   <string name="reading_list_sort">Sortuj</string>

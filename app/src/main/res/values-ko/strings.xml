@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
   <string name="reading_list_item_count_singular">1개의 문서</string>
-  <string name="reading_list_item_count_plural">%d개의 문서</string>
+  <string name="reading_list_item_count_plural" fuzzy="true">%d개의 문서</string>
   <string name="reading_list_sort">정렬</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>

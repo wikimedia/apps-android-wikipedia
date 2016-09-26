@@ -274,4 +274,8 @@
   <string name="most_read_list_card_title">مھور ٿيندڙ</string>
   <string name="view_static_card_icon_content_description">ڪارڊ جو نشان</string>
   <string name="view_card_news_title">خبرن ۾</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">ڪالھ</item>
+    <item quantity="other">%d ڏينھن اڳ</item>
+  </plurals>
 </resources>
