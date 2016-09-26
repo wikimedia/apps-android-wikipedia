@@ -285,6 +285,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="view_featured_image_card_download">Télécharger</string>
   <string name="menu_feed_card_dismiss">Masquer cette carte</string>
   <string name="menu_feed_card_dismissed">Carte cachée.</string>
+  <string name="menu_feed_overflow_label">Plus d’options</string>
   <string name="feed_featured_image_share_subject">Image sélectionnée de Wikimedia Commons</string>
   <string name="feed">Explorer</string>
   <string name="view_card_footer_button">Voir davantage</string>

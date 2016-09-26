@@ -284,6 +284,7 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="view_featured_image_card_download">Herunterladen</string>
   <string name="menu_feed_card_dismiss">Diese Karte ausblenden</string>
   <string name="menu_feed_card_dismissed">Karte ausgeblendet.</string>
+  <string name="menu_feed_overflow_label">Weitere Optionen</string>
   <string name="feed_featured_image_share_subject">Vorgestelltes Bild von Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
   <string name="view_card_footer_button">Mehr sehen</string>
