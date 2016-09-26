@@ -94,7 +94,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
-    public static final String EXTRA_NEWTAB = "org.wikipedia.newtab";
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
 
@@ -248,13 +247,11 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @NonNull
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull HistoryEntry entry,
-                                   @NonNull PageTitle title,
-                                   boolean inNewTab) {
+                                   @NonNull PageTitle title) {
         return new Intent(ACTION_PAGE_FOR_TITLE)
                 .setClass(context, PageActivity.class)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
-                .putExtra(EXTRA_NEWTAB, inNewTab);
+                .putExtra(EXTRA_PAGETITLE, title);
     }
 
     @NonNull
@@ -278,11 +275,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
             PageTitle title = intent.getParcelableExtra(EXTRA_PAGETITLE);
             HistoryEntry historyEntry = intent.getParcelableExtra(EXTRA_HISTORYENTRY);
-            if (intent.getBooleanExtra(EXTRA_NEWTAB, false)) {
-                loadPage(title, historyEntry, TabPosition.NEW_TAB_BACKGROUND);
-            } else {
-                loadPage(title, historyEntry);
-            }
+            loadPageInForegroundTab(title, historyEntry);
         } else if (ACTION_SHOW_TAB_LIST.equals(intent.getAction())) {
             showTabList();
         } else if (ACTION_RESUME_READING.equals(intent.getAction())) {
@@ -574,10 +567,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public void onPagePopFragment() {
         finish();
-    }
-
-    @Override
-    public void onPageUpdateNavDrawerSelection(@NonNull Fragment fragment) {
     }
 
     @Override

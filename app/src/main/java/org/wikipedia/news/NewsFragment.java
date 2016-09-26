@@ -134,7 +134,7 @@ public class NewsFragment extends Fragment {
     private class Callback implements PageTitleListCardItemView.Callback {
         @Override
         public void onSelectPage(@NonNull HistoryEntry entry) {
-            startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), false));
+            startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
         }
 
         @Override

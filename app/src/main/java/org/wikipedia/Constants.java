@@ -27,5 +27,7 @@ public final class Constants {
 
     public static final int PREFERRED_THUMB_SIZE = 320;
 
+    public static final int MAX_TABS = 100;
+
     private Constants() { }
 }

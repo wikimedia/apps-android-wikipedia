@@ -117,7 +117,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         @Nullable View onPageGetTabsContainerView();
         void onPagePopFragment();
         @Nullable AppCompatActivity getActivity();
-        void onPageUpdateNavDrawerSelection(@NonNull Fragment fragment);
         void onPageInvalidateOptionsMenu();
     }
 
@@ -128,7 +127,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private boolean pageRefreshed;
     private boolean errorState = false;
 
-    private static final int TOC_BUTTON_HIDE_DELAY = 2000;
     private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * DimenUtil.getDensityScalar());
 
     private PageLoadStrategy pageLoadStrategy;
@@ -843,8 +841,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         checkAndShowSelectTextOnboarding();
 
-        updateNavDrawerSelection();
-
         if (getPageLoadCallbacks() != null) {
             getPageLoadCallbacks().onLoadComplete();
         }
@@ -991,6 +987,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
             // put this tab in the requested position
             tabList.add(position, tab);
+            trimTabCount();
             tabsProvider.invalidate();
             // add the requested page to its backstack
             tab.getBackStack().add(new PageBackStackItem(title, entry));
@@ -1320,14 +1317,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    public void addToReadingList(@NonNull PageTitle title,
-                                 @NonNull AddToReadingListDialog.InvokeSource source) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageAddToReadingList(title, source);
-        }
-    }
-
     @Nullable
     public View getContentView() {
         View view = null;
@@ -1348,19 +1337,18 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return view;
     }
 
-    public void updateNavDrawerSelection() {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageUpdateNavDrawerSelection(this);
-        }
-    }
-
     private void startLangLinksActivity() {
         Intent langIntent = new Intent();
         langIntent.setClass(getActivity(), LangLinksActivity.class);
         langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
         langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
         getActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS);
+    }
+
+    private void trimTabCount() {
+        while (tabList.size() > Constants.MAX_TABS) {
+            tabList.remove(0);
+        }
     }
 
     @Nullable
