@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:padding="12dp">
 
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/view_card_header_image"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -23,7 +23,7 @@
             app:srcCompat="@drawable/ic_restore_black_24dp"
             android:tint="@android:color/white"
             android:background="@drawable/shape_circle"
-            app:backgroundTint="@color/foundation_blue"
+            tools:backgroundTint="@color/foundation_blue"
             android:contentDescription="@null"/>
 
         <TextView

@@ -20,7 +20,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,7 +46,7 @@ public class ReadingListDetailView extends LinearLayout {
     @BindView(R.id.reading_list_count) TextView countView;
     @BindView(R.id.reading_list_description) GoneIfEmptyTextView descriptionView;
     @BindView(R.id.contents_list) RecyclerView contentsListView;
-    @BindView(R.id.button_edit) ImageButton editButton;
+    @BindView(R.id.button_edit) View editButton;
     @BindView(R.id.indicator_offline) ImageView offlineView;
 
     @Nullable private ReadingList readingList;

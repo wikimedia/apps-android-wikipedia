@@ -29,7 +29,7 @@ and increase the arrowhead size.
         android:id="@+id/tooltip_contentholder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:background="@android:color/white"
         android:layout_below="@id/tooltip_topframe"
         android:layout_marginTop="-2dp"
         android:paddingLeft="8dp"
