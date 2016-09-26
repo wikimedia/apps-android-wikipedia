@@ -207,7 +207,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedSelectPage(HistoryEntry entry) {
-        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), false));
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
@@ -278,7 +278,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onLoadPage(PageTitle title, HistoryEntry entry) {
-        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), false));
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
     }
 
     @Override public void onClearHistory() {
@@ -308,7 +308,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), inNewTab));
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
     }
 
     @Override
@@ -334,7 +334,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
-        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle(), inNewTab));
+        startActivity(PageActivity.newIntent(getContext(), entry, entry.getTitle()));
     }
 
     @Override

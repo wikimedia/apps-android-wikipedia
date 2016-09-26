@@ -396,7 +396,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     public void finishWithPageResult(PageTitle resultTitle) {
         HistoryEntry historyEntry = new HistoryEntry(resultTitle,
                 HistoryEntry.SOURCE_INTERNAL_LINK);
-        Intent intent = PageActivity.newIntent(GalleryActivity.this, historyEntry, resultTitle, false);
+        Intent intent = PageActivity.newIntent(GalleryActivity.this, historyEntry, resultTitle);
         setResult(ACTIVITY_RESULT_FILEPAGE_SELECT, intent);
         finish();
     }
