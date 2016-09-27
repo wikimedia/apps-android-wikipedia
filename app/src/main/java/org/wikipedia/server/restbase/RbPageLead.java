@@ -8,6 +8,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.Site;
+import org.wikipedia.login.User;
 import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
@@ -185,7 +186,14 @@ public class RbPageLead implements PageLead, PageLeadProperties {
 
     @Override
     public boolean isEditable() {
-        return editable;
+        return editable || isLoggedInUserAllowedToEdit();
+    }
+
+    private boolean isLoggedInUserAllowedToEdit() {
+        User user = User.getUser();
+        return user != null
+                && protection != null
+                && user.isAllowed(protection.getEditRoles());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package org.wikipedia.server;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /** Protection settings for a page */
@@ -13,5 +14,10 @@ public class Protection {
             return edit[0];
         }
         return null;
+    }
+
+    @NonNull
+    public String[] getEditRoles() {
+        return edit.clone();
     }
 }
