@@ -21,13 +21,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.io.IOException;
+import java.util.Set;
 
 /**
  * Responsible for making login related requests to the server.
  */
 public class LoginClient {
-    public static final String CLIENT_LOGIN = "clientlogin";
-    public static final String JSON = "json";
+    private static final String CLIENT_LOGIN = "clientlogin";
+    private static final String JSON = "json";
 
     @NonNull private final MwCachedService<Service> cachedService
             = new MwCachedService<>(Service.class);
@@ -53,11 +54,11 @@ public class LoginClient {
             public void onResponse(Call<MwQueryResponse<LoginToken>> call,
                                    Response<MwQueryResponse<LoginToken>> response) {
                 if (response.isSuccessful()) {
-                    final MwQueryResponse<LoginToken> body = response.body();
-                    if (body.query() != null &&  body.query().getLoginToken() != null) {
-                        login(site, userName, password, body.query().getLoginToken(), cb);
+                    MwQueryResponse<LoginToken> body = response.body();
+                    LoginToken query = body.query();
+                    if (query != null &&  query.getLoginToken() != null) {
+                        login(site, userName, password, query.getLoginToken(), cb);
                     } else if (body.getError() != null) {
-                        L.v(body.getError().toString());
                         cb.error(new IOException("Failed to retrieve login token. "
                                 + body.getError().toString()));
                     } else {
@@ -76,8 +77,9 @@ public class LoginClient {
         });
     }
 
-    private void login(@NonNull Site site, @NonNull String userName, @NonNull final String password,
-                       @NonNull String loginToken, final LoginCallback cb) {
+    private void login(@NonNull final Site site, @NonNull final String userName,
+                       @NonNull final String password, @NonNull String loginToken,
+                       @NonNull final LoginCallback cb) {
         loginCall = cachedService.service(site).logIn(CLIENT_LOGIN, JSON, userName, password,
                 loginToken, Constants.WIKIPEDIA_URL);
         loginCall.enqueue(new Callback<LoginResponse>() {
@@ -87,9 +89,11 @@ public class LoginClient {
                     LoginResponse loginResponse = response.body();
                     LoginResult loginResult = loginResponse.toLoginResult(password);
                     if (loginResult != null) {
-                        if (loginResult.pass()) {
-                            User.setUser(loginResult.getUser());
-                            cb.success(loginResult);
+                        if (loginResult.pass() && loginResult.getUser() != null) {
+                            // The server could do some transformations on user names, e.g. on some
+                            // wikis is uppercases the first letter.
+                            String actualUserName = loginResult.getUser().getUsername();
+                            getGroupMemberships(site, actualUserName, loginResult, cb);
                         } else {
                             cb.error(new LoginFailedException(loginResult.getMessage()));
                         }
@@ -105,6 +109,26 @@ public class LoginClient {
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
                 cb.error(t);
+            }
+        });
+    }
+
+    private void getGroupMemberships(@NonNull Site site, @NonNull String userName,
+                                     @NonNull final LoginResult loginResult,
+                                     @NonNull final LoginCallback cb) {
+        GroupMembershipClient groupClient = new GroupMembershipClient();
+        groupClient.request(site, userName, new GroupMembershipClient.GroupMembershipCallback() {
+            @Override
+            public void success(@NonNull Set<String> groups) {
+                final User user = loginResult.getUser();
+                User.setUser(new User(user, groups));
+                cb.success(loginResult);
+            }
+
+            @Override
+            public void error(@NonNull Throwable caught) {
+                L.e("Login suceeded but getting group information failed. " + caught);
+                cb.error(caught);
             }
         });
     }
@@ -151,7 +175,7 @@ public class LoginClient {
     private static final class LoginToken {
         @SerializedName("tokens") private Tokens tokens;
 
-        @Nullable public String getLoginToken() {
+        @Nullable String getLoginToken() {
             return tokens == null ? null : tokens.loginToken;
         }
 
@@ -173,7 +197,7 @@ public class LoginClient {
             return error;
         }
 
-        public LoginResult toLoginResult(String password) {
+        LoginResult toLoginResult(String password) {
             return clientLogin != null ? clientLogin.toLoginResult(password) : null;
         }
 
@@ -182,7 +206,7 @@ public class LoginClient {
             @SerializedName("message") @Nullable private String message;
             @SerializedName("username") @Nullable private String userName;
 
-            public LoginResult toLoginResult(String password) {
+            LoginResult toLoginResult(String password) {
                 User user = null;
                 String userMessage = null;
                 if ("PASS".equals(status)) {
@@ -195,8 +219,8 @@ public class LoginClient {
         }
     }
 
-    public class LoginFailedException extends Throwable {
-        public LoginFailedException(String message) {
+    public static class LoginFailedException extends Throwable {
+        LoginFailedException(String message) {
             super(message);
         }
     }

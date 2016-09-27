@@ -31,11 +31,13 @@ import static org.wikipedia.settings.PrefsIoUtil.getInt;
 import static org.wikipedia.settings.PrefsIoUtil.getKey;
 import static org.wikipedia.settings.PrefsIoUtil.getLong;
 import static org.wikipedia.settings.PrefsIoUtil.getString;
+import static org.wikipedia.settings.PrefsIoUtil.getStringSet;
 import static org.wikipedia.settings.PrefsIoUtil.remove;
 import static org.wikipedia.settings.PrefsIoUtil.setBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.setInt;
 import static org.wikipedia.settings.PrefsIoUtil.setLong;
 import static org.wikipedia.settings.PrefsIoUtil.setString;
+import static org.wikipedia.settings.PrefsIoUtil.setStringSet;
 
 /** Shared preferences utility for convenient POJO access. */
 public final class Prefs {
@@ -193,6 +195,19 @@ public final class Prefs {
 
     public static boolean hasLoginUsername() {
         return contains(R.string.preference_key_login_username);
+    }
+
+    @Nullable
+    public static Set<String> getLoginGroups() {
+        return getStringSet(R.string.preference_key_login_groups, null);
+    }
+
+    public static void setLoginGroups(@Nullable Set<String> groups) {
+        setStringSet(R.string.preference_key_login_groups, groups);
+    }
+
+    public static void removeLoginGroups() {
+        remove(R.string.preference_key_login_groups);
     }
 
     @Nullable

@@ -4,6 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
+import java.util.Collections;
+import java.util.Set;
+
 public class User {
     @Nullable private static UserInfoStorage STORAGE = new UserInfoStorage();
     @Nullable private static User CURRENT_USER;
@@ -45,11 +48,26 @@ public class User {
     @NonNull private final String username;
     @NonNull private final String password;
     private final int userID;
+    @NonNull private final Set<String> groups;
 
     public User(@NonNull String username, @NonNull String password, int userID) {
+        this(username, password, userID, null);
+    }
+
+    public User(@NonNull User other, @Nullable Set<String> groups) {
+        this(other.username, other.password, other.userID, groups);
+    }
+
+    public User(@NonNull String username, @NonNull String password, int userID,
+                @Nullable Set<String> groups) {
         this.username = username;
         this.password = password;
         this.userID = userID;
+        if (groups != null) {
+            this.groups = Collections.unmodifiableSet(groups);
+        } else {
+            this.groups = Collections.emptySet();
+        }
     }
 
     @NonNull
@@ -64,5 +82,21 @@ public class User {
 
     public int getUserID() {
         return userID;
+    }
+
+    public boolean isAllowed(@NonNull String[] allowedGroups) {
+        for (String allowedGroup: allowedGroups) {
+            for (String group: groups) {
+                if (allowedGroup != null && allowedGroup.equals(group)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @NonNull
+    Set<String> getGroupMemberships() {
+        return groups;
     }
 }

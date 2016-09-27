@@ -10,6 +10,8 @@ import android.support.annotation.StringRes;
 
 import org.wikipedia.WikipediaApp;
 
+import java.util.Set;
+
 /** Shared preferences input / output utility providing set* functionality that writes to SP on the
  * client's behalf, IO without client supplied {@link Context}, and wrappers for using string
  * resources as keys, and unifies SP access. */
@@ -21,6 +23,15 @@ import org.wikipedia.WikipediaApp;
 
     public static void setString(@StringRes int id, @Nullable String value) {
         setString(getKey(id), value);
+    }
+
+    @Nullable
+    public static Set<String> getStringSet(@StringRes int id, @Nullable Set<String> defaultValue) {
+        return getStringSet(getKey(id), defaultValue);
+    }
+
+    public static void setStringSet(@StringRes int id, @Nullable Set<String> value) {
+        setStringSet(getKey(id), value);
     }
 
     public static long getLong(@StringRes int id, long defaultValue) {
@@ -54,6 +65,15 @@ import org.wikipedia.WikipediaApp;
 
     public static void setString(String key, @Nullable String value) {
         edit().putString(key, value).apply();
+    }
+
+    @Nullable
+    public static Set<String> getStringSet(String key, @Nullable Set<String> defaultValue) {
+        return getPreferences().getStringSet(key, defaultValue);
+    }
+
+    public static void setStringSet(String key, @Nullable Set<String> value) {
+        edit().putStringSet(key, value).apply();
     }
 
     public static long getLong(String key, long defaultValue) {

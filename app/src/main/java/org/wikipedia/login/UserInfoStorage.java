@@ -11,6 +11,7 @@ class UserInfoStorage {
         Prefs.setLoginUsername(user.getUsername());
         Prefs.setLoginPassword(user.getPassword());
         Prefs.setLoginUserId(user.getUserID());
+        Prefs.setLoginGroups(user.getGroupMemberships());
     }
 
     @Nullable
@@ -20,7 +21,8 @@ class UserInfoStorage {
             return new User(
                     Prefs.getLoginUsername(),
                     Prefs.getLoginPassword(),
-                    Prefs.getLoginUserId()
+                    Prefs.getLoginUserId(),
+                    Prefs.getLoginGroups()
             );
         }
         return null;
@@ -30,5 +32,6 @@ class UserInfoStorage {
         Prefs.removeLoginUsername();
         Prefs.removeLoginPassword();
         Prefs.removeLoginUserId();
+        Prefs.removeLoginGroups();
     }
 }
