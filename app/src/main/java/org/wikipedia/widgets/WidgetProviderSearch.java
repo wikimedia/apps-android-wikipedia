@@ -1,7 +1,7 @@
 package org.wikipedia.widgets;
 
 import org.wikipedia.Constants;
-import org.wikipedia.MainActivity;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.R;
 
 import android.app.PendingIntent;

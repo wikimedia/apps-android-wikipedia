@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.main;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -19,6 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.BackPressedHandler;
+import org.wikipedia.Constants;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
