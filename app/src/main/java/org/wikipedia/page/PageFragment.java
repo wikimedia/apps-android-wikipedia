@@ -559,6 +559,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             openInNewForegroundTabFromMenu(title, entry);
         } else {
             openInNewTabFromMenu(title, entry, getBackgroundTabPosition());
+            tabsProvider.showAndHideTabs();
         }
     }
 
@@ -995,8 +996,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         } else {
             getTopMostTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
-        // and... that should be it.
-        tabsProvider.showAndHideTabs();
     }
 
     private boolean noPagesOpen() {
