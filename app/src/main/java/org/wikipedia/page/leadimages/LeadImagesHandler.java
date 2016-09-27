@@ -2,7 +2,6 @@ package org.wikipedia.page.leadimages;
 
 import android.graphics.Bitmap;
 import android.graphics.PointF;
-import android.location.Location;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -235,11 +234,6 @@ public class LeadImagesHandler {
     @Nullable
     private String getLeadImageUrl() {
         return getPage() == null ? null : getPage().getPageProperties().getLeadImageUrl();
-    }
-
-    @Nullable
-    private Location getGeo() {
-        return getPage() == null ? null : getPage().getPageProperties().getGeo();
     }
 
     private void startKenBurnsAnimation() {
