@@ -273,6 +273,17 @@ dl {
 dl dt {
   font-weight: bold;
 }
+/* the following rule is completely copied from mediawiki.skinning.content[1], as
+ * don't want to include this module in mobile/minerva, see T129375.
+ * [1] https://github.com/wikimedia/mediawiki/blob/0687f250d6fb4196a7aa60af4fe11c7d21f3c455
+ *	/resources/src/mediawiki.skinning/content.css#L260
+ */
+/* Hide elements that are marked as "empty" according to legacy Tidy rules,
+ * except if a client script removes the mw-hide-empty-elt class from the body
+ */
+body.mw-hide-empty-elt .mw-empty-elt {
+  display: none;
+}
 a {
   text-decoration: none;
   color: #002bb8;
@@ -409,7 +420,7 @@ FIXME: Review all of these hacks to see if they still apply.
   border: 0;
   margin-bottom: 2em;
   text-align: left;
-  background-color: #f9f9f9;
+  background-color: #f8f9fa;
 }
 .content table.infobox th,
 .content table.infobox td {
@@ -450,7 +461,7 @@ FIXME: Review all of these hacks to see if they still apply.
 .dablink,
 .rellink {
   padding: 0 0 0.6em 0;
-  color: #777777;
+  color: #72777d;
   font-size: 0.8em;
   font-style: italic;
 }
@@ -592,7 +603,7 @@ span.mw-linkback-text {
 		word-wrap: break-word;
 	}}/* Galleries */
 /* These display attributes look nonsensical, but are needed to support IE and FF2 */
-/* Don't forget to update gallery-print.css */
+/* Don't forget to update gallery.print.css */
 li.gallerybox {
 	vertical-align: top;
 	display: -moz-inline-box;
@@ -1167,7 +1178,7 @@ sup.reference a {
   display: none;
 }
 #li-coordinates {
-  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/80px-Edge-firefox.png);
+  background-image: url(/w/extensions/MobileApp/images/80px-Edge-firefox.png?120ff);
   float: right;
   display: none;
   -webkit-background-size: auto 30px;
@@ -1182,7 +1193,7 @@ sup.reference a {
 .client-js .content_block.coordinates .latitude {
   display: none;
   padding-left: 20px;
-  background-image: url(//upload.wikimedia.org/wikipedia/commons/thumb/5/57/Edge-firefox.png/50px-Edge-firefox.png);
+  background-image: url(/w/extensions/MobileApp/images/50px-Edge-firefox.png?14d02);
   background-repeat: no-repeat;
   -webkit-background-size: auto 15px;
   background-size: auto 15px;
