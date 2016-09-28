@@ -88,7 +88,8 @@ public final class ViewUtil {
                 .build());
     }
 
-    public static Bitmap getBitmapFromView(View view) {
+    @NonNull
+    public static Bitmap getBitmapFromView(@NonNull View view) {
         Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(returnedBitmap);
         view.draw(canvas);

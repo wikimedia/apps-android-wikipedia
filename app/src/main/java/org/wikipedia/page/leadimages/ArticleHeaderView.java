@@ -127,8 +127,9 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         image.setAnimationPaused(paused);
     }
 
+    @NonNull
     public Bitmap copyBitmap() {
-        return ViewUtil.getBitmapFromView(image);
+        return ViewUtil.getBitmapFromView(image.getImage());
     }
 
     public void setImageFocus(PointF focusPoint) {
