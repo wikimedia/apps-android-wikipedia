@@ -15,10 +15,10 @@
         android:visibility="gone">
         <ImageView
             android:id="@+id/empty_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/savedpages_empty"
+            app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
             android:tint="?attr/window_inverse_color"
             android:contentDescription="@null"/>
         <TextView

@@ -286,7 +286,7 @@
     <string name="reading_list_edit_cancel">Cancel</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete this reading list?</string>
     <string name="reading_lists_empty">No reading lists here.</string>
-    <string name="reading_lists_empty_message">Organize the articles you browse into reading lists! When browsing an article, tap the bookmark icon at the top of the article to add it to a reading list.</string>
+    <string name="reading_lists_empty_message">Organize the articles you browse into reading lists! When browsing an article, tap the bookmark icon in the bottom toolbar to add it to a reading list.</string>
     <string name="reading_lists_onboarding_intro">Create reading lists from articles you want to read later, even when you\'re offline!</string>
     <string name="reading_lists_onboarding_for_example">For example</string>
     <string name="reading_lists_onboarding_example1">Places to visit</string>

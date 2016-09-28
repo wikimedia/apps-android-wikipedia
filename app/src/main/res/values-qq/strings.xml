@@ -362,7 +362,7 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
 {{Identical|Cancel}}</string>
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list.</string>
   <string name="reading_lists_empty">Title message shown when there are no reading lists.</string>
-  <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists.</string>
+  <string name="reading_lists_empty_message">Descriptive message that explains the benefits of reading lists, and the location of the button to add an article to a reading list.</string>
   <string name="reading_lists_onboarding_intro">Short introductory statement about reading lists to be shown in the onboarding screen, emphasizing that reading lists are available for offline access.</string>
   <string name="reading_lists_onboarding_for_example">Label stating that the items below are examples of reading list titles.</string>
   <string name="reading_lists_onboarding_example1">First example of a reading list title, in this case places to visit.</string>
