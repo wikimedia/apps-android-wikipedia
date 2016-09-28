@@ -174,6 +174,6 @@ public class SavedPageSyncService extends IntentService {
 
     @NonNull
     private PageService getApiService(@NonNull PageTitle title) {
-        return PageServiceFactory.create(title.getSite());
+        return PageServiceFactory.create(title.getSite(), title.namespace());
     }
 }

@@ -229,7 +229,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     private void loadContent() {
-        PageServiceFactory.create(pageTitle.getSite()).pageSummary(
+        PageServiceFactory.create(pageTitle.getSite(), pageTitle.namespace()).pageSummary(
                 pageTitle.getPrefixedText(),
                 linkPreviewOnLoadCallback);
     }

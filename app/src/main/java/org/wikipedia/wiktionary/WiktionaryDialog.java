@@ -18,6 +18,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.WiktionaryDialogFunnel;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.LinkMovementMethodExt;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageServiceFactory;
@@ -106,7 +107,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
 
         // TODO: centralize the Wiktionary domain better. Maybe a SharedPreference that defaults to
         //       https://wiktionary.org.
-        PageService pageService = PageServiceFactory.create(new Site(pageTitle.getSite().languageCode() + WIKTIONARY_DOMAIN));
+        PageService pageService = PageServiceFactory.create(new Site(pageTitle.getSite().languageCode() + WIKTIONARY_DOMAIN), Namespace.MAIN);
         if (pageService instanceof RbPageService) {
             ((RbPageService) pageService).define(
                     addUnderscores(selectedText),

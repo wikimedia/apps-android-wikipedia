@@ -127,7 +127,7 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
     }
 
     private PageService getApiService(PageTitle title) {
-        return PageServiceFactory.create(title.getSite());
+        return PageServiceFactory.create(title.getSite(), title.namespace());
     }
 
     private interface Callback {
