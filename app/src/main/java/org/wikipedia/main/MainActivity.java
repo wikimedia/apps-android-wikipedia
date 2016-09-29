@@ -1,10 +1,11 @@
-package org.wikipedia;
+package org.wikipedia.main;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.view.View;
 
+import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivityWithToolbar;
 import org.wikipedia.navtab.NavTab;
 

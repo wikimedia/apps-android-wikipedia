@@ -53,7 +53,7 @@
         <meta-data android:name="net.hockeyapp.android.appIdentifier"
             android:value="@string/hockeyapp_app_id" />
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".main.MainActivity"
                   android:theme="@style/AppTheme"
                   android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
                   android:configChanges="orientation|screenSize"
@@ -78,10 +78,10 @@
             android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".main.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".main.MainActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
