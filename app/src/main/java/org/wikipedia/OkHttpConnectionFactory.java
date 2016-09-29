@@ -1,6 +1,5 @@
 package org.wikipedia;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.github.kevinsawicki.http.HttpRequest;
@@ -14,24 +13,22 @@ import java.net.URL;
 
 import okhttp3.Cache;
 import okhttp3.CookieJar;
+import okhttp3.Interceptor;
 import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
 import okhttp3.OkUrlFactory;
+import okhttp3.Request;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
-    private static final long HTTP_CACHE_SIZE = 16 * 1024 * 1024;
+    private static final long HTTP_CACHE_SIZE = 64 * 1024 * 1024;
     private static final Cache HTTP_CACHE = new Cache(WikipediaApp.getInstance().getCacheDir(), HTTP_CACHE_SIZE);
-
-    private final OkHttpClient client;
-
-    public OkHttpConnectionFactory(@NonNull Context context) {
-        client = createClient(context).build();
-    }
+    @NonNull private static final OkHttpClient CLIENT = createClient();
 
     @Override
     public HttpURLConnection create(URL url) throws IOException {
-        return new OkUrlFactory(client).open(url); // TODO: update to newer API
+        return new OkUrlFactory(getClient()).open(url); // TODO: update to newer API
     }
 
     @Override
@@ -40,23 +37,36 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 "Per-connection proxy is not supported. Use OkHttpClient's setProxy instead.");
     }
 
-    public static OkHttpClient.Builder createClient(@NonNull Context context) {
-        SharedPreferenceCookieManager cookieManager
-                = ((WikipediaApp) context.getApplicationContext()).getCookieManager();
+    @NonNull
+    public static OkHttpClient getClient() {
+        return CLIENT;
+    }
+
+    @NonNull
+    private static OkHttpClient createClient() {
+        SharedPreferenceCookieManager cookieManager = WikipediaApp.getInstance().getCookieManager();
         // TODO: consider using okhttp3.CookieJar implementation instead of JavaNetCookieJar wrapper
         CookieJar cookieJar = new JavaNetCookieJar(cookieManager);
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(Prefs.getRetrofitLogLevel());
 
-        // TODO: switch to using a single instance of OkHttpClient throughout the app.
         return new OkHttpClient.Builder()
                 .cookieJar(cookieJar)
                 .cache(HTTP_CACHE)
-                .addInterceptor(loggingInterceptor);
+                .addInterceptor(loggingInterceptor)
+                .addInterceptor(new CustomHeaderInterceptor())
+                .build();
     }
 
-    public OkHttpClient client() {
-        return client;
+    private static class CustomHeaderInterceptor implements Interceptor {
+        @Override
+        public Response intercept(Interceptor.Chain chain) throws IOException {
+            Request request = chain.request();
+            request = request.newBuilder()
+                    .headers(WikipediaApp.getInstance().buildCustomHeaders(request))
+                    .build();
+            return chain.proceed(request);
+        }
     }
 }

@@ -8,7 +8,6 @@ import org.wikipedia.util.log.L;
 
 import java.util.Date;
 
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -29,9 +28,8 @@ public class RemoteConfigRefreshTask extends RecurringTask {
         new SaneAsyncTask<Boolean>() {
             @Override
             public Boolean performTask() throws Throwable {
-                OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder().url(REMOTE_CONFIG_URL).build();
-                Response response = client.newCall(request).execute();
+                Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
                 try {
                     JSONObject config = new JSONObject(response.body().string());
                     WikipediaApp.getInstance().getRemoteConfig().updateConfig(config);
