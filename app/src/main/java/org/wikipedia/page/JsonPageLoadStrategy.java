@@ -268,11 +268,9 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
-        PageServiceFactory.create(model.getTitle().getSite()).pageLead(
-                model.getTitle().getPrefixedText(),
-                calculateLeadImageWidth(),
-                !app.isImageDownloadEnabled(),
-                new PageLead.Callback() {
+        PageServiceFactory.create(model.getTitle().getSite(), model.getTitle().namespace())
+                .pageLead(model.getTitle().getPrefixedText(), calculateLeadImageWidth(),
+                !app.isImageDownloadEnabled(), new PageLead.Callback() {
                     @Override
                     public void success(PageLead pageLead) {
                         app.getSessionFunnel().leadSectionFetchEnd();
@@ -790,9 +788,8 @@ public class JsonPageLoadStrategy implements PageLoadStrategy {
 
     private void loadRemainingSections(final int startSequenceNum) {
         app.getSessionFunnel().restSectionsFetchStart();
-        PageServiceFactory.create(model.getTitle().getSite()).pageRemaining(
-                model.getTitle().getPrefixedText(),
-                !app.isImageDownloadEnabled(),
+        PageServiceFactory.create(model.getTitle().getSite(), model.getTitle().namespace())
+                .pageRemaining(model.getTitle().getPrefixedText(), !app.isImageDownloadEnabled(),
                 new PageRemaining.Callback() {
                     @Override
                     public void success(PageRemaining pageRemaining) {
