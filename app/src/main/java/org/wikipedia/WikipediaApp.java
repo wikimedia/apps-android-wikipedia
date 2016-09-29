@@ -185,11 +185,10 @@ public class WikipediaApp extends Application {
 
         enableWebViewDebugging();
 
-        OkHttpConnectionFactory okHttpConnectionFactory = new OkHttpConnectionFactory(this);
-        Api.setConnectionFactory(okHttpConnectionFactory);
+        Api.setConnectionFactory(new OkHttpConnectionFactory());
 
         ImagePipelineConfig config = OkHttpImagePipelineConfigFactory
-                .newBuilder(this, okHttpConnectionFactory.client())
+                .newBuilder(this, OkHttpConnectionFactory.getClient())
                 .build();
         Fresco.initialize(this, config);
 
@@ -534,8 +533,9 @@ public class WikipediaApp extends Application {
     }
 
     /** For Retrofit requests. Keep in sync with #buildCustomHeadersMap */
-    public Headers buildCustomHeaders(Request request, Site site) {
-        Map<String, String> toSetHeaders = buildCustomHeadersMap(getAcceptLanguage(site));
+    public Headers buildCustomHeaders(Request request) {
+        Map<String, String> toSetHeaders
+                = buildCustomHeadersMap(getAcceptLanguage(new Site(request.url().host())));
 
         Headers.Builder moreHeaders = request.headers().newBuilder();
         for (String key : toSetHeaders.keySet()) {

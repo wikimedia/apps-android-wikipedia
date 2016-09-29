@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
+import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
@@ -27,7 +28,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -151,11 +151,10 @@ public class SavedPageSyncService extends IntentService {
             return true;
         }
 
-        OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url)
                                                .header("User-Agent", WikipediaApp.getInstance().getUserAgent())
                                                .build();
-        Response response = client.newCall(request).execute();
+        Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
 
         try {
             if (response.isSuccessful()) {

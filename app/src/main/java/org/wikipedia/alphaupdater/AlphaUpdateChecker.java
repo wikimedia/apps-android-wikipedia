@@ -1,5 +1,6 @@
 package org.wikipedia.alphaupdater;
 
+import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.R;
 import org.wikipedia.recurring.RecurringTask;
 import org.json.JSONException;
@@ -18,7 +19,6 @@ import android.support.v4.app.NotificationCompat;
 import java.io.IOException;
 import java.util.Date;
 
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -45,9 +45,8 @@ public class AlphaUpdateChecker extends RecurringTask {
         JSONObject config;
         Response response = null;
         try {
-            OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder().url(ALPHA_BUILD_DATA_URL).build();
-            response = client.newCall(request).execute();
+            response = OkHttpConnectionFactory.getClient().newCall(request).execute();
             config = new JSONObject(response.body().string());
         } catch (IOException | JSONException e) {
             // It's ok, we can do nothing.

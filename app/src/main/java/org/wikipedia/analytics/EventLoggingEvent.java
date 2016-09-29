@@ -3,11 +3,11 @@ package org.wikipedia.analytics;
 import android.net.Uri;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.log.L;
 
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -72,9 +72,8 @@ public class EventLoggingEvent {
             String dataURL = Uri.parse(EVENTLOG_URL)
                     .buildUpon().query(data.toString())
                     .build().toString();
-            OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder().url(dataURL).header("User-Agent", userAgent).build();
-            Response response = client.newCall(request).execute();
+            Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
             try {
                 return response.code();
             } finally {
