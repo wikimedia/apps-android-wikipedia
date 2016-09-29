@@ -54,7 +54,7 @@ public abstract class ViewHideHandler
         }
         onScrolled(oldScrollY, scrollY);
 
-        if (scrollY <= webView.getHeight()) {
+        if (gravity == Gravity.TOP && scrollY <= webView.getHeight()) {
             // For the first screenful, ensure it's always shown
             ensureDisplayed();
             return;
