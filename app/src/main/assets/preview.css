@@ -97,7 +97,7 @@ table {
 body {
   font-family: 'Helvetica Neue', 'Helvetica', 'Nimbus Sans L', 'Arial', 'Liberation Sans', sans-serif;
   line-height: 1.4;
-  color: #252525;
+  color: #222222;
   background: #fff;
 }
 .pre-content,
@@ -145,11 +145,11 @@ body {
   font-size: 0.8em;
   line-height: 1.5;
   padding: 0 !important;
-  color: #555555;
+  color: #54595d;
   width: auto !important;
 }
 .content .thumbborder {
-  border: 1px solid #cccccc;
+  border: 1px solid #c8ccd1;
 }
 .content img {
   vertical-align: middle;
@@ -338,7 +338,7 @@ i {
 code,
 pre {
   font-family: monospace;
-  border: solid 1px #cccccc;
+  border: solid 1px #c8ccd1;
   white-space: pre-wrap;
 }
 code {
@@ -373,18 +373,18 @@ sup {
   text-align: left;
 }
 .content table.wikitable {
-  border: 1px solid #cccccc;
+  border: 1px solid #c8ccd1;
 }
 .content table.wikitable > tr > th,
 .content table.wikitable > tr > td,
 .content table.wikitable > * > tr > th,
 .content table.wikitable > * > tr > td {
-  border: 1px solid #cccccc;
+  border: 1px solid #c8ccd1;
   padding: 0.2em;
 }
 .content table.wikitable > tr > th,
 .content table.wikitable > * > tr > th {
-  background-color: #eeeeee;
+  background-color: #eaecf0;
 }
 /*
 A file for css that corrects known rendering issues on known Wikimedia wikis.
