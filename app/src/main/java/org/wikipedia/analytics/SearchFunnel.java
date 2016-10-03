@@ -7,6 +7,10 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.SearchInvokeSource;
 
 public class SearchFunnel extends Funnel {
+    /**
+     * Please email someone in Discovery (Search Team's Product Manager or a Data Analyst)
+     * if you change the schema name or version.
+     */
     private static final String SCHEMA_NAME = "MobileWikiAppSearch";
     private static final int REVISION = 15729321;
     private SearchInvokeSource source;
