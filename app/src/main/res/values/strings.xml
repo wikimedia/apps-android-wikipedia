@@ -219,6 +219,8 @@
     <string name="gallery_fair_use_license">Fair use</string>
     <string name="gallery_uploader_unknown">Uploader unknown</string>
     <string name="menu_new_tab">New tab</string>
+    <string name="menu_close_all_tabs">Close all tabs</string>
+    <string name="close_all_tabs_confirm">Are you sure you want to close all tabs?</string>
     <string name="button_close_tab">Close tab</string>
     <string name="tool_tip_select_text">Press and hold anywhere in the text to highlight it for copying and sharing.</string>
     <string name="tool_tip_share">After highlighting an interesting fact, try sharing it on your favorite networks!</string>

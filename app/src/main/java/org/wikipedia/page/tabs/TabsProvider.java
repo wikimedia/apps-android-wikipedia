@@ -1,17 +1,10 @@
 package org.wikipedia.page.tabs;
 
-import org.wikipedia.R;
-import org.wikipedia.page.PageBackStackItem;
-import org.wikipedia.page.PageFragment;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.views.ViewUtil;
-
-import com.facebook.drawee.view.SimpleDraweeView;
-
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,6 +18,16 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.wikipedia.R;
+import org.wikipedia.page.PageBackStackItem;
+import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.views.ViewUtil;
+
 import java.util.List;
 
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
@@ -37,6 +40,7 @@ public class TabsProvider {
         void onTabSelected(int position);
         void onNewTabRequested();
         void onCloseTabRequested(int position);
+        void onCloseAllTabs();
     }
 
     public enum TabPosition {
@@ -168,6 +172,18 @@ public class TabsProvider {
             switch (item.getItemId()) {
                 case R.id.menu_new_tab:
                     providerListener.onNewTabRequested();
+                    return true;
+                case R.id.menu_close_all_tabs:
+                    AlertDialog.Builder alert = new AlertDialog.Builder(fragment.getContext());
+                    alert.setMessage(R.string.close_all_tabs_confirm);
+                    alert.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            providerListener.onCloseAllTabs();
+                        }
+                    });
+                    alert.setNegativeButton(R.string.no, null);
+                    alert.create().show();
                     return true;
                 default:
                     return false;
@@ -373,6 +389,8 @@ public class TabsProvider {
         @Override public void onTabSelected(int position) { }
         @Override public void onNewTabRequested() { }
         @Override public void onCloseTabRequested(int position) { }
+        @Override public void onCloseAllTabs() { }
+
     }
 
     private static class ViewHolder {

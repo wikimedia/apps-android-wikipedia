@@ -506,6 +506,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 pageDataClient.loadFromBackStack();
             }
         }
+
+        @Override
+        public void onCloseAllTabs() {
+            tabList.clear();
+            Prefs.clearTabs();
+            getActivity().finish();
+        }
     };
 
     @Override
