@@ -676,7 +676,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private boolean shouldRecreateMainActivity() {
-        return getIntent().getAction().equals(Intent.ACTION_VIEW);
+        return getIntent().getAction() == null
+                || getIntent().getAction().equals(Intent.ACTION_VIEW);
     }
 
     private void loadMainPageIfNoTabs() {
