@@ -264,7 +264,7 @@
   <string name="reading_list_edit_cancel">منسوخ</string>
   <string name="reading_list_delete_confirm">کیا آپ یقینی طور پراس کو فہرست مطالعہ سے حذف کرنا چاہتے ہیں؟</string>
   <string name="reading_lists_empty">یہاں کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
-  <string name="reading_lists_empty_message">جن مضامین کو آپ پڑھتے ہیں انہیں مطالعہ کی فہرستوں میں شامل کریں! کسی مضمون کا مطالعہ کرتے وقت مضمون کے اوپر موجود بُک مارک نشان کو تھپتھپائیں تاکہ اسے فہرست مطالعہ میں شامل کیا جاسکے۔</string>
+  <string name="reading_lists_empty_message" fuzzy="true">جن مضامین کو آپ پڑھتے ہیں انہیں مطالعہ کی فہرستوں میں شامل کریں! کسی مضمون کا مطالعہ کرتے وقت مضمون کے اوپر موجود بُک مارک نشان کو تھپتھپائیں تاکہ اسے فہرست مطالعہ میں شامل کیا جاسکے۔</string>
   <string name="reading_lists_onboarding_intro">ان مضامین سے مطالعہ کی فہرستیں بنائیں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں!</string>
   <string name="reading_lists_onboarding_for_example">مثلاً</string>
   <string name="reading_lists_onboarding_example1">دیکھنے کے مقامات</string>

@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">Эта статья уже находится в данном списке.</string>
   <string name="reading_list_added_view_button">Просмотр списка</string>
   <string name="reading_list_item_count_singular">1 статья</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d статей</string>
+  <string name="reading_list_item_count_plural">%d статей</string>
   <string name="reading_list_sort">Сортировать</string>
   <string name="reading_list_sort_by_name">Сортировка по названию</string>
   <string name="reading_list_sort_by_name_desc">Сортировка по названию (обратная)</string>
@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">Отмена</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить этот список для чтения?</string>
   <string name="reading_lists_empty">Ещё нет списков для чтения.</string>
-  <string name="reading_lists_empty_message">Сгруппируйте статьи, которые вы просматриваете, в списки для чтения! Когда вы просматриваете статью, нажмите значок закладки в верхней части статьи, чтобы добавить её в список для чтения.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Сгруппируйте статьи, которые вы просматриваете, в списки для чтения! Когда вы просматриваете статью, нажмите значок закладки в верхней части статьи, чтобы добавить её в список для чтения.</string>
   <string name="reading_lists_onboarding_intro">Создайте списки для чтения из статей, которые вы хотели бы прочитать позже, даже если вы не подключены к интернету!</string>
   <string name="reading_lists_onboarding_for_example">Например</string>
   <string name="reading_lists_onboarding_example1">Места для посещения</string>
@@ -284,6 +284,7 @@
   <string name="view_featured_image_card_download">Загрузить</string>
   <string name="menu_feed_card_dismiss">Скрыть эту карточку</string>
   <string name="menu_feed_card_dismissed">Карточка скрыта.</string>
+  <string name="menu_feed_overflow_label">Больше настроек</string>
   <string name="feed_featured_image_share_subject">Лучшие изображения Викисклада</string>
   <string name="feed">Исследуйте</string>
   <string name="view_card_footer_button">См. также</string>

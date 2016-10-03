@@ -196,4 +196,5 @@
   <string name="reading_lists_onboarding_for_example">Adibidez</string>
   <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
   <string name="user_option_sync_label">Hobespenak</string>
+  <string name="menu_feed_overflow_label">Aukera gehiago</string>
 </resources>

@@ -247,7 +247,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_already_exists">Cet article est déjà dans cette liste.</string>
   <string name="reading_list_added_view_button">Afficher la liste</string>
   <string name="reading_list_item_count_singular">1 article</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d articles</string>
+  <string name="reading_list_item_count_plural">%d articles</string>
   <string name="reading_list_sort">Trier</string>
   <string name="reading_list_sort_by_name">Trier par nom</string>
   <string name="reading_list_sort_by_name_desc">Trier par nom (inverse)</string>
@@ -266,7 +266,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_edit_cancel">Annuler</string>
   <string name="reading_list_delete_confirm">Êtes-vous sûr de vouloir supprimer cette liste de lecture ?</string>
   <string name="reading_lists_empty">Aucune liste de lecture ici.</string>
-  <string name="reading_lists_empty_message">Organiser les articles dans lesquels vous naviguez en listes de lecture ! En parcourant un article, cliquez sur l’icône en haut de l’article pour l’ajouter à une liste de lecture.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organiser les articles dans lesquels vous naviguez en listes de lecture ! En parcourant un article, cliquez sur l’icône en haut de l’article pour l’ajouter à une liste de lecture.</string>
   <string name="reading_lists_onboarding_intro">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même en étant hors connexion !</string>
   <string name="reading_lists_onboarding_for_example">Par exemple</string>
   <string name="reading_lists_onboarding_example1">Endroits à visiter</string>

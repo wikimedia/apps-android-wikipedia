@@ -246,7 +246,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_already_exists">Questa voce è già presente in questo elenco.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="reading_list_item_count_singular">1 voce</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d voci</string>
+  <string name="reading_list_item_count_plural">%d voci</string>
   <string name="reading_list_sort">Ordina</string>
   <string name="reading_list_sort_by_name">Ordina per nome</string>
   <string name="reading_list_sort_by_name_desc">Ordina per nome (inverso)</string>
@@ -265,7 +265,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_edit_cancel">Annulla</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare questo elenco di lettura?</string>
   <string name="reading_lists_empty">Nessun elenco di lettura qui.</string>
-  <string name="reading_lists_empty_message">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in cima alla voce, per aggiungerla ad un elenco di lettura.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in cima alla voce, per aggiungerla ad un elenco di lettura.</string>
   <string name="reading_lists_onboarding_intro">Crea elenchi di lettura da voci che vuoi leggere più tardi, anche quando sei offline!</string>
   <string name="reading_lists_onboarding_for_example">Per esempio</string>
   <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>
@@ -284,6 +284,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="view_featured_image_card_download">Scarica</string>
   <string name="menu_feed_card_dismiss">Nascondi questa scheda</string>
   <string name="menu_feed_card_dismissed">Scheda nascosta.</string>
+  <string name="menu_feed_overflow_label">Altre opzioni</string>
   <string name="feed_featured_image_share_subject">Immagine in vetrina da Wikimedia Commons</string>
   <string name="feed">Esplora</string>
   <string name="view_card_footer_button">Vedi altro</string>

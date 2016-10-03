@@ -263,7 +263,7 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="reading_list_edit_cancel">Mégse</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni ezt az olvasólistát?</string>
   <string name="reading_lists_empty">Nincs olvasólista.</string>
-  <string name="reading_lists_empty_message">Rendezd a böngészett szócikkeket olvasólistákba! Amikor olvasol egy szócikket, érintsd meg a könyvjelző ikont a cikk tetején, hogy hozzáadd egy olvasólistához.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Rendezd a böngészett szócikkeket olvasólistákba! Amikor olvasol egy szócikket, érintsd meg a könyvjelző ikont a cikk tetején, hogy hozzáadd egy olvasólistához.</string>
   <string name="reading_lists_onboarding_intro">Készíts olvasólistát szócikkekből, amiket később szeretnél elolvasni, akár internetkapcsolat nélkül is!</string>
   <string name="reading_lists_onboarding_for_example">Például</string>
   <string name="reading_lists_onboarding_example1">Látványosságok</string>

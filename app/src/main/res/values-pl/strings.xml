@@ -254,6 +254,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="view_featured_image_card_title">Grafika dnia</string>
   <string name="view_featured_image_card_download">Pobierz</string>
   <string name="menu_feed_card_dismiss">Ukryj tę kartę</string>
+  <string name="menu_feed_overflow_label">Więcej opcji</string>
   <string name="feed_featured_image_share_subject">Najlepsze zdjęcia z Wikimedia Commons</string>
   <string name="view_card_footer_button">Zobacz więcej</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>

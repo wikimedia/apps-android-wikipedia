@@ -164,6 +164,7 @@
   <string name="search_did_you_mean">Mengt Dir \"%s\"?</string>
   <string name="search_recent_header">Rezent gesicht:</string>
   <string name="button_clear_all_recent_searches">Rezent Ufroen, fir ze sichen, läschen</string>
+  <string name="clear_recent_searches_confirm">Sidd Dir sécher datt Dir Ären Historique vum Siche läsche wëllt?</string>
   <string name="error_browser_not_found">Websäit konnt net opgemaach ginn (keng App fonnt).</string>
   <string name="table_infobox">Séier Fakten</string>
   <string name="table_other">Méi Informatiounen</string>
@@ -210,9 +211,12 @@
   <string name="button_continue_to_article">Artikel liesen</string>
   <string name="button_get_directions">Richtunge kréien</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
+  <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
+  <string name="preference_summary_show_link_previews">Kuerz weise wéi den Artikel ausgesäit wann een op d\'Linken tippt.</string>
   <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
+  <string name="crash_report_dialog_text">Wëllt Dir e Rapport iwwer de Crash un HockeyApp / en onofhängege Service-Provider schécke fir datt Wikimedia Äre Crash nokucke kann an de Feeler verbessere kann, den en ausgeléist huet?</string>
   <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>
   <string name="crash_report_dialog_always_send_button">Ëmmer schécken</string>
   <string name="crash_report_dialog_send_button">Schécken</string>
@@ -234,7 +238,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
   <string name="reading_list_item_count_singular">1 Artikel</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d Artikelen</string>
+  <string name="reading_list_item_count_plural">%d Artikelen</string>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
   <string name="reading_list_sort_by_name_desc">Nom Numm zortéieren (ëmgedréit)</string>
@@ -270,6 +274,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="view_featured_image_card_download">Eroflueden</string>
   <string name="menu_feed_card_dismiss">Dës Kaart verstoppen</string>
   <string name="menu_feed_card_dismissed">Kaart verstoppt.</string>
+  <string name="menu_feed_overflow_label">Méi Optiounen</string>
   <string name="feed_featured_image_share_subject">Qualitéitsbild vu Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
   <string name="view_card_footer_button">Méi gesinn</string>

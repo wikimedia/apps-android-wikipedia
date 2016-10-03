@@ -233,7 +233,7 @@
   <string name="article_menu_bar_bookmark">हा लेख वाचनयादीत जोडा</string>
   <string name="article_menu_bar_share">लेखदुवा सहभागा</string>
   <string name="article_menu_bar_navigate">या लेखाच्या स्थळास न्याहाळा</string>
-  <string name="nav_item_reading_lists" fuzzy="true">वाचन याद्या</string>
+  <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_untitled">विनाशिर्षक</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
   <string name="reading_list_create_new">नवीन तयार करा</string>
@@ -242,7 +242,7 @@
   <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
   <string name="reading_list_added_view_button">यादी बघा</string>
   <string name="reading_list_item_count_singular">१ लेख</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d लेख</string>
+  <string name="reading_list_item_count_plural">%d लेख</string>
   <string name="reading_list_sort">निवडा</string>
   <string name="reading_list_sort_by_name">नावानुसार निवडा</string>
   <string name="reading_list_sort_by_name_desc">नावानुसार निवडा (उलट)</string>
@@ -261,7 +261,7 @@
   <string name="reading_list_edit_cancel">रद्द करा</string>
   <string name="reading_list_delete_confirm">आपणास खात्री आहे काय कि आपणास ही वाचन यादी वगळायची आहे?</string>
   <string name="reading_lists_empty">येथे वाचन याद्या नाहीत.</string>
-  <string name="reading_lists_empty_message">आपण न्याहाळत असलेले लेख वाचन यादीत नियोजित करा ! लेख न्याहाळत असतांना, तो आपल्या वाचनयादीत जोडण्यास,लेखाच्या वरील बाजूस असणाऱ्या बुकमार्क आयकॉनवर थपकवा.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">आपण न्याहाळत असलेले लेख वाचन यादीत नियोजित करा ! लेख न्याहाळत असतांना, तो आपल्या वाचनयादीत जोडण्यास,लेखाच्या वरील बाजूस असणाऱ्या बुकमार्क आयकॉनवर थपकवा.</string>
   <string name="reading_lists_onboarding_intro">जरी आपण विनाजाल असाल तरीही,आपणास नंतर वाचावयाच्या लेखांची वाचनयादी तयार करा!</string>
   <string name="reading_lists_onboarding_for_example">उदाहरणार्थ</string>
   <string name="reading_lists_onboarding_example1">भेट द्यावयाची स्थाने</string>
@@ -276,4 +276,5 @@
   <string name="view_main_page_card_subtitle">%s वरील मुख्य पान</string>
   <string name="menu_feed_card_dismiss">हा पत्ता लपवा</string>
   <string name="menu_feed_card_dismissed">पत्ता लपला आहे.</string>
+  <string name="menu_feed_overflow_label">अधिक पर्याय</string>
 </resources>

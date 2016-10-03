@@ -264,6 +264,7 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="view_featured_image_card_download">Atsisiųsti</string>
   <string name="menu_feed_card_dismiss">Paslėpti šią kortelę</string>
   <string name="menu_feed_card_dismissed">Kortelė paslėpta.</string>
+  <string name="menu_feed_overflow_label">Daugiau nustatymų</string>
   <string name="feed_featured_image_share_subject">Rinktiniai vaizdai iš Vikitekos</string>
   <string name="feed">Naršyti</string>
   <string name="view_card_footer_button">Žiūrėti daugiau</string>

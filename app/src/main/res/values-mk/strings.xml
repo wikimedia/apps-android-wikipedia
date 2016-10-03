@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">Откажи</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете овој список за читање?</string>
   <string name="reading_lists_empty">Тука нема списоци за читање.</string>
-  <string name="reading_lists_empty_message">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување најгоре во статијата за да ја додадете во списокот.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување најгоре во статијата за да ја додадете во списокот.</string>
   <string name="reading_lists_onboarding_intro">Создајте списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посета</string>
@@ -284,6 +284,7 @@
   <string name="view_featured_image_card_download">Преземи</string>
   <string name="menu_feed_card_dismiss">Скриј ја картичкава</string>
   <string name="menu_feed_card_dismissed">Картичката е скриена.</string>
+  <string name="menu_feed_overflow_label">Повеќе можности</string>
   <string name="feed_featured_image_share_subject">Избрана слика од Ризницата</string>
   <string name="feed">Истражете</string>
   <string name="view_card_footer_button">Поврзано</string>

@@ -263,7 +263,7 @@
   <string name="reading_list_edit_cancel">لغو</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید این فهرست مطالعه را حذف کنید؟</string>
   <string name="reading_lists_empty">در اینجا فهرست مطالعه‌ای وجود ندارد.</string>
-  <string name="reading_lists_empty_message">افزودن مقالاتی که شما آنها را مرور کردید به فهرست مطالعه! در زمان مطالعهٔ یک مقاله بر روی دکمهٔ بوک‌مارک انگشت بزنید تا مقاله به فهرست مطالعه افزوده شود.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">افزودن مقالاتی که شما آنها را مرور کردید به فهرست مطالعه! در زمان مطالعهٔ یک مقاله بر روی دکمهٔ بوک‌مارک انگشت بزنید تا مقاله به فهرست مطالعه افزوده شود.</string>
   <string name="reading_lists_onboarding_intro">درست کردن فهرست مطالعه برای مطالعه در زمانی دیگر حتی زمانی که به اینترنت دسترسی ندارید!</string>
   <string name="reading_lists_onboarding_for_example">برای مثال</string>
   <string name="reading_lists_onboarding_example1">مکان برای مشاهده</string>

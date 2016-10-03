@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">Скасувати</string>
   <string name="reading_list_delete_confirm">Ви дійсно хочете вилучити цей список читання?</string>
   <string name="reading_lists_empty">Списки читання відсутні.</string>
-  <string name="reading_lists_empty_message">Організуйте статті, що ви читаєте в списки до прочитання! Переглядаючи статтю, натисніть значок закладки у верхній частині статті, щоб додати її в список читання.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Організуйте статті, що ви читаєте в списки до прочитання! Переглядаючи статтю, натисніть значок закладки у верхній частині статті, щоб додати її в список читання.</string>
   <string name="reading_lists_onboarding_intro">Створіть списки з статей, які ви хочете прочитати пізніше, навіть коли ви в автономному режимі!</string>
   <string name="reading_lists_onboarding_for_example">Наприклад</string>
   <string name="reading_lists_onboarding_example1">Місця для відвідування</string>

@@ -235,7 +235,7 @@
   <string name="article_menu_bar_bookmark">أضف هذه المقالة لقائمة قراءة</string>
   <string name="article_menu_bar_share">شارك وصلة المقالة</string>
   <string name="article_menu_bar_navigate">انتقل إلى موقع هذه المقالة</string>
-  <string name="nav_item_reading_lists" fuzzy="true">قوائم القراءة</string>
+  <string name="nav_item_reading_lists">قوائمي</string>
   <string name="reading_list_untitled">غير معنونة</string>
   <string name="reading_list_save_to">احفظ في قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">هذه المقالة موجودة بالفعل في هذه القائمة</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="reading_list_item_count_singular">مقالة واحدة</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d مقالات</string>
+  <string name="reading_list_item_count_plural">%d مقالات</string>
   <string name="reading_list_sort">رتب</string>
   <string name="reading_list_sort_by_name">فرز حسب الاسم</string>
   <string name="reading_list_sort_by_name_desc">رتب حسب الاسم (عكسي)</string>
@@ -263,7 +263,7 @@
   <string name="reading_list_edit_cancel">إلغاء</string>
   <string name="reading_list_delete_confirm">هل أنت متأكد من رغبتك في حذف قائمة القراءة هذه؟</string>
   <string name="reading_lists_empty">لا قوائم قراءة هنا.</string>
-  <string name="reading_lists_empty_message">رتب المقالات التي تتصفحها في شكل قوائم مطالعة! حينما تتصفح مقالة، انقر على علامة الوسم في الجزء الأعلى من المقالة كي تضيفها إلى قائمة مطالعة.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">رتب المقالات التي تتصفحها في شكل قوائم مطالعة! حينما تتصفح مقالة، انقر على علامة الوسم في الجزء الأعلى من المقالة كي تضيفها إلى قائمة مطالعة.</string>
   <string name="reading_lists_onboarding_intro">أنشئ قوائم مطالعة من المقالات التي ترغب في الاطلاع عليها لاحقا، حتى لو كنت غير متصل بالإنترنت!</string>
   <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
   <string name="reading_lists_onboarding_example1">اماكن للزيارة</string>
@@ -282,6 +282,7 @@
   <string name="view_featured_image_card_download">تنزيل</string>
   <string name="menu_feed_card_dismiss">أخف هذه البطاقة</string>
   <string name="menu_feed_card_dismissed">أخفيت البطاقة.</string>
+  <string name="menu_feed_overflow_label">خيارات أخرى</string>
   <string name="feed_featured_image_share_subject">صورة مختارة من ويكيميديا كومنز</string>
   <string name="feed">استكشف</string>
   <string name="view_card_footer_button">طالع المزيد</string>

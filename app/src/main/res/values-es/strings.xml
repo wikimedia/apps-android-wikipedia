@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">Este artículo ya está en esa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="reading_list_item_count_singular">1 artículo</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d artículos</string>
+  <string name="reading_list_item_count_plural">%d artículos</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_by_name">Ordenar por nombre</string>
   <string name="reading_list_sort_by_name_desc">Ordenar por nombre (inverso)</string>
@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">¿Estás seguro de que quieres eliminar esta lista de lectura?</string>
   <string name="reading_lists_empty">No hay listas de lectura aquí.</string>
-  <string name="reading_lists_empty_message">Organiza los artículos que navegas en listas de lectura. Cuando navegues por un artículo, pulsa el ícono de marcador en la parte superior del artículo para añadirlo a una lista de lectura.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organiza los artículos que navegas en listas de lectura. Cuando navegues por un artículo, pulsa el ícono de marcador en la parte superior del artículo para añadirlo a una lista de lectura.</string>
   <string name="reading_lists_onboarding_intro">Crea listas de lectura a partir de los artículos que quieras leer más tarde, ¡incluso sin conexión!</string>
   <string name="reading_lists_onboarding_for_example">Por ejemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
@@ -284,6 +284,7 @@
   <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss">Ocultar esta tarjeta</string>
   <string name="menu_feed_card_dismissed">Tarjeta ocultada.</string>
+  <string name="menu_feed_overflow_label">Más opciones</string>
   <string name="feed_featured_image_share_subject">Imagen destacada de Wikimedia Commons</string>
   <string name="feed">Explorar</string>
   <string name="view_card_footer_button">Ver más</string>

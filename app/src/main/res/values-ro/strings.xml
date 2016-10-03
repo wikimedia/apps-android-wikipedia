@@ -265,7 +265,7 @@ Doriți să o reporniți sau să o închideți?</string>
   <string name="reading_list_edit_cancel">Revocare</string>
   <string name="reading_list_delete_confirm">Sigur doriți să ștergeți această listă de lecturi?</string>
   <string name="reading_lists_empty">Nicio listă de lecturi pe aici.</string>
-  <string name="reading_lists_empty_message">Grupați articolele pe care le răsfoiți în liste de lecturi! Când frunzăriți un articol, atingeți pictograma „semn de carte” din partea de sus a articolului pentru a-l adăuga unei liste de lecturi.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Grupați articolele pe care le răsfoiți în liste de lecturi! Când frunzăriți un articol, atingeți pictograma „semn de carte” din partea de sus a articolului pentru a-l adăuga unei liste de lecturi.</string>
   <string name="reading_lists_onboarding_intro">Creați liste de lecturi cu articolele pe care doriți să le citiți mai târziu, chiar dacă sunteți off-line!</string>
   <string name="reading_lists_onboarding_for_example">De exemplu</string>
   <string name="reading_lists_onboarding_example1">Locuri de vizitat</string>

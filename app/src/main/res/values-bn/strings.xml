@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">এই নিবন্ধটি ইতিমধ্যে সেই তালিকায় রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
   <string name="reading_list_item_count_singular">১টি নিবন্ধ</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%dটি নিবন্ধ</string>
+  <string name="reading_list_item_count_plural">%dটি নিবন্ধ</string>
   <string name="reading_list_sort">বাছাই করুন</string>
   <string name="reading_list_sort_by_name">নাম অনুযায়ী বাছাই</string>
   <string name="reading_list_sort_by_name_desc">নাম অনুযায়ী বাছাই (বিপরীত)</string>
@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">বাতিল</string>
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই পড়ার তালিকা অপসারণ করতে চান?</string>
   <string name="reading_lists_empty">এখানে কোন পড়ার তালিকা নেই।</string>
-  <string name="reading_lists_empty_message">পড়ার তালিকার মধ্যে আপনার ব্রাউজ করা নিবন্ধ সংগঠিত করুন! যখন একটি নিবন্ধ ব্রাউজ করবেন, তা পড়ার তালিকায় যোগ করার জন্য নিবন্ধের শীর্ষে থাকা বুকমার্ক আইকনে টোকা দিন।</string>
+  <string name="reading_lists_empty_message" fuzzy="true">পড়ার তালিকার মধ্যে আপনার ব্রাউজ করা নিবন্ধ সংগঠিত করুন! যখন একটি নিবন্ধ ব্রাউজ করবেন, তা পড়ার তালিকায় যোগ করার জন্য নিবন্ধের শীর্ষে থাকা বুকমার্ক আইকনে টোকা দিন।</string>
   <string name="reading_lists_onboarding_intro">পরে পড়ার জন্য নিবন্ধ থেকে আপনার জন্য পড়ার তালিকা তৈরি করে, এমনকি যখন আপনি অফলাইনে থাকেন!</string>
   <string name="reading_lists_onboarding_for_example">উদাহরণস্বরূপ</string>
   <string name="reading_lists_onboarding_example1">ভ্রমণের জন্য স্থান</string>
@@ -284,6 +284,7 @@
   <string name="view_featured_image_card_download">ডাউনলোড করুন</string>
   <string name="menu_feed_card_dismiss">এই কার্ড লুকান</string>
   <string name="menu_feed_card_dismissed">কার্ড লুকানো।</string>
+  <string name="menu_feed_overflow_label">আরো বিকল্প</string>
   <string name="feed_featured_image_share_subject">উইকিমিডিয়া কমন্স থেকে নির্বাচিত চিত্র</string>
   <string name="feed">অন্বেষণ</string>
   <string name="view_card_footer_button">আরো দেখুন</string>

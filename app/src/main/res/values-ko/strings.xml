@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
   <string name="reading_list_item_count_singular">1개의 문서</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d개의 문서</string>
+  <string name="reading_list_item_count_plural">%d개의 문서</string>
   <string name="reading_list_sort">정렬</string>
   <string name="reading_list_sort_by_name">이름순</string>
   <string name="reading_list_sort_by_name_desc">이름순 (역순)</string>
@@ -263,7 +263,7 @@
   <string name="reading_list_edit_cancel">취소</string>
   <string name="reading_list_delete_confirm">이 읽기 목록을 삭제하시겠습니까?</string>
   <string name="reading_lists_empty">여기에 읽기 목록이 없습니다.</string>
-  <string name="reading_lists_empty_message">당신이 찾아본 글들을 읽기 목록에 정리합니다! 글을 찾아볼 때 문서 상단의 즐겨찾기 아이콘을 탭하면 읽기 목록에 글을 추가합니다.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">당신이 찾아본 글들을 읽기 목록에 정리합니다! 글을 찾아볼 때 문서 상단의 즐겨찾기 아이콘을 탭하면 읽기 목록에 글을 추가합니다.</string>
   <string name="reading_lists_onboarding_intro">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
   <string name="reading_lists_onboarding_for_example">예를 들어</string>
   <string name="reading_lists_onboarding_example1">방문할 장소</string>
@@ -282,6 +282,7 @@
   <string name="view_featured_image_card_download">다운로드</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
   <string name="menu_feed_card_dismissed">카드 숨겨짐.</string>
+  <string name="menu_feed_overflow_label">옵션 더 보기</string>
   <string name="feed_featured_image_share_subject">위키미디어 공용의 알찬 그림</string>
   <string name="feed">탐색</string>
   <string name="view_card_footer_button">더 보기</string>

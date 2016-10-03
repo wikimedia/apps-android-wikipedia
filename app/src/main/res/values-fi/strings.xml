@@ -185,7 +185,7 @@
   <string name="read_more_section">Lue lisää</string>
   <string name="menu_gallery_visit_page">Mene tiedostosivulle</string>
   <string name="gallery_error_draw_failed">Kuvaa ei voitu piirtää.</string>
-  <string name="license_title" fuzzy="true">Kirjaston %s lisenssiteksti</string>
+  <string name="license_title">Lisenssi %s:lle</string>
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
   <string name="gallery_menu_save">Tallenna laitteeseen</string>
@@ -246,7 +246,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_already_exists">Tämä artikkeli on jo listalla.</string>
   <string name="reading_list_added_view_button">Näytä luettelo</string>
   <string name="reading_list_item_count_singular">1 artikkeli</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d artikkelia</string>
+  <string name="reading_list_item_count_plural">%d artikkelia</string>
   <string name="reading_list_sort">Lajittele</string>
   <string name="reading_list_sort_by_name">Lajittele nimen mukaan</string>
   <string name="reading_list_sort_by_name_desc">Lajittele nimen mukaan (käänteinen)</string>
@@ -264,7 +264,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_edit_cancel">Peru</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa tämän lukulistan?</string>
   <string name="reading_lists_empty">Ei lukulistoja.</string>
-  <string name="reading_lists_empty_message">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta artikkelin yläosassa lisätäksesi sen lukulistaan.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta artikkelin yläosassa lisätäksesi sen lukulistaan.</string>
   <string name="reading_lists_onboarding_intro">Luo lukulistoja artikkeleista, jotka haluat lukea myöhemmin, jopa verkkoyhteydettömässä tilassa!</string>
   <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
   <string name="reading_lists_onboarding_example1">Paikat, joissa käydä</string>
@@ -274,15 +274,19 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="user_option_sync_label">Asetukset</string>
   <string name="view_continue_reading_card_title">Jatka lukemista</string>
   <string name="view_because_you_read_card_title">Koska luit</string>
+  <string name="view_random_card_title">Satunnaistaminen</string>
   <string name="view_random_card_subtitle">Lue satunnainen artikkeli Wikipediasta</string>
   <string name="view_main_page_card_title">Tänään Wikipediassa</string>
+  <string name="view_main_page_card_subtitle">Etusivu %s</string>
   <string name="view_featured_image_card_title">Päivän kuva</string>
   <string name="view_featured_image_card_download">Lataa</string>
   <string name="menu_feed_card_dismiss">Piilota tämä kortti</string>
   <string name="menu_feed_card_dismissed">Kortti piilotettu.</string>
+  <string name="menu_feed_overflow_label">Lisää vaihtoehtoja</string>
   <string name="feed_featured_image_share_subject">Suositeltu kuva Wikimedia Commonsista</string>
   <string name="feed">Tutki</string>
   <string name="view_card_footer_button">Katso lisää</string>
+  <string name="most_read_list_card_title">Nousussa</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
   <plurals name="view_continue_reading_card_subtitle">

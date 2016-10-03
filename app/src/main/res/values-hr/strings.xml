@@ -32,7 +32,7 @@
   <string name="menu_text_select_copy">Kopiraj</string>
   <string name="menu_text_select_define">Definiraj</string>
   <string name="menu_text_select_share">Podijeli</string>
-  <string name="menu_text_select_edit_here">Uredi od ovdje</string>
+  <string name="menu_text_select_edit_here">Uredi ovdje</string>
   <string name="nav_item_nearby">U blizini</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>

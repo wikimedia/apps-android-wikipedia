@@ -265,7 +265,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">Está seguro de que quere eliminar esta lista de lectura?</string>
   <string name="reading_lists_empty">Non hai listas de lectura aquí.</string>
-  <string name="reading_lists_empty_message">Organice os artigos nos que navega en listas de lectura! Cando lea un artigo, prema a icona de marcador na parte superior do artigo para engadilo a unha lista de lectura.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organice os artigos nos que navega en listas de lectura! Cando lea un artigo, prema a icona de marcador na parte superior do artigo para engadilo a unha lista de lectura.</string>
   <string name="reading_lists_onboarding_intro">Cree listas de lectura para os artigos que quere ler máis tarde, incluso cando non teña conexiónǃ</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>

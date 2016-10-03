@@ -265,7 +265,7 @@ Vill du starta om eller avsluta?</string>
   <string name="reading_list_edit_cancel">Avbryt</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill ta bort denna läslista?</string>
   <string name="reading_lists_empty">Inga läslistor här.</string>
-  <string name="reading_lists_empty_message">Organisera artiklarna du läser i läslistor! När du läser en artikel, tryck på bokmärkesikonen längst upp i artikeln för att lägga in den i en läslista.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organisera artiklarna du läser i läslistor! När du läser en artikel, tryck på bokmärkesikonen längst upp i artikeln för att lägga in den i en läslista.</string>
   <string name="reading_lists_onboarding_intro">Skapa läslistor av artiklar du vill läsa senare, även när du inte är uppkopplad.</string>
   <string name="reading_lists_onboarding_for_example">Till exempel</string>
   <string name="reading_lists_onboarding_example1">Platser att besöka</string>
@@ -284,6 +284,7 @@ Vill du starta om eller avsluta?</string>
   <string name="view_featured_image_card_download">Ladda ned</string>
   <string name="menu_feed_card_dismiss">Dölj detta kort</string>
   <string name="menu_feed_card_dismissed">Kortet doldes.</string>
+  <string name="menu_feed_overflow_label">Fler alternativ</string>
   <string name="feed_featured_image_share_subject">Utmärkt bild från Wikimedia Commons</string>
   <string name="feed">Utforska</string>
   <string name="view_card_footer_button">Se mer</string>

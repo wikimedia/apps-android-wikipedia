@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">キャンセル</string>
   <string name="reading_list_delete_confirm">あとで読むリストを本当に削除しますか?</string>
   <string name="reading_lists_empty">あとで読むリストはありません</string>
-  <string name="reading_lists_empty_message">あとで読むリストで記事を整理しましょう。記事を読んでいるときに上部のブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
+  <string name="reading_lists_empty_message" fuzzy="true">あとで読むリストで記事を整理しましょう。記事を読んでいるときに上部のブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
   <string name="reading_lists_onboarding_intro">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
   <string name="reading_lists_onboarding_for_example">例えば</string>
   <string name="reading_lists_onboarding_example1">行ってみたい場所</string>

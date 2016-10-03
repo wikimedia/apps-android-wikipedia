@@ -265,7 +265,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="reading_list_edit_cancel">Avbryt</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du ønsker å slette denne listen?</string>
   <string name="reading_lists_empty">Ingen leselister her enda.</string>
-  <string name="reading_lists_empty_message">Organiser artiklene du holder på med i leselister! Når du er inne på en artikkel kan du trykke på bokmerke-ikonet på toppen av artikkelen for å legge den til i en leseliste.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organiser artiklene du holder på med i leselister! Når du er inne på en artikkel kan du trykke på bokmerke-ikonet på toppen av artikkelen for å legge den til i en leseliste.</string>
   <string name="reading_lists_onboarding_intro">Opprett leselister fra artikler du ønsker å lese på et senere tidspunkt, selv når du er uten nettilgang!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder å besøke</string>

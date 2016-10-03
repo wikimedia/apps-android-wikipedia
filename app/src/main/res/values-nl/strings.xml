@@ -263,7 +263,7 @@
   <string name="reading_list_edit_cancel">Annuleren</string>
   <string name="reading_list_delete_confirm">Weet je zeker dat je deze leeslijst wilt verwijderen?</string>
   <string name="reading_lists_empty">Geen leeslijsten hier.</string>
-  <string name="reading_lists_empty_message">Organiseer de artikels die je bekijkt in leeslijsten! Tik terwijl je een artikel bekijkt op het bladwijzerpictogram bovenaan het artikel om het toe te voegen aan een leeslijst.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organiseer de artikels die je bekijkt in leeslijsten! Tik terwijl je een artikel bekijkt op het bladwijzerpictogram bovenaan het artikel om het toe te voegen aan een leeslijst.</string>
   <string name="reading_lists_onboarding_intro">Maak leeslijsten van artikels die je later wilt lezen, zelfs als je offline bent!</string>
   <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>
   <string name="reading_lists_onboarding_example1">Plaatsen om te bezoeken</string>

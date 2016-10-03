@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">此条目已在列表中。</string>
   <string name="reading_list_added_view_button">查看列表</string>
   <string name="reading_list_item_count_singular">1个条目</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d个条目</string>
+  <string name="reading_list_item_count_plural">%d个条目</string>
   <string name="reading_list_sort">排序</string>
   <string name="reading_list_sort_by_name">按名称排序</string>
   <string name="reading_list_sort_by_name_desc">按名称排序（反向）</string>
@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">取消</string>
   <string name="reading_list_delete_confirm">您确定要删除此阅读列表么？</string>
   <string name="reading_lists_empty">这里没有阅读列表。</string>
-  <string name="reading_lists_empty_message">组织您您浏览的条目至阅读列表中！当浏览一个条目时，点按条目上方的书签图片以将其添加至阅读列表中。</string>
+  <string name="reading_lists_empty_message" fuzzy="true">组织您您浏览的条目至阅读列表中！当浏览一个条目时，点按条目上方的书签图片以将其添加至阅读列表中。</string>
   <string name="reading_lists_onboarding_intro">从您希望稍后阅读的条目创建阅读列表，即便当您离线时！</string>
   <string name="reading_lists_onboarding_for_example">例如</string>
   <string name="reading_lists_onboarding_example1">要访问的地点</string>
@@ -284,6 +284,7 @@
   <string name="view_featured_image_card_download">下载</string>
   <string name="menu_feed_card_dismiss">隐藏此卡片</string>
   <string name="menu_feed_card_dismissed">卡片已隐藏。</string>
+  <string name="menu_feed_overflow_label">更多选项</string>
   <string name="feed_featured_image_share_subject">来自维基共享资源的特色图片</string>
   <string name="feed">探索</string>
   <string name="view_card_footer_button">查看更多</string>

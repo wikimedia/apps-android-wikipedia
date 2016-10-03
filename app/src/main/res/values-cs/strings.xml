@@ -265,7 +265,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_edit_cancel">Storno</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit tento seznam?</string>
   <string name="reading_lists_empty">Žádné seznamy ke čtení.</string>
-  <string name="reading_lists_empty_message">Vytvářejte si z článků, které procházíte, seznamy k přečtení! Když čtete článek, stisknutím tlačítka záložky nad článkem ho můžete přidat do seznamu k přečtení.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Vytvářejte si z článků, které procházíte, seznamy k přečtení! Když čtete článek, stisknutím tlačítka záložky nad článkem ho můžete přidat do seznamu k přečtení.</string>
   <string name="reading_lists_onboarding_intro">Vytvářejte si seznamy k přečtení z článků, které si chcete přečíst později, třeba až budete offline!</string>
   <string name="reading_lists_onboarding_for_example">Například</string>
   <string name="reading_lists_onboarding_example1">Místa k navštívení</string>

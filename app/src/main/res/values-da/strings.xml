@@ -265,7 +265,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_list_edit_cancel">Annuller</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette denne læseliste?</string>
   <string name="reading_lists_empty">Ingen læselister her.</string>
-  <string name="reading_lists_empty_message">Organiser de artikler du læser i læselister! Tap på bogmærkeikonet øverst i artiklen når du læser en artikel for at tilføje det til en læseliste.</string>
+  <string name="reading_lists_empty_message" fuzzy="true">Organiser de artikler du læser i læselister! Tap på bogmærkeikonet øverst i artiklen når du læser en artikel for at tilføje det til en læseliste.</string>
   <string name="reading_lists_onboarding_intro">Opret læselister fra artikler du ønsker at læse senere, selv når du er offline!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder at besøge</string>
@@ -284,6 +284,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="view_featured_image_card_download">Download</string>
   <string name="menu_feed_card_dismiss">Skjul dette kort</string>
   <string name="menu_feed_card_dismissed">Kort skjult.</string>
+  <string name="menu_feed_overflow_label">Flere indstillinger</string>
   <string name="feed_featured_image_share_subject">Fremhævet billede fra Wikimedia Commons</string>
   <string name="feed">Udforsk</string>
   <string name="view_card_footer_button">Se mere</string>

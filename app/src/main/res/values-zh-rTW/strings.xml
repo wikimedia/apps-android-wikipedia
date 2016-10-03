@@ -98,7 +98,7 @@
   <string name="zero_warn_when_leaving">離開 Wikipedia Zero 時提示</string>
   <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與 Wikipedia Zero 有合作夥伴關係，並且免除存取維基百科應用程式時的資料費用，請勾選此設定以幫助您知道您正在離開維基百科並可能被收取費用。</string>
   <string name="zero_webpage_title">Wikipedia Zero 常見問題</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_wikipedia_zero_heading">維基百科零</string>
   <string name="zero_interstitial_title">離開 Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">可能會收資料費用。繼續前往至外部網站嗎？</string>
   <string name="zero_interstitial_continue">離開</string>
@@ -246,7 +246,7 @@
   <string name="reading_list_already_exists">這個條目已經在清單之中。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
   <string name="reading_list_item_count_singular">1 個條目</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d 個條目</string>
+  <string name="reading_list_item_count_plural">%d 個條目</string>
   <string name="reading_list_sort">排序</string>
   <string name="reading_list_sort_by_name">依名稱排序</string>
   <string name="reading_list_sort_by_name_desc">按名稱排序 (反向)</string>
@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">取消</string>
   <string name="reading_list_delete_confirm">你確定要刪除此清單？</string>
   <string name="reading_lists_empty">這裡無閱讀清單</string>
-  <string name="reading_lists_empty_message">將你瀏覽過的條目組織到閱讀清單中！瀏覽條目時，輕觸條目上方的書籤圖示，將它新增至閱讀清單中。</string>
+  <string name="reading_lists_empty_message" fuzzy="true">將你瀏覽過的條目組織到閱讀清單中！瀏覽條目時，輕觸條目上方的書籤圖示，將它新增至閱讀清單中。</string>
   <string name="reading_lists_onboarding_intro">建立您感興趣條目的閱讀清單，讓您即使在離線狀態下也可使用！</string>
   <string name="reading_lists_onboarding_for_example">舉例</string>
   <string name="reading_lists_onboarding_example1">要瀏覽的項目</string>
@@ -284,6 +284,7 @@
   <string name="view_featured_image_card_download">下載</string>
   <string name="menu_feed_card_dismiss">隱藏此卡片</string>
   <string name="menu_feed_card_dismissed">卡片已隱藏。</string>
+  <string name="menu_feed_overflow_label">更多選項</string>
   <string name="feed_featured_image_share_subject">來自維基共享資源的特色圖片</string>
   <string name="feed">探索</string>
   <string name="view_card_footer_button">查看更多</string>
