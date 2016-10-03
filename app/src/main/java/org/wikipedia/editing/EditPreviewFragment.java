@@ -23,7 +23,6 @@ import org.wikipedia.Site;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
-import org.wikipedia.bridge.StyleBundle;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.L10nUtil;
@@ -177,7 +176,6 @@ public class EditPreviewFragment extends Fragment {
     private void displayPreview(final String html) {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
-            bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PREVIEW));
             L10nUtil.setupDirectionality(parentActivity.getPageTitle().getSite().languageCode(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().isCurrentThemeDark()) {
                 new NightModeHandler(bridge).turnOn(false);

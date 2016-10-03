@@ -80,15 +80,6 @@ public class CommunicationBridge {
         }
     }
 
-    /**
-     * Inject the styles specified by the bundle into this webview.
-     *
-     * @param styleBundle The bundle representing the styles to load.
-     */
-    public void injectStyleBundle(StyleBundle styleBundle) {
-        sendMessage("injectStyles", styleBundle.toJSON());
-    }
-
     public void sendMessage(String messageName, JSONObject messageData) {
         String messagePointer =  marshaller.putPayload(messageData.toString());
 

@@ -74,7 +74,7 @@ function toggle( nightCSSURL, hasPageLoaded ) {
 }
 
 bridge.registerListener( 'toggleNightMode', function( payload ) {
-	toggle( payload.nightStyleBundle.style_paths[0], payload.hasPageLoaded );
+	toggle( payload.nightStyleURL, payload.hasPageLoaded );
 } );
 
 module.exports = {

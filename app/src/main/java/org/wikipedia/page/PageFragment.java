@@ -44,7 +44,6 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.StyleBundle;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.history.HistoryEntry;
@@ -351,8 +350,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 showBottomSheet(new ReferenceDialog(getActivity(), linkHandler, refHtml));
             }
         };
-
-        bridge.injectStyleBundle(StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_PAGEVIEW));
 
         // make sure styles get injected before the NightModeHandler and other handlers
         if (app.isCurrentThemeDark()) {
