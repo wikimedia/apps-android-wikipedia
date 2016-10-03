@@ -3,7 +3,6 @@ package org.wikipedia;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.bridge.StyleBundle;
 
 public class NightModeHandler {
     private final CommunicationBridge bridge;
@@ -27,8 +26,7 @@ public class NightModeHandler {
         JSONObject payload = new JSONObject();
         try {
             payload.put("hasPageLoaded", hasPageLoaded);
-            payload.put("nightStyleBundle",
-                    StyleBundle.getAvailableBundle(StyleBundle.BUNDLE_NIGHT_MODE).toJSON());
+            payload.put("nightStyleURL", "file:///android_asset/night.css");
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

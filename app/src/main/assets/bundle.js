@@ -164,8 +164,6 @@ transformer.register( 'displayIssuesLink', function( content ) {
 } );
 
 },{"./transformer":13}],6:[function(require,module,exports){
-var bridge = require( "./bridge" );
-
 function addStyleLink( href ) {
     var link = document.createElement( "link" );
     link.setAttribute( "rel", "stylesheet" );
@@ -175,17 +173,10 @@ function addStyleLink( href ) {
     document.getElementsByTagName( "head" )[0].appendChild( link );
 }
 
-bridge.registerListener( "injectStyles", function( payload ) {
-    var style_paths = payload.style_paths;
-    for ( var i = 0; i < style_paths.length; i++ ) {
-        addStyleLink( style_paths[i] );
-    }
-});
-
 module.exports = {
 	addStyleLink: addStyleLink
 };
-},{"./bridge":2}],7:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var bridge = require( "./bridge" );
 var transformer = require("./transformer");
 
@@ -315,7 +306,7 @@ function toggle( nightCSSURL, hasPageLoaded ) {
 }
 
 bridge.registerListener( 'toggleNightMode', function( payload ) {
-	toggle( payload.nightStyleBundle.style_paths[0], payload.hasPageLoaded );
+	toggle( payload.nightStyleURL, payload.hasPageLoaded );
 } );
 
 module.exports = {
