@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="AlwaysShowAction">
+    <!--
+    The items in this menu are marked with showAsAction="always" on purpose:
+    We truly want all of the buttons to be shown in the toolbar, even on small
+    screens, instead of overflowing into the native overflow menu.
+    -->
     <item android:id="@+id/menu_feed_search"
         android:title="@string/search_hint"
         android:icon="@drawable/ic_search_white_24dp"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
     <item android:id="@+id/menu_feed_tabs"
         android:title="@string/menu_page_show_tabs"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
     <item android:id="@+id/menu_overflow_button"
         android:title="@string/menu_feed_overflow_label"
         android:icon="@drawable/ic_more_vert_white_24dp"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 </menu>
