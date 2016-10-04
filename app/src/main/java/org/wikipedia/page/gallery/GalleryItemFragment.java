@@ -10,10 +10,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.MediaController;
@@ -59,7 +61,7 @@ public class GalleryItemFragment extends Fragment {
     private View videoPlayButton;
     private MediaController mediaController;
 
-    @NonNull private WikipediaApp app = WikipediaApp.getInstance();;
+    @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @Nullable private GalleryActivity parentActivity;
     @Nullable private PageTitle pageTitle;
     @SuppressWarnings("NullableProblems") @NonNull private PageTitle imageTitle;
@@ -99,10 +101,11 @@ public class GalleryItemFragment extends Fragment {
         videoThumbnail = (SimpleDraweeView) rootView.findViewById(R.id.gallery_video_thumbnail);
         videoPlayButton = rootView.findViewById(R.id.gallery_video_play_button);
         imageView = (ZoomableDraweeView) rootView.findViewById(R.id.gallery_image);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        imageView.setTapListener(new GestureDetector.SimpleOnGestureListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onSingleTapConfirmed(MotionEvent e) {
                 parentActivity.toggleControls();
+                return true;
             }
         });
         GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
