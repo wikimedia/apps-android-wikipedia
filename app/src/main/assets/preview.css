@@ -791,6 +791,9 @@ ul.mw-gallery-slideshow li.gallerycarousel {
   height: 16px;
   width: 28px;
 }
+.mcs-ipa {
+  display: none;
+}
 
 .content figure {
   max-width: 100%;
