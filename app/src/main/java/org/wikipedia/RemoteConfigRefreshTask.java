@@ -7,6 +7,7 @@ import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.util.log.L;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Request;
 import okhttp3.Response;
@@ -15,8 +16,7 @@ public class RemoteConfigRefreshTask extends RecurringTask {
     // Switch over to production when it is available
     private static final java.lang.String REMOTE_CONFIG_URL = "https://meta.wikimedia.org/static/current/extensions/MobileApp/config/android.json";
 
-    // The 'l' suffix is needed because stupid Java overflows constants otherwise
-    private static final long RUN_INTERVAL_MILLI = 24L * 60L * 60L * 1000L; // Once a day!
+    private static final long RUN_INTERVAL_MILLI = TimeUnit.DAYS.toMillis(1);
 
     @Override
     protected boolean shouldRun(Date lastRun) {

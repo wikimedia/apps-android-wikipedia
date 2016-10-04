@@ -18,12 +18,13 @@ import android.support.v4.app.NotificationCompat;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class AlphaUpdateChecker extends RecurringTask {
-    private static final long RUN_INTERVAL_MILLI = 24L * 60L * 60L * 1000L; // Once a day!
+    private static final long RUN_INTERVAL_MILLI = TimeUnit.DAYS.toMillis(1);
 
     private static final String PREFERENCE_KEY_ALPHA_COMMIT = "alpha_last_checked_commit";
     private static final String ALPHA_BUILD_APK_URL = "https://android-builds.wmflabs.org/runs/latest/wikipedia.apk";
