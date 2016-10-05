@@ -425,7 +425,10 @@ public class NearbyFragment extends Fragment {
     }
 
     private void updateLocationEnabled(@NonNull MapboxMap map) {
-        map.setMyLocationEnabled(getUserVisibleHint());
+        // the mapbox sdk will actually quickly toggle the gps if it was already enabled
+        if (!map.isMyLocationEnabled()) {
+            map.setMyLocationEnabled(getUserVisibleHint());
+        }
     }
 
     @SuppressLint("CommitPrefEdits")
