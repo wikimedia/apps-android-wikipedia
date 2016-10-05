@@ -264,7 +264,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="reading_list_edit_cancel">Peru</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa tämän lukulistan?</string>
   <string name="reading_lists_empty">Ei lukulistoja.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta artikkelin yläosassa lisätäksesi sen lukulistaan.</string>
+  <string name="reading_lists_empty_message">Järjestä selaamasi artikkelit lukulistoiksi! Kun selaat artikkelia, napauta kirjanmerkkikuvaketta alaosan työkalupalkissa lisätäksesi sen lukulistaan.</string>
   <string name="reading_lists_onboarding_intro">Luo lukulistoja artikkeleista, jotka haluat lukea myöhemmin, jopa verkkoyhteydettömässä tilassa!</string>
   <string name="reading_lists_onboarding_for_example">Esimerkiksi</string>
   <string name="reading_lists_onboarding_example1">Paikat, joissa käydä</string>

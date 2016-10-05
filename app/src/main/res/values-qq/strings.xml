@@ -64,7 +64,14 @@ The Share list contains the following menu items (localized):
   <string name="content_license_html">HTML specifying license of the Wiki and link to appropriate CC page</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC license before saving edits</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC license and a log link before saving edits, only when the user has not logged in. Please do not change the href=\'https://#login\' part of the message.</string>
-  <string name="preference_title_language">Title for preference in settings screen for setting which language wikipedia to use.</string>
+  <string name="preference_title_language">Title for preference in settings screen for setting which language Wikipedia to use.
+
+Shown in the preferences screen along with the following:
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
+* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_languages_filter_hint">Placeholder text for the textbox that when typed filters list of language wikipedias from which user can pick a language to use.
 {{Identical|Search}}</string>
   <string name="langlinks_filter_hint">{{Identical|Search}}</string>
@@ -137,7 +144,14 @@ See also:
   <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF</string>
   <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
-  <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link</string>
+  <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link.
+
+Shown in the preferences screen along with the following:
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
+* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="zero_warn_when_leaving_summary">Lengthy explanation of Wikipedia Zero for settings screen</string>
   <string name="zero_webpage_title">Link title for the Wikipedia Zero FAQ for the app</string>
   <string name="zero_wikipedia_zero_heading">Settings heading for Wikipedia Zero.
@@ -160,7 +174,14 @@ Shown in left navigation. Tapping it produces a random page.</string>
 * {{msg-mw|Accountcreatedtext|message}}</string>
   <string name="preferences_privacy_settings_heading">Section title for privacy related settings
 {{Identical|Privacy}}</string>
-  <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.</string>
+  <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.
+
+Shown in the preferences screen along with the following:
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
+* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_title_auto_upload_crash_reports">Title of preference that when checked enables automatic upload of crash reports.</string>
   <string name="preference_summary_auto_upload_crash_reports">Description of preference that when checked checked enables automatic upload of crash reports.</string>
@@ -262,7 +283,15 @@ Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.
 Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}.</string>
   <string name="dialog_close_description">Button description for the close image button. The text is mainly for screen readers.
 {{Identical|Close}}</string>
-  <string name="preference_title_show_images">Preference title for selecting whether images are loaded in pages
+  <string name="preference_title_show_images">Preference title for selecting whether images are loaded in pages.
+
+Shown in the preferences screen along with the following:
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
+* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}
+
 {{Identical|Show image}}</string>
   <string name="preference_summary_show_images">Description of the preference for whether images are loaded, mentioning that this setting should be disabled if the user\'s internet connection is slow, or if their data plan is limited or restricted.</string>
   <string name="read_more_section">Title of the Read More section at the bottom of each page.
@@ -311,7 +340,14 @@ Preceded by {{msg-wm|Wikipedia-android-strings-alpha update notification title}}
   <string name="button_continue_to_article">Button to continue to the full article from the current link preview.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
-  <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.</string>
+  <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.
+
+Shown in the preferences screen along with the following:
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}
+* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}
+* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="nav_item_donate">Text in navigation sidebar that when tapped leads to a web page where the user may donate to Wikipedia.</string>
   <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>

@@ -93,13 +93,13 @@
   <string name="create_account_button">Buat akun baru</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Tanya jawab aplikasi Wikipedia</string>
-  <string name="zero_charged_verbiage">Wikipedia Nol dimatikan</string>
-  <string name="zero_search_hint">Telusuri Wikipedia Nol</string>
-  <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Nol</string>
-  <string name="zero_warn_when_leaving_summary">Jika operator selular Anda membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Nol, meninggalkan pengaturan ini dicentang dapat membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan biaya.</string>
+  <string name="zero_charged_verbiage">Wikipedia Zero dimatikan</string>
+  <string name="zero_search_hint">Telusuri Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving_summary">Jika operator selular Anda membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Zero, meninggalkan pengaturan ini dicentang dapat membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan biaya.</string>
   <string name="zero_webpage_title">Tanya jawab Wikipedia Nol</string>
-  <string name="zero_wikipedia_zero_heading">Wikipedia Nol</string>
-  <string name="zero_interstitial_title">Meninggalkan Wikipedia Nol</string>
+  <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
+  <string name="zero_interstitial_title">Meninggalkan Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Biaya data mungkin berlaku. Lanjutkan ke situs eksternal?</string>
   <string name="zero_interstitial_continue">Tinggalkan</string>
   <string name="zero_interstitial_cancel">Tetap di sini</string>
@@ -265,7 +265,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_edit_cancel">Batal</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus daftar bacaan ini?</string>
   <string name="reading_lists_empty">Tidak ada daftar bacaan di sini.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Susun artikel yang Anda jelajah ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, sentuh ikon markah pada bagian atas artikel untuk menambahkannya ke daftar bacaan.</string>
+  <string name="reading_lists_empty_message">Susun artikel yang dijelajahi oleh Anda ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, sentuh ikon markah di bilah alat bawah untuk menambahkannya ke daftar bacaan.</string>
   <string name="reading_lists_onboarding_intro">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan ketika Anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>

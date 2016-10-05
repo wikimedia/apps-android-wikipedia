@@ -265,7 +265,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="reading_list_edit_cancel">Annulla</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare questo elenco di lettura?</string>
   <string name="reading_lists_empty">Nessun elenco di lettura qui.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in cima alla voce, per aggiungerla ad un elenco di lettura.</string>
+  <string name="reading_lists_empty_message">Organizza le voci in cui navighi in elenchi di lettura! Durante la navigazione in una voce, tocca l\'icona del segnalibro in fondo alla barra degli strumenti, per aggiungerla ad un elenco di lettura.</string>
   <string name="reading_lists_onboarding_intro">Crea elenchi di lettura da voci che vuoi leggere più tardi, anche quando sei offline!</string>
   <string name="reading_lists_onboarding_for_example">Per esempio</string>
   <string name="reading_lists_onboarding_example1">Luoghi da visitare</string>

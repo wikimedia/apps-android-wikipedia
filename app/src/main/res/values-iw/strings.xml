@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">ביטול</string>
   <string name="reading_list_delete_confirm">האם ברצונך באמת למחוק את רשימת הקריאה הזאת?</string>
   <string name="reading_lists_empty">אין כאן רשימות קריאה.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">ארגנו את הערכים שאתם גולשים בהם לרשימת קריאה! בעת קריאת ערך, לחצו על סמל הסימנייה בראש הערך כדי להוסיף אותו לרשימת קריאה.</string>
+  <string name="reading_lists_empty_message">ארגנו את הערכים שאתם גולשים בהם לרשימת קריאה! בעת קריאת ערך, לחצו על סמל הסימנייה בסרגל התחתון כדי להוסיף אותו לרשימת קריאה.</string>
   <string name="reading_lists_onboarding_intro">צרו רשימת קריאה מערכים שאתם רוצים לקרוא אחר־כך, אפילו בלי רשת!</string>
   <string name="reading_lists_onboarding_for_example">למשל</string>
   <string name="reading_lists_onboarding_example1">מקומות לבקר בהם</string>

@@ -263,7 +263,7 @@
   <string name="reading_list_edit_cancel">Batalkan</string>
   <string name="reading_list_delete_confirm">Adakah anda benar-benar ingin memadamkan senarai bacaan ini?</string>
   <string name="reading_lists_empty">Tiada senarai bacaan di sini.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Susun rencana yang anda jelajah ke dalam senarai bacaan! Ketika menjelajahi sebuah rencana, sentuh ikon markah pada bahagian atas rencana untuk menambahkannya ke senarai bacaan.</string>
+  <string name="reading_lists_empty_message">Menyusun rencana yang anda semak imbas ke dalam membaca senarai! Apabila menyemak imbas rencana, ketik ikon penanda buku dalam bar alat bahagian bawah untuk menambahnya ke senarai bacaan.</string>
   <string name="reading_lists_onboarding_intro">Ciptakan senarai bacaan dari rencana yang ingin anda baca nanti, malah ketika anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>

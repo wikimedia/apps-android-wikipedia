@@ -3,6 +3,7 @@
   <string name="app_name_prod">ଉଇକିପିଡ଼ିଆ</string>
   <string name="app_name_beta">ଉଇକିପିଡ଼ିଆ ବିଟା</string>
   <string name="app_name_alpha">ଉଇକିପିଡ଼ିଆ ଆଲ୍ଫା</string>
+  <string name="wikimedia">ଉଇକିମିଡ଼ିଆ</string>
   <string name="yes">ହଁ</string>
   <string name="no">ନାହିଁ</string>
   <string name="search_hint">ଉଇକିପିଡ଼ିଆରେ ଖୋଜନ୍ତୁ</string>
@@ -13,15 +14,31 @@
   <string name="menu_clear_all_history">ଇତିହାସ ଲିଭାନ୍ତୁ</string>
   <string name="page_does_not_exist_error">ଏହି ପୃଷ୍ଠାଟି ନାହିଁ ।</string>
   <string name="dialog_title_clear_history">ଇତିହାସ ଲିଭାଇବେ?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">ସମସ୍ତ ପୃଷ୍ଠା ଲିଭାଇବା ବାବଦରେ ଆପଣ ନିଶ୍ଚିତ ତ?</string>
+  <string name="dialog_message_clear_history">ଏହା ଆପଣଙ୍କର ସମସ୍ତ ବ୍ରାଉଜର ଇତିହାସ ଲିଭାଇଦେବ ଓ ଏବେ ଖୋଲାଥିବା ଟ୍ୟାବସବୁ ବନ୍ଦ କରିଦେବ । ନିଶ୍ଚିତ ତ?</string>
   <string name="nav_item_saved_pages">ସାଇତା ପୃଷ୍ଠାସମୂହ</string>
   <string name="share_via">କାହା ଦ୍ୱାରା ଜଣାଇବେ:</string>
-  <string name="menu_page_other_languages" fuzzy="true">ଅନ୍ୟ ଭାଷାରେ ପଢିବେ</string>
-  <string name="menu_page_share" fuzzy="true">ବାଣ୍ଟିବେ</string>
+  <string name="search_redirect_from">%sରୁ ଲେଉଟିଆସିଛି</string>
+  <string name="menu_page_show_tabs">ଟ୍ୟାବ ଦେଖାନ୍ତୁ</string>
+  <string name="menu_page_other_languages">ଭାଷା ବଦଳାଇବେ</string>
+  <string name="menu_page_find_in_page">ପୃଷ୍ଠାରେ ଖୋଜିବେ</string>
+  <string name="menu_page_content_issues">ବିଷୟବସ୍ତୁଜନିତ ଅସୁବିଧା</string>
+  <string name="menu_page_similar_titles">ଏକାଭଳି ନାମସବୁ</string>
+  <string name="menu_page_font_and_theme">ଫଣ୍ଟ ଓ ଥିମ</string>
+  <string name="menu_page_add_to_list">ଦେଖଣା ତାଲିକାରେ ଯୋଡ଼ନ୍ତୁ</string>
+  <string name="menu_page_share">ଲିଙ୍କ ବାଣ୍ଟିବେ</string>
+  <string name="menu_long_press_open_page">ଖୋଲିବେ</string>
+  <string name="menu_long_press_open_in_new_tab">ନୂଆ ଟ୍ୟାବରେ ଖୋଲନ୍ତୁ</string>
+  <string name="menu_long_press_copy_page">ଲିଙ୍କ ଠିକଣା କପିକରନ୍ତୁ</string>
+  <string name="menu_text_select_copy">କପି</string>
+  <string name="menu_text_select_define">ବଖାଣନ୍ତୁ</string>
+  <string name="menu_text_select_share">ବିତରଣ</string>
+  <string name="menu_text_select_edit_here">ଏଠାରେ ସମ୍ପାଦନା କରନ୍ତୁ</string>
   <string name="nav_item_nearby">ପାଖାପାଖି</string>
   <string name="nearby_distance_in_meters">%d ମି</string>
   <string name="nearby_distance_in_kilometers">%.2f କିମି</string>
+  <string name="nearby_zoom_to_location">ମ୍ୟାପରେ ଅବସ୍ଥାନ ପାଇଁ ଜୁମ କରନ୍ତୁ</string>
   <string name="last_updated_text">%1$s ରେ ଶେଷଥର ଅପଡେଟ ହୋଇଥିଲା</string>
+  <string name="talk_page_link_text">ଆଲୋଚନା</string>
   <string name="content_license_html">ଅଲଗା କିଛି ଦର୍ଶିଯାଇନାଥିଲେ ବିଷୟବସ୍ତୁ &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;ରେ ଉପଲବ୍ଧ</string>
   <string name="preference_title_language">ଉଇକିପିଡ଼ିଆ ଭାଷା</string>
   <string name="preference_languages_filter_hint">ଖୋଜନ୍ତୁ</string>
@@ -29,13 +46,14 @@
   <string name="langlinks_empty">ଏହି ପୃଷ୍ଠାଟି ଅନ୍ୟ ଭାଷାରେ ଉପଲବ୍ଧ ନାହିଁ</string>
   <string name="langlinks_no_match">ଆପଣ ଖୋଜୁଥିବା ଭାଷା ମିଳିଲା ନାହିଁ ।</string>
   <string name="langlinks_activity_title">ଅନ୍ୟ ଭାଷା</string>
-  <string name="menu_save_changes">ବଦଳଗୁଡ଼ିକୁ ସାଇତିବେ</string>
+  <string name="menu_save_changes">ସାଇତିବେ [\'\'\'Save\'\'\']</string>
   <string name="edit_section_error_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="dialog_saving_in_progress">ସଞ୍ଚୁଛି…</string>
   <string name="edit_saved_successfully">ସମ୍ପାଦନା ସାଇତାଗଲା!</string>
   <string name="dialog_message_edit_failed">ସମ୍ପାଦନା କରିବାରେ ବିଫଳ!</string>
   <string name="dialog_message_edit_failed_retry">ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ</string>
   <string name="dialog_message_edit_failed_cancel">ବାତିଲ</string>
+  <string name="dialog_message_leaving_edit">ଆପଣଙ୍କ ସମ୍ପାଦନା ଏଯାଏ ସାଇତାଯାଇନାହିଁ । ଆପଣ ଏ ପୃଷ୍ଠାଟି ଛାଡ଼ିବା ବାବଦରେ ନିଶ୍ଚିତ ତ?</string>
   <string name="dialog_message_leaving_edit_leave">ବାତିଲ</string>
   <string name="dialog_message_leaving_edit_stay">ଲେଖିବେ</string>
   <string name="menu_show_toc">ବିଷୟବସ୍ତୁର ସାରଣୀ</string>
@@ -44,20 +62,24 @@
   <string name="edit_section_captcha_hint">ଉପର ଶବ୍ଦ ଦେଖି ଆଉଥରେ ଭରନ୍ତୁ</string>
   <string name="title_captcha">CAPTCHA ଭରନ୍ତୁ</string>
   <string name="edit_section_captcha_reload">CAPTCHA ଆଉଥରେ ଭରିବା ପାଇଁ ଟ୍ୟାପ କରନ୍ତୁ</string>
+  <string name="edit_saved_page_refresh">ଏହି ସାଇତା ପୃଷ୍ଠାଟି ହୁଏତ ପୁରୁଣା ଏବଂ ସମ୍ପାଦନା ସଚଳ କରିବା ପାଇଁ ରିଫ୍ରେସ କରିବାକୁ ପଡ଼ିବ । ଏହି ପୃଷ୍ଠାଟିକୁ ରିଫ୍ରେସ କରିବେ?</string>
   <string name="nav_item_login">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
   <string name="login_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="login_password_hint">ପାସୱାର୍ଡ଼</string>
   <string name="login_password_show_check">ପାସୱାର୍ଡ଼ ଦେଖାନ୍ତୁ</string>
   <string name="menu_login">ଲଗଇନ</string>
-  <string name="login_activity_title" fuzzy="true">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
+  <string name="login_activity_title">ଉଇକିପିଡ଼ିଆରେ ଲଗଇନ କରନ୍ତୁ</string>
   <string name="login_in_progress_dialog_message">ଆପଣଙ୍କୁ ଲଗ ଇନ କରାଉଛି</string>
-  <string name="login_success_toast" fuzzy="true">ଲଗ ଇନ ହୋଇଗଲା!</string>
+  <string name="login_success_toast">ଲଗ ଇନ ହୋଇଗଲା!</string>
   <string name="preference_title_logout">ଲଗ ଆଉଟ</string>
   <string name="toast_logout_complete">ଲଗ ଆଉଟ ହୋଇଗଲା</string>
+  <string name="history_empty_title">କୌଣସି ନଗଦ ପୃଷ୍ଠା ନାହିଁ!</string>
   <string name="history_empty_message">ଆପଣ ବୋଧେ ସବୁ ଲିଭାଇ ଦେଇଛନ୍ତି । ଆଗକୁ ଆପଣ ଏକ ପୃଷ୍ଠାକୁ ଗଲେ ଏଇଠି ଦେଖିପାରିବେ ।</string>
   <string name="delete_selected_history">ଲିଭାଇବେ</string>
+  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="login_create_account_link">ଆପଣଙ୍କର ଖାତା ନାହିଁ ? ଉଇକିପିଡିଆରେ ଯୋଗ ଦିଅନ୍ତୁ</string>
+  <string name="create_account_login_link">ଆଗରୁ ଆକାଉଣ୍ଟ ଅଛି? ଲଗ ଇନ</string>
   <string name="create_account_activity_title">ଖାତାଟିଏ ଖୋଲନ୍ତୁ</string>
   <string name="dialog_create_account_checking_progress">ପରଖାଯାଉଛି</string>
   <string name="create_account_email_hint">ଇମେଲ (ଇଚ୍ଛାଧୀନ)</string>
@@ -65,7 +87,10 @@
   <string name="create_account_passwords_mismatch_error">ପାସୱାର୍ଡ଼ ଦୁଇଟି ସମାନ ନୁହଁନ୍ତି</string>
   <string name="create_account_email_error">ଭୁଲ ଇମେଲ ଠିକଣା</string>
   <string name="create_account_generic_error">ଖାତାଟିଏ ଗଢ଼ା ଯାଇପାରିଲା ନାହିଁ</string>
+  <string name="create_account_next">ପର</string>
+  <string name="create_account_button">ଆକାଉଣ୍ଟଟିଏ ଖୋଲନ୍ତୁ</string>
   <string name="preferences_general_heading">ସାଧାରଣ</string>
+  <string name="wikipedia_app_faq">ଉଇକିପିଡ଼ିଆ ଆପ ବାବଦରେ ଜାଣିବାକଥା</string>
   <string name="zero_charged_verbiage">ଉଇକିପିଡ଼ିଆ ଜିରୋ ବନ୍ଦ</string>
   <string name="zero_search_hint">ଉଇକିପିଡ଼ିଆ ଜିରୋରେ ଖୋଜନ୍ତୁ</string>
   <string name="zero_warn_when_leaving">ଉଇକିପିଡ଼ିଆ ଜିରୋରୁ ବାହାରିଲେ ଜଣାଇବେ</string>
@@ -76,29 +101,63 @@
   <string name="zero_interstitial_leave_app">ବାହାର ସାଇଟ ଦେଖିବା ଚାଲୁ ରଖିବେ? ସାଧାରଣ ଇଣ୍ଟରନେଟ ଦର ଲାଗିପାରେ ।</string>
   <string name="zero_interstitial_continue">ବାତିଲ</string>
   <string name="zero_interstitial_cancel">ଚାଲୁ ରଖନ୍ତୁ</string>
-  <string name="zero_learn_more" fuzzy="true">ଉଇକିପିଡ଼ିଆ ଜିରୋ ବାବଦରେ ଅଧିକ ଜାଣିବାକୁ ଚାହାଁନ୍ତି?</string>
+  <string name="zero_learn_more">ଏହି ଉଇକିପିଡ଼ିଆ ଆପ ପାଇଁ ଡାଟା ଶୁଳ୍କ ଦେବାକୁ ପଡ଼ିବନାହିଁ ।</string>
   <string name="zero_learn_more_learn_more">ଆହୁରି ପଢିବେ</string>
   <string name="zero_learn_more_dismiss">ଖାରଜ</string>
   <string name="edit_preview_fetching_dialog_message">ଦେଖଣା ଆହରଣ କରୁଛି</string>
+  <string name="send_feedback">ଆପ ବାବଦରେ ମତାମତ ପଠାନ୍ତୁ</string>
   <string name="nav_item_random">ଯାହିତାହି</string>
   <string name="create_account_account_created_toast">ଖାତାଟି ଖୋଲିଗଲା!</string>
+  <string name="preferences_privacy_settings_heading">ଗୋପନୀୟତା</string>
   <string name="preference_title_eventlogging_opt_in">ବ୍ୟବହାର ବିବରଣୀ ପଠାନ୍ତୁ</string>
   <string name="preference_summary_eventlogging_opt_in">ଏହି ଆପ୍ଲିକେସନଟିକୁ ଆହୁରି ଉନ୍ନତ କରିବା ପାଇଁ ଉଇକିମିଡ଼ିଆକୁ ସହଯୋଗ କରନ୍ତୁ</string>
-  <string name="editing_error_spamblacklist" fuzzy="true">ଆପଣ ଅଟକାଯାଇଥିବା ଡୋମେନମାନଙ୍କରୁ (%s) ଲିଙ୍କ ଦେଇଛନ୍ତି । ଦୟାକରି ତାହା କାଢ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
-  <string name="history_search_list_hint" fuzzy="true">ଖୋଜିବେ</string>
+  <string name="preference_title_auto_upload_crash_reports">କ୍ରାସ ବିବରଣୀ ପଠାନ୍ତୁ</string>
+  <string name="editing_error_spamblacklist">ଅଟକାଯାଇଥିବା ଡୋମେନସବୁ (%s) ମିଳିଲା । ଦୟାକରି ସେସବୁ କାଢ଼ି ଆଉଥରେ ଚେଷ୍ଟା କରନ୍ତୁ ।</string>
+  <string name="history_search_list_hint">ଇତିହାସରୁ ଖୋଜିବେ</string>
   <string name="history_search_empty_message">ଆପଣ ଖୋଜୁଥିବା ପୃଷ୍ଠା ମିଳିଲା ନାହିଁ ।</string>
-  <string name="settings_activity_title" fuzzy="true">ସଂରଚନା</string>
+  <string name="error_can_not_process_link">ଲିଙ୍କ ଦେଖାଇ ହେଲାନାହିଁ</string>
+  <string name="page_protected_autoconfirmed">ଏହି ପୃଷ୍ଠାଟି କିଛିକାଂଶରେ କିଳାଯାଇଛି ।</string>
+  <string name="page_protected_sysop">ଏହି ପୃଷ୍ଠାଟି ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ କିଳାଯାଇଛି ।</string>
+  <string name="page_protected_other">ଏହି ପୃଷ୍ଠାଟି ଏହି ଭଳି କିଳାଯାଇଛି: %s</string>
+  <string name="page_protected_can_not_edit">ଆପଣଙ୍କୁ ଏହି ପୃଷ୍ଠା ସମ୍ପାଦନ ପାଇଁ ଅନୁମତି ନାହିଁ</string>
+  <string name="page_protected_can_not_edit_title">ଏହି ପୃଷ୍ଠାଟି କିଳାଯାଇଛି</string>
+  <string name="settings_item_preferences">ସଜାଣି</string>
+  <string name="settings_activity_title">ସଜାଣି</string>
+  <string name="about_description">ଉଇକିପିଡ଼ିଆ ଆପ ବାବଦରେ</string>
   <string name="privacy_policy_description">ଗୁମର ନୀତି</string>
   <string name="terms_of_use_description">ବ୍ୟବହାର ନିୟମାବଳୀ</string>
-  <string name="about_contributors_heading" fuzzy="true">ଅବଦାନକାରୀଗଣ</string>
-  <string name="about_translators_heading" fuzzy="true">ଅନୁବାଦକମାନେ</string>
+  <string name="about_libraries_heading">ବ୍ୟବହୃତ ଲାଇବ୍ରେରି</string>
+  <string name="about_contributors_heading">ଅବଦାନକାରୀଗଣ</string>
+  <string name="about_translators_heading">ଅନୁବାଦକଗଣ</string>
+  <string name="about_translators_translatewiki">ଏହି ଆପଟି &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;ର ସ୍ୱେଚ୍ଛାସେବୀ ଅନୁବାଦକମାନଙ୍କ ଦେଇ ଅନୂଦିତ ।</string>
+  <string name="about_app_license_heading">ଲାଇସେନ୍ସ</string>
+  <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;ଉଇକିମିଡ଼ିଆ ଫାଉଣ୍ଡେସନ&lt;/a&gt;ର ଏକ ଉତ୍ପାଦ ।</string>
   <string name="about_activity_title">ବିଷୟରେ</string>
+  <string name="edit_abandon_confirm">ଏହି ପୃଷ୍ଠାଟି ବଦଳାଯାଇଛି । ଆପଣ ନିଜ ସମ୍ପାଦନାସବୁ ନ ସାଇତି ସେମିତି ବାହାରିଯିବା ବାବଦରେ ନିଶ୍ଚିତ ତ?</string>
   <string name="user_blocked_from_editing_title">କିଳାଯାଇଛି</string>
+  <string name="user_logged_in_blocked_from_editing">ଏହି ଉଇକିରେ ଆପଣଙ୍କ ବ୍ୟବହାରକାରୀ ଆକାଉଣ୍ଟରୁ ସମ୍ପାଦନା କରିବାକୁ ବାରଣ କରାଯାଇଛି ।</string>
+  <string name="user_anon_blocked_from_editing">ଏହି ଉଇକିରେ ଆପଣଙ୍କ IP ଠିକଣାରୁ ସମ୍ପାଦନା କରିବାକୁ ବାରଣ କରାଯାଇଛି ।</string>
+  <string name="edit_how_page_improved">ଆପଣ କିପରି ଭାବେ ଏହି ପୃଷ୍ଠାଟିକୁ ଉନ୍ନତ କଲେ?</string>
   <string name="edit_next">ପର</string>
   <string name="edit_done">ସାଇତିବେ</string>
   <string name="edit_preview">ଦେଖଣା</string>
   <string name="edit_summary_tag_typo">ଫିକ୍ସଡ଼ ବନାନ</string>
+  <string name="edit_summary_tag_grammar">ବ୍ୟାକରଣ ସଜାଡ଼ିଲେ</string>
+  <string name="edit_summary_tag_links">ଲିଙ୍କ ଯୋଡ଼ିଲେ</string>
   <string name="edit_summary_tag_other">ଅନ୍ୟ</string>
+  <string name="edit_summary_tag_other_hint">ଅନ୍ୟ ବାଟରେ ପୃଷ୍ଠାଟିକୁ ଉନ୍ନତ କଲେ</string>
+  <string name="find_next">ଆଗାମୀ ଖୋଜିବେ</string>
+  <string name="find_previous">ପୂର୍ବଟି ଖୋଜନ୍ତୁ</string>
+  <string name="abusefilter_title_warn">ଏହା ହୁଏତ ଏକ ଅଦରକାରୀ ସମ୍ପାଦନା ହୋଇଥାଇପାରେ । ଏହାକୁ ସାଇତିବା ବାବଦରେ ଆପଣ ନିଶ୍ଚିତ ତ?</string>
+  <string name="abusefilter_title_disallow">ଆପଣ ଏହା ସାଇତିପାରିବେ ନାହିଁ । ଦୟାକରି ପଛକୁ ଫେରି ସମ୍ପାଦନା କରନ୍ତୁ ।</string>
+  <string name="dialog_page_issues">ପୃଷ୍ଠା ଅସୁବିଧା</string>
+  <string name="button_page_issues">ପୃଷ୍ଠା ଅସୁବିଧା</string>
+  <string name="text_size_select">ଫଣ୍ଟ ଆକାର</string>
+  <string name="color_theme_select">ଥିମ</string>
+  <string name="color_theme_light">ଫିକା</string>
+  <string name="color_theme_dark">ଗାଢ଼</string>
+  <string name="page_similar_titles">ସମାନ ଧରଣର ପୃଷ୍ଠା</string>
+  <string name="search_did_you_mean">ଆପଣ \"%s\" ଖୋଜୁଥିଲେ କି?</string>
   <string name="view_random_card_subtitle">ଉଇକିପିଡିଆରୁ ଯେକୌଣସି ଏକ ଲେଖା ପଢନ୍ତୁ</string>
   <string name="view_main_page_card_title">ଆଜି ଦିନରେ ଉଇକିପିଡିଆର ଅବସ୍ଥା</string>
   <string name="view_featured_image_card_title">ଦିନର ବଛା ଛବି</string>

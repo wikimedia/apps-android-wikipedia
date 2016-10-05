@@ -139,6 +139,7 @@
   <string name="view_featured_image_card_download">Lejupielādēt</string>
   <string name="menu_feed_card_dismiss" fuzzy="true">Paslēpt šo ierosinājumu</string>
   <string name="menu_feed_card_dismissed" fuzzy="true">Ieteikums slēpts.</string>
+  <string name="menu_feed_overflow_label">Vairāk iespēju</string>
   <string name="view_card_footer_button">Skatīt vairāk</string>
   <string name="view_card_news_title">Ziņās</string>
 </resources>
