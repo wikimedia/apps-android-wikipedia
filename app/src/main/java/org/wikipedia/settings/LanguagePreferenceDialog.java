@@ -18,7 +18,7 @@ import android.widget.TextView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppLanguageSelectFunnel;
-import org.wikipedia.interlanguage.AppLanguageState;
+import org.wikipedia.language.AppLanguageState;
 
 import java.util.ArrayList;
 import java.util.List;

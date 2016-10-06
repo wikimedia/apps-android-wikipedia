@@ -8,7 +8,7 @@ import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.interlanguage.AppLanguageLookUpTable;
+import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.UriUtil;

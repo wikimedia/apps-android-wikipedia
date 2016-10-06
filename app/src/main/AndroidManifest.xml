@@ -112,7 +112,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".interlanguage.LangLinksActivity"
+        <activity android:name=".language.LangLinksActivity"
                   android:label="@string/langlinks_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                   android:exported="false"

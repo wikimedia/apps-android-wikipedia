@@ -1,4 +1,4 @@
-package org.wikipedia.interlanguage;
+package org.wikipedia.language;
 
 import android.content.Context;
 import org.json.JSONArray;

@@ -47,7 +47,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.editing.EditHandler;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
 import org.wikipedia.page.gallery.GalleryActivity;

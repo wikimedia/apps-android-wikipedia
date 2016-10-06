@@ -51,7 +51,7 @@ import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.interlanguage.LangLinksActivity;
+import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.snippet.CompatActionMode;

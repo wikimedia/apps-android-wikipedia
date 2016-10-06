@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.interlanguage.LanguageUtil;
+import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 
 import java.util.Arrays;

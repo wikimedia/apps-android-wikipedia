@@ -6,7 +6,7 @@ import android.test.UiThreadTest;
 
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.interlanguage.AppLanguageLookUpTable;
+import org.wikipedia.language.AppLanguageLookUpTable;
 
 import java.util.Locale;
 
