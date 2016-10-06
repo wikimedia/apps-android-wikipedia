@@ -38,7 +38,7 @@ import org.wikipedia.savedpages.LoadSavedPageTask;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
@@ -404,7 +404,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     private void goToExternalMapsApp() {
         if (location != null) {
             dismiss();
-            UriUtil.sendGeoIntent(getActivity(), location, pageTitle.getDisplayText());
+            GeoUtil.sendGeoIntent(getActivity(), location, pageTitle.getDisplayText());
         }
     }
 
