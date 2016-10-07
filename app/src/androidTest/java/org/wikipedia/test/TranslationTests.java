@@ -4,18 +4,23 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.support.test.filters.SmallTest;
-import android.test.ActivityInstrumentationTestCase2;
 import android.util.DisplayMetrics;
 import android.util.Log;
+
+import org.junit.Test;
 import org.wikipedia.R;
 import org.wikipedia.model.BaseModel;
-import org.wikipedia.page.PageActivity;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.fail;
 
 /**
  * Tests to make sure that the string resources don't cause any issues. Mainly the goal is to test
@@ -26,26 +31,15 @@ import java.util.Locale;
  * TODO: check content_license_html is valid HTML
  */
 @SmallTest
-public class TranslationTests extends ActivityInstrumentationTestCase2<PageActivity> {
+public class TranslationTests {
     private static final String TAG = "TrTest";
 
     /** Add more if needed, but then also add some tests. */
     private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d", "%.2f"};
 
-    private PageActivity activity;
     private final StringBuilder mismatches = new StringBuilder();
 
-    public TranslationTests() {
-        super(PageActivity.class);
-    }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        activity = getActivity();
-    }
-
-    public void testAllTranslations() throws Exception {
+    @Test public void testAllTranslations() {
         setLocale(Locale.ROOT.toString());
         String defaultLang = Locale.getDefault().getLanguage();
         List<Res> tagRes = new ResourceCollector("<", "&lt;").collectParameterResources(defaultLang);
@@ -104,12 +98,12 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
                 }
             }
         }
-        assertTrue("\n" + mismatches.toString(), mismatches.length() == 0);
+        assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
     }
 
     private Locale myLocale;
 
-    void setLocale(String lang) {
+    private void setLocale(String lang) {
         myLocale = new Locale(lang);
         Locale.setDefault(myLocale);
         Resources res = getInstrumentation().getTargetContext().getResources();
@@ -117,7 +111,6 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-        getInstrumentation().callActivityOnRestart(activity);
     }
 
     private void checkAllStrings(String lang) {
@@ -169,7 +162,7 @@ public class TranslationTests extends ActivityInstrumentationTestCase2<PageActiv
         }
     }
 
-    void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) {
+    private void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) {
 //        Log.i(TAG, myLocale + ":" + res.name + ":" + paramName);
         String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
 //        Log.d(TAG, translatedString);
