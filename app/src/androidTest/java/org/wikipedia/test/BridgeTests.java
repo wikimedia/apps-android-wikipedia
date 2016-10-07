@@ -1,8 +1,9 @@
 package org.wikipedia.test;
 
-import android.support.test.filters.SmallTest;
+import android.support.test.filters.LargeTest;
 import android.support.test.runner.AndroidJUnit4;
 import android.webkit.WebView;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -11,11 +12,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.testlib.TestLatch;
 
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
 
-@SmallTest
+@LargeTest
 @RunWith(AndroidJUnit4.class)
 public class BridgeTests {
     private static final String TEST_FILE_URI = "file:///android_asset/tests/index.html";
