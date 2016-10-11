@@ -5,18 +5,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
 
 public class MostReadItemCard extends Card {
     @NonNull private final MostReadArticle article;
-    @NonNull private final Site site;
+    @NonNull private final WikiSite wiki;
 
-    public MostReadItemCard(@NonNull MostReadArticle article, @NonNull Site site) {
+    public MostReadItemCard(@NonNull MostReadArticle article, @NonNull WikiSite wiki) {
         this.article = article;
-        this.site = site;
+        this.wiki = wiki;
     }
 
     @NonNull @Override public String title() {
@@ -36,7 +36,7 @@ public class MostReadItemCard extends Card {
     }
 
     @NonNull public PageTitle pageTitle() {
-        PageTitle title = new PageTitle(article.title(), site);
+        PageTitle title = new PageTitle(article.title(), wiki);
         if (article.thumbnail() != null) {
             title.setThumbUrl(article.thumbnail().toString());
         }

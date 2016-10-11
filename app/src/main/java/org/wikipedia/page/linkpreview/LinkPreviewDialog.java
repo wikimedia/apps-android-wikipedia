@@ -77,7 +77,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         @Override
         public void onGalleryItemClicked(String imageName) {
             startActivityForResult(GalleryActivity.newIntent(getContext(), pageTitle, imageName,
-                    pageTitle.getSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
+                    pageTitle.getWikiSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
                     Constants.ACTIVITY_REQUEST_GALLERY);
         }
     };
@@ -142,7 +142,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
         TextView titleText = (TextView) rootView.findViewById(R.id.link_preview_title);
         titleText.setText(pageTitle.getDisplayText());
-        setConditionalLayoutDirection(rootView, pageTitle.getSite().languageCode());
+        setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             // for oldish devices, reset line spacing to 1, since it truncates the descenders.
             titleText.setLineSpacing(0, 1.0f);
@@ -229,7 +229,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     }
 
     private void loadContent() {
-        PageServiceFactory.create(pageTitle.getSite(), pageTitle.namespace()).pageSummary(
+        PageServiceFactory.create(pageTitle.getWikiSite(), pageTitle.namespace()).pageSummary(
                 pageTitle.getPrefixedText(),
                 linkPreviewOnLoadCallback);
     }
@@ -298,7 +298,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
             }
             if (!pageSummary.hasError()) {
                 progressBar.setVisibility(View.GONE);
-                contents = new LinkPreviewContents(pageSummary, pageTitle.getSite());
+                contents = new LinkPreviewContents(pageSummary, pageTitle.getWikiSite());
                 layoutPreview();
             } else {
                 pageSummary.logError("Page summary request failed");
@@ -368,7 +368,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
 
     private class GalleryThumbnailFetchTask extends GalleryCollectionFetchTask {
         GalleryThumbnailFetchTask(PageTitle title) {
-            super(WikipediaApp.getInstance().getAPIForSite(title.getSite()), title.getSite(), title,
+            super(WikipediaApp.getInstance().getAPIForSite(title.getWikiSite()), title.getWikiSite(), title,
                     true);
         }
 

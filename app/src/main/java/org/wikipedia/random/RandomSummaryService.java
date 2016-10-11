@@ -2,7 +2,7 @@ package org.wikipedia.random;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.retrofit.RbCachedService;
 import org.wikipedia.feed.model.CardPageItem;
@@ -21,18 +21,18 @@ public class RandomSummaryService {
     @NonNull private final RbCachedService<RbRandomSummaryClient> cachedService
             = new RbCachedService<>(RbRandomSummaryClient.class);
     @NonNull private final WikipediaZeroHandler responseHeaderHandler;
-    @NonNull private Site site;
+    @NonNull private WikiSite wiki;
     @NonNull private RandomSummaryCallback cb;
 
-    public RandomSummaryService(@NonNull Site site,
+    public RandomSummaryService(@NonNull WikiSite wiki,
                                 @NonNull RandomSummaryCallback cb) {
         this.responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        this.site = site;
+        this.wiki = wiki;
         this.cb = cb;
     }
 
     public void get() {
-        Call<CardPageItem> call = cachedService.service(site).get();
+        Call<CardPageItem> call = cachedService.service(wiki).get();
         call.enqueue(new Callback<CardPageItem>() {
             @Override
             public void onResponse(Call<CardPageItem> call, Response<CardPageItem> response) {
@@ -40,7 +40,7 @@ public class RandomSummaryService {
                     responseHeaderHandler.onHeaderCheck(response);
                     CardPageItem item = response.body();
                     String namespace = item.namespace().toLegacyString();
-                    PageTitle title = new PageTitle(namespace, item.title(), site);
+                    PageTitle title = new PageTitle(namespace, item.title(), wiki);
                     cb.onSuccess(title);
                 } else {
                     L.v(response.message());

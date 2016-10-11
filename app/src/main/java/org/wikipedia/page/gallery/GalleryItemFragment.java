@@ -33,7 +33,7 @@ import com.facebook.samples.zoomable.ZoomableDraweeView;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
@@ -72,12 +72,12 @@ public class GalleryItemFragment extends Fragment {
         return galleryItem;
     }
 
-    public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull Site site,
+    public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull WikiSite wiki,
                                                   @NonNull GalleryItem galleryItemProto) {
         GalleryItemFragment f = new GalleryItemFragment();
         Bundle args = new Bundle();
         args.putParcelable(ARG_PAGETITLE, pageTitle);
-        args.putParcelable(ARG_MEDIATITLE, new PageTitle(galleryItemProto.getName(), site));
+        args.putParcelable(ARG_MEDIATITLE, new PageTitle(galleryItemProto.getName(), wiki));
         args.putString(ARG_MIMETYPE, galleryItemProto.getMimeType());
         f.setArguments(args);
         return f;
@@ -230,8 +230,8 @@ public class GalleryItemFragment extends Fragment {
      */
     private void loadGalleryItem() {
         updateProgressBar(true, true, 0);
-        new GalleryItemFetchTask(app.getAPIForSite(imageTitle.getSite()),
-                imageTitle.getSite(), imageTitle, FileUtil.isVideo(mimeType)) {
+        new GalleryItemFetchTask(app.getAPIForSite(imageTitle.getWikiSite()),
+                imageTitle.getWikiSite(), imageTitle, FileUtil.isVideo(mimeType)) {
             @Override
             public void onFinish(Map<PageTitle, GalleryItem> result) {
                 if (!isAdded()) {

@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -128,7 +128,7 @@ public class LeadImagesHandler {
         // set the page title text, and honor any HTML formatting in the title
         loadLeadImage();
         articleHeaderView.setTitle(StringUtil.fromHtml(getPage().getDisplayTitle()));
-        articleHeaderView.setLocale(getPage().getTitle().getSite().languageCode());
+        articleHeaderView.setLocale(getPage().getTitle().getWikiSite().languageCode());
         articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
         // Set the subtitle, too, so text measurements are accurate.
         layoutWikiDataDescription(getTitle().getDescription());
@@ -220,7 +220,7 @@ public class LeadImagesHandler {
      */
     private void loadLeadImage(@Nullable String url) {
         if (!isMainPage() && !TextUtils.isEmpty(url) && isLeadImageEnabled()) {
-            String fullUrl = getTitle().getSite().scheme() + ":" + url;
+            String fullUrl = getTitle().getWikiSite().scheme() + ":" + url;
             articleHeaderView.loadImage(fullUrl);
         } else {
             articleHeaderView.loadImage(null);
@@ -265,9 +265,9 @@ public class LeadImagesHandler {
                     String imageName = getPage().getPageProperties().getLeadImageName();
                     if (imageName != null) {
                         String filename = "File:" + imageName;
-                        Site site = getTitle().getSite();
+                        WikiSite wiki = getTitle().getWikiSite();
                         getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                                parentFragment.getTitleOriginal(), filename, site,
+                                parentFragment.getTitleOriginal(), filename, wiki,
                                 GalleryFunnel.SOURCE_LEAD_IMAGE),
                                 Constants.ACTIVITY_REQUEST_GALLERY);
                     }

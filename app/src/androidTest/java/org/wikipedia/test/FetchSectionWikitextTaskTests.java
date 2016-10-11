@@ -3,8 +3,9 @@ package org.wikipedia.test;
 
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
+
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
 import org.wikipedia.editing.FetchSectionWikitextTask;
 
 import java.util.concurrent.CountDownLatch;
@@ -23,7 +24,7 @@ public class FetchSectionWikitextTaskTests extends ActivityUnitTestCase<TestDumm
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
+                PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", WikiSite.forLanguageCode("test"));
                 new FetchSectionWikitextTask(getInstrumentation().getTargetContext(), title, 2) {
                     @Override
                     public void onFinish(String result) {

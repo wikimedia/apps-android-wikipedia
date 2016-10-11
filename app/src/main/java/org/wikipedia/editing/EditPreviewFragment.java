@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import org.mediawiki.api.json.ApiException;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
@@ -90,7 +90,7 @@ public class EditPreviewFragment extends Fragment {
         AssetManager assets = oldResources.getAssets();
         DisplayMetrics metrics = oldResources.getDisplayMetrics();
         Locale oldLocale = oldResources.getConfiguration().locale;
-        Locale newLocale = new Locale(pageTitle.getSite().languageCode());
+        Locale newLocale = new Locale(pageTitle.getWikiSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
         if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
@@ -179,7 +179,7 @@ public class EditPreviewFragment extends Fragment {
     private void displayPreview(final String html) {
         if (!isWebViewSetup) {
             isWebViewSetup = true;
-            L10nUtil.setupDirectionality(parentActivity.getPageTitle().getSite().languageCode(), Locale.getDefault().getLanguage(), bridge);
+            L10nUtil.setupDirectionality(parentActivity.getPageTitle().getWikiSite().languageCode(), Locale.getDefault().getLanguage(), bridge);
             if (WikipediaApp.getInstance().isCurrentThemeDark()) {
                 new NightModeHandler(bridge).turnOn(false);
             }
@@ -194,7 +194,7 @@ public class EditPreviewFragment extends Fragment {
                 public void onUrlClick(@NonNull final String href, @Nullable final String titleString) {
                     // Check if this is an internal link, and if it is then open it internally
                     if (href.startsWith("/wiki/")) {
-                        PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getSite());
+                        PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
                         onInternalLinkClicked(title);
                     } else {
                         //Show dialogue asking user to confirm they want to leave
@@ -252,8 +252,8 @@ public class EditPreviewFragment extends Fragment {
                 }
 
                 @Override
-                public Site getSite() {
-                    return parentActivity.getPageTitle().getSite();
+                public WikiSite getWikiSite() {
+                    return parentActivity.getPageTitle().getWikiSite();
                 }
             };
             bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {

@@ -1,6 +1,6 @@
 package org.wikipedia.page;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.server.BasePageLeadTest;
 import org.wikipedia.test.TestRunner;
 
@@ -17,14 +17,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /** Unit tests for Page. */
 @RunWith(TestRunner.class)
 public class PageTest {
-    private static final Site SITE = new Site("en.wikipedia.org");
+    private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
     private PageTitle title;
     private PageProperties props;
 
     @Before
     public void setUp() throws Exception {
-        title = new PageTitle("Main page", SITE, "//foo/thumb.jpg");
+        title = new PageTitle("Main page", WIKI, "//foo/thumb.jpg");
         props = new PageProperties(new JSONObject(BasePageLeadTest.getEnglishMainPageJson()));
     }
 

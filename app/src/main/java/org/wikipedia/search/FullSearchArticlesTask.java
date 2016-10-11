@@ -9,7 +9,7 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
@@ -21,17 +21,17 @@ import java.util.Iterator;
 import java.util.List;
 
 public class FullSearchArticlesTask extends ApiTask<SearchResults> {
-    private final Site site;
+    private final WikiSite wiki;
     private final String searchTerm;
     private final int maxResults;
     private final FTContinueOffset continueOffset;
     private final boolean getMoreLike;
 
-    public FullSearchArticlesTask(Api api, Site site, String searchTerm, int maxResults,
+    public FullSearchArticlesTask(Api api, WikiSite wiki, String searchTerm, int maxResults,
                                   SearchResults.ContinueOffset continueOffset,
                                   boolean getMoreLike) {
         super(api);
-        this.site = site;
+        this.wiki = wiki;
         this.searchTerm = searchTerm;
         this.maxResults = maxResults;
         this.continueOffset = (FTContinueOffset) continueOffset;
@@ -138,7 +138,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             if (item.has("pageprops")) {
                 properties = new PageProperties(item.getJSONObject("pageprops"));
             }
-            resultList.add(new SearchResult(new PageTitle(item.getString("title"), site, thumbUrl, description, properties)));
+            resultList.add(new SearchResult(new PageTitle(item.getString("title"), wiki, thumbUrl, description, properties)));
         }
         return new SearchResults(resultList, nextContinueOffset, null);
     }

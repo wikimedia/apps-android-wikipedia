@@ -1,5 +1,6 @@
 package org.wikipedia;
 
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
@@ -46,7 +47,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
             if (result.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
                 Uri uri = Uri.parse(result.getExtra());
                 if (isValidPageLink(uri)) {
-                    title = ((WebViewContextMenuListener) contextMenuListener).getSite()
+                    title = ((WebViewContextMenuListener) contextMenuListener).getWikiSite()
                             .titleForInternalLink(uri.getPath());
                 }
             }
@@ -104,6 +105,6 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
     }
 
     public interface WebViewContextMenuListener extends ContextMenuListener {
-        Site getSite();
+        WikiSite getWikiSite();
     }
 }

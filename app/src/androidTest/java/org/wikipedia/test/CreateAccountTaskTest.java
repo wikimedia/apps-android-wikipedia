@@ -12,7 +12,8 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mediawiki.api.json.Api;
-import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.createaccount.CreateAccountInfoResult;
 import org.wikipedia.createaccount.CreateAccountInfoTask;
 import org.wikipedia.editing.CaptchaResult;
@@ -34,12 +35,12 @@ import static junit.framework.Assert.fail;
 @SmallTest
 @RunWith(AndroidJUnit4.class)
 public class CreateAccountTaskTest {
-    private static Api TEST_WIKI_API = new Api("test.wikipedia.org");
-    private static Site TEST_WIKI_SITE = new Site("test.wikipedia.org");
+    private static WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
+    private static Api TEST_API = WikipediaApp.getInstance().getAPIForSite(TEST_WIKI);
     private Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
     private CreateAccountTestInfoTask createAccountInfoTask
-            = new CreateAccountTestInfoTask(TEST_WIKI_API) {
+            = new CreateAccountTestInfoTask(TEST_API) {
         @Override
         public void onCatch(Throwable caught) {
             L.e(caught);
@@ -62,7 +63,7 @@ public class CreateAccountTaskTest {
         CreateAccountInfoResult result = createAccountInfoTask.await();
         CaptchaResult captcha = new CaptchaResult(result.captchaId());
         SimpleDraweeView captchaView = new SimpleDraweeView(context);
-        captchaView.setImageURI(Uri.parse(captcha.getCaptchaUrl(TEST_WIKI_SITE)));
+        captchaView.setImageURI(Uri.parse(captcha.getCaptchaUrl(TEST_WIKI)));
         assertNotNull(captchaView.getDrawable());
     }
 

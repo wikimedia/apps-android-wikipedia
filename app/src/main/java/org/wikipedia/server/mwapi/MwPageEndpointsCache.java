@@ -3,7 +3,7 @@ package org.wikipedia.server.mwapi;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 
 import retrofit2.Retrofit;
@@ -15,31 +15,31 @@ import retrofit2.Retrofit;
 public final class MwPageEndpointsCache {
     public static final MwPageEndpointsCache INSTANCE = new MwPageEndpointsCache();
 
-    @Nullable private Site site;
+    @Nullable private WikiSite wiki;
     private MwPageService.MwPageEndpoints cachedWebService;
 
-    public static Retrofit retrofit(@NonNull Site site) {
-        return RetrofitFactory.newInstance(site);
+    public static Retrofit retrofit(@NonNull WikiSite wiki) {
+        return RetrofitFactory.newInstance(wiki);
     }
 
     private MwPageEndpointsCache() {
     }
 
-    public MwPageService.MwPageEndpoints getMwPageEndpoints(Site newSite) {
-        if (!newSite.equals(site)) {
-            cachedWebService = createMwService(newSite);
-            site = newSite;
+    public MwPageService.MwPageEndpoints getMwPageEndpoints(WikiSite newWikiSite) {
+        if (!newWikiSite.equals(wiki)) {
+            cachedWebService = createMwService(newWikiSite);
+            wiki = newWikiSite;
         }
         return cachedWebService;
     }
 
     public void update() {
-        if (site != null) {
-            cachedWebService = createMwService(site);
+        if (wiki != null) {
+            cachedWebService = createMwService(wiki);
         }
     }
 
-    private MwPageService.MwPageEndpoints createMwService(Site site) {
-        return retrofit(site).create(MwPageService.MwPageEndpoints.class);
+    private MwPageService.MwPageEndpoints createMwService(WikiSite wiki) {
+        return retrofit(wiki).create(MwPageService.MwPageEndpoints.class);
     }
 }

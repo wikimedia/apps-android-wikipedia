@@ -281,7 +281,7 @@ public class BottomContentHandler implements BottomContentInterface,
                     formatDateRelative(page.getPageProperties().getLastModified())
                             + "</a>");
             // TODO: Hide the Talk link if already on a talk page
-            PageTitle talkPageTitle = new PageTitle("Talk", title.getPrefixedText(), title.getSite());
+            PageTitle talkPageTitle = new PageTitle("Talk", title.getPrefixedText(), title.getWikiSite());
             String discussionHtml = "<a href=\"" + talkPageTitle.getCanonicalUri() + "\">"
                     + parentFragment.getContext().getString(R.string.talk_page_link_text) + "</a>";
             pageLastUpdatedText.setText(StringUtil.fromHtml(lastUpdatedHtml + " &mdash; " + discussionHtml));
@@ -319,8 +319,8 @@ public class BottomContentHandler implements BottomContentInterface,
             return;
         }
         final long timeMillis = System.currentTimeMillis();
-        new SuggestionsTask(app.getAPIForSite(entry.getTitle().getSite()),
-                entry.getTitle().getSite(), entry.getTitle().getPrefixedText(), false) {
+        new SuggestionsTask(app.getAPIForSite(entry.getTitle().getWikiSite()),
+                entry.getTitle().getWikiSite(), entry.getTitle().getPrefixedText(), false) {
             @Override
             public void onFinish(SearchResults results) {
                 funnel.setLatency(System.currentTimeMillis() - timeMillis);
@@ -354,7 +354,7 @@ public class BottomContentHandler implements BottomContentInterface,
         if (parentFragment.isAdded()) {
             ((ConfigurableTextView) readMoreContainer.findViewById(R.id.read_more_header))
                     .setText(getStringForArticleLanguage(parentFragment.getTitle(), R.string.read_more_section),
-                                     pageTitle.getSite().languageCode());
+                                     pageTitle.getWikiSite().languageCode());
         }
         readMoreContainer.setVisibility(View.VISIBLE);
     }
@@ -372,7 +372,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private void setUpReadMoreSection(LayoutInflater layoutInflater, final SearchResults results) {
         final ReadMoreAdapter adapter = new ReadMoreAdapter(layoutInflater, results.getResults());
-        readMoreList.setAdapter(adapter, pageTitle.getSite().languageCode());
+        readMoreList.setAdapter(adapter, pageTitle.getWikiSite().languageCode());
         readMoreList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

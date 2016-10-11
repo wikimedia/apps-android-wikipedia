@@ -8,7 +8,7 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
     private final PageTitle title;
     public LangLinksFetchTask(Context context, PageTitle title) {
-        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite()));
+        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getWikiSite()));
         this.title = title;
     }
 
@@ -47,7 +47,7 @@ public class LangLinksFetchTask extends ApiTask<ArrayList<PageTitle>> {
             JSONObject langlinkJSON = langlinksJSON.optJSONObject(i);
             PageTitle linkTitle = new PageTitle(
                     langlinkJSON.optString("*"),
-                    Site.forLanguageCode(langlinkJSON.optString("lang")));
+                    WikiSite.forLanguageCode(langlinkJSON.optString("lang")));
             linkTitles.add(linkTitle);
         }
 

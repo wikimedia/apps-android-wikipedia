@@ -7,7 +7,7 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.AbuseFilterEditResult;
 import org.wikipedia.editing.CaptchaResult;
@@ -25,7 +25,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @SmallTest
 @RunWith(AndroidJUnit4.class)
 public class EditTaskTest {
-    private static final Site TEST_WIKI_SITE = new Site("test.wikipedia.org");
+    private static final WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
 
     private static final String ABUSE_FILTER_ERROR_PAGE_TITLE = "Test_page_for_app_testing/AbuseFilter";
 
@@ -37,7 +37,7 @@ public class EditTaskTest {
 
     @Test
     public void testEdit() {
-        PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", TEST_WIKI_SITE);
+        PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", TEST_WIKI);
         String wikitext = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at "
                 + System.currentTimeMillis();
         final int sectionId = 3;
@@ -48,7 +48,7 @@ public class EditTaskTest {
 
     @Test
     public void testCaptcha() {
-        PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Captcha", TEST_WIKI_SITE);
+        PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Captcha", TEST_WIKI);
         String wikitext = "== Section 2 ==\n\nEditing by inserting an external link https://"
                 + System.currentTimeMillis();
 
@@ -65,7 +65,7 @@ public class EditTaskTest {
      */
     @Test
     public void testAbuseFilterTriggerWarn() {
-        PageTitle title = new PageTitle(null, "User:Yuvipandaaaaaaaa", TEST_WIKI_SITE);
+        PageTitle title = new PageTitle(null, "User:Yuvipandaaaaaaaa", TEST_WIKI);
 
         // Rule 94 is only a warning so the initial attempt may be successful. The second is
         // guaranteed to be a warning if different content is used. @FlakyTest(tolerance = 2)
@@ -91,7 +91,7 @@ public class EditTaskTest {
      */
     @Test
     public void testAbuseFilterTriggerStop() {
-        PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI_SITE);
+        PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI);
         String wikitext = "== Section 2 ==\n\nTriggering AbuseFilter number 2 by saying poop many times at "
                 + System.currentTimeMillis();
 
@@ -109,7 +109,7 @@ public class EditTaskTest {
      */
     @Test
     public void testAbuseFilterTriggerStopOnArbitraryErrorCode() {
-        PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI_SITE);
+        PageTitle title = new PageTitle(null, ABUSE_FILTER_ERROR_PAGE_TITLE, TEST_WIKI);
         String wikitext = "== Section 2 ==\n\nTriggering AbuseFilter number 152 by saying appcrashtest many times at "
                 + System.currentTimeMillis();
 
@@ -121,7 +121,7 @@ public class EditTaskTest {
     private void validateCaptcha(EditingResult result) {
         assertThat(result, instanceOf(CaptchaResult.class));
         CaptchaResult captchaResult = (CaptchaResult) result;
-        String url = captchaResult.getCaptchaUrl(TEST_WIKI_SITE);
+        String url = captchaResult.getCaptchaUrl(TEST_WIKI);
         assertThat(isValidCaptchaUrl(url), is(true));
     }
 
@@ -131,7 +131,7 @@ public class EditTaskTest {
     }
 
     private String getNetworkProtocol() {
-        return app().getSite().scheme();
+        return app().getWikiSite().scheme();
     }
 
     private WikipediaApp app() {

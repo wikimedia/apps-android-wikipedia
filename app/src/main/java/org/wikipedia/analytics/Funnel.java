@@ -2,9 +2,12 @@ package org.wikipedia.analytics;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import com.google.gson.annotations.SerializedName;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
@@ -27,7 +30,8 @@ import java.util.UUID;
     private final int sampleRate;
     private final String sampleRateRemoteParamName;
     private final WikipediaApp app;
-    @Nullable private final Site site;
+    // todo: remove @SerializedName if not pickled
+    @SerializedName("site") @Nullable private final WikiSite wiki;
 
     private final String sessionToken = UUID.randomUUID().toString();
 
@@ -35,20 +39,20 @@ import java.util.UUID;
         this(app, schemaName, revision, SAMPLE_LOG_ALL);
     }
 
-    /*package*/ Funnel(WikipediaApp app, String schemaName, int revision, @Nullable Site site) {
-        this(app, schemaName, revision, SAMPLE_LOG_ALL, site);
+    /*package*/ Funnel(WikipediaApp app, String schemaName, int revision, @Nullable WikiSite wiki) {
+        this(app, schemaName, revision, SAMPLE_LOG_ALL, wiki);
     }
 
     /*package*/ Funnel(WikipediaApp app, String schemaName, int revision, int sampleRate) {
         this(app, schemaName, revision, sampleRate, null);
     }
 
-    /*package*/ Funnel(WikipediaApp app, String schemaName, int revision, int sampleRate, @Nullable Site site) {
+    /*package*/ Funnel(WikipediaApp app, String schemaName, int revision, int sampleRate, @Nullable WikiSite wiki) {
         this.app = app;
         this.schemaName = schemaName;
         this.revision = revision;
         this.sampleRate = sampleRate;
-        this.site = site;
+        this.wiki = wiki;
         sampleRateRemoteParamName = schemaName + "_rate";
     }
 
@@ -89,7 +93,7 @@ import java.util.UUID;
     }
 
     protected void log(Object... params) {
-        log(site, params);
+        log(wiki, params);
     }
 
     /**
@@ -118,7 +122,7 @@ import java.util.UUID;
      *                      The subclass methods should take more explicit parameters
      *                      depending on what they are logging.
      */
-    protected void log(@Nullable Site site, Object... params) {
+    protected void log(@Nullable WikiSite wiki, Object... params) {
         if (!app.isEventLoggingEnabled()) {
             // Do not send events if the user opted out of EventLogging
             return;
@@ -142,7 +146,7 @@ import java.util.UUID;
                 new EventLoggingEvent(
                         schemaName,
                         revision,
-                        getDBNameForSite(site == null ? getApp().getSite() : site),
+                        app.getUserAgent(),
                         preprocessData(eventData)
                 ).log();
             }
@@ -179,14 +183,14 @@ import java.util.UUID;
     }
 
     /**
-     * Returns db name for given site
+     * Returns db name for given wiki
      *
      * WARNING: HARDCODED TO WORK FOR WIKIPEDIA ONLY
      *
-     * @param site Site object to get dbname for
-     * @return dbname for given site object
+     * @param wiki WikiSite object to get dbname for
+     * @return dbname for given wiki object
      */
-    private String getDBNameForSite(Site site) {
-        return site.languageCode() + "wiki";
+    private String getDBNameForWikiSite(WikiSite wiki) {
+        return wiki.languageCode() + "wiki"; // todo: revise with known exceptions
     }
 }

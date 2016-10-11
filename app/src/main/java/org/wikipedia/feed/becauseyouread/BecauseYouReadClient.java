@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
@@ -46,7 +46,7 @@ public class BecauseYouReadClient implements FeedClient {
     }
 
     @Override
-    public void request(@NonNull Context context, @NonNull final Site site, int age,
+    public void request(@NonNull Context context, @NonNull final WikiSite wiki, int age,
                         @NonNull final FeedClient.Callback cb) {
         cancel();
         readMoreTopicTask = new MainPageReadMoreTopicTask(context, age) {
@@ -56,7 +56,7 @@ public class BecauseYouReadClient implements FeedClient {
                     cb.error(new IOException("Error fetching suggestions"));
                     return;
                 }
-                getSuggestionsForTitle(site, entry, cb);
+                getSuggestionsForTitle(wiki, entry, cb);
             }
 
             @Override
@@ -80,11 +80,11 @@ public class BecauseYouReadClient implements FeedClient {
         }
     }
 
-    private void getSuggestionsForTitle(@NonNull Site site,
+    private void getSuggestionsForTitle(@NonNull WikiSite wiki,
                                         @NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
-        final Retrofit retrofit = cachedService.retrofit(site);
-        readMoreCall = cachedService.service(site).get(MORELIKE + entry.getTitle().getDisplayText());
+        final Retrofit retrofit = cachedService.retrofit(wiki);
+        readMoreCall = cachedService.service(wiki).get(MORELIKE + entry.getTitle().getDisplayText());
         readMoreCall.enqueue(new retrofit2.Callback<MwQueryResponse<Pages>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<Pages>> call,
@@ -92,9 +92,9 @@ public class BecauseYouReadClient implements FeedClient {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
                     MwQueryResponse<Pages> pages = response.body();
-                    if (pages.success() && pages.query() != null && pages.query().results(entry.getTitle().getSite()) != null) {
-                        SearchResults results = SearchResults.filter(pages.query().results(entry.getTitle().getSite()), entry.getTitle().getText(), false);
-                        List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results, entry.getTitle().getSite());
+                    if (pages.success() && pages.query() != null && pages.query().results(entry.getTitle().getWikiSite()) != null) {
+                        SearchResults results = SearchResults.filter(pages.query().results(entry.getTitle().getWikiSite()), entry.getTitle().getText(), false);
+                        List<BecauseYouReadItemCard> itemCards = MwApiResultPage.searchResultsToCards(results, entry.getTitle().getWikiSite());
 
                         cb.success(Collections.singletonList((Card) new BecauseYouReadCard(entry, itemCards)));
                     } else {
@@ -127,8 +127,8 @@ public class BecauseYouReadClient implements FeedClient {
         @SuppressWarnings("unused")
         @SerializedName("pages")
         private MwApiResultPage[] pages;
-        public SearchResults results(Site site) {
-            return new SearchResults(Arrays.asList(pages), site);
+        public SearchResults results(WikiSite wiki) {
+            return new SearchResults(Arrays.asList(pages), wiki);
         }
     }
 }

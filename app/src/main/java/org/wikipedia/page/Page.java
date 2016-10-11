@@ -52,7 +52,7 @@ public class Page {
     /** Regular constructor */
     public Page(@NonNull PageTitle title, @NonNull List<Section> sections,
                 @NonNull PageProperties pageProperties) {
-        if (RbSwitch.INSTANCE.isRestBaseEnabled(title.getSite())) {
+        if (RbSwitch.INSTANCE.isRestBaseEnabled(title.getWikiSite())) {
             this.version = RESTBASE_ORIGIN;
         }
         this.title = title;

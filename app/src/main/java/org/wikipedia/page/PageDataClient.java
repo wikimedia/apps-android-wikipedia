@@ -269,7 +269,7 @@ public class PageDataClient implements PageLoadStrategy {
     @VisibleForTesting
     protected void loadLeadSection(final int startSequenceNum) {
         app.getSessionFunnel().leadSectionFetchStart();
-        PageServiceFactory.create(model.getTitle().getSite(), model.getTitle().namespace())
+        PageServiceFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .pageLead(model.getTitle().getPrefixedText(), calculateLeadImageWidth(),
                 !app.isImageDownloadEnabled(), new PageLead.Callback() {
                     @Override
@@ -376,7 +376,7 @@ public class PageDataClient implements PageLoadStrategy {
             public void onMessage(String message, JSONObject payload) {
                 if (fragment.isAdded()) {
                     PageInfo pageInfo = PageInfoUnmarshaller.unmarshal(model.getTitle(),
-                            model.getTitle().getSite(), payload);
+                            model.getTitle().getWikiSite(), payload);
                     fragment.updatePageInfo(pageInfo);
                 }
             }
@@ -446,7 +446,7 @@ public class PageDataClient implements PageLoadStrategy {
         // replaced (normalized)
         sectionTargetFromTitle = model.getTitle().getFragment();
 
-        L10nUtil.setupDirectionality(model.getTitle().getSite().languageCode(), Locale.getDefault().getLanguage(),
+        L10nUtil.setupDirectionality(model.getTitle().getWikiSite().languageCode(), Locale.getDefault().getLanguage(),
                 bridge);
 
         switch (cachePreference) {
@@ -629,8 +629,8 @@ public class PageDataClient implements PageLoadStrategy {
                     .put("string_table_close", localizedStrings.get(R.string.table_close))
                     .put("string_expand_refs", localizedStrings.get(R.string.expand_refs))
                     .put("isBeta", app.isPreProdRelease()) // True for any non-production release type
-                    .put("siteLanguage", model.getTitle().getSite().languageCode())
-                    .put("siteBaseUrl", model.getTitle().getSite().scheme() + "://" + model.getTitle().getSite().host())
+                    .put("siteLanguage", model.getTitle().getWikiSite().languageCode())
+                    .put("siteBaseUrl", model.getTitle().getWikiSite().scheme() + "://" + model.getTitle().getWikiSite().host())
                     .put("isMainPage", page.isMainPage())
                     .put("fromRestBase", page.isFromRestBase())
                     .put("isNetworkMetered", DeviceUtil.isNetworkMetered(app))
@@ -769,7 +769,7 @@ public class PageDataClient implements PageLoadStrategy {
         new SaveHistoryTask(model.getCurEntry(), app).execute();
 
         // Fetch larger thumbnail URL from the network, and save it to our DB.
-        (new PageImagesTask(app.getAPIForSite(model.getTitle().getSite()), model.getTitle().getSite(),
+        (new PageImagesTask(app.getAPIForSite(model.getTitle().getWikiSite()), model.getTitle().getWikiSite(),
                 Arrays.asList(new PageTitle[]{model.getTitle()}), Constants.PREFERRED_THUMB_SIZE) {
             @Override
             public void onFinish(Map<PageTitle, String> result) {
@@ -789,7 +789,7 @@ public class PageDataClient implements PageLoadStrategy {
 
     private void loadRemainingSections(final int startSequenceNum) {
         app.getSessionFunnel().restSectionsFetchStart();
-        PageServiceFactory.create(model.getTitle().getSite(), model.getTitle().namespace())
+        PageServiceFactory.create(model.getTitle().getWikiSite(), model.getTitle().namespace())
                 .pageRemaining(model.getTitle().getPrefixedText(), !app.isImageDownloadEnabled(),
                 new PageRemaining.Callback() {
                     @Override

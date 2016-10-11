@@ -2,7 +2,7 @@ package org.wikipedia.server.restbase;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.settings.Prefs;
 
@@ -17,14 +17,14 @@ import java.util.Locale;
 public final class RbPageEndpointsCache {
     public static final RbPageEndpointsCache INSTANCE = new RbPageEndpointsCache();
 
-    private Site site;
+    private WikiSite wiki;
     private RbPageService.RbEndpoints cachedWebService;
     private Retrofit retrofit;
 
-    public static Retrofit retrofit(@NonNull Site site) {
-        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(),
-                site.authority());
-        return RetrofitFactory.newInstance(endpoint, site);
+    public static Retrofit retrofit(@NonNull WikiSite wiki) {
+        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
+                wiki.authority());
+        return RetrofitFactory.newInstance(endpoint, wiki);
     }
 
     private RbPageEndpointsCache() {
@@ -34,22 +34,22 @@ public final class RbPageEndpointsCache {
         return retrofit;
     }
 
-    public RbPageService.RbEndpoints getRbEndpoints(Site newSite) {
-        if (!newSite.equals(site)) {
-            cachedWebService = createRbService(newSite);
-            site = newSite;
+    public RbPageService.RbEndpoints getRbEndpoints(WikiSite newWikiSite) {
+        if (!newWikiSite.equals(wiki)) {
+            cachedWebService = createRbService(newWikiSite);
+            wiki = newWikiSite;
         }
         return cachedWebService;
     }
 
     public void update() {
-        if (site != null) {
-            cachedWebService = createRbService(site);
+        if (wiki != null) {
+            cachedWebService = createRbService(wiki);
         }
     }
 
-    private RbPageService.RbEndpoints createRbService(Site site) {
-        retrofit = retrofit(site);
+    private RbPageService.RbEndpoints createRbService(WikiSite wiki) {
+        retrofit = retrofit(wiki);
         return retrofit.create(RbPageService.RbEndpoints.class);
     }
 }

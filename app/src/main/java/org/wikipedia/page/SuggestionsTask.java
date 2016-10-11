@@ -1,7 +1,7 @@
 package org.wikipedia.page;
 
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
@@ -15,8 +15,8 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     private final String title;
     private final boolean requireThumbnail;
 
-    public SuggestionsTask(Api api, Site site, String title, boolean requireThumbnail) {
-        super(api, site, title, Constants.MAX_SUGGESTION_RESULTS, null, true);
+    public SuggestionsTask(Api api, WikiSite wiki, String title, boolean requireThumbnail) {
+        super(api, wiki, title, Constants.MAX_SUGGESTION_RESULTS, null, true);
         this.title = title;
         this.requireThumbnail = requireThumbnail;
     }

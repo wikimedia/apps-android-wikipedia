@@ -3,15 +3,15 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 
 public class ProtectedEditAttemptFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppProtectedEditAttempt";
     private static final int REV_ID = 8682497;
 
-    public ProtectedEditAttemptFunnel(WikipediaApp app, Site site) {
-        super(app, SCHEMA_NAME, REV_ID, site);
+    public ProtectedEditAttemptFunnel(WikipediaApp app, WikiSite wiki) {
+        super(app, SCHEMA_NAME, REV_ID, wiki);
     }
 
     @Override protected void preprocessAppInstallID(@NonNull JSONObject eventData) { }

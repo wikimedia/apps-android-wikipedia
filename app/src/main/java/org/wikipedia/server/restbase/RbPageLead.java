@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.login.User;
 import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
@@ -74,16 +74,16 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     public Page toPage(PageTitle title) {
         return new Page(adjustPageTitle(title),
                 getSections(),
-                toPageProperties(title.getSite()));
+                toPageProperties(title.getWikiSite()));
     }
 
     /* package */ PageTitle adjustPageTitle(PageTitle title) {
         if (redirected != null) {
             // Handle redirects properly.
-            title = new PageTitle(redirected, title.getSite(), title.getThumbUrl());
+            title = new PageTitle(redirected, title.getWikiSite(), title.getThumbUrl());
         } else if (normalizedtitle != null) {
             // We care about the normalized title only if we were not redirected
-            title = new PageTitle(normalizedtitle, title.getSite(), title.getThumbUrl());
+            title = new PageTitle(normalizedtitle, title.getWikiSite(), title.getThumbUrl());
         }
         title.setDescription(description);
         return title;
@@ -99,8 +99,8 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     }
 
     /** Converter */
-    public PageProperties toPageProperties(@NonNull Site site) {
-        return new PageProperties(site, this);
+    public PageProperties toPageProperties(@NonNull WikiSite wiki) {
+        return new PageProperties(wiki, this);
     }
 
     @Override
@@ -108,8 +108,8 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         return id;
     }
 
-    @NonNull @Override public Namespace getNamespace(@NonNull Site site) {
-        return guessNamespace(site, StringUtil.emptyIfNull(normalizedtitle));
+    @NonNull @Override public Namespace getNamespace(@NonNull WikiSite wiki) {
+        return guessNamespace(wiki, StringUtil.emptyIfNull(normalizedtitle));
     }
 
     @Override
@@ -216,11 +216,11 @@ public class RbPageLead implements PageLead, PageLeadProperties {
         this.leadImageThumbWidth = leadImageThumbWidth;
     }
 
-    // TODO: remove this method and #getNamespace() Site dependency when T135141 is fixed.
-    @NonNull private Namespace guessNamespace(@NonNull Site site, @NonNull String title) {
+    // TODO: remove this method and #getNamespace() WikiSite dependency when T135141 is fixed.
+    @NonNull private Namespace guessNamespace(@NonNull WikiSite wiki, @NonNull String title) {
         String[] parts = title.split(":", -1);
         String name = parts.length > 1  ? parts[0] : null;
-        return Namespace.fromLegacyString(site, name);
+        return Namespace.fromLegacyString(wiki, name);
     }
 
     /**

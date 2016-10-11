@@ -2,7 +2,7 @@ package org.wikipedia.analytics;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.json.JSONObject;
 import java.util.concurrent.TimeUnit;
@@ -14,8 +14,8 @@ import java.util.concurrent.TimeUnit;
         this(app, schemaName, revision, sampleRate, null);
     }
 
-    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate, Site site) {
-        super(app, schemaName, revision, sampleRate, site);
+    /*package*/ TimedFunnel(WikipediaApp app, String schemaName, int revision, int sampleRate, WikiSite wiki) {
+        super(app, schemaName, revision, sampleRate, wiki);
         startTime = System.currentTimeMillis();
     }
 

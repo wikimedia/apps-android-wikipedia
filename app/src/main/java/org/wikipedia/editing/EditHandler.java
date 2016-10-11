@@ -29,7 +29,7 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
 
     public void setPage(Page page) {
         this.currentPage = page;
-        this.funnel = new ProtectedEditAttemptFunnel(WikipediaApp.getInstance(), page.getTitle().getSite());
+        this.funnel = new ProtectedEditAttemptFunnel(WikipediaApp.getInstance(), page.getTitle().getWikiSite());
     }
 
     public void startEditingSection(int sectionID, @Nullable String highlightText) {

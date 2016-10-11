@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.PageHistoryContract;
@@ -26,8 +26,8 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
 
     @Override
     public HistoryEntry fromCursor(Cursor cursor) {
-        Site site = new Site(Col.SITE.val(cursor), Col.LANG.val(cursor));
-        PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), site);
+        WikiSite wiki = new WikiSite(Col.SITE.val(cursor), Col.LANG.val(cursor));
+        PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), wiki);
         Date timestamp = Col.TIMESTAMP.val(cursor);
         int source = Col.SOURCE.val(cursor);
         return new HistoryEntry(title, timestamp, source);
@@ -36,8 +36,8 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     @Override
     protected ContentValues toContentValues(HistoryEntry obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Col.SITE.getName(), obj.getTitle().getSite().authority());
-        contentValues.put(Col.LANG.getName(), obj.getTitle().getSite().languageCode());
+        contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
+        contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
         contentValues.put(Col.TITLE.getName(), obj.getTitle().getText());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
         contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
@@ -69,8 +69,8 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull HistoryEntry obj) {
         return new String[] {
-                obj.getTitle().getSite().authority(),
-                obj.getTitle().getSite().languageCode(),
+                obj.getTitle().getWikiSite().authority(),
+                obj.getTitle().getWikiSite().languageCode(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()
         };

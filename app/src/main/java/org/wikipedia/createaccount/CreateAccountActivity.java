@@ -87,7 +87,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage(getString(R.string.dialog_create_account_checking_progress));
 
-        captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getSite(),
+        captchaHandler = new CaptchaHandler(this, WikipediaApp.getInstance().getWikiSite(),
                 progressDialog, primaryContainer, getString(R.string.create_account_activity_title),
                 getString(R.string.create_account_button));
 

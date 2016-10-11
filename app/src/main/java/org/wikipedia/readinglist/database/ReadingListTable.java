@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
@@ -112,8 +112,8 @@ public class ReadingListTable extends DatabaseTable<ReadingListRow> {
                 String authority = SavedPageContract.Col.SITE.val(cursor);
                 String lang = SavedPageContract.Col.LANG.val(cursor);
                 String namespace = SavedPageContract.Col.NAMESPACE.val(cursor);
-                Site site = new Site(authority, lang);
-                PageTitle pageTitle = new PageTitle(namespace, title, null, null, site);
+                WikiSite wiki = new WikiSite(authority, lang);
+                PageTitle pageTitle = new PageTitle(namespace, title, null, null, wiki);
 
                 list.add(ReadingListDaoProxy.page(list, pageTitle));
             }

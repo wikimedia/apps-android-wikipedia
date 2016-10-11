@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.progress.ProgressCard;
@@ -25,7 +25,7 @@ public abstract class FeedCoordinatorBase {
     }
 
     @NonNull private Context context;
-    @Nullable private Site site;
+    @Nullable private WikiSite wiki;
     @Nullable private FeedUpdateListener updateListener;
     @NonNull private final List<Card> cards = new ArrayList<>();
     private int currentAge;
@@ -55,7 +55,7 @@ public abstract class FeedCoordinatorBase {
     }
 
     public void reset() {
-        site = null;
+        wiki = null;
         currentAge = 0;
         for (FeedClient client : pendingClients) {
             client.cancel();
@@ -65,14 +65,14 @@ public abstract class FeedCoordinatorBase {
         appendProgressCard(cards);
     }
 
-    public void more(@NonNull Site site) {
-        this.site = site;
+    public void more(@NonNull WikiSite wiki) {
+        this.wiki = wiki;
         if (cards.size() > 1) {
             currentAge++;
         }
 
         buildScript(currentAge);
-        requestNextCard(site);
+        requestNextCard(wiki);
     }
 
     public boolean finished() {
@@ -107,11 +107,11 @@ public abstract class FeedCoordinatorBase {
         pendingClients.add(client);
     }
 
-    private void requestNextCard(@NonNull Site site) {
+    private void requestNextCard(@NonNull WikiSite wiki) {
         if (pendingClients.isEmpty()) {
             return;
         }
-        pendingClients.remove(0).request(context, site, currentAge, exhaustionClientCallback);
+        pendingClients.remove(0).request(context, wiki, currentAge, exhaustionClientCallback);
     }
 
     private class ExhaustionClientCallback implements FeedClient.Callback {
@@ -127,13 +127,13 @@ public abstract class FeedCoordinatorBase {
                 updateListener.update(cards);
             }
             //noinspection ConstantConditions
-            requestNextCard(site);
+            requestNextCard(wiki);
         }
 
         @Override
         public void error(@NonNull Throwable caught) {
             //noinspection ConstantConditions
-            requestNextCard(site);
+            requestNextCard(wiki);
         }
     }
 

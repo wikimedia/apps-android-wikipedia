@@ -32,7 +32,7 @@ import com.mapbox.mapboxsdk.maps.Projection;
 import com.mapbox.mapboxsdk.telemetry.MapboxEventManager;
 
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.history.HistoryEntry;
@@ -69,7 +69,7 @@ public class NearbyFragment extends Fragment {
     @Nullable private MapboxMap mapboxMap;
     private Icon markerIconPassive;
 
-    private Site site;
+    private WikiSite wiki;
     private NearbyResult lastResult;
 
     @Nullable private Location currentLocation;
@@ -82,7 +82,7 @@ public class NearbyFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        site = WikipediaApp.getInstance().getSite();
+        wiki = WikipediaApp.getInstance().getWikiSite();
 
         disableTelemetry();
     }
@@ -197,7 +197,7 @@ public class NearbyFragment extends Fragment {
                     public boolean onMarkerClick(@NonNull Marker marker) {
                         NearbyPage page = findNearbyPageFromMarker(marker);
                         if (page != null) {
-                            PageTitle title = new PageTitle(page.getTitle(), site, page.getThumblUrl());
+                            PageTitle title = new PageTitle(page.getTitle(), wiki, page.getThumblUrl());
                             onLoadPage(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
                             return true;
                         } else {
@@ -302,7 +302,7 @@ public class NearbyFragment extends Fragment {
 
             LatLng latLng = mapboxMap.getCameraPosition().target;
             onLoading();
-            new NearbyFetchTask(getActivity(), site, latLng.getLatitude(), latLng.getLongitude(), getMapRadius()) {
+            new NearbyFetchTask(getActivity(), wiki, latLng.getLatitude(), latLng.getLongitude(), getMapRadius()) {
                 @Override
                 public void onFinish(NearbyResult result) {
                     if (!isResumed()) {

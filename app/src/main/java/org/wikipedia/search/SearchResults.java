@@ -3,7 +3,7 @@ package org.wikipedia.search;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.MwApiResultPage;
 import org.wikipedia.page.PageTitle;
@@ -32,10 +32,10 @@ public class SearchResults {
     /**
      * Constructor for a list of Retrofit results from BecauseYouReadTask.
      */
-    public SearchResults(List<MwApiResultPage> pages, Site site) {
+    public SearchResults(List<MwApiResultPage> pages, WikiSite wiki) {
         List<SearchResult> searchResults = new ArrayList<>();
         for (MwApiResultPage page : pages) {
-            searchResults.add(page.toSearchResult(site));
+            searchResults.add(page.toSearchResult(wiki));
         }
         this.results = searchResults;
         this.continueOffset = null;

@@ -5,12 +5,12 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.dataclient.ApiTask;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 
 public class FetchEditTokenTask extends ApiTask<String> {
-    public FetchEditTokenTask(Context context, Site site) {
-        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(site));
+    public FetchEditTokenTask(Context context, WikiSite wiki) {
+        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(wiki));
     }
 
     @Override

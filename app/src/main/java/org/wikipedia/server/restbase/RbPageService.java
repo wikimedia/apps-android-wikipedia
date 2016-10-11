@@ -1,6 +1,6 @@
 package org.wikipedia.server.restbase;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.server.PageLead;
@@ -31,9 +31,9 @@ public class RbPageService implements PageService {
     private Retrofit retrofit;
     private WikipediaZeroHandler responseHeaderHandler;
 
-    public RbPageService(final Site site) {
+    public RbPageService(final WikiSite wiki) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        webService = RbPageEndpointsCache.INSTANCE.getRbEndpoints(site);
+        webService = RbPageEndpointsCache.INSTANCE.getRbEndpoints(wiki);
         retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
     }
 

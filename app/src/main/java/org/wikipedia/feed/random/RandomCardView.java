@@ -34,7 +34,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
         @Override
         public void onClick(View view) {
             if (getCallback() != null && getCard() != null) {
-                new RandomSummaryService(getCard().site(), serviceCallback).get();
+                new RandomSummaryService(getCard().wikiSite(), serviceCallback).get();
             }
         }
 

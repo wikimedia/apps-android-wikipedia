@@ -23,7 +23,7 @@ public final class ReadingListDaoProxy {
     }
 
     @NonNull public static PageTitle pageTitle(@NonNull ReadingListPage page) {
-        return new PageTitle(page.title(), page.site(), page.thumbnailUrl(), page.description());
+        return new PageTitle(page.title(), page.wikiSite(), page.thumbnailUrl(), page.description());
     }
 
     @NonNull public static ReadingListPage page(@NonNull ReadingList list, @NonNull PageTitle title) {
@@ -33,7 +33,7 @@ public final class ReadingListDaoProxy {
                 .diskStatus(list.getSaveOffline() ? DiskStatus.OUTDATED : DiskStatus.ONLINE)
                 .key(key(title))
                 .listKeys(listKey(list))
-                .site(title.getSite())
+                .site(title.getWikiSite())
                 .namespace(title.namespace())
                 .title(title.getDisplayText())
                 .diskPageRevision(title.hasProperties() ? title.getProperties().getRevisionId() : 0)
@@ -47,8 +47,8 @@ public final class ReadingListDaoProxy {
     @NonNull public static String key(@NonNull PageTitle title) {
         // TODO: this should use the following but PageTitles often do not have Properties and page
         //       ID is not preserved elsewhere.
-        // return "wikipedia-" + title.getSite().languageCode() + '-' + title.getProperties().getPageId();
-        return Base64.encodeToString((title.getSite().languageCode() + '-' + title.getDisplayText()).getBytes(),
+        // return "wikipedia-" + title.getWikiSite().languageCode() + '-' + title.getProperties().getPageId();
+        return Base64.encodeToString((title.getWikiSite().languageCode() + '-' + title.getDisplayText()).getBytes(),
                 Base64.NO_WRAP);
     }
 

@@ -1,6 +1,6 @@
 package org.wikipedia.useroption.dataclient;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 
 public final class UserOptionDataClientSingleton {
     public static UserOptionDataClient instance() {
@@ -13,8 +13,8 @@ public final class UserOptionDataClientSingleton {
         private static final UserOptionDataClient INSTANCE = instance();
 
         private static UserOptionDataClient instance() {
-            Site site = new Site("meta.wikimedia.org", "");
-            return new DefaultUserOptionDataClient(site);
+            WikiSite wiki = new WikiSite("meta.wikimedia.org", "");
+            return new DefaultUserOptionDataClient(wiki);
         }
     }
 }

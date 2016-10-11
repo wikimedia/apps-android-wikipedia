@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
 
 import org.wikipedia.server.PageSummary;
 
@@ -28,9 +28,9 @@ public class LinkPreviewContents {
         return extract;
     }
 
-    public LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull Site site) {
-        title = new PageTitle(pageSummary.getTitle(), site);
-        extract = makeStringFromSentences(getSentences(removeParens(pageSummary.getExtract()), title.getSite()), EXTRACT_MAX_SENTENCES);
+    public LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
+        title = new PageTitle(pageSummary.getTitle(), wiki);
+        extract = makeStringFromSentences(getSentences(removeParens(pageSummary.getExtract()), title.getWikiSite()), EXTRACT_MAX_SENTENCES);
         title.setThumbUrl(pageSummary.getThumbnailUrl());
     }
 
@@ -38,7 +38,7 @@ public class LinkPreviewContents {
         title = page.getTitle();
         PageExtract pageExtract = new PageExtract(page);
         // Follow the same logic as if the computed string was retrieved from the API
-        extract = makeStringFromSentences(getSentences(removeParens(pageExtract.getText()), title.getSite()), EXTRACT_MAX_SENTENCES);
+        extract = makeStringFromSentences(getSentences(removeParens(pageExtract.getText()), title.getWikiSite()), EXTRACT_MAX_SENTENCES);
     }
 
     /**
@@ -90,12 +90,12 @@ public class LinkPreviewContents {
      * Split a block of text into sentences, taking into account the language in which
      * the text is assumed to be.
      * @param text Text to be transformed into sentences.
-     * @param site Site that will provide the language of the given text.
+     * @param wiki WikiSite that will provide the language of the given text.
      * @return List of sentences.
      */
-    public static List<String> getSentences(String text, Site site) {
+    public static List<String> getSentences(String text, WikiSite wiki) {
         List<String> sentenceList = new ArrayList<>();
-        BreakIterator iterator = BreakIterator.getSentenceInstance(new Locale(site.languageCode()));
+        BreakIterator iterator = BreakIterator.getSentenceInstance(new Locale(wiki.languageCode()));
         // feed the text into the iterator, with line breaks removed:
         text = text.replaceAll("(\r|\n)", " ");
         iterator.setText(text);

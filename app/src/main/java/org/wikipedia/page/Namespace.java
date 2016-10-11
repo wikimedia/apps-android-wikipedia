@@ -3,7 +3,7 @@ package org.wikipedia.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.model.CodeEnum;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
@@ -84,14 +84,14 @@ public enum Namespace implements EnumCode {
     }
 
     /** Warning: this method is localized only for File and Special pages. */
-    @Deprecated @NonNull public static Namespace fromLegacyString(@NonNull Site site,
+    @Deprecated @NonNull public static Namespace fromLegacyString(@NonNull WikiSite wiki,
                                                                   @Nullable String name) {
-        String filePageAlias = FileAliasData.valueFor(site.languageCode());
+        String filePageAlias = FileAliasData.valueFor(wiki.languageCode());
         if (filePageAlias.equals(name)) {
             return Namespace.FILE;
         }
 
-        String specialPageAlias = SpecialAliasData.valueFor(site.languageCode());
+        String specialPageAlias = SpecialAliasData.valueFor(wiki.languageCode());
         if (specialPageAlias.equals(name)) {
             return Namespace.SPECIAL;
         }

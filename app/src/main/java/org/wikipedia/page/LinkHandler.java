@@ -8,7 +8,7 @@ import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.util.UriUtil;
 
@@ -57,7 +57,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
         Log.d("Wikipedia", "Link clicked was " + href);
         if (href.startsWith("/wiki/")) {
-            PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getSite());
+            PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
             onInternalLinkClicked(title);
         } else if (href.startsWith("#")) {
             onPageLinkClicked(href.substring(1));
@@ -65,19 +65,19 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             Uri uri = Uri.parse(href);
             String authority = uri.getAuthority();
             // FIXME: Make this more complete, only to not handle URIs that contain unsupported actions
-            if (authority != null && Site.supportedAuthority(authority) && uri.getPath().startsWith("/wiki/")) {
-                Site site = new Site(authority, getSite().languageCode());
-                PageTitle title = site.titleForUri(uri);
+            if (authority != null && WikiSite.supportedAuthority(authority) && uri.getPath().startsWith("/wiki/")) {
+                WikiSite wiki = new WikiSite(authority, getWikiSite().languageCode());
+                PageTitle title = wiki.titleForUri(uri);
                 onInternalLinkClicked(title);
             } else {
                 // if it's a /w/ URI, turn it into a full URI and go external
                 if (href.startsWith("/w/")) {
-                    href = String.format("%1$s://%2$s", getSite().scheme(), getSite().authority()) + href;
+                    href = String.format("%1$s://%2$s", getWikiSite().scheme(), getWikiSite().authority()) + href;
                 }
                 handleExternalLink(context, Uri.parse(href));
             }
         }
     }
 
-    public abstract Site getSite();
+    public abstract WikiSite getWikiSite();
 }

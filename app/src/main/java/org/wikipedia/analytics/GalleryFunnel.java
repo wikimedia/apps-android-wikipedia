@@ -3,8 +3,8 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 
 public class GalleryFunnel extends TimedFunnel {
@@ -18,8 +18,8 @@ public class GalleryFunnel extends TimedFunnel {
 
     private final int source;
 
-    public GalleryFunnel(WikipediaApp app, Site site, int source) {
-        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, site);
+    public GalleryFunnel(WikipediaApp app, WikiSite wiki, int source) {
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, wiki);
         this.source = source;
     }
 

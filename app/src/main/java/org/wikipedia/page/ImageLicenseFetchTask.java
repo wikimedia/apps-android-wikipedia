@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 
 /**
  * Fetch license info for a single image.
@@ -15,8 +15,8 @@ import org.wikipedia.Site;
 public class ImageLicenseFetchTask extends PageQueryTask<ImageLicense> {
     private static final String TAG = "ImageLicenseFetchTask";
 
-    public ImageLicenseFetchTask(Api api, Site site, PageTitle title) {
-        super(api, site, title);
+    public ImageLicenseFetchTask(Api api, WikiSite wiki, PageTitle title) {
+        super(api, wiki, title);
     }
 
     @Override

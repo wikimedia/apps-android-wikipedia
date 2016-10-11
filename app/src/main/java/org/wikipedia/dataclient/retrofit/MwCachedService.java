@@ -2,17 +2,17 @@ package org.wikipedia.dataclient.retrofit;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.server.mwapi.MwPageEndpointsCache;
 
 import retrofit2.Retrofit;
 
-public class MwCachedService<T> extends SiteCachedService<T> {
+public class MwCachedService<T> extends WikiCachedService<T> {
     public MwCachedService(@NonNull Class<T> clazz) {
         super(clazz);
     }
 
-    @NonNull @Override protected Retrofit create(@NonNull Site site) {
-        return MwPageEndpointsCache.retrofit(site);
+    @NonNull @Override protected Retrofit create(@NonNull WikiSite wiki) {
+        return MwPageEndpointsCache.retrofit(wiki);
     }
 }

@@ -9,7 +9,7 @@ import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 
 import java.util.Locale;
@@ -25,8 +25,8 @@ public class NearbyFetchTask extends ApiTask<NearbyResult> {
     private final double longitude;
     private final double radius;
 
-    public NearbyFetchTask(Context context, Site site, double latitude, double longitude, double radius) {
-        super(((WikipediaApp) context.getApplicationContext()).getAPIForSite(site));
+    public NearbyFetchTask(Context context, WikiSite wiki, double latitude, double longitude, double radius) {
+        super(((WikipediaApp) context.getApplicationContext()).getAPIForSite(wiki));
         this.latitude = latitude;
         this.longitude = longitude;
         this.radius = radius < MAX_RADIUS ? radius : MAX_RADIUS;

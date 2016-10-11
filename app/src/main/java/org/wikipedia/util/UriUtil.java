@@ -67,7 +67,7 @@ public final class UriUtil {
      * @return A fully qualified, protocol specified URL
      */
     public static String resolveProtocolRelativeUrl(String url) {
-        return (url.startsWith("//") ? WikipediaApp.getInstance().getSite().scheme() + ":" + url
+        return (url.startsWith("//") ? WikipediaApp.getInstance().getWikiSite().scheme() + ":" + url
                 : url);
     }
 
@@ -84,8 +84,8 @@ public final class UriUtil {
 
         if (!zeroHandler.isZeroEnabled()) {
             if (!StringUtil.emptyIfNull(zeroHandler.getXCarrier()).equals("")) {
-                // User is potentially zero-rated based on IP, but not on a whitelisted site
-                // (this is rare)
+                // User is potentially zero-rated based on IP, but not on a whitelisted wiki (this
+                // is rare)
                 zeroHandler.getZeroFunnel().logExtLink();
             }
             visitInExternalBrowser(context, uri);

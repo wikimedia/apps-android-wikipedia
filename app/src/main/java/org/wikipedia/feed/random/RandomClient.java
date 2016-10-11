@@ -1,11 +1,11 @@
 package org.wikipedia.feed.random;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.DummyClient;
 
 public class RandomClient extends DummyClient<RandomCard> {
     @Override
-    public RandomCard getNewCard(Site site) {
-        return new RandomCard(site);
+    public RandomCard getNewCard(WikiSite wiki) {
+        return new RandomCard(wiki);
     }
 }

@@ -41,7 +41,7 @@ public class MainPageCardView extends StaticCardView<MainPageCard> {
         public void onClick(View view) {
             if (getCallback() != null) {
                 PageTitle title = new PageTitle(MainPageNameData
-                        .valueFor(app.getAppOrSystemLanguageCode()), app.getSite());
+                        .valueFor(app.getAppOrSystemLanguageCode()), app.getWikiSite());
                 getCallback().onSelectPage(new HistoryEntry(title, HistoryEntry.SOURCE_FEED_MAIN_PAGE));
             }
         }

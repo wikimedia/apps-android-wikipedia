@@ -1,6 +1,6 @@
 package org.wikipedia.test;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.login.LoginClient;
@@ -26,7 +26,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @SmallTest
 @RunWith(AndroidJUnit4.class)
 public class LoginClientTest {
-    private static final String TEST_WIKI = "test.wikipedia.org";
+    private static final WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
     private static final String USERNAME = getString(R.string.test_username);
     private static final String PASSWORD = getString(R.string.test_password);
     private final TestLatch completionLatch = new TestLatch();
@@ -41,13 +41,13 @@ public class LoginClientTest {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                new LoginClient().request(new Site(TEST_WIKI), USERNAME, PASSWORD,
+                new LoginClient().request(TEST_WIKI, USERNAME, PASSWORD,
                         new LoginClient.LoginCallback() {
                             @Override
                             public void success(@NonNull LoginResult result) {
                                 completionLatch.countDown();
                                 assertThat(result.getStatus(), equalTo("PASS"));
-                                WikipediaApp.getInstance().getEditTokenStorage().get(new Site(TEST_WIKI), callback);
+                                WikipediaApp.getInstance().getEditTokenStorage().get(TEST_WIKI, callback);
                             }
 
                             @Override

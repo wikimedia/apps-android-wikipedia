@@ -41,7 +41,7 @@ import net.hockeyapp.android.metrics.MetricsManager;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
@@ -173,7 +173,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         }
 
         if (languageChanged) {
-            app.resetSite();
+            app.resetWikiSite();
             loadMainPageInForegroundTab();
         }
 
@@ -265,8 +265,8 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
-            Site site = new Site(intent.getData().getAuthority());
-            PageTitle title = site.titleForUri(intent.getData());
+            WikiSite wiki = new WikiSite(intent.getData().getAuthority());
+            PageTitle title = wiki.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
             loadPageInForegroundTab(title, historyEntry);
         } else if (ACTION_PAGE_FOR_TITLE.equals(intent.getAction())) {
@@ -279,7 +279,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             loadMainPageIfNoTabs();
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            PageTitle title = new PageTitle(query, app.getSite());
+            PageTitle title = new PageTitle(query, app.getWikiSite());
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
             loadPageInForegroundTab(title, historyEntry);
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
@@ -351,7 +351,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
 
-        app.putCrashReportProperty("api", title.getSite().authority());
+        app.putCrashReportProperty("api", title.getWikiSite().authority());
         app.putCrashReportProperty("title", title.toString());
 
         if (title.isSpecial()) {
@@ -406,7 +406,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
      * @param mustBeEmpty If true, and a tab exists already, do nothing.
      */
     public void loadMainPage(TabPosition position, boolean mustBeEmpty) {
-        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getSite());
+        PageTitle title = new PageTitle(MainPageNameData.valueFor(app.getAppOrSystemLanguageCode()), app.getWikiSite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position, mustBeEmpty);
     }
@@ -765,7 +765,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     protected void onResume() {
         super.onResume();
-        app.resetSite();
+        app.resetWikiSite();
         app.getSessionFunnel().touchSession();
         boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
         if (isZeroEnabled && !latestWikipediaZeroDisposition) {

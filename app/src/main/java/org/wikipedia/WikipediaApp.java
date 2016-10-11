@@ -30,6 +30,7 @@ import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.dataclient.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -88,7 +89,7 @@ public class WikipediaApp extends Application {
     private Database database;
     private EditTokenStorage editTokenStorage;
     private String userAgent;
-    private Site site;
+    private WikiSite wiki;
 
     private CrashReporter crashReporter;
 
@@ -219,21 +220,21 @@ public class WikipediaApp extends Application {
      * @return the value that should go in the Accept-Language header.
      */
     @NonNull
-    public String getAcceptLanguage(@Nullable Site site) {
-        String siteLang = site == null || "meta".equals(site.languageCode())
+    public String getAcceptLanguage(@Nullable WikiSite wiki) {
+        String wikiLang = wiki == null || "meta".equals(wiki.languageCode())
                 ? ""
-                : emptyIfNull(site.languageCode());
-        return AcceptLanguageUtil.getAcceptLanguage(siteLang, emptyIfNull(getAppLanguageCode()),
+                : emptyIfNull(wiki.languageCode());
+        return AcceptLanguageUtil.getAcceptLanguage(wikiLang, emptyIfNull(getAppLanguageCode()),
                 appLanguageState.getSystemLanguageCode());
     }
 
-    public Api getAPIForSite(Site site) {
-        return getAPIForSite(site, false);
+    public Api getAPIForSite(WikiSite wiki) {
+        return getAPIForSite(wiki, false);
     }
 
-    public Api getAPIForSite(Site site, boolean mobile) {
-        String host = mobile ? site.mobileHost() : site.host();
-        String acceptLanguage = getAcceptLanguage(site);
+    public Api getAPIForSite(WikiSite wiki, boolean mobile) {
+        String host = mobile ? wiki.mobileHost() : wiki.host();
+        String acceptLanguage = getAcceptLanguage(wiki);
         Map<String, String> customHeaders = buildCustomHeadersMap(acceptLanguage);
         Api api;
 
@@ -241,8 +242,8 @@ public class WikipediaApp extends Application {
         if (apis.containsKey(cachedApiKey)) {
             api = apis.get(cachedApiKey);
         } else {
-            api = new Api(host, site.port(), site.secureScheme(),
-                    site.path("api.php"), customHeaders);
+            api = new Api(host, wiki.port(), wiki.secureScheme(),
+                    wiki.path("api.php"), customHeaders);
             apis.put(cachedApiKey, api);
         }
 
@@ -250,30 +251,30 @@ public class WikipediaApp extends Application {
         return api;
     }
 
-    public Api getApiForMobileSite(Site site) {
-        return getAPIForSite(site, true);
+    public Api getApiForMobileSite(WikiSite wiki) {
+        return getAPIForSite(wiki, true);
     }
 
     /**
-     * Default site for the app
-     * You should use PageTitle.getSite() to get the article site
+     * Default wiki for the app
+     * You should use PageTitle.getWikiSite() to get the article wiki
      */
-    @NonNull public Site getSite() {
+    @NonNull public WikiSite getWikiSite() {
         // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
-        if (site == null) {
+        if (wiki == null) {
             String lang = Prefs.getMediaWikiBaseUriSupportsLangCode() ? getAppOrSystemLanguageCode() : "";
-            site = Site.forLanguageCode(lang);
+            wiki = WikiSite.forLanguageCode(lang);
         }
-        return site;
+        return wiki;
     }
 
     /**
-     * Convenience method to get an API object for the app site.
+     * Convenience method to get an API object for the app wiki.
      *
-     * @return An API object that is equivalent to calling getAPIForSite(getSite)
+     * @return An API object that is equivalent to calling getAPIForSite(WikiSite)
      */
     public Api getSiteApi() {
-        return getAPIForSite(getSite());
+        return getAPIForSite(getWikiSite());
     }
 
     @Nullable
@@ -293,7 +294,7 @@ public class WikipediaApp extends Application {
 
     public void setAppLanguageCode(@Nullable String code) {
         appLanguageState.setAppLanguageCode(code);
-        resetSite();
+        resetWikiSite();
     }
 
     @Nullable
@@ -515,8 +516,8 @@ public class WikipediaApp extends Application {
         return Prefs.isLinkPreviewEnabled();
     }
 
-    public void resetSite() {
-        site = null;
+    public void resetWikiSite() {
+        wiki = null;
     }
 
     public OnboardingStateMachine getOnboardingStateMachine() {

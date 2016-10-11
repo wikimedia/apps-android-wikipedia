@@ -3,7 +3,7 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 
 public class FindInPageFunnel extends TimedFunnel {
@@ -16,8 +16,8 @@ public class FindInPageFunnel extends TimedFunnel {
     private int numFindPrev;
     private String findText;
 
-    public FindInPageFunnel(WikipediaApp app, Site site, int pageId) {
-        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL, site);
+    public FindInPageFunnel(WikipediaApp app, WikiSite wiki, int pageId) {
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_ALL, wiki);
         this.pageId = pageId;
     }
 

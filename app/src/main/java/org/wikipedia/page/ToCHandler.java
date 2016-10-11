@@ -19,7 +19,7 @@ import com.appenguin.onboarding.ToolTip;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -99,7 +99,7 @@ public class ToCHandler {
 
         // create a dummy funnel, in case the drawer is pulled out before a page is loaded.
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(),
-                WikipediaApp.getInstance().getSite(), 0, 0);
+                WikipediaApp.getInstance().getWikiSite(), 0, 0);
 
         slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             private boolean sectionRequested = false;
@@ -159,7 +159,7 @@ public class ToCHandler {
         }
     }
 
-    public void setupToC(final Page page, Site site, boolean firstPage) {
+    public void setupToC(final Page page, WikiSite wiki, boolean firstPage) {
         tocProgress.setVisibility(View.GONE);
         tocList.setVisibility(View.VISIBLE);
 
@@ -174,7 +174,7 @@ public class ToCHandler {
             }
         });
 
-        tocList.setAdapter(new ToCAdapter(page), site.languageCode());
+        tocList.setAdapter(new ToCAdapter(page), wiki.languageCode());
         tocList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -186,7 +186,7 @@ public class ToCHandler {
             }
         });
 
-        funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), site,
+        funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
                 page.getPageProperties().getPageId(), tocList.getAdapter().getCount());
 
         if (onboardingEnabled() && !page.isMainPage() && !firstPage) {

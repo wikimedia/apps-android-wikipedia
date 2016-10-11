@@ -2,7 +2,7 @@ package org.wikipedia.feed.news;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.model.ListCard;
@@ -14,8 +14,8 @@ import java.util.concurrent.TimeUnit;
 public class NewsListCard extends ListCard<NewsItemCard> {
     @NonNull private UtcDate age;
 
-    public NewsListCard(@NonNull List<NewsItem> news, @NonNull UtcDate age, @NonNull Site site) {
-        super(toItemCards(news, site));
+    public NewsListCard(@NonNull List<NewsItem> news, @NonNull UtcDate age, @NonNull WikiSite wiki) {
+        super(toItemCards(news, wiki));
         this.age = age;
     }
 
@@ -35,10 +35,10 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     }
 
     @NonNull
-    private static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull Site site) {
+    private static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull WikiSite wiki) {
         List<NewsItemCard> itemCards = new ArrayList<>();
         for (NewsItem item : items) {
-            itemCards.add(new NewsItemCard(item, site));
+            itemCards.add(new NewsItemCard(item, wiki));
         }
         return itemCards;
     }

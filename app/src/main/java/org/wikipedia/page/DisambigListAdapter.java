@@ -3,7 +3,7 @@ package org.wikipedia.page;
 import org.wikipedia.Constants;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.pageimages.PageImagesTask;
 import org.wikipedia.util.DimenUtil;
@@ -32,7 +32,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     private final Activity activity;
     private final DisambigResult[] items;
     private final WikipediaApp app;
-    private final Site site;
+    private final WikiSite wiki;
 
     /**
      * Constructor
@@ -44,7 +44,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         this.activity = activity;
         this.items = items;
         app = (WikipediaApp) getContext().getApplicationContext();
-        site = app.getSite();
+        wiki = app.getWikiSite();
         requestPageImages();
         fetchDescriptions();
     }
@@ -62,8 +62,8 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         }
 
         PageImagesTask imagesTask = new PageImagesTask(
-                app.getAPIForSite(site),
-                site,
+                app.getAPIForSite(wiki),
+                wiki,
                 titleList,
                 (int)(Constants.PREFERRED_THUMB_SIZE * DimenUtil.getDensityScalar())) {
             @Override
@@ -87,7 +87,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     }
 
     /**
-     * Start getting Wikidata descriptions (directly from the current Wikipedia site).
+     * Start getting Wikidata descriptions (directly from the current Wikipedia wiki).
      */
     private void fetchDescriptions() {
         List<PageTitle> titleList = new ArrayList<>();
@@ -98,7 +98,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
             return;
         }
 
-        new GetDescriptionsTask(app.getSiteApi(), site, titleList) {
+        new GetDescriptionsTask(app.getSiteApi(), wiki, titleList) {
             @Override
             public void onFinish(Map<PageTitle, Void> result) {
                 notifyDataSetChanged();

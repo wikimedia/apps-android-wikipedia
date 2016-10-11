@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.dataclient;
 
 import android.net.Uri;
 import android.os.Parcel;
@@ -30,16 +30,16 @@ import java.util.Locale;
  *     <li>Development: HTTP / 192.168.1.11:8080 / (none)</li>
  * </ul>
  */
-public class Site implements Parcelable {
-    public static final Parcelable.Creator<Site> CREATOR = new Parcelable.Creator<Site>() {
+public class WikiSite implements Parcelable {
+    public static final Parcelable.Creator<WikiSite> CREATOR = new Parcelable.Creator<WikiSite>() {
         @Override
-        public Site createFromParcel(Parcel in) {
-            return new Site(in);
+        public WikiSite createFromParcel(Parcel in) {
+            return new WikiSite(in);
         }
 
         @Override
-        public Site[] newArray(int size) {
-            return new Site[size];
+        public WikiSite[] newArray(int size) {
+            return new WikiSite[size];
         }
     };
 
@@ -54,24 +54,24 @@ public class Site implements Parcelable {
         return authority.endsWith(Prefs.getMediaWikiBaseUri().getAuthority());
     }
 
-    public static Site forLanguageCode(@NonNull String languageCode) {
+    public static WikiSite forLanguageCode(@NonNull String languageCode) {
         Uri uri = Prefs.getMediaWikiBaseUri();
         boolean secureSchema = uri.getScheme().equals("https");
-        return new Site(secureSchema,
+        return new WikiSite(secureSchema,
                 (languageCode.isEmpty() ? "" : (languageCodeToSubdomain(languageCode) + ".")) + uri.getAuthority(),
                 languageCode);
     }
 
     /** This method cannot resolve multi-dialect wikis like Simplified and Traditional Chinese. */
-    public Site(@NonNull String authority) {
+    public WikiSite(@NonNull String authority) {
         this(authority, authorityToLanguageCode(authority));
     }
 
-    public Site(@NonNull String authority, @NonNull String languageCode) {
+    public WikiSite(@NonNull String authority, @NonNull String languageCode) {
         this(true, authority, languageCode);
     }
 
-    public Site(boolean secureScheme, @NonNull String authority, @NonNull String languageCode) {
+    public WikiSite(boolean secureScheme, @NonNull String authority, @NonNull String languageCode) {
         this(new Uri.Builder()
                 .scheme(secureScheme ? "https" : "http")
                 // TODO: verify no one is passing in mobile authorities and remove authorityToDesktop().
@@ -79,11 +79,11 @@ public class Site implements Parcelable {
                 .build(), languageCode);
     }
 
-    public Site(@NonNull Parcel in) {
+    public WikiSite(@NonNull Parcel in) {
         this(in.<Uri>readParcelable(Uri.class.getClassLoader()), in.readString());
     }
 
-    public Site(@NonNull Uri uri, @NonNull String languageCode) {
+    public WikiSite(@NonNull Uri uri, @NonNull String languageCode) {
         this.uri = uri;
         this.languageCode = languageCode;
     }
@@ -183,7 +183,7 @@ public class Site implements Parcelable {
         return languageCode;
     }
 
-    // TODO: this method doesn't have much to do with Site. Move to PageTitle?
+    // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
     /**
      * Create a PageTitle object from an internal link string.
      *
@@ -197,7 +197,7 @@ public class Site implements Parcelable {
         return new PageTitle(UriUtil.removeInternalLinkPrefix(internalLink), this);
     }
 
-    // TODO: this method doesn't have much to do with Site. Move to PageTitle?
+    // TODO: this method doesn't have much to do with WikiSite. Move to PageTitle?
     /**
      * Create a PageTitle object from a Uri, taking into account any fragment (section title) in the link.
      * @param uri Uri object to be turned into a PageTitle.
@@ -221,12 +221,12 @@ public class Site implements Parcelable {
             return false;
         }
 
-        Site site = (Site) o;
+        WikiSite wiki = (WikiSite) o;
 
-        if (!uri.equals(site.uri)) {
+        if (!uri.equals(wiki.uri)) {
             return false;
         }
-        return languageCode.equals(site.languageCode);
+        return languageCode.equals(wiki.languageCode);
     }
 
     // Auto-generated
@@ -240,7 +240,7 @@ public class Site implements Parcelable {
     // Auto-generated
     @Override
     public String toString() {
-        return "Site{"
+        return "WikiSite{"
                 + "uri=" + uri
                 + ", languageCode='" + languageCode + '\''
                 + '}';

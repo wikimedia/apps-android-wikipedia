@@ -8,7 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.WindowManager;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.feed.news.NewsItem;
 import org.wikipedia.json.GsonMarshaller;
@@ -16,7 +16,7 @@ import org.wikipedia.json.GsonUnmarshaller;
 
 public class NewsActivity extends SingleFragmentActivity<NewsFragment> {
     protected static final String EXTRA_NEWS_ITEM = "item";
-    protected static final String EXTRA_SITE = "site";
+    protected static final String EXTRA_WIKI = "wiki";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,15 +27,15 @@ public class NewsActivity extends SingleFragmentActivity<NewsFragment> {
         }
     }
 
-    public static Intent newIntent(@NonNull Context context, @NonNull NewsItem item, @NonNull Site site) {
+    public static Intent newIntent(@NonNull Context context, @NonNull NewsItem item, @NonNull WikiSite wiki) {
         return new Intent(context, NewsActivity.class)
                 .putExtra(EXTRA_NEWS_ITEM, GsonMarshaller.marshal(item))
-                .putExtra(EXTRA_SITE, GsonMarshaller.marshal(site));
+                .putExtra(EXTRA_WIKI, GsonMarshaller.marshal(wiki));
     }
 
     @Override
     public NewsFragment createFragment() {
         return NewsFragment.newInstance(GsonUnmarshaller.unmarshal(NewsItem.class, getIntent().getStringExtra(EXTRA_NEWS_ITEM)),
-                GsonUnmarshaller.unmarshal(Site.class, getIntent().getStringExtra(EXTRA_SITE)));
+                GsonUnmarshaller.unmarshal(WikiSite.class, getIntent().getStringExtra(EXTRA_WIKI)));
     }
 }

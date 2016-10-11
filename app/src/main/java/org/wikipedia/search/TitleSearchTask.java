@@ -3,8 +3,8 @@ package org.wikipedia.search;
 import org.json.JSONArray;
 import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.Constants;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
@@ -21,14 +21,14 @@ import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
 
 public class TitleSearchTask extends ApiTask<SearchResults> {
     private final String prefix;
-    private final Site site;
+    private final WikiSite wiki;
 
     private static final String NUM_RESULTS_PER_QUERY = "20";
 
-    public TitleSearchTask(Api api, Site site, String prefix) {
+    public TitleSearchTask(Api api, WikiSite wiki, String prefix) {
         super(api);
         this.prefix = prefix;
-        this.site = site;
+        this.wiki = wiki;
     }
 
     @Override
@@ -143,7 +143,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
             if (item.has("tofragment")) {
                 titleText += "#" + item.getString("tofragment");
             }
-            resultList.add(new SearchResult(new PageTitle(titleText, site, thumbUrl, description),
+            resultList.add(new SearchResult(new PageTitle(titleText, wiki, thumbUrl, description),
                     item.optString("redirectFrom")));
         }
         return new SearchResults(resultList, null, suggestion);

@@ -59,7 +59,7 @@ public class EditSummaryHandler {
             }
         });
 
-        setConditionalTextDirection(summaryEdit, title.getSite().languageCode());
+        setConditionalTextDirection(summaryEdit, title.getWikiSite().languageCode());
     }
 
     public void show() {

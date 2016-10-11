@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Site;
 import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
@@ -16,17 +15,11 @@ import java.util.Map;
 public class GalleryCollection {
     private static final int MIN_IMAGE_SIZE = 64;
 
-    @Nullable private Site site;
     @Nullable private List<GalleryItem> itemList;
 
     @Nullable
     public List<GalleryItem> getItemList() {
         return itemList;
-    }
-
-    @Nullable
-    public Site site() {
-        return site;
     }
 
     public JSONObject toJSON() {
@@ -48,7 +41,6 @@ public class GalleryCollection {
 
     public GalleryCollection(@NonNull List<GalleryItem> list) {
         this.itemList = list;
-        this.site = site;
     }
 
     public GalleryCollection(@NonNull JSONObject json) {

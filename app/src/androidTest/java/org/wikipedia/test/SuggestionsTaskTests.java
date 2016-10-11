@@ -4,7 +4,7 @@ import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.SuggestionsTask;
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 @SmallTest
 public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 200000;
-    private static final Site SITE = new Site("en.wikipedia.org"); // suggestions don't seem to work on testwiki
+    private static final WikiSite WIKI = WikiSite.forLanguageCode("en"); // suggestions don't seem to work on testwiki
 
     private WikipediaApp app = WikipediaApp.getInstance();
 
@@ -35,7 +35,7 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                new SuggestionsTask(app.getAPIForSite(SITE), SITE, "test", false) {
+                new SuggestionsTask(app.getAPIForSite(WIKI), WIKI, "test", false) {
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
@@ -63,22 +63,22 @@ public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity
 
     public void testFilter1ResultSameAsTitleIgnoreCase() throws Throwable {
         List<SearchResult> originalResults = new ArrayList<>();
-        originalResults.add(new SearchResult(new PageTitle("Test", SITE, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("Test", WIKI, null, null)));
         checkFilter(0, originalResults);
     }
 
     public void testFilter1ResultDifferentFromTitle() throws Throwable {
         List<SearchResult> originalResults = new ArrayList<>();
-        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("something else", WIKI, null, null)));
         checkFilter(1, originalResults);
     }
 
     public void testFilter4ResultsDifferentFromTitle() throws Throwable {
         List<SearchResult> originalResults = new ArrayList<>();
-        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
-        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
-        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
-        originalResults.add(new SearchResult(new PageTitle("something else", SITE, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("something else", WIKI, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("something else", WIKI, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("something else", WIKI, null, null)));
+        originalResults.add(new SearchResult(new PageTitle("something else", WIKI, null, null)));
         checkFilter(Constants.MAX_SUGGESTION_RESULTS, originalResults);
     }
 

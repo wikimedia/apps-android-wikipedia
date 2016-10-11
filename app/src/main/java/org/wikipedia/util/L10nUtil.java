@@ -137,11 +137,11 @@ public final class L10nUtil {
     }
 
     public static String getStringForArticleLanguage(PageTitle title, int resId) {
-        return getStringsForLocale(new Locale(title.getSite().languageCode()), new int[]{resId}).get(resId);
+        return getStringsForLocale(new Locale(title.getWikiSite().languageCode()), new int[]{resId}).get(resId);
     }
 
     public static SparseArray<String> getStringsForArticleLanguage(PageTitle title, int[] resId) {
-        return getStringsForLocale(new Locale(title.getSite().languageCode()), resId);
+        return getStringsForLocale(new Locale(title.getWikiSite().languageCode()), resId);
     }
 
     /**

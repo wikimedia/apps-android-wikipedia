@@ -129,9 +129,9 @@ public class ShareHandler {
         final String selectedText = StringUtil.sanitizeText(input.toString());
         final PageTitle title = fragment.getTitle();
 
-        (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getSite()),
-                    title.getSite(),
-                    new PageTitle("File:" + fragment.getPage().getPageProperties().getLeadImageName(), title.getSite())) {
+        (new ImageLicenseFetchTask(WikipediaApp.getInstance().getAPIForSite(title.getWikiSite()),
+                    title.getWikiSite(),
+                    new PageTitle("File:" + fragment.getPage().getPageProperties().getLeadImageName(), title.getWikiSite())) {
 
             @Override
             public void onFinish(@NonNull Map<PageTitle, ImageLicense> result) {
@@ -205,7 +205,7 @@ public class ShareHandler {
 
     private boolean isWiktionaryDialogEnabledForArticleLanguage() {
         return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
-                .contains(fragment.getTitle().getSite().languageCode());
+                .contains(fragment.getTitle().getWikiSite().languageCode());
     }
 
     private void showShareOnboarding(MenuItem shareItem) {

@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.model.CardType;
@@ -19,11 +19,11 @@ import java.util.List;
 
 public class NewsItemCard extends Card {
     @NonNull private NewsItem newsItem;
-    @NonNull private Site site;
+    @NonNull private WikiSite wiki;
 
-    public NewsItemCard(@NonNull NewsItem item, @NonNull Site site) {
+    public NewsItemCard(@NonNull NewsItem item, @NonNull WikiSite wiki) {
         this.newsItem = item;
-        this.site = site;
+        this.wiki = wiki;
     }
 
     @NonNull
@@ -32,8 +32,8 @@ public class NewsItemCard extends Card {
     }
 
     @NonNull
-    public Site site() {
-        return site;
+    public WikiSite wikiSite() {
+        return wiki;
     }
 
     @Nullable

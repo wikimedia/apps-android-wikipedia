@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.WiktionaryDialogFunnel;
@@ -84,7 +84,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
 
         TextView titleText = (TextView) rootView.findViewById(R.id.wiktionary_definition_dialog_title);
         titleText.setText(sanitizeForDialogTitle(selectedText));
-        setConditionalLayoutDirection(rootView, pageTitle.getSite().languageCode());
+        setConditionalLayoutDirection(rootView, pageTitle.getWikiSite().languageCode());
 
         loadDefinitions();
 
@@ -107,7 +107,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
 
         // TODO: centralize the Wiktionary domain better. Maybe a SharedPreference that defaults to
         //       https://wiktionary.org.
-        PageService pageService = PageServiceFactory.create(new Site(pageTitle.getSite().languageCode() + WIKTIONARY_DOMAIN), Namespace.MAIN);
+        PageService pageService = PageServiceFactory.create(new WikiSite(pageTitle.getWikiSite().languageCode() + WIKTIONARY_DOMAIN), Namespace.MAIN);
         if (pageService instanceof RbPageService) {
             ((RbPageService) pageService).define(
                     addUnderscores(selectedText),

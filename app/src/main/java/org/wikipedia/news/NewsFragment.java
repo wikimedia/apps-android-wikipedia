@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.news.NewsItem;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.history.HistoryEntry;
@@ -43,7 +43,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import static org.wikipedia.news.NewsActivity.EXTRA_NEWS_ITEM;
-import static org.wikipedia.news.NewsActivity.EXTRA_SITE;
+import static org.wikipedia.news.NewsActivity.EXTRA_WIKI;
 import static org.wikipedia.richtext.RichTextUtil.stripHtml;
 import static org.wikipedia.util.DimenUtil.newsFeatureImageHeightForDevice;
 
@@ -57,11 +57,11 @@ public class NewsFragment extends Fragment {
     private Unbinder unbinder;
 
     @NonNull
-    public static NewsFragment newInstance(@NonNull NewsItem item, @NonNull Site site) {
+    public static NewsFragment newInstance(@NonNull NewsItem item, @NonNull WikiSite wiki) {
         NewsFragment instance = new NewsFragment();
         Bundle args = new Bundle();
         args.putString(EXTRA_NEWS_ITEM, GsonMarshaller.marshal(item));
-        args.putString(EXTRA_SITE, GsonMarshaller.marshal(site));
+        args.putString(EXTRA_WIKI, GsonMarshaller.marshal(wiki));
         instance.setArguments(args);
         return instance;
     }
@@ -82,7 +82,7 @@ public class NewsFragment extends Fragment {
         getAppCompatActivity().getSupportActionBar().setTitle("");
 
         NewsItem item = GsonUnmarshaller.unmarshal(NewsItem.class, getActivity().getIntent().getStringExtra(EXTRA_NEWS_ITEM));
-        Site site = GsonUnmarshaller.unmarshal(Site.class, getActivity().getIntent().getStringExtra(EXTRA_SITE));
+        WikiSite wiki = GsonUnmarshaller.unmarshal(WikiSite.class, getActivity().getIntent().getStringExtra(EXTRA_WIKI));
 
         Uri imageUri = item.featureImage();
         int height = imageUri == null ? 0 : newsFeatureImageHeightForDevice();
@@ -90,7 +90,7 @@ public class NewsFragment extends Fragment {
         image.loadImage(imageUri);
         text.setText(stripHtml(item.story()));
         initRecycler();
-        links.setAdapter(new RecyclerAdapter(item.linkCards(site), new Callback()));
+        links.setAdapter(new RecyclerAdapter(item.linkCards(wiki), new Callback()));
         return view;
     }
 

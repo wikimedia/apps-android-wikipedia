@@ -3,7 +3,7 @@ package org.wikipedia.page;
 import android.support.annotation.NonNull;
 
 import org.junit.Test;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.log.L;
 
 import java.util.Arrays;
@@ -22,7 +22,7 @@ public class PageLoadTest extends BasePageLoadTest {
     public void testPageFetchWithAmpersand() throws Throwable {
 //        final int expectedNumberOfSections = 1;
         // TODO: verify num sections
-        loadPageSync("Ampersand & title", TEST_SITE);
+        loadPageSync("Ampersand & title", TEST_WIKI);
     }
 
     @Test
@@ -78,18 +78,18 @@ public class PageLoadTest extends BasePageLoadTest {
 
     private void testPagesRtl() throws Throwable {
         List<String> pages = Arrays.asList("Algebra", "Water", "Dinosaur", "Helium");
-        testPages(pages, Site.forLanguageCode("ar"));
+        testPages(pages, WikiSite.forLanguageCode("ar"));
     }
 
     private void testPages(@NonNull List<String> titles) throws Throwable {
-        testPages(titles, EN_SITE);
+        testPages(titles, EN_WIKI);
     }
 
-    private void testPages(@NonNull List<String> titles, @NonNull Site site) throws Throwable {
+    private void testPages(@NonNull List<String> titles, @NonNull WikiSite wiki) throws Throwable {
         for (String title : titles) {
             String tag = titleToTag(title);
             L.d("title=" + title + " tag=" + tag);
-            loadPageSync(title, site);
+            loadPageSync(title, wiki);
             screenshot(tag);
 
             // TODO: this is nondeterministic. Add listeners for load and Ken Burns animation, where

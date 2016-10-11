@@ -27,7 +27,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
@@ -63,7 +63,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_FILENAME = "filename";
-    public static final String EXTRA_SITE = "site";
+    public static final String EXTRA_WIKI = "wiki";
     public static final String EXTRA_SOURCE = "source";
     public static final String EXTRA_FEATURED_IMAGE = "card";
 
@@ -73,7 +73,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     @Nullable private PageTitle pageTitle;
     @Nullable private Page page;
     private boolean cacheOnLoad;
-    @Nullable private Site site;
+    @Nullable private WikiSite wiki;
 
     private ViewGroup toolbarContainer;
     private ViewGroup infoContainer;
@@ -137,18 +137,18 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, @NonNull FeaturedImage image,
-                                   @NonNull String filename, @NonNull Site site, int source) {
-        return newIntent(context, new PageTitle(FEED_FEATURED_IMAGE_TITLE, site), filename, site,
+                                   @NonNull String filename, @NonNull WikiSite wiki, int source) {
+        return newIntent(context, new PageTitle(FEED_FEATURED_IMAGE_TITLE, wiki), filename, wiki,
                 source).putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image));
     }
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, @NonNull PageTitle pageTitle,
-                                   @NonNull String filename, @NonNull Site site, int source) {
+                                   @NonNull String filename, @NonNull WikiSite wiki, int source) {
         return new Intent()
                 .setClass(context, GalleryActivity.class)
                 .putExtra(EXTRA_FILENAME, filename)
-                .putExtra(EXTRA_SITE, site)
+                .putExtra(EXTRA_WIKI, wiki)
                 .putExtra(EXTRA_PAGETITLE, pageTitle)
                 .putExtra(EXTRA_SOURCE, source);
     }
@@ -183,7 +183,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
-        site = getIntent().getParcelableExtra(EXTRA_SITE);
+        wiki = getIntent().getParcelableExtra(EXTRA_WIKI);
 
         galleryCache = new HashMap<>();
         galleryAdapter = new GalleryItemAdapter(this);
@@ -191,7 +191,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         galleryPager.setAdapter(galleryAdapter);
         galleryPager.setOnPageChangeListener(new GalleryPageChangeListener());
 
-        funnel = new GalleryFunnel(app, site, getIntent().getIntExtra(EXTRA_SOURCE, 0));
+        funnel = new GalleryFunnel(app, wiki, getIntent().getIntExtra(EXTRA_SOURCE, 0));
 
         if (savedInstanceState == null) {
             if (initialFilename != null) {
@@ -367,21 +367,21 @@ public class GalleryActivity extends ThemedActionBarActivity {
         public void onUrlClick(@NonNull String url, @Nullable String notUsed) {
             L.v("Link clicked was " + url);
             url = resolveProtocolRelativeUrl(url);
-            Site appSite = app.getSite();
+            WikiSite appWikiSite = app.getWikiSite();
             if (url.startsWith("/wiki/")) {
-                PageTitle title = appSite.titleForInternalLink(url);
+                PageTitle title = appWikiSite.titleForInternalLink(url);
                 finishWithPageResult(title);
             } else {
                 Uri uri = Uri.parse(url);
                 String authority = uri.getAuthority();
-                if (authority != null && Site.supportedAuthority(authority)
+                if (authority != null && WikiSite.supportedAuthority(authority)
                     && uri.getPath().startsWith("/wiki/")) {
-                    PageTitle title = appSite.titleForUri(uri);
+                    PageTitle title = appWikiSite.titleForUri(uri);
                     finishWithPageResult(title);
                 } else {
                     // if it's a /w/ URI, turn it into a full URI and go external
                     if (url.startsWith("/w/")) {
-                        url = String.format("%1$s://%2$s", appSite.scheme(), appSite.authority()) + url;
+                        url = String.format("%1$s://%2$s", appWikiSite.scheme(), appWikiSite.authority()) + url;
                     }
                     handleExternalLink(GalleryActivity.this, Uri.parse(url));
                 }
@@ -413,8 +413,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
      */
     private void fetchGalleryCollection() {
         updateProgressBar(true, true, 0);
-        new GalleryCollectionFetchTask(app.getAPIForSite(pageTitle.getSite()),
-                pageTitle.getSite(), pageTitle) {
+        new GalleryCollectionFetchTask(app.getAPIForSite(pageTitle.getWikiSite()),
+                pageTitle.getWikiSite(), pageTitle) {
             @Override
             public void onGalleryResult(GalleryCollection result) {
                 updateProgressBar(false, true, 0);
@@ -626,7 +626,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             // instantiate a new fragment if it doesn't exist
             if (fragmentArray.get(position) == null) {
                 fragmentArray.put(position, GalleryItemFragment
-                        .newInstance(pageTitle, site, galleryCollection.getItemList().get(position)));
+                        .newInstance(pageTitle, wiki, galleryCollection.getItemList().get(position)));
             }
             return fragmentArray.get(position);
         }

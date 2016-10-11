@@ -23,7 +23,7 @@ public class ShareAFactFunnel extends Funnel {
     private final long revisionId;
 
     public ShareAFactFunnel(WikipediaApp app, PageTitle pageTitle, int pageId, long revisionId) {
-        super(app, SCHEMA_NAME, REV_ID, pageTitle.getSite());
+        super(app, SCHEMA_NAME, REV_ID, pageTitle.getWikiSite());
         this.pageTitle = pageTitle.getDisplayText();
         this.pageId = pageId;
         this.revisionId = revisionId;

@@ -4,7 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageQueryTask;
 import org.wikipedia.page.PageTitle;
 
@@ -15,8 +15,8 @@ public class ReadingListPageInfoTask extends PageQueryTask<Void> {
     private final int thumbSize;
     private final int pageCount;
 
-    public ReadingListPageInfoTask(Api api, Site site, List<PageTitle> titles, int thumbSize) {
-        super(api, site, titles);
+    public ReadingListPageInfoTask(Api api, WikiSite wiki, List<PageTitle> titles, int thumbSize) {
+        super(api, wiki, titles);
         this.titles = titles;
         this.thumbSize = thumbSize;
         this.pageCount = titles.size();

@@ -213,7 +213,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                                     readingList.getTitle()));
                         }
 
-                        new ReadingListsFunnel(pageTitle.getSite()).logAddToList(readingList, readingLists.size(), invokeSource);
+                        new ReadingListsFunnel(pageTitle.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
                         ReadingList.DAO.makeListMostRecent(readingList);
                     }
                     ReadingList.DAO.addTitleToList(readingList, page);

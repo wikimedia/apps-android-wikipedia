@@ -5,12 +5,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.UtcDate;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardPageItem;
+import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DateUtil;
@@ -18,12 +18,12 @@ import org.wikipedia.util.StringUtil;
 
 public class FeaturedArticleCard extends Card {
     @NonNull private UtcDate date;
-    @NonNull private Site site;
+    @NonNull private WikiSite wiki;
     @NonNull private CardPageItem page;
 
-    public FeaturedArticleCard(@NonNull CardPageItem page, @NonNull UtcDate date, @NonNull Site site) {
+    public FeaturedArticleCard(@NonNull CardPageItem page, @NonNull UtcDate date, @NonNull WikiSite wiki) {
         this.page = page;
-        this.site = site;
+        this.wiki = wiki;
         this.date = date;
     }
 
@@ -40,8 +40,8 @@ public class FeaturedArticleCard extends Card {
     }
 
     @NonNull
-    public Site site() {
-        return site;
+    public WikiSite wikiSite() {
+        return wiki;
     }
 
     @NonNull
@@ -73,7 +73,7 @@ public class FeaturedArticleCard extends Card {
 
     @NonNull
     public HistoryEntry historyEntry(int source) {
-        PageTitle title = new PageTitle(articleTitle(), site());
+        PageTitle title = new PageTitle(articleTitle(), wikiSite());
         if (image() != null) {
             title.setThumbUrl(image().toString());
         }

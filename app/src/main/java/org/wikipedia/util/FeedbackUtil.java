@@ -120,7 +120,7 @@ public final class FeedbackUtil {
             dialog.setOnDismissListener(onDismissListener);
         }
         presenter.show(dialog);
-        new ReadingListsFunnel(title.getSite()).logAddClick(source);
+        new ReadingListsFunnel(title.getWikiSite()).logAddClick(source);
     }
 
     private static void showToolbarButtonToast(View view) {

@@ -1,25 +1,25 @@
 package org.wikipedia.login;
 
-import org.wikipedia.Site;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.retrofit.MwCachedService;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.http.POST;
-import retrofit2.http.Query;
-
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
+import org.wikipedia.dataclient.retrofit.MwCachedService;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Retrofit DataClient to retrieve implicit group membership information for a specific user.
@@ -34,11 +34,11 @@ class GroupMembershipClient {
         void error(@NonNull Throwable caught);
     }
 
-    public void request(@NonNull final Site site, @NonNull final String userName,
+    public void request(@NonNull final WikiSite wiki, @NonNull final String userName,
                         @NonNull final GroupMembershipCallback cb) {
         cancel();
 
-        groupCall = cachedService.service(site).listUsers(userName);
+        groupCall = cachedService.service(wiki).listUsers(userName);
         groupCall.enqueue(new Callback<MwQueryResponse<UserMemberships>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<UserMemberships>> call,

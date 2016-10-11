@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
@@ -27,8 +27,8 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
 
     @Override
     public PageImage fromCursor(Cursor cursor) {
-        Site site = new Site(Col.SITE.val(cursor), Col.LANG.val(cursor));
-        PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), site);
+        WikiSite wiki = new WikiSite(Col.SITE.val(cursor), Col.LANG.val(cursor));
+        PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.TITLE.val(cursor), wiki);
         String imageName = Col.IMAGE_NAME.val(cursor);
         return new PageImage(title, imageName);
     }
@@ -36,8 +36,8 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     @Override
     protected ContentValues toContentValues(PageImage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Col.SITE.getName(), obj.getTitle().getSite().authority());
-        contentValues.put(Col.LANG.getName(), obj.getTitle().getSite().languageCode());
+        contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
+        contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
         contentValues.put(Col.TITLE.getName(), obj.getTitle().getPrefixedText());
         contentValues.put(Col.IMAGE_NAME.getName(), obj.getImageName());
@@ -91,8 +91,8 @@ public class PageImageDatabaseTable extends DatabaseTable<PageImage> {
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull PageImage obj) {
         return new String[] {
-                obj.getTitle().getSite().authority(),
-                obj.getTitle().getSite().languageCode(),
+                obj.getTitle().getWikiSite().authority(),
+                obj.getTitle().getWikiSite().languageCode(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()
         };

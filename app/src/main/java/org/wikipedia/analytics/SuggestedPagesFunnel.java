@@ -38,7 +38,7 @@ public class SuggestedPagesFunnel extends Funnel {
 
     public void logSuggestionsShown(PageTitle currentPageTitle, List<SearchResult> suggestedTitles) {
         log(
-                currentPageTitle.getSite(),
+                currentPageTitle.getWikiSite(),
                 "action", "shown",
                 "pageTitle", currentPageTitle.getDisplayText(),
                 "readMoreList", TextUtils.join("|", suggestedTitles),
@@ -49,7 +49,7 @@ public class SuggestedPagesFunnel extends Funnel {
     public void logSuggestionClicked(PageTitle currentPageTitle, List<SearchResult> suggestedTitles,
                                      int clickedIndex) {
         log(
-                currentPageTitle.getSite(),
+                currentPageTitle.getWikiSite(),
                 "action", "clicked",
                 "pageTitle", currentPageTitle.getDisplayText(),
                 "readMoreList", TextUtils.join("|", suggestedTitles),

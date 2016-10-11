@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
@@ -26,12 +26,12 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public class DefaultUserOptionDataClient implements UserOptionDataClient {
-    @NonNull private final Site site;
+    @NonNull private final WikiSite wiki;
     @NonNull private final Client client;
 
-    public DefaultUserOptionDataClient(@NonNull Site site) {
-        this.site = site;
-        client = RetrofitFactory.newInstance(site).create(Client.class);
+    public DefaultUserOptionDataClient(@NonNull WikiSite wiki) {
+        this.wiki = wiki;
+        client = RetrofitFactory.newInstance(wiki).create(Client.class);
     }
 
     @NonNull
@@ -52,7 +52,7 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     public void post(@NonNull UserOption option) throws IOException {
         Response<PostResponse> rsp = client.post(getToken(), option.key(), option.val()).execute();
         if (rsp.isSuccessful()) {
-            rsp.body().check(site);
+            rsp.body().check(wiki);
             return;
         }
 
@@ -64,26 +64,26 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
 
     @Override
     public void delete(@NonNull String key) throws IOException {
-        client.delete(getToken(), key).execute().body().check(site);
+        client.delete(getToken(), key).execute().body().check(wiki);
     }
 
     @NonNull private String getToken() throws IOException {
-        if (app().getEditTokenStorage().token(site) == null) {
+        if (app().getEditTokenStorage().token(wiki) == null) {
             requestToken();
         }
 
-        String token = app().getEditTokenStorage().token(site);
+        String token = app().getEditTokenStorage().token(wiki);
         if (token == null) {
-            throw new IOException("No token for " + site.authority());
+            throw new IOException("No token for " + wiki.authority());
         }
         return token;
     }
 
     private void requestToken() {
-        new FetchEditTokenTask(app(), site) {
+        new FetchEditTokenTask(app(), wiki) {
             @Override
             public void onFinish(String result) {
-                app().getEditTokenStorage().token(site, result);
+                app().getEditTokenStorage().token(wiki, result);
             }
 
             @Override
@@ -134,13 +134,13 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
             return options;
         }
 
-        public void check(@NonNull Site site) throws IOException {
+        public void check(@NonNull WikiSite wiki) throws IOException {
             if (!success(options)) {
                 if (badToken()) {
-                    app().getEditTokenStorage().token(site, null);
+                    app().getEditTokenStorage().token(wiki, null);
                 }
 
-                throw new IOException("Bad response for site " + site.host() + " = " + result());
+                throw new IOException("Bad response for wiki " + wiki.host() + " = " + result());
             }
         }
     }

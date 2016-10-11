@@ -4,8 +4,8 @@ import android.support.test.filters.SmallTest;
 
 import junit.framework.TestCase;
 import org.json.JSONObject;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.Section;
@@ -25,7 +25,7 @@ public class PageTests extends TestCase {
         for (int i = 1; i <= NUM_SECTIONS; i++) {
             sections.add(new Section(i, 1, "Something " + i, "Something_" + i, "Content Something" + i));
         }
-        PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
+        PageTitle title = new PageTitle(null, "Test", WikiSite.forLanguageCode("en"));
         PageProperties props = new PageProperties(new JSONObject("{\"id\":15580374,\"displaytitle\":\"Test\",\"revision\":615503846,\"lastmodified\":\"2001-02-03T04:00:00Z\",\"editable\":true,\"mainpage\":true}"));
         Page page = new Page(title, sections, props);
         assertEquals(page, new Page(page.toJSON()));

@@ -1,6 +1,6 @@
 package org.wikipedia.server;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Section;
 
@@ -18,7 +18,7 @@ public interface PageLeadProperties {
 
     int getId();
 
-    @NonNull Namespace getNamespace(@NonNull Site site);
+    @NonNull Namespace getNamespace(@NonNull WikiSite wiki);
 
     long getRevision();
 

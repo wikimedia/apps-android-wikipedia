@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.UtcDate;
@@ -34,15 +34,15 @@ public class AggregatedFeedContentClient implements FeedClient {
     @Nullable private Call<AggregatedFeedContent> call;
 
     @Override
-    public void request(@NonNull Context context, @NonNull Site site, int age, @NonNull Callback cb) {
+    public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull Callback cb) {
         cancel();
         UtcDate date = DateUtil.getUtcRequestDateFor(age);
-        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(),
-                site.authority());
-        Retrofit retrofit = RetrofitFactory.newInstance(endpoint, site);
+        String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), wiki.scheme(),
+                wiki.authority());
+        Retrofit retrofit = RetrofitFactory.newInstance(endpoint, wiki);
         AggregatedFeedContentClient.Service service = retrofit.create(Service.class);
         call = service.get(date.year(), date.month(), date.date());
-        call.enqueue(new CallbackAdapter(cb, site, age));
+        call.enqueue(new CallbackAdapter(cb, wiki, age));
     }
 
     @Override
@@ -74,12 +74,12 @@ public class AggregatedFeedContentClient implements FeedClient {
 
     private static class CallbackAdapter implements retrofit2.Callback<AggregatedFeedContent> {
         @NonNull private final Callback cb;
-        @NonNull private final Site site;
+        @NonNull private final WikiSite wiki;
         private final int age;
 
-        CallbackAdapter(@NonNull Callback cb, @NonNull Site site, int age) {
+        CallbackAdapter(@NonNull Callback cb, @NonNull WikiSite wiki, int age) {
             this.cb = cb;
-            this.site = site;
+            this.wiki = wiki;
             this.age = age;
         }
 
@@ -91,16 +91,16 @@ public class AggregatedFeedContentClient implements FeedClient {
                 AggregatedFeedContent content = response.body();
                 // todo: remove age check when news endpoint provides dated content, T139481.
                 if (age == 0 && content.news() != null) {
-                    cards.add(new NewsListCard(content.news(), date, site));
+                    cards.add(new NewsListCard(content.news(), date, wiki));
                 }
                 if (content.tfa() != null) {
-                    cards.add(new FeaturedArticleCard(content.tfa(), date, site));
+                    cards.add(new FeaturedArticleCard(content.tfa(), date, wiki));
                 }
                 if (content.mostRead() != null) {
-                    cards.add(new MostReadListCard(content.mostRead(), site));
+                    cards.add(new MostReadListCard(content.mostRead(), wiki));
                 }
                 if (content.potd() != null) {
-                    cards.add(new FeaturedImageCard(content.potd(), date, site));
+                    cards.add(new FeaturedImageCard(content.potd(), date, wiki));
                 }
                 cb.success(cards);
             } else {

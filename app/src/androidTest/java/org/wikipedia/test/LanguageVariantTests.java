@@ -4,7 +4,7 @@ import android.support.test.filters.SmallTest;
 import android.test.InstrumentationTestCase;
 import android.test.UiThreadTest;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.language.AppLanguageLookUpTable;
 
@@ -32,7 +32,7 @@ public class LanguageVariantTests extends InstrumentationTestCase {
                 Locale.SIMPLIFIED_CHINESE);
         testDefaultLocaleAndAcceptLanguageAgree("es,zh-hans;q=0.9,zh-hant;q=0.8",
                 AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
-                Locale.TRADITIONAL_CHINESE, Site.forLanguageCode("es"));
+                Locale.TRADITIONAL_CHINESE, WikiSite.forLanguageCode("es"));
         testDefaultLocaleAndAcceptLanguageAgree("zh-hant",
                 AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE,
                 Locale.TRADITIONAL_CHINESE);
@@ -46,10 +46,10 @@ public class LanguageVariantTests extends InstrumentationTestCase {
     }
 
     private void testDefaultLocaleAndAcceptLanguageAgree(String expected,
-             String appLanguage, Locale systemLocale, Site site) {
+             String appLanguage, Locale systemLocale, WikiSite wiki) {
         WikipediaApp.getInstance().setAppLanguageCode(appLanguage);
         Locale.setDefault(systemLocale);
-        assertEquals(expected, WikipediaApp.getInstance().getAcceptLanguage(site));
+        assertEquals(expected, WikipediaApp.getInstance().getAcceptLanguage(wiki));
     }
 
     private void preserveAppState() {

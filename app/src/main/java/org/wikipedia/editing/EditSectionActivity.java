@@ -140,7 +140,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         abusefilterTitle = (TextView) findViewById(R.id.edit_section_abusefilter_title);
         abusefilterText = (TextView) findViewById(R.id.edit_section_abusefilter_text);
 
-        captchaHandler = new CaptchaHandler(this, title.getSite(), progressDialog, sectionContainer, "", null);
+        captchaHandler = new CaptchaHandler(this, title.getWikiSite(), progressDialog, sectionContainer, "", null);
 
         editPreviewFragment = (EditPreviewFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_preview_fragment);
         editSummaryFragment = (EditSummaryFragment) getSupportFragmentManager().findFragmentById(R.id.edit_section_summary_fragment);
@@ -175,7 +175,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         });
 
 
-        setConditionalTextDirection(sectionText, title.getSite().languageCode());
+        setConditionalTextDirection(sectionText, title.getWikiSite().languageCode());
 
         fetchSectionText();
 
@@ -264,7 +264,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     private void doSave() {
         captchaHandler.hideCaptcha();
         editSummaryFragment.saveSummary();
-        app.getEditTokenStorage().get(title.getSite(), new EditTokenStorage.TokenRetrievedCallback() {
+        app.getEditTokenStorage().get(title.getWikiSite(), new EditTokenStorage.TokenRetrievedCallback() {
             @Override
             public void onTokenRetrieved(final String token) {
 
@@ -439,7 +439,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     }
 
     private void doLoginAndSave(final User user) {
-        new LoginClient().request(WikipediaApp.getInstance().getSite(),
+        new LoginClient().request(WikipediaApp.getInstance().getWikiSite(),
                 user.getUsername(),
                 user.getPassword(),
                 new LoginClient.LoginCallback() {

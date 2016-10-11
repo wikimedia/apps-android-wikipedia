@@ -18,7 +18,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.FeedbackUtil;
@@ -29,7 +29,7 @@ public class CaptchaHandler {
     private final View captchaProgress;
     private final SimpleDraweeView captchaImage;
     private final EditText captchaText;
-    private final Site site;
+    private final WikiSite wiki;
     private final View primaryView;
     private final String prevTitle;
     private ProgressDialog progressDialog;
@@ -37,10 +37,10 @@ public class CaptchaHandler {
     @Nullable private String token;
     @Nullable private CaptchaResult captchaResult;
 
-    public CaptchaHandler(final Activity activity, final Site site, final ProgressDialog progressDialog,
+    public CaptchaHandler(final Activity activity, final WikiSite wiki, final ProgressDialog progressDialog,
                           final View primaryView, final String prevTitle, final String submitButtonText) {
         this.activity = activity;
-        this.site = site;
+        this.wiki = wiki;
         this.progressDialog = progressDialog;
         this.primaryView = primaryView;
         this.prevTitle = prevTitle;
@@ -59,7 +59,7 @@ public class CaptchaHandler {
         captchaImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new RefreshCaptchaTask(activity, site) {
+                new RefreshCaptchaTask(activity, wiki) {
                     @Override
                     public void onBeforeExecute() {
                         captchaProgress.setVisibility(View.VISIBLE);
@@ -117,7 +117,7 @@ public class CaptchaHandler {
             return;
         }
         captchaImage.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(captchaResult.getCaptchaUrl(site))
+                .setUri(captchaResult.getCaptchaUrl(wiki))
                 .setAutoPlayAnimations(true)
                 .setControllerListener(new BaseControllerListener<ImageInfo>() {
                     @Override

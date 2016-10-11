@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.model.CardType;
@@ -16,11 +16,11 @@ import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 public class NewsLinkCard extends Card {
     @NonNull private CardPageItem page;
-    @NonNull private Site site;
+    @NonNull private WikiSite wiki;
 
-    public NewsLinkCard(@NonNull CardPageItem page, @NonNull Site site) {
+    public NewsLinkCard(@NonNull CardPageItem page, @NonNull WikiSite wiki) {
         this.page = page;
-        this.site = site;
+        this.wiki = wiki;
     }
 
     @NonNull @Override public String title() {
@@ -41,7 +41,7 @@ public class NewsLinkCard extends Card {
     }
 
     @NonNull public PageTitle pageTitle() {
-        PageTitle title = new PageTitle(page.title(), site);
+        PageTitle title = new PageTitle(page.title(), wiki);
         if (page.thumbnail() != null) {
             title.setThumbUrl(page.thumbnail().toString());
         }

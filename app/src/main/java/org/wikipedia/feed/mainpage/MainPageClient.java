@@ -1,6 +1,6 @@
 package org.wikipedia.feed.mainpage;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.dataclient.DummyClient;
 
 public class MainPageClient extends DummyClient<MainPageCard> {
@@ -9,7 +9,7 @@ public class MainPageClient extends DummyClient<MainPageCard> {
     }
 
     @Override
-    public MainPageCard getNewCard(Site site) {
-        return new MainPageCard(site);
+    public MainPageCard getNewCard(WikiSite wiki) {
+        return new MainPageCard(wiki);
     }
 }

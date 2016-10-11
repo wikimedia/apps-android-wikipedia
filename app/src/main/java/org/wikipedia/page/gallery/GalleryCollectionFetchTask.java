@@ -4,7 +4,7 @@ import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageQueryTask;
 import org.wikipedia.page.PageTitle;
 
@@ -14,12 +14,12 @@ public abstract class GalleryCollectionFetchTask extends PageQueryTask<GalleryIt
     private static final String MAX_ITEM_COUNT = "256";
     private final boolean getThumbs;
 
-    public GalleryCollectionFetchTask(Api api, Site site, PageTitle title) {
-        this(api, site, title, false);
+    public GalleryCollectionFetchTask(Api api, WikiSite wiki, PageTitle title) {
+        this(api, wiki, title, false);
     }
 
-    public GalleryCollectionFetchTask(Api api, Site site, PageTitle title, boolean getThumbs) {
-        super(api, site, title);
+    public GalleryCollectionFetchTask(Api api, WikiSite wiki, PageTitle title, boolean getThumbs) {
+        super(api, wiki, title);
         this.getThumbs = getThumbs;
     }
 

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 
 import org.mediawiki.api.json.Api;
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
@@ -27,36 +27,36 @@ public final class ReadingListImageFetcher {
 
     public static void getThumbnails(final ReadingList readingList,
                                      @NonNull final CompleteListener listener) {
-        Map<Site, List<PageTitle>> titlesPerSite = new HashMap<>();
+        Map<WikiSite, List<PageTitle>> titlesPerSite = new HashMap<>();
         for (ReadingListPage page : readingList.getPages()) {
             if (TextUtils.isEmpty(page.thumbnailUrl()) || TextUtils.isEmpty(page.description())) {
                 PageTitle title = ReadingListDaoProxy.pageTitle(page);
-                Site siteKey = null;
-                for (Site site : titlesPerSite.keySet()) {
-                    if (site.equals(title.getSite())) {
-                        siteKey = site;
+                WikiSite wikiKey = null;
+                for (WikiSite wiki : titlesPerSite.keySet()) {
+                    if (wiki.equals(title.getWikiSite())) {
+                        wikiKey = wiki;
                         break;
                     }
                 }
-                if (siteKey == null) {
-                    siteKey = title.getSite();
-                    titlesPerSite.put(siteKey, new ArrayList<PageTitle>());
+                if (wikiKey == null) {
+                    wikiKey = title.getWikiSite();
+                    titlesPerSite.put(wikiKey, new ArrayList<PageTitle>());
                 }
-                titlesPerSite.get(siteKey).add(title);
+                titlesPerSite.get(wikiKey).add(title);
             }
         }
 
-        for (Site site : titlesPerSite.keySet()) {
-            getThumbnailsForTitles(readingList, titlesPerSite.get(site), listener);
+        for (WikiSite wiki : titlesPerSite.keySet()) {
+            getThumbnailsForTitles(readingList, titlesPerSite.get(wiki), listener);
         }
     }
 
     private static void getThumbnailsForTitles(final ReadingList readingList,
                                                @NonNull final List<PageTitle> titles,
                                                @NonNull final CompleteListener listener) {
-        Site site = titles.get(0).getSite();
-        Api api = WikipediaApp.getInstance().getAPIForSite(titles.get(0).getSite());
-        new ReadingListPageInfoTask(api, site, titles, Constants.PREFERRED_THUMB_SIZE) {
+        WikiSite wiki = titles.get(0).getWikiSite();
+        Api api = WikipediaApp.getInstance().getAPIForSite(titles.get(0).getWikiSite());
+        new ReadingListPageInfoTask(api, wiki, titles, Constants.PREFERRED_THUMB_SIZE) {
             @Override
             public void onFinish(Map<PageTitle, Void> result) {
                 for (PageTitle title : titles) {

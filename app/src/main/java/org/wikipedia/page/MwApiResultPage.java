@@ -3,7 +3,7 @@ package org.wikipedia.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadItemCard;
 import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
@@ -45,25 +45,25 @@ public class MwApiResultPage {
         this.terms = new Terms(description);
     }
 
-    public static List<BecauseYouReadItemCard> searchResultsToCards(SearchResults results, Site site) {
+    public static List<BecauseYouReadItemCard> searchResultsToCards(SearchResults results, WikiSite wiki) {
         List<BecauseYouReadItemCard> cards = new ArrayList<>();
         for (SearchResult result : results.getResults()) {
-            cards.add(result.toCard(site));
+            cards.add(result.toCard(wiki));
         }
         return cards;
     }
 
     @NonNull
-    public BecauseYouReadItemCard toCard(Site site) {
-        PageTitle pageTitle = new PageTitle(title, site);
+    public BecauseYouReadItemCard toCard(WikiSite wiki) {
+        PageTitle pageTitle = new PageTitle(title, wiki);
         pageTitle.setThumbUrl(thumbUrl());
         pageTitle.setDescription(description());
         return new BecauseYouReadItemCard(pageTitle);
     }
 
     @NonNull
-    public SearchResult toSearchResult(Site site) {
-        return new SearchResult(new PageTitle(title, site, thumbUrl(), description()));
+    public SearchResult toSearchResult(WikiSite wiki) {
+        return new SearchResult(new PageTitle(title, wiki, thumbUrl(), description()));
     }
 
     static class Terms {

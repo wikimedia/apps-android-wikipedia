@@ -6,9 +6,9 @@ import android.support.test.filters.SmallTest;
 
 import junit.framework.TestCase;
 import org.json.JSONObject;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.ParcelableLruCache;
-import org.wikipedia.Site;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.pageimages.PageImage;
@@ -27,19 +27,19 @@ public class ParcelableTest extends TestCase {
     }
 
     public void testPageTitle() throws Exception {
-        PageTitle title = new PageTitle(null, "Test", new Site("en.wikipedia.org"));
+        PageTitle title = new PageTitle(null, "Test", WikiSite.forLanguageCode("en"));
         parcelAndTestObjects(title);
     }
 
     public void testPageTitleTalk() throws Exception {
-        Site site = new Site("en.wikipedia.org");
-        PageTitle origTitle = new PageTitle("Talk", "India", site);
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        PageTitle origTitle = new PageTitle("Talk", "India", wiki);
         parcelAndTestObjects(origTitle);
     }
 
-    public void testSite() throws Exception {
-        Site site = new Site("en.wikipedia.org");
-        parcelAndTestObjects(site);
+    public void testWikiSite() throws Exception {
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        parcelAndTestObjects(wiki);
     }
 
     public void testPageProperties() throws Exception {
@@ -48,9 +48,9 @@ public class ParcelableTest extends TestCase {
     }
 
     public void testLruCache() throws Exception {
-        ParcelableLruCache<Site> oldCache = new ParcelableLruCache<>(2, Site.class);
-        oldCache.put("english", new Site("en.wikipedia.org"));
-        oldCache.put("tamil", new Site("ta.wikipedia.org"));
+        ParcelableLruCache<WikiSite> oldCache = new ParcelableLruCache<>(2, WikiSite.class);
+        oldCache.put("english", WikiSite.forLanguageCode("en"));
+        oldCache.put("tamil", WikiSite.forLanguageCode("ta"));
 
         Parcel parcel = Parcel.obtain();
         oldCache.writeToParcel(parcel, 0);
@@ -58,7 +58,7 @@ public class ParcelableTest extends TestCase {
         parcel.setDataPosition(0);
         Parcelable.Creator<?> creator = (Parcelable.Creator<?>) oldCache.getClass().getField("CREATOR").get(null);
         //noinspection unchecked
-        ParcelableLruCache<Site> newCache = (ParcelableLruCache<Site>) creator.createFromParcel(parcel);
+        ParcelableLruCache<WikiSite> newCache = (ParcelableLruCache<WikiSite>) creator.createFromParcel(parcel);
 
         assertEquals(newCache.maxSize(), oldCache.maxSize());
         assertEquals(newCache.size(), oldCache.size());
@@ -67,16 +67,16 @@ public class ParcelableTest extends TestCase {
     }
 
     public void testHistoryEntry() throws Exception {
-        Site site = new Site("en.wikipedia.org");
-        PageTitle title = new PageTitle("Talk", "India", site);
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        PageTitle title = new PageTitle("Talk", "India", wiki);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_EXTERNAL_LINK);
 
         parcelAndTestObjects(historyEntry);
     }
 
     public void testPageImage() throws Exception {
-        Site site = new Site("en.wikipedia.org");
-        PageTitle title = new PageTitle("Talk", "India", site);
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        PageTitle title = new PageTitle("Talk", "India", wiki);
         PageImage pageImage = new PageImage(title, "Testing image");
 
         parcelAndTestObjects(pageImage);

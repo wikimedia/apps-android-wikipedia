@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
@@ -52,17 +52,17 @@ public class MwPageLead implements PageLead {
     public Page toPage(@NonNull PageTitle title) {
         return new Page(adjustPageTitle(title),
                 mobileview.getSections(),
-                mobileview.toPageProperties(title.getSite()));
+                mobileview.toPageProperties(title.getWikiSite()));
     }
 
     private PageTitle adjustPageTitle(@NonNull PageTitle title) {
         if (mobileview.getRedirected() != null) {
             // Handle redirects properly.
-            title = new PageTitle(mobileview.getRedirected(), title.getSite(),
+            title = new PageTitle(mobileview.getRedirected(), title.getWikiSite(),
                     title.getThumbUrl());
         } else if (mobileview.getNormalizedTitle() != null) {
             // We care about the normalized title only if we were not redirected
-            title = new PageTitle(mobileview.getNormalizedTitle(), title.getSite(),
+            title = new PageTitle(mobileview.getNormalizedTitle(), title.getWikiSite(),
                     title.getThumbUrl());
         }
         title.setDescription(mobileview.getDescription());
@@ -118,8 +118,8 @@ public class MwPageLead implements PageLead {
         @SuppressWarnings("unused") @Nullable private List<Section> sections;
 
         /** Converter */
-        public PageProperties toPageProperties(@NonNull Site site) {
-            return new PageProperties(site, this);
+        public PageProperties toPageProperties(@NonNull WikiSite wiki) {
+            return new PageProperties(wiki, this);
         }
 
         @Override
@@ -127,7 +127,7 @@ public class MwPageLead implements PageLead {
             return id;
         }
 
-        @Override @NonNull public Namespace getNamespace(@NonNull Site site) {
+        @Override @NonNull public Namespace getNamespace(@NonNull WikiSite wiki) {
             return Namespace.of(namespace);
         }
 

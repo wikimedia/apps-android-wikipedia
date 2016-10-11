@@ -22,7 +22,7 @@ public class EditTask extends ApiTask<EditingResult> {
 
     public EditTask(Context context, PageTitle title, String sectionWikitext, int sectionID,
                       String editToken, String summary, boolean loggedIn) {
-        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite()));
+        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getWikiSite()));
         this.title = title;
         this.sectionWikitext = sectionWikitext;
         this.sectionID = sectionID;

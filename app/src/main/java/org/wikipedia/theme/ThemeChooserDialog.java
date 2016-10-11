@@ -86,7 +86,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
         app.getBus().register(this);
-        funnel = new AppearanceChangeFunnel(app, app.getSite());
+        funnel = new AppearanceChangeFunnel(app, app.getWikiSite());
     }
 
     @Override

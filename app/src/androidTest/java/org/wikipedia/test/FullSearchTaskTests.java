@@ -3,7 +3,7 @@ package org.wikipedia.test;
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.wikipedia.search.SearchResult;
@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20000;
     private static final int BATCH_SIZE = 12;
-    private static final Site SITE = new Site("en.wikipedia.org");
+    private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
     public FullSearchTaskTests() {
         super(TestDummyActivity.class);
@@ -31,8 +31,8 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
-                new FullSearchArticlesTask(app.getAPIForSite(SITE), SITE, "test", BATCH_SIZE, null, false) {
+                WikipediaApp app = WikipediaApp.getInstance();
+                new FullSearchArticlesTask(app.getAPIForSite(WIKI), WIKI, "test", BATCH_SIZE, null, false) {
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);
@@ -61,8 +61,8 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
 //        runTestOnUiThread(new Runnable() {
 //            @Override
 //            public void run() {
-//                final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
-//                new FullSearchArticlesTask(app.getAPIForSite(SITE), SITE, "teest", BATCH_SIZE, null) { // small typo should produce a suggestion
+//                WikipediaApp app = WikipediaApp.getInstance();
+//                new FullSearchArticlesTask(app.getAPIForSite(WIKI), WIKI, "teest", BATCH_SIZE, null) { // small typo should produce a suggestion
 //                    @Override
 //                    public void onFinish(SearchResults results) {
 //                        assertNotNull(results);
@@ -80,8 +80,8 @@ public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity>
         runTestOnUiThread(new Runnable() {
             @Override
             public void run() {
-                final WikipediaApp app = (WikipediaApp) getInstrumentation().getTargetContext().getApplicationContext();
-                new FullSearchArticlesTask(app.getAPIForSite(SITE), SITE, "jkfsdfpefdsfwoirpoik", BATCH_SIZE, null, false) { // total gibberish, should not exist on testwiki
+                WikipediaApp app = WikipediaApp.getInstance();
+                new FullSearchArticlesTask(app.getAPIForSite(WIKI), WIKI, "jkfsdfpefdsfwoirpoik", BATCH_SIZE, null, false) { // total gibberish, should not exist on enwiki
                     @Override
                     public void onFinish(SearchResults results) {
                         assertNotNull(results);

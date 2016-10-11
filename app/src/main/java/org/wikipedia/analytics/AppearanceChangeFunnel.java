@@ -3,7 +3,7 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.theme.Theme;
 
@@ -11,8 +11,8 @@ public class AppearanceChangeFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppAppearanceSettings";
     private static final int REV_ID = 10375462;
 
-    public AppearanceChangeFunnel(WikipediaApp app, Site site) {
-        super(app, SCHEMA_NAME, REV_ID, site);
+    public AppearanceChangeFunnel(WikipediaApp app, WikiSite wiki) {
+        super(app, SCHEMA_NAME, REV_ID, wiki);
     }
 
     public void logFontSizeChange(float currentFontSize, float newFontSize) {

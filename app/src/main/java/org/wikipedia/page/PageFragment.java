@@ -36,7 +36,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FindInPageFunnel;
@@ -335,8 +335,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
 
             @Override
-            public Site getSite() {
-                return model.getTitle().getSite();
+            public WikiSite getWikiSite() {
+                return model.getTitle().getWikiSite();
             }
         };
 
@@ -779,7 +779,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (model.getPage() == null) {
             return;
         }
-        final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getSite(),
+        final FindInPageFunnel funnel = new FindInPageFunnel(app, model.getTitle().getWikiSite(),
                 model.getPage().getPageProperties().getPageId());
         final FindInPageActionProvider findInPageActionProvider
                 = new FindInPageActionProvider(this, funnel);
@@ -948,7 +948,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     public void setupToC(PageViewModel model, boolean isFirstPage) {
-        tocHandler.setupToC(model.getPage(), model.getTitle().getSite(), isFirstPage);
+        tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), isFirstPage);
         tocHandler.setEnabled(true);
     }
 
@@ -1049,9 +1049,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     String href = decodeURL(messagePayload.getString("href"));
                     if (href.startsWith("/wiki/")) {
                         String filename = UriUtil.removeInternalLinkPrefix(href);
-                        Site site = model.getTitle().getSite();
+                        WikiSite wiki = model.getTitle().getWikiSite();
                         startActivityForResult(GalleryActivity.newIntent(getContext(),
-                                model.getTitleOriginal(), filename, site,
+                                model.getTitleOriginal(), filename, wiki,
                                 GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                                 Constants.ACTIVITY_REQUEST_GALLERY);
                     } else {
@@ -1068,9 +1068,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 try {
                     String href = decodeURL(messagePayload.getString("href"));
                     String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
-                    Site site = model.getTitle().getSite();
+                    WikiSite wiki = model.getTitle().getWikiSite();
                     startActivityForResult(GalleryActivity.newIntent(getContext(),
-                            model.getTitleOriginal(), filename, site,
+                            model.getTitleOriginal(), filename, wiki,
                             GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                             Constants.ACTIVITY_REQUEST_GALLERY);
                 } catch (JSONException e) {
@@ -1189,8 +1189,8 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public Site getSite() {
-            return model.getTitleOriginal().getSite();
+        public WikiSite getWikiSite() {
+            return model.getTitleOriginal().getWikiSite();
         }
     }
 

@@ -84,7 +84,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
         coordinator = new FeedCoordinator(getContext());
-        coordinator.more(app.getSite());
+        coordinator.more(app.getWikiSite());
         funnel = new FeedFunnel(app);
     }
 
@@ -106,7 +106,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             public void onRefresh() {
                 funnel.refresh(coordinator.getAge());
                 coordinator.reset();
-                coordinator.more(app.getSite());
+                coordinator.more(app.getWikiSite());
             }
         });
 
@@ -202,7 +202,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onRequestMore() {
             funnel.requestMore(coordinator.getAge());
-            coordinator.more(app.getSite());
+            coordinator.more(app.getWikiSite());
         }
 
         @Override

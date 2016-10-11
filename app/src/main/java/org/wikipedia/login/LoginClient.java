@@ -1,7 +1,7 @@
 package org.wikipedia.login;
 
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
@@ -41,14 +41,14 @@ public class LoginClient {
         void error(@NonNull Throwable caught);
     }
 
-    public void request(@NonNull final Site site, @NonNull final String userName,
+    public void request(@NonNull final WikiSite wiki, @NonNull final String userName,
                         @NonNull final String password, @NonNull final LoginCallback cb) {
         cancel();
 
         // HACK: T124384
         WikipediaApp.getInstance().getEditTokenStorage().clearAllTokens();
 
-        tokenCall = cachedService.service(site).requestLoginToken();
+        tokenCall = cachedService.service(wiki).requestLoginToken();
         tokenCall.enqueue(new Callback<MwQueryResponse<LoginToken>>() {
             @Override
             public void onResponse(Call<MwQueryResponse<LoginToken>> call,
@@ -57,7 +57,7 @@ public class LoginClient {
                     MwQueryResponse<LoginToken> body = response.body();
                     LoginToken query = body.query();
                     if (query != null &&  query.getLoginToken() != null) {
-                        login(site, userName, password, query.getLoginToken(), cb);
+                        login(wiki, userName, password, query.getLoginToken(), cb);
                     } else if (body.getError() != null) {
                         cb.error(new IOException("Failed to retrieve login token. "
                                 + body.getError().toString()));
@@ -77,10 +77,10 @@ public class LoginClient {
         });
     }
 
-    private void login(@NonNull final Site site, @NonNull final String userName,
+    private void login(@NonNull final WikiSite wiki, @NonNull final String userName,
                        @NonNull final String password, @NonNull String loginToken,
                        @NonNull final LoginCallback cb) {
-        loginCall = cachedService.service(site).logIn(CLIENT_LOGIN, JSON, userName, password,
+        loginCall = cachedService.service(wiki).logIn(CLIENT_LOGIN, JSON, userName, password,
                 loginToken, Constants.WIKIPEDIA_URL);
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
@@ -93,7 +93,7 @@ public class LoginClient {
                             // The server could do some transformations on user names, e.g. on some
                             // wikis is uppercases the first letter.
                             String actualUserName = loginResult.getUser().getUsername();
-                            getGroupMemberships(site, actualUserName, loginResult, cb);
+                            getGroupMemberships(wiki, actualUserName, loginResult, cb);
                         } else {
                             cb.error(new LoginFailedException(loginResult.getMessage()));
                         }
@@ -113,11 +113,11 @@ public class LoginClient {
         });
     }
 
-    private void getGroupMemberships(@NonNull Site site, @NonNull String userName,
+    private void getGroupMemberships(@NonNull WikiSite wiki, @NonNull String userName,
                                      @NonNull final LoginResult loginResult,
                                      @NonNull final LoginCallback cb) {
         GroupMembershipClient groupClient = new GroupMembershipClient();
-        groupClient.request(site, userName, new GroupMembershipClient.GroupMembershipCallback() {
+        groupClient.request(wiki, userName, new GroupMembershipClient.GroupMembershipCallback() {
             @Override
             public void success(@NonNull Set<String> groups) {
                 final User user = loginResult.getUser();

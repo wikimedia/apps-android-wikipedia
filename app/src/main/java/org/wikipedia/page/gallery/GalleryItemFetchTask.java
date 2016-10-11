@@ -5,14 +5,14 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.page.PageQueryTask;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 
 public class GalleryItemFetchTask extends PageQueryTask<GalleryItem> {
     private static final String MAX_IMAGE_WIDTH = "1280";
     private final boolean isVideo;
 
-    public GalleryItemFetchTask(Api api, Site site, PageTitle title, boolean isVideo) {
-        super(api, site, title);
+    public GalleryItemFetchTask(Api api, WikiSite wiki, PageTitle title, boolean isVideo) {
+        super(api, wiki, title);
         this.isVideo = isVideo;
     }
 

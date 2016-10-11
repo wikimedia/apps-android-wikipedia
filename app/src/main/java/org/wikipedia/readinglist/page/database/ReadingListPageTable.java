@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.ReadingListPageContract;
@@ -28,7 +28,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPageRow> {
                 .builder()
                 .key(PageCol.KEY.val(cursor))
                 .listKeys(PageCol.LIST_KEYS.val(cursor))
-                .site(lang == null ? new Site(site) : new Site(site, lang))
+                .site(lang == null ? new WikiSite(site) : new WikiSite(site, lang))
                 .namespace(PageCol.NAMESPACE.val(cursor))
                 .title(PageCol.TITLE.val(cursor))
                 .diskPageRevision(PageCol.DISK_PAGE_REV.val(cursor))
@@ -65,8 +65,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPageRow> {
         ContentValues contentValues = new ContentValues();
         contentValues.put(PageCol.KEY.getName(), row.key());
         PageCol.LIST_KEYS.put(contentValues, row.listKeys());
-        contentValues.put(PageCol.SITE.getName(), row.site().authority());
-        contentValues.put(PageCol.LANG.getName(), row.site().languageCode());
+        contentValues.put(PageCol.SITE.getName(), row.wikiSite().authority());
+        contentValues.put(PageCol.LANG.getName(), row.wikiSite().languageCode());
         contentValues.put(PageCol.NAMESPACE.getName(), row.namespace().code());
         contentValues.put(PageCol.TITLE.getName(), row.title());
         contentValues.put(PageCol.DISK_PAGE_REV.getName(), row.diskPageRevision());

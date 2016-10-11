@@ -1,6 +1,6 @@
 package org.wikipedia.server.restbase;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
@@ -50,7 +50,7 @@ public class RbPageCombo implements PageCombo {
             throw new RuntimeException("lead is null. Check for errors before use!");
         }
         Page page = new Page(lead.adjustPageTitle(title), lead.getSections(),
-                toPageProperties(title.getSite()));
+                toPageProperties(title.getWikiSite()));
         if (remaining != null) {
             page.augmentRemainingSections(remaining.getSections());
         }
@@ -75,7 +75,7 @@ public class RbPageCombo implements PageCombo {
     }
 
     /** Converter */
-    public PageProperties toPageProperties(@NonNull Site site) {
-        return new PageProperties(site, lead);
+    public PageProperties toPageProperties(@NonNull WikiSite wiki) {
+        return new PageProperties(wiki, lead);
     }
 }

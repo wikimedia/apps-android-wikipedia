@@ -127,7 +127,7 @@ public class SavedPageSyncService extends IntentService {
             return null;
         }
         String namespace = pageRow.namespace().toLegacyString();
-        return new PageTitle(namespace, pageRow.title(), pageRow.site());
+        return new PageTitle(namespace, pageRow.title(), pageRow.wikiSite());
     }
 
     /**
@@ -171,6 +171,6 @@ public class SavedPageSyncService extends IntentService {
 
     @NonNull
     private PageService getApiService(@NonNull PageTitle title) {
-        return PageServiceFactory.create(title.getSite(), title.namespace());
+        return PageServiceFactory.create(title.getWikiSite(), title.namespace());
     }
 }

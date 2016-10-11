@@ -2,15 +2,15 @@ package org.wikipedia.feed.mainpage;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 
 public class MainPageCard extends Card {
-    @NonNull private Site site;
+    @NonNull private WikiSite wiki;
 
-    public MainPageCard(@NonNull Site site) {
-        this.site = site;
+    public MainPageCard(@NonNull WikiSite wiki) {
+        this.wiki = wiki;
     }
 
     @NonNull @Override public String title() {
@@ -21,7 +21,7 @@ public class MainPageCard extends Card {
         return CardType.MAIN_PAGE;
     }
 
-    public Site site() {
-        return site;
+    public WikiSite wikiSite() {
+        return wiki;
     }
 }

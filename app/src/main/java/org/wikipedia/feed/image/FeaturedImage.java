@@ -40,7 +40,7 @@ public final class FeaturedImage {
      * An object containing a description of the featured image and a language code for that description.
      *
      * The content service gets all available translations of the featured image description and
-     * returns the translation for the request Site language, if available.  Otherwise it defaults
+     * returns the translation for the request wiki language, if available.  Otherwise it defaults
      * to providing the English translation.
      */
     private static class Description {

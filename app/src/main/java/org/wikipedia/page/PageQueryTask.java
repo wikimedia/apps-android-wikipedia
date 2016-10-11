@@ -6,7 +6,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.dataclient.ApiTask;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,19 +16,19 @@ import java.util.Map;
 
 public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle, T>> {
     private final List<PageTitle> titles;
-    private final Site site;
+    private final WikiSite wiki;
 
-    public PageQueryTask(Api api, Site site, List<PageTitle> titles) {
+    public PageQueryTask(Api api, WikiSite wiki, List<PageTitle> titles) {
         super(api);
         this.titles = titles;
-        this.site = site;
+        this.wiki = wiki;
     }
 
-    public PageQueryTask(Api api, Site site, PageTitle title) {
+    public PageQueryTask(Api api, WikiSite wiki, PageTitle title) {
         super(api);
         this.titles = new ArrayList<>();
         titles.add(title);
-        this.site = site;
+        this.wiki = wiki;
     }
 
     @Override
@@ -54,7 +54,7 @@ public abstract class PageQueryTask<T> extends ApiTask<Map<PageTitle, T>> {
             int pageId = Integer.parseInt(key);
             JSONObject pageData = pages.getJSONObject(key);
             String titleString = pageData.getString("title");
-            PageTitle pageTitle = new PageTitle(null, titleString, site);
+            PageTitle pageTitle = new PageTitle(null, titleString, wiki);
             T pageResult = processPage(pageId, pageTitle, pageData);
             map.put(pageTitle, pageResult);
         }

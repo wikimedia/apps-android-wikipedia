@@ -17,7 +17,7 @@ public class EditFunnel extends Funnel {
     private final PageTitle title;
 
     public EditFunnel(WikipediaApp app, PageTitle title) {
-        super(app, SCHEMA_NAME, REV_ID, title.getSite());
+        super(app, SCHEMA_NAME, REV_ID, title.getWikiSite());
         this.title = title;
     }
 

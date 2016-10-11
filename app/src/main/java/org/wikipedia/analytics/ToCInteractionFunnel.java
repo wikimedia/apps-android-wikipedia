@@ -3,7 +3,7 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 
 public class ToCInteractionFunnel extends TimedFunnel {
@@ -13,8 +13,8 @@ public class ToCInteractionFunnel extends TimedFunnel {
     private final int pageId;
     private final int numSections;
 
-    public ToCInteractionFunnel(WikipediaApp app, Site site, int pageId, int numSections) {
-        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, site);
+    public ToCInteractionFunnel(WikipediaApp app, WikiSite wiki, int pageId, int numSections) {
+        super(app, SCHEMA_NAME, REV_ID, Funnel.SAMPLE_LOG_100, wiki);
         this.pageId = pageId;
         this.numSections = numSections;
     }

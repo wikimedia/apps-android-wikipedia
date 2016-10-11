@@ -10,7 +10,7 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.server.PageLeadProperties;
 import org.wikipedia.util.StringUtil;
 
@@ -52,9 +52,9 @@ public class PageProperties implements Parcelable {
      * Side note: Should later be moved out of this class but I like the similarities with
      * PageProperties(JSONObject).
      */
-    public PageProperties(@NonNull Site site, PageLeadProperties core) {
+    public PageProperties(@NonNull WikiSite wiki, PageLeadProperties core) {
         pageId = core.getId();
-        namespace = core.getNamespace(site);
+        namespace = core.getNamespace(wiki);
         revisionId = core.getRevision();
         displayTitleText = StringUtil.emptyIfNull(core.getDisplayTitle());
         titlePronunciationUrl = core.getTitlePronunciationUrl();

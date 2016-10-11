@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
 import org.wikipedia.R;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
@@ -21,8 +21,8 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
 
     @NonNull private final MostReadArticles articles;
 
-    public MostReadListCard(@NonNull MostReadArticles articles, @NonNull Site site) {
-        super(toItems(articles.articles(), site));
+    public MostReadListCard(@NonNull MostReadArticles articles, @NonNull WikiSite wiki) {
+        super(toItems(articles.articles(), wiki));
         this.articles = articles;
     }
 
@@ -39,10 +39,10 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     }
 
     @NonNull private static List<MostReadItemCard> toItems(@NonNull List<MostReadArticle> articles,
-                                                           @NonNull Site site) {
+                                                           @NonNull WikiSite wiki) {
         List<MostReadItemCard> cards = new ArrayList<>();
         for (MostReadArticle article : articles) {
-            cards.add(new MostReadItemCard(article, site));
+            cards.add(new MostReadItemCard(article, wiki));
         }
         return cards.subList(0, Math.min(cards.size(), MAX_SIZE));
     }

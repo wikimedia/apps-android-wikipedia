@@ -2,7 +2,7 @@ package org.wikipedia.editing;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 
 // Handles only Image Captchas
 public class CaptchaResult extends EditingResult {
@@ -22,8 +22,8 @@ public class CaptchaResult extends EditingResult {
         return captchaId;
     }
 
-    public String getCaptchaUrl(Site site) {
-        return site.url("index.php") + "?title=Special:Captcha/image&wpCaptchaId=" + captchaId;
+    public String getCaptchaUrl(WikiSite wiki) {
+        return wiki.url("index.php") + "?title=Special:Captcha/image&wpCaptchaId=" + captchaId;
     }
 
     @Override

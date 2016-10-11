@@ -224,7 +224,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedNewsItemSelected(NewsItemCard card) {
-        startActivity(NewsActivity.newIntent(getContext(), card.item(), card.site()));
+        startActivity(NewsActivity.newIntent(getContext(), card.item(), card.wikiSite()));
     }
 
     @Override public void onFeedShareImage(final FeaturedImageCard card) {
@@ -258,7 +258,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override public void onFeaturedImageSelected(FeaturedImageCard card) {
         startActivityForResult(GalleryActivity.newIntent(getActivity(), card.baseImage(),
-                card.filename(), card.site(), GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE),
+                card.filename(), card.wikiSite(), GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE),
                 Constants.ACTIVITY_REQUEST_GALLERY);
     }
 

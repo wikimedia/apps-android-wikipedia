@@ -1,6 +1,6 @@
 package org.wikipedia.settings;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 
@@ -24,19 +24,19 @@ public final class RbSwitch {
     public static final RbSwitch INSTANCE = new RbSwitch();
 
     /**
-     * Returns true if RB is enabled for a particular Site (or PageTitle if you will).
+     * Returns true if RB is enabled for a particular WikiSite (or PageTitle if you will).
      * This method has a few extra checks over the overloaded #isRestBaseEnabled():
      * It disables RB also when image download is disabled since the noimages parameter is
      * not functional yet. T119161
-     * It also disables RB usage if the site is zhwiki since RB endpoints have a harder time
+     * It also disables RB usage if the wiki is zhwiki since RB endpoints have a harder time
      * dealing with caching of language variants. T118905
-     * @param site the Site of the PageTitle to use for the check
-     * @return true is RB is enabled for a particular Site
+     * @param wiki the WikiSite of the PageTitle to use for the check
+     * @return true is RB is enabled for a particular WikiSite
      */
-    public boolean isRestBaseEnabled(Site site) {
+    public boolean isRestBaseEnabled(WikiSite wiki) {
         return isRestBaseEnabled()
                 && Prefs.isImageDownloadEnabled()
-                && !site.languageCode().startsWith("zh");
+                && !wiki.languageCode().startsWith("zh");
     }
 
     public boolean isRestBaseEnabled() {

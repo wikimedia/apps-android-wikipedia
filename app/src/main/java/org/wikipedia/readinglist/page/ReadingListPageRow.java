@@ -3,7 +3,9 @@ package org.wikipedia.readinglist.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import org.wikipedia.Site;
+import com.google.gson.annotations.SerializedName;
+
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.readinglist.page.database.ReadingListPageDiskTable;
@@ -22,7 +24,8 @@ public class ReadingListPageRow extends BaseModel {
 
     @NonNull private final String key;
     @NonNull private final Set<String> listKeys;
-    @NonNull private final Site site;
+    // todo: remove @SerializedName if not pickled
+    @SerializedName("site") @NonNull private final WikiSite wiki;
     @NonNull private final Namespace namespace;
     @NonNull private final String title;
     @Nullable private Long diskPageRevision;
@@ -40,8 +43,8 @@ public class ReadingListPageRow extends BaseModel {
         return key;
     }
 
-    @NonNull public Site site() {
-        return site;
+    @NonNull public WikiSite wikiSite() {
+        return wiki;
     }
 
     /** @return an empty list if the page is to be deleted. */
@@ -102,7 +105,7 @@ public class ReadingListPageRow extends BaseModel {
     protected ReadingListPageRow(@NonNull Builder<?> builder) {
         key = builder.key;
         listKeys = new HashSet<>(builder.listKeys);
-        site = builder.site;
+        wiki = builder.wiki;
         namespace = builder.namespace;
         title = builder.title;
         diskPageRevision = builder.diskPageRevision;
@@ -116,7 +119,7 @@ public class ReadingListPageRow extends BaseModel {
     public static class Builder<Clazz extends Builder<Clazz>> {
         private String key;
         private Set<String> listKeys = new HashSet<>();
-        private Site site;
+        private WikiSite wiki;
         private Namespace namespace;
         private String title;
         private Long diskPageRevision;
@@ -128,7 +131,7 @@ public class ReadingListPageRow extends BaseModel {
         public Clazz copy(@NonNull ReadingListPageRow copy) {
             return key(copy.key)
                     .listKeys(copy.listKeys)
-                    .site(copy.site)
+                    .site(copy.wiki)
                     .namespace(copy.namespace)
                     .title(copy.title)
                     .mtime(copy.mtime)
@@ -153,8 +156,8 @@ public class ReadingListPageRow extends BaseModel {
             return (Clazz) this;
         }
 
-        public Clazz site(@NonNull Site site) {
-            this.site = site;
+        public Clazz site(@NonNull WikiSite wiki) {
+            this.wiki = wiki;
             return (Clazz) this;
         }
 
@@ -200,7 +203,7 @@ public class ReadingListPageRow extends BaseModel {
 
         // TODO: listKeys allows empty currently. Should we permit it? It means delete.
         protected void validate() {
-            ValidateUtil.noNullElements(key, site, namespace, title, mtime, atime);
+            ValidateUtil.noNullElements(key, wiki, namespace, title, mtime, atime);
         }
     }
 }

@@ -5,7 +5,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.page.PageQueryTask;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ public class PageImagesTask extends PageQueryTask<String> {
     private final int thumbSize;
     private final int thumbsCount;
 
-    public PageImagesTask(Api api, Site site, List<PageTitle> titles, int thumbSize) {
-        super(api, site, titles);
+    public PageImagesTask(Api api, WikiSite wiki, List<PageTitle> titles, int thumbSize) {
+        super(api, wiki, titles);
         this.thumbSize = thumbSize;
         this.thumbsCount = titles.size();
     }

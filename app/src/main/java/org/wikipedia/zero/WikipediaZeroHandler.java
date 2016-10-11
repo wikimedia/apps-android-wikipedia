@@ -241,7 +241,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
             @Override
             public boolean handleMessage(Message msg) {
                 WikipediaZeroTask zeroTask = new WikipediaZeroTask(
-                        app.getApiForMobileSite(app.getSite()), app.getUserAgent()) {
+                        app.getApiForMobileSite(app.getWikiSite()), app.getUserAgent()) {
                     @Override
                     public void onFinish(ZeroConfig config) {
                         L.i("New Wikipedia Zero config: " + config);

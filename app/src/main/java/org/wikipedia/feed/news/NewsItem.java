@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.news.NewsLinkCard;
 
@@ -29,10 +29,10 @@ public final class NewsItem {
     }
 
     @NonNull
-    public List<NewsLinkCard> linkCards(Site site) {
+    public List<NewsLinkCard> linkCards(WikiSite wiki) {
         List<NewsLinkCard> linkCards = new ArrayList<>();
         for (CardPageItem link : links) {
-            linkCards.add(new NewsLinkCard(link, site));
+            linkCards.add(new NewsLinkCard(link, wiki));
         }
         return linkCards;
     }

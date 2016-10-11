@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.SavedPageContract;
@@ -40,8 +40,8 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     @Override
     protected ContentValues toContentValues(SavedPage obj) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Col.SITE.getName(), obj.getTitle().getSite().authority());
-        contentValues.put(Col.LANG.getName(), obj.getTitle().getSite().languageCode());
+        contentValues.put(Col.SITE.getName(), obj.getTitle().getWikiSite().authority());
+        contentValues.put(Col.LANG.getName(), obj.getTitle().getWikiSite().languageCode());
         contentValues.put(Col.TITLE.getName(), obj.getTitle().getText());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
         contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
@@ -101,8 +101,8 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     private SavedPage fromPreNamespaceCursor(@NonNull Cursor cursor, @Nullable String namespace,
                                              @Nullable String lang) {
         String authority = Col.SITE.val(cursor);
-        Site site = lang == null ? new Site(authority) : new Site(authority, lang);
-        PageTitle title = new PageTitle(namespace, Col.TITLE.val(cursor), site);
+        WikiSite wiki = lang == null ? new WikiSite(authority) : new WikiSite(authority, lang);
+        PageTitle title = new PageTitle(namespace, Col.TITLE.val(cursor), wiki);
         Date timestamp = Col.TIMESTAMP.val(cursor);
         return new SavedPage(title, timestamp);
     }
@@ -113,7 +113,7 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
             json.put("namespace", page.getTitle().getNamespace());
             json.put("text", originalTitleText);
             json.put("fragment", page.getTitle().getFragment());
-            json.put("site", page.getTitle().getSite().authority());
+            json.put("site", page.getTitle().getWikiSite().authority());
             return StringUtil.md5string(json.toString());
         } catch (JSONException e) {
             throw new RuntimeException(e);
@@ -144,8 +144,8 @@ public class SavedPageDatabaseTable extends DatabaseTable<SavedPage> {
     @Override
     protected String[] getUnfilteredPrimaryKeySelectionArgs(@NonNull SavedPage obj) {
         return new String[] {
-                obj.getTitle().getSite().authority(),
-                obj.getTitle().getSite().languageCode(),
+                obj.getTitle().getWikiSite().authority(),
+                obj.getTitle().getWikiSite().languageCode(),
                 obj.getTitle().getNamespace(),
                 obj.getTitle().getText()
         };

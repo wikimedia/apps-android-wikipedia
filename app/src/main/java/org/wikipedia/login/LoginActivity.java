@@ -177,7 +177,7 @@ public class LoginActivity extends ThemedActionBarActivity {
             loginClient = new LoginClient();
         }
         progressDialog.show();
-        loginClient.request(WikipediaApp.getInstance().getSite(), username, password,
+        loginClient.request(WikipediaApp.getInstance().getWikiSite(), username, password,
                 new LoginClient.LoginCallback() {
             @Override
             public void success(@NonNull LoginResult result) {

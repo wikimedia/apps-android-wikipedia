@@ -22,7 +22,7 @@ public class UriTypeAdapter extends TypeAdapter<Uri> {
             return null;
         }
 
-        // TODO: previously, only host parts were preserved for Site.domain. Remove in September
+        // TODO: previously, only host parts were preserved for WikiSite.domain. Remove in September
         //       2016 once Gson has had a chance to deserialize.
         if (!url.startsWith("http")) {
             url = "https://" + url;

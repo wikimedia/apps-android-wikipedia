@@ -14,15 +14,15 @@ import com.squareup.spoon.Spoon;
 
 import org.junit.Rule;
 import org.junit.runner.RunWith;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.tabs.TabsProvider;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public abstract class BasePageLoadTest {
-    protected static final Site TEST_SITE = Site.forLanguageCode("test");
-    protected static final Site EN_SITE = Site.forLanguageCode("en");
+    protected static final WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
+    protected static final WikiSite EN_WIKI = WikiSite.forLanguageCode("en");
 
     @Rule
     @NonNull
@@ -33,27 +33,26 @@ public abstract class BasePageLoadTest {
     }
 
     protected void loadPageSync(String title, @NonNull PageLoadLatchCallback callback) {
-        loadPageSync(title, TEST_SITE, callback);
+        loadPageSync(title, TEST_WIKI, callback);
     }
 
-    protected void loadPageSync(String title, @NonNull Site site) {
-        loadPageSync(title, site, new PageLoadLatchCallback());
+    protected void loadPageSync(String title, @NonNull WikiSite wiki) {
+        loadPageSync(title, wiki, new PageLoadLatchCallback());
     }
 
-    protected void loadPageSync(String title,
-                                @NonNull Site site,
+    protected void loadPageSync(String title, @NonNull WikiSite wiki,
                                 @NonNull PageLoadLatchCallback callback) {
         getActivity().setPageLoadCallbacks(callback);
-        loadPage(title, site);
+        loadPage(title, wiki);
         callback.await();
     }
 
     protected void loadPage(String title) {
-        loadPage(title, TEST_SITE);
+        loadPage(title, TEST_WIKI);
     }
 
-    protected void loadPage(String title, @NonNull Site site) {
-        final PageTitle pageTitle = new PageTitle(null, title, site);
+    protected void loadPage(String title, @NonNull WikiSite wiki) {
+        final PageTitle pageTitle = new PageTitle(null, title, wiki);
         runOnMainSync(new Runnable() {
             @Override
             public void run() {

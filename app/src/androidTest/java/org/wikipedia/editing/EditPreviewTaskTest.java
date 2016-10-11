@@ -6,7 +6,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
 
@@ -19,7 +19,7 @@ import static org.hamcrest.Matchers.containsString;
 public class EditPreviewTaskTest {
     @Test
     public void testPreview() throws Throwable {
-        final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", new Site("test.wikipedia.org"));
+        final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", WikiSite.forLanguageCode("test"));
         long randomTime = System.currentTimeMillis();
         final String wikiText = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + randomTime;
 

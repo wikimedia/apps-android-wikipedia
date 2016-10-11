@@ -2,15 +2,15 @@ package org.wikipedia.feed.random;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 
 public class RandomCard extends Card {
-    @NonNull private Site site;
+    @NonNull private WikiSite wiki;
 
-    public RandomCard(@NonNull Site site) {
-        this.site = site;
+    public RandomCard(@NonNull WikiSite wiki) {
+        this.wiki = wiki;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class RandomCard extends Card {
         return CardType.RANDOM;
     }
 
-    public Site site() {
-        return site;
+    public WikiSite wikiSite() {
+        return wiki;
     }
 }

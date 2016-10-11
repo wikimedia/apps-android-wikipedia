@@ -12,10 +12,10 @@ public final class AcceptLanguageUtil {
      * @return The value that should go in the Accept-Language header.
      */
     @NonNull
-    public static String getAcceptLanguage(@NonNull String siteLanguageCode,
+    public static String getAcceptLanguage(@NonNull String wikiLanguageCode,
                                            @NonNull String appLanguageCode,
                                            @NonNull String systemLanguageCode) {
-        String acceptLanguage = siteLanguageCode;
+        String acceptLanguage = wikiLanguageCode;
         acceptLanguage = appendToAcceptLanguage(acceptLanguage, appLanguageCode, APP_LANGUAGE_QUALITY);
         acceptLanguage = appendToAcceptLanguage(acceptLanguage, systemLanguageCode, SYSTEM_LANGUAGE_QUALITY);
         return acceptLanguage;

@@ -4,9 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageQueryTask;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.Site;
 
 import java.util.List;
 
@@ -17,8 +17,8 @@ import java.util.List;
 public class GetDescriptionsTask extends PageQueryTask<Void> {
     private List<PageTitle> titles;
 
-    public GetDescriptionsTask(Api api, Site site, List<PageTitle> titles) {
-        super(api, site, titles);
+    public GetDescriptionsTask(Api api, WikiSite wiki, List<PageTitle> titles) {
+        super(api, wiki, titles);
         this.titles = titles;
     }
 

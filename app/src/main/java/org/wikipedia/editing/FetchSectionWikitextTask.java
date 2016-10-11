@@ -14,7 +14,7 @@ public class FetchSectionWikitextTask extends ApiTask<String> {
     private final int sectionID;
 
     public FetchSectionWikitextTask(Context context, PageTitle title, int sectionID) {
-        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getSite()));
+        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getWikiSite()));
         this.title = title;
         this.sectionID = sectionID;
     }

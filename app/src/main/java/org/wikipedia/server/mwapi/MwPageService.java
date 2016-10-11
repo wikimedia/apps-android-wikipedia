@@ -1,7 +1,7 @@
 package org.wikipedia.server.mwapi;
 
 import org.wikipedia.Constants;
-import org.wikipedia.Site;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.server.PageLead;
@@ -31,9 +31,9 @@ public class MwPageService implements PageService {
     private final Retrofit retrofit;
     private WikipediaZeroHandler responseHeaderHandler;
 
-    public MwPageService(final Site site) {
+    public MwPageService(final WikiSite wiki) {
         responseHeaderHandler = WikipediaApp.getInstance().getWikipediaZeroHandler();
-        webService = MwPageEndpointsCache.INSTANCE.getMwPageEndpoints(site);
+        webService = MwPageEndpointsCache.INSTANCE.getMwPageEndpoints(wiki);
         retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
     }
 
