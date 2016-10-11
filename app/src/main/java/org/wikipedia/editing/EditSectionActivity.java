@@ -25,8 +25,6 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.RequestBuilder;
 
-import com.squareup.otto.Bus;
-
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -64,7 +62,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
     public static final String EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight";
 
     private WikipediaApp app;
-    private Bus bus;
 
     private PageTitle title;
     public PageTitle getPageTitle() {
@@ -151,9 +148,6 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         updateEditLicenseText();
         editSummaryFragment.setTitle(title);
 
-        bus = app.getBus();
-        bus.register(this);
-
         funnel = app.getFunnelManager().getEditFunnel(title);
 
         // Only send the editing start log event if the activity is created for the first time
@@ -215,6 +209,15 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
         sectionText.requestFocus();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+
+    @Override
+    public void onDestroy() {
+        if (progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+        syntaxHighlighter.cleanup();
+        super.onDestroy();
     }
 
     @Override
@@ -738,19 +741,5 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         } else {
             finish();
         }
-    }
-
-    @Override
-    protected void onStop() {
-        if (progressDialog.isShowing()) {
-            progressDialog.dismiss();
-        }
-        if (bus != null) {
-            bus.unregister(this);
-            bus = null;
-            L.d("Deregistering bus");
-        }
-        syntaxHighlighter.cleanup();
-        super.onStop();
     }
 }
