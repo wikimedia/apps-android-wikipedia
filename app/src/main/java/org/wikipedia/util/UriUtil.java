@@ -17,7 +17,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 import static org.wikipedia.zero.WikipediaZeroHandler.showZeroExitInterstitialDialog;
@@ -29,11 +28,13 @@ public final class UriUtil {
      * @param url The URL-encoded string that you wish to decode.
      * @return The decoded string, or the input string if the decoding failed.
      */
-    public static String decodeURL(String url) {
+    @NonNull public static String decodeURL(@NonNull String url) {
         try {
             return URLDecoder.decode(url, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            // Inexplicable decoding problem. This shouldn't happen. Return the input.
+        } catch (Exception e) {
+            // Swallow any exception, including UnsupportedEncodingException (shouldn't happen),
+            // and IllegalArgumentException (can happen with malformed encoding), and just return
+            // the original string.
             Log.d("Wikipedia", "URL decoding failed. String was: " + url);
             return url;
         }
