@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Ukjent opplaster</string>
   <string name="menu_new_tab">Ny arkfane</string>
+  <string name="menu_close_all_tabs">Lukk alle faner</string>
+  <string name="close_all_tabs_confirm">Er du sikker på at du vil lukke alle fanene?</string>
   <string name="button_close_tab">Steng arkfane</string>
   <string name="tool_tip_select_text">Trykk og hold hvor som helst i teksten for å markere for kopiering og deling.</string>
   <string name="tool_tip_share">Når du har markert in interessant faktaopplysning, prøv gjerne å dele den på et av dine favorittnettverk.</string>
@@ -265,7 +267,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="reading_list_edit_cancel">Avbryt</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du ønsker å slette denne listen?</string>
   <string name="reading_lists_empty">Ingen leselister her enda.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organiser artiklene du holder på med i leselister! Når du er inne på en artikkel kan du trykke på bokmerke-ikonet på toppen av artikkelen for å legge den til i en leseliste.</string>
+  <string name="reading_lists_empty_message">Organiser artiklene du holder på med i leselister! Når du er inne på en artikkel kan du trykke på bokmerke-ikonet i bunnen av verktøylista for å legge den til i en leseliste.</string>
   <string name="reading_lists_onboarding_intro">Opprett leselister fra artikler du ønsker å lese på et senere tidspunkt, selv når du er uten nettilgang!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder å besøke</string>
@@ -284,6 +286,7 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="view_featured_image_card_download">Last ned</string>
   <string name="menu_feed_card_dismiss">Skjul dette kortet</string>
   <string name="menu_feed_card_dismissed">Kortet ble skjult.</string>
+  <string name="menu_feed_overflow_label">Flere innstillinger</string>
   <string name="feed_featured_image_share_subject">Utvalgt bilde på Wikimedia Commons</string>
   <string name="feed">Utforsk</string>
   <string name="view_card_footer_button">Vis mer</string>

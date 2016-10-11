@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader ukendt</string>
   <string name="menu_new_tab">Ny fane</string>
+  <string name="menu_close_all_tabs">Luk alle faner</string>
+  <string name="close_all_tabs_confirm">Er du sikker på at du ønsker at lukke alle faner?</string>
   <string name="button_close_tab">Luk fane</string>
   <string name="tool_tip_select_text">Tryk og hold nede hvor som helst i teksten for at markere den til kopiering og deling.</string>
   <string name="tool_tip_share">Efter du har markeret et interessant faktum, prøv at dele det på dine foretrukne netværk.</string>
@@ -265,7 +267,7 @@ Vil du starte forfra eller afslutte?</string>
   <string name="reading_list_edit_cancel">Annuller</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette denne læseliste?</string>
   <string name="reading_lists_empty">Ingen læselister her.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organiser de artikler du læser i læselister! Tap på bogmærkeikonet øverst i artiklen når du læser en artikel for at tilføje det til en læseliste.</string>
+  <string name="reading_lists_empty_message">Organiser de artikler du læser i læselister! Tryk på bogmærkeikonet i værktøjslinjen nederst på skærmen når du læser en artikel for at tilføje den til en læseliste.</string>
   <string name="reading_lists_onboarding_intro">Opret læselister fra artikler du ønsker at læse senere, selv når du er offline!</string>
   <string name="reading_lists_onboarding_for_example">For eksempel</string>
   <string name="reading_lists_onboarding_example1">Steder at besøge</string>

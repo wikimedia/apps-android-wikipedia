@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Добросовестное использование</string>
   <string name="gallery_uploader_unknown">Загрузивший неизвестен</string>
   <string name="menu_new_tab">Новая вкладка</string>
+  <string name="menu_close_all_tabs">Закрыть все вкладки</string>
+  <string name="close_all_tabs_confirm">Вы уверены, что хотите закрыть все вкладки?</string>
   <string name="button_close_tab">Закрыть вкладку</string>
   <string name="tool_tip_select_text">Нажмите и удерживайте в любом месте тексте, чтобы выделить его для копирования и возможности поделиться.</string>
   <string name="tool_tip_share">После выделения интересного факта, попробуйте поделиться им в ваших любимых соц.сетях!</string>
@@ -265,7 +267,7 @@
   <string name="reading_list_edit_cancel">Отмена</string>
   <string name="reading_list_delete_confirm">Вы уверены, что хотите удалить этот список для чтения?</string>
   <string name="reading_lists_empty">Ещё нет списков для чтения.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Сгруппируйте статьи, которые вы просматриваете, в списки для чтения! Когда вы просматриваете статью, нажмите значок закладки в верхней части статьи, чтобы добавить её в список для чтения.</string>
+  <string name="reading_lists_empty_message">Сгруппируйте статьи, которые вы просматриваете, в списки для чтения! Когда вы просматриваете статью, нажмите значок закладки в нижней панели, чтобы добавить её в список для чтения.</string>
   <string name="reading_lists_onboarding_intro">Создайте списки для чтения из статей, которые вы хотели бы прочитать позже, даже если вы не подключены к интернету!</string>
   <string name="reading_lists_onboarding_for_example">Например</string>
   <string name="reading_lists_onboarding_example1">Места для посещения</string>

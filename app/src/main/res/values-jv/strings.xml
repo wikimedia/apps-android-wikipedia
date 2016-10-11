@@ -129,6 +129,8 @@
   <string name="about_description">Babagan aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Niti priangga</string>
   <string name="terms_of_use_description">Bebakuning panganggo</string>
+  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
+  <string name="terms_of_use_url">https://m.wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">Pustaka digunakake</string>
   <string name="about_contributors_heading">Para kontributor</string>
   <string name="about_translators_heading">Panerjemah</string>
@@ -202,6 +204,8 @@
   <string name="gallery_fair_use_license">Nggunakake padha</string>
   <string name="gallery_uploader_unknown">Nginggahaké dingerteni</string>
   <string name="menu_new_tab">Tab anyar</string>
+  <string name="menu_close_all_tabs">Nutup kabeh tab</string>
+  <string name="close_all_tabs_confirm">Apa panjenengan yakin arep kanggo nutup kabeh tab?</string>
   <string name="button_close_tab">Cedhak tab</string>
   <string name="tool_tip_select_text">Penet terus ngendi wae ing teks kanggo nyorot kanggo Nyalin lan enggo bareng.</string>
   <string name="tool_tip_share">Sawise nuduhaké kasunyatan menarik, nyoba nuduhake ing jaringan favorit!</string>

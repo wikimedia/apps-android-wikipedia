@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Utilizzo onesto</string>
   <string name="gallery_uploader_unknown">Uploader sconosciuto</string>
   <string name="menu_new_tab">Nuova scheda</string>
+  <string name="menu_close_all_tabs">Chiudi tutte le schede</string>
+  <string name="close_all_tabs_confirm">Sicuro di voler chiudere tutte le schede?</string>
   <string name="button_close_tab">Chiudi scheda</string>
   <string name="tool_tip_select_text">Premere e tenere premuto in qualsiasi punto del testo per evidenziarlo per la copia e la condivisione.</string>
   <string name="tool_tip_share">Dopo aver evidenziato un dato interessante, prova a condividerlo sul tuo network preferito!</string>
