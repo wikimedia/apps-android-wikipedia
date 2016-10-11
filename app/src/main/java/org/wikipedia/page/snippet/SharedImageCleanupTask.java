@@ -9,13 +9,14 @@ import org.wikipedia.util.ShareUtil;
 
 import java.io.File;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Mainly to clean up images shared through SnippetShareAdapter.
  */
 public class SharedImageCleanupTask extends RecurringTask {
 
-    private static final long RUN_INTERVAL_MILLI = 24L * 60L * 60L * 1000L;
+    private static final long RUN_INTERVAL_MILLI = TimeUnit.DAYS.toMillis(1);
     @NonNull private final Context context;
 
     public SharedImageCleanupTask(Context context) {
