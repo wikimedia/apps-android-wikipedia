@@ -228,7 +228,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private class HistoryItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            if (actionMode == null) {
+            if (actionMode == null
+                    || SearchActionModeCallback.ACTION_MODE_TAG.equals(actionMode.getTag())) {
                 HistoryEntry oldEntry = (HistoryEntry) view.getTag();
                 HistoryEntry newEntry = new HistoryEntry(oldEntry.getTitle(), HistoryEntry.SOURCE_HISTORY);
                 onPageClick(oldEntry.getTitle(), newEntry);

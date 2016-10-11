@@ -9,10 +9,12 @@ import android.view.MenuItem;
 import org.wikipedia.util.DeviceUtil;
 
 public abstract class SearchActionModeCallback implements ActionMode.Callback {
+    public static final String ACTION_MODE_TAG = "searchActionMode";
     private SearchView searchView;
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        mode.setTag(ACTION_MODE_TAG);
         mode.getMenuInflater().inflate(R.menu.menu_action_mode_search, menu);
         searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search_view));
         searchView.setIconifiedByDefault(false);
