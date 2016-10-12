@@ -528,9 +528,8 @@ public class WikipediaApp extends Application {
     }
 
     /** For Retrofit requests. Keep in sync with #buildCustomHeadersMap */
-    public Headers buildCustomHeaders(Request request) {
-        Map<String, String> toSetHeaders
-                = buildCustomHeadersMap(getAcceptLanguage(new Site(request.url().host())));
+    public Headers buildCustomHeaders(Request request, Site site) {
+        Map<String, String> toSetHeaders = buildCustomHeadersMap(getAcceptLanguage(site));
 
         Headers.Builder moreHeaders = request.headers().newBuilder();
         for (String key : toSetHeaders.keySet()) {

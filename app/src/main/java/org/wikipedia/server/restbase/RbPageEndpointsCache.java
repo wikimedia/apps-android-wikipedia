@@ -24,7 +24,7 @@ public final class RbPageEndpointsCache {
     public static Retrofit retrofit(@NonNull Site site) {
         String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(),
                 site.authority());
-        return RetrofitFactory.newInstance(endpoint);
+        return RetrofitFactory.newInstance(endpoint, site);
     }
 
     private RbPageEndpointsCache() {

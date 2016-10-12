@@ -13,12 +13,9 @@ import java.net.URL;
 
 import okhttp3.Cache;
 import okhttp3.CookieJar;
-import okhttp3.Interceptor;
 import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
 import okhttp3.OkUrlFactory;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
@@ -55,18 +52,6 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .cookieJar(cookieJar)
                 .cache(HTTP_CACHE)
                 .addInterceptor(loggingInterceptor)
-                .addInterceptor(new CustomHeaderInterceptor())
                 .build();
-    }
-
-    private static class CustomHeaderInterceptor implements Interceptor {
-        @Override
-        public Response intercept(Interceptor.Chain chain) throws IOException {
-            Request request = chain.request();
-            request = request.newBuilder()
-                    .headers(WikipediaApp.getInstance().buildCustomHeaders(request))
-                    .build();
-            return chain.proceed(request);
-        }
     }
 }

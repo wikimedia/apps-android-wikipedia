@@ -4,23 +4,47 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.OkHttpConnectionFactory;
 import org.wikipedia.Site;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.GsonUtil;
 
+import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public final class RetrofitFactory {
     public static Retrofit newInstance(@NonNull Site site) {
-        return newInstance(site.url() + "/");
+        return newInstance(site.url() + "/", site);
     }
 
-    public static Retrofit newInstance(@NonNull String endpoint) {
+    public static Retrofit newInstance(@NonNull String endpoint, @NonNull Site site) {
         return new Retrofit.Builder()
-                .client(OkHttpConnectionFactory.getClient())
+                .client(OkHttpConnectionFactory.getClient().newBuilder()
+                        .addInterceptor(new CustomHeaderInterceptor(site)).build())
                 .baseUrl(endpoint)
                 .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
                 .build();
     }
 
     private RetrofitFactory() { }
+
+    private static class CustomHeaderInterceptor implements Interceptor {
+        private final Site site;
+
+        CustomHeaderInterceptor(@NonNull Site site) {
+            this.site = site;
+        }
+
+        @Override
+        public Response intercept(Interceptor.Chain chain) throws IOException {
+            Request request = chain.request();
+            request = request.newBuilder()
+                    .headers(WikipediaApp.getInstance().buildCustomHeaders(request, site))
+                    .build();
+            return chain.proceed(request);
+        }
+    }
 }
