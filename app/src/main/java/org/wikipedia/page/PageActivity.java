@@ -779,9 +779,13 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onPause() {
-        super.onPause();
+        if (isCabOpen()) {
+            // Explicitly close any current ActionMode (see T147191)
+            finishActionMode();
+        }
         isZeroEnabled = app.getWikipediaZeroHandler().isZeroEnabled();
         currentZeroConfig = app.getWikipediaZeroHandler().getZeroConfig();
+        super.onPause();
     }
 
     @Override
