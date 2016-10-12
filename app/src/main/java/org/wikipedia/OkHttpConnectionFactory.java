@@ -13,9 +13,12 @@ import java.net.URL;
 
 import okhttp3.Cache;
 import okhttp3.CookieJar;
+import okhttp3.Interceptor;
 import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
 import okhttp3.OkUrlFactory;
+import okhttp3.Request;
+import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
@@ -52,6 +55,24 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
                 .cookieJar(cookieJar)
                 .cache(HTTP_CACHE)
                 .addInterceptor(loggingInterceptor)
+                .addInterceptor(new CommonHeaderInterceptor())
                 .build();
+    }
+
+    // If adding a new header here, make sure to duplicate it in the MWAPI header builder
+    // (WikipediaApp.buildCustomHeadersMap()).
+    // TODO: remove above comment once buildCustomHeadersMap() is removed.
+    private static class CommonHeaderInterceptor implements Interceptor {
+        @Override
+        public Response intercept(Interceptor.Chain chain) throws IOException {
+            WikipediaApp app = WikipediaApp.getInstance();
+            Request request = chain.request();
+            request = request.newBuilder()
+                    .header("User-Agent", app.getUserAgent())
+                    .header(app.isEventLoggingEnabled() ? "X-WMF-UUID" : "DNT",
+                            app.isEventLoggingEnabled() ? app.getAppInstallID() : "1")
+                    .build();
+            return chain.proceed(request);
+        }
     }
 }

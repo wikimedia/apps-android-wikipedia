@@ -65,9 +65,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
-import okhttp3.Headers;
-import okhttp3.Request;
-
 import static org.wikipedia.util.DimenUtil.getFontSizeFromSp;
 import static org.wikipedia.util.ReleaseUtil.getChannel;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
@@ -527,18 +524,10 @@ public class WikipediaApp extends Application {
         return PrefsOnboardingStateMachine.getInstance();
     }
 
-    /** For Retrofit requests. Keep in sync with #buildCustomHeadersMap */
-    public Headers buildCustomHeaders(Request request, Site site) {
-        Map<String, String> toSetHeaders = buildCustomHeadersMap(getAcceptLanguage(site));
-
-        Headers.Builder moreHeaders = request.headers().newBuilder();
-        for (String key : toSetHeaders.keySet()) {
-            moreHeaders.set(key, toSetHeaders.get(key));
-        }
-        return moreHeaders.build();
-    }
-
-    /** For java-mwapi API requests. */
+    // For java-mwapi API requests.
+    // If adding a new header here (before this method is removed), make sure to duplicate it
+    // in the Retrofit header list (OkHttpConnectionFactory#CommonHeaderInterceptor).
+    @Deprecated
     private Map<String, String> buildCustomHeadersMap(String acceptLanguage) {
         Map<String, String> headers = new HashMap<>();
         headers.put("User-Agent", getUserAgent());

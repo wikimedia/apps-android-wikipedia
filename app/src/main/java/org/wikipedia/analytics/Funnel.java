@@ -143,7 +143,6 @@ import java.util.UUID;
                         schemaName,
                         revision,
                         getDBNameForSite(site == null ? getApp().getSite() : site),
-                        app.getUserAgent(),
                         preprocessData(eventData)
                 ).log();
             }

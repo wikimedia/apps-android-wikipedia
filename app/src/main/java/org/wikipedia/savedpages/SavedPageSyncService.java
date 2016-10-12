@@ -151,9 +151,7 @@ public class SavedPageSyncService extends IntentService {
             return true;
         }
 
-        Request request = new Request.Builder().url(url)
-                                               .header("User-Agent", WikipediaApp.getInstance().getUserAgent())
-                                               .build();
+        Request request = new Request.Builder().url(url).build();
         Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
 
         try {
