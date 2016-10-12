@@ -62,7 +62,8 @@ public class WikiSite implements Parcelable {
                 languageCode);
     }
 
-    /** This method cannot resolve multi-dialect wikis like Simplified and Traditional Chinese. */
+    /** This method cannot resolve multi-dialect wikis like Simplified and Traditional Chinese as
+        the variant is unavailable. */
     public WikiSite(@NonNull String authority) {
         this(authority, authorityToLanguageCode(authority));
     }
@@ -84,6 +85,10 @@ public class WikiSite implements Parcelable {
     }
 
     public WikiSite(@NonNull Uri uri, @NonNull String languageCode) {
+        // todo: uncomment
+        // if (!supportedAuthority(uri.getAuthority())) {
+        //     throw new IllegalArgumentException("Unsupported authority=" + uri.getAuthority());
+        // }
         this.uri = uri;
         this.languageCode = languageCode;
     }
@@ -174,7 +179,8 @@ public class WikiSite implements Parcelable {
     }
 
     /**
-     * @return The wiki language code which may differ from the language subdomain.
+     * @return The wiki language code which may differ from the language subdomain. Empty if
+     *         language code is unknown. Ex: "en", "zh-hans", ""
      *
      * @see AppLanguageLookUpTable
      */
