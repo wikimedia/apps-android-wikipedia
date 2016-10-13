@@ -58,7 +58,6 @@ import org.wikipedia.page.snippet.CompatActionMode;
 import org.wikipedia.page.tabs.TabsProvider;
 import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.search.SearchResultsFragment;
@@ -183,9 +182,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
         }
-
-        // Conditionally execute all recurring tasks
-        new RecurringTasksExecutor(app).run();
 
         UserOptionContentResolver.requestManualSync();
     }
