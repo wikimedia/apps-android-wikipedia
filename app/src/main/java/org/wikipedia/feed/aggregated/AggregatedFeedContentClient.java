@@ -39,7 +39,7 @@ public class AggregatedFeedContentClient implements FeedClient {
         UtcDate date = DateUtil.getUtcRequestDateFor(age);
         String endpoint = String.format(Locale.ROOT, Prefs.getRestbaseUriFormat(), site.scheme(),
                 site.authority());
-        Retrofit retrofit = RetrofitFactory.newInstance(endpoint);
+        Retrofit retrofit = RetrofitFactory.newInstance(endpoint, site);
         AggregatedFeedContentClient.Service service = retrofit.create(Service.class);
         call = service.get(date.year(), date.month(), date.date());
         call.enqueue(new CallbackAdapter(cb, site, age));
