@@ -2,12 +2,15 @@ package org.wikipedia.page;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Site;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.util.UriUtil;
 
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
@@ -37,7 +40,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
     public void onMessage(String messageType, JSONObject messagePayload) {
         try {
             String href = decodeURL(messagePayload.getString("href"));
-            onUrlClick(href);
+            onUrlClick(href, messagePayload.getString("title"));
         } catch (IllegalArgumentException e) {
             // The URL is malformed and URL decoder can't understand it. Just do nothing.
             Log.d("Wikipedia", "A malformed URL was tapped.");
@@ -47,14 +50,14 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
     }
 
     @Override
-    public void onUrlClick(String href) {
+    public void onUrlClick(@NonNull String href, @Nullable String titleString) {
         if (href.startsWith("//")) {
             // That's a protocol specific link! Make it https!
             href = "https:" + href;
         }
         Log.d("Wikipedia", "Link clicked was " + href);
         if (href.startsWith("/wiki/")) {
-            PageTitle title = getSite().titleForInternalLink(href);
+            PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getSite());
             onInternalLinkClicked(title);
         } else if (href.startsWith("#")) {
             onPageLinkClicked(href.substring(1));

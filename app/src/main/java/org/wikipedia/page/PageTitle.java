@@ -60,6 +60,25 @@ public class PageTitle implements Parcelable {
     @Nullable private String description;
     @Nullable private final PageProperties properties;
 
+    /**
+     * Creates a new PageTitle object.
+     * Use this if you want to pass in a fragment portion separately from the title.
+     *
+     * @param prefixedText title of the page with optional namespace prefix
+     * @param fragment optional fragment portion
+     * @param site the wiki site the page belongs to
+     * @return a new PageTitle object matching the given input parameters
+     */
+    public static PageTitle withSeparateFragment(@Nullable String prefixedText, @Nullable String fragment, @NonNull Site site) {
+        if (TextUtils.isEmpty(fragment)) {
+            return new PageTitle(prefixedText, site, null, (PageProperties) null);
+        } else {
+            // TODO: this class needs some refactoring to allow passing in a fragment
+            // without having to do string manipulations.
+            return new PageTitle(prefixedText + "#" + fragment, site, null, (PageProperties) null);
+        }
+    }
+
     public PageTitle(@Nullable final String namespace, @NonNull String text, @Nullable String fragment, @Nullable String thumbUrl, @NonNull Site site) {
         this.namespace = namespace;
         this.text = text;

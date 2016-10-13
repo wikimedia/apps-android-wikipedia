@@ -6,6 +6,8 @@ import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
@@ -26,6 +28,7 @@ import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.L10nUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.editing.summaries.EditSummaryTag;
@@ -188,17 +191,17 @@ public class EditPreviewFragment extends Fragment {
                 }
 
                 @Override
-                public void onUrlClick(final String href) {
+                public void onUrlClick(@NonNull final String href, @Nullable final String titleString) {
                     // Check if this is an internal link, and if it is then open it internally
                     if (href.startsWith("/wiki/")) {
-                        PageTitle title = getSite().titleForInternalLink(href);
+                        PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getSite());
                         onInternalLinkClicked(title);
                     } else {
                         //Show dialogue asking user to confirm they want to leave
                         showLeavingEditDialogue(new Runnable() {
                             @Override
                             public void run() {
-                                openExternalLink(href);
+                                openExternalLink(href, titleString);
                             }
                         });
                     }
@@ -242,9 +245,10 @@ public class EditPreviewFragment extends Fragment {
                  * of LinkHandler to do the heavy lifting. You can't call this method from inside a
                  * Runnable or an AlertDialog, so we put it in here instead.
                  * @param href The href of the external link to be opened.
+                 * @param titleString the title of the page to be openend as a string
                  */
-                private void openExternalLink(String href) {
-                    super.onUrlClick(href);
+                private void openExternalLink(String href, String titleString) {
+                    super.onUrlClick(href, titleString);
                 }
 
                 @Override

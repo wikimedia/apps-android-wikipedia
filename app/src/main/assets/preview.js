@@ -39,6 +39,19 @@ function handleReference( targetId, backlink ) {
     }
 }
 
+/**
+ * Either gets the title from the title attribute (for mobileview case and newer MCS pages) or,
+ * if that doesn't not exists try to derive it from the href attribute value.
+ * In the latter case it also unescapes HTML entities to get the correct title string.
+ */
+function getTitle( sourceNode, href ) {
+    if (sourceNode.hasAttribute( "title" )) {
+        return sourceNode.getAttribute( "title" );
+    } else {
+        return href.replace(/^\/wiki\//, '').replace(/^\.\//, '').replace(/#.*$/, '');
+    }
+}
+
 document.onclick = function() {
     var sourceNode = null;
     var curNode = event.target;
@@ -69,7 +82,7 @@ document.onclick = function() {
             } else if (sourceNode.classList.contains( 'image' )) {
                 bridge.sendMessage( 'imageClicked', { "href": href } );
             } else {
-                bridge.sendMessage( 'linkClicked', { "href": href } );
+                bridge.sendMessage( 'linkClicked', { "href": href, "title": getTitle(sourceNode, href) } );
             }
             event.preventDefault();
         }

@@ -8,6 +8,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
+import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -121,8 +122,35 @@ public final class UriUtil {
         return title.getCanonicalUri() + "?wprov=" + context.getString(provId);
     }
 
-    public static String removeInternalLinkPrefix(String link) {
+    /**
+     * Note that while this method also replaces '_' with spaces it doesn't fully decode the string.
+     */
+    @NonNull
+    public static String getTitleFromUrl(@NonNull String url) {
+        return removeFragment(removeLinkPrefix(url)).replace("_", " ");
+    }
+
+    /** For internal links only */
+    @NonNull
+    public static String removeInternalLinkPrefix(@NonNull String link) {
         return link.replaceFirst("/wiki/", "");
+    }
+
+    /** For links that could be internal or external links */
+    @NonNull
+    private static String removeLinkPrefix(@NonNull String link) {
+        return link.replaceFirst("^.*?/wiki/", "");
+    }
+
+    /** Removes an optional fragment portion of a URL */
+    @VisibleForTesting
+    @NonNull
+    static String removeFragment(@NonNull String link) {
+        return link.replaceFirst("#.*$", "");
+    }
+
+    public static String getFragment(String link) {
+        return Uri.parse(link).getFragment();
     }
 
     private UriUtil() {

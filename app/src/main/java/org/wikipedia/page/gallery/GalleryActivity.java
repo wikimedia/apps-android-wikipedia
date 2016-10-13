@@ -364,7 +364,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private LinkMovementMethodExt linkMovementMethod =
             new LinkMovementMethodExt(new LinkMovementMethodExt.UrlHandler() {
         @Override
-        public void onUrlClick(String url) {
+        public void onUrlClick(@NonNull String url, @Nullable String notUsed) {
             L.v("Link clicked was " + url);
             url = resolveProtocolRelativeUrl(url);
             Site appSite = app.getSite();
