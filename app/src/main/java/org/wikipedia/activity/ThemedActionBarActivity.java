@@ -13,6 +13,7 @@ import android.view.ViewConfiguration;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.settings.Prefs;
 
 import java.lang.reflect.Field;
@@ -33,6 +34,9 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         forceOverflowMenuIcon(this);
+
+        // Conditionally execute all recurring tasks
+        new RecurringTasksExecutor(WikipediaApp.getInstance()).run();
     }
 
     @Override
