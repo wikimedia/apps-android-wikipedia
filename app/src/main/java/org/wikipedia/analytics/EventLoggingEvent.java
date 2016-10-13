@@ -25,7 +25,6 @@ public class EventLoggingEvent {
             ? EVENTLOG_URL_DEV : EVENTLOG_URL_PROD;
 
     private final JSONObject data;
-    private final String userAgent;
 
     /**
      * Create an EventLoggingEvent that logs to a given revision of a given schema with
@@ -34,11 +33,10 @@ public class EventLoggingEvent {
      * @param schema Schema name (as specified on meta.wikimedia.org)
      * @param revID Revision of the schema to log to
      * @param wiki DBName (enwiki, dewiki, etc) of the wiki in which we are operating
-     * @param userAgent User-Agent string to use for this request
      * @param eventData Data for the actual event payload. Considered to be
      *
      */
-    public EventLoggingEvent(String schema, int revID, String wiki, String userAgent, JSONObject eventData) {
+    public EventLoggingEvent(String schema, int revID, String wiki, JSONObject eventData) {
         data = new JSONObject();
         try {
             data.put("schema", schema);
@@ -48,7 +46,6 @@ public class EventLoggingEvent {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        this.userAgent = userAgent;
     }
 
     /**
@@ -72,7 +69,7 @@ public class EventLoggingEvent {
             String dataURL = Uri.parse(EVENTLOG_URL)
                     .buildUpon().query(data.toString())
                     .build().toString();
-            Request request = new Request.Builder().url(dataURL).header("User-Agent", userAgent).build();
+            Request request = new Request.Builder().url(dataURL).build();
             Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
             try {
                 return response.code();

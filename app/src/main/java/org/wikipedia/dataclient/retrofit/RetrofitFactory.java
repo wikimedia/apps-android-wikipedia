@@ -23,7 +23,7 @@ public final class RetrofitFactory {
     public static Retrofit newInstance(@NonNull String endpoint, @NonNull Site site) {
         return new Retrofit.Builder()
                 .client(OkHttpConnectionFactory.getClient().newBuilder()
-                        .addInterceptor(new CustomHeaderInterceptor(site)).build())
+                        .addInterceptor(new LanguageVariantHeaderInterceptor(site)).build())
                 .baseUrl(endpoint)
                 .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
                 .build();
@@ -31,10 +31,10 @@ public final class RetrofitFactory {
 
     private RetrofitFactory() { }
 
-    private static class CustomHeaderInterceptor implements Interceptor {
+    private static class LanguageVariantHeaderInterceptor implements Interceptor {
         private final Site site;
 
-        CustomHeaderInterceptor(@NonNull Site site) {
+        LanguageVariantHeaderInterceptor(@NonNull Site site) {
             this.site = site;
         }
 
@@ -42,7 +42,7 @@ public final class RetrofitFactory {
         public Response intercept(Interceptor.Chain chain) throws IOException {
             Request request = chain.request();
             request = request.newBuilder()
-                    .headers(WikipediaApp.getInstance().buildCustomHeaders(request, site))
+                    .header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(site))
                     .build();
             return chain.proceed(request);
         }
