@@ -17,12 +17,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-public class SharedPreferenceCookieManager extends CookieManager {
+public final class SharedPreferenceCookieManager extends CookieManager {
     private static final String DELIMITER = ";";
-
     private final Map<String, Map<String, String>> cookieJar = new HashMap<>();
 
-    public SharedPreferenceCookieManager() {
+    private static SharedPreferenceCookieManager INSTANCE;
+
+    @NonNull
+    public static SharedPreferenceCookieManager getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new SharedPreferenceCookieManager();
+        }
+        return INSTANCE;
+    }
+
+    private SharedPreferenceCookieManager() {
         List<String> domains = Prefs.getCookieDomainsAsList();
         for (String domain: domains) {
             String cookies = Prefs.getCookiesForDomain(domain);

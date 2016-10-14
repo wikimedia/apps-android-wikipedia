@@ -86,7 +86,6 @@ public class WikipediaApp extends Application {
 
     private Database database;
     private EditTokenStorage editTokenStorage;
-    private SharedPreferenceCookieManager cookieManager;
     private String userAgent;
     private Site site;
 
@@ -176,7 +175,6 @@ public class WikipediaApp extends Application {
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
         editTokenStorage = new EditTokenStorage(this);
-        cookieManager = new SharedPreferenceCookieManager();
         database = new Database(this);
 
         enableWebViewDebugging();
@@ -377,8 +375,8 @@ public class WikipediaApp extends Application {
         return editTokenStorage;
     }
 
-    public SharedPreferenceCookieManager getCookieManager() {
-        return cookieManager;
+    @NonNull public SharedPreferenceCookieManager getCookieManager() {
+        return SharedPreferenceCookieManager.getInstance();
     }
 
     public void logOut() {
