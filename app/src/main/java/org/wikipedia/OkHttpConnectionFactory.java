@@ -24,7 +24,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
     private static final long HTTP_CACHE_SIZE = 64 * 1024 * 1024;
     private static final Cache HTTP_CACHE = new Cache(WikipediaApp.getInstance().getCacheDir(), HTTP_CACHE_SIZE);
-    @NonNull private static final OkHttpClient CLIENT = createClient();
+    private static OkHttpClient CLIENT;
 
     @Override
     public HttpURLConnection create(URL url) throws IOException {
@@ -39,6 +39,9 @@ public class OkHttpConnectionFactory implements HttpRequest.ConnectionFactory {
 
     @NonNull
     public static OkHttpClient getClient() {
+        if (CLIENT == null) {
+            CLIENT = createClient();
+        }
         return CLIENT;
     }
 
