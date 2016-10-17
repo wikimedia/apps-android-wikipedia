@@ -8,7 +8,7 @@ import java.util.Set;
 
 /** Protection settings for a page */
 public class Protection {
-    @SuppressWarnings("MismatchedReadAndWriteOfArray") private Set<String> edit = Collections.emptySet();
+    @SuppressWarnings("MismatchedReadAndWriteOfArray") @NonNull private Set<String> edit = Collections.emptySet();
 
     // TODO should send them all, but callers need to be updated, too, (future patch)
     @Nullable

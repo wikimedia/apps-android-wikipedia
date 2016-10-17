@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 public class User {
@@ -64,7 +65,7 @@ public class User {
         this.password = password;
         this.userID = userID;
         if (groups != null) {
-            this.groups = Collections.unmodifiableSet(groups);
+            this.groups = Collections.unmodifiableSet(new HashSet<>(groups));
         } else {
             this.groups = Collections.emptySet();
         }
