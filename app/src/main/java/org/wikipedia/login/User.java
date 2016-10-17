@@ -84,15 +84,8 @@ public class User {
         return userID;
     }
 
-    public boolean isAllowed(@NonNull String[] allowedGroups) {
-        for (String allowedGroup: allowedGroups) {
-            for (String group: groups) {
-                if (allowedGroup != null && allowedGroup.equals(group)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public boolean isAllowed(@NonNull Set<String> allowedGroups) {
+        return !allowedGroups.isEmpty() && !Collections.disjoint(allowedGroups, groups);
     }
 
     @NonNull
