@@ -4,9 +4,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.google.gson.annotations.JsonAdapter;
-
-import org.wikipedia.json.NamespaceTypeAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.util.StringUtil;
 
@@ -16,7 +13,7 @@ public final class CardPageItem {
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private String extract;
-    @SuppressWarnings("unused") @NonNull @JsonAdapter(NamespaceTypeAdapter.class) private Namespace namespace = Namespace.MAIN;
+    @SuppressWarnings("unused") @NonNull private Namespace namespace = Namespace.MAIN;
 
     @NonNull
     public String title() {
