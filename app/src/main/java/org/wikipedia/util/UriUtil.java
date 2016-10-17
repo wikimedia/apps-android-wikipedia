@@ -10,14 +10,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 import static org.wikipedia.zero.WikipediaZeroHandler.showZeroExitInterstitialDialog;
@@ -25,19 +26,21 @@ import static org.wikipedia.zero.WikipediaZeroHandler.showZeroExitInterstitialDi
 public final class UriUtil {
 
     /**
-     * Decodes a URL-encoded string into its UTF-8 equivalent.
+     * Decodes a URL-encoded string into its UTF-8 equivalent. If the string cannot be decoded, the
+     * original string is returned.
      * @param url The URL-encoded string that you wish to decode.
      * @return The decoded string, or the input string if the decoding failed.
      */
     @NonNull public static String decodeURL(@NonNull String url) {
         try {
             return URLDecoder.decode(url, "UTF-8");
-        } catch (Exception e) {
-            // Swallow any exception, including UnsupportedEncodingException (shouldn't happen),
-            // and IllegalArgumentException (can happen with malformed encoding), and just return
-            // the original string.
-            Log.d("Wikipedia", "URL decoding failed. String was: " + url);
+        } catch (IllegalArgumentException e) {
+            // Swallow IllegalArgumentException (can happen with malformed encoding), and just
+            // return the original string.
+            L.d("URL decoding failed. String was: " + url);
             return url;
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
         }
     }
 
