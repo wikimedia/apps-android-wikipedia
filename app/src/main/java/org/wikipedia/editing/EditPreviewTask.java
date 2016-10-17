@@ -1,21 +1,21 @@
 package org.wikipedia.editing;
 
-import android.content.Context;
+import android.support.annotation.NonNull;
+
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.dataclient.ApiTask;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
-
+import org.wikipedia.page.PageTitle;
 
 public class EditPreviewTask extends ApiTask<String> {
     private final String wikiText;
-    private final PageTitle title;
+    @NonNull private final PageTitle title;
 
-    public EditPreviewTask(Context context, String wikiText, PageTitle title) {
-        super(((WikipediaApp)context.getApplicationContext()).getAPIForSite(title.getWikiSite()));
+    public EditPreviewTask(@NonNull WikipediaApp app, String wikiText, @NonNull PageTitle title) {
+        super(app.getAPIForSite(title.getWikiSite()));
         this.wikiText = wikiText;
         this.title = title;
     }

@@ -7,10 +7,10 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
 
-import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 
@@ -38,7 +38,7 @@ public class EditPreviewTaskTest {
         private String result;
 
         Subject(String wikiText, PageTitle title) {
-            super(getTargetContext(), wikiText, title);
+            super(WikipediaApp.getInstance(), wikiText, title);
         }
 
         @Override

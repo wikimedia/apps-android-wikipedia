@@ -292,7 +292,7 @@ public class EditPreviewFragment extends Fragment {
     public void showPreview(final PageTitle title, final String wikiText) {
         hideSoftKeyboard(getActivity());
 
-        new EditPreviewTask(getActivity(), wikiText, title) {
+        new EditPreviewTask(WikipediaApp.getInstance(), wikiText, title) {
             @Override
             public void onBeforeExecute() {
                 progressDialog.show();
