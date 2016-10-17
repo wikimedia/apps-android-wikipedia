@@ -29,6 +29,7 @@ import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
+import org.wikipedia.dataclient.OkHttpConnectionFactory;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.editing.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;

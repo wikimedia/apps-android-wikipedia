@@ -3,7 +3,7 @@ package org.wikipedia.analytics;
 import android.net.Uri;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.OkHttpConnectionFactory;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.log.L;

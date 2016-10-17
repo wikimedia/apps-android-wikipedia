@@ -1,7 +1,7 @@
 package org.wikipedia.search;
 
 import org.json.JSONArray;
-import org.wikipedia.ApiTask;
+import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.Constants;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.Site;

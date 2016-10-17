@@ -1,6 +1,6 @@
 package org.wikipedia.alphaupdater;
 
-import org.wikipedia.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.OkHttpConnectionFactory;
 import org.wikipedia.R;
 import org.wikipedia.recurring.RecurringTask;
 import org.json.JSONException;
