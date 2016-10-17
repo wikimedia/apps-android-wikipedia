@@ -1,5 +1,7 @@
 package org.wikipedia.language;
 
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.util.Arrays;
@@ -29,15 +31,27 @@ public final class LanguageUtil {
             case "ji":
                 return "yi"; // Yiddish
             case "zh":
-                // If the user configures Android for Chinese (zh) we have no way to know the intended
-                // dialect. We guess based on country. If the guess is incorrect, the user must explicitly
-                // choose the dialect in the app settings.
-                return isTraditionalChinesePredominantInCountry(Locale.getDefault().getCountry())
-                        ? AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
-                        : AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
+                return chineseLanguageCodeToWikiLanguageCode();
             default:
                 return code;
         }
+    }
+
+    @NonNull private static String chineseLanguageCodeToWikiLanguageCode() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            String script = Locale.getDefault().getScript();
+            switch (script) {
+                case "Hans": return AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
+                case "Hant": return AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
+                default: break;
+            }
+        }
+
+        // Guess based on country. If the guess is incorrect, the user must explicitly choose the
+        // dialect in the app settings.
+        return isTraditionalChinesePredominantInCountry(Locale.getDefault().getCountry())
+                ? AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE
+                : AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
     }
 
     private static boolean isTraditionalChinesePredominantInCountry(@Nullable String country) {
