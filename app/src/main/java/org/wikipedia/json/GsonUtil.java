@@ -11,7 +11,7 @@ public final class GsonUtil {
     private static final String DATE_FORMAT = "MMM dd, yyyy HH:mm:ss";
     private static final Gson DEFAULT_GSON = new GsonBuilder()
             .setDateFormat(DATE_FORMAT)
-            .registerTypeAdapter(Uri.class, new UriTypeAdapter())
+            .registerTypeHierarchyAdapter(Uri.class, new UriTypeAdapter().nullSafe())
             .registerTypeHierarchyAdapter(Namespace.class, new NamespaceTypeAdapter().nullSafe())
             .create();
 

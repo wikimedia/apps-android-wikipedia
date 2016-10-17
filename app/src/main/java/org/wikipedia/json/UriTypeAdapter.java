@@ -11,17 +11,12 @@ import java.io.IOException;
 public class UriTypeAdapter extends TypeAdapter<Uri> {
     @Override
     public void write(JsonWriter out, Uri value) throws IOException {
-        out.value(value == null ? null : value.toString());
+        out.value(value.toString());
     }
 
     @Override
     public Uri read(JsonReader in) throws IOException {
         String url = in.nextString();
-
-        if (url == null) {
-            return null;
-        }
-
         return Uri.parse(url);
     }
 }
