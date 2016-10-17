@@ -10,6 +10,7 @@ import android.support.annotation.StringRes;
 
 import org.wikipedia.WikipediaApp;
 
+import java.util.Collections;
 import java.util.Set;
 
 /** Shared preferences input / output utility providing set* functionality that writes to SP on the
@@ -69,7 +70,8 @@ import java.util.Set;
 
     @Nullable
     public static Set<String> getStringSet(String key, @Nullable Set<String> defaultValue) {
-        return getPreferences().getStringSet(key, defaultValue);
+        Set<String> set = getPreferences().getStringSet(key, defaultValue);
+        return set == null ? null : Collections.unmodifiableSet(set);
     }
 
     public static void setStringSet(String key, @Nullable Set<String> value) {
