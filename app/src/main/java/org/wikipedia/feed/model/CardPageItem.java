@@ -16,7 +16,7 @@ public final class CardPageItem {
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private String extract;
-    @SuppressWarnings("unused") @Nullable @JsonAdapter(NamespaceTypeAdapter.class) private Namespace namespace;
+    @SuppressWarnings("unused") @NonNull @JsonAdapter(NamespaceTypeAdapter.class) private Namespace namespace = Namespace.MAIN;
 
     @NonNull
     public String title() {
@@ -39,7 +39,7 @@ public final class CardPageItem {
         return extract == null ? null : StringUtil.sanitizeText(extract);
     }
 
-    @Nullable
+    @NonNull
     public Namespace namespace() {
         return namespace;
     }

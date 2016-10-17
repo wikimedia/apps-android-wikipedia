@@ -39,8 +39,7 @@ public class RandomSummaryService {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
                     CardPageItem item = response.body();
-                    String namespace = item.namespace() == null ? null
-                            : item.namespace().toLegacyString();
+                    String namespace = item.namespace().toLegacyString();
                     PageTitle title = new PageTitle(namespace, item.title(), site);
                     cb.onSuccess(title);
                 } else {
