@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.JsonAdapter;
 
+import org.wikipedia.json.NamespaceTypeAdapter;
 import org.wikipedia.page.Namespace;
-import org.wikipedia.page.NamespaceTypeAdapter;
 import org.wikipedia.util.StringUtil;
 
 public final class CardPageItem {

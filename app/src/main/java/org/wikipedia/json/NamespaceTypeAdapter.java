@@ -1,8 +1,10 @@
-package org.wikipedia.page;
+package org.wikipedia.json;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+
+import org.wikipedia.page.Namespace;
 
 import java.io.IOException;
 
