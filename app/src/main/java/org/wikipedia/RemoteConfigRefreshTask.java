@@ -2,6 +2,7 @@ package org.wikipedia;
 
 import org.json.JSONObject;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.dataclient.OkHttpConnectionFactory;
 import org.wikipedia.recurring.RecurringTask;
 import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.util.log.L;

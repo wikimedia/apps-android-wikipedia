@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.dataclient;
 
 import android.net.Uri;
 import android.support.annotation.VisibleForTesting;
@@ -7,6 +7,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.log.L;
 

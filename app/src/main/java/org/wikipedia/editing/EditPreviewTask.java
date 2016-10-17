@@ -5,7 +5,7 @@ import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.ApiTask;
+import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
 

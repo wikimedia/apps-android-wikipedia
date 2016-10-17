@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.ApiTask;
+import org.wikipedia.dataclient.ApiTask;
 
 public class WikipediaZeroTask extends ApiTask<ZeroConfig> {
     private String userAgent;

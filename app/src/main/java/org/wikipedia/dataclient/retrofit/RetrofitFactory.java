@@ -2,7 +2,7 @@ package org.wikipedia.dataclient.retrofit;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.OkHttpConnectionFactory;
 import org.wikipedia.Site;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.GsonUtil;
