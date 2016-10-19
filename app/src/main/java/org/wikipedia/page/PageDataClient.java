@@ -158,31 +158,25 @@ public class PageDataClient implements PageLoadStrategy {
         // will invalidate themselves upon completion.
         sequenceNumber.increase();
 
-        if (cachePreference == Cache.NONE) {
-            // If this is a refresh, don't clear the webview contents
-            this.stagedScrollY = stagedScrollY;
-            loadOnWebViewReady(cachePreference);
-        } else {
-            fragment.updatePageInfo(null);
+        fragment.updatePageInfo(null);
 
-            // kick off an event to the WebView that will cause it to clear its contents,
-            // and then report back to us when the clearing is complete, so that we can synchronize
-            // the transitions of our native components to the new page content.
-            // The callback event from the WebView will then call the loadOnWebViewReady()
-            // function, which will continue the loading process.
-            leadImagesHandler.hide();
-            bottomContentHandler.hide();
-            fragment.getSearchBarHideHandler().setFadeEnabled(false);
-            try {
-                JSONObject wrapper = new JSONObject();
-                // whatever we pass to this event will be passed back to us by the WebView!
-                wrapper.put("sequence", sequenceNumber.get());
-                wrapper.put("cachePreference", cachePreference.name());
-                wrapper.put("stagedScrollY", stagedScrollY);
-                bridge.sendMessage("beginNewPage", wrapper);
-            } catch (JSONException e) {
-                L.logRemoteErrorIfProd(e);
-            }
+        // kick off an event to the WebView that will cause it to clear its contents,
+        // and then report back to us when the clearing is complete, so that we can synchronize
+        // the transitions of our native components to the new page content.
+        // The callback event from the WebView will then call the loadOnWebViewReady()
+        // function, which will continue the loading process.
+        leadImagesHandler.hide();
+        bottomContentHandler.hide();
+        fragment.getSearchBarHideHandler().setFadeEnabled(false);
+        try {
+            JSONObject wrapper = new JSONObject();
+            // whatever we pass to this event will be passed back to us by the WebView!
+            wrapper.put("sequence", sequenceNumber.get());
+            wrapper.put("cachePreference", cachePreference.name());
+            wrapper.put("stagedScrollY", stagedScrollY);
+            bridge.sendMessage("beginNewPage", wrapper);
+        } catch (JSONException e) {
+            L.logRemoteErrorIfProd(e);
         }
     }
 
@@ -486,16 +480,8 @@ public class PageDataClient implements PageLoadStrategy {
                     }
                 });
                 break;
-            case NONE:
             default:
-                // This is a refresh, don't clear contents in this case
-                loadFromNetwork(new ErrorCallback() {
-                    @Override
-                    public void call(Throwable networkError) {
-                        fragment.onPageLoadError(networkError);
-                    }
-                });
-                break;
+                throw new IllegalStateException("Unknown cache preference=" + cachePreference);
         }
     }
 
