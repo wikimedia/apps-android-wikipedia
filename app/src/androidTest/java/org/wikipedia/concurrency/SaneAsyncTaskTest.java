@@ -1,17 +1,17 @@
-package org.wikipedia.test.concurrency;
+package org.wikipedia.concurrency;
 
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
-import org.wikipedia.concurrency.SaneAsyncTask;
+
 import org.wikipedia.test.TestDummyActivity;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-@SmallTest public class AsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
+@SmallTest public class SaneAsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 1000;
 
-    public AsyncTaskTest() {
+    public SaneAsyncTaskTest() {
         super(TestDummyActivity.class);
     }
 
