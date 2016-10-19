@@ -421,16 +421,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 // save it to our current page, for later use
                 if (cacheOnLoad && page != null) {
                     page.setGalleryCollection(result);
-                    app.getPageCache().put(pageTitle, page, new PageCache.CachePutListener() {
-                        @Override
-                        public void onPutComplete() {
-                        }
-
-                        @Override
-                        public void onPutError(Throwable e) {
-                            L.e("Failed to add page to cache.", e);
-                        }
-                    });
+                    app.getPageCache().put(pageTitle, page);
                 }
                 applyGalleryCollection(result);
             }
