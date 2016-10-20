@@ -1,6 +1,4 @@
 <resources>
-    <bool name="wide">false</bool>
-
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
@@ -36,9 +34,6 @@
 
     <!-- Default screen height ratio for news feature image -->
     <item type="dimen" format="float" name="newsFeatureImageScreenHeightRatio">0.3</item>
-
-    <!-- Default font size for Search text -->
-    <dimen name="searchTextSize">16sp</dimen>
 
     <dimen name="content_margin">@dimen/activity_horizontal_margin</dimen>
 
@@ -89,12 +84,10 @@
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
 
     <!-- The Feed -->
-    <dimen name="view_feed_header_height">160dp</dimen>
     <dimen name="view_feed_padding_top">10dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>
     <dimen name="view_list_card_margin_vertical">5dp</dimen>
     <dimen name="view_list_card_margin_horizontal">7dp</dimen>
-    <dimen name="view_list_card_item_margin">16dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_horizontal">4dp</dimen>
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
