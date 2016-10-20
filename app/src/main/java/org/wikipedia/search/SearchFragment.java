@@ -21,8 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.squareup.otto.Subscribe;
-
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -30,7 +28,6 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.SearchHistoryContract;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.LanguagePreferenceDialog;
@@ -254,10 +251,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         closeSearch();
     }
 
-    @Subscribe public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-        updateZeroChrome();
-    }
-
     @OnClick(R.id.search_container) void onSearchContainerClick() {
         // Give the root container view an empty click handler, so that click events won't
         // get passed down to any underlying views (e.g. a PageFragment on top of which
@@ -394,18 +387,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         langButton.setText(app.getAppOrSystemLanguageCode().toUpperCase());
         formatLangButtonText();
         FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);
-    }
-
-    /*
-    Update any UI elements related to WP Zero
-     */
-    private void updateZeroChrome() {
-        if (searchEditText != null) {
-            // setting the hint directly on the search EditText (instead of the SearchView)
-            // gets rid of the magnify icon, which we don't want.
-            searchEditText.setHint(app.getWikipediaZeroHandler().isZeroEnabled() ? getString(
-                    R.string.zero_search_hint) : getString(R.string.search_hint));
-        }
     }
 
     private boolean isValidQuery(String queryText) {

@@ -109,6 +109,11 @@
             android:key="@string/preference_key_language_mru"
             android:title="@string/preference_key_language_mru" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_zero_config_hash"
+            android:title="@string/preference_key_zero_config_hash" />
+
         <!-- TODO: expose in wildcard preference. -->
         <org.wikipedia.settings.LongPreference
             style="@style/LongPreference"
@@ -150,6 +155,10 @@
         <SwitchPreferenceCompat
             android:key="@string/preference_key_reading_list_page_delete_tutorial_enabled"
             android:title="@string/preference_key_reading_list_page_delete_tutorial_enabled" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_zero_tutorial_enabled"
+            android:title="@string/preference_key_zero_tutorial_enabled" />
 
     </PreferenceCategory>
 

@@ -1,32 +1,32 @@
 package org.wikipedia.zero;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.support.v7.app.NotificationCompat;
+import android.text.TextUtils;
 
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.events.WikipediaZeroEnterEvent;
+import org.wikipedia.main.MainActivity;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.net.URL;
@@ -37,16 +37,8 @@ import retrofit2.Response;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class WikipediaZeroHandler implements OnHeaderCheckListener {
+    private static final int NOTIFICATION_ID = 100;
     private static final int MESSAGE_ZERO_CS = 1;
-
-    /**
-     * Size of the text, in sp, of the Zero banner text.
-     */
-    private static final int BANNER_TEXT_SIZE = 12;
-    /**
-     * Height of the Zero banner, in pixels, that will pop up from the bottom of the screen.
-     */
-    private static final int BANNER_HEIGHT = (int) (24 * DimenUtil.getDensityScalar());
 
     @NonNull private WikipediaApp app;
 
@@ -85,29 +77,6 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
 
     public String getXCarrier() {
         return xCarrier;
-    }
-
-    public void showZeroBanner(@NonNull final Activity activity, @NonNull ZeroConfig zeroConfig) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity,
-                zeroConfig.getMessage(), FeedbackUtil.LENGTH_DEFAULT);
-        final String zeroBannerUrl = zeroConfig.getBannerUrl();
-        if (!StringUtil.emptyIfNull(zeroBannerUrl).equals("")) {
-            snackbar.setAction("Info", new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    UriUtil.visitInExternalBrowser(activity, Uri.parse(zeroBannerUrl));
-                    zeroFunnel.logBannerClick();
-                }
-            });
-        }
-        show(snackbar, zeroConfig.getBackground(), zeroConfig.getForeground());
-    }
-
-    public void showZeroOffBanner(@NonNull final Activity activity, String message, int background,
-                                  int foreground) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(activity,
-                message, FeedbackUtil.LENGTH_DEFAULT);
-        show(snackbar, background, foreground);
     }
 
     public static void showZeroExitInterstitialDialog(@NonNull final Context context,
@@ -215,22 +184,24 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         });
     }
 
-    private boolean eitherChanged(String xCarrier, String xCarrierMeta) {
-        return !(xCarrier.equals(zeroCarrierString) && xCarrierMeta.equals(zeroCarrierMetaString));
+    public void showZeroTutorialDialog(@NonNull Activity activity) {
+        new AlertDialog.Builder(activity)
+                .setTitle(R.string.zero_wikipedia_zero_heading)
+                .setMessage(R.string.zero_learn_more)
+                .setPositiveButton(R.string.zero_learn_more_dismiss, null)
+                .setNegativeButton(R.string.zero_learn_more_learn_more,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                visitInExternalBrowser(app,
+                                        (Uri.parse(app.getString(R.string.zero_webpage_url))));
+                                zeroFunnel.logExtLinkMore();
+                            }
+                        }).create().show();
     }
 
-    private void show(@NonNull Snackbar snackbar, int background, int foreground) {
-        ViewGroup rootView = (ViewGroup) snackbar.getView();
-        TextView textView = (TextView) rootView.findViewById(R.id.snackbar_text);
-        rootView.setBackgroundColor(background);
-        rootView.setMinimumHeight(BANNER_HEIGHT);
-        textView.setTextColor(foreground);
-        textView.setTextSize(BANNER_TEXT_SIZE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        }
-        textView.setGravity(Gravity.CENTER_HORIZONTAL);
-        snackbar.show();
+    private boolean eitherChanged(String xCarrier, String xCarrierMeta) {
+        return !(xCarrier.equals(zeroCarrierString) && xCarrierMeta.equals(zeroCarrierMetaString));
     }
 
     private void identifyZeroCarrier(@NonNull final String xCarrierFromHeader,
@@ -243,18 +214,23 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
                 WikipediaZeroTask zeroTask = new WikipediaZeroTask(
                         app.getApiForMobileSite(app.getWikiSite()), app.getUserAgent()) {
                     @Override
-                    public void onFinish(ZeroConfig config) {
-                        L.i("New Wikipedia Zero config: " + config);
+                    public void onFinish(ZeroConfig newConfig) {
+                        L.i("New Wikipedia Zero config: " + newConfig);
                         xCarrier = xCarrierFromHeader; // ex. "123-45"
 
-                        if (config != null) {
+                        if (newConfig != null) {
                             zeroCarrierString = xCarrierFromHeader;
                             zeroCarrierMetaString = xCarrierMetaFromHeader; // ex. "wap"; default ""
-                                zeroConfig = config;
                             zeroEnabled = true;
                             zeroFunnel = new WikipediaZeroUsageFunnel(app, zeroCarrierString,
                                     StringUtil.emptyIfNull(zeroCarrierMetaString));
-                            app.getBus().post(new WikipediaZeroStateChangeEvent());
+
+                            if (newConfig.hashCode() != Prefs.zeroConfigHashCode()) {
+                                notifyEnterZeroNetwork(app, newConfig);
+                            }
+                            app.getBus().post(new WikipediaZeroEnterEvent());
+                            zeroConfig = newConfig;
+                            Prefs.zeroConfigHashCode(zeroConfig.hashCode());
                             curZeroTask = null;
                         }
                         acquiringCarrierMessage = false;
@@ -291,7 +267,8 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         zeroCarrierMetaString = "";
         zeroConfig = null;
         zeroEnabled = false;
-        app.getBus().post(new WikipediaZeroStateChangeEvent());
+        Prefs.zeroConfigHashCode(0);
+        notifyExitZeroNetwork(app);
     }
 
     @Nullable
@@ -303,5 +280,49 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
             }
         }
         return null;
+    }
+
+    private void notifyEnterZeroNetwork(@NonNull Context context, @NonNull ZeroConfig config) {
+        NotificationCompat.Builder builder = createNotification(context);
+        builder.setColor(config.getBackground())
+                .setLights(config.getBackground(),
+                        context.getResources().getInteger(R.integer.zero_notification_light_on_ms),
+                        context.getResources().getInteger(R.integer.zero_notification_light_off_ms))
+                .setContentText(context.getString(R.string.zero_learn_more))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.zero_learn_more)))
+                .addAction(0, context.getString(R.string.zero_learn_more_learn_more),
+                        pendingIntentForUrl(context, TextUtils.isEmpty(config.getBannerUrl())
+                                ? context.getString(R.string.zero_webpage_url)
+                                : config.getBannerUrl()));
+        showNotification(context, builder.build());
+    }
+
+    private void notifyExitZeroNetwork(@NonNull Context context) {
+        NotificationCompat.Builder builder = createNotification(context);
+        builder.setColor(ContextCompat.getColor(context, R.color.foundation_red))
+                .setContentText(context.getString(R.string.zero_charged_verbiage))
+                .setAutoCancel(true)
+                .addAction(0, context.getString(R.string.zero_learn_more_learn_more),
+                        pendingIntentForUrl(context, context.getString(R.string.zero_webpage_url)));
+        showNotification(context, builder.build());
+    }
+
+    private NotificationCompat.Builder createNotification(@NonNull Context context) {
+        return (NotificationCompat.Builder) new NotificationCompat.Builder(context)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setSmallIcon(R.drawable.ic_notification)
+                .setContentTitle(context.getString(R.string.zero_wikipedia_zero_heading))
+                .setContentIntent(PendingIntent
+                        .getActivity(context, 0, new Intent(context, MainActivity.class), 0));
+    }
+
+    private void showNotification(@NonNull Context context, @NonNull Notification notification) {
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(NOTIFICATION_ID, notification);
+    }
+
+    private PendingIntent pendingIntentForUrl(@NonNull Context context, @NonNull String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }
