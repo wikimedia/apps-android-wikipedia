@@ -4,12 +4,13 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.json.annotations.Required;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.util.StringUtil;
 
 public final class CardPageItem {
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String normalizedtitle;
+    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
+    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String normalizedtitle;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private String extract;

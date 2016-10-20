@@ -4,11 +4,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.wikipedia.feed.model.Thumbnail;
+import org.wikipedia.json.annotations.Required;
 
 public final class FeaturedImage {
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private Thumbnail thumbnail;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private Thumbnail image;
+    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
+    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private Thumbnail thumbnail;
+    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private Thumbnail image;
     @SuppressWarnings("unused") @Nullable private Description description;
 
     @NonNull

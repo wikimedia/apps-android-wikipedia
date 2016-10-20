@@ -7,10 +7,11 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.feed.model.Thumbnail;
+import org.wikipedia.json.annotations.Required;
 
 public final class MostReadArticle {
-    @SerializedName("normalizedtitle") @SuppressWarnings("unused,NullableProblems") @NonNull private String normalizedTitle;
-    @SuppressWarnings("unused,NullableProblems") @NonNull private String title;
+    @SerializedName("normalizedtitle") @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String normalizedTitle;
+    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @SerializedName("pageid") private int pageId;
     @SuppressWarnings("unused") @SerializedName("thumbnail") @Nullable private Thumbnail thumbnail;
