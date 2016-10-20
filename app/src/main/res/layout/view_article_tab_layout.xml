@@ -2,21 +2,26 @@
     <android.support.design.widget.TabItem
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/ic_bookmark_border_white_24dp"/>
+        android:icon="@drawable/ic_bookmark_border_white_24dp"
+        android:contentDescription="@string/article_menu_bar_bookmark" />
     <android.support.design.widget.TabItem
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/ic_share_white_24dp"/>
+        android:icon="@drawable/ic_share_white_24dp"
+        android:contentDescription="@string/article_menu_bar_share" />
     <android.support.design.widget.TabItem
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/ic_translate_white_24dp"/>
+        android:icon="@drawable/ic_translate_white_24dp"
+        android:contentDescription="@string/menu_page_other_languages" />
     <android.support.design.widget.TabItem
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/ic_find_in_page" />
+        android:icon="@drawable/ic_find_in_page"
+        android:contentDescription="@string/menu_page_find_in_page" />
     <android.support.design.widget.TabItem
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/ic_list_white_24dp" />
+        android:icon="@drawable/ic_list_white_24dp"
+        android:contentDescription="@string/menu_show_toc" />
 </merge>
