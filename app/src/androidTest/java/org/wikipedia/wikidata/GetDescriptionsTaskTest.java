@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.wikidata;
 
 import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
@@ -9,7 +9,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
-import org.wikipedia.wikidata.GetDescriptionsTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +23,7 @@ import static org.hamcrest.Matchers.notNullValue;
  * Tests retrieval of Wikidata descriptions through enwiki.
  */
 @SmallTest
-public class GetDescriptionsTaskTests {
+public class GetDescriptionsTaskTest {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
     @Test public void testOneTitle() throws Throwable {
