@@ -18,7 +18,7 @@ import java.util.Locale;
  * Actual work to search for nearby pages.
  */
 public class NearbyFetchTask extends ApiTask<NearbyResult> {
-    public static final int MAX_RADIUS = 10000;
+    public static final int MAX_RADIUS = 10_000;
     /** max number of results */
     private static final String LIMIT = "100";
     private final double latitude;

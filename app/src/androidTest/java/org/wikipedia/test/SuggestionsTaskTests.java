@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  */
 @SmallTest
 public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 200000;
+    private static final int TASK_COMPLETION_TIMEOUT = 200_000;
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en"); // suggestions don't seem to work on testwiki
 
     private WikipediaApp app = WikipediaApp.getInstance();

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 @SmallTest
 public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 20000;
+    private static final int TASK_COMPLETION_TIMEOUT = 20_000;
     private static final int BATCH_SIZE = 12;
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 

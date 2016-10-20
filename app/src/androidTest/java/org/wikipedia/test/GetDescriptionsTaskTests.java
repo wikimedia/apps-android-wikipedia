@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  */
 @SmallTest
 public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 200000;
+    private static final int TASK_COMPLETION_TIMEOUT = 200_000;
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
     public GetDescriptionsTaskTests() {

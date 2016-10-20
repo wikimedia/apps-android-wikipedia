@@ -23,7 +23,7 @@ public class NearbyUnitTests extends AndroidTestCase {
     private static final double SHORT_DISTANCE = 0.001d;
     private static final double LONGER_DISTANCE = 0.01d;
     /** dist(origin, point a) */
-    private static final int A = 111319;
+    private static final int A = 111_319;
 
     private Location nextLocation;
     private List<NearbyPage> nearbyPages;

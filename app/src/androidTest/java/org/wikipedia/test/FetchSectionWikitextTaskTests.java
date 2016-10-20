@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 @SmallTest
 public class FetchSectionWikitextTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 20000;
+    private static final int TASK_COMPLETION_TIMEOUT = 20_000;
 
     public FetchSectionWikitextTaskTests() {
         super(TestDummyActivity.class);
