@@ -62,10 +62,9 @@
                     android:layout_margin="16dp"
                     style="?android:textAppearanceMedium"
                     android:layout_gravity="center_horizontal"
-                    android:singleLine="true"
                     android:imeOptions="actionDone|flagNoExtractUi"
                     android:inputType="textVisiblePassword|textNoSuggestions"
-                    />
+                    android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
     <Button
             android:id="@+id/captcha_submit_button"

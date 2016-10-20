@@ -61,9 +61,8 @@
                     android:layout_height="48dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:singleLine="true"
                     android:imeOptions="actionDone|flagNoExtractUi"
-                    />
+                    android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
         <ListView android:id="@+id/langlinks_list"
                   android:layout_width="fill_parent"

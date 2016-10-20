@@ -24,10 +24,9 @@
                         android:id="@+id/create_account_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
                         android:imeOptions="flagNoExtractUi"
                         android:inputType="textVisiblePassword|textNoSuggestions"
-                        />
+                        android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
 
             <org.wikipedia.views.PasswordTextInput
@@ -45,10 +44,9 @@
                         android:id="@+id/create_account_password_repeat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
                         android:imeOptions="flagNoExtractUi"
                         android:inputType="textPassword"
-                        />
+                        android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -60,10 +58,9 @@
                         android:id="@+id/create_account_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
                         android:imeOptions="actionDone|flagNoExtractUi"
                         android:inputType="textEmailAddress"
-                        />
+                        android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
 
             <Button

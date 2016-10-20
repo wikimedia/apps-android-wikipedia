@@ -38,7 +38,7 @@
             android:textIsSelectable="true"
             tools:text="Description of featured image here"
             android:ellipsize="end"
-            android:singleLine="true"/>
+            android:maxLines="1" />
 
     </FrameLayout>
 
