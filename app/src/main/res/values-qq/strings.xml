@@ -430,6 +430,8 @@ Shown in the preferences screen along with the following:
 {{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
+  <string name="location_service_disabled">Message shown when trying to use location services but they are unavailable</string>
+  <string name="enable_location_service">Button label for enabling location services</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Phrase for one day ago.</item>
     <item quantity="other">Phrase for more than one day ago.</item>

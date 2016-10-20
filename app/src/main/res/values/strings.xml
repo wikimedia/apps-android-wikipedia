@@ -240,6 +240,8 @@
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
     <string name="nav_item_donate">Support Wikipedia</string>
     <string name="error_voice_search_not_available">Sorry, voice recognition is not available.</string>
+    <string name="location_service_disabled">Location services are disabled.</string>
+    <string name="enable_location_service">Enable</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_dialog_title">Sorry, app crashed last time</string>
