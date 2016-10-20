@@ -1,38 +1,39 @@
 package org.wikipedia.test;
 
+import android.support.annotation.NonNull;
+import android.support.test.InstrumentationRegistry;
+import android.support.test.filters.SmallTest;
+
+import org.junit.Test;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.WikipediaApp;
+import org.wikipedia.testlib.TestLatch;
 import org.wikipedia.wikidata.GetDescriptionsTask;
 
-import android.support.test.filters.SmallTest;
-import android.test.ActivityUnitTestCase;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 /**
  * Tests retrieval of Wikidata descriptions through enwiki.
  */
 @SmallTest
-public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 200_000;
+public class GetDescriptionsTaskTests {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
-    public GetDescriptionsTaskTests() {
-        super(TestDummyActivity.class);
-    }
-
-    public void testOneTitle() throws Throwable {
+    @Test public void testOneTitle() throws Throwable {
         getWikidataDescriptions(new PageTitle[] {
                 new PageTitle("Test", WIKI)}
         );
     }
 
-    public void testThreeTitles() throws Throwable {
+    @Test public void testThreeTitles() {
         getWikidataDescriptions(new PageTitle[] {
                 new PageTitle("SAT", WIKI),
                 new PageTitle("Miller–Rabin primality test", WIKI),
@@ -40,26 +41,30 @@ public class GetDescriptionsTaskTests extends ActivityUnitTestCase<TestDummyActi
         });
     }
 
-    private void getWikidataDescriptions(final PageTitle[] ids) throws Throwable {
+    private void getWikidataDescriptions(final PageTitle[] ids) {
         final List<PageTitle> idList = new ArrayList<>(Arrays.asList(ids));
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        runTestOnUiThread(new Runnable() {
+        final TestLatch latch = new TestLatch();
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 WikipediaApp app = WikipediaApp.getInstance();
                 new GetDescriptionsTask(app.getAPIForSite(WIKI), WIKI, idList) {
                     @Override
                     public void onFinish(Map<PageTitle, Void> descriptionsMap) {
-                        assertNotNull(descriptionsMap);
-                        assertEquals(descriptionsMap.size(), idList.size());
+                        assertThat(descriptionsMap, notNullValue());
+                        assertThat(descriptionsMap.size(), is(idList.size()));
                         for (PageTitle title : idList) {
-                            assertNotNull(title.getDescription());
+                            assertThat(title.getDescription(), notNullValue());
                         }
-                        completionLatch.countDown();
+                        latch.countDown();
                     }
                 }.execute();
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
+    }
+
+    private void runOnMainSync(@NonNull Runnable runnable) {
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(runnable);
     }
 }
