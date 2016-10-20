@@ -13,6 +13,7 @@ public final class GsonUtil {
             .setDateFormat(DATE_FORMAT)
             .registerTypeHierarchyAdapter(Uri.class, new UriTypeAdapter().nullSafe())
             .registerTypeHierarchyAdapter(Namespace.class, new NamespaceTypeAdapter().nullSafe())
+            .registerTypeAdapterFactory(new RequiredFieldsCheckOnReadTypeAdapterFactory())
             .create();
 
     public static Gson getDefaultGson() {
