@@ -13,4 +13,9 @@
         <ignore path="res/drawable/lead_default_dark.png" />
         <ignore path="res/drawable/wp_wordmark.png" />
     </issue>
+
+    <issue id="UnusedResources">
+        <ignore regexp="crash_report_dialog_[a-z_]+" />
+        <ignore regexp="tool_tip_arrow_[updown]+" />
+    </issue>
 </lint>
