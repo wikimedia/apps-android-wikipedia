@@ -7,8 +7,8 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.editing.AbuseFilterEditResult;
 import org.wikipedia.editing.CaptchaResult;
 import org.wikipedia.editing.EditTask;
@@ -115,7 +115,7 @@ public class EditTaskTest {
 
         EditingResult result = Subject.execute(title, wikitext);
         assertThat(result, instanceOf(AbuseFilterEditResult.class));
-        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_WARNING));
+        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_ERROR));
     }
 
     private void validateCaptcha(EditingResult result) {
