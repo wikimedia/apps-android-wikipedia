@@ -22,9 +22,8 @@
                     android:layout_height="wrap_content"
                     style="?android:textAppearanceMedium"
                     android:inputType="textVisiblePassword|textNoSuggestions"
-                    android:singleLine="true"
                     android:imeOptions="flagNoExtractUi"
-                    />
+                    android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
 
         <org.wikipedia.views.PasswordTextInput

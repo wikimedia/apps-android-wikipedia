@@ -15,11 +15,10 @@
             android:layout_height="wrap_content"
             android:hint="@string/menu_page_find_in_page"
             android:layout_gravity="center_vertical"
-            android:singleLine="true"
             android:imeOptions="actionSearch|flagNoExtractUi"
             style="@style/AppTheme.SearchViewStyle"
             app:cabEnabled="false"
-            />
+            android:maxLines="1" />
     <TextView
             android:id="@+id/find_in_page_match"
             android:visibility="gone"
