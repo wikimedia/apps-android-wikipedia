@@ -2,10 +2,12 @@ package org.wikipedia.nearby;
 
 import android.location.Location;
 import android.support.annotation.StringRes;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
-import android.test.AndroidTestCase;
 
 import org.json.JSONObject;
+import org.junit.Before;
+import org.junit.Test;
 import org.wikipedia.R;
 
 import java.util.Collections;
@@ -13,11 +15,14 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 /**
  * Unit tests for Nearby related classes. Probably should refactor this into a model class.
  */
 @SmallTest
-public class NearbyUnitTests extends AndroidTestCase {
+public class NearbyUnitTests {
     // can't seem to suppress the checkstyle warnings for MagicNumbers. Oh well.
     private static final int THREE = 3;
     private static final int FOUR = 4;
@@ -29,9 +34,8 @@ public class NearbyUnitTests extends AndroidTestCase {
     private Location nextLocation;
     private List<NearbyPage> nearbyPages;
 
-    @Override
-    public void setUp() throws Exception {
-        super.setUp();
+    @Before
+    public void setUp() throws Throwable {
         nextLocation = new Location("current");
         nextLocation.setLatitude(0.0d);
         nextLocation.setLongitude(0.0d);
@@ -41,65 +45,65 @@ public class NearbyUnitTests extends AndroidTestCase {
         nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"a\", \"coordinates\": [{\"lat\": 0.0, \"lon\": 1.0}] }")));
     }
 
-    public void testSort() throws Exception {
+    @Test public void testSort() throws Throwable {
         calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
-        assertEquals("a", nearbyPages.get(0).getTitle());
-        assertEquals("b", nearbyPages.get(1).getTitle());
-        assertEquals("c", nearbyPages.get(2).getTitle());
+        assertThat("a", is(nearbyPages.get(0).getTitle()));
+        assertThat("b", is(nearbyPages.get(1).getTitle()));
+        assertThat("c", is(nearbyPages.get(2).getTitle()));
     }
 
-    public void testSortWithNullLocations() throws Exception {
+    @Test public void testSortWithNullLocations() throws Throwable {
         nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"d\" }")));
         nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"e\" }")));
         calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
-        assertEquals("a", nearbyPages.get(0).getTitle());
-        assertEquals("b", nearbyPages.get(1).getTitle());
-        assertEquals("c", nearbyPages.get(2).getTitle());
+        assertThat("a", is(nearbyPages.get(0).getTitle()));
+        assertThat("b", is(nearbyPages.get(1).getTitle()));
+        assertThat("c", is(nearbyPages.get(2).getTitle()));
         // the two null location values come last but in the same order as from the original list:
-        assertEquals("d", nearbyPages.get(THREE).getTitle());
-        assertEquals("e", nearbyPages.get(FOUR).getTitle());
+        assertThat("d", is(nearbyPages.get(THREE).getTitle()));
+        assertThat("e", is(nearbyPages.get(FOUR).getTitle()));
     }
 
-    public void testCompare() throws Exception {
+    @Test public void testCompare() throws Throwable {
         NearbyPage nullLocPage = new NearbyPage(new JSONObject("{ \"title\": \"nowhere\" }"));
 
         calcDistances(nearbyPages);
         nullLocPage.setDistance(getDistance(nullLocPage.getLocation()));
-        assertEquals(Integer.MAX_VALUE, nullLocPage.getDistance());
+        assertThat(Integer.MAX_VALUE, is(nullLocPage.getDistance()));
 
         NearbyDistanceComparator comp = new NearbyDistanceComparator();
-        assertEquals(A, comp.compare(nearbyPages.get(1), nearbyPages.get(2)));
-        assertEquals(-1 * A, comp.compare(nearbyPages.get(2), nearbyPages.get(1)));
-        assertEquals(Integer.MAX_VALUE - A, comp.compare(nullLocPage, nearbyPages.get(2)));
-        assertEquals((Integer.MIN_VALUE + 1) + A, comp.compare(nearbyPages.get(2), nullLocPage)); // - (max - a)
-        assertEquals(0, comp.compare(nullLocPage, nullLocPage));
+        assertThat(A, is(comp.compare(nearbyPages.get(1), nearbyPages.get(2))));
+        assertThat(-1 * A, is(comp.compare(nearbyPages.get(2), nearbyPages.get(1))));
+        assertThat(Integer.MAX_VALUE - A, is(comp.compare(nullLocPage, nearbyPages.get(2))));
+        assertThat((Integer.MIN_VALUE + 1) + A, is(comp.compare(nearbyPages.get(2), nullLocPage))); // - (max - a)
+        assertThat(0, is(comp.compare(nullLocPage, nullLocPage)));
     }
 
-    public void testGetDistanceLabelSameLocation() throws Exception {
+    @Test public void testGetDistanceLabelSameLocation() throws Throwable {
         Location locationA = new Location("current");
         locationA.setLatitude(0.0d);
         locationA.setLongitude(0.0d);
-        assertEquals("0 m", getDistanceLabel(locationA));
+        assertThat("0 m", is(getDistanceLabel(locationA)));
     }
 
-    public void testGetDistanceLabelMeters() throws Exception {
+    @Test public void testGetDistanceLabelMeters() throws Throwable {
         Location locationB = new Location("b");
         locationB.setLatitude(0.0d);
         locationB.setLongitude(SHORT_DISTANCE);
-        assertEquals("111 m", getDistanceLabel(locationB));
+        assertThat("111 m", is(getDistanceLabel(locationB)));
     }
 
-    public void testGetDistanceLabelKilometers() throws Exception {
+    @Test public void testGetDistanceLabelKilometers() throws Throwable {
         Location locationB = new Location("b");
         locationB.setLatitude(0.0d);
         locationB.setLongitude(LONGER_DISTANCE);
-        assertEquals("1.11 km", getDistanceLabel(locationB));
+        assertThat("1.11 km", is(getDistanceLabel(locationB)));
     }
 
-    public void testGetDistanceLabelNull() throws Exception {
-        assertEquals(" ", getDistanceLabel(null));
+    @Test public void testGetDistanceLabelNull() throws Throwable {
+        assertThat(" ", is(getDistanceLabel(null)));
     }
 
     private class NearbyDistanceComparator implements Comparator<NearbyPage> {
@@ -148,6 +152,6 @@ public class NearbyUnitTests extends AndroidTestCase {
     }
 
     private String getString(@StringRes int id, Object... formatArgs) {
-        return getContext().getString(id, formatArgs);
+        return InstrumentationRegistry.getInstrumentation().getTargetContext().getString(id, formatArgs);
     }
 }
