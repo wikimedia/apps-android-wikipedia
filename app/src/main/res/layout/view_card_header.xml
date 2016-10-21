@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:padding="12dp">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/view_card_header_image"
             android:layout_width="24dp"
             android:layout_height="24dp"

@@ -7,6 +7,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.PopupMenu;
@@ -76,6 +77,10 @@ public class CardHeaderView extends FrameLayout {
     @NonNull public CardHeaderView setSubtitle(@Nullable CharSequence subtitle) {
         subtitleView.setText(subtitle);
         return this;
+    }
+
+    @VisibleForTesting @Nullable Card getCard() {
+        return card;
     }
 
     @OnClick(R.id.view_list_card_header_menu) void onMenuClick(View v) {
