@@ -1,36 +1,33 @@
 package org.wikipedia.concurrency;
 
 import android.support.test.filters.SmallTest;
-import android.test.ActivityUnitTestCase;
 
-import org.wikipedia.test.TestDummyActivity;
+import org.junit.Test;
+import org.wikipedia.testlib.TestLatch;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.fail;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
-@SmallTest public class SaneAsyncTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 1000;
-
-    public SaneAsyncTaskTest() {
-        super(TestDummyActivity.class);
-    }
-
-    public void testFinishHandling() throws Throwable {
-        final CountDownLatch onFinishLatch = new CountDownLatch(1);
+@SmallTest public class SaneAsyncTaskTest {
+    @Test public void testFinishHandling() {
+        final TestLatch latch = new TestLatch();
         final Integer returned = 42;
-        runTestOnUiThread(new Runnable() {
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 new SaneAsyncTask<Integer>() {
                     @Override
                     public void onFinish(Integer result) {
-                        assertEquals(returned, result);
-                        onFinishLatch.countDown();
+                        assertThat(returned, is(result));
+                        latch.countDown();
                     }
 
                     @Override
                     public void onCatch(Throwable caught) {
-                        assertTrue("Exception called despite success", false);
+                        fail("Exception called despite success");
                     }
 
                     @Override
@@ -40,25 +37,25 @@ import java.util.concurrent.TimeUnit;
                 }.execute();
             }
         });
-        assertTrue(onFinishLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
     }
 
-    public void testExceptionHandling() throws Throwable {
-        final CountDownLatch exceptionLatch = new CountDownLatch(1);
+    @Test public void testExceptionHandling() {
+        final TestLatch latch = new TestLatch();
         final Throwable thrown = new Exception();
-        runTestOnUiThread(new Runnable() {
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 new SaneAsyncTask<Void>() {
                     @Override
                     public void onFinish(Void result) {
-                        assertTrue("onFinish called despite exception", false);
+                        fail("onFinish called despite exception");
                     }
 
                     @Override
                     public void onCatch(Throwable caught) {
-                        assertSame(caught, thrown);
-                        exceptionLatch.countDown();
+                        assertThat(caught, is(thrown));
+                        latch.countDown();
                     }
 
                     @Override
@@ -68,71 +65,71 @@ import java.util.concurrent.TimeUnit;
                 }.execute();
             }
         });
-        assertTrue(exceptionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
     }
 
-    public void testAppropriateThreadFinish() throws Throwable {
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        runTestOnUiThread(new Runnable() {
+    @Test public void testAppropriateThreadFinish() throws Throwable {
+        final TestLatch latch = new TestLatch();
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 final Thread callingThread = Thread.currentThread();
                 new SaneAsyncTask<Thread>() {
                     @Override
                     public void onBeforeExecute() {
-                        assertSame(callingThread, Thread.currentThread());
+                        assertThat(callingThread, is(Thread.currentThread()));
                     }
 
                     @Override
                     public void onFinish(Thread result) {
-                        assertNotSame(result, Thread.currentThread());
-                        assertSame(Thread.currentThread(), callingThread);
-                        completionLatch.countDown();
+                        assertThat(result, not(Thread.currentThread()));
+                        assertThat(Thread.currentThread(), is(callingThread));
+                        latch.countDown();
                     }
 
                     @Override
                     public Thread performTask() throws Throwable {
-                        assertNotSame(callingThread, Thread.currentThread());
+                        assertThat(callingThread, not(Thread.currentThread()));
                         return Thread.currentThread();
                     }
                 }.execute();
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
     }
 
-    public void testAppropriateThreadException() throws Throwable {
-        final CountDownLatch completionLatch = new CountDownLatch(1);
+    @Test public void testAppropriateThreadException() throws Throwable {
+        final TestLatch latch = new TestLatch();
         final Throwable thrown = new Exception();
-        runTestOnUiThread(new Runnable() {
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 final Thread callingThread = Thread.currentThread();
                 new SaneAsyncTask<Thread>() {
                     @Override
                     public void onBeforeExecute() {
-                        assertSame(callingThread, Thread.currentThread());
+                        assertThat(callingThread, is(Thread.currentThread()));
                     }
 
                     @Override
                     public void onFinish(Thread result) {
-                        assertTrue("onFinish called even when there is an exception", false);
+                        fail("onFinish called even when there is an exception");
                     }
 
                     @Override
                     public void onCatch(Throwable caught) {
-                        assertSame(callingThread, Thread.currentThread());
-                        completionLatch.countDown();
+                        assertThat(callingThread, is(Thread.currentThread()));
+                        latch.countDown();
                     }
 
                     @Override
                     public Thread performTask() throws Throwable {
-                        assertNotSame(callingThread, Thread.currentThread());
+                        assertThat(callingThread, not(Thread.currentThread()));
                         throw thrown;
                     }
                 }.execute();
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
     }
 }
