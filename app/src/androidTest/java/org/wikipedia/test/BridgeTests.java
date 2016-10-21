@@ -12,9 +12,9 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.testlib.TestLatch;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -84,8 +84,4 @@ public class BridgeTests {
             completionLatch.countDown();
         }
     };
-
-    private void runOnMainSync(Runnable r) {
-        getInstrumentation().runOnMainSync(r);
-    }
 }

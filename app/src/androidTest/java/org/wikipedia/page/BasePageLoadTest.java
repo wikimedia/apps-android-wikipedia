@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -17,6 +16,8 @@ import org.junit.runner.RunWith;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.tabs.TabsProvider;
+
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -81,10 +82,6 @@ public abstract class BasePageLoadTest {
     private boolean screenshotPermitted() {
         return ActivityCompat.checkSelfPermission(getActivity(),
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-    }
-
-    protected void runOnMainSync(Runnable runnable) {
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(runnable);
     }
 
     protected PageActivity getActivity() {

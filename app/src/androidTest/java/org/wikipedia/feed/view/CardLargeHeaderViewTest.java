@@ -18,6 +18,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @SmallTest public class CardLargeHeaderViewTest extends ViewTest {
     private CardLargeHeaderView subject;
