@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.editing;
 
 import android.support.annotation.NonNull;
 import android.support.test.filters.SmallTest;
@@ -9,11 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.editing.AbuseFilterEditResult;
-import org.wikipedia.editing.CaptchaResult;
-import org.wikipedia.editing.EditTask;
-import org.wikipedia.editing.EditingResult;
-import org.wikipedia.editing.SuccessEditResult;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
 

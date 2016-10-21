@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.page;
 
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
@@ -6,10 +6,9 @@ import android.test.ActivityUnitTestCase;
 import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.SuggestionsTask;
 import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;
+import org.wikipedia.test.TestDummyActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +19,13 @@ import java.util.concurrent.TimeUnit;
  * Tests for getting suggestions for further reading.
  */
 @SmallTest
-public class SuggestionsTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
+public class SuggestionsTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 200_000;
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en"); // suggestions don't seem to work on testwiki
 
     private WikipediaApp app = WikipediaApp.getInstance();
 
-    public SuggestionsTaskTests() {
+    public SuggestionsTaskTest() {
         super(TestDummyActivity.class);
     }
 

@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.page;
 
 import android.support.test.filters.SmallTest;
 
@@ -6,10 +6,6 @@ import junit.framework.TestCase;
 
 import org.json.JSONObject;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.Section;
 
 import java.util.ArrayList;
 import java.util.List;

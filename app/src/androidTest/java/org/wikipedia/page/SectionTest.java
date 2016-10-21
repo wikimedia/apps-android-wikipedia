@@ -1,12 +1,10 @@
-package org.wikipedia.test;
+package org.wikipedia.page;
 
 import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
 
-import org.wikipedia.page.Section;
-
 @SmallTest
-public class SectionTests extends AndroidTestCase {
+public class SectionTest extends AndroidTestCase {
     public void testSectionLead() {
         // Section 0 is the lead
         Section section = new Section(0, 0, "Heading", "Heading", "Content");

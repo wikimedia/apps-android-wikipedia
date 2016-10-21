@@ -1,13 +1,11 @@
-package org.wikipedia.test;
+package org.wikipedia.search;
 
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.search.FullSearchArticlesTask;
-import org.wikipedia.search.SearchResult;
-import org.wikipedia.search.SearchResults;
+import org.wikipedia.test.TestDummyActivity;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -16,12 +14,12 @@ import java.util.concurrent.TimeUnit;
  * Tests for full text search.
  */
 @SmallTest
-public class FullSearchTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
+public class FullSearchArticlesTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20_000;
     private static final int BATCH_SIZE = 12;
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
-    public FullSearchTaskTests() {
+    public FullSearchArticlesTaskTest() {
         super(TestDummyActivity.class);
     }
 

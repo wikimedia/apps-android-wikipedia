@@ -1,21 +1,20 @@
-
-package org.wikipedia.test;
+package org.wikipedia.editing;
 
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.editing.FetchSectionWikitextTask;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.test.TestDummyActivity;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 @SmallTest
-public class FetchSectionWikitextTaskTests extends ActivityUnitTestCase<TestDummyActivity> {
+public class FetchSectionWikitextTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
     private static final int TASK_COMPLETION_TIMEOUT = 20_000;
 
-    public FetchSectionWikitextTaskTests() {
+    public FetchSectionWikitextTaskTest() {
         super(TestDummyActivity.class);
     }
 

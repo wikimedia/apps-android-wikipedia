@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.createaccount;
 
 import android.content.Context;
 import android.net.Uri;
@@ -13,8 +13,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.createaccount.CreateAccountInfoResult;
-import org.wikipedia.createaccount.CreateAccountInfoTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.editing.CaptchaResult;
 import org.wikipedia.testlib.TestLatch;
@@ -34,7 +32,7 @@ import static junit.framework.Assert.fail;
  */
 @SmallTest
 @RunWith(AndroidJUnit4.class)
-public class CreateAccountTaskTest {
+public class CreateAccountInfoTaskTest {
     private static WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
     private static Api TEST_API = WikipediaApp.getInstance().getAPIForSite(TEST_WIKI);
     private Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();

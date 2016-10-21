@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.login;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
@@ -11,9 +11,6 @@ import org.junit.runner.RunWith;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.editing.EditTokenStorage;
-import org.wikipedia.login.LoginClient;
-import org.wikipedia.login.LoginResult;
-import org.wikipedia.login.User;
 import org.wikipedia.testlib.TestLatch;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
@@ -26,8 +23,8 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 @RunWith(AndroidJUnit4.class)
 public class LoginClientTest {
     private static final WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
-    private static final String USERNAME = getString(R.string.test_username);
-    private static final String PASSWORD = getString(R.string.test_password);
+    private static final String USERNAME = getString(org.wikipedia.test.R.string.test_username);
+    private static final String PASSWORD = getString(org.wikipedia.test.R.string.test_password);
     private final TestLatch completionLatch = new TestLatch();
 
     @Before
