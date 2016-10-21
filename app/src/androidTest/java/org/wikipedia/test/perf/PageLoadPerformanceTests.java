@@ -1,8 +1,8 @@
 package org.wikipedia.test.perf;
 
 import org.junit.Test;
-import org.wikipedia.page.PageLoadLatchCallback;
 import org.wikipedia.page.BasePageLoadTest;
+import org.wikipedia.page.PageLoadLatchCallback;
 
 /**
  * Test performance of page loading. Update the NUM_RUNS for better statistical significance.

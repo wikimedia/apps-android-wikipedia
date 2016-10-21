@@ -5,8 +5,8 @@ import android.text.TextUtils;
 
 import org.mediawiki.api.json.Api;
 import org.wikipedia.Constants;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;

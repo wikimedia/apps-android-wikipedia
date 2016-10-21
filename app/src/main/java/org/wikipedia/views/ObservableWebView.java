@@ -1,17 +1,18 @@
 package org.wikipedia.views;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.webkit.WebView;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.util.DimenUtil;
 
-import android.graphics.Canvas;
 import java.util.ArrayList;
 import java.util.List;
 

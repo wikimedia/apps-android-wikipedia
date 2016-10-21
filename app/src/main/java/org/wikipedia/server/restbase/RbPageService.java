@@ -1,7 +1,7 @@
 package org.wikipedia.server.restbase;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.server.PageLead;
 import org.wikipedia.server.PageRemaining;

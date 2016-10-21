@@ -3,9 +3,9 @@ package org.wikipedia.page.gallery;
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageQueryTask;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.dataclient.WikiSite;
 
 public class GalleryItemFetchTask extends PageQueryTask<GalleryItem> {
     private static final String MAX_IMAGE_WIDTH = "1280";

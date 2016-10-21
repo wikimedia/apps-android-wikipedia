@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 
 import org.wikipedia.R;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.util.DateUtil;

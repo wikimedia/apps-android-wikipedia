@@ -5,12 +5,13 @@ import android.os.Parcelable;
 import android.support.test.filters.SmallTest;
 
 import junit.framework.TestCase;
+
 import org.json.JSONObject;
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.ParcelableLruCache;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageProperties;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.pageimages.PageImage;
 
 @SmallTest

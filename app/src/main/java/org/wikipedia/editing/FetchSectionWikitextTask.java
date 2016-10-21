@@ -1,13 +1,14 @@
 package org.wikipedia.editing;
 
 import android.content.Context;
+
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.WikipediaApp;
 
 public class FetchSectionWikitextTask extends ApiTask<String> {
     private final PageTitle title;

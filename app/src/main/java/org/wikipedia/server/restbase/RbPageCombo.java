@@ -1,15 +1,15 @@
 package org.wikipedia.server.restbase;
 
+import android.location.Location;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.server.PageCombo;
 import org.wikipedia.util.log.L;
-
-import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 
 /**

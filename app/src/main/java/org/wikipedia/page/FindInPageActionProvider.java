@@ -1,9 +1,5 @@
 package org.wikipedia.page;
 
-import org.wikipedia.R;
-import org.wikipedia.analytics.FindInPageFunnel;
-import org.wikipedia.util.DeviceUtil;
-
 import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.os.Build;
@@ -14,6 +10,10 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView.FindListener;
 import android.widget.TextView;
+
+import org.wikipedia.R;
+import org.wikipedia.analytics.FindInPageFunnel;
+import org.wikipedia.util.DeviceUtil;
 
 public class FindInPageActionProvider extends ActionProvider {
     @NonNull private final PageFragment fragment;

@@ -3,8 +3,8 @@ package org.wikipedia.search;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.Constants;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.MwApiResultPage;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;

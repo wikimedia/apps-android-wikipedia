@@ -1,10 +1,5 @@
 package org.wikipedia;
 
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.readinglist.AddToReadingListDialog;
-
 import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -15,6 +10,11 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.isValidPageLink;

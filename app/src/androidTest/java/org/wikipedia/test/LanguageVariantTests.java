@@ -4,8 +4,8 @@ import android.support.test.filters.SmallTest;
 import android.test.InstrumentationTestCase;
 import android.test.UiThreadTest;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 
 import java.util.Locale;

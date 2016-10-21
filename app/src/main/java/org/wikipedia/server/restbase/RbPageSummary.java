@@ -1,9 +1,9 @@
 package org.wikipedia.server.restbase;
 
+import android.support.annotation.Nullable;
+
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.log.L;
-
-import android.support.annotation.Nullable;
 
 /**
  * Useful for link previews coming from RESTBase.

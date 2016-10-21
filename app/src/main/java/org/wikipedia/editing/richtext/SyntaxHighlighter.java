@@ -12,6 +12,7 @@ import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.widget.EditText;
+
 import org.wikipedia.R;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.util.log.L;

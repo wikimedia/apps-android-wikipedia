@@ -1,18 +1,18 @@
 package org.wikipedia.page;
 
-import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
-import org.wikipedia.R;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.readinglist.AddToReadingListDialog;
-
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ViewFlipper;
+
+import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
+import org.wikipedia.R;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 

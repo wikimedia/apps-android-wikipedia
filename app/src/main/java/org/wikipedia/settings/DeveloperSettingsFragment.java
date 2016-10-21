@@ -1,10 +1,10 @@
 package org.wikipedia.settings;
 
+import android.content.SharedPreferences;
+
 import org.wikipedia.R;
 import org.wikipedia.server.mwapi.MwPageEndpointsCache;
 import org.wikipedia.server.restbase.RbPageEndpointsCache;
-
-import android.content.SharedPreferences;
 
 public class DeveloperSettingsFragment extends PreferenceLoaderFragment {
     public static DeveloperSettingsFragment newInstance() {

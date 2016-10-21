@@ -1,10 +1,10 @@
 package org.wikipedia.page;
 
+import org.mediawiki.api.json.Api;
+import org.mediawiki.api.json.ApiResult;
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.search.FullSearchArticlesTask;
-import org.mediawiki.api.json.Api;
-import org.mediawiki.api.json.ApiResult;
 import org.wikipedia.search.SearchResults;
 
 /**

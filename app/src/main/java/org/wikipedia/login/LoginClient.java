@@ -1,14 +1,20 @@
 package org.wikipedia.login;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import com.google.gson.annotations.SerializedName;
+
 import org.wikipedia.Constants;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.server.mwapi.MwServiceError;
 import org.wikipedia.util.log.L;
 
-import com.google.gson.annotations.SerializedName;
+import java.io.IOException;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,12 +22,6 @@ import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
-import java.io.IOException;
-import java.util.Set;
 
 /**
  * Responsible for making login related requests to the server.

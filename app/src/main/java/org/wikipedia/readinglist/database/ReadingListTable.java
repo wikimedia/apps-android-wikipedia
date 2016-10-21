@@ -6,12 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.ReadingListContract;
 import org.wikipedia.database.contract.SavedPageContract;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingList;
 import org.wikipedia.readinglist.page.ReadingListPage;

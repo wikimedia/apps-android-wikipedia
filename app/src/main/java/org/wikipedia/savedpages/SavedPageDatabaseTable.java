@@ -8,11 +8,11 @@ import android.support.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.SavedPageContract;
 import org.wikipedia.database.contract.SavedPageContract.Col;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.StringUtil;

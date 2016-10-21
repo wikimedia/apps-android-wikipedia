@@ -1,5 +1,13 @@
 package org.wikipedia.useroption.sync;
 
+import android.accounts.Account;
+import android.content.AbstractThreadedSyncAdapter;
+import android.content.ContentProviderClient;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.SyncResult;
+import android.os.Bundle;
+
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.database.http.HttpStatus;
 import org.wikipedia.useroption.UserOption;
@@ -8,14 +16,6 @@ import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.useroption.dataclient.UserInfo;
 import org.wikipedia.useroption.dataclient.UserOptionDataClientSingleton;
 import org.wikipedia.util.log.L;
-
-import android.accounts.Account;
-import android.content.AbstractThreadedSyncAdapter;
-import android.content.ContentProviderClient;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.SyncResult;
-import android.os.Bundle;
 
 import java.io.IOException;
 import java.util.ArrayList;

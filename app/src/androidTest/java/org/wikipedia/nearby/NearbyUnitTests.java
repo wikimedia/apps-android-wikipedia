@@ -1,11 +1,12 @@
 package org.wikipedia.nearby;
 
-import org.wikipedia.R;
-import org.json.JSONObject;
 import android.location.Location;
 import android.support.annotation.StringRes;
 import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
+
+import org.json.JSONObject;
+import org.wikipedia.R;
 
 import java.util.Collections;
 import java.util.Comparator;

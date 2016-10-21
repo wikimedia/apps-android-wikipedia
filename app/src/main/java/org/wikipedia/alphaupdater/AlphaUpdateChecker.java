@@ -1,10 +1,5 @@
 package org.wikipedia.alphaupdater;
 
-import org.wikipedia.dataclient.OkHttpConnectionFactory;
-import org.wikipedia.R;
-import org.wikipedia.recurring.RecurringTask;
-import org.json.JSONException;
-import org.json.JSONObject;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -15,6 +10,12 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.wikipedia.R;
+import org.wikipedia.dataclient.OkHttpConnectionFactory;
+import org.wikipedia.recurring.RecurringTask;
 
 import java.io.IOException;
 import java.util.Date;

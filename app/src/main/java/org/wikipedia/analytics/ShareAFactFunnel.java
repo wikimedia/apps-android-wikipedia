@@ -3,8 +3,8 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
 
 // https://meta.wikimedia.org/wiki/Schema:MobileWikiAppShareAFact
