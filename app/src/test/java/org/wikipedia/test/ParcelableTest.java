@@ -2,11 +2,11 @@ package org.wikipedia.test;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.test.filters.SmallTest;
 
 
 import org.json.JSONObject;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
@@ -17,8 +17,7 @@ import org.wikipedia.pageimages.PageImage;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@SmallTest
-public class ParcelableTest {
+@RunWith(TestRunner.class) public class ParcelableTest {
     @Test public void testPageTitle() throws Throwable {
         PageTitle title = new PageTitle(null, "Test", WikiSite.forLanguageCode("en"));
         parcelAndTestObjects(title);
