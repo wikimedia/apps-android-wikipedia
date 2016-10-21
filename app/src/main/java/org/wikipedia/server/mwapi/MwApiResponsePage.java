@@ -19,7 +19,7 @@ public class MwApiResponsePage extends BaseModel {
     @SuppressWarnings("unused") @Nullable private List<LangLink> langlinks;
     @SuppressWarnings("unused") @Nullable private List<Revision> revisions;
 
-    @Nullable List<LangLink> langLinks() {
+    @Nullable public List<LangLink> langLinks() {
         return langlinks;
     }
 
@@ -36,14 +36,14 @@ public class MwApiResponsePage extends BaseModel {
         }
     }
 
-    static class LangLink {
+    public static class LangLink {
         @SuppressWarnings("unused,NullableProblems") @NonNull private String lang;
-        @NonNull String lang() {
+        @NonNull public String lang() {
             return lang;
         }
 
         @SerializedName("*") @SuppressWarnings("unused,NullableProblems") @NonNull private String localizedTitle;
-        @NonNull String localizedTitle() {
+        @NonNull public String localizedTitle() {
             return localizedTitle;
         }
     }

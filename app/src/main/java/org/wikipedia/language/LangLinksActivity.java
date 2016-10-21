@@ -2,6 +2,8 @@ package org.wikipedia.language;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -30,6 +33,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
+
+import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
@@ -44,10 +49,12 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
     private static final String GOTHIC_LANGUAGE_CODE = "got";
 
-    private ArrayList<PageTitle> languageEntries;
+    private List<PageTitle> languageEntries;
     private PageTitle title;
 
     private WikipediaApp app;
+    private LangLinksClient client;
+    private ClientCallback callback;
 
     private ListView langLinksList;
     private View langLinksProgress;
@@ -81,6 +88,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             languageEntries = savedInstanceState.getParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY);
         }
 
+        client = new LangLinksClient();
         fetchLangLinks();
 
         langLinksError.setRetryClickListener(new View.OnClickListener() {
@@ -152,7 +160,7 @@ public class LangLinksActivity extends ThemedActionBarActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (languageEntries != null) {
-           outState.putParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY, languageEntries);
+           outState.putParcelableArrayList(LANGUAGE_ENTRIES_BUNDLE_KEY, new ArrayList<Parcelable>(languageEntries));
         }
     }
 
@@ -167,57 +175,55 @@ public class LangLinksActivity extends ThemedActionBarActivity {
 
     private void fetchLangLinks() {
         if (languageEntries == null) {
-            new LangLinksFetchTask(this, title) {
-                @Override
-                public void onFinish(ArrayList<PageTitle> result) {
-                    languageEntries = result;
-
-                    updateLanguageEntriesSupported(languageEntries);
-                    sortLanguageEntriesByMru(languageEntries);
-
-                    displayLangLinks();
-                }
-
-                @Override
-                public void onCatch(Throwable caught) {
-                    ViewAnimations.crossFade(langLinksProgress, langLinksError);
-                    langLinksError.setError(caught);
-                }
-
-                private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
-                    for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
-                        PageTitle link = it.next();
-                        String languageCode = link.getWikiSite().languageCode();
-
-                        if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
-                            // Remove Gothic since it causes Android to segfault.
-                            it.remove();
-                        } else if (Locale.CHINESE.getLanguage().equals(languageCode)) {
-                            // Replace Chinese with Simplified and Traditional dialects.
-                            it.remove();
-                            for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
-                                    AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
-                                it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode(dialect)));
-                            }
-                        }
-                    }
-                }
-
-                private void sortLanguageEntriesByMru(List<PageTitle> entries) {
-                    int addIndex = 0;
-                    for (String language : app.getMruLanguageCodes()) {
-                        for (int i = 0; i < entries.size(); i++) {
-                            if (entries.get(i).getWikiSite().languageCode().equals(language)) {
-                                PageTitle entry = entries.remove(i);
-                                entries.add(addIndex++, entry);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }.execute();
+            client.request(title.getWikiSite(), title, new ClientCallback());
         } else {
             displayLangLinks();
+        }
+    }
+
+    private class ClientCallback implements LangLinksClient.Callback {
+        @Override public void success(@NonNull Call<MwQueryResponse<LangLinks>> call, @NonNull List<PageTitle> links) {
+            languageEntries = links;
+            updateLanguageEntriesSupported(languageEntries);
+            sortLanguageEntriesByMru(languageEntries);
+            displayLangLinks();
+        }
+
+        @Override public void failure(@NonNull Call<MwQueryResponse<LangLinks>> call, @NonNull Throwable caught) {
+            ViewAnimations.crossFade(langLinksProgress, langLinksError);
+            langLinksError.setError(caught);
+        }
+
+        private void updateLanguageEntriesSupported(List<PageTitle> languageEntries) {
+            for (ListIterator<PageTitle> it = languageEntries.listIterator(); it.hasNext();) {
+                PageTitle link = it.next();
+                String languageCode = link.getWikiSite().languageCode();
+
+                if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
+                    // Remove Gothic since it causes Android to segfault.
+                    it.remove();
+                } else if (Locale.CHINESE.getLanguage().equals(languageCode)) {
+                    // Replace Chinese with Simplified and Traditional dialects.
+                    it.remove();
+                    for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
+                            AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
+                        it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode(dialect)));
+                    }
+                }
+            }
+        }
+
+        private void sortLanguageEntriesByMru(List<PageTitle> entries) {
+            int addIndex = 0;
+            for (String language : WikipediaApp.getInstance().getMruLanguageCodes()) {
+                for (int i = 0; i < entries.size(); i++) {
+                    if (entries.get(i).getWikiSite().languageCode().equals(language)) {
+                        PageTitle entry = entries.remove(i);
+                        entries.add(addIndex++, entry);
+                        break;
+                    }
+                }
+            }
         }
     }
 
