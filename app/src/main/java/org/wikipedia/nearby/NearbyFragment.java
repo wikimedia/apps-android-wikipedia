@@ -39,7 +39,10 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.json.GsonMarshaller;
+import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -53,6 +56,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import retrofit2.Call;
 
 /**
  * Displays a list of nearby pages.
@@ -75,6 +79,7 @@ public class NearbyFragment extends Fragment {
     private Icon markerIconPassive;
 
     private WikiSite wiki;
+    private NearbyClient client;
     private NearbyResult lastResult;
 
     @Nullable private Location currentLocation;
@@ -88,7 +93,7 @@ public class NearbyFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         wiki = WikipediaApp.getInstance().getWikiSite();
-
+        client = new NearbyClient();
         disableTelemetry();
     }
 
@@ -107,7 +112,7 @@ public class NearbyFragment extends Fragment {
         if (savedInstanceState != null) {
             currentLocation = savedInstanceState.getParcelable(NEARBY_CURRENT_LOCATION);
             if (currentLocation != null) {
-                lastResult = savedInstanceState.getParcelable(NEARBY_LAST_RESULT);
+                lastResult =  GsonUnmarshaller.unmarshal(NearbyResult.class, savedInstanceState.getString(NEARBY_LAST_RESULT));
             }
         }
 
@@ -151,7 +156,7 @@ public class NearbyFragment extends Fragment {
         }
         if (lastResult != null) {
             outState.putParcelable(NEARBY_CURRENT_LOCATION, currentLocation);
-            outState.putParcelable(NEARBY_LAST_RESULT, lastResult);
+            outState.putString(NEARBY_LAST_RESULT, GsonMarshaller.marshal(lastResult));
         }
     }
 
@@ -208,7 +213,7 @@ public class NearbyFragment extends Fragment {
                     public boolean onMarkerClick(@NonNull Marker marker) {
                         NearbyPage page = findNearbyPageFromMarker(marker);
                         if (page != null) {
-                            PageTitle title = new PageTitle(page.getTitle(), wiki, page.getThumblUrl());
+                            PageTitle title = new PageTitle(page.getTitle(), wiki, page.getThumbUrl());
                             onLoadPage(title, HistoryEntry.SOURCE_NEARBY, page.getLocation());
                             return true;
                         } else {
@@ -332,27 +337,29 @@ public class NearbyFragment extends Fragment {
 
             currentLocation = fromLatLng(mapboxMap.getCameraPosition().target);
             onLoading();
-            new NearbyFetchTask(getActivity(), wiki, currentLocation.getLatitude(), currentLocation.getLongitude(), getMapRadius()) {
-                @Override
-                public void onFinish(NearbyResult result) {
-                    if (!isResumed()) {
-                        return;
-                    }
-                    lastResult = result;
-                    showNearbyPages(result);
-                    onLoaded();
-                }
 
-                @Override
-                public void onCatch(Throwable caught) {
-                    if (!isResumed()) {
-                        return;
-                    }
-                    L.e(caught);
-                    FeedbackUtil.showError(getActivity(), caught);
-                    onLoaded();
-                }
-            }.execute();
+            client.request(wiki, currentLocation.getLatitude(),
+                    currentLocation.getLongitude(), getMapRadius(), new NearbyClient.Callback() {
+                        @Override public void success(@NonNull Call<MwQueryResponse<Nearby>> call,
+                                                      @NonNull NearbyResult result) {
+                            if (!isResumed()) {
+                                return;
+                            }
+                            lastResult = result;
+                            showNearbyPages(result);
+                            onLoaded();
+                        }
+
+                        @Override public void failure(@NonNull Call<MwQueryResponse<Nearby>> call,
+                                                      @NonNull Throwable caught) {
+                            if (!isResumed()) {
+                                return;
+                            }
+                            L.e(caught);
+                            FeedbackUtil.showError(getActivity(), caught);
+                            onLoaded();
+                        }
+                    });
         }
     };
 

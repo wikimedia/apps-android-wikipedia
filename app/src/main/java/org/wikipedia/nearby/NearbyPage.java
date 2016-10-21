@@ -3,101 +3,56 @@ package org.wikipedia.nearby;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.wikipedia.server.mwapi.MwApiResponsePage;
 
-/**
- * Data object holding information about a nearby page.
- * The JSONObject is expected to be formatted as follows:
- *
- * <pre>
- * {@code
- *   {
- *     "pageid": 44175,
- *     "ns": 0,
- *     "title": "San Francisco",
- *     "coordinates": [{
- *     "lat": 37.7793,
- *     "lon": -122.419,
- *     "primary": "",
- *     "globe": "earth"
- *     }]
- *   }
- * }
- * </pre>
- */
-public class NearbyPage {
+import java.util.List;
 
-    private String title;
-    private String thumblUrl;
-    private String description;
-    private Location location;
+class NearbyPage {
+    @SuppressWarnings("NullableProblems") @NonNull private String title;
+    @Nullable private String thumbUrl;
+    @Nullable private Location location;
 
     /** calculated externally */
     private int distance;
 
-    public NearbyPage(JSONObject json) {
-        try {
-            title = json.getString("title");
-
-            final JSONArray coordsArray = json.optJSONArray("coordinates");
-            if (coordsArray != null && coordsArray.length() > 0) {
-                JSONObject coords = coordsArray.getJSONObject(0);
-                try {
-                    location = new Location(title);
-                    location.setLatitude(coords.getDouble("lat"));
-                    location.setLongitude(coords.getDouble("lon"));
-                } catch (JSONException e) {
-                    // just keep at null
-                }
-            }
-
-            final JSONObject thumbnail = json.optJSONObject("thumbnail");
-            if (thumbnail != null) {
-                final String source = thumbnail.optString("source");
-                if (source != null) {
-                    thumblUrl = source;
-                }
-            }
-            final JSONObject terms = json.optJSONObject("terms");
-            if (terms != null) {
-                final JSONArray descArray = terms.optJSONArray("description");
-                if (descArray != null) {
-                    description = descArray.optString(0);
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+    NearbyPage(@NonNull MwApiResponsePage page) {
+        title = page.title();
+        thumbUrl = page.thumbUrl();
+        List<MwApiResponsePage.Coordinates> coordinates = page.coordinates();
+        if (coordinates != null && !coordinates.isEmpty()) {
+            location = new Location(title);
+            location.setLatitude(page.coordinates().get(0).lat());
+            location.setLongitude(page.coordinates().get(0).lon());
         }
     }
 
-    @NonNull
-    public String getTitle() {
+    @VisibleForTesting NearbyPage(@NonNull String title, @NonNull Location location) {
+        this.title = title;
+        this.location = location;
+    }
+
+    @VisibleForTesting NearbyPage(@NonNull String title) {
+        this.title = title;
+    }
+
+    @NonNull public String getTitle() {
         return title;
     }
 
-    @Nullable
-    public String getThumblUrl() {
-        return thumblUrl;
+    @Nullable public String getThumbUrl() {
+        return thumbUrl;
     }
 
-    @Nullable
-    public String getDescription() {
-        return description;
-    }
-
-    @Nullable
-    public Location getLocation() {
+    @Nullable public Location getLocation() {
         return location;
     }
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return "NearbyPage{"
                 + "title='" + title + '\''
-                + ", thumblUrl='" + thumblUrl + '\''
+                + ", thumbUrl='" + thumbUrl + '\''
                 + ", location=" + location + '\''
                 + ", distance='" + distance
                 + '}';

@@ -1,9 +1,9 @@
 package org.wikipedia.nearby;
 
 import android.location.Location;
+import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 
-import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,12 +22,8 @@ import static org.hamcrest.Matchers.is;
 /**
  * Unit tests for Nearby related classes. Probably should refactor this into a model class.
  */
-@RunWith(TestRunner.class) public class NearbyUnitTest {
-    // can't seem to suppress the checkstyle warnings for MagicNumbers. Oh well.
-    private static final int THREE = 3;
-    private static final int FOUR = 4;
-    private static final double SHORT_DISTANCE = 0.001d;
-    private static final double LONGER_DISTANCE = 0.01d;
+@SuppressWarnings("checkstyle:magicnumber") @RunWith(TestRunner.class)
+public class NearbyUnitTest {
     /** dist(origin, point a) */
     private static final int A = 111_319;
 
@@ -40,9 +36,9 @@ import static org.hamcrest.Matchers.is;
         nextLocation.setLatitude(0.0d);
         nextLocation.setLongitude(0.0d);
         nearbyPages = new LinkedList<>();
-        nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"c\", \"coordinates\": [{\"lat\": 0.0, \"lon\": 3.0}] }")));
-        nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"b\", \"coordinates\": [{\"lat\": 0.0, \"lon\": 2.0}] }")));
-        nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"a\", \"coordinates\": [{\"lat\": 0.0, \"lon\": 1.0}] }")));
+        nearbyPages.add(constructNearbyPage("c", 0.0, 3.0));
+        nearbyPages.add(constructNearbyPage("b", 0.0, 2.0));
+        nearbyPages.add(constructNearbyPage("a", 0.0, 1.0));
     }
 
     @Test public void testSort() throws Throwable {
@@ -54,20 +50,20 @@ import static org.hamcrest.Matchers.is;
     }
 
     @Test public void testSortWithNullLocations() throws Throwable {
-        nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"d\" }")));
-        nearbyPages.add(new NearbyPage(new JSONObject("{ \"title\": \"e\" }")));
+        nearbyPages.add(new NearbyPage("d"));
+        nearbyPages.add(new NearbyPage("e"));
         calcDistances(nearbyPages);
         Collections.sort(nearbyPages, new NearbyDistanceComparator());
         assertThat("a", is(nearbyPages.get(0).getTitle()));
         assertThat("b", is(nearbyPages.get(1).getTitle()));
         assertThat("c", is(nearbyPages.get(2).getTitle()));
         // the two null location values come last but in the same order as from the original list:
-        assertThat("d", is(nearbyPages.get(THREE).getTitle()));
-        assertThat("e", is(nearbyPages.get(FOUR).getTitle()));
+        assertThat("d", is(nearbyPages.get(3).getTitle()));
+        assertThat("e", is(nearbyPages.get(4).getTitle()));
     }
 
     @Test public void testCompare() throws Throwable {
-        NearbyPage nullLocPage = new NearbyPage(new JSONObject("{ \"title\": \"nowhere\" }"));
+        NearbyPage nullLocPage = new NearbyPage("nowhere");
 
         calcDistances(nearbyPages);
         nullLocPage.setDistance(getDistance(nullLocPage.getLocation()));
@@ -91,14 +87,14 @@ import static org.hamcrest.Matchers.is;
     @Test public void testGetDistanceLabelMeters() throws Throwable {
         Location locationB = new Location("b");
         locationB.setLatitude(0.0d);
-        locationB.setLongitude(SHORT_DISTANCE);
+        locationB.setLongitude(0.001d);
         assertThat("111 m", is(getDistanceLabel(locationB)));
     }
 
     @Test public void testGetDistanceLabelKilometers() throws Throwable {
         Location locationB = new Location("b");
         locationB.setLatitude(0.0d);
-        locationB.setLongitude(LONGER_DISTANCE);
+        locationB.setLongitude(0.01d);
         assertThat("1.11 km", is(getDistanceLabel(locationB)));
     }
 
@@ -153,5 +149,12 @@ import static org.hamcrest.Matchers.is;
 
     private String getString(@StringRes int id, Object... formatArgs) {
         return RuntimeEnvironment.application.getString(id, formatArgs);
+    }
+
+    private NearbyPage constructNearbyPage(@NonNull String title, double lat, double lon) {
+        Location location = new Location("");
+        location.setLatitude(lat);
+        location.setLongitude(lon);
+        return new NearbyPage(title, location);
     }
 }
