@@ -31,11 +31,18 @@ public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
     }
 
     private void header(@NonNull final BecauseYouReadCard card) {
-        @PluralsRes int subtitle = R.plurals.view_continue_reading_card_subtitle;
         int age = (int) card.daysOld();
+        @PluralsRes int subtitlePlural;
+        String subtitle;
+        if (age == 0) {
+            subtitle = getResources().getString(R.string.view_continue_reading_card_subtitle_today);
+        } else {
+            subtitlePlural = R.plurals.view_continue_reading_card_subtitle;
+            subtitle = getResources().getQuantityString(subtitlePlural, age, age);
+        }
         CardHeaderView header = new CardHeaderView(getContext())
                 .setTitle(card.title())
-                .setSubtitle(getResources().getQuantityString(subtitle, age, age))
+                .setSubtitle(subtitle)
                 .setImage(R.drawable.ic_restore_black_24dp)
                 .setImageCircleColor(R.color.gray_highlight)
                 .setCard(card)
