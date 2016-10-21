@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Carregador desconhecido</string>
   <string name="menu_new_tab">Novo separador</string>
+  <string name="menu_close_all_tabs">Fechar todos os separadores</string>
+  <string name="close_all_tabs_confirm">Tem a certeza que pretende fechar todos os separadores?</string>
   <string name="button_close_tab">Fechar separador</string>
   <string name="tool_tip_select_text">Prima e segure em qualquer lugar do texto para realçá-lo, para copiar e partilhar.</string>
   <string name="tool_tip_share">Após destacar um facto interessante, tente partilhá-lo nas suas redes favoritas!</string>

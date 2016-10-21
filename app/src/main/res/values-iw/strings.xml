@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">שימוש הוגן</string>
   <string name="gallery_uploader_unknown">המעלה אינו ידוע</string>
   <string name="menu_new_tab">הלשונית הבאה</string>
+  <string name="menu_close_all_tabs">סגירת כל הלשוניות</string>
+  <string name="close_all_tabs_confirm">האם ברצונך באמת לסגור את כל הלשוניות?</string>
   <string name="button_close_tab">סגירת לשונית</string>
   <string name="tool_tip_select_text">יש ללחוץ ולהחזיק בכל מקום בטקסט כדי להאיר אותו להעתקה ושיתוף.</string>
   <string name="tool_tip_share">אחרי שהארת עובדה מעניינת זה הזמן לנסות לשתף אותה ברשתות האהובות עליך!</string>

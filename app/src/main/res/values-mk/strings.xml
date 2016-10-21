@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Праведна употреба</string>
   <string name="gallery_uploader_unknown">непознат подигач</string>
   <string name="menu_new_tab">Ново јазиче</string>
+  <string name="menu_close_all_tabs">Затвори ги сите јазичиња</string>
+  <string name="close_all_tabs_confirm">Дали сигурно сакате да ги затворите сите јазичиња?</string>
   <string name="button_close_tab">Затвори јазиче</string>
   <string name="tool_tip_select_text">Стиснете и држете било каде во текстот за да го подвлечете за копирање и споделување.</string>
   <string name="tool_tip_share">Откако ќе го подвлечете интересниот факт, споделете го на вашите омилени мрежи!</string>
@@ -265,7 +267,7 @@
   <string name="reading_list_edit_cancel">Откажи</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете овој список за читање?</string>
   <string name="reading_lists_empty">Тука нема списоци за читање.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување најгоре во статијата за да ја додадете во списокот.</string>
+  <string name="reading_lists_empty_message">Стокмете ги статиите што ги прелистувате во список за читање! Кога ќе дојдете до некоја статија, допрете на иконата за одбележување во алатникот најдолу за да ја додадете во списокот.</string>
   <string name="reading_lists_onboarding_intro">Создајте списоци на статии што сакате да ги читате подоцна, дури и кога не сте на семрежјето.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посета</string>

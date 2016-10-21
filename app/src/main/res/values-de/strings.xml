@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Fair Use</string>
   <string name="gallery_uploader_unknown">Hochlader unbekannt</string>
   <string name="menu_new_tab">Neue Registerkarte</string>
+  <string name="menu_close_all_tabs">Alle Registerkarten schließen</string>
+  <string name="close_all_tabs_confirm">Bist du sicher, dass du alle Registerkarten schließen möchtest?</string>
   <string name="button_close_tab">Registerkarte schließen</string>
   <string name="tool_tip_select_text">Drücke und halte irgendwo im Text, um ihn hervorzuheben zum Kopieren und Teilen.</string>
   <string name="tool_tip_share">Versuche, eine interessante Tatsache nach dem Hervorheben auf deinen Lieblingsnetzwerken zu teilen!</string>

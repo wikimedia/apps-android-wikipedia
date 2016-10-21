@@ -192,6 +192,7 @@
   <string name="gallery_fair_use_license">Поштена употреба</string>
   <string name="gallery_uploader_unknown">Непознат отпремалац</string>
   <string name="menu_new_tab">Нова картица</string>
+  <string name="menu_close_all_tabs">Затвори све језичке</string>
   <string name="button_close_tab">Затвори картицу</string>
   <string name="tool_tip_share">Након што означите занимљиву чињеницу, делите је на вашим омиљеним мрежама!</string>
   <string name="page_view_in_browser">Погледај у прегледачу</string>
@@ -259,4 +260,5 @@
   <string name="view_main_page_card_title">Данас на Википедији</string>
   <string name="view_featured_image_card_title">Слика дана</string>
   <string name="view_featured_image_card_download">Преузми</string>
+  <string name="menu_feed_overflow_label">Више опција</string>
 </resources>

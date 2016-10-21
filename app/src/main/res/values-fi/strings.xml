@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Fair use -lisenssi</string>
   <string name="gallery_uploader_unknown">Tuntematon tallentaja</string>
   <string name="menu_new_tab">Uusi välilehti</string>
+  <string name="menu_close_all_tabs">Sulje kaikki välilehdet</string>
+  <string name="close_all_tabs_confirm">Haluatko varmasti sulkea kaikki välilehdet?</string>
   <string name="button_close_tab">Sulje välilehti</string>
   <string name="tool_tip_select_text">Paina ja pidä painettuna mitä tahansa tekstin osaa korostaaksesi sen kopioimista ja jakamista varten.</string>
   <string name="tool_tip_share">Korostettuasi mielenkiintoisen faktan, kokeile jakaa se suosikkiverkostoissasi!</string>

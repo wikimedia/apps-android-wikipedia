@@ -199,6 +199,8 @@
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Przesyłający nieznany</string>
   <string name="menu_new_tab">Nowa karta</string>
+  <string name="menu_close_all_tabs">Zamknij wszystkie karty</string>
+  <string name="close_all_tabs_confirm">Czy na pewno chcesz zamknąć wszystkie karty?</string>
   <string name="button_close_tab">Zamknij kartę</string>
   <string name="tool_tip_select_text">Naciśnij i przytrzymaj w dowolnym miejscu w tekście, aby zaznaczyć go do kopiowania i udostępnienia.</string>
   <string name="tool_tip_share">Po zaznaczeniu interesującego faktu, spróbuj podzielić się nim w swoich ulubionych sieciach społecznościowych!</string>

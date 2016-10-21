@@ -3,35 +3,48 @@
   <string name="app_name_prod">വിക്കിപീഡിയ</string>
   <string name="app_name_beta">വിക്കിപീഡിയ ബീറ്റ</string>
   <string name="app_name_alpha">വിക്കിപീഡിയ ആൽഫ</string>
+  <string name="wikimedia">വിക്കിമീഡിയ</string>
   <string name="yes">വേണം</string>
   <string name="no">വേണ്ട</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="page_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
+  <string name="page_error_back_to_main">പിന്നിലേയ്ക്ക് മടങ്ങുക</string>
   <string name="menu_clear_all_history">നാൾവഴി ശൂന്യമാക്കുക</string>
   <string name="page_does_not_exist_error">ഈ താൾ നിലവിലില്ല.</string>
-  <string name="dialog_title_clear_history" fuzzy="true">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">എല്ലാ ഹിസ്റ്ററിയും ശൂന്യമാക്കണമെന്ന് താങ്കൾക്ക് ഉറപ്പാണോ?</string>
+  <string name="dialog_title_clear_history">ബ്രൗസിങ് ഹിസ്റ്ററി ശൂന്യമാക്കണോ?</string>
+  <string name="dialog_message_clear_history">ഇത് താങ്കളുടെ എല്ലാ ബ്രൗസിങ്ങ് ചരിത്രവും ശൂന്യമാക്കും, അതിനുശേഷം നിലവിൽ തുറന്നിരിക്കുന്ന എല്ലാ ടാബുകളും അടയ്ക്കും. താങ്കൾക്ക് ഉറപ്പാണോ?</string>
   <string name="nav_item_saved_pages">സേവ് ചെയ്ത താളുകൾ</string>
   <string name="share_via">ഇതുവഴി പങ്ക് വെയ്ക്കുക</string>
+  <string name="search_redirect_from">%s എന്നതിൽനിന്നും തിരിച്ചുവിടപ്പെട്ടപ്രകാരം</string>
   <string name="menu_page_show_tabs">ടാബുകൾ പ്രദർശിപ്പിക്കുക</string>
-  <string name="menu_page_other_languages" fuzzy="true">മറ്റു ഭാഷകളിൽ വായിക്കുക</string>
+  <string name="menu_page_other_languages">ഭാഷ മാറ്റുക</string>
   <string name="menu_page_find_in_page">താളിൽ കണ്ടെത്തുക</string>
+  <string name="menu_page_content_issues">ഉള്ളടക്കത്തിലെ പ്രശ്നങ്ങൾ</string>
+  <string name="menu_page_similar_titles">സമാനമായ തലക്കെട്ടുകൾ</string>
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
+  <string name="menu_page_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="menu_page_share">കണ്ണി പങ്ക് വെയ്ക്കുക</string>
   <string name="menu_long_press_open_page">തുറക്കുക</string>
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
   <string name="menu_long_press_copy_page">കണ്ണിയുടെ വിലാസം പകർത്തുക</string>
+  <string name="menu_text_select_copy">പകർത്തുക</string>
+  <string name="menu_text_select_define">ശുദ്ധീകരിച്ചെടുക്കുക</string>
+  <string name="menu_text_select_share">പങ്കുവയ്ക്കുക</string>
+  <string name="menu_text_select_edit_here">ഇവിടെ തിരുത്തുക</string>
   <string name="nav_item_nearby">സമീപസ്ഥം</string>
   <string name="nearby_distance_in_meters">%d മീ</string>
   <string name="nearby_distance_in_kilometers">%.2f കി.മീ.</string>
+  <string name="nearby_zoom_to_location">ഭൂപടത്തിൽ കാണുന്ന സ്ഥലത്തേക്ക് വലുതാക്കുക.</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %1$s</string>
+  <string name="talk_page_link_text">സംവാദം</string>
   <string name="content_license_html">മറ്റുവിധത്തിൽ കുറിച്ചിട്ടില്ലെങ്കിൽ ഉള്ളടക്കം &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷ</string>
   <string name="preference_languages_filter_hint">തിരയുക</string>
   <string name="langlinks_filter_hint">തിരയുക</string>
   <string name="langlinks_empty">ഈ താൾ മറ്റ് ഭാഷകളിൽ ലഭ്യമല്ല</string>
+  <string name="langlinks_no_match">താങ്കളുടെ ആവശ്യവുമായി പൊരുത്തപ്പെടുന്ന ഭാഷകൾ ഒന്നും കണ്ടെത്താനായില്ല.</string>
   <string name="langlinks_activity_title">മറ്റു ഭാഷകൾ</string>
   <string name="menu_save_changes">മാറ്റങ്ങൾ സേവ് ചെയ്യുക</string>
   <string name="edit_section_error_retry">വീണ്ടും ശ്രമിക്കുക</string>
@@ -40,6 +53,7 @@
   <string name="dialog_message_edit_failed">തിരുത്ത് പരാജയപ്പെട്ടു!</string>
   <string name="dialog_message_edit_failed_retry">വീണ്ടും ശ്രമിക്കുക</string>
   <string name="dialog_message_edit_failed_cancel">റദ്ദാക്കുക</string>
+  <string name="dialog_message_leaving_edit">താങ്കൾ മാറ്റങ്ങൾ ഇതുവരെ സേവ് ചെയ്തിട്ടില്ല. ഈ താളിൽ നിന്ന് വിട്ടുപോകണമെന്ന് ഉറപ്പാണോ?</string>
   <string name="dialog_message_leaving_edit_leave">പോവുക</string>
   <string name="dialog_message_leaving_edit_stay">പിടിച്ചുവെക്കുക</string>
   <string name="menu_show_toc">ഉള്ളടക്കപ്പട്ടിക</string>
@@ -49,17 +63,18 @@
   <string name="title_captcha">കാപ്ച നൽകുക</string>
   <string name="edit_section_captcha_reload">കാപ്ച വീണ്ടും എടുക്കാനായി ടാപ് ചെയ്യുക</string>
   <string name="edit_saved_page_refresh">സേവ് ചെയ്തിരിക്കുന്ന ഈ താൾ കാലഹരണപ്പെട്ടതാകാം, തിരുത്താനായി സജ്ജമാക്കാൻ ഇത് പുതുക്കിയിരിക്കേണ്ടതുണ്ട്. താൾ പുതുക്കണോ?</string>
-  <string name="nav_item_login" fuzzy="true">പ്രവേശിക്കുക</string>
+  <string name="nav_item_login">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
   <string name="login_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="login_password_hint">രഹസ്യവാക്ക്</string>
   <string name="login_password_show_check">രഹസ്യവാക്ക് പ്രദർശിപ്പിക്കുക</string>
   <string name="menu_login">പ്രവേശിക്കുക</string>
-  <string name="login_activity_title" fuzzy="true">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
+  <string name="login_activity_title">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
   <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
   <string name="preference_title_logout">ലോഗൗട്ട്</string>
   <string name="toast_logout_complete">പുറത്തുകടന്നു</string>
-  <string name="history_empty_message" fuzzy="true">താങ്കളുടെ ഉപയോഗത്തിന്റെ നാൾവഴി ശൂന്യമാണ്.</string>
+  <string name="history_empty_title">അടുത്തകാലത്തുള്ള ഒരു താളും ഇല്ല!</string>
+  <string name="history_empty_message">താങ്കൾ എല്ലാം ശൂന്യമാക്കിയിട്ടുണ്ടാകും. അടുത്തതവണ താങ്കൾ ഒരു താൾ എടുത്താൽ പിന്നീടതിലേയ്ക്ക് ഇവിടെ നിന്നെത്താനാകും.</string>
   <string name="delete_selected_history">മായ്ക്കുക</string>
   <string name="create_account_username_hint">ഉപയോക്തൃനാമം</string>
   <string name="login_create_account_link">അംഗത്വമില്ലേ? വിക്കിപീഡിയയിൽ ചേരുക</string>
@@ -91,24 +106,28 @@
   <string name="send_feedback">ആപിനെക്കുറിച്ചുള്ള അഭിപ്രായം അറിയിക്കുക</string>
   <string name="nav_item_random">ക്രമരഹിതം</string>
   <string name="create_account_account_created_toast">അംഗത്വം സൃഷ്ടിച്ചിരിക്കുന്നു!</string>
+  <string name="preferences_privacy_settings_heading">സ്വകാര്യത</string>
   <string name="preference_title_eventlogging_opt_in">ഉപയോഗ വിവരങ്ങൾ അയയ്ക്കുക</string>
   <string name="preference_summary_eventlogging_opt_in">താങ്കൾ എങ്ങനെയാണ് ആപ് ഉപയോഗിച്ചതെന്ന വിവരങ്ങൾ ശേഖരിച്ച് ആപ് കൂടുതൽ മെച്ചപ്പെട്ടതാക്കാൻ വിക്കിമീഡിയയെ അനുവദിക്കുക</string>
   <string name="editing_error_spamblacklist">തടയപ്പെട്ട ഡൊമൈനുകളിലോട്ടുള്ള കണ്ണികൾ (%s) കണ്ടെത്താനായി. ദയവായി അവ ഒഴിവാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
-  <string name="history_search_list_hint" fuzzy="true">തിരയുക</string>
-  <string name="history_search_empty_message" fuzzy="true">\'%s\' എന്നതിനോടു യോജിക്കുന്ന താളുകളൊന്നും കണ്ടെത്താനായില്ല</string>
+  <string name="history_search_list_hint">തിരച്ചിൽ ചരിത്രം</string>
+  <string name="history_search_empty_message">താങ്കളുടെ ആവശ്യവുമായി പൊരുത്തപ്പെടുന്ന താളുകൾ ഒന്നും കണ്ടെത്താനായില്ല.</string>
   <string name="error_can_not_process_link">ഈ കണ്ണി പ്രദർശിപ്പിക്കാനാവില്ല</string>
   <string name="page_protected_autoconfirmed">ഈ താൾ അർദ്ധ-സംരക്ഷിതമാണ്.</string>
   <string name="page_protected_sysop">ഈ താൾ പൂർണ്ണമായും സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു.</string>
   <string name="page_protected_other">ഈ താൾ ഈ തലങ്ങൾ വരെ സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു: %s</string>
   <string name="page_protected_can_not_edit">ഈ താൾ തിരുത്താനുള്ള അവകാശം താങ്കൾക്കില്ല</string>
   <string name="page_protected_can_not_edit_title">ഈ താൾ സംരക്ഷിക്കപ്പെട്ടിരിക്കുന്നു</string>
-  <string name="settings_activity_title" fuzzy="true">സജ്ജീകരണങ്ങൾ</string>
+  <string name="settings_item_preferences">സജ്ജീകരണങ്ങൾ</string>
+  <string name="settings_activity_title">സജ്ജീകരണങ്ങൾ</string>
   <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
   <string name="privacy_policy_description">സ്വകാര്യതാനയം</string>
   <string name="terms_of_use_description">ഉപയോഗനിബന്ധനകൾ</string>
-  <string name="about_libraries_heading" fuzzy="true">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
-  <string name="about_contributors_heading" fuzzy="true">സംഭാവകർ</string>
-  <string name="about_translators_heading" fuzzy="true">പരിഭാഷകർ</string>
+  <string name="about_libraries_heading">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
+  <string name="about_contributors_heading">സംഭാവന ചെയ്തവർ</string>
+  <string name="about_translators_heading">വിവർത്തകർ</string>
+  <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ഉള്ള വിവർത്തകരാണ് ഈ ആപ്പ് വിവർത്തനം ചെയ്തത്.</string>
+  <string name="about_app_license_heading">ഉപയോഗാനുമതി</string>
   <string name="about_wmf">ഒരു &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;വിക്കിമീഡിയ ഫൗണ്ടേഷൻ&lt;/a&gt; ഉത്പന്നം</string>
   <string name="about_activity_title">വിവരണം</string>
   <string name="edit_abandon_confirm">താളിൽ മാറ്റങ്ങളുണ്ട്. താങ്കൾ വരുത്തിയ മാറ്റങ്ങൾ സേവ് ചെയ്യാതെ പുറത്ത് പോകണം എന്നുറപ്പാണോ?</string>
@@ -134,6 +153,7 @@
   <string name="color_theme_dark">ഇരുളിമ</string>
   <string name="page_similar_titles">ഇതുപോലുള്ള താളുകൾ</string>
   <string name="search_did_you_mean">ഉദ്ദേശിച്ചത്  \"%s\" എന്നാണോ?</string>
+  <string name="button_clear_all_recent_searches">അടുത്തകാലത്തുള്ള തിരയലുകൾ ഒഴിവാക്കുക.</string>
   <string name="table_close">അടയ്ക്കുക</string>
   <string name="dialog_close_description">അടയ്ക്കുക</string>
   <string name="preference_title_show_images">ചിത്രങ്ങൾ പ്രദർശിപ്പിക്കുക</string>
@@ -143,4 +163,28 @@
   <string name="gallery_menu_share">പങ്കുവയ്ക്കുക</string>
   <string name="gallery_share_error">ചിത്രം പങ്കുവയ്ക്കാൻ കഴിഞ്ഞില്ല: %s</string>
   <string name="gallery_menu_save">ഡിവൈസിലേക്ക് സേവ് ചെയ്യുക</string>
+  <string name="menu_new_tab">പുതിയ ടാബ്</string>
+  <string name="menu_close_all_tabs">എല്ലാ ടാബുകളും അടയ്ക്കുക</string>
+  <string name="close_all_tabs_confirm">എല്ലാടാബുകളും അടയ്ക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?</string>
+  <string name="crash_report_dialog_dont_send_button">മറികടക്കുക</string>
+  <string name="crash_report_quit">അടയ്ക്കുക</string>
+  <string name="article_menu_bar_share">ലേഖനത്തിന്റെ കണ്ണി പങ്കുവയ്ക്കുക</string>
+  <string name="nav_item_reading_lists">എന്റെ പട്ടികകൾ</string>
+  <string name="reading_list_untitled">തലക്കെട്ടില്ലാത്തത്</string>
+  <string name="reading_list_save_to">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
+  <string name="reading_list_create_new">പുതിയത് സൃഷ്ടിക്കുക</string>
+  <string name="reading_list_added_to_named">%s പട്ടികയിലേക്ക് ചേർക്കുക</string>
+  <string name="reading_list_added_to_unnamed">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
+  <string name="reading_list_already_exists">ഈ ലേഖനം പട്ടികയിൽ നേരത്തേയുണ്ട്.</string>
+  <string name="reading_list_added_view_button">പട്ടിക കാണുക</string>
+  <string name="reading_list_item_count_singular">1 ലേഖനം</string>
+  <string name="reading_list_item_count_plural">%d ലേഖനങ്ങൾ</string>
+  <string name="reading_list_sort">ക്രമീകരിക്കുക</string>
+  <string name="reading_list_sort_by_name">പേരനുസരിച്ച് ക്രമപ്പെടുത്തുക</string>
+  <string name="reading_list_name_sample">എന്റെ വായനാ പട്ടിക</string>
+  <string name="reading_list_edit_ok">ശരി</string>
+  <string name="reading_list_edit_cancel">റദ്ദാക്കുക</string>
+  <string name="reading_lists_onboarding_for_example">ഉദാഹരണത്തിന്</string>
+  <string name="user_option_sync_label">ക്രമീകരണങ്ങൾ</string>
+  <string name="view_continue_reading_card_title">വായന തുടരുക</string>
 </resources>

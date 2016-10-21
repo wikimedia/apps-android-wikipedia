@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Okänd uppladdare</string>
   <string name="menu_new_tab">Ny flik</string>
+  <string name="menu_close_all_tabs">Stäng alla flikar</string>
+  <string name="close_all_tabs_confirm">Är du säker på att du vill stänga alla flikar?</string>
   <string name="button_close_tab">Stäng flik</string>
   <string name="tool_tip_select_text">Tryck och håll ned någonstans i texten för att markera den och sedan kopiera och dela den.</string>
   <string name="tool_tip_share">När du har markerat intressant fakta, prova att dela det på dina favoritnätverk!</string>

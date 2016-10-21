@@ -8,7 +8,7 @@
   <string name="no">Tidak</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="error_network_error">Tidak dapat terhubung ke Internet.</string>
+  <string name="error_network_error">Tidak dapat menghubungkan ke Internet.</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="page_error_back_to_main">Kembali</string>
   <string name="menu_clear_all_history">Hapus riwayat</string>
@@ -16,10 +16,10 @@
   <string name="dialog_title_clear_history">Hapus riwayat penjelajahan</string>
   <string name="dialog_message_clear_history">Ini akan menghapus semua riwayat penjelajahan Anda, dan menutup tab yang saat ini masih terbuka. Apakah Anda yakin?</string>
   <string name="nav_item_saved_pages">Halaman tersimpan</string>
-  <string name="share_via">Berbagi melalui</string>
+  <string name="share_via">Bagikan lewat</string>
   <string name="search_redirect_from">Dialihkan dari %s</string>
   <string name="menu_page_show_tabs">Tampilkan tab</string>
-  <string name="menu_page_other_languages">Ganti bahasa</string>
+  <string name="menu_page_other_languages">Ubah bahasa</string>
   <string name="menu_page_find_in_page">Cari di halaman</string>
   <string name="menu_page_content_issues">Masalah konten</string>
   <string name="menu_page_similar_titles">Judul yang sama</string>
@@ -92,12 +92,12 @@
   <string name="create_account_next">Selanjutnya</string>
   <string name="create_account_button">Buat akun baru</string>
   <string name="preferences_general_heading">Umum</string>
-  <string name="wikipedia_app_faq">Tanya jawab aplikasi Wikipedia</string>
+  <string name="wikipedia_app_faq">Pertanyaan yang sering diajukan</string>
   <string name="zero_charged_verbiage">Wikipedia Zero dimatikan</string>
   <string name="zero_search_hint">Telusuri Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator selular Anda membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Zero, meninggalkan pengaturan ini dicentang dapat membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan biaya.</string>
-  <string name="zero_webpage_title">Tanya jawab Wikipedia Nol</string>
+  <string name="zero_webpage_title">Pertanyaan yang sering diajukan untuk Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Meninggalkan Wikipedia Zero</string>
   <string name="zero_interstitial_leave_app">Biaya data mungkin berlaku. Lanjutkan ke situs eksternal?</string>
@@ -129,7 +129,7 @@
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Kebijakan privasi</string>
   <string name="terms_of_use_description">Ketentuan penggunaan</string>
-  <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
+  <string name="privacy_policy_url">https://m.wikimediafoundation.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use/id</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
   <string name="about_contributors_heading">Kontributor</string>
@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Penggunaan wajar</string>
   <string name="gallery_uploader_unknown">Pengunggah tidak diketahui</string>
   <string name="menu_new_tab">Tab baru</string>
+  <string name="menu_close_all_tabs">Tutup semua tab</string>
+  <string name="close_all_tabs_confirm">Apakah Anda yakin ingin menutup semua tab?</string>
   <string name="button_close_tab">Tutup tab</string>
   <string name="tool_tip_select_text">Tekan dan tahan di mana saja di teks untuk menyorotnya untuk salin dan berbagi.</string>
   <string name="tool_tip_share">Setelah menyorot sebuah fakta yang menarik, coba membagikannya di jaringan kesukaan Anda!</string>
@@ -235,7 +237,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
   <string name="crash_report_quit">Keluar</string>
   <string name="article_menu_bar_bookmark">Tambahkan artikel ini ke dalam daftar bacaan</string>
-  <string name="article_menu_bar_share">Berbagi pranala artikel</string>
+  <string name="article_menu_bar_share">Bagikan pranala artikel</string>
   <string name="article_menu_bar_navigate">Navigasikan ke lokasi dari artikel</string>
   <string name="nav_item_reading_lists">Daftarku</string>
   <string name="reading_list_untitled">Tanpa judul</string>
@@ -265,7 +267,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_edit_cancel">Batal</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus daftar bacaan ini?</string>
   <string name="reading_lists_empty">Tidak ada daftar bacaan di sini.</string>
-  <string name="reading_lists_empty_message">Susun artikel yang dijelajahi oleh Anda ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, sentuh ikon markah di bilah alat bawah untuk menambahkannya ke daftar bacaan.</string>
+  <string name="reading_lists_empty_message">Susun artikel yang dijelajahi oleh Anda ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, ketuk ikon markah di bilah alat bawah untuk menambahkannya ke daftar bacaan.</string>
   <string name="reading_lists_onboarding_intro">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan ketika Anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>
@@ -290,7 +292,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="view_card_footer_button">Lihat lebih lengkap</string>
   <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
-  <string name="view_card_news_title">Dalam berita</string>
+  <string name="view_card_news_title">Peristiwa terkini</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">kemarin</item>
     <item quantity="other">%d hari yang lalu</item>

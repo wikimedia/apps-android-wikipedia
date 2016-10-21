@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Adil kullanım</string>
   <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
   <string name="menu_new_tab">Yeni sekme</string>
+  <string name="menu_close_all_tabs">Sekmeleri kapat</string>
+  <string name="close_all_tabs_confirm">Sekmeleri kaldırmak istediğinizden emin misiniz?</string>
   <string name="button_close_tab">Sekmeyi kapat</string>
   <string name="tool_tip_select_text">Vurgulamak, kopyalamak ve paylaşmak için metnin herhangi bir yerine dokunun ve basılı tutun.</string>
   <string name="tool_tip_share">İlginç bir bilgiyi vurguladıktan sonra, en sevdiğiniz ağlarda paylaşmayı deneyin!</string>
@@ -263,7 +265,7 @@
   <string name="reading_list_edit_cancel">İptal</string>
   <string name="reading_list_delete_confirm">Bu okuma listesini silmek istediğinizden emin misiniz?</string>
   <string name="reading_lists_empty">Hiçbir okuma listesi yok.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Görüntülediğiniz maddeleri okuma listeleriyle organize edin! Okuduğunuz bir maddeyi, bir okuma listesine eklemek için maddenin üst bölümündeki yer imi simgesine dokunun.</string>
+  <string name="reading_lists_empty_message">Görüntülediğiniz maddeleri okuma listeleriyle organize edin! Okuduğunuz bir maddeyi, bir okuma listesine eklemek için maddenin üst bölümündeki yer imi simgesine dokunun.</string>
   <string name="reading_lists_onboarding_intro">Çevridışı olduğunuzda bile okumayı istediğiniz maddelerden okuma listeleri oluşturun!</string>
   <string name="reading_lists_onboarding_for_example">Örneğin</string>
   <string name="reading_lists_onboarding_example1">Gidilecek yerler</string>

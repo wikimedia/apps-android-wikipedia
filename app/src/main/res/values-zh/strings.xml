@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">上传者未知</string>
   <string name="menu_new_tab">新建标签页</string>
+  <string name="menu_close_all_tabs">关闭所有标签</string>
+  <string name="close_all_tabs_confirm">您确定您要关闭所有标签么？</string>
   <string name="button_close_tab">关闭标签页</string>
   <string name="tool_tip_select_text">按住文本的任意位置高亮它以便复制和分享。</string>
   <string name="tool_tip_share">在高亮一段有趣的内容后，尝试在您最喜欢的社交网络上分享它！</string>

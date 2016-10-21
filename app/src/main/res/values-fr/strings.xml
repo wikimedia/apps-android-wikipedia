@@ -205,6 +205,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="gallery_fair_use_license">Utilisation normale</string>
   <string name="gallery_uploader_unknown">Téléchargeur inconnu</string>
   <string name="menu_new_tab">Nouvel onglet</string>
+  <string name="menu_close_all_tabs">Fermer tous les onglets</string>
+  <string name="close_all_tabs_confirm">Êtes-vous sûr de vouloir fermer tous les onglets ?</string>
   <string name="button_close_tab">Fermer l’onglet</string>
   <string name="tool_tip_select_text">Cliquez et maintenez appuyé n’importe où dans le texte pour le surligner afin de le copier et le partager.</string>
   <string name="tool_tip_share">Après avoir surligné un fait intéressant, essayez de le partager sur vos réseaux favoris !</string>
@@ -266,7 +268,7 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="reading_list_edit_cancel">Annuler</string>
   <string name="reading_list_delete_confirm">Êtes-vous sûr de vouloir supprimer cette liste de lecture ?</string>
   <string name="reading_lists_empty">Aucune liste de lecture ici.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organiser les articles dans lesquels vous naviguez en listes de lecture ! En parcourant un article, cliquez sur l’icône en haut de l’article pour l’ajouter à une liste de lecture.</string>
+  <string name="reading_lists_empty_message">Organiser les articles dans lesquels vous naviguez en listes de lecture ! En parcourant un article, cliquez sur l’icône dans la barre d’outil en bas pour l’ajouter à une liste de lecture.</string>
   <string name="reading_lists_onboarding_intro">Créer des listes de lecture pour les articles que vous voulez lire plus tard, même en étant hors connexion !</string>
   <string name="reading_lists_onboarding_for_example">Par exemple</string>
   <string name="reading_lists_onboarding_example1">Endroits à visiter</string>

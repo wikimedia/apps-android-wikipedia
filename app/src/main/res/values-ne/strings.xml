@@ -23,7 +23,7 @@
   <string name="preference_languages_filter_hint">खोज</string>
   <string name="langlinks_filter_hint">खोज</string>
   <string name="langlinks_activity_title">अन्य भाषाहरू</string>
-  <string name="menu_save_changes">परिवर्तनहरू सङ्ग्रह गर्ने</string>
+  <string name="menu_save_changes">परिवर्तनहरू सङ्ग्रह गर्नुहोस्</string>
   <string name="edit_section_error_retry">पुन: प्रयास गर्नुहोस्</string>
   <string name="dialog_saving_in_progress">रक्षण हुदै</string>
   <string name="edit_saved_successfully">संग्रह भएकोलाई सम्पादन गर्ने</string>
