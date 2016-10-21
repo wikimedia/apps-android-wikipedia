@@ -261,7 +261,7 @@
   <string name="reading_list_edit_cancel">रद्द करा</string>
   <string name="reading_list_delete_confirm">आपणास खात्री आहे काय कि आपणास ही वाचन यादी वगळायची आहे?</string>
   <string name="reading_lists_empty">येथे वाचन याद्या नाहीत.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">आपण न्याहाळत असलेले लेख वाचन यादीत नियोजित करा ! लेख न्याहाळत असतांना, तो आपल्या वाचनयादीत जोडण्यास,लेखाच्या वरील बाजूस असणाऱ्या बुकमार्क आयकॉनवर थपकवा.</string>
+  <string name="reading_lists_empty_message">आपण न्याहाळत असलेले लेख वाचन यादीत नियोजित करा ! लेख न्याहाळत असतांना, तो आपल्या वाचनयादीत जोडण्यास,लेखाच्या खालच्या बाजूस असणाऱ्या बुकमार्क साधनपट्टीवर थपकवा.</string>
   <string name="reading_lists_onboarding_intro">जरी आपण विनाजाल असाल तरीही,आपणास नंतर वाचावयाच्या लेखांची वाचनयादी तयार करा!</string>
   <string name="reading_lists_onboarding_for_example">उदाहरणार्थ</string>
   <string name="reading_lists_onboarding_example1">भेट द्यावयाची स्थाने</string>

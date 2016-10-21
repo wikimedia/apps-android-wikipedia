@@ -178,7 +178,7 @@
   <string name="widget_name_search">Penelusuran Wikipedia</string>
   <string name="wiktionary_no_definitions_found">Tidak ada definisi yang ditemukan.</string>
   <string name="alpha_update_notification_title">Pemutakhiran alpha baru telah tersedia</string>
-  <string name="alpha_update_notification_text">Sentuh untuk mengunduh</string>
+  <string name="alpha_update_notification_text">Ketuk untuk mengunduh</string>
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Tampilkan gambar</string>
   <string name="preference_summary_show_images">Mengaktifkan atau menonaktifkan pemuatan gambar dalam halaman. Hapus centang pengaturan ini jika sambungan Internet Anda lambat, atau jika paket data Anda terbatas.</string>
@@ -267,7 +267,7 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="reading_list_edit_cancel">Batal</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus daftar bacaan ini?</string>
   <string name="reading_lists_empty">Tidak ada daftar bacaan di sini.</string>
-  <string name="reading_lists_empty_message">Susun artikel yang dijelajahi oleh Anda ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, ketuk ikon markah di bilah alat bawah untuk menambahkannya ke daftar bacaan.</string>
+  <string name="reading_lists_empty_message">Susun artikel yang dijelajahi oleh Anda ke dalam daftar bacaan! Ketika menjelajahi sebuah artikel, ketuk ikon penanda di bilah alat bawah untuk menambahkannya ke daftar bacaan.</string>
   <string name="reading_lists_onboarding_intro">Buat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan ketika Anda sedang luring!</string>
   <string name="reading_lists_onboarding_for_example">Sebagai contoh</string>
   <string name="reading_lists_onboarding_example1">Tempat untuk berkunjung</string>

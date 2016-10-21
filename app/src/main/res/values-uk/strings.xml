@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Добросовісне використання</string>
   <string name="gallery_uploader_unknown">Завантаживший невідомий</string>
   <string name="menu_new_tab">Нова вкладка</string>
+  <string name="menu_close_all_tabs">Закрити всі вкладки</string>
+  <string name="close_all_tabs_confirm">Ви впевнені, що хочете закрити всі вкладки?</string>
   <string name="button_close_tab">Закрити вкладку</string>
   <string name="tool_tip_select_text">Натисніть і утримуйте на будь-якому місці в тексті, щоб виділити його для копіювання та обміну.</string>
   <string name="tool_tip_share">Після виділення цікавого факту, спробуйте поділитися ним у Ваших улюблених мережах!</string>
@@ -237,7 +239,7 @@
   <string name="article_menu_bar_bookmark">Зберегти статтю до списку читання</string>
   <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
   <string name="article_menu_bar_navigate">Перейти до розташування статті</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Списки читання</string>
+  <string name="nav_item_reading_lists">Мої списки</string>
   <string name="reading_list_untitled">Без назви</string>
   <string name="reading_list_save_to">Зберегти в список для читання</string>
   <string name="reading_list_create_new">Створити новий</string>
@@ -246,7 +248,7 @@
   <string name="reading_list_already_exists">Ця стаття вже знаходиться у цьому списку.</string>
   <string name="reading_list_added_view_button">Перегляд списку</string>
   <string name="reading_list_item_count_singular">1 статья</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d статей</string>
+  <string name="reading_list_item_count_plural">%d статей</string>
   <string name="reading_list_sort">Сортувати</string>
   <string name="reading_list_sort_by_name">Сортування за назвою</string>
   <string name="reading_list_sort_by_name_desc">Сортування за назвою (зворотнє)</string>
@@ -265,7 +267,7 @@
   <string name="reading_list_edit_cancel">Скасувати</string>
   <string name="reading_list_delete_confirm">Ви дійсно хочете вилучити цей список читання?</string>
   <string name="reading_lists_empty">Списки читання відсутні.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Організуйте статті, що ви читаєте в списки до прочитання! Переглядаючи статтю, натисніть значок закладки у верхній частині статті, щоб додати її в список читання.</string>
+  <string name="reading_lists_empty_message">Організуйте статті, що ви читаєте в списки до прочитання! Переглядаючи статтю, натисніть значок закладки на панелі унизу, щоб додати її в список читання.</string>
   <string name="reading_lists_onboarding_intro">Створіть списки з статей, які ви хочете прочитати пізніше, навіть коли ви в автономному режимі!</string>
   <string name="reading_lists_onboarding_for_example">Наприклад</string>
   <string name="reading_lists_onboarding_example1">Місця для відвідування</string>
@@ -284,6 +286,7 @@
   <string name="view_featured_image_card_download">Завантажити</string>
   <string name="menu_feed_card_dismiss">Сховати цю картку</string>
   <string name="menu_feed_card_dismissed">Картку приховано.</string>
+  <string name="menu_feed_overflow_label">Більше налаштувань</string>
   <string name="feed_featured_image_share_subject">Вибране зображення з Вікісховища</string>
   <string name="feed">Дослідити</string>
   <string name="view_card_footer_button">Дивіться більше</string>

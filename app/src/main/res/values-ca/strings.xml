@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Fair use (ús raonable)</string>
   <string name="gallery_uploader_unknown">Carregador no conegut</string>
   <string name="menu_new_tab">Pestanya nova</string>
+  <string name="menu_close_all_tabs">Tanca totes les pestanyes</string>
+  <string name="close_all_tabs_confirm">Esteu segur que voleu tancar totes les pestanyes?</string>
   <string name="button_close_tab">Tanca la pestanya</string>
   <string name="tool_tip_select_text">Mantén premut qualsevol part del text per a ressaltar-lo per copiar i compartir.</string>
   <string name="tool_tip_share">Després de destacar un fet interessant, proveu de compartir-lo a les vostres xarxes preferides!</string>

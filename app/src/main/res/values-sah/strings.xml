@@ -244,7 +244,7 @@
   <string name="reading_list_already_exists">Бу ыстатыйа урут угуллубут эбит.</string>
   <string name="reading_list_added_view_button">Тиһилиги көрүү</string>
   <string name="reading_list_item_count_singular">1 ыстатыйа</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d ыстатыйа</string>
+  <string name="reading_list_item_count_plural">%d ыстатыйа</string>
   <string name="reading_list_sort">Нардаа</string>
   <string name="reading_list_sort_by_name">Аатынан</string>
   <string name="reading_list_sort_by_name_desc">Аатынан наардааһын (төттөрү)</string>

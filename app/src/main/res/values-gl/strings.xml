@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Uso lexítimo</string>
   <string name="gallery_uploader_unknown">Descoñécese a persoa que cargou o ficheiro</string>
   <string name="menu_new_tab">Nova lapela</string>
+  <string name="menu_close_all_tabs">Pechar tódalas lapelas</string>
+  <string name="close_all_tabs_confirm">Está seguro de que quere pechar tódalas lapelas?</string>
   <string name="button_close_tab">Pechar a lapela</string>
   <string name="tool_tip_select_text">Prema e manteña en calquera parte do texto para resaltalo e así copialo e compartilo.</string>
   <string name="tool_tip_share">Despois de resaltar unha información interesante, probe a compartila nas súas redes favoritas!</string>
@@ -237,7 +239,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="article_menu_bar_bookmark">Engadir este artigo a unha lista de lectura</string>
   <string name="article_menu_bar_share">Compartir a ligazón do artigo</string>
   <string name="article_menu_bar_navigate">Navegar á localización do artigo</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Listas de lectura</string>
+  <string name="nav_item_reading_lists">As miñas listas</string>
   <string name="reading_list_untitled">Sen título</string>
   <string name="reading_list_save_to">Gardar en lista de lectura</string>
   <string name="reading_list_create_new">Crear nova</string>
@@ -265,7 +267,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">Está seguro de que quere eliminar esta lista de lectura?</string>
   <string name="reading_lists_empty">Non hai listas de lectura aquí.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organice os artigos nos que navega en listas de lectura! Cando lea un artigo, prema a icona de marcador na parte superior do artigo para engadilo a unha lista de lectura.</string>
+  <string name="reading_lists_empty_message">Organice os artigos nos que navega en listas de lectura! Cando lea un artigo, prema a icona de marcador na parte inferior da barra de ferramentas para engadilo a unha lista de lectura.</string>
   <string name="reading_lists_onboarding_intro">Cree listas de lectura para os artigos que quere ler máis tarde, incluso cando non teña conexiónǃ</string>
   <string name="reading_lists_onboarding_for_example">Por exemplo</string>
   <string name="reading_lists_onboarding_example1">Lugares que visitar</string>
@@ -284,6 +286,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss">Agochar esta tarxeta</string>
   <string name="menu_feed_card_dismissed">Tarxeta agochada.</string>
+  <string name="menu_feed_overflow_label">Máis opcións</string>
   <string name="feed_featured_image_share_subject">Imaxe destacada en Wikimedia Commons</string>
   <string name="feed">Explorar</string>
   <string name="view_card_footer_button">Ver máis</string>

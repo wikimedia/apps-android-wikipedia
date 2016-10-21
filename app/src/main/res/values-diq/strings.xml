@@ -152,7 +152,7 @@
   <string name="reading_list_added_to_unnamed">Debya lista wendışi tede</string>
   <string name="reading_list_added_view_button">Listi Bıvin</string>
   <string name="reading_list_item_count_singular">1 madde</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d madde</string>
+  <string name="reading_list_item_count_plural">%d madde</string>
   <string name="reading_list_sort">Ratın</string>
   <string name="reading_list_sort_by_name">Gorey nami ratın</string>
   <string name="reading_list_sort_by_name_desc">Gorey nami ratın (çep ra)</string>

@@ -202,6 +202,8 @@
   <string name="gallery_fair_use_license">استخدام عادل</string>
   <string name="gallery_uploader_unknown">الرافع غير معروف</string>
   <string name="menu_new_tab">لسان جديد</string>
+  <string name="menu_close_all_tabs">أغلق كافة التبويبات</string>
+  <string name="close_all_tabs_confirm">هل أنت متأكد من أنك تريد إغلاق كافة علامات التبويب؟</string>
   <string name="button_close_tab">أغلق اللسان</string>
   <string name="tool_tip_select_text">اضغط مع الاستمرار في أي مكان في النص لتسليط الضوء عليه للنسخ والمشاركة.</string>
   <string name="tool_tip_share">بعد تسليط الضوء على حقيقة مثيرة للاهتمام، حاول مشاركتها على شبكات التواصل المفضلة لديك!</string>
@@ -263,7 +265,7 @@
   <string name="reading_list_edit_cancel">إلغاء</string>
   <string name="reading_list_delete_confirm">هل أنت متأكد من رغبتك في حذف قائمة القراءة هذه؟</string>
   <string name="reading_lists_empty">لا قوائم قراءة هنا.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">رتب المقالات التي تتصفحها في شكل قوائم مطالعة! حينما تتصفح مقالة، انقر على علامة الوسم في الجزء الأعلى من المقالة كي تضيفها إلى قائمة مطالعة.</string>
+  <string name="reading_lists_empty_message">نظّم المقالات التي تتصفحها في شكل قوائم قراءة! حينما تتصفح مقالةً ما؛ اضغط على أيقونة الإشارة المرجعية في شريط الأدوات في الأسفل لإضافتها إلى قائمة قراءة.</string>
   <string name="reading_lists_onboarding_intro">أنشئ قوائم مطالعة من المقالات التي ترغب في الاطلاع عليها لاحقا، حتى لو كنت غير متصل بالإنترنت!</string>
   <string name="reading_lists_onboarding_for_example">على سبيل المثال</string>
   <string name="reading_lists_onboarding_example1">اماكن للزيارة</string>

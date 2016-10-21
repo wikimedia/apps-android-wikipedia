@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Férové použitie</string>
   <string name="gallery_uploader_unknown">Uploader neznámy</string>
   <string name="menu_new_tab">Nová karta</string>
+  <string name="menu_close_all_tabs">Zavrie všetky karty</string>
+  <string name="close_all_tabs_confirm">Ste si istí, že chcete zavrieť všetky karty?</string>
   <string name="button_close_tab">Zavrieť kartu</string>
   <string name="tool_tip_select_text">Text môžete kopírovať a zdielať. Stačí ak ho stlačíte a podržíte pokým sa nezvýrazní.</string>
   <string name="tool_tip_share">Po zvýraznení zaujímavej skutočnosti ju môžete zdieľať na vašich obľúbených sietiach!</string>
@@ -265,7 +267,7 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="reading_list_edit_cancel">Zrušiť</string>
   <string name="reading_list_delete_confirm">Naozaj chcete tento zoznam na prečítanie odstrániť?</string>
   <string name="reading_lists_empty">Nemáte žiadne zoznamy na prečítanie.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Usporiadajte si články do zoznamov na prečítanie! Pri prehliadaní článku ťuknite na ikonu záložky v jeho vrchnej časti a pridajte si ho tak do zoznamu na prečítanie.</string>
+  <string name="reading_lists_empty_message">Usporiadajte si články do zoznamov na prečítanie! Pri prehliadaní článku ťuknite na ikonu záložky na panely nástrojov v spodnej časti obrazovky a pridajte si ho tak do zoznamu na prečítanie.</string>
   <string name="reading_lists_onboarding_intro">Z článkov, ktoré si chcete prečítať neskôr si môžete vytvoriť zoznamy na prečítanie!</string>
   <string name="reading_lists_onboarding_for_example">Napríklad</string>
   <string name="reading_lists_onboarding_example1">Miesta, ktoré chcem navštíviť</string>

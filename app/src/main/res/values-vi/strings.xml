@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Sử dụng hợp lý</string>
   <string name="gallery_uploader_unknown">Người tải lên không rõ</string>
   <string name="menu_new_tab">Tab mới</string>
+  <string name="menu_close_all_tabs">Đóng tất cả các thẻ</string>
+  <string name="close_all_tabs_confirm">Bạn có chắc chắn muốn đóng tất cả các thẻ?</string>
   <string name="button_close_tab">Đóng tab</string>
   <string name="tool_tip_select_text">Nhấn và giữ tại bất kỳ đâu trong nội dung văn bản để đánh dấu sao chép và chia sẻ.</string>
   <string name="tool_tip_share">Sau khi đã tô sáng một đoạn thú vị, hãy thử chia sẻ nó trên mạng xã hội ưa thích của bạn!</string>
@@ -263,7 +265,7 @@
   <string name="reading_list_edit_cancel">Hủy bỏ</string>
   <string name="reading_list_delete_confirm">Bạn có chắc chắn muốn xóa danh sách đọc này?</string>
   <string name="reading_lists_empty">Không có danh sách đọc.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Sắp xếp các bài mà bạn duyệt xem vào danh sách đọc! Khi nào xem một bài, chỉ việc chạm vào hình dấu trang ở đầu bài để thêm nó vào một danh sách đọc.</string>
+  <string name="reading_lists_empty_message">Sắp xếp các bài mà bạn duyệt xem vào danh sách đọc! Khi nào xem một bài, chỉ việc chạm vào hình dấu trang trong thanh công cụ cuối trang để thêm nó vào một danh sách đọc.</string>
   <string name="reading_lists_onboarding_intro">Tạo danh sách các bài viết bạn muốn đọc sau, ngay cả khi bạn đang ngoại tuyến.</string>
   <string name="reading_lists_onboarding_for_example">Ví dụ</string>
   <string name="reading_lists_onboarding_example1">Các địa điểm để tham quan</string>

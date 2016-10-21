@@ -75,7 +75,7 @@
   <string name="login_success_toast">Успешно сте пријављени!</string>
   <string name="preference_title_logout">Одјави ме</string>
   <string name="toast_logout_complete">Одјављени сте</string>
-  <string name="history_empty_title">Овде нема скорашњих страница.</string>
+  <string name="history_empty_title">Нема скорашњих страница.</string>
   <string name="history_empty_message">Вероватно сте их све избрисали. Следећи пут кад посетите страницу, можете јој се поново вратити одавде.</string>
   <string name="delete_selected_history">Избриши</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕДИЈ&lt;big&gt;А&lt;/big&gt;</string>
@@ -95,7 +95,7 @@
   <string name="wikipedia_app_faq">ЧПП о апликацији Википедија</string>
   <string name="zero_charged_verbiage">Wikipedia Zero је искључена</string>
   <string name="zero_search_hint">Претрага (Wikipedia Zero)</string>
-  <string name="zero_warn_when_leaving">Упозори ме при напуштању режима Wikipedia Zero</string>
+  <string name="zero_warn_when_leaving">Упозори ме ако напуштам Wikipedia Zero</string>
   <string name="zero_webpage_title">ЧПП о режиму Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Напуштање режима Wikipedia Zero</string>
@@ -170,7 +170,7 @@
   <string name="alpha_update_notification_title">Доступна је нова алфа верзија</string>
   <string name="alpha_update_notification_text">Додирните да бисте преузели</string>
   <string name="dialog_close_description">Затвори</string>
-  <string name="preference_title_show_images">Приказуј слике</string>
+  <string name="preference_title_show_images">Приказ слика</string>
   <string name="read_more_section">Детаљније</string>
   <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
   <string name="gallery_error_draw_failed">Не могу да исцртам слику.</string>
@@ -221,7 +221,7 @@
   <string name="article_menu_bar_bookmark">Додај овај чланак на списак за читање</string>
   <string name="article_menu_bar_share">Дели везу чланка</string>
   <string name="article_menu_bar_navigate">Иди на локацију чланка</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Спискови за читање</string>
+  <string name="nav_item_reading_lists">Моји спискови</string>
   <string name="reading_list_untitled">Без наслова</string>
   <string name="reading_list_save_to">Сачувај на списак за читање</string>
   <string name="reading_list_create_new">Направи нови</string>
@@ -248,7 +248,7 @@
   <string name="reading_list_edit_ok">У реду</string>
   <string name="reading_list_edit_cancel">Откажи</string>
   <string name="reading_list_delete_confirm">Заиста желите да избришете овај списак за читање?</string>
-  <string name="reading_lists_empty">Овде нема спискова за читање.</string>
+  <string name="reading_lists_empty">Нема спискова за читање.</string>
   <string name="reading_lists_onboarding_for_example">На пример</string>
   <string name="reading_lists_onboarding_example1">Места за посету</string>
   <string name="reading_lists_onboarding_example2">Омиљене животиње</string>
@@ -257,8 +257,17 @@
   <string name="user_option_sync_label">Подешавања</string>
   <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
+  <string name="view_random_card_title">Случајан чланак</string>
   <string name="view_main_page_card_title">Данас на Википедији</string>
+  <string name="view_main_page_card_subtitle">Главна страна %s</string>
   <string name="view_featured_image_card_title">Слика дана</string>
   <string name="view_featured_image_card_download">Преузми</string>
+  <string name="menu_feed_card_dismiss">Сакрији</string>
+  <string name="menu_feed_card_dismissed">Сакривено.</string>
   <string name="menu_feed_overflow_label">Више опција</string>
+  <string name="feed_featured_image_share_subject">Изабрана слика са Оставе</string>
+  <string name="feed">Истражи</string>
+  <string name="view_card_footer_button">Види још</string>
+  <string name="most_read_list_card_title">Актуелно</string>
+  <string name="view_card_news_title">Вести</string>
 </resources>

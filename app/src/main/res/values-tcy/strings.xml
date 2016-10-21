@@ -172,7 +172,7 @@
   <string name="reading_list_already_exists">ಲೇಕನೋ ಈ ಲಿಸ್ಟ್ ಡ್ ದುಂಬೆ ಉಂಡು</string>
   <string name="reading_list_added_view_button">ಪಟ್ಟಿ ತುಲೇ</string>
   <string name="reading_list_item_count_singular">1 ಲೆಕನೋ</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d ಲೇಕನೋಳು</string>
+  <string name="reading_list_item_count_plural">%d ಲೇಕನೋಳು</string>
   <string name="reading_list_sort">ಅಜಪುಲೇ</string>
   <string name="reading_list_sort_by_name">ಪುದರ್ತ ತರೋ</string>
   <string name="reading_list_sort_by_name_desc">ಪುದರ್ತ ತರೋ(ತಿರ್ಗಾತ್)</string>

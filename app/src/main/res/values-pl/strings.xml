@@ -23,6 +23,7 @@
   <string name="menu_page_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_similar_titles">Podobne tytuły</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
+  <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
   <string name="menu_page_share">Podziel się linkiem</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
@@ -234,6 +235,8 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_menu_bar_navigate">Przejdź do lokalizacji artykułu</string>
   <string name="nav_item_reading_lists">Moje listy</string>
+  <string name="reading_list_save_to">Zapisz listę do przeczytania</string>
+  <string name="reading_list_create_new">Utwórz nową</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="reading_list_item_count_singular">1 artykuł</string>
   <string name="reading_list_sort">Sortuj</string>
@@ -241,15 +244,19 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="reading_list_sort_by_name_desc">Sortuj według nazwy (odwrotnie)</string>
   <string name="reading_list_sort_by_recent">Sortuj według najnowszych</string>
   <string name="reading_list_sort_by_recent_desc">Sortuj według najstarszych</string>
+  <string name="reading_list_name_sample">Moja lista</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
   <string name="reading_list_item_delete_undo">Cofnij</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Anuluj</string>
+  <string name="reading_lists_onboarding_intro">Twórz listy artykułów, które chcesz przeczytać później, nawet gdy jesteś offline!</string>
   <string name="reading_lists_onboarding_for_example">Na przykład</string>
   <string name="reading_lists_onboarding_example2">Ulubione zwierzęta</string>
   <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="user_option_sync_label">Preferencje</string>
+  <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
+  <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
   <string name="view_random_card_subtitle">Przeczytaj losowy artykuł z Wikipedii</string>
   <string name="view_main_page_card_title">Dzisiaj w Wikipedii</string>
   <string name="view_main_page_card_subtitle">Strona główna na %s</string>

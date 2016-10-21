@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">বৈধ ব্যবহার</string>
   <string name="gallery_uploader_unknown">আপলোডকারী অজানা</string>
   <string name="menu_new_tab">নতুন ট্যাব</string>
+  <string name="menu_close_all_tabs">সব ট্যাব বন্ধ করুন</string>
+  <string name="close_all_tabs_confirm">আপনি কি নিশ্চিত যে আপনি সব ট্যাব বন্ধ করতে চান?</string>
   <string name="button_close_tab">ট্যাব বন্ধ করুন</string>
   <string name="tool_tip_select_text">অনুলিপি তৈরি বা ভাগ করার জন্য এটি আলোকপাতের জন্য লেখার যেকোন জায়গায় চাপ দিয়ে ধরে রাখুন।</string>
   <string name="tool_tip_share">একটি আকর্ষণীয় তথ্য আলোকপাত করার পর, আপনার প্রিয় নেটওয়ার্কে তা জানানোর চেষ্টা করুন!</string>
@@ -265,7 +267,7 @@
   <string name="reading_list_edit_cancel">বাতিল</string>
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই পড়ার তালিকা অপসারণ করতে চান?</string>
   <string name="reading_lists_empty">এখানে কোন পড়ার তালিকা নেই।</string>
-  <string name="reading_lists_empty_message" fuzzy="true">পড়ার তালিকার মধ্যে আপনার ব্রাউজ করা নিবন্ধ সংগঠিত করুন! যখন একটি নিবন্ধ ব্রাউজ করবেন, তা পড়ার তালিকায় যোগ করার জন্য নিবন্ধের শীর্ষে থাকা বুকমার্ক আইকনে টোকা দিন।</string>
+  <string name="reading_lists_empty_message">পড়ার তালিকার মধ্যে আপনার ব্রাউজ করা নিবন্ধ সংগঠিত করুন! যখন একটি নিবন্ধ ব্রাউজ করবেন, তা পড়ার তালিকায় যোগ করার জন্য নিচে থাকা সরঞ্জামের বুকমার্ক আইকনে টোকা দিন।</string>
   <string name="reading_lists_onboarding_intro">পরে পড়ার জন্য নিবন্ধ থেকে আপনার জন্য পড়ার তালিকা তৈরি করে, এমনকি যখন আপনি অফলাইনে থাকেন!</string>
   <string name="reading_lists_onboarding_for_example">উদাহরণস্বরূপ</string>
   <string name="reading_lists_onboarding_example1">ভ্রমণের জন্য স্থান</string>

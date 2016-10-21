@@ -24,7 +24,7 @@
   <string name="menu_page_content_issues">בעיות בתוכן</string>
   <string name="menu_page_similar_titles">כותרות דומות</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
-  <string name="menu_page_add_to_list">הוספת לרשימת קריאה</string>
+  <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
   <string name="menu_page_share">שיתוף קישור</string>
   <string name="menu_long_press_open_page">פתיחה</string>
   <string name="menu_long_press_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
@@ -276,8 +276,8 @@
   <string name="reading_lists_onboarding_got_it">הבנתי</string>
   <string name="reading_lists_onboarding_page_delete">עצה: החלקה של כל דף שמאלה או ימינה תסיר אותו מרשימת הקריאה הזאת.</string>
   <string name="user_option_sync_label">העדפות</string>
-  <string name="view_continue_reading_card_title">המשך קריאה</string>
-  <string name="view_because_you_read_card_title">הצעות לקריאה</string>
+  <string name="view_continue_reading_card_title">להמשיך לקרוא</string>
+  <string name="view_because_you_read_card_title">כי כבר קראת</string>
   <string name="view_random_card_title">ערך אקראי</string>
   <string name="view_random_card_subtitle">קריאת ערך אקראי בוויקיפדיה</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
