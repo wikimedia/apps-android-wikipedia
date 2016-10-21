@@ -78,8 +78,11 @@ public class EditTaskTest {
         }
 
         assertThat(result, instanceOf(AbuseFilterEditResult.class));
+        // todo: test against a warning, not an error. Rule 94 is currently returning
+        //       abusefilter-disallowed instead of abusefilter-warning. EditTask needs to be
+        //       reworked to a data client that can consume mock data
         //noinspection ConstantConditions
-        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_WARNING));
+        assertThat(((AbuseFilterEditResult) result).getType(), is(AbuseFilterEditResult.TYPE_ERROR));
     }
 
     /**
