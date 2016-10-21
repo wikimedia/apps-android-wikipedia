@@ -1,11 +1,11 @@
 package org.wikipedia.dataclient.mwapi;
 
-import org.wikipedia.server.mwapi.MwServiceError;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import org.wikipedia.server.mwapi.MwServiceError;
 
 public class MwQueryResponse<T> {
     @SuppressWarnings("unused") @Nullable

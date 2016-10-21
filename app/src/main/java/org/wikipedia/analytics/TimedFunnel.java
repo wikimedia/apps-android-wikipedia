@@ -2,9 +2,10 @@ package org.wikipedia.analytics;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.WikipediaApp;
 import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
+
 import java.util.concurrent.TimeUnit;
 
 /*package*/ abstract class TimedFunnel extends Funnel {

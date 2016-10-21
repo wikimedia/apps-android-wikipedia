@@ -4,17 +4,19 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.view.MenuItem;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.Button;
 import android.widget.EditText;
+
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.ConfirmPassword;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
+
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.NonEmptyValidator;
@@ -31,8 +33,8 @@ import org.wikipedia.views.PasswordTextInput;
 
 import java.util.List;
 
-import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.FeedbackUtil.setErrorPopup;
 
 public class CreateAccountActivity extends ThemedActionBarActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;

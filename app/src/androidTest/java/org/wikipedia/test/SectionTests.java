@@ -2,6 +2,7 @@ package org.wikipedia.test;
 
 import android.support.test.filters.SmallTest;
 import android.test.AndroidTestCase;
+
 import org.wikipedia.page.Section;
 
 @SmallTest

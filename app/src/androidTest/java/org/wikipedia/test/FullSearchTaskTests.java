@@ -3,8 +3,8 @@ package org.wikipedia.test;
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.search.FullSearchArticlesTask;
 import org.wikipedia.search.SearchResult;
 import org.wikipedia.search.SearchResults;

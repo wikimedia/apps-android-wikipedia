@@ -32,9 +32,9 @@ import com.mapbox.mapboxsdk.maps.Projection;
 import com.mapbox.mapboxsdk.telemetry.MapboxEventManager;
 
 import org.wikipedia.R;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;

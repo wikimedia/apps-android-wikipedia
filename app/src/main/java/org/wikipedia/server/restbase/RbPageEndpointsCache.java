@@ -6,9 +6,9 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.settings.Prefs;
 
-import retrofit2.Retrofit;
-
 import java.util.Locale;
+
+import retrofit2.Retrofit;
 
 /**
  * It's good to cache the Retrofit web service since it's a memory intensive object.

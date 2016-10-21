@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageTitle;
-
 import org.wikipedia.server.PageSummary;
 
 import java.text.BreakIterator;

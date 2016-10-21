@@ -1,9 +1,9 @@
 package org.wikipedia.login;
 
-import org.wikipedia.settings.Prefs;
-
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import org.wikipedia.settings.Prefs;
 
 class UserInfoStorage {
 

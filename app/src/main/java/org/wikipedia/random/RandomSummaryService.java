@@ -2,8 +2,8 @@ package org.wikipedia.random;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RbCachedService;
 import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.page.PageTitle;

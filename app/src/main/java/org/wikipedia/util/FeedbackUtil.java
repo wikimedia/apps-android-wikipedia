@@ -14,9 +14,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.wikipedia.main.MainActivity;
 import org.wikipedia.R;
 import org.wikipedia.analytics.ReadingListsFunnel;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;

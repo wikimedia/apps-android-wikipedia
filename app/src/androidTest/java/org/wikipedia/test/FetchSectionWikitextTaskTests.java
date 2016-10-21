@@ -5,8 +5,8 @@ import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.editing.FetchSectionWikitextTask;
+import org.wikipedia.page.PageTitle;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

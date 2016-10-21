@@ -1,8 +1,8 @@
 package org.wikipedia.views;
 
 import android.content.ClipData;
-import android.content.Context;
 import android.content.ClipboardManager;
+import android.content.Context;
 import android.support.design.widget.TextInputEditText;
 import android.util.AttributeSet;
 

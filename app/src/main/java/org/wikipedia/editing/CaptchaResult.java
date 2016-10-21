@@ -2,6 +2,7 @@ package org.wikipedia.editing;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import org.wikipedia.dataclient.WikiSite;
 
 // Handles only Image Captchas

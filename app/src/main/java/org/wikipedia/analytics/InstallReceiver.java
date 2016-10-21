@@ -1,16 +1,17 @@
 package org.wikipedia.analytics;
 
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.page.PageActivity;
-import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.log.L;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageActivity;
+import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.log.L;
 
 public final class InstallReceiver extends BroadcastReceiver {
     private static final String BOOT_ACTION = "android.intent.action.BOOT_COMPLETED";

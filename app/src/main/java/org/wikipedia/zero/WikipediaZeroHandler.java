@@ -1,20 +1,5 @@
 package org.wikipedia.zero;
 
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
-import org.mediawiki.api.json.ApiResult;
-import org.mediawiki.api.json.OnHeaderCheckListener;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
-import org.wikipedia.util.log.L;
-
-import okhttp3.Headers;
-import retrofit2.Response;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,7 +17,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.mediawiki.api.json.ApiResult;
+import org.mediawiki.api.json.OnHeaderCheckListener;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
+import org.wikipedia.events.WikipediaZeroStateChangeEvent;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
+
 import java.net.URL;
+
+import okhttp3.Headers;
+import retrofit2.Response;
 
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
