@@ -1,10 +1,9 @@
 package org.wikipedia.login;
 
-import org.wikipedia.test.TestRunner;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wikipedia.test.TestRunner;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,9 +1,8 @@
 package org.wikipedia.util;
 
-import org.wikipedia.test.TestRunner;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
