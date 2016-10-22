@@ -4,8 +4,8 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import org.json.JSONObject;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.search.SearchResult;
 
 import java.util.List;

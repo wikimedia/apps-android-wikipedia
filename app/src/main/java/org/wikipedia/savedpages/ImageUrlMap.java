@@ -3,6 +3,7 @@ package org.wikipedia.savedpages;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.VisibleForTesting;
 import android.text.Html;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +15,6 @@ import org.wikipedia.util.StringUtil;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 
 import static org.wikipedia.util.StringUtil.md5string;
 

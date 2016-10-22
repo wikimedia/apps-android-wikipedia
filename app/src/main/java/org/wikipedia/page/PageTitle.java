@@ -10,9 +10,9 @@ import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.util.log.L;
 

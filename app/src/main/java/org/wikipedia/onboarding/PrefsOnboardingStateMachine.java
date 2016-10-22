@@ -1,6 +1,7 @@
 package org.wikipedia.onboarding;
 
 import org.wikipedia.settings.Prefs;
+
 import java.util.concurrent.TimeUnit;
 
 public final class PrefsOnboardingStateMachine implements OnboardingStateMachine {

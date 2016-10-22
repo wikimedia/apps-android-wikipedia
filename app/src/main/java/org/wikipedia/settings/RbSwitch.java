@@ -1,7 +1,7 @@
 package org.wikipedia.settings;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 
 import java.util.Random;

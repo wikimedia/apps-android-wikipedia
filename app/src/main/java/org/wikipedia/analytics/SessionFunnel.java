@@ -1,13 +1,13 @@
 package org.wikipedia.analytics;
 
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.history.HistoryEntry;
-import org.json.JSONObject;
-import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.RbSwitch;
-
 import android.support.annotation.NonNull;
 import android.text.format.DateUtils;
+
+import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.RbSwitch;
 
 public class SessionFunnel extends Funnel {
     /**

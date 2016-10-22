@@ -1,14 +1,14 @@
 package org.wikipedia.page.gallery;
 
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
-
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
 
 import java.util.HashMap;
 import java.util.Iterator;

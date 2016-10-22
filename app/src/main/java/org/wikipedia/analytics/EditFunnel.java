@@ -4,11 +4,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.json.JSONObject;
-
-import org.wikipedia.login.User;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.login.User;
+import org.wikipedia.page.PageTitle;
 
 public class EditFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppEdit";

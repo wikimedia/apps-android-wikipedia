@@ -29,9 +29,9 @@ import org.wikipedia.R;
 import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
+import org.wikipedia.richtext.AudioUrlSpan;
 import org.wikipedia.richtext.LeadingSpan;
 import org.wikipedia.richtext.ParagraphSpan;
-import org.wikipedia.richtext.AudioUrlSpan;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
@@ -44,8 +44,8 @@ import org.wikipedia.views.ViewUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
+import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ArticleHeaderView extends LinearLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;

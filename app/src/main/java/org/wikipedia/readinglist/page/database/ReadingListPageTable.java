@@ -4,11 +4,11 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.database.contract.ReadingListPageContract.PageCol;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.readinglist.page.ReadingListPageRow;
 
 import java.util.ArrayList;

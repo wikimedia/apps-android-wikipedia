@@ -1,13 +1,15 @@
 package org.wikipedia.page;
 
-import org.wikipedia.concurrency.SaneAsyncTask;
-
-import com.jakewharton.disklrucache.DiskLruCache;
-import org.json.JSONObject;
 import android.content.Context;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.Log;
+
+import com.jakewharton.disklrucache.DiskLruCache;
+
+import org.json.JSONObject;
+import org.wikipedia.concurrency.SaneAsyncTask;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;

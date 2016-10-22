@@ -1,12 +1,13 @@
 package org.wikipedia.test;
 
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.wikidata.GetDescriptionsTask;
-
 import android.support.test.filters.SmallTest;
 import android.test.ActivityUnitTestCase;
+
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.wikidata.GetDescriptionsTask;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

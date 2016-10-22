@@ -17,10 +17,10 @@ import org.wikipedia.R;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ViewUtil;
 
-import static org.wikipedia.util.GradientUtil.getCubicGradient;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static org.wikipedia.util.GradientUtil.getCubicGradient;
 
 public class ArticleHeaderImageView extends FrameLayout {
     @BindView(R.id.view_article_header_image_image) FaceAndColorDetectImageView image;

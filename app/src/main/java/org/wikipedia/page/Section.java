@@ -2,10 +2,9 @@ package org.wikipedia.page;
 
 import android.support.annotation.NonNull;
 
-import org.wikipedia.json.GsonUtil;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.StringUtil;
 
 import static org.wikipedia.util.StringUtil.compareStrings;

@@ -33,8 +33,8 @@ import com.facebook.samples.zoomable.ZoomableDraweeView;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.FileUtil;

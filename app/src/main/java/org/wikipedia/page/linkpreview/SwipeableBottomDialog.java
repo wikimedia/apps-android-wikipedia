@@ -1,8 +1,5 @@
 package org.wikipedia.page.linkpreview;
 
-import org.wikipedia.R;
-import org.wikipedia.util.DimenUtil;
-
 import android.app.Dialog;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -18,6 +15,9 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+
+import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
 
 import java.util.ArrayList;
 import java.util.List;

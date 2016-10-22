@@ -1,16 +1,17 @@
 package org.wikipedia.search;
 
 import org.json.JSONArray;
-import org.wikipedia.dataclient.ApiTask;
-import org.wikipedia.Constants;
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.PageTitle;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.wikipedia.Constants;
+import org.wikipedia.dataclient.ApiTask;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.PageTitle;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;

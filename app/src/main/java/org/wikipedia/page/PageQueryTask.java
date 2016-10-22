@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
 import android.text.TextUtils;
+
 import org.json.JSONObject;
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiResult;

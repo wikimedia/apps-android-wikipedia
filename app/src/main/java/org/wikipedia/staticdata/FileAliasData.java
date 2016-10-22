@@ -3,9 +3,9 @@
    TO HAVE YOUR CHANGES OVERWRITTEN */
 package org.wikipedia.staticdata;
 
-import java.util.*;
-
 import android.support.annotation.NonNull;
+
+import java.util.HashMap;
 
 public final class FileAliasData {
 

@@ -1,9 +1,5 @@
 package org.wikipedia.widgets;
 
-import org.wikipedia.Constants;
-import org.wikipedia.main.MainActivity;
-import org.wikipedia.R;
-
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -12,6 +8,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViews;
+
+import org.wikipedia.Constants;
+import org.wikipedia.R;
+import org.wikipedia.main.MainActivity;
 
 public class WidgetProviderSearch extends AppWidgetProvider {
     private static final String TAG = "WidgetSearch";

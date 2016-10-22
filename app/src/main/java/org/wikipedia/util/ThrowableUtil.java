@@ -1,21 +1,20 @@
 package org.wikipedia.util;
 
-import org.wikipedia.R;
-import org.wikipedia.login.LoginClient;
-
-import org.mediawiki.api.json.ApiException;
-import org.json.JSONException;
-
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.github.kevinsawicki.http.HttpRequest;
 
-import javax.net.ssl.SSLException;
+import org.json.JSONException;
+import org.mediawiki.api.json.ApiException;
+import org.wikipedia.R;
+import org.wikipedia.login.LoginClient;
 
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
+
+import javax.net.ssl.SSLException;
 
 public final class ThrowableUtil {
 

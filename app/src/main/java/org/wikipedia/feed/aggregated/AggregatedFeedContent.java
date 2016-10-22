@@ -4,10 +4,10 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.mostread.MostReadArticles;
 import org.wikipedia.feed.news.NewsItem;
-import org.wikipedia.feed.image.FeaturedImage;
 
 import java.util.List;
 
