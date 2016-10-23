@@ -67,6 +67,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     private CreateAccountFunnel funnel;
 
+    private boolean passwordVisible;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,13 +123,21 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
         });
 
+        passwordInput.setOnShowPasswordListener(new PasswordTextInput.OnShowPasswordListener() {
+            @Override
+            public void onShowPasswordChecked(boolean checked) {
+                passwordVisible = checked;
+                passwordRepeatEdit.setVisibility(checked ? View.GONE : View.VISIBLE);
+            }
+        });
+
         // Don't allow user to submit registration unless they've put in a username and password
         new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
             @Override
             public void onValidationChanged(boolean isValid) {
                 createAccountButton.setEnabled(isValid);
             }
-        }, usernameEdit, passwordEdit, passwordRepeatEdit);
+        }, usernameEdit, passwordEdit);
 
         // Don't allow user to continue when they're shown a captcha until they fill it in
         new NonEmptyValidator(new NonEmptyValidator.ValidationChangedCallback() {
@@ -232,8 +242,12 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         if (emailEdit.getText().length() != 0) {
             email = emailEdit.getText().toString();
         }
+
+        String password = passwordEdit.getText().toString();
+        String passwordRepeat = passwordVisible ? password : passwordRepeatEdit.getText().toString();
+
         new CreateAccountTask(usernameEdit.getText().toString(), passwordEdit.getText().toString(),
-                              passwordRepeatEdit.getText().toString(), token, email) {
+                              passwordRepeat, token, email) {
             @Override
             public void onBeforeExecute() {
                 progressDialog.show();
