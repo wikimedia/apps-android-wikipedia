@@ -56,6 +56,8 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         largeHeaderView = view;
     }
 
+    /** Called by the constructor. Override to provide custom behavior but otherwise do not call
+        directly. */
     protected void initRecycler(@NonNull RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(),
