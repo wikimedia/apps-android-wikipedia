@@ -44,7 +44,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
     protected static final int WIDTH_DP_S = 240;
     protected static final int WIDTH_DP_XS = 120;
 
-    protected enum LayoutDirection { LOCALE, RTL }
+    public enum LayoutDirection { LOCALE, RTL }
 
     private int widthDp;
     private Locale locale;
