@@ -1,7 +1,7 @@
 package org.wikipedia.analytics;
 
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.PageTitle;
 
 import java.util.Hashtable;
 

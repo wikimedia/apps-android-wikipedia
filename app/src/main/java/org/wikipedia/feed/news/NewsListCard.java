@@ -4,8 +4,8 @@ import android.support.annotation.NonNull;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.feed.model.ListCard;
+import org.wikipedia.feed.model.UtcDate;
 
 import java.util.ArrayList;
 import java.util.List;

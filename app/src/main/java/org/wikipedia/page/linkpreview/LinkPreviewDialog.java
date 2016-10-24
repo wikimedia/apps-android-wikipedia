@@ -1,29 +1,5 @@
 package org.wikipedia.page.linkpreview;
 
-import org.wikipedia.Constants;
-import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.analytics.GalleryFunnel;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.LinkPreviewFunnel;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageFragment;
-import org.wikipedia.page.PageContainerLongPressHandler;
-import org.wikipedia.page.PageCache;
-import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.gallery.GalleryActivity;
-import org.wikipedia.page.gallery.GalleryCollection;
-import org.wikipedia.page.gallery.GalleryCollectionFetchTask;
-import org.wikipedia.page.gallery.GalleryThumbnailScrollView;
-import org.wikipedia.savedpages.LoadSavedPageTask;
-import org.wikipedia.server.PageServiceFactory;
-import org.wikipedia.server.PageSummary;
-import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.UriUtil;
-import org.wikipedia.util.log.L;
-import org.wikipedia.views.ViewUtil;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
@@ -41,6 +17,30 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.wikipedia.Constants;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.GalleryFunnel;
+import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageCache;
+import org.wikipedia.page.PageContainerLongPressHandler;
+import org.wikipedia.page.PageFragment;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.gallery.GalleryActivity;
+import org.wikipedia.page.gallery.GalleryCollection;
+import org.wikipedia.page.gallery.GalleryCollectionFetchTask;
+import org.wikipedia.page.gallery.GalleryThumbnailScrollView;
+import org.wikipedia.savedpages.LoadSavedPageTask;
+import org.wikipedia.server.PageServiceFactory;
+import org.wikipedia.server.PageSummary;
+import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
+import org.wikipedia.views.ViewUtil;
 
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;

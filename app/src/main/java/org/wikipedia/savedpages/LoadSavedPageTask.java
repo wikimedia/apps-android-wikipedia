@@ -1,8 +1,8 @@
 package org.wikipedia.savedpages;
 
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.Page;
+import org.wikipedia.page.PageTitle;
 
 public class LoadSavedPageTask extends SaneAsyncTask<Page> {
     private final PageTitle title;

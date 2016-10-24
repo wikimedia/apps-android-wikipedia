@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 

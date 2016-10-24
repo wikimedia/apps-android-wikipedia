@@ -3,8 +3,8 @@ package org.wikipedia.analytics;
 import android.support.annotation.NonNull;
 
 import org.json.JSONObject;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingList;
 

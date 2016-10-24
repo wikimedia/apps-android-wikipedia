@@ -1,12 +1,12 @@
 package org.wikipedia.nearby;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
 

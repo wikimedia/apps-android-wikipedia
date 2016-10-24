@@ -8,8 +8,8 @@ import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.UriUtil;
 
 import static org.wikipedia.util.UriUtil.decodeURL;

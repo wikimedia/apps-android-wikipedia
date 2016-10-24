@@ -1,13 +1,13 @@
 package org.wikipedia.server;
 
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.Namespace;
-import org.wikipedia.page.Section;
-
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.Namespace;
+import org.wikipedia.page.Section;
 
 import java.util.List;
 

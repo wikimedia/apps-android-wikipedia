@@ -15,11 +15,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -31,8 +31,8 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
 
-import static org.wikipedia.util.StringUtil.emptyIfNull;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class LangLinksActivity extends ThemedActionBarActivity {
     public static final int ACTIVITY_RESULT_LANGLINK_SELECT = 1;

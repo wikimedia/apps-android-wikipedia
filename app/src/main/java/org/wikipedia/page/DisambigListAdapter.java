@@ -1,23 +1,25 @@
 package org.wikipedia.page;
 
-import org.wikipedia.Constants;
-import org.wikipedia.ParcelableLruCache;
-import org.wikipedia.R;
-import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.pageimages.PageImagesTask;
-import org.wikipedia.util.DimenUtil;
-import org.wikipedia.views.GoneIfEmptyTextView;
-import org.wikipedia.views.ViewUtil;
-import org.wikipedia.wikidata.GetDescriptionsTask;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.wikipedia.Constants;
+import org.wikipedia.ParcelableLruCache;
+import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.pageimages.PageImagesTask;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.ViewUtil;
+import org.wikipedia.wikidata.GetDescriptionsTask;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

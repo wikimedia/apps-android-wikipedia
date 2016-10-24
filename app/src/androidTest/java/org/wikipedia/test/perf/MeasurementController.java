@@ -1,9 +1,9 @@
 package org.wikipedia.test.perf;
 
-import org.wikipedia.util.log.L;
-
 import android.os.SystemClock;
 import android.support.v4.util.ArrayMap;
+
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;

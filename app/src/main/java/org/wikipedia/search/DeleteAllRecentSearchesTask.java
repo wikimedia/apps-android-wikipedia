@@ -1,8 +1,9 @@
 package org.wikipedia.search;
 
+import android.content.Context;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
-import android.content.Context;
 
 /** AsyncTask to clear out recent search entries. */
 public class DeleteAllRecentSearchesTask extends SaneAsyncTask<Void> {
