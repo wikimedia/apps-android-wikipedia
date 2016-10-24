@@ -3,13 +3,16 @@ package org.wikipedia.nearby;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.PointF;
 import android.location.Location;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -276,8 +279,25 @@ public class NearbyFragment extends Fragment {
                     .zoom(getResources().getInteger(R.integer.map_default_zoom))
                     .build();
             mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(pos));
+        } else {
+            showLocationDisabledSnackbar();
         }
+
         fetchNearbyPages();
+    }
+
+    private void showLocationDisabledSnackbar() {
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(getView(),
+                getString(R.string.location_service_disabled),
+                FeedbackUtil.LENGTH_DEFAULT);
+        snackbar.setAction(R.string.enable_location_service, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                getContext().startActivity(settingsIntent);
+            }
+        });
+        snackbar.show();
     }
 
     private void makeUseOfNewLocation(Location location) {
