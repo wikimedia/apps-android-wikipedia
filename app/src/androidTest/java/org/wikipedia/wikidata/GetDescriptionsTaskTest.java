@@ -1,7 +1,5 @@
 package org.wikipedia.wikidata;
 
-import android.support.annotation.NonNull;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
@@ -18,6 +16,7 @@ import java.util.Map;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 /**
  * Tests retrieval of Wikidata descriptions through enwiki.
@@ -61,9 +60,5 @@ public class GetDescriptionsTaskTest {
             }
         });
         latch.await();
-    }
-
-    private void runOnMainSync(@NonNull Runnable runnable) {
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(runnable);
     }
 }

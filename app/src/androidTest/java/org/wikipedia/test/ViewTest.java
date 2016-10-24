@@ -103,10 +103,6 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         assertThat(textView.getText().toString(), is(emptyIfNull(str(text))));
     }
 
-    protected void runOnMainSync(@NonNull Runnable runnable) {
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(runnable);
-    }
-
     @NonNull protected String len(@StringRes int id) {
         if (id == 0) {
             return "no_";

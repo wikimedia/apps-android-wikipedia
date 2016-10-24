@@ -1,27 +1,26 @@
 package org.wikipedia.test;
 
-import org.wikipedia.dataclient.WikiSite;
+import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
+import android.support.test.filters.SmallTest;
+import android.support.test.runner.AndroidJUnit4;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.editing.EditTokenStorage;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.User;
 import org.wikipedia.testlib.TestLatch;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.filters.SmallTest;
-import android.support.test.runner.AndroidJUnit4;
-
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @SmallTest
 @RunWith(AndroidJUnit4.class)
@@ -38,7 +37,7 @@ public class LoginClientTest {
 
     @Test
     public void testLogin() {
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(new Runnable() {
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 new LoginClient().request(TEST_WIKI, USERNAME, PASSWORD,
