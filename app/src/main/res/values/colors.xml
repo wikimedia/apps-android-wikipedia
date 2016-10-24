@@ -42,9 +42,7 @@
     <color name="lead_gradient_start">#b8000000</color>
     <color name="new_lead_gradient_start">#50000000</color>
     <color name="main_toolbar_background">@color/actionbar_background</color>
-    <color name="status_bar_background">@color/primary_dark_material_dark</color>
 
-    <color name="button_light">#777</color>
     <color name="window_background_light">#fff</color>
     <color name="page_background_light">#fff</color>
     <color name="search_background_light">#fff</color>
@@ -62,7 +60,6 @@
     <color name="link_preview_text_light">#505050</color>
     <color name="link_preview_button_background_light">#eaf0f0f0</color>
     <color name="link_preview_button_background_light_highlight">#eac0c0c0</color>
-    <color name="nav_background_light">#f0f0f0</color>
     <color name="nav_text_light">#303030</color>
     <color name="list_item_text_primary_light">#333</color>
     <color name="list_item_text_secondary_light">#777</color>
@@ -84,7 +81,6 @@
     <color name="link_preview_text_dark">#d0d0d0</color>
     <color name="link_preview_button_background_dark">#ea303030</color>
     <color name="link_preview_button_background_dark_highlight">#ea505050</color>
-    <color name="nav_background_dark">#303030</color>
     <color name="nav_text_dark">#d0d0d0</color>
     <color name="list_item_text_primary_dark">#d0d0d0</color>
     <color name="list_item_text_secondary_dark">#808080</color>
