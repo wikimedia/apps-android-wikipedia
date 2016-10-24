@@ -295,4 +295,5 @@
     <item quantity="one">أمس</item>
     <item quantity="other">قبل %d أيام</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">اليوم</string>
 </resources>

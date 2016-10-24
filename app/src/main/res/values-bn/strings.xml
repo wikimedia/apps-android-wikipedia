@@ -297,4 +297,5 @@
     <item quantity="one">গতকাল</item>
     <item quantity="other">%d দিন আগে</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">আজ</string>
 </resources>

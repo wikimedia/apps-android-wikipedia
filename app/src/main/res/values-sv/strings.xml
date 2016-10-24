@@ -297,4 +297,5 @@ Vill du starta om eller avsluta?</string>
     <item quantity="one">igår</item>
     <item quantity="other">%d dagar sedan</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">i dag</string>
 </resources>

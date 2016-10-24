@@ -57,7 +57,7 @@
   <string name="toast_logout_complete">Jūs esat izgājis</string>
   <string name="delete_selected_history">Dzēst</string>
   <string name="create_account_username_hint">Lietotājvārds</string>
-  <string name="login_create_account_link" fuzzy="true">Izveidot kontu</string>
+  <string name="login_create_account_link">Jums vēl nav sava konta? Pievienojies Vikipēdijai</string>
   <string name="create_account_activity_title">Izveidot kontu</string>
   <string name="dialog_create_account_checking_progress">Pārbauda</string>
   <string name="create_account_email_hint">E-pasts (nav obligāti)</string>
@@ -68,21 +68,25 @@
   <string name="create_account_next">Tālāk</string>
   <string name="create_account_button">Izveidot kontu</string>
   <string name="preferences_general_heading">Vispārīgi</string>
+  <string name="wikipedia_app_faq">Vikipēdijas lietotnes BUJ</string>
   <string name="zero_charged_verbiage">Vikipēdija Zero ir izslēgts</string>
   <string name="zero_search_hint">Meklēt Vikipēdijā Zero</string>
   <string name="zero_warn_when_leaving">Brīdināt kad iziet no Zero</string>
   <string name="zero_webpage_title">Vikipēdija Zero BUJ</string>
   <string name="zero_wikipedia_zero_heading">Vikipēdija Zero</string>
+  <string name="zero_interstitial_title">Atstāj Vikipēdija Zero</string>
   <string name="zero_interstitial_continue">Pamest</string>
   <string name="zero_interstitial_cancel">Palikt šeit</string>
   <string name="zero_learn_more_learn_more">Lasīt vairāk</string>
   <string name="nav_item_random">Nejaušs raksts</string>
   <string name="create_account_account_created_toast">Konts izveidots!</string>
   <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
+  <string name="preference_title_eventlogging_opt_in">Sūtīt lietojuma ziņojumus</string>
   <string name="history_search_list_hint">Meklēšanas vēsture</string>
   <string name="page_protected_can_not_edit_title">Šī lapa ir aizsargāta</string>
   <string name="settings_item_preferences">Iestatījumi</string>
   <string name="settings_activity_title">Iestatījumi</string>
+  <string name="about_description">Par Vikipēdijas lietotni</string>
   <string name="privacy_policy_description">Privātuma politika</string>
   <string name="terms_of_use_description">Lietošanas noteikumi</string>
   <string name="about_libraries_heading">Izmantotās bibliotēkas</string>
@@ -143,7 +147,11 @@
   <string name="reading_list_edit_cancel">Atcelt</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="user_option_sync_label">Izvēles</string>
+  <string name="view_continue_reading_card_title">Turpini lasīt</string>
+  <string name="view_random_card_title">Nejauša lapa</string>
+  <string name="view_random_card_subtitle">Lasi nejaušu Vikipēdijas lapu</string>
   <string name="view_main_page_card_title">Šodien Vikipēdijā</string>
+  <string name="view_main_page_card_subtitle">%s sākumlapa</string>
   <string name="view_featured_image_card_title">Dienas attēls</string>
   <string name="view_featured_image_card_download">Lejupielādēt</string>
   <string name="menu_feed_card_dismiss" fuzzy="true">Paslēpt šo ierosinājumu</string>
@@ -151,4 +159,5 @@
   <string name="menu_feed_overflow_label">Vairāk iespēju</string>
   <string name="view_card_footer_button">Skatīt vairāk</string>
   <string name="view_card_news_title">Ziņās</string>
+  <string name="view_continue_reading_card_subtitle_today">šodien</string>
 </resources>

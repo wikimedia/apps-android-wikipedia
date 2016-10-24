@@ -203,6 +203,7 @@
   <string name="menu_close_all_tabs">All Tabs zoumaachen</string>
   <string name="close_all_tabs_confirm">Sidd Dir sécher datt Dir all Tabs zoumaache wëllt?</string>
   <string name="button_close_tab">Tab zoumaachen</string>
+  <string name="tool_tip_share">Nom ervirhiewe vun engem interessante Fait, probéiert fir en iwwer Äert Lieblingsnetzwierk!</string>
   <string name="page_view_in_browser">Säit am Browser weisen</string>
   <string name="error_server_response">De Server konnt d\'Ufro net ausféieren.</string>
   <string name="error_response_malformed">D\'Äntwert vum Server war net richteg formatéiert.</string>
@@ -266,6 +267,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_lists_onboarding_example2">Lieblingsdéieren</string>
   <string name="reading_lists_onboarding_example3">Weltraum!</string>
   <string name="reading_lists_onboarding_got_it">Verstan</string>
+  <string name="reading_lists_onboarding_page_delete">Tipp: Wëscht eng Säit no lénks oder no riets fir et aus der Lieslëscht erauszehuelen.</string>
   <string name="user_option_sync_label">Astellungen</string>
   <string name="view_continue_reading_card_title">Virufuere mat Liesen</string>
   <string name="view_because_you_read_card_title">Well Dir liest</string>
@@ -288,4 +290,5 @@ Wëllt Dir se nei starten oder erausgoen?</string>
     <item quantity="one">gëschter</item>
     <item quantity="other">viru(n) %d Deeg</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">haut</string>
 </resources>

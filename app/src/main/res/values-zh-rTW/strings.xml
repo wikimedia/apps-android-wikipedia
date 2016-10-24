@@ -297,4 +297,5 @@
     <item quantity="one">昨日</item>
     <item quantity="other">%d 日前</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">今天</string>
 </resources>

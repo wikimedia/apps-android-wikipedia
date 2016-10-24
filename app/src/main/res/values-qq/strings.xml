@@ -434,5 +434,6 @@ Shown in the preferences screen along with the following:
     <item quantity="one">Phrase for one day ago.</item>
     <item quantity="other">Phrase for more than one day ago.</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.</string>
+  <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.
+{{Identical|Today}}</string>
 </resources>

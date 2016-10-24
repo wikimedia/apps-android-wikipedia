@@ -17,7 +17,7 @@
   <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ხართ?</string>
   <string name="nav_item_saved_pages">შენახული გვერდები</string>
   <string name="share_via">გაზიარების სახე</string>
-  <string name="search_redirect_from" fuzzy="true">გადამისამართება %s-დან</string>
+  <string name="search_redirect_from">გადამისამართებულია %s-დან</string>
   <string name="menu_page_show_tabs">ჩანართების ჩვენება</string>
   <string name="menu_page_other_languages">ენის შეცვლა</string>
   <string name="menu_page_find_in_page">გვერდში ძიება</string>
@@ -176,7 +176,7 @@
   <string name="read_more_section">წაიკითხე მეტი</string>
   <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
-  <string name="license_title" fuzzy="true">ლიცენზიის ტექსტი ბიბლიოთეკისთვის: %s</string>
+  <string name="license_title">ლიცენზია %s-თვის</string>
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_menu_save">მოწყობილობაში შენახვა</string>
@@ -195,6 +195,8 @@
   <string name="gallery_fair_use_license">კეთილსინდისიერი გამოყენება</string>
   <string name="gallery_uploader_unknown">ამტვირთველი უცნობია</string>
   <string name="menu_new_tab">ახალი ჩანართი</string>
+  <string name="menu_close_all_tabs">ყველა ჩანართის დახურვა</string>
+  <string name="close_all_tabs_confirm">ნამდვილად გსურთ, ყველა ჩანართის დახურვა?</string>
   <string name="button_close_tab">ჩანართის დახურვა</string>
   <string name="tool_tip_select_text">დააჭირეთ და გეკავოთ ტექსტის ნებისმიერ ადგილი რათა მოინიშნოს დასაკოპირებლად ან გასაზიარებლად.</string>
   <string name="tool_tip_share">საიტერესო ფაქტის აღმოჩენის შემდეგ, გააზიარეთ ის ფავორიტთა ქსელში!</string>
@@ -226,7 +228,7 @@
   <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
   <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_menu_bar_navigate">სტატიის მდებარეობაზე გადასვლა</string>
-  <string name="nav_item_reading_lists" fuzzy="true">საკითხავი სიები</string>
+  <string name="nav_item_reading_lists">ჩემი სიები</string>
   <string name="reading_list_untitled">უსათაურო</string>
   <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>
   <string name="reading_list_create_new">ახლის შექმნა</string>
@@ -235,9 +237,10 @@
   <string name="reading_list_already_exists">ეს სტატია უკვე ამ სიაშია.</string>
   <string name="reading_list_added_view_button">სიის ხილვა</string>
   <string name="reading_list_item_count_singular">1 სტატია</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d სტატია</string>
+  <string name="reading_list_item_count_plural">%d სტატია</string>
   <string name="reading_list_sort">სორტირება</string>
   <string name="reading_list_sort_by_name">დალაგება სახელის მიხედვით</string>
+  <string name="reading_list_sort_by_name_desc">სახელით დალაგება (უკანა)</string>
   <string name="reading_list_sort_by_recent">დალაგება ყველაზე ბოლოების მიხედვით</string>
   <string name="reading_list_sort_by_recent_desc">დალაგება შედარებით ბოლოების მიხედვით</string>
   <string name="reading_list_menu_edit">წასაკითხთა სიის რედაქტირება</string>
@@ -246,9 +249,9 @@
   <string name="reading_list_name_hint">ამ სიის სახელი</string>
   <string name="reading_list_description_hint">აღწერა</string>
   <string name="reading_list_save_for_offline">ხელმისაწვდომია ოფლაინ-რეჟიმში წასაკითხად</string>
-  <string name="reading_list_item_deleted" fuzzy="true">%s-ს წაშლა სიიდან</string>
+  <string name="reading_list_item_deleted">%s წაიშალა სიიდან</string>
   <string name="reading_list_item_delete_undo">გაუქმება</string>
-  <string name="reading_list_deleted" fuzzy="true">%s-ს წაშლილია</string>
+  <string name="reading_list_deleted">%s წაიშალა</string>
   <string name="reading_list_edit_ok">კარგი</string>
   <string name="reading_list_edit_cancel">გაუქმება</string>
   <string name="reading_list_delete_confirm">დარწმუნებული ხართ, რომ გსურთ წასაკითხთა ამ სიის წაშლა?</string>
@@ -261,12 +264,22 @@
   <string name="user_option_sync_label">კონფიგურაცია</string>
   <string name="view_continue_reading_card_title">განაგრძე კითხვა</string>
   <string name="view_because_you_read_card_title">რადგან თქვენ კითხულობთ</string>
-  <string name="view_random_card_subtitle" fuzzy="true">წაიკითხე შემთხვევითი სტატია %s-ს ვიკიპედიაში</string>
+  <string name="view_random_card_subtitle">ვიკიპედიის შემთხვევითი სტატიის კითხვა</string>
   <string name="view_main_page_card_title">დღეს ვიკიპედიაში</string>
   <string name="view_main_page_card_subtitle">მთავარი გვერდი %s-ზე</string>
   <string name="view_featured_image_card_title">დღის სურათი</string>
   <string name="view_featured_image_card_download">გადმოწერა</string>
-  <string name="menu_feed_card_dismiss" fuzzy="true">შეთავაზების დამალვა</string>
-  <string name="menu_feed_card_dismissed" fuzzy="true">დამალული შეთავაზება.</string>
+  <string name="menu_feed_card_dismiss">ამ ბარათის დამალვა</string>
+  <string name="menu_feed_card_dismissed">ბარათი დამალულია.</string>
+  <string name="menu_feed_overflow_label">მეტი პარამეტრები</string>
+  <string name="feed_featured_image_share_subject">ვიკისაწყობის რჩეული სურათი</string>
+  <string name="feed">კვლევა</string>
   <string name="view_card_footer_button">იხილეთ მეტი</string>
+  <string name="view_static_card_icon_content_description">ბარათის ხატულა</string>
+  <string name="view_card_news_title">სიახლეებში</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">გუშინ</item>
+    <item quantity="other">%d დღის წინ</item>
+  </plurals>
+  <string name="view_continue_reading_card_subtitle_today">დღეს</string>
 </resources>

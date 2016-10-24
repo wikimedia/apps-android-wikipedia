@@ -297,4 +297,5 @@ Gustaríalle volver a comezar ou saír?</string>
     <item quantity="one">onte</item>
     <item quantity="other">fai %d días</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">hoxe</string>
 </resources>

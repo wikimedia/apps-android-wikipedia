@@ -84,10 +84,10 @@
   <string name="create_account_login_link">Већ имате налог? Пријавите се</string>
   <string name="create_account_activity_title">Отворите налог</string>
   <string name="dialog_create_account_checking_progress">Верификација</string>
-  <string name="create_account_email_hint">Е-адреса (необавезно)</string>
+  <string name="create_account_email_hint">Имејл (необавезно)</string>
   <string name="create_account_password_repeat_hint">Потврда лозинке</string>
   <string name="create_account_passwords_mismatch_error">Лозинке се не поклапају</string>
-  <string name="create_account_email_error">Неисправна е-адреса</string>
+  <string name="create_account_email_error">Неисправна имејл адреса</string>
   <string name="create_account_generic_error">Не могу да отворим налог</string>
   <string name="create_account_next">Следеће</string>
   <string name="create_account_button">Отвори налог</string>

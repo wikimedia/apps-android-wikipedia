@@ -297,4 +297,5 @@
     <item quantity="one">ayeri</item>
     <item quantity="other">fai %d díes</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">güei</string>
 </resources>

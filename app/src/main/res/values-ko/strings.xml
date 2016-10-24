@@ -152,7 +152,7 @@
   <string name="edit_summary_tag_other_hint">문서를 개선하는 다른 방법</string>
   <string name="find_next">다음 찾기</string>
   <string name="find_previous">이전 찾기</string>
-  <string name="abusefilter_title_warn">비생산적인 편집일 수도 있습니다. 그것을 저장하겠습니까?</string>
+  <string name="abusefilter_title_warn">비생산적인 편집일 수도 있습니다. 그래도 저장하겠습니까?</string>
   <string name="abusefilter_title_disallow">이 편집을 저장할 수 없습니다. 뒤로 가고 나서 바꿔주세요.</string>
   <string name="abusefilter_text_warn">자동화된 필터가 이 편집을 잠재적으로 비생산적인 것으로 식별합니다. 다음 중 하나 이상을 포함할 수 있습니다:&lt;br /&gt;&lt;br /&gt;· 모두 대문자로 입력&lt;br /&gt;· 문서가 비어 있거나 스팸을 넣음&lt;br /&gt;· 관련 없는 바깥 링크나 그림&lt;br /&gt;· 글자 반복</string>
   <string name="abusefilter_text_disallow">자동화된 필터가 이 편집을 잠재적으로 비생산적이나, 잠재적으로 훼손한 것으로 식별합니다.&lt;br /&gt;&lt;br /&gt;위키백과는 백과사전이자 중립적이며, 주목할만한 내용만이 여기에 들어갑니다.</string>
@@ -265,7 +265,7 @@
   <string name="reading_list_edit_cancel">취소</string>
   <string name="reading_list_delete_confirm">이 읽기 목록을 삭제하시겠습니까?</string>
   <string name="reading_lists_empty">여기에 읽기 목록이 없습니다.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">당신이 찾아본 글들을 읽기 목록에 정리합니다! 글을 찾아볼 때 문서 상단의 즐겨찾기 아이콘을 탭하면 읽기 목록에 글을 추가합니다.</string>
+  <string name="reading_lists_empty_message">당신이 찾아본 글들을 읽기 목록에 정리합니다! 글을 찾아볼 때 읽기 목록에 글을 추가하려면, 하단 도구 모음의 즐겨찾기 아이콘을 탭하면 됩니다.</string>
   <string name="reading_lists_onboarding_intro">나중에 읽고 싶은 글들을 읽기 목록으로 만듭니다. 오프라인에서도 이용이 가능합니다.</string>
   <string name="reading_lists_onboarding_for_example">예를 들어</string>
   <string name="reading_lists_onboarding_example1">방문할 장소</string>
@@ -295,4 +295,5 @@
     <item quantity="one">어제</item>
     <item quantity="other">%d일 전</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">오늘</string>
 </resources>

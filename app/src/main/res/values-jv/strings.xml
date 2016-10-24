@@ -297,4 +297,5 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
     <item quantity="one">wingi</item>
     <item quantity="other">%d dina lalu</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">dina iki</string>
 </resources>

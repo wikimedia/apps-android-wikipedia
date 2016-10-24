@@ -298,4 +298,5 @@ Voudriez-vous redémarrer ou quitter ?</string>
     <item quantity="one">hier</item>
     <item quantity="other">il y a %d jours</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">aujourd’hui</string>
 </resources>
