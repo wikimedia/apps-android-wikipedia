@@ -24,28 +24,28 @@ import static org.junit.Assert.assertThat;
     }
 
     @Theory public void testLayoutDirection(LayoutDirection direction) {
-        setUp(WIDTH_DP_XS, direction, 1, Theme.LIGHT);
+        setUp(WIDTH_DP_XS, direction, FONT_SCALES[0], Theme.LIGHT);
         snap(subject);
     }
 
     @Theory public void testTheme(Theme theme) {
-        setUp(WIDTH_DP_XS, LayoutDirection.LOCALE, 1, theme);
+        setUp(WIDTH_DP_XS, LayoutDirection.LOCALE, FONT_SCALES[0], theme);
         snap(subject);
     }
 
     @Theory public void testSelect(Theme theme) {
-        setUp(WIDTH_DP_XS, LayoutDirection.LOCALE, 1, theme);
+        setUp(WIDTH_DP_XS, LayoutDirection.LOCALE, FONT_SCALES[0], theme);
         subject.setSelected(true);
         snap(subject);
     }
 
     @Test public void testText() {
-        setUp(WIDTH_DP_XS, LayoutDirection.LOCALE, 1, Theme.LIGHT);
+        setUp(WIDTH_DP_XS, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT);
         assertThat(subject.getText().toString(), is(str(NavTab.EXPLORE.text())));
     }
 
     @Test public void testIcon() {
-        setUp(WIDTH_DP_XS, LayoutDirection.LOCALE, 1, Theme.LIGHT);
+        setUp(WIDTH_DP_XS, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT);
         assertThat(subject.getCompoundDrawables(), hasItemInArray(notNullValue()));
     }
 

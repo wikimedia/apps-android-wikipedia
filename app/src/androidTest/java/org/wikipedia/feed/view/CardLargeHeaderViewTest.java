@@ -33,18 +33,18 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     }
 
     @Theory public void testLayoutDirection(LayoutDirection direction) {
-        setUp(WIDTH_DP_L, direction, 1, Theme.LIGHT, R.drawable.wmf_logo,
+        setUp(WIDTH_DP_L, direction, FONT_SCALES[0], Theme.LIGHT, R.drawable.wmf_logo,
                 R.string.reading_list_name_sample);
         snap(subject);
     }
 
     @Theory public void testTheme(Theme theme) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, theme, 0, R.string.reading_list_name_sample);
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], theme, 0, R.string.reading_list_name_sample);
         snap(subject);
     }
 
     @Theory public void testFocus(Theme theme) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, theme, 0, R.string.reading_list_name_sample);
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], theme, 0, R.string.reading_list_name_sample);
         runOnMainSync(new Runnable() {
             @Override public void run() {
                 subject.requestFocus();
@@ -54,19 +54,19 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     }
 
     @Theory public void testSetImage(@TestedOn(ints = {0, R.drawable.checkerboard}) int image) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, image, 0);
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, image, 0);
         View imageView = findById(subject, R.id.view_card_header_large_image);
         assertThat(imageView.getVisibility(), is(image == 0 ? View.GONE : View.VISIBLE));
     }
 
     @Theory public void testSetTitle(@TestedOn(ints = {0,
             R.string.reading_list_name_sample}) int text) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, 0, text);
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, 0, text);
         assertText(subject, R.id.view_card_header_large_title, text);
     }
 
     @Theory public void testOnClickListener(@TestedOn(ints = {0, 1}) int nonnull) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, R.drawable.checkerboard,
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, R.drawable.checkerboard,
                 R.string.reading_list_name_sample);
 
         OnClickListener listener = nonnull == 0 ? null : mock(View.OnClickListener.class);
