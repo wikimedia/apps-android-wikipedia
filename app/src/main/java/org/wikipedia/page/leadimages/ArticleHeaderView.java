@@ -303,11 +303,7 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     private void setTopOffset(boolean noImage) {
         statusBarPlaceholder.setVisibility(noImage ? View.VISIBLE : View.GONE);
-        int offset = noImage ? getDimensionPixelOffset(R.dimen.lead_no_image_top_offset_dp) : 0;
+        int offset = noImage ? getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) : 0;
         setPadding(0, offset, 0, 0);
-    }
-
-    private int getDimensionPixelOffset(@DimenRes int id) {
-        return getContext().getResources().getDimensionPixelOffset(id);
     }
 }
