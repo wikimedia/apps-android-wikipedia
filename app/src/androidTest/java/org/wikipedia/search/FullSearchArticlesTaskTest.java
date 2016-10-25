@@ -1,59 +1,57 @@
 package org.wikipedia.search;
 
 import android.support.test.filters.SmallTest;
-import android.test.ActivityUnitTestCase;
 
+import org.junit.Test;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.test.TestDummyActivity;
+import org.wikipedia.testlib.TestLatch;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 /**
  * Tests for full text search.
  */
 @SmallTest
-public class FullSearchArticlesTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 20_000;
+public class FullSearchArticlesTaskTest {
     private static final int BATCH_SIZE = 12;
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
-    public FullSearchArticlesTaskTest() {
-        super(TestDummyActivity.class);
-    }
-
     /** Have to use enwiki since I don't think there are any Wikidata descriptions for testwiki. */
-    public void testFullTextSearchWithResults() throws Throwable {
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        runTestOnUiThread(new Runnable() {
+    @Test public void testFullTextSearchWithResults() throws Throwable {
+        final TestLatch latch = new TestLatch();
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 WikipediaApp app = WikipediaApp.getInstance();
                 new FullSearchArticlesTask(app.getAPIForSite(WIKI), WIKI, "test", BATCH_SIZE, null, false) {
                     @Override
                     public void onFinish(SearchResults results) {
-                        assertNotNull(results);
-                        assertEquals(results.getResults().size(), BATCH_SIZE);
-                        assertNull(results.getSuggestion());
-                        assertNotNull(results.getContinueOffset());
+                        assertThat(results, notNullValue());
+                        assertThat(results.getResults().size(), is(BATCH_SIZE));
+                        assertThat(results.getSuggestion(), nullValue());
+                        assertThat(results.getContinueOffset(), notNullValue());
 
                         for (SearchResult result : results.getResults()) {
                             if (result.getPageTitle().getPrefixedText().equals("Test")) {
-                                assertEquals(result.getPageTitle().getDescription(), "Wikipedia disambiguation page");
+                                assertThat(result.getPageTitle().getDescription(), is("Wikipedia disambiguation page"));
                             }
                         }
-                        completionLatch.countDown();
+                        latch.countDown();
                     }
                 }.execute();
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
     }
 
     // TODO: move to TitleSearchTest once we have it
 
-//    public void testFullTextSearchWithSuggestion() throws Throwable {
+//    @Test public void testFullTextSearchWithSuggestion() throws Throwable {
 //        startActivity(new Intent(), null, null);
 //        final CountDownLatch completionLatch = new CountDownLatch(1);
 //        runTestOnUiThread(new Runnable() {
@@ -73,25 +71,25 @@ public class FullSearchArticlesTaskTest extends ActivityUnitTestCase<TestDummyAc
 //        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
 //    }
 
-    public void testEmptyResults() throws Throwable {
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        runTestOnUiThread(new Runnable() {
+    @Test public void testEmptyResults() throws Throwable {
+        final TestLatch latch = new TestLatch();
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 WikipediaApp app = WikipediaApp.getInstance();
                 new FullSearchArticlesTask(app.getAPIForSite(WIKI), WIKI, "jkfsdfpefdsfwoirpoik", BATCH_SIZE, null, false) { // total gibberish, should not exist on enwiki
                     @Override
                     public void onFinish(SearchResults results) {
-                        assertNotNull(results);
-                        assertEquals(results.getResults().size(), 0);
-                        assertEquals(results.getSuggestion(), "");
-                        assertNull(results.getContinueOffset());
-                        completionLatch.countDown();
+                        assertThat(results, notNullValue());
+                        assertThat(results.getResults().size(), is(0));
+                        assertThat(results.getSuggestion(), is(""));
+                        assertThat(results.getContinueOffset(), nullValue());
+                        latch.countDown();
                     }
                 }.execute();
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
     }
 }
 
