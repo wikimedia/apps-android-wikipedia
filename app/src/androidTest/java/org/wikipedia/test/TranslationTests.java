@@ -3,13 +3,15 @@ package org.wikipedia.test;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.support.test.filters.SmallTest;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import org.junit.Test;
 import org.wikipedia.R;
 import org.wikipedia.model.BaseModel;
+import org.wikipedia.util.log.L;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
@@ -26,14 +28,10 @@ import static org.junit.Assert.fail;
  * Tests to make sure that the string resources don't cause any issues. Mainly the goal is to test
  * all translations, but even the default strings are tested.
  *
- * Picked a random Activity but has to be from the app.
- *
  * TODO: check content_license_html is valid HTML
  */
 @SmallTest
 public class TranslationTests {
-    private static final String TAG = "TrTest";
-
     /** Add more if needed, but then also add some tests. */
     private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d", "%.2f"};
 
@@ -50,9 +48,9 @@ public class TranslationTests {
         List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources(defaultLang);
         // todo: flag usage of templates {{}}.
 
-        AssetManager assetManager = getInstrumentation().getTargetContext().getResources().getAssets();
+        AssetManager assetManager = getResources().getAssets();
         for (String lang : assetManager.getLocales()) {
-            Log.i(TAG, "----locale=" + (lang.equals("") ? "DEFAULT" : lang));
+            L.i("----locale=" + (lang.equals("") ? "DEFAULT" : lang));
             setLocale(lang);
             checkAllStrings(lang);
 
@@ -106,11 +104,10 @@ public class TranslationTests {
     private void setLocale(String lang) {
         myLocale = new Locale(lang);
         Locale.setDefault(myLocale);
-        Resources res = getInstrumentation().getTargetContext().getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        Configuration conf = getResources().getConfiguration();
         conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
+        getResources().updateConfiguration(conf, dm);
     }
 
     private void checkAllStrings(String lang) {
@@ -122,12 +119,12 @@ public class TranslationTests {
     }
 
     private void expectNotContains(Res res, String... examples) {
-        String translatedString = getInstrumentation().getTargetContext().getString(res.id);
-//        Log.i(TAG, myLocale + ":" + translatedString);
+        String translatedString = getString(res.id);
+//        L.i(myLocale + ":" + translatedString);
         for (String example : examples) {
             if (translatedString.contains(example)) {
                 final String msg = myLocale + ":" + res.name + " = " + translatedString + "' contains " + example;
-                Log.e(TAG, msg);
+                L.e(msg);
                 mismatches.append(msg).append("\n");
                 break;
             }
@@ -135,8 +132,8 @@ public class TranslationTests {
     }
 
     private void expectContains(Res res, Object... examples) {
-        String translatedString = getInstrumentation().getTargetContext().getString(res.id);
-//        Log.i(TAG, myLocale + ":" + translatedString);
+        String translatedString = getString(res.id);
+//        L.i(myLocale + ":" + translatedString);
         boolean found = false;
         for (Object example : examples) {
             if (translatedString.contains(example.toString())) {
@@ -146,46 +143,58 @@ public class TranslationTests {
         }
         if (!found) {
             final String msg = myLocale + ":" + res.name + " = " + translatedString + "' does not contain " + Arrays.toString(examples);
-            Log.e(TAG, msg);
+            L.e(msg);
             mismatches.append(msg).append("\n");
         }
     }
 
     private void checkTranslationHasNoParameter(Res res) {
         final String val1 = "[val1]";
-        String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
-//        Log.i(TAG, myLocale + ":" + translatedString);
+        String translatedString = getString(res.id, val1);
+//        L.i(myLocale + ":" + translatedString);
         if (translatedString.contains(val1)) {
             final String msg = myLocale + ":" + res.name + " = " + translatedString + "' contains " + val1;
-            Log.e(TAG, msg);
+            L.e(msg);
             mismatches.append(msg).append("\n");
         }
     }
 
     private void checkTranslationHasParameter(Res res, String paramName, Object val1, String alternateFormat) {
-//        Log.i(TAG, myLocale + ":" + res.name + ":" + paramName);
-        String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1);
-//        Log.d(TAG, translatedString);
+//        L.i(myLocale + ":" + res.name + ":" + paramName);
+        String translatedString = getString(res.id, val1);
+//        L.d(translatedString);
         if (!translatedString.contains(String.format(paramName, val1))
             && (alternateFormat == null || !translatedString.contains(alternateFormat))) {
             final String msg = myLocale + ":" + res.name + " = " + translatedString + "' is missing " + val1;
-            Log.e(TAG, msg);
+            L.e(msg);
             mismatches.append(msg).append("\n");
         }
     }
 
     private void checkTranslationHasTwoParameters(Res res, String paramName, Object val1, Object val2) {
-        Log.i(TAG, myLocale + ":" + res.name + ":" + paramName);
-        String translatedString = getInstrumentation().getTargetContext().getString(res.id, val1, val2);
-        Log.d(TAG, translatedString);
+        L.i(myLocale + ":" + res.name + ":" + paramName);
+        String translatedString = getString(res.id, val1, val2);
+        L.d(translatedString);
         if (!translatedString.contains(String.format(paramName, val1))
                 || !translatedString.contains(String.format(paramName, val2))) {
             final String msg = myLocale + ":" + res.name + " = " + translatedString
                     + "' is missing " + val1
                     + "' or " + val2;
-            Log.e(TAG, msg);
+            L.e(msg);
             mismatches.append(msg).append("\n");
         }
+    }
+
+    @NonNull private String getString(@StringRes int id, Object... args) {
+        return getTargetContext().getString(id, args);
+    }
+
+    @NonNull private String getString(@StringRes int id) {
+        return getTargetContext().getString(id);
+    }
+
+    @NonNull private Resources getResources() {
+        return getTargetContext().getResources();
     }
 
     private class ResourceCollector {
@@ -214,12 +223,12 @@ public class TranslationTests {
                     name = fields[i].getName();
                     resourceId = fields[i].getInt(stringResources);
                 } catch (Exception e) {
-                    Log.e(TAG, myLocale + "-" + i + "; failed: " + e.getMessage());
+                    L.e(myLocale + "-" + i + "; failed: " + e.getMessage());
                     continue;
                 }
                 // todo: don't try. Die.
                 try {
-                    String value = getInstrumentation().getTargetContext().getResources().getString(resourceId);
+                    String value = getString(resourceId);
                     // don't care about appcompat string; and preference string resources don't get translated
                     if (name.startsWith("abc_")
                     ||  name.startsWith("preference_")
@@ -238,9 +247,9 @@ public class TranslationTests {
                         resources.add(new Res(resourceId, name));
                     }
                 } catch (Resources.NotFoundException e) {
-                    Log.w(TAG, buildLogString(i, name) + "; <not found>");
+                    L.w(buildLogString(i, name) + "; <not found>");
                 } catch (RuntimeException e) {
-                    Log.e(TAG, buildLogString(i, name) + "; --- " + e.getMessage());
+                    L.e(buildLogString(i, name) + "; --- " + e.getMessage());
                 }
             }
 
@@ -253,7 +262,7 @@ public class TranslationTests {
          */
         private void assertParameterFormats(String lang, String name, String value) {
             if (value.startsWith("Last updated")) {
-                System.out.println();
+                L.d("");
             }
             if (value.contains("%")) {
                 boolean ok = false;
@@ -262,7 +271,7 @@ public class TranslationTests {
                     int end = value.indexOf(getLastChar(possible), start);
                     if (end != -1 && end < value.length()) {
                         String candidate = value.substring(start, end + 1);
-                        System.out.println("candidate = " + candidate);
+                        L.d("candidate = " + candidate);
                         if (possible.equals(candidate)) {
                             ok = true;
                             break;
