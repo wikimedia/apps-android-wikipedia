@@ -2,13 +2,14 @@ package org.wikipedia.nearby;
 
 import android.location.Location;
 import android.support.annotation.StringRes;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.filters.SmallTest;
 
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RuntimeEnvironment;
 import org.wikipedia.R;
+import org.wikipedia.test.TestRunner;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,8 +22,7 @@ import static org.hamcrest.Matchers.is;
 /**
  * Unit tests for Nearby related classes. Probably should refactor this into a model class.
  */
-@SmallTest
-public class NearbyUnitTests {
+@RunWith(TestRunner.class) public class NearbyUnitTest {
     // can't seem to suppress the checkstyle warnings for MagicNumbers. Oh well.
     private static final int THREE = 3;
     private static final int FOUR = 4;
@@ -152,6 +152,6 @@ public class NearbyUnitTests {
     }
 
     private String getString(@StringRes int id, Object... formatArgs) {
-        return InstrumentationRegistry.getInstrumentation().getTargetContext().getString(id, formatArgs);
+        return RuntimeEnvironment.application.getString(id, formatArgs);
     }
 }
