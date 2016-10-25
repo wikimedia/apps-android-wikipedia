@@ -22,17 +22,6 @@
               android:layout_marginRight="16dp"
               android:visibility="gone"
         />
-    <TextView android:id="@+id/langlinks_no_match"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_gravity="center"
-              android:text="@string/langlinks_no_match"
-              android:textAlignment="center"
-              style="?android:textAppearanceLarge"
-              android:layout_marginLeft="16dp"
-              android:layout_marginRight="16dp"
-              android:visibility="gone"
-            />
 
     <org.wikipedia.views.WikiErrorView
         android:id="@+id/langlinks_error"
@@ -64,6 +53,17 @@
                     android:imeOptions="actionDone|flagNoExtractUi"
                     android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
+        <TextView android:id="@+id/langlinks_no_match"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/langlinks_no_match"
+            android:textAlignment="center"
+            style="?android:textAppearanceLarge"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:visibility="gone"
+            />
         <ListView android:id="@+id/langlinks_list"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent" />
