@@ -1,8 +1,7 @@
 package org.wikipedia.test;
 
-import android.support.test.filters.SmallTest;
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
@@ -12,8 +11,7 @@ import java.util.Locale;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@SmallTest
-public class LanguageVariantTests {
+@RunWith(TestRunner.class) public class LanguageVariantTest {
     private Locale defaultLocale;
     private String appLanguage;
 
