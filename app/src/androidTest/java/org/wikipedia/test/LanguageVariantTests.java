@@ -1,23 +1,24 @@
 package org.wikipedia.test;
 
 import android.support.test.filters.SmallTest;
-import android.test.InstrumentationTestCase;
-import android.test.UiThreadTest;
 
+import org.junit.Test;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.language.AppLanguageLookUpTable;
 
 import java.util.Locale;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 @SmallTest
-public class LanguageVariantTests extends InstrumentationTestCase {
+public class LanguageVariantTests {
     private Locale defaultLocale;
     private String appLanguage;
 
     /** Ensure that the more specific dialect is first in the list. */
-    @UiThreadTest
-    public void testDefaultLocaleAndAcceptLanguageAgree() throws Throwable {
+    @Test public void testDefaultLocaleAndAcceptLanguageAgree() {
         preserveAppState();
 
         testDefaultLocaleAndAcceptLanguageAgree("zh,zh-hant;q=0.8", "zh",
@@ -49,7 +50,7 @@ public class LanguageVariantTests extends InstrumentationTestCase {
              String appLanguage, Locale systemLocale, WikiSite wiki) {
         WikipediaApp.getInstance().setAppLanguageCode(appLanguage);
         Locale.setDefault(systemLocale);
-        assertEquals(expected, WikipediaApp.getInstance().getAcceptLanguage(wiki));
+        assertThat(expected, is(WikipediaApp.getInstance().getAcceptLanguage(wiki)));
     }
 
     private void preserveAppState() {
