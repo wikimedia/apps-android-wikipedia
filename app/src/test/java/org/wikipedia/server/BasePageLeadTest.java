@@ -1,9 +1,9 @@
 package org.wikipedia.server;
 
+import android.support.annotation.NonNull;
+
 import org.wikipedia.server.mwapi.MwPageLead;
 import org.wikipedia.server.mwapi.MwServiceError;
-
-import android.support.annotation.NonNull;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;

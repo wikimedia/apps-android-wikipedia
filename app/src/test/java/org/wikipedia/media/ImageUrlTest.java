@@ -4,11 +4,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.test.TestRunner;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.wikipedia.Constants.PREFERRED_THUMB_SIZE;
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
-
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(TestRunner.class)
 public class ImageUrlTest {

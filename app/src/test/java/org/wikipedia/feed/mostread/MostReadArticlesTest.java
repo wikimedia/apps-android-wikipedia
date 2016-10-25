@@ -13,9 +13,9 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(TestRunner.class)
 @SuppressWarnings("checkstyle:magicnumber")

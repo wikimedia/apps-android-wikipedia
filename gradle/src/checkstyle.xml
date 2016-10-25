@@ -79,7 +79,13 @@
         <module name="IllegalImport"/> <!-- defaults to sun.* packages -->
         <module name="RedundantImport"/>
         <module name="UnusedImports"/>
-
+        <module name="AvoidStarImport" />
+        <module name="ImportOrder">
+            <property name="option" value="bottom" />
+            <property name="groups" value="android,com,junit,net,org,java,javax,*" />
+            <property name="separated" value="true" />
+            <property name="sortStaticImportsAlphabetically" value="true" />
+        </module>
 
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
