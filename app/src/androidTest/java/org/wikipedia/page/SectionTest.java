@@ -1,27 +1,31 @@
 package org.wikipedia.page;
 
 import android.support.test.filters.SmallTest;
-import android.test.AndroidTestCase;
+
+import org.junit.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 @SmallTest
-public class SectionTest extends AndroidTestCase {
-    public void testSectionLead() {
+public class SectionTest {
+    @Test public void testSectionLead() {
         // Section 0 is the lead
         Section section = new Section(0, 0, "Heading", "Heading", "Content");
-        assertTrue(section.isLead());
+        assertThat(section.isLead(), is(true));
 
         // Section 1 is not
         section = new Section(1, 1, "Heading", "Heading", "Content");
-        assertFalse(section.isLead());
+        assertThat(section.isLead(), is(false));
 
         // Section 1 is not, even if it's somehow at level 0
         section = new Section(1, 0, "Heading", "Heading", "Content");
-        assertFalse(section.isLead());
+        assertThat(section.isLead(), is(false));
     }
 
-    public void testJSONSerialization() throws Exception {
+    @Test public void testJSONSerialization() {
         Section parentSection = new Section(1, 1, null, null, "Hi there!");
 
-        assertEquals(parentSection, Section.fromJson(parentSection.toJSON()));
+        assertThat(parentSection, is(Section.fromJson(parentSection.toJSON())));
     }
 }
