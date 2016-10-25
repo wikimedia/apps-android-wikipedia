@@ -1,40 +1,36 @@
 package org.wikipedia.editing;
 
 import android.support.test.filters.SmallTest;
-import android.test.ActivityUnitTestCase;
 
+import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.test.TestDummyActivity;
+import org.wikipedia.testlib.TestLatch;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import static android.support.test.InstrumentationRegistry.getInstrumentation;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @SmallTest
-public class FetchSectionWikitextTaskTest extends ActivityUnitTestCase<TestDummyActivity> {
-    private static final int TASK_COMPLETION_TIMEOUT = 20_000;
-
-    public FetchSectionWikitextTaskTest() {
-        super(TestDummyActivity.class);
-    }
-
-    public void testPageFetch() throws Throwable {
-        final CountDownLatch completionLatch = new CountDownLatch(1);
-        runTestOnUiThread(new Runnable() {
+public class FetchSectionWikitextTaskTest {
+    @Test public void testPageFetch() {
+        final TestLatch latch = new TestLatch();
+        runOnMainSync(new Runnable() {
             @Override
             public void run() {
                 PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", WikiSite.forLanguageCode("test"));
                 new FetchSectionWikitextTask(getInstrumentation().getTargetContext(), title, 2) {
                     @Override
                     public void onFinish(String result) {
-                        assertNotNull(result);
-                        assertEquals(result, "=== Section1.2 ===\nThis is a subsection");
-                        completionLatch.countDown();
+                        assertThat(result, notNullValue());
+                        assertThat(result, is("=== Section1.2 ===\nThis is a subsection"));
+                        latch.countDown();
                     }
                 }.execute();
             }
         });
-        assertTrue(completionLatch.await(TASK_COMPLETION_TIMEOUT, TimeUnit.MILLISECONDS));
+        latch.await();
     }
 }
-
