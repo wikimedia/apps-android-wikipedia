@@ -16,7 +16,9 @@ public class SuggestionsTask extends FullSearchArticlesTask {
     private final boolean requireThumbnail;
 
     public SuggestionsTask(Api api, WikiSite wiki, String title, boolean requireThumbnail) {
-        super(api, wiki, title, Constants.MAX_SUGGESTION_RESULTS, null, true);
+        super(api, wiki, title, Constants.MAX_SUGGESTION_RESULTS * 2, null, true);
+        // request double the results wanted since we may filter some out. todo: change the api
+        // request to do some filtering
         this.title = title;
         this.requireThumbnail = requireThumbnail;
     }

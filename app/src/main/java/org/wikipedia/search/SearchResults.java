@@ -81,7 +81,7 @@ public class SearchResults {
         final boolean verbose = WikipediaApp.getInstance().isDevRelease();
         List<SearchResult> filteredResults = new ArrayList<>();
         List<SearchResult> results = searchResults.getResults();
-        for (int i = 0, count = 0; i < results.size() && count < Constants.MAX_SUGGESTION_RESULTS; i++) {
+        for (int i = 0; i < results.size() && filteredResults.size() < Constants.MAX_SUGGESTION_RESULTS; i++) {
             final SearchResult res = results.get(i);
             final PageTitle pageTitle = res.getPageTitle();
             if (verbose) {
@@ -92,7 +92,6 @@ public class SearchResults {
                     && (!requireThumbnail || pageTitle.getThumbUrl() != null)
                     && !(pageTitle.isMainPage() || pageTitle.isDisambiguationPage())) {
                 filteredResults.add(res);
-                count++;
             }
         }
         return new SearchResults(filteredResults, null, null);
