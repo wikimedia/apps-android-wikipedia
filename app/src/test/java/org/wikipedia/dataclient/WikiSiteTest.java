@@ -1,16 +1,15 @@
 package org.wikipedia.dataclient;
 
-import android.support.test.filters.SmallTest;
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.test.TestRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
-@SmallTest
-public class WikiSiteTest {
+@RunWith(TestRunner.class) public class WikiSiteTest {
     @Test public void testEquals() {
         assertThat(WikiSite.forLanguageCode("en"), is(WikiSite.forLanguageCode("en")));
 
