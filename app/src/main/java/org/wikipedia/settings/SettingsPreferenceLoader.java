@@ -26,12 +26,27 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
     public void loadPreferences() {
         loadPreferences(R.xml.preferences);
 
+        if (!Prefs.isZeroTutorialEnabled()) {
+            loadPreferences(R.xml.preferences_zero);
+
+            findPreference(R.string.preference_key_zero_interstitial)
+                    .setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    if (newValue == Boolean.FALSE) {
+                        WikipediaApp.getInstance().getWikipediaZeroHandler().getZeroFunnel().logExtLinkAlways();
+                    }
+                    return true;
+                }
+            });
+        }
+
+        loadPreferences(R.xml.preferences_about);
+
         updateLanguagePrefSummary();
 
-        Preference languagePref = findPreference(R.string.preference_key_language);
-        Preference zeroWarnPref = findPreference(R.string.preference_key_zero_interstitial);
-
-        languagePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+        findPreference(R.string.preference_key_language)
+                .setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(activity, false);
@@ -46,16 +61,6 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
                     }
                 });
                 langPrefDialog.show();
-                return true;
-            }
-        });
-
-        zeroWarnPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                if (newValue == Boolean.FALSE) {
-                    WikipediaApp.getInstance().getWikipediaZeroHandler().getZeroFunnel().logExtLinkAlways();
-                }
                 return true;
             }
         });
