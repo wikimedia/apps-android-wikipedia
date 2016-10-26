@@ -29,12 +29,7 @@ public interface PageLoadStrategy {
         /**
          * Page should try to be loaded from network connection, only try cache as a fallback
          */
-        FALLBACK,
-
-        /**
-         * Page should only load from network, not use cache at all
-         */
-        NONE
+        FALLBACK
     }
 
     @SuppressWarnings("checkstyle:parameternumber")

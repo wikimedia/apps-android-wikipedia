@@ -676,7 +676,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             pageDataClient.backFromEditing(data);
             FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
             // and reload the page...
-            loadPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false);
+            loadPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false);
         }
     }
 
@@ -919,7 +919,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         errorState = false;
 
         model.setCurEntry(new HistoryEntry(model.getTitle(), HistoryEntry.SOURCE_HISTORY));
-        loadPage(model.getTitle(), model.getCurEntry(), PageLoadStrategy.Cache.NONE, false, true);
+        loadPage(model.getTitle(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false, true);
     }
 
     private ToCHandler tocHandler;
