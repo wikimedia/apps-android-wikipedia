@@ -10,6 +10,8 @@ import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
 
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
+
 public class DescriptionEditActivity extends SingleFragmentActivityWithToolbar<DescriptionEditFragment> {
     private static final String EXTRA_TITLE = "title";
 
@@ -22,6 +24,7 @@ public class DescriptionEditActivity extends SingleFragmentActivityWithToolbar<D
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setWordmarkVisible(false);
+        setToolbarElevation(0);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
@@ -30,5 +33,11 @@ public class DescriptionEditActivity extends SingleFragmentActivityWithToolbar<D
     @Override
     public DescriptionEditFragment createFragment() {
         return DescriptionEditFragment.newInstance(GsonUnmarshaller.unmarshal(PageTitle.class, getIntent().getStringExtra(EXTRA_TITLE)));
+    }
+
+    @Override
+    public void onBackPressed() {
+        hideSoftKeyboard(this);
+        super.onBackPressed();
     }
 }
