@@ -95,9 +95,7 @@
     <color name="syntax_highlight_template_light">#a0a0a0</color>
     <color name="syntax_highlight_template_dark">#505050</color>
 
-    <color name="widget_background">#80ffffff</color>
-    <color name="widget_title_text">#606060</color>
-    <color name="widget_content_text">#303030</color>
+    <color name="widget_background">#a0ffffff</color>
 
     <color name="feed_text_primary_light">#222</color>
     <color name="feed_text_primary_dark">#ddd</color>
