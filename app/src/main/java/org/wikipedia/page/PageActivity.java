@@ -19,8 +19,6 @@ import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.view.ActionMode;
@@ -45,11 +43,9 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
-import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
-import org.wikipedia.events.WikipediaZeroStateChangeEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.gallery.GalleryActivity;
@@ -61,7 +57,6 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.search.SearchResultsFragment;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
@@ -71,11 +66,9 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
-import org.wikipedia.zero.ZeroConfig;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -108,10 +101,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     private Bus bus;
     private EventBusMethods busMethods;
     private CompatActionMode currentActionMode;
-
-    private boolean isZeroEnabled;
-    private ZeroConfig currentZeroConfig;
-    private WikipediaZeroUsageFunnel zeroFunnel;
 
     private PageToolbarHideHandler toolbarHideHandler;
 
@@ -157,10 +146,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         toolbarHideHandler = new PageToolbarHideHandler(this, toolbarContainerView);
 
         boolean languageChanged = false;
-        zeroFunnel = app.getWikipediaZeroHandler().getZeroFunnel();
         if (savedInstanceState != null) {
-            isZeroEnabled = savedInstanceState.getBoolean("pausedZeroEnabledState");
-            currentZeroConfig = savedInstanceState.getParcelable("pausedZeroConfig");
             if (savedInstanceState.getBoolean("isSearching")) {
                 openSearchFragment(SearchInvokeSource.TOOLBAR, null);
             }
@@ -692,74 +678,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         public void onChangeTheme(ThemeChangeEvent event) {
             PageActivity.this.recreate();
         }
-
-        @Subscribe
-        public void onWikipediaZeroStateChangeEvent(WikipediaZeroStateChangeEvent event) {
-            boolean latestZeroEnabledState = app.getWikipediaZeroHandler().isZeroEnabled();
-            ZeroConfig latestZeroConfig = app.getWikipediaZeroHandler().getZeroConfig();
-
-            if (leftZeroRatedNetwork(latestZeroEnabledState)) {
-                app.getWikipediaZeroHandler().showZeroOffBanner(PageActivity.this,
-                        getString(R.string.zero_charged_verbiage),
-                        ContextCompat.getColor(PageActivity.this, R.color.foundation_red),
-                        ContextCompat.getColor(PageActivity.this, android.R.color.white));
-            }
-
-            if (enteredNewZeroRatedNetwork(latestZeroConfig, latestZeroEnabledState)) {
-                app.getWikipediaZeroHandler().showZeroBanner(PageActivity.this, latestZeroConfig);
-                if (Prefs.isShowZeroInfoDialogEnabled()) {
-                    showZeroInfoDialog(latestZeroConfig);
-                    Prefs.setShowZeroInfoDialogEnable(false);
-                }
-            }
-
-            isZeroEnabled = latestZeroEnabledState;
-            currentZeroConfig = latestZeroConfig;
-        }
-    }
-
-    private void showZeroInfoDialog(ZeroConfig zeroConfig) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                .setMessage(buildZeroDialogMessage(zeroConfig.getMessage(), getString(R.string.zero_learn_more)))
-                .setPositiveButton(getString(R.string.zero_learn_more_learn_more), getZeroMoreInfoListener())
-                .setNegativeButton(getString(R.string.zero_learn_more_dismiss), getDismissClickListener());
-        AlertDialog dialog = alert.create();
-        dialog.show();
-    }
-
-    private CharSequence buildZeroDialogMessage(String title, String warning) {
-        return StringUtil.fromHtml("<b>" + title + "</b><br/><br/>" + warning);
-    }
-
-    private DialogInterface.OnClickListener getZeroMoreInfoListener() {
-        return new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                visitInExternalBrowser(PageActivity.this, (Uri.parse(getString(R.string.zero_webpage_url))));
-                zeroFunnel.logExtLinkMore();
-            }
-        };
-    }
-
-    private DialogInterface.OnClickListener getDismissClickListener() {
-        return new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.dismiss();
-            }
-        };
-    }
-
-    private boolean leftZeroRatedNetwork(boolean newZeroEnabledState) {
-        return !newZeroEnabledState && isZeroEnabled;
-    }
-
-    private boolean enteredNewZeroRatedNetwork(ZeroConfig newZeroConfig, boolean newZeroEnabledState) {
-        return newZeroEnabledState && (!isZeroEnabled || zeroConfigChanged(newZeroConfig));
-    }
-
-    private boolean zeroConfigChanged(ZeroConfig newConfig) {
-        return !currentZeroConfig.equals(newConfig);
     }
 
     @Override
@@ -767,10 +685,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         super.onResume();
         app.resetWikiSite();
         app.getSessionFunnel().touchSession();
-        boolean latestWikipediaZeroDisposition = app.getWikipediaZeroHandler().isZeroEnabled();
-        if (isZeroEnabled && !latestWikipediaZeroDisposition) {
-            bus.post(new WikipediaZeroStateChangeEvent());
-        }
     }
 
     @Override
@@ -779,8 +693,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
             // Explicitly close any current ActionMode (see T147191)
             finishActionMode();
         }
-        isZeroEnabled = app.getWikipediaZeroHandler().isZeroEnabled();
-        currentZeroConfig = app.getWikipediaZeroHandler().getZeroConfig();
         super.onPause();
     }
 
@@ -791,8 +703,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     private void saveState(Bundle outState) {
-        outState.putBoolean("pausedZeroEnabledState", isZeroEnabled);
-        outState.putParcelable("pausedZeroConfig", currentZeroConfig);
         outState.putBoolean("isSearching", isSearching());
         outState.putString(LANGUAGE_CODE_BUNDLE_KEY, app.getAppOrSystemLanguageCode());
     }

@@ -10,9 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 
+import com.squareup.otto.Subscribe;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.settings.Prefs;
 
@@ -20,10 +23,12 @@ import java.lang.reflect.Field;
 
 public abstract class ThemedActionBarActivity extends AppCompatActivity {
     private boolean mDestroyed;
+    private EventBusMethods busMethods;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        busMethods = new EventBusMethods();
 
         ActivityUtil.requestFullUserOrientation(this);
 
@@ -42,11 +47,18 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        WikipediaApp.getInstance().getBus().register(busMethods);
         AccountUtil.logOutIfAccountRemoved();
 
         // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
         // less probable.
         Prefs.crashedBeforeActivityCreated(false);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        WikipediaApp.getInstance().getBus().unregister(busMethods);
     }
 
     @Override
@@ -115,5 +127,16 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
 
     private void removeSplashBackground() {
         getWindow().setBackgroundDrawable(null);
+    }
+
+    private class EventBusMethods {
+        @Subscribe
+        public void onZeroEnter(WikipediaZeroEnterEvent event) {
+            if (Prefs.isZeroTutorialEnabled()) {
+                Prefs.setZeroTutorialEnabled(false);
+                WikipediaApp.getInstance().getWikipediaZeroHandler()
+                        .showZeroTutorialDialog(ThemedActionBarActivity.this);
+            }
+        }
     }
 }

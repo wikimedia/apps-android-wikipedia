@@ -107,7 +107,7 @@
     <string name="create_account_button">Create account</string>
     <string name="preferences_general_heading">General</string>
     <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-    <string name="zero_charged_verbiage">Wikipedia Zero is off</string>
+    <string name="zero_charged_verbiage">Free access to Wikipedia is no longer active.</string>
     <string name="zero_search_hint">Search Wikipedia Zero</string>
     <string name="zero_warn_when_leaving">Warn if leaving Wikipedia Zero</string>
     <string name="zero_warn_when_leaving_summary">If your mobile operator waives data access charges for the Wikipedia app through a Wikipedia Zero partnership, leaving this setting checked helps you know when you are leaving the Wikipedia app and could be charged.</string>
@@ -117,8 +117,8 @@
     <string name="zero_interstitial_leave_app">Data charges may apply. Continue to external site?</string>
     <string name="zero_interstitial_continue">Leave</string>
     <string name="zero_interstitial_cancel">Stay Here</string>
-    <string name="zero_learn_more">Data charges are waived for this Wikipedia app.</string>
-    <string name="zero_learn_more_learn_more">Read more</string>
+    <string name="zero_learn_more">Your wireless carrier has provided free access to Wikipedia content!</string>
+    <string name="zero_learn_more_learn_more">Learn more</string>
     <string name="zero_learn_more_dismiss">Dismiss</string>
     <string name="edit_preview_fetching_dialog_message">Fetching preview…</string>
     <string name="send_feedback">Send app feedback</string>

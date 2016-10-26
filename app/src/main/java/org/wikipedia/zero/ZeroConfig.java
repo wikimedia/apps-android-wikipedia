@@ -1,11 +1,11 @@
 package org.wikipedia.zero;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public class ZeroConfig implements Parcelable {
+import org.wikipedia.model.BaseModel;
+
+public final class ZeroConfig extends BaseModel {
     @NonNull private String message = "";
     private int foreground;
     private int background;
@@ -122,95 +122,5 @@ public class ZeroConfig implements Parcelable {
                 + ", partnerInfoUrl='" + partnerInfoUrl + '\''
                 + ", bannerUrl='" + bannerUrl + '\''
                 + '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        ZeroConfig that = (ZeroConfig) o;
-
-        if (foreground != that.foreground) {
-            return false;
-        }
-        if (background != that.background) {
-            return false;
-        }
-        if (!message.equals(that.message)) {
-            return false;
-        }
-        if (exitTitle != null ? !exitTitle.equals(that.exitTitle) : that.exitTitle != null) {
-            return false;
-        }
-        if (exitWarning != null ? !exitWarning.equals(that.exitWarning) : that.exitWarning != null) {
-            return false;
-        }
-        if (partnerInfoText != null ? !partnerInfoText.equals(that.partnerInfoText) : that.partnerInfoText != null) {
-            return false;
-        }
-        if (partnerInfoUrl != null ? !partnerInfoUrl.equals(that.partnerInfoUrl) : that.partnerInfoUrl != null) {
-            return false;
-        }
-        return !(bannerUrl != null ? !bannerUrl.equals(that.bannerUrl) : that.bannerUrl != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = message.hashCode();
-        result = 31 * result + foreground;
-        result = 31 * result + background;
-        result = 31 * result + (exitTitle != null ? exitTitle.hashCode() : 0);
-        result = 31 * result + (exitWarning != null ? exitWarning.hashCode() : 0);
-        result = 31 * result + (partnerInfoText != null ? partnerInfoText.hashCode() : 0);
-        result = 31 * result + (partnerInfoUrl != null ? partnerInfoUrl.hashCode() : 0);
-        result = 31 * result + (bannerUrl != null ? bannerUrl.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel out, int flags) {
-        out.writeString(this.message);
-        out.writeInt(this.foreground);
-        out.writeInt(this.background);
-        out.writeString(this.exitTitle);
-        out.writeString(this.exitWarning);
-        out.writeString(this.partnerInfoText);
-        out.writeString(this.partnerInfoUrl);
-        out.writeString(this.bannerUrl);
-    }
-
-    @NonNull
-    public static final Parcelable.Creator<ZeroConfig> CREATOR
-            = new Parcelable.Creator<ZeroConfig>() {
-        @Override
-        public ZeroConfig createFromParcel(Parcel in) {
-            return new ZeroConfig(in);
-        }
-
-        @Override
-        public ZeroConfig[] newArray(int size) {
-            return new ZeroConfig[size];
-        }
-    };
-
-    public ZeroConfig(Parcel in) {
-        new Builder(in.readString(), in.readInt(), in.readInt())
-                .exitTitle(in.readString())
-                .exitWarning(in.readString())
-                .partnerInfoText(in.readString())
-                .partnerInfoUrl(in.readString())
-                .bannerUrl(in.readString())
-        .build();
     }
 }
