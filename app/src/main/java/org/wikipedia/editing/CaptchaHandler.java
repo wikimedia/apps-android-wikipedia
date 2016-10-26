@@ -24,6 +24,8 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.FeedbackUtil;
 
+import retrofit2.Call;
+
 public class CaptchaHandler {
     private final Activity activity;
     private final View captchaContainer;
@@ -60,26 +62,23 @@ public class CaptchaHandler {
         captchaImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new RefreshCaptchaTask(activity, wiki) {
-                    @Override
-                    public void onBeforeExecute() {
-                        captchaProgress.setVisibility(View.VISIBLE);
-                    }
+                captchaProgress.setVisibility(View.VISIBLE);
 
+                new CaptchaClient().request(wiki, new CaptchaClient.Callback() {
                     @Override
-                    public void onFinish(@NonNull CaptchaResult result) {
+                    public void success(@NonNull Call<Captcha> call, @NonNull CaptchaResult result) {
                         captchaResult = result;
                         captchaProgress.setVisibility(View.GONE);
                         handleCaptcha(true);
                     }
 
                     @Override
-                    public void onCatch(Throwable caught) {
+                    public void failure(@NonNull Call<Captcha> call, @NonNull Throwable caught) {
                         cancelCaptcha();
                         captchaProgress.setVisibility(View.GONE);
                         FeedbackUtil.showError(activity, caught);
                     }
-                }.execute();
+                });
             }
         });
     }
@@ -87,6 +86,22 @@ public class CaptchaHandler {
     @Nullable
     public String token() {
         return token;
+    }
+
+    @Nullable
+    public String captchaId() {
+        if (captchaResult != null) {
+            return captchaResult.getCaptchaId();
+        }
+        return null;
+    }
+
+    @Nullable
+    public String captchaWord() {
+        if (captchaText != null) {
+            return captchaText.getText().toString();
+        }
+        return null;
     }
 
     public void restoreState(Bundle savedInstanceState) {
