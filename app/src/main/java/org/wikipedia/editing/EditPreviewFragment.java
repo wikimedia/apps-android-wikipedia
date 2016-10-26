@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +33,14 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -292,27 +294,24 @@ public class EditPreviewFragment extends Fragment {
      */
     public void showPreview(final PageTitle title, final String wikiText) {
         hideSoftKeyboard(getActivity());
+        progressDialog.show();
 
-        new EditPreviewTask(WikipediaApp.getInstance(), wikiText, title) {
+        new EditPreviewClient().request(parentActivity.getPageTitle().getWikiSite(), title, wikiText,
+                new EditPreviewClient.Callback() {
             @Override
-            public void onBeforeExecute() {
-                progressDialog.show();
-            }
-
-            @Override
-            public void onFinish(String result) {
+            public void success(@NonNull Call<EditPreview> call, @NonNull String preview) {
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
                     return;
                 }
-                displayPreview(result);
-                previewHTML = result;
+                displayPreview(preview);
+                previewHTML = preview;
                 parentActivity.supportInvalidateOptionsMenu();
                 progressDialog.dismiss();
             }
 
             @Override
-            public void onCatch(Throwable caught) {
+            public void failure(@NonNull Call<EditPreview> call, @NonNull Throwable caught) {
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
                     return;
@@ -322,25 +321,27 @@ public class EditPreviewFragment extends Fragment {
                 if (!(caught instanceof ApiException)) {
                     throw new RuntimeException(caught);
                 }
-                Log.d("Wikipedia", "Caught " + caught.toString());
+                L.d(caught);
                 final AlertDialog retryDialog = new AlertDialog.Builder(getActivity())
                         .setMessage(R.string.error_network_error)
-                        .setPositiveButton(R.string.dialog_message_edit_failed_retry, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                showPreview(title, wikiText);
-                                dialog.dismiss();
-                            }
-                        })
-                        .setNegativeButton(R.string.dialog_message_edit_failed_cancel, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).create();
+                        .setPositiveButton(R.string.dialog_message_edit_failed_retry,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        showPreview(title, wikiText);
+                                        dialog.dismiss();
+                                    }
+                                })
+                        .setNegativeButton(R.string.dialog_message_edit_failed_cancel,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                }).create();
                 retryDialog.show();
             }
-        }.execute();
+        });
     }
 
     /**
