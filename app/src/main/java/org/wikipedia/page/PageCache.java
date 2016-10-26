@@ -2,13 +2,14 @@ package org.wikipedia.page;
 
 import android.content.Context;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.jakewharton.disklrucache.DiskLruCache;
 
 import org.json.JSONObject;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.util.log.L;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -24,13 +25,12 @@ import static org.wikipedia.util.FileUtil.writeToStream;
  * Implements a cache of Page objects.
  */
 public class PageCache {
-    private static final String TAG = "PageCache";
     private static final int DISK_CACHE_VERSION = 1;
     private static final int DISK_CACHE_SIZE = 1024 * 1024 * 64; // 64MB
     private static final String DISK_CACHE_SUBDIR = "wp_pagecache";
 
-    private DiskLruCache mDiskLruCache;
-    private final Object mDiskCacheLock = new Object();
+    @Nullable private DiskLruCache mDiskLruCache;
+    @NonNull private final Object mDiskCacheLock = new Object();
 
     public PageCache(Context context) {
         // Initialize disk cache on background thread
@@ -56,28 +56,12 @@ public class PageCache {
 
         @Override
         public void onCatch(Throwable caught) {
-            Log.e(TAG, "Caught " + caught.getMessage(), caught);
-            caught.printStackTrace();
+            L.e("Caught " + caught.getMessage(), caught);
         }
     }
 
-    public interface CachePutListener {
-        void onPutComplete();
-        void onPutError(Throwable e);
-    }
-
-    public void put(PageTitle title, Page page, final CachePutListener listener) {
-        new AddPageToCacheTask(title, page) {
-            @Override
-            public void onFinish(Void v) {
-                listener.onPutComplete();
-            }
-
-            @Override
-            public void onCatch(Throwable caught) {
-                listener.onPutError(caught);
-            }
-        }.execute();
+    public void put(PageTitle title, Page page) {
+        new AddPageToCacheTask(title, page).execute();
     }
 
     private class AddPageToCacheTask extends SaneAsyncTask<Void> {
@@ -97,7 +81,7 @@ public class PageCache {
                 }
                 DiskLruCache.Editor editor = null;
                 try {
-                    Log.d(TAG, "Writing to cache: " + title.getDisplayText());
+                    L.d("Writing to cache: " + title.getDisplayText());
                     String key = title.getIdentifier();
                     editor = mDiskLruCache.edit(key);
                     if (editor == null) {
@@ -114,6 +98,10 @@ public class PageCache {
                 }
             }
             return null;
+        }
+
+        @Override public void onCatch(Throwable caught) {
+            L.e("Failed to add page to cache.", caught);
         }
     }
 
@@ -155,7 +143,7 @@ public class PageCache {
                     return null;
                 }
                 try {
-                    Log.d(TAG, "Reading from cache: " + title.getDisplayText());
+                    L.d("Reading from cache: " + title.getDisplayText());
                     InputStream inputStream = new BufferedInputStream(snapshot.getInputStream(0));
                     String jsonStr = readFile(inputStream);
                     return new Page(new JSONObject(jsonStr));
@@ -168,7 +156,7 @@ public class PageCache {
 
     // Creates a unique subdirectory of the designated app cache directory. Tries to use external
     // storage, but if not mounted, falls back on internal storage.
-    public static File getDiskCacheDir(Context context, String uniqueName) {
+    private static File getDiskCacheDir(Context context, String uniqueName) {
         // Check if media is mounted or storage is built-in, if so, try and use external cache dir
         // otherwise use internal cache dir.
         final String cachePath;

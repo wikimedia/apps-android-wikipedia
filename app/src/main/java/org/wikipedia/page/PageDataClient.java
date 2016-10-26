@@ -420,17 +420,7 @@ public class PageDataClient implements PageLoadStrategy {
 
             //add the page to cache!
             if (cacheOnComplete) {
-                app.getPageCache().put(model.getTitleOriginal(), model.getPage(),
-                        new PageCache.CachePutListener() {
-                            @Override
-                            public void onPutComplete() {
-                            }
-
-                            @Override
-                            public void onPutError(Throwable e) {
-                                L.e("Failed to add page to cache.", e);
-                            }
-                        });
+                app.getPageCache().put(model.getTitleOriginal(), model.getPage());
             }
         }
     }
