@@ -19,11 +19,13 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.gallery.GalleryActivity;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
@@ -249,6 +251,15 @@ public class LeadImagesHandler {
             public void onLayoutChange(View v, int left, int top, int right, int bottom,
                                        int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 updatePadding();
+            }
+        });
+        articleHeaderView.setCallback(new ArticleHeaderView.Callback() {
+            @Override
+            public void onDescriptionClicked() {
+                // TODO: unblock when ready for beta+
+                if (ReleaseUtil.isPreBetaRelease()) {
+                    parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
+                }
             }
         });
     }

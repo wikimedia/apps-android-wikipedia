@@ -15,9 +15,11 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ForegroundColorSpan;
+import android.text.style.ClickableSpan;
 import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
 import android.view.View;
@@ -54,11 +56,17 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     @BindView(R.id.view_article_header_container) LinearLayout container;
     @BindView(R.id.view_article_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
 
+    @Nullable private Callback callback;
     @NonNull private CharSequence title = "";
     @NonNull private CharSequence subtitle = "";
     @Nullable private String pronunciationUrl;
 
     @NonNull private final AvPlayer avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
+    @NonNull private final ClickableSpan descriptionClickSpan = new DescriptionClickableSpan();
+
+    public interface Callback {
+        void onDescriptionClicked();
+    }
 
     public ArticleHeaderView(Context context) {
         super(context);
@@ -115,6 +123,10 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     public void setOnImageLoadListener(@Nullable FaceAndColorDetectImageView.OnImageLoadListener listener) {
         image.setLoadListener(listener);
+    }
+
+    public void setCallback(@Nullable Callback callback) {
+        this.callback = callback;
     }
 
     public void loadImage(@Nullable String url) {
@@ -227,6 +239,7 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         }
 
         text.setText(builder);
+        text.setMovementMethod(new LinkMovementMethod());
     }
 
     private Spanned pronunciationSpanned() {
@@ -247,11 +260,10 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
                 0,
                 subtitle.length(),
                 Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
-                new AbsoluteSizeSpan(getDimensionPixelSize(R.dimen.descriptionTextSize),
-                        false),
+                new AbsoluteSizeSpan(getDimensionPixelSize(R.dimen.descriptionTextSize), false),
                 new LeadingSpan(leadingScalar),
                 new ParagraphSpan(paragraphScalar),
-                new ForegroundColorSpan(getColor(R.color.foundation_gray)));
+                descriptionClickSpan);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -305,5 +317,20 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         statusBarPlaceholder.setVisibility(noImage ? View.VISIBLE : View.GONE);
         int offset = noImage ? getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) : 0;
         setPadding(0, offset, 0, 0);
+    }
+
+    private class DescriptionClickableSpan extends ClickableSpan {
+        @Override
+        public void onClick(View view) {
+            if (callback != null) {
+                callback.onDescriptionClicked();
+            }
+        }
+
+        @Override
+        public void updateDrawState(TextPaint ds) {
+            super.updateDrawState(ds);
+            ds.setUnderlineText(false);
+        }
     }
 }
