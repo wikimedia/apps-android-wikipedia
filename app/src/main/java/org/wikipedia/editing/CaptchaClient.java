@@ -2,6 +2,7 @@ package org.wikipedia.editing;
 
 
 import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
@@ -17,8 +18,13 @@ class CaptchaClient {
     @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
     @NonNull private final Retrofit retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
 
-    public Call<Captcha> request(@NonNull final WikiSite wiki, @NonNull final Callback cb) {
-        Call<Captcha> call = cachedService.service(wiki).refreshCaptcha();
+    public Call<Captcha> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
+        Service service = cachedService.service(wiki);
+        return request(service, cb);
+    }
+
+    @VisibleForTesting Call<Captcha> request(@NonNull Service service, @NonNull final Callback cb) {
+        Call<Captcha> call = service.refreshCaptcha();
         call.enqueue(new retrofit2.Callback<Captcha>() {
             @Override
             public void onResponse(Call<Captcha> call, Response<Captcha> response) {
@@ -42,7 +48,7 @@ class CaptchaClient {
         void failure(@NonNull Call<Captcha> call, @NonNull Throwable caught);
     }
 
-    private interface Service {
+    @VisibleForTesting interface Service {
         /* Get a fresh Captcha ID. */
         @GET("w/api.php?action=fancycaptchareload&format=json&formatversion=2")
         Call<Captcha> refreshCaptcha();

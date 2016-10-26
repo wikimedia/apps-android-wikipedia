@@ -3,7 +3,9 @@ package org.wikipedia.editing;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public abstract class EditingResult implements Parcelable {
+import org.wikipedia.model.BaseModel;
+
+public abstract class EditingResult extends BaseModel implements Parcelable {
     private final String result;
 
     public EditingResult(String result) {
