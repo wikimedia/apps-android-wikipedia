@@ -33,6 +33,7 @@
             android:lineSpacingMultiplier="@dimen/lead_title_leading_scalar"
             android:maxLines="5"
             android:ellipsize="end"
+            android:textColorLink="@color/foundation_gray"
             tools:text="Title\nSubtitle" />
 
         <View

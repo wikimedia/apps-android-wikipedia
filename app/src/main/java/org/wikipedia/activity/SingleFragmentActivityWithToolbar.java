@@ -24,6 +24,10 @@ public abstract class SingleFragmentActivityWithToolbar<T extends Fragment> exte
         setStatusBarColor(R.color.dark_blue);
     }
 
+    public void setWordmarkVisible(boolean visible) {
+        getToolbarWordmark().setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
     @LayoutRes
     @Override
     protected int getLayout() {

@@ -156,6 +156,10 @@
                   android:theme="@style/PageTheme"
                   android:exported="false"/>
 
+        <activity android:name=".descriptions.DescriptionEditActivity"
+            android:theme="@style/AppTheme"
+            android:exported="false"/>
+
         <provider
                 android:authorities="${applicationId}"
                 android:name=".database.AppContentProvider"
