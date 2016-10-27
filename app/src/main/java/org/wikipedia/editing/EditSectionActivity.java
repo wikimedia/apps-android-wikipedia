@@ -25,9 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.ApiException;
-import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.ViewAnimations;
@@ -275,79 +273,73 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                 // Summaries are plaintext, so remove any HTML that's made its way into the summary
                 summaryText = StringUtil.fromHtml(summaryText).toString();
 
-                new EditTask(EditSectionActivity.this, title, sectionText.getText().toString(),
-                        sectionID, token, summaryText, User.isLoggedIn()) {
-                    @Override
-                    public void onBeforeExecute() {
-                        if (!isFinishing()) {
-                            progressDialog.show();
-                        }
-                    }
+                if (!isFinishing()) {
+                    progressDialog.show();
+                }
 
-                    @Override
-                    public RequestBuilder buildRequest(Api api) {
-                        return captchaHandler.populateBuilder(super.buildRequest(api));
-                    }
+                new EditClient().request(title.getWikiSite(), title, sectionID,
+                        sectionText.getText().toString(), token, summaryText, User.isLoggedIn(),
+                        captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
+                        captchaHandler.isActive() ? captchaHandler.captchaWord() : "null",
+                        new EditClient.Callback() {
+                            @Override
+                            public void success(@NonNull Call<Edit> call, @NonNull EditingResult result) {
+                                if (isFinishing() || !progressDialog.isShowing()) {
+                                    // no longer attached to activity!
+                                    return;
+                                }
+                                if (result instanceof SuccessEditResult) {
+                                    funnel.logSaved(((SuccessEditResult) result).getRevID());
+                                    progressDialog.dismiss();
 
-                    @Override
-                    public void onCatch(Throwable caught) {
-                        if (isFinishing() || !progressDialog.isShowing()) {
-                            // no longer attached to activity!
-                            return;
-                        }
-                        if (caught instanceof ApiException) {
-                            // This is a fairly standard editing exception. Handle it appropriately.
-                            handleEditingException((ApiException) caught);
-                        } else {
-                            // If it's not an API exception, we have no idea what's wrong.
-                            // Show the user a generic error message.
-                            L.w("Caught " + caught.toString());
-                            showRetryDialog();
-                        }
-                    }
-
-                    @Override
-                    public void onFinish(EditingResult result) {
-                        if (isFinishing() || !progressDialog.isShowing()) {
-                            // no longer attached to activity!
-                            return;
-                        }
-                        if (result instanceof SuccessEditResult) {
-                            funnel.logSaved(((SuccessEditResult) result).getRevID());
-                            progressDialog.dismiss();
-
-                            //Build intent that includes the section we were editing, so we can scroll to it later
-                            Intent data = new Intent();
-                            data.putExtra(EXTRA_SECTION_ID, sectionID);
-                            setResult(EditHandler.RESULT_REFRESH_PAGE, data);
-                            hideSoftKeyboard(EditSectionActivity.this);
-                            finish();
-                        } else if (result instanceof CaptchaResult) {
-                            if (captchaHandler.isActive()) {
-                                // Captcha entry failed!
-                                funnel.logCaptchaFailure();
+                                    //Build intent that includes the section we were editing, so we can scroll to it later
+                                    Intent data = new Intent();
+                                    data.putExtra(EXTRA_SECTION_ID, sectionID);
+                                    setResult(EditHandler.RESULT_REFRESH_PAGE, data);
+                                    hideSoftKeyboard(EditSectionActivity.this);
+                                    finish();
+                                } else if (result instanceof CaptchaResult) {
+                                    if (captchaHandler.isActive()) {
+                                        // Captcha entry failed!
+                                        funnel.logCaptchaFailure();
+                                    }
+                                    captchaHandler.handleCaptcha(null, (CaptchaResult) result);
+                                    funnel.logCaptchaShown();
+                                } else if (result instanceof AbuseFilterEditResult) {
+                                    abusefilterEditResult = (AbuseFilterEditResult) result;
+                                    handleAbuseFilter();
+                                    if (abusefilterEditResult.getType() == AbuseFilterEditResult.TYPE_ERROR) {
+                                        editPreviewFragment.hide();
+                                    }
+                                } else if (result instanceof SpamBlacklistEditResult) {
+                                    FeedbackUtil.showMessage(EditSectionActivity.this,
+                                            R.string.editing_error_spamblacklist);
+                                    progressDialog.dismiss();
+                                    editPreviewFragment.hide();
+                                } else {
+                                    funnel.logError(result.getResult());
+                                    // Expand to do everything.
+                                    failure(call, new Throwable());
+                                }
                             }
-                            captchaHandler.handleCaptcha(null, (CaptchaResult) result);
-                            funnel.logCaptchaShown();
-                        } else if (result instanceof AbuseFilterEditResult) {
-                            abusefilterEditResult = (AbuseFilterEditResult) result;
-                            handleAbuseFilter();
-                            if (abusefilterEditResult.getType() == AbuseFilterEditResult.TYPE_ERROR) {
-                                editPreviewFragment.hide();
-                            }
-                        } else if (result instanceof SpamBlacklistEditResult) {
-                            FeedbackUtil.showMessage(EditSectionActivity.this,
-                                    R.string.editing_error_spamblacklist);
-                            progressDialog.dismiss();
-                            editPreviewFragment.hide();
-                        } else {
-                            funnel.logError(result.getResult());
-                            // Expand to do everything.
-                            onCatch(null);
-                        }
 
-                    }
-                }.execute();
+                            @Override
+                            public void failure(@NonNull Call<Edit> call, @NonNull Throwable caught) {
+                                if (isFinishing() || !progressDialog.isShowing()) {
+                                    // no longer attached to activity!
+                                    return;
+                                }
+                                if (caught instanceof ApiException) {
+                                    // This is a fairly standard editing exception. Handle it appropriately.
+                                    handleEditingException((ApiException) caught);
+                                } else {
+                                    // If it's not an API exception, we have no idea what's wrong.
+                                    // Show the user a generic error message.
+                                    L.w("Caught " + caught.toString());
+                                    showRetryDialog();
+                                }
+                            }
+                        });
             }
 
             @Override
