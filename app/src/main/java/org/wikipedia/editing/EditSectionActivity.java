@@ -1,5 +1,6 @@
 package org.wikipedia.editing;
 
+
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -47,6 +48,8 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+
+import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
@@ -609,22 +612,22 @@ public class EditSectionActivity extends ThemedActionBarActivity {
 
     private void fetchSectionText() {
         if (sectionWikitext == null) {
-            new FetchSectionWikitextTask(this, title, sectionID) {
+            new WikitextClient().request(title.getWikiSite(), title, sectionID, new WikitextClient.Callback() {
                 @Override
-                public void onFinish(String result) {
-                    sectionWikitext = result;
+                public void success(@NonNull Call<Wikitext> call, @NonNull String wikitext) {
+                    sectionWikitext = wikitext;
                     displaySectionText();
                 }
 
                 @Override
-                public void onCatch(Throwable caught) {
+                public void failure(@NonNull Call<Wikitext> call, @NonNull Throwable throwable) {
                     ViewAnimations.crossFade(sectionProgress, sectionError);
                     // Not sure why this is required, but without it tapping retry hides langLinksError
                     // FIXME: INVESTIGATE WHY THIS HAPPENS!
                     // Also happens in {@link PageFragment}
                     sectionError.setVisibility(View.VISIBLE);
                 }
-            }.execute();
+            });
         } else {
             displaySectionText();
         }
