@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
@@ -20,6 +21,7 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ClickableSpan;
+import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
 import android.view.View;
@@ -36,6 +38,7 @@ import org.wikipedia.richtext.LeadingSpan;
 import org.wikipedia.richtext.ParagraphSpan;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.AppTextView;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -233,7 +236,7 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
             builder.append(pronunciationSpanned());
         }
 
-        if (hasSubtitle()) {
+        if (hasSubtitle() || ReleaseUtil.isPreBetaRelease()) { // TODO: remove condition when ready
             builder.append("\n");
             builder.append(subtitleSpanned());
         }
@@ -256,14 +259,18 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     private Spanned subtitleSpanned() {
         final float leadingScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_leading_scalar);
         final float paragraphScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_paragraph_scalar);
-        return RichTextUtil.setSpans(new SpannableString(subtitle),
+        String description = TextUtils.isEmpty(subtitle)
+                ? getResources().getString(R.string.description_edit_add_description).toUpperCase()
+                : subtitle.toString();
+        return RichTextUtil.setSpans(new SpannableString(description),
                 0,
-                subtitle.length(),
+                description.length(),
                 Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
                 new AbsoluteSizeSpan(getDimensionPixelSize(R.dimen.descriptionTextSize), false),
                 new LeadingSpan(leadingScalar),
                 new ParagraphSpan(paragraphScalar),
-                descriptionClickSpan);
+                descriptionClickSpan,
+                TextUtils.isEmpty(subtitle) ? new StyleSpan(Typeface.ITALIC) : null);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
@@ -330,6 +337,8 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         @Override
         public void updateDrawState(TextPaint ds) {
             super.updateDrawState(ds);
+            ds.setColor(getColor(TextUtils.isEmpty(subtitle)
+                    ? R.color.foundation_blue : R.color.foundation_gray));
             ds.setUnderlineText(false);
         }
     }
