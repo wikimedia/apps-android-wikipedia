@@ -100,4 +100,8 @@
     <!-- Navigation -->
     <dimen name="nav_tab_inactive_text_size">12sp</dimen>
     <dimen name="nav_tab_active_text_size">14sp</dimen>
+
+    <!-- Description editing -->
+    <integer name="description_max_chars">140</integer>
+
 </resources>

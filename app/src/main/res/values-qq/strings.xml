@@ -438,4 +438,9 @@ Shown in the preferences screen along with the following:
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.
 {{Identical|Today}}</string>
+  <string name="description_edit_header">Label above the current article title indicating that the description for this title is being edited.</string>
+  <string name="description_edit_help_hint">Hint message for the menu button that launches a short tutorial on editing descriptions.</string>
+  <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
+  <string name="description_edit_save">Hint for the button that is pressed for saving the new description.</string>
+  <string name="description_edit_char_count">Label that displays the character count of the description being entered. The %1$d symbol is replaced with the number of characters in the current description, and the %2$d symbol is replaced with the maximum allowed characters.</string>
 </resources>

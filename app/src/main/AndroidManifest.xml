@@ -158,6 +158,7 @@
 
         <activity android:name=".descriptions.DescriptionEditActivity"
             android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize"
             android:exported="false"/>
 
         <provider

@@ -1,5 +1,6 @@
 package org.wikipedia.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
@@ -26,6 +27,12 @@ public abstract class SingleFragmentActivityWithToolbar<T extends Fragment> exte
 
     public void setWordmarkVisible(boolean visible) {
         getToolbarWordmark().setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    public void setToolbarElevation(float elevation) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getToolbar().setElevation(elevation);
+        }
     }
 
     @LayoutRes
