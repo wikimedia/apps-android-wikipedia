@@ -10,12 +10,13 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
-import org.wikipedia.editing.FetchEditTokenTask;
+import org.wikipedia.editing.EditToken;
+import org.wikipedia.editing.EditTokenClient;
 import org.wikipedia.server.ServiceError;
 import org.wikipedia.useroption.UserOption;
+import org.wikipedia.util.log.L;
 
 import java.io.IOException;
-import java.util.concurrent.Executor;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -80,33 +81,22 @@ public class DefaultUserOptionDataClient implements UserOptionDataClient {
     }
 
     private void requestToken() {
-        new FetchEditTokenTask(app(), wiki) {
+        new EditTokenClient().request(wiki, new EditTokenClient.Callback() {
             @Override
-            public void onFinish(String result) {
-                app().getEditTokenStorage().token(wiki, result);
+            public void success(@NonNull Call<EditToken> call, @NonNull String token) {
+                app().getEditTokenStorage().token(wiki, token);
             }
 
             @Override
-            public void execute() {
-                super.executeOnExecutor(new SynchronousExecutor());
-            }
-
-            @Override
-            public void onCatch(Throwable throwable) {
+            public void failure(@NonNull Call<EditToken> call, @NonNull Throwable caught) {
                 // Don't worry about it; will be retried next time.
+                L.w(caught);
             }
-        }.execute();
+        });
     }
 
     private static WikipediaApp app() {
         return WikipediaApp.getInstance();
-    }
-
-    private static class SynchronousExecutor implements Executor {
-        @Override
-        public void execute(@NonNull Runnable runnable) {
-            runnable.run();
-        }
     }
 
     private interface Client {
