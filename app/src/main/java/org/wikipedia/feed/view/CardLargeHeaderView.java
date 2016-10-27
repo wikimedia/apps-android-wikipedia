@@ -33,6 +33,8 @@ public class CardLargeHeaderView extends RelativeLayout {
         imageView.setOnImageLoadListener(new ImageLoadListener());
     }
 
+    // todo: should this use ViewUtil.loadImageUrlInto() instead? should loadImageUrlInto() set
+    //       view visibility?
     @NonNull public CardLargeHeaderView setImage(@Nullable Uri uri) {
         imageView.setVisibility(uri == null ? GONE : VISIBLE);
         imageView.loadImage(uri);
