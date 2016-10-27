@@ -1,4 +1,4 @@
-package org.wikipedia.editing;
+package org.wikipedia.editing.preview;
 
 import android.support.annotation.NonNull;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
-class Wikitext extends BaseModel {
+public class Wikitext extends BaseModel {
     @SuppressWarnings("unused,NullableProblems") @NonNull private Query query;
     @NonNull protected String wikitext() {
         return query.wikitext();

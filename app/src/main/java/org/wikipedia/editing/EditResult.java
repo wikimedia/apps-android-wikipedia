@@ -5,14 +5,14 @@ import android.os.Parcelable;
 
 import org.wikipedia.model.BaseModel;
 
-public abstract class EditingResult extends BaseModel implements Parcelable {
+public abstract class EditResult extends BaseModel implements Parcelable {
     private final String result;
 
-    public EditingResult(String result) {
+    public EditResult(String result) {
         this.result = result;
     }
 
-    protected EditingResult(Parcel in) {
+    protected EditResult(Parcel in) {
         this.result = in.readString();
     }
 

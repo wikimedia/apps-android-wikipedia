@@ -1,4 +1,4 @@
-package org.wikipedia.editing;
+package org.wikipedia.editing.token;
 
 import android.support.annotation.NonNull;
 
@@ -6,8 +6,8 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.editing.CaptchaClient.Callback;
-import org.wikipedia.editing.CaptchaClient.Service;
+import org.wikipedia.editing.token.EditTokenClient.Callback;
+import org.wikipedia.editing.token.EditTokenClient.Service;
 import org.wikipedia.test.MockWebServerTest;
 
 import retrofit2.Call;
@@ -19,15 +19,16 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
-public class CaptchaClientTest extends MockWebServerTest {
-    @NonNull private final CaptchaClient subject = new CaptchaClient();
+public class EditTokenClientTest extends MockWebServerTest {
+    @NonNull private final EditTokenClient subject = new EditTokenClient();
 
-    @Test public void testRequestSuccess() throws Throwable {
-        CaptchaResult expected = new CaptchaResult("1572672319");
-        enqueueFromFile("captcha.json");
+    @Test
+    public void testRequestSuccess() throws Throwable {
+        String expected = "b6f7bd58c013ab30735cb19ecc0aa08258122cba+\\";
+        enqueueFromFile("edittoken.json");
 
         Callback cb = mock(Callback.class);
-        Call<Captcha> call = request(cb);
+        Call<EditToken> call = request(cb);
 
         server().takeRequest();
         assertCallbackSuccess(call, cb, expected);
@@ -37,7 +38,7 @@ public class CaptchaClientTest extends MockWebServerTest {
         enqueue404();
 
         Callback cb = mock(Callback.class);
-        Call<Captcha> call = request(cb);
+        Call<EditToken> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, RetrofitException.class);
@@ -47,27 +48,27 @@ public class CaptchaClientTest extends MockWebServerTest {
         server().enqueue("'");
 
         Callback cb = mock(Callback.class);
-        Call<Captcha> call = request(cb);
+        Call<EditToken> call = request(cb);
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
     }
 
-    private void assertCallbackSuccess(@NonNull Call<Captcha> call, @NonNull Callback cb,
-                                       @NonNull CaptchaResult expected) {
+    private void assertCallbackSuccess(@NonNull Call<EditToken> call, @NonNull Callback cb,
+                                       @NonNull String expected) {
         verify(cb).success(eq(call), eq(expected));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
-    private void assertCallbackFailure(@NonNull Call<Captcha> call, @NonNull Callback cb,
+    private void assertCallbackFailure(@NonNull Call<EditToken> call, @NonNull Callback cb,
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
-        verify(cb, never()).success(any(Call.class), any(CaptchaResult.class));
+        verify(cb, never()).success(any(Call.class), any(String.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 
-    private Call<Captcha> request(@NonNull Callback cb) {
+    private Call<EditToken> request(@NonNull Callback cb) {
         return subject.request(service(Service.class), cb);
     }
 }

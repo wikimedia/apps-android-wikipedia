@@ -1,4 +1,4 @@
-package org.wikipedia.editing;
+package org.wikipedia.captcha;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

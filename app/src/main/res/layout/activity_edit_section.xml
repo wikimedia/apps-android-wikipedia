@@ -59,7 +59,7 @@
         <fragment android:layout_width="match_parent"
                   android:layout_height="0dp"
                   android:layout_weight="1"
-                  class="org.wikipedia.editing.EditPreviewFragment"
+                  class="org.wikipedia.editing.preview.EditPreviewFragment"
                   android:id="@+id/edit_section_preview_fragment"
                   tools:layout="@layout/fragment_preview_edit"/>
     </LinearLayout>

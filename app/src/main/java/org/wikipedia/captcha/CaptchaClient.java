@@ -1,4 +1,4 @@
-package org.wikipedia.editing;
+package org.wikipedia.captcha;
 
 
 import android.support.annotation.NonNull;

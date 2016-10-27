@@ -8,12 +8,13 @@ import org.mediawiki.api.json.ApiException;
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.page.PageTitle;
 
 import java.util.concurrent.TimeUnit;
 
-public class EditTask extends ApiTask<EditingResult> {
+public class EditTask extends ApiTask<EditResult> {
     private final PageTitle title;
     private final String sectionWikitext;
     private final int sectionID;
@@ -55,7 +56,7 @@ public class EditTask extends ApiTask<EditingResult> {
     }
 
     @Override
-    public EditingResult processResult(ApiResult result) throws Throwable {
+    public EditResult processResult(ApiResult result) throws Throwable {
         JSONObject resultJSON = result.asObject();
         JSONObject edit = resultJSON.optJSONObject("edit");
         String status = edit.optString("result");

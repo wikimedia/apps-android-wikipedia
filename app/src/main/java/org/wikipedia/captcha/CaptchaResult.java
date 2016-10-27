@@ -1,12 +1,13 @@
-package org.wikipedia.editing;
+package org.wikipedia.captcha;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.editing.EditResult;
 
 // Handles only Image Captchas
-public class CaptchaResult extends EditingResult {
+public class CaptchaResult extends EditResult {
     private final String captchaId;
 
     public CaptchaResult(String captchaId) {

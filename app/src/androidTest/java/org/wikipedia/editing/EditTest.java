@@ -6,6 +6,7 @@ import android.support.test.filters.LargeTest;
 import org.junit.Before;
 import org.junit.Test;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
@@ -44,7 +45,7 @@ public class EditTest {
         client.request(TEST_WIKI_SITE, title, sectionId, wikitext, ANONYMOUS_TOKEN, DEFAULT_SUMMARY,
                 false, null, null, new EditClient.Callback() {
                     @Override
-                    public void success(@NonNull Call<Edit> call, @NonNull EditingResult result) {
+                    public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
                         assertThat(result, instanceOf(SuccessEditResult.class));
                         latch.countDown();
                     }
@@ -67,7 +68,7 @@ public class EditTest {
         client.request(TEST_WIKI_SITE, title, DEFAULT_SECTION_ID, wikitext, ANONYMOUS_TOKEN,
                 DEFAULT_SUMMARY, false, null, null, new EditClient.Callback() {
                     @Override
-                    public void success(@NonNull Call<Edit> call, @NonNull EditingResult result) {
+                    public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
                         validateCaptcha(result);
                         latch.countDown();
                     }
@@ -102,7 +103,7 @@ public class EditTest {
             client.request(TEST_WIKI_SITE, title, DEFAULT_SECTION_ID, wikitext, ANONYMOUS_TOKEN,
                     DEFAULT_SUMMARY, false, null, null, new EditClient.Callback() {
                         @Override
-                        public void success(@NonNull Call<Edit> call, @NonNull EditingResult result) {
+                        public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
                             if (!(result instanceof SuccessEditResult)) {
                                 assertThat(result, instanceOf(AbuseFilterEditResult.class));
                                 //noinspection ConstantConditions
@@ -138,7 +139,7 @@ public class EditTest {
         client.request(TEST_WIKI_SITE, title, DEFAULT_SECTION_ID, wikitext, ANONYMOUS_TOKEN,
                 DEFAULT_SUMMARY, false, null, null, new EditClient.Callback() {
                     @Override
-                    public void success(@NonNull Call<Edit> call, @NonNull EditingResult result) {
+                    public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
                         assertThat(result, instanceOf(AbuseFilterEditResult.class));
                         assertThat(((AbuseFilterEditResult) result).getType(),
                                 is(AbuseFilterEditResult.TYPE_ERROR));
@@ -170,7 +171,7 @@ public class EditTest {
         client.request(TEST_WIKI_SITE, title, DEFAULT_SECTION_ID, wikitext, ANONYMOUS_TOKEN,
                 DEFAULT_SUMMARY, false, null, null, new EditClient.Callback() {
                     @Override
-                    public void success(@NonNull Call<Edit> call, @NonNull EditingResult result) {
+                    public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
                         assertThat(result, instanceOf(AbuseFilterEditResult.class));
                         assertThat(((AbuseFilterEditResult) result).getType(),
                                 is(AbuseFilterEditResult.TYPE_ERROR));
@@ -185,7 +186,7 @@ public class EditTest {
         latch.await();
     }
 
-    private void validateCaptcha(EditingResult result) {
+    private void validateCaptcha(EditResult result) {
         assertThat(result, instanceOf(CaptchaResult.class));
         CaptchaResult captchaResult = (CaptchaResult) result;
         String url = captchaResult.getCaptchaUrl(TEST_WIKI_SITE);

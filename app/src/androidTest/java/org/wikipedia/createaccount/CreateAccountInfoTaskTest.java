@@ -13,8 +13,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.editing.CaptchaResult;
 import org.wikipedia.testlib.TestLatch;
 import org.wikipedia.util.log.L;
 

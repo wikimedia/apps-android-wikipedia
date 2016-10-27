@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import org.json.JSONObject;
 
-public class AbuseFilterEditResult extends EditingResult {
+public class AbuseFilterEditResult extends EditResult {
     public static final int TYPE_WARNING = 1;
     public static final int TYPE_ERROR = 2;
 

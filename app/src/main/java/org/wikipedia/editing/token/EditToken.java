@@ -1,4 +1,4 @@
-package org.wikipedia.editing;
+package org.wikipedia.editing.token;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;

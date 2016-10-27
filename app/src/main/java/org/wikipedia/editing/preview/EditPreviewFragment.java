@@ -1,4 +1,4 @@
-package org.wikipedia.editing;
+package org.wikipedia.editing.preview;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -26,6 +26,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.editing.EditSectionActivity;
 import org.wikipedia.editing.summaries.EditSummaryTag;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;

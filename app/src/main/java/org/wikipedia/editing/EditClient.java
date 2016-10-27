@@ -6,6 +6,7 @@ import android.support.annotation.VisibleForTesting;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.json.GsonMarshaller;
@@ -79,7 +80,7 @@ public class EditClient {
     }
 
     @VisibleForTesting interface Callback {
-        void success(@NonNull Call<Edit> call, @NonNull EditingResult result);
+        void success(@NonNull Call<Edit> call, @NonNull EditResult result);
         void failure(@NonNull Call<Edit> call, @NonNull Throwable caught);
     }
 

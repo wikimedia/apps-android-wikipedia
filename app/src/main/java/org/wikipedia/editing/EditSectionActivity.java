@@ -34,8 +34,14 @@ import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.captcha.CaptchaHandler;
+import org.wikipedia.captcha.CaptchaResult;
+import org.wikipedia.editing.preview.EditPreviewFragment;
+import org.wikipedia.editing.preview.Wikitext;
+import org.wikipedia.editing.preview.WikitextClient;
 import org.wikipedia.editing.richtext.SyntaxHighlighter;
 import org.wikipedia.editing.summaries.EditSummaryFragment;
+import org.wikipedia.editing.token.EditTokenStorage;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.login.LoginResult;
@@ -283,7 +289,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                         captchaHandler.isActive() ? captchaHandler.captchaWord() : "null",
                         new EditClient.Callback() {
                             @Override
-                            public void success(@NonNull Call<Edit> call, @NonNull EditingResult result) {
+                            public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
                                 if (isFinishing() || !progressDialog.isShowing()) {
                                     // no longer attached to activity!
                                     return;

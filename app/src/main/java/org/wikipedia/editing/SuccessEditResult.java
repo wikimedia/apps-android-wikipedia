@@ -3,7 +3,7 @@ package org.wikipedia.editing;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class SuccessEditResult extends EditingResult {
+public class SuccessEditResult extends EditResult {
     private final int revID;
     public SuccessEditResult(int revID) {
         super("Success");
