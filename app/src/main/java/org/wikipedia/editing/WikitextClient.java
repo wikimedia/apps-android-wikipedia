@@ -8,17 +8,14 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.restbase.RbPageEndpointsCache;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public class WikitextClient {
     @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-    @NonNull private final Retrofit retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
 
     public Call<Wikitext> request(@NonNull final WikiSite wiki, @NonNull final PageTitle title,
                                   final int sectionID, @NonNull final Callback cb) {
@@ -35,7 +32,7 @@ public class WikitextClient {
                 if (response.isSuccessful()) {
                     cb.success(call, response.body().wikitext());
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, retrofit));
+                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
                 }
             }
 

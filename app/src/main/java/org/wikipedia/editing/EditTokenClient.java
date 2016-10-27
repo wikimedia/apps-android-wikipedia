@@ -6,16 +6,13 @@ import android.support.annotation.VisibleForTesting;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.server.restbase.RbPageEndpointsCache;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 import retrofit2.http.GET;
 
 public class EditTokenClient {
     @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-    @NonNull private final Retrofit retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
 
     @NonNull public Call<EditToken> request(@NonNull final WikiSite wiki,
                                             @NonNull final Callback cb) {
@@ -32,7 +29,7 @@ public class EditTokenClient {
                 if (response.isSuccessful()) {
                     cb.success(call, response.body().token());
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, retrofit));
+                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
                 }
             }
 
