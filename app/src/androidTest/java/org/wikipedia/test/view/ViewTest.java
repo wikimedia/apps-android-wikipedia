@@ -117,6 +117,10 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
                 .build();
     }
 
+    protected String str(@NonNull TestStr str, Object... formatArgs) {
+        return str(str.id(), formatArgs);
+    }
+
     protected String str(@StringRes int id, Object... formatArgs) {
         return id == 0 ? null : ctx().getString(id, formatArgs);
     }
