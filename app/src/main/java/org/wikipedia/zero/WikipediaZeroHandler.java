@@ -16,13 +16,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.NotificationCompat;
-import android.text.TextUtils;
 
 import org.mediawiki.api.json.ApiResult;
 import org.mediawiki.api.json.OnHeaderCheckListener;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.WikipediaZeroUsageFunnel;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.WikipediaZeroEnterEvent;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
@@ -32,6 +32,7 @@ import org.wikipedia.util.log.L;
 import java.net.URL;
 
 import okhttp3.Headers;
+import retrofit2.Call;
 import retrofit2.Response;
 
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -93,7 +94,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         final String customExitTitle = zeroConfig.getExitTitle();
         final String customExitWarning = zeroConfig.getExitWarning();
         final String customPartnerInfoText = zeroConfig.getPartnerInfoText();
-        final String customPartnerInfoUrl = zeroConfig.getPartnerInfoUrl();
+        final Uri customPartnerInfoUrl = zeroConfig.getPartnerInfoUrl();
 
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setTitle(!(StringUtil.emptyIfNull(customExitTitle).equals("")) ? customExitTitle
@@ -112,7 +113,7 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
             alert.setNeutralButton(customPartnerInfoText, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    visitInExternalBrowser(context, Uri.parse(customPartnerInfoUrl));
+                    visitInExternalBrowser(context, customPartnerInfoUrl);
                 }
             });
         }
@@ -207,48 +208,30 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
     private void identifyZeroCarrier(@NonNull final String xCarrierFromHeader,
                                      @NonNull final String xCarrierMetaFromHeader) {
         Handler wikipediaZeroHandler = new Handler(new Handler.Callback() {
-            private WikipediaZeroTask curZeroTask;
-
             @Override
             public boolean handleMessage(Message msg) {
-                WikipediaZeroTask zeroTask = new WikipediaZeroTask(
-                        app.getApiForMobileSite(app.getWikiSite()), app.getUserAgent()) {
+                new ZeroConfigClient().request(new WikiSite(app.getWikiSite().mobileHost()),
+                        app.getUserAgent(), new ZeroConfigClient.Callback() {
                     @Override
-                    public void onFinish(ZeroConfig newConfig) {
-                        L.i("New Wikipedia Zero config: " + newConfig);
+                    public void success(@NonNull Call<ZeroConfig> call, @NonNull ZeroConfig config) {
+                        L.i("New Wikipedia Zero config: " + config);
                         xCarrier = xCarrierFromHeader; // ex. "123-45"
-
-                        if (newConfig != null) {
-                            zeroCarrierString = xCarrierFromHeader;
-                            zeroCarrierMetaString = xCarrierMetaFromHeader; // ex. "wap"; default ""
-                            zeroEnabled = true;
-                            zeroFunnel = new WikipediaZeroUsageFunnel(app, zeroCarrierString,
-                                    StringUtil.emptyIfNull(zeroCarrierMetaString));
-
-                            if (newConfig.hashCode() != Prefs.zeroConfigHashCode()) {
-                                notifyEnterZeroNetwork(app, newConfig);
-                            }
-                            app.getBus().post(new WikipediaZeroEnterEvent());
-                            zeroConfig = newConfig;
-                            Prefs.zeroConfigHashCode(zeroConfig.hashCode());
-                            curZeroTask = null;
-                        }
+                        zeroCarrierString = xCarrierFromHeader;
+                        zeroCarrierMetaString = xCarrierMetaFromHeader; // ex. "wap"; default ""
+                        zeroConfig = config;
+                        zeroEnabled = true;
+                        zeroFunnel = new WikipediaZeroUsageFunnel(app, zeroCarrierString,
+                                StringUtil.emptyIfNull(zeroCarrierMetaString));
+                        app.getBus().post(new WikipediaZeroEnterEvent());
                         acquiringCarrierMessage = false;
                     }
 
                     @Override
-                    public void onCatch(Throwable caught) {
+                    public void failure(@NonNull Call<ZeroConfig> call, @NonNull Throwable caught) {
                         L.w("Wikipedia Zero eligibility check failed", caught);
-                        curZeroTask = null;
                         acquiringCarrierMessage = false;
                     }
-                };
-                if (curZeroTask != null) {
-                    // if this connection was hung, clean up a bit
-                    curZeroTask.cancel();
-                }
-                curZeroTask = zeroTask;
-                curZeroTask.execute();
+                });
                 acquiringCarrierMessage = true;
                 return true;
             }
@@ -280,21 +263,6 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
             }
         }
         return null;
-    }
-
-    private void notifyEnterZeroNetwork(@NonNull Context context, @NonNull ZeroConfig config) {
-        NotificationCompat.Builder builder = createNotification(context);
-        builder.setColor(config.getBackground())
-                .setLights(config.getBackground(),
-                        context.getResources().getInteger(R.integer.zero_notification_light_on_ms),
-                        context.getResources().getInteger(R.integer.zero_notification_light_off_ms))
-                .setContentText(context.getString(R.string.zero_learn_more))
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.zero_learn_more)))
-                .addAction(0, context.getString(R.string.zero_learn_more_learn_more),
-                        pendingIntentForUrl(context, TextUtils.isEmpty(config.getBannerUrl())
-                                ? context.getString(R.string.zero_webpage_url)
-                                : config.getBannerUrl()));
-        showNotification(context, builder.build());
     }
 
     private void notifyExitZeroNetwork(@NonNull Context context) {

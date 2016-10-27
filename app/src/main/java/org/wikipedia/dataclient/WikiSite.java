@@ -75,8 +75,7 @@ public class WikiSite implements Parcelable {
     public WikiSite(boolean secureScheme, @NonNull String authority, @NonNull String languageCode) {
         this(new Uri.Builder()
                 .scheme(secureScheme ? "https" : "http")
-                // TODO: verify no one is passing in mobile authorities and remove authorityToDesktop().
-                .encodedAuthority(authorityToDesktop(authority))
+                .encodedAuthority(authority)
                 .build(), languageCode);
     }
 
