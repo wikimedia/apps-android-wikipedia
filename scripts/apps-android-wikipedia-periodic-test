@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+./gradlew clean testAllAlphaRelease -Pandroid.testInstrumentationRunnerArguments.size=small
+scripts/diff-screenshots
