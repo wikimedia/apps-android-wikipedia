@@ -1,4 +1,4 @@
-package org.wikipedia.test;
+package org.wikipedia.test.view;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -25,14 +25,6 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
-import org.wikipedia.test.view.FontScale;
-import org.wikipedia.test.view.LayoutDirection;
-import org.wikipedia.test.view.NullValue;
-import org.wikipedia.test.view.PrimaryTestImg;
-import org.wikipedia.test.view.PrimaryTestStr;
-import org.wikipedia.test.view.SecondaryTestImg;
-import org.wikipedia.test.view.SecondaryTestStr;
-import org.wikipedia.test.view.TestStr;
 import org.wikipedia.theme.Theme;
 
 import java.util.ArrayList;
