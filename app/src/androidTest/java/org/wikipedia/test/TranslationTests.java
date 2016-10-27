@@ -33,7 +33,7 @@ import static org.junit.Assert.fail;
 @SmallTest
 public class TranslationTests {
     /** Add more if needed, but then also add some tests. */
-    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%d", "%.2f"};
+    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%1$d", "%2$d", "%d", "%.2f"};
 
     private final StringBuilder mismatches = new StringBuilder();
 
@@ -44,6 +44,7 @@ public class TranslationTests {
         List<Res> noTagRes = new ResourceCollector("<", "&lt;").not().collectParameterResources(defaultLang);
         List<Res> stringParamRes = new ResourceCollector("%s").collectParameterResources(defaultLang);
         List<Res> twoStringParamRes = new ResourceCollector("%2$s").collectParameterResources(defaultLang);
+        List<Res> twoDecimalParamRes = new ResourceCollector("%2$d").collectParameterResources(defaultLang);
         List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources(defaultLang);
         List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources(defaultLang);
         // todo: flag usage of templates {{}}.
@@ -87,6 +88,13 @@ public class TranslationTests {
                 for (Res res : decimalParamRes) {
                     final int param1 = 42;
                     checkTranslationHasParameter(res, "%d", param1, null);
+                }
+
+                // 2 decimal parameters
+                for (Res res : twoDecimalParamRes) {
+                    final int param1 = 42;
+                    final int param2 = 8675309;
+                    checkTranslationHasTwoParameters(res, "%d", param1, param2);
                 }
 
                 // floating point parameters
