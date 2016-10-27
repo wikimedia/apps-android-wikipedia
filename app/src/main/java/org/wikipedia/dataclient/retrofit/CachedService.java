@@ -18,7 +18,7 @@ public abstract class CachedService<T> {
         return service;
     }
 
-    @Nullable protected Retrofit retrofit() {
+    @Nullable public Retrofit retrofit() {
         return retrofit;
     }
 

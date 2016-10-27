@@ -7,16 +7,13 @@ import android.support.annotation.VisibleForTesting;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
-import org.wikipedia.server.restbase.RbPageEndpointsCache;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 import retrofit2.http.GET;
 
 class CaptchaClient {
     @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
-    @NonNull private final Retrofit retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
 
     public Call<Captcha> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
         Service service = cachedService.service(wiki);
@@ -31,7 +28,7 @@ class CaptchaClient {
                 if (response.isSuccessful()) {
                     cb.success(call, new CaptchaResult(response.body().captchaId()));
                 } else {
-                    cb.failure(call, RetrofitException.httpError(response, retrofit));
+                    cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
                 }
             }
 
