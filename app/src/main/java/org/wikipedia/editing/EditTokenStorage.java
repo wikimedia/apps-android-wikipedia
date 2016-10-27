@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import retrofit2.Call;
+
 public class EditTokenStorage {
     private static final String DELIMITER = ";";
 
@@ -41,7 +43,6 @@ public class EditTokenStorage {
     }
 
     public void get(@NonNull final WikiSite wiki, final TokenRetrievedCallback callback) {
-        // This might run an AsyncTask, and hence must be called from main thread
         ensureMainThread();
 
         String curToken = token(wiki);
@@ -50,22 +51,18 @@ public class EditTokenStorage {
             return;
         }
 
-        new FetchEditTokenTask(context, wiki) {
+        new EditTokenClient().request(wiki, new EditTokenClient.Callback() {
             @Override
-            public void onFinish(String result) {
-                token(wiki, result);
-                callback.onTokenRetrieved(result);
+            public void success(@NonNull Call<EditToken> call, @NonNull String token) {
+                token(wiki, token);
+                callback.onTokenRetrieved(token);
             }
 
             @Override
-            public void onCatch(Throwable caught) {
+            public void failure(@NonNull Call<EditToken> call, @NonNull Throwable caught) {
                 callback.onTokenFailed(caught);
             }
-        }.execute();
-    }
-
-    public void clearEditTokenForDomain(String wiki) {
-        Prefs.removeEditTokenForWiki(wiki);
+        });
     }
 
     public void clearAllTokens() {
