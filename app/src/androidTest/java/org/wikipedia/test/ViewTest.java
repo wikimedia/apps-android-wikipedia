@@ -25,6 +25,14 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
+import org.wikipedia.test.view.FontScale;
+import org.wikipedia.test.view.LayoutDirection;
+import org.wikipedia.test.view.NullValue;
+import org.wikipedia.test.view.PrimaryTestImg;
+import org.wikipedia.test.view.PrimaryTestStr;
+import org.wikipedia.test.view.SecondaryTestImg;
+import org.wikipedia.test.view.SecondaryTestStr;
+import org.wikipedia.test.view.TestStr;
 import org.wikipedia.theme.Theme;
 
 import java.util.ArrayList;
@@ -38,33 +46,36 @@ import static org.junit.Assert.assertThat;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 @RunWith(Theories.class) public abstract class ViewTest {
+    @DataPoints public static final Locale[] LOCALES = {Locale.ENGLISH};
+    @DataPoints public static final LayoutDirection[] LAYOUT_DIRECTIONS = LayoutDirection.values();
+    @DataPoints public static final FontScale[] FONT_SCALES = FontScale.values();
+    @DataPoints public static final Theme[] THEMES = Theme.values();
+    @DataPoints public static final PrimaryTestStr[] PRIMARY_STRS = PrimaryTestStr.values();
+    @DataPoints public static final SecondaryTestStr[] SECONDARY_STRS = SecondaryTestStr.values();
+    @DataPoints public static final PrimaryTestImg[] PRIMARY_IMGS = PrimaryTestImg.values();
+    @DataPoints public static final SecondaryTestImg[] SECONDARY_IMGS = SecondaryTestImg.values();
+    @DataPoints public static final NullValue[] NULL_VALUES = NullValue.values();
+
     protected static final int WIDTH_DP_XL = 720;
     protected static final int WIDTH_DP_L = 480;
     protected static final int WIDTH_DP_M = 320;
     protected static final int WIDTH_DP_S = 240;
     protected static final int WIDTH_DP_XS = 120;
 
-    public enum LayoutDirection { LOCALE, RTL }
-
     private int widthDp;
     private Locale locale;
     private LayoutDirection layoutDirection;
-    private float fontScale;
+    private FontScale fontScale;
     private Theme theme;
     private Context ctx;
 
-    @DataPoints public static final Locale[] LOCALES = {Locale.ENGLISH};
-    @DataPoints public static final LayoutDirection[] LAYOUT_DIRECTIONS = LayoutDirection.values();
-    @DataPoints("fontScales") public static final float[] FONT_SCALES = {1, 1.5f};
-    @DataPoints public static final Theme[] THEMES = Theme.values();
-
-    protected void setUp(int widthDp, @NonNull LayoutDirection layoutDirection, float fontScale,
-                         @NonNull Theme theme) {
+    protected void setUp(int widthDp, @NonNull LayoutDirection layoutDirection,
+                         @NonNull FontScale fontScale, @NonNull Theme theme) {
         setUp(widthDp, LOCALES[0], layoutDirection, fontScale, theme);
     }
 
     protected void setUp(int widthDp, @NonNull Locale locale,
-                         @NonNull LayoutDirection layoutDirection, float fontScale,
+                         @NonNull LayoutDirection layoutDirection, @NonNull FontScale fontScale,
                          @NonNull Theme theme) {
         this.widthDp = widthDp;
         this.locale = locale;
@@ -90,34 +101,21 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
 
         List<String> list = new ArrayList<>();
         list.add(widthDp + "dp");
-        list.add(locale.toString().toLowerCase());
+        list.add(locale.toString());
         list.add(layoutDirection == LayoutDirection.RTL ? "rtl" : "ltr");
-        list.add("font" + fontScale + "x");
+        list.add("font" + fontScale.multiplier() + "x");
         list.add(theme.toString().toLowerCase());
         list.addAll(Arrays.asList(ArrayUtils.nullToEmpty(dataPoints)));
         Screenshot.snap(subject).setName(testName(list)).record();
     }
 
+    protected void assertText(@NonNull View subject, @IdRes int id, @NonNull TestStr text) {
+        assertText(subject, id, text.id());
+    }
+
     protected void assertText(@NonNull View subject, @IdRes int id, @StringRes int text) {
         TextView textView = findById(subject, id);
         assertThat(textView.getText().toString(), is(emptyIfNull(str(text))));
-    }
-
-    @NonNull protected String len(@StringRes int id) {
-        if (id == 0) {
-            return "no_";
-        }
-
-        String str = str(id);
-        final int medium = 30;
-        if (str.length() < medium) {
-            return "short_";
-        }
-        final int lng = 80;
-        if (str.length() < lng) {
-            return "medium_";
-        }
-        return "long_";
     }
 
     @Nullable protected Uri frescoUri(@DrawableRes int id) {
@@ -138,7 +136,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
     private void config() {
         Configuration cfg = new Configuration(ctx.getResources().getConfiguration());
         cfg.screenWidthDp = widthDp;
-        cfg.fontScale = fontScale;
+        cfg.fontScale = fontScale.multiplier();
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             cfg.setLocales(new LocaleList(locale));
