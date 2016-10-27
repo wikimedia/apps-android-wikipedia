@@ -54,6 +54,7 @@ class ZeroConfigTypeAdapter extends TypeAdapter<ZeroConfig> {
                     break;
             }
         }
+        in.endObject();
         return result;
     }
 }

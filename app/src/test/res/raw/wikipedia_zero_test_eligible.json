@@ -1,0 +1,10 @@
+{
+    "message": "Overstay your stay!",
+    "background": "#00FFFF",
+    "foreground": "#FFFFFF",
+    "exitTitle": "You are leaving free Wikipedia service",
+    "exitWarning": "Data charges will be applied to your account",
+    "partnerInfoText": "Learn more at zero.wikimedia.org",
+    "partnerInfoUrl": "https://zero.wikimedia.org",
+    "bannerUrl": "https://zero.wikimedia.org"
+}

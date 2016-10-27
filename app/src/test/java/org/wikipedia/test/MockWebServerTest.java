@@ -39,6 +39,10 @@ public abstract class MockWebServerTest {
         server.enqueue(new MockResponse().setResponseCode(code).setBody("Not Found"));
     }
 
+    protected void enqueueEmptyJson() {
+        server.enqueue(new MockResponse().setBody("{}"));
+    }
+
     @NonNull public <T> T service(Class<T> clazz) {
         return service(clazz, server().getUrl());
     }
