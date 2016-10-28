@@ -1,7 +1,7 @@
 package org.wikipedia.editing.preview;
 
 import android.support.annotation.NonNull;
-import android.support.test.filters.SmallTest;;
+import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
@@ -11,20 +11,22 @@ import org.wikipedia.testlib.TestLatch;
 import retrofit2.Call;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 @SmallTest
 public class EditPreviewTest {
+    private static WikiSite TESTWIKI = WikiSite.forLanguageCode("test");
+
     @Test
     public void testPreview() throws Throwable {
-        final WikiSite wiki = WikiSite.forLanguageCode("test");
-        final PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", wiki);
+        PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", TESTWIKI);
         final long randomTime = System.currentTimeMillis();
-        final String wikiText = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + randomTime;
+        String wikiText = "== Section 2 ==\n\nEditing section INSERT RANDOM & HERE test at " + randomTime;
 
         final TestLatch latch = new TestLatch();
 
-        new EditPreviewClient().request(wiki, title, wikiText,
+        new EditPreviewClient().request(TESTWIKI, title, wikiText,
                 new EditPreviewClient.Callback() {
                     @Override
                     public void success(@NonNull Call<EditPreview> call, @NonNull String preview) {
@@ -35,6 +37,29 @@ public class EditPreviewTest {
                     @Override
                     public void failure(@NonNull Call<EditPreview> call, @NonNull Throwable caught) {
                         throw new RuntimeException(caught);
+                    }
+                });
+        latch.await();
+    }
+
+    @Test
+    public void testErrorResponse() throws Throwable {
+        PageTitle title = new PageTitle(null, "#[]", TESTWIKI);
+        String wikiText = "foo";
+
+        final TestLatch latch = new TestLatch();
+
+        new EditPreviewClient().request(TESTWIKI, title, wikiText,
+                new EditPreviewClient.Callback() {
+                    @Override
+                    public void success(@NonNull Call<EditPreview> call, @NonNull String preview) {
+                        throw new RuntimeException("This should generate an error response!");
+                    }
+
+                    @Override
+                    public void failure(@NonNull Call<EditPreview> call, @NonNull Throwable caught) {
+                        assertNotNull(caught.getMessage());
+                        latch.countDown();
                     }
                 });
         latch.await();

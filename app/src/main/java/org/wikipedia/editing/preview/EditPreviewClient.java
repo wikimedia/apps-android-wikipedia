@@ -16,7 +16,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public class EditPreviewClient {
+class EditPreviewClient {
     @NonNull private final MwCachedService<Service> cachedService
             = new MwCachedService<>(Service.class);
     @NonNull private final Retrofit retrofit = RbPageEndpointsCache.INSTANCE.getRetrofit();
@@ -35,7 +35,14 @@ public class EditPreviewClient {
             @Override
             public void onResponse(Call<EditPreview> call, Response<EditPreview> response) {
                 if (response.isSuccessful()) {
-                    cb.success(call, response.body().result());
+                    EditPreview preview = response.body();
+                    if (preview.hasPreviewResult()) {
+                        cb.success(call, preview.result());
+                    } else if (preview.info() != null) {
+                        cb.failure(call, new RuntimeException(preview.info()));
+                    } else {
+                        cb.failure(call, new RuntimeException("Received unrecognized edit preview response"));
+                    }
                 } else {
                     cb.failure(call, RetrofitException.httpError(response, retrofit));
                 }
