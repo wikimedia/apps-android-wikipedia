@@ -19,12 +19,12 @@ public abstract class DefaultFeedCardView<T extends Card> extends CardView imple
         this.card = card;
     }
 
-    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
-        this.callback = callback;
-    }
-
     @Nullable protected T getCard() {
         return card;
+    }
+
+    @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
+        this.callback = callback;
     }
 
     @Nullable protected FeedAdapter.Callback getCallback() {
