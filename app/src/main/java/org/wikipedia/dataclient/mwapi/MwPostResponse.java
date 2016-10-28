@@ -20,6 +20,10 @@ public abstract class MwPostResponse {
         return error == null && "success".equals(result);
     }
 
+    public boolean hasError() {
+        return error != null;
+    }
+
     public boolean badToken() {
         return error != null && error.badToken();
     }

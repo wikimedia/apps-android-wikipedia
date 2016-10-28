@@ -15,10 +15,12 @@ import org.wikipedia.R;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.log.L;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import retrofit2.Call;
 
 public class DescriptionEditFragment extends Fragment {
     private static final String EXTRA_TITLE = "title";
@@ -27,6 +29,7 @@ public class DescriptionEditFragment extends Fragment {
     private Unbinder unbinder;
     private PageTitle pageTitle;
     private EditViewCallback callback = new EditViewCallback();
+    private Call<DescriptionEdit> call;
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title) {
@@ -62,6 +65,13 @@ public class DescriptionEditFragment extends Fragment {
         super.onDestroyView();
     }
 
+    @Override public void onDestroy() {
+        if (call != null) {
+            call.cancel();
+        }
+        super.onDestroy();
+    }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_description_edit, menu);
@@ -81,8 +91,27 @@ public class DescriptionEditFragment extends Fragment {
     private class EditViewCallback implements DescriptionEditView.Callback {
         @Override
         public void onSaveClick() {
-            // TODO: save it!
             editView.setSaveState(true);
+            if (call != null) {
+                call.cancel();
+            }
+            call = new DescriptionEditClient().request(pageTitle, editView.getDescription(),
+                    new DescriptionEditClient.Callback() {
+                        @Override
+                        public void success(@NonNull Call<DescriptionEdit> call) {
+                            editView.setSaveState(false);
+                            L.i("WD description edit successful");
+                            // TODO: go to success fragment
+                        }
+
+                        @Override
+                        public void failure(@NonNull Call<DescriptionEdit> call,
+                                            @NonNull Throwable caught) {
+                            editView.setSaveState(false);
+                            L.e("WD description edit failed: ", caught);
+                            // TODO: go to failure fragment
+                        }
+                    });
         }
     }
 }
