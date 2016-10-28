@@ -1,6 +1,7 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.View;
@@ -9,9 +10,11 @@ import android.view.ViewGroup;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
-import org.junit.experimental.theories.suppliers.TestedOn;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.test.ViewTest;
+import org.wikipedia.test.view.FontScale;
+import org.wikipedia.test.view.LayoutDirection;
+import org.wikipedia.test.view.NullValue;
 import org.wikipedia.theme.Theme;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,24 +24,23 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.wikipedia.feed.view.FeedAdapter.Callback;
-import static org.wikipedia.test.ViewTest.LayoutDirection.LOCALE;
 
 public class ListCardViewTest extends ViewTest {
     private ListCardView<Card> subject;
 
     @Before public void setUp() {
-        setUp(WIDTH_DP_S, LOCALE, FONT_SCALES[0], Theme.LIGHT);
+        setUp(WIDTH_DP_S, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT);
         subject = new Subject(ctx());
     }
 
-    @Theory public void testSetCallback(@TestedOn(ints = {0, 1}) int nonnullHeader,
-                                        @TestedOn(ints = {0, 1}) int nonnullCallback) {
-        CardHeaderView header = nonnullHeader == 0 ? null : mock(CardHeaderView.class);
+    @Theory public void testSetCallback(@NonNull NullValue nullHeader,
+                                        @NonNull NullValue nullCallback) {
+        CardHeaderView header = nullHeader.isNull() ? null : mock(CardHeaderView.class);
         if (header != null) {
             subject.header(header);
         }
 
-        Callback callback = nonnullCallback == 0 ? null : mock(FeedAdapter.Callback.class);
+        Callback callback = nullCallback.isNull() ? null : mock(FeedAdapter.Callback.class);
         subject.setCallback(callback);
         assertThat(subject.getCallback(), is(callback));
         if (header != null) {
@@ -46,15 +48,15 @@ public class ListCardViewTest extends ViewTest {
         }
     }
 
-    @Theory public void testSet(@TestedOn(ints = {0, 1}) int nonnull) {
-        Adapter<?> adapter = nonnull == 0 ? null : mock(Adapter.class);
+    @Theory public void testSet(@NonNull NullValue nul) {
+        Adapter<?> adapter = nul.isNull() ? null : mock(Adapter.class);
         subject.set(adapter);
         //noinspection rawtypes
         assertThat(subject.recyclerView.getAdapter(), is((Adapter) adapter));
     }
 
-    @Theory public void testUpdate(@TestedOn(ints = {0, 1}) int nonnull) {
-        Adapter<?> adapter = nonnull == 0 ? null : spy(new NullAdapter());
+    @Theory public void testUpdate(@NonNull NullValue nul) {
+        Adapter<?> adapter = nul.isNull() ? null : spy(new NullAdapter());
         subject.set(adapter);
         subject.update();
         if (adapter != null) {
