@@ -40,7 +40,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     }
 
     @Theory public void testLayoutDirection(@NonNull LayoutDirection direction) {
-        setUp(WIDTH_DP_L, direction, 1, Theme.LIGHT, R.drawable.wmf_logo,
+        setUp(WIDTH_DP_L, direction, FONT_SCALES[0], Theme.LIGHT, R.drawable.wmf_logo,
                 R.string.reading_list_name_sample, R.string.reading_list_untitled,
                 R.color.foundation_blue);
         snap(subject);
@@ -48,13 +48,13 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 
     @Theory public void testTheme(@NonNull Theme theme,
                                   @TestedOn(ints = {R.color.foundation_blue, R.color.foundation_green}) int circleColor) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, theme, R.drawable.wmf_logo,
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], theme, R.drawable.wmf_logo,
                 R.string.reading_list_name_sample, R.string.reading_list_untitled, circleColor);
         snap(subject, circleColor == R.color.foundation_blue ? "blue" : "green");
     }
 
     @Theory public void testFocus(@NonNull Theme theme) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, theme, R.drawable.wmf_logo,
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], theme, R.drawable.wmf_logo,
                 R.string.reading_list_name_sample, R.string.reading_list_untitled,
                 R.color.foundation_blue);
         runOnMainSync(new Runnable() {
@@ -67,13 +67,13 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 
     // todo: how can we test popupmenu which requires an activity?
 //    @Theory public void testMenu(@NonNull Theme theme) {
-//        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, theme, R.drawable.wmf_logo,
+//        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], theme, R.drawable.wmf_logo,
 //                R.string.reading_list_name_sample, R.string.reading_list_untitled);
 //        clickMenu();
 //    }
 
     @Test public void testSetCard() {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, 0, 0, 0, R.color.foundation_blue);
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, 0, 0, 0, R.color.foundation_blue);
         Card card = mock(Card.class);
         subject.setCard(card);
         assertThat(subject.getCard(), is(card));
@@ -82,7 +82,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     // todo: how can we test popupmenu which requires an activity?
 //    @Theory public void testSetCallback(@TestedOn(ints = {0, 1}) int nonnullListener,
 //                                        @TestedOn(ints = {0, 1}) int nonnullCard) {
-//        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, R.drawable.wmf_logo,
+//        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, R.drawable.wmf_logo,
 //                R.string.reading_list_name_sample, R.string.reading_list_untitled);
 //
 //        Card card = nonnullCard == 0 ? null : mock(Card.class);
@@ -98,7 +98,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 //    }
 
     @Test public void testSetImage() {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, R.drawable.wmf_logo,
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, R.drawable.wmf_logo,
                 R.string.reading_list_name_sample, R.string.reading_list_untitled,
                 R.color.foundation_blue);
         ImageView imageView = findById(subject, R.id.view_card_header_image);
@@ -108,7 +108,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     }
 
     @Test public void testSetImageCircleColor() {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, R.drawable.wmf_logo,
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, R.drawable.wmf_logo,
                 R.string.reading_list_name_sample, R.string.reading_list_untitled,
                 R.color.foundation_blue);
         TintableBackgroundView imageView = findById(subject, R.id.view_card_header_image);
@@ -119,13 +119,13 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 
     @Theory public void testSetTitleStr(@TestedOn(ints = {0,
             R.string.reading_list_name_sample}) int text) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, R.drawable.wmf_logo, text,
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, R.drawable.wmf_logo, text,
                 R.string.reading_list_untitled, R.color.foundation_blue);
         assertText(subject, R.id.view_card_header_title, text);
     }
 
     @Test public void testSetTitleId() {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, R.drawable.wmf_logo,
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, R.drawable.wmf_logo,
                 R.string.reading_list_name_sample, R.string.reading_list_untitled,
                 R.color.foundation_blue);
         assertText(subject, R.id.view_card_header_title, R.string.reading_list_name_sample);
@@ -133,7 +133,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 
     @Theory public void testSetSubtitle(@TestedOn(ints = {0,
             R.string.reading_list_name_sample}) int text) {
-        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, 1, Theme.LIGHT, R.drawable.wmf_logo,
+        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FONT_SCALES[0], Theme.LIGHT, R.drawable.wmf_logo,
                 R.string.reading_list_untitled, text, R.color.foundation_blue);
         assertText(subject, R.id.view_card_header_subtitle, text);
     }
