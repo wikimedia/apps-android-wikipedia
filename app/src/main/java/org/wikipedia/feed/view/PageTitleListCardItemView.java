@@ -3,6 +3,7 @@ package org.wikipedia.feed.view;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.PopupMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,9 +62,9 @@ public class PageTitleListCardItemView extends FrameLayout {
 
     @NonNull public PageTitleListCardItemView setHistoryEntry(@NonNull HistoryEntry entry) {
         this.entry = entry;
-        titleView.setText(entry.getTitle().getDisplayText());
-        subtitleView.setText(entry.getTitle().getDescription());
-        ViewUtil.loadImageUrlInto(imageView, entry.getTitle().getThumbUrl());
+        setTitle(entry.getTitle().getDisplayText());
+        setSubtitle(entry.getTitle().getDescription());
+        setImage(entry.getTitle().getThumbUrl());
         return this;
     }
 
@@ -72,6 +73,26 @@ public class PageTitleListCardItemView extends FrameLayout {
         menu.getMenuInflater().inflate(R.menu.menu_feed_card_item, menu.getMenu());
         menu.setOnMenuItemClickListener(new CardItemMenuClickListener());
         menu.show();
+    }
+
+    @VisibleForTesting @Nullable Callback getCallback() {
+        return callback;
+    }
+
+    @VisibleForTesting @Nullable HistoryEntry getHistoryEntry() {
+        return entry;
+    }
+
+    @VisibleForTesting void setImage(@Nullable String url) {
+        ViewUtil.loadImageUrlInto(imageView, url);
+    }
+
+    @VisibleForTesting void setTitle(@Nullable CharSequence text) {
+        titleView.setText(text);
+    }
+
+    @VisibleForTesting void setSubtitle(@Nullable CharSequence text) {
+        subtitleView.setText(text);
     }
 
     private class CardItemMenuClickListener implements PopupMenu.OnMenuItemClickListener {
