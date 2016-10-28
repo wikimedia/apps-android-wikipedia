@@ -90,6 +90,6 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 
         subject = new CardLargeHeaderView(ctx())
                 .setImage(frescoUri(image.id()))
-                .setTitle(str(title.id()));
+                .setTitle(str(title));
     }
 }

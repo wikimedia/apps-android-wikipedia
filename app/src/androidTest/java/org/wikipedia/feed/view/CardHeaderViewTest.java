@@ -152,7 +152,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         subject = new CardHeaderView(ctx())
                 .setImage(image.id())
                 .setImageCircleColor(circleColor)
-                .setTitle(str(title.id()))
-                .setSubtitle(str(subtitle.id()));
+                .setTitle(str(title))
+                .setSubtitle(str(subtitle));
     }
 }
