@@ -6,9 +6,9 @@ import android.support.test.filters.SmallTest;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
-import org.wikipedia.test.ViewTest;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
+import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
 import static org.hamcrest.Matchers.hasItemInArray;

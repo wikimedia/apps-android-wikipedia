@@ -11,7 +11,6 @@ import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.test.ViewTest;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
 import org.wikipedia.test.view.PrimaryTestImg;
@@ -20,6 +19,7 @@ import org.wikipedia.test.view.SecondaryTestImg;
 import org.wikipedia.test.view.SecondaryTestStr;
 import org.wikipedia.test.view.TestImg;
 import org.wikipedia.test.view.TestStr;
+import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
 import static butterknife.ButterKnife.findById;
@@ -34,10 +34,8 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     private CardHeaderView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,
-                                  @NonNull FontScale fontScale,
-                                  @NonNull PrimaryTestImg image,
-                                  @NonNull PrimaryTestStr title,
-                                  @NonNull SecondaryTestStr subtitle) {
+                                  @NonNull FontScale fontScale, @NonNull PrimaryTestImg image,
+                                  @NonNull PrimaryTestStr title, @NonNull SecondaryTestStr subtitle) {
         setUp(widthDp, LayoutDirection.LOCALE, fontScale, Theme.LIGHT, image, title, subtitle,
                 BLUE);
         snap(subject, image + "_image", title + "_title", subtitle + "_subtitle");
@@ -137,13 +135,13 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
         assertText(subject, R.id.view_card_header_subtitle, text);
     }
 
-    private void clickMenu() {
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.onMenuClick(findById(subject, R.id.view_list_card_header_menu));
-            }
-        });
-    }
+//    private void clickMenu() {
+//        runOnMainSync(new Runnable() {
+//            @Override public void run() {
+//                subject.onMenuClick(findById(subject, R.id.view_list_card_header_menu));
+//            }
+//        });
+//    }
 
     @SuppressWarnings("checkstyle:parameternumber")
     private void setUp(int widthDp, @NonNull LayoutDirection layoutDirection,

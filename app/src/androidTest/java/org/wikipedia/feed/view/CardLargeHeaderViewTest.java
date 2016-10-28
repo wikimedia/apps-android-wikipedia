@@ -7,7 +7,6 @@ import android.view.View;
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
 import org.wikipedia.R;
-import org.wikipedia.test.ViewTest;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
 import org.wikipedia.test.view.NullValue;
@@ -16,6 +15,7 @@ import org.wikipedia.test.view.PrimaryTestStr;
 import org.wikipedia.test.view.SecondaryTestImg;
 import org.wikipedia.test.view.TestImg;
 import org.wikipedia.test.view.TestStr;
+import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
 import static android.view.View.OnClickListener;
