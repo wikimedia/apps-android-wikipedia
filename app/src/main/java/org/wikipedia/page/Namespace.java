@@ -78,7 +78,7 @@ public enum Namespace implements EnumCode {
     public String toLegacyString() {
         String string = this == MAIN ? null : this.name();
         if (string != null) {
-            StringUtil.capitalizeFirstChar(string.toLowerCase());
+            string = StringUtil.capitalizeFirstChar(string.toLowerCase());
         }
         return string;
     }
