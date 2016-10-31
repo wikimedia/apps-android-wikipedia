@@ -26,6 +26,7 @@
   <string name="menu_long_press_copy_page">Kopēt saites adresi</string>
   <string name="menu_text_select_copy">Kopēt</string>
   <string name="menu_text_select_share">Dalīties</string>
+  <string name="menu_text_select_edit_here">Labot šeit</string>
   <string name="nav_item_nearby">Tuvumā</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -69,7 +70,7 @@
   <string name="create_account_button">Izveidot kontu</string>
   <string name="preferences_general_heading">Vispārīgi</string>
   <string name="wikipedia_app_faq">Vikipēdijas lietotnes BUJ</string>
-  <string name="zero_charged_verbiage">Vikipēdija Zero ir izslēgts</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Vikipēdija Zero ir izslēgts</string>
   <string name="zero_search_hint">Meklēt Vikipēdijā Zero</string>
   <string name="zero_warn_when_leaving">Brīdināt kad iziet no Zero</string>
   <string name="zero_webpage_title">Vikipēdija Zero BUJ</string>
@@ -77,7 +78,7 @@
   <string name="zero_interstitial_title">Atstāj Vikipēdija Zero</string>
   <string name="zero_interstitial_continue">Pamest</string>
   <string name="zero_interstitial_cancel">Palikt šeit</string>
-  <string name="zero_learn_more_learn_more">Lasīt vairāk</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Lasīt vairāk</string>
   <string name="nav_item_random">Nejaušs raksts</string>
   <string name="create_account_account_created_toast">Konts izveidots!</string>
   <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
@@ -134,11 +135,13 @@
   <string name="format_error_server_code">Kods: \"%s\"</string>
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
   <string name="button_continue_to_article">Lasīt rakstu</string>
+  <string name="button_get_directions">Saņemt norādes</string>
   <string name="nav_item_donate">Atbalstīt Vikipēdiju</string>
   <string name="crash_report_dialog_dont_send_button">Izlaist</string>
   <string name="crash_report_dialog_always_send_button">Vienmēr sūtīt</string>
   <string name="crash_report_dialog_send_button">Sūtīt</string>
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
+  <string name="crash_report_relaunch">Sākt no jauna</string>
   <string name="crash_report_quit">Iziet</string>
   <string name="nav_item_reading_lists">Mani saraksti</string>
   <string name="reading_list_untitled">Bez nosaukuma</string>

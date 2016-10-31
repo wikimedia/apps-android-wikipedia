@@ -93,7 +93,7 @@
   <string name="zero_interstitial_title">ವಿಕಿಪೀಡಿಯಟ್ ಜೀರೋನ್ ಬುಡ್ಲೆ</string>
   <string name="zero_interstitial_continue">ಬುಡ್ಲೆ</string>
   <string name="zero_interstitial_cancel">ಮುಲ್ಪ ಉಂತುಲೆ</string>
-  <string name="zero_learn_more_learn_more">ನನಲಾ ಓದುಲೇ</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">ನನಲಾ ಓದುಲೇ</string>
   <string name="zero_learn_more_dismiss">ದೆತ್ತ್ ಪಾಡ್ಲೆ</string>
   <string name="edit_preview_fetching_dialog_message">ದುಂಬುತ್ತಾ ವಿಸಯಾ ಬತ್ತೊಂತುಂಡು...</string>
   <string name="send_feedback">ಅಪ್ ತಾ ಬಗೆತಾ ಅಭಿಪ್ರಾಯೊ ಕಡಪುಡ್ಲೆ</string>

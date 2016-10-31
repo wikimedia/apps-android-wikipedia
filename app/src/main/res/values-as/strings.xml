@@ -84,7 +84,7 @@
   <string name="create_account_button">একাউণ্ট সৃষ্টি কৰক</string>
   <string name="preferences_general_heading">সাধাৰণ</string>
   <string name="wikipedia_app_faq">ৱিকিপিডিয়া এপ্‌ FAQ</string>
-  <string name="zero_charged_verbiage">ৱিকিপিডিয়া জিৰ\' বন্ধ হৈ আছে</string>
+  <string name="zero_charged_verbiage" fuzzy="true">ৱিকিপিডিয়া জিৰ\' বন্ধ হৈ আছে</string>
   <string name="zero_search_hint">ৱিকিপিডিয়া জিৰ\' সন্ধান কৰক</string>
   <string name="zero_warn_when_leaving">ৱিকিপিডিয়া জিৰ\' এৰিলে সতৰ্ক কৰিব</string>
   <string name="zero_warn_when_leaving_summary">যদি আপোনাৰ ম\'বাইল অপাৰেটৰে ৱিকিপিডিয়া জিৰ\' সহযোগৰ জৰিয়তে ৱিকিপিডিয়া এপৰ বাবে ডে\'টা মূল্য ৰেহাই দিয়ে, তেন্তে এই ছেটিং সক্ৰিয় কৰি থ\'লে আপুনি ৱিকিপিডিয়াৰ পৰা আঁতৰি গৈ মূল্য বহন কৰিবলগীয়া হ\'লে জানিব পাৰিব।</string>
@@ -94,8 +94,8 @@
   <string name="zero_interstitial_leave_app">ডে\'টা মূল্য প্ৰয়োগ হ\'ব পাৰে। বাহ্যিক ছাইটলৈ যাবনে?</string>
   <string name="zero_interstitial_continue">প্ৰস্থান</string>
   <string name="zero_interstitial_cancel">ইয়াতে থাকক</string>
-  <string name="zero_learn_more">এই ৱিকিপিডিয়া এপৰ বাবে ডে\'টা মূল্য ৰেহাই দিয়া হৈছে।</string>
-  <string name="zero_learn_more_learn_more">আৰু পঢ়ক</string>
+  <string name="zero_learn_more" fuzzy="true">এই ৱিকিপিডিয়া এপৰ বাবে ডে\'টা মূল্য ৰেহাই দিয়া হৈছে।</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">আৰু পঢ়ক</string>
   <string name="zero_learn_more_dismiss">বাতিল কৰক</string>
   <string name="edit_preview_fetching_dialog_message">প্ৰাক্‌দৰ্শন অনা হৈছে…</string>
   <string name="send_feedback">এপ্‌ প্ৰতিক্ৰিয়া জনাওক</string>

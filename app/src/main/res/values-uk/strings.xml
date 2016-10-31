@@ -93,7 +93,7 @@
   <string name="create_account_button">Створити обліковий запис</string>
   <string name="preferences_general_heading">Загальні</string>
   <string name="wikipedia_app_faq">Часті питання по додатку</string>
-  <string name="zero_charged_verbiage">Вікіпедія Zero вимкнена</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Вікіпедія Zero вимкнена</string>
   <string name="zero_search_hint">Пошук по Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving">Попередити, якщо залишити Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving_summary">Якщо ваш мобільний оператор не бере плату за доступ до даних з програми Вікіпедії через партнерство Вікіпедія Zero включення цього параметра допоможе вам знати, коли ви залишаєте додаток Вікіпедії, і може почати стягуватися плата за трафік</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Може стягуватися плата за передачу даних. Продовжити перехід на зовнішній сайт?</string>
   <string name="zero_interstitial_continue">Залишити</string>
   <string name="zero_interstitial_cancel">Залишитися тут</string>
-  <string name="zero_learn_more">Плата за передачу даних не стягується для цього додатка Вікіпедії.</string>
-  <string name="zero_learn_more_learn_more">Читати більше</string>
+  <string name="zero_learn_more" fuzzy="true">Плата за передачу даних не стягується для цього додатка Вікіпедії.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Читати більше</string>
   <string name="zero_learn_more_dismiss">Відхилити</string>
   <string name="edit_preview_fetching_dialog_message">Отримання попереднього перегляду…</string>
   <string name="send_feedback">Надіслати відгук про програму</string>

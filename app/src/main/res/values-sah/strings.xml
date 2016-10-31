@@ -93,7 +93,7 @@
   <string name="create_account_button">Бэлиэтэнии</string>
   <string name="preferences_general_heading">Сүнньүнэн</string>
   <string name="wikipedia_app_faq">Бикипиэдьийэ баайылын туһунан ыйытыылар</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero арахсыбыт</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero арахсыбыт</string>
   <string name="zero_search_hint">Wikipedia Zero иһиттэн көрдөөһүн</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero-ттан тахсаары гыннахха сэрэтэр буол</string>
   <string name="zero_warn_when_leaving_summary">Өскө Эн мобил операторыҥ Wikipedia Zero-ну кытта сөбүлэҥ түһэрсибит уонна онтон хачайдаммыт иһин харчы төлөттөрбөт буоллаҕына, маны таллаххына, төлөбүрдээх ресурска киирэн эрэриҥ туһунан сэрэтии кэлэр буолуоҕа.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Төлөбүр ирдэниэн сөп. Туора сиргэ тахсаҕын дуо?</string>
   <string name="zero_interstitial_continue">Таҕыс</string>
   <string name="zero_interstitial_cancel">Хаал</string>
-  <string name="zero_learn_more">Бикипиэдьийэ дьибилгэтин туһанан хачайдыырга төлөбүр ирдэммэт.</string>
-  <string name="zero_learn_more_learn_more">Бу туһунан сиһилии</string>
+  <string name="zero_learn_more" fuzzy="true">Бикипиэдьийэ дьибилгэтин туһанан хачайдыырга төлөбүр ирдэммэт.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Бу туһунан сиһилии</string>
   <string name="zero_learn_more_dismiss">Сап</string>
   <string name="edit_preview_fetching_dialog_message">Хачайданар...</string>
   <string name="send_feedback">Дьибилгэт туһунан санааҕын ыыт</string>
@@ -183,7 +183,7 @@
   <string name="read_more_section">Бу туһунан сиһилии</string>
   <string name="menu_gallery_visit_page">Билэ сирэйигэр көһөргө</string>
   <string name="gallery_error_draw_failed">Ойууну көрдөрөр табыллыбата.</string>
-  <string name="license_title" fuzzy="true">%s бибилэтиэкэ лиссиэнсийэтин тиэкиһэ</string>
+  <string name="license_title">%s лиссиэнсийэтэ</string>
   <string name="gallery_menu_share">Тарҕат</string>
   <string name="gallery_share_error">Ойууну тарҕатар табыллыбата: %s</string>
   <string name="gallery_menu_save">Тэрили харай</string>
@@ -202,6 +202,8 @@
   <string name="gallery_fair_use_license">Сиэрдээх туһаныы</string>
   <string name="gallery_uploader_unknown">Киллэрбит киһи биллибэт</string>
   <string name="menu_new_tab">Саҥа кыбытык</string>
+  <string name="menu_close_all_tabs">Кыбытыктары барытын сап</string>
+  <string name="close_all_tabs_confirm">Барытын сабаҕын дуо?</string>
   <string name="button_close_tab">Кыбытыгы сап</string>
   <string name="tool_tip_select_text">Дьоҥҥо ыытарга тиэкис хайа баҕарар сирин баттаа уонна тутан тур.</string>
   <string name="tool_tip_share">Сэргэҕи бэлиэтээн (хараардан) баран сөбүлүүр түмэт-ситимнэргэр тарҕатан көр!</string>
@@ -235,7 +237,7 @@
   <string name="article_menu_bar_bookmark">Ыстатыйаны ааҕыы тиһилигэр киллэр</string>
   <string name="article_menu_bar_share">Ыстатыйа сигэтин тарҕат</string>
   <string name="article_menu_bar_navigate">Ыстатыйа баар сиригэр көс</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Ааҕыы тиһилигэ</string>
+  <string name="nav_item_reading_lists">Тиһилигим</string>
   <string name="reading_list_untitled">Аата суох</string>
   <string name="reading_list_save_to">Ааҕар тиһиликкэ киллэр</string>
   <string name="reading_list_create_new">Саҥаны ай</string>
@@ -263,7 +265,7 @@
   <string name="reading_list_edit_cancel">Салҕаама</string>
   <string name="reading_list_delete_confirm">Бу тиһилиги чахчы сотоору гынаҕын дуо?</string>
   <string name="reading_lists_empty">Тиһилик оҥоһулла илик эбит.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Көрөр ыстатыйаларгын ааҕыы тиһилигэр бөлөхтөө! Ыстатыйаны тиһиликкэ эбэргэ, ыстатыйаҕа киирэн олорон үөһээ баар кыбытык бэлиэтин баттаа.</string>
+  <string name="reading_lists_empty_message">Көрөр ыстатыйаларгын ааҕыы тиһилигэр бөлөхтөө! Ыстатыйаны тиһиликкэ эбэргэ, ыстатыйаҕа киирэн олорон аллара хапталга баар кыбытык бэлиэтин баттаа.</string>
   <string name="reading_lists_onboarding_intro">Кэлин интэриниэтэ да суох ааҕарга анаан ыстатыйалар испииһэктэрин оҥоһун!</string>
   <string name="reading_lists_onboarding_for_example">Холобур</string>
   <string name="reading_lists_onboarding_example1">Сылдьыллыахтаах сирдэр</string>
@@ -282,13 +284,16 @@
   <string name="view_featured_image_card_download">Хачайдаа</string>
   <string name="menu_feed_card_dismiss">Маны кистээ</string>
   <string name="menu_feed_card_dismissed">Кистэннэ.</string>
+  <string name="menu_feed_overflow_label">Эбии туруоруулар</string>
   <string name="feed_featured_image_share_subject">Биики ыскылаатын уһулуччу үчүгэй ойуулара</string>
   <string name="feed">Чинчий</string>
   <string name="view_card_footer_button">Эбии көр</string>
   <string name="most_read_list_card_title">Трендэ</string>
+  <string name="view_static_card_icon_content_description">Карточка иконката</string>
   <string name="view_card_news_title">Сонуннарга</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">бэҕэһээ</item>
     <item quantity="other">%d күн ынараа өттүгэр</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">бүгүн</string>
 </resources>

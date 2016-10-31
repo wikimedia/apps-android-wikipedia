@@ -73,7 +73,7 @@
   <string name="create_account_button">Account sernak</string>
   <string name="preferences_general_heading">Adangdang</string>
   <string name="wikipedia_app_faq">Wikipedia App Biahalnak</string>
-  <string name="zero_charged_verbiage">Wikipedia Alak a phit</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Alak a phit</string>
   <string name="zero_search_hint">Wikipedia Alak ah kawl</string>
   <string name="zero_warn_when_leaving">Wikipedia Alak in chuah tikah ka chim te</string>
   <string name="zero_warn_when_leaving_summary">Na phone operator nih Wikipedia Alak ah tangka an lak lai paoh ah na zahpiaknak ruangah an hngalhter peng lai.</string>
@@ -83,8 +83,8 @@
   <string name="zero_interstitial_leave_app">Data man an lak lai hih. Aleng na chuah ko lai maw?</string>
   <string name="zero_interstitial_continue">Chuak ning</string>
   <string name="zero_interstitial_cancel">Um ko lai</string>
-  <string name="zero_learn_more">Hi Wikipedia app cu data man liamter lo a si.</string>
-  <string name="zero_learn_more_learn_more">Tamdeuh in relnak</string>
+  <string name="zero_learn_more" fuzzy="true">Hi Wikipedia app cu data man liamter lo a si.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Tamdeuh in relnak</string>
   <string name="zero_learn_more_dismiss">Kal ko.</string>
   <string name="edit_preview_fetching_dialog_message">A langhchung lio</string>
   <string name="send_feedback">App cung ruahnak kuat ding</string>

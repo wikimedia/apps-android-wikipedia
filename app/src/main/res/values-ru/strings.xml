@@ -93,7 +93,7 @@
   <string name="create_account_button">Создать учётную запись</string>
   <string name="preferences_general_heading">Общие</string>
   <string name="wikipedia_app_faq">Частые вопросы по приложению Википедии</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero выключена</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero выключена</string>
   <string name="zero_search_hint">Поиск по Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Предупреждать, если покидаете Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Если ваш мобильный оператор не берёт плату за доступ к данным из приложения Википедии через партнерство Wikipedia Zero, включение этого параметра поможет вам знать, когда вы покидаете приложение Википедии, и может начать взиматься плата за трафик.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Может взиматься стандартная плата за передачу данных. Продолжить переход на внешний сайт?</string>
   <string name="zero_interstitial_continue">Уйти</string>
   <string name="zero_interstitial_cancel">Остаться</string>
-  <string name="zero_learn_more">Плата за данные не взимается при использовании приложения Википедии.</string>
-  <string name="zero_learn_more_learn_more">Узнать больше</string>
+  <string name="zero_learn_more" fuzzy="true">Плата за данные не взимается при использовании приложения Википедии.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Узнать больше</string>
   <string name="zero_learn_more_dismiss">Закрыть</string>
   <string name="edit_preview_fetching_dialog_message">Получение предварительного просмотра…</string>
   <string name="send_feedback">Отправить отзыв о приложении</string>

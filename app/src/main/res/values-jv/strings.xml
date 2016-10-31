@@ -93,7 +93,7 @@
   <string name="create_account_button">Gawé akun</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Pitakonan paling sering aplikasi Wikipedia</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero mati</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero mati</string>
   <string name="zero_search_hint">Golèk ing Wikipédia Zero</string>
   <string name="zero_warn_when_leaving">Ngelekake yen ninggalake Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Yen operator ponsel membebaskan biaya akses data kanggo aplikasi Wikipedia liwat kemitraan Wikipedia Zero, ninggalake setelan iki dicenthang mbantu ngerti yen sampeyan ninggalake aplikasi Wikipedia lan bisa uga dikenani biaya.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Biaya data bisa uga diterapake. Terus jaba?</string>
   <string name="zero_interstitial_continue">Ninggalake</string>
   <string name="zero_interstitial_cancel">Tetep Kene</string>
-  <string name="zero_learn_more">Biaya data sing dibebaskan kanggo aplikasi Wikipedia iki.</string>
-  <string name="zero_learn_more_learn_more">Waca terusané</string>
+  <string name="zero_learn_more" fuzzy="true">Biaya data sing dibebaskan kanggo aplikasi Wikipedia iki.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Waca terusané</string>
   <string name="zero_learn_more_dismiss">Tutup</string>
   <string name="edit_preview_fetching_dialog_message">Kanthi rega pratayang...</string>
   <string name="send_feedback">Ngirim saran aplikasi</string>

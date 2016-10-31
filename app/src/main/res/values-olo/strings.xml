@@ -90,13 +90,13 @@
   <string name="create_account_button">Luaji tili</string>
   <string name="preferences_general_heading">Yleine</string>
   <string name="wikipedia_app_faq">Wikipedii-sobevutuksen PKK</string>
-  <string name="zero_charged_verbiage">Wikipedii Zero ei ole käytös</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedii Zero ei ole käytös</string>
   <string name="zero_search_hint">Eči Wikipedii Zeros</string>
   <string name="zero_webpage_title">Wikipedii Zero PKK</string>
   <string name="zero_wikipedia_zero_heading">Wikipedii Zero</string>
   <string name="zero_interstitial_continue">Mene iäres</string>
   <string name="zero_interstitial_cancel">Pyzy täl sivul</string>
-  <string name="zero_learn_more_learn_more">Luve ližiä</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Luve ližiä</string>
   <string name="zero_learn_more_dismiss">Hylgiä</string>
   <string name="send_feedback">Sano oma mieli</string>
   <string name="nav_item_random">Piävyndähine</string>

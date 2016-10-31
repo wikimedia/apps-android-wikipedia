@@ -93,7 +93,7 @@
   <string name="create_account_button">Registreren</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Veelgestelde vragen over de Wikipedia-app</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero is uitgeschakeld</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero is uitgeschakeld</string>
   <string name="zero_search_hint">In Wikipedia Zero zoeken</string>
   <string name="zero_warn_when_leaving">Waarschuwen bij het verlaten van Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Als uw mobiele provider geen kosten in rekening brengt voor het gegevensgebruik via de Wikipedia-app vanwege een Wikipedia Zero-partnerschap, dan zorgt het inschakelen van deze instelling ervoor dat u wordt gewaarschuwd als u Wikipedia verlaat en mogelijk kosten voor data moet betalen.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Er kunnen kosten gerekend worden voor mobiele data. Doorgaan naar de externe website?</string>
   <string name="zero_interstitial_continue">Afsluiten</string>
   <string name="zero_interstitial_cancel">Hier blijven</string>
-  <string name="zero_learn_more">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
-  <string name="zero_learn_more_learn_more">Meer lezen</string>
+  <string name="zero_learn_more" fuzzy="true">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Meer lezen</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
   <string name="edit_preview_fetching_dialog_message">Voorvertoning aan het ophalen…</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
@@ -292,4 +292,5 @@
     <item quantity="one">gisteren</item>
     <item quantity="other">%d dagen geleden</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">vandaag</string>
 </resources>

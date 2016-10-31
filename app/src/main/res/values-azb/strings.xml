@@ -86,7 +86,7 @@
   <string name="zero_interstitial_title">ویکی‌پدیا صیفردن چیخیش</string>
   <string name="zero_interstitial_continue">چیخ</string>
   <string name="zero_interstitial_cancel">بوردا قال</string>
-  <string name="zero_learn_more_learn_more">داها چوْخ اوْخویون</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">داها چوْخ اوْخویون</string>
   <string name="zero_learn_more_dismiss">رد ائت</string>
   <string name="nav_item_random">تصادوفی</string>
   <string name="create_account_account_created_toast">حساب یارادیلدی!</string>

@@ -87,7 +87,7 @@
   <string name="create_account_button">Δημιουργία λογαριασμού</string>
   <string name="preferences_general_heading">Γενικά</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="zero_charged_verbiage">Το Wikipedia Zero είναι απενεργοποιημένο</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Το Wikipedia Zero είναι απενεργοποιημένο</string>
   <string name="zero_search_hint">Αναζήτηση στο Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Προειδοποιήστε με αν φεύγω από το Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Εάν ο πάροχος κινητής τηλεφωνίας σας δεν χρεώνει δεδομένα για τη χρήση της εφαρμογής της Βικιπαιδείας μέσω συνεργασίας του με το Wikipedia Zero, αφήνοντας αυτή τη ρύθμιση επιλεγμένη βοηθιέστε ώστε να γνωρίζετε πότε εγκαταλείπετε την εφαρμογή της Βικιπαίδειας και επομένως μπορεί να χρεώνεστε.</string>
@@ -97,8 +97,8 @@
   <string name="zero_interstitial_leave_app">Ενδέχεται να ισχύουν χρεώσεις δεδομένων. Να συνεχίσετε στον εξωτερικό ιστότοπο;</string>
   <string name="zero_interstitial_continue">Φύγετε</string>
   <string name="zero_interstitial_cancel">Μείνετε Εδώ</string>
-  <string name="zero_learn_more">Δεν ισχύουν χρεώσεις δεδομένων γι\'αυτή την εφαρμογή της Βικιπαίδειας.</string>
-  <string name="zero_learn_more_learn_more">Διαβάστε περισσότερα</string>
+  <string name="zero_learn_more" fuzzy="true">Δεν ισχύουν χρεώσεις δεδομένων γι\'αυτή την εφαρμογή της Βικιπαίδειας.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Διαβάστε περισσότερα</string>
   <string name="zero_learn_more_dismiss">Απόρριψη</string>
   <string name="edit_preview_fetching_dialog_message">Προετοιμάζοντας προεπισκόπηση…</string>
   <string name="send_feedback">Αποστολή σχολίων για την εφαρμογή</string>

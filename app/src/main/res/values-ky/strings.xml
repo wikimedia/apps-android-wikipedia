@@ -71,7 +71,7 @@
   <string name="create_account_next">Кийинки</string>
   <string name="create_account_button">Катталуу</string>
   <string name="preferences_general_heading">Жалпы</string>
-  <string name="zero_charged_verbiage">Уикипедия Нөл өчтү</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Уикипедия Нөл өчтү</string>
   <string name="zero_search_hint">Уикипедия Нөлдөн издөө</string>
   <string name="zero_warn_when_leaving">Уикипедия Нөлдөн чыкса эскертүү</string>
   <string name="zero_webpage_title">Уикипедия Нөл боюнча КБС</string>
@@ -80,8 +80,8 @@
   <string name="zero_interstitial_leave_app">Маалыматтарды жиберүү үчүн акы алынышы мүмкүн. Тышкы сайттка өтүүнү улантасызбы?</string>
   <string name="zero_interstitial_continue">Өтүү</string>
   <string name="zero_interstitial_cancel">Бул жерде калуу</string>
-  <string name="zero_learn_more">Уикипедиянын бул тиркемеси үчүн маалыматтарды жиберүүгө акы алынбайт.</string>
-  <string name="zero_learn_more_learn_more">Көбүрөөк окуу</string>
+  <string name="zero_learn_more" fuzzy="true">Уикипедиянын бул тиркемеси үчүн маалыматтарды жиберүүгө акы алынбайт.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Көбүрөөк окуу</string>
   <string name="zero_learn_more_dismiss">Жабуу</string>
   <string name="edit_preview_fetching_dialog_message">Алдын ала көрсөтүү даярдалууда…</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>

@@ -93,7 +93,7 @@
   <string name="create_account_button">Crear una cuenta</string>
   <string name="preferences_general_heading">Xeneral</string>
   <string name="wikipedia_app_faq">EMF de la App Wikipedia</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero ta apagáu</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ta apagáu</string>
   <string name="zero_search_hint">Guetar Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avisar si s\'abandona Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si\'l so operador de móviles regala los cargos d\'accesu a datos pa la app de Wikipedia por una asociación con Wikipedia Zero, dexar marcada esta opción ayuda-y a saber cuándo abandona la app de Wikipedia y podría tener que pagar.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Puen aplicase cargos pol tráficu de datos. ¿Siguir al sitiu esternu?</string>
   <string name="zero_interstitial_continue">Siguir</string>
   <string name="zero_interstitial_cancel">Quedar equí</string>
-  <string name="zero_learn_more">Esta app de Wikipedia ta llibre de cargos por tráficu de datos.</string>
-  <string name="zero_learn_more_learn_more">Lleer más</string>
+  <string name="zero_learn_more" fuzzy="true">Esta app de Wikipedia ta llibre de cargos por tráficu de datos.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Lleer más</string>
   <string name="zero_learn_more_dismiss">Descartar</string>
   <string name="edit_preview_fetching_dialog_message">Algamando vista previa...</string>
   <string name="send_feedback">Unviar comentariu sobro la app</string>

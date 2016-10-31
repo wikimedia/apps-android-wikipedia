@@ -88,7 +88,7 @@
   <string name="create_account_button">အကောင့်လုပ်ရန်</string>
   <string name="preferences_general_heading">အထွေထွေ</string>
   <string name="wikipedia_app_faq">ဝီကီပီဒီးယား App အမေးအဖြေကဏ္ဍ</string>
-  <string name="zero_charged_verbiage">အခမဲ့ ဝီကီးပီးဒီးယားကို ပိတ်ပေးပါ။</string>
+  <string name="zero_charged_verbiage" fuzzy="true">အခမဲ့ ဝီကီးပီးဒီးယားကို ပိတ်ပေးပါ။</string>
   <string name="zero_search_hint">အခမဲ့ ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="zero_warn_when_leaving">အခမဲ့ ဝီကီပီးဒီးယားမှ ထွက်ခဲ့ပါက ပြောကြားရန်</string>
   <string name="zero_warn_when_leaving_summary">သင့်ရဲ့ မိုဘိုင်းဝန်ဆောင်မှုကုမ္ပဏီမှ ဝီကီပီဒီးယား အခမဲ့စေရေး ပူးပေါင်းပါဝင်မှုကြောင့် အင်တာနက် သုံးစွဲခကောက်ခံခြင်း မပြုလျှင် ဒီနေရာမှာ အမှန်ခြစ်ခဲ့ပါက သင် ဝီကီးပီဒီယားအက်ပ်မှ ထွက်သွားတဲ့အချိန်မှာ အင်တာနက် သုံးစွဲခ ဆက်လက် ကောက်ခံနိုင်ကြောင်း သတိပေးခြင်းဖြင့် ကူညီနိုင်ပါသည်။</string>
@@ -98,8 +98,8 @@
   <string name="zero_interstitial_leave_app">ဒေတာအသုံးစရိတ် ပေးရပါမည်။ ပြင်ပဆိုဒ်သို့ သွားလိုပါသလား?</string>
   <string name="zero_interstitial_continue">ထွက်ခွာရန်</string>
   <string name="zero_interstitial_cancel">ဆက်နေမြဲ</string>
-  <string name="zero_learn_more">ဝီကီပီဒီးယားအက်ပ်အတွက် အင်တာနက်အသုံးပြုခကို ကောက်ခံခြင်း မရှိပါ။</string>
-  <string name="zero_learn_more_learn_more">ဆက်ဖတ်ပါ</string>
+  <string name="zero_learn_more" fuzzy="true">ဝီကီပီဒီးယားအက်ပ်အတွက် အင်တာနက်အသုံးပြုခကို ကောက်ခံခြင်း မရှိပါ။</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">ဆက်ဖတ်ပါ</string>
   <string name="zero_learn_more_dismiss">ဖြုတ်ရန်</string>
   <string name="edit_preview_fetching_dialog_message">နမူနာအား ပြင်ဆင်နေသည်…</string>
   <string name="send_feedback">app အကြံပြုချက် ပို့ရန်</string>

@@ -89,7 +89,7 @@
   <string name="create_account_button">Stofna aðgang</string>
   <string name="preferences_general_heading">Almennt</string>
   <string name="wikipedia_app_faq">Algengar spurningar um Wikipedia Zero</string>
-  <string name="zero_charged_verbiage">Slökkt er á Wikipedia Zero</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Slökkt er á Wikipedia Zero</string>
   <string name="zero_search_hint">Leita í Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Áminna mig ef ég fer burt af Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Ef símafyrirtækið þitt krefst greiðslu vegna gagnanotkunar í Wikipedia-appinu á Wikipedia Zero, ef þú hakar við þennan reit hjálpar það til að vita þegar þú ferð af síðum Wikipedia-appsins og átt á hættu að fá bakreikninga.</string>
@@ -99,8 +99,8 @@
   <string name="zero_interstitial_leave_app">Gagnakostnaður gæti átt við. Halda áfram á ytri síðu?</string>
   <string name="zero_interstitial_continue">Fara</string>
   <string name="zero_interstitial_cancel">Vera hér</string>
-  <string name="zero_learn_more">Gagnakostnaður á ekki við fyrir þetta Wikipedia-app.</string>
-  <string name="zero_learn_more_learn_more">Lesa meira</string>
+  <string name="zero_learn_more" fuzzy="true">Gagnakostnaður á ekki við fyrir þetta Wikipedia-app.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Lesa meira</string>
   <string name="zero_learn_more_dismiss">Hafna</string>
   <string name="edit_preview_fetching_dialog_message">Sæki forskoðun…</string>
   <string name="send_feedback">Senda ábendingar um appið</string>

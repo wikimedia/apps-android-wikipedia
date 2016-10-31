@@ -93,7 +93,7 @@
   <string name="create_account_button">Vytvoriť účet</string>
   <string name="preferences_general_heading">Všeobecné</string>
   <string name="wikipedia_app_faq">Často kladené otázky o tejto aplikácii</string>
-  <string name="zero_charged_verbiage">Wikipédia Zero je vypnutá</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zero je vypnutá</string>
   <string name="zero_search_hint">Hľadať vo Wikipédii Zero</string>
   <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokiaľ si váš mobilný operátor v rámci Wikipédie Zero za dátové pripojenie k aplikácii Wikipédie zrieka poplatkov, budete po aktivácii tohto políčka informovaný o opustení aplikácie Wikipédie a možného vzniku poplatkov.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Môžu vzniknúť poplatky za prenos dát. Pokračovať na externú stránku?</string>
   <string name="zero_interstitial_continue">Pokračovať</string>
   <string name="zero_interstitial_cancel">Zrušiť</string>
-  <string name="zero_learn_more">Táto aplikácia je oslobodená od poplatkov za prenos dát.</string>
-  <string name="zero_learn_more_learn_more">Ďalšie informácie</string>
+  <string name="zero_learn_more" fuzzy="true">Táto aplikácia je oslobodená od poplatkov za prenos dát.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Ďalšie informácie</string>
   <string name="zero_learn_more_dismiss">Zrušiť</string>
   <string name="edit_preview_fetching_dialog_message">Generujem náhľad…</string>
   <string name="send_feedback">Odoslať spätnú väzbu</string>
@@ -297,4 +297,5 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
     <item quantity="one">včera</item>
     <item quantity="other">pred %d dňami</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">dnes</string>
 </resources>

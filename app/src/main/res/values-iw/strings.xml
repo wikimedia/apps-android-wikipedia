@@ -93,7 +93,7 @@
   <string name="create_account_button">יצירת חשבון</string>
   <string name="preferences_general_heading">כללי</string>
   <string name="wikipedia_app_faq">שו\"ת יישומון ויקיפדיה</string>
-  <string name="zero_charged_verbiage">מצב ויקיפדיה אפס כבוי</string>
+  <string name="zero_charged_verbiage" fuzzy="true">מצב ויקיפדיה אפס כבוי</string>
   <string name="zero_search_hint">חיפוש בוויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving">להזהיר בעת עזיבת ויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על תקשורת נתונים ביישומון ויקיפדיה במסגרת שותפות \"ויקיפדיה אפס\", הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מיישומון ויקיפדיה ושייתכן שיחולו חיובים.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">ייתכן שיחולו חיובים על תקשורת נתונים. להמשיך לאתר חיצוני?</string>
   <string name="zero_interstitial_continue">לעזוב</string>
   <string name="zero_interstitial_cancel">להישאר כאן</string>
-  <string name="zero_learn_more">חיובים על נתונים מזוכים ביישום ויקיפדיה זה.</string>
-  <string name="zero_learn_more_learn_more">מידע נוסף</string>
+  <string name="zero_learn_more" fuzzy="true">חיובים על נתונים מזוכים ביישום ויקיפדיה זה.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">מידע נוסף</string>
   <string name="zero_learn_more_dismiss">סגירה</string>
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
   <string name="send_feedback">שליחת משוב על היישומון</string>

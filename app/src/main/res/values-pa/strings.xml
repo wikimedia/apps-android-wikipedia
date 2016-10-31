@@ -93,7 +93,7 @@
   <string name="create_account_button">ਖਾਤਾ ਬਣਾਉ</string>
   <string name="preferences_general_heading">ਆਮ</string>
   <string name="wikipedia_app_faq">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਰੇ ਆਮ ਸਵਾਲ</string>
-  <string name="zero_charged_verbiage">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬੰਦ ਹੈ</string>
+  <string name="zero_charged_verbiage" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬੰਦ ਹੈ</string>
   <string name="zero_search_hint">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਭਾਲ਼ੋ</string>
   <string name="zero_warn_when_leaving">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਛੱਡਣ \'ਤੇ ਸਚੇਤ ਕਰੋ</string>
   <string name="zero_warn_when_leaving_summary">ਜੇਕਰ ਤੁਹਾਡਾ ਮੋਬਾਈਲ ਚਾਲਕ ਕਿਸੇ ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਸਾਂਝ ਰਾਹੀਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਡਾਟਾ ਤੱਕ ਪਹੁੰਚ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਕਰਦਾ ਹੈ ਤਾਂ ਏਸ ਸੈਟਿੰਗ ਨੂੰ ਸਹੀ ਕਰ ਕੇ ਰੱਖਣ ਨਾਲ਼ ਤੁਹਾਨੂੰ ਪਤਾ ਲੱਗ ਜਾਵੇਗਾ ਕਿ ਤੁਸੀਂ ਕਦੋਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਛੱਡ ਕੇ ਜਾ ਰਹੇ ਹੋ ਅਤੇ ਪੈਸੇ ਪੈ ਸਕਦੇ ਹਨ।</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਪੈ ਸਕਦਾ ਹੈ। ਬਾਹਰਲੀ ਸਾਈਟ ਵੱਲ ਜਾਣਾ ਹੈ?</string>
   <string name="zero_interstitial_continue">ਰਵਾਨਾ ਹੋਵੋ</string>
   <string name="zero_interstitial_cancel">ਇੱਥੇ ਠਹਿਰੋ</string>
-  <string name="zero_learn_more">ਇਸ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਹੈ।</string>
-  <string name="zero_learn_more_learn_more">ਹੋਰ ਪੜ੍ਹੋ</string>
+  <string name="zero_learn_more" fuzzy="true">ਇਸ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਸਮੱਗਰੀ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਹੈ।</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="zero_learn_more_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
   <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ…</string>
   <string name="send_feedback">ਐਪ ਬਾਬਤ ਜਾਣਕਾਰੀ ਵਾਪਸ ਘੱਲੋ</string>

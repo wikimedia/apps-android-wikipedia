@@ -93,7 +93,7 @@
   <string name="create_account_button">Krei konton</string>
   <string name="preferences_general_heading">Ĝenerala</string>
   <string name="wikipedia_app_faq">Oftaj demandoj pri la aplikaĵo Vikipedio</string>
-  <string name="zero_charged_verbiage">Vikipedio Nulo estas malŝaltita</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Vikipedio Nulo estas malŝaltita</string>
   <string name="zero_search_hint">Serĉi en Vikipedio Zero</string>
   <string name="zero_warn_when_leaving">Avertu kiam forlasi Vikipedio Zero</string>
   <string name="zero_webpage_title">Oftaj demandoj pri Vikipedio Nulo</string>
@@ -101,7 +101,7 @@
   <string name="zero_interstitial_title">Forlasante Vikipedio Zero</string>
   <string name="zero_interstitial_continue">Forlasi</string>
   <string name="zero_interstitial_cancel">Resti ĉi tie</string>
-  <string name="zero_learn_more_learn_more">Legi plu</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Legi plu</string>
   <string name="zero_learn_more_dismiss">Elimini</string>
   <string name="edit_preview_fetching_dialog_message">Generado de antaŭvido…</string>
   <string name="send_feedback">Sendu informon pri ĉi tiu aplikaĵo</string>

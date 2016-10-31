@@ -92,7 +92,7 @@
   <string name="create_account_button">Benotzerkont uleeën</string>
   <string name="preferences_general_heading">Allgemeng</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero ass aus</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ass aus</string>
   <string name="zero_search_hint">Op Wikipedia Zero sichen</string>
   <string name="zero_warn_when_leaving">Beim Verloosse vu Wikipedia Zero warnen</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">Déi normal Käschte fir Datentransfer sinn eventuell applicabel. Virufueren op den externen Internetsite?</string>
   <string name="zero_interstitial_continue">Fortgoen</string>
   <string name="zero_interstitial_cancel">Hei bleiwen</string>
-  <string name="zero_learn_more">D\'Taxe fir d\'Iwwerdroe vun Donnéeë gi fir dës Wikipedia App net verrechent.</string>
-  <string name="zero_learn_more_learn_more">Liest méi</string>
+  <string name="zero_learn_more" fuzzy="true">D\'Taxe fir d\'Iwwerdroe vun Donnéeë gi fir dës Wikipedia App net verrechent.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Liest méi</string>
   <string name="zero_learn_more_dismiss">Verwerfen</string>
   <string name="edit_preview_fetching_dialog_message">Kucken ouni ze späicheren…</string>
   <string name="send_feedback">Feedback vun der App schécken</string>

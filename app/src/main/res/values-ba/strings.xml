@@ -93,7 +93,7 @@
   <string name="create_account_button">Иҫәп яҙмаһын булдырырға</string>
   <string name="preferences_general_heading">Дөйөм</string>
   <string name="wikipedia_app_faq">Википедия ҡушымтаһы буйынса йыш бирелгән һорауҙар</string>
-  <string name="zero_charged_verbiage">Zero Википедияһы һүндерелгән</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Zero Википедияһы һүндерелгән</string>
   <string name="zero_search_hint">Zero Википедияһында эҙләү</string>
   <string name="zero_warn_when_leaving">Zero Википедияһынан сыҡҡанда, иҫкәртергә</string>
   <string name="zero_warn_when_leaving_summary">Һеҙҙең мобиль оператор Wikipedia Zero менән хеҙмәттәшлек аша Википедия ҡушымтаһы мәғлүмәттәренә ингән өсөн хаҡ алмаһа, был параметрҙы керетеү трафик өсөн түләү башланыуын, ҡушымтанан сығыуҙы белергә ярҙам итә</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Мәғлүмәт ебәргән өсөн стандарт хаҡ алыныуы ихтимал. Тышҡы сайтҡа күсеүҙе дауам итергәме?</string>
   <string name="zero_interstitial_continue">Китергә</string>
   <string name="zero_interstitial_cancel">Ҡалырға</string>
-  <string name="zero_learn_more">Википедия ҡушымтаһын файҙаланғанда, мәғлүмәт өсөн хаҡ алынмай</string>
-  <string name="zero_learn_more_learn_more">Тулыраҡ уҡырға</string>
+  <string name="zero_learn_more" fuzzy="true">Википедия ҡушымтаһын файҙаланғанда, мәғлүмәт өсөн хаҡ алынмай</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Тулыраҡ уҡырға</string>
   <string name="zero_learn_more_dismiss">Ябырға</string>
   <string name="edit_preview_fetching_dialog_message">Алдан ҡарауҙы сығарыу…</string>
   <string name="send_feedback">Ҡушымта тураһында баһалама ебәрергә</string>

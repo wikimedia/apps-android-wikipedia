@@ -93,7 +93,7 @@
   <string name="create_account_button">Benutzerkonto erstellen</string>
   <string name="preferences_general_heading">Allgemein</string>
   <string name="wikipedia_app_faq">FAQ zur Wikipedia-App</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero ist aus</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ist aus</string>
   <string name="zero_search_hint">Wikipedia Zero durchsuchen</string>
   <string name="zero_warn_when_leaving">Beim Verlassen von Wikipedia Zero warnen</string>
   <string name="zero_warn_when_leaving_summary">Falls dein Mobilfunkbetreiber auf Datenzugriffsgebühren für die Wikipedia-App aufgrund einer Wikipedia-Zero-Partnerschaft verzichtet, wirst du bei Aktivierung dieser Einstellung informiert, wenn du die Wikipedia-App verlässt und Gebühren anfallen können.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Datenübertragungsgebühren können anfallen. Mit der externen Website fortfahren?</string>
   <string name="zero_interstitial_continue">Verlassen</string>
   <string name="zero_interstitial_cancel">Hier bleiben</string>
-  <string name="zero_learn_more">Auf Datenübertragungsgebühren für diese Wikipedia-App wird verzichtet.</string>
-  <string name="zero_learn_more_learn_more">Mehr lesen</string>
+  <string name="zero_learn_more" fuzzy="true">Auf Datenübertragungsgebühren für diese Wikipedia-App wird verzichtet.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Mehr lesen</string>
   <string name="zero_learn_more_dismiss">Ausblenden</string>
   <string name="edit_preview_fetching_dialog_message">Vorschau wird abgerufen …</string>
   <string name="send_feedback">App-Rückmeldung senden</string>

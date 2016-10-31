@@ -93,7 +93,7 @@
   <string name="create_account_button">खाते बनवा</string>
   <string name="preferences_general_heading">सर्वसामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप नेविप्र(एफएक्यू)</string>
-  <string name="zero_charged_verbiage">विकीपिडीया झीरो बंद आहे</string>
+  <string name="zero_charged_verbiage" fuzzy="true">विकीपिडीया झीरो बंद आहे</string>
   <string name="zero_search_hint">विकीपिडीया झीरो मध्ये शोधा</string>
   <string name="zero_warn_when_leaving">जर विकिपीडिया झिरो सोडत असाल तर इशारा द्या</string>
   <string name="zero_warn_when_leaving_summary">विकिपीडिया झीरो पार्टनरशिपमार्फत जर आपला मोबाईल ऑपरेटर डाटा पोहोच दर झुगारत असेल तर, ही मांडणी चेक्ड् असण्याने आपण विकिपीडिया अॲप कधी सोडत आहात व आपणास चार्जेस लागतील ते आपणास कळू शकते.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">डाटा चार्जेस लागू शकतील.बाह्य संकेतस्थळास सुरू ठेउ?</string>
   <string name="zero_interstitial_continue">सोडा</string>
   <string name="zero_interstitial_cancel">येथेच रहा</string>
-  <string name="zero_learn_more">या विकिपीडिया अॲपसाठी डाटा चार्जेस लागणार नाहीत.</string>
-  <string name="zero_learn_more_learn_more">अधिक वाचा</string>
+  <string name="zero_learn_more" fuzzy="true">या विकिपीडिया अॲपसाठी डाटा चार्जेस लागणार नाहीत.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">अधिक वाचा</string>
   <string name="zero_learn_more_dismiss">खारीज करा</string>
   <string name="edit_preview_fetching_dialog_message">झलक दाखवत आहे…</string>
   <string name="send_feedback">अॅपबद्दलची प्रतिक्रिया पाठवा</string>

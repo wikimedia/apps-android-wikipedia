@@ -93,7 +93,7 @@
   <string name="create_account_button">Otvori suradnički račun</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji Wikipedija</string>
-  <string name="zero_charged_verbiage">Wikipedija Zero je isključen</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedija Zero je isključen</string>
   <string name="zero_search_hint">Pretraži Wikipedija Zero</string>
   <string name="zero_warn_when_leaving">Upozori prilikom napuštanja Wikipedija Zero</string>
   <string name="zero_warn_when_leaving_summary">Ako vaš davatelj usluga ne naplaćuje pristup Wikipediji kroz partnerstvo Wikipedia Zero, uključivanjem ove opcije dobit ćete obavijest ukoliko napuštate besplatne stranice, te se prijenos podataka može dodatno naplatiti.</string>
@@ -103,7 +103,7 @@
   <string name="zero_interstitial_leave_app">Mogući su dodatni troškovi. Nastaviti na vanjskoj stranici?</string>
   <string name="zero_interstitial_continue">Napusti</string>
   <string name="zero_interstitial_cancel">Ostani ovdje</string>
-  <string name="zero_learn_more_learn_more">Pročitajte više</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Pročitajte više</string>
   <string name="zero_learn_more_dismiss">Zatvori</string>
   <string name="edit_preview_fetching_dialog_message">Dohvaćanje pretpregleda…</string>
   <string name="send_feedback">Pošalji povratnu informaciju o aplikaciji</string>
@@ -203,10 +203,13 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="gallery_fair_use_license">Poštena upotreba</string>
   <string name="gallery_uploader_unknown">Postavljač nepoznat</string>
   <string name="menu_new_tab">Nova kartica</string>
+  <string name="menu_close_all_tabs">Zatvori sve kartice</string>
+  <string name="close_all_tabs_confirm">Želite li zaista zatvoriti sve kartice?</string>
   <string name="button_close_tab">Zatvori karticu</string>
   <string name="tool_tip_select_text">Da biste kopirali i podijelili tekst, pritisnite i držite bilo gdje u tekstu.</string>
   <string name="tool_tip_share">Nakon označavanja zanimljivog dijela, podijelite ga na omiljenim mrežama.</string>
   <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
+  <string name="tool_tip_toc_button">Pogledajte sadržaj bilo kada klikom na ovaj gumb ili povlačenjem prsta od desnog ruba zaslona.</string>
   <string name="error_server_response">Server nije mogao ispuniti zahtjev.</string>
   <string name="error_response_malformed">Odgovor poslužitelja nije bio ispravno formatiran.</string>
   <string name="error_unknown">Dogodila se nepoznata pogrješka.</string>
@@ -216,7 +219,13 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="text_copied">Tekst kopiran u međuspremnik.</string>
   <string name="button_continue_to_article">Pročitajte članak</string>
   <string name="button_get_directions">Upute za dolazak</string>
+  <string name="error_no_maps_app">Nije moguće pronaći navigacijsku aplikaciju.</string>
+  <string name="preference_title_show_link_previews">Prikaži pretpregled veza</string>
+  <string name="preference_summary_show_link_previews">Prikaži brzi pregled članka pritiskom na link</string>
   <string name="nav_item_donate">Podržite Wikipediju</string>
+  <string name="error_voice_search_not_available">Nažalost, prepoznavanje govora nije dostupno.</string>
+  <string name="crash_report_dialog_title">Žao nam je, aplikacija se zadnji put srušila</string>
+  <string name="crash_report_dialog_text">Želite li poslati izvješće o pogrešci u HockeyApp / usluzi treće strane, kako bi Wikimedija mogla dobiti informacije o pogrešci i ispraviti ju?</string>
   <string name="crash_report_dialog_dont_send_button">Preskoči</string>
   <string name="crash_report_dialog_always_send_button">Uvijek šalji</string>
   <string name="crash_report_dialog_send_button">Pošalji</string>
@@ -228,12 +237,17 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="crash_report_quit">Prekini</string>
   <string name="article_menu_bar_bookmark">Spremi članak na popis za čitanje</string>
   <string name="article_menu_bar_share">Podijelite poveznicu na članak</string>
+  <string name="article_menu_bar_navigate">Idite na lokaciju članka</string>
+  <string name="nav_item_reading_lists">Moji popisi</string>
+  <string name="reading_list_untitled">Bez naslova</string>
+  <string name="reading_list_save_to">Dodaj na popis za čitanje</string>
   <string name="reading_list_create_new">Stvori novi</string>
   <string name="reading_list_added_to_named">Dodano u %s.</string>
   <string name="reading_list_added_to_unnamed">Dodano na popis za čitanje.</string>
   <string name="reading_list_already_exists">Ovaj članak već postoji na popisu.</string>
   <string name="reading_list_added_view_button">Prikaz popisa</string>
   <string name="reading_list_item_count_singular">Jedan članak</string>
+  <string name="reading_list_item_count_plural">%d članaka</string>
   <string name="reading_list_sort">Poredaj</string>
   <string name="reading_list_sort_by_name">Poredaj po nazivu</string>
   <string name="reading_list_sort_by_name_desc">Poredaj po nazivu (obrnuto)</string>
@@ -246,5 +260,37 @@ Automatizirani filter je ovo uređivanje označio kao moguće nekonstruktivno il
   <string name="reading_list_description_hint">Opis (nije obavezno)</string>
   <string name="reading_list_save_for_offline">Dostupan za izvanmrežno čitanje</string>
   <string name="reading_list_item_deleted">%s uklonjen s popisa</string>
+  <string name="reading_list_item_delete_undo">Poništi</string>
+  <string name="reading_list_deleted">%s uklonjeno</string>
+  <string name="reading_list_edit_ok">U redu</string>
+  <string name="reading_list_edit_cancel">Odustani</string>
+  <string name="reading_list_delete_confirm">Želite li zaista obrisati popis za čitanje?</string>
+  <string name="reading_lists_empty">Još nema popisa za čitanje.</string>
+  <string name="reading_lists_onboarding_for_example">Na primjer</string>
+  <string name="reading_lists_onboarding_example1">Mjesta za posjetiti</string>
+  <string name="reading_lists_onboarding_example2">Omiljene životinje</string>
+  <string name="reading_lists_onboarding_example3">Svemir!</string>
+  <string name="reading_lists_onboarding_got_it">U redu</string>
   <string name="user_option_sync_label">Postavke</string>
+  <string name="view_continue_reading_card_title">Nastavite čitati</string>
+  <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
+  <string name="view_random_card_title">Slučajna stranica</string>
+  <string name="view_random_card_subtitle">Pročitajte slučajan članak s Wikipedije</string>
+  <string name="view_main_page_card_title">Danas na Wikipediji</string>
+  <string name="view_main_page_card_subtitle">Početna stranica na %s</string>
+  <string name="view_featured_image_card_title">Fotografija dana</string>
+  <string name="view_featured_image_card_download">Preuzmi</string>
+  <string name="menu_feed_card_dismiss">Sakrij ovu karticu</string>
+  <string name="menu_feed_card_dismissed">Kartica je skrivena.</string>
+  <string name="menu_feed_overflow_label">Više mogućnosti</string>
+  <string name="feed">Istražite</string>
+  <string name="view_card_footer_button">Pročitajte više</string>
+  <string name="most_read_list_card_title">U trendu</string>
+  <string name="view_static_card_icon_content_description">Ikona kartice</string>
+  <string name="view_card_news_title">U novostima</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">jučer</item>
+    <item quantity="other">prije %d dana</item>
+  </plurals>
+  <string name="view_continue_reading_card_subtitle_today">danas</string>
 </resources>

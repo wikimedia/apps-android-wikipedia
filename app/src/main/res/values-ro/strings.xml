@@ -93,7 +93,7 @@
   <string name="create_account_button">Creare cont</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Într. frecv. aplicația Wikipedia</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero este dezactivată</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero este dezactivată</string>
   <string name="zero_search_hint">Căutare în Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avertizează-mă dacă părăsesc Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">În cazul în care, printr-un parteneriat Wikipedia Zero, operatorul dumneavoastră de telefonie mobilă nu percepe tarife pentru traficul de date din aplicația Wikipedia, bifarea acestei opțiuni vă înștiințează atunci când părăsiți aplicația Wikipedia și ați putea fi taxat.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Se pot aplica tarife de date. Continuați către site-ul extern?</string>
   <string name="zero_interstitial_continue">Abandonează</string>
   <string name="zero_interstitial_cancel">Rămâi aici</string>
-  <string name="zero_learn_more">Tarifele de date nu se percep pentru această aplicație Wikipedia.</string>
-  <string name="zero_learn_more_learn_more">Mai multe</string>
+  <string name="zero_learn_more" fuzzy="true">Tarifele de date nu se percep pentru această aplicație Wikipedia.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Mai multe</string>
   <string name="zero_learn_more_dismiss">Renunță</string>
   <string name="edit_preview_fetching_dialog_message">Se preia previzualizarea…</string>
   <string name="send_feedback">Trimiteți o părere despre aplicație</string>

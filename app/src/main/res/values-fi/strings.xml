@@ -93,7 +93,7 @@
   <string name="create_account_button">Luo tunnus</string>
   <string name="preferences_general_heading">Perusasetukset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero ei ole käytössä</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ei ole käytössä</string>
   <string name="zero_search_hint">Etsi Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving_summary">Jos matkapuhelinoperaattorisi luopuu tiedonsiirtomaksuista Wikipedia Zero -yhteistyön kautta, tämän asetuksen ollessa päällä saat huomautuksen, jos aiot poistua Wikipedia-sovelluksesta ja tiedonsiirrosta voidaan periä maksua.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Haluatko siirtyä ulkoiselle sivulle? Saatat joutua maksamaan tiedonsiirtomaksuja.</string>
   <string name="zero_interstitial_continue">Poistu</string>
   <string name="zero_interstitial_cancel">Pysy täällä</string>
-  <string name="zero_learn_more">Tiedonsiirtomaksuja ei peritä tältä Wikipedia-sovellukselta.</string>
-  <string name="zero_learn_more_learn_more">Lue lisää</string>
+  <string name="zero_learn_more" fuzzy="true">Tiedonsiirtomaksuja ei peritä tältä Wikipedia-sovellukselta.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Lue lisää</string>
   <string name="zero_learn_more_dismiss">Hylkää</string>
   <string name="edit_preview_fetching_dialog_message">Noudetaan esikatselua…</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>

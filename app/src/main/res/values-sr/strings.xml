@@ -93,7 +93,7 @@
   <string name="create_account_button">Отвори налог</string>
   <string name="preferences_general_heading">Опште</string>
   <string name="wikipedia_app_faq">ЧПП о апликацији Википедија</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero је искључена</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero је искључена</string>
   <string name="zero_search_hint">Претрага (Wikipedia Zero)</string>
   <string name="zero_warn_when_leaving">Упозори ме ако напуштам Wikipedia Zero</string>
   <string name="zero_webpage_title">ЧПП о режиму Wikipedia Zero</string>
@@ -102,8 +102,8 @@
   <string name="zero_interstitial_leave_app">Пренос података ће вам можда бити наплаћен. Наставити на спољни сајт?</string>
   <string name="zero_interstitial_continue">Напусти</string>
   <string name="zero_interstitial_cancel">Остани</string>
-  <string name="zero_learn_more">За апликацију Википедија се не наплаћује интернет саобраћај.</string>
-  <string name="zero_learn_more_learn_more">Детаљније</string>
+  <string name="zero_learn_more" fuzzy="true">За апликацију Википедија се не наплаћује интернет саобраћај.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Детаљније</string>
   <string name="zero_learn_more_dismiss">Одбаци</string>
   <string name="edit_preview_fetching_dialog_message">Учитавам преглед…</string>
   <string name="send_feedback">Пошаљи повратну информацију</string>

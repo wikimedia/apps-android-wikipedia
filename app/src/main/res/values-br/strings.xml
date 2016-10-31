@@ -93,7 +93,7 @@
   <string name="create_account_button">Krouiñ ur gont</string>
   <string name="preferences_general_heading">Hollek</string>
   <string name="wikipedia_app_faq">Arload FAG Wikipedia</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero n\'a ket en-dro</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero n\'a ket en-dro</string>
   <string name="zero_search_hint">Klask e Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Roit da c\'houzout ma kuitait Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">M\'en deus savet hoc\'h oberataer hezoug ur c\'henemglev gant Wikipedia Zero ha ma tilez e vizoù liammet ouzh an implij eus Wikipedia e vo en roet deoc\'h da c\'houzout pa vezit o kuitaat an arload Wikipedia. E riskl emaoc\'h, a-hend-all, da baeañ mizoù roadennoù.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Gallout a ra bezañ mizoù da baeañ evit ar roadennoù. Mont d\'al lec\'hienn diavaez ?</string>
   <string name="zero_interstitial_continue">Mont kuit</string>
   <string name="zero_interstitial_cancel">Chom amañ</string>
-  <string name="zero_learn_more">N\'eus ket mizoù da baeañ evit ar roadennoù an arolad Wikipedia-mañ.</string>
-  <string name="zero_learn_more_learn_more">Gouzout hiroc\'h</string>
+  <string name="zero_learn_more" fuzzy="true">N\'eus ket mizoù da baeañ evit ar roadennoù an arolad Wikipedia-mañ.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Gouzout hiroc\'h</string>
   <string name="zero_learn_more_dismiss">Disteurel</string>
   <string name="edit_preview_fetching_dialog_message">O klask un alberz…</string>
   <string name="send_feedback">Kasit hoc\'h evezhiadennoù diwar-benn an arload</string>
@@ -204,6 +204,8 @@
   <string name="gallery_fair_use_license">Implij reizh</string>
   <string name="gallery_uploader_unknown">Pellgarger dianav</string>
   <string name="menu_new_tab">Ivinell nevez</string>
+  <string name="menu_close_all_tabs">Serriñ an ivinelloù</string>
+  <string name="close_all_tabs_confirm">Ha sur oc\'h e fell deoc\'h serriñ an ivinelloù ?</string>
   <string name="button_close_tab">Serriñ an ivinell</string>
   <string name="tool_tip_select_text">Klikit ha dalc\'hit da bouezañ ne vern pelec\'h en destenn evit dreistlinennañ anezhi abalamour da gopiañ ha da rannañ anezhi.</string>
   <string name="tool_tip_share">Goude bezañ dreistlinennet ur fed dedennus, klaskit rannañ anezhañ war o rouedadoù gwellañ-deuet !</string>
@@ -237,7 +239,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
   <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
   <string name="article_menu_bar_navigate">Merdeiñ el lec\'h ma oa ar pennad</string>
-  <string name="nav_item_reading_lists" fuzzy="true">Rolloù lenn</string>
+  <string name="nav_item_reading_lists">Ma rolloù</string>
   <string name="reading_list_untitled">Hep titl</string>
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>
@@ -246,7 +248,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_list_already_exists">Ar pennad-mañ zo er roll-se dija.</string>
   <string name="reading_list_added_view_button">Diskwel ar roll</string>
   <string name="reading_list_item_count_singular">1 pennad</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d pennad</string>
+  <string name="reading_list_item_count_plural">%d pennadoù</string>
   <string name="reading_list_sort">Rummañ</string>
   <string name="reading_list_sort_by_name">Rummañ dre anv</string>
   <string name="reading_list_sort_by_name_desc">Rummañ dre anv (eilpennet)</string>
@@ -265,6 +267,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="reading_list_edit_cancel">Nullañ</string>
   <string name="reading_list_delete_confirm">Ha sur eo hoc\'h eus c\'hoant da zilemel ar roll-mañ ?</string>
   <string name="reading_lists_empty">Roll lenn ebet amañ.</string>
+  <string name="reading_lists_empty_message">Aozañ ar pennadoù emaoc\'h o verdeiñ enno e rolloù lenn ! Pa vezit o lenn ur pennad, klikit war an arlun er varrenn ostilhoù en traoñ evit ouzhpennañ anezhi d\'ur roll lenn.</string>
   <string name="reading_lists_onboarding_intro">Krouiñ rolloù lenn evit ar pennadoù ho peus c\'hoant da lenn diwezhatoc\'h, ha pa vefec\'h ezlinenn !</string>
   <string name="reading_lists_onboarding_for_example">Da skouer</string>
   <string name="reading_lists_onboarding_example1">Lec\'hioù da weladenniñ</string>
@@ -283,6 +286,7 @@ Ha c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="view_featured_image_card_download">Pellgargañ</string>
   <string name="menu_feed_card_dismiss">Kuzhat ar gartenn-mañ</string>
   <string name="menu_feed_card_dismissed">Kartenn kuzhet</string>
+  <string name="menu_feed_overflow_label">Muioc\'h a zibarzhioù</string>
   <string name="feed_featured_image_share_subject">Skeudenn dibabet e Wikimedia Commons</string>
   <string name="feed">Ergerzhet</string>
   <string name="view_card_footer_button">Gwelet muioc\'h</string>

@@ -63,7 +63,7 @@
   <string name="create_account_next">Li jmiss</string>
   <string name="create_account_button">Oħloq kont</string>
   <string name="preferences_general_heading">Ġenerali</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero huwa mitfi</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero huwa mitfi</string>
   <string name="zero_search_hint">Fittex fuq Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avżani jekk ħiereġ minn Wikipedia Zero</string>
   <string name="zero_webpage_title">Mistoqsijiet fuq Wikipedia Zero</string>
@@ -71,7 +71,7 @@
   <string name="zero_interstitial_title">Ħiereġ mill-Wikipedia Zero</string>
   <string name="zero_interstitial_continue">Oħroġ</string>
   <string name="zero_interstitial_cancel">Ibqa\' hawnhekk</string>
-  <string name="zero_learn_more_learn_more">Aqra aktar</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Aqra aktar</string>
   <string name="zero_learn_more_dismiss">Aħbi</string>
   <string name="send_feedback">Ibgħat kumment fuq l-app</string>
   <string name="nav_item_random">Paġna kwalunkwe</string>

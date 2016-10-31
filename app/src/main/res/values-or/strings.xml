@@ -91,7 +91,7 @@
   <string name="create_account_button">ଆକାଉଣ୍ଟଟିଏ ଖୋଲନ୍ତୁ</string>
   <string name="preferences_general_heading">ସାଧାରଣ</string>
   <string name="wikipedia_app_faq">ଉଇକିପିଡ଼ିଆ ଆପ ବାବଦରେ ଜାଣିବାକଥା</string>
-  <string name="zero_charged_verbiage">ଉଇକିପିଡ଼ିଆ ଜିରୋ ବନ୍ଦ</string>
+  <string name="zero_charged_verbiage" fuzzy="true">ଉଇକିପିଡ଼ିଆ ଜିରୋ ବନ୍ଦ</string>
   <string name="zero_search_hint">ଉଇକିପିଡ଼ିଆ ଜିରୋରେ ଖୋଜନ୍ତୁ</string>
   <string name="zero_warn_when_leaving">ଉଇକିପିଡ଼ିଆ ଜିରୋରୁ ବାହାରିଲେ ଜଣାଇବେ</string>
   <string name="zero_warn_when_leaving_summary">ଆପଣଙ୍କ ମୋବାଇଲ ଅପରେଟର ଉଇକିପିଡ଼ିଆ ଜିରୋ ମାଧ୍ୟମରେ ଉଇକିପିଡ଼ିଆ ଆପ୍ଲିକେସନ ପାଇଁ ମାଗଣା ସୁବିଧା ଦେଉଥିଲେ, ଏହି ସଂରଚନା ବଦଳାଇଲେ ସାଧାରଣ ଇଣ୍ଟରନେଟ ଦର ଲାଗିପାରେ ।</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">ବାହାର ସାଇଟ ଦେଖିବା ଚାଲୁ ରଖିବେ? ସାଧାରଣ ଇଣ୍ଟରନେଟ ଦର ଲାଗିପାରେ ।</string>
   <string name="zero_interstitial_continue">ବାତିଲ</string>
   <string name="zero_interstitial_cancel">ଚାଲୁ ରଖନ୍ତୁ</string>
-  <string name="zero_learn_more">ଏହି ଉଇକିପିଡ଼ିଆ ଆପ ପାଇଁ ଡାଟା ଶୁଳ୍କ ଦେବାକୁ ପଡ଼ିବନାହିଁ ।</string>
-  <string name="zero_learn_more_learn_more">ଆହୁରି ପଢିବେ</string>
+  <string name="zero_learn_more" fuzzy="true">ଏହି ଉଇକିପିଡ଼ିଆ ଆପ ପାଇଁ ଡାଟା ଶୁଳ୍କ ଦେବାକୁ ପଡ଼ିବନାହିଁ ।</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">ଆହୁରି ପଢିବେ</string>
   <string name="zero_learn_more_dismiss">ଖାରଜ</string>
   <string name="edit_preview_fetching_dialog_message">ଦେଖଣା ଆହରଣ କରୁଛି</string>
   <string name="send_feedback">ଆପ ବାବଦରେ ମତାମତ ପଠାନ୍ତୁ</string>

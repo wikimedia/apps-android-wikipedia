@@ -90,14 +90,14 @@
   <string name="create_account_button">Crear conto</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">FAQ re app Wikipedia</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero es disactivate</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero es disactivate</string>
   <string name="zero_search_hint">Cercar in Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Advertir al momento de quitar Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Tu quita Wikipedia Zero</string>
   <string name="zero_interstitial_continue">Quitar</string>
   <string name="zero_interstitial_cancel">Restar</string>
-  <string name="zero_learn_more_learn_more">Leger plus</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Leger plus</string>
   <string name="zero_learn_more_dismiss">Clauder</string>
   <string name="send_feedback">Inviar commentario re le application</string>
   <string name="nav_item_random">Aleatori</string>

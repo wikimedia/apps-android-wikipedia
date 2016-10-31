@@ -93,7 +93,7 @@
   <string name="create_account_button">アカウント作成</string>
   <string name="preferences_general_heading">全般</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
-  <string name="zero_charged_verbiage">ウィキペディアゼロはオフです</string>
+  <string name="zero_charged_verbiage" fuzzy="true">ウィキペディアゼロはオフです</string>
   <string name="zero_search_hint">ウィキペディアゼロを検索</string>
   <string name="zero_warn_when_leaving">ウィキペディアゼロを離れる場合には警告</string>
   <string name="zero_warn_when_leaving_summary">ウィキペディアゼロの提携により、携帯電話会社がウィキペディアアプリからのアクセス料金を無料にしている場合には、この設定をチェックしておくと、ウィキペディアアプリを離れて料金がかかる際に分かるようになります。</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">データ料金がかかるかもしれません。外部サイトへ接続しますか?</string>
   <string name="zero_interstitial_continue">接続する</string>
   <string name="zero_interstitial_cancel">留まる</string>
-  <string name="zero_learn_more">このウィキペディアアプリでは、データ料金が免除されます。</string>
-  <string name="zero_learn_more_learn_more">続きを読む</string>
+  <string name="zero_learn_more" fuzzy="true">このウィキペディアアプリでは、データ料金が免除されます。</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">続きを読む</string>
   <string name="zero_learn_more_dismiss">非表示</string>
   <string name="edit_preview_fetching_dialog_message">プレビューを取得中…</string>
   <string name="send_feedback">フィードバックを送る</string>

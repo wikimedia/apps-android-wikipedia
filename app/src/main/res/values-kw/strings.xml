@@ -75,7 +75,7 @@
   <string name="create_account_next">Nessa</string>
   <string name="create_account_button">Gwruthyl akont</string>
   <string name="preferences_general_heading">Ollgemmyn</string>
-  <string name="zero_charged_verbiage">Skwychys yn-mes yw Wikipedya Zero</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Skwychys yn-mes yw Wikipedya Zero</string>
   <string name="zero_search_hint">Hwilas yn Wikipedya Zero</string>
   <string name="zero_warn_when_leaving">Gwarnya pan ow kwytya Wikipedya Zero</string>
   <string name="zero_webpage_title">FAQ Wikipedya Zero</string>
@@ -84,8 +84,8 @@
   <string name="zero_interstitial_leave_app">Feow data a alsa holya. Pesya dhe\'n wiasva a-ves?</string>
   <string name="zero_interstitial_continue">Kwytya</string>
   <string name="zero_interstitial_cancel">Triga omma</string>
-  <string name="zero_learn_more">Nyns eus feow data rag an towlennik Wikipedya ma.</string>
-  <string name="zero_learn_more_learn_more">Redya moy</string>
+  <string name="zero_learn_more" fuzzy="true">Nyns eus feow data rag an towlennik Wikipedya ma.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Redya moy</string>
   <string name="zero_learn_more_dismiss">Kudha</string>
   <string name="edit_preview_fetching_dialog_message">Ow kerghes ragwel…</string>
   <string name="send_feedback">Danvon dasliv a\'n towlennik</string>

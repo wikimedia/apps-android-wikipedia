@@ -89,7 +89,7 @@
   <string name="create_account_next">അടുത്തത്</string>
   <string name="create_account_button">അംഗത്വമെടുക്കുക</string>
   <string name="preferences_general_heading">സാർവത്രികം</string>
-  <string name="zero_charged_verbiage">വിക്കിപീഡിയ സീറോ ഇല്ല</string>
+  <string name="zero_charged_verbiage" fuzzy="true">വിക്കിപീഡിയ സീറോ ഇല്ല</string>
   <string name="zero_search_hint">വിക്കിപീഡിയ സീറോയിൽ തിരയുക</string>
   <string name="zero_warn_when_leaving">വിക്കിപീഡിയ സീറോയിൽ നിന്ന് പോവുകയാണെങ്കിൽ മുന്നറിയിപ്പ് നൽകുക</string>
   <string name="zero_warn_when_leaving_summary">വിക്കിപീഡിയ സീറോ പങ്കാളിത്തം വഴി ഡേറ്റാ വിലകൾ താങ്കളുടെ മൊബൈൽ ഓപ്പറേറ്റർ പരിത്യജിക്കുന്നുവെങ്കിൽ, വിക്കിപീഡിയ ആപിൽ നിന്നും പുറത്ത് കടക്കുന്നതും എപ്പോൾ മുതലാണ് വില ഈടാക്കുന്നതെന്നും മനസ്സിലാക്കാൻ ഈ സജ്ജീകരണം ശരിയിട്ട് കിടക്കുന്നത് സഹായിക്കുന്നതാണ്.</string>
@@ -99,8 +99,8 @@
   <string name="zero_interstitial_leave_app">ഡേറ്റാ വിലകൾ ബാധകമായേക്കും. മറ്റ് സൈറ്റുകളിലേയ്ക്ക് പോകണോ?</string>
   <string name="zero_interstitial_continue">പോവുക</string>
   <string name="zero_interstitial_cancel">ഇവിടെത്തുടരുക</string>
-  <string name="zero_learn_more">ഈ വിക്കിപീഡിയ ആപിൽ ഡേറ്റാ വിലകൾ നൽകേണ്ടതില്ല.</string>
-  <string name="zero_learn_more_learn_more">കൂടുതൽ കാണുക</string>
+  <string name="zero_learn_more" fuzzy="true">ഈ വിക്കിപീഡിയ ആപിൽ ഡേറ്റാ വിലകൾ നൽകേണ്ടതില്ല.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">കൂടുതൽ കാണുക</string>
   <string name="zero_learn_more_dismiss">ഒഴിവാക്കുക</string>
   <string name="edit_preview_fetching_dialog_message">പ്രിവ്യൂ എടുക്കുന്നു…</string>
   <string name="send_feedback">ആപിനെക്കുറിച്ചുള്ള അഭിപ്രായം അറിയിക്കുക</string>

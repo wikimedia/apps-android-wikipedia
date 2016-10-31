@@ -91,7 +91,7 @@
   <string name="create_account_button">सदस्यता प्राप्यताम्</string>
   <string name="preferences_general_heading">सामान्यम्</string>
   <string name="wikipedia_app_faq">विकिपीडिया-अनुप्रयोगाय सामान्यजिज्ञासाः</string>
-  <string name="zero_charged_verbiage">विकिपीडिया-शून्यं निरस्तम् अस्ति ।</string>
+  <string name="zero_charged_verbiage" fuzzy="true">विकिपीडिया-शून्यं निरस्तम् अस्ति ।</string>
   <string name="zero_search_hint">विकिपीडिया-शून्यम् अन्विष्यताम्</string>
   <string name="zero_warn_when_leaving">विकिपीडिया-शून्यस्य त्यागकाले सूच्यताम्</string>
   <string name="zero_warn_when_leaving_summary">विकिपीडिया-शून्येन सह सहकारितायाः कारणेन विकिपीडिया-अनुप्रयोगं यदि भवतां/भवत्याः दूरभाषयन्त्रप्रचालकेन सूचनाभिगमनस्य (data access) परिवर्तनम् अवगण्यते, तर्हि एषः चिह्नितः अभिविन्यासः तदा भवतां/भवत्याः साहाय्यं करिष्यति, यदा भवान्/भवती विकिपीडिया-अनुप्रयोगं त्यक्ष्यति तथा च परिवर्तनं करिष्यति ।</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">कदाचित् सूचनापरिवर्तनानि कार्यान्वितानि । बाह्यस्थानं गन्तुम् इच्छति ?</string>
   <string name="zero_interstitial_continue">त्यजतु</string>
   <string name="zero_interstitial_cancel">अत्र स्थीयताम्</string>
-  <string name="zero_learn_more">एतस्मै विकिपीडिया-अनुप्रयोगाय सूचनायाः परिवर्तनानि अवगण्यन्ते ।</string>
-  <string name="zero_learn_more_learn_more">अधिकं पठ्यताम्</string>
+  <string name="zero_learn_more" fuzzy="true">एतस्मै विकिपीडिया-अनुप्रयोगाय सूचनायाः परिवर्तनानि अवगण्यन्ते ।</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">अधिकं पठ्यताम्</string>
   <string name="zero_learn_more_dismiss">अपनीयताम्</string>
   <string name="edit_preview_fetching_dialog_message">प्राग्दृश्यम् आवहति…</string>
   <string name="send_feedback">अनुप्रयोगप्रतिक्रियां प्रेषयतु</string>

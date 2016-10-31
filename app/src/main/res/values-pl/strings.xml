@@ -90,7 +90,7 @@
   <string name="create_account_button">Utwórz konto</string>
   <string name="preferences_general_heading">Ogólne</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero jest wyłączona</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero jest wyłączona</string>
   <string name="zero_search_hint">Szukaj w Wikipedii Zero</string>
   <string name="zero_warn_when_leaving">Ostrzegaj przed opuszczeniem Wikipedii Zero</string>
   <string name="zero_warn_when_leaving_summary">Jeśli twój operator telefonii komórkowej nie pobiera opłat za transfer danych, gdy korzystasz z Wikipedii poprzez tę aplikację (w ramach partnerstwa Wikipedia Zero), ta opcja sprawi, że aplikacja pomoże ci się zorientować, kiedy opuszczasz Wikipedię i mogą zacząć obowiązywać opłaty za transfer danych.</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">Przejście do witryny zewnętrznej może się wiązać z opłatami za transmisję danych. Kontynuować?</string>
   <string name="zero_interstitial_continue">Wyjdź</string>
   <string name="zero_interstitial_cancel">Pozostań</string>
-  <string name="zero_learn_more">W ramach tej aplikacji Wikipedii nie są pobierane opłaty za transmisję danych.</string>
-  <string name="zero_learn_more_learn_more">Czytaj więcej</string>
+  <string name="zero_learn_more" fuzzy="true">W ramach tej aplikacji Wikipedii nie są pobierane opłaty za transmisję danych.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Czytaj więcej</string>
   <string name="zero_learn_more_dismiss">Odrzuć</string>
   <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu…</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
@@ -257,6 +257,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="view_continue_reading_card_title">Kontynuuj czytanie</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>
+  <string name="view_random_card_title">Losowy artykuł</string>
   <string name="view_random_card_subtitle">Przeczytaj losowy artykuł z Wikipedii</string>
   <string name="view_main_page_card_title">Dzisiaj w Wikipedii</string>
   <string name="view_main_page_card_subtitle">Strona główna na %s</string>
@@ -266,6 +267,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="menu_feed_overflow_label">Więcej opcji</string>
   <string name="feed_featured_image_share_subject">Najlepsze zdjęcia z Wikimedia Commons</string>
   <string name="view_card_footer_button">Zobacz więcej</string>
+  <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
   <plurals name="view_continue_reading_card_subtitle">

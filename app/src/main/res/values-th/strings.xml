@@ -79,7 +79,7 @@
   <string name="create_account_next">ถัดไป</string>
   <string name="create_account_button">สร้างบัญชี</string>
   <string name="preferences_general_heading">ทั่วไป</string>
-  <string name="zero_learn_more_learn_more">อ่านเพิ่มเติม</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">อ่านเพิ่มเติม</string>
   <string name="zero_learn_more_dismiss">รับทราบ</string>
   <string name="nav_item_random">สุ่ม</string>
   <string name="create_account_account_created_toast">บัญชีถูกสร้าง</string>

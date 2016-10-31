@@ -85,7 +85,7 @@
   <string name="create_account_button">Hesab vıraze</string>
   <string name="preferences_general_heading">Bıngeh</string>
   <string name="wikipedia_app_faq">Wikipedia App PZP</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero racyaye yo</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero racyaye yo</string>
   <string name="zero_search_hint">Wikipediya Zero de cı geyre</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero\'ra vıcyayış dı mı iqaz ke</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -93,8 +93,8 @@
   <string name="zero_interstitial_leave_app">Heqê datay gêrêno. Wa şıriyo gredê teberi?</string>
   <string name="zero_interstitial_continue">Dewam ke</string>
   <string name="zero_interstitial_cancel">Tiyad bıman</string>
-  <string name="zero_learn_more">Qandé ena dezgada Wikipedia heqa datay nêgêrên na.</string>
-  <string name="zero_learn_more_learn_more">Zewbi bıwan</string>
+  <string name="zero_learn_more" fuzzy="true">Qandé ena dezgada Wikipedia heqa datay nêgêrên na.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Zewbi bıwan</string>
   <string name="zero_learn_more_dismiss">Red ke</string>
   <string name="edit_preview_fetching_dialog_message">Verqayti ano...</string>
   <string name="send_feedback">Dezgek peyd rışten bırış</string>

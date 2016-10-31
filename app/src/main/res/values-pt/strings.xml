@@ -93,7 +93,7 @@
   <string name="create_account_button">Criar conta</string>
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes</string>
-  <string name="zero_charged_verbiage">Wikipédia Zero está desligada</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zero está desligada</string>
   <string name="zero_search_hint">Pesquisar na Wikipédia Zero</string>
   <string name="zero_warn_when_leaving">Avisar-me se sair da Wikipédia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se a sua operadora móvel renunciar à taxa de acesso para a aplicação da Wikipédia, através de uma parceria com a Wikipédia Zero, deixar esta opção marcada ajudará a saber quando estará a sair desta aplicação e se serão cobradas taxas de dados.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Poderão ser aplicadas taxas de dados. Continuar para o sítio externo?</string>
   <string name="zero_interstitial_continue">Sair</string>
   <string name="zero_interstitial_cancel">Permanecer aqui</string>
-  <string name="zero_learn_more">Não serão cobradas taxas de dados para esta aplicação da Wikipédia.</string>
-  <string name="zero_learn_more_learn_more">Ler mais</string>
+  <string name="zero_learn_more" fuzzy="true">Não serão cobradas taxas de dados para esta aplicação da Wikipédia.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Ler mais</string>
   <string name="zero_learn_more_dismiss">Ignorar</string>
   <string name="edit_preview_fetching_dialog_message">A processar a pré-visualização…</string>
   <string name="send_feedback">Enviar comentários sobre a aplicação</string>

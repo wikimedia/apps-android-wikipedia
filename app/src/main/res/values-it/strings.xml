@@ -93,7 +93,7 @@
   <string name="create_account_button">Crea un\'utenza</string>
   <string name="preferences_general_heading">Generale</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero è spento</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero è spento</string>
   <string name="zero_search_hint">Cerca su Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avvisa se sto uscendo da Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se il tuo operatore di telefonia mobile rinuncia alle tariffe dati per l\'applicazione Wikipedia attraverso una partnership di Wikipedia Zero, lasciare questa impostazione selezionata ti permette di conoscere quando si esce dall\'applicazione Wikipedia e potrebbero essere addebitate le tariffe.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Potrebbero essere applicati i costi di connessione. Continuare su un sito esterno?</string>
   <string name="zero_interstitial_continue">Lascia</string>
   <string name="zero_interstitial_cancel">Resta qui</string>
-  <string name="zero_learn_more">I costi di connessione sono gratuiti per questa applicazione Wikipedia</string>
-  <string name="zero_learn_more_learn_more">Per saperne di più</string>
+  <string name="zero_learn_more" fuzzy="true">I costi di connessione sono gratuiti per questa applicazione Wikipedia</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Per saperne di più</string>
   <string name="zero_learn_more_dismiss">Nascondi</string>
   <string name="edit_preview_fetching_dialog_message">Recupero anteprima…</string>
   <string name="send_feedback">Invia commento sull\'applicazione</string>
@@ -297,4 +297,5 @@ Vuoi riavviarla o uscire?</string>
     <item quantity="one">ieri</item>
     <item quantity="other">%d giorni fa</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">oggi</string>
 </resources>

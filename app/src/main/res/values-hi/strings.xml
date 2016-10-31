@@ -93,7 +93,7 @@
   <string name="create_account_button">खाता बनायें</string>
   <string name="preferences_general_heading">सामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप FAQ</string>
-  <string name="zero_charged_verbiage">विकिपीडिया शून्य बन्द है</string>
+  <string name="zero_charged_verbiage" fuzzy="true">विकिपीडिया शून्य बन्द है</string>
   <string name="zero_search_hint">विकिपीडिया शून्य खोजें</string>
   <string name="zero_warn_when_leaving">विकिपीडिया शून्य छोड़ने पर चेतावनी दीजिये</string>
   <string name="zero_warn_when_leaving_summary">यदि आपका मोबाइल ऑपरेटर डेटा इस्तेमाल के चार्जों को विकिपीडिया एप के लिए छोड़ता है, विकिपीडिया ज़ीरो पार्टनरशिप के अनुसार तो इस सेटिंग को चैक छोड़ने से आपको यह जानने में सहायता मिलेगी कि कब आप विकिपीडिया एप छोड़ रहे हैं और आपको चार्ज लग सकता है।</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">डेटा चार्ज लग सकते हैं। बाहरी साईट पर आगे बढ़ें?</string>
   <string name="zero_interstitial_continue">जाएँ</string>
   <string name="zero_interstitial_cancel">यहीं रुकें</string>
-  <string name="zero_learn_more">इस विकिपीडिया एप के लिए डेटा शुल्क नहीं लिया जाता।</string>
-  <string name="zero_learn_more_learn_more">और पढ़ें</string>
+  <string name="zero_learn_more" fuzzy="true">इस विकिपीडिया एप के लिए डेटा शुल्क नहीं लिया जाता।</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">और पढ़ें</string>
   <string name="zero_learn_more_dismiss">हटायें</string>
   <string name="edit_preview_fetching_dialog_message">प्रीव्यू लाया जा रहा है…</string>
   <string name="send_feedback">एप फीडबैक भेजें</string>

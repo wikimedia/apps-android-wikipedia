@@ -93,7 +93,7 @@
   <string name="create_account_button">ایجاد حساب کاربری</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
-  <string name="zero_charged_verbiage">خاموش کردن ویکی‌پدیا صفر</string>
+  <string name="zero_charged_verbiage" fuzzy="true">خاموش کردن ویکی‌پدیا صفر</string>
   <string name="zero_search_hint">جستجو در ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving">هشدار برای خروج از ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving_summary">اگر اپراتور تلفن همراه شما  هزینهٔ دیتا را بر اساس تفاهم‌نامهٔ ویکی‌پدیا صفر تخت اپلیکیشن موبایل ویکی‌پدیا دریافت نکند رها کردن تنظیمات به شما کمک می‌کند تا زمانی که شما از اپلیکیشن خارج می‌شوید  از دریافت هزینه آگاه شوید.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">هزینهٔ استاندارد دیتا دریافت می‌گردد. به سایت‌های بیرون انتقال یابد؟ .</string>
   <string name="zero_interstitial_continue">ترک</string>
   <string name="zero_interstitial_cancel">ماندن در اینجا</string>
-  <string name="zero_learn_more">هزینه‌های داده برای این برنامه ویکی گرفته نمی‌شود.</string>
-  <string name="zero_learn_more_learn_more">بیشتر بخوانید</string>
+  <string name="zero_learn_more" fuzzy="true">هزینه‌های داده برای این برنامه ویکی گرفته نمی‌شود.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">بیشتر بخوانید</string>
   <string name="zero_learn_more_dismiss">نپذیرفتن</string>
   <string name="edit_preview_fetching_dialog_message">واکشی پیش‌نمایش…</string>
   <string name="send_feedback">فرستادن بازخورد برنامه</string>

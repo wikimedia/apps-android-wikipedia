@@ -93,7 +93,7 @@
   <string name="create_account_button">Mở tài khoản</string>
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="wikipedia_app_faq">Câu hỏi thường hỏi về ứng dụng Wikipedia</string>
-  <string name="zero_charged_verbiage">Wikipedia Miễn phí đang tắt</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Miễn phí đang tắt</string>
   <string name="zero_search_hint">Tìm trong Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving">Cảnh báo khi ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do có quan hệ đối tác với Wikipedia Miễn phí, chọn hộp này để giúp bạn biết khi bạn sắp thoát ứng dụng Wikipedia và sẽ bị tính phí.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Có thể phải trả phí dữ liệu. Tiếp tục đi vào trang ngoài?</string>
   <string name="zero_interstitial_continue">Rời đi</string>
   <string name="zero_interstitial_cancel">Ở lại</string>
-  <string name="zero_learn_more">Không phải trả các chi phí dữ liệu khi sử dụng ứng dụng Wikipedia này.</string>
-  <string name="zero_learn_more_learn_more">Đọc thêm</string>
+  <string name="zero_learn_more" fuzzy="true">Không phải trả các chi phí dữ liệu khi sử dụng ứng dụng Wikipedia này.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Đọc thêm</string>
   <string name="zero_learn_more_dismiss">Bỏ qua</string>
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem thử…</string>
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>

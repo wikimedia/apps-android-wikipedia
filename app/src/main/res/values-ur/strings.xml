@@ -93,7 +93,7 @@
   <string name="create_account_button">کھاتا بنائیں</string>
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا ایپ عمومی سوالات</string>
-  <string name="zero_charged_verbiage">زیرو ویکیپیڈیا بند ہے</string>
+  <string name="zero_charged_verbiage" fuzzy="true">زیرو ویکیپیڈیا بند ہے</string>
   <string name="zero_search_hint">زیرو ویکیپیڈیا میں تلاش کریں</string>
   <string name="zero_warn_when_leaving">زیرو ویکیپیڈیا چھوڑنے پر انتباہ کریں</string>
   <string name="zero_warn_when_leaving_summary">اگر آپ اپنے نیٹ ورک پر ویکیپیڈیا زیرو استعمال کررہے ہیں، تو آپ اس سیٹنگ پر ٹک لگی رہنے دیں یہ آپ کو ویکیپیڈیاسے باہر جانے پر (جس کے چارجز لاگو ہوسکتے ہیں پر) انتباہ کرے گا</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">ڈاٹا کی شرحیں نافذ ہوں گی۔ کیا آپ خارجی ویب سائٹ پر آگے جانا چاہیں گے۔</string>
   <string name="zero_interstitial_continue">چھوڑیں</string>
   <string name="zero_interstitial_cancel">یہیں رہیں</string>
-  <string name="zero_learn_more">اس ویکیپیڈیا ایب کی شرحیں ہٹا دی گئی ہیں۔</string>
-  <string name="zero_learn_more_learn_more">مزید پڑھیں</string>
+  <string name="zero_learn_more" fuzzy="true">اس ویکیپیڈیا ایب کی شرحیں ہٹا دی گئی ہیں۔</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">مزید پڑھیں</string>
   <string name="zero_learn_more_dismiss">ہٹائیں</string>
   <string name="edit_preview_fetching_dialog_message">نمائش حاصل کی جارہی ہے...</string>
   <string name="send_feedback">ایپ پر ردعمل بھیجیے۔</string>

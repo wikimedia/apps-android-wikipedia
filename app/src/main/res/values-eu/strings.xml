@@ -16,6 +16,7 @@
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
   <string name="nav_item_saved_pages">Gordetako orrialdeak</string>
   <string name="share_via">Partekatu honela</string>
+  <string name="search_redirect_from">%s horretatik birzuzenduta</string>
   <string name="menu_page_show_tabs">Fitxak erakutsi</string>
   <string name="menu_page_other_languages">Hizkuntza aldatu</string>
   <string name="menu_page_find_in_page">Aurkitu orrialdean</string>
@@ -26,12 +27,15 @@
   <string name="menu_long_press_open_in_new_tab">Ireki fitxa berrian</string>
   <string name="menu_long_press_copy_page">Kopiatu loturaren helbidea</string>
   <string name="menu_text_select_copy">Kopiatu</string>
+  <string name="menu_text_select_define">Definitu</string>
   <string name="menu_text_select_share">Partekatu</string>
+  <string name="menu_text_select_edit_here">Editatu hementxe</string>
   <string name="nav_item_nearby">Gertukoak</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Zoom egin mapa bateko kokapenean</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
+  <string name="talk_page_link_text">Esan</string>
   <string name="content_license_html">Edukia eskuragarri &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean, besterik aipatu ezean</string>
   <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="preference_title_language">Wikipediaren hizkuntza</string>
@@ -83,7 +87,7 @@
   <string name="create_account_button">Kontua sortu</string>
   <string name="preferences_general_heading">Orokorra</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero ez dago martxan</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ez dago martxan</string>
   <string name="zero_search_hint">Bilatu Wikipedia Zeron</string>
   <string name="zero_warn_when_leaving">Abisatu Wikipedia Zero uzten badut</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
@@ -92,8 +96,8 @@
   <string name="zero_interstitial_leave_app">Datuengatik kobratzea posible da. Kanpoko gune batera jarraitu nahi duzu?</string>
   <string name="zero_interstitial_continue">Irten</string>
   <string name="zero_interstitial_cancel">Hemen gelditu</string>
-  <string name="zero_learn_more">Datuengatik kobratzen da Wikipedia aplikazio honetan.</string>
-  <string name="zero_learn_more_learn_more">Irakurri gehiago</string>
+  <string name="zero_learn_more" fuzzy="true">Datuengatik kobratzen da Wikipedia aplikazio honetan.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Irakurri gehiago</string>
   <string name="zero_learn_more_dismiss">Utzi</string>
   <string name="edit_preview_fetching_dialog_message">Aurreikuspena eskuratzen…</string>
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
@@ -108,6 +112,8 @@
   <string name="error_can_not_process_link">Ezin izan da esteka erakutsi</string>
   <string name="page_protected_autoconfirmed">Orri hau  erdi babestua dago.</string>
   <string name="page_protected_sysop">Orri hau erabat babestua dago.</string>
+  <string name="page_protected_other">Orrialde hau ondorengo mailetan babestu egin da: %s</string>
+  <string name="page_protected_can_not_edit">Ez duzu orrialde hau aldatzeko baimenik</string>
   <string name="page_protected_can_not_edit_title">Orrialde hau babestuta dago</string>
   <string name="settings_item_preferences">Ezarpenak</string>
   <string name="settings_activity_title">Ezarpenak</string>
@@ -188,6 +194,7 @@
   <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
   <string name="article_menu_bar_navigate">Nabigatu artikuluaren kokagunera</string>
   <string name="reading_list_create_new">Sortu berria</string>
+  <string name="reading_list_added_view_button">Ikusi zerrenda</string>
   <string name="reading_list_sort">Sailkatu</string>
   <string name="reading_list_sort_by_name">Sailkatu izenaren arabera</string>
   <string name="reading_list_item_delete_undo">Desegin</string>

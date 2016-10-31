@@ -93,7 +93,7 @@
   <string name="create_account_button">Crea un compte</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">PMF de l\'app de la Viquipèdia</string>
-  <string name="zero_charged_verbiage">Viquipèdia Zero està desactivada</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Viquipèdia Zero està desactivada</string>
   <string name="zero_search_hint">Cerca a Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving">Avisa\'m si se surt de Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si el vostre operador de telefonia mòbil ha renunciat a cobrar per l\'accés de dades des de l\'aplicació de la Viquipèdia gràcies a un acord amb Viquipèdia Zero, en deixar aquest paràmetre habilitat se us avisarà quan sortiu de l\'aplicació de la Viquipèdia, moment en què us poden tornar a cobrar.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Us poden cobrar per l\'ús de dades. Segur que voleu anar al lloc extern?</string>
   <string name="zero_interstitial_continue">Surt</string>
   <string name="zero_interstitial_cancel">Roman aquí</string>
-  <string name="zero_learn_more">No es cobra per l\'ús de dades per aquesta aplicació de la Viquipèdia.</string>
-  <string name="zero_learn_more_learn_more">Més informació</string>
+  <string name="zero_learn_more" fuzzy="true">No es cobra per l\'ús de dades per aquesta aplicació de la Viquipèdia.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Més informació</string>
   <string name="zero_learn_more_dismiss">Descarta</string>
   <string name="edit_preview_fetching_dialog_message">Obtenint la previsualització…</string>
   <string name="send_feedback">Envieu els vostres comentaris sobre l\'aplicació</string>

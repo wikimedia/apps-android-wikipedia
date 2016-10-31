@@ -94,7 +94,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="create_account_button">Créer un compte</string>
   <string name="preferences_general_heading">Général</string>
   <string name="wikipedia_app_faq">FAQ des applis Wikipédia</string>
-  <string name="zero_charged_verbiage">Wikipédia Zéro est désactivé</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zéro est désactivé</string>
   <string name="zero_search_hint">Rechercher dans Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving">Avertir au moment de quitter Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving_summary">Si votre opérateur mobile renonce aux frais de données liés à l’utilisation de l’application Wikipédia dans le cadre d’un partenariat Wikipédia Zéro, laisser ce paramètre activé vous permettra d’être prévenu lorsque vous quittez l’application Wikipédia et risquez de payer des frais de données.</string>
@@ -104,8 +104,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="zero_interstitial_leave_app">Des frais de données pourront s’appliquer. Continuer vers le site externe ?</string>
   <string name="zero_interstitial_continue">Quitter</string>
   <string name="zero_interstitial_cancel">Rester ici</string>
-  <string name="zero_learn_more">Les frais de données ne s’appliquent pas pour cette application Wikipédia.</string>
-  <string name="zero_learn_more_learn_more">Lire la suite</string>
+  <string name="zero_learn_more" fuzzy="true">Les frais de données ne s’appliquent pas pour cette application Wikipédia.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Lire la suite</string>
   <string name="zero_learn_more_dismiss">Rejeter</string>
   <string name="edit_preview_fetching_dialog_message">Récupération de l’aperçu…</string>
   <string name="send_feedback">Envoyer un avis sur l’application</string>

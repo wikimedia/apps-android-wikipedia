@@ -81,7 +81,7 @@
   <string name="zero_interstitial_title">ចាកចេញពីវិគីសូន្យ</string>
   <string name="zero_interstitial_continue">ចាកចេញ</string>
   <string name="zero_interstitial_cancel">មិនចាកចេញ</string>
-  <string name="zero_learn_more_learn_more">អានបន្ថែម</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">អានបន្ថែម</string>
   <string name="zero_learn_more_dismiss">លាក់</string>
   <string name="edit_preview_fetching_dialog_message">កំពុងផ្ទុកការមើលមុន…</string>
   <string name="send_feedback">ផ្ញើមតិយោបល់អំពីកម្មវិធីនេះ</string>

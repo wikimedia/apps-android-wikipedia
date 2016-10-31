@@ -81,7 +81,7 @@
   <string name="create_account_button">Crear un compte</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">FAQ de las aplicacions Wikipèdia</string>
-  <string name="zero_charged_verbiage">Wikipèdia Zèro es desactivada</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipèdia Zèro es desactivada</string>
   <string name="zero_search_hint">Recercar dins Wikipèdia Zèro</string>
   <string name="zero_warn_when_leaving">Avertir en quitant Wikipèdia Zèro</string>
   <string name="zero_webpage_title">FAQ de Wikipèdia Zèro</string>
@@ -89,7 +89,7 @@
   <string name="zero_interstitial_title">Sortida de Wikipèdia Zèro</string>
   <string name="zero_interstitial_continue">Quitar</string>
   <string name="zero_interstitial_cancel">Demorar aicí</string>
-  <string name="zero_learn_more_learn_more">Legir la seguida</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Legir la seguida</string>
   <string name="zero_learn_more_dismiss">Regetar</string>
   <string name="edit_preview_fetching_dialog_message">Recèrca d’un apercebut…</string>
   <string name="send_feedback">Mandar un comentari sus l’aplicacion</string>

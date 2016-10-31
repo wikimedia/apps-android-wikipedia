@@ -74,7 +74,7 @@
   <string name="zero_wikipedia_zero_heading">Wîkîpediya Zero</string>
   <string name="zero_interstitial_continue">Jê derkeve</string>
   <string name="zero_interstitial_cancel">Li vir bimîne</string>
-  <string name="zero_learn_more_learn_more">Zêdetir bixwîne</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Zêdetir bixwîne</string>
   <string name="nav_item_random">Ketober</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="history_search_list_hint">Dîroka lêgerînê</string>

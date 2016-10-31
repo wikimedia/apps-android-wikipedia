@@ -93,7 +93,7 @@
   <string name="create_account_button">Fiók létrehozása</string>
   <string name="preferences_general_heading">Általános</string>
   <string name="wikipedia_app_faq">Wikipédia app GYIK</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero kikapcsolva</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero kikapcsolva</string>
   <string name="zero_search_hint">Wikipedia Zero keresés</string>
   <string name="zero_warn_when_leaving">Figyelmeztet, ha elhagyom a Wikipédia Zérót</string>
   <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia appot, ami költségekkel járhat.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Adatforgalmi díj lehet. Folytatod a külső oldalon?</string>
   <string name="zero_interstitial_continue">Elhagy</string>
   <string name="zero_interstitial_cancel">Itt marad</string>
-  <string name="zero_learn_more">Adatforgalmi díjak mellőzése Wikipédia alkalmazásokban.</string>
-  <string name="zero_learn_more_learn_more">Tudnivalók</string>
+  <string name="zero_learn_more" fuzzy="true">Adatforgalmi díjak mellőzése Wikipédia alkalmazásokban.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Tudnivalók</string>
   <string name="zero_learn_more_dismiss">Elutasít</string>
   <string name="edit_preview_fetching_dialog_message">Előnézet készítése…</string>
   <string name="send_feedback">Alkalmazás visszajelzés küldése</string>
@@ -295,4 +295,5 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
     <item quantity="one">tegnap</item>
     <item quantity="other">%d napja</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">ma</string>
 </resources>

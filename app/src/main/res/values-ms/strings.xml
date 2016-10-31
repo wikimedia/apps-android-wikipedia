@@ -93,7 +93,7 @@
   <string name="create_account_button">Buka akaun</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Soalan Lazim Aplikasi Wikipedia</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero dimatikan</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero dimatikan</string>
   <string name="zero_search_hint">Cari dalam Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Pesan apabila keluar dari Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator mudah alih anda mengecualikan caj akses data untuk aplikasi Wikipedia menerusi persepakatan Wikipedia Zero, jika tetapan ini dibiarkan pasang, anda akan dipesan bahawa caj mungkin dikenakan ketika anda keluar dari aplikasi Wikipedia.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Caj data mungkin dikenakan. Terus ke laman web luaran?</string>
   <string name="zero_interstitial_continue">Ya</string>
   <string name="zero_interstitial_cancel">Tidak</string>
-  <string name="zero_learn_more">Caj data akan dikecualikan bagi aplikasi Wikipedia ini.</string>
-  <string name="zero_learn_more_learn_more">Baca lagi</string>
+  <string name="zero_learn_more" fuzzy="true">Caj data akan dikecualikan bagi aplikasi Wikipedia ini.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Baca lagi</string>
   <string name="zero_learn_more_dismiss">Singkir</string>
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat…</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>

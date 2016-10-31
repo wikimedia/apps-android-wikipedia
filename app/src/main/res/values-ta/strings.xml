@@ -86,7 +86,7 @@
   <string name="create_account_button">கணக்கை உருவாக்குக</string>
   <string name="preferences_general_heading">பொதுவான</string>
   <string name="wikipedia_app_faq">விக்கிப்பீடியா செயலி அடிக்கடிக் கேட்கப்படும் கேள்விகள்</string>
-  <string name="zero_charged_verbiage">விக்கிப்பீடியா சுழி செயலில் இல்லை</string>
+  <string name="zero_charged_verbiage" fuzzy="true">விக்கிப்பீடியா சுழி செயலில் இல்லை</string>
   <string name="zero_search_hint">விக்கிப்பீடியா சுழியில் தேடுக</string>
   <string name="zero_warn_when_leaving">விக்கிப்பீடியா சுழியை விட்டு வெளியேறினால் எச்சரிக்க</string>
   <string name="zero_webpage_title">விக்கிப்பீடியா சுழி அடிக்கடிக் கேட்கப்படும் கேள்விகள்</string>
@@ -95,8 +95,8 @@
   <string name="zero_interstitial_leave_app">தரல் கட்டணங்களுக்கு உட்படலாம். வெளி தளத்துக்குத் தொடரவா?</string>
   <string name="zero_interstitial_continue">தொடரவும்</string>
   <string name="zero_interstitial_cancel">இங்கேயே இருக்கவும்</string>
-  <string name="zero_learn_more">இந்த விக்கிப்பீடீயா நிரலுக்கு தரல் கட்டணங்கள் விடுக்கப்பட்டன.</string>
-  <string name="zero_learn_more_learn_more">மேலும் அறிக</string>
+  <string name="zero_learn_more" fuzzy="true">இந்த விக்கிப்பீடீயா நிரலுக்கு தரல் கட்டணங்கள் விடுக்கப்பட்டன.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">மேலும் அறிக</string>
   <string name="zero_learn_more_dismiss">அகற்று</string>
   <string name="edit_preview_fetching_dialog_message">முன்தோற்றத்தை இறக்குகிறது…</string>
   <string name="send_feedback">நிரல் பின்னூட்டம் அனுப்பு</string>

@@ -93,7 +93,7 @@
   <string name="create_account_button">Hesap oluştur</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero kapalı</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero kapalı</string>
   <string name="zero_search_hint">Wikipedia Zero\'da Ara</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero\'dan çıkılırsa uyar</string>
   <string name="zero_warn_when_leaving_summary">Eğer mobil operatörünüz Wikipedia Zero ortaklığıyla, Vikipedi uygulaması için ücretsiz veri erişimi sağlıyorsa, bu seçeneği işaretlemek, ne zaman Vikipedi uygulamasından çıktığınızı ve ücret ödemeniz gerekebileceğini anlamanıza yardımcı olur.</string>
@@ -103,8 +103,8 @@
   <string name="zero_interstitial_leave_app">Veri ücretleri uygulanabilir. Dış bağlantıya gidilsin mi?</string>
   <string name="zero_interstitial_continue">Devam et</string>
   <string name="zero_interstitial_cancel">İptal</string>
-  <string name="zero_learn_more">Bu Vikipedi uygulaması için veri iletişim ücretleri alınmamaktadır.</string>
-  <string name="zero_learn_more_learn_more">Daha fazla bilgi</string>
+  <string name="zero_learn_more" fuzzy="true">Bu Vikipedi uygulaması için veri iletişim ücretleri alınmamaktadır.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Daha fazla bilgi</string>
   <string name="zero_learn_more_dismiss">Kapat</string>
   <string name="edit_preview_fetching_dialog_message">Ön izleme getiriliyor…</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
@@ -288,11 +288,12 @@
   <string name="feed_featured_image_share_subject">Wikimedia Commons\'tan seçkin resim</string>
   <string name="feed">Keşfet</string>
   <string name="view_card_footer_button">Daha fazlasını gör</string>
-  <string name="most_read_list_card_title">Popüler</string>
+  <string name="most_read_list_card_title">Gündemdekiler</string>
   <string name="view_static_card_icon_content_description">Kart simgesi</string>
   <string name="view_card_news_title">Haberlerde</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">dün</item>
     <item quantity="other">%d gün önce</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">bugün</string>
 </resources>

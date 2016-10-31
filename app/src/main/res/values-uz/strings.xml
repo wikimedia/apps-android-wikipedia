@@ -67,7 +67,7 @@
   <string name="create_account_next">Keyingi</string>
   <string name="create_account_button">Hisob yaratish</string>
   <string name="preferences_general_heading">Umumiy</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero oʻchirilgan</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero oʻchirilgan</string>
   <string name="zero_search_hint">Wikipedia Zero orqali izlash</string>
   <string name="zero_warn_when_leaving">Wikipedia Zerodan chiqilayotganda xabar bering</string>
   <string name="zero_webpage_title">Wikipedia Zero TTS</string>
@@ -75,7 +75,7 @@
   <string name="zero_interstitial_title">Wikipedia Zerodan chiqilyapti</string>
   <string name="zero_interstitial_continue">Oʻtish</string>
   <string name="zero_interstitial_cancel">Shu yerda qolish</string>
-  <string name="zero_learn_more_learn_more">Koʻproq bilib olish</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Koʻproq bilib olish</string>
   <string name="zero_learn_more_dismiss">Yashirish</string>
   <string name="edit_preview_fetching_dialog_message">
 Oldindan yoqimli …</string>

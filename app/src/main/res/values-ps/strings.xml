@@ -79,7 +79,7 @@
   <string name="create_account_button">گڼون جوړول</string>
   <string name="preferences_general_heading">ټولگړی</string>
   <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ.ځ.پ</string>
-  <string name="zero_charged_verbiage">ويكيپېډيا زيرو گول دی</string>
+  <string name="zero_charged_verbiage" fuzzy="true">ويكيپېډيا زيرو گول دی</string>
   <string name="zero_search_hint">ويکيپېډيا زيرو پلټل</string>
   <string name="zero_warn_when_leaving">د ويکيپېډيا زيرو په پرېښودلو کې گواښنه</string>
   <string name="zero_webpage_title">د ويکيپېډيا زيرو ډ.ځ.پ</string>
@@ -87,7 +87,7 @@
   <string name="zero_interstitial_title">ويکيپېډيا زيرو پرېښودل</string>
   <string name="zero_interstitial_continue">وتل</string>
   <string name="zero_interstitial_cancel">دلته پاتېدل</string>
-  <string name="zero_learn_more_learn_more">نور لوستل</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">نور لوستل</string>
   <string name="zero_learn_more_dismiss">تړل</string>
   <string name="edit_preview_fetching_dialog_message">مخليدنه راغونډېدنې کې ده…</string>
   <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>

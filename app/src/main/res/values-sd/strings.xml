@@ -93,17 +93,18 @@
   <string name="create_account_button">کاتو کوليو</string>
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">وڪيپيڊيا ايپ ڪپس</string>
-  <string name="zero_charged_verbiage">وڪيپيڊيا ٻڙي بند آهي</string>
+  <string name="zero_charged_verbiage" fuzzy="true">وڪيپيڊيا ٻڙي بند آهي</string>
   <string name="zero_search_hint">وڪيپيڊيا ٻڙي ۾ ڳوليو</string>
   <string name="zero_warn_when_leaving">جيڪڏهن وڪيپيڊيا زيرو ڇڏي وڃي رهي هجي ته خبردار ڪريو</string>
+  <string name="zero_warn_when_leaving_summary">جيڪڏھن توھان جو موبائل آپريٽر وڪيپيڊيا زيرو ڀائيواريءَ جي ذريعي وڪيپيڊيا ايپ جي لاءِ ڊيٽا ايڪسس جون رقمون معاف ڪري ٿو، تہ ھن ترتيب تي نشان لڳائڻ سان جڏھن توھان وڪيپيڊيا ايپ ڇڏيندئو تہ توھان کي اھو ٻڌائڻ ۾ مدد ٿيندي تہ رقمون لاڳو ٿي سگھن ٿيون.</string>
   <string name="zero_webpage_title">وڪيپيڊيا ٻڙي ڪپس</string>
   <string name="zero_wikipedia_zero_heading">وڪيپيڊيا ٻڙي</string>
   <string name="zero_interstitial_title">وڪيپيڊيا ٻڙي کان موڪلائيندي</string>
   <string name="zero_interstitial_leave_app">ڊيٽا رقمون لاڳو ٿي سگهن ٿيون. ٻاهرين سائيٽ ڏي جاري رکجي؟</string>
   <string name="zero_interstitial_continue">موڪلايو</string>
   <string name="zero_interstitial_cancel">هتي ترسو</string>
-  <string name="zero_learn_more">هن وڪيپيڊيا ايپ لاءِ ڊيٽا رقمن تان هٿ کنيل آهي.</string>
-  <string name="zero_learn_more_learn_more">وڌيڪ پڙهو</string>
+  <string name="zero_learn_more" fuzzy="true">هن وڪيپيڊيا ايپ لاءِ ڊيٽا رقمن تان هٿ کنيل آهي.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">وڌيڪ پڙهو</string>
   <string name="zero_learn_more_dismiss">برخواست</string>
   <string name="edit_preview_fetching_dialog_message">پيش نگاھ ٺاهيندي…</string>
   <string name="send_feedback">ايپ جي پذيرائي موڪليو</string>
@@ -132,6 +133,7 @@
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">لائسنس</string>
+  <string name="about_app_license">سورس ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; جي تحت &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; موجود آھي. جيسيتائين ٻي صورت ۾ وضاحت ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز انتساب-ھڪجھڙي ڀاڱيداري لائسنس جي تحت موجود آھي&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;وڪي‌ذريعات پيڙهڪا&lt;/a&gt; جي مصنوعات</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو ترميم ٿي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
@@ -151,6 +153,8 @@
   <string name="find_previous">پويون لھو</string>
   <string name="abusefilter_title_warn">هي هڪ غير تخليقي ترميم لڳي ٿي، ڇا توهان انکي سانڍڻ چاهيو ٿا؟</string>
   <string name="abusefilter_title_disallow">توهان هي ترميم سانڍي نٿا سگھو. براءِ مهرباني واپس وڃو ۽ انکي تبديل ڪريو.</string>
+  <string name="abusefilter_text_warn">ھڪ خودڪاربڻايل ڇاڻيءَ ھن ترميم کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي. ان ۾ ھيٺين مان ھڪ شامل ٿي سگھن ٿا:&lt;br /&gt;&lt;br /&gt;· سڀني قسمن جي اکرن ۾ ٽائيپ ڪندي&lt;br /&gt;· مضمونن کي خالي ڪندي يا بگاڙيندي&lt;br /&gt;· اڻلاڳپيل خارجي ڳنڍڻا يا عڪس&lt;br /&gt;· نشانيون ورجائيندي</string>
+  <string name="abusefilter_text_disallow">ھڪ خودڪاربڻايل ڇاڻيءَ ھن ترميم کي ممڪنہ طور تي غيرتعميري طور سڃاتو آھي، يا ڳجھي وحشيت.&lt;br /&gt;&lt;br /&gt;وڪيپيڊيا ھڪ انسائيڪلوپيڊيا آھي ۽ صرف اڻڌريو، مشھور مواد ھتان کان تعلق رکي ٿو.</string>
   <string name="dialog_page_issues">صفحي جا مسئلا</string>
   <string name="button_page_issues">صفحي جا مسئلا</string>
   <string name="text_size_select">فونٽ جي ماپ</string>
@@ -259,6 +263,7 @@
   <string name="reading_list_edit_cancel">رد</string>
   <string name="reading_list_delete_confirm">ڇا توھان کي پڪ آھي تہ توھان ھي پڙھڻ جي فھرست ڊاھڻ ٿا چاھيو؟</string>
   <string name="reading_lists_empty">ھتي ڪابہ پڙھڻ جي فھرست ناھي.</string>
+  <string name="reading_lists_empty_message">پنھنجا گھميل مضمون پڙھڻ جي فھرستن ۾ منظم ڪريو! جڏھن ڪو مضمون گھمندا ھجو، ھيٺ اوزاردٻيءَ ۾ بڪ مارڪ جي نشان تي ٽڙڪ ڪريو تہ جيئن ان کي پڙھڻ جي فھرست ۾ شامل ڪجي.</string>
   <string name="reading_lists_onboarding_intro">انھن مضمونن مان پڙھڻ جون فھرستون ٺاھيو جيڪي توھان بعد ۾ پڙھڻ چاھيو، حتيٰ ڪہ جڏھن توھان آفلائين آھيو!</string>
   <string name="reading_lists_onboarding_for_example">مثال طور</string>
   <string name="reading_lists_onboarding_example1">گھمڻ جون جڳھون</string>
@@ -269,6 +274,7 @@
   <string name="user_option_sync_label">ترجيحات</string>
   <string name="view_continue_reading_card_title">پڙھڻ جاري رکو</string>
   <string name="view_because_you_read_card_title">ڇو تہ توھان پڙھو ٿا</string>
+  <string name="view_random_card_title">بلاترتيبڪار</string>
   <string name="view_random_card_subtitle">وڪيپيڊيا مان ڪو بلاترتيب مضمون پڙھو</string>
   <string name="view_main_page_card_title">اڄ وڪيپيڊيا تي</string>
   <string name="view_main_page_card_subtitle">%s تي مک صفحو</string>
@@ -287,4 +293,5 @@
     <item quantity="one">ڪالھ</item>
     <item quantity="other">%d ڏينھن اڳ</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">اڄ</string>
 </resources>

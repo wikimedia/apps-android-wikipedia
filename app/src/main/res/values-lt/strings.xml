@@ -90,7 +90,7 @@
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="preferences_general_heading">Bendras</string>
   <string name="wikipedia_app_faq">\"Wikipedia\" App DUK</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero yra išjungtas</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero yra išjungtas</string>
   <string name="zero_search_hint">Ieškoti Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Įspėti paliekant „Vikipedija Zero“</string>
   <string name="zero_webpage_title">Vikipedija Zero DUK</string>
@@ -99,7 +99,7 @@
   <string name="zero_interstitial_leave_app">Gali būti taikomi duomenų mokesčiai. Tęsti išorinėje svetainėje?</string>
   <string name="zero_interstitial_continue">Išeiti</string>
   <string name="zero_interstitial_cancel">Likti čia</string>
-  <string name="zero_learn_more_learn_more">Skaityti daugiau</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Skaityti daugiau</string>
   <string name="zero_learn_more_dismiss">Atmesti</string>
   <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra…</string>
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>

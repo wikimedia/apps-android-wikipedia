@@ -87,14 +87,14 @@
   <string name="create_account_button">שאַפֿן אַ קאנטע</string>
   <string name="preferences_general_heading">אַלגעמיין</string>
   <string name="wikipedia_app_faq">וויקיפעדיע אפ שאלות ותשובות</string>
-  <string name="zero_charged_verbiage">וויקיפעדיע זערא איז אויס</string>
+  <string name="zero_charged_verbiage" fuzzy="true">וויקיפעדיע זערא איז אויס</string>
   <string name="zero_search_hint">זוכן וויקיפעדיע נול</string>
   <string name="zero_webpage_title">וויקיפעדיע נול שאלות ותשובות</string>
   <string name="zero_wikipedia_zero_heading">וויקיפעדיע נול</string>
   <string name="zero_interstitial_title">פארלאזן וויקיפעדיע נול</string>
   <string name="zero_interstitial_continue">פֿארלאזן</string>
   <string name="zero_interstitial_cancel">בלײַבן דא</string>
-  <string name="zero_learn_more_learn_more">לייענט ווײַטער</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">לייענט ווײַטער</string>
   <string name="zero_learn_more_dismiss">צומאַכן</string>
   <string name="edit_preview_fetching_dialog_message">ברע ג\'ין פארויסקוק…</string>
   <string name="send_feedback">שיקן אפ־פידבעק</string>

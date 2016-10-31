@@ -351,6 +351,8 @@ Shown in the preferences screen along with the following:
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="nav_item_donate">Text in navigation sidebar that when tapped leads to a web page where the user may donate to Wikipedia.</string>
   <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>
+  <string name="location_service_disabled">Message shown when trying to use location services but they are unavailable</string>
+  <string name="enable_location_service">Button label for enabling location services</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
   <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
   <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.
@@ -430,8 +432,6 @@ Shown in the preferences screen along with the following:
 {{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
-  <string name="location_service_disabled">Message shown when trying to use location services but they are unavailable</string>
-  <string name="enable_location_service">Button label for enabling location services</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Phrase for one day ago.</item>
     <item quantity="other">Phrase for more than one day ago.</item>

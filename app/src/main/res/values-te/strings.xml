@@ -86,7 +86,7 @@
   <string name="create_account_button">ఖాతా సృష్టించండి</string>
   <string name="preferences_general_heading">సాధారణం</string>
   <string name="wikipedia_app_faq">వికీపీడియా సున్నా ఎఫ్ఎక్యూ</string>
-  <string name="zero_charged_verbiage">వికీపీడియా సున్నా ఆఫ్ చేయబడి ఉంది.</string>
+  <string name="zero_charged_verbiage" fuzzy="true">వికీపీడియా సున్నా ఆఫ్ చేయబడి ఉంది.</string>
   <string name="zero_search_hint">వికీపీడియా సున్నాలో వెతకండి</string>
   <string name="zero_warn_when_leaving">వికీపీడియా సున్నాను వదలివెళ్తుంటే హెచ్చరించు</string>
   <string name="zero_warn_when_leaving_summary">మీ మొబైల్ ఆపరేటర్ వికీపీడియా సున్నా భాగస్వామ్యం ద్వారా వికీపీడియా అనువర్తనానికి డేటా చార్జీలు రద్దు చేసినట్టయితే, ఈ అమర్పు ఎంచుకోటంవల్ల మీరు వికీపీడియా అనువర్తనం వదిలివెళ్తూ మీకు డేటా చార్జీలు ఎప్పుడు పడతాయో తెలుస్కోటానికి ఉపొయొగపడుతుంది.</string>
@@ -96,8 +96,8 @@
   <string name="zero_interstitial_leave_app">డేటా చార్జీలు ఉండవచ్చు. బయటి సైట్ కి కొనసాగుతారా?</string>
   <string name="zero_interstitial_continue">వదలివెళ్ళు</string>
   <string name="zero_interstitial_cancel">ఇక్కడే ఉండు</string>
-  <string name="zero_learn_more">ఈ వికీపీడియా అనువర్తనానికి డేటా చార్జీలు మాఫీ చేయబడ్డాయి.</string>
-  <string name="zero_learn_more_learn_more">ఇంకా చదవండి</string>
+  <string name="zero_learn_more" fuzzy="true">ఈ వికీపీడియా అనువర్తనానికి డేటా చార్జీలు మాఫీ చేయబడ్డాయి.</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">ఇంకా చదవండి</string>
   <string name="zero_learn_more_dismiss">రద్దుచేయి</string>
   <string name="edit_preview_fetching_dialog_message">ప్రివ్యూ వస్తుంది…</string>
   <string name="send_feedback">అనువర్తనం గురించి ఫిర్యాదులు/సలహాలు పంపించండి</string>
