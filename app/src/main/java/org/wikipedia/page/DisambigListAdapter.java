@@ -115,7 +115,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ViewHolder holder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_page_list_entry, null);
+            convertView = inflater.inflate(R.layout.item_page_list_entry, parent, false);
             holder = new ViewHolder();
             holder.icon = (SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image);
             holder.title = (TextView) convertView.findViewById(R.id.page_list_item_title);

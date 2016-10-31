@@ -1,7 +1,7 @@
 package org.wikipedia.editing.preview;
 
 import android.support.annotation.NonNull;
-import android.support.test.filters.SmallTest;;
+import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;

@@ -41,7 +41,7 @@ class IssuesListAdapter extends ArrayAdapter<String> {
     @Override @NonNull public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_issue, null);
+            convertView = inflater.inflate(R.layout.item_issue, parent, false);
             holder = new ViewHolder();
             holder.icon = (ImageView) convertView.findViewById(R.id.issue_icon);
             holder.text = (TextView) convertView.findViewById(R.id.issue_text);
