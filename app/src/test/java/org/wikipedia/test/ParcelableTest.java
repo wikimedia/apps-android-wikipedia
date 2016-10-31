@@ -3,11 +3,9 @@ package org.wikipedia.test;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-
 import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageProperties;
@@ -37,25 +35,6 @@ import static org.hamcrest.Matchers.is;
     @Test public void testPageProperties() throws Throwable {
         PageProperties props = new PageProperties(new JSONObject("{\"protection\":{\"edit\":[\"autoconfirmed\"],\"move\":[\"sysop\"]},\"id\":15580374,\"displaytitle\":\"Something\",\"revision\":615503846,\"lastmodified\":\"\",\"editable\":false,\"mainpage\":false}"));
         parcelAndTestObjects(props);
-    }
-
-    @Test public void testLruCache() throws Throwable {
-        ParcelableLruCache<WikiSite> oldCache = new ParcelableLruCache<>(2, WikiSite.class);
-        oldCache.put("english", WikiSite.forLanguageCode("en"));
-        oldCache.put("tamil", WikiSite.forLanguageCode("ta"));
-
-        Parcel parcel = Parcel.obtain();
-        oldCache.writeToParcel(parcel, 0);
-
-        parcel.setDataPosition(0);
-        Parcelable.Creator<?> creator = (Parcelable.Creator<?>) oldCache.getClass().getField("CREATOR").get(null);
-        //noinspection unchecked
-        ParcelableLruCache<WikiSite> newCache = (ParcelableLruCache<WikiSite>) creator.createFromParcel(parcel);
-
-        assertThat(newCache.maxSize(), is(oldCache.maxSize()));
-        assertThat(newCache.size(), is(oldCache.size()));
-        assertThat(newCache.get("english"), is(oldCache.get("english")));
-        assertThat(newCache.get("tamil"), is(oldCache.get("tamil")));
     }
 
     @Test public void testHistoryEntry() throws Throwable {

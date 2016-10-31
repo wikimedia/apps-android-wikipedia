@@ -1,6 +1,8 @@
 package org.wikipedia.page;
 
 import android.app.Activity;
+import android.support.annotation.NonNull;
+import android.support.v4.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,6 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.Constants;
-import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -29,8 +30,7 @@ import java.util.Map;
  */
 class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     private static final int MAX_CACHE_SIZE_IMAGES = 24;
-    private final ParcelableLruCache<String> pageImagesCache
-            = new ParcelableLruCache<>(MAX_CACHE_SIZE_IMAGES, String.class);
+    @NonNull private final LruCache<String, String> pageImagesCache = new LruCache<>(MAX_CACHE_SIZE_IMAGES);
     private final Activity activity;
     private final DisambigResult[] items;
     private final WikipediaApp app;

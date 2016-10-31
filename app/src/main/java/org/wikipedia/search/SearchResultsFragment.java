@@ -6,6 +6,7 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.LruCache;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,6 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.LongPressHandler;
-import org.wikipedia.ParcelableLruCache;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -56,7 +56,6 @@ public class SearchResultsFragment extends Fragment {
     private static final int DELAY_MILLIS = 300;
     private static final int MESSAGE_SEARCH = 1;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
-    private static final String ARG_RESULTS_CACHE = "searchResultsCache";
     /**
      * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
      */
@@ -71,8 +70,8 @@ public class SearchResultsFragment extends Fragment {
     private TextView searchSuggestion;
 
     private WikipediaApp app;
-    @NonNull private ParcelableLruCache<List<SearchResult>> searchResultsCache
-            = new ParcelableLruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS, List.class);
+    @NonNull private final LruCache<String, List<SearchResult>> searchResultsCache
+            = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private Handler searchHandler;
     private TitleSearchTask curSearchTask;
     private String currentSearchTerm = "";
@@ -93,13 +92,6 @@ public class SearchResultsFragment extends Fragment {
 
         searchResultsContainer = rootView.findViewById(R.id.search_results_container);
         searchResultsList = (ListView) rootView.findViewById(R.id.search_results_list);
-
-        if (savedInstanceState != null) {
-            ParcelableLruCache<List<SearchResult>> mySearchResultsCache = savedInstanceState.getParcelable(ARG_RESULTS_CACHE);
-            if (mySearchResultsCache != null) {
-                searchResultsCache = mySearchResultsCache;
-            }
-        }
 
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -147,12 +139,6 @@ public class SearchResultsFragment extends Fragment {
         LongPressHandler.ListViewContextMenuListener contextMenuListener
                 = new SearchResultsFragmentLongPressHandler(this);
         new LongPressHandler(searchResultsList, HistoryEntry.SOURCE_SEARCH, contextMenuListener);
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable(ARG_RESULTS_CACHE, searchResultsCache);
     }
 
     public void show() {
