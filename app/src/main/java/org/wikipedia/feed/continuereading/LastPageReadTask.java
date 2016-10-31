@@ -13,6 +13,7 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.util.ContentProviderClientCompat;
 
 import java.util.Date;
 
@@ -61,7 +62,7 @@ public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         } finally {
-            client.release();
+            ContentProviderClientCompat.close(client);
         }
     }
 }

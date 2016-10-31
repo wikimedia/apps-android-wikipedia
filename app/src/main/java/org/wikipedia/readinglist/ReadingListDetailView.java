@@ -11,6 +11,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.graphics.drawable.VectorDrawableCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -285,7 +286,8 @@ public class ReadingListDetailView extends LinearLayout {
             deleteBackgroundPaint.setStyle(Paint.Style.FILL);
             deleteBackgroundPaint.setColor(Color.RED);
             itemBackgroundPaint.setStyle(Paint.Style.FILL);
-            itemBackgroundPaint.setColor(getResources().getColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.window_background_color)));
+            itemBackgroundPaint.setColor(ContextCompat.getColor(getContext(),
+                    ResourceUtil.getThemedAttributeId(getContext(), R.attr.window_background_color)));
         }
 
         @Override

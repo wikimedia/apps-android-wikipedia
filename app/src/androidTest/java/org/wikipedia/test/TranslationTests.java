@@ -11,6 +11,7 @@ import android.util.DisplayMetrics;
 import org.junit.Test;
 import org.wikipedia.R;
 import org.wikipedia.model.BaseModel;
+import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.log.L;
 
 import java.lang.reflect.Field;
@@ -114,7 +115,7 @@ public class TranslationTests {
         Locale.setDefault(myLocale);
         DisplayMetrics dm = getResources().getDisplayMetrics();
         Configuration conf = getResources().getConfiguration();
-        conf.locale = myLocale;
+        ConfigurationCompat.setLocale(conf, myLocale);
         getResources().updateConfiguration(conf, dm);
     }
 

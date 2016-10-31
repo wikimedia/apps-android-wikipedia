@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
 
@@ -132,7 +133,7 @@ public class FaceAndColorDetectImageView extends SimpleDraweeView {
                 Bitmap testBmp = new565ScaledBitmap(sourceBitmap);
                 Palette colorPalette = Palette.from(testBmp).generate();
                 PointF facePos = detectFace(testBmp);
-                int defaultColor = getContext().getResources().getColor(R.color.dark_gray);
+                int defaultColor = ContextCompat.getColor(getContext(), R.color.dark_gray);
                 listener.onImageLoaded(destBitmap.getHeight(), facePos, extractMainColor(colorPalette, defaultColor));
             } else {
                 listener.onImageFailed();

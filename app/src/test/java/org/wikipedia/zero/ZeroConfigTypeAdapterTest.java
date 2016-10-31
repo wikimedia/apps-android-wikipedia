@@ -17,8 +17,8 @@ import static org.hamcrest.Matchers.notNullValue;
 @SuppressWarnings("checkstyle:magicnumber")
 @RunWith(TestRunner.class)
 public class ZeroConfigTypeAdapterTest {
-    private static int CYAN = -16711681;
-    private static int WHITE = -1;
+    private static final int CYAN = -16711681;
+    private static final int WHITE = -1;
 
     @Test
     public void testEligible() throws Throwable {

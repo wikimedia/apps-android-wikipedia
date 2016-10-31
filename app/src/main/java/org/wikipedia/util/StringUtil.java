@@ -201,6 +201,7 @@ public final class StringUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
         } else {
+            //noinspection deprecation
             return Html.fromHtml(source);
         }
     }
@@ -215,6 +216,7 @@ public final class StringUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY, imageGetter, tagHandler);
         } else {
+            //noinspection deprecation
             return Html.fromHtml(source, imageGetter, tagHandler);
         }
     }

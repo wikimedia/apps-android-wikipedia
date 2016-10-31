@@ -7,14 +7,16 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -82,6 +84,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     private ImageView licenseIcon;
     private TextView creditText;
     private boolean controlsShowing = true;
+    @Nullable private ViewPager.OnPageChangeListener pageChangeListener;
 
     @Nullable private GalleryFunnel funnel;
     @Nullable protected GalleryFunnel getFunnel() {
@@ -171,7 +174,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         progressBar = (ProgressBar) findViewById(R.id.gallery_progressbar);
 
         descriptionText = (TextView) findViewById(R.id.gallery_description_text);
-        descriptionText.setShadowLayer(2, 1, 1, getResources().getColor(R.color.lead_text_shadow));
+        descriptionText.setShadowLayer(2, 1, 1, color(R.color.lead_text_shadow));
         descriptionText.setMovementMethod(linkMovementMethod);
 
         licenseIcon = (ImageView) findViewById(R.id.gallery_license_icon);
@@ -179,7 +182,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         licenseIcon.setOnLongClickListener(licenseLongClickListener);
 
         creditText = (TextView) findViewById(R.id.gallery_credit_text);
-        creditText.setShadowLayer(2, 1, 1, getResources().getColor(R.color.lead_text_shadow));
+        creditText.setShadowLayer(2, 1, 1, color(R.color.lead_text_shadow));
 
         pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
@@ -189,7 +192,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
         galleryAdapter = new GalleryItemAdapter(this);
         galleryPager = (ViewPager) findViewById(R.id.gallery_item_pager);
         galleryPager.setAdapter(galleryAdapter);
-        galleryPager.setOnPageChangeListener(new GalleryPageChangeListener());
+        pageChangeListener = new GalleryPageChangeListener();
+        galleryPager.addOnPageChangeListener(pageChangeListener);
 
         funnel = new GalleryFunnel(app, wiki, getIntent().getIntExtra(EXTRA_SOURCE, 0));
 
@@ -255,6 +259,12 @@ public class GalleryActivity extends ThemedActionBarActivity {
                 }
             });
         }
+    }
+
+    @Override public void onDestroy() {
+        galleryPager.removeOnPageChangeListener(pageChangeListener);
+        pageChangeListener = null;
+        super.onDestroy();
     }
 
     private void loadGalleryItemFor(FeaturedImage image) {
@@ -496,11 +506,9 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         CharSequence descriptionStr = "";
         if (item.getMetadata().containsKey("ImageDescription")) {
-            descriptionStr = Html
-                    .fromHtml(item.getMetadata().get("ImageDescription"));
+            descriptionStr = StringUtil.fromHtml(item.getMetadata().get("ImageDescription"));
         } else if (item.getMetadata().containsKey("ObjectName")) {
-            descriptionStr = Html
-                    .fromHtml(item.getMetadata().get("ObjectName"));
+            descriptionStr = StringUtil.fromHtml(item.getMetadata().get("ObjectName"));
         }
         if (descriptionStr.length() > 0) {
             descriptionText.setText(trim(descriptionStr));
@@ -546,7 +554,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
     private void setBackgroundGradient(View view, int gravity) {
         ViewUtil.setBackgroundDrawable(view, GradientUtil.getCubicGradient(
-                getResources().getColor(R.color.lead_gradient_start), gravity));
+                color(R.color.lead_gradient_start), gravity));
     }
 
     private void initToolbar() {
@@ -623,4 +631,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         }
     }
 
+    @ColorInt private int color(@ColorRes int id) {
+        return ContextCompat.getColor(this, id);
+    }
 }

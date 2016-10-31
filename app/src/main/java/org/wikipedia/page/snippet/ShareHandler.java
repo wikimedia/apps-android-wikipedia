@@ -9,6 +9,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -231,7 +232,7 @@ public class ShareHandler {
 
     @ColorInt
     private int getColor(@ColorRes int id) {
-        return getResources().getColor(id);
+        return ContextCompat.getColor(fragment.getContext(), id);
     }
 
     private int getInteger(@IntegerRes int id) {

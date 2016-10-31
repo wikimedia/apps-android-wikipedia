@@ -5,8 +5,11 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.Spanned;
 import android.text.TextWatcher;
@@ -58,7 +61,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("{{", "}}", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(context.getResources().getColor(getThemedAttributeId(context, R.attr.syntax_highlight_template_color)),
+                return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.syntax_highlight_template_color)),
                                        Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -67,7 +70,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("[[", "]]", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(context.getResources().getColor(getThemedAttributeId(context, R.attr.link_color)),
+                return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.link_color)),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -76,7 +79,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("[", "]", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(context.getResources().getColor(getThemedAttributeId(context, R.attr.link_color)),
+                return new ColorSpanEx(getColor(getThemedAttributeId(context, R.attr.link_color)),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -85,7 +88,7 @@ public class SyntaxHighlighter {
         syntaxRules.add(new SyntaxRule("<", ">", new SyntaxRule.SyntaxRuleStyle() {
             @Override
             public SpanExtents createSpan(int spanStart, SyntaxRule syntaxItem) {
-                return new ColorSpanEx(context.getResources().getColor(R.color.dark_green),
+                return new ColorSpanEx(getColor(R.color.dark_green),
                                                  Color.TRANSPARENT, spanStart, syntaxItem);
             }
         }));
@@ -308,4 +311,7 @@ public class SyntaxHighlighter {
         }
     }
 
+    @ColorInt private int getColor(@ColorRes int id) {
+        return ContextCompat.getColor(context, id);
+    }
 }

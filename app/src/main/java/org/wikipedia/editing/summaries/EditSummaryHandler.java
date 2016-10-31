@@ -16,6 +16,7 @@ import android.widget.TextView;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ContentProviderClientCompat;
 
 import java.util.Date;
 
@@ -55,7 +56,7 @@ public class EditSummaryHandler {
                 } catch (RemoteException e) {
                     throw new RuntimeException(e);
                 } finally {
-                    client.release();
+                    ContentProviderClientCompat.close(client);
                 }
             }
         });

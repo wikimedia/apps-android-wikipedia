@@ -6,7 +6,9 @@ import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -87,8 +89,8 @@ public class ArticleHeaderImageView extends FrameLayout {
         inflate(getContext(), R.layout.view_article_header_image, this);
         ButterKnife.bind(this);
 
-        Drawable gradient = getCubicGradient(
-                getResources().getColor(R.color.new_lead_gradient_start), Gravity.BOTTOM);
+        @ColorInt int color = ContextCompat.getColor(getContext(), R.color.new_lead_gradient_start);
+        Drawable gradient = getCubicGradient(color, Gravity.BOTTOM);
         ViewUtil.setBackgroundDrawable(gradientView, gradient);
     }
 }

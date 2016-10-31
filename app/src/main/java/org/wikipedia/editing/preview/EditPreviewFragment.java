@@ -33,6 +33,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -94,12 +95,12 @@ public class EditPreviewFragment extends Fragment {
         Resources oldResources = getResources();
         AssetManager assets = oldResources.getAssets();
         DisplayMetrics metrics = oldResources.getDisplayMetrics();
-        Locale oldLocale = oldResources.getConfiguration().locale;
+        Locale oldLocale = ConfigurationCompat.getLocale(oldResources.getConfiguration());
         Locale newLocale = new Locale(pageTitle.getWikiSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
         if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
-            config.locale = newLocale;
+            ConfigurationCompat.setLocale(config, newLocale);
             tempResources = new Resources(assets, metrics, config);
         }
 
@@ -146,7 +147,7 @@ public class EditPreviewFragment extends Fragment {
         with the original Locale (from above)
          */
         if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
-            config.locale = oldLocale;
+            ConfigurationCompat.setLocale(config, oldLocale);
             new Resources(assets, metrics, config);
         }
 
