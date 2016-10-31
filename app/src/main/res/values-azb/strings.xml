@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">دیلی دَییشدیر</string>
   <string name="menu_page_find_in_page">صفحه‌ده تاپ</string>
   <string name="menu_page_content_issues">مؤحتوا مسأله‌لری</string>
-  <string name="menu_page_similar_titles">اوْخشار باشلیقلار</string>
   <string name="menu_page_font_and_theme">فونت ایله تمی دَییشدیر</string>
   <string name="menu_page_add_to_list">اوخوما لیستینه آرتیر</string>
   <string name="menu_page_share">لینکی پایلاش</string>
@@ -81,7 +80,6 @@
   <string name="create_account_next">سوْنراکی</string>
   <string name="create_account_button">حساب یارات</string>
   <string name="preferences_general_heading">عمومی</string>
-  <string name="zero_search_hint">ویکی‌پدیا صیفرده آختار</string>
   <string name="zero_wikipedia_zero_heading">ویکی‌پدیا صیفر</string>
   <string name="zero_interstitial_title">ویکی‌پدیا صیفردن چیخیش</string>
   <string name="zero_interstitial_continue">چیخ</string>

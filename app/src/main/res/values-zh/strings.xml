@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">更改语言</string>
   <string name="menu_page_find_in_page">在页面中查找</string>
   <string name="menu_page_content_issues">内容问题</string>
-  <string name="menu_page_similar_titles">相似标题</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
   <string name="menu_page_add_to_list">添加至阅读列表</string>
   <string name="menu_page_share">分享链接</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">常规</string>
   <string name="wikipedia_app_faq">维基百科应用程序常见问题</string>
   <string name="zero_charged_verbiage" fuzzy="true">维基百科零已关闭</string>
-  <string name="zero_search_hint">搜索维基百科零</string>
   <string name="zero_warn_when_leaving">离开维基百科零时警告</string>
   <string name="zero_warn_when_leaving_summary">如果您的移动运营商是维基百科零的合作伙伴，并免除维基百科应用的数据费用，请勾选该设置，以帮助您了解您是否要离开维基百科应用程序，并因此计费。</string>
   <string name="zero_webpage_title">维基百科零常见问题</string>

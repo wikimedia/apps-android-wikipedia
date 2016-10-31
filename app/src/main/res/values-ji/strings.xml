@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">ענדערן שפראך</string>
   <string name="menu_page_find_in_page">טרעפן אין בלאט</string>
   <string name="menu_page_content_issues">אינהאלט פֿראגעס</string>
-  <string name="menu_page_similar_titles">ענלעכע טיטלען</string>
   <string name="menu_page_font_and_theme">פאנט און טעמע</string>
   <string name="menu_page_add_to_list">צולייגן צו ליינליסטע</string>
   <string name="menu_page_share">טיילן לינק</string>
@@ -88,7 +87,6 @@
   <string name="preferences_general_heading">אַלגעמיין</string>
   <string name="wikipedia_app_faq">וויקיפעדיע אפ שאלות ותשובות</string>
   <string name="zero_charged_verbiage" fuzzy="true">וויקיפעדיע זערא איז אויס</string>
-  <string name="zero_search_hint">זוכן וויקיפעדיע נול</string>
   <string name="zero_webpage_title">וויקיפעדיע נול שאלות ותשובות</string>
   <string name="zero_wikipedia_zero_heading">וויקיפעדיע נול</string>
   <string name="zero_interstitial_title">פארלאזן וויקיפעדיע נול</string>

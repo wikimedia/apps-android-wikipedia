@@ -21,7 +21,6 @@
   <string name="menu_page_other_languages">Зьмяніць мову</string>
   <string name="menu_page_find_in_page">Знайсьці на старонцы</string>
   <string name="menu_page_content_issues">Зьмест пытаньняў</string>
-  <string name="menu_page_similar_titles">Аднолькавыя назвы</string>
   <string name="menu_page_font_and_theme">Шрыфт і афармленьне</string>
   <string name="menu_page_share">Падзяліцца спасылкай</string>
   <string name="menu_long_press_open_page">Адкрыць</string>
@@ -90,7 +89,6 @@
   <string name="preferences_general_heading">Агульныя</string>
   <string name="wikipedia_app_faq">Частыя пытаньні па дастасаваньню Вікіпэдыя</string>
   <string name="zero_charged_verbiage" fuzzy="true">Вікіпэдыя Zero адключаная</string>
-  <string name="zero_search_hint">Пошук па Вікіпэдыі Zero</string>
   <string name="zero_warn_when_leaving">Папярэджваць, калі пакідаеце Вікіпэдыя Zero</string>
   <string name="zero_warn_when_leaving_summary">Калі Ваш мабільны апэратар не бяря аплату за доступ да дастасаваньня Вікіпэдыі праз партнёрства  Вікіпэдыя Zero, уключэньне гтага парамэтра дапаможа Вам даведвацца, калі Вы пакідаеце дастасаваньне Вікіпэдыя, і можа пачацца аплата за трафік.</string>
   <string name="zero_webpage_title">Частыя пытаньні па Вікіпэдыя Zero</string>

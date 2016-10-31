@@ -21,7 +21,6 @@
   <string name="menu_page_other_languages">Breyta tungumáli</string>
   <string name="menu_page_find_in_page">Finna á síðu</string>
   <string name="menu_page_content_issues">Vandamál varðandi efni</string>
-  <string name="menu_page_similar_titles">Áþekkir titlar</string>
   <string name="menu_page_font_and_theme">Letur og þema</string>
   <string name="menu_page_share">Deila tengli</string>
   <string name="menu_long_press_open_page">Opna</string>
@@ -90,7 +89,6 @@
   <string name="preferences_general_heading">Almennt</string>
   <string name="wikipedia_app_faq">Algengar spurningar um Wikipedia Zero</string>
   <string name="zero_charged_verbiage" fuzzy="true">Slökkt er á Wikipedia Zero</string>
-  <string name="zero_search_hint">Leita í Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Áminna mig ef ég fer burt af Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Ef símafyrirtækið þitt krefst greiðslu vegna gagnanotkunar í Wikipedia-appinu á Wikipedia Zero, ef þú hakar við þennan reit hjálpar það til að vita þegar þú ferð af síðum Wikipedia-appsins og átt á hættu að fá bakreikninga.</string>
   <string name="zero_webpage_title">Algengar spurningar um Wikipedia Zero</string>

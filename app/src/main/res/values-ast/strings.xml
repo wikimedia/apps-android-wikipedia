@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Camudar llingua</string>
   <string name="menu_page_find_in_page">Alcontrar na páxina</string>
   <string name="menu_page_content_issues">Problemes col conteníu</string>
-  <string name="menu_page_similar_titles">Títulos asemeyaos</string>
   <string name="menu_page_font_and_theme">Tipografía y tema</string>
   <string name="menu_page_add_to_list">Añadir a llista de llectura</string>
   <string name="menu_page_share">Compartir l\'enllaz</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Xeneral</string>
   <string name="wikipedia_app_faq">EMF de la App Wikipedia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ta apagáu</string>
-  <string name="zero_search_hint">Guetar Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avisar si s\'abandona Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si\'l so operador de móviles regala los cargos d\'accesu a datos pa la app de Wikipedia por una asociación con Wikipedia Zero, dexar marcada esta opción ayuda-y a saber cuándo abandona la app de Wikipedia y podría tener que pagar.</string>
   <string name="zero_webpage_title">EMF de Wikipedia Zero</string>

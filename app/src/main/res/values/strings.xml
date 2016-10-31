@@ -29,7 +29,6 @@
     <string name="menu_page_other_languages">Change language</string>
     <string name="menu_page_find_in_page">Find in page</string>
     <string name="menu_page_content_issues">Content issues</string>
-    <string name="menu_page_similar_titles">Similar titles</string>
     <string name="menu_page_font_and_theme">Font and theme</string>
     <string name="menu_page_add_to_list">Add to reading list</string>
     <string name="menu_page_share">Share link</string>
@@ -108,7 +107,6 @@
     <string name="preferences_general_heading">General</string>
     <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
     <string name="zero_charged_verbiage">Free access to Wikipedia is no longer active.</string>
-    <string name="zero_search_hint">Search Wikipedia Zero</string>
     <string name="zero_warn_when_leaving">Warn if leaving Wikipedia Zero</string>
     <string name="zero_warn_when_leaving_summary">If your mobile operator waives data access charges for the Wikipedia app through a Wikipedia Zero partnership, leaving this setting checked helps you know when you are leaving the Wikipedia app and could be charged.</string>
     <string name="zero_webpage_title">Wikipedia Zero FAQ</string>

@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">언어 변경</string>
   <string name="menu_page_find_in_page">문서에서 찾기</string>
   <string name="menu_page_content_issues">콘텐츠 문제</string>
-  <string name="menu_page_similar_titles">비슷한 제목</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
   <string name="menu_page_share">링크 공유</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">일반</string>
   <string name="wikipedia_app_faq">위키백과 앱 FAQ</string>
   <string name="zero_charged_verbiage" fuzzy="true">위키백과 제로가 꺼져 있습니다</string>
-  <string name="zero_search_hint">위키백과 제로 검색</string>
   <string name="zero_warn_when_leaving">위키백과 제로를 떠나면 경고</string>
   <string name="zero_warn_when_leaving_summary">만약 이동 통신사가 위키백과 제로 제휴를 통해 위키백과 앱에서 요금을 면제를 받고 있다면, 이 설정을 선택하는 것은 위키백과 앱을 나갈 때 요금이 부과될 수 있음을 알려주는 데 도움을 줍니다.</string>
   <string name="zero_webpage_title">위키백과 제로 FAQ</string>

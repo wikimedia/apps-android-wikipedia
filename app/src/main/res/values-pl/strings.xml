@@ -21,7 +21,6 @@
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź na stronie</string>
-  <string name="menu_page_similar_titles">Podobne tytuły</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
   <string name="menu_page_share">Podziel się linkiem</string>
@@ -91,7 +90,6 @@
   <string name="preferences_general_heading">Ogólne</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero jest wyłączona</string>
-  <string name="zero_search_hint">Szukaj w Wikipedii Zero</string>
   <string name="zero_warn_when_leaving">Ostrzegaj przed opuszczeniem Wikipedii Zero</string>
   <string name="zero_warn_when_leaving_summary">Jeśli twój operator telefonii komórkowej nie pobiera opłat za transfer danych, gdy korzystasz z Wikipedii poprzez tę aplikację (w ramach partnerstwa Wikipedia Zero), ta opcja sprawi, że aplikacja pomoże ci się zorientować, kiedy opuszczasz Wikipedię i mogą zacząć obowiązywać opłaty za transfer danych.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>

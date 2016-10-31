@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Vaihda kieltä</string>
   <string name="menu_page_find_in_page">Etsi sivulta</string>
   <string name="menu_page_content_issues">Sisältöongelmat</string>
-  <string name="menu_page_similar_titles">Samankaltaiset otsikot</string>
   <string name="menu_page_font_and_theme">Kirjasin ja teema</string>
   <string name="menu_page_add_to_list">Lisää lukulistaan</string>
   <string name="menu_page_share">Jaa linkki</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Perusasetukset</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ei ole käytössä</string>
-  <string name="zero_search_hint">Etsi Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving">Varoita poistuttaessa Wikipedia Zerosta</string>
   <string name="zero_warn_when_leaving_summary">Jos matkapuhelinoperaattorisi luopuu tiedonsiirtomaksuista Wikipedia Zero -yhteistyön kautta, tämän asetuksen ollessa päällä saat huomautuksen, jos aiot poistua Wikipedia-sovelluksesta ja tiedonsiirrosta voidaan periä maksua.</string>
   <string name="zero_webpage_title">Usein kysyttyjä kysymyksiä Wikipedia Zerosta</string>

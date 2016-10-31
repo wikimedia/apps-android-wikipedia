@@ -62,7 +62,6 @@
   <string name="create_account_button">Loo konto</string>
   <string name="preferences_general_heading">Üldine</string>
   <string name="zero_charged_verbiage">Wikipedia Zero välja lülitatud</string>
-  <string name="zero_search_hint">Otsi Wikipedia Zerost</string>
   <string name="zero_warn_when_leaving">Hoiata, kui lahkun Wikipedia Zerost</string>
   <string name="zero_warn_when_leaving_summary">Kui su mobiilioperaator loobub Vikipeedia rakenduse andmesidetasudest Wikipedia Zero partnerluse kaudu, siis selle seade sisselülitamine annab sulle teada, kui lahkud Vikipeedia rakendusest ja sinu edasine tegevus võib olla tasuline.</string>
   <string name="zero_webpage_title">Wikipedia Zero KKK</string>

@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Efallai y dylid uwchraddio\'r cyfieithiad hwn</string>
   <string name="menu_page_find_in_page">Chwilio yn y dudalen</string>
   <string name="menu_page_content_issues">Problemau efo\'r cynnwys</string>
-  <string name="menu_page_similar_titles">Teitlau rhy debyg</string>
   <string name="menu_page_font_and_theme">Ffont a thema</string>
   <string name="menu_page_add_to_list">Ychwanegu at y rhestr ddarllen</string>
   <string name="menu_page_share">Rhannwch y dolennau</string>
@@ -92,7 +91,6 @@
   <string name="preferences_general_heading">Cyffredinol</string>
   <string name="wikipedia_app_faq">Ap FAQ Wicipedia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Mae Wicipedia Sero i ffwrdd</string>
-  <string name="zero_search_hint">Chwiliwch yn Wicipedia Sero</string>
   <string name="zero_warn_when_leaving">Rhybudd os ydych yn gadael Wicipedia Sero</string>
   <string name="zero_webpage_title">FAQ Wicipedia Sero</string>
   <string name="zero_wikipedia_zero_heading">Wicipedia Sero</string>

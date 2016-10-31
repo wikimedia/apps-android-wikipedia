@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Zmeniť jazyk</string>
   <string name="menu_page_find_in_page">Nájsť na stránke</string>
   <string name="menu_page_content_issues">Problémy s obsahom</string>
-  <string name="menu_page_similar_titles">Podobné články</string>
   <string name="menu_page_font_and_theme">Zmeniť písmo a vzhľad</string>
   <string name="menu_page_add_to_list">Pridať do zoznamu na prečítanie</string>
   <string name="menu_page_share">Zdieľať</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Všeobecné</string>
   <string name="wikipedia_app_faq">Často kladené otázky o tejto aplikácii</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zero je vypnutá</string>
-  <string name="zero_search_hint">Hľadať vo Wikipédii Zero</string>
   <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokiaľ si váš mobilný operátor v rámci Wikipédie Zero za dátové pripojenie k aplikácii Wikipédie zrieka poplatkov, budete po aktivácii tohto políčka informovaný o opustení aplikácie Wikipédie a možného vzniku poplatkov.</string>
   <string name="zero_webpage_title">Wikipédia Zero - ČKO</string>

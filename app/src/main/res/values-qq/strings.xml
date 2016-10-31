@@ -37,7 +37,6 @@ The Share list contains the following menu items (localized):
 {{Identical|Change language}}</string>
   <string name="menu_page_find_in_page">Menu item for invoking Find in page on current page plus the hint text for the Find in page control</string>
   <string name="menu_page_content_issues">Menu item for showing known issues on current page</string>
-  <string name="menu_page_similar_titles">Menu item for showing articles similar to the current page</string>
   <string name="menu_page_font_and_theme">Menu item for choosing text size and color scheme</string>
   <string name="menu_page_add_to_list">Menu item for adding the current page to a reading list.</string>
   <string name="menu_page_share">Menu item text for sharing the currently active page. Uses the build-in Android sharing functionality, so translate it the same way as the operating system does.
@@ -143,7 +142,6 @@ See also:
 {{Identical|General}}</string>
   <string name="wikipedia_app_faq">Label for a preferences menu link to the FAQ (frequently asked questions) wiki page for the Wikipedia apps for Android and iOS.</string>
   <string name="zero_charged_verbiage">Text for toast connoting that Wikipedia Zero status went to OFF</string>
-  <string name="zero_search_hint">Searchbar hint incorporting notion that user is searching via Wikipedia Zero so it is free</string>
   <string name="zero_warn_when_leaving">Settings label for option for warning a Wikipedia Zero user if tapping on an external link.
 
 Shown in the preferences screen along with the following:

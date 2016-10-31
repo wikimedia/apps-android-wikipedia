@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">ಬಾಸೆನ್ ಬದಲ್ ಮಾನ್ಪಿ</string>
   <string name="menu_page_find_in_page">ಪುಟೊಟ್ಟು ನಡ್ಲೆ</string>
   <string name="menu_page_content_issues">ವಿಸಯೋದ ಬಗೆಟ್ಟ್</string>
-  <string name="menu_page_similar_titles">ಒಂಜೇ ಲೆಕೊಂತಿನಾ ಪುದರ್ಲು</string>
   <string name="menu_page_font_and_theme">ಅಕ್ಷರತಾ ನಮೂನೆ ಬುಕ್ಕಾ ಬಣ್ಣೊ</string>
   <string name="menu_page_add_to_list">ಓದಿನ ಪಟ್ಟಿಗ್ ಸೇರ್ಸಲೇ</string>
   <string name="menu_page_share">ಕೊಂಡಿನ್ ಪಟ್ಟುಲೇ</string>
@@ -87,7 +86,6 @@
   <string name="create_account_button">ಪೊಸ ಖಾತೆ ಸುರು ಮಲ್ಪುಲೆ</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯೊ</string>
   <string name="wikipedia_app_faq">ವಿಕಿಪೀಡಿಯ ಅಪ್ ತಾ ಅಪಗಪಗ ಕೇನುನ ಪ್ರಶ್ನೆಲು</string>
-  <string name="zero_search_hint">ವಿಕಿಪೀಡಿಯಟ್ ಜೀರೋಟ್  ನಾಡ್ಲೇ</string>
   <string name="zero_webpage_title">ವಿಕಿಪೀಡಿಯ ಜಿರೋತಾ ಅಪಗಪಗ ಕೇನುನ ಪ್ರಶ್ನೆಲು</string>
   <string name="zero_wikipedia_zero_heading">ವಿಕಿಪೀಡಿಯಾ ಜಿರೋ</string>
   <string name="zero_interstitial_title">ವಿಕಿಪೀಡಿಯಟ್ ಜೀರೋನ್ ಬುಡ್ಲೆ</string>

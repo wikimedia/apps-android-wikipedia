@@ -20,7 +20,6 @@
   <string name="menu_page_other_languages">மொழியை மாற்று</string>
   <string name="menu_page_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
   <string name="menu_page_content_issues">உள்ளடக்க வெளியீடு</string>
-  <string name="menu_page_similar_titles">ஒத்த(ஒப்பான) தலைப்பு</string>
   <string name="menu_page_font_and_theme">எழுத்துரு மற்றும் பிற</string>
   <string name="menu_page_share">இணைப்பை பகிர்</string>
   <string name="menu_long_press_open_page">திற</string>
@@ -87,7 +86,6 @@
   <string name="preferences_general_heading">பொதுவான</string>
   <string name="wikipedia_app_faq">விக்கிப்பீடியா செயலி அடிக்கடிக் கேட்கப்படும் கேள்விகள்</string>
   <string name="zero_charged_verbiage" fuzzy="true">விக்கிப்பீடியா சுழி செயலில் இல்லை</string>
-  <string name="zero_search_hint">விக்கிப்பீடியா சுழியில் தேடுக</string>
   <string name="zero_warn_when_leaving">விக்கிப்பீடியா சுழியை விட்டு வெளியேறினால் எச்சரிக்க</string>
   <string name="zero_webpage_title">விக்கிப்பீடியா சுழி அடிக்கடிக் கேட்கப்படும் கேள்விகள்</string>
   <string name="zero_wikipedia_zero_heading">விக்கிப்பீடியா சுழி</string>

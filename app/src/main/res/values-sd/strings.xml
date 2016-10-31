@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">ٻولي مَٽايو</string>
   <string name="menu_page_find_in_page">صفحي ۾ لھو</string>
   <string name="menu_page_content_issues">مواد جا مسئلا</string>
-  <string name="menu_page_similar_titles">ملندڙجلندڙ عنوان</string>
   <string name="menu_page_font_and_theme">اکر ۽ نظارو</string>
   <string name="menu_page_add_to_list">پڙھڻ جي فھرست ۾ وجھو</string>
   <string name="menu_page_share">ڳنڍڻو ونڊيو</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">وڪيپيڊيا ايپ ڪپس</string>
   <string name="zero_charged_verbiage" fuzzy="true">وڪيپيڊيا ٻڙي بند آهي</string>
-  <string name="zero_search_hint">وڪيپيڊيا ٻڙي ۾ ڳوليو</string>
   <string name="zero_warn_when_leaving">جيڪڏهن وڪيپيڊيا زيرو ڇڏي وڃي رهي هجي ته خبردار ڪريو</string>
   <string name="zero_warn_when_leaving_summary">جيڪڏھن توھان جو موبائل آپريٽر وڪيپيڊيا زيرو ڀائيواريءَ جي ذريعي وڪيپيڊيا ايپ جي لاءِ ڊيٽا ايڪسس جون رقمون معاف ڪري ٿو، تہ ھن ترتيب تي نشان لڳائڻ سان جڏھن توھان وڪيپيڊيا ايپ ڇڏيندئو تہ توھان کي اھو ٻڌائڻ ۾ مدد ٿيندي تہ رقمون لاڳو ٿي سگھن ٿيون.</string>
   <string name="zero_webpage_title">وڪيپيڊيا ٻڙي ڪپس</string>

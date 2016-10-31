@@ -88,7 +88,6 @@
   <string name="preferences_general_heading">Γενικά</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage" fuzzy="true">Το Wikipedia Zero είναι απενεργοποιημένο</string>
-  <string name="zero_search_hint">Αναζήτηση στο Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Προειδοποιήστε με αν φεύγω από το Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Εάν ο πάροχος κινητής τηλεφωνίας σας δεν χρεώνει δεδομένα για τη χρήση της εφαρμογής της Βικιπαιδείας μέσω συνεργασίας του με το Wikipedia Zero, αφήνοντας αυτή τη ρύθμιση επιλεγμένη βοηθιέστε ώστε να γνωρίζετε πότε εγκαταλείπετε την εφαρμογή της Βικιπαίδειας και επομένως μπορεί να χρεώνεστε.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>

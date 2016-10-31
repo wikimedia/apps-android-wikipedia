@@ -68,7 +68,6 @@
   <string name="create_account_button">Hisob yaratish</string>
   <string name="preferences_general_heading">Umumiy</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero oʻchirilgan</string>
-  <string name="zero_search_hint">Wikipedia Zero orqali izlash</string>
   <string name="zero_warn_when_leaving">Wikipedia Zerodan chiqilayotganda xabar bering</string>
   <string name="zero_webpage_title">Wikipedia Zero TTS</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>

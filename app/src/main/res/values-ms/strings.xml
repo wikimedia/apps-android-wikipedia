@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Tukar bahasa</string>
   <string name="menu_page_find_in_page">Cari dalam laman</string>
   <string name="menu_page_content_issues">Masalah kandungan</string>
-  <string name="menu_page_similar_titles">Judul² serupa</string>
   <string name="menu_page_font_and_theme">Tukar fon dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke senarai bacaan</string>
   <string name="menu_page_share">Kongsikan pautan</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Soalan Lazim Aplikasi Wikipedia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero dimatikan</string>
-  <string name="zero_search_hint">Cari dalam Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Pesan apabila keluar dari Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator mudah alih anda mengecualikan caj akses data untuk aplikasi Wikipedia menerusi persepakatan Wikipedia Zero, jika tetapan ini dibiarkan pasang, anda akan dipesan bahawa caj mungkin dikenakan ketika anda keluar dari aplikasi Wikipedia.</string>
   <string name="zero_webpage_title">Soalan Lazim Wikipedia Zero</string>

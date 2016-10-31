@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Byt språk</string>
   <string name="menu_page_find_in_page">Hitta på sidan</string>
   <string name="menu_page_content_issues">Innehållsproblem</string>
-  <string name="menu_page_similar_titles">Liknande artiklar</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
   <string name="menu_page_share">Dela länk</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Allmänt</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero är avstängt</string>
-  <string name="zero_search_hint">Sök på Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Varna om jag lämnar Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Om din mobiloperatör ingått ett partnerskap med Wikipedia Zero, som ger dig tillgång till Wikipedia utan datatrafiksavgifter, varnas du om du lämnar appen och riskerar att betala för datatrafik om du har aktiverat denna inställning.</string>
   <string name="zero_webpage_title">Vanliga frågor om Wikipedia Zero</string>

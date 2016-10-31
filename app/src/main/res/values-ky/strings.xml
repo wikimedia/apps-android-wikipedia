@@ -72,7 +72,6 @@
   <string name="create_account_button">Катталуу</string>
   <string name="preferences_general_heading">Жалпы</string>
   <string name="zero_charged_verbiage" fuzzy="true">Уикипедия Нөл өчтү</string>
-  <string name="zero_search_hint">Уикипедия Нөлдөн издөө</string>
   <string name="zero_warn_when_leaving">Уикипедия Нөлдөн чыкса эскертүү</string>
   <string name="zero_webpage_title">Уикипедия Нөл боюнча КБС</string>
   <string name="zero_wikipedia_zero_heading">Уикипедия Нөл</string>

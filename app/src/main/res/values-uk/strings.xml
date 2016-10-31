@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Змінити мову</string>
   <string name="menu_page_find_in_page">Знайти на сторінці</string>
   <string name="menu_page_content_issues">Проблеми матеріалу</string>
-  <string name="menu_page_similar_titles">Подібні назви</string>
   <string name="menu_page_font_and_theme">Змінити шрифт і тему</string>
   <string name="menu_page_add_to_list">Додати в список для читання</string>
   <string name="menu_page_share">Поділитися посиланням</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Загальні</string>
   <string name="wikipedia_app_faq">Часті питання по додатку</string>
   <string name="zero_charged_verbiage" fuzzy="true">Вікіпедія Zero вимкнена</string>
-  <string name="zero_search_hint">Пошук по Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving">Попередити, якщо залишити Вікіпедії Zero</string>
   <string name="zero_warn_when_leaving_summary">Якщо ваш мобільний оператор не бере плату за доступ до даних з програми Вікіпедії через партнерство Вікіпедія Zero включення цього параметра допоможе вам знати, коли ви залишаєте додаток Вікіпедії, і може почати стягуватися плата за трафік</string>
   <string name="zero_webpage_title">ЧАП по Вікіпедія Zero</string>

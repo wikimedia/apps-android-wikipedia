@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Schimbă limba</string>
   <string name="menu_page_find_in_page">Găsește în pagină</string>
   <string name="menu_page_content_issues">Problemele conținutului</string>
-  <string name="menu_page_similar_titles">Titluri similare</string>
   <string name="menu_page_font_and_theme">Schimbă fontul și tema</string>
   <string name="menu_page_add_to_list">Adaugă la lista de lecturi</string>
   <string name="menu_page_share">Distribuie legătura</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Într. frecv. aplicația Wikipedia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero este dezactivată</string>
-  <string name="zero_search_hint">Căutare în Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avertizează-mă dacă părăsesc Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">În cazul în care, printr-un parteneriat Wikipedia Zero, operatorul dumneavoastră de telefonie mobilă nu percepe tarife pentru traficul de date din aplicația Wikipedia, bifarea acestei opțiuni vă înștiințează atunci când părăsiți aplicația Wikipedia și ați putea fi taxat.</string>
   <string name="zero_webpage_title">Într. frecv. Wikipedia Zero</string>

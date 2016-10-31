@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">تغییر زبان</string>
   <string name="menu_page_find_in_page">در صفحه پیدا کنید</string>
   <string name="menu_page_content_issues">مشکلات محتوایی</string>
-  <string name="menu_page_similar_titles">عنوان‌های مشابه</string>
   <string name="menu_page_font_and_theme">تغییر فونت و پوسته</string>
   <string name="menu_page_add_to_list">افزودن به فهرست مطالعه</string>
   <string name="menu_page_share">به‌اشتراک‌گذاشتن پیوند</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">پاسخ پرسش‌های رایج ویکی‌پدیا</string>
   <string name="zero_charged_verbiage" fuzzy="true">خاموش کردن ویکی‌پدیا صفر</string>
-  <string name="zero_search_hint">جستجو در ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving">هشدار برای خروج از ویکی‌پدیا صفر</string>
   <string name="zero_warn_when_leaving_summary">اگر اپراتور تلفن همراه شما  هزینهٔ دیتا را بر اساس تفاهم‌نامهٔ ویکی‌پدیا صفر تخت اپلیکیشن موبایل ویکی‌پدیا دریافت نکند رها کردن تنظیمات به شما کمک می‌کند تا زمانی که شما از اپلیکیشن خارج می‌شوید  از دریافت هزینه آگاه شوید.</string>
   <string name="zero_webpage_title">پرسش‌های رایج ویکی‌پدیا صفر</string>

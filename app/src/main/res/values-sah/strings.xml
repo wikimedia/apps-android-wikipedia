@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Атын тылынан</string>
   <string name="menu_page_find_in_page">Бу сирэйгэ булуу</string>
   <string name="menu_page_content_issues">Ис хоһооно</string>
-  <string name="menu_page_similar_titles">Майгынныыр ааттар</string>
   <string name="menu_page_font_and_theme">Бичигэ уонна тас көстүүтэ</string>
   <string name="menu_page_add_to_list">Ааҕар тиһиликкэ киллэр</string>
   <string name="menu_page_share">Сигэни тарҕатыы</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Сүнньүнэн</string>
   <string name="wikipedia_app_faq">Бикипиэдьийэ баайылын туһунан ыйытыылар</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero арахсыбыт</string>
-  <string name="zero_search_hint">Wikipedia Zero иһиттэн көрдөөһүн</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero-ттан тахсаары гыннахха сэрэтэр буол</string>
   <string name="zero_warn_when_leaving_summary">Өскө Эн мобил операторыҥ Wikipedia Zero-ну кытта сөбүлэҥ түһэрсибит уонна онтон хачайдаммыт иһин харчы төлөттөрбөт буоллаҕына, маны таллаххына, төлөбүрдээх ресурска киирэн эрэриҥ туһунан сэрэтии кэлэр буолуоҕа.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>

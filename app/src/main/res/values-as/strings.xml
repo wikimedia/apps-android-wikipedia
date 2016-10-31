@@ -85,7 +85,6 @@
   <string name="preferences_general_heading">সাধাৰণ</string>
   <string name="wikipedia_app_faq">ৱিকিপিডিয়া এপ্‌ FAQ</string>
   <string name="zero_charged_verbiage" fuzzy="true">ৱিকিপিডিয়া জিৰ\' বন্ধ হৈ আছে</string>
-  <string name="zero_search_hint">ৱিকিপিডিয়া জিৰ\' সন্ধান কৰক</string>
   <string name="zero_warn_when_leaving">ৱিকিপিডিয়া জিৰ\' এৰিলে সতৰ্ক কৰিব</string>
   <string name="zero_warn_when_leaving_summary">যদি আপোনাৰ ম\'বাইল অপাৰেটৰে ৱিকিপিডিয়া জিৰ\' সহযোগৰ জৰিয়তে ৱিকিপিডিয়া এপৰ বাবে ডে\'টা মূল্য ৰেহাই দিয়ে, তেন্তে এই ছেটিং সক্ৰিয় কৰি থ\'লে আপুনি ৱিকিপিডিয়াৰ পৰা আঁতৰি গৈ মূল্য বহন কৰিবলগীয়া হ\'লে জানিব পাৰিব।</string>
   <string name="zero_webpage_title">ৱিকিপিডিয়া জিৰ\' FAQ</string>

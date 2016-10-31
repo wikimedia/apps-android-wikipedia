@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">שינוי שפה</string>
   <string name="menu_page_find_in_page">חיפוש בדף</string>
   <string name="menu_page_content_issues">בעיות בתוכן</string>
-  <string name="menu_page_similar_titles">כותרות דומות</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
   <string name="menu_page_share">שיתוף קישור</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">כללי</string>
   <string name="wikipedia_app_faq">שו\"ת יישומון ויקיפדיה</string>
   <string name="zero_charged_verbiage" fuzzy="true">מצב ויקיפדיה אפס כבוי</string>
-  <string name="zero_search_hint">חיפוש בוויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving">להזהיר בעת עזיבת ויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על תקשורת נתונים ביישומון ויקיפדיה במסגרת שותפות \"ויקיפדיה אפס\", הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מיישומון ויקיפדיה ושייתכן שיחולו חיובים.</string>
   <string name="zero_webpage_title">שו\"ת ויקיפדיה אפס</string>

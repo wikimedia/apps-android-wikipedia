@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Ubah bahasa</string>
   <string name="menu_page_find_in_page">Cari di halaman</string>
   <string name="menu_page_content_issues">Masalah konten</string>
-  <string name="menu_page_similar_titles">Judul yang sama</string>
   <string name="menu_page_font_and_theme">Huruf dan tema</string>
   <string name="menu_page_add_to_list">Tambahkan ke daftar bacaan</string>
   <string name="menu_page_share">Bagikan pranala</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Pertanyaan yang sering diajukan</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero dimatikan</string>
-  <string name="zero_search_hint">Telusuri Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator selular Anda membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Zero, meninggalkan pengaturan ini dicentang dapat membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan biaya.</string>
   <string name="zero_webpage_title">Tanya jawab Wikipedia Zero</string>

@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="menu_page_find_in_page">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
   <string name="menu_page_content_issues">ਸਮੱਗਰੀ ਸਮੱਸਿਆਵਾਂ</string>
-  <string name="menu_page_similar_titles">ਇੱਕੋ ਤਰ੍ਹਾਂ ਦੇ ਸਿਰਲੇਖ</string>
   <string name="menu_page_font_and_theme">ਫੌਂਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="menu_page_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
   <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">ਆਮ</string>
   <string name="wikipedia_app_faq">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਰੇ ਆਮ ਸਵਾਲ</string>
   <string name="zero_charged_verbiage" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬੰਦ ਹੈ</string>
-  <string name="zero_search_hint">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਭਾਲ਼ੋ</string>
   <string name="zero_warn_when_leaving">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਛੱਡਣ \'ਤੇ ਸਚੇਤ ਕਰੋ</string>
   <string name="zero_warn_when_leaving_summary">ਜੇਕਰ ਤੁਹਾਡਾ ਮੋਬਾਈਲ ਚਾਲਕ ਕਿਸੇ ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਸਾਂਝ ਰਾਹੀਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਡਾਟਾ ਤੱਕ ਪਹੁੰਚ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਕਰਦਾ ਹੈ ਤਾਂ ਏਸ ਸੈਟਿੰਗ ਨੂੰ ਸਹੀ ਕਰ ਕੇ ਰੱਖਣ ਨਾਲ਼ ਤੁਹਾਨੂੰ ਪਤਾ ਲੱਗ ਜਾਵੇਗਾ ਕਿ ਤੁਸੀਂ ਕਦੋਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਛੱਡ ਕੇ ਜਾ ਰਹੇ ਹੋ ਅਤੇ ਪੈਸੇ ਪੈ ਸਕਦੇ ਹਨ।</string>
   <string name="zero_webpage_title">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬਾਬਤ ਆਮ ਸੁਆਲ</string>

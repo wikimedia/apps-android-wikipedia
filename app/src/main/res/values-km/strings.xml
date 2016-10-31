@@ -74,7 +74,6 @@
   <string name="create_account_button">បង្កើតគណនី</string>
   <string name="preferences_general_heading">ទូទៅ​</string>
   <string name="wikipedia_app_faq">សំនួរញឹកញាប់អំពីកម្មវិធីវិគីភីឌា</string>
-  <string name="zero_search_hint">ស្វែងរកក្នុងវិគីភីឌាសូន្យ</string>
   <string name="zero_warn_when_leaving">រំលឹកពេលចង់ចាកចេញពីវិគីសូន្យ</string>
   <string name="zero_webpage_title">សំនួរញឹកញាប់សម្រាប់វិគីភីឌាសូន្យ</string>
   <string name="zero_wikipedia_zero_heading">វិគីភីឌាសូន្យ</string>

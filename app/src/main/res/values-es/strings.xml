@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en la página</string>
   <string name="menu_page_content_issues">Problemas del contenido</string>
-  <string name="menu_page_similar_titles">Títulos similares</string>
   <string name="menu_page_font_and_theme">Tipo de letra y tema</string>
   <string name="menu_page_add_to_list">Añadir a lista de lectura</string>
   <string name="menu_page_share">Compartir enlace</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero está desactivado</string>
-  <string name="zero_search_hint">Buscar en Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avisar al salir de Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si tu operadora de telefonía móvil ha decidido no cobrar el acceso de datos desde la aplicación de Wikipedia mediante un acuerdo con Wikipedia Zero, deja esta opción activada para que te notifiquemos al salir de la aplicación de Wikipedia y evitar cobros no deseados.</string>
   <string name="zero_webpage_title">Preguntas frecuentes de Wikipedia Zero</string>

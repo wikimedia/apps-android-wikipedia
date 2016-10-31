@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">ଭାଷା ବଦଳାଇବେ</string>
   <string name="menu_page_find_in_page">ପୃଷ୍ଠାରେ ଖୋଜିବେ</string>
   <string name="menu_page_content_issues">ବିଷୟବସ୍ତୁଜନିତ ଅସୁବିଧା</string>
-  <string name="menu_page_similar_titles">ଏକାଭଳି ନାମସବୁ</string>
   <string name="menu_page_font_and_theme">ଫଣ୍ଟ ଓ ଥିମ</string>
   <string name="menu_page_add_to_list">ଦେଖଣା ତାଲିକାରେ ଯୋଡ଼ନ୍ତୁ</string>
   <string name="menu_page_share">ଲିଙ୍କ ବାଣ୍ଟିବେ</string>
@@ -92,7 +91,6 @@
   <string name="preferences_general_heading">ସାଧାରଣ</string>
   <string name="wikipedia_app_faq">ଉଇକିପିଡ଼ିଆ ଆପ ବାବଦରେ ଜାଣିବାକଥା</string>
   <string name="zero_charged_verbiage" fuzzy="true">ଉଇକିପିଡ଼ିଆ ଜିରୋ ବନ୍ଦ</string>
-  <string name="zero_search_hint">ଉଇକିପିଡ଼ିଆ ଜିରୋରେ ଖୋଜନ୍ତୁ</string>
   <string name="zero_warn_when_leaving">ଉଇକିପିଡ଼ିଆ ଜିରୋରୁ ବାହାରିଲେ ଜଣାଇବେ</string>
   <string name="zero_warn_when_leaving_summary">ଆପଣଙ୍କ ମୋବାଇଲ ଅପରେଟର ଉଇକିପିଡ଼ିଆ ଜିରୋ ମାଧ୍ୟମରେ ଉଇକିପିଡ଼ିଆ ଆପ୍ଲିକେସନ ପାଇଁ ମାଗଣା ସୁବିଧା ଦେଉଥିଲେ, ଏହି ସଂରଚନା ବଦଳାଇଲେ ସାଧାରଣ ଇଣ୍ଟରନେଟ ଦର ଲାଗିପାରେ ।</string>
   <string name="zero_webpage_title">ଉଇକିପିଡ଼ିଆ ଜିରୋ ବାବଦରେ ଜାଣିବାକଥା</string>

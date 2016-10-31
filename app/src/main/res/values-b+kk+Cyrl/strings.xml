@@ -70,7 +70,6 @@
   <string name="create_account_button">Тіркелу</string>
   <string name="preferences_general_heading">Негізгі</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero сөндірілген</string>
-  <string name="zero_search_hint">Wikipedia Zero бойынша іздеу</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero-ны қалдырып кеткенде ескерту</string>
   <string name="zero_webpage_title">Wikipedia Zero ЖҚС</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>

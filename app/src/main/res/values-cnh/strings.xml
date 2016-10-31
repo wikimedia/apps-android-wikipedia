@@ -74,7 +74,6 @@
   <string name="preferences_general_heading">Adangdang</string>
   <string name="wikipedia_app_faq">Wikipedia App Biahalnak</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Alak a phit</string>
-  <string name="zero_search_hint">Wikipedia Alak ah kawl</string>
   <string name="zero_warn_when_leaving">Wikipedia Alak in chuah tikah ka chim te</string>
   <string name="zero_warn_when_leaving_summary">Na phone operator nih Wikipedia Alak ah tangka an lak lai paoh ah na zahpiaknak ruangah an hngalhter peng lai.</string>
   <string name="zero_webpage_title">Wikipedia Alak Biahalnak</string>

@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">भाषा बदलें</string>
   <string name="menu_page_find_in_page">पृष्ठ में ढूंढें</string>
   <string name="menu_page_content_issues">सामग्री समस्या</string>
-  <string name="menu_page_similar_titles">समान शीर्षक</string>
   <string name="menu_page_font_and_theme">फॉन्ट और थीम</string>
   <string name="menu_page_add_to_list">पठन सूची में जोड़ें</string>
   <string name="menu_page_share">लिंक साझा करें</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">सामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप FAQ</string>
   <string name="zero_charged_verbiage" fuzzy="true">विकिपीडिया शून्य बन्द है</string>
-  <string name="zero_search_hint">विकिपीडिया शून्य खोजें</string>
   <string name="zero_warn_when_leaving">विकिपीडिया शून्य छोड़ने पर चेतावनी दीजिये</string>
   <string name="zero_warn_when_leaving_summary">यदि आपका मोबाइल ऑपरेटर डेटा इस्तेमाल के चार्जों को विकिपीडिया एप के लिए छोड़ता है, विकिपीडिया ज़ीरो पार्टनरशिप के अनुसार तो इस सेटिंग को चैक छोड़ने से आपको यह जानने में सहायता मिलेगी कि कब आप विकिपीडिया एप छोड़ रहे हैं और आपको चार्ज लग सकता है।</string>
   <string name="zero_webpage_title">विकिपीडिया ज़ीरो FAQ</string>

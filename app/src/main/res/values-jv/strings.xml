@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Ganti basa</string>
   <string name="menu_page_find_in_page">Golèk ing kaca</string>
   <string name="menu_page_content_issues">Perkara isi</string>
-  <string name="menu_page_similar_titles">Sesirah mèmper</string>
   <string name="menu_page_font_and_theme">Fon lan irah-irahan</string>
   <string name="menu_page_add_to_list">Tambahaké nyang pratélaning wacan</string>
   <string name="menu_page_share">Dum pranala</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Pitakonan paling sering aplikasi Wikipedia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero mati</string>
-  <string name="zero_search_hint">Golèk ing Wikipédia Zero</string>
   <string name="zero_warn_when_leaving">Ngelekake yen ninggalake Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Yen operator ponsel membebaskan biaya akses data kanggo aplikasi Wikipedia liwat kemitraan Wikipedia Zero, ninggalake setelan iki dicenthang mbantu ngerti yen sampeyan ninggalake aplikasi Wikipedia lan bisa uga dikenani biaya.</string>
   <string name="zero_webpage_title">Pitakonan paling sering Wikipedia Zero</string>

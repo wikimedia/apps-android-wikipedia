@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Thay đổi ngôn ngữ</string>
   <string name="menu_page_find_in_page">Tìm trong trang</string>
   <string name="menu_page_content_issues">Vấn đề nội dung</string>
-  <string name="menu_page_similar_titles">Tiêu đề tương tự</string>
   <string name="menu_page_font_and_theme">Phông chữ và thiết kế</string>
   <string name="menu_page_add_to_list">Thêm vào danh sách đọc</string>
   <string name="menu_page_share">Chia sẻ liên kết</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="wikipedia_app_faq">Câu hỏi thường hỏi về ứng dụng Wikipedia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Miễn phí đang tắt</string>
-  <string name="zero_search_hint">Tìm trong Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving">Cảnh báo khi ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do có quan hệ đối tác với Wikipedia Miễn phí, chọn hộp này để giúp bạn biết khi bạn sắp thoát ứng dụng Wikipedia và sẽ bị tính phí.</string>
   <string name="zero_webpage_title">Câu thường hỏi về Wikipedia Miễn phí</string>

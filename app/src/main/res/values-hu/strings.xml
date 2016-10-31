@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Nyelvváltás</string>
   <string name="menu_page_find_in_page">Keresés a lapon</string>
   <string name="menu_page_content_issues">Tartalmi problémák</string>
-  <string name="menu_page_similar_titles">Hasonló címek</string>
   <string name="menu_page_font_and_theme">Betűtípus és téma</string>
   <string name="menu_page_add_to_list">Hozzáadás az olvasási listához</string>
   <string name="menu_page_share">Link megosztása</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Általános</string>
   <string name="wikipedia_app_faq">Wikipédia app GYIK</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero kikapcsolva</string>
-  <string name="zero_search_hint">Wikipedia Zero keresés</string>
   <string name="zero_warn_when_leaving">Figyelmeztet, ha elhagyom a Wikipédia Zérót</string>
   <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia appot, ami költségekkel járhat.</string>
   <string name="zero_webpage_title">Wikipedia Zero GyIK</string>

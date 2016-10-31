@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Changer de langue</string>
   <string name="menu_page_find_in_page">Rechercher dans la page</string>
   <string name="menu_page_content_issues">Problèmes de contenu</string>
-  <string name="menu_page_similar_titles">Titres similaires</string>
   <string name="menu_page_font_and_theme">Police et thème</string>
   <string name="menu_page_add_to_list">Ajouter à la liste de lecture</string>
   <string name="menu_page_share">Partager le lien</string>
@@ -95,7 +94,6 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="preferences_general_heading">Général</string>
   <string name="wikipedia_app_faq">FAQ des applis Wikipédia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zéro est désactivé</string>
-  <string name="zero_search_hint">Rechercher dans Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving">Avertir au moment de quitter Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving_summary">Si votre opérateur mobile renonce aux frais de données liés à l’utilisation de l’application Wikipédia dans le cadre d’un partenariat Wikipédia Zéro, laisser ce paramètre activé vous permettra d’être prévenu lorsque vous quittez l’application Wikipédia et risquez de payer des frais de données.</string>
   <string name="zero_webpage_title">FAQ de Wikipédia Zéro</string>

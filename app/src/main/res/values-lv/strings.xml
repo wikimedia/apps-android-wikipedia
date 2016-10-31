@@ -18,7 +18,6 @@
   <string name="menu_page_other_languages">Mainīt valodu</string>
   <string name="menu_page_find_in_page">Atrast lapā</string>
   <string name="menu_page_content_issues">Satura problēmas</string>
-  <string name="menu_page_similar_titles">Līdzīgi nosaukumi</string>
   <string name="menu_page_add_to_list">Pievienot lasīšanas sarakstam</string>
   <string name="menu_page_share">Dalīties ar saiti</string>
   <string name="menu_long_press_open_page">Atvērt</string>
@@ -71,7 +70,6 @@
   <string name="preferences_general_heading">Vispārīgi</string>
   <string name="wikipedia_app_faq">Vikipēdijas lietotnes BUJ</string>
   <string name="zero_charged_verbiage" fuzzy="true">Vikipēdija Zero ir izslēgts</string>
-  <string name="zero_search_hint">Meklēt Vikipēdijā Zero</string>
   <string name="zero_warn_when_leaving">Brīdināt kad iziet no Zero</string>
   <string name="zero_webpage_title">Vikipēdija Zero BUJ</string>
   <string name="zero_wikipedia_zero_heading">Vikipēdija Zero</string>

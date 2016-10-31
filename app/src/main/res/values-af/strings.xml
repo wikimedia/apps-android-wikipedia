@@ -81,7 +81,6 @@
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Gewilde vrae oor Wikipedia Toep</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero is af</string>
-  <string name="zero_search_hint">Soek in Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Waarsku indien Wikipedia Zero verlaat word</string>
   <string name="zero_warn_when_leaving_summary">Indien jou mobiele diensverskaffer data koste kwytskeld vir die Wikipedia toep deur \'n Wikipedia Zero vennootskap, deur hierdie opsie gestel te hou help dit om u in te lig wanneer u die Wikipedia toep verlaat en dit data kostes mag veroorsaak.</string>
   <string name="zero_webpage_title">Gereelde vrae oor Wikipedia Zero</string>

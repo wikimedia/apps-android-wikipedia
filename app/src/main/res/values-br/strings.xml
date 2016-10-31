@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Cheñch yezh</string>
   <string name="menu_page_find_in_page">Klask er bajenn</string>
   <string name="menu_page_content_issues">Kudennoù endalc\'had</string>
-  <string name="menu_page_similar_titles">Titloù heñvel</string>
   <string name="menu_page_font_and_theme">Font ha tem</string>
   <string name="menu_page_add_to_list">Ouzhpennañ d\'ar roll lenn</string>
   <string name="menu_page_share">Rannañ al liamm</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Hollek</string>
   <string name="wikipedia_app_faq">Arload FAG Wikipedia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero n\'a ket en-dro</string>
-  <string name="zero_search_hint">Klask e Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Roit da c\'houzout ma kuitait Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">M\'en deus savet hoc\'h oberataer hezoug ur c\'henemglev gant Wikipedia Zero ha ma tilez e vizoù liammet ouzh an implij eus Wikipedia e vo en roet deoc\'h da c\'houzout pa vezit o kuitaat an arload Wikipedia. E riskl emaoc\'h, a-hend-all, da baeañ mizoù roadennoù.</string>
   <string name="zero_webpage_title">FAG Wikipedia Zero</string>

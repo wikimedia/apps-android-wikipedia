@@ -19,7 +19,6 @@
   <string name="menu_page_other_languages">Тағйири забон</string>
   <string name="menu_page_find_in_page">Ёфтан дар саҳифа</string>
   <string name="menu_page_content_issues">Масоили мӯҳтаво</string>
-  <string name="menu_page_similar_titles">Унвонҳои мушобеҳ</string>
   <string name="menu_page_font_and_theme">Ҳарф ва мавзӯъ</string>
   <string name="menu_page_share">Паҳнкунии пайванд</string>
   <string name="menu_long_press_open_page">Кушодан</string>
@@ -80,7 +79,6 @@
   <string name="create_account_button">Эҷоди ҳисоб</string>
   <string name="preferences_general_heading">Умумӣ</string>
   <string name="zero_charged_verbiage" fuzzy="true">Википедиа Сифр хомуш аст</string>
-  <string name="zero_search_hint">Ҷустуҷӯи Википедиа Сифр</string>
   <string name="zero_wikipedia_zero_heading">Википедиа Сифр</string>
   <string name="zero_interstitial_title">Тарки Википедиа Сифр</string>
   <string name="zero_interstitial_continue">Тарк</string>

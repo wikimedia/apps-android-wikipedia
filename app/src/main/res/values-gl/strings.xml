@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Cambiar a lingua</string>
   <string name="menu_page_find_in_page">Atopar na páxina</string>
   <string name="menu_page_content_issues">Problemas de contido</string>
-  <string name="menu_page_similar_titles">Títulos similares</string>
   <string name="menu_page_font_and_theme">Tipo de letra e tema</string>
   <string name="menu_page_add_to_list">Engadir á lista de lectura</string>
   <string name="menu_page_share">Compartir a ligazón</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Xeral</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes sobre a aplicación da Wikipedia</string>
   <string name="zero_charged_verbiage" fuzzy="true">A Wikipedia Zero está desactivada</string>
-  <string name="zero_search_hint">Procurar na Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Avisádeme ao saír da Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se o seu operador de telefonía móbil renuncia ás tarifas de datos por acceso á aplicación da Wikipedia a través dun consorcio coa Wikipedia Zero, ao deixar marcada esta opción saberá cando deixa a aplicación da Wikipedia e poden aplicarse tarifas de datos.</string>
   <string name="zero_webpage_title">Preguntas frecuentes sobre a Wikipedia Zero</string>

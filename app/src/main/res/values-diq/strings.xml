@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Zıwani bıvurn</string>
   <string name="menu_page_find_in_page">Per tede bıvin</string>
   <string name="menu_page_content_issues">Problemê zerreki</string>
-  <string name="menu_page_similar_titles">Sernamey zey pê</string>
   <string name="menu_page_font_and_theme">Nuşıs u thema</string>
   <string name="menu_page_add_to_list">Lista wendışi ra cı ke</string>
   <string name="menu_page_share">Gıre pay ke</string>
@@ -86,7 +85,6 @@
   <string name="preferences_general_heading">Bıngeh</string>
   <string name="wikipedia_app_faq">Wikipedia App PZP</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero racyaye yo</string>
-  <string name="zero_search_hint">Wikipediya Zero de cı geyre</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero\'ra vıcyayış dı mı iqaz ke</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Wikipedia Zero ra vıcên np</string>

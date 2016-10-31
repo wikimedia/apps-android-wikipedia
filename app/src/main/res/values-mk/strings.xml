@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Смени јазик</string>
   <string name="menu_page_find_in_page">Најди на страницата</string>
   <string name="menu_page_content_issues">Проблеми со содржината</string>
-  <string name="menu_page_similar_titles">Слични наслови</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
   <string name="menu_page_share">Сподели врска</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">Општи</string>
   <string name="wikipedia_app_faq">ЧПП за Википедииниот прилог</string>
   <string name="zero_charged_verbiage" fuzzy="true">Википедија Нулта е исклучена</string>
-  <string name="zero_search_hint">Пребарај ја Википедија Нулта</string>
   <string name="zero_warn_when_leaving">Предупреди ме доколку ја напуштам Википедија Нулта</string>
   <string name="zero_warn_when_leaving_summary">Ако Вашиот мобилен оператор се откажува од трошоците за пристап до податоци за прилогот на Википедија преку партнероство со Википедија Нулта, оставајќи ја поставкава избрана ќе знаете кога излегувате од нејзиниот бесплатен режим и почнува наплата.</string>
   <string name="zero_webpage_title">ЧПП за Википедија Нулта</string>

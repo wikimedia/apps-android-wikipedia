@@ -20,7 +20,6 @@
   <string name="menu_page_show_tabs">نیشاندانی تابەکان</string>
   <string name="menu_page_other_languages">گۆڕینی زمان</string>
   <string name="menu_page_find_in_page">دۆزینەوە لەنێو پەڕە</string>
-  <string name="menu_page_similar_titles">سەردێڕە ھاوشێوەکان</string>
   <string name="menu_page_font_and_theme">فۆنت و ڕووکار</string>
   <string name="menu_page_share">ھاوبەشکردنی بەستەر</string>
   <string name="menu_long_press_open_page">بیکەرەوە</string>
@@ -79,7 +78,6 @@
   <string name="preferences_general_heading">گشتی</string>
   <string name="wikipedia_app_faq">پرسیارە دووپاتکراوەکانی نەرمامێری مۆبایلی ویکیپیدیا</string>
   <string name="zero_charged_verbiage" fuzzy="true">ویکیپیدیا زیرۆ کوژاوەتەوە</string>
-  <string name="zero_search_hint">گەڕان لە ویکیپیدیا زیرۆ</string>
   <string name="zero_webpage_title">پرسیارە دووپاتکراوەکانی ویکیپیدیا زیرۆ</string>
   <string name="zero_wikipedia_zero_heading">ویکیپیدیا زیرۆ</string>
   <string name="zero_interstitial_title">جێھێشتنی ویکیپیدیا زێرۆ</string>

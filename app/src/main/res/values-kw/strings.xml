@@ -76,7 +76,6 @@
   <string name="create_account_button">Gwruthyl akont</string>
   <string name="preferences_general_heading">Ollgemmyn</string>
   <string name="zero_charged_verbiage" fuzzy="true">Skwychys yn-mes yw Wikipedya Zero</string>
-  <string name="zero_search_hint">Hwilas yn Wikipedya Zero</string>
   <string name="zero_warn_when_leaving">Gwarnya pan ow kwytya Wikipedya Zero</string>
   <string name="zero_webpage_title">FAQ Wikipedya Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedya Zero</string>

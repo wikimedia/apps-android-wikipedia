@@ -21,7 +21,6 @@
   <string name="menu_page_other_languages">Alterar idioma</string>
   <string name="menu_page_find_in_page">Encontrar na página</string>
   <string name="menu_page_content_issues">Problemas de conteúdo</string>
-  <string name="menu_page_similar_titles">Títulos similares</string>
   <string name="menu_page_font_and_theme">Fonte e tema</string>
   <string name="menu_page_share">Compartilhar link</string>
   <string name="menu_long_press_open_page">Abrir</string>
@@ -90,7 +89,6 @@
   <string name="preferences_general_heading">Geral</string>
   <string name="wikipedia_app_faq">Perguntas frequentes do aplicativo da Wikipédia</string>
   <string name="zero_charged_verbiage" fuzzy="true">A Wikipédia Zero está desativada</string>
-  <string name="zero_search_hint">Pesquisar na Wikipédia Zero</string>
   <string name="zero_warn_when_leaving">Avisar ao deixar a Wikipédia Zero</string>
   <string name="zero_warn_when_leaving_summary">Se a sua operadora isenta o aplicativo da Wikipédia de cobrança de dados devido ao programa Wikipédia Zero, selecionar esta opção ajudará você a saber que poderá haver cobrança de dados quando estiver saindo do aplicativo da Wikipédia.</string>
   <string name="zero_webpage_title">Perguntas frequentes da Wikipédia Zero</string>

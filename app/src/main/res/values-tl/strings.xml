@@ -80,7 +80,6 @@
   <string name="preferences_general_heading">Pangkalahatan</string>
   <string name="wikipedia_app_faq">Mga madalas itanong (FAQ) ng Wikipedia App</string>
   <string name="zero_charged_verbiage" fuzzy="true">Nakasara ang Wikipedia Zero</string>
-  <string name="zero_search_hint">Hanapin sa Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Bigyang-babala kapag lilisanin ang Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Kapag nag-urong ang iyong mobile operator ng singil sa data access para sa Wikipedia app sa pamamagitan ng isang pakikipag-korporasyon ng Wikipedia Zero, sa pag-iwan ng kaayusang ito na naka-tsek ay tinutulungang ipaalam sa iyo kapag lilisanin ang Wikipedia app at maaaring masingil.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ (Mga Madalas Itanong)</string>

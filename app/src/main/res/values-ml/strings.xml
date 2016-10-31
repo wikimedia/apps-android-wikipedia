@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">ഭാഷ മാറ്റുക</string>
   <string name="menu_page_find_in_page">താളിൽ കണ്ടെത്തുക</string>
   <string name="menu_page_content_issues">ഉള്ളടക്കത്തിലെ പ്രശ്നങ്ങൾ</string>
-  <string name="menu_page_similar_titles">സമാനമായ തലക്കെട്ടുകൾ</string>
   <string name="menu_page_font_and_theme">ഫോണ്ടും ദൃശ്യരൂപവും</string>
   <string name="menu_page_add_to_list">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="menu_page_share">കണ്ണി പങ്ക് വെയ്ക്കുക</string>
@@ -90,7 +89,6 @@
   <string name="create_account_button">അംഗത്വമെടുക്കുക</string>
   <string name="preferences_general_heading">സാർവത്രികം</string>
   <string name="zero_charged_verbiage" fuzzy="true">വിക്കിപീഡിയ സീറോ ഇല്ല</string>
-  <string name="zero_search_hint">വിക്കിപീഡിയ സീറോയിൽ തിരയുക</string>
   <string name="zero_warn_when_leaving">വിക്കിപീഡിയ സീറോയിൽ നിന്ന് പോവുകയാണെങ്കിൽ മുന്നറിയിപ്പ് നൽകുക</string>
   <string name="zero_warn_when_leaving_summary">വിക്കിപീഡിയ സീറോ പങ്കാളിത്തം വഴി ഡേറ്റാ വിലകൾ താങ്കളുടെ മൊബൈൽ ഓപ്പറേറ്റർ പരിത്യജിക്കുന്നുവെങ്കിൽ, വിക്കിപീഡിയ ആപിൽ നിന്നും പുറത്ത് കടക്കുന്നതും എപ്പോൾ മുതലാണ് വില ഈടാക്കുന്നതെന്നും മനസ്സിലാക്കാൻ ഈ സജ്ജീകരണം ശരിയിട്ട് കിടക്കുന്നത് സഹായിക്കുന്നതാണ്.</string>
   <string name="zero_webpage_title">വിക്കിപീഡിയ സീറോ പതിവുചോദ്യങ്ങൾ</string>

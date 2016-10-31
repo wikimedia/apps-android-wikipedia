@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">他の言語で読む</string>
   <string name="menu_page_find_in_page">ページ内検索</string>
   <string name="menu_page_content_issues">コンテンツの問題点</string>
-  <string name="menu_page_similar_titles">類似したタイトル</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>
   <string name="menu_page_share">リンクを共有</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">全般</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
   <string name="zero_charged_verbiage" fuzzy="true">ウィキペディアゼロはオフです</string>
-  <string name="zero_search_hint">ウィキペディアゼロを検索</string>
   <string name="zero_warn_when_leaving">ウィキペディアゼロを離れる場合には警告</string>
   <string name="zero_warn_when_leaving_summary">ウィキペディアゼロの提携により、携帯電話会社がウィキペディアアプリからのアクセス料金を無料にしている場合には、この設定をチェックしておくと、ウィキペディアアプリを離れて料金がかかる際に分かるようになります。</string>
   <string name="zero_webpage_title">ウィキペディアゼロについてのFAQ</string>

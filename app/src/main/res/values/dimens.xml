@@ -83,10 +83,6 @@
     <!-- Crash report -->
     <item name="crash_report_icon_alpha" format="float" type="dimen">.5</item>
 
-    <!-- Zero -->
-    <integer name="zero_notification_light_on_ms">500</integer>
-    <integer name="zero_notification_light_off_ms">3000</integer>
-
     <!-- The Feed -->
     <dimen name="view_feed_padding_top">10dp</dimen>
     <dimen name="view_feed_min_column_width">320dp</dimen>

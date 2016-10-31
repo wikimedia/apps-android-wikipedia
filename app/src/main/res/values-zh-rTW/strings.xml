@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">變更語言</string>
   <string name="menu_page_find_in_page">於頁面中尋找</string>
   <string name="menu_page_content_issues">內容問題</string>
-  <string name="menu_page_similar_titles">類似標題</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
   <string name="menu_page_share">分享連結</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
   <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero 已被關掉 (可能要付標準資料費用)</string>
-  <string name="zero_search_hint">搜尋 Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">離開 Wikipedia Zero 時提示</string>
   <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與 Wikipedia Zero 有合作夥伴關係，並且免除存取維基百科應用程式時的資料費用，請勾選此設定以幫助您知道您正在離開維基百科並可能被收取費用。</string>
   <string name="zero_webpage_title">Wikipedia Zero 常見問題</string>

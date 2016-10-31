@@ -21,7 +21,6 @@
   <string name="menu_page_other_languages">भाषा परिवर्त्यताम्</string>
   <string name="menu_page_find_in_page">पृष्ठम् अन्विष्यताम्</string>
   <string name="menu_page_content_issues">सामग्रीसमस्याः</string>
-  <string name="menu_page_similar_titles">समानशीर्षकाणि</string>
   <string name="menu_page_font_and_theme">वर्णः, प्रसङ्गश्च</string>
   <string name="menu_page_share">परिसन्धिं वितरतु</string>
   <string name="menu_long_press_open_page">उद्घाट्यताम्</string>
@@ -92,7 +91,6 @@
   <string name="preferences_general_heading">सामान्यम्</string>
   <string name="wikipedia_app_faq">विकिपीडिया-अनुप्रयोगाय सामान्यजिज्ञासाः</string>
   <string name="zero_charged_verbiage" fuzzy="true">विकिपीडिया-शून्यं निरस्तम् अस्ति ।</string>
-  <string name="zero_search_hint">विकिपीडिया-शून्यम् अन्विष्यताम्</string>
   <string name="zero_warn_when_leaving">विकिपीडिया-शून्यस्य त्यागकाले सूच्यताम्</string>
   <string name="zero_warn_when_leaving_summary">विकिपीडिया-शून्येन सह सहकारितायाः कारणेन विकिपीडिया-अनुप्रयोगं यदि भवतां/भवत्याः दूरभाषयन्त्रप्रचालकेन सूचनाभिगमनस्य (data access) परिवर्तनम् अवगण्यते, तर्हि एषः चिह्नितः अभिविन्यासः तदा भवतां/भवत्याः साहाय्यं करिष्यति, यदा भवान्/भवती विकिपीडिया-अनुप्रयोगं त्यक्ष्यति तथा च परिवर्तनं करिष्यति ।</string>
   <string name="zero_webpage_title">विकिपीडिया-शून्यविषये सामान्यजिज्ञासाः</string>

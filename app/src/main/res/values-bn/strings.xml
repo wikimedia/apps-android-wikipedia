@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">ভাষা পরিবর্তন করুন</string>
   <string name="menu_page_find_in_page">এই পাতায় অনুসন্ধান</string>
   <string name="menu_page_content_issues">বিষয়বস্তুর সমস্যা</string>
-  <string name="menu_page_similar_titles">অনুরূপ শিরোনাম</string>
   <string name="menu_page_font_and_theme">ফন্ট ও থিম</string>
   <string name="menu_page_add_to_list">পড়ার তালিকায় যোগ করুন</string>
   <string name="menu_page_share">লিঙ্ক শেয়ার</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">সাধারণ</string>
   <string name="wikipedia_app_faq">উইকিপিডিয়া অ্যাপ প্রাজিপ্র</string>
   <string name="zero_charged_verbiage" fuzzy="true">উইকিপিডিয়া জিরো নিষ্ক্রিয়</string>
-  <string name="zero_search_hint">উইকিপিডিয়া জিরো অনুসন্ধান</string>
   <string name="zero_warn_when_leaving">উইকিপিডিয়া জিরো প্রস্থানের সময় সতর্ক করো</string>
   <string name="zero_warn_when_leaving_summary">যদি আপনার মোবাইল অপারেটর উইকিপিডিয়া জিরো অংশীদারিত্বের মাধ্যমে উইকিপিডিয়া অ্যাপ্লিকেশনের জন্য তথ্য প্রবেশাধিকার চার্জ গ্রহণ না করে, তাহলে এই সেটিং টিকচিহ্ন দিয়ে রাখলে কখন আপনি উইকিপিডিয়া অ্যাপ্লিকেশন ছেড়ে যাচ্ছেন এবং আপনার থেকে চার্জ গ্রহণ করা হতে পারে তা আপনাকে জানাতে সাহায্য করবে।</string>
   <string name="zero_webpage_title">উইকিপিডিয়া জিরো</string>

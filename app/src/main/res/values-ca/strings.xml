@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">Canvia la llengua</string>
   <string name="menu_page_find_in_page">Cercar en la pàgina</string>
   <string name="menu_page_content_issues">Problemes amb el contingut</string>
-  <string name="menu_page_similar_titles">Títols similars</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
   <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
   <string name="menu_page_share">Comparteix l\'enllaç</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">PMF de l\'app de la Viquipèdia</string>
   <string name="zero_charged_verbiage" fuzzy="true">Viquipèdia Zero està desactivada</string>
-  <string name="zero_search_hint">Cerca a Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving">Avisa\'m si se surt de Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si el vostre operador de telefonia mòbil ha renunciat a cobrar per l\'accés de dades des de l\'aplicació de la Viquipèdia gràcies a un acord amb Viquipèdia Zero, en deixar aquest paràmetre habilitat se us avisarà quan sortiu de l\'aplicació de la Viquipèdia, moment en què us poden tornar a cobrar.</string>
   <string name="zero_webpage_title">Preguntes i respostes sobre Viquipèdia Zero</string>

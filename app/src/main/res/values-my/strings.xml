@@ -20,7 +20,6 @@
   <string name="menu_page_show_tabs">tab များကို ပြရန်</string>
   <string name="menu_page_other_languages">ဘာသာစကား ပြောင်းလဲရန်</string>
   <string name="menu_page_find_in_page">စာမျက်နှာတွင် ရှာဖွေရန်</string>
-  <string name="menu_page_similar_titles">ဆင်တူခေါင်းစဉ်များ</string>
   <string name="menu_page_font_and_theme">ဖောင့်နှင့် အသွင်အပြင်</string>
   <string name="menu_page_share">လင့်ခ်ကို မျှဝေရန်</string>
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
@@ -89,7 +88,6 @@
   <string name="preferences_general_heading">အထွေထွေ</string>
   <string name="wikipedia_app_faq">ဝီကီပီဒီးယား App အမေးအဖြေကဏ္ဍ</string>
   <string name="zero_charged_verbiage" fuzzy="true">အခမဲ့ ဝီကီးပီးဒီးယားကို ပိတ်ပေးပါ။</string>
-  <string name="zero_search_hint">အခမဲ့ ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="zero_warn_when_leaving">အခမဲ့ ဝီကီပီးဒီးယားမှ ထွက်ခဲ့ပါက ပြောကြားရန်</string>
   <string name="zero_warn_when_leaving_summary">သင့်ရဲ့ မိုဘိုင်းဝန်ဆောင်မှုကုမ္ပဏီမှ ဝီကီပီဒီးယား အခမဲ့စေရေး ပူးပေါင်းပါဝင်မှုကြောင့် အင်တာနက် သုံးစွဲခကောက်ခံခြင်း မပြုလျှင် ဒီနေရာမှာ အမှန်ခြစ်ခဲ့ပါက သင် ဝီကီးပီဒီယားအက်ပ်မှ ထွက်သွားတဲ့အချိန်မှာ အင်တာနက် သုံးစွဲခ ဆက်လက် ကောက်ခံနိုင်ကြောင်း သတိပေးခြင်းဖြင့် ကူညီနိုင်ပါသည်။</string>
   <string name="zero_webpage_title">အခမဲ့ ဝီကီးပီးဒီးယားနှင့် ပတ်သက်သော မေးခွန်းများ</string>

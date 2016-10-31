@@ -64,7 +64,6 @@
   <string name="create_account_button">Unda akaunti</string>
   <string name="preferences_general_heading">Kijumla</string>
   <string name="zero_charged_verbiage">Wikipedia Zero imezimwa</string>
-  <string name="zero_search_hint">Tafuta Wikipedia Zero</string>
   <string name="zero_warn_when_leaving">Toa ilana kama natoka Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
   <string name="zero_interstitial_title">Unatoka Wikipedia Zero</string>

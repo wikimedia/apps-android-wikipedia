@@ -53,7 +53,6 @@
   <string name="create_account_next">Дараагийн</string>
   <string name="create_account_button">Бүртгүүлэх</string>
   <string name="preferences_general_heading">Ерөнхий</string>
-  <string name="zero_search_hint">Wikipedia Zero -аас хайх</string>
   <string name="zero_warn_when_leaving">Википедия зерог орхиж байгаа бол анхааруул</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero програм</string>
   <string name="zero_interstitial_title">Wikipedia Zero -аас гарах</string>

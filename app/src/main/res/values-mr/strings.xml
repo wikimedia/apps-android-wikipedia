@@ -22,7 +22,6 @@
   <string name="menu_page_other_languages">भाषा बदला</string>
   <string name="menu_page_find_in_page">पाना मध्ये शोधा</string>
   <string name="menu_page_content_issues">आशयाच्या बाबी</string>
-  <string name="menu_page_similar_titles">सारखी शीर्षके</string>
   <string name="menu_page_font_and_theme">टंक आणि देखावा</string>
   <string name="menu_page_add_to_list">वाचनयादीत जोडा</string>
   <string name="menu_page_share">दुवा वाटप करा</string>
@@ -94,7 +93,6 @@
   <string name="preferences_general_heading">सर्वसामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप नेविप्र(एफएक्यू)</string>
   <string name="zero_charged_verbiage" fuzzy="true">विकीपिडीया झीरो बंद आहे</string>
-  <string name="zero_search_hint">विकीपिडीया झीरो मध्ये शोधा</string>
   <string name="zero_warn_when_leaving">जर विकिपीडिया झिरो सोडत असाल तर इशारा द्या</string>
   <string name="zero_warn_when_leaving_summary">विकिपीडिया झीरो पार्टनरशिपमार्फत जर आपला मोबाईल ऑपरेटर डाटा पोहोच दर झुगारत असेल तर, ही मांडणी चेक्ड् असण्याने आपण विकिपीडिया अॲप कधी सोडत आहात व आपणास चार्जेस लागतील ते आपणास कळू शकते.</string>
   <string name="zero_webpage_title">विकिपीडीया झीरो एफएक्यू</string>
