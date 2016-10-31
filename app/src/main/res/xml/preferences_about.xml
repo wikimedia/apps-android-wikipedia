@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/about_activity_title">
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="about"
+            android:title="@string/about_description">
+            <intent android:action="android.intent.action.VIEW"
+                    android:targetClass="org.wikipedia.settings.AboutActivity"
+                    android:targetPackage="org.wikipedia"
+                    />
+        </org.wikipedia.settings.PreferenceMultiLine>
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:title="@string/wikipedia_app_faq">
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ"
+                    />
+        </org.wikipedia.settings.PreferenceMultiLine>
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:title="@string/privacy_policy_description">
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="@string/privacy_policy_url"
+                    />
+        </org.wikipedia.settings.PreferenceMultiLine>
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:title="@string/terms_of_use_description">
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="@string/terms_of_use_url"
+                    />
+        </org.wikipedia.settings.PreferenceMultiLine>
+    </PreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>

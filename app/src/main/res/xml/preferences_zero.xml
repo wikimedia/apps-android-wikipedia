@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/zero_wikipedia_zero_heading">
+        <SwitchPreferenceCompat
+                android:key="zero_warn_when_leaving"
+                android:title="@string/zero_warn_when_leaving"
+                android:defaultValue="true"
+                android:summary="@string/zero_warn_when_leaving_summary"
+                />
+        <org.wikipedia.settings.PreferenceMultiLine
+                android:title="@string/zero_webpage_title">
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="@string/zero_webpage_url"
+                    />
+        </org.wikipedia.settings.PreferenceMultiLine>
+    </PreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>
