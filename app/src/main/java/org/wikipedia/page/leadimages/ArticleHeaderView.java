@@ -24,6 +24,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -50,12 +51,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
+import static org.wikipedia.util.L10nUtil.isLangRTL;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
 public class ArticleHeaderView extends LinearLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;
     @BindView(R.id.view_article_header_image_gradient) View gradient;
     @BindView(R.id.view_article_header_text) AppTextView text;
+    @BindView(R.id.view_article_header_divider) View divider;
     @BindView(R.id.view_article_header_container) LinearLayout container;
     @BindView(R.id.view_article_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
 
@@ -176,6 +179,13 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     public void setLocale(String locale) {
         text.setLocale(locale);
+        LayoutParams params = (LayoutParams) divider.getLayoutParams();
+        if (isLangRTL(locale)) {
+            params.gravity = Gravity.RIGHT;
+        } else {
+            params.gravity = Gravity.LEFT;
+        }
+        divider.setLayoutParams(params);
     }
 
     public void setTextColor(@ColorInt int color) {

@@ -37,6 +37,7 @@
             tools:text="Title\nSubtitle" />
 
         <View
+            android:id="@+id/view_article_header_divider"
             android:layout_width="53.5dp"
             android:layout_height="1dp"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
