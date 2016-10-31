@@ -104,7 +104,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     private PageToolbarHideHandler toolbarHideHandler;
 
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     @Nullable private PageLoadCallbacks pageLoadCallbacks;
 
     private DialogInterface.OnDismissListener listDialogDismissListener = new DialogInterface.OnDismissListener() {
@@ -137,7 +137,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         updateProgressBar(false, true, 0);
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
-        bottomSheetPresenter = new ExclusiveBottomSheetPresenter(this.getSupportFragmentManager());
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
@@ -402,15 +401,17 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     }
 
     public void showLinkPreview(PageTitle title, int entrySource, @Nullable Location location) {
-        bottomSheetPresenter.show(LinkPreviewDialog.newInstance(title, entrySource, location));
+        bottomSheetPresenter.show(getSupportFragmentManager(),
+                LinkPreviewDialog.newInstance(title, entrySource, location));
     }
 
     private void hideLinkPreview() {
-        bottomSheetPresenter.dismiss();
+        bottomSheetPresenter.dismiss(getSupportFragmentManager());
     }
 
     public void showAddToListDialog(PageTitle title, AddToReadingListDialog.InvokeSource source) {
-        FeedbackUtil.showAddToListDialog(title, source, bottomSheetPresenter, listDialogDismissListener);
+        bottomSheetPresenter.show(getSupportFragmentManager(),
+                AddToReadingListDialog.newInstance(title, source, listDialogDismissListener));
     }
 
     @Override
@@ -446,17 +447,17 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onPageShowBottomSheet(@NonNull BottomSheetDialog dialog) {
-        bottomSheetPresenter.show(dialog);
+        bottomSheetPresenter.show(getSupportFragmentManager(), dialog);
     }
 
     @Override
     public void onPageShowBottomSheet(@NonNull BottomSheetDialogFragment dialog) {
-        bottomSheetPresenter.show(dialog);
+        bottomSheetPresenter.show(getSupportFragmentManager(), dialog);
     }
 
     @Override
     public void onPageDismissBottomSheet() {
-        bottomSheetPresenter.dismiss();
+        bottomSheetPresenter.dismiss(getSupportFragmentManager());
     }
 
     @Nullable
@@ -498,7 +499,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
 
     @Override
     public void onPageShowThemeChooser() {
-        bottomSheetPresenter.show(new ThemeChooserDialog());
+        bottomSheetPresenter.show(getSupportFragmentManager(), new ThemeChooserDialog());
     }
 
     @Nullable

@@ -26,7 +26,6 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
@@ -53,7 +52,7 @@ public class NewsFragment extends Fragment {
     @BindView(R.id.view_news_fullscreen_link_card_list) RecyclerView links;
     @BindView(R.id.view_news_fullscreen_toolbar) Toolbar toolbar;
 
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private Unbinder unbinder;
 
     @NonNull
@@ -72,7 +71,6 @@ public class NewsFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         unbinder = ButterKnife.bind(this, view);
-        bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getFragmentManager());
 
         ViewUtil.setTopPaddingDp(toolbar, (int) DimenUtil.getTranslucentStatusBarHeight(getContext()));
         ViewUtil.setBackgroundDrawable(toolbar, GradientUtil.getCubicGradient(
@@ -139,8 +137,9 @@ public class NewsFragment extends Fragment {
 
         @Override
         public void onAddPageToList(@NonNull HistoryEntry entry) {
-            FeedbackUtil.showAddToListDialog(entry.getTitle(),
-                    AddToReadingListDialog.InvokeSource.NEWS_ACTIVITY, bottomSheetPresenter, null);
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    AddToReadingListDialog.newInstance(entry.getTitle(),
+                            AddToReadingListDialog.InvokeSource.NEWS_ACTIVITY));
         }
 
         @Override

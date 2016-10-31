@@ -72,7 +72,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -101,8 +101,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
         tabLayout.setupWithViewPager(viewPager);
-
-        bottomSheetPresenter = new ExclusiveBottomSheetPresenter(getChildFragmentManager());
 
         if (savedInstanceState == null) {
             handleIntent(getActivity().getIntent());
@@ -215,8 +213,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
-        FeedbackUtil.showAddToListDialog(entry.getTitle(), AddToReadingListDialog.InvokeSource.FEED,
-                bottomSheetPresenter, null);
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                AddToReadingListDialog.newInstance(entry.getTitle(),
+                        AddToReadingListDialog.InvokeSource.FEED));
     }
 
     @Override public void onFeedSharePage(HistoryEntry entry) {
@@ -296,8 +295,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
 
     @Override
-    public void onSearchResultAddToList(@NonNull PageTitle title, @NonNull AddToReadingListDialog.InvokeSource source) {
-        FeedbackUtil.showAddToListDialog(title, source, bottomSheetPresenter, null);
+    public void onSearchResultAddToList(@NonNull PageTitle title,
+                                        @NonNull AddToReadingListDialog.InvokeSource source) {
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                AddToReadingListDialog.newInstance(title, source));
     }
 
     @Override
@@ -348,7 +349,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onLinkPreviewAddToList(@NonNull PageTitle title) {
-        FeedbackUtil.showAddToListDialog(title, AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU, bottomSheetPresenter, null);
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                AddToReadingListDialog.newInstance(title,
+                        AddToReadingListDialog.InvokeSource.LINK_PREVIEW_MENU));
     }
 
     @Override
@@ -391,7 +394,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void showLinkPreview(PageTitle title, int entrySource, @Nullable Location location) {
-        bottomSheetPresenter.show(LinkPreviewDialog.newInstance(title, entrySource, location));
+        bottomSheetPresenter.show(getChildFragmentManager(), LinkPreviewDialog.newInstance(title, entrySource, location));
     }
 
     private void copyLink(@NonNull String url) {
