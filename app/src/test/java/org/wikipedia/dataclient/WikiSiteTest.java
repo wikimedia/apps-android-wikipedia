@@ -18,7 +18,6 @@ import static org.hamcrest.Matchers.not;
     }
 
     @Test public void testNormalization() {
-        assertThat(WikiSite.forLanguageCode("en"), is(new WikiSite("en.m.wikipedia.org")));
         assertThat("bm.wikipedia.org", is(WikiSite.forLanguageCode("bm").authority()));
     }
 
