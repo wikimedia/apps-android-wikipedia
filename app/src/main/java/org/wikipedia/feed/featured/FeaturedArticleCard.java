@@ -8,20 +8,20 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.server.restbase.RbPageSummary;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.StringUtil;
 
 public class FeaturedArticleCard extends Card {
     @NonNull private UtcDate date;
     @NonNull private WikiSite wiki;
-    @NonNull private CardPageItem page;
+    @NonNull private RbPageSummary page;
 
-    public FeaturedArticleCard(@NonNull CardPageItem page, @NonNull UtcDate date, @NonNull WikiSite wiki) {
+    public FeaturedArticleCard(@NonNull RbPageSummary page, @NonNull UtcDate date, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
         this.date = date;
@@ -46,25 +46,26 @@ public class FeaturedArticleCard extends Card {
 
     @NonNull
     public String articleTitle() {
-        return page.normalizedTitle();
+        return page.getTitle();
     }
 
     @Nullable
     public String articleSubtitle() {
-        return page.description() != null
-                ? StringUtil.capitalizeFirstChar(page.description()) : null;
+        return page.getDescription() != null
+                ? StringUtil.capitalizeFirstChar(page.getDescription()) : null;
     }
 
     @Override
     @Nullable
     public Uri image() {
-        return page.thumbnail();
+        String thumbUrl = page.getThumbnailUrl();
+        return thumbUrl != null ? Uri.parse(thumbUrl) : null;
     }
 
     @Nullable
     @Override
     public String extract() {
-        return page.extract();
+        return page.getExtract();
     }
 
     @NonNull @Override public CardType type() {
@@ -83,6 +84,6 @@ public class FeaturedArticleCard extends Card {
 
     @Override
     protected int dismissHashCode() {
-        return page.title().hashCode();
+        return page.getTitle().hashCode();
     }
 }

@@ -5,35 +5,35 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.feed.image.FeaturedImage;
-import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.mostread.MostReadArticles;
 import org.wikipedia.feed.news.NewsItem;
+import org.wikipedia.server.restbase.RbPageSummary;
 
 import java.util.List;
 
-public class AggregatedFeedContent {
-    @SuppressWarnings("unused") @Nullable private CardPageItem tfa;
+class AggregatedFeedContent {
+    @SuppressWarnings("unused") @Nullable private RbPageSummary tfa;
     @SuppressWarnings("unused") @Nullable private List<NewsItem> news;
     @SuppressWarnings("unused") @SerializedName("mostread") @Nullable private MostReadArticles mostRead;
     @SuppressWarnings("unused") @Nullable private FeaturedImage image;
 
     @Nullable
-    public CardPageItem tfa() {
+    RbPageSummary tfa() {
         return tfa;
     }
 
     @Nullable
-    public List<NewsItem> news() {
+    List<NewsItem> news() {
         return news;
     }
 
     @Nullable
-    public MostReadArticles mostRead() {
+    MostReadArticles mostRead() {
         return mostRead;
     }
 
     @Nullable
-    public FeaturedImage potd() {
+    FeaturedImage potd() {
         return image;
     }
 }

@@ -9,9 +9,9 @@ import android.text.style.StyleSpan;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.richtext.RichTextUtil;
+import org.wikipedia.server.restbase.RbPageSummary;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -51,7 +51,7 @@ public class NewsItemCard extends Card {
         return removeImageCaption(StringUtil.fromHtml(newsItem.story()));
     }
 
-    public List<CardPageItem> links() {
+    public List<RbPageSummary> links() {
         return newsItem.links();
     }
 
