@@ -1,12 +1,10 @@
 package org.wikipedia.page;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 
@@ -17,20 +15,19 @@ import org.wikipedia.util.GradientUtil;
 public class PageToolbarHideHandler extends ViewHideHandler {
     private static final int FULL_OPACITY = 255;
 
-    @NonNull private final Context context;
     private boolean fadeEnabled;
     private boolean forceNoFade;
     @NonNull private final Drawable toolbarBackground;
     private Drawable toolbarGradient;
     @NonNull private final Drawable statusBar;
 
-    public PageToolbarHideHandler(@NonNull Context context, @NonNull View hideableView) {
+    public PageToolbarHideHandler(@NonNull View hideableView) {
         super(hideableView, Gravity.TOP);
-        this.context = context;
 
         LayerDrawable toolbarBackgroundLayers = (LayerDrawable) hideableView.getBackground();
         toolbarBackground = toolbarBackgroundLayers.findDrawableByLayerId(R.id.toolbar_background_solid).mutate();
-        initToolbarGradient(toolbarBackgroundLayers);
+        initToolbarGradient(toolbarBackgroundLayers,
+                ContextCompat.getColor(hideableView.getContext(), R.color.lead_gradient_start));
 
         statusBar = hideableView.findViewById(R.id.empty_status_bar).getBackground().mutate();
     }
@@ -63,8 +60,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         statusBar.setAlpha(opacity);
     }
 
-    private void initToolbarGradient(LayerDrawable toolbarBackgroundLayers) {
-        @ColorInt int baseColor = getColor(R.color.lead_gradient_start);
+    private void initToolbarGradient(LayerDrawable toolbarBackgroundLayers, @ColorInt int baseColor) {
         toolbarGradient = GradientUtil.getCubicGradient(baseColor, Gravity.TOP);
         toolbarBackgroundLayers.setDrawableByLayerId(R.id.toolbar_background_gradient, toolbarGradient);
     }
@@ -79,13 +75,5 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         opacity = Math.max(0, opacity);
         opacity = Math.min(FULL_OPACITY, opacity);
         return opacity;
-    }
-
-    @ColorInt private int getColor(@ColorRes int id) {
-        return getResources().getColor(id);
-    }
-
-    @NonNull private Resources getResources() {
-        return context.getResources();
     }
 }
