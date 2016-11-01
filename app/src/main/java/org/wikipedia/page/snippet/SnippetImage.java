@@ -11,6 +11,9 @@ import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.text.Layout;
 import android.text.Spanned;
 import android.text.StaticLayout;
@@ -46,52 +49,38 @@ public final class SnippetImage {
     private static final Typeface SERIF = Typeface.create("serif", Typeface.NORMAL);
     private static final int QUARTER = 4;
 
-    private final Context context;
-    private final Bitmap leadImageBitmap;
-    private final String title;
-    private final String description;
-    private final CharSequence textSnippet;
-    private boolean isArticleRTL;
-    private ImageLicense license;
-
-    public SnippetImage(Context context, Bitmap leadImageBitmap, String title, String description,
-                        CharSequence textSnippet, ImageLicense license) {
-        this.context = context;
-        this.leadImageBitmap = leadImageBitmap;
-        this.title = title;
-        this.description = description;
-        this.textSnippet = textSnippet;
-        this.license = license;
-    }
-
     /**
      * Creates a card image usable for sharing and the preview of the same.
      * If we have a leadImageBitmap the use that as the background. If not then
      * just use a black background.
      */
-    public Bitmap drawBitmap() {
-        Bitmap resultBitmap = drawBackground(leadImageBitmap);
+    public static Bitmap getSnippetImage(@NonNull Context context, @Nullable Bitmap leadImageBitmap,
+                                         @NonNull String title, @Nullable String description,
+                                         @NonNull CharSequence textSnippet,
+                                         @NonNull ImageLicense license) {
+        Bitmap resultBitmap = drawBackground(leadImageBitmap, license);
         Canvas canvas = new Canvas(resultBitmap);
         if (leadImageBitmap != null) {
             drawGradient(canvas);
         }
 
         Layout textLayout = drawTextSnippet(canvas, textSnippet);
-        isArticleRTL = textLayout.getParagraphDirection(0) == Layout.DIR_RIGHT_TO_LEFT;
+        boolean isArticleRTL = textLayout.getParagraphDirection(0) == Layout.DIR_RIGHT_TO_LEFT;
 
-        drawLicenseIcons(license, canvas, context);
-        int top = drawDescription(canvas, description, HEIGHT - BOTTOM_PADDING - ICONS_HEIGHT);
-        drawTitle(canvas, title, top);
+        drawLicenseIcons(context, leadImageBitmap, license, canvas, isArticleRTL);
+        int top = drawDescription(canvas, description, HEIGHT - BOTTOM_PADDING - ICONS_HEIGHT, isArticleRTL);
+        drawTitle(canvas, title, top, isArticleRTL);
         if (L10nUtil.canLangUseImageForWikipediaWordmark(context)) {
-            drawWordmarkFromStaticImage(canvas, context);
+            drawWordmarkFromStaticImage(context, canvas, isArticleRTL);
         } else {
-            drawWordmarkFromText(canvas, context);
+            drawWordmarkFromText(context, canvas, isArticleRTL);
         }
 
         return resultBitmap;
     }
 
-    private Bitmap drawBackground(Bitmap leadImageBitmap) {
+    @NonNull private static Bitmap drawBackground(@Nullable Bitmap leadImageBitmap,
+                                                  @NonNull ImageLicense license) {
         Bitmap resultBitmap;
         if (leadImageBitmap != null && license.hasLicenseInfo()) {
             // use lead image
@@ -104,7 +93,7 @@ public final class SnippetImage {
         return resultBitmap;
     }
 
-    private void drawGradient(Canvas canvas) {
+    private static void drawGradient(@NonNull Canvas canvas) {
         // draw a dark gradient over the image, so that the white text
         // will stand out better against it.
         final int gradientStartColor = 0x60000000;
@@ -116,7 +105,8 @@ public final class SnippetImage {
         canvas.drawRect(new Rect(0, 0, canvas.getWidth(), canvas.getHeight()), paint);
     }
 
-    private Layout drawTextSnippet(Canvas canvas, CharSequence textSnippet) {
+    @NonNull private static Layout drawTextSnippet(@NonNull Canvas canvas,
+                                                   @NonNull CharSequence textSnippet) {
         final int top = TOP_PADDING;
         final int maxHeight = 225;
         final int maxLines = 5;
@@ -144,7 +134,8 @@ public final class SnippetImage {
         return textLayout;
     }
 
-    private int drawDescription(Canvas canvas, String description, int top) {
+    private static int drawDescription(@NonNull Canvas canvas, @Nullable String description,
+                                       int top, boolean isArticleRTL) {
         final int marginBottom = 5;
         final int maxHeight = 23;
         final int maxLines = 2;
@@ -178,7 +169,8 @@ public final class SnippetImage {
         return top;
     }
 
-    private void drawTitle(Canvas canvas, String title, int top) {
+    private static void drawTitle(@NonNull Canvas canvas, @NonNull String title, int top,
+                                  boolean isArticleRTL) {
         final int marginBottom = 0;
         final int maxHeight = 70;
         final int maxLines = 2;
@@ -215,7 +207,9 @@ public final class SnippetImage {
         canvas.restore();
     }
 
-    public void drawLicenseIcons(ImageLicense license, Canvas canvas, Context context) {
+    private static void drawLicenseIcons(@NonNull Context context, @Nullable Bitmap leadImageBitmap,
+                                         @NonNull ImageLicense license, @NonNull Canvas canvas,
+                                         boolean isArticleRTL) {
         final int bottom = SnippetImage.HEIGHT - SnippetImage.BOTTOM_PADDING;
         final int top = bottom - SnippetImage.ICONS_HEIGHT;
         int left = SnippetImage.HORIZONTAL_PADDING;
@@ -226,7 +220,9 @@ public final class SnippetImage {
             left = right - SnippetImage.ICONS_WIDTH;
         }
 
-        Drawable d = context.getResources().getDrawable(shouldDefaultToCCLicense() ? R.drawable.ic_license_cc : license.getLicenseIcon());
+        Drawable d = ContextCompat.getDrawable(context,
+                shouldDefaultToCCLicense(leadImageBitmap, license)
+                        ? R.drawable.ic_license_cc : license.getLicenseIcon());
         d.setBounds(left, top, right, bottom);
         d.draw(canvas);
     }
@@ -235,18 +231,20 @@ public final class SnippetImage {
      * Default to showing Creative Commons license icon for card as a whole if lead image is not present
      * or will not be used due to a lack of licensing data.
      */
-    private boolean shouldDefaultToCCLicense() {
+    private static boolean shouldDefaultToCCLicense(@Nullable Bitmap leadImageBitmap,
+                                             @NonNull ImageLicense license) {
         return leadImageBitmap == null || !license.hasLicenseInfo();
     }
 
-    private void drawWordmarkFromStaticImage(Canvas canvas, Context context) {
+    private static void drawWordmarkFromStaticImage(@NonNull Context context,
+                                                    @NonNull Canvas canvas, boolean isArticleRTL) {
         // scaling it a bit down from original 317x54px size
         final int width = 130;
         final int height = 22;
         final int bottom = HEIGHT - BOTTOM_PADDING;
         final int top = bottom - height;
 
-        Drawable d = context.getResources().getDrawable(R.drawable.wp_wordmark);
+        Drawable d = ContextCompat.getDrawable(context, R.drawable.wp_wordmark);
         DrawableUtil.setTint(d, Color.LTGRAY);
 
         int left = WIDTH - HORIZONTAL_PADDING - width;
@@ -259,7 +257,8 @@ public final class SnippetImage {
         d.draw(canvas);
     }
 
-    private void drawWordmarkFromText(Canvas canvas, Context context) {
+    private static void drawWordmarkFromText(@NonNull Context context, @NonNull Canvas canvas,
+                                      boolean isArticleRTL) {
         final int maxWidth = WIDTH - DESCRIPTION_WIDTH - 2 * HORIZONTAL_PADDING;
         final float fontSize = 20.0f;
         final float scaleX = 1.06f;
@@ -296,7 +295,7 @@ public final class SnippetImage {
      * If the title or text is too long we first reduce the font size.
      * If that is not enough it gets ellipsized.
      */
-    private StaticLayout optimizeTextSize(TextLayoutParams params, int maxHeight, int maxLines,
+    private static StaticLayout optimizeTextSize(TextLayoutParams params, int maxHeight, int maxLines,
                                           float maxFontSize, float minFontSize) {
         final float threshold1 = 60.0f;
         final float threshold2 = 40.0f;
@@ -352,7 +351,7 @@ public final class SnippetImage {
         return textLayout;
     }
 
-    private StaticLayout buildLayout(TextLayoutParams params) {
+    private static StaticLayout buildLayout(TextLayoutParams params) {
         return new StaticLayout(
                 params.text,
                 params.textPaint,
@@ -365,7 +364,8 @@ public final class SnippetImage {
 
     // Borrowed from http://stackoverflow.com/questions/5226922/crop-to-fit-image-in-android
     // Modified to allow for face detection adjustment, startY
-    private Bitmap scaleCropToFit(Bitmap original, int targetWidth, int targetHeight) {
+    @NonNull private static Bitmap scaleCropToFit(@NonNull Bitmap original, int targetWidth,
+                                                  int targetHeight) {
         // Need to scale the image, keeping the aspect ratio first
         int width = original.getWidth();
         int height = original.getHeight();
@@ -431,5 +431,8 @@ public final class SnippetImage {
                                  float spacingMultiplier) {
             this(text, textPaint, lineWidth, spacingMultiplier, ALIGN_NORMAL);
         }
+    }
+
+    private SnippetImage() {
     }
 }

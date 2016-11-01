@@ -9,7 +9,6 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.IntegerRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,7 +50,6 @@ import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
  * Let user choose between sharing as text or as image.
  */
 public class ShareHandler {
-    public static final String TAG = "ShareHandler";
     private static final String PAYLOAD_PURPOSE_KEY = "purpose";
     private static final String PAYLOAD_PURPOSE_SHARE = "share";
     private static final String PAYLOAD_PURPOSE_DEFINE = "define";
@@ -104,7 +102,7 @@ public class ShareHandler {
         fragment.showBottomSheet(WiktionaryDialog.newInstance(title, text));
     }
 
-    private void onSharePayload(String text) {
+    private void onSharePayload(@NonNull String text) {
         if (funnel == null) {
             createFunnel();
         }
@@ -124,8 +122,7 @@ public class ShareHandler {
         FeedbackUtil.showMessage(fragment.getActivity(), R.string.text_copied);
     }
 
-    /** Call #setFunnel before #shareSnippet. */
-    private void shareSnippet(CharSequence input) {
+    private void shareSnippet(@NonNull CharSequence input) {
         final String selectedText = StringUtil.sanitizeText(input.toString());
         final PageTitle title = fragment.getTitle();
 
@@ -137,21 +134,19 @@ public class ShareHandler {
             public void onFinish(@NonNull Map<PageTitle, ImageLicense> result) {
                 ImageLicense leadImageLicense = (ImageLicense) result.values().toArray()[0];
 
-                final SnippetImage snippetImage = new SnippetImage(fragment.getContext(),
+                final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.getContext(),
                         fragment.getLeadImageBitmap(),
                         title.getDisplayText(),
                         fragment.getPage().isMainPage() ? "" : title.getDescription(),
                         selectedText,
                         leadImageLicense);
 
-                final Bitmap snippetBitmap = snippetImage.drawBitmap();
-
                 fragment.showBottomSheet(new PreviewDialog(fragment, snippetBitmap, title, selectedText, funnel));
             }
 
             @Override
             public void onCatch(Throwable caught) {
-                Log.d(TAG, "Error fetching image license info for " + title.getDisplayText() + ": " + caught.getMessage(), caught);
+                L.d("Error fetching image license info for " + title.getDisplayText() + ": " + caught.getMessage(), caught);
             }
         }).execute();
     }
