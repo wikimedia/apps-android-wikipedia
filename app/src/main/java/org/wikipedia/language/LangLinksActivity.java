@@ -271,9 +271,6 @@ public class LangLinksActivity extends ThemedActionBarActivity {
             PageTitle item = getItem(position);
             String languageCode = item.getWikiSite().languageCode();
             String localizedLanguageName = app.getAppLanguageLocalizedName(languageCode);
-            if (localizedLanguageName == null && languageCode.equals(Locale.CHINA.getLanguage())) {
-                localizedLanguageName = Locale.CHINA.getDisplayName(Locale.CHINA);
-            }
 
             TextView localizedLanguageNameTextView = (TextView) convertView.findViewById(R.id.localized_language_name);
             TextView articleTitleTextView = (TextView) convertView.findViewById(R.id.language_subtitle);

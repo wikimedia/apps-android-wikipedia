@@ -5,18 +5,22 @@ import android.content.res.Resources;
 import android.support.annotation.ArrayRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import org.wikipedia.R;
 
 import java.lang.ref.SoftReference;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 /** Immutable look up table for all app supported languages. All article languages may not be
   * present in this table as it is statically bundled with the app. */
 public class AppLanguageLookUpTable {
     public static final String SIMPLIFIED_CHINESE_LANGUAGE_CODE = "zh-hans";
     public static final String TRADITIONAL_CHINESE_LANGUAGE_CODE = "zh-hant";
+    public static final String NORWEGIAN_LEGACY_LANGUAGE_CODE = "no";
+    public static final String NORWEGIAN_BOKMAL_LANGUAGE_CODE = "nb";
     public static final String FALLBACK_LANGUAGE_CODE = "en"; // Must exist in preference_language_keys.
 
     @NonNull private final Resources resources;
@@ -51,12 +55,28 @@ public class AppLanguageLookUpTable {
 
     @Nullable
     public String getCanonicalName(@Nullable String code) {
-        return defaultIndex(getCanonicalNames(), indexOfCode(code), null);
+        String name = defaultIndex(getCanonicalNames(), indexOfCode(code), null);
+        if (TextUtils.isEmpty(name) && !TextUtils.isEmpty(code)) {
+            if (code.equals(Locale.CHINA.getLanguage())) {
+                name = Locale.CHINA.getDisplayName(Locale.ENGLISH);
+            } else if (code.equals(NORWEGIAN_LEGACY_LANGUAGE_CODE)) {
+                name = defaultIndex(getCanonicalNames(), indexOfCode(NORWEGIAN_BOKMAL_LANGUAGE_CODE), null);
+            }
+        }
+        return name;
     }
 
     @Nullable
     public String getLocalizedName(@Nullable String code) {
-        return defaultIndex(getLocalizedNames(), indexOfCode(code), null);
+        String name = defaultIndex(getLocalizedNames(), indexOfCode(code), null);
+        if (TextUtils.isEmpty(name) && !TextUtils.isEmpty(code)) {
+            if (code.equals(Locale.CHINA.getLanguage())) {
+                name = Locale.CHINA.getDisplayName(Locale.CHINA);
+            } else if (code.equals(NORWEGIAN_LEGACY_LANGUAGE_CODE)) {
+                name = defaultIndex(getLocalizedNames(), indexOfCode(NORWEGIAN_BOKMAL_LANGUAGE_CODE), null);
+            }
+        }
+        return name;
     }
 
     private List<String> getCanonicalNames() {
