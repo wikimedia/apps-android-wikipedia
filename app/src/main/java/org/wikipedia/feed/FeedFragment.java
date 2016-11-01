@@ -83,7 +83,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = WikipediaApp.getInstance();
-        coordinator = new FeedCoordinator(getContext());
+        coordinator = new FeedCoordinator(app);
         coordinator.more(app.getWikiSite());
         funnel = new FeedFunnel(app);
     }
