@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 import org.json.JSONException;
@@ -57,7 +58,9 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
         Log.d("Wikipedia", "Link clicked was " + href);
         if (href.startsWith("/wiki/")) {
-            PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
+            PageTitle title = TextUtils.isEmpty(titleString)
+                    ? getWikiSite().titleForInternalLink(href)
+                    : PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
             onInternalLinkClicked(title);
         } else if (href.startsWith("#")) {
             onPageLinkClicked(href.substring(1));

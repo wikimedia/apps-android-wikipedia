@@ -1055,7 +1055,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                                 GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
                                 Constants.ACTIVITY_REQUEST_GALLERY);
                     } else {
-                        linkHandler.onUrlClick(href, messagePayload.getString("title"));
+                        linkHandler.onUrlClick(href, messagePayload.optString("title"));
                     }
                 } catch (JSONException e) {
                     L.logRemoteErrorIfProd(e);
