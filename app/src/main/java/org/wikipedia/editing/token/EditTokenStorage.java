@@ -1,6 +1,5 @@
 package org.wikipedia.editing.token;
 
-import android.content.Context;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,15 +18,13 @@ public class EditTokenStorage {
     private static final String DELIMITER = ";";
 
     private final Map<String, String> tokenJar = new HashMap<>();
-    private final Context context;
 
     public interface TokenRetrievedCallback {
         void onTokenRetrieved(String token);
         void onTokenFailed(Throwable caught);
     }
 
-    public EditTokenStorage(Context context) {
-        this.context = context;
+    public EditTokenStorage() {
         List<String> wikis = makeList(Prefs.getEditTokenWikis());
         for (String wiki : wikis) {
             tokenJar.put(wiki, Prefs.getEditTokenForWiki(wiki));

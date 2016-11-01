@@ -19,7 +19,6 @@ import org.wikipedia.R;
 import org.wikipedia.views.ViewUtil;
 
 public class GalleryThumbnailScrollView extends RecyclerView {
-    @NonNull private final Context mContext;
     @NonNull private final Animation mPressAnimation;
     @NonNull private final Animation mReleaseAnimation;
     @Nullable private GalleryViewListener mListener;
@@ -34,7 +33,6 @@ public class GalleryThumbnailScrollView extends RecyclerView {
 
     public GalleryThumbnailScrollView(@NonNull Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        this.mContext = context;
         setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
 
         mPressAnimation = AnimationUtils.loadAnimation(context, R.anim.thumbnail_item_press);
@@ -107,7 +105,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
 
         @Override
         public GalleryItemHolder onCreateViewHolder(ViewGroup parent, int pos) {
-            View view = LayoutInflater.from(mContext)
+            View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_gallery_thumbnail, parent, false);
             return new GalleryItemHolder(view);
         }
