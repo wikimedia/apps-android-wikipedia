@@ -263,8 +263,19 @@ public class EditPreviewFragment extends Fragment {
             bridge.addListener("imageClicked", new CommunicationBridge.JSEventListener() {
                 @Override
                 public void onMessage(String messageType, JSONObject messagePayload) {
-                    // just give it a stub message handler
-                    // (images will not be clickable in Preview)
+                    // TODO: do something when an image is clicked in Preview.
+                }
+            });
+            bridge.addListener("mediaClicked", new CommunicationBridge.JSEventListener() {
+                @Override
+                public void onMessage(String messageType, JSONObject messagePayload) {
+                    // TODO: do something when a video is clicked in Preview.
+                }
+            });
+            bridge.addListener("referenceClicked", new CommunicationBridge.JSEventListener() {
+                @Override
+                public void onMessage(String messageType, JSONObject messagePayload) {
+                    // TODO: do something when a reference is clicked in Preview.
                 }
             });
         }
