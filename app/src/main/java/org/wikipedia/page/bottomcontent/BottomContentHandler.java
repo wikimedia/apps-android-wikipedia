@@ -103,8 +103,8 @@ public class BottomContentHandler implements BottomContentInterface,
             ListViewContextMenuListener contextMenuListener
                     = new LongPressHandler(parentFragment.callback());
 
-            new org.wikipedia.LongPressHandler(parentFragment.getActivity(), readMoreList,
-                    HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
+            new org.wikipedia.LongPressHandler(readMoreList, HistoryEntry.SOURCE_INTERNAL_LINK,
+                    contextMenuListener);
         }
 
         // set up pass-through scroll functionality for the ListView
