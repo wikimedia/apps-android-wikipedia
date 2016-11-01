@@ -1,6 +1,5 @@
 package org.wikipedia;
 
-import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.view.ContextMenu;
@@ -21,18 +20,15 @@ import static org.wikipedia.util.UriUtil.isValidPageLink;
 
 public class LongPressHandler implements View.OnCreateContextMenuListener,
         MenuItem.OnMenuItemClickListener {
-    private final Context context;
     private final ContextMenuListener contextMenuListener;
     private final int historySource;
 
     private PageTitle title;
     private HistoryEntry entry;
 
-    public LongPressHandler(@NonNull Context context,
-                            @NonNull View view,
+    public LongPressHandler(@NonNull View view,
                             int historySource,
                             @NonNull ContextMenuListener listener) {
-        this.context = context;
         this.historySource = historySource;
         this.contextMenuListener = listener;
         view.setOnCreateContextMenuListener(this);
@@ -60,7 +56,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         if (title != null && !title.isSpecial()) {
             hideSoftKeyboard(view);
             entry = new HistoryEntry(title, historySource);
-            new MenuInflater(context).inflate(R.menu.menu_page_long_press, menu);
+            new MenuInflater(view.getContext()).inflate(R.menu.menu_page_long_press, menu);
             menu.setHeaderTitle(title.getDisplayText());
             for (int i = 0; i < menu.size(); i++) {
                 menu.getItem(i).setOnMenuItemClickListener(this);

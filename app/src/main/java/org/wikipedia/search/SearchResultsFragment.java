@@ -146,8 +146,7 @@ public class SearchResultsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         LongPressHandler.ListViewContextMenuListener contextMenuListener
                 = new SearchResultsFragmentLongPressHandler(this);
-        new LongPressHandler(getContext(), searchResultsList,
-                HistoryEntry.SOURCE_SEARCH, contextMenuListener);
+        new LongPressHandler(searchResultsList, HistoryEntry.SOURCE_SEARCH, contextMenuListener);
     }
 
     @Override

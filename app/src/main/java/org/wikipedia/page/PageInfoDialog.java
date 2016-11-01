@@ -63,8 +63,8 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         if (fragment.callback() != null) {
             ListViewContextMenuListener contextMenuListener
                     = new LongPressHandler(fragment.callback());
-            new org.wikipedia.LongPressHandler(getContext(), disambigList,
-                    HistoryEntry.SOURCE_DISAMBIG, contextMenuListener);
+            new org.wikipedia.LongPressHandler(disambigList, HistoryEntry.SOURCE_DISAMBIG,
+                    contextMenuListener);
         }
 
         if (pageInfo.getSimilarTitles().length > 0) {

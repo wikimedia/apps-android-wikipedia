@@ -387,8 +387,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (callback() != null) {
             LongPressHandler.WebViewContextMenuListener contextMenuListener
                     = new PageFragmentLongPressHandler(callback());
-            new LongPressHandler(getActivity(), webView, HistoryEntry.SOURCE_INTERNAL_LINK,
-                    contextMenuListener);
+            new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, contextMenuListener);
         }
 
         pageDataClient.setUp(model, this, refreshView, webView, bridge, toolbarHideHandler,
