@@ -143,7 +143,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toolbarHideHandler = new PageToolbarHideHandler(this, toolbarContainerView);
+        toolbarHideHandler = new PageToolbarHideHandler(toolbarContainerView);
 
         boolean languageChanged = false;
         if (savedInstanceState != null) {
