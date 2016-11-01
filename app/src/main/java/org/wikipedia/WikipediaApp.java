@@ -176,7 +176,7 @@ public class WikipediaApp extends Application {
         appLanguageState = new AppLanguageState(this);
         funnelManager = new FunnelManager(this);
         sessionFunnel = new SessionFunnel(this);
-        editTokenStorage = new EditTokenStorage(this);
+        editTokenStorage = new EditTokenStorage();
         database = new Database(this);
 
         enableWebViewDebugging();
