@@ -71,7 +71,7 @@ public class PageTitle implements Parcelable {
      * @param wiki the wiki site the page belongs to
      * @return a new PageTitle object matching the given input parameters
      */
-    public static PageTitle withSeparateFragment(@Nullable String prefixedText,
+    public static PageTitle withSeparateFragment(@NonNull String prefixedText,
                                                  @Nullable String fragment, @NonNull WikiSite wiki) {
         if (TextUtils.isEmpty(fragment)) {
             return new PageTitle(prefixedText, wiki, null, (PageProperties) null);

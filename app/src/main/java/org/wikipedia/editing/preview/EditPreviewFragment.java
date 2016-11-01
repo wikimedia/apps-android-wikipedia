@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -198,7 +199,9 @@ public class EditPreviewFragment extends Fragment {
                 public void onUrlClick(@NonNull final String href, @Nullable final String titleString) {
                     // Check if this is an internal link, and if it is then open it internally
                     if (href.startsWith("/wiki/")) {
-                        PageTitle title = PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
+                        PageTitle title = TextUtils.isEmpty(titleString)
+                                ? getWikiSite().titleForInternalLink(href)
+                                : PageTitle.withSeparateFragment(titleString, UriUtil.getFragment(href), getWikiSite());
                         onInternalLinkClicked(title);
                     } else {
                         //Show dialogue asking user to confirm they want to leave
