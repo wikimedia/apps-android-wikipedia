@@ -1,6 +1,7 @@
 package org.wikipedia.page;
 
-import android.app.Activity;
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,19 +18,12 @@ import org.wikipedia.util.StringUtil;
 class IssuesListAdapter extends ArrayAdapter<String> {
     private static final String SEPARATOR = "<small><i>(";
     private static final String SEPARATOR_END = ")</i></small>";
-    private final Activity activity;
     private final String[] items;
 
     private ViewHolder holder;
 
-    /**
-     * Constructor
-     * @param activity The current activity.
-     * @param items The objects to represent in the ListView.
-     */
-    IssuesListAdapter(Activity activity, String[] items) {
-        super(activity, 0, items);
-        this.activity = activity;
+    IssuesListAdapter(@NonNull Context context, @NonNull String[] items) {
+        super(context, 0, items);
         this.items = items;
     }
 
@@ -44,9 +38,8 @@ class IssuesListAdapter extends ArrayAdapter<String> {
         return false; // don't make it appear clickable
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = activity.getLayoutInflater();
+    @Override @NonNull public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_issue, null);
             holder = new ViewHolder();

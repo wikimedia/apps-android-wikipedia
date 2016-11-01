@@ -1,6 +1,6 @@
 package org.wikipedia.page;
 
-import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.util.LruCache;
 import android.view.LayoutInflater;
@@ -31,19 +31,12 @@ import java.util.Map;
 class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
     private static final int MAX_CACHE_SIZE_IMAGES = 24;
     @NonNull private final LruCache<String, String> pageImagesCache = new LruCache<>(MAX_CACHE_SIZE_IMAGES);
-    private final Activity activity;
     private final DisambigResult[] items;
     private final WikipediaApp app;
     private final WikiSite wiki;
 
-    /**
-     * Constructor
-     * @param activity The current activity.
-     * @param items The objects to represent in the ListView.
-     */
-    DisambigListAdapter(Activity activity, DisambigResult[] items) {
-        super(activity, 0, items);
-        this.activity = activity;
+    DisambigListAdapter(@NonNull Context context, @NonNull DisambigResult[] items) {
+        super(context, 0, items);
         this.items = items;
         app = (WikipediaApp) getContext().getApplicationContext();
         wiki = app.getWikiSite();
@@ -118,9 +111,8 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
         private TextView description;
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = activity.getLayoutInflater();
+    @Override @NonNull public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         ViewHolder holder;
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_page_list_entry, null);
