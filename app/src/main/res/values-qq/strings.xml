@@ -444,4 +444,10 @@ Shown in the preferences screen along with the following:
 {{Identical|Save}}</string>
   <string name="description_edit_char_count">Label that displays the character count of the description being entered. The %1$d symbol is replaced with the number of characters in the current description, and the %2$d symbol is replaced with the maximum allowed characters.</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
+
+  <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
+  <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
+  <string name="description_edit_success_done">Button text to dismiss the description editing success screen</string>
+  <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app</string>
+  <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
 </resources>

@@ -161,6 +161,10 @@
             android:windowSoftInputMode="stateVisible|adjustResize"
             android:exported="false"/>
 
+        <activity android:name=".descriptions.DescriptionEditSuccessActivity"
+            android:theme="@style/AppTheme.TranslucentDark"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
         <provider
                 android:authorities="${applicationId}"
                 android:name=".database.AppContentProvider"

@@ -110,4 +110,6 @@
 
     <color name="feed_window_background_light">#eaecf0</color>
     <color name="feed_window_background_dark">#222</color>
+
+    <color name="translucent_background_dark">#E2000000</color>
 </resources>

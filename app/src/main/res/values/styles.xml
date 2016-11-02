@@ -127,6 +127,10 @@
         <item name="android:background">@drawable/button_selector_gray</item>
     </style>
 
+    <style name="ButtonBlue" parent="ButtonProgressive">
+        <item name="android:background">@drawable/button_selector_blue</item>
+    </style>
+
     <style name="TextHeadingGray" parent="@android:style/TextAppearance.Medium">
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>
@@ -236,6 +240,16 @@
         <item name="placeholderImageScaleType">center</item>
         <item name="failureImage">@drawable/ic_image_gray_24dp</item>
         <item name="failureImageScaleType">center</item>
+    </style>
+
+    <style name="AppTheme.TranslucentDark">
+        <item name="android:windowBackground">@color/translucent_background_dark</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 </resources>
