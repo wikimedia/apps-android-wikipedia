@@ -62,8 +62,7 @@ public class EditSummaryFragment extends Fragment {
             summaryText.setText(savedInstanceState.getString("summaryText"));
         }
         parentActivity = (EditSectionActivity)getActivity();
-        editSummaryHandler = new EditSummaryHandler(getActivity(), editSummaryContainer,
-                                                    summaryText, title);
+        editSummaryHandler = new EditSummaryHandler(editSummaryContainer, summaryText, title);
     }
 
     /**

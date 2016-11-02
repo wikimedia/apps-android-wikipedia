@@ -1,11 +1,12 @@
 package org.wikipedia.editing.summaries;
 
-import android.app.Activity;
 import android.content.ContentProviderClient;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
+import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
@@ -21,13 +22,12 @@ import java.util.Date;
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 
 public class EditSummaryHandler {
-    private final Activity activity;
     private final View container;
     private final AutoCompleteTextView summaryEdit;
 
-    public EditSummaryHandler(final Activity activity, View container,
-                              AutoCompleteTextView summaryEditText, PageTitle title) {
-        this.activity = activity;
+    public EditSummaryHandler(@NonNull final View container,
+                              @NonNull AutoCompleteTextView summaryEditText,
+                              @NonNull PageTitle title) {
         this.container = container;
         this.summaryEdit = summaryEditText;
 
@@ -38,12 +38,13 @@ public class EditSummaryHandler {
             }
         });
 
-        EditSummaryAdapter adapter = new EditSummaryAdapter(activity, null, true);
+        EditSummaryAdapter adapter = new EditSummaryAdapter(container.getContext(), null, true);
         summaryEdit.setAdapter(adapter);
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             @Override
             public Cursor runQuery(CharSequence charSequence) {
-                ContentProviderClient client = EditSummary.DATABASE_TABLE.acquireClient(activity);
+                ContentProviderClient client = EditSummary.DATABASE_TABLE
+                        .acquireClient(container.getContext().getApplicationContext());
                 Uri uri = EditHistoryContract.Summary.URI;
                 final String[] projection = null;
                 String selection = EditHistoryContract.Summary.SUMMARY.qualifiedName() + " like ?";
@@ -87,7 +88,8 @@ public class EditSummaryHandler {
 
         @Override
         public View newView(Context context, Cursor cursor, ViewGroup parent) {
-            return activity.getLayoutInflater().inflate(android.R.layout.simple_list_item_1, parent, false);
+            return LayoutInflater.from(context)
+                    .inflate(android.R.layout.simple_list_item_1, parent, false);
         }
 
         @Override
