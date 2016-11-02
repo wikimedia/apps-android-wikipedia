@@ -1,0 +1,14 @@
+{
+  "entity": {
+    "descriptions": {
+      "en": {
+        "language": "en",
+        "value": "some new description"
+      }
+    },
+    "id": "Q123",
+    "type": "item",
+    "lastrevid": 987654321
+  },
+  "success": 1
+}
