@@ -1,7 +1,9 @@
 package org.wikipedia.server.restbase;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.json.annotations.Required;
 import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.log.L;
 
@@ -10,7 +12,7 @@ import org.wikipedia.util.log.L;
  */
 public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused") private RbServiceError error;
-    @SuppressWarnings("unused") @Nullable private String title;
+    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String title;
     @SuppressWarnings("unused") @Nullable private String extract;
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
@@ -18,7 +20,7 @@ public class RbPageSummary implements PageSummary {
     @Override
     public boolean hasError() {
         // if there is no title or no extract set something went terribly wrong
-        return error != null || title == null || extract == null;
+        return error != null || extract == null;
     }
 
     @Override
@@ -35,7 +37,7 @@ public class RbPageSummary implements PageSummary {
         L.e(message);
     }
 
-    @Override @Nullable
+    @Override @NonNull
     public String getTitle() {
         return title;
     }

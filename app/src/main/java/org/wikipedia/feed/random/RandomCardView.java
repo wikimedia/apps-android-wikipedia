@@ -12,6 +12,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomSummaryClient;
 import org.wikipedia.server.restbase.RbPageSummary;
+
 import org.wikipedia.util.log.L;
 
 import retrofit2.Call;
@@ -37,14 +38,14 @@ public class RandomCardView extends StaticCardView<RandomCard> {
         @Override
         public void onClick(View view) {
             if (getCallback() != null && getCard() != null) {
-                new RandomSummaryClient(getCard().wikiSite(), serviceCallback).request();
+                new RandomSummaryClient().request(getCard().wikiSite(), serviceCallback);
             }
         }
 
         private RandomSummaryClient.Callback serviceCallback
                 = new RandomSummaryClient.Callback() {
             @Override
-            public void onSuccess(@NonNull Call<RbPageSummary> call, @Nullable PageTitle title) {
+            public void onSuccess(@NonNull Call<RbPageSummary> call, @NonNull PageTitle title) {
                 if (getCallback() != null) {
                     getCallback().onSelectPage(new HistoryEntry(title,
                             HistoryEntry.SOURCE_FEED_RANDOM));

@@ -11,13 +11,15 @@ import org.wikipedia.news.NewsLinkCard;
 import org.wikipedia.server.restbase.RbPageSummary;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 public final class NewsItem {
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String story;
-    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<RbPageSummary> links;
+    @SuppressWarnings("unused,NullableProblems") @NonNull private List<RbPageSummary> links
+            = Collections.emptyList();
 
     @NonNull
     public String story() {

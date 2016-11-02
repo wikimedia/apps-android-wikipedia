@@ -1,5 +1,10 @@
 package org.wikipedia.server.restbase;
 
+
+import android.support.annotation.NonNull;
+
+import com.google.gson.JsonParseException;
+
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -51,6 +56,10 @@ public class RbPageService implements PageService {
             public void onResponse(Call<RbPageSummary> call, Response<RbPageSummary> response) {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
+                    if (response.body() == null) {
+                        cb.failure(new JsonParseException("Response missing required field(s)"));
+                        return;
+                    }
                     cb.success(response.body());
                 } else {
                     Throwable throwable = RetrofitException.httpError(response, retrofit);
@@ -137,13 +146,17 @@ public class RbPageService implements PageService {
      * in the mobile content service, and does not concern the wholesale retrieval of the contents
      * of a wiki page.
      */
-    public void define(String title, final RbDefinition.Callback cb) {
+    public void define(String title, final DefinitionCallback cb) {
         Call<Map<String, RbDefinition.Usage[]>> call = webService.define(title);
         call.enqueue(new Callback<Map<String, RbDefinition.Usage[]>>() {
             @Override
-            public void onResponse(Call<Map<String, RbDefinition.Usage[]>> call,
-                                   Response<Map<String, RbDefinition.Usage[]>> response) {
+            public void onResponse(@NonNull Call<Map<String, RbDefinition.Usage[]>> call,
+                                   @NonNull Response<Map<String, RbDefinition.Usage[]>> response) {
                 if (response.isSuccessful()) {
+                    if (response.body() == null) {
+                        cb.failure(new JsonParseException("Response missing required fields"));
+                        return;
+                    }
                     responseHeaderHandler.onHeaderCheck(response);
                     cb.success(new RbDefinition(response.body()));
                 } else {
@@ -159,6 +172,12 @@ public class RbPageService implements PageService {
                 cb.failure(throwable);
             }
         });
+    }
+
+    public interface DefinitionCallback {
+        void success(@NonNull RbDefinition definition);
+
+        void failure(@NonNull Throwable throwable);
     }
 
     /**

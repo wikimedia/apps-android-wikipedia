@@ -2,6 +2,8 @@ package org.wikipedia.zero;
 
 import android.support.annotation.NonNull;
 
+import com.google.gson.JsonParseException;
+
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.wikipedia.WikipediaApp;
@@ -15,7 +17,6 @@ import retrofit2.Call;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.isA;
-import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
@@ -52,12 +53,8 @@ public class ZeroConfigClientTest extends MockWebServerTest {
         RecordedRequest req = server().takeRequest();
         assertRequestIssued(req, USER_AGENT);
 
-        ArgumentCaptor<ZeroConfig> captor = ArgumentCaptor.forClass(ZeroConfig.class);
         //noinspection unchecked
-        verify(cb).success(any(Call.class), captor.capture());
-        ZeroConfig config = captor.getValue();
-
-        assertThat(config, nullValue());
+        verify(cb).failure(any(Call.class), any(JsonParseException.class));
     }
 
     @Test public void testRequestMalformed() throws Throwable {
@@ -69,12 +66,8 @@ public class ZeroConfigClientTest extends MockWebServerTest {
         RecordedRequest req = server().takeRequest();
         assertRequestIssued(req, USER_AGENT);
 
-        ArgumentCaptor<ZeroConfig> captor = ArgumentCaptor.forClass(ZeroConfig.class);
         //noinspection unchecked
-        verify(cb).success(any(Call.class), captor.capture());
-        ZeroConfig config = captor.getValue();
-
-        assertThat(config, nullValue());
+        verify(cb).failure(any(Call.class), any(JsonParseException.class));
     }
 
     @Test public void testRequestFailure() throws Throwable {

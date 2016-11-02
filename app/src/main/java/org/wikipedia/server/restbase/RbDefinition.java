@@ -31,12 +31,6 @@ public class RbDefinition {
         L.e(message);
     }
 
-    public interface Callback {
-        void success(RbDefinition definition);
-
-        void failure(Throwable throwable);
-    }
-
     public static class Usage {
         @Required @NonNull private String partOfSpeech;
         @Required @NonNull private Definition[] definitions;

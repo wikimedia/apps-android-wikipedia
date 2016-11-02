@@ -51,6 +51,7 @@ public class NewsItemCard extends Card {
         return removeImageCaption(StringUtil.fromHtml(newsItem.story()));
     }
 
+    @NonNull
     public List<RbPageSummary> links() {
         return newsItem.links();
     }
