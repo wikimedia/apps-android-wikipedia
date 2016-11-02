@@ -327,7 +327,7 @@
         <item quantity="one">yesterday</item>
         <item quantity="other">%d days ago</item>
     </plurals>
-    <string name="view_continue_reading_card_subtitle_today">today</string>
+    <string name="view_continue_reading_card_subtitle_today">Today</string>
     <!-- /The Feed -->
 
     <!-- Description editing -->
