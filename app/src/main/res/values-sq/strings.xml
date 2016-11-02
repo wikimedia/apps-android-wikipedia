@@ -64,7 +64,6 @@
   <string name="nav_item_login">Hyni në Wikipedia</string>
   <string name="login_username_hint">Emri i përdoruesit</string>
   <string name="login_password_hint">Fjalëkalimi</string>
-  <string name="login_password_show_check">Shfaq fjalëkalimin</string>
   <string name="menu_login">Hyni</string>
   <string name="login_activity_title">Hyni në Wikipedia</string>
   <string name="login_in_progress_dialog_message">Duke hyrë…</string>

@@ -26,11 +26,12 @@
                     android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
 
-        <org.wikipedia.views.PasswordTextInput
+        <android.support.design.widget.PasswordTextInput
             android:id="@+id/login_password_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:hint="@string/login_password_hint" />
 
         <Button
                 android:id="@+id/login_button"

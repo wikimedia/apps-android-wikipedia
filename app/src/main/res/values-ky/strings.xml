@@ -47,7 +47,6 @@
   <string name="nav_item_login" fuzzy="true">Кирүү</string>
   <string name="login_username_hint">Колдонуучу аты</string>
   <string name="login_password_hint">Сырсөз</string>
-  <string name="login_password_show_check">Сырсөздү көрсөтүү</string>
   <string name="menu_login">Кирүү</string>
   <string name="login_activity_title" fuzzy="true">Уикипедияга кирүү</string>
   <string name="login_in_progress_dialog_message">Системге кирип жатасыз…</string>

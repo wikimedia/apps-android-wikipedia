@@ -67,7 +67,6 @@
   <string name="nav_item_login">위키백과에 로그인</string>
   <string name="login_username_hint">사용자 이름</string>
   <string name="login_password_hint">비밀번호</string>
-  <string name="login_password_show_check">비밀번호 표시</string>
   <string name="menu_login">로그인</string>
   <string name="login_activity_title">위키백과에 로그인</string>
   <string name="login_in_progress_dialog_message">로그인 중…</string>

@@ -67,7 +67,6 @@
   <string name="nav_item_login">Aniciar sesión en Wikipedia</string>
   <string name="login_username_hint">Nome d\'usuariu</string>
   <string name="login_password_hint">Contraseña</string>
-  <string name="login_password_show_check">Amosar contraseña</string>
   <string name="menu_login">Aniciar sesión</string>
   <string name="login_activity_title">Aniciar sesión en Wikipedia</string>
   <string name="login_in_progress_dialog_message">Aniciando sesión en...</string>

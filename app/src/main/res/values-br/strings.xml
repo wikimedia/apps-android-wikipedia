@@ -67,7 +67,6 @@
   <string name="nav_item_login">Kevreañ ouzh Wikipedia</string>
   <string name="login_username_hint">Anv implijer</string>
   <string name="login_password_hint">Ger-tremen</string>
-  <string name="login_password_show_check">Diskwel ar ger-tremen</string>
   <string name="menu_login">Kevreañ</string>
   <string name="login_activity_title">Kevreañ ouzh Wikipedia</string>
   <string name="login_in_progress_dialog_message">O kevreañ ouzh…</string>

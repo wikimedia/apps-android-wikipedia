@@ -63,7 +63,6 @@
   <string name="nav_item_login">Entrar na Wikipédia</string>
   <string name="login_username_hint">Nome de usuário</string>
   <string name="login_password_hint">Senha</string>
-  <string name="login_password_show_check">Mostrar senha</string>
   <string name="menu_login">Entrar</string>
   <string name="login_activity_title">Entrar na Wikipédia</string>
   <string name="login_in_progress_dialog_message">Autenticando…</string>

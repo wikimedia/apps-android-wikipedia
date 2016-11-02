@@ -67,7 +67,6 @@
   <string name="nav_item_login">Войти в Википедию</string>
   <string name="login_username_hint">Имя пользователя</string>
   <string name="login_password_hint">Пароль</string>
-  <string name="login_password_show_check">Отобразить пароль</string>
   <string name="menu_login">Войти</string>
   <string name="login_activity_title">Войти в Википедию</string>
   <string name="login_in_progress_dialog_message">Вход в систему…</string>

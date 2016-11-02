@@ -50,7 +50,6 @@
   <string name="nav_item_login">Pieslēgties Vikipēdijai</string>
   <string name="login_username_hint">Lietotājvārds</string>
   <string name="login_password_hint">Parole</string>
-  <string name="login_password_show_check">Rādīt paroli</string>
   <string name="menu_login">Pieslēgties</string>
   <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
   <string name="preference_title_logout">Iziet</string>

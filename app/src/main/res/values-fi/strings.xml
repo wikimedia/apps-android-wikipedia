@@ -67,7 +67,6 @@
   <string name="nav_item_login">Kirjaudu sisään Wikipediaan</string>
   <string name="login_username_hint">Käyttäjätunnus</string>
   <string name="login_password_hint">Salasana</string>
-  <string name="login_password_show_check">Näytä salasana</string>
   <string name="menu_login">Kirjaudu sisään</string>
   <string name="login_activity_title">Kirjaudu Wikipediaan</string>
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>

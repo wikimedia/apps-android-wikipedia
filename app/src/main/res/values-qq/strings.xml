@@ -105,7 +105,6 @@ Shown in the preferences screen along with the following:
   <string name="nav_item_login">{{Identical|Log in}}</string>
   <string name="login_username_hint">{{Identical|Username}}</string>
   <string name="login_password_hint">{{Identical|Password}}</string>
-  <string name="login_password_show_check">Used as label for the checkbox to mask/unmask password.</string>
   <string name="menu_login">{{Identical|Log in}}</string>
   <string name="login_activity_title">Used as window title.</string>
   <string name="login_in_progress_dialog_message">A bubble that describes the in-progress action.</string>

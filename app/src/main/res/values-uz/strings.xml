@@ -44,7 +44,6 @@
   <string name="nav_item_login" fuzzy="true">Kirish</string>
   <string name="login_username_hint">Foydalanuvchi ismi</string>
   <string name="login_password_hint">Maxfiy soʻz</string>
-  <string name="login_password_show_check">Maxfiy so\'zni ko\'rsatish</string>
   <string name="menu_login">Kirish</string>
   <string name="login_activity_title" fuzzy="true">Vikipediaga kirish</string>
   <string name="login_in_progress_dialog_message">Saytga kiryapsiz…</string>

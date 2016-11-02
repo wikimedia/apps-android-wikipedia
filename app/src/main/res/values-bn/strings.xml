@@ -67,7 +67,6 @@
   <string name="nav_item_login">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_username_hint">ব্যবহারকারী নাম</string>
   <string name="login_password_hint">পাসওয়ার্ড</string>
-  <string name="login_password_show_check">পাসওয়ার্ড দেখাও</string>
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>

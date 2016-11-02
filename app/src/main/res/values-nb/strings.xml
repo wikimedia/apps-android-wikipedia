@@ -67,7 +67,6 @@
   <string name="nav_item_login">Logg inn på Wikipedia</string>
   <string name="login_username_hint">Brukernavn</string>
   <string name="login_password_hint">Passord</string>
-  <string name="login_password_show_check">Vis passord</string>
   <string name="menu_login">Logg inn</string>
   <string name="login_activity_title">Logg inn på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger deg inn…</string>

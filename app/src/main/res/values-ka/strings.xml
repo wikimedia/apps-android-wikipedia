@@ -67,7 +67,6 @@
   <string name="nav_item_login">ვიკიპედიაში შესვლა</string>
   <string name="login_username_hint">მომხმარებლის სახელი</string>
   <string name="login_password_hint">პაროლი</string>
-  <string name="login_password_show_check">აჩვენე პაროლი</string>
   <string name="menu_login">შესვლა</string>
   <string name="login_activity_title">ვიკიპედიაში შესვლა</string>
   <string name="login_in_progress_dialog_message">შედიხართ სისტემაში…</string>

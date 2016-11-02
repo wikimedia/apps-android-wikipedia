@@ -67,7 +67,6 @@
   <string name="nav_item_login">Bei Wikipedia anmelden</string>
   <string name="login_username_hint">Benutzername</string>
   <string name="login_password_hint">Passwort</string>
-  <string name="login_password_show_check">Passwort anzeigen</string>
   <string name="menu_login">Anmelden</string>
   <string name="login_activity_title">Bei Wikipedia anmelden</string>
   <string name="login_in_progress_dialog_message">Melde dich an …</string>

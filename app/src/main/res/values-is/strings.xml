@@ -63,7 +63,6 @@
   <string name="nav_item_login">Skrá inn á Wikipedia</string>
   <string name="login_username_hint">Notandanafn</string>
   <string name="login_password_hint">Lykilorð</string>
-  <string name="login_password_show_check">Birta lykilorð</string>
   <string name="menu_login">Skrá inn</string>
   <string name="login_activity_title">Skrá inn á Wikipedia</string>
   <string name="login_in_progress_dialog_message">Skráir þig inn…</string>

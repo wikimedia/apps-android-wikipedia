@@ -67,7 +67,6 @@
   <string name="nav_item_login">विकिपीडिया में प्रवेश करें</string>
   <string name="login_username_hint">सदस्य नाम</string>
   <string name="login_password_hint">कूटशब्द (पासवर्ड)</string>
-  <string name="login_password_show_check">पासवर्ड को प्रदर्शित करें।</string>
   <string name="menu_login">प्रवेश</string>
   <string name="login_activity_title">विकिपीडिया में लॉगिन करें</string>
   <string name="login_in_progress_dialog_message">आपको लॉगिन किया जा रहा है…</string>

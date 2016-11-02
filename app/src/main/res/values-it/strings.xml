@@ -67,7 +67,6 @@
   <string name="nav_item_login">Accedi a Wikipedia</string>
   <string name="login_username_hint">Nome utente</string>
   <string name="login_password_hint">Password</string>
-  <string name="login_password_show_check">Visualizza la password</string>
   <string name="menu_login">Entra</string>
   <string name="login_activity_title">Accedi a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accesso in corso…</string>

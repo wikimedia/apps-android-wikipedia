@@ -60,7 +60,6 @@
   <string name="nav_item_login">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_username_hint">వాడుకరి పేరు</string>
   <string name="login_password_hint">సంకేతపదం</string>
-  <string name="login_password_show_check">సంకేతపదాన్ని చూపించు</string>
   <string name="menu_login">లాగినవండి</string>
   <string name="login_activity_title">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_in_progress_dialog_message">మిమల్ని లాగిన్ చేస్తున్నాము…</string>

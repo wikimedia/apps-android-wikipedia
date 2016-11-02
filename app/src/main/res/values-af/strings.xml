@@ -55,7 +55,6 @@
   <string name="nav_item_login">Meld aan by Wikipedia</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wagwoord</string>
-  <string name="login_password_show_check">Vertoon wagwoord</string>
   <string name="menu_login">Meld aan</string>
   <string name="login_activity_title" fuzzy="true">Meld aan by Wikipedia</string>
   <string name="login_in_progress_dialog_message">Meld u aan…</string>
