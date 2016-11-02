@@ -57,7 +57,7 @@ public class AboutActivity extends ThemedActionBarActivity {
         RichTextUtil.removeUnderlinesFromLinks(feedbackTextView);
         RichTextUtil.removeUnderlinesFromLinks(librariesTextView);
 
-        findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener(this));
+        findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener());
 
         //if there's no Email app, hide the Feedback link.
         if (!mailAppExists(this)) {
@@ -111,23 +111,17 @@ public class AboutActivity extends ThemedActionBarActivity {
 
     private static class AboutLogoClickListener implements View.OnClickListener {
         private static final int SECRET_CLICK_LIMIT = 7;
-
-        private final Activity mActivity;
         private int mSecretClickCount;
-
-        AboutLogoClickListener(Activity activity) {
-            mActivity = activity;
-        }
 
         @Override
         public void onClick(View v) {
             ++mSecretClickCount;
             if (isSecretClickLimitMet()) {
                 if (Prefs.isShowDeveloperSettingsEnabled()) {
-                    showSettingAlreadyEnabledMessage();
+                    showSettingAlreadyEnabledMessage((Activity) v.getContext());
                 } else {
                     Prefs.setShowDeveloperSettingsEnabled(true);
-                    showSettingEnabledMessage();
+                    showSettingEnabledMessage((Activity) v.getContext());
                 }
             }
         }
@@ -136,13 +130,12 @@ public class AboutActivity extends ThemedActionBarActivity {
             return mSecretClickCount == SECRET_CLICK_LIMIT;
         }
 
-        private void showSettingEnabledMessage() {
-            FeedbackUtil.showMessage(mActivity, R.string.show_developer_settings_enabled);
+        private void showSettingEnabledMessage(@NonNull Activity activity) {
+            FeedbackUtil.showMessage(activity, R.string.show_developer_settings_enabled);
         }
 
-        private void showSettingAlreadyEnabledMessage() {
-            FeedbackUtil.showMessage(mActivity,
-                    R.string.show_developer_settings_already_enabled);
+        private void showSettingAlreadyEnabledMessage(@NonNull Activity activity) {
+            FeedbackUtil.showMessage(activity, R.string.show_developer_settings_already_enabled);
         }
     }
 }

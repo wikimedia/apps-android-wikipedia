@@ -1,10 +1,8 @@
 package org.wikipedia.settings;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 
@@ -15,11 +13,9 @@ import org.wikipedia.util.StringUtil;
 
 /** UI code for app settings used by PreferenceFragment. */
 public class SettingsPreferenceLoader extends BasePreferenceLoader {
-    private final Activity activity;
 
     /*package*/ SettingsPreferenceLoader(@NonNull PreferenceFragmentCompat fragment) {
         super(fragment);
-        activity = fragment.getActivity();
     }
 
     @Override
@@ -49,14 +45,14 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
                 .setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(activity, false);
+                LanguagePreferenceDialog langPrefDialog = new LanguagePreferenceDialog(getActivity(), false);
                 langPrefDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
                         String name = StringUtil.emptyIfNull(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
                         if (!findPreference(R.string.preference_key_language).getSummary().equals(name)) {
                             findPreference(R.string.preference_key_language).setSummary(name);
-                            activity.setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
+                            getActivity().setResult(SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED);
                         }
                     }
                 });
@@ -81,8 +77,8 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setClass(activity, AboutActivity.class);
-                activity.startActivity(intent);
+                intent.setClass(getActivity(), AboutActivity.class);
+                getActivity().startActivity(intent);
                 return true;
             }
         });
@@ -91,9 +87,5 @@ public class SettingsPreferenceLoader extends BasePreferenceLoader {
     private void updateLanguagePrefSummary() {
         Preference languagePref = findPreference(R.string.preference_key_language);
         languagePref.setSummary(WikipediaApp.getInstance().getAppOrSystemLanguageLocalizedName());
-    }
-
-    private String getString(@StringRes int id) {
-        return activity.getString(id);
     }
 }
