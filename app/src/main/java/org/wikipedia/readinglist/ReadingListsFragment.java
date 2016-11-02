@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.SearchActionModeCallback;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
@@ -77,6 +78,12 @@ public class ReadingListsFragment extends Fragment implements BackPressedHandler
         setRetainInstance(true);
         readingListSortMode = Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC);
         readingListPageSortMode = Prefs.getReadingListPageSortMode(ReadingList.SORT_BY_NAME_ASC);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        WikipediaApp.getInstance().getRefWatcher().watch(this);
     }
 
     @Override

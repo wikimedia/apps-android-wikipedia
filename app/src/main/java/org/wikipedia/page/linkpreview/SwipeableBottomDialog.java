@@ -17,6 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 
 import java.util.ArrayList;
@@ -99,6 +100,12 @@ public abstract class SwipeableBottomDialog extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(STYLE_NO_TITLE, R.style.BottomDialog);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        WikipediaApp.getInstance().getRefWatcher().watch(this);
     }
 
     @NonNull

@@ -17,6 +17,8 @@ import android.webkit.WebView;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.squareup.otto.Bus;
 
 import org.mediawiki.api.json.Api;
@@ -92,6 +94,7 @@ public class WikipediaApp extends Application {
     private WikiSite wiki;
 
     private CrashReporter crashReporter;
+    private RefWatcher refWatcher;
 
     public boolean isProdRelease() {
         return ReleaseUtil.isProdRelease();
@@ -165,6 +168,8 @@ public class WikipediaApp extends Application {
             initExceptionHandling();
         }
 
+        refWatcher = Prefs.isMemoryLeakTestEnabled() ? LeakCanary.install(this) : RefWatcher.DISABLED;
+
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
@@ -196,6 +201,10 @@ public class WikipediaApp extends Application {
 
         UserOptionContentResolver.registerAppSyncObserver(this);
         registerReadingListPageObserver();
+    }
+
+    public RefWatcher getRefWatcher() {
+        return refWatcher;
     }
 
     public Bus getBus() {

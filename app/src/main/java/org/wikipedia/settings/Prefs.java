@@ -475,6 +475,10 @@ public final class Prefs {
         setInt(R.string.preference_key_reading_list_page_sort_mode, sortMode);
     }
 
+    public static boolean isMemoryLeakTestEnabled() {
+        return getBoolean(R.string.preference_key_memory_leak_test, false);
+    }
+
     private static boolean isDevRelease() {
         return WikipediaApp.getInstance().isDevRelease();
     }

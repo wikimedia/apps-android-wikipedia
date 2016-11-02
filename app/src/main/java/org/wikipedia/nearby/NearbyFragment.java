@@ -135,6 +135,12 @@ public class NearbyFragment extends Fragment {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        WikipediaApp.getInstance().getRefWatcher().watch(this);
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if (mapView != null) {
