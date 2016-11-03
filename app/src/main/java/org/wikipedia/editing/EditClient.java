@@ -20,7 +20,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public class EditClient {
+class EditClient {
     @NonNull private final MwCachedService<Service> cachedService
             = new MwCachedService<>(Service.class);
 
@@ -43,7 +43,7 @@ public class EditClient {
         call.enqueue(new retrofit2.Callback<Edit>() {
             @Override
             public void onResponse(Call<Edit> call, Response<Edit> response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.body().hasEditResult()) {
                     Edit.Result result = response.body().edit();
                     if ("Success".equals(result.status())) {
                         try {
@@ -64,10 +64,15 @@ public class EditClient {
                     } else if (result.hasSpamBlacklistResponse()) {
                         cb.success(call, new SpamBlacklistEditResult(result.spamblacklist()));
                     } else if (result.hasCaptchaResponse()) {
-                        cb.success(call, new CaptchaResult(result.captcha().id()));
+                        cb.success(call, new CaptchaResult(result.captchaId()));
                     } else {
                         cb.failure(call, new RuntimeException("Received unrecognized edit response"));
                     }
+                } else if (response.body().info() != null) {
+                    String info = response.body().info();
+                    cb.failure(call, new RuntimeException(info));
+                } else {
+                    cb.failure(call, new RuntimeException("Received unrecognized edit response"));
                 }
             }
 
@@ -84,7 +89,7 @@ public class EditClient {
         void failure(@NonNull Call<Edit> call, @NonNull Throwable caught);
     }
 
-    private interface Service {
+    @VisibleForTesting interface Service {
         @FormUrlEncoded
         @POST("w/api.php?action=edit&format=json")
         @SuppressWarnings("checkstyle:parameternumber")

@@ -1,0 +1,8 @@
+{
+  "servedby": "mw1222",
+  "error": {
+    "code": "badtoken",
+    "info": "Invalid token",
+    "*": "See https://test.wikipedia.org/w/api.php for API usage"
+  }
+}

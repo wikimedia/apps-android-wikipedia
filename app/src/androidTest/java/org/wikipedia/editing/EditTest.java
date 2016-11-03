@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
 
@@ -181,6 +182,31 @@ public class EditTest {
                     @Override
                     public void failure(@NonNull Call<Edit> call, @NonNull Throwable caught) {
                         throw new RuntimeException(caught);
+                    }
+                });
+        latch.await();
+    }
+
+    // Don't crash.
+    @Test
+    public void testErrorResponse() {
+        WikiSite enwiki = WikiSite.forLanguageCode("en");
+        PageTitle title = new PageTitle(Namespace.USER.toLegacyString(), "Mhollo/sandbox", enwiki);
+        String badToken = "BAD_TOKEN";
+        String wikitext = "foo";
+        final TestLatch latch = new TestLatch();
+
+        client.request(enwiki, title, DEFAULT_SECTION_ID, wikitext, badToken,
+                DEFAULT_SUMMARY, false, null, null, new EditClient.Callback() {
+                    @Override
+                    public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
+                        throw new RuntimeException("Token was bad, this should fail!");
+                    }
+
+                    @Override
+                    public void failure(@NonNull Call<Edit> call, @NonNull Throwable caught) {
+                        assertThat(caught.getMessage(), is("Invalid token"));
+                        latch.countDown();
                     }
                 });
         latch.await();

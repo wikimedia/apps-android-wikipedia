@@ -1,56 +1,60 @@
 package org.wikipedia.editing;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-public class Edit {
-    @SuppressWarnings("unused,NullableProblems") @NonNull private Result edit;
-    @NonNull protected Result edit() {
+import org.wikipedia.dataclient.mwapi.MwPostResponse;
+
+class Edit extends MwPostResponse {
+    @SuppressWarnings("unused,") @Nullable private Result edit;
+
+    @Nullable Result edit() {
         return edit;
     }
 
-    protected class Result {
-        @Nullable private String result;
-        @Nullable protected String status() {
+    boolean hasEditResult() {
+        return edit != null;
+    }
+
+    class Result {
+        @SuppressWarnings("unused") @Nullable private String result;
+        @SuppressWarnings("unused") private int newrevid;
+        @SuppressWarnings("unused") @Nullable private Captcha captcha;
+        @SuppressWarnings("unused") @Nullable private String code;
+        @SuppressWarnings("unused") @Nullable private String spamblacklist;
+
+        @Nullable String status() {
             return result;
         }
 
-        private int newrevid;
-        protected int newRevId() {
+        int newRevId() {
             return newrevid;
         }
 
-        @Nullable private Captcha captcha;
-        @Nullable protected Captcha captcha() {
-            return captcha;
+        @Nullable String captchaId() {
+            return captcha == null ? null : captcha.id();
         }
 
-        @Nullable private String code;
-        @Nullable protected String code() {
-            return code;
-        }
-
-        protected boolean hasErrorCode() {
+        boolean hasErrorCode() {
             return code != null;
         }
 
-        protected boolean hasCaptchaResponse() {
+        boolean hasCaptchaResponse() {
             return captcha != null;
         }
 
-        @Nullable private String spamblacklist;
-        @Nullable protected String spamblacklist() {
+        @Nullable String spamblacklist() {
             return spamblacklist;
         }
 
-        protected boolean hasSpamBlacklistResponse() {
+        boolean hasSpamBlacklistResponse() {
             return spamblacklist != null;
         }
     }
 
-    protected class Captcha {
-        @SuppressWarnings("unused,NullableProblems") @NonNull private String id;
-        @NonNull protected String id() {
+    private static class Captcha {
+        @SuppressWarnings("unused") @Nullable private String id;
+
+        @Nullable String id() {
             return id;
         }
     }

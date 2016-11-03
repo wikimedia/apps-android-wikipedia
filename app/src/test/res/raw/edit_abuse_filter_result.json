@@ -1,0 +1,23 @@
+{
+  "edit": {
+    "code": "abusefilter-disallowed",
+    "message": {
+      "key": "abusefilter-warning/userpage_edit",
+      "params": [
+        "Editing user page by anonymous user",
+        94
+      ]
+    },
+    "abusefilter": {
+      "id": 94,
+      "description": "Editing user page by anonymous user",
+      "actions": [
+        "tag",
+        "warn"
+      ]
+    },
+    "info": "Hit AbuseFilter: Editing user page by anonymous user",
+    "warning": "<b>Warning:</b> This action has been automatically identified as harmful.\nUnconstructive edits will be quickly reverted,\nand egregious or repeated unconstructive editing will result in your account or IP address being blocked.\nIf you believe this action to be constructive, you may submit it again to confirm it.\nA brief description of the abuse rule which your action matched is: Editing user page by anonymous user",
+    "result": "Failure"
+  }
+}
