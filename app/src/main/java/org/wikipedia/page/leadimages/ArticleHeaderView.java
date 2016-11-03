@@ -256,14 +256,16 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     }
 
     private Spanned pronunciationSpanned() {
-        AudioUrlSpan span = new AudioUrlSpan(text, avPlayer, pronunciationUrl,
+        AudioUrlSpan pronunciationSpan = new AudioUrlSpan(text, avPlayer, pronunciationUrl,
                 AudioUrlSpan.ALIGN_BASELINE);
-        span.setTint(getColor(getThemedAttributeId(getContext(), R.attr.window_inverse_color)));
-        return RichTextUtil.setSpans(new SpannableString(" "),
+        pronunciationSpan.setTint(getColor(getThemedAttributeId(getContext(),
+                R.attr.window_inverse_color)));
+        return RichTextUtil.setSpans(new SpannableString("  "),
                 0,
                 1,
                 Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
-                span);
+                pronunciationSpan,
+                new PronunciationClickableSpan(pronunciationSpan));
     }
 
     private Spanned subtitleSpanned() {
@@ -350,6 +352,19 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
             ds.setColor(getColor(TextUtils.isEmpty(subtitle)
                     ? R.color.foundation_blue : R.color.foundation_gray));
             ds.setUnderlineText(false);
+        }
+    }
+
+    private class PronunciationClickableSpan extends ClickableSpan {
+        @NonNull private AudioUrlSpan audioSpan;
+
+        PronunciationClickableSpan(@NonNull AudioUrlSpan audioSpan) {
+            this.audioSpan = audioSpan;
+        }
+
+        @Override
+        public void onClick(View view) {
+            audioSpan.toggle();
         }
     }
 }
