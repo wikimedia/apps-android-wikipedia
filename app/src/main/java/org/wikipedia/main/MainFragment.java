@@ -435,9 +435,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         return (SearchFragment) getChildFragmentManager().findFragmentById(R.id.fragment_main_container);
     }
 
+    private void cancelSearch() {
+        SearchFragment fragment = searchFragment();
+        if (fragment != null) {
+            fragment.closeSearch();
+        }
+    }
+
     private void goToTab(@NonNull NavTab tab) {
         viewPager.setCurrentItem(tab.code());
         ensureNavBarVisible();
+        cancelSearch();
     }
 
     private void ensureNavBarVisible() {
