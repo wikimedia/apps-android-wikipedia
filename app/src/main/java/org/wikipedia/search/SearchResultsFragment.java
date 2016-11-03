@@ -43,13 +43,9 @@ public class SearchResultsFragment extends Fragment {
                                      @NonNull AddToReadingListDialog.InvokeSource source);
         void onSearchResultShareLink(@NonNull PageTitle title);
         void onSearchProgressBar(boolean enabled);
-    }
-
-    public interface Parent {
         void navigateToTitle(@NonNull PageTitle item, boolean inNewTab, int position);
         void setSearchText(@NonNull CharSequence text);
         @NonNull SearchFunnel getFunnel();
-        void setProgressBarEnabled(boolean enabled);
     }
 
     private static final int BATCH_SIZE = 20;
@@ -61,7 +57,6 @@ public class SearchResultsFragment extends Fragment {
      */
     private static final int NANO_TO_MILLI = 1_000_000;
 
-    private Parent parentFragment;
     private View searchResultsDisplay;
     private View searchResultsContainer;
     private ListView searchResultsList;
@@ -88,7 +83,6 @@ public class SearchResultsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
         searchResultsDisplay = rootView.findViewById(R.id.search_results_display);
-        parentFragment = (Parent) getParentFragment();
 
         searchResultsContainer = rootView.findViewById(R.id.search_results_container);
         searchResultsList = (ListView) rootView.findViewById(R.id.search_results_list);
@@ -96,8 +90,11 @@ public class SearchResultsFragment extends Fragment {
         searchResultsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
-                parentFragment.navigateToTitle(item, false, position);
+                Callback callback = callback();
+                if (callback != null) {
+                    PageTitle item = ((SearchResult) getAdapter().getItem(position)).getPageTitle();
+                    callback.navigateToTitle(item, false, position);
+                }
             }
         });
 
@@ -108,10 +105,11 @@ public class SearchResultsFragment extends Fragment {
         searchSuggestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Callback callback = callback();
                 String suggestion = (String) searchSuggestion.getTag();
-                if (suggestion != null) {
-                    parentFragment.getFunnel().searchDidYouMean();
-                    parentFragment.setSearchText(suggestion);
+                if (callback != null && suggestion != null) {
+                    callback.getFunnel().searchDidYouMean();
+                    callback.setSearchText(suggestion);
                     startSearch(suggestion, true);
                 }
             }
@@ -136,9 +134,8 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        LongPressHandler.ListViewContextMenuListener contextMenuListener
-                = new SearchResultsFragmentLongPressHandler(this);
-        new LongPressHandler(searchResultsList, HistoryEntry.SOURCE_SEARCH, contextMenuListener);
+        new LongPressHandler(searchResultsList, HistoryEntry.SOURCE_SEARCH,
+                new SearchResultsFragmentLongPressHandler());
     }
 
     public void show() {
@@ -217,13 +214,14 @@ public class SearchResultsFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
+                Callback callback = callback();
                 List<SearchResult> resultList = results.getResults();
                 // To ease data analysis and better make the funnel track with user behaviour,
                 // only transmit search results events if there are a nonzero number of results
-                if (!resultList.isEmpty()) {
+                if (!resultList.isEmpty() && callback != null) {
                     // Calculate total time taken to display results, in milliseconds
                     final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                    parentFragment.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
+                    callback.getFunnel().searchResults(false, resultList.size(), timeToDisplay);
                 }
 
                 updateProgressBar(false);
@@ -270,7 +268,10 @@ public class SearchResultsFragment extends Fragment {
                 }
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                parentFragment.getFunnel().searchError(false, timeToDisplay);
+                Callback callback = callback();
+                if (callback != null) {
+                    callback.getFunnel().searchError(false, timeToDisplay);
+                }
                 updateProgressBar(false);
 
                 searchErrorView.setVisibility(View.VISIBLE);
@@ -320,13 +321,14 @@ public class SearchResultsFragment extends Fragment {
                     clearResults(false);
                 }
 
+                Callback callback = callback();
                 // To ease data analysis and better make the funnel track with user behaviour,
                 // only transmit search results events if there are a nonzero number of results
                 final List<SearchResult> resultList = results.getResults();
-                if (!resultList.isEmpty()) {
+                if (!resultList.isEmpty() && callback != null) {
                     // Calculate total time taken to display results, in milliseconds
                     final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                    parentFragment.getFunnel().searchResults(true, resultList.size(), timeToDisplay);
+                    callback.getFunnel().searchResults(true, resultList.size(), timeToDisplay);
                 }
 
                 // append results to cache...
@@ -351,7 +353,10 @@ public class SearchResultsFragment extends Fragment {
                 }
                 // Calculate total time taken to display results, in milliseconds
                 final int timeToDisplay = (int) ((System.nanoTime() - startTime) / NANO_TO_MILLI);
-                parentFragment.getFunnel().searchError(true, timeToDisplay);
+                Callback callback = callback();
+                if (callback != null) {
+                    callback.getFunnel().searchError(true, timeToDisplay);
+                }
                 updateProgressBar(false);
 
                 // since this is a follow-up search just show a message
@@ -374,10 +379,8 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void updateProgressBar(boolean enabled) {
-        parentFragment.setProgressBarEnabled(enabled);
         Callback callback = callback();
         if (callback != null) {
-            // TODO: remove this callback item after overhaul
             callback.onSearchProgressBar(enabled);
         }
     }
@@ -432,13 +435,9 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private class SearchResultsFragmentLongPressHandler extends SearchResultsLongPressHandler
+    private class SearchResultsFragmentLongPressHandler
             implements org.wikipedia.LongPressHandler.ListViewContextMenuListener {
         private int lastPositionRequested;
-
-        SearchResultsFragmentLongPressHandler(@NonNull SearchResultsFragment fragment) {
-            super(fragment);
-        }
 
         @Override
         public PageTitle getTitleForListPosition(int position) {
@@ -448,12 +447,43 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public void onOpenLink(PageTitle title, HistoryEntry entry) {
-            parentFragment.navigateToTitle(title, false, lastPositionRequested);
+            Callback callback = callback();
+            if (callback != null) {
+                callback.navigateToTitle(title, false, lastPositionRequested);
+            }
         }
 
         @Override
         public void onOpenInNewTab(PageTitle title, HistoryEntry entry) {
-            parentFragment.navigateToTitle(title, true, lastPositionRequested);
+            Callback callback = callback();
+            if (callback != null) {
+                callback.navigateToTitle(title, true, lastPositionRequested);
+            }
+        }
+
+        @Override
+        public void onCopyLink(PageTitle title) {
+            Callback callback = callback();
+            if (callback != null) {
+                callback.onSearchResultCopyLink(title);
+            }
+        }
+
+        @Override
+        public void onShareLink(PageTitle title) {
+            Callback callback = callback();
+            if (callback != null) {
+                callback.onSearchResultShareLink(title);
+            }
+        }
+
+        @Override
+        public void onAddToList(@NonNull PageTitle title,
+                                @NonNull AddToReadingListDialog.InvokeSource source) {
+            Callback callback = callback();
+            if (callback != null) {
+                callback.onSearchResultAddToList(title, source);
+            }
         }
     }
 
@@ -542,28 +572,6 @@ public class SearchResultsFragment extends Fragment {
                 }
             }
             return -1;
-        }
-    }
-
-    public void copyLink(@NonNull PageTitle title) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onSearchResultCopyLink(title);
-        }
-    }
-
-    public void addToReadingList(@NonNull PageTitle title,
-                                 @NonNull AddToReadingListDialog.InvokeSource source) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onSearchResultAddToList(title, source);
-        }
-    }
-
-    public void shareLink(@NonNull PageTitle title) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onSearchResultShareLink(title);
         }
     }
 

@@ -56,7 +56,6 @@ import org.wikipedia.page.tabs.TabsProvider.TabPosition;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
-import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.theme.ThemeChooserDialog;
@@ -78,8 +77,8 @@ import static org.wikipedia.util.DeviceUtil.isBackKeyUp;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends ThemedActionBarActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, SearchFragment.Callback, SearchResultsFragment.Callback,
-        WiktionaryDialog.Callback, AddToReadingListDialog.Callback {
+        LinkPreviewDialog.Callback, SearchFragment.Callback, WiktionaryDialog.Callback,
+        AddToReadingListDialog.Callback {
 
     public static final String ACTION_PAGE_FOR_TITLE = "org.wikipedia.page_for_title";
     public static final String ACTION_SHOW_TAB_LIST = "org.wikipedia.show_tab_list";
@@ -592,11 +591,6 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
     @Override
     public void onSearchResultShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(this, title);
-    }
-
-    @Override
-    public void onSearchProgressBar(boolean enabled) {
-        updateProgressBar(enabled, true, 0);
     }
 
     @Override
