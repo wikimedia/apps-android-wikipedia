@@ -12,7 +12,8 @@ public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused") private RbServiceError error;
     @SuppressWarnings("unused") @Nullable private String title;
     @SuppressWarnings("unused") @Nullable private String extract;
-    @SuppressWarnings("unused") @Nullable private Thumb thumbnail;
+    @SuppressWarnings("unused") @Nullable private String description;
+    @SuppressWarnings("unused") @Nullable private Thumbnail thumbnail;
 
     @Override
     public boolean hasError() {
@@ -49,10 +50,15 @@ public class RbPageSummary implements PageSummary {
         return thumbnail == null ? null : thumbnail.getUrl();
     }
 
+    @Nullable
+    public String getDescription() {
+        return description;
+    }
+
     /**
      * For the thumbnail URL of the page
      */
-    public static class Thumb {
+    public static class Thumbnail {
         @SuppressWarnings("unused") private String source;
 
         public String getUrl() {

@@ -8,32 +8,32 @@ import android.text.TextUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.server.restbase.RbPageSummary;
 
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 public class NewsLinkCard extends Card {
-    @NonNull private CardPageItem page;
+    @NonNull private RbPageSummary page;
     @NonNull private WikiSite wiki;
 
-    public NewsLinkCard(@NonNull CardPageItem page, @NonNull WikiSite wiki) {
+    public NewsLinkCard(@NonNull RbPageSummary page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }
 
     @NonNull @Override public String title() {
-        return page.title();
+        return page.getTitle();
     }
 
     @Nullable @Override public String subtitle() {
-        return page.description();
+        return page.getDescription();
     }
 
     @Nullable @Override public Uri image() {
-        Uri image = page.thumbnail();
-        return image != null ? getUrlForSize(image, Constants.PREFERRED_THUMB_SIZE) : null;
+        String thumbUrl = page.getThumbnailUrl();
+        return thumbUrl != null ? getUrlForSize(Uri.parse(thumbUrl), Constants.PREFERRED_THUMB_SIZE) : null;
     }
 
     @NonNull @Override public CardType type() {
@@ -41,12 +41,12 @@ public class NewsLinkCard extends Card {
     }
 
     @NonNull public PageTitle pageTitle() {
-        PageTitle title = new PageTitle(page.title(), wiki);
-        if (page.thumbnail() != null) {
-            title.setThumbUrl(page.thumbnail().toString());
+        PageTitle title = new PageTitle(page.getTitle(), wiki);
+        if (page.getThumbnailUrl() != null) {
+            title.setThumbUrl(page.getThumbnailUrl());
         }
-        if (!TextUtils.isEmpty(page.description())) {
-            title.setDescription(page.description());
+        if (!TextUtils.isEmpty(page.getDescription())) {
+            title.setDescription(page.getDescription());
         }
         return title;
     }

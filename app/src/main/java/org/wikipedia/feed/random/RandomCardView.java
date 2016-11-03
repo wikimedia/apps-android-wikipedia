@@ -6,12 +6,12 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.StaticCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomSummaryClient;
+import org.wikipedia.server.restbase.RbPageSummary;
 import org.wikipedia.util.log.L;
 
 import retrofit2.Call;
@@ -44,7 +44,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
         private RandomSummaryClient.Callback serviceCallback
                 = new RandomSummaryClient.Callback() {
             @Override
-            public void onSuccess(@NonNull Call<CardPageItem> call, @Nullable PageTitle title) {
+            public void onSuccess(@NonNull Call<RbPageSummary> call, @Nullable PageTitle title) {
                 if (getCallback() != null) {
                     getCallback().onSelectPage(new HistoryEntry(title,
                             HistoryEntry.SOURCE_FEED_RANDOM));
@@ -52,7 +52,7 @@ public class RandomCardView extends StaticCardView<RandomCard> {
             }
 
             @Override
-            public void onError(@NonNull Call<CardPageItem> call, @NonNull Throwable t) {
+            public void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
                 L.w("Failed to get random card", t);
             }
         };

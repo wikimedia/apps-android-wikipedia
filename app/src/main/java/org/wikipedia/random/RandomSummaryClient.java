@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RbCachedService;
-import org.wikipedia.feed.model.CardPageItem;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.server.restbase.RbPageSummary;
 import org.wikipedia.util.log.L;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
@@ -31,16 +31,15 @@ public class RandomSummaryClient {
     }
 
     public void request() {
-        Call<CardPageItem> call = cachedService.service(wiki).get();
-        call.enqueue(new retrofit2.Callback<CardPageItem>() {
+        Call<RbPageSummary> call = cachedService.service(wiki).get();
+        call.enqueue(new retrofit2.Callback<RbPageSummary>() {
             @Override
-            public void onResponse(@NonNull Call<CardPageItem> call,
-                                   @NonNull Response<CardPageItem> response) {
+            public void onResponse(@NonNull Call<RbPageSummary> call,
+                                   @NonNull Response<RbPageSummary> response) {
                 if (response.isSuccessful()) {
                     responseHeaderHandler.onHeaderCheck(response);
-                    CardPageItem item = response.body();
-                    String namespace = item.namespace().toLegacyString();
-                    PageTitle title = new PageTitle(namespace, item.title(), wiki);
+                    RbPageSummary item = response.body();
+                    PageTitle title = new PageTitle(null, item.getTitle(), wiki);
                     cb.onSuccess(call, title);
                 } else {
                     L.v(response.message());
@@ -49,7 +48,7 @@ public class RandomSummaryClient {
             }
 
             @Override
-            public void onFailure(@NonNull Call<CardPageItem> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<RbPageSummary> call, @NonNull Throwable t) {
                 L.w("Failed to get random page title/summary", t);
                 cb.onError(call, t);
             }
@@ -58,12 +57,11 @@ public class RandomSummaryClient {
 
     private interface Service {
         @GET("page/random/summary")
-        @NonNull Call<CardPageItem> get();
+        @NonNull Call<RbPageSummary> get();
     }
 
-
     public interface Callback {
-        void onSuccess(@NonNull Call<CardPageItem> call, @Nullable PageTitle title);
-        void onError(@NonNull Call<CardPageItem> call, @NonNull Throwable t);
+        void onSuccess(@NonNull Call<RbPageSummary> call, @Nullable PageTitle title);
+        void onError(@NonNull Call<RbPageSummary> call, @NonNull Throwable t);
     }
 }
