@@ -30,6 +30,7 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.settings.LanguagePreferenceDialog;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -42,11 +43,16 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class SearchFragment extends Fragment implements BackPressedHandler,
-        SearchResultsFragment.Parent, RecentSearchesFragment.Parent {
+        SearchResultsFragment.Callback, RecentSearchesFragment.Parent {
+
     public interface Callback {
         void onSearchSelectPage(@NonNull HistoryEntry entry, boolean inNewTab);
         void onSearchOpen();
         void onSearchClose(boolean launchedFromIntent);
+        void onSearchResultCopyLink(@NonNull PageTitle title);
+        void onSearchResultAddToList(@NonNull PageTitle title,
+                                     @NonNull AddToReadingListDialog.InvokeSource source);
+        void onSearchResultShareLink(@NonNull PageTitle title);
     }
 
     private static final String ARG_INVOKE_SOURCE = "invokeSource";
@@ -233,11 +239,6 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
     }
 
     @Override
-    public void setProgressBarEnabled(boolean enabled) {
-        progressBar.setVisibility(enabled ? View.VISIBLE : View.GONE);
-    }
-
-    @Override
     public void navigateToTitle(@NonNull PageTitle title, boolean inNewTab, int position) {
         if (!isAdded()) {
             return;
@@ -249,6 +250,36 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
             callback.onSearchSelectPage(historyEntry, inNewTab);
         }
         closeSearch();
+    }
+
+    @Override
+    public void onSearchResultCopyLink(@NonNull PageTitle title) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchResultCopyLink(title);
+        }
+    }
+
+    @Override
+    public void onSearchResultAddToList(@NonNull PageTitle title,
+                                        @NonNull AddToReadingListDialog.InvokeSource source) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchResultAddToList(title, source);
+        }
+    }
+
+    @Override
+    public void onSearchResultShareLink(@NonNull PageTitle title) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onSearchResultShareLink(title);
+        }
+    }
+
+    @Override
+    public void onSearchProgressBar(boolean enabled) {
+        progressBar.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
     @OnClick(R.id.search_container) void onSearchContainerClick() {

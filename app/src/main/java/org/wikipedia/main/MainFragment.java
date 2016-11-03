@@ -50,7 +50,6 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
-import org.wikipedia.search.SearchResultsFragment;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DateUtil;
@@ -69,8 +68,7 @@ import butterknife.Unbinder;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
-        SearchFragment.Callback, SearchResultsFragment.Callback, LinkPreviewDialog.Callback,
-        AddToReadingListDialog.Callback {
+        SearchFragment.Callback, LinkPreviewDialog.Callback, AddToReadingListDialog.Callback {
     @BindView(R.id.fragment_main_container) CoordinatorLayout coordinatorLayout;
     @BindView(R.id.fragment_main_padding_app_bar) AppBarLayout paddingAppBar;
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
@@ -297,7 +295,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         copyLink(title.getCanonicalUri());
     }
 
-
     @Override
     public void onSearchResultAddToList(@NonNull PageTitle title,
                                         @NonNull AddToReadingListDialog.InvokeSource source) {
@@ -308,11 +305,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override
     public void onSearchResultShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(getContext(), title);
-    }
-
-    @Override
-    public void onSearchProgressBar(boolean enabled) {
-        // TODO: implement
     }
 
     @Override
