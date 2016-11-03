@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -69,6 +71,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         NearbyFragment.Callback, HistoryFragment.Callback, ReadingListsFragment.Callback,
         SearchFragment.Callback, SearchResultsFragment.Callback, LinkPreviewDialog.Callback,
         AddToReadingListDialog.Callback {
+    @BindView(R.id.fragment_main_container) CoordinatorLayout coordinatorLayout;
+    @BindView(R.id.fragment_main_padding_app_bar) AppBarLayout paddingAppBar;
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
     @BindView(R.id.fragment_main_nav_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
@@ -362,7 +366,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 .setAction(R.string.reading_list_added_view_button, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        viewPager.setCurrentItem(NavTab.READING_LISTS.code());
+                        goToTab(NavTab.READING_LISTS);
                     }
                 }).show();
     }
@@ -434,6 +438,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Nullable private SearchFragment searchFragment() {
         return (SearchFragment) getChildFragmentManager().findFragmentById(R.id.fragment_main_container);
+    }
+
+    private void goToTab(@NonNull NavTab tab) {
+        viewPager.setCurrentItem(tab.code());
+        ensureNavBarVisible();
+    }
+
+    private void ensureNavBarVisible() {
+        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) paddingAppBar.getLayoutParams();
+        AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
+        if (behavior != null) {
+            behavior.onNestedFling(coordinatorLayout, paddingAppBar, null, 0, params.height, true);
+        }
     }
 
     @Nullable private Callback callback() {
