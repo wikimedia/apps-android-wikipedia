@@ -23,21 +23,25 @@ import butterknife.Unbinder;
 import retrofit2.Call;
 
 public class DescriptionEditFragment extends Fragment {
-    private static final String EXTRA_TITLE = "title";
+    private static final String ARG_TITLE = "title";
 
     @BindView(R.id.description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
-    private EditViewCallback callback = new EditViewCallback();
-    private Call<DescriptionEdit> call;
+    @Nullable private Call<DescriptionEdit> call;
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title) {
         DescriptionEditFragment instance = new DescriptionEditFragment();
         Bundle args = new Bundle();
-        args.putString(EXTRA_TITLE, GsonMarshaller.marshal(title));
+        args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
         instance.setArguments(args);
         return instance;
+    }
+
+    @Override public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        pageTitle = GsonUnmarshaller.unmarshal(PageTitle.class, getArguments().getString(ARG_TITLE));
     }
 
     @Nullable
@@ -47,9 +51,8 @@ public class DescriptionEditFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        pageTitle = GsonUnmarshaller.unmarshal(PageTitle.class, getActivity().getIntent().getStringExtra(EXTRA_TITLE));
         editView.setPageTitle(pageTitle);
-        editView.setCallback(callback);
+        editView.setCallback(new EditViewCallback());
         return view;
     }
 
@@ -60,6 +63,7 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     @Override public void onDestroyView() {
+        editView.setCallback(null);
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
@@ -68,7 +72,9 @@ public class DescriptionEditFragment extends Fragment {
     @Override public void onDestroy() {
         if (call != null) {
             call.cancel();
+            call = null;
         }
+        pageTitle = null;
         super.onDestroy();
     }
 
