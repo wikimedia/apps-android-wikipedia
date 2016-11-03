@@ -347,7 +347,7 @@ public class SearchFragment extends Fragment implements BackPressedHandler,
         }
     }
 
-    private void closeSearch() {
+    public void closeSearch() {
         isSearchActive = false;
         // hide ourselves
         ViewUtil.fadeOut(searchContainer);
