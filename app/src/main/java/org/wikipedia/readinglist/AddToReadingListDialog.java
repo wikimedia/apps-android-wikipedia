@@ -68,14 +68,20 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private InvokeSource invokeSource;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
     private List<ReadingList> readingLists = new ArrayList<>();
-    private DialogInterface.OnDismissListener dismissListener;
+    @Nullable private DialogInterface.OnDismissListener dismissListener;
 
-    public static AddToReadingListDialog newInstance(PageTitle title, InvokeSource source) {
+    public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source) {
+        return newInstance(title, source, null);
+    }
+
+    public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source,
+                                                     @Nullable DialogInterface.OnDismissListener listener) {
         AddToReadingListDialog dialog = new AddToReadingListDialog();
         Bundle args = new Bundle();
         args.putParcelable("title", title);
         args.putInt("source", source.code());
         dialog.setArguments(args);
+        dialog.setOnDismissListener(listener);
         return dialog;
     }
 
@@ -112,6 +118,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 dismiss();
             }
         });
+
+        if (savedInstanceState == null) {
+            // Log a click event, but only the first time the dialog is shown.
+            new ReadingListsFunnel(pageTitle.getWikiSite()).logAddClick(invokeSource);
+        }
 
         updateLists();
         return rootView;
