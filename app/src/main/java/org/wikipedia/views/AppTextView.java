@@ -3,15 +3,9 @@ package org.wikipedia.views;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
-
-import org.wikipedia.richtext.TextViewSpanOnTouchListener;
 
 public class AppTextView extends ConfigurableTextView {
-    @NonNull
-    private final TextViewSpanOnTouchListener spanTouchListener = new TextViewSpanOnTouchListener(this);
 
     public AppTextView(Context context) {
         this(context, null);
@@ -34,11 +28,6 @@ public class AppTextView extends ConfigurableTextView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         remeasureForLineSpacing();
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event) || spanTouchListener.onTouch(this, event);
     }
 
     // Ensure the descenders of the final line are not truncated. This usually happens when
