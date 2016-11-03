@@ -1,25 +1,31 @@
 package org.wikipedia.editing.preview;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.model.BaseModel;
+import org.wikipedia.dataclient.mwapi.MwPostResponse;
 
-public class EditPreview extends BaseModel {
-    @SuppressWarnings("unused,NullableProblems") @NonNull private Parse parse;
-    @NonNull protected String result() {
-        return parse.text().result();
+class EditPreview extends MwPostResponse {
+    @SuppressWarnings("unused") @Nullable private Parse parse;
+
+    boolean hasPreviewResult() {
+        return parse != null;
     }
 
-    static class Parse {
+    @Nullable String result() {
+        return parse != null ? parse.text().result() : null;
+    }
+
+    private static class Parse {
         @SuppressWarnings("unused,NullableProblems") @NonNull private Text text;
         @NonNull Text text() {
             return text;
         }
     }
 
-    static class Text {
+    private static class Text {
         @SuppressWarnings("unused,NullableProblems") @SerializedName("*") @NonNull private String result;
         @NonNull String result() {
             return result;
