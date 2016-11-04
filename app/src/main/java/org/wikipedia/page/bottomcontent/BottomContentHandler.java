@@ -292,7 +292,7 @@ public class BottomContentHandler implements BottomContentInterface,
 
     private void preRequestReadMoreItems(final LayoutInflater layoutInflater) {
         if (parentFragment.getPage().isMainPage()) {
-            new MainPageReadMoreTopicTask(parentFragment.getContext()) {
+            new MainPageReadMoreTopicTask(app) {
                 @Override
                 public void onFinish(HistoryEntry entry) {
                     requestReadMoreItems(layoutInflater, entry);
