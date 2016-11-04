@@ -40,6 +40,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.log.L;
@@ -187,7 +188,6 @@ public class NearbyFragment extends Fragment {
                 mapboxMap.setOnMyLocationChangeListener(new MapboxMap.OnMyLocationChangeListener() {
                     @Override
                     public void onMyLocationChange(@Nullable Location location) {
-                        makeUseOfNewLocation(location);
                         if (!firstLocationLock) {
                             goToUserLocation();
                             firstLocationLock = true;
@@ -216,6 +216,7 @@ public class NearbyFragment extends Fragment {
                 });
 
                 if (currentLocation != null && lastResult != null) {
+                    goToLocation(currentLocation);
                     showNearbyPages(lastResult);
                 } else if (locationPermitted()) {
                     updateLocationEnabled(mapboxMap);
@@ -274,22 +275,30 @@ public class NearbyFragment extends Fragment {
     }
 
     private void goToUserLocation() {
-        if (mapboxMap == null) {
+        if (mapboxMap == null || !getUserVisibleHint()) {
+            return;
+        }
+        if (!DeviceUtil.isLocationServiceEnabled(getContext().getApplicationContext())) {
+            showLocationDisabledSnackbar();
             return;
         }
 
         Location location = mapboxMap.getMyLocation();
         if (location != null) {
-            CameraPosition pos = new CameraPosition.Builder()
-                    .target(new LatLng(location))
-                    .zoom(getResources().getInteger(R.integer.map_default_zoom))
-                    .build();
-            mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(pos));
-        } else {
-            showLocationDisabledSnackbar();
+            goToLocation(location);
         }
-
         fetchNearbyPages();
+    }
+
+    private void goToLocation(@NonNull Location location) {
+        if (mapboxMap == null) {
+            return;
+        }
+        CameraPosition pos = new CameraPosition.Builder()
+                .target(new LatLng(location))
+                .zoom(getResources().getInteger(R.integer.map_default_zoom))
+                .build();
+        mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(pos));
     }
 
     private void showLocationDisabledSnackbar() {
@@ -306,13 +315,6 @@ public class NearbyFragment extends Fragment {
         snackbar.show();
     }
 
-    private void makeUseOfNewLocation(Location location) {
-        if (!isBetterLocation(location, currentLocation)) {
-            return;
-        }
-        currentLocation = location;
-    }
-
     private void fetchNearbyPages() {
         final int fetchTaskDelayMillis = 500;
         mapView.removeCallbacks(fetchTaskRunnable);
@@ -326,9 +328,9 @@ public class NearbyFragment extends Fragment {
                 return;
             }
 
-            LatLng latLng = mapboxMap.getCameraPosition().target;
+            currentLocation = fromLatLng(mapboxMap.getCameraPosition().target);
             onLoading();
-            new NearbyFetchTask(getActivity(), wiki, latLng.getLatitude(), latLng.getLongitude(), getMapRadius()) {
+            new NearbyFetchTask(getActivity(), wiki, currentLocation.getLatitude(), currentLocation.getLongitude(), getMapRadius()) {
                 @Override
                 public void onFinish(NearbyResult result) {
                     if (!isResumed()) {
@@ -366,63 +368,6 @@ public class NearbyFragment extends Fragment {
         return Math.max(width, height) / 2;
     }
 
-    /** Determines whether one Location reading is better than the current Location fix.
-     * lifted from http://developer.android.com/guide/topics/location/strategies.html
-     * @param location  The new Location that you want to evaluate
-     * @param currentBestLocation  The current Location fix, to which you want to compare the new one
-     */
-    protected boolean isBetterLocation(Location location, Location currentBestLocation) {
-        if (currentBestLocation == null) {
-            // A new location is always better than no location
-            return true;
-        }
-
-        // Check whether the new location fix is newer or older
-        final int twoMinutes = 1000 * 60 * 2;
-        final int accuracyThreshold = 200;
-        long timeDelta = location.getTime() - currentBestLocation.getTime();
-        boolean isSignificantlyNewer = timeDelta > twoMinutes;
-        boolean isSignificantlyOlder = timeDelta < -twoMinutes;
-        boolean isNewer = timeDelta > 0;
-
-        // If it's been more than two minutes since the current location, use the new location
-        // because the user has likely moved
-        if (isSignificantlyNewer) {
-            return true;
-            // If the new location is more than two minutes older, it must be worse
-        } else if (isSignificantlyOlder) {
-            return false;
-        }
-
-        // Check whether the new location fix is more or less accurate
-        int accuracyDelta = (int) (location.getAccuracy() - currentBestLocation.getAccuracy());
-        boolean isLessAccurate = accuracyDelta > 0;
-        boolean isMoreAccurate = accuracyDelta < 0;
-        boolean isSignificantlyLessAccurate = accuracyDelta > accuracyThreshold;
-
-        // Check if the old and new location are from the same provider
-        boolean isFromSameProvider = isSameProvider(location.getProvider(),
-                                                    currentBestLocation.getProvider());
-
-        // Determine location quality using a combination of timeliness and accuracy
-        if (isMoreAccurate) {
-            return true;
-        } else if (isNewer && !isLessAccurate) {
-            return true;
-        } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-            return true;
-        }
-        return false;
-    }
-
-    /** Checks whether two providers are the same */
-    private boolean isSameProvider(String provider1, String provider2) {
-        if (provider1 == null) {
-            return provider2 == null;
-        }
-        return provider1.equals(provider2);
-    }
-
     private void showNearbyPages(NearbyResult result) {
         if (mapboxMap == null) {
             return;
@@ -451,10 +396,16 @@ public class NearbyFragment extends Fragment {
     }
 
     private void updateLocationEnabled(@NonNull MapboxMap map) {
-        // the mapbox sdk will actually quickly toggle the gps if it was already enabled
-        if (!map.isMyLocationEnabled()) {
-            map.setMyLocationEnabled(getUserVisibleHint());
-        }
+        map.setMyLocationEnabled(getUserVisibleHint());
+    }
+
+
+    @NonNull private Location fromLatLng(@NonNull LatLng latLng) {
+        Location location = new Location("");
+        location.setLatitude(latLng.getLatitude());
+        location.setLongitude(latLng.getLongitude());
+        location.setAltitude(latLng.getAltitude());
+        return location;
     }
 
     @SuppressLint("CommitPrefEdits")
