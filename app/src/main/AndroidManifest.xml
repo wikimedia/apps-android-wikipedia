@@ -117,7 +117,7 @@
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                   android:exported="false"
                 />
-        <activity android:name=".editing.EditSectionActivity"
+        <activity android:name=".edit.EditSectionActivity"
                   android:windowSoftInputMode="adjustResize|stateVisible"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
                   android:exported="false"

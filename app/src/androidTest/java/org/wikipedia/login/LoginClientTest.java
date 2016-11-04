@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.editing.token.EditTokenStorage;
+import org.wikipedia.edit.token.EditTokenStorage;
 import org.wikipedia.testlib.TestLatch;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
