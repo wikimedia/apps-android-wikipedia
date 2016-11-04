@@ -322,7 +322,7 @@
     <string name="view_static_card_icon_content_description">Card icon</string>
     <string name="view_card_news_title">In the news</string>
     <plurals name="view_continue_reading_card_subtitle">
-        <item quantity="one">yesterday</item>
+        <item quantity="one">Yesterday</item>
         <item quantity="other">%d days ago</item>
     </plurals>
     <string name="view_continue_reading_card_subtitle_today">Today</string>
