@@ -46,7 +46,7 @@ import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.editing.EditHandler;
+import org.wikipedia.edit.EditHandler;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.action.PageActionTab;

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.editing.EditResult;
+import org.wikipedia.edit.EditResult;
 
 // Handles only Image Captchas
 public class CaptchaResult extends EditResult {

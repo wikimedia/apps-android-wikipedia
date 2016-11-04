@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.editing.summaries.EditSummary;
+import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListRow;
