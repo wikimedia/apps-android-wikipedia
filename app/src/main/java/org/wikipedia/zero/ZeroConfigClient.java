@@ -3,6 +3,8 @@ package org.wikipedia.zero;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
+import com.google.gson.JsonParseException;
+
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
@@ -58,6 +60,10 @@ class ZeroConfigClient {
         public void onResponse(@NonNull Call<ZeroConfig> call,
                                @NonNull Response<ZeroConfig> response) {
             if (response.isSuccessful()) {
+                if (response.body() == null) {
+                    cb.failure(call, new JsonParseException("Response missing required field(s)"));
+                    return;
+                }
                 cb.success(call, response.body());
             } else {
                 cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));

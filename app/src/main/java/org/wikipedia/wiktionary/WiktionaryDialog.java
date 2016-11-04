@@ -24,6 +24,7 @@ import org.wikipedia.server.PageService;
 import org.wikipedia.server.PageServiceFactory;
 import org.wikipedia.server.restbase.RbDefinition;
 import org.wikipedia.server.restbase.RbPageService;
+import org.wikipedia.server.restbase.RbPageService.DefinitionCallback;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.AppTextView;
@@ -118,9 +119,9 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
-    private RbDefinition.Callback definitionOnLoadCallback = new RbDefinition.Callback() {
+    private DefinitionCallback definitionOnLoadCallback = new DefinitionCallback() {
         @Override
-        public void success(RbDefinition definition) {
+        public void success(@NonNull RbDefinition definition) {
             if (!isAdded()) {
                 return;
             }
