@@ -35,18 +35,22 @@ import static org.wikipedia.page.Namespace.TALK;
     }
 
     @Test public void testFromLegacyStringMain() {
+        //noinspection deprecation
         assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("test"), null), is(MAIN));
     }
 
     @Test public void testFromLegacyStringFile() {
+        //noinspection deprecation
         assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("he"), "קובץ"), is(FILE));
     }
 
     @Test public void testFromLegacyStringSpecial() {
+        //noinspection deprecation
         assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("lez"), "Служебная"), is(SPECIAL));
     }
 
     @Test public void testFromLegacyStringTalk() {
+        //noinspection deprecation
         assertThat(Namespace.fromLegacyString(WikiSite.forLanguageCode("en"), "stringTalk"), is(TALK));
     }
 
@@ -84,10 +88,12 @@ import static org.wikipedia.page.Namespace.TALK;
     }
 
     @Test public void testToLegacyStringMain() {
+        //noinspection deprecation
         assertThat(MAIN.toLegacyString(), nullValue());
     }
 
     @Test public void testToLegacyStringNonMain() {
+        //noinspection deprecation
         assertThat(TALK.toLegacyString(), is("Talk"));
     }
 }

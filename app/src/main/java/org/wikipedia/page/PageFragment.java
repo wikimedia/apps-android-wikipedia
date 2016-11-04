@@ -11,6 +11,7 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
@@ -315,7 +316,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // Explicitly set background color of the WebView (independently of CSS, because
         // the background may be shown momentarily while the WebView loads content,
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
-        webView.setBackgroundColor(getResources().getColor(
+        webView.setBackgroundColor(ContextCompat.getColor(getContext(),
                 getThemedAttributeId(getActivity(), R.attr.page_background_color)));
 
         bridge = new CommunicationBridge(webView, "file:///android_asset/index.html");

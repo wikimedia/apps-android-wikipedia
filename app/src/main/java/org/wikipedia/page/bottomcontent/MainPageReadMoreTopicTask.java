@@ -10,6 +10,7 @@ import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.util.ContentProviderClientCompat;
 
 /**
  * Get a Read More topic for the main page. This is looking at the history table.
@@ -58,7 +59,7 @@ public class MainPageReadMoreTopicTask extends SaneAsyncTask<HistoryEntry> {
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         } finally {
-            client.release();
+            ContentProviderClientCompat.close(client);
         }
     }
 }

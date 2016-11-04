@@ -12,7 +12,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.test.InstrumentationRegistry;
 import android.support.v4.text.TextUtilsCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.TextView;
@@ -83,7 +82,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
     protected void snap(@NonNull View subject, @Nullable String... dataPoints) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             int rtl = layoutDirection == LayoutDirection.RTL
-                    ? ViewCompat.LAYOUT_DIRECTION_RTL
+                    ? View.LAYOUT_DIRECTION_RTL
                     : TextUtilsCompat.getLayoutDirectionFromLocale(locale);
             //noinspection WrongConstant
             subject.setLayoutDirection(rtl);

@@ -1,12 +1,10 @@
 package org.wikipedia;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.res.Resources;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPropertyAnimatorListener;
-import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
+import android.support.annotation.Nullable;
 import android.view.View;
-
-import static android.support.v4.view.ViewCompat.animate;
 
 /**
  * Contains convenient methods for performing various animations on Views.
@@ -27,7 +25,7 @@ public final class ViewAnimations {
      * @param curView The view that is currently visible
      * @param newView The new view that should be faded in
      */
-    public static void crossFade(final View curView, final View newView) {
+    public static void crossFade(View curView, View newView) {
         fadeIn(newView);
         fadeOut(curView);
     }
@@ -38,7 +36,7 @@ public final class ViewAnimations {
      * @param newView The new view that should be faded in
      * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
      */
-    public static void crossFade(final View curView, final View newView, final Runnable runOnComplete) {
+    public static void crossFade(View curView, View newView, Runnable runOnComplete) {
         fadeIn(newView);
         fadeOut(curView, runOnComplete);
     }
@@ -47,7 +45,7 @@ public final class ViewAnimations {
      * Fades in a view.
      * @param view The currently invisible view to be faded in
      */
-    public static void fadeIn(final View view) {
+    public static void fadeIn(View view) {
         fadeIn(view, null);
     }
 
@@ -56,23 +54,15 @@ public final class ViewAnimations {
      * @param view The currently invisible view to be faded in
      * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
      */
-    public static void fadeIn(View view, final Runnable runOnComplete) {
-        ViewCompat.setAlpha(view, 0f);
+    public static void fadeIn(View view, @Nullable final Runnable runOnComplete) {
+        view.setAlpha(0);
         view.setVisibility(View.VISIBLE);
-        animate(view)
-                .alpha(1.0f)
+        view.animate()
+                .alpha(1)
                 .setDuration(MEDIUM_ANIMATION_DURATION)
-                .setListener(new ViewPropertyAnimatorListenerAdapter() {
-                    private boolean wasCanceled = false;
-
-                    @Override
-                    public void onAnimationCancel(View view) {
-                        wasCanceled = true;
-                    }
-
-                    @Override
-                    public void onAnimationEnd(View view) {
-                        if (!wasCanceled) {
+                .setListener(new CancelStateAnimatorListenerAdapter() {
+                    @Override public void onAnimationEnd(Animator animation) {
+                        if (!canceled()) {
                             if (runOnComplete != null) {
                                 runOnComplete.run();
                             }
@@ -96,82 +86,21 @@ public final class ViewAnimations {
      * @param runOnComplete Optional Runnable to be run when the animation is complete (may be null).
      */
     public static void fadeOut(final View view, final Runnable runOnComplete) {
-        animate(view)
-                .alpha(0f)
+        view.animate().cancel();
+        view.animate()
+                .alpha(0)
                 .setDuration(MEDIUM_ANIMATION_DURATION)
-                .setListener(new ViewPropertyAnimatorListenerAdapter() {
-                    private boolean wasCanceled = false;
-
-                    @Override
-                    public void onAnimationCancel(View view) {
-                        wasCanceled = true;
-                    }
-
-                    @Override
-                    public void onAnimationEnd(View view) {
-                        if (!wasCanceled) {
+                .setListener(new CancelStateAnimatorListenerAdapter() {
+                    @Override public void onAnimationEnd(Animator animation) {
+                        if (!canceled()) {
                             // Detect if we got canceled, and if so DON'T hide...
                             // There's another animation now pushing the alpha back up
                             view.setVisibility(View.GONE);
-                            ViewCompat.setAlpha(view, 1.0f);
+                            view.setAlpha(1);
                             if (runOnComplete != null) {
                                 runOnComplete.run();
                             }
                         }
-                    }
-                })
-                .start();
-    }
-
-    /**
-     * Slides a view back in (after being slid to the left or right), and makes it VISIBLE again.
-     * @param view The view to slide in
-     * @param listener Listener for receiving animation events (may be null)
-     */
-    public static void slideIn(View view, ViewPropertyAnimatorListener listener) {
-        animate(view)
-                .translationX(0)
-                .setDuration(SHORT_ANIMATION_DURATION)
-                .setListener(listener != null ? listener : new ViewPropertyAnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(View view) {
-                        view.setVisibility(View.VISIBLE);
-                    }
-                })
-                .start();
-    }
-
-    /**
-     * Slides a view out to the left (and makes it GONE).
-     * @param view The view to slide out
-     * @param listener Listener for receiving animation events (may be null)
-     */
-    public static void slideOutLeft(View view, ViewPropertyAnimatorListener listener) {
-        animate(view)
-                .translationX(-view.getWidth())
-                .setDuration(SHORT_ANIMATION_DURATION)
-                .setListener(listener != null ? listener : new ViewPropertyAnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(View view) {
-                        view.setVisibility(View.GONE);
-                    }
-                })
-                .start();
-    }
-
-    /**
-     * Slides a view out to the right (and makes it GONE).
-     * @param view The view to slide out
-     * @param listener Listener for receiving animation events (may be null)
-     */
-    public static void slideOutRight(View view, ViewPropertyAnimatorListener listener) {
-        animate(view)
-                .translationX(view.getWidth())
-                .setDuration(SHORT_ANIMATION_DURATION)
-                .setListener(listener != null ? listener : new ViewPropertyAnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(View view) {
-                        view.setVisibility(View.GONE);
                     }
                 })
                 .start();
@@ -187,21 +116,19 @@ public final class ViewAnimations {
      */
     public static void ensureTranslationY(View view, int translation) {
         if (view.getTranslationY() != translation) {
-            animate(view).translationY(translation).setDuration(SHORT_ANIMATION_DURATION).start();
+            view.animate().translationY(translation).setDuration(SHORT_ANIMATION_DURATION).start();
         }
     }
 
-    /**
-     * Ensures that the translationX of a particular view is the given value.
-     *
-     * If it isn't the current value, then it performs a short animation to make it so.
-     *
-     * @param view The view to translate
-     * @param translation The value to ensure it is translated by
-     */
-    public static void ensureTranslationX(View view, int translation) {
-        if (view.getTranslationX() != translation) {
-            animate(view).translationX(translation).setDuration(SHORT_ANIMATION_DURATION).start();
+    private static class CancelStateAnimatorListenerAdapter extends AnimatorListenerAdapter {
+        private boolean canceled;
+
+        @Override public void onAnimationCancel(Animator animation) {
+            canceled = true;
+        }
+
+        protected boolean canceled() {
+            return canceled;
         }
     }
 }

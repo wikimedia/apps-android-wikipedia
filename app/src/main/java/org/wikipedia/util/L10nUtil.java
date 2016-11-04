@@ -152,10 +152,10 @@ public final class L10nUtil {
      */
     private static SparseArray<String> getStringsForLocale(Locale targetLocale, @StringRes int[] strings) {
         Configuration config = getCurrentConfiguration();
-        Locale systemLocale = config.locale;
-        config.locale = targetLocale;
+        Locale systemLocale = ConfigurationCompat.getLocale(config);
+        ConfigurationCompat.setLocale(config, targetLocale);
         SparseArray<String> localizedStrings = getTargetStrings(strings, config);
-        config.locale = systemLocale;
+        ConfigurationCompat.setLocale(config, systemLocale);
         resetConfiguration(config);
         return localizedStrings;
     }

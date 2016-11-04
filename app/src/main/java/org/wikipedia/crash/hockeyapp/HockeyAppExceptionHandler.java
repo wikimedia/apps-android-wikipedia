@@ -39,7 +39,7 @@ import net.hockeyapp.android.ExceptionHandler;
             // Always call the default handler instead
             defaultExceptionHandler.uncaughtException(thread, exception);
         } else {
-            saveException(exception, listener);
+            saveException(exception, null, listener);
 
             if (!ignoreDefaultHandler) {
                 defaultExceptionHandler.uncaughtException(thread, exception);

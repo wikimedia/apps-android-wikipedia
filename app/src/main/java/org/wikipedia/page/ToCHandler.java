@@ -1,6 +1,10 @@
 package org.wikipedia.page;
 
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -49,6 +53,7 @@ public class ToCHandler {
     private final TextView headerView;
     private final PageFragment fragment;
     private ToCInteractionFunnel funnel;
+    @Nullable private DrawerLayout.DrawerListener drawerListener;
 
     /**
      * Flag to track if the drawer is closing because a link was clicked.
@@ -101,7 +106,7 @@ public class ToCHandler {
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(),
                 WikipediaApp.getInstance().getWikiSite(), 0, 0);
 
-        slidingPane.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+        drawerListener = new DrawerLayout.SimpleDrawerListener() {
             private boolean sectionRequested = false;
 
             @Override
@@ -134,7 +139,8 @@ public class ToCHandler {
                     sectionRequested = true;
                 }
             }
-        });
+        };
+        slidingPane.addDrawerListener(drawerListener); // todo: remove what was added
     }
 
     public void scrollToSection(String sectionAnchor) {
@@ -265,10 +271,10 @@ public class ToCHandler {
 
             if (section.getLevel() > 1) {
                 sectionHeading.setTextColor(
-                        WikipediaApp.getInstance().getResources().getColor(getThemedAttributeId(fragment.getContext(), R.attr.toc_subsection_text_color)));
+                        getColor(getThemedAttributeId(fragment.getContext(), R.attr.toc_subsection_text_color)));
             } else {
                 sectionHeading.setTextColor(
-                        WikipediaApp.getInstance().getResources().getColor(getThemedAttributeId(fragment.getContext(), R.attr.toc_section_text_color)));
+                        getColor(getThemedAttributeId(fragment.getContext(), R.attr.toc_section_text_color)));
             }
             return convertView;
         }
@@ -292,5 +298,9 @@ public class ToCHandler {
             WikipediaApp.getInstance().getOnboardingStateMachine().setTocTutorial();
             L.w("ToC onboarding failed", e);
         }
+    }
+
+    @ColorInt private int getColor(@ColorRes int id) {
+        return ContextCompat.getColor(WikipediaApp.getInstance(), id);
     }
 }
