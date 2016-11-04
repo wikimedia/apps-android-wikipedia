@@ -28,7 +28,6 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 public class BecauseYouReadCardViewTest extends ViewTest {
     private static final int TODAY = 0;
@@ -71,11 +70,7 @@ public class BecauseYouReadCardViewTest extends ViewTest {
     @Theory public void testFocus(@NonNull Theme theme) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, theme, PrimaryTestStr.SHORT,
                 SecondaryTestStr.SHORT, TODAY, MAX_SUGGESTIONS);
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.requestFocus();
-            }
-        });
+        requestFocus(subject);
         snap(subject);
     }
 

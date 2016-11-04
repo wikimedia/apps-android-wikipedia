@@ -10,7 +10,6 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.test.InstrumentationRegistry;
 import android.support.v4.text.TextUtilsCompat;
 import android.support.v7.view.ContextThemeWrapper;
 import android.view.View;
@@ -31,9 +30,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+import static android.support.test.InstrumentationRegistry.getTargetContext;
 import static butterknife.ButterKnife.findById;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.wikipedia.test.TestUtil.runOnMainSync;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 @RunWith(Theories.class) public abstract class ViewTest {
@@ -73,8 +74,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         this.layoutDirection = layoutDirection;
         this.fontScale = fontScale;
         this.theme = theme;
-        ctx = new ContextThemeWrapper(InstrumentationRegistry.getTargetContext(),
-                theme.getResourceId());
+        ctx = new ContextThemeWrapper(getTargetContext(), theme.getResourceId());
         Locale.setDefault(locale);
         config();
     }
@@ -98,6 +98,14 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         list.add(theme.toString().toLowerCase());
         list.addAll(Arrays.asList(ArrayUtils.nullToEmpty(dataPoints)));
         Screenshot.snap(subject).setName(testName(list)).record();
+    }
+
+    protected void requestFocus(@NonNull final View view) {
+        runOnMainSync(new Runnable() {
+            @Override public void run() {
+                view.requestFocus();
+            }
+        });
     }
 
     protected void assertText(@NonNull View subject, @IdRes int id, @NonNull TestStr text) {

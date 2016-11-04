@@ -23,7 +23,6 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @SmallTest public class CardLargeHeaderViewTest extends ViewTest {
     private CardLargeHeaderView subject;
@@ -50,11 +49,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     @Theory public void testFocus(@NonNull Theme theme) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, theme, PrimaryTestImg.NULL,
                 PrimaryTestStr.SHORT);
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.requestFocus();
-            }
-        });
+        requestFocus(subject);
         snap(subject);
     }
 

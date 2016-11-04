@@ -27,7 +27,6 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @SmallTest public class CardHeaderViewTest extends ViewTest {
     @ColorRes private static final int BLUE = R.color.foundation_blue;
@@ -57,11 +56,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
     @Theory public void testFocus(@NonNull Theme theme) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, theme, PrimaryTestImg.NONNULL,
                 PrimaryTestStr.SHORT, SecondaryTestStr.SHORT, BLUE);
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.requestFocus();
-            }
-        });
+        requestFocus(subject);
         snap(subject);
     }
 

@@ -23,7 +23,6 @@ import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.mock;
 import static org.wikipedia.feed.view.PageTitleListCardItemView.Callback;
-import static org.wikipedia.test.TestUtil.runOnMainSync;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 public class PageTitleListCardItemViewTest extends ViewTest {
@@ -51,11 +50,7 @@ public class PageTitleListCardItemViewTest extends ViewTest {
     @Theory public void testFocus(@NonNull Theme theme) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, theme, PrimaryTestImg.NONNULL,
                 PrimaryTestStr.SHORT, SecondaryTestStr.SHORT);
-        runOnMainSync(new Runnable() {
-            @Override public void run() {
-                subject.requestFocus();
-            }
-        });
+        requestFocus(subject);
         snap(subject);
     }
 
