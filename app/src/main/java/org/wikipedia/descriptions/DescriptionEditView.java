@@ -7,6 +7,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
@@ -69,10 +70,8 @@ public class DescriptionEditView extends FrameLayout {
 
     public void setPageTitle(@NonNull PageTitle pageTitle) {
         this.pageTitle = pageTitle;
-        originalDescription = StringUtil.emptyIfNull(pageTitle.getDescription());
-
-        pageTitleText.setText(pageTitle.getDisplayText());
-        editText.setText(pageTitle.getDescription());
+        setTitle(pageTitle.getDisplayText());
+        setDescription(StringUtil.emptyIfNull(pageTitle.getDescription()));
     }
 
     public void setSaveState(boolean saving) {
@@ -99,6 +98,15 @@ public class DescriptionEditView extends FrameLayout {
     void descriptionTextChanged(Editable editable) {
         updateSaveButtonVisible();
         updateCharCount();
+    }
+
+    @VisibleForTesting void setTitle(@Nullable CharSequence text) {
+        pageTitleText.setText(text);
+    }
+
+    @VisibleForTesting void setDescription(@Nullable String text) {
+        originalDescription = text;
+        editText.setText(text);
     }
 
     private void init() {
