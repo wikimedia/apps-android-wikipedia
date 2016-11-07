@@ -19,7 +19,7 @@
             android:elevation="6dp">
 
             <LinearLayout
-                android:id="@+id/description_edit_header_container"
+                android:id="@+id/view_description_edit_header_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -36,7 +36,7 @@
                     android:textAllCaps="true"/>
 
                 <TextView
-                    android:id="@+id/description_edit_page_title"
+                    android:id="@+id/view_description_edit_page_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
@@ -50,7 +50,7 @@
             </LinearLayout>
 
             <ProgressBar
-                android:id="@+id/description_edit_progress_bar"
+                android:id="@+id/view_description_edit_progress_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -65,7 +65,7 @@
         </FrameLayout>
 
         <org.wikipedia.views.PlainPasteEditText
-            android:id="@+id/description_edit_text"
+            android:id="@+id/view_description_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
@@ -74,7 +74,7 @@
             android:hint="@string/description_edit_text_hint"/>
 
         <TextView
-            android:id="@+id/description_edit_char_count"
+            android:id="@+id/view_description_edit_char_count"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -86,7 +86,7 @@
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/description_edit_save_button"
+        android:id="@+id/view_description_edit_save_button"
         style="@style/FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
         app:elevation="6dp"
         app:borderWidth="0dp"
         app:backgroundTint="@android:color/white"
-        app:layout_anchor="@id/description_edit_header_container"
+        app:layout_anchor="@id/view_description_edit_header_container"
         app:layout_anchorGravity="bottom|right|end"
         tools:visibility="visible"/>
 

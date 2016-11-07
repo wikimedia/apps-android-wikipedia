@@ -28,11 +28,11 @@ import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
 public class DescriptionEditView extends FrameLayout {
-    @BindView(R.id.description_edit_page_title) TextView pageTitleText;
-    @BindView(R.id.description_edit_save_button) FloatingActionButton saveButton;
-    @BindView(R.id.description_edit_text) EditText pageDescriptionText;
-    @BindView(R.id.description_edit_char_count) TextView charCountText;
-    @BindView(R.id.description_edit_progress_bar) ProgressBar progressBar;
+    @BindView(R.id.view_description_edit_page_title) TextView pageTitleText;
+    @BindView(R.id.view_description_edit_save_button) FloatingActionButton saveButton;
+    @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
+    @BindView(R.id.view_description_edit_char_count) TextView charCountText;
+    @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
 
     @Nullable private PageTitle pageTitle;
     @Nullable private String originalDescription;
@@ -87,13 +87,13 @@ public class DescriptionEditView extends FrameLayout {
         return pageDescriptionText.getText().toString();
     }
 
-    @OnClick(R.id.description_edit_save_button) void onSaveClick() {
+    @OnClick(R.id.view_description_edit_save_button) void onSaveClick() {
         if (callback != null) {
             callback.onSaveClick();
         }
     }
 
-    @OnTextChanged(value = R.id.description_edit_text,
+    @OnTextChanged(value = R.id.view_description_edit_text,
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
         updateSaveButtonVisible();

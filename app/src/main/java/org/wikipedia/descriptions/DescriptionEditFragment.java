@@ -25,7 +25,7 @@ import retrofit2.Call;
 public class DescriptionEditFragment extends Fragment {
     private static final String ARG_TITLE = "title";
 
-    @BindView(R.id.description_edit_view) DescriptionEditView editView;
+    @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
     @Nullable private Call<DescriptionEdit> call;
