@@ -302,17 +302,9 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     }
 
     private void init() {
-        inflate();
-        bind();
-        hide();
-    }
-
-    private void inflate() {
         inflate(getContext(), R.layout.view_article_header, this);
-    }
-
-    private void bind() {
         ButterKnife.bind(this);
+        hide();
     }
 
     @ColorInt
