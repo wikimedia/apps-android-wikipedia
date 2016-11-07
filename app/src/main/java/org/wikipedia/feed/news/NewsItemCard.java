@@ -10,8 +10,8 @@ import android.text.style.StyleSpan;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.richtext.RichTextUtil;
-import org.wikipedia.server.restbase.RbPageSummary;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -21,7 +21,7 @@ public class NewsItemCard extends Card {
     @NonNull private NewsItem newsItem;
     @NonNull private WikiSite wiki;
 
-    public NewsItemCard(@NonNull NewsItem item, @NonNull WikiSite wiki) {
+    NewsItemCard(@NonNull NewsItem item, @NonNull WikiSite wiki) {
         this.newsItem = item;
         this.wiki = wiki;
     }
@@ -52,7 +52,7 @@ public class NewsItemCard extends Card {
     }
 
     @NonNull
-    public List<RbPageSummary> links() {
+    public List<FeedPageSummary> links() {
         return newsItem.links();
     }
 

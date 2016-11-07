@@ -8,7 +8,12 @@ import org.wikipedia.server.PageSummary;
 import org.wikipedia.util.log.L;
 
 /**
- * Useful for link previews coming from RESTBase.
+ * A standardized page summary object constructed by RESTBase, used for link previews and as the
+ * base class for various feed content (see the FeedPageSummary class).
+ *
+ * N.B.: The "title" field here sent by RESTBase is the *normalized* page title.  However, in the
+ * FeedPageSummary subclass, "title" becomes the un-normalized, raw title, and the normalized title
+ * is sent is "normalizedtitle".
  */
 public class RbPageSummary implements PageSummary {
     @SuppressWarnings("unused") private RbServiceError error;
@@ -60,7 +65,7 @@ public class RbPageSummary implements PageSummary {
     /**
      * For the thumbnail URL of the page
      */
-    public static class Thumbnail {
+    private static class Thumbnail {
         @SuppressWarnings("unused") private String source;
 
         public String getUrl() {

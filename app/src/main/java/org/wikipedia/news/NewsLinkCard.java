@@ -9,22 +9,22 @@ import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.restbase.RbPageSummary;
 
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
 public class NewsLinkCard extends Card {
-    @NonNull private RbPageSummary page;
+    @NonNull private FeedPageSummary page;
     @NonNull private WikiSite wiki;
 
-    public NewsLinkCard(@NonNull RbPageSummary page, @NonNull WikiSite wiki) {
+    public NewsLinkCard(@NonNull FeedPageSummary page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }
 
     @NonNull @Override public String title() {
-        return page.getTitle();
+        return page.getNormalizedTitle();
     }
 
     @Nullable @Override public String subtitle() {

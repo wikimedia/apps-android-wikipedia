@@ -1,6 +1,7 @@
 package org.wikipedia.feed.news;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.CardType;
@@ -34,8 +35,8 @@ public class NewsListCard extends ListCard<NewsItemCard> {
         return age;
     }
 
-    @NonNull
-    private static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull WikiSite wiki) {
+    @NonNull @VisibleForTesting
+    public static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull WikiSite wiki) {
         List<NewsItemCard> itemCards = new ArrayList<>();
         for (NewsItem item : items) {
             itemCards.add(new NewsItemCard(item, wiki));

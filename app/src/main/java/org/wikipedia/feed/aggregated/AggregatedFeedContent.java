@@ -5,20 +5,20 @@ import android.support.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.feed.image.FeaturedImage;
+import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.feed.mostread.MostReadArticles;
 import org.wikipedia.feed.news.NewsItem;
-import org.wikipedia.server.restbase.RbPageSummary;
 
 import java.util.List;
 
 class AggregatedFeedContent {
-    @SuppressWarnings("unused") @Nullable private RbPageSummary tfa;
+    @SuppressWarnings("unused") @Nullable private FeedPageSummary tfa;
     @SuppressWarnings("unused") @Nullable private List<NewsItem> news;
     @SuppressWarnings("unused") @SerializedName("mostread") @Nullable private MostReadArticles mostRead;
     @SuppressWarnings("unused") @Nullable private FeaturedImage image;
 
     @Nullable
-    RbPageSummary tfa() {
+    FeedPageSummary tfa() {
         return tfa;
     }
 

@@ -9,19 +9,19 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
+import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.server.restbase.RbPageSummary;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.StringUtil;
 
 public class FeaturedArticleCard extends Card {
     @NonNull private UtcDate date;
     @NonNull private WikiSite wiki;
-    @NonNull private RbPageSummary page;
+    @NonNull private FeedPageSummary page;
 
-    public FeaturedArticleCard(@NonNull RbPageSummary page, @NonNull UtcDate date, @NonNull WikiSite wiki) {
+    public FeaturedArticleCard(@NonNull FeedPageSummary page, @NonNull UtcDate date, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
         this.date = date;
@@ -45,12 +45,12 @@ public class FeaturedArticleCard extends Card {
     }
 
     @NonNull
-    public String articleTitle() {
-        return page.getTitle();
+    String articleTitle() {
+        return page.getNormalizedTitle();
     }
 
     @Nullable
-    public String articleSubtitle() {
+    String articleSubtitle() {
         return page.getDescription() != null
                 ? StringUtil.capitalizeFirstChar(page.getDescription()) : null;
     }
