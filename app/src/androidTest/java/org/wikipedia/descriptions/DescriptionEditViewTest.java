@@ -75,7 +75,7 @@ public class DescriptionEditViewTest extends ViewTest {
         assertThat(subject.getDescription(), is(expected.getDescription()));
     }
 
-    // todo: resolve why the button doesn't show up yet here or in the actual screenshots above
+    // todo: resolve why the button doesn't show
     // @Theory public void testSetSaveState(@TestedOnBool final boolean saving) {
     //     defaultSetUp();
     //     subject.setSaveState(saving);
@@ -100,7 +100,7 @@ public class DescriptionEditViewTest extends ViewTest {
         defaultSetUp();
         String expected = nul ? null : "text";
         subject.setDescription(expected);
-        assertThat(subject.editText.getText().toString(), is(emptyIfNull(expected)));
+        assertThat(subject.pageDescriptionText.getText().toString(), is(emptyIfNull(expected)));
     }
 
     private void defaultSetUp() {
@@ -117,5 +117,9 @@ public class DescriptionEditViewTest extends ViewTest {
         subject.setTitle(str(title));
         subject.setDescription(str(description));
         subject.setSaveState(saving);
+
+        // todo: resolve why the button doesn't show deterministically. the button appears either
+        //       correctly or in the upper left
+        subject.saveButton.hide();
     }
 }

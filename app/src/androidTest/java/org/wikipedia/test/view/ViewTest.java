@@ -124,11 +124,11 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
                 .build();
     }
 
-    protected String str(@NonNull TestStr str, Object... formatArgs) {
+    protected String str(@NonNull TestStr str, @Nullable Object... formatArgs) {
         return str(str.id(), formatArgs);
     }
 
-    protected String str(@StringRes int id, Object... formatArgs) {
+    protected String str(@StringRes int id, @Nullable Object... formatArgs) {
         return id == 0 ? null : ctx().getString(id, formatArgs);
     }
 
@@ -140,18 +140,21 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         Configuration cfg = new Configuration(ctx.getResources().getConfiguration());
         cfg.screenWidthDp = widthDp;
         cfg.fontScale = fontScale.multiplier();
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            cfg.setLocales(new LocaleList(locale));
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            cfg.setLocale(locale);
-            cfg.setLayoutDirection(locale);
-        } else {
-            //noinspection deprecation
-            cfg.locale = locale;
-        }
+        setConfigLocale(cfg, locale);
 
         ctx.getResources().updateConfiguration(cfg, null);
+    }
+
+    private void setConfigLocale(@NonNull Configuration config, @NonNull Locale locale) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            config.setLocales(new LocaleList(locale));
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+            config.setLayoutDirection(locale);
+        } else {
+            //noinspection deprecation
+            config.locale = locale;
+        }
     }
 
     // todo: identify method name by @Theory / @Test annotation instead of depth and remove repeated
