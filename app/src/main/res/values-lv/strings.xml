@@ -160,5 +160,5 @@
   <string name="menu_feed_overflow_label">Vairāk iespēju</string>
   <string name="view_card_footer_button">Skatīt vairāk</string>
   <string name="view_card_news_title">Ziņās</string>
-  <string name="view_continue_reading_card_subtitle_today">šodien</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">šodien</string>
 </resources>

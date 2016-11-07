@@ -89,7 +89,7 @@
   <string name="create_account_button">Kurti paskyrą</string>
   <string name="preferences_general_heading">Bendras</string>
   <string name="wikipedia_app_faq">\"Wikipedia\" App DUK</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero yra išjungtas</string>
+  <string name="zero_charged_verbiage">Nemokama prieiga prie Vikipedijos nebėra aktyvi.</string>
   <string name="zero_warn_when_leaving">Įspėti paliekant „Vikipedija Zero“</string>
   <string name="zero_webpage_title">Vikipedija Zero DUK</string>
   <string name="zero_wikipedia_zero_heading">Vikipedija Zero</string>
@@ -97,7 +97,8 @@
   <string name="zero_interstitial_leave_app">Gali būti taikomi duomenų mokesčiai. Tęsti išorinėje svetainėje?</string>
   <string name="zero_interstitial_continue">Išeiti</string>
   <string name="zero_interstitial_cancel">Likti čia</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Skaityti daugiau</string>
+  <string name="zero_learn_more">Jūsų bevielio tinklo tiekėjas suteikia nemokamą prieigą prie Vikipedijos turinio!</string>
+  <string name="zero_learn_more_learn_more">Sužinoti daugiau</string>
   <string name="zero_learn_more_dismiss">Atmesti</string>
   <string name="edit_preview_fetching_dialog_message">Ruošiama peržiūra…</string>
   <string name="send_feedback">Siųsti atsiliepimą apie programėlę</string>
@@ -205,6 +206,8 @@
   <string name="preference_summary_show_link_previews">Palietus ant nuorodos rodyti greitos peržiūros straipsnius.</string>
   <string name="nav_item_donate">Paremti Vikipediją</string>
   <string name="error_voice_search_not_available">Atsiprašome, balso atpažinimas negalimas.</string>
+  <string name="location_service_disabled">Vietos paslaugos yra išjungtos.</string>
+  <string name="enable_location_service">Įjungti</string>
   <string name="crash_report_dialog_title">Atleiskite, programėlė praeitą kartą užlūžo</string>
   <string name="crash_report_dialog_dont_send_button">Praleisti</string>
   <string name="crash_report_dialog_always_send_button">Siųsti visada</string>
@@ -269,8 +272,14 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="most_read_list_card_title">Populiaru</string>
   <string name="view_static_card_icon_content_description">Kortelės piktograma</string>
   <string name="view_card_news_title">Naujienose</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">vakar</item>
     <item quantity="other">prieš %d dienų</item>
   </plurals>
+  <string name="description_edit_header">Redaguojamas</string>
+  <string name="description_edit_help_hint">Kas tai?</string>
+  <string name="description_edit_text_hint">Parašykite aprašymą!</string>
+  <string name="description_edit_save">Išsaugoti</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Pridėti aprašymą</string>
 </resources>

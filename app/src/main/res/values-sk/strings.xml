@@ -92,7 +92,7 @@
   <string name="create_account_button">Vytvoriť účet</string>
   <string name="preferences_general_heading">Všeobecné</string>
   <string name="wikipedia_app_faq">Často kladené otázky o tejto aplikácii</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zero je vypnutá</string>
+  <string name="zero_charged_verbiage">Bezplatný prístup na Wikipédiu už nie je aktívny.</string>
   <string name="zero_warn_when_leaving">Upozorniť ma ak opúšťam Wikipédiu Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokiaľ si váš mobilný operátor v rámci Wikipédie Zero za dátové pripojenie k aplikácii Wikipédie zrieka poplatkov, budete po aktivácii tohto políčka informovaný o opustení aplikácie Wikipédie a možného vzniku poplatkov.</string>
   <string name="zero_webpage_title">Wikipédia Zero - ČKO</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">Môžu vzniknúť poplatky za prenos dát. Pokračovať na externú stránku?</string>
   <string name="zero_interstitial_continue">Pokračovať</string>
   <string name="zero_interstitial_cancel">Zrušiť</string>
-  <string name="zero_learn_more" fuzzy="true">Táto aplikácia je oslobodená od poplatkov za prenos dát.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Ďalšie informácie</string>
+  <string name="zero_learn_more">Váš mobilný operátor poskytuje bezplatný prístup na Wikipédiu!</string>
+  <string name="zero_learn_more_learn_more">Ďalšie informácie</string>
   <string name="zero_learn_more_dismiss">Zrušiť</string>
   <string name="edit_preview_fetching_dialog_message">Generujem náhľad…</string>
   <string name="send_feedback">Odoslať spätnú väzbu</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">Po kliknutí na odkaz zobraziť rýchly náhľad článkov.</string>
   <string name="nav_item_donate">Podporte Wikipédiu</string>
   <string name="error_voice_search_not_available">Ospravedlňujeme sa, rozpoznávanie hlasu nie je k dispozícii.</string>
+  <string name="location_service_disabled">Služby určovania polohy sú zakázané.</string>
+  <string name="enable_location_service">Povoliť</string>
   <string name="crash_report_dialog_title">Ospravedlňujeme sa za nedávny pád aplikácie</string>
   <string name="crash_report_dialog_text">Chcete odoslať správu o zlyhaní HockeyApp? Wikimedia tak bude môcť toto zlyhanie preskúmať a opraviť chybu, ktorá toto zlyhanie spôsobila. HockeyApp je poskytovateľ služieb (tretia strana).</string>
   <string name="crash_report_dialog_dont_send_button">Preskočiť</string>
@@ -291,9 +293,15 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="most_read_list_card_title">Trendy</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">Správy</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">včera</item>
     <item quantity="other">pred %d dňami</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">dnes</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">dnes</string>
+  <string name="description_edit_header">Upravovanie</string>
+  <string name="description_edit_help_hint">Čo je toto?</string>
+  <string name="description_edit_text_hint">Napíšte popis!</string>
+  <string name="description_edit_save">Uložiť</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Pridať popis</string>
 </resources>

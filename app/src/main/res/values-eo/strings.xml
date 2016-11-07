@@ -226,7 +226,7 @@
   <string name="menu_feed_card_dismissed">Karto kaŝita.</string>
   <string name="feed">Esploru</string>
   <string name="view_card_footer_button">Vidi pli</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">hieraŭ</item>
     <item quantity="other">antaŭ %d tagoj</item>
   </plurals>

@@ -102,7 +102,7 @@
   <string name="zero_interstitial_continue">떠나기</string>
   <string name="zero_interstitial_cancel">여기에 머물기</string>
   <string name="zero_learn_more" fuzzy="true">데이터 요금은 이 위키백과 앱에 대해서 면제됩니다.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">더 읽어보기</string>
+  <string name="zero_learn_more_learn_more">더 알아보기</string>
   <string name="zero_learn_more_dismiss">숨기기</string>
   <string name="edit_preview_fetching_dialog_message">미리 보기를 가져오는 중…</string>
   <string name="send_feedback">앱 피드백 보내기</string>
@@ -221,6 +221,8 @@
   <string name="preference_summary_show_link_previews">문서의 링크를 터치할 때 빠른 미리보기를 보이기</string>
   <string name="nav_item_donate">위키백과 지원</string>
   <string name="error_voice_search_not_available">죄송합니다. 음성 인식을 이용할 수 없습니다.</string>
+  <string name="location_service_disabled">위치 서비스를 사용할 수 없습니다.</string>
+  <string name="enable_location_service">활성화</string>
   <string name="crash_report_dialog_title">죄송합니다, 지난 번에 앱이 충돌했습니다</string>
   <string name="crash_report_dialog_text">위키 백과가 충돌을 보고 그 오류를 수정하기 위해 하키앱/타 서비스 제공자에 충돌 보고를 전송 하시겠습니까?</string>
   <string name="crash_report_dialog_dont_send_button">넘어가기</string>
@@ -289,9 +291,15 @@
   <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">어제</item>
     <item quantity="other">%d일 전</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">오늘</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">오늘</string>
+  <string name="description_edit_header">편집 중</string>
+  <string name="description_edit_help_hint">이것은 무엇입니까?</string>
+  <string name="description_edit_text_hint">설명을 입력하십시오!</string>
+  <string name="description_edit_save">저장</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">설명 추가</string>
 </resources>

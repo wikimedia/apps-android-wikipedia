@@ -92,7 +92,7 @@
   <string name="create_account_button">Бэлиэтэнии</string>
   <string name="preferences_general_heading">Сүнньүнэн</string>
   <string name="wikipedia_app_faq">Бикипиэдьийэ баайылын туһунан ыйытыылар</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero арахсыбыт</string>
+  <string name="zero_charged_verbiage">Бикипиэдьийэҕэ босхо киирии сатаммат буолбут.</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero-ттан тахсаары гыннахха сэрэтэр буол</string>
   <string name="zero_warn_when_leaving_summary">Өскө Эн мобил операторыҥ Wikipedia Zero-ну кытта сөбүлэҥ түһэрсибит уонна онтон хачайдаммыт иһин харчы төлөттөрбөт буоллаҕына, маны таллаххына, төлөбүрдээх ресурска киирэн эрэриҥ туһунан сэрэтии кэлэр буолуоҕа.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
@@ -102,7 +102,7 @@
   <string name="zero_interstitial_continue">Таҕыс</string>
   <string name="zero_interstitial_cancel">Хаал</string>
   <string name="zero_learn_more" fuzzy="true">Бикипиэдьийэ дьибилгэтин туһанан хачайдыырга төлөбүр ирдэммэт.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Бу туһунан сиһилии</string>
+  <string name="zero_learn_more_learn_more">Бу туһунан сиһилии</string>
   <string name="zero_learn_more_dismiss">Сап</string>
   <string name="edit_preview_fetching_dialog_message">Хачайданар...</string>
   <string name="send_feedback">Дьибилгэт туһунан санааҕын ыыт</string>
@@ -221,6 +221,7 @@
   <string name="preference_summary_show_link_previews">Сигэни баттаатахха эрдэ көрдөрүүнү көрдөр.</string>
   <string name="nav_item_donate">Бикипиэдьийэни өйөө!</string>
   <string name="error_voice_search_not_available">Хомойуох иһин, саҥаны билии сатаммат эбит.</string>
+  <string name="enable_location_service">Холбоммут</string>
   <string name="crash_report_dialog_title">Хомойуох иһин, ааспыкка дьибилгэт моһуогура сылдьыбыт</string>
   <string name="crash_report_dialog_text">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо Бикимиэдьийэ саахал туһунан тута билиэ этэ уонна алҕаһы түргэнник көннөрүө этэ.</string>
   <string name="crash_report_dialog_dont_send_button">Аһар</string>
@@ -289,9 +290,13 @@
   <string name="most_read_list_card_title">Трендэ</string>
   <string name="view_static_card_icon_content_description">Карточка иконката</string>
   <string name="view_card_news_title">Сонуннарга</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">бэҕэһээ</item>
     <item quantity="other">%d күн ынараа өттүгэр</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">бүгүн</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">бүгүн</string>
+  <string name="description_edit_header">Уларытыы</string>
+  <string name="description_edit_help_hint">Бу тугуй?</string>
+  <string name="description_edit_save">Бигэргэт</string>
+  <string name="description_edit_add_description">Быһаарыы эбии</string>
 </resources>

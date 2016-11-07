@@ -91,7 +91,7 @@
   <string name="create_account_button">Benotzerkont uleeën</string>
   <string name="preferences_general_heading">Allgemeng</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ass aus</string>
+  <string name="zero_charged_verbiage">Fräien Zougang op Wikipedia ass net méi aktiv.</string>
   <string name="zero_warn_when_leaving">Beim Verloosse vu Wikipedia Zero warnen</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -99,8 +99,8 @@
   <string name="zero_interstitial_leave_app">Déi normal Käschte fir Datentransfer sinn eventuell applicabel. Virufueren op den externen Internetsite?</string>
   <string name="zero_interstitial_continue">Fortgoen</string>
   <string name="zero_interstitial_cancel">Hei bleiwen</string>
-  <string name="zero_learn_more" fuzzy="true">D\'Taxe fir d\'Iwwerdroe vun Donnéeë gi fir dës Wikipedia App net verrechent.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Liest méi</string>
+  <string name="zero_learn_more">Äre GSM-Provider erméooiglecht Iech gratis Zougang op den Inhalt vu Wikipedia!</string>
+  <string name="zero_learn_more_learn_more">Fir méi ze wëssen</string>
   <string name="zero_learn_more_dismiss">Verwerfen</string>
   <string name="edit_preview_fetching_dialog_message">Kucken ouni ze späicheren…</string>
   <string name="send_feedback">Feedback vun der App schécken</string>
@@ -217,6 +217,8 @@
   <string name="preference_summary_show_link_previews">Kuerz weise wéi den Artikel ausgesäit wann een op d\'Linken tippt.</string>
   <string name="nav_item_donate">Ënnerstëtzt Wikipedia</string>
   <string name="error_voice_search_not_available">Leider ass d\'Erkennung vun der Stëmm net disponibel.</string>
+  <string name="location_service_disabled">Lokalisatiouns-Servicer sinn ausgeschalt.</string>
+  <string name="enable_location_service">Aschalten</string>
   <string name="crash_report_dialog_title">Leider ass d\'App déi leschte Kéier ofgestierzt</string>
   <string name="crash_report_dialog_text">Wëllt Dir e Rapport iwwer de Crash un HockeyApp / en onofhängege Service-Provider schécke fir datt Wikimedia Äre Crash nokucke kann an de Feeler verbessere kann, den en ausgeléist huet?</string>
   <string name="crash_report_dialog_dont_send_button">Iwwersprangen</string>
@@ -284,9 +286,15 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="most_read_list_card_title">Beléift</string>
   <string name="view_static_card_icon_content_description">Kaartesymbol</string>
   <string name="view_card_news_title">An den Neiegkeeten</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">gëschter</item>
     <item quantity="other">viru(n) %d Deeg</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">haut</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">haut</string>
+  <string name="description_edit_header">Änneren</string>
+  <string name="description_edit_help_hint">Wat ass dat?</string>
+  <string name="description_edit_text_hint">Eng Beschreiwung schreiwen!</string>
+  <string name="description_edit_save">Späicheren</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Beschreiwung derbäisetzen</string>
 </resources>

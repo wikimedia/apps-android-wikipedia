@@ -92,7 +92,7 @@
   <string name="create_account_button">创建账户</string>
   <string name="preferences_general_heading">常规</string>
   <string name="wikipedia_app_faq">维基百科应用程序常见问题</string>
-  <string name="zero_charged_verbiage" fuzzy="true">维基百科零已关闭</string>
+  <string name="zero_charged_verbiage">免费访问维基百科功能不再可用。</string>
   <string name="zero_warn_when_leaving">离开维基百科零时警告</string>
   <string name="zero_warn_when_leaving_summary">如果您的移动运营商是维基百科零的合作伙伴，并免除维基百科应用的数据费用，请勾选该设置，以帮助您了解您是否要离开维基百科应用程序，并因此计费。</string>
   <string name="zero_webpage_title">维基百科零常见问题</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">可能会收取数据费用。继续前往外部网站？</string>
   <string name="zero_interstitial_continue">离开</string>
   <string name="zero_interstitial_cancel">留在这里</string>
-  <string name="zero_learn_more" fuzzy="true">该维基百科应用的数据费用已被免除。</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">阅读更多</string>
+  <string name="zero_learn_more">您的无线网络提供商已提供免费访问维基百科内容的功能！</string>
+  <string name="zero_learn_more_learn_more">了解更多</string>
   <string name="zero_learn_more_dismiss">关闭</string>
   <string name="edit_preview_fetching_dialog_message">正在获取预览…</string>
   <string name="send_feedback">发送应用程序反馈</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="nav_item_donate">支持维基百科</string>
   <string name="error_voice_search_not_available">对不起，语言识别不可用。</string>
+  <string name="location_service_disabled">位置服务被禁用。</string>
+  <string name="enable_location_service">启用</string>
   <string name="crash_report_dialog_title">抱歉，应用程序上次发生了崩溃</string>
   <string name="crash_report_dialog_text">您是否希望发送崩溃报告至HockeyApp/第三方服务提供方，这样维基媒体可以浏览您的崩溃报告，并修复导致它的漏洞？</string>
   <string name="crash_report_dialog_dont_send_button">跳过</string>
@@ -291,9 +293,15 @@
   <string name="most_read_list_card_title">趋势</string>
   <string name="view_static_card_icon_content_description">卡片图标</string>
   <string name="view_card_news_title">新闻动态</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">昨天</item>
     <item quantity="other">%d天前</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">今天</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">今天</string>
+  <string name="description_edit_header">编辑</string>
+  <string name="description_edit_help_hint">这是什么？</string>
+  <string name="description_edit_text_hint">写一段描述！</string>
+  <string name="description_edit_save">保存</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">添加描述</string>
 </resources>

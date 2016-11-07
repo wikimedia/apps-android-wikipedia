@@ -287,7 +287,7 @@
   <string name="most_read_list_card_title">रुझानों में</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकॉन</string>
   <string name="view_card_news_title">समाचारों में</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">कल</item>
     <item quantity="other">%d दिन पहले</item>
   </plurals>

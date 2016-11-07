@@ -92,7 +92,7 @@
   <string name="create_account_button">Crear una cuenta</string>
   <string name="preferences_general_heading">Xeneral</string>
   <string name="wikipedia_app_faq">EMF de la App Wikipedia</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ta apagáu</string>
+  <string name="zero_charged_verbiage">L\'accesu llibre a Wikipedia yá nun ta activu.</string>
   <string name="zero_warn_when_leaving">Avisar si s\'abandona Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si\'l so operador de móviles regala los cargos d\'accesu a datos pa la app de Wikipedia por una asociación con Wikipedia Zero, dexar marcada esta opción ayuda-y a saber cuándo abandona la app de Wikipedia y podría tener que pagar.</string>
   <string name="zero_webpage_title">EMF de Wikipedia Zero</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">Puen aplicase cargos pol tráficu de datos. ¿Siguir al sitiu esternu?</string>
   <string name="zero_interstitial_continue">Siguir</string>
   <string name="zero_interstitial_cancel">Quedar equí</string>
-  <string name="zero_learn_more" fuzzy="true">Esta app de Wikipedia ta llibre de cargos por tráficu de datos.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Lleer más</string>
+  <string name="zero_learn_more">La to compañía d\'accesu inalámbricu dio accesu de baldre al conteníu de Wikipedia.</string>
+  <string name="zero_learn_more_learn_more">Más información</string>
   <string name="zero_learn_more_dismiss">Descartar</string>
   <string name="edit_preview_fetching_dialog_message">Algamando vista previa...</string>
   <string name="send_feedback">Unviar comentariu sobro la app</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">Amosar una vista previa rápida de los artículos al pulsiar nos enllaces.</string>
   <string name="nav_item_donate">Sofita a Wikipedia</string>
   <string name="error_voice_search_not_available">La reconocencia de voz nun ta disponible.</string>
+  <string name="location_service_disabled">Los servicios de llocalización tan desactivaos.</string>
+  <string name="enable_location_service">Activar</string>
   <string name="crash_report_dialog_title">Sentímoslo, l\'aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Quies unviar un informe de cuelgue a HockeyApp / un fornidor de serviciu d\'un terceru pa que Wikimedia pueda revisar el cuelgue ya iguar el fallu que lu causó?</string>
   <string name="crash_report_dialog_dont_send_button">Saltar</string>
@@ -291,9 +293,15 @@
   <string name="most_read_list_card_title">Tendencies</string>
   <string name="view_static_card_icon_content_description">Iconu de tarxeta</string>
   <string name="view_card_news_title">Actualidá</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">ayeri</item>
     <item quantity="other">fai %d díes</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">güei</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">güei</string>
+  <string name="description_edit_header">Editando</string>
+  <string name="description_edit_help_hint">¿Qué ye esto?</string>
+  <string name="description_edit_text_hint">Escribe una descripción</string>
+  <string name="description_edit_save">Guardar</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Amiesta una descripción</string>
 </resources>

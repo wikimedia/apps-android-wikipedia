@@ -93,7 +93,7 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="create_account_button">Créer un compte</string>
   <string name="preferences_general_heading">Général</string>
   <string name="wikipedia_app_faq">FAQ des applis Wikipédia</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipédia Zéro est désactivé</string>
+  <string name="zero_charged_verbiage">L’accès libre à Wikipédia Zéro n’est plus actif.</string>
   <string name="zero_warn_when_leaving">Avertir au moment de quitter Wikipédia Zéro</string>
   <string name="zero_warn_when_leaving_summary">Si votre opérateur mobile renonce aux frais de données liés à l’utilisation de l’application Wikipédia dans le cadre d’un partenariat Wikipédia Zéro, laisser ce paramètre activé vous permettra d’être prévenu lorsque vous quittez l’application Wikipédia et risquez de payer des frais de données.</string>
   <string name="zero_webpage_title">FAQ de Wikipédia Zéro</string>
@@ -102,8 +102,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="zero_interstitial_leave_app">Des frais de données pourront s’appliquer. Continuer vers le site externe ?</string>
   <string name="zero_interstitial_continue">Quitter</string>
   <string name="zero_interstitial_cancel">Rester ici</string>
-  <string name="zero_learn_more" fuzzy="true">Les frais de données ne s’appliquent pas pour cette application Wikipédia.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Lire la suite</string>
+  <string name="zero_learn_more">Votre fournisseur d’accès a accordé un accès libre au contenu de Wikipédia !</string>
+  <string name="zero_learn_more_learn_more">En savoir plus</string>
   <string name="zero_learn_more_dismiss">Rejeter</string>
   <string name="edit_preview_fetching_dialog_message">Récupération de l’aperçu…</string>
   <string name="send_feedback">Envoyer un avis sur l’application</string>
@@ -224,6 +224,8 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="nav_item_donate">Soutenir Wikipédia</string>
   <string name="error_voice_search_not_available">Désolé, la reconnaissance vocale n’est pas disponible.</string>
+  <string name="location_service_disabled">Les services de localisation sont désactivés.</string>
+  <string name="enable_location_service">Activer</string>
   <string name="crash_report_dialog_title">Désolé, l’application s’est plantée la dernière fois</string>
   <string name="crash_report_dialog_text">Voulez-vous envoyer un rapport d’incident à HockeyApp — un fournisseur de services tiers — afin que Wikimédia puisse examiner votre incident et corriger le bogue qui l’a provoqué ?</string>
   <string name="crash_report_dialog_dont_send_button">Sauter</string>
@@ -292,9 +294,15 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="most_read_list_card_title">Tendance</string>
   <string name="view_static_card_icon_content_description">Icône de la carte</string>
   <string name="view_card_news_title">Dans l’actualité</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">hier</item>
     <item quantity="other">il y a %d jours</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">aujourd’hui</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">aujourd’hui</string>
+  <string name="description_edit_header">Modification</string>
+  <string name="description_edit_help_hint">Qu’est-ce que c’est ?</string>
+  <string name="description_edit_text_hint">Écrire une description !</string>
+  <string name="description_edit_save">Enregistrer</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Ajouter une description</string>
 </resources>

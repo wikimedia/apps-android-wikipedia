@@ -92,7 +92,7 @@
   <string name="create_account_button">יצירת חשבון</string>
   <string name="preferences_general_heading">כללי</string>
   <string name="wikipedia_app_faq">שו\"ת יישומון ויקיפדיה</string>
-  <string name="zero_charged_verbiage" fuzzy="true">מצב ויקיפדיה אפס כבוי</string>
+  <string name="zero_charged_verbiage">גישה בחינם לוויקיפדיה כבר אינה פעילה.</string>
   <string name="zero_warn_when_leaving">להזהיר בעת עזיבת ויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על תקשורת נתונים ביישומון ויקיפדיה במסגרת שותפות \"ויקיפדיה אפס\", הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מיישומון ויקיפדיה ושייתכן שיחולו חיובים.</string>
   <string name="zero_webpage_title">שו\"ת ויקיפדיה אפס</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">ייתכן שיחולו חיובים על תקשורת נתונים. להמשיך לאתר חיצוני?</string>
   <string name="zero_interstitial_continue">לעזוב</string>
   <string name="zero_interstitial_cancel">להישאר כאן</string>
-  <string name="zero_learn_more" fuzzy="true">חיובים על נתונים מזוכים ביישום ויקיפדיה זה.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">מידע נוסף</string>
+  <string name="zero_learn_more">ספק התקשורת האלחוטית שלך נתן לך גישה בחינם לתוכן של ויקיפדיה!</string>
+  <string name="zero_learn_more_learn_more">מידע נוסף</string>
   <string name="zero_learn_more_dismiss">סגירה</string>
   <string name="edit_preview_fetching_dialog_message">אחזור תצוגה מקדימה…</string>
   <string name="send_feedback">שליחת משוב על היישומון</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="nav_item_donate">לתמוך בוויקיפדיה</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
+  <string name="location_service_disabled">שירותי המיקום כבויים.</string>
+  <string name="enable_location_service">הפעלה</string>
   <string name="crash_report_dialog_title">סליחה, היישום קרס בפעם הקומת</string>
   <string name="crash_report_dialog_text">הטם לשלוח דיווח קריסה ל־HockeyApp / ספק שירות צד־שלישי באופן אוטומטי כדי שוויקימדיה תוכל לסקור את הקריסה שלך ולתקן את הבאג שגרם לה?</string>
   <string name="crash_report_dialog_dont_send_button">לדלג</string>
@@ -291,9 +293,15 @@
   <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">אתמול</item>
     <item quantity="other">לפני %d ימים</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">היום</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">היום</string>
+  <string name="description_edit_header">עריכה</string>
+  <string name="description_edit_help_hint">מה זה?</string>
+  <string name="description_edit_text_hint">נא לכתוב תיאור!</string>
+  <string name="description_edit_save">שמירה</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">הוספת תיאור</string>
 </resources>

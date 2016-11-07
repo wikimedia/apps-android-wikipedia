@@ -272,7 +272,7 @@
   <string name="most_read_list_card_title">ਪ੍ਰਚਲਤ</string>
   <string name="view_static_card_icon_content_description">ਕਾਰਡ ਆਈਕਾਨ</string>
   <string name="view_card_news_title">ਖ਼ਬਰਾਂ \'ਚ</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">ਕੱਲ੍ਹ</item>
     <item quantity="other">%d ਦਿਨ ਪਹਿਲਾਂ</item>
   </plurals>

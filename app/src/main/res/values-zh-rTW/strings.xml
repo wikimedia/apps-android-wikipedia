@@ -92,7 +92,7 @@
   <string name="create_account_button">建立帳號</string>
   <string name="preferences_general_heading">一般</string>
   <string name="wikipedia_app_faq">維基百科應用程式常見問題</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero 已被關掉 (可能要付標準資料費用)</string>
+  <string name="zero_charged_verbiage">免費訪問維基百科功能已不再可用。</string>
   <string name="zero_warn_when_leaving">離開 Wikipedia Zero 時提示</string>
   <string name="zero_warn_when_leaving_summary">如果您的行動網路業者與 Wikipedia Zero 有合作夥伴關係，並且免除存取維基百科應用程式時的資料費用，請勾選此設定以幫助您知道您正在離開維基百科並可能被收取費用。</string>
   <string name="zero_webpage_title">Wikipedia Zero 常見問題</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">可能會收資料費用。繼續前往至外部網站嗎？</string>
   <string name="zero_interstitial_continue">離開</string>
   <string name="zero_interstitial_cancel">留在這裡</string>
-  <string name="zero_learn_more" fuzzy="true">此維基百科應用程式可免除資料費用。</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">閱讀更多</string>
+  <string name="zero_learn_more">您的無線網路供應商可提供免費訪問維基百科內容。</string>
+  <string name="zero_learn_more_learn_more">了解更多</string>
   <string name="zero_learn_more_dismiss">關閉</string>
   <string name="edit_preview_fetching_dialog_message">取得預覽中…</string>
   <string name="send_feedback">傳送應用程式意見回饋</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">在點選連結時，顯示條目的快速預覽。</string>
   <string name="nav_item_donate">支持維基百科</string>
   <string name="error_voice_search_not_available">很抱歉，語音辨識不可用。</string>
+  <string name="location_service_disabled">位置服務為停用。</string>
+  <string name="enable_location_service">啟用</string>
   <string name="crash_report_dialog_title">很抱歉，應用程式上次發生了錯誤</string>
   <string name="crash_report_dialog_text">您是否想要傳送錯誤報告至 HockeyApp / 第三方服務提供者，以讓維基媒體可以更快速、更簡易的檢閱告修復由此產生的問題？</string>
   <string name="crash_report_dialog_dont_send_button">略過</string>
@@ -291,9 +293,15 @@
   <string name="most_read_list_card_title">趨勢</string>
   <string name="view_static_card_icon_content_description">卡片圖示</string>
   <string name="view_card_news_title">新聞動態</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">昨日</item>
     <item quantity="other">%d 日前</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">今天</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">今天</string>
+  <string name="description_edit_header">編輯中</string>
+  <string name="description_edit_help_hint">這是什麼？</string>
+  <string name="description_edit_text_hint">寫一段描述！</string>
+  <string name="description_edit_save">儲存</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">增加描述</string>
 </resources>

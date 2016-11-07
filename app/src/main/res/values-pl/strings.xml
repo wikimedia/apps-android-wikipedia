@@ -99,7 +99,7 @@
   <string name="zero_interstitial_continue">Wyjdź</string>
   <string name="zero_interstitial_cancel">Pozostań</string>
   <string name="zero_learn_more" fuzzy="true">W ramach tej aplikacji Wikipedii nie są pobierane opłaty za transmisję danych.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Czytaj więcej</string>
+  <string name="zero_learn_more_learn_more">Dowiedz się więcej</string>
   <string name="zero_learn_more_dismiss">Odrzuć</string>
   <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu…</string>
   <string name="send_feedback">Wyślij opinię o aplikacji</string>
@@ -219,6 +219,7 @@
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="nav_item_donate">Wspomóż Wikipedię</string>
   <string name="error_voice_search_not_available">Przepraszamy, rozpoznawanie mowy nie jest dostępne.</string>
+  <string name="enable_location_service">Włącz</string>
   <string name="crash_report_dialog_title">Niestety, wystąpił problem techniczny z aplikacją</string>
   <string name="crash_report_dialog_dont_send_button">Pomiń</string>
   <string name="crash_report_dialog_always_send_button">Zawsze wysyłaj</string>
@@ -268,9 +269,15 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">wczoraj</item>
     <item quantity="other">%d dni temu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">dzisiaj</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">dzisiaj</string>
+  <string name="description_edit_header">Edycja</string>
+  <string name="description_edit_help_hint">Co to jest?</string>
+  <string name="description_edit_text_hint">Podaj opis!</string>
+  <string name="description_edit_save">Zapisz</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Dodaj opis</string>
 </resources>

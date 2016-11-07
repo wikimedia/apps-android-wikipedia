@@ -92,7 +92,7 @@
   <string name="create_account_button">Gawé akun</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Pitakonan paling sering aplikasi Wikipedia</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero mati</string>
+  <string name="zero_charged_verbiage">Akses gratis kanggo Wikipedia ora ono aktif.</string>
   <string name="zero_warn_when_leaving">Ngelekake yen ninggalake Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Yen operator ponsel membebaskan biaya akses data kanggo aplikasi Wikipedia liwat kemitraan Wikipedia Zero, ninggalake setelan iki dicenthang mbantu ngerti yen sampeyan ninggalake aplikasi Wikipedia lan bisa uga dikenani biaya.</string>
   <string name="zero_webpage_title">Pitakonan paling sering Wikipedia Zero</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">Biaya data bisa uga diterapake. Terus jaba?</string>
   <string name="zero_interstitial_continue">Ninggalake</string>
   <string name="zero_interstitial_cancel">Tetep Kene</string>
-  <string name="zero_learn_more" fuzzy="true">Biaya data sing dibebaskan kanggo aplikasi Wikipedia iki.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Waca terusané</string>
+  <string name="zero_learn_more">Operator nirkabel wis aksès gratis isi Wikipedia!</string>
+  <string name="zero_learn_more_learn_more">Sinau luwih</string>
   <string name="zero_learn_more_dismiss">Tutup</string>
   <string name="edit_preview_fetching_dialog_message">Kanthi rega pratayang...</string>
   <string name="send_feedback">Ngirim saran aplikasi</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">Tampilake pratayang cepet saka artikel nalika nunyuk ing pranala.</string>
   <string name="nav_item_donate">Ndhukung Wikipedia</string>
   <string name="error_voice_search_not_available">Nuwun, pangenalan swara ora kasedhiya.</string>
+  <string name="location_service_disabled">Layanan lokasi sing dipatèni.</string>
+  <string name="enable_location_service">Aktifaké</string>
   <string name="crash_report_dialog_title">Nuwun, aplikasi tabrakan pungkasan wektu</string>
   <string name="crash_report_dialog_text">Punapa panjenengan kersa ngirim laporan kacilakan kanggo HockeyApp / panyedhiya layanan pihak katelu supaya Wikimedia bisa maneh kacilakan lan ndandani bug sing nyebabake?</string>
   <string name="crash_report_dialog_dont_send_button">Mlayu</string>
@@ -291,9 +293,15 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="most_read_list_card_title">Tren</string>
   <string name="view_static_card_icon_content_description">Lambang kertu</string>
   <string name="view_card_news_title">Ing kabar</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">wingi</item>
     <item quantity="other">%d dina lalu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">dina iki</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">dina iki</string>
+  <string name="description_edit_header">Pambesut</string>
+  <string name="description_edit_help_hint">Apa iki?</string>
+  <string name="description_edit_text_hint">Nulis gambaran!</string>
+  <string name="description_edit_save">Simpen</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Nambah gambaran</string>
 </resources>

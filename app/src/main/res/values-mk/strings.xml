@@ -92,7 +92,7 @@
   <string name="create_account_button">Направи сметка</string>
   <string name="preferences_general_heading">Општи</string>
   <string name="wikipedia_app_faq">ЧПП за Википедииниот прилог</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Википедија Нулта е исклучена</string>
+  <string name="zero_charged_verbiage">Бесплатниот пристап до Википедија повеќе не е активен.</string>
   <string name="zero_warn_when_leaving">Предупреди ме доколку ја напуштам Википедија Нулта</string>
   <string name="zero_warn_when_leaving_summary">Ако Вашиот мобилен оператор се откажува од трошоците за пристап до податоци за прилогот на Википедија преку партнероство со Википедија Нулта, оставајќи ја поставкава избрана ќе знаете кога излегувате од нејзиниот бесплатен режим и почнува наплата.</string>
   <string name="zero_webpage_title">ЧПП за Википедија Нулта</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">За ова може да се наплаќа. Да продолжам кон надворешно место?</string>
   <string name="zero_interstitial_continue">Напушти</string>
   <string name="zero_interstitial_cancel">Остани тука</string>
-  <string name="zero_learn_more" fuzzy="true">За овој Википедиин прилогот не се наплаќа податочниот промет.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Прочитајте повеќе</string>
+  <string name="zero_learn_more">Вашиот безжичен услужник овозможи бесплатен пристап до содржините на Википедија!</string>
+  <string name="zero_learn_more_learn_more">Дознајте повеќе</string>
   <string name="zero_learn_more_dismiss">Тргни</string>
   <string name="edit_preview_fetching_dialog_message">Испишувам преглед…</string>
   <string name="send_feedback">Испрати мислење за прилогот</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
   <string name="nav_item_donate">Поддржете ја Википедија</string>
   <string name="error_voice_search_not_available">За жал, гласовното препознавање не е достапно.</string>
+  <string name="location_service_disabled">Местоположбените услуги се оневозможени.</string>
+  <string name="enable_location_service">Овозможи</string>
   <string name="crash_report_dialog_title">За жал, прилогот се урна минатиот пат</string>
   <string name="crash_report_dialog_text">Дали би сакале да се испрати извештај за уривање на HockeyApp / надворешен услужник за Викимедија да може полесно и побрзо да го разгледа и поправи уривањето .</string>
   <string name="crash_report_dialog_dont_send_button">Прескокни</string>
@@ -291,9 +293,15 @@
   <string name="most_read_list_card_title">Најчитани</string>
   <string name="view_static_card_icon_content_description">Икона за картичка</string>
   <string name="view_card_news_title">Вести</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">вчера</item>
     <item quantity="other">пред %d дена</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">денес</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">денес</string>
+  <string name="description_edit_header">Уредување</string>
+  <string name="description_edit_help_hint">Што е ова?</string>
+  <string name="description_edit_text_hint">Напишете опис!</string>
+  <string name="description_edit_save">Зачувај</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Додај опис</string>
 </resources>

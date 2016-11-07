@@ -92,7 +92,7 @@
   <string name="create_account_button">অ্যাকাউন্ট তৈরি করুন</string>
   <string name="preferences_general_heading">সাধারণ</string>
   <string name="wikipedia_app_faq">উইকিপিডিয়া অ্যাপ প্রাজিপ্র</string>
-  <string name="zero_charged_verbiage" fuzzy="true">উইকিপিডিয়া জিরো নিষ্ক্রিয়</string>
+  <string name="zero_charged_verbiage">উইকিপিডিয়ায় বিনামূল্যে প্রবেশাধিকার আর সক্রিয় নয়।</string>
   <string name="zero_warn_when_leaving">উইকিপিডিয়া জিরো প্রস্থানের সময় সতর্ক করো</string>
   <string name="zero_warn_when_leaving_summary">যদি আপনার মোবাইল অপারেটর উইকিপিডিয়া জিরো অংশীদারিত্বের মাধ্যমে উইকিপিডিয়া অ্যাপ্লিকেশনের জন্য তথ্য প্রবেশাধিকার চার্জ গ্রহণ না করে, তাহলে এই সেটিং টিকচিহ্ন দিয়ে রাখলে কখন আপনি উইকিপিডিয়া অ্যাপ্লিকেশন ছেড়ে যাচ্ছেন এবং আপনার থেকে চার্জ গ্রহণ করা হতে পারে তা আপনাকে জানাতে সাহায্য করবে।</string>
   <string name="zero_webpage_title">উইকিপিডিয়া জিরো</string>
@@ -102,7 +102,7 @@
   <string name="zero_interstitial_continue">অগ্রসর হোন</string>
   <string name="zero_interstitial_cancel">এখানে থাকুন</string>
   <string name="zero_learn_more" fuzzy="true">এই উইকিপিডিয়া অ্যাপের জন্য ডাটা চার্জ প্রযোজ্য নয়।</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">আরও জানুন</string>
+  <string name="zero_learn_more_learn_more">আরও জানুন</string>
   <string name="zero_learn_more_dismiss">খারিজ</string>
   <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে…</string>
   <string name="send_feedback">অ্যাপ সম্পর্কে প্রতিক্রিয়া জানান</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">যখন লিঙ্কে টোকা দেয়া হবে তখন দ্রুত নিবন্ধের একটি প্রাকদর্শন দেখাবে।</string>
   <string name="nav_item_donate">দান করুন</string>
   <string name="error_voice_search_not_available">দুঃখিত, কণ্ঠ শনাক্তকরণ উপলব্ধ নয়।</string>
+  <string name="location_service_disabled">অবস্থান পরিষেবা অক্ষম।</string>
+  <string name="enable_location_service">সক্রিয় করুন</string>
   <string name="crash_report_dialog_title">দুঃখিত, অ্যাপ্লিকেশন শেষ বার বিধ্বস্ত হয়েছিল</string>
   <string name="crash_report_dialog_text">আপনি কি HockeyApp / স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারীর কাছে ত্রুটি প্রতিবেদন পাঠাতে চান যাতে উইকিমিডিয়া আপনার ত্রুটি পর্যালোচনা করতে পারে এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারে?</string>
   <string name="crash_report_dialog_dont_send_button">উপেক্ষা করো</string>
@@ -291,9 +293,15 @@
   <string name="most_read_list_card_title">প্রবণতা</string>
   <string name="view_static_card_icon_content_description">কার্ড আইকন</string>
   <string name="view_card_news_title">সংবাদে</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">গতকাল</item>
     <item quantity="other">%d দিন আগে</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">আজ</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">আজ</string>
+  <string name="description_edit_header">সম্পাদনা করছেন</string>
+  <string name="description_edit_help_hint">এটি কী?</string>
+  <string name="description_edit_text_hint">একটি বিবরণ লিখুন!</string>
+  <string name="description_edit_save">সংরক্ষণ</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">বিবরণ যোগ করুন</string>
 </resources>

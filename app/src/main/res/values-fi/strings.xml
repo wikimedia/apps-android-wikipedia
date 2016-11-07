@@ -6,20 +6,20 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="yes">Kyllä</string>
   <string name="no">Ei</string>
-  <string name="search_hint">Wikipedia-haku</string>
+  <string name="search_hint">Hae Wikipediasta</string>
   <string name="nav_item_history">Historia</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
   <string name="page_error_back_to_main">Takaisin</string>
   <string name="menu_clear_all_history">Tyhjennä historia</string>
   <string name="page_does_not_exist_error">Tätä sivua ei ole.</string>
-  <string name="dialog_title_clear_history">Selaushistorian tyhjennys</string>
+  <string name="dialog_title_clear_history">Tyhjennä selaushistoria</string>
   <string name="dialog_message_clear_history">Tämä tyhjentää koko selaushistoriasi sekä sulkee kaikki avoimet välilehdet. Oletko varma?</string>
   <string name="nav_item_saved_pages">Tallennetut sivut</string>
   <string name="share_via">Jaa palvelussa</string>
   <string name="search_redirect_from">Ohjattu sivulta %s</string>
   <string name="menu_page_show_tabs">Näytä välilehdet</string>
-  <string name="menu_page_other_languages">Vaihda kieltä</string>
+  <string name="menu_page_other_languages">Vaihda kieli</string>
   <string name="menu_page_find_in_page">Etsi sivulta</string>
   <string name="menu_page_content_issues">Sisältöongelmat</string>
   <string name="menu_page_font_and_theme">Kirjasin ja teema</string>
@@ -289,9 +289,9 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="most_read_list_card_title">Nousussa</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">eilen</item>
     <item quantity="other">%d päivää sitten</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">tänään</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">tänään</string>
 </resources>

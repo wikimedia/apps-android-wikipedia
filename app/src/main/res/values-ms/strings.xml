@@ -92,7 +92,7 @@
   <string name="create_account_button">Buka akaun</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Soalan Lazim Aplikasi Wikipedia</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero dimatikan</string>
+  <string name="zero_charged_verbiage">Akses percuma ke Wikipedia tidak lagi aktif.</string>
   <string name="zero_warn_when_leaving">Pesan apabila keluar dari Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator mudah alih anda mengecualikan caj akses data untuk aplikasi Wikipedia menerusi persepakatan Wikipedia Zero, jika tetapan ini dibiarkan pasang, anda akan dipesan bahawa caj mungkin dikenakan ketika anda keluar dari aplikasi Wikipedia.</string>
   <string name="zero_webpage_title">Soalan Lazim Wikipedia Zero</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">Caj data mungkin dikenakan. Terus ke laman web luaran?</string>
   <string name="zero_interstitial_continue">Ya</string>
   <string name="zero_interstitial_cancel">Tidak</string>
-  <string name="zero_learn_more" fuzzy="true">Caj data akan dikecualikan bagi aplikasi Wikipedia ini.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Baca lagi</string>
+  <string name="zero_learn_more">Pembawa wayarles anda telah menyediakan akses percuma ke kandungan Wikipedia!</string>
+  <string name="zero_learn_more_learn_more">Ketahui lebih lanjut</string>
   <string name="zero_learn_more_dismiss">Singkir</string>
   <string name="edit_preview_fetching_dialog_message">Mengolah pralihat…</string>
   <string name="send_feedback">Hantar maklum balas aplikasi</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">Paparkan pratonton cepat bagi rencana apabila mengetik pautan.</string>
   <string name="nav_item_donate">Sokonglah Wikipedia</string>
   <string name="error_voice_search_not_available">Maaf, pengenalan undi tidak tersedia.</string>
+  <string name="location_service_disabled">Perkhidmatan lokasi dilumpuhkan.</string>
+  <string name="enable_location_service">Hidupkan</string>
   <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
   <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Langkau</string>
@@ -289,9 +291,15 @@
   <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kad</string>
   <string name="view_card_news_title">Berita terkini</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">semalam</item>
     <item quantity="other">%d hari yang lalu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">hari ini</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">hari ini</string>
+  <string name="description_edit_header">Penyuntingan</string>
+  <string name="description_edit_help_hint">Apakah ini?</string>
+  <string name="description_edit_text_hint">Tulis keterangan!</string>
+  <string name="description_edit_save">Simpan</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Tambah penerangan</string>
 </resources>

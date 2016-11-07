@@ -92,7 +92,7 @@
   <string name="create_account_button">Registreren</string>
   <string name="preferences_general_heading">Algemeen</string>
   <string name="wikipedia_app_faq">Veelgestelde vragen over de Wikipedia-app</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero is uitgeschakeld</string>
+  <string name="zero_charged_verbiage">Gratis toegang tot Wikipedia is niet meer actief.</string>
   <string name="zero_warn_when_leaving">Waarschuwen bij het verlaten van Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Als uw mobiele provider geen kosten in rekening brengt voor het gegevensgebruik via de Wikipedia-app vanwege een Wikipedia Zero-partnerschap, dan zorgt het inschakelen van deze instelling ervoor dat u wordt gewaarschuwd als u Wikipedia verlaat en mogelijk kosten voor data moet betalen.</string>
   <string name="zero_webpage_title">Veelgestelde vragen over Wikipedia Zero</string>
@@ -102,7 +102,7 @@
   <string name="zero_interstitial_continue">Afsluiten</string>
   <string name="zero_interstitial_cancel">Hier blijven</string>
   <string name="zero_learn_more" fuzzy="true">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Meer lezen</string>
+  <string name="zero_learn_more_learn_more">Meer leren</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
   <string name="edit_preview_fetching_dialog_message">Voorvertoning aan het ophalen…</string>
   <string name="send_feedback">Terugkoppeling over app geven</string>
@@ -202,6 +202,8 @@
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Uploader onbekend</string>
   <string name="menu_new_tab">Nieuw tabblad</string>
+  <string name="menu_close_all_tabs">Alle tabbladen sluiten</string>
+  <string name="close_all_tabs_confirm">Weet u zeker dat u alle tabbladen wilt sluiten?</string>
   <string name="button_close_tab">Tabblad sluiten</string>
   <string name="tool_tip_select_text">Druk en houd vast op een willekeurige plaats in de tekst om deze te kopiëren en te kunnen delen.</string>
   <string name="tool_tip_share">Na het selecteren van een interessant feit, kunt u het delen op uw favoriete netwerken!</string>
@@ -221,6 +223,8 @@
   <string name="preference_summary_show_link_previews">Korte voorvertoning weergeven van pagina\'s bij het aanraken van koppelingen.</string>
   <string name="nav_item_donate">Steun Wikipedia</string>
   <string name="error_voice_search_not_available">Sorry, spraakherkenning is niet beschikbaar.</string>
+  <string name="location_service_disabled">Locatievoorzieningen zijn uitgeschakeld.</string>
+  <string name="enable_location_service">Inschakelen</string>
   <string name="crash_report_dialog_title">De app is de laatste keer helaas gecrasht</string>
   <string name="crash_report_dialog_text">Wilt u crashrapporteren naar HockeyApp, een dienstverlener, sturen zodat Wikimedia de omstandigheden van uw crash kan analyseren en fouten die de crash heeft veroorzaakt kan herstellen?</string>
   <string name="crash_report_dialog_dont_send_button">Overslaan</string>
@@ -280,15 +284,22 @@
   <string name="view_featured_image_card_download">Downloaden</string>
   <string name="menu_feed_card_dismiss">Deze kaart verbergen</string>
   <string name="menu_feed_card_dismissed">Kaart verborgen.</string>
+  <string name="menu_feed_overflow_label">Meer opties</string>
   <string name="feed_featured_image_share_subject">Uitgelichte afbeelding uit Wikimedia Commons</string>
   <string name="feed">Verkennen</string>
   <string name="view_card_footer_button">Meer zien</string>
   <string name="most_read_list_card_title">Populair</string>
   <string name="view_static_card_icon_content_description">Kaart-icoon</string>
   <string name="view_card_news_title">Actueel</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">gisteren</item>
     <item quantity="other">%d dagen geleden</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">vandaag</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">vandaag</string>
+  <string name="description_edit_header">Bezig met bewerken</string>
+  <string name="description_edit_help_hint">Wat is dit?</string>
+  <string name="description_edit_text_hint">Geef een beschrijving op!</string>
+  <string name="description_edit_save">Opslaan</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Beschrijving toevoegen</string>
 </resources>

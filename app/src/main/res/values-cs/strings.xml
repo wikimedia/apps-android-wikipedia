@@ -92,7 +92,7 @@
   <string name="create_account_button">Vytvořit účet</string>
   <string name="preferences_general_heading">Obecné</string>
   <string name="wikipedia_app_faq">FAQ aplikace Wikipedie</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero je vypnuto</string>
+  <string name="zero_charged_verbiage">Přístup k Wikipedii zdarma již není aktivní.</string>
   <string name="zero_warn_when_leaving">Varovat při opuštění Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Pokud váš mobilní operátor neúčtuje poplatky za datové připojení k Wikipedii v rámci partnerství Wikipedia Zero, ponecháním tohoto políčka zaškrtnutého zajistíte, že se dozvíte o opouštění aplikace a možnosti placení za další datové připojení.</string>
   <string name="zero_webpage_title">FAQ k Wikipedia Zero</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">Mohou být účtovány poplatky za přenos dat. Pokračovat na externí web?</string>
   <string name="zero_interstitial_continue">Odejít</string>
   <string name="zero_interstitial_cancel">Zůstat zde</string>
-  <string name="zero_learn_more" fuzzy="true">V této aplikaci Wikipedie nejsou účtovány poplatky za přenos dat.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Více informací</string>
+  <string name="zero_learn_more">Váš poskytovatel připojení nabídnul přístup k obsahu Wikipedie zdarma!</string>
+  <string name="zero_learn_more_learn_more">Více informací</string>
   <string name="zero_learn_more_dismiss">Zavřít</string>
   <string name="edit_preview_fetching_dialog_message">Načítání náhledu…</string>
   <string name="send_feedback">Poslat názor na aplikaci</string>
@@ -288,7 +288,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="most_read_list_card_title">Populární</string>
   <string name="view_static_card_icon_content_description">Ikona záložky</string>
   <string name="view_card_news_title">Ve zprávách</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">včera</item>
     <item quantity="other">před %d dny</item>
   </plurals>

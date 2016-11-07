@@ -92,7 +92,7 @@
   <string name="create_account_button">کاتو کوليو</string>
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">وڪيپيڊيا ايپ ڪپس</string>
-  <string name="zero_charged_verbiage" fuzzy="true">وڪيپيڊيا ٻڙي بند آهي</string>
+  <string name="zero_charged_verbiage">وڪيپيڊيا تي مفت وڌيڪ رسائي ھاڻي وڌيڪ فعال نہ آھي.</string>
   <string name="zero_warn_when_leaving">جيڪڏهن وڪيپيڊيا زيرو ڇڏي وڃي رهي هجي ته خبردار ڪريو</string>
   <string name="zero_warn_when_leaving_summary">جيڪڏھن توھان جو موبائل آپريٽر وڪيپيڊيا زيرو ڀائيواريءَ جي ذريعي وڪيپيڊيا ايپ جي لاءِ ڊيٽا ايڪسس جون رقمون معاف ڪري ٿو، تہ ھن ترتيب تي نشان لڳائڻ سان جڏھن توھان وڪيپيڊيا ايپ ڇڏيندئو تہ توھان کي اھو ٻڌائڻ ۾ مدد ٿيندي تہ رقمون لاڳو ٿي سگھن ٿيون.</string>
   <string name="zero_webpage_title">وڪيپيڊيا ٻڙي ڪپس</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">ڊيٽا رقمون لاڳو ٿي سگهن ٿيون. ٻاهرين سائيٽ ڏي جاري رکجي؟</string>
   <string name="zero_interstitial_continue">موڪلايو</string>
   <string name="zero_interstitial_cancel">هتي ترسو</string>
-  <string name="zero_learn_more" fuzzy="true">هن وڪيپيڊيا ايپ لاءِ ڊيٽا رقمن تان هٿ کنيل آهي.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">وڌيڪ پڙهو</string>
+  <string name="zero_learn_more">توھان جي وائرليس ڪيريئر وڪيپيڊيا مواد تائين مفت رسائي پھچائي آھي!</string>
+  <string name="zero_learn_more_learn_more">وڌيڪ پرايو</string>
   <string name="zero_learn_more_dismiss">برخواست</string>
   <string name="edit_preview_fetching_dialog_message">پيش نگاھ ٺاهيندي…</string>
   <string name="send_feedback">ايپ جي پذيرائي موڪليو</string>
@@ -220,6 +220,7 @@
   <string name="preference_summary_show_link_previews">ڳنڍڻن تي رکڻ وقت صفحن تي تڪڙي پيش نگاھ ڏيکاريو.</string>
   <string name="nav_item_donate">وڪيپيڊيا کي سوورٽ ڪريو</string>
   <string name="error_voice_search_not_available">معاف ڪجو، آواز شناس موجود نہ آھي.</string>
+  <string name="enable_location_service">فعاليو</string>
   <string name="crash_report_dialog_title">معاف ڪجو، پوئين ڀيري ايپ خراب ٿي وئي</string>
   <string name="crash_report_dialog_dont_send_button">ڇڏيو</string>
   <string name="crash_report_dialog_always_send_button">ھميشہ اماڻيو</string>
@@ -287,9 +288,15 @@
   <string name="most_read_list_card_title">مھور ٿيندڙ</string>
   <string name="view_static_card_icon_content_description">ڪارڊ جو نشان</string>
   <string name="view_card_news_title">خبرن ۾</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">ڪالھ</item>
     <item quantity="other">%d ڏينھن اڳ</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">اڄ</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">اڄ</string>
+  <string name="description_edit_header">ترميم ڪندي</string>
+  <string name="description_edit_help_hint">ھي ڇاھي؟</string>
+  <string name="description_edit_text_hint">ڪو تفصيل لکو!</string>
+  <string name="description_edit_save">سانڍيو</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">تفصيل شامل ڪريو</string>
 </resources>

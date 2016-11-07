@@ -289,7 +289,7 @@
   <string name="most_read_list_card_title">Xu hướng</string>
   <string name="view_static_card_icon_content_description">Hình tượng thẻ</string>
   <string name="view_card_news_title">Tin tức</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">hôm qua</item>
     <item quantity="other">%d ngày trước</item>
   </plurals>

@@ -92,7 +92,7 @@
   <string name="create_account_button">Buat akun baru</string>
   <string name="preferences_general_heading">Umum</string>
   <string name="wikipedia_app_faq">Pertanyaan yang sering diajukan</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero dimatikan</string>
+  <string name="zero_charged_verbiage">Akses gratis ke Wikipedia tidak lagi aktif.</string>
   <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator selular Anda membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Zero, meninggalkan pengaturan ini dicentang dapat membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan biaya.</string>
   <string name="zero_webpage_title">Tanya jawab Wikipedia Zero</string>
@@ -101,8 +101,8 @@
   <string name="zero_interstitial_leave_app">Biaya data mungkin berlaku. Lanjutkan ke situs eksternal?</string>
   <string name="zero_interstitial_continue">Tinggalkan</string>
   <string name="zero_interstitial_cancel">Tetap di sini</string>
-  <string name="zero_learn_more" fuzzy="true">Biaya data dibebaskan untuk aplikasi Wikipedia ini.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Baca lebih lanjut</string>
+  <string name="zero_learn_more">Operator selular Anda telah menyediakan akses gratis ke konten Wikipedia!</string>
+  <string name="zero_learn_more_learn_more">Pelajari lebih lanjut</string>
   <string name="zero_learn_more_dismiss">Tutup</string>
   <string name="edit_preview_fetching_dialog_message">Mengambil pratayang…</string>
   <string name="send_feedback">Kirim umpan balik aplikasi</string>
@@ -223,6 +223,8 @@
   <string name="preference_summary_show_link_previews">Tampilkan pratayang singkat artikel setelah menekan pranala.</string>
   <string name="nav_item_donate">Dukung Wikipedia</string>
   <string name="error_voice_search_not_available">Maaf, pengenalan suara tidak tersedia.</string>
+  <string name="location_service_disabled">Layanan lokasi dinonaktifkan.</string>
+  <string name="enable_location_service">Aktifkan</string>
   <string name="crash_report_dialog_title">Maaf, aplikasi berhenti dengan sendirinya</string>
   <string name="crash_report_dialog_text">Apakah Anda ingin mengirimkan laporan kerusakan ke HockeyApp / penyedia layanan pihak ketiga sehingga Wikimedia dapat meninjau kerusakan Anda dan memperbaiki kesalahan yang disebabkannya?</string>
   <string name="crash_report_dialog_dont_send_button">Lewati</string>
@@ -291,9 +293,15 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Peristiwa terkini</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">kemarin</item>
     <item quantity="other">%d hari yang lalu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">hari ini</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">hari ini</string>
+  <string name="description_edit_header">Menyunting</string>
+  <string name="description_edit_help_hint">Apa ini?</string>
+  <string name="description_edit_text_hint">Tuliskan deskripsi!</string>
+  <string name="description_edit_save">Simpan</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Tambah deskripsi</string>
 </resources>

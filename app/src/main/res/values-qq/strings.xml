@@ -161,7 +161,7 @@ Shown in the preferences screen along with the following:
 {{Identical|Stay here}}</string>
   <string name="zero_learn_more">Message of a dialog shown the first time Wikipedia Zero mode is On.</string>
   <string name="zero_learn_more_learn_more">Dialog button text for Wikipedia Zero user to learn more about Wikipedia Zero at the Wikipedia Zero FAQ for the app.
-{{Identical|Read more}}</string>
+{{Identical|Learn more}}</string>
   <string name="zero_learn_more_dismiss">Dialog button text for Wikipedia Zero user to dismiss the prompt about visiting the Wikipedia Zero FAQ for the app
 {{Identical|Dismiss}}</string>
   <string name="edit_preview_fetching_dialog_message">Message shown to the user while the user is waiting for the preview of their edit to be shown</string>
@@ -350,7 +350,8 @@ Shown in the preferences screen along with the following:
   <string name="nav_item_donate">Text in navigation sidebar that when tapped leads to a web page where the user may donate to Wikipedia.</string>
   <string name="error_voice_search_not_available">Error displayed when the device does not support voice recognition.</string>
   <string name="location_service_disabled">Message shown when trying to use location services but they are unavailable</string>
-  <string name="enable_location_service">Button label for enabling location services</string>
+  <string name="enable_location_service">Button label for enabling location services
+{{Identical|Enable}}</string>
   <string name="crash_report_dialog_title">Title of the dialog that pops up when the app crashes, asking user to send a report</string>
   <string name="crash_report_dialog_text">Text asking the user to send us a crash report</string>
   <string name="crash_report_dialog_dont_send_button">In the dialog that pops up when the app crashes, text for button that doesn\'t send a crash report.
@@ -430,16 +431,18 @@ Shown in the preferences screen along with the following:
 {{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
-  <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="one">Phrase for one day ago.</item>
-    <item quantity="other">Phrase for more than one day ago.</item>
-  </plurals>
+  <plurals name="view_continue_reading_card_subtitle">Subtitle for a box titled \"Continue reading\"; the first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]].
+
+Parameters:
+* %d - number of days passed since the content (an article) was last seen.</plurals>
   <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.
 {{Identical|Today}}</string>
-  <string name="description_edit_header">Label above the current article title indicating that the description for this title is being edited.</string>
+  <string name="description_edit_header">Label above the current article title indicating that the description for this title is being edited.
+{{Identical|Editing}}</string>
   <string name="description_edit_help_hint">Hint message for the menu button that launches a short tutorial on editing descriptions.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
-  <string name="description_edit_save">Hint for the button that is pressed for saving the new description.</string>
+  <string name="description_edit_save">Hint for the button that is pressed for saving the new description.
+{{Identical|Save}}</string>
   <string name="description_edit_char_count">Label that displays the character count of the description being entered. The %1$d symbol is replaced with the number of characters in the current description, and the %2$d symbol is replaced with the maximum allowed characters.</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
 </resources>

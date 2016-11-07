@@ -268,4 +268,6 @@
   <string name="view_card_footer_button">Види још</string>
   <string name="most_read_list_card_title">Актуелно</string>
   <string name="view_card_news_title">Вести</string>
+  <string name="description_edit_save">Сачувај</string>
+  <string name="description_edit_add_description">Додај опис</string>
 </resources>
