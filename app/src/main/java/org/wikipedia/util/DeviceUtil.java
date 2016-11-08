@@ -6,11 +6,16 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.net.ConnectivityManagerCompat;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+
+import org.wikipedia.util.log.L;
 
 import java.util.List;
 
@@ -78,6 +83,22 @@ public final class DeviceUtil {
                 && connManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected())
                 || (connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null
                 && connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected()));
+    }
+
+    public static boolean isLocationServiceEnabled(@NonNull Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            int locationMode = Settings.Secure.LOCATION_MODE_OFF;
+            try {
+                locationMode = Settings.Secure.getInt(context.getContentResolver(),
+                        Settings.Secure.LOCATION_MODE);
+            } catch (Settings.SettingNotFoundException e) {
+                L.d("Location service setting not found.", e);
+            }
+            return locationMode != Settings.Secure.LOCATION_MODE_OFF;
+        }
+        String locationProviders = Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+        return !TextUtils.isEmpty(locationProviders);
     }
 
     private DeviceUtil() {
