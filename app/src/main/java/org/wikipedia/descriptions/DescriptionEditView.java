@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -31,6 +32,7 @@ public class DescriptionEditView extends FrameLayout {
     @BindView(R.id.view_description_edit_page_title) TextView pageTitleText;
     @BindView(R.id.view_description_edit_save_button) FloatingActionButton saveButton;
     @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
+    @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
     @BindView(R.id.view_description_edit_char_count) TextView charCountText;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
 
@@ -85,6 +87,10 @@ public class DescriptionEditView extends FrameLayout {
 
     @NonNull public String getDescription() {
         return pageDescriptionText.getText().toString();
+    }
+
+    public void setError(@Nullable CharSequence text) {
+        pageDescriptionLayout.setError(text);
     }
 
     @OnClick(R.id.view_description_edit_save_button) void onSaveClick() {

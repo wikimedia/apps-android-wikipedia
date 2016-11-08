@@ -26,6 +26,7 @@
                 android:padding="16dp">
 
                 <TextView
+                    style="@style/RtlAwareTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -64,14 +65,25 @@
 
         </FrameLayout>
 
-        <org.wikipedia.views.PlainPasteEditText
-            android:id="@+id/view_description_edit_text"
+        <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
+                   adds another. try to collapse this group into others. the same change should
+                   probably be attempted for other TextInputLayout usages -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/view_description_edit_text_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
-            android:hint="@string/description_edit_text_hint"/>
+            android:layout_marginLeft="16dp"
+            android:textAlignment="viewStart"
+            android:gravity="start">
+            <org.wikipedia.views.PlainPasteEditText
+                style="@style/RtlAwareTextView"
+                android:id="@+id/view_description_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/description_edit_text_hint"/>
+        </android.support.design.widget.TextInputLayout>
 
         <TextView
             android:id="@+id/view_description_edit_char_count"
@@ -85,6 +97,7 @@
 
     </LinearLayout>
 
+    <!-- move out -->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/view_description_edit_save_button"
         style="@style/FloatingActionButton"
