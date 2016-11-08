@@ -204,7 +204,7 @@ dependencies {
         transitive = true
     }
     compile 'net.hockeyapp.android:HockeySDK:4.0.1'
-    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'org.apache.commons:commons-lang3:3.5'
 
     apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
