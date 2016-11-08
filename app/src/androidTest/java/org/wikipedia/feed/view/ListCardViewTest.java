@@ -1,7 +1,6 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.View;
@@ -11,9 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 import org.wikipedia.feed.model.Card;
+import org.wikipedia.test.theories.TestedOnBool;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
-import org.wikipedia.test.view.NullValue;
 import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
@@ -33,14 +32,14 @@ public class ListCardViewTest extends ViewTest {
         subject = new Subject(ctx());
     }
 
-    @Theory public void testSetCallback(@NonNull NullValue nullHeader,
-                                        @NonNull NullValue nullCallback) {
-        CardHeaderView header = nullHeader.isNull() ? null : mock(CardHeaderView.class);
+    @Theory public void testSetCallback(@TestedOnBool boolean nullHeader,
+                                        @TestedOnBool boolean nullCallback) {
+        CardHeaderView header = nullHeader ? null : mock(CardHeaderView.class);
         if (header != null) {
             subject.header(header);
         }
 
-        Callback callback = nullCallback.isNull() ? null : mock(FeedAdapter.Callback.class);
+        Callback callback = nullCallback ? null : mock(FeedAdapter.Callback.class);
         subject.setCallback(callback);
         assertThat(subject.getCallback(), is(callback));
         if (header != null) {
@@ -48,15 +47,15 @@ public class ListCardViewTest extends ViewTest {
         }
     }
 
-    @Theory public void testSet(@NonNull NullValue nul) {
-        Adapter<?> adapter = nul.isNull() ? null : mock(Adapter.class);
+    @Theory public void testSet(@TestedOnBool boolean nul) {
+        Adapter<?> adapter = nul ? null : mock(Adapter.class);
         subject.set(adapter);
         //noinspection rawtypes
         assertThat(subject.recyclerView.getAdapter(), is((Adapter) adapter));
     }
 
-    @Theory public void testUpdate(@NonNull NullValue nul) {
-        Adapter<?> adapter = nul.isNull() ? null : spy(new NullAdapter());
+    @Theory public void testUpdate(@TestedOnBool boolean nul) {
+        Adapter<?> adapter = nul ? null : spy(new NullAdapter());
         subject.set(adapter);
         subject.update();
         if (adapter != null) {

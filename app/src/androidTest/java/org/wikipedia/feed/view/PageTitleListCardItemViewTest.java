@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
+import org.wikipedia.test.theories.TestedOnBool;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
-import org.wikipedia.test.view.NullValue;
 import org.wikipedia.test.view.PrimaryTestImg;
 import org.wikipedia.test.view.PrimaryTestStr;
 import org.wikipedia.test.view.SecondaryTestImg;
@@ -56,9 +56,9 @@ public class PageTitleListCardItemViewTest extends ViewTest {
 
     // todo: how can we test popupmenu which requires an activity?
 
-    @Theory public void testSetCallback(@NonNull NullValue nul) {
+    @Theory public void testSetCallback(@TestedOnBool boolean nul) {
         setUpTypical();
-        Callback callback = nul.isNull() ? null : mock(Callback.class);
+        Callback callback = nul ? null : mock(Callback.class);
         subject.setCallback(callback);
         assertThat(subject.getCallback(), is(callback));
     }
@@ -73,16 +73,16 @@ public class PageTitleListCardItemViewTest extends ViewTest {
         assertThat(subject.imageView.getController(), notNullValue());
     }
 
-    @Theory public void testSetTitle(@NonNull NullValue nul) {
+    @Theory public void testSetTitle(@TestedOnBool boolean nul) {
         setUpTypical();
-        CharSequence text = nul.isNull() ? null : "text";
+        CharSequence text = nul ? null : "text";
         subject.setTitle(text);
         assertThat(subject.titleView.getText(), is(emptyIfNull(text)));
     }
 
-    @Theory public void testSetSubtitle(@NonNull NullValue nul) {
+    @Theory public void testSetSubtitle(@TestedOnBool boolean nul) {
         setUpTypical();
-        CharSequence text = nul.isNull() ? null : "text";
+        CharSequence text = nul ? null : "text";
         subject.setSubtitle(text);
         assertThat(subject.subtitleView.getText(), is(emptyIfNull(text)));
     }

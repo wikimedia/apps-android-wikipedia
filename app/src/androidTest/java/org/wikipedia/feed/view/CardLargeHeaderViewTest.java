@@ -7,9 +7,9 @@ import android.view.View;
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
 import org.wikipedia.R;
+import org.wikipedia.test.theories.TestedOnBool;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
-import org.wikipedia.test.view.NullValue;
 import org.wikipedia.test.view.PrimaryTestImg;
 import org.wikipedia.test.view.PrimaryTestStr;
 import org.wikipedia.test.view.SecondaryTestImg;
@@ -66,11 +66,11 @@ import static org.mockito.Mockito.verify;
         assertText(subject, R.id.view_card_header_large_title, text);
     }
 
-    @Theory public void testOnClickListener(@NonNull NullValue nul) {
+    @Theory public void testOnClickListener(@TestedOnBool boolean nul) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT,
                 SecondaryTestImg.CHECKERBOARD, PrimaryTestStr.SHORT);
 
-        OnClickListener listener = nul.isNull() ? null : mock(View.OnClickListener.class);
+        OnClickListener listener = nul ? null : mock(View.OnClickListener.class);
         subject.onClickListener(listener);
         subject.performClick();
         if (listener != null) {

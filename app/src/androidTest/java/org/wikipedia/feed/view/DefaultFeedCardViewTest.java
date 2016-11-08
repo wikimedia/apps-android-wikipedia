@@ -1,16 +1,15 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedAdapter.Callback;
+import org.wikipedia.test.theories.TestedOnBool;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
-import org.wikipedia.test.view.NullValue;
 import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
@@ -32,8 +31,8 @@ public class DefaultFeedCardViewTest extends ViewTest {
         assertThat(subject.getCard(), is(card));
     }
 
-    @Theory public void testSetGetCallback(@NonNull NullValue nul) {
-        Callback callback = nul.isNull() ? null : mock(Callback.class);
+    @Theory public void testSetGetCallback(@TestedOnBool boolean nul) {
+        Callback callback = nul ? null : mock(Callback.class);
         subject.setCallback(callback);
         assertThat(subject.getCallback(), is(callback));
     }

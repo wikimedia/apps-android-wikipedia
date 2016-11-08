@@ -1,13 +1,10 @@
 package android.support.design.widget;
 
-import android.support.annotation.NonNull;
-
 import org.junit.Before;
 import org.junit.experimental.theories.Theory;
 import org.wikipedia.test.theories.TestedOnBool;
 import org.wikipedia.test.view.FontScale;
 import org.wikipedia.test.view.LayoutDirection;
-import org.wikipedia.test.view.NullValue;
 import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
@@ -33,9 +30,9 @@ public class PasswordTextInputTest extends ViewTest {
         assertThat(subject.isPasswordVisible(), is(visible));
     }
 
-    @Theory public void testSetOnShowPasswordListener(@NonNull NullValue nul,
+    @Theory public void testSetOnShowPasswordListener(@TestedOnBool boolean nul,
                                                       @TestedOnBool boolean visible) {
-        OnShowPasswordClickListener listener = nul.isNull() ? null : mock(OnShowPasswordClickListener.class);
+        OnShowPasswordClickListener listener = nul ? null : mock(OnShowPasswordClickListener.class);
         if (visible) {
             subject.passwordVisibilityToggleRequested();
         }

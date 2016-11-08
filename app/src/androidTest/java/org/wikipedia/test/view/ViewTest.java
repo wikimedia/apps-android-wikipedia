@@ -46,7 +46,6 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
     @DataPoints public static final SecondaryTestStr[] SECONDARY_STRS = SecondaryTestStr.values();
     @DataPoints public static final PrimaryTestImg[] PRIMARY_IMGS = PrimaryTestImg.values();
     @DataPoints public static final SecondaryTestImg[] SECONDARY_IMGS = SecondaryTestImg.values();
-    @DataPoints public static final NullValue[] NULL_VALUES = NullValue.values();
 
     protected static final int WIDTH_DP_XL = 720;
     protected static final int WIDTH_DP_L = 480;

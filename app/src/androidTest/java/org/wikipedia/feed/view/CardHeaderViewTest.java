@@ -76,16 +76,16 @@ import static org.mockito.Mockito.mock;
     }
 
     // todo: how can we test popupmenu which requires an activity?
-//    @Theory public void testSetCallback(@NonNull NullValue nullCallback,
-//                                        @NonNull NullValue nullCard) {
+//    @Theory public void testSetCallback(@TestedOnBool boolean nullCallback,
+//                                        @TestedOnBool boolean nullCard) {
 //        setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT,
 //                PrimaryTestImg.NONNULL, PrimaryTestStr.SHORT, SecondaryTestStr.SHORT, BLUE);
 //
-//        Card card = nullCard.isNull() ? null : mock(Card.class);
-//        if (card  != null) {
+//        Card card = nullCard ? null : mock(Card.class);
+//        if (card != null) {
 //            subject.setCard(card);
 //        }
-//        Callback callback = nullCallback.isNull() ? null : mock(Callback.class);
+//        Callback callback = nullCallback ? null : mock(Callback.class);
 //        subject.setCallback(callback);
 //        clickMenu();
 //        if (callback != null) {
