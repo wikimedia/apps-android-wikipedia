@@ -62,7 +62,6 @@
   <string name="nav_item_login">Saioa hasi Wikipedian</string>
   <string name="login_username_hint">Erabiltzaile izena</string>
   <string name="login_password_hint">Pasahitza</string>
-  <string name="login_password_show_check">Pasahitza erakutsi</string>
   <string name="menu_login">Saioa hasi</string>
   <string name="login_activity_title">Saioa hasi Wikipedian</string>
   <string name="login_in_progress_dialog_message">Saioa hasten…</string>

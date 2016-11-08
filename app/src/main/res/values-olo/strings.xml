@@ -65,7 +65,6 @@
   <string name="nav_item_login">Kirjuttai Wikipedieh</string>
   <string name="login_username_hint">Käyttäinimi</string>
   <string name="login_password_hint">Salasana</string>
-  <string name="login_password_show_check">Näytä salasana</string>
   <string name="menu_login">Kirjuttai</string>
   <string name="login_activity_title">Kirjuttai Wikipedieh</string>
   <string name="login_in_progress_dialog_message">Sistiemah kirjuttamine...</string>

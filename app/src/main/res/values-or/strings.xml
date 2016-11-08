@@ -65,7 +65,6 @@
   <string name="nav_item_login">ଉଇକିପିଡ଼ିଆରେ ଲଗ ଇନ କରନ୍ତୁ</string>
   <string name="login_username_hint">ସଭ୍ୟ ନାମ</string>
   <string name="login_password_hint">ପାସୱାର୍ଡ଼</string>
-  <string name="login_password_show_check">ପାସୱାର୍ଡ଼ ଦେଖାନ୍ତୁ</string>
   <string name="menu_login">ଲଗଇନ</string>
   <string name="login_activity_title">ଉଇକିପିଡ଼ିଆରେ ଲଗଇନ କରନ୍ତୁ</string>
   <string name="login_in_progress_dialog_message">ଆପଣଙ୍କୁ ଲଗ ଇନ କରାଉଛି</string>

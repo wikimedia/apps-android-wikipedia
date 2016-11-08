@@ -59,7 +59,6 @@
   <string name="nav_item_login">Вуруд ба Википедиа</string>
   <string name="login_username_hint">Номи корбар</string>
   <string name="login_password_hint">Гузарвожа</string>
-  <string name="login_password_show_check">Намоиши гузарвожа</string>
   <string name="menu_login">Вуруд</string>
   <string name="login_activity_title">Вуруд ба Википедиа</string>
   <string name="login_in_progress_dialog_message">Дар ҳоли вуруд ба...</string>

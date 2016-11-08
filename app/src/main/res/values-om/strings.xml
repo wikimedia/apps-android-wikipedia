@@ -33,7 +33,6 @@
   <string name="nav_item_login" fuzzy="true">Seeni</string>
   <string name="login_username_hint">Maqaa fayyadamaa</string>
   <string name="login_password_hint">Iggitaa</string>
-  <string name="login_password_show_check">Iggitaa agarsiisi</string>
   <string name="menu_login">Seeni</string>
   <string name="login_activity_title" fuzzy="true">Wiikippidiyaa seeni</string>
   <string name="login_success_toast" fuzzy="true">Seenun milkaa\'e</string>

@@ -67,7 +67,6 @@
   <string name="nav_item_login">ورود به ویکی‌پدیا</string>
   <string name="login_username_hint">نام کاربری</string>
   <string name="login_password_hint">گذرواژه</string>
-  <string name="login_password_show_check">نمایش گذرواژه</string>
   <string name="menu_login">ورود به سامانه</string>
   <string name="login_activity_title">ورود به ویکی‌پدیا</string>
   <string name="login_in_progress_dialog_message">در حال وارد شدن به سامانه…</string>

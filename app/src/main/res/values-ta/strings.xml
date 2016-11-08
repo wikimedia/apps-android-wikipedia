@@ -60,7 +60,6 @@
   <string name="nav_item_login">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
   <string name="login_username_hint">பயனர் பெயர்</string>
   <string name="login_password_hint">கடவுச்சொல்</string>
-  <string name="login_password_show_check">கடவுச்சொல்லை காட்டு</string>
   <string name="menu_login">புகுபதிகை</string>
   <string name="login_activity_title">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
   <string name="login_in_progress_dialog_message">புகுபதிகையாகின்றது…</string>

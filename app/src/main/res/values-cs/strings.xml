@@ -67,7 +67,6 @@
   <string name="nav_item_login">Přihlásit se do Wikipedie</string>
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
-  <string name="login_password_show_check">Zobrazovat heslo</string>
   <string name="menu_login">Přihlásit se</string>
   <string name="login_activity_title">Přihlášení do Wikipedie</string>
   <string name="login_in_progress_dialog_message">Přihlašování…</string>

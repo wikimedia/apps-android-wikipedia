@@ -67,7 +67,6 @@
   <string name="nav_item_login">ਦਾਖ਼ਲਾ</string>
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
-  <string name="login_password_show_check">ਪਛਾਣ-ਸ਼ਬਦ ਵਿਖਾਉ</string>
   <string name="menu_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="login_activity_title">ਵਿਕੀਪੀਡੀਆ \'ਚ ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="login_in_progress_dialog_message">ਦਾਖ਼ਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>

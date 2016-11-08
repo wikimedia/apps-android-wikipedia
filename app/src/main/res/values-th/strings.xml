@@ -65,7 +65,6 @@
   <string name="nav_item_login">ล็อกอิน</string>
   <string name="login_username_hint">ชื่อผู้ใช้</string>
   <string name="login_password_hint">รหัสผ่าน</string>
-  <string name="login_password_show_check">แสดงรหัสผ่าน</string>
   <string name="menu_login">ล็อกอิน</string>
   <string name="login_activity_title">ล็อกอินเข้าสู่วิกิพีเดีย</string>
   <string name="login_in_progress_dialog_message">กำลังล็อกอิน…</string>

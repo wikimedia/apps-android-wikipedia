@@ -59,7 +59,6 @@
   <string name="nav_item_login">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_username_hint">সদস্যনাম</string>
   <string name="login_password_hint">গুপ্তশব্দ</string>
-  <string name="login_password_show_check">গুপ্তশব্দ দেখুৱাওক</string>
   <string name="menu_login">প্ৰৱেশ</string>
   <string name="login_activity_title" fuzzy="true">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>

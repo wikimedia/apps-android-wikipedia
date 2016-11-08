@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.PasswordTextInput;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +26,6 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.PasswordTextInput;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 

@@ -34,7 +34,6 @@
   <string name="nav_item_login">Нэвтрэх</string>
   <string name="login_username_hint">Хэрэглэгчийн нэр</string>
   <string name="login_password_hint">Нууц үг</string>
-  <string name="login_password_show_check">Нууц үгийг үзүүлэх</string>
   <string name="menu_login">Нэвтрэх</string>
   <string name="login_activity_title">Википедия руу нэвтрэх</string>
   <string name="login_in_progress_dialog_message">… руу нэвтэрч байна.</string>

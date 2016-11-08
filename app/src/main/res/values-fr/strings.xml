@@ -68,7 +68,6 @@ Les modifications seront attribuées à l’adresse IP de votre équipement. Si 
   <string name="nav_item_login">Connexion à Wikipédia</string>
   <string name="login_username_hint">Nom d’utilisateur</string>
   <string name="login_password_hint">Mot de passe</string>
-  <string name="login_password_show_check">Afficher le mot de passe</string>
   <string name="menu_login">Connexion</string>
   <string name="login_activity_title">Se connecter à Wikipédia</string>
   <string name="login_in_progress_dialog_message">Connexion en cours…</string>

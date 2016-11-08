@@ -64,7 +64,6 @@
   <string name="nav_item_login">Prisijunkite prie Vikipedijos</string>
   <string name="login_username_hint">Naudotojo vardas</string>
   <string name="login_password_hint">Slaptažodis</string>
-  <string name="login_password_show_check">Rodyti slaptažodį</string>
   <string name="menu_login">Prisijungti</string>
   <string name="login_activity_title">Prisijungti prie Vikipedijos</string>
   <string name="login_in_progress_dialog_message">Jūs jungiatės…</string>

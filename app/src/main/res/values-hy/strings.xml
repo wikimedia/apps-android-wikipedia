@@ -58,7 +58,6 @@
   <string name="nav_item_login">Մուտք գործել Վիքիպեդիա</string>
   <string name="login_username_hint">Մասնակցային անուն</string>
   <string name="login_password_hint">Գաղտնաբառ</string>
-  <string name="login_password_show_check">Ցույց տալ գաղտնաբառը</string>
   <string name="menu_login">Մուտք գործել</string>
   <string name="login_activity_title">Մուտք գործել Վիքիպեդիա</string>
   <string name="login_success_toast">Հաջող մուտք</string>

@@ -62,7 +62,6 @@
   <string name="nav_item_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
   <string name="login_username_hint">အသုံးပြုသူအမည်</string>
   <string name="login_password_hint">စကားဝှက်</string>
-  <string name="login_password_show_check">စကားဝှက်ကို ပြပါ။</string>
   <string name="menu_login">မှတ်တမ်းဖြင့် ဝင်ရန်</string>
   <string name="login_activity_title">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
   <string name="login_in_progress_dialog_message">လော့ဂ်အင်ဝင်နေသည် …</string>

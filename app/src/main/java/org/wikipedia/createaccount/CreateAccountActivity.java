@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.PasswordTextInput;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +30,6 @@ import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.PasswordTextInput;
 
 import java.util.List;
 
@@ -47,8 +47,10 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     @NotEmpty
     private EditText usernameEdit;
+    private PasswordTextInput passwordInput;
     @Password()
     private EditText passwordEdit;
+    private PasswordTextInput passwordRepeatInput;
     @ConfirmPassword(messageResId = R.string.create_account_passwords_mismatch_error)
     private EditText passwordRepeatEdit;
     // TODO: remove and replace with @Optional annotation once it's available in the library
@@ -69,21 +71,20 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
 
     private CreateAccountFunnel funnel;
 
-    private boolean passwordVisible;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
         usernameEdit = (EditText) findViewById(R.id.create_account_username);
-        passwordRepeatEdit = (EditText) findViewById(R.id.create_account_password_repeat);
+        passwordRepeatInput = ((PasswordTextInput) findViewById(R.id.create_account_password_repeat));
+        passwordRepeatEdit = passwordRepeatInput.getEditText();
         emailEdit = (EditText) findViewById(R.id.create_account_email);
         createAccountButton = (Button) findViewById(R.id.create_account_submit_button);
         createAccountButtonCaptcha = (Button) findViewById(R.id.captcha_submit_button);
         EditText captchaText = (EditText) findViewById(R.id.captcha_text);
         View primaryContainer = findViewById(R.id.create_account_primary_container);
-        PasswordTextInput passwordInput = (PasswordTextInput) findViewById(R.id.create_account_password_input);
+        passwordInput = (PasswordTextInput) findViewById(R.id.create_account_password_input);
         passwordEdit = passwordInput.getEditText();
 
         progressDialog = new ProgressDialog(this);
@@ -125,11 +126,9 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
             }
         });
 
-        passwordInput.setOnShowPasswordListener(new PasswordTextInput.OnShowPasswordListener() {
-            @Override
-            public void onShowPasswordChecked(boolean checked) {
-                passwordVisible = checked;
-                passwordRepeatEdit.setVisibility(checked ? View.GONE : View.VISIBLE);
+        passwordInput.setOnShowPasswordListener(new PasswordTextInput.OnShowPasswordClickListener() {
+            @Override public void onShowPasswordClick(boolean visible) {
+                passwordRepeatInput.setVisibility(visible ? View.GONE : View.VISIBLE);
             }
         });
 
@@ -246,7 +245,7 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         }
 
         String password = passwordEdit.getText().toString();
-        String passwordRepeat = passwordVisible ? password : passwordRepeatEdit.getText().toString();
+        String passwordRepeat = passwordInput.isPasswordVisible() ? password : passwordRepeatEdit.getText().toString();
 
         new CreateAccountTask(usernameEdit.getText().toString(), passwordEdit.getText().toString(),
                               passwordRepeat, token, email) {

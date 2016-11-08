@@ -62,7 +62,6 @@
   <string name="nav_item_login">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಅಲೇ</string>
   <string name="login_username_hint">ಸದಸ್ಯೆರ್ನ ಪುದರ್</string>
   <string name="login_password_hint">ಪ್ರವೇಶ ಪದೊ</string>
-  <string name="login_password_show_check">ಪ್ರವೇಶೋ ಪದೋನ್ ತೋಜಾಲೇ</string>
   <string name="menu_login">ಲಾಗಿನ್ ಆಲೆ</string>
   <string name="login_activity_title">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಅಲೇ</string>
   <string name="login_in_progress_dialog_message">ಇರ್ ಲಾಗ್-ಇನ್ ಅವೊಂತುಲ್ಲಾರ್…</string>

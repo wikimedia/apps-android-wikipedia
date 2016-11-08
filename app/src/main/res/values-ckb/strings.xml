@@ -54,7 +54,6 @@
   <string name="nav_item_login">چوونە ناوەوە بۆ ویکیپیدیا</string>
   <string name="login_username_hint">ناوی بەکارھێنەر</string>
   <string name="login_password_hint">تێپەڕوشە</string>
-  <string name="login_password_show_check">تێپەڕوشە نیشان بدە</string>
   <string name="menu_login">چوونە ناوەوە</string>
   <string name="login_activity_title">چوونە ناوەوە بۆ ویکیپیدیا</string>
   <string name="login_in_progress_dialog_message">چوونە ژوورەوە...</string>

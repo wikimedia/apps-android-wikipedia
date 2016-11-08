@@ -67,7 +67,6 @@
   <string name="nav_item_login">Prijavite se na Wikipediju</string>
   <string name="login_username_hint">Suradničko ime</string>
   <string name="login_password_hint">Zaporka</string>
-  <string name="login_password_show_check">Prikaži zaporku</string>
   <string name="menu_login">Prijavite se</string>
   <string name="login_activity_title">Prijavite se na Wikipediju</string>
   <string name="login_in_progress_dialog_message">Ulaz u sustav…</string>

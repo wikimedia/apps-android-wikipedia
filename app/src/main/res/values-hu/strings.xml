@@ -67,7 +67,6 @@
   <string name="nav_item_login">Bejelentkezés a Wikipédiába</string>
   <string name="login_username_hint">Felhasználónév</string>
   <string name="login_password_hint">Jelszó</string>
-  <string name="login_password_show_check">Jelszó megjelenítése</string>
   <string name="menu_login">Bejelentkezés</string>
   <string name="login_activity_title">Bejelentkezés a Wikipédiába</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>

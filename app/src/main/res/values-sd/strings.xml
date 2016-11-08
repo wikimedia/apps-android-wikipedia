@@ -67,7 +67,6 @@
   <string name="nav_item_login">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_username_hint">يُوزرنانءُ</string>
   <string name="login_password_hint">ڳجھولفظ</string>
-  <string name="login_password_show_check">ڳجھولفظ ڏيکاريو</string>
   <string name="menu_login">داخل ٿيو</string>
   <string name="login_activity_title">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>

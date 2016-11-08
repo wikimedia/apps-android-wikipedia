@@ -36,7 +36,6 @@
   <string name="nav_item_login" fuzzy="true">Жаниве лъугьине</string>
   <string name="login_username_hint">ХӀалтӀизабулчиясул цӀар</string>
   <string name="login_password_hint">Пароль</string>
-  <string name="login_password_show_check">Пароль бихьизабизе</string>
   <string name="menu_login">Жаниве лъугьине</string>
   <string name="login_activity_title">Википедиялда жаниве лъугьине</string>
   <string name="login_in_progress_dialog_message">Системалда жаниве лъугьи…</string>

@@ -51,7 +51,6 @@
   <string name="nav_item_login" fuzzy="true">Omgelmi</string>
   <string name="login_username_hint">Hanow devnydhyer</string>
   <string name="login_password_hint">Ger tremena</string>
-  <string name="login_password_show_check">Diskwedhes an ger tremena</string>
   <string name="menu_login">Omgelmi</string>
   <string name="login_activity_title" fuzzy="true">Omgelmi orth Wikipedya</string>
   <string name="login_in_progress_dialog_message">Orth agas omgelmi…</string>

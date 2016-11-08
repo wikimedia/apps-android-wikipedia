@@ -67,7 +67,6 @@
   <string name="nav_item_login">Aanmelden bij Wikipedia</string>
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wachtwoord</string>
-  <string name="login_password_show_check">Wachtwoord weergeven</string>
   <string name="menu_login">Aanmelden</string>
   <string name="login_activity_title">Aanmelden bij Wikipedia</string>
   <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
