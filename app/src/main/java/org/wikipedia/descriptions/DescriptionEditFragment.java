@@ -15,7 +15,7 @@ import org.wikipedia.R;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.log.L;
+import org.wikipedia.util.DeviceUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -106,9 +106,11 @@ public class DescriptionEditFragment extends Fragment {
                     new DescriptionEditClient.Callback() {
                         @Override
                         public void success(@NonNull Call<DescriptionEdit> call) {
-                            editView.setSaveState(false);
-                            L.i("WD description edit successful");
-                            // TODO: go to success fragment
+                            if (getActivity() != null) {
+                                DeviceUtil.hideSoftKeyboard(getActivity());
+                                // TODO: go to success fragment
+                                getActivity().finish();
+                            }
                         }
 
                         @Override
