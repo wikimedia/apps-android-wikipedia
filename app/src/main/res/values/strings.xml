@@ -304,6 +304,19 @@
     <string name="user_option_sync_label">Preferences</string>
     <!-- /User options -->
 
+    <!-- Notifications -->
+    <string name="notification_button_view_page">View page</string>
+    <string name="notification_button_view_user">Talk to user</string>
+    <string name="notification_button_view_edit_history">View edit history</string>
+    <string name="notification_generic_title">Notification on Wikipedia</string>
+    <string name="notification_talk_title">New message on Wikipedia</string>
+    <string name="notification_talk">%1$s left a message on your Talk page \"%2$s\"</string>
+    <string name="notification_reverted_title">Reverted edit</string>
+    <string name="notification_reverted">Your edit to the article \"%2$s\" was reverted by %1$s.</string>
+    <string name="notification_thanks_title">You\'ve been thanked!</string>
+    <string name="notification_thanks">%1$s thanked you for your edit on the page \"%2$s\"</string>
+    <!-- /Notifications -->
+
     <!-- The Feed -->
     <string name="view_continue_reading_card_title">Continue reading</string>
     <string name="view_because_you_read_card_title">Because you read</string>

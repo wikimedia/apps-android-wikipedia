@@ -1,0 +1,15 @@
+{
+  "entities": {
+    "Q123": {
+      "type": "item",
+      "id": "Q123",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "September"
+        }
+      }
+    }
+  },
+  "success": 1
+}
