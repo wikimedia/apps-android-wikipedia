@@ -223,6 +223,10 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
                         zeroFunnel = new WikipediaZeroUsageFunnel(app, zeroCarrierString,
                                 StringUtil.emptyIfNull(zeroCarrierMetaString));
                         app.getBus().post(new WikipediaZeroEnterEvent());
+                        if (zeroConfig.hashCode() != Prefs.zeroConfigHashCode()) {
+                            notifyEnterZeroNetwork(app, zeroConfig);
+                        }
+                        Prefs.zeroConfigHashCode(zeroConfig.hashCode());
                         acquiringCarrierMessage = false;
                     }
 
@@ -265,9 +269,24 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
         return null;
     }
 
+    private void notifyEnterZeroNetwork(@NonNull Context context, @NonNull ZeroConfig config) {
+        NotificationCompat.Builder builder = createNotification(context);
+        builder.setColor(config.getBackground())
+                .setSmallIcon(R.drawable.ic_wikipedia_zero_on)
+                .setLights(config.getBackground(),
+                        context.getResources().getInteger(R.integer.zero_notification_light_on_ms),
+                        context.getResources().getInteger(R.integer.zero_notification_light_off_ms))
+                .setContentText(context.getString(R.string.zero_learn_more))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.zero_learn_more)))
+                .addAction(0, context.getString(R.string.zero_learn_more_learn_more),
+                        pendingIntentForUrl(context, context.getString(R.string.zero_webpage_url)));
+        showNotification(context, builder.build());
+    }
+
     private void notifyExitZeroNetwork(@NonNull Context context) {
         NotificationCompat.Builder builder = createNotification(context);
         builder.setColor(ContextCompat.getColor(context, R.color.foundation_red))
+                .setSmallIcon(R.drawable.ic_wikipedia_zero_off)
                 .setContentText(context.getString(R.string.zero_charged_verbiage))
                 .setAutoCancel(true)
                 .addAction(0, context.getString(R.string.zero_learn_more_learn_more),
@@ -278,7 +297,6 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
     private NotificationCompat.Builder createNotification(@NonNull Context context) {
         return (NotificationCompat.Builder) new NotificationCompat.Builder(context)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle(context.getString(R.string.zero_wikipedia_zero_heading))
                 .setContentIntent(PendingIntent
                         .getActivity(context, 0, new Intent(context, MainActivity.class), 0));
