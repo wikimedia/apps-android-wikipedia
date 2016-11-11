@@ -34,6 +34,26 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         assertCallbackSuccess(call, cb);
     }
 
+    @Test public void testRequestAbusefilterWarning() throws Throwable {
+        enqueueFromFile("description_edit_abusefilter_warning.json");
+
+        Callback cb = mock(Callback.class);
+        Call<DescriptionEdit> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackAbusefilter(call, cb, false);
+    }
+
+    @Test public void testRequestAbusefilterDisallowed() throws Throwable {
+        enqueueFromFile("description_edit_abusefilter_disallowed.json");
+
+        Callback cb = mock(Callback.class);
+        Call<DescriptionEdit> call = request(cb);
+
+        server().takeRequest();
+        assertCallbackAbusefilter(call, cb, true);
+    }
+
     @Test public void testRequestResponseFailure() throws Throwable {
         enqueueFromFile("description_edit_unknown_site.json");
 
@@ -58,6 +78,18 @@ public class DescriptionEditClientTest extends MockWebServerTest {
                                        @NonNull Callback cb) {
         verify(cb).success(eq(call));
         //noinspection unchecked
+        verify(cb, never()).abusefilter(any(Call.class), any(Boolean.class));
+        //noinspection unchecked
+        verify(cb, never()).failure(any(Call.class), any(Throwable.class));
+    }
+
+    private void assertCallbackAbusefilter(@NonNull Call<DescriptionEdit> call,
+                                           @NonNull Callback cb,
+                                           boolean disallowed) {
+        //noinspection unchecked
+        verify(cb, never()).success(any(Call.class));
+        verify(cb).abusefilter(eq(call), eq(disallowed));
+        //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
@@ -66,6 +98,8 @@ public class DescriptionEditClientTest extends MockWebServerTest {
                                        @NonNull Class<? extends Throwable> throwable) {
         //noinspection unchecked
         verify(cb, never()).success(any(Call.class));
+        //noinspection unchecked
+        verify(cb, never()).abusefilter(any(Call.class), any(Boolean.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 

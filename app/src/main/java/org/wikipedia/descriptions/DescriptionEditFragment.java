@@ -99,13 +99,13 @@ public class DescriptionEditFragment extends Fragment {
         public void onSaveClick() {
             editView.setError(null);
             editView.setSaveState(true);
+
             if (call != null) {
                 call.cancel();
             }
             call = new DescriptionEditClient().request(pageTitle, editView.getDescription(),
                     new DescriptionEditClient.Callback() {
-                        @Override
-                        public void success(@NonNull Call<DescriptionEdit> call) {
+                        @Override public void success(@NonNull Call<DescriptionEdit> call) {
                             if (getActivity() != null) {
                                 DeviceUtil.hideSoftKeyboard(getActivity());
                                 // TODO: go to success fragment
@@ -113,9 +113,17 @@ public class DescriptionEditFragment extends Fragment {
                             }
                         }
 
-                        @Override
-                        public void failure(@NonNull Call<DescriptionEdit> call,
-                                            @NonNull Throwable caught) {
+                        @Override public void abusefilter(@NonNull Call<DescriptionEdit> call,
+                                                          boolean disallowed) {
+                            if (disallowed) {
+                                // TODO: go to ABUSE_FILTER_DISALLOWED fragment
+                            } else {
+                                // TODO: go to ABUSE_FILTER_WARNING fragment
+                            }
+                        }
+
+                        @Override public void failure(@NonNull Call<DescriptionEdit> call,
+                                                      @NonNull Throwable caught) {
                             editView.setSaveState(false);
                             editView.setError(caught.getMessage());
                         }
