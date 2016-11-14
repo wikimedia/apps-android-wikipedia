@@ -91,7 +91,7 @@
   <string name="create_account_button">Crear cuenta</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero está desactivado</string>
+  <string name="zero_charged_verbiage">El acceso libre a Wikipedia ya no está activo.</string>
   <string name="zero_warn_when_leaving">Avisar al salir de Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si tu operadora de telefonía móvil ha decidido no cobrar el acceso de datos desde la aplicación de Wikipedia mediante un acuerdo con Wikipedia Zero, deja esta opción activada para que te notifiquemos al salir de la aplicación de Wikipedia y evitar cobros no deseados.</string>
   <string name="zero_webpage_title">Preguntas frecuentes de Wikipedia Zero</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">Pueden aplicarse cargos por datos. ¿Continuar a sitio externo?</string>
   <string name="zero_interstitial_continue">Salir</string>
   <string name="zero_interstitial_cancel">Permanecer aquí</string>
-  <string name="zero_learn_more" fuzzy="true">Esta aplicación de Wikipedia está exenta de cargos por uso de datos.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Más información</string>
+  <string name="zero_learn_more">¡Tu proveedor de servicios inalámbricos ha proporcionado acceso libre al contenido de Wikipedia!</string>
+  <string name="zero_learn_more_learn_more">Más información</string>
   <string name="zero_learn_more_dismiss">Descartar</string>
   <string name="edit_preview_fetching_dialog_message">Procesando la previsualización…</string>
   <string name="send_feedback">Enviar comentarios sobre la aplicación</string>
@@ -222,6 +222,8 @@
   <string name="preference_summary_show_link_previews">Mostrar una vista previa rápida de los artículos al pulsar en los enlaces.</string>
   <string name="nav_item_donate">Apoya a Wikipedia</string>
   <string name="error_voice_search_not_available">El reconocimiento de voz no está disponible.</string>
+  <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
+  <string name="enable_location_service">Activar</string>
   <string name="crash_report_dialog_title">La aplicación falló la última vez</string>
   <string name="crash_report_dialog_text">¿Te gustaría enviar un informe de fallo a HockeyApp / un proveedor de servicios de terceros para que Wikimedia pueda revisar tu fallo y corregir el error que lo causó?</string>
   <string name="crash_report_dialog_dont_send_button">Omitir</string>
@@ -290,9 +292,15 @@
   <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icono de tarjeta</string>
   <string name="view_card_news_title">En las noticias</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">ayer</item>
-    <item quantity="other">hace %d días</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Ayer</item>
+    <item quantity="other">Hace %d días</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">hoy</string>
+  <string name="view_continue_reading_card_subtitle_today">Hoy</string>
+  <string name="description_edit_header">Editando</string>
+  <string name="description_edit_help_hint">¿Qué es esto?</string>
+  <string name="description_edit_text_hint">Escribe una descripción.</string>
+  <string name="description_edit_save">Guardar</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Añadir descripción</string>
 </resources>

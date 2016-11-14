@@ -79,14 +79,14 @@
   <string name="create_account_button">Crear un compte</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">FAQ de las aplicacions Wikipèdia</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipèdia Zèro es desactivada</string>
+  <string name="zero_charged_verbiage">L’accès liure a Wikipèdia Zèro es pas mai actiu.</string>
   <string name="zero_warn_when_leaving">Avertir en quitant Wikipèdia Zèro</string>
   <string name="zero_webpage_title">FAQ de Wikipèdia Zèro</string>
   <string name="zero_wikipedia_zero_heading">Wikipèdia Zèro</string>
   <string name="zero_interstitial_title">Sortida de Wikipèdia Zèro</string>
   <string name="zero_interstitial_continue">Quitar</string>
   <string name="zero_interstitial_cancel">Demorar aicí</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Legir la seguida</string>
+  <string name="zero_learn_more_learn_more">Ne saber mai</string>
   <string name="zero_learn_more_dismiss">Regetar</string>
   <string name="edit_preview_fetching_dialog_message">Recèrca d’un apercebut…</string>
   <string name="send_feedback">Mandar un comentari sus l’aplicacion</string>
@@ -143,7 +143,7 @@
   <string name="read_more_section">Ne saber mai</string>
   <string name="menu_gallery_visit_page">Anar a la pagina del fichièr</string>
   <string name="gallery_error_draw_failed">Impossible de dessenhar l’imatge.</string>
-  <string name="license_title" fuzzy="true">Tèxte de la licéncia per la bibliotèca %s</string>
+  <string name="license_title">Licéncia per la bibliotèca %s</string>
   <string name="gallery_menu_share">Partejar</string>
   <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
   <string name="gallery_menu_save">Enregistrar sus l’aparelh</string>
@@ -177,13 +177,13 @@
   <string name="menu_feed_card_dismiss">Amagar aquesta carta</string>
   <string name="menu_feed_card_dismissed">Carta amagada.</string>
   <string name="feed_featured_image_share_subject">Imatge destacat de Wikimedia Commons</string>
-  <string name="feed" fuzzy="true">Explorar Wikipèdia</string>
+  <string name="feed">Explorar</string>
   <string name="view_card_footer_button">Veire mai</string>
   <string name="most_read_list_card_title">Tendéncia</string>
   <string name="view_static_card_icon_content_description">Icòna de la carta</string>
   <string name="view_card_news_title">Dins l’actualitat</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">i a 1 jorn</item>
-    <item quantity="other">i a %d jorns</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Ièr</item>
+    <item quantity="other">I a %d jorns</item>
   </plurals>
 </resources>

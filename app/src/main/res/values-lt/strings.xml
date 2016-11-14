@@ -271,10 +271,11 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="most_read_list_card_title">Populiaru</string>
   <string name="view_static_card_icon_content_description">Kortelės piktograma</string>
   <string name="view_card_news_title">Naujienose</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">vakar</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Vakar</item>
     <item quantity="other">prieš %d dienų</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">Šiandien</string>
   <string name="description_edit_header">Redaguojamas</string>
   <string name="description_edit_help_hint">Kas tai?</string>
   <string name="description_edit_text_hint">Parašykite aprašymą!</string>

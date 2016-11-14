@@ -292,11 +292,11 @@
   <string name="most_read_list_card_title">Tendencies</string>
   <string name="view_static_card_icon_content_description">Iconu de tarxeta</string>
   <string name="view_card_news_title">Actualidá</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">ayeri</item>
-    <item quantity="other">fai %d díes</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Ayeri</item>
+    <item quantity="other">Fai %d díes</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">güei</string>
+  <string name="view_continue_reading_card_subtitle_today">Güei</string>
   <string name="description_edit_header">Editando</string>
   <string name="description_edit_help_hint">¿Qué ye esto?</string>
   <string name="description_edit_text_hint">Escribe una descripción</string>

@@ -290,11 +290,11 @@
   <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">어제</item>
     <item quantity="other">%d일 전</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">오늘</string>
+  <string name="view_continue_reading_card_subtitle_today">오늘</string>
   <string name="description_edit_header">편집 중</string>
   <string name="description_edit_help_hint">이것은 무엇입니까?</string>
   <string name="description_edit_text_hint">설명을 입력하십시오!</string>

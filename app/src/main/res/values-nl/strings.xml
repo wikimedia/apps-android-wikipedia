@@ -290,11 +290,11 @@
   <string name="most_read_list_card_title">Populair</string>
   <string name="view_static_card_icon_content_description">Kaart-icoon</string>
   <string name="view_card_news_title">Actueel</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">gisteren</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Gisteren</item>
     <item quantity="other">%d dagen geleden</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">vandaag</string>
+  <string name="view_continue_reading_card_subtitle_today">Vandaag</string>
   <string name="description_edit_header">Bezig met bewerken</string>
   <string name="description_edit_help_hint">Wat is dit?</string>
   <string name="description_edit_text_hint">Geef een beschrijving op!</string>

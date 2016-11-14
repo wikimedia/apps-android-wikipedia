@@ -100,7 +100,7 @@
   <string name="zero_interstitial_continue">Напусти</string>
   <string name="zero_interstitial_cancel">Остани</string>
   <string name="zero_learn_more" fuzzy="true">За апликацију Википедија се не наплаћује интернет саобраћај.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Детаљније</string>
+  <string name="zero_learn_more_learn_more">Детаљније</string>
   <string name="zero_learn_more_dismiss">Одбаци</string>
   <string name="edit_preview_fetching_dialog_message">Учитавам преглед…</string>
   <string name="send_feedback">Пошаљи повратну информацију</string>
@@ -205,6 +205,7 @@
   <string name="error_no_maps_app">Не могу да пронађем апликације које преузимају путању.</string>
   <string name="preference_title_show_link_previews">Прегледи веза</string>
   <string name="nav_item_donate">Подржите Википедију</string>
+  <string name="enable_location_service">Омогући</string>
   <string name="crash_report_dialog_title">Апликација је отказала прошли пут</string>
   <string name="crash_report_dialog_dont_send_button">Прескочи</string>
   <string name="crash_report_dialog_always_send_button">Увек шаљи</string>
@@ -255,6 +256,7 @@
   <string name="view_continue_reading_card_title">Настави читање</string>
   <string name="view_because_you_read_card_title">Будући да сте прочитали</string>
   <string name="view_random_card_title">Случајан чланак</string>
+  <string name="view_random_card_subtitle">Случајан чланак</string>
   <string name="view_main_page_card_title">Данас на Википедији</string>
   <string name="view_main_page_card_subtitle">Главна страна %s</string>
   <string name="view_featured_image_card_title">Слика дана</string>
@@ -267,6 +269,10 @@
   <string name="view_card_footer_button">Види још</string>
   <string name="most_read_list_card_title">Актуелно</string>
   <string name="view_card_news_title">Вести</string>
+  <string name="view_continue_reading_card_subtitle_today">Данас</string>
+  <string name="description_edit_header">Уређивање</string>
+  <string name="description_edit_help_hint">Шта је ово?</string>
+  <string name="description_edit_text_hint">Додај опис!</string>
   <string name="description_edit_save">Сачувај</string>
   <string name="description_edit_add_description">Додај опис</string>
 </resources>

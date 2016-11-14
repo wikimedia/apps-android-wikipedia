@@ -292,11 +292,11 @@
   <string name="most_read_list_card_title">趨勢</string>
   <string name="view_static_card_icon_content_description">卡片圖示</string>
   <string name="view_card_news_title">新聞動態</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">昨日</item>
     <item quantity="other">%d 日前</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">今天</string>
+  <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="description_edit_header">編輯中</string>
   <string name="description_edit_help_hint">這是什麼？</string>
   <string name="description_edit_text_hint">寫一段描述！</string>

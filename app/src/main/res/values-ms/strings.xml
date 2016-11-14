@@ -290,11 +290,11 @@
   <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kad</string>
   <string name="view_card_news_title">Berita terkini</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">semalam</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Semalam</item>
     <item quantity="other">%d hari yang lalu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">hari ini</string>
+  <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
   <string name="description_edit_header">Penyuntingan</string>
   <string name="description_edit_help_hint">Apakah ini?</string>
   <string name="description_edit_text_hint">Tulis keterangan!</string>

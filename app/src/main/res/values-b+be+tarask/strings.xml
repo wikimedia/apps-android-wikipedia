@@ -225,4 +225,6 @@
   <string name="article_menu_bar_bookmark" fuzzy="true">Захаваць артыкул для пазьнейшага афляйн чытаньня</string>
   <string name="article_menu_bar_share">Падзяліцца спасылкай на артыкул</string>
   <string name="article_menu_bar_navigate">Накіроўваць да месцазнаходжаньня артылкула</string>
+  <string name="view_continue_reading_card_subtitle_today">Сёньня</string>
+  <string name="description_edit_save">Захаваць</string>
 </resources>

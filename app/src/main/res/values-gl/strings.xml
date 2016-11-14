@@ -292,11 +292,11 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icona de tarxeta</string>
   <string name="view_card_news_title">Actualidade</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">onte</item>
     <item quantity="other">fai %d días</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">hoxe</string>
+  <string name="view_continue_reading_card_subtitle_today">Hoxe</string>
   <string name="description_edit_header">Editando</string>
   <string name="description_edit_help_hint">Que é isto?</string>
   <string name="description_edit_text_hint">Escribe unha descrición!</string>

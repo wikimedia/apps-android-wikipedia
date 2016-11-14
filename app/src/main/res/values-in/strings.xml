@@ -292,11 +292,11 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="most_read_list_card_title">Sedang tren</string>
   <string name="view_static_card_icon_content_description">Ikon kartu</string>
   <string name="view_card_news_title">Peristiwa terkini</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">kemarin</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Kemarin</item>
     <item quantity="other">%d hari yang lalu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">hari ini</string>
+  <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
   <string name="description_edit_header">Menyunting</string>
   <string name="description_edit_help_hint">Apa ini?</string>
   <string name="description_edit_text_hint">Tuliskan deskripsi!</string>

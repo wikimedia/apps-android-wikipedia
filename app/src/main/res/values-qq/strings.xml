@@ -430,10 +430,10 @@ Shown in the preferences screen along with the following:
 {{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
-  <plurals name="view_continue_reading_card_subtitle">Subtitle for a box titled \"Continue reading\"; the first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]].
-
-Parameters:
-* %d - number of days passed since the content (an article) was last seen.</plurals>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Subtitle for a day old "continue reading" card. The first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]]. Use the %d parameter to insert the number of days passed since the content (an article) was last seen.</item>
+    <item quantity="other">Subtitle for a "continue reading" card two or more days old. The first word should have an initial uppercase letter if appropriate for the language. Example: [[phabricator:F4695814]]. Use the %d parameter to insert the number of days passed since the content (an article) was last seen.</item>
+  </plurals>
   <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.
 {{Identical|Today}}</string>
   <string name="description_edit_header">Label above the current article title indicating that the description for this title is being edited.

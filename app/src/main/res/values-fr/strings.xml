@@ -293,11 +293,11 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="most_read_list_card_title">Tendance</string>
   <string name="view_static_card_icon_content_description">Icône de la carte</string>
   <string name="view_card_news_title">Dans l’actualité</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">hier</item>
-    <item quantity="other">il y a %d jours</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Hier</item>
+    <item quantity="other">Il y a %d jours</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">aujourd’hui</string>
+  <string name="view_continue_reading_card_subtitle_today">Aujourd’hui</string>
   <string name="description_edit_header">Modification</string>
   <string name="description_edit_help_hint">Qu’est-ce que c’est ?</string>
   <string name="description_edit_text_hint">Écrire une description !</string>

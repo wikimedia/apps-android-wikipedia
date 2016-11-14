@@ -233,8 +233,10 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_menu_bar_navigate">Przejdź do lokalizacji artykułu</string>
   <string name="nav_item_reading_lists">Moje listy</string>
+  <string name="reading_list_untitled">Bez tytułu</string>
   <string name="reading_list_save_to">Zapisz listę do przeczytania</string>
   <string name="reading_list_create_new">Utwórz nową</string>
+  <string name="reading_list_already_exists">Ten artykuł znajduje się już na tej liście.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="reading_list_item_count_singular">1 artykuł</string>
   <string name="reading_list_sort">Sortuj</string>
@@ -250,6 +252,7 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="reading_list_edit_cancel">Anuluj</string>
   <string name="reading_lists_onboarding_intro">Twórz listy artykułów, które chcesz przeczytać później, nawet gdy jesteś offline!</string>
   <string name="reading_lists_onboarding_for_example">Na przykład</string>
+  <string name="reading_lists_onboarding_example1">Miejsca do odwiedzenia</string>
   <string name="reading_lists_onboarding_example2">Ulubione zwierzęta</string>
   <string name="reading_lists_onboarding_got_it">Wszystko jasne</string>
   <string name="user_option_sync_label">Preferencje</string>
@@ -268,11 +271,11 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">wczoraj</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Wczoraj</item>
     <item quantity="other">%d dni temu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">dzisiaj</string>
+  <string name="view_continue_reading_card_subtitle_today">Dzisiaj</string>
   <string name="description_edit_header">Edycja</string>
   <string name="description_edit_help_hint">Co to jest?</string>
   <string name="description_edit_text_hint">Podaj opis!</string>

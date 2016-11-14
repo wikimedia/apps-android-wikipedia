@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">Haluatko siirtyä ulkoiselle sivulle? Saatat joutua maksamaan tiedonsiirtomaksuja.</string>
   <string name="zero_interstitial_continue">Poistu</string>
   <string name="zero_interstitial_cancel">Pysy täällä</string>
-  <string name="zero_learn_more" fuzzy="true">Tiedonsiirtomaksuja ei peritä tältä Wikipedia-sovellukselta.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Lue lisää</string>
+  <string name="zero_learn_more">Yhteydentarjoajasi on tarjonnut ilmaisen pääsyn Wikipedian sisältöön!</string>
+  <string name="zero_learn_more_learn_more">Opi lisää</string>
   <string name="zero_learn_more_dismiss">Hylkää</string>
   <string name="edit_preview_fetching_dialog_message">Noudetaan esikatselua…</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
@@ -222,6 +222,8 @@
   <string name="preference_summary_show_link_previews">Näytä pikainen artikkelien esikatselu linkkejä napautettaessa.</string>
   <string name="nav_item_donate">Tue Wikipediaa</string>
   <string name="error_voice_search_not_available">Pahoittelut, äänentunnistus ei ole käytettävissä.</string>
+  <string name="location_service_disabled">Sijaintipalvelut eivät ole käytössä.</string>
+  <string name="enable_location_service">Ota käyttöön</string>
   <string name="crash_report_dialog_title">Pahoittelut, sovellus kaatui viime kerralla</string>
   <string name="crash_report_dialog_text">Haluaisitko lähettää kaatumisilmoituksen HockeyAppiin / kolmannen osapuolen palveluntarjoajalle, jotta Wikimedia voi käydä läpi kaatumisesi ja korjata sen aiheuttaneen ongelman?</string>
   <string name="crash_report_dialog_dont_send_button">Ohita</string>
@@ -288,9 +290,14 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="most_read_list_card_title">Nousussa</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">eilen</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Eilen</item>
     <item quantity="other">%d päivää sitten</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">tänään</string>
+  <string name="view_continue_reading_card_subtitle_today">Tänään</string>
+  <string name="description_edit_help_hint">Mikä tämä on?</string>
+  <string name="description_edit_text_hint">Kirjoita kuvaus!</string>
+  <string name="description_edit_save">Tallenna</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Lisää kuvaus</string>
 </resources>

@@ -100,7 +100,7 @@
   <string name="zero_interstitial_leave_app">Avgifter för datatrafik kan tillkomma. Vill du fortsätta till den externa webbplatsen?</string>
   <string name="zero_interstitial_continue">Lämna appen</string>
   <string name="zero_interstitial_cancel">Avbryt</string>
-  <string name="zero_learn_more">Din mobiloperatör har gett dig fri tillgång till Wikipedia!</string>
+  <string name="zero_learn_more">Din mobiloperatör har gett dig fri tillgång till Wikipedias innehåll!</string>
   <string name="zero_learn_more_learn_more">Läs mer</string>
   <string name="zero_learn_more_dismiss">Stäng</string>
   <string name="edit_preview_fetching_dialog_message">Hämtar förhandsgranskning…</string>
@@ -292,11 +292,11 @@ Vill du starta om eller avsluta?</string>
   <string name="most_read_list_card_title">Populärt</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">På nyheterna</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">igår</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">I går</item>
     <item quantity="other">%d dagar sedan</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">i dag</string>
+  <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="description_edit_header">Redigerar</string>
   <string name="description_edit_help_hint">Vad är detta?</string>
   <string name="description_edit_text_hint">Skriv en beskrivning!</string>

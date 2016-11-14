@@ -292,11 +292,11 @@ Vuoi riavviarla o uscire?</string>
   <string name="most_read_list_card_title">Tendenze</string>
   <string name="view_static_card_icon_content_description">Icona scheda</string>
   <string name="view_card_news_title">Nelle notizie</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">ieri</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Ieri</item>
     <item quantity="other">%d giorni fa</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">oggi</string>
+  <string name="view_continue_reading_card_subtitle_today">Oggi</string>
   <string name="description_edit_help_hint">Cos\'è questo?</string>
   <string name="description_edit_text_hint">Scrivi una descrizione!</string>
   <string name="description_edit_save">Salva</string>

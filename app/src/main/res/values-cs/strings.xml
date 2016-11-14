@@ -291,4 +291,10 @@ Chcete začít znovu, nebo skončit?</string>
     <item quantity="one">včera</item>
     <item quantity="other">před %d dny</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">Dnes</string>
+  <string name="description_edit_header">Editování</string>
+  <string name="description_edit_text_hint">Udělejte popis!</string>
+  <string name="description_edit_save">Uložit</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Přidat popis</string>
 </resources>

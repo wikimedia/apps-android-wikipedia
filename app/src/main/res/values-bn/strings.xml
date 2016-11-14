@@ -100,7 +100,7 @@
   <string name="zero_interstitial_leave_app">ডেটা চার্জ প্রযোজ্য হতে পারে। বাহ্যিক সাইটে যাওয়া অব্যাহত রাখবেন?</string>
   <string name="zero_interstitial_continue">অগ্রসর হোন</string>
   <string name="zero_interstitial_cancel">এখানে থাকুন</string>
-  <string name="zero_learn_more" fuzzy="true">এই উইকিপিডিয়া অ্যাপের জন্য ডাটা চার্জ প্রযোজ্য নয়।</string>
+  <string name="zero_learn_more">আপনার মোবাইল ক্যারিয়ার উইকিপিডিয়ার বিষয়বস্তুতে বিনামূল্যে প্রবেশাধিকার প্রদান করেছে!</string>
   <string name="zero_learn_more_learn_more">আরও জানুন</string>
   <string name="zero_learn_more_dismiss">খারিজ</string>
   <string name="edit_preview_fetching_dialog_message">প্রাকদর্শন আনা হচ্ছে…</string>
@@ -126,7 +126,7 @@
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/bn</string>
+  <string name="privacy_policy_url">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/bn</string>
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">ব্যবহৃত গ্রন্থাগারগুলি</string>
   <string name="about_contributors_heading">অবদানকারীগণ</string>
@@ -292,11 +292,11 @@
   <string name="most_read_list_card_title">প্রবণতা</string>
   <string name="view_static_card_icon_content_description">কার্ড আইকন</string>
   <string name="view_card_news_title">সংবাদে</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">গতকাল</item>
     <item quantity="other">%d দিন আগে</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">আজ</string>
+  <string name="view_continue_reading_card_subtitle_today">আজ</string>
   <string name="description_edit_header">সম্পাদনা করছেন</string>
   <string name="description_edit_help_hint">এটি কী?</string>
   <string name="description_edit_text_hint">একটি বিবরণ লিখুন!</string>

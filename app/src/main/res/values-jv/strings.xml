@@ -292,11 +292,11 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="most_read_list_card_title">Tren</string>
   <string name="view_static_card_icon_content_description">Lambang kertu</string>
   <string name="view_card_news_title">Ing kabar</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">wingi</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Wingi</item>
     <item quantity="other">%d dina lalu</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">dina iki</string>
+  <string name="view_continue_reading_card_subtitle_today">Dina iki</string>
   <string name="description_edit_header">Pambesut</string>
   <string name="description_edit_help_hint">Apa iki?</string>
   <string name="description_edit_text_hint">Nulis gambaran!</string>

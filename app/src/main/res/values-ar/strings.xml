@@ -91,7 +91,7 @@
   <string name="create_account_button">أنشئ حسابًا</string>
   <string name="preferences_general_heading">عام</string>
   <string name="wikipedia_app_faq">الأسئلة المتكررة عن تطبيق ويكيبيديا</string>
-  <string name="zero_charged_verbiage" fuzzy="true">ويكيبيديا زيرو معطلة</string>
+  <string name="zero_charged_verbiage">الدخول المجاني لويكيبيديا لم يعد متاحًا بعد الآن.</string>
   <string name="zero_warn_when_leaving">قم بالتحذير عند ترك ويكيبيديا زيرو</string>
   <string name="zero_warn_when_leaving_summary">إذا تنازل مشغل خدمة الجوال أو المحمول الخاص بك عن رسوم الوصول إلى البيانات لتطبيق ويكيبيديا من خلال شراكة ويكيبيديا زيرو، فإن اختيارك لهذا الإعداد سيساعد  في تنبيهك معرفة متى ستُغادر تطبيق ويكيبيديا وحين دفع رسوم.</string>
   <string name="zero_webpage_title">الأسئلة المتكررة عن ويكيبيديا زيرو</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">قد يتم احتساب رسوم على البيانات، هل تريد الذهاب إلى الموقع الخارجي؟</string>
   <string name="zero_interstitial_continue">مغادرة</string>
   <string name="zero_interstitial_cancel">البقاء هنا</string>
-  <string name="zero_learn_more" fuzzy="true">تم التنازل عن رسوم البيانات لهذا التطبيق الخاص بويكيبيديا.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">اقرأ المزيد</string>
+  <string name="zero_learn_more">وفّر مقدم خدمتك للإنترنت وصولًا مجانيًّا لمحتوى ويكيبيديا!</string>
+  <string name="zero_learn_more_learn_more">اعرف المزيد</string>
   <string name="zero_learn_more_dismiss">تجاهل</string>
   <string name="edit_preview_fetching_dialog_message">جارٍ جلب المعاينة…</string>
   <string name="send_feedback">إرسال الملاحظات على التطبيق</string>
@@ -220,6 +220,8 @@
   <string name="preference_summary_show_link_previews">إظهار معاينة سريعة للمقالات حين النقر على الوصلات.</string>
   <string name="nav_item_donate">ادعم ويكيبيديا</string>
   <string name="error_voice_search_not_available">عفوا، التعرف على الصوت ليس متاح.</string>
+  <string name="location_service_disabled">خدمات الموقع معطلة.</string>
+  <string name="enable_location_service">تمكين</string>
   <string name="crash_report_dialog_title">عذرا، تعطل التطبيق في آخر مرة</string>
   <string name="crash_report_dialog_text">هل ترغب في إرسال تقرير العطل إلى HockeyApp / مزود خدمة من طرف ثالث، بحيث يمكن لويكيميديا من مراجعة العطل الخاص بك وإصلاح الخلل الذي تسبب في ذلك؟</string>
   <string name="crash_report_dialog_dont_send_button">تجاوز</string>
@@ -288,9 +290,15 @@
   <string name="most_read_list_card_title">الأكثر زيارة</string>
   <string name="view_static_card_icon_content_description">أيقونة بطاقة</string>
   <string name="view_card_news_title">في الأخبار</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">أمس</item>
     <item quantity="other">قبل %d أيام</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">اليوم</string>
+  <string name="view_continue_reading_card_subtitle_today">اليوم</string>
+  <string name="description_edit_header">تعديل</string>
+  <string name="description_edit_help_hint">ما هذا؟</string>
+  <string name="description_edit_text_hint">اكتب وصفًا!</string>
+  <string name="description_edit_save">احفظ</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">أضف وصفًا</string>
 </resources>
