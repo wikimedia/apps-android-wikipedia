@@ -97,6 +97,7 @@ public class DescriptionEditFragment extends Fragment {
     private class EditViewCallback implements DescriptionEditView.Callback {
         @Override
         public void onSaveClick() {
+            editView.setError(null);
             editView.setSaveState(true);
             if (call != null) {
                 call.cancel();
@@ -114,8 +115,7 @@ public class DescriptionEditFragment extends Fragment {
                         public void failure(@NonNull Call<DescriptionEdit> call,
                                             @NonNull Throwable caught) {
                             editView.setSaveState(false);
-                            L.e("WD description edit failed: ", caught);
-                            // TODO: go to failure fragment
+                            editView.setError(caught.getMessage());
                         }
                     });
         }

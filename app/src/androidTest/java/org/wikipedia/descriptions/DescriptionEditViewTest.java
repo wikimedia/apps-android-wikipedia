@@ -1,6 +1,7 @@
 package org.wikipedia.descriptions;
 
 import android.support.annotation.NonNull;
+import android.view.View;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -29,26 +30,28 @@ public class DescriptionEditViewTest extends ViewTest {
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_XL, WIDTH_DP_L}) int widthDp,
                                   @NonNull FontScale fontScale, @NonNull PrimaryTestStr title,
                                   @NonNull SecondaryTestStr description,
-                                  @TestedOnBool boolean saving) {
-        setUp(widthDp, LayoutDirection.LOCALE, fontScale, Theme.LIGHT, title, description, saving);
-        snap(subject, title + "_title", description + "_description", saving ? "saving" : "unsaved");
+                                  @NonNull PrimaryTestStr error, @TestedOnBool boolean saving) {
+        setUp(widthDp, LayoutDirection.LOCALE, fontScale, Theme.LIGHT, title, description, error,
+                saving);
+        snap(subject, title + "_title", description + "_description", error + "_error",
+                saving ? "saving" : "unsaved");
     }
 
     @Theory public void testLayoutDirection(@NonNull LayoutDirection direction) {
         setUp(WIDTH_DP_L, direction, FontScale.DEFAULT, Theme.LIGHT, PrimaryTestStr.SHORT,
-                SecondaryTestStr.SHORT, true);
+                SecondaryTestStr.SHORT, PrimaryTestStr.SHORT, false);
         snap(subject);
     }
 
     @Theory public void testTheme(@NonNull Theme theme, @TestedOnBool boolean saving) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, theme, PrimaryTestStr.SHORT,
-                SecondaryTestStr.SHORT, saving);
+                SecondaryTestStr.SHORT, PrimaryTestStr.SHORT, saving);
         snap(subject, saving ? "saving" : "unsaved");
     }
 
     @Theory public void testFocus(@NonNull Theme theme, @TestedOnBool boolean saving) {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, theme, PrimaryTestStr.SHORT,
-                SecondaryTestStr.SHORT, saving);
+                SecondaryTestStr.SHORT, PrimaryTestStr.SHORT, saving);
         requestFocus(subject);
         snap(subject, saving ? "saving" : "unsaved");
     }
@@ -75,12 +78,11 @@ public class DescriptionEditViewTest extends ViewTest {
         assertThat(subject.getDescription(), is(expected.getDescription()));
     }
 
-    // todo: resolve why the button doesn't show
-    // @Theory public void testSetSaveState(@TestedOnBool final boolean saving) {
-    //     defaultSetUp();
-    //     subject.setSaveState(saving);
-    //     assertThat(subject.saveButton.isShown(), is(!saving));
-    // }
+    @Theory public void testSetSaveState(@TestedOnBool boolean saving) {
+        defaultSetUp();
+        subject.setSaveState(saving);
+        assertThat(subject.saveButton.getVisibility(), is(saving ? View.GONE : View.VISIBLE));
+    }
 
     @Theory public void testGetDescription(@TestedOnBool boolean nul) {
         defaultSetUp();
@@ -105,17 +107,21 @@ public class DescriptionEditViewTest extends ViewTest {
 
     private void defaultSetUp() {
         setUp(WIDTH_DP_L, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT,
-                PrimaryTestStr.SHORT, SecondaryTestStr.SHORT, true);
+                PrimaryTestStr.SHORT, SecondaryTestStr.SHORT, PrimaryTestStr.SHORT, false);
     }
 
+    @SuppressWarnings("checkstyle:parameternumber")
     private void setUp(int widthDp, @NonNull LayoutDirection layoutDirection,
                        @NonNull FontScale fontScale, @NonNull Theme theme, @NonNull TestStr title,
-                       @NonNull TestStr description, boolean saving) {
+                       @NonNull TestStr description, @NonNull TestStr error, boolean saving) {
         setUp(widthDp, layoutDirection, fontScale, theme);
 
         subject = new DescriptionEditView(ctx());
+        subject.pageDescriptionLayout.setHintAnimationEnabled(false);
+
         subject.setTitle(str(title));
         subject.setDescription(str(description));
+        subject.setError(str(error));
         subject.setSaveState(saving);
 
         // todo: resolve why the button doesn't show deterministically. the button appears either
