@@ -97,12 +97,10 @@
         <activity android:name=".settings.SettingsActivity"
                   android:label="@string/settings_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                  android:exported="false"
                 />
         <activity android:name=".settings.DeveloperSettingsActivity"
             android:label="@string/developer_settings_activity_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:exported="false"
             />
         <activity android:name=".settings.AboutActivity"
                   android:label="@string/about_activity_title"
@@ -115,29 +113,24 @@
         <activity android:name=".language.LangLinksActivity"
                   android:label="@string/langlinks_activity_title"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                  android:exported="false"
                 />
         <activity android:name=".edit.EditSectionActivity"
                   android:windowSoftInputMode="adjustResize|stateVisible"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                  android:exported="false"
                 />
         <activity android:name=".login.LoginActivity"
                   android:label="@string/login_activity_title"
                   android:windowSoftInputMode="stateVisible|adjustResize"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                  android:exported="false"
                 />
         <activity android:name=".createaccount.CreateAccountActivity"
                   android:label="@string/create_account_activity_title"
                   android:windowSoftInputMode="stateVisible|adjustResize"
                   android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-                  android:exported="false"
                 />
         <activity android:name=".page.gallery.GalleryActivity"
                   android:configChanges="orientation|screenSize"
                   android:theme="@style/FullScreen"
-                  android:exported="false"
                 />
         <activity android:name=".settings.LicenseActivity"
                   android:exported="false"
@@ -153,13 +146,11 @@
             android:label="@string/user_option_activity_title" />
 
         <activity android:name=".feed.news.NewsActivity"
-                  android:theme="@style/PageTheme"
-                  android:exported="false"/>
+                  android:theme="@style/PageTheme" />
 
         <activity android:name=".descriptions.DescriptionEditActivity"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize"
-            android:exported="false"/>
+            android:windowSoftInputMode="stateVisible|adjustResize" />
 
         <activity android:name=".descriptions.DescriptionEditSuccessActivity"
             android:theme="@style/AppTheme.TranslucentDark"
