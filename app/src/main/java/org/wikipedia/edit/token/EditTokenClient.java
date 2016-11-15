@@ -14,13 +14,12 @@ import retrofit2.http.GET;
 public class EditTokenClient {
     @NonNull private final MwCachedService<Service> cachedService = new MwCachedService<>(Service.class);
 
-    @NonNull public Call<EditToken> request(@NonNull final WikiSite wiki,
-                                            @NonNull final Callback cb) {
+    @NonNull public Call<EditToken> request(@NonNull WikiSite wiki, @NonNull Callback cb) {
         Service service = cachedService.service(wiki);
         return request(service, cb);
     }
 
-    @VisibleForTesting @NonNull Call<EditToken> request(@NonNull final Service service,
+    @VisibleForTesting @NonNull Call<EditToken> request(@NonNull Service service,
                                                         @NonNull final Callback cb) {
         Call<EditToken> call = service.editToken();
         call.enqueue(new retrofit2.Callback<EditToken>() {

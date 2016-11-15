@@ -9,7 +9,7 @@ import org.wikipedia.dataclient.retrofit.RetrofitException;
 
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 /**
  * When accessing the API using a cross-domain AJAX request (CORS), use this to authenticate as the
@@ -61,7 +61,7 @@ public class CentralAuthTokenClient {
     }
 
     @VisibleForTesting interface Service {
-        @GET("w/api.php?action=centralauthtoken&format=json")
+        @POST("w/api.php?action=centralauthtoken&format=json")
         Call<CentralAuthToken> get();
     }
 }

@@ -21,8 +21,6 @@ import retrofit2.http.POST;
  * Data Client to submit a new or updated description to wikidata.org.
  */
 class DescriptionEditClient {
-    private static final String ANONYMOUS_TOKEN = "+\\";
-    private static final WikiSite WIKI_DATA_SITE = new WikiSite("www.wikidata.org", "");
     private static final String ABUSEFILTER_DISALLOWED = "abusefilter-disallowed";
     private static final String ABUSEFILTER_WARNING = "abusefilter-warning";
 
@@ -38,28 +36,33 @@ class DescriptionEditClient {
     /**
      * Submit a new value for the Wikidata description associated with the given Wikipedia page.
      *
-     * @param pageTitle   specifies the Wikipedia page the Wikidata item is linked to
-     * @param description the new value for the Wikidata description
-     * @param cb          called when this is done successfully or failed
+     * @param wiki             the Wiki site to use this on. Should be "www.wikidata.org"
+     * @param pageTitle        specifies the Wikipedia page the Wikidata item is linked to
+     * @param description      the new value for the Wikidata description
+     * @param editToken        a token from Wikidata
+     * @param cb               called when this is done successfully or failed
      * @return Call object which can be used to cancel the request
      */
-    public Call<DescriptionEdit> request(@NonNull PageTitle pageTitle,
+    public Call<DescriptionEdit> request(@NonNull WikiSite wiki,
+                                         @NonNull PageTitle pageTitle,
                                          @NonNull String description,
+                                         @NonNull String editToken,
                                          @NonNull Callback cb) {
-        return request(cachedService.service(WIKI_DATA_SITE), pageTitle, description,
-                pageTitle.getWikiSite().languageCode(), User.isLoggedIn(), cb);
+        return request(cachedService.service(wiki), pageTitle, description,
+                pageTitle.getWikiSite().languageCode(), editToken, User.isLoggedIn(), cb);
     }
 
     @SuppressWarnings("WeakerAccess") @VisibleForTesting
     Call<DescriptionEdit> request(@NonNull Service service,
-                                  @NonNull final PageTitle pageTitle,
-                                  @NonNull final String description,
-                                  @NonNull final String languageCode,
-                                  final boolean loggedIn,
+                                  @NonNull PageTitle pageTitle,
+                                  @NonNull String description,
+                                  @NonNull String languageCode,
+                                  @NonNull String editToken,
+                                  boolean loggedIn,
                                   @NonNull final Callback cb) {
 
         Call<DescriptionEdit> call = service.edit(languageCode, languageCode, languageCode + "wiki",
-                pageTitle.getPrefixedText(), description, ANONYMOUS_TOKEN, null,
+                pageTitle.getPrefixedText(), description, editToken,
                 /* TODO: loggedIn ? "user" : */ null);
         call.enqueue(new retrofit2.Callback<DescriptionEdit>() {
             @Override
@@ -106,16 +109,13 @@ class DescriptionEditClient {
     }
 
     @VisibleForTesting interface Service {
-        @SuppressWarnings("checkstyle:parameternumber") @FormUrlEncoded
-        @POST("w/api.php?action=wbsetdescription&format=json")
+        @POST("w/api.php?action=wbsetdescription&format=json") @FormUrlEncoded
         Call<DescriptionEdit> edit(@NonNull @Field("language") String language,
                                    @NonNull @Field("uselang") String useLang,
                                    @NonNull @Field("site") String site,
                                    @NonNull @Field("title") String title,
                                    @NonNull @Field("value") String newDescription,
                                    @NonNull @Field("token") String token,
-                                   @Nullable @Field("centralauthtoken") String centralAuthToken,
-                                   @Nullable @Field("assert") String user
-        );
+                                   @Nullable @Field("assert") String user);
     }
 }
