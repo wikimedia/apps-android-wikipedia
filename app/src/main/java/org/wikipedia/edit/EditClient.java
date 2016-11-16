@@ -68,6 +68,8 @@ class EditClient {
                     } else {
                         cb.failure(call, new RuntimeException("Received unrecognized edit response"));
                     }
+                } else if ("assertuserfailed".equals(response.body().code())) {
+                    cb.failure(call, new UserNotLoggedInException());
                 } else if (response.body().info() != null) {
                     String info = response.body().info();
                     cb.failure(call, new RuntimeException(info));

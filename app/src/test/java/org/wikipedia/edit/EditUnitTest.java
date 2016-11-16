@@ -45,6 +45,16 @@ public class EditUnitTest extends MockWebServerTest {
         assertExpectedEditError(call, cb, "Invalid token");
     }
 
+    @Test public void testRequestUserNotLoggedIn() throws Throwable {
+        enqueueFromFile("edit_user_not_logged_in.json");
+
+        Callback cb = mock(Callback.class);
+        Call<Edit> call = request(cb);
+
+        server().takeRequest();
+        assertExpectedEditError(call, cb, "User not logged in.");
+    }
+
     @NonNull private Call<Edit> request(@NonNull Callback cb) {
         return client.request(service(Service.class), new PageTitle("FAKE TITLE",
                 WikiSite.forLanguageCode("test")), 0, "FAKE EDIT TEXT", "+/", "FAKE SUMMARY", false,

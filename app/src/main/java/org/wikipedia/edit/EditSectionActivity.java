@@ -338,10 +338,12 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                                 if (caught instanceof ApiException) {
                                     // This is a fairly standard editing exception. Handle it appropriately.
                                     handleEditingException((ApiException) caught);
+                                } else if (caught instanceof UserNotLoggedInException) {
+                                    retry();
                                 } else {
                                     // If it's not an API exception, we have no idea what's wrong.
                                     // Show the user a generic error message.
-                                    L.w("Caught " + caught.toString());
+                                    L.w(caught);
                                     showRetryDialog();
                                 }
                             }
@@ -382,20 +384,23 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         retryDialog.show();
     }
 
+    private void retry() {
+        // looks like our session expired.
+        app.getEditTokenStorage().clearAllTokens();
+        app.getCookieManager().clearAllCookies();
+
+        User user = User.getUser();
+        doLoginAndSave(user);
+    }
+
     /**
      * Processes API error codes encountered during editing, and handles them as appropriate.
      * @param e The ApiException to handle.
      */
     private void handleEditingException(@NonNull ApiException e) {
         String code = e.getCode();
-        if (User.isLoggedIn() && ("badtoken".equals(code)
-                || "assertuserfailed".equals(code))) {
-            // looks like our session expired.
-            app.getEditTokenStorage().clearAllTokens();
-            app.getCookieManager().clearAllCookies();
-
-            User user = User.getUser();
-            doLoginAndSave(user);
+        if (User.isLoggedIn() && ("badtoken".equals(code) || "assertuserfailed".equals(code))) {
+            retry();
         } else if ("blocked".equals(code) || "wikimedia-globalblocking-ipblocked".equals(code)) {
             // User is blocked, locally or globally
             // If they were anon, canedit does not catch this, so we can't show them the locked pencil
