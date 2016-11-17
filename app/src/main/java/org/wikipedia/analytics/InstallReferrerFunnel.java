@@ -14,6 +14,7 @@ public class InstallReferrerFunnel extends Funnel {
     public static final String PARAM_REFERRER_URL = "referrer_url";
     public static final String PARAM_CAMPAIGN_ID = "campaign_id";
     public static final String PARAM_CAMPAIGN_INSTALL_ID = "install_id";
+    public static final String PARAM_CHANNEL = "channel";
 
     public InstallReferrerFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REV_ID);

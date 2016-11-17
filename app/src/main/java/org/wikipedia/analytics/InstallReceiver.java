@@ -9,6 +9,7 @@ import android.text.TextUtils;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageActivity;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
@@ -62,12 +63,14 @@ public final class InstallReceiver extends BroadcastReceiver {
         String refUrl = null;
         String refCampaignId = null;
         String refCampaignInstallId = null;
+        String refChannel = null;
         try {
             // build a proper dummy URI with the referrer appended to it, so that we can parse it.
             Uri uri = Uri.parse("/?" + referrerStr);
             refUrl = uri.getQueryParameter(InstallReferrerFunnel.PARAM_REFERRER_URL);
             refCampaignId = uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_ID);
             refCampaignInstallId = uri.getQueryParameter(InstallReferrerFunnel.PARAM_CAMPAIGN_INSTALL_ID);
+            refChannel = uri.getQueryParameter(InstallReferrerFunnel.PARAM_CHANNEL);
         } catch (UnsupportedOperationException e) {
             // Can be thrown by getQueryParameter() if the referrer is malformed.
             // Don't worry about it.
@@ -80,6 +83,9 @@ public final class InstallReceiver extends BroadcastReceiver {
         }
         if (!TextUtils.isEmpty(refUrl) && ShareUtil.canOpenUrlInApp(ctx, refUrl)) {
             openPageFromUrl(ctx, refUrl);
+        }
+        if (!TextUtils.isEmpty(refChannel)) {
+            Prefs.setAppChannel(refChannel);
         }
     }
 

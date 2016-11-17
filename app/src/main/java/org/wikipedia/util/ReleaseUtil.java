@@ -3,6 +3,7 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.settings.Prefs;
@@ -42,11 +43,11 @@ public final class ReleaseUtil {
     /**
      * Gets the distribution channel for the app from SharedPreferences
      */
-    public static String getChannel(Context ctx) {
+    @NonNull public static String getChannel(@NonNull Context ctx) {
         String channel = Prefs.getAppChannel();
         if (channel == null) {
-            channel = getChannelDescriptor(ctx);
-            setChannel(channel);
+            channel = getChannelFromManifest(ctx);
+            Prefs.setAppChannel(channel);
         }
         return channel;
     }
@@ -68,7 +69,7 @@ public final class ReleaseUtil {
      * Returns the distribution channel for the app from AndroidManifest.xml
      * @return The channel (the empty string if not defined)
      */
-    private static String getChannelDescriptor(Context ctx) {
+    @NonNull private static String getChannelFromManifest(@NonNull Context ctx) {
         try {
             ApplicationInfo info = ctx.getPackageManager()
                     .getApplicationInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_META_DATA);
@@ -77,13 +78,6 @@ public final class ReleaseUtil {
         } catch (Throwable t) {
             return "";
         }
-    }
-
-    /**
-     * Sets the distribution channel for the app into SharedPreferences
-     */
-    private static void setChannel(String channel) {
-        Prefs.setAppChannel(channel);
     }
 
     private ReleaseUtil() {
