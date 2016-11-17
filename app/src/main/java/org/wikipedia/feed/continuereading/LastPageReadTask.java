@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.format.DateUtils;
 
+import org.wikipedia.R;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageImageHistoryContract;
@@ -51,12 +52,14 @@ public class LastPageReadTask extends SaneAsyncTask<HistoryEntry> {
         try {
             Uri uri = PageHistoryContract.PageWithImage.URI;
             final String[] projection = null;
-            final String selection = ":timestampCol < ? and :sourceCol != ? and :sourceCol != ? "
+            final String selection = ":timestampCol < ? and :sourceCol != ? and :sourceCol != ? and :timeSpentCol >= ?"
                     .replaceAll(":timestampCol", PageHistoryContract.Col.TIMESTAMP.getName())
-                    .replaceAll(":sourceCol", PageHistoryContract.Page.SOURCE.qualifiedName());
+                    .replaceAll(":sourceCol", PageHistoryContract.Page.SOURCE.qualifiedName())
+                    .replaceAll(":timeSpentCol", PageHistoryContract.Page.TIME_SPENT.qualifiedName());
             final String[] selectionArgs = {Long.toString(earlierThanTime),
                     Integer.toString(HistoryEntry.SOURCE_MAIN_PAGE),
-                    Integer.toString(HistoryEntry.SOURCE_FEED_MAIN_PAGE)};
+                    Integer.toString(HistoryEntry.SOURCE_FEED_MAIN_PAGE),
+                    Integer.toString(context.getResources().getInteger(R.integer.article_engagement_threshold_sec))};
             String order = PageHistoryContract.PageWithImage.ORDER_MRU + " limit " + (age + 1);
             return client.query(uri, projection, selection, selectionArgs, order);
         } catch (RemoteException e) {

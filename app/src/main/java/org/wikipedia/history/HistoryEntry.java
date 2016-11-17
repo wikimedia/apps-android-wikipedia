@@ -2,6 +2,7 @@ package org.wikipedia.history;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import org.wikipedia.page.PageTitle;
 
@@ -29,30 +30,41 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_FEED_MAIN_PAGE = 17;
     public static final int SOURCE_FEED_RANDOM = 18;
 
-    private final PageTitle title;
-    private final Date timestamp;
+    @NonNull private final PageTitle title;
+    @NonNull private final Date timestamp;
     private final int source;
+    private final int timeSpentSec;
 
-    public HistoryEntry(PageTitle title, Date timestamp, int source) {
+    public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source,
+                        int timeSpentSec) {
         this.title = title;
         this.timestamp = timestamp;
         this.source = source;
+        this.timeSpentSec = timeSpentSec;
+    }
+
+    public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source) {
+        this(title, timestamp, source, 0);
     }
 
     public HistoryEntry(PageTitle title, int source) {
         this(title, new Date(), source);
     }
 
-    public PageTitle getTitle() {
+    @NonNull public PageTitle getTitle() {
         return title;
     }
 
-    public Date getTimestamp() {
+    @NonNull public Date getTimestamp() {
         return timestamp;
     }
 
     public int getSource() {
         return source;
+    }
+
+    public int getTimeSpentSec() {
+        return timeSpentSec;
     }
 
     @Override
@@ -71,6 +83,7 @@ public class HistoryEntry implements Parcelable {
         int result = title.hashCode();
         result = 31 * result + source;
         result = 31 * result + timestamp.hashCode();
+        result = 31 * result + timeSpentSec;
         return result;
     }
 
@@ -80,6 +93,7 @@ public class HistoryEntry implements Parcelable {
                 + "title=" + title
                 + ", source=" + source
                 + ", timestamp=" + timestamp.getTime()
+                + ", timeSpentSec=" + timeSpentSec
                 + '}';
     }
 
@@ -93,12 +107,14 @@ public class HistoryEntry implements Parcelable {
         dest.writeParcelable(getTitle(), flags);
         dest.writeLong(getTimestamp().getTime());
         dest.writeInt(getSource());
+        dest.writeInt(getTimeSpentSec());
     }
 
     private HistoryEntry(Parcel in) {
         this.title = in.readParcelable(PageTitle.class.getClassLoader());
         this.timestamp = new Date(in.readLong());
         this.source = in.readInt();
+        this.timeSpentSec = in.readInt();
     }
 
     public static final Parcelable.Creator<HistoryEntry> CREATOR
