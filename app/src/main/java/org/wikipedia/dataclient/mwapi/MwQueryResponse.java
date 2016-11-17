@@ -5,34 +5,23 @@ import android.support.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.server.mwapi.MwServiceError;
-
-public class MwQueryResponse<T> {
-    @SuppressWarnings("unused") @Nullable
-    private MwServiceError error;
+public class MwQueryResponse<T> extends MwResponse {
 
     @SuppressWarnings("unused") @SerializedName("batchcomplete")
     private boolean batchComplete;
 
-    @Nullable
-    private T query;
-
-    @Nullable
-    public MwServiceError getError() {
-        return error;
-    }
+    @Nullable private T query;
 
     public boolean batchComplete() {
         return batchComplete;
     }
 
-    @Nullable
-    public T query() {
+    @Nullable public T query() {
         return query;
     }
 
-    public boolean success() {
-        return error == null && query != null;
+    @Override public boolean success() {
+        return super.success() && query != null;
     }
 
     @VisibleForTesting

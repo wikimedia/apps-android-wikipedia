@@ -1,5 +1,7 @@
 package org.wikipedia.server.mwapi;
 
+import android.support.annotation.Nullable;
+
 import org.wikipedia.server.ServiceError;
 
 /**
@@ -10,13 +12,11 @@ public class MwServiceError implements ServiceError {
     @SuppressWarnings("unused") private String info;
     @SuppressWarnings("unused") private String docref;
 
-    @Override
-    public String getTitle() {
+    @Override @Nullable public String getTitle() {
         return code;
     }
 
-    @Override
-    public String getDetails() {
+    @Override @Nullable public String getDetails() {
         return info;
     }
 
