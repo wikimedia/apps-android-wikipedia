@@ -21,21 +21,21 @@ import org.wikipedia.util.FileUtil;
 public class MediaDownloadReceiver extends BroadcastReceiver {
     private static final String FILE_NAMESPACE = "File:";
 
-    private Activity activity;
-    private DownloadManager downloadManager;
+    @NonNull private Activity activity;
+    @NonNull private DownloadManager downloadManager;
 
-    public MediaDownloadReceiver(Activity activity) {
+    public MediaDownloadReceiver(@NonNull Activity activity) {
         this.activity = activity;
         downloadManager = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
-    public void download(FeaturedImage featuredImage) {
+    public void download(@NonNull FeaturedImage featuredImage) {
         String filename = FileUtil.sanitizeFileName(featuredImage.title());
         String targetDirectory = Environment.DIRECTORY_PICTURES;
         performDownloadRequest(featuredImage.image().source(), targetDirectory, filename, null);
     }
 
-    public void download(GalleryItem galleryItem) {
+    public void download(@NonNull GalleryItem galleryItem) {
         String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(galleryItem.getName()));
         String targetDirectory;
         if (FileUtil.isVideo(galleryItem.getMimeType())) {
@@ -77,11 +77,12 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             try {
                 if (c.moveToFirst()) {
                     int statusIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS);
-                    int pathIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_FILENAME);
+                    int pathIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI);
                     int mimeIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_MEDIA_TYPE);
                     if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(statusIndex)) {
-                        notifyContentResolver(c.getString(pathIndex), c.getString(mimeIndex));
                         FeedbackUtil.showMessage(activity, R.string.gallery_save_success);
+                        notifyContentResolver(Uri.parse(c.getString(pathIndex)).getPath(),
+                                c.getString(mimeIndex));
                     }
                 }
             } finally {
@@ -90,11 +91,11 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         }
     }
 
-    private String trimFileNamespace(String filename) {
+    @NonNull private String trimFileNamespace(@NonNull String filename) {
         return filename.startsWith(FILE_NAMESPACE) ? filename.substring(FILE_NAMESPACE.length()) : filename;
     }
 
-    private void notifyContentResolver(String path, String mimeType) {
+    private void notifyContentResolver(@NonNull String path, @NonNull String mimeType) {
         ContentValues values = new ContentValues();
         Uri contentUri;
         if (FileUtil.isVideo(mimeType)) {
@@ -113,4 +114,3 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         activity.getContentResolver().insert(contentUri, values);
     }
 }
-

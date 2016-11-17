@@ -2,8 +2,10 @@ package org.wikipedia.main;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.os.Build;
@@ -75,6 +77,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @BindView(R.id.fragment_main_nav_tab_layout) TabLayout tabLayout;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
+    private MediaDownloadReceiver mediaDownloadReceiver;
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -110,8 +113,16 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         return view;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        getContext().unregisterReceiver(mediaDownloadReceiver);
+    }
+
     @Override public void onResume() {
         super.onResume();
+        getContext().registerReceiver(mediaDownloadReceiver,
+                new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         // update toolbar, since Tab count might have changed
         getActivity().supportInvalidateOptionsMenu();
         // reset the last-page-viewed timer
@@ -146,6 +157,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
+        mediaDownloadReceiver = new MediaDownloadReceiver(getActivity());
     }
 
     @Override
