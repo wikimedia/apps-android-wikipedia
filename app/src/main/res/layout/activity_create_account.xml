@@ -36,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                app:passwordToggleEnabled="true"
                 android:hint="@string/login_password_hint" />
 
             <android.support.design.widget.PasswordTextInput
@@ -43,7 +44,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:passwordToggleEnabled="false"
                 android:hint="@string/create_account_password_repeat_hint" />
 
             <android.support.design.widget.TextInputLayout
