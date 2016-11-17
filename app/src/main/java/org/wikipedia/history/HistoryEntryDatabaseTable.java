@@ -19,6 +19,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     private static final int DB_VER_NAMESPACE_ADDED = 6;
     private static final int DB_VER_NORMALIZED_TITLES = 8;
     private static final int DB_VER_LANG_ADDED = 10;
+    private static final int DB_VER_TIME_SPENT_ADDED = 15;
 
     public HistoryEntryDatabaseTable() {
         super(PageHistoryContract.TABLE, PageHistoryContract.Page.URI);
@@ -42,6 +43,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
         contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
         contentValues.put(Col.SOURCE.getName(), obj.getSource());
+        contentValues.put(Col.TIME_SPENT.getName(), obj.getTimeSpentSec());
         return contentValues;
     }
 
@@ -55,6 +57,8 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
                 return new Column<?>[] {Col.NAMESPACE};
             case DB_VER_LANG_ADDED:
                 return new Column<?>[] {Col.LANG};
+            case DB_VER_TIME_SPENT_ADDED:
+                return new Column<?>[] {Col.TIME_SPENT};
             default:
                 return super.getColumnsAdded(version);
         }

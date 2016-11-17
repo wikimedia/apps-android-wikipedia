@@ -48,6 +48,7 @@ import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.UpdateHistoryTask;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
@@ -67,6 +68,7 @@ import org.wikipedia.savedpages.ImageUrlMap;
 import org.wikipedia.savedpages.LoadSavedPageUrlMapTask;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.tooltip.ToolTipUtil;
+import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -81,6 +83,7 @@ import org.wikipedia.views.WikiDrawerLayout;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -160,6 +163,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ActionMode findInPageActionMode;
     @NonNull private ShareHandler shareHandler;
     private TabsProvider tabsProvider;
+    private ActiveTimer activeTimer = new ActiveTimer();
 
     private WikipediaApp app;
 
@@ -524,6 +528,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onPause() {
         super.onPause();
+
+        activeTimer.pause();
+        addTimeSpentReading(activeTimer.getElapsedSec());
+
         pageDataClient.updateCurrentBackStackItem();
         Prefs.setTabs(tabList);
         closePageScrollFunnel();
@@ -538,6 +546,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void onResume() {
         super.onResume();
         initPageScrollFunnel();
+        activeTimer.resume();
     }
 
     @Override
@@ -612,6 +621,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
      */
     public void loadPage(PageTitle title, HistoryEntry entry, PageLoadStrategy.Cache cachePreference,
                          boolean pushBackStack, int stagedScrollY, boolean pageRefreshed) {
+        // update the time spent reading of the current page, before loading the new one
+        addTimeSpentReading(activeTimer.getElapsedSec());
+        activeTimer.reset();
+
         // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
 
@@ -1358,6 +1371,17 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         while (tabList.size() > Constants.MAX_TABS) {
             tabList.remove(0);
         }
+    }
+
+    private void addTimeSpentReading(int timeSpentSec) {
+        if (model.getCurEntry() == null) {
+            return;
+        }
+        model.setCurEntry(new HistoryEntry(model.getCurEntry().getTitle(),
+                new Date(),
+                model.getCurEntry().getSource(),
+                timeSpentSec));
+        new UpdateHistoryTask(model.getCurEntry(), app).execute();
     }
 
     @Nullable

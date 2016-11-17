@@ -23,7 +23,6 @@ import org.wikipedia.database.contract.PageImageHistoryContract;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.history.SaveHistoryTask;
 import org.wikipedia.login.User;
 import org.wikipedia.page.bottomcontent.BottomContentHandler;
 import org.wikipedia.page.bottomcontent.BottomContentInterface;
@@ -304,10 +303,6 @@ public class PageDataClient implements PageLoadStrategy {
                 if (!fragment.isAdded() || !sequenceNumber.inSync(getSequence())) {
                     return;
                 }
-
-                // Save history entry and page image url
-                new SaveHistoryTask(model.getCurEntry(), app).execute();
-
                 model.setPage(result);
                 editHandler.setPage(model.getPage());
                 layoutLeadImage(new Runnable() {
@@ -493,8 +488,6 @@ public class PageDataClient implements PageLoadStrategy {
                                     new HistoryEntry(model.getTitle(), curEntry.getSource()));
                             // load the current title's thumbnail from sqlite
                             updateThumbnail(PageImage.DATABASE_TABLE.getImageUrlForTitle(app, model.getTitle()));
-                            // Save history entry...
-                            new SaveHistoryTask(model.getCurEntry(), app).execute();
                             // don't re-cache the page after loading.
                             cacheOnComplete = false;
                             state = STATE_COMPLETE_FETCH;
@@ -740,9 +733,6 @@ public class PageDataClient implements PageLoadStrategy {
         final HistoryEntry curEntry = model.getCurEntry();
         model.setCurEntry(
                 new HistoryEntry(model.getTitle(), curEntry.getTimestamp(), curEntry.getSource()));
-
-        // Save history entry and page image url
-        new SaveHistoryTask(model.getCurEntry(), app).execute();
 
         // Fetch larger thumbnail URL from the network, and save it to our DB.
         (new PageImagesTask(app.getAPIForSite(model.getTitle().getWikiSite()), model.getTitle().getWikiSite(),

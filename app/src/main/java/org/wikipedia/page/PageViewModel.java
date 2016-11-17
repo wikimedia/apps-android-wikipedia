@@ -9,9 +9,9 @@ import org.wikipedia.history.HistoryEntry;
  */
 class PageViewModel {
     @Nullable private Page page;
-    private PageTitle title;
-    private PageTitle titleOriginal;
-    private HistoryEntry curEntry;
+    @Nullable private PageTitle title;
+    @Nullable private PageTitle titleOriginal;
+    @Nullable private HistoryEntry curEntry;
 
     @Nullable public Page getPage() {
         return page;
@@ -21,27 +21,27 @@ class PageViewModel {
         this.page = page;
     }
 
-    public PageTitle getTitle() {
+    @Nullable public PageTitle getTitle() {
         return title;
     }
 
-    public void setTitle(PageTitle title) {
+    public void setTitle(@Nullable PageTitle title) {
         this.title = title;
     }
 
-    public PageTitle getTitleOriginal() {
+    @Nullable public PageTitle getTitleOriginal() {
         return titleOriginal;
     }
 
-    public void setTitleOriginal(PageTitle titleOriginal) {
+    public void setTitleOriginal(@Nullable PageTitle titleOriginal) {
         this.titleOriginal = titleOriginal;
     }
 
-    public HistoryEntry getCurEntry() {
+    @Nullable public HistoryEntry getCurEntry() {
         return curEntry;
     }
 
-    public void setCurEntry(HistoryEntry curEntry) {
+    public void setCurEntry(@Nullable HistoryEntry curEntry) {
         this.curEntry = curEntry;
     }
 }

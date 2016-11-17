@@ -22,6 +22,7 @@ public final class PageHistoryContract {
         StrColumn NAMESPACE = new StrColumn(TABLE, "namespace", "string");
         DateColumn TIMESTAMP = new DateColumn(TABLE, "timestamp", "integer");
         IntColumn SOURCE = new IntColumn(TABLE, "source", "integer");
+        IntColumn TIME_SPENT = new IntColumn(TABLE, "timeSpent", "integer"); // seconds
 
         String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, TITLE);
     }
@@ -50,7 +51,7 @@ public final class PageHistoryContract {
         StrColumn IMAGE_NAME = PageImageHistoryContract.Col.IMAGE_NAME;
 
         String[] PROJECTION = DbUtil.qualifiedNames(ID, SITE, LANG, TITLE, NAMESPACE, TIMESTAMP,
-                SOURCE, IMAGE_NAME);
+                SOURCE, TIME_SPENT, IMAGE_NAME);
     }
 
     private PageHistoryContract() { }

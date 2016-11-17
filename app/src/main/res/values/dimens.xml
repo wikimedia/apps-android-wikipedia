@@ -96,6 +96,7 @@
     <dimen name="view_horizontal_scrolling_list_card_item_margin_vertical">0dp</dimen>
     <dimen name="view_list_card_item_image">40dp</dimen>
     <dimen name="overflow_elevation">16dp</dimen>
+    <integer name="article_engagement_threshold_sec">30</integer>
 
     <!-- Navigation -->
     <dimen name="nav_tab_inactive_text_size">12sp</dimen>
