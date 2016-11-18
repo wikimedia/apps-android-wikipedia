@@ -9,6 +9,7 @@ import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.login.User;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.server.mwapi.MwServiceError;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -28,6 +29,7 @@ class DescriptionEditClient {
 
     public interface Callback {
         void success(@NonNull Call<DescriptionEdit> call);
+        void abusefilter(@NonNull Call<DescriptionEdit> call, boolean disallowed);
         void failure(@NonNull Call<DescriptionEdit> call, @NonNull Throwable caught);
     }
 
@@ -62,13 +64,11 @@ class DescriptionEditClient {
             public void onResponse(Call<DescriptionEdit> call,
                                    Response<DescriptionEdit> response) {
                 if (response.isSuccessful()) {
-                    if (response.body().editWasSuccessful()) {
+                    final DescriptionEdit body = response.body();
+                    if (body.editWasSuccessful()) {
                         cb.success(call);
-                    } else if (response.body().hasError()) {
-                        String info = response.body().info();
-                        RuntimeException exception = new RuntimeException(info != null
-                                ? info : "An unknown error occurred");
-                        cb.failure(call, RetrofitException.unexpectedError(exception));
+                    } else if (body.hasError()) {
+                        handleError(call, body, cb);
                     } else {
                         cb.failure(call,
                                 RetrofitException.unexpectedError(new RuntimeException(
@@ -86,6 +86,21 @@ class DescriptionEditClient {
             }
         });
         return call;
+    }
+
+    private void handleError(@NonNull Call<DescriptionEdit> call, @NonNull DescriptionEdit body,
+                             @NonNull Callback cb) {
+        MwServiceError error = body.getError();
+        if (error != null && error.hasMessageName("abusefilter-disallowed")) {
+            cb.abusefilter(call, true);
+        } else if (error != null && error.hasMessageName("abusefilter-warning")) {
+            cb.abusefilter(call, false);
+        } else {
+            String info = body.info();
+            RuntimeException exception = new RuntimeException(info != null
+                    ? info : "An unknown error occurred");
+            cb.failure(call, RetrofitException.unexpectedError(exception));
+        }
     }
 
     @VisibleForTesting interface Service {
