@@ -213,6 +213,12 @@ public class DescriptionEditFragment extends Fragment {
                         }
 
                         @Override
+                        public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
+                            editFailed(new LoginFailedException(getResources()
+                                            .getString(R.string.login_2fa_other_workflow_error_msg)));
+                        }
+
+                        @Override
                         public void error(@NonNull Throwable caught) {
                             editFailed(caught);
                         }

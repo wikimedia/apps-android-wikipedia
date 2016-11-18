@@ -8,7 +8,7 @@ public class LoginResult {
     @Nullable private final User user;
     @Nullable private final String message;
 
-    public LoginResult(@NonNull String status, @Nullable User user, @Nullable String message) {
+    LoginResult(@NonNull String status, @Nullable User user, @Nullable String message) {
         this.status = status;
         this.user = user;
         this.message = message;

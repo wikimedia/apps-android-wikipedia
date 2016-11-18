@@ -105,6 +105,8 @@ Shown in the preferences screen along with the following:
   <string name="nav_item_login">{{Identical|Log in}}</string>
   <string name="login_username_hint">{{Identical|Username}}</string>
   <string name="login_password_hint">{{Identical|Password}}</string>
+  <string name="login_2fa_hint">Hint for a field where the user can enter a two-factor authentication code, if required.</string>
+  <string name="login_2fa_other_workflow_error_msg">Message for when login fails during an editing workflow because two-factor authentication is required.  Directs the user to return to the main activity, log in, and retry.</string>
   <string name="menu_login">{{Identical|Log in}}</string>
   <string name="login_activity_title">Used as window title.</string>
   <string name="login_in_progress_dialog_message">A bubble that describes the in-progress action.</string>

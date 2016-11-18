@@ -81,6 +81,8 @@
     <string name="nav_item_login">Log in to Wikipedia</string>
     <string name="login_username_hint">Username</string>
     <string name="login_password_hint">Password</string>
+    <string name="login_2fa_hint">Two-Factor Authentication Code</string>
+    <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required!  Please return to the main activity and log in with your 2FA token, then retry.</string>
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Log in to Wikipedia</string>
     <string name="login_in_progress_dialog_message">Logging you in…</string>

@@ -47,8 +47,10 @@ public class LoginActivity extends ThemedActionBarActivity {
     @Pattern(regex = "[^#<>\\[\\]|{}\\/@]*", messageResId = R.string.create_account_username_error)
     private EditText usernameText;
     private EditText passwordText;
+    private EditText twoFactorText;
     private View loginButton;
     private ProgressDialog progressDialog;
+    @Nullable private String firstStepToken;
 
     private LoginFunnel funnel;
     private String loginSource;
@@ -74,6 +76,7 @@ public class LoginActivity extends ThemedActionBarActivity {
 
         usernameText = (EditText) findViewById(R.id.login_username_text);
         passwordText = ((PasswordTextInput) findViewById(R.id.login_password_input)).getEditText();
+        twoFactorText = (EditText) findViewById(R.id.login_2fa_text);
         View createAccountLink = findViewById(R.id.login_create_account_link);
 
         // We enable the login button as soon as the username and password fields are filled
@@ -206,13 +209,25 @@ public class LoginActivity extends ThemedActionBarActivity {
     private void doLogin() {
         final String username = usernameText.getText().toString();
         final String password = passwordText.getText().toString();
+        final String twoFactorCode = twoFactorText.getText().toString();
 
         if (loginClient == null) {
             loginClient = new LoginClient();
         }
         progressDialog.show();
-        loginClient.request(WikipediaApp.getInstance().getWikiSite(), username, password,
-                new LoginClient.LoginCallback() {
+
+        if (!twoFactorCode.isEmpty()) {
+            loginClient.login(WikipediaApp.getInstance().getWikiSite(), username, password,
+                    twoFactorCode, firstStepToken, getCallback(username, password));
+        } else {
+            loginClient.request(WikipediaApp.getInstance().getWikiSite(), username, password,
+                    getCallback(username, password));
+        }
+    }
+
+    private LoginClient.LoginCallback getCallback(@NonNull final String username,
+                                                  @NonNull final String password) {
+        return new LoginClient.LoginCallback() {
             @Override
             public void success(@NonNull LoginResult result) {
                 if (!progressDialog.isShowing()) {
@@ -240,6 +255,18 @@ public class LoginActivity extends ThemedActionBarActivity {
             }
 
             @Override
+            public void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token) {
+                if (!progressDialog.isShowing()) {
+                    // no longer attached to activity!
+                    return;
+                }
+                progressDialog.dismiss();
+                firstStepToken = token;
+                twoFactorText.setVisibility(View.VISIBLE);
+                FeedbackUtil.showError(LoginActivity.this, caught);
+            }
+
+            @Override
             public void error(@NonNull Throwable caught) {
                 if (!progressDialog.isShowing()) {
                     // no longer attached to activity!
@@ -248,7 +275,7 @@ public class LoginActivity extends ThemedActionBarActivity {
                 progressDialog.dismiss();
                 FeedbackUtil.showError(LoginActivity.this, caught);
             }
-        });
+        };
     }
 
     @Override

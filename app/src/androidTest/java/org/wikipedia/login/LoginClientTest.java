@@ -1,6 +1,7 @@
 package org.wikipedia.login;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.test.filters.SmallTest;
 
@@ -15,6 +16,7 @@ import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
 
 @SmallTest public class LoginClientTest {
@@ -40,6 +42,11 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
                                 completionLatch.countDown();
                                 assertThat(result.getStatus(), equalTo("PASS"));
                                 WikipediaApp.getInstance().getCsrfTokenStorage().get(TEST_WIKI, callback);
+                            }
+
+                            @Override
+                            public void twoFactorPrompt(@NonNull Throwable throwble, @Nullable String token) {
+                                fail("Two-factor prompt not expected here");
                             }
 
                             @Override

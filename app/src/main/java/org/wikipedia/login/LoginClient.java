@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -14,6 +15,8 @@ import org.wikipedia.server.mwapi.MwServiceError;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import retrofit2.Call;
@@ -35,6 +38,7 @@ public class LoginClient {
 
     public interface LoginCallback {
         void success(@NonNull LoginResult result);
+        void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token);
         void error(@NonNull Throwable caught);
     }
 
@@ -54,7 +58,7 @@ public class LoginClient {
                     MwQueryResponse<LoginToken> body = response.body();
                     LoginToken query = body.query();
                     if (query != null &&  query.getLoginToken() != null) {
-                        login(wiki, userName, password, query.getLoginToken(), cb);
+                        login(wiki, userName, password, null, query.getLoginToken(), cb);
                     } else if (body.getError() != null) {
                         cb.error(new IOException("Failed to retrieve login token. "
                                 + body.getError().toString()));
@@ -74,10 +78,12 @@ public class LoginClient {
         });
     }
 
-    private void login(@NonNull final WikiSite wiki, @NonNull final String userName,
-                       @NonNull final String password, @NonNull String loginToken,
-                       @NonNull final LoginCallback cb) {
-        loginCall = cachedService.service(wiki).logIn(userName, password, loginToken, Constants.WIKIPEDIA_URL);
+    void login(@NonNull final WikiSite wiki, @NonNull final String userName,
+                       @NonNull final String password, @Nullable final String twoFactorCode,
+                       @Nullable final String loginToken, @NonNull final LoginCallback cb) {
+        loginCall = StringUtils.defaultIfEmpty(twoFactorCode, "").isEmpty()
+                ? cachedService.service(wiki).logIn(userName, password, loginToken, Constants.WIKIPEDIA_URL)
+                : cachedService.service(wiki).logIn(userName, password, twoFactorCode, loginToken, true);
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
@@ -90,6 +96,9 @@ public class LoginClient {
                             // wikis is uppercases the first letter.
                             String actualUserName = loginResult.getUser().getUsername();
                             getGroupMemberships(wiki, actualUserName, loginResult, cb);
+                        } else if ("UI".equals(loginResult.getStatus())) {
+                            //TODO: Don't just assume this is a 2FA UI result
+                            cb.twoFactorPrompt(new LoginFailedException(loginResult.getMessage()), loginToken);
                         } else {
                             cb.error(new LoginFailedException(loginResult.getMessage()));
                         }
@@ -163,8 +172,15 @@ public class LoginClient {
         @FormUrlEncoded
         @POST("w/api.php?action=clientlogin&format=json&rememberMe=true")
         Call<LoginResponse> logIn(@Field("username") String user, @Field("password") String pass,
-                                  @Field("logintoken") String token,
-                                  @Field("loginreturnurl") String url);
+                                  @Field("logintoken") String token, @Field("loginreturnurl") String url);
+
+        /** Actually log in. Has to be x-www-form-urlencoded */
+        @NonNull
+        @FormUrlEncoded
+        @POST("w/api.php?action=clientlogin&format=json&rememberMe=true")
+        Call<LoginResponse> logIn(@Field("username") String user, @Field("password") String pass,
+                                  @Field("OATHToken") String twoFactorCode, @Field("logintoken") String token,
+                                  @Field("logincontinue") boolean loginContinue);
     }
 
     private static final class LoginToken {
@@ -198,6 +214,7 @@ public class LoginClient {
 
         private static class ClientLogin {
             @SerializedName("status") private String status;
+            @Nullable private List<Request> requests;
             @SerializedName("message") @Nullable private String message;
             @SerializedName("username") @Nullable private String userName;
 
@@ -208,9 +225,40 @@ public class LoginClient {
                     user = new User(userName, password, 0);
                 } else if ("FAIL".equals(status)) {
                     userMessage = message;
+                } else if ("UI".equals(status)) {
+                    if (requests != null) {
+                        for (Request req : requests) {
+                            if ("TOTPAuthenticationRequest".equals(req.id())) {
+                                return new LoginOAuthResult(status, message);
+                            }
+                        }
+                    }
+                    userMessage = message;
+                } else {
+                    //TODO: String resource -- Looks like needed for others in this class too
+                    userMessage = "An unknown error occurred.";
                 }
                 return new LoginResult(status, user, userMessage);
             }
+        }
+
+        private static class Request {
+            @SuppressWarnings("unused") @Nullable private String id;
+            //@SuppressWarnings("unused") @Nullable private JsonObject metadata;
+            @SuppressWarnings("unused") @Nullable private String required;
+            @SuppressWarnings("unused") @Nullable private String provider;
+            @SuppressWarnings("unused") @Nullable private String account;
+            @SuppressWarnings("unused") @Nullable private Map<String, RequestField> fields;
+
+            @Nullable String id() {
+                return id;
+            }
+        }
+
+        private static class RequestField {
+            @SuppressWarnings("unused") @Nullable private String type;
+            @SuppressWarnings("unused") @Nullable private String label;
+            @SuppressWarnings("unused") @Nullable private String help;
         }
     }
 

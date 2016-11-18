@@ -471,6 +471,14 @@ public class EditSectionActivity extends ThemedActionBarActivity {
                     }
 
                     @Override
+                    public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
+                        FeedbackUtil.showError(EditSectionActivity.this,
+                                new LoginClient.LoginFailedException(getResources()
+                                        .getString(R.string.login_2fa_other_workflow_error_msg)));
+                        onLoginError();
+                    }
+
+                    @Override
                     public void error(@NonNull Throwable caught) {
                         onLoginError();
                     }
