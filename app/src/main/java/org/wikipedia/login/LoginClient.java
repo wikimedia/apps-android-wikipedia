@@ -215,7 +215,7 @@ public class LoginClient {
     }
 
     public static class LoginFailedException extends Throwable {
-        LoginFailedException(String message) {
+        public LoginFailedException(String message) {
             super(message);
         }
     }
