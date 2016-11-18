@@ -18,11 +18,12 @@ public final class GeoUtil {
     public static void sendGeoIntent(@NonNull Activity activity,
                                      @NonNull Location location,
                                      @Nullable String placeName) {
-        String geoStr = "geo:";
-        geoStr += Double.toString(location.getLatitude()) + ","
-                + Double.toString(location.getLongitude());
+        // Using geo:latitude,longitude doesn't give a point on the map,
+        // hence using query
+        String geoStr = "geo:0,0?q=" + location.getLatitude()
+                + "," + location.getLongitude();
         if (!TextUtils.isEmpty(placeName)) {
-            geoStr += "?q=" + Uri.encode(placeName);
+            geoStr += "(" + Uri.encode(placeName) + ")";
         }
         try {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(geoStr)));
