@@ -171,6 +171,7 @@ public class TabsProvider {
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_new_tab:
+                    isActionModeDismissedIndirectly = true;
                     providerListener.onNewTabRequested();
                     return true;
                 case R.id.menu_close_all_tabs:

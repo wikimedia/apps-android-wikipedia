@@ -489,6 +489,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             // just load the main page into a new tab...
             loadMainPageInForegroundTab();
             tabFunnel.logCreateNew(tabList.size());
+
+            // Set the current tab to the new opened tab
+            tabsProvider.exitTabMode();
+            leadImagesHandler.setAnimationPaused(false);
         }
 
         @Override
