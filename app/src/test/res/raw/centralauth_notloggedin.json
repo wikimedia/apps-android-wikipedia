@@ -1,0 +1,8 @@
+{
+  "servedby": "mw1280",
+  "error": {
+    "code": "notloggedin",
+    "info": "Anonymous users cannot obtain a centralauthtoken",
+    "*": "See https://www.wikidata.org/w/api.php for API usage"
+  }
+}
