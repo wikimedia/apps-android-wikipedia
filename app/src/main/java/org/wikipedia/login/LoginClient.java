@@ -27,9 +27,6 @@ import retrofit2.http.POST;
  * Responsible for making login related requests to the server.
  */
 public class LoginClient {
-    private static final String CLIENT_LOGIN = "clientlogin";
-    private static final String JSON = "json";
-
     @NonNull private final MwCachedService<Service> cachedService
             = new MwCachedService<>(Service.class);
 
@@ -80,8 +77,7 @@ public class LoginClient {
     private void login(@NonNull final WikiSite wiki, @NonNull final String userName,
                        @NonNull final String password, @NonNull String loginToken,
                        @NonNull final LoginCallback cb) {
-        loginCall = cachedService.service(wiki).logIn(CLIENT_LOGIN, JSON, userName, password,
-                loginToken, Constants.WIKIPEDIA_URL);
+        loginCall = cachedService.service(wiki).logIn(userName, password, loginToken, Constants.WIKIPEDIA_URL);
         loginCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
@@ -165,9 +161,8 @@ public class LoginClient {
         /** Actually log in. Has to be x-www-form-urlencoded */
         @NonNull
         @FormUrlEncoded
-        @POST("w/api.php")
-        Call<LoginResponse> logIn(@Field("action") String action, @Field("format") String format,
-                                  @Field("username") String user, @Field("password") String pass,
+        @POST("w/api.php?action=clientlogin&format=json&rememberMe=true")
+        Call<LoginResponse> logIn(@Field("username") String user, @Field("password") String pass,
                                   @Field("logintoken") String token,
                                   @Field("loginreturnurl") String url);
     }
