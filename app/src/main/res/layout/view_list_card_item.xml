@@ -63,7 +63,8 @@
         android:layout_gravity="end"
         android:padding="8dp"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
-        android:tint="?attr/feed_text_tertiary_color"
+        android:tint="?attr/overflow_button"
+        android:tintMode="src_in"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@null"/>
 

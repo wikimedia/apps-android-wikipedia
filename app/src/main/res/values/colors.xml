@@ -28,6 +28,8 @@
     <color name="main_toolbar">@color/foundation_blue</color>
     <color name="nav_border">#505050</color>
     <color name="actionbar_disabled">#a0a0a0</color>
+    <color name="light_gray_overflow_button">#42000000</color>
+    <color name="dark_gray_overflow_button">#42ffffff</color>
     <color name="button_disabled">#bebebe</color>
     <color name="preview_header_background">#d0d0d0</color>
     <color name="white_progressive_dark">#f0f0f0</color>

@@ -35,6 +35,7 @@
     <attr name="feed_text_secondary_color" format="reference" />
     <attr name="feed_text_tertiary_color" format="reference" />
     <attr name="nav_tab_background_color" format="reference" />
+    <attr name="overflow_button" format="reference" />
 
     <declare-styleable name="CabSearchView">
         <attr name="cabEnabled" format="boolean" />
