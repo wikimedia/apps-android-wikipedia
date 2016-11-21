@@ -90,7 +90,7 @@
   <string name="create_account_next">Selanjutnya</string>
   <string name="create_account_button">Buat akun baru</string>
   <string name="preferences_general_heading">Umum</string>
-  <string name="wikipedia_app_faq">Pertanyaan yang sering diajukan</string>
+  <string name="wikipedia_app_faq">Pertanyaan yang sering ditanyakan</string>
   <string name="zero_charged_verbiage">Akses gratis ke Wikipedia tidak lagi aktif.</string>
   <string name="zero_warn_when_leaving">Peringatkan jika meninggalkan Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Jika operator selular Anda membebaskan biaya akses data untuk aplikasi Wikipedia melalui kemitraan Wikipedia Zero, meninggalkan pengaturan ini dicentang dapat membantu Anda ketika Anda meninggalkan aplikasi Wikipedia dan dapat dikenakan biaya.</string>

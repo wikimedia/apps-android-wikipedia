@@ -91,7 +91,7 @@
   <string name="create_account_button">Mở tài khoản</string>
   <string name="preferences_general_heading">Tổng quát</string>
   <string name="wikipedia_app_faq">Câu hỏi thường hỏi về ứng dụng Wikipedia</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Miễn phí đang tắt</string>
+  <string name="zero_charged_verbiage">Không còn có thể truy cập Wikipedia miễn phí.</string>
   <string name="zero_warn_when_leaving">Cảnh báo khi ra khỏi Wikipedia Miễn phí</string>
   <string name="zero_warn_when_leaving_summary">Nếu nhà điều hành điện thoại di động của bạn miễn phí truy cập dữ liệu cho ứng dụng Wikipedia do có quan hệ đối tác với Wikipedia Miễn phí, chọn hộp này để giúp bạn biết khi bạn sắp thoát ứng dụng Wikipedia và sẽ bị tính phí.</string>
   <string name="zero_webpage_title">Câu thường hỏi về Wikipedia Miễn phí</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">Có thể phải trả phí dữ liệu. Tiếp tục đi vào trang ngoài?</string>
   <string name="zero_interstitial_continue">Rời đi</string>
   <string name="zero_interstitial_cancel">Ở lại</string>
-  <string name="zero_learn_more" fuzzy="true">Không phải trả các chi phí dữ liệu khi sử dụng ứng dụng Wikipedia này.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Đọc thêm</string>
+  <string name="zero_learn_more">Nhà cung cấp dịch vụ di động của bạn cho phép truy cập nội dung Wikipedia miễn phí!</string>
+  <string name="zero_learn_more_learn_more">Tìm hiểu thêm</string>
   <string name="zero_learn_more_dismiss">Bỏ qua</string>
   <string name="edit_preview_fetching_dialog_message">Đang lấy bản xem thử…</string>
   <string name="send_feedback">Gửi phản hồi về ứng dụng</string>
@@ -222,6 +222,8 @@
   <string name="preference_summary_show_link_previews">Hiện một bản xem nhanh của bài viết khi chạm vào liên kết.</string>
   <string name="nav_item_donate">Hỗ trợ Wikimedia</string>
   <string name="error_voice_search_not_available">Rất tiếc, chức năng nhận dạng tiếng nói không có sẵn.</string>
+  <string name="location_service_disabled">Dịch vụ định vị đang tắt.</string>
+  <string name="enable_location_service">Kích hoạt</string>
   <string name="crash_report_dialog_title">Rất tiếc, ứng dụng gặp sự cố lần trước</string>
   <string name="crash_report_dialog_text">Bạn có muốn gửi một báo cáo đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để Wikimedia có thể xem xét và sửa lỗi gây ra sự cố này không?</string>
   <string name="crash_report_dialog_dont_send_button">Bỏ qua</string>
@@ -288,8 +290,15 @@
   <string name="most_read_list_card_title">Xu hướng</string>
   <string name="view_static_card_icon_content_description">Hình tượng thẻ</string>
   <string name="view_card_news_title">Tin tức</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">hôm qua</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Hôm qua</item>
     <item quantity="other">%d ngày trước</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">Hôm nay</string>
+  <string name="description_edit_header">Đang sửa</string>
+  <string name="description_edit_help_hint">Đây là gì?</string>
+  <string name="description_edit_text_hint">Đặt miêu tả!</string>
+  <string name="description_edit_save">Lưu</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Thêm miêu tả</string>
 </resources>

@@ -295,6 +295,8 @@ Voleu començar de nou o sortir?</string>
     <item quantity="one">ahir</item>
     <item quantity="other">fa %d dies</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">avui</string>
+  <string name="view_continue_reading_card_subtitle_today">Avui</string>
+  <string name="description_edit_help_hint">Què és això?</string>
+  <string name="description_edit_save">Desa</string>
   <string name="description_edit_add_description">Afegeix una descripció</string>
 </resources>

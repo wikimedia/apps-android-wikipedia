@@ -91,7 +91,7 @@
   <string name="create_account_button">アカウント作成</string>
   <string name="preferences_general_heading">全般</string>
   <string name="wikipedia_app_faq">ウィキペディアアプリについての FAQ</string>
-  <string name="zero_charged_verbiage" fuzzy="true">ウィキペディアゼロはオフです</string>
+  <string name="zero_charged_verbiage">ウィキペディアへの無料接続機能は無効です。</string>
   <string name="zero_warn_when_leaving">ウィキペディアゼロを離れる場合には警告</string>
   <string name="zero_warn_when_leaving_summary">ウィキペディアゼロの提携により、携帯電話会社がウィキペディアアプリからのアクセス料金を無料にしている場合には、この設定をチェックしておくと、ウィキペディアアプリを離れて料金がかかる際に分かるようになります。</string>
   <string name="zero_webpage_title">ウィキペディアゼロについてのFAQ</string>
@@ -100,7 +100,7 @@
   <string name="zero_interstitial_leave_app">データ料金がかかるかもしれません。外部サイトへ接続しますか?</string>
   <string name="zero_interstitial_continue">接続する</string>
   <string name="zero_interstitial_cancel">留まる</string>
-  <string name="zero_learn_more" fuzzy="true">このウィキペディアアプリでは、データ料金が免除されます。</string>
+  <string name="zero_learn_more">あなたのワイヤレスキャリアはウィキペディアの内容への無料アクセスを提供しました！</string>
   <string name="zero_learn_more_learn_more">詳細</string>
   <string name="zero_learn_more_dismiss">非表示</string>
   <string name="edit_preview_fetching_dialog_message">プレビューを取得中…</string>
@@ -201,6 +201,8 @@
   <string name="gallery_fair_use_license">フェアユース</string>
   <string name="gallery_uploader_unknown">アップロード者不明</string>
   <string name="menu_new_tab">新規タブ</string>
+  <string name="menu_close_all_tabs">全てのタブを閉じる</string>
+  <string name="close_all_tabs_confirm">本当に全てのタブを閉じてよろしいですか？</string>
   <string name="button_close_tab">タブを閉じる</string>
   <string name="tool_tip_select_text">テキストのどこかを長押しすると、コピーしてシェアするテキストを選択できます。</string>
   <string name="tool_tip_share">面白いと思った部分を選択して、お好みのSNSで共有しましょう!</string>
@@ -220,6 +222,7 @@
   <string name="preference_summary_show_link_previews">リンクをタップしたときに、記事のクイックプレビューを表示します。</string>
   <string name="nav_item_donate">ウィキペディアを支援する</string>
   <string name="error_voice_search_not_available">申し訳ございません。音声認識は現在ご利用いただけません。</string>
+  <string name="location_service_disabled">位置情報サービスが停止されています。</string>
   <string name="enable_location_service">有効化</string>
   <string name="crash_report_dialog_title">申し訳ありません、前回アプリがクラッシュしました</string>
   <string name="crash_report_dialog_text">第三者の HockeyApp に対してクラッシュレポートを送信しますか?　これによって、ウィキメディア財団がクラッシュの状況を確認して、原因となるバグの修正が可能になります。</string>
@@ -263,7 +266,7 @@
   <string name="reading_list_edit_cancel">キャンセル</string>
   <string name="reading_list_delete_confirm">あとで読むリストを本当に削除しますか?</string>
   <string name="reading_lists_empty">あとで読むリストはありません</string>
-  <string name="reading_lists_empty_message" fuzzy="true">あとで読むリストで記事を整理しましょう。記事を読んでいるときに上部のブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
+  <string name="reading_lists_empty_message">あとで読むリストで記事を整理しましょう。記事を読んでいるときに、下のツールバーにあるブックマークアイコンをタップすると、その記事をあとで読むリストに保存できます。</string>
   <string name="reading_lists_onboarding_intro">後から読みたい記事のために「あとで読む」リストを作りましょう。オフラインでも読めます！</string>
   <string name="reading_lists_onboarding_for_example">例えば</string>
   <string name="reading_lists_onboarding_example1">行ってみたい場所</string>
@@ -282,16 +285,19 @@
   <string name="view_featured_image_card_download">ダウンロード</string>
   <string name="menu_feed_card_dismiss">カードを隠す</string>
   <string name="menu_feed_card_dismissed">カードを隠しました。</string>
+  <string name="menu_feed_overflow_label">その他の操作</string>
   <string name="feed_featured_image_share_subject">ウィキメディア・コモンズの注目の画像</string>
   <string name="feed">探索する</string>
   <string name="view_card_footer_button">もっと見る</string>
   <string name="most_read_list_card_title">トレンド</string>
   <string name="view_static_card_icon_content_description">カードアイコン</string>
   <string name="view_card_news_title">新着情報</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">昨日</item>
     <item quantity="other">%d日前</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">今日</string>
+  <string name="description_edit_text_hint">要約欄を記入してください</string>
   <string name="description_edit_save">保存</string>
   <string name="description_edit_char_count">%1$d / %2$d</string>
 </resources>

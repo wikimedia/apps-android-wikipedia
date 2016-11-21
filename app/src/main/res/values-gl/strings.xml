@@ -262,7 +262,7 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="reading_list_item_deleted">%s eliminado da lista</string>
   <string name="reading_list_item_delete_undo">Desfazer</string>
   <string name="reading_list_deleted">%s eliminada</string>
-  <string name="reading_list_edit_ok">OK</string>
+  <string name="reading_list_edit_ok">Aceptar</string>
   <string name="reading_list_edit_cancel">Cancelar</string>
   <string name="reading_list_delete_confirm">Está seguro de que quere eliminar esta lista de lectura?</string>
   <string name="reading_lists_empty">Non hai listas de lectura aquí.</string>

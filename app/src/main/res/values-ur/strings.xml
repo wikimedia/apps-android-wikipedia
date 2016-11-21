@@ -17,17 +17,17 @@
   <string name="dialog_message_clear_history">یہ آپ کی براؤزنگ کا تمام تاریخچہ مٹا دے گا اور کھلے ہوئے تمام ٹیب بند کر دے گا۔ کیا آپ واقعی ایسا کرنا چاہتے ہیں؟</string>
   <string name="nav_item_saved_pages">محفوظ صفحات</string>
   <string name="share_via">ارسال بذریعہ</string>
-  <string name="search_redirect_from">%s سے رجوع مکرر</string>
+  <string name="search_redirect_from">%s سے redirect کر دیے گئے</string>
   <string name="menu_page_show_tabs">ٹیب دکھائیں</string>
   <string name="menu_page_other_languages">زبان تبدیل کریں</string>
   <string name="menu_page_find_in_page">صفحہ میں تلاش کریں</string>
   <string name="menu_page_content_issues">مواد کے مسائل</string>
-  <string name="menu_page_font_and_theme">فانٹ اور پوشاک</string>
+  <string name="menu_page_font_and_theme">فانٹ اور تھیم</string>
   <string name="menu_page_add_to_list">فہرست مطالعہ میں شامل کریں</string>
   <string name="menu_page_share">ربط بھیجیں</string>
   <string name="menu_long_press_open_page">کھولیں</string>
   <string name="menu_long_press_open_in_new_tab">نئی ٹیب میں کھولیں</string>
-  <string name="menu_long_press_copy_page">ربط کا پتا نقل کریں</string>
+  <string name="menu_long_press_copy_page">ربط کا پتہ نقل کریں</string>
   <string name="menu_text_select_copy">نقل کریں</string>
   <string name="menu_text_select_define">تشریح کریں</string>
   <string name="menu_text_select_share">دوسروں کو بھیجیں</string>
@@ -77,31 +77,31 @@
   <string name="history_empty_message">آپ نے شاید سب حذف کر دیا ہے، اگلی مرتبہ آپ کوئی صفحہ کھولیں تو یہاں سے آپ اس پر واپس جا سکتے ہیں۔</string>
   <string name="delete_selected_history">حذف کریں</string>
   <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;یکیپیڈ&lt;big&gt;یا&lt;/big&gt;</string>
-  <string name="create_account_username_hint">صارف نام</string>
+  <string name="create_account_username_hint">اسم صارف</string>
   <string name="login_create_account_link">کھاتہ نہیں ہے؟ ویکیپیڈیا سے منسلک ہوں</string>
   <string name="create_account_login_link">کھاتہ موجود ہے؟ اس میں داخل ہوں</string>
   <string name="create_account_activity_title">کھاتہ بنائیں</string>
   <string name="dialog_create_account_checking_progress">تصدیق کی جارہی ہے</string>
-  <string name="create_account_email_hint">برقی خط (اختیاری)</string>
-  <string name="create_account_password_repeat_hint">پاس ورڈ دوبارہ درج کریں</string>
-  <string name="create_account_passwords_mismatch_error">دونوں پاس ورڈ یکساں نہیں ہیں</string>
-  <string name="create_account_email_error">برقی ڈاک پتا درست نہیں</string>
-  <string name="create_account_generic_error">کھاتا نہیں بنایا جاسکا</string>
-  <string name="create_account_next">اگلا</string>
-  <string name="create_account_button">کھاتا بنائیں</string>
-  <string name="preferences_general_heading">عام</string>
+  <string name="create_account_email_hint">ای۔میل (مرضی ہے)</string>
+  <string name="create_account_password_repeat_hint">پاسورڈ دوبارہ درج کریں</string>
+  <string name="create_account_passwords_mismatch_error">دونوں پاسورڈ یکساں نہیں ہیں</string>
+  <string name="create_account_email_error">ای۔میل پتہ درست نہیں</string>
+  <string name="create_account_generic_error">کھاتا نہیں بن سکا۔</string>
+  <string name="create_account_next">آگے جائیں</string>
+  <string name="create_account_button">کھاتہ بنائیں</string>
+  <string name="preferences_general_heading">عمومی</string>
   <string name="wikipedia_app_faq">ویکیپیڈیا ایپ عمومی سوالات</string>
-  <string name="zero_charged_verbiage" fuzzy="true">زیرو ویکیپیڈیا بند ہے</string>
+  <string name="zero_charged_verbiage">ویکیپیڈیا زیرو بند ہے</string>
   <string name="zero_warn_when_leaving">زیرو ویکیپیڈیا چھوڑنے پر انتباہ کریں</string>
   <string name="zero_warn_when_leaving_summary">اگر آپ اپنے نیٹ ورک پر ویکیپیڈیا زیرو استعمال کررہے ہیں، تو آپ اس سیٹنگ پر ٹک لگی رہنے دیں یہ آپ کو ویکیپیڈیاسے باہر جانے پر (جس کے چارجز لاگو ہوسکتے ہیں پر) انتباہ کرے گا</string>
-  <string name="zero_webpage_title">ویکیپیڈیا زیرو FAQ</string>
+  <string name="zero_webpage_title">ویکیپیڈیا زیرو کے متعلق سوال و جواب</string>
   <string name="zero_wikipedia_zero_heading">ویکیپیڈیا زیرو</string>
   <string name="zero_interstitial_title">ویکیپیڈیا زیرو کو چھوڑ رہے ہیں</string>
   <string name="zero_interstitial_leave_app">ڈاٹا کی شرحیں نافذ ہوں گی۔ کیا آپ خارجی ویب سائٹ پر آگے جانا چاہیں گے۔</string>
   <string name="zero_interstitial_continue">چھوڑیں</string>
   <string name="zero_interstitial_cancel">یہیں رہیں</string>
-  <string name="zero_learn_more" fuzzy="true">اس ویکیپیڈیا ایب کی شرحیں ہٹا دی گئی ہیں۔</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">مزید پڑھیں</string>
+  <string name="zero_learn_more">آپکے موبائل نیٹ ورک نے ویکیپیڈیا تک مفت رسائی کی اجازت دے دی ہے!</string>
+  <string name="zero_learn_more_learn_more">مزید جانیں</string>
   <string name="zero_learn_more_dismiss">ہٹائیں</string>
   <string name="edit_preview_fetching_dialog_message">نمائش حاصل کی جارہی ہے...</string>
   <string name="send_feedback">ایپ پر ردعمل بھیجیے۔</string>
@@ -200,6 +200,8 @@
   <string name="gallery_fair_use_license">مناسب استعمال</string>
   <string name="gallery_uploader_unknown">اپلوڈکنندہ نامعلوم</string>
   <string name="menu_new_tab">نیا ٹیب</string>
+  <string name="menu_close_all_tabs">تمام ٹیب بند کریں</string>
+  <string name="close_all_tabs_confirm">کیا آپ واقعی تمام ٹیب بند کرنا چاہتے ہیں؟</string>
   <string name="button_close_tab">ٹیب بند کریں</string>
   <string name="tool_tip_select_text">متن میں کہیں بھی دباکر پکڑیے تاکہ اسے نقل کرنے اور دوسروں کو بھیجنے کے لیے نمایاں کیا جاسکے۔</string>
   <string name="tool_tip_share">ایک دلچسپ حقیقت نمایاں کرنے کے بعد کوشش کیجیے کہ اسے اپنے پسندیدہ نیٹ ورکوں پر دوسروں کو بھیج سکیں۔</string>
@@ -219,6 +221,8 @@
   <string name="preference_summary_show_link_previews">مضمون کی فوری جھلک دکھائیں جب روابط پر ٹیپ کررہے ہوں۔</string>
   <string name="nav_item_donate">ویکیپیڈیا کی مدد کریں</string>
   <string name="error_voice_search_not_available">معذرت، آواز کی شناخت دستیاب نہیں ہے۔</string>
+  <string name="location_service_disabled">لوکیشن(مقامیانہ) سروس غیر فعال ہے۔</string>
+  <string name="enable_location_service">فعال کریں</string>
   <string name="crash_report_dialog_title">معذرت، اطلاقیہ پچھلی مرتبہ کریش کر گیا۔</string>
   <string name="crash_report_dialog_text">کی اآپ کریش رپورٹوں کو ہاکی ایپ/ فریق ثالث خدمات فراہم کرنے والے کو بھیجنا چاہتے ہیں تاکہ ہم آپ کے کریش کا جائزہ لے سکیں اور خرابی کو جلد از جلد اور بآسانی درست کرسکیں؟</string>
   <string name="crash_report_dialog_dont_send_button">چھوڑیں</string>
@@ -233,7 +237,7 @@
   <string name="article_menu_bar_bookmark">اس مضمون کو کسی فہرست مطالعہ میں شامل کریں</string>
   <string name="article_menu_bar_share">مضمون کا ربط دوسروں کو بھیجیں</string>
   <string name="article_menu_bar_navigate">مضمون کے مقام کو پہنچنے کے لیے گھمائیں</string>
-  <string name="nav_item_reading_lists" fuzzy="true">مطالعہ کی فہرستیں</string>
+  <string name="nav_item_reading_lists">مطالعہ کی فہرستیں</string>
   <string name="reading_list_untitled">بلا عنوان</string>
   <string name="reading_list_save_to">فہرست مطالعہ میں محفوظ کریں</string>
   <string name="reading_list_create_new">نیا بنائیں</string>
@@ -242,7 +246,7 @@
   <string name="reading_list_already_exists">یہ مضمون پہلے سے ہی ‫اُس‬ فہرست ميں ہے۔</string>
   <string name="reading_list_added_view_button">فہرست دیکھیں</string>
   <string name="reading_list_item_count_singular">ایک مضمون</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d مضامین</string>
+  <string name="reading_list_item_count_plural">%d مضامین</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_by_name">نام سے ترتیب دیں</string>
   <string name="reading_list_sort_by_name_desc">نام سے ترتیب دیں (الٹا)</string>
@@ -261,7 +265,7 @@
   <string name="reading_list_edit_cancel">منسوخ</string>
   <string name="reading_list_delete_confirm">کیا آپ یقینی طور پراس کو فہرست مطالعہ سے حذف کرنا چاہتے ہیں؟</string>
   <string name="reading_lists_empty">یہاں کوئی فہرست مطالعہ موجود نہیں ہے۔</string>
-  <string name="reading_lists_empty_message" fuzzy="true">جن مضامین کو آپ پڑھتے ہیں انہیں مطالعہ کی فہرستوں میں شامل کریں! کسی مضمون کا مطالعہ کرتے وقت مضمون کے اوپر موجود بُک مارک نشان کو تھپتھپائیں تاکہ اسے فہرست مطالعہ میں شامل کیا جاسکے۔</string>
+  <string name="reading_lists_empty_message">جن مضامین کو آپ پڑھتے ہیں انہیں \'مطالعہ کی فہرستوں\' میں شامل کریں! کسی مضمون کا مطالعہ کرتے وقت مضمون کے اوپر موجود بُک مارک نشان کو دبائیں تاکہ اسے کسی مطالعہ کی فہرست میں شامل کیا جاسکے۔</string>
   <string name="reading_lists_onboarding_intro">ان مضامین سے مطالعہ کی فہرستیں بنائیں جنہیں آپ بعد میں پڑھنا چاہتے ہیں، خواہ آپ آف لائن ہوں!</string>
   <string name="reading_lists_onboarding_for_example">مثلاً</string>
   <string name="reading_lists_onboarding_example1">دیکھنے کے مقامات</string>
@@ -280,14 +284,22 @@
   <string name="view_featured_image_card_download">اتاریں</string>
   <string name="menu_feed_card_dismiss">اس کارڈ کو چھپائیں</string>
   <string name="menu_feed_card_dismissed">کارڈ پوشیدہ ہے۔</string>
+  <string name="menu_feed_overflow_label">مزید اختیارات</string>
   <string name="feed_featured_image_share_subject">ویکیمیڈیا کامنز کی منتخب تصویر</string>
   <string name="feed">تحقیق کریں</string>
   <string name="view_card_footer_button">مزید دیکھیے</string>
   <string name="most_read_list_card_title">کثیر مشاہدہ صفحات</string>
   <string name="view_static_card_icon_content_description">کارڈ آئیکون</string>
   <string name="view_card_news_title">خبروں میں</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">گزشتہ کل</item>
     <item quantity="other">%d دن قبل</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">آج</string>
+  <string name="description_edit_header">زیر ترمیم</string>
+  <string name="description_edit_help_hint">یہ کیا ہے؟</string>
+  <string name="description_edit_text_hint">وضاحت لکھیں</string>
+  <string name="description_edit_save">محفوظ کریں</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">وضاحت شامل کریں</string>
 </resources>
