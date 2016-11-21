@@ -98,19 +98,15 @@ public class AnnouncementClient implements FeedClient {
         }
     }
 
-    private static List<Card> buildCards(@NonNull List<Announcement> announcements) {
+    @VisibleForTesting
+    static List<Card> buildCards(@NonNull List<Announcement> announcements) {
         List<Card> cards = new ArrayList<>();
         String country = getGeoIPCountry();
         Date now = new Date();
         for (Announcement announcement : announcements) {
-            if (!shouldShow(announcement, country, now)) {
-                continue;
+            if (shouldShow(announcement, country, now)) {
+                cards.add(new AnnouncementCard(announcement));
             }
-
-            // TODO: add this card!
-
-            L.d("yes!!");
-
         }
         return cards;
     }
