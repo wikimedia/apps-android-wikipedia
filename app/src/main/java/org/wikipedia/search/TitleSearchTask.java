@@ -18,8 +18,6 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
-
 public class TitleSearchTask extends ApiTask<SearchResults> {
     private final String prefix;
     private final WikiSite wiki;
@@ -137,7 +135,7 @@ public class TitleSearchTask extends ApiTask<SearchResults> {
             if (item.has("terms")) {
                 JSONArray arr = item.getJSONObject("terms").optJSONArray("description");
                 if (arr != null && arr.length() > 0) {
-                    description = capitalizeFirstChar(arr.getString(0));
+                    description = arr.getString(0);
                 }
             }
             String titleText = item.getString("title");

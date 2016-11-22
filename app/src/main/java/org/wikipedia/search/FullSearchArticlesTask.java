@@ -12,7 +12,6 @@ import org.wikipedia.dataclient.ApiTask;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -131,7 +130,7 @@ public class FullSearchArticlesTask extends ApiTask<SearchResults> {
             if (item.has("terms")) {
                 JSONArray arr = item.getJSONObject("terms").optJSONArray("description");
                 if (arr != null && arr.length() > 0) {
-                    description = StringUtil.capitalizeFirstChar(arr.getString(0));
+                    description = arr.getString(0);
                 }
             }
             PageProperties properties = null;

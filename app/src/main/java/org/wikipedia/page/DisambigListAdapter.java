@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -128,7 +129,7 @@ class DisambigListAdapter extends ArrayAdapter<DisambigResult> {
 
         final DisambigResult item = items[position];
         holder.title.setText(item.getTitle().getDisplayText());
-        holder.description.setText(item.getTitle().getDescription());
+        holder.description.setText(StringUtils.capitalize(item.getTitle().getDescription()));
 
         ViewUtil.loadImageUrlInto(holder.icon, pageImagesCache.get(item.getTitle().getPrefixedText()));
         return convertView;

@@ -24,8 +24,6 @@ import org.wikipedia.util.log.L;
 
 import java.util.List;
 
-import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
-
 /**
  * Gson POJO for loading the first stage of page content.
  */
@@ -163,7 +161,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Override
     @Nullable
     public String getDescription() {
-        return description != null ? capitalizeFirstChar(description) : null;
+        return description;
     }
 
     @Override

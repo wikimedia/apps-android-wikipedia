@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
@@ -445,7 +446,7 @@ public class BottomContentHandler implements BottomContentInterface,
             pageTitleText.setText(result.getPageTitle().getDisplayText());
 
             GoneIfEmptyTextView descriptionText = (GoneIfEmptyTextView) convertView.findViewById(R.id.page_list_item_description);
-            descriptionText.setText(result.getPageTitle().getDescription());
+            descriptionText.setText(StringUtils.capitalize(result.getPageTitle().getDescription()));
 
             ViewUtil.loadImageUrlInto((SimpleDraweeView) convertView.findViewById(R.id.page_list_item_image), result.getPageTitle().getThumbUrl());
             return convertView;

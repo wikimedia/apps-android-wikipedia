@@ -18,6 +18,7 @@ import android.widget.ImageView;
 
 import com.appenguin.onboarding.ToolTip;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.R;
@@ -138,7 +139,7 @@ public class ShareHandler {
                 final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.getContext(),
                         fragment.getLeadImageBitmap(),
                         title.getDisplayText(),
-                        fragment.getPage().isMainPage() ? "" : title.getDescription(),
+                        fragment.getPage().isMainPage() ? "" : StringUtils.capitalize(title.getDescription()),
                         selectedText,
                         leadImageLicense);
 

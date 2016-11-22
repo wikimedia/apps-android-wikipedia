@@ -77,14 +77,14 @@ public class PageTitleListCardItemViewTest extends ViewTest {
         setUpTypical();
         CharSequence text = nul ? null : "text";
         subject.setTitle(text);
-        assertThat(subject.titleView.getText(), is(emptyIfNull(text)));
+        assertThat(subject.titleView.getText().toString(), is(emptyIfNull(text)));
     }
 
     @Theory public void testSetSubtitle(@TestedOnBool boolean nul) {
         setUpTypical();
         CharSequence text = nul ? null : "text";
         subject.setSubtitle(text);
-        assertThat(subject.subtitleView.getText(), is(emptyIfNull(text)));
+        assertThat(subject.subtitleView.getText().toString(), is(emptyIfNull(text)));
     }
 
     private void setUpTypical() {
