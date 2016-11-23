@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.json.GsonUtil;
-import org.wikipedia.news.NewsLinkCard;
 import org.wikipedia.test.TestFileUtil;
 import org.wikipedia.test.TestRunner;
 

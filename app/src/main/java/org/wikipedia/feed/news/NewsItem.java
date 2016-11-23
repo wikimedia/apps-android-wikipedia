@@ -8,7 +8,6 @@ import org.wikipedia.Constants;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.FeedPageSummary;
 import org.wikipedia.json.annotations.Required;
-import org.wikipedia.news.NewsLinkCard;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,18 +20,15 @@ public final class NewsItem {
     @SuppressWarnings("unused,NullableProblems") @NonNull private List<FeedPageSummary> links
             = Collections.emptyList();
 
-    @NonNull
-    public String story() {
+    @NonNull String story() {
         return story;
     }
 
-    @NonNull
-    public List<FeedPageSummary> links() {
+    @NonNull public List<FeedPageSummary> links() {
         return links;
     }
 
-    @NonNull
-    public List<NewsLinkCard> linkCards(WikiSite wiki) {
+    @NonNull List<NewsLinkCard> linkCards(WikiSite wiki) {
         List<NewsLinkCard> linkCards = new ArrayList<>();
         for (FeedPageSummary link : links) {
             linkCards.add(new NewsLinkCard(link, wiki));
@@ -40,14 +36,12 @@ public final class NewsItem {
         return linkCards;
     }
 
-    @Nullable
-    public Uri thumb() {
+    @Nullable public Uri thumb() {
         Uri uri = getFirstImageUri(links);
         return uri != null ? getUrlForSize(uri, Constants.PREFERRED_THUMB_SIZE) : null;
     }
 
-    @Nullable
-    public Uri featureImage() {
+    @Nullable Uri featureImage() {
         return getFirstImageUri(links);
     }
 
@@ -55,8 +49,7 @@ public final class NewsItem {
      * Iterate through the CardPageItems associated with the news story's links and return the first
      * thumb URI found.
      */
-    @Nullable
-    private Uri getFirstImageUri(List<FeedPageSummary> links) {
+    @Nullable private Uri getFirstImageUri(List<FeedPageSummary> links) {
         for (FeedPageSummary link : links) {
             String thumbnail = link.getThumbnailUrl();
             if (thumbnail != null) {

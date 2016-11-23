@@ -26,19 +26,15 @@ public class NewsItemCard extends Card {
         this.wiki = wiki;
     }
 
-    @NonNull
-    public NewsItem item() {
+    @NonNull public NewsItem item() {
         return newsItem;
     }
 
-    @NonNull
-    public WikiSite wikiSite() {
+    @NonNull public WikiSite wikiSite() {
         return wiki;
     }
 
-    @Nullable
-    @Override
-    public Uri image() {
+    @Nullable @Override public Uri image() {
         return newsItem.thumb();
     }
 
@@ -46,25 +42,21 @@ public class NewsItemCard extends Card {
         return CardType.NEWS_ITEM;
     }
 
-    @NonNull
-    public CharSequence text() {
+    @NonNull public CharSequence text() {
         return removeImageCaption(StringUtil.fromHtml(newsItem.story()));
     }
 
-    @NonNull
-    public List<FeedPageSummary> links() {
+    @NonNull public List<FeedPageSummary> links() {
         return newsItem.links();
     }
 
     // Unused
-    @NonNull
-    @Override
-    public String title() {
+    @NonNull @Override public String title() {
         return "";
     }
 
     /* Remove the in-Wikitext thumbnail caption, which will almost certainly not apply here */
-    private CharSequence removeImageCaption(Spanned text) {
+    @NonNull private CharSequence removeImageCaption(@NonNull Spanned text) {
         Object[] spans = RichTextUtil.getSpans(text, 0, text.length());
         for (Object span : spans) {
             if (span instanceof StyleSpan && ((StyleSpan) span).getStyle() == Typeface.ITALIC) {

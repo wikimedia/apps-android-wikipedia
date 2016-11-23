@@ -1,4 +1,4 @@
-package org.wikipedia.news;
+package org.wikipedia.feed.news;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,6 @@ import android.view.WindowManager;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.news.NewsItem;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 

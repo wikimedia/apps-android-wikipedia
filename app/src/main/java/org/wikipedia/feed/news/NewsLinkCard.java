@@ -1,4 +1,4 @@
-package org.wikipedia.news;
+package org.wikipedia.feed.news;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -14,11 +14,11 @@ import org.wikipedia.page.PageTitle;
 
 import static org.wikipedia.util.ImageUrlUtil.getUrlForSize;
 
-public class NewsLinkCard extends Card {
+class NewsLinkCard extends Card {
     @NonNull private FeedPageSummary page;
     @NonNull private WikiSite wiki;
 
-    public NewsLinkCard(@NonNull FeedPageSummary page, @NonNull WikiSite wiki) {
+    NewsLinkCard(@NonNull FeedPageSummary page, @NonNull WikiSite wiki) {
         this.page = page;
         this.wiki = wiki;
     }

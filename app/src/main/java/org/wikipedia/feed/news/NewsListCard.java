@@ -20,9 +20,7 @@ public class NewsListCard extends ListCard<NewsItemCard> {
         this.age = age;
     }
 
-    @NonNull
-    @Override
-    public String title() {
+    @NonNull @Override public String title() {
         return "";
     }
 
@@ -30,13 +28,11 @@ public class NewsListCard extends ListCard<NewsItemCard> {
         return CardType.NEWS_LIST;
     }
 
-    @NonNull
-    public UtcDate age() {
+    @NonNull public UtcDate age() {
         return age;
     }
 
-    @NonNull @VisibleForTesting
-    public static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull WikiSite wiki) {
+    @NonNull @VisibleForTesting static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull WikiSite wiki) {
         List<NewsItemCard> itemCards = new ArrayList<>();
         for (NewsItem item : items) {
             itemCards.add(new NewsItemCard(item, wiki));
@@ -44,8 +40,7 @@ public class NewsListCard extends ListCard<NewsItemCard> {
         return itemCards;
     }
 
-    @Override
-    protected int dismissHashCode() {
+    @Override protected int dismissHashCode() {
         return (int) TimeUnit.MILLISECONDS.toDays(age.baseCalendar().getTime().getTime());
     }
 }
