@@ -75,8 +75,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
     issuesContainer.id = "issues_container";
     document.getElementById( "content" ).appendChild( issuesContainer );
 
-    var editButton = buildEditSectionButton( payload.section.id );
-
     var content = document.createElement( "div" );
     content.setAttribute( "dir", window.directionality );
     content.innerHTML = payload.section.text;
@@ -122,9 +120,6 @@ bridge.registerListener( "displayLeadSection", function( payload ) {
             transformer.transform( "widenImages", content ); // offsetWidth
         }
     }
-
-    // insert the edit pencil
-    content.insertBefore( editButton, content.firstChild );
 
     transformer.transform("displayDisambigLink", content);
     transformer.transform("displayIssuesLink", content);
