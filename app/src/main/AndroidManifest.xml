@@ -156,6 +156,9 @@
             android:theme="@style/AppTheme.TranslucentDark"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
+        <activity android:name=".descriptions.DescriptionEditHelpActivity"
+            android:theme="@style/AppTheme"/>
+
         <provider
                 android:authorities="${applicationId}"
                 android:name=".database.AppContentProvider"
