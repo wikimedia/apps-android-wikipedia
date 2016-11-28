@@ -1,6 +1,7 @@
 package org.wikipedia;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
@@ -134,6 +135,18 @@ public final class SharedPreferenceCookieManager extends CookieManager {
 
     public static List<String> makeList(String str) {
         return StringUtil.delimiterStringToList(str, DELIMITER);
+    }
+
+    @Nullable
+    public synchronized String getCookieByName(@NonNull String name) {
+        for (String domainSpec: cookieJar.keySet()) {
+            for (String cookie : cookieJar.get(domainSpec).keySet()) {
+                if (cookie.equals(name)) {
+                    return cookieJar.get(domainSpec).get(cookie);
+                }
+            }
+        }
+        return null;
     }
 
     private Map<String, String> makeCookieMap(@NonNull List<String> cookies) {
