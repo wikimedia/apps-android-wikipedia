@@ -220,6 +220,7 @@
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
   <string name="nav_item_donate">Podpořte Wikipedii</string>
   <string name="error_voice_search_not_available">Omlouváme se, ale rozpoznávání hlasu není k dispozici.</string>
+  <string name="enable_location_service">Povolit</string>
   <string name="crash_report_dialog_title">Omlouváme se, aplikace minule spadla</string>
   <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
   <string name="crash_report_dialog_dont_send_button">Přeskočit</string>
@@ -243,7 +244,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_already_exists">Tento článek už v tomto seznamu je.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
   <string name="reading_list_item_count_singular">1 článek</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d článků</string>
+  <string name="reading_list_item_count_plural">%d článků</string>
   <string name="reading_list_sort">Seřadit</string>
   <string name="reading_list_sort_by_name">Seřadit podle názvu</string>
   <string name="reading_list_sort_by_name_desc">Seřadit podle názvu (v obráceném pořadí)</string>
@@ -281,6 +282,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="view_featured_image_card_download">Stáhnout</string>
   <string name="menu_feed_card_dismiss">Skrýt tento návrh</string>
   <string name="menu_feed_card_dismissed">Návrh skryt.</string>
+  <string name="menu_feed_overflow_label">Více možností</string>
   <string name="feed_featured_image_share_subject">Dobrý obrázek z Wikimedia Commons</string>
   <string name="feed">Prozkoumat</string>
   <string name="view_card_footer_button">Zobrazit více</string>
@@ -293,6 +295,7 @@ Chcete začít znovu, nebo skončit?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
   <string name="description_edit_header">Editování</string>
+  <string name="description_edit_help_hint">Co to je?</string>
   <string name="description_edit_text_hint">Udělejte popis!</string>
   <string name="description_edit_save">Uložit</string>
   <string name="description_edit_char_count">%1$d / %2$d</string>

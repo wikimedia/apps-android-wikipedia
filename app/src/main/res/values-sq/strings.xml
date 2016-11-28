@@ -86,7 +86,7 @@
   <string name="create_account_button">Krijo llogari</string>
   <string name="preferences_general_heading">Të përgjithshme</string>
   <string name="wikipedia_app_faq">Pyetje dhe përgjigje</string>
-  <string name="zero_charged_verbiage">Wikipedia Zero është e çaktivizuar</string>
+  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero është e çaktivizuar</string>
   <string name="zero_warn_when_leaving">Paralajmëroni në qoftë se largohet nga Wikipedia Zero</string>
   <string name="zero_webpage_title">Pyetje dhe përgjigje për Wikipedia Zero</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -94,9 +94,27 @@
   <string name="zero_interstitial_continue">Largohu</string>
   <string name="zero_interstitial_cancel">Qëndro këtu</string>
   <string name="zero_learn_more" fuzzy="true">Dëshironi të mësoni në lidhje me Wikipedia Zero?</string>
-  <string name="zero_learn_more_learn_more">Lexo më shumë</string>
+  <string name="zero_learn_more_learn_more" fuzzy="true">Lexo më shumë</string>
   <string name="zero_learn_more_dismiss">Largoje</string>
   <string name="nav_item_random">I rastit</string>
   <string name="create_account_account_created_toast">Llogaria u krijua!</string>
   <string name="preferences_privacy_settings_heading">Privatësia</string>
+  <string name="edit_summary_tag_typo">Korrigjim gabim shtypi</string>
+  <string name="edit_summary_tag_other">Tjetër</string>
+  <string name="text_size_select">Madhësia e shkrimit</string>
+  <string name="color_theme_select">Tema</string>
+  <string name="dialog_close_description">Mbyll</string>
+  <string name="preference_title_show_images">Shfaq imazhet</string>
+  <string name="format_error_server_message">Mesazh: \"%s\"</string>
+  <string name="format_error_server_code">Kodi: \"%s\"</string>
+  <string name="address_copied">Adresa që keni kopjuar në clipboard.</string>
+  <string name="text_copied">Teksti që keni kopjuar në clipboard.</string>
+  <string name="button_continue_to_article">Lexoni artikullin</string>
+  <string name="nav_item_donate">Mbështesni Wikipedia-n</string>
+  <string name="error_voice_search_not_available">Na vjen keq, njohja e zërit nuk është në dispozicion.</string>
+  <string name="location_service_disabled">Shërbimet e vendndodhjes janë të çaktivizuara.</string>
+  <string name="enable_location_service">Aktivizo</string>
+  <string name="crash_report_dialog_dont_send_button">Kapërce</string>
+  <string name="crash_report_dialog_always_send_button">Gjithmonë dërgo</string>
+  <string name="crash_report_dialog_send_button">Dërgo</string>
 </resources>

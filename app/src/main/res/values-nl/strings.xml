@@ -100,7 +100,7 @@
   <string name="zero_interstitial_leave_app">Er kunnen kosten gerekend worden voor mobiele data. Doorgaan naar de externe website?</string>
   <string name="zero_interstitial_continue">Afsluiten</string>
   <string name="zero_interstitial_cancel">Hier blijven</string>
-  <string name="zero_learn_more" fuzzy="true">Er worden geen kosten in rekening gebracht voor het gegevensgebruik via deze Wikipedia-app.</string>
+  <string name="zero_learn_more">Uw wirelessprovider biedt gratis toegang tot inhoud van Wikipedia aan!</string>
   <string name="zero_learn_more_learn_more">Meer leren</string>
   <string name="zero_learn_more_dismiss">Sluiten</string>
   <string name="edit_preview_fetching_dialog_message">Voorvertoning aan het ophalen…</string>
@@ -182,7 +182,7 @@
   <string name="read_more_section">Meer lezen</string>
   <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>
   <string name="gallery_error_draw_failed">De afbeelding kon niet weergegeven worden.</string>
-  <string name="license_title">Licentietekst voor %s</string>
+  <string name="license_title">Licentie voor %s</string>
   <string name="gallery_menu_share">Delen</string>
   <string name="gallery_share_error">Kon afbeelding niet delen: %s</string>
   <string name="gallery_menu_save">Opslaan op apparaat</string>
@@ -221,7 +221,7 @@
   <string name="preference_title_show_link_previews">Voorvertoningen van koppelingen weergeven</string>
   <string name="preference_summary_show_link_previews">Korte voorvertoning weergeven van pagina\'s bij het aanraken van koppelingen.</string>
   <string name="nav_item_donate">Steun Wikipedia</string>
-  <string name="error_voice_search_not_available">Sorry, spraakherkenning is niet beschikbaar.</string>
+  <string name="error_voice_search_not_available">Spraakherkenning is helaas niet beschikbaar.</string>
   <string name="location_service_disabled">Locatievoorzieningen zijn uitgeschakeld.</string>
   <string name="enable_location_service">Inschakelen</string>
   <string name="crash_report_dialog_title">De app is de laatste keer helaas gecrasht</string>
@@ -233,7 +233,7 @@
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.</string>
   <string name="crash_report_relaunch">Opnieuw starten</string>
   <string name="crash_report_quit">Afsluiten</string>
-  <string name="article_menu_bar_bookmark">Dit artikel toevoegen aan een leeslijst</string>
+  <string name="article_menu_bar_bookmark">Deze pagina toevoegen aan een leeslijst</string>
   <string name="article_menu_bar_share">Koppeling naar pagina delen</string>
   <string name="article_menu_bar_navigate">Naar de locatie van de pagina navigeren</string>
   <string name="nav_item_reading_lists">Mijn lijsten</string>
@@ -242,9 +242,9 @@
   <string name="reading_list_create_new">Nieuwe aanmaken</string>
   <string name="reading_list_added_to_named">Toegevoegd aan %s.</string>
   <string name="reading_list_added_to_unnamed">Toegevoegd aan leeslijst.</string>
-  <string name="reading_list_already_exists">Dit artikel staat al in die lijst.</string>
+  <string name="reading_list_already_exists">Deze pagina staat al in die lijst.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
-  <string name="reading_list_item_count_singular">1 artikel</string>
+  <string name="reading_list_item_count_singular">1 pagina</string>
   <string name="reading_list_item_count_plural">%d pagina\'s</string>
   <string name="reading_list_sort">Sorteren</string>
   <string name="reading_list_sort_by_name">Sorteren op naam</string>
@@ -262,21 +262,21 @@
   <string name="reading_list_deleted">%s verwijderd</string>
   <string name="reading_list_edit_ok">OK</string>
   <string name="reading_list_edit_cancel">Annuleren</string>
-  <string name="reading_list_delete_confirm">Weet je zeker dat je deze leeslijst wilt verwijderen?</string>
-  <string name="reading_lists_empty">Geen leeslijsten hier.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Organiseer de artikels die je bekijkt in leeslijsten! Tik terwijl je een artikel bekijkt op het bladwijzerpictogram bovenaan het artikel om het toe te voegen aan een leeslijst.</string>
-  <string name="reading_lists_onboarding_intro">Maak leeslijsten van artikels die je later wilt lezen, zelfs als je offline bent!</string>
+  <string name="reading_list_delete_confirm">Weet u zeker dat u deze leeslijst wilt verwijderen?</string>
+  <string name="reading_lists_empty">Er zijn nog geen leeslijsten aangemaakt.</string>
+  <string name="reading_lists_empty_message">Organiseer de pagina\'s die je bekijkt in leeslijsten! Tik terwijl je een pagina bekijkt op het bladwijzerpictogram onderaan de werkbalk om deze toe te voegen aan een leeslijst.</string>
+  <string name="reading_lists_onboarding_intro">Maak leeslijsten van pagina\'s die u later wilt lezen, zelfs als u offline bent!</string>
   <string name="reading_lists_onboarding_for_example">Bijvoorbeeld</string>
   <string name="reading_lists_onboarding_example1">Plaatsen om te bezoeken</string>
   <string name="reading_lists_onboarding_example2">Favoriete dieren</string>
   <string name="reading_lists_onboarding_example3">Ruimtevaart!</string>
   <string name="reading_lists_onboarding_got_it">Begrepen</string>
-  <string name="reading_lists_onboarding_page_delete">Tip: veeg elke pagina die je van deze leeslijst wilt verwijderen naar links of rechts.</string>
+  <string name="reading_lists_onboarding_page_delete">Tip: veeg elke pagina die u van deze leeslijst wilt verwijderen naar links of rechts.</string>
   <string name="user_option_sync_label">Voorkeuren</string>
   <string name="view_continue_reading_card_title">Verder lezen</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
   <string name="view_random_card_title">Randomizer</string>
-  <string name="view_random_card_subtitle">Een willekeurig artikel uit Wikipedia lezen</string>
+  <string name="view_random_card_subtitle">Een willekeurige pagina uit Wikipedia lezen</string>
   <string name="view_main_page_card_title">Vandaag op Wikipedia</string>
   <string name="view_main_page_card_subtitle">Hoofdpagina op %s</string>
   <string name="view_featured_image_card_title">Afbeelding van de dag</string>
@@ -288,7 +288,7 @@
   <string name="feed">Verkennen</string>
   <string name="view_card_footer_button">Meer zien</string>
   <string name="most_read_list_card_title">Populair</string>
-  <string name="view_static_card_icon_content_description">Kaart-icoon</string>
+  <string name="view_static_card_icon_content_description">Kaartpictogram</string>
   <string name="view_card_news_title">Actueel</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">Gisteren</item>

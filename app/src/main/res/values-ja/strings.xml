@@ -238,7 +238,7 @@
   <string name="article_menu_bar_bookmark">この記事をあとで読むリストに追加</string>
   <string name="article_menu_bar_share">記事のリンクを共有します</string>
   <string name="article_menu_bar_navigate">記事の対象が実際にある場所までご案内します</string>
-  <string name="nav_item_reading_lists" fuzzy="true">あとで読むリスト</string>
+  <string name="nav_item_reading_lists">自分のリスト</string>
   <string name="reading_list_untitled">題名なし</string>
   <string name="reading_list_save_to">あとで読むリストに保存</string>
   <string name="reading_list_create_new">新規作成</string>
@@ -247,7 +247,7 @@
   <string name="reading_list_already_exists">この記事は既にリストにあります</string>
   <string name="reading_list_added_view_button">リストを表示</string>
   <string name="reading_list_item_count_singular">1記事</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d記事</string>
+  <string name="reading_list_item_count_plural">%d記事</string>
   <string name="reading_list_sort">並べ替え</string>
   <string name="reading_list_sort_by_name">名前順に並べ替え</string>
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
@@ -297,7 +297,10 @@
     <item quantity="other">%d日前</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今日</string>
+  <string name="description_edit_header">編集中</string>
+  <string name="description_edit_help_hint">これは何?</string>
   <string name="description_edit_text_hint">要約欄を記入してください</string>
   <string name="description_edit_save">保存</string>
   <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">説明を追加</string>
 </resources>

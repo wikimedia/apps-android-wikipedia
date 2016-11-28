@@ -91,7 +91,7 @@
   <string name="create_account_button">Opprett konto</string>
   <string name="preferences_general_heading">Generelt</string>
   <string name="wikipedia_app_faq">Ofte stilte spørsmål om Wikipedia-appen</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero er skrudd av</string>
+  <string name="zero_charged_verbiage">Gratis tilgang til Wikipedia er ikke lenger aktiv.</string>
   <string name="zero_warn_when_leaving">Varsle hvis jeg forlater Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Hvis mobiloperatøren din dekker datakostnader for Wikipedia-appen gjennom et Wikipedia Zero-samarbeid, kan denne innstillingen informere deg når du forlater Wikipedia-appen og datakostnader kan påløpe.</string>
   <string name="zero_webpage_title">Ofte stilte spørsmål om Wikipedia Zero</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">Datakostnader kan påløpe. Fortsette til eksternt nettsted?</string>
   <string name="zero_interstitial_continue">Forlat appen</string>
   <string name="zero_interstitial_cancel">Forbli her</string>
-  <string name="zero_learn_more" fuzzy="true">Datakostnader påløper ikke for denne Wikipedia-appen.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Lær mer</string>
+  <string name="zero_learn_more">Mobiloperatøren din har tilbudt gratis tilgang til Wikipedia-innhold!</string>
+  <string name="zero_learn_more_learn_more">Lær mer</string>
   <string name="zero_learn_more_dismiss">Lukk</string>
   <string name="edit_preview_fetching_dialog_message">Henter forhåndsvisning…</string>
   <string name="send_feedback">Gi oss tilbakemelding</string>
@@ -222,6 +222,8 @@
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="nav_item_donate">Støtt Wikipedia</string>
   <string name="error_voice_search_not_available">Beklager, stemmegjenkjenning er ikke tilgjengelig.</string>
+  <string name="location_service_disabled">Stedstjenester er slått av.</string>
+  <string name="enable_location_service">Slå på</string>
   <string name="crash_report_dialog_title">Beklager, appen krasjet forrige gang</string>
   <string name="crash_report_dialog_text">Vil du sende en krasjrapport til tredjepartstjenesten HockeyApp slik at Wikimedia kan gjennomgå den og fikse feilen som førte til krasjet?</string>
   <string name="crash_report_dialog_dont_send_button">Hopp over</string>
@@ -290,9 +292,15 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortsymbol</string>
   <string name="view_card_news_title">I nyhetene</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">i går</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">I går</item>
     <item quantity="other">for %d dager siden</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">i dag</string>
+  <string name="view_continue_reading_card_subtitle_today">I dag</string>
+  <string name="description_edit_header">Redigerer</string>
+  <string name="description_edit_help_hint">Hva er dette?</string>
+  <string name="description_edit_text_hint">Skriv en beskrivelse!</string>
+  <string name="description_edit_save">Lagre</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Legg til beskrivelse</string>
 </resources>

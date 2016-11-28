@@ -91,7 +91,7 @@
   <string name="create_account_button">Hesap oluştur</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero kapalı</string>
+  <string name="zero_charged_verbiage">Vikipedi\'ye ücretsiz erişim artık etkin değil.</string>
   <string name="zero_warn_when_leaving">Wikipedia Zero\'dan çıkılırsa uyar</string>
   <string name="zero_warn_when_leaving_summary">Eğer mobil operatörünüz Wikipedia Zero ortaklığıyla, Vikipedi uygulaması için ücretsiz veri erişimi sağlıyorsa, bu seçeneği işaretlemek, ne zaman Vikipedi uygulamasından çıktığınızı ve ücret ödemeniz gerekebileceğini anlamanıza yardımcı olur.</string>
   <string name="zero_webpage_title">Wikipedia Zero SSS</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">Veri ücretleri uygulanabilir. Dış bağlantıya gidilsin mi?</string>
   <string name="zero_interstitial_continue">Devam et</string>
   <string name="zero_interstitial_cancel">İptal</string>
-  <string name="zero_learn_more" fuzzy="true">Bu Vikipedi uygulaması için veri iletişim ücretleri alınmamaktadır.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Daha fazla bilgi</string>
+  <string name="zero_learn_more">Kablosuz taşıyıcınız Vikipedi içeriğine ücretsiz erişim sağlamaktadır!</string>
+  <string name="zero_learn_more_learn_more">Daha fazla bilgi</string>
   <string name="zero_learn_more_dismiss">Kapat</string>
   <string name="edit_preview_fetching_dialog_message">Ön izleme getiriliyor…</string>
   <string name="send_feedback">Uygulama geri bildirimi gönder</string>
@@ -222,6 +222,8 @@
   <string name="preference_summary_show_link_previews">Bağlantılara dokununca kısa bir ön izleme görüntülenir.</string>
   <string name="nav_item_donate">Vikipediye Destek Ol</string>
   <string name="error_voice_search_not_available">Üzgünüz, ses tanıma kullanılabilir değil.</string>
+  <string name="location_service_disabled">Konum hizmetleri devre dışı.</string>
+  <string name="enable_location_service">Etkinleştir</string>
   <string name="crash_report_dialog_title">Üzgünüm, son seferda uygulama çöktü</string>
   <string name="crash_report_dialog_text">HockeyApp\'a (çökmeyi incelememizi ve sebep olan hatayı düzeltmemizi sağlayan, bir üçüncü parti servis sağlayıcısı) bir hata raporu göndermek ister misiniz?</string>
   <string name="crash_report_dialog_dont_send_button">Atla</string>
@@ -288,9 +290,15 @@
   <string name="most_read_list_card_title">Gündemdekiler</string>
   <string name="view_static_card_icon_content_description">Kart simgesi</string>
   <string name="view_card_news_title">Haberlerde</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">dün</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Dün</item>
     <item quantity="other">%d gün önce</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">bugün</string>
+  <string name="view_continue_reading_card_subtitle_today">Bugün</string>
+  <string name="description_edit_header">Değiştiriliyor</string>
+  <string name="description_edit_help_hint">Bu nedir?</string>
+  <string name="description_edit_text_hint">Bir açıklama yazın!</string>
+  <string name="description_edit_save">Kaydet</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Açıklama ekle</string>
 </resources>

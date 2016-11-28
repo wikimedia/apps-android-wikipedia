@@ -156,8 +156,10 @@
   <string name="color_theme_light">हल्का</string>
   <string name="color_theme_dark">गाढा</string>
   <string name="page_similar_titles">मिल्दोजुल्दो पृष्ठहरू</string>
+  <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
   <string name="button_clear_all_recent_searches">भर्खरैका खोजहरू खाली गर्नुहोस्</string>
+  <string name="clear_recent_searches_confirm">के तपाईं साँच्चिकै आफ्नो खोज इतिहास खाली गर्न चाहनुहुन्छ?</string>
   <string name="error_browser_not_found">वेब पृष्ठ खोल्न सकिएन (कुनै ब्राउजर अनुप्रयोग फेला परेन)।</string>
   <string name="table_infobox">शीध्रगामी तथ्यहरू</string>
   <string name="table_other">थप जानकारी</string>
@@ -172,7 +174,10 @@
   <string name="preference_title_show_images">चित्रहरू देखाउनुहोस्</string>
   <string name="read_more_section">थप पढ्नुहोस्</string>
   <string name="menu_gallery_visit_page">फाइल पृष्ठमा जानुहोस्</string>
+  <string name="gallery_error_draw_failed">छवि प्रदर्शन गर्न सकिएन।</string>
+  <string name="license_title">%s को इजाजतपत्र</string>
   <string name="gallery_menu_share">आदान-प्रदान गर्नुहोस्</string>
+  <string name="gallery_share_error">निम्न छवि आदान-प्रदान गर्न सकिएन: %s</string>
   <string name="gallery_menu_save">यन्त्रमा बचत गर्नुहोस्</string>
   <string name="gallery_save_progress">फाइल डाउनलोड गर्दै…</string>
   <string name="gallery_save_success">फाइल सफलतापूर्वक बचत गरियो।</string>
@@ -183,13 +188,16 @@
   <string name="share_snippet_button">चित्रको रूपमा आदान-प्रदान गर्नुहोस्</string>
   <string name="share_normal_button">अक्षरको रूपमा आदान-प्रदान गर्नुहोस्</string>
   <string name="snippet_share_preview_image_desc">चित्र पूर्वावलोकन</string>
+  <string name="cc_logo">Creative Commons इजाजतपत्र</string>
   <string name="captcha_image">Captcha छवि</string>
   <string name="gallery_fair_use_license">उचित उपयोग</string>
   <string name="gallery_uploader_unknown">अज्ञात अपलोडकर्ता</string>
   <string name="menu_new_tab">नयाँ ट्याब</string>
   <string name="menu_close_all_tabs">सबै ट्याबहरू बन्द गर्नुहोस्</string>
+  <string name="close_all_tabs_confirm">के तपाईं साँच्चिकै सबै ट्याबहरू बन्द गर्न चाहनुहुन्छ?</string>
   <string name="button_close_tab">ट्याब बन्द गर्नुहोस्</string>
   <string name="page_view_in_browser">पृष्ठलार्इ ब्राउजरमा हेर्नुहोस्</string>
+  <string name="error_server_response">सर्भरले यो अनुरोध पूरा गर्न सकेन।</string>
   <string name="error_unknown">एउटा अज्ञात त्रुटि देखा पर्‍यो।</string>
   <string name="format_error_server_message">सन्देश: \"%s\"</string>
   <string name="format_error_server_code">कोड: \"%s\"</string>
@@ -200,8 +208,9 @@
   <string name="error_no_maps_app">दिशानिर्देशन प्रदान गर्ने कुनै अनुप्रयोगहरू फेला पार्न सकिएन।</string>
   <string name="preference_title_show_link_previews">लिङ्कका पूर्वावलोकनहरू देखाउनुहोस्</string>
   <string name="preference_summary_show_link_previews">लिङ्कहरूमा ट्याप गर्दा लेखहरूका द्रुत पूर्वावलोकन प्रदर्शन गर्नुहोस्।</string>
-  <string name="nav_item_donate">विकिपिडियालाई सहयोग गर्नुहोस्</string>
+  <string name="nav_item_donate">विकिपिडियालाई समर्थन गर्नुहोस्</string>
   <string name="error_voice_search_not_available">माफ गर्नुहोस्, आवाज पहिचान उपलब्ध छैन।</string>
+  <string name="location_service_disabled">स्थान सेवाहरू असक्षम पारिएको छ।</string>
   <string name="enable_location_service">सक्षम पार्नुहोस्</string>
   <string name="crash_report_dialog_title">माफ गर्नुहोस्, अनुप्रयोग पछिल्लो पटक क्र्यास भयो</string>
   <string name="crash_report_dialog_text">विकिमिडियालार्इ तपार्इंको क्र्यासको समीक्षा गर्न तथा उक्त क्र्यास गराउने समस्याको समाधान गर्न सक्षम बनाउनका लागि के तपार्इं क्र्यास प्रतिवेदन HockeyApp / एक तेस्रो-पक्ष सेवा प्रदायकलार्इ पठाउन चाहनुहुन्छ?</string>
@@ -209,10 +218,11 @@
   <string name="crash_report_dialog_always_send_button">सधैँ पठाउनुहोस्</string>
   <string name="crash_report_dialog_send_button">पठाउनुहोस्</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटि</string>
-  <string name="crash_report_relaunch">फेरि शुरू गर्नुहोस्</string>
+  <string name="crash_report_relaunch">फेरि शुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिर निस्कनुहोस्</string>
   <string name="article_menu_bar_bookmark">यो लेखलार्इ अध्ययन सूचीमा थप्नुहोस्</string>
   <string name="article_menu_bar_share">लेखको लिङ्क आदान-प्रदान गर्नुहोस्</string>
+  <string name="article_menu_bar_navigate">लेख भएको स्थानसम्म नेभिगेट गर्नुहोस्।</string>
   <string name="nav_item_reading_lists">मेरा सूचीहरू</string>
   <string name="reading_list_untitled">शीर्षकविहीन</string>
   <string name="reading_list_save_to">अध्ययन सूचीमा बचत गर्नुहोस्</string>
@@ -237,6 +247,7 @@
   <string name="reading_list_deleted">%s मेटियो</string>
   <string name="reading_list_edit_ok">ठीक छ</string>
   <string name="reading_list_edit_cancel">रद्द गर्नुहोस्</string>
+  <string name="reading_list_delete_confirm">के तपाईं साँच्चिकै यो अध्ययन सूचीलाई मेट्न चाहनुहुन्छ?</string>
   <string name="reading_lists_empty">यहाँ कुनै अध्ययन सूचीहरू छैनन्।</string>
   <string name="reading_lists_onboarding_for_example">उदाहरणका लागि</string>
   <string name="reading_lists_onboarding_example1">भ्रमण गर्ने ठाउँहरू</string>
@@ -258,13 +269,16 @@
   <string name="view_card_footer_button">थप हेर्नुहोस्</string>
   <string name="most_read_list_card_title">प्रचलित</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकन</string>
-  <string name="view_card_news_title">समाचारमा रहेको</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <string name="view_card_news_title">समाचारमा</string>
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">हिजो</item>
     <item quantity="other">%d दिन अघि</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">आज</string>
+  <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="description_edit_header">सम्पादन गर्दै</string>
   <string name="description_edit_help_hint">यो के हो?</string>
+  <string name="description_edit_text_hint">कुनै विवरण लेख्नुहोस्!</string>
   <string name="description_edit_save">बचत गर्नुहोस्</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">विवरण थप्नुहोस्</string>
 </resources>

@@ -40,6 +40,7 @@
   <string name="talk_page_link_text">Sgwrs</string>
   <string name="content_license_html">Mae\'r cynnwys ar gael dan &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC 3.0 gan SA&lt;/a&gt; oni nodir fel arall</string>
   <string name="edit_save_action_license_logged_in">Drwy arbed, rydych yn cytuno i &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Terms of Use&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ol ar drwydded &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Drwy arbed, rydych yn cytuno i &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;Dermau Defnyddio&lt;/a&gt;, ac yn rhyddhau, yn ddi-droi\'n ol, eich cyfraniadau dan drwydded &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bydd y golygiadau\'n cael eu tadogi i gyfeiriad IP eich dyfais. Ond os ydych yn mewngofnodi, bydd eich golygiadau\'n breifat.</string>
   <string name="preference_title_language">Wicipedia pa iaith?</string>
   <string name="preference_languages_filter_hint">Chwilio</string>
   <string name="langlinks_filter_hint">Chwilier</string>
@@ -62,6 +63,7 @@
   <string name="edit_section_captcha_hint">Ailadrodd geiriau oddi uchod</string>
   <string name="title_captcha">Teipiwch y captcha</string>
   <string name="edit_section_captcha_reload">Tapiwch captcha i ail-lwytho</string>
+  <string name="edit_saved_page_refresh">Gall fod y ddalen rydych yn ei harbed fod yn hen, a dylech ei hadfywio cyn ei golygu. \'Da chi isio gwneud hynny?</string>
   <string name="nav_item_login">Mewngofnodwch i Wicipedia</string>
   <string name="login_username_hint">Enw defnyddiwr</string>
   <string name="login_password_hint">Cyfrinair</string>
@@ -98,7 +100,7 @@
   <string name="zero_interstitial_continue">Gadael</string>
   <string name="zero_interstitial_cancel">Aros Yma</string>
   <string name="zero_learn_more" fuzzy="true">Ni fydd cost am yr ap Wicipedia hwn.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Darllen mwy</string>
+  <string name="zero_learn_more_learn_more">Darllen rhagor</string>
   <string name="zero_learn_more_dismiss">Gadael</string>
   <string name="edit_preview_fetching_dialog_message">Yn nôl y rhagolwg…</string>
   <string name="send_feedback">Anfon adborth am yr ap</string>
@@ -118,9 +120,20 @@
   <string name="page_protected_can_not_edit_title">Mae\'r ddalen hon wedi\'i gwarchod</string>
   <string name="settings_item_preferences">Gosodiadau</string>
   <string name="settings_activity_title">Gosodiadau</string>
+  <string name="about_description">Ynglyn ag ap Wicipedia</string>
+  <string name="privacy_policy_description">Polisi preifatrwydd</string>
+  <string name="terms_of_use_description">Termau Defnyddiwr</string>
+  <string name="about_libraries_heading">Y llyfrgelloedd a ddefnyddir</string>
+  <string name="about_contributors_heading">Cyfrannwyr</string>
+  <string name="about_translators_heading">Cyfieithwyr</string>
+  <string name="about_app_license_heading">Trwydded</string>
+  <string name="about_wmf">Un o gynnyrch &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Sefydliad Wicimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Amdanom</string>
   <string name="edit_abandon_confirm">Mae\'r dudalen wedi cael ei newid. Ydych chi\'n siwr eich bod chi am ymadael heb roi eich newidiadau ar gadw?</string>
   <string name="user_blocked_from_editing_title">Wedi ei flocio</string>
+  <string name="user_logged_in_blocked_from_editing">Mae eich cyfri defnyddiwr wedi cael ei flocio rhag golygu ar y wici hwn.</string>
+  <string name="user_anon_blocked_from_editing">Mae eich cyfri IP wedi\'i flocio rhag golygu.</string>
+  <string name="edit_how_page_improved">Sut wnaethoch chi wella\'r ddalen?</string>
   <string name="edit_next">Nesaf</string>
   <string name="edit_done">Cadw</string>
   <string name="edit_preview">Rhagolwg</string>

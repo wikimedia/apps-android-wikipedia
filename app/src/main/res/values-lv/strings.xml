@@ -119,6 +119,8 @@
   <string name="preference_title_show_images">Rādīt attēlus</string>
   <string name="read_more_section">Lasīt vairāk</string>
   <string name="gallery_menu_share">Dalīties</string>
+  <string name="gallery_save_progress">Lejuplādē failu...</string>
+  <string name="gallery_save_success">Fails saglabāts veiksmīgi.</string>
   <string name="err_cannot_save_file">Nevar saglabāt failu</string>
   <string name="share_snippet_button">Kopīgot kā attēlu</string>
   <string name="share_normal_button">Kopīgot kā tekstu</string>
@@ -144,6 +146,7 @@
   <string name="reading_list_untitled">Bez nosaukuma</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>
   <string name="reading_list_deleted">%s izdzēsts</string>
+  <string name="reading_list_edit_ok">Labi</string>
   <string name="reading_list_edit_cancel">Atcelt</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
   <string name="user_option_sync_label">Izvēles</string>
@@ -159,5 +162,6 @@
   <string name="menu_feed_overflow_label">Vairāk iespēju</string>
   <string name="view_card_footer_button">Skatīt vairāk</string>
   <string name="view_card_news_title">Ziņās</string>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">šodien</string>
+  <string name="view_continue_reading_card_subtitle_today">Šodien</string>
+  <string name="description_edit_save">Saglabāt</string>
 </resources>

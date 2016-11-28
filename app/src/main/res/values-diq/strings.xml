@@ -167,4 +167,11 @@
     <item quantity="one">vızêr</item>
     <item quantity="other">%d roca veror</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">Noroc</string>
+  <string name="description_edit_header">Vurnayen</string>
+  <string name="description_edit_help_hint">No çıko?</string>
+  <string name="description_edit_text_hint">Selasnayış bınusnên</string>
+  <string name="description_edit_save">Qeyd kerê</string>
+  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_add_description">Senasnayış cı kerê</string>
 </resources>

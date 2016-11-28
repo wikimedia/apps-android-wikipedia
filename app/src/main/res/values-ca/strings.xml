@@ -105,7 +105,7 @@
   <string name="zero_learn_more_dismiss">Descarta</string>
   <string name="edit_preview_fetching_dialog_message">Obtenint la previsualització…</string>
   <string name="send_feedback">Envieu els vostres comentaris sobre l\'aplicació</string>
-  <string name="nav_item_random">A l\'atzar</string>
+  <string name="nav_item_random">A l’atzar</string>
   <string name="create_account_account_created_toast">S\'ha creat el vostre compte d\'usuari!</string>
   <string name="preferences_privacy_settings_heading">Privadesa</string>
   <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>

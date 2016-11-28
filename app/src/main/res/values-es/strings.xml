@@ -91,7 +91,7 @@
   <string name="create_account_button">Crear cuenta</string>
   <string name="preferences_general_heading">General</string>
   <string name="wikipedia_app_faq">Preguntas frecuentes</string>
-  <string name="zero_charged_verbiage">El acceso libre a Wikipedia ya no está activo.</string>
+  <string name="zero_charged_verbiage">El acceso gratuito a Wikipedia ya no está activo.</string>
   <string name="zero_warn_when_leaving">Avisar al salir de Wikipedia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si tu operadora de telefonía móvil ha decidido no cobrar el acceso de datos desde la aplicación de Wikipedia mediante un acuerdo con Wikipedia Zero, deja esta opción activada para que te notifiquemos al salir de la aplicación de Wikipedia y evitar cobros no deseados.</string>
   <string name="zero_webpage_title">Preguntas frecuentes de Wikipedia Zero</string>
@@ -301,6 +301,6 @@
   <string name="description_edit_help_hint">¿Qué es esto?</string>
   <string name="description_edit_text_hint">Escribe una descripción.</string>
   <string name="description_edit_save">Guardar</string>
-  <string name="description_edit_char_count">%1$d / %2$d</string>
+  <string name="description_edit_char_count">%1$d/%2$d</string>
   <string name="description_edit_add_description">Añadir descripción</string>
 </resources>
