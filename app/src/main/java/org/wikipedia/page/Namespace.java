@@ -3,13 +3,13 @@ package org.wikipedia.page;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.model.CodeEnum;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.staticdata.FileAliasData;
 import org.wikipedia.staticdata.SpecialAliasData;
-import org.wikipedia.util.StringUtil;
 
 /** An enumeration describing the different possible namespace codes. Do not attempt to use this
  *  class to preserve URL path information such as Talk: or User: or localization.
@@ -78,7 +78,7 @@ public enum Namespace implements EnumCode {
     public String toLegacyString() {
         String string = this == MAIN ? null : this.name();
         if (string != null) {
-            string = StringUtil.capitalizeFirstChar(string.toLowerCase());
+            string = StringUtils.capitalize(string.toLowerCase());
         }
         return string;
     }

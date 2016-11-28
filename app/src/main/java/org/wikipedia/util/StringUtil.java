@@ -96,16 +96,6 @@ public final class StringUtil {
     }
 
     /**
-     * Capitalise the first character of the description, for style
-     *
-     * @param orig original string
-     * @return same string as orig, except the first letter is capitalized
-     */
-    public static String capitalizeFirstChar(@NonNull String orig) {
-        return orig.substring(0, 1).toUpperCase() + orig.substring(1);
-    }
-
-    /**
      * Creates an MD5 hash of the provided string and returns its ASCII representation
      * @param s String to hash
      * @return ASCII MD5 representation of the string passed in
