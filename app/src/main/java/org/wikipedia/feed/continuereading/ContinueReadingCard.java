@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.history.HistoryEntry;
@@ -24,7 +25,7 @@ public class ContinueReadingCard extends Card {
     }
 
     @Override @Nullable public String subtitle() {
-        return entry.getTitle().getDescription();
+        return StringUtils.capitalize(entry.getTitle().getDescription());
     }
 
     @Override @Nullable public Uri image() {

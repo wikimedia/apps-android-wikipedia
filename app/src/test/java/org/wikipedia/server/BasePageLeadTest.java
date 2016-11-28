@@ -43,8 +43,7 @@ public abstract class BasePageLeadTest {
         assertThat(props.getLastModified(), is(LAST_MODIFIED_DATE));
         assertThat(props.getDisplayTitle(), is(MAIN_PAGE));
         assertThat(props.getLanguageCount(), is(LANGUAGE_COUNT));
-        // Note the capitalization of the first character on the next assertion:
-        assertThat(props.getDescription(), is("Main page of a Wikimedia project"));
+        assertThat(props.getDescription(), is("main page of a Wikimedia project"));
         assertThat(props.getLeadImageUrl(), equalTo(null));
         assertThat(props.getLeadImageName(), equalTo(null));
         assertThat(props.getSections().size(), is(1));

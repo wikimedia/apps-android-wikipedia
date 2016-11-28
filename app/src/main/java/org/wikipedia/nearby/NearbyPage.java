@@ -8,8 +8,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
-
 /**
  * Data object holding information about a nearby page.
  * The JSONObject is expected to be formatted as follows:
@@ -67,7 +65,7 @@ public class NearbyPage {
             if (terms != null) {
                 final JSONArray descArray = terms.optJSONArray("description");
                 if (descArray != null) {
-                    description = capitalizeFirstChar(descArray.optString(0));
+                    description = descArray.optString(0);
                 }
             }
         } catch (JSONException e) {

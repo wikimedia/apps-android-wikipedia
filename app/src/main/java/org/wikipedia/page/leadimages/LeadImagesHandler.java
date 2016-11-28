@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
@@ -196,7 +197,7 @@ public class LeadImagesHandler {
         } else {
             int titleLineCount = articleHeaderView.getLineCount();
 
-            articleHeaderView.setSubtitle(description);
+            articleHeaderView.setSubtitle(StringUtils.capitalize(description));
 
             // Only show the description if it's two lines or less.
             if ((articleHeaderView.getLineCount() - titleLineCount) > 2) {

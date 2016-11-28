@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -521,7 +522,7 @@ public class SearchResultsFragment extends Fragment {
             View redirectContainer = convertView.findViewById(R.id.page_list_item_redirect_container);
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
                 redirectContainer.setVisibility(View.GONE);
-                descriptionText.setText(result.getPageTitle().getDescription());
+                descriptionText.setText(StringUtils.capitalize(result.getPageTitle().getDescription()));
             } else {
                 redirectContainer.setVisibility(View.VISIBLE);
                 descriptionText.setVisibility(View.GONE);

@@ -20,7 +20,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
 
-import static org.wikipedia.util.StringUtil.capitalizeFirstChar;
 import static org.wikipedia.util.StringUtil.md5string;
 import static org.wikipedia.util.UriUtil.decodeURL;
 
@@ -183,7 +182,7 @@ public class PageTitle implements Parcelable {
     }
 
     public void setDescription(@Nullable String description) {
-        this.description = description != null ? capitalizeFirstChar(description) : null;
+        this.description = description;
     }
 
     public String getDisplayText() {
