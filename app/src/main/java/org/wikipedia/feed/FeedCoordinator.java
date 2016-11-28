@@ -10,20 +10,17 @@ import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.feed.searchbar.SearchClient;
 
-public class FeedCoordinator extends FeedCoordinatorBase {
+class FeedCoordinator extends FeedCoordinatorBase {
 
-    public FeedCoordinator(@NonNull Context context) {
+    FeedCoordinator(@NonNull Context context) {
         super(context);
     }
 
     @Override
     protected void buildScript(int age) {
-
-        // hard-coded list of card types to load when continuing the feed
         if (age == 0) {
-            init();
+            addPendingClient(new SearchClient());
         }
-
         addPendingClient(new AggregatedFeedContentClient());
         addPendingClient(new ContinueReadingClient());
         if (age == 0) {
@@ -33,9 +30,5 @@ public class FeedCoordinator extends FeedCoordinatorBase {
         if (age == 0) {
             addPendingClient(new RandomClient());
         }
-    }
-
-    private void init() {
-        addPendingClient(new SearchClient());
     }
 }
