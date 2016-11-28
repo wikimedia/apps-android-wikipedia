@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -14,7 +15,6 @@ import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.StringUtil;
 
 public class FeaturedArticleCard extends Card {
     @NonNull private UtcDate date;
@@ -52,7 +52,7 @@ public class FeaturedArticleCard extends Card {
     @Nullable
     String articleSubtitle() {
         return page.getDescription() != null
-                ? StringUtil.capitalizeFirstChar(page.getDescription()) : null;
+                ? StringUtils.capitalize(page.getDescription()) : null;
     }
 
     @Override
