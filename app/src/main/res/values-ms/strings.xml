@@ -299,6 +299,5 @@
   <string name="description_edit_help_hint">Apakah ini?</string>
   <string name="description_edit_text_hint">Tulis keterangan!</string>
   <string name="description_edit_save">Simpan</string>
-  <string name="description_edit_char_count">%1$d / %2$d</string>
   <string name="description_edit_add_description">Tambah penerangan</string>
 </resources>

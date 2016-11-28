@@ -301,6 +301,5 @@
   <string name="description_edit_help_hint">這是什麼？</string>
   <string name="description_edit_text_hint">寫一段描述！</string>
   <string name="description_edit_save">儲存</string>
-  <string name="description_edit_char_count">%1$d / %2$d</string>
   <string name="description_edit_add_description">增加描述</string>
 </resources>

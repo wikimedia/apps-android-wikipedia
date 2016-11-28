@@ -252,4 +252,7 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">
+        <item name="android:textColor">@color/foundation_red</item>
+    </style>
 </resources>

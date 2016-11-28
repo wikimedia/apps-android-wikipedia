@@ -280,6 +280,5 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="description_edit_help_hint">Co to jest?</string>
   <string name="description_edit_text_hint">Podaj opis!</string>
   <string name="description_edit_save">Zapisz</string>
-  <string name="description_edit_char_count">%1$d / %2$d</string>
   <string name="description_edit_add_description">Dodaj opis</string>
 </resources>

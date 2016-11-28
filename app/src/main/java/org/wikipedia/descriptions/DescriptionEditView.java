@@ -3,14 +3,11 @@ package org.wikipedia.descriptions;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -33,7 +30,6 @@ public class DescriptionEditView extends FrameLayout {
     @BindView(R.id.view_description_edit_save_button) FloatingActionButton saveButton;
     @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
     @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
-    @BindView(R.id.view_description_edit_char_count) TextView charCountText;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
 
     @Nullable private PageTitle pageTitle;
@@ -103,7 +99,7 @@ public class DescriptionEditView extends FrameLayout {
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
         updateSaveButtonVisible();
-        updateCharCount();
+        setError(null);
     }
 
     @VisibleForTesting void setTitle(@Nullable CharSequence text) {
@@ -130,19 +126,5 @@ public class DescriptionEditView extends FrameLayout {
 
     private void showProgressBar(boolean show) {
         progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
-    }
-
-    private void updateCharCount() {
-        int charCount = pageDescriptionText.getText().length();
-        int maxChars = getResources().getInteger(R.integer.description_max_chars);
-        charCountText.setText(String.format(getResources()
-                .getString(R.string.description_edit_char_count), charCount, maxChars));
-        @ColorInt int color = charCount > maxChars
-                ? getColor(R.color.foundation_red) : getColor(R.color.foundation_gray);
-        charCountText.setTextColor(color);
-    }
-
-    @ColorInt private int getColor(@ColorRes int id) {
-        return ContextCompat.getColor(getContext(), id);
     }
 }

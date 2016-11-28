@@ -301,6 +301,5 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="description_edit_help_hint">Que é isto?</string>
   <string name="description_edit_text_hint">Escribe unha descrición!</string>
   <string name="description_edit_save">Gardar</string>
-  <string name="description_edit_char_count">%1$d / %2$d</string>
   <string name="description_edit_add_description">Engadir unha descrición</string>
 </resources>
