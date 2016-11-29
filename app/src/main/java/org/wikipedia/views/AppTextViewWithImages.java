@@ -2,22 +2,21 @@ package org.wikipedia.views;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.ContextCompat;
 import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
 
 import org.wikipedia.drawable.DrawableUtil;
-import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +57,7 @@ public class AppTextViewWithImages extends AppTextView {
     private List<Spanned> getImageSpans(@DrawableRes int... drawableIds) {
         List<Spanned> result = new ArrayList<>();
         for (int id : drawableIds) {
-            Spanned span = makeImageSpan(getContext(), id, getTextSize(), getCurrentTextColor());
+            Spanned span = makeImageSpan(id, getTextSize(), getCurrentTextColor());
             result.add(span);
         }
         return result;
@@ -77,39 +76,35 @@ public class AppTextViewWithImages extends AppTextView {
      * Create an ImageSpan containing a drawable to be inserted in a TextView. This also sets the
      * image size and color.
      *
-     * @param context       The Android Context.
      * @param drawableId    A drawable resource Id.
      * @param size          The desired size (i.e. width and height) of the image icon in pixels.
      * @param color         The color to apply to the image.
      * @return  A single-length ImageSpan that can be swapped into a CharSequence to replace a
      *          placeholder.
      */
-    @NonNull
-    private static Spannable makeImageSpan(@NonNull Context context, @DrawableRes int drawableId,
-                                           float size, @ColorInt int color) {
+    @NonNull @VisibleForTesting
+    Spannable makeImageSpan(@DrawableRes int drawableId, float size, @ColorInt int color) {
         Spannable result = Spannable.Factory.getInstance().newSpannable(" ");
-        Drawable drawable = getFormattedDrawable(context, drawableId, size, color);
-        if (drawable != null) {
-            result.setSpan(new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }
+        Drawable drawable = getFormattedDrawable(drawableId, size, color);
+        result.setSpan(new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         return result;
     }
 
-    @Nullable
-    private static Drawable getFormattedDrawable(@NonNull Context context, @DrawableRes int drawableId,
-                                                 float size, @ColorInt int color) {
-        try {
-            Drawable drawable = ContextCompat.getDrawable(context, drawableId);
-            DrawableUtil.setTint(drawable, color);
+    @NonNull @VisibleForTesting
+    Drawable getFormattedDrawable(@DrawableRes int drawableId, float size, @ColorInt int color) {
+        Drawable drawable = ContextCompat.getDrawable(getContext(), drawableId);
+        DrawableUtil.setTint(drawable, color);
 
-            int roundedHeight = Math.round(size);
-            int roundedWidth = Math.round(size * drawable.getIntrinsicWidth() / drawable.getIntrinsicHeight());
-            drawable.setBounds(0, 0, roundedWidth, roundedHeight);
+        int roundedHeight = Math.round(size);
+        int roundedWidth = Math.round(size * drawable.getIntrinsicWidth() / drawable.getIntrinsicHeight());
+        drawable.setBounds(0, 0, roundedWidth, roundedHeight);
 
-            return drawable;
-        } catch (Resources.NotFoundException caught) {
-            L.e(caught);
-            return null;
-        }
+        return drawable;
+    }
+
+    /* Helper method for testing */
+    @NonNull @VisibleForTesting
+    <T> T[] getSpans(@NonNull Class<T> clazz) {
+        return ((SpannableString) getText()).getSpans(0, getText().length(), clazz);
     }
 }

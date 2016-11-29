@@ -142,9 +142,9 @@
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
         <module name="MagicNumber">
-            <!-- 0 is commonly used in length checks. 2 is used to make half.
-                 Typing ZERO and TWO sounds stupid -->
-            <property name="ignoreNumbers" value="-1, 0, 1, 2"/>
+            <!-- 0 is commonly used in length checks. 2 is used to make half. 10 is a common text size.
+                 Typing ZERO and TWO and TEN sounds stupid -->
+            <property name="ignoreNumbers" value="-1, 0, 1, 2, 10"/>
             <property name="ignoreHashCodeMethod" value="true"/>
             <property name="ignoreAnnotation" value="true"/>
         </module>
