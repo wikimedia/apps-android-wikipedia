@@ -34,7 +34,7 @@ import static org.junit.Assert.fail;
 @SmallTest
 public class TranslationTests {
     /** Add more if needed, but then also add some tests. */
-    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%1$d", "%2$d", "%d", "%.2f"};
+    private static final String[] POSSIBLE_PARAMS = new String[] {"%s", "%1$s", "%2$s", "%1$d", "%2$d", "%d", "%.2f", "^1"};
 
     private final StringBuilder mismatches = new StringBuilder();
 
@@ -48,6 +48,7 @@ public class TranslationTests {
         List<Res> twoDecimalParamRes = new ResourceCollector("%2$d").collectParameterResources(defaultLang);
         List<Res> decimalParamRes = new ResourceCollector("%d").collectParameterResources(defaultLang);
         List<Res> floatParamRes = new ResourceCollector("%.2f").collectParameterResources(defaultLang);
+        List<Res> textUtilTemplateParamRes = new ResourceCollector("^1").collectParameterResources(defaultLang);
         // todo: flag usage of templates {{}}.
 
         AssetManager assetManager = getResources().getAssets();
@@ -102,6 +103,11 @@ public class TranslationTests {
                 for (Res res : floatParamRes) {
                     final float param1 = .27f;
                     checkTranslationHasParameter(res, "%.2f", param1, "0,27");
+                }
+
+                // template format for com.android.TextUtils.expandTemplate
+                for (Res res : textUtilTemplateParamRes) {
+                    checkTranslationHasParameter(res, "^1", "[templateParam]", null);
                 }
             }
         }
