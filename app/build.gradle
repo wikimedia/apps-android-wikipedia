@@ -42,7 +42,7 @@ android {
     // Keep version in sync with /project.properties
     compileSdkVersion 25
 
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '25.0.1'
     compileOptions {
         sourceCompatibility = JAVA_VERSION
         targetCompatibility = JAVA_VERSION
