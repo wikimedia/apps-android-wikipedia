@@ -152,7 +152,7 @@
             android:name=".useroption.ui.UserOptionRowActivity"
             android:label="@string/user_option_activity_title" />
 
-        <activity android:name=".news.NewsActivity"
+        <activity android:name=".feed.news.NewsActivity"
                   android:theme="@style/PageTheme"
                   android:exported="false"/>
 

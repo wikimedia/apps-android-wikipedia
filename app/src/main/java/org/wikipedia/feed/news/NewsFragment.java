@@ -1,4 +1,4 @@
-package org.wikipedia.news;
+package org.wikipedia.feed.news;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.feed.news.NewsItem;
 import org.wikipedia.feed.view.PageTitleListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
@@ -42,8 +41,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-import static org.wikipedia.news.NewsActivity.EXTRA_NEWS_ITEM;
-import static org.wikipedia.news.NewsActivity.EXTRA_WIKI;
+import static org.wikipedia.feed.news.NewsActivity.EXTRA_NEWS_ITEM;
+import static org.wikipedia.feed.news.NewsActivity.EXTRA_WIKI;
 import static org.wikipedia.richtext.RichTextUtil.stripHtml;
 import static org.wikipedia.util.DimenUtil.newsFeatureImageHeightForDevice;
 
