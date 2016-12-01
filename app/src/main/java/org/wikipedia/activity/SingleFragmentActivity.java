@@ -15,7 +15,7 @@ import org.wikipedia.R;
  * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
  * Fragments.
  */
-public abstract class SingleFragmentActivity<T extends Fragment> extends ThemedActionBarActivity {
+public abstract class SingleFragmentActivity<T extends Fragment> extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

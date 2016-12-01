@@ -13,7 +13,7 @@ import org.wikipedia.R;
  * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
  * Fragments, with a Toolbar overlaid on top.
  */
-public abstract class SingleFragmentActivityWithToolbar<T extends Fragment> extends SingleFragmentActivity<T> {
+public abstract class ThemedSingleFragmentActivityWithToolbar<T extends Fragment> extends ThemedSingleFragmentActivity<T> {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +38,7 @@ public abstract class SingleFragmentActivityWithToolbar<T extends Fragment> exte
     @LayoutRes
     @Override
     protected int getLayout() {
-        return R.layout.activity_single_fragment_with_toolbar;
+        return R.layout.activity_themed_single_fragment_with_toolbar;
     }
 
     protected Toolbar getToolbar() {

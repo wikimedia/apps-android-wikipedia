@@ -11,12 +11,12 @@ import com.squareup.otto.Subscribe;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.SingleFragmentActivityWithToolbar;
+import org.wikipedia.activity.ThemedSingleFragmentActivityWithToolbar;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.util.log.L;
 
-public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment>
+public class MainActivity extends ThemedSingleFragmentActivityWithToolbar<MainFragment>
         implements MainFragment.Callback {
 
     private WikipediaApp app;
@@ -106,7 +106,6 @@ public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment
     }
 
     private class EventBusMethods {
-
         @Subscribe
         public void onChangeTheme(ThemeChangeEvent event) {
             MainActivity.this.recreate();
