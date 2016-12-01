@@ -338,4 +338,12 @@
     <string name="description_edit_char_count">%1$d / %2$d</string>
     <string name="description_edit_add_description">Add description</string>
     <!-- /Description editing -->
+
+    <!-- Description editing success -->
+    <string name="description_edit_success_saved">Description saved!</string>
+    <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
+    <string name="description_edit_success_done">Done</string>
+    <string name="description_edit_success_did_you_know">Did you know?</string>
+    <string name="description_edit_success_article_edit_hint">You can also edit articles within this app. Try fixing typos and small sentences by clicking on the ^1 icon next time</string>
+    <!-- /Description editing success -->
 </resources>

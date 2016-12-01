@@ -1,5 +1,6 @@
 package org.wikipedia.descriptions;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -94,6 +96,14 @@ public class DescriptionEditFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
+                && getActivity() != null) {
+            getActivity().finish();
+        }
+    }
+
     private class EditViewCallback implements DescriptionEditView.Callback {
         @Override
         public void onSaveClick() {
@@ -108,8 +118,9 @@ public class DescriptionEditFragment extends Fragment {
                         @Override public void success(@NonNull Call<DescriptionEdit> call) {
                             if (getActivity() != null) {
                                 DeviceUtil.hideSoftKeyboard(getActivity());
-                                // TODO: go to success fragment
-                                getActivity().finish();
+                                editView.setSaveState(false);
+                                startActivityForResult(DescriptionEditSuccessActivity.newIntent(getContext()),
+                                        Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
                             }
                         }
 

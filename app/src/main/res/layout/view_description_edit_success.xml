@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="bottom|center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/view_success_edit_center_text_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="48dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                app:srcCompat="@drawable/ic_illustration_description_success"
+                android:contentDescription="@null"/>
+
+            <org.wikipedia.views.AppTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description_edit_success_saved"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-light"/>
+
+            <org.wikipedia.views.AppTextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/description_edit_success_encouragement"
+                android:textColor="@color/light_gray"
+                android:textAlignment="center"
+                android:textSize="15sp"/>
+
+            <Button
+                android:id="@+id/view_description_edit_success_done_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                style="@style/ButtonBlue"
+                android:text="@string/description_edit_success_done"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textAllCaps="true"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/view_success_edit_did_you_know_container"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="0"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginBottom="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:background="@drawable/shape_border_1dp_gray"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <org.wikipedia.views.AppTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="8dp"
+                android:layout_gravity="center"
+                android:text="@string/description_edit_success_did_you_know"
+                android:textStyle="bold"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"/>
+
+            <org.wikipedia.views.AppTextViewWithImages
+                android:id="@+id/view_description_edit_success_hint_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="336dp"
+                android:layout_marginBottom="18dp"
+                android:layout_gravity="center"
+                android:textColor="@color/light_gray"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:lineSpacingExtra="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
