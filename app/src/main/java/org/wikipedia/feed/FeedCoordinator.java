@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
+import org.wikipedia.feed.announcement.AnnouncementClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.continuereading.ContinueReadingClient;
 import org.wikipedia.feed.mainpage.MainPageClient;
@@ -20,6 +21,7 @@ class FeedCoordinator extends FeedCoordinatorBase {
     protected void buildScript(int age) {
         if (age == 0) {
             addPendingClient(new SearchClient());
+            addPendingClient(new AnnouncementClient());
         }
         addPendingClient(new AggregatedFeedContentClient());
         addPendingClient(new ContinueReadingClient());
