@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.wikipedia.feed.FeedCoordinatorBase;
+import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
@@ -19,7 +20,8 @@ import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecyclerAdapter<Card, T> {
     public interface Callback extends ItemTouchHelperSwipeAdapter.Callback,
             PageTitleListCardItemView.Callback, CardHeaderView.Callback,
-            FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback {
+            FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
+            AnnouncementCardView.Callback {
         void onRequestMore();
     }
 

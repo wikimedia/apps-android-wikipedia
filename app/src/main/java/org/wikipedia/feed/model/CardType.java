@@ -3,6 +3,7 @@ package org.wikipedia.feed.model;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.continuereading.ContinueReadingCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
@@ -67,6 +68,11 @@ public enum CardType implements EnumCode {
     MOST_READ_ITEM(10),
     NEWS_ITEM(11),
     NEWS_ITEM_LINK(12),
+    ANNOUNCEMENT(13) {
+        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
+            return new AnnouncementCardView(ctx);
+        }
+    },
     PROGRESS(99) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new ProgressCardView(ctx);

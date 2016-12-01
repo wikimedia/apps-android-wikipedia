@@ -286,6 +286,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 getCallback().onFeaturedImageSelected(card);
             }
         }
+
+        @Override
+        public void onAnnouncementAction(@NonNull Uri uri) {
+            UriUtil.handleExternalLink(getContext(), uri);
+        }
     }
 
     private class FeedScrollListener extends RecyclerView.OnScrollListener {
