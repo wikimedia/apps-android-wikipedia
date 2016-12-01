@@ -12,6 +12,7 @@ import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.PopupMenu;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -19,14 +20,16 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
-import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -39,6 +42,7 @@ import org.wikipedia.richtext.LeadingSpan;
 import org.wikipedia.richtext.ParagraphSpan;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.AppTextView;
@@ -49,18 +53,21 @@ import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.L10nUtil.isLangRTL;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 
-public class ArticleHeaderView extends LinearLayout implements ObservableWebView.OnScrollChangeListener {
+public class ArticleHeaderView extends FrameLayout implements ObservableWebView.OnScrollChangeListener {
     @BindView(R.id.view_article_header_image) ArticleHeaderImageView image;
     @BindView(R.id.view_article_header_image_gradient) View gradient;
-    @BindView(R.id.view_article_header_text) AppTextView text;
+    @BindView(R.id.view_article_title_text) AppTextView titleText;
+    @BindView(R.id.view_article_subtitle_text) AppTextView subtitleText;
     @BindView(R.id.view_article_header_divider) View divider;
     @BindView(R.id.view_article_header_container) LinearLayout container;
     @BindView(R.id.view_article_header_status_bar_placeholder) StatusBarBlankView statusBarPlaceholder;
+    @BindView(R.id.view_article_header_edit_pencil) View editPencil;
 
     @Nullable private Callback callback;
     @NonNull private CharSequence title = "";
@@ -72,6 +79,8 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
 
     public interface Callback {
         void onDescriptionClicked();
+        void onEditDescription();
+        void onEditLeadSection();
     }
 
     public ArticleHeaderView(Context context) {
@@ -155,14 +164,6 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         updateScroll();
     }
 
-    public int getLineCount() {
-        return text.getLineCount();
-    }
-
-    public CharSequence getText() {
-        return text.getText();
-    }
-
     public void setTitle(@Nullable CharSequence text) {
         title = StringUtil.emptyIfNull(text);
         updateText();
@@ -178,18 +179,22 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     }
 
     public void setLocale(String locale) {
-        text.setLocale(locale);
-        LayoutParams params = (LayoutParams) divider.getLayoutParams();
-        if (isLangRTL(locale)) {
-            params.gravity = Gravity.RIGHT;
-        } else {
-            params.gravity = Gravity.LEFT;
-        }
-        divider.setLayoutParams(params);
+        titleText.setLocale(locale);
+        subtitleText.setLocale(locale);
+        LinearLayout.LayoutParams dividerParams = (LinearLayout.LayoutParams) divider.getLayoutParams();
+        dividerParams.gravity = isLangRTL(locale) ? Gravity.RIGHT : Gravity.LEFT;
+        divider.setLayoutParams(dividerParams);
+        FrameLayout.LayoutParams pencilParams = (FrameLayout.LayoutParams) editPencil.getLayoutParams();
+        pencilParams.gravity = Gravity.BOTTOM | (isLangRTL(locale) ? Gravity.LEFT : Gravity.RIGHT);
+        int subtitlePadding = editPencil.getWidth();
+        subtitleText.setPadding(isLangRTL(locale) ? subtitlePadding : 0,
+                subtitleText.getPaddingTop(),
+                isLangRTL(locale) ? 0 : subtitlePadding,
+                subtitleText.getPaddingBottom());
     }
 
     public void setTextColor(@ColorInt int color) {
-        text.setTextColor(color);
+        titleText.setTextColor(color);
     }
 
     public void setPronunciation(@Nullable String url) {
@@ -204,6 +209,20 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         updateScroll(scrollY);
+    }
+
+    @OnClick(R.id.view_article_header_edit_pencil) void onEditClick() {
+        // TODO: unblock when ready for beta+
+        if (ReleaseUtil.isPreBetaRelease()) {
+            PopupMenu menu = new PopupMenu(editPencil.getContext(), editPencil);
+            menu.getMenuInflater().inflate(R.menu.menu_article_header_edit, menu.getMenu());
+            menu.setOnMenuItemClickListener(new EditMenuClickListener());
+            menu.show();
+        } else {
+            if (callback != null) {
+                callback.onEditLeadSection();
+            }
+        }
     }
 
     @Override
@@ -245,18 +264,20 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
             builder.append(" ");
             builder.append(pronunciationSpanned());
         }
+        titleText.setMovementMethod(new LinkMovementMethod());
+        titleText.setText(builder);
 
         if (hasSubtitle() || ReleaseUtil.isPreBetaRelease()) { // TODO: remove condition when ready
-            builder.append("\n");
-            builder.append(subtitleSpanned());
+            subtitleText.setMovementMethod(new LinkMovementMethod());
+            subtitleText.setText(subtitleSpanned());
+            subtitleText.setVisibility(VISIBLE);
+        } else {
+            subtitleText.setVisibility(GONE);
         }
-
-        text.setText(builder);
-        text.setMovementMethod(new LinkMovementMethod());
     }
 
     private Spanned pronunciationSpanned() {
-        AudioUrlSpan pronunciationSpan = new AudioUrlSpan(text, avPlayer, pronunciationUrl,
+        AudioUrlSpan pronunciationSpan = new AudioUrlSpan(titleText, avPlayer, pronunciationUrl,
                 AudioUrlSpan.ALIGN_BASELINE);
         pronunciationSpan.setTint(getColor(getThemedAttributeId(getContext(),
                 R.attr.window_inverse_color)));
@@ -278,10 +299,9 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
                 0,
                 description.length(),
                 Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
-                new AbsoluteSizeSpan(getDimensionPixelSize(R.dimen.descriptionTextSize), false),
                 new LeadingSpan(leadingScalar),
                 new ParagraphSpan(paragraphScalar),
-                descriptionClickSpan,
+                TextUtils.isEmpty(subtitle) ? descriptionClickSpan : new ForegroundColorSpan(getColor(R.color.foundation_gray)),
                 TextUtils.isEmpty(subtitle) ? new StyleSpan(Typeface.ITALIC) : null);
     }
 
@@ -292,18 +312,24 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
     }
 
     private void setTextHeightConstrained() {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f);
-        text.setLayoutParams(params);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) titleText.getLayoutParams();
+        params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        params.height = 0;
+        params.weight = 1f;
+        titleText.setLayoutParams(params);
     }
 
     private void setTextHeightUnconstrained() {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        text.setLayoutParams(params);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) titleText.getLayoutParams();
+        params.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        titleText.setLayoutParams(params);
     }
 
     private void init() {
         inflate(getContext(), R.layout.view_article_header, this);
         ButterKnife.bind(this);
+        FeedbackUtil.setToolbarButtonLongPressToast(editPencil);
         hide();
     }
 
@@ -357,6 +383,26 @@ public class ArticleHeaderView extends LinearLayout implements ObservableWebView
         @Override
         public void onClick(View view) {
             audioSpan.toggle();
+        }
+    }
+
+    private class EditMenuClickListener implements PopupMenu.OnMenuItemClickListener {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_article_header_edit_description:
+                    if (callback != null) {
+                        callback.onEditDescription();
+                    }
+                    return true;
+                case R.id.menu_article_header_edit_lead_section:
+                    if (callback != null) {
+                        callback.onEditLeadSection();
+                    }
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 }

@@ -256,6 +256,9 @@
     <string name="article_menu_bar_bookmark">Add this article to a reading list</string>
     <string name="article_menu_bar_share">Share the article link</string>
     <string name="article_menu_bar_navigate">Navigate to the location of the article</string>
+    <string name="article_header_edit_hint">Edit…</string>
+    <string name="article_header_edit_description">Edit title description</string>
+    <string name="article_header_edit_lead_section">Edit introduction</string>
     <!-- /Article menu bar -->
 
     <!-- Reading lists -->

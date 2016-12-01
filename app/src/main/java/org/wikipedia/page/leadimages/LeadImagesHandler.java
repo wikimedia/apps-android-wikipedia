@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
@@ -192,18 +191,7 @@ public class LeadImagesHandler {
      * @param description WikiData description to be shown.
      */
     private void layoutWikiDataDescription(@Nullable final String description) {
-        if (TextUtils.isEmpty(description)) {
-            articleHeaderView.setSubtitle(null);
-        } else {
-            int titleLineCount = articleHeaderView.getLineCount();
-
-            articleHeaderView.setSubtitle(StringUtils.capitalize(description));
-
-            // Only show the description if it's two lines or less.
-            if ((articleHeaderView.getLineCount() - titleLineCount) > 2) {
-                articleHeaderView.setSubtitle(null);
-            }
-        }
+        articleHeaderView.setSubtitle(description);
     }
 
     /**
@@ -261,6 +249,16 @@ public class LeadImagesHandler {
                 if (ReleaseUtil.isPreBetaRelease()) {
                     parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
                 }
+            }
+
+            @Override
+            public void onEditDescription() {
+                parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
+            }
+
+            @Override
+            public void onEditLeadSection() {
+                parentFragment.getEditHandler().startEditingSection(0, null);
             }
         });
     }

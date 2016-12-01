@@ -223,6 +223,9 @@ Please test the URL to make sure it works</string>
   <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
   <string name="user_anon_blocked_from_editing">Message shown in dialog box to users who are blocked from editing based on their IP address</string>
   <string name="edit_how_page_improved">Question that asks the user how they improved the article after editing</string>
+  <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.</string>
+  <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
+  <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
   <string name="edit_next">Button text to go \"next\" after the editing screen to the preview screen.
 {{Identical|Next}}</string>
   <string name="edit_done">Button text to finish editing and save the changes.
