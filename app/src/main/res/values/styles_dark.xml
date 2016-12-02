@@ -14,6 +14,7 @@
     </style>
 
     <style name="Theme.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/foundation_blue</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
         <item name="actionMenuTextColor">@android:color/white</item>
