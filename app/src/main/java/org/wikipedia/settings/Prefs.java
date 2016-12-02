@@ -6,10 +6,10 @@ import android.support.annotation.Nullable;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.SharedPreferenceCookieManager;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
+import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.json.SessionUnmarshaller;
