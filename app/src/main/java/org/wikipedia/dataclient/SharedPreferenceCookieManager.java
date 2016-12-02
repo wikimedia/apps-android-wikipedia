@@ -3,6 +3,7 @@ package org.wikipedia.dataclient;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.wikipedia.login.User;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.StringUtil;
 
@@ -20,6 +21,7 @@ import java.util.Map;
 
 public final class SharedPreferenceCookieManager extends CookieManager {
     private static final String DELIMITER = ";";
+    private static final String CENTRALAUTH_PREFIX = "centralauth_";
     private final Map<String, Map<String, String>> cookieJar = new HashMap<>();
 
     private static SharedPreferenceCookieManager INSTANCE;
@@ -52,6 +54,13 @@ public final class SharedPreferenceCookieManager extends CookieManager {
         String domain = uri.getAuthority();
 
         for (String domainSpec: cookieJar.keySet()) {
+            // For sites outside the wikipedia.org domain, like wikidata.org,
+            // transfer the centralauth cookies from wikipedia.org, too, if the user is logged in
+            if (User.isLoggedIn()
+                    && domain.equals("www.wikidata.org") && domainSpec.equals("wikipedia.org")) {
+                cookiesList.addAll(makeCookieList(cookieJar.get(domainSpec), CENTRALAUTH_PREFIX));
+            }
+
             // Very weak domain matching.
             // Primarily to make sure that cookies set for .wikipedia.org are sent for
             // en.wikipedia.org and *.wikimedia.org
@@ -161,15 +170,22 @@ public final class SharedPreferenceCookieManager extends CookieManager {
         return cookiesMap;
     }
 
-    private List<String> makeCookieList(Map<String, String> cookies) {
+    private List<String> makeCookieList(@NonNull Map<String, String> cookies) {
+        return makeCookieList(cookies, null);
+    }
+
+    private List<String> makeCookieList(@NonNull Map<String, String> cookies,
+                                        @Nullable String prefixFilter) {
         List<String> cookiesList = new ArrayList<>();
         for (Map.Entry<String, String> entry: cookies.entrySet()) {
-            cookiesList.add(entry.getKey() + "=" + entry.getValue());
+            if (prefixFilter == null || entry.getKey().startsWith(prefixFilter)) {
+                cookiesList.add(entry.getKey() + "=" + entry.getValue());
+            }
         }
         return cookiesList;
     }
 
-    private String makeString(Iterable<String> list) {
+    private String makeString(@NonNull Iterable<String> list) {
         return StringUtil.listToDelimitedString(list, DELIMITER);
     }
 }
