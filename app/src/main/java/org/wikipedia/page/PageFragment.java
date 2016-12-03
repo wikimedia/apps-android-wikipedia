@@ -707,7 +707,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL
                 && resultCode == RESULT_OK) {
             PrefsOnboardingStateMachine.getInstance().setDescriptionEditTutorial();
-            startActivity(DescriptionEditActivity.newIntent(getContext(), getTitle()));
+            startActivityForResult(DescriptionEditActivity.newIntent(getContext(), getTitle()),
+                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
+                && resultCode == RESULT_OK) {
+            refreshPage();
         }
     }
 

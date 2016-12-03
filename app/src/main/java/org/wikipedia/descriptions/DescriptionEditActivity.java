@@ -13,7 +13,8 @@ import org.wikipedia.page.PageTitle;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
-public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment> {
+public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment>
+        implements DescriptionEditFragment.SuccessCallback {
     private static final String EXTRA_TITLE = "title";
 
     public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title) {
@@ -25,6 +26,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStatusBarColor(R.color.dark_blue);
+    }
+
+    @Override
+    public void onDescriptionEditSuccess() {
+        setResult(RESULT_OK);
+        finish();
     }
 
     @Override

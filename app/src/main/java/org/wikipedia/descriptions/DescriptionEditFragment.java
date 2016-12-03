@@ -2,6 +2,7 @@ package org.wikipedia.descriptions;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.token.EditToken;
 import org.wikipedia.edit.token.EditTokenClient;
@@ -27,6 +29,7 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +39,11 @@ import retrofit2.Call;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
+
+    public interface SuccessCallback {
+        void onDescriptionEditSuccess();
+    }
+
     private static final String ARG_TITLE = "title";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
@@ -43,6 +51,21 @@ public class DescriptionEditFragment extends Fragment {
     private PageTitle pageTitle;
     @Nullable private Call<EditToken> editTokenCall;
     @Nullable private Call<DescriptionEdit> descriptionEditCall;
+
+    private Runnable successRunnable = new Runnable() {
+        @Override public void run() {
+            Prefs.setLastDescriptionEditTime(new Date().getTime());
+            WikipediaApp.getInstance().listenForNotifications();
+
+            if (getActivity() == null)  {
+                return;
+            }
+            DeviceUtil.hideSoftKeyboard(getActivity());
+            editView.setSaveState(false);
+            startActivityForResult(DescriptionEditSuccessActivity.newIntent(getContext()),
+                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
+        }
+    };
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title) {
@@ -87,7 +110,9 @@ public class DescriptionEditFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
                 && getActivity() != null) {
-            finish();
+            if (callback() != null) {
+                callback().onDescriptionEditSuccess();
+            }
         }
     }
 
@@ -106,6 +131,10 @@ public class DescriptionEditFragment extends Fragment {
     private void finish() {
         hideSoftKeyboard(getActivity());
         getActivity().finish();
+    }
+
+    private SuccessCallback callback() {
+        return FragmentUtil.getCallback(this, SuccessCallback.class);
     }
 
     private class EditViewCallback implements DescriptionEditView.Callback {
@@ -192,17 +221,12 @@ public class DescriptionEditFragment extends Fragment {
             descriptionEditCall = new DescriptionEditClient().request(wikiData, pageTitle,
                     editView.getDescription(), editToken,
                     new DescriptionEditClient.Callback() {
-                        @Override public void success(@NonNull Call<DescriptionEdit> call) {
-
-                            Prefs.setLastDescriptionEditTime(new Date().getTime());
-                            WikipediaApp.getInstance().listenForNotifications();
-
-                            if (getActivity() != null) {
-                                DeviceUtil.hideSoftKeyboard(getActivity());
-                                editView.setSaveState(false);
-                                startActivityForResult(DescriptionEditSuccessActivity.newIntent(getContext()),
-                                        Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS);
-                            }
+                        @Override @SuppressWarnings("checkstyle:magicnumber")
+                        public void success(@NonNull Call<DescriptionEdit> call) {
+                            // TODO: remove this artificial delay if someday we get a reliable way
+                            // to determine whether the change has propagated to the relevant
+                            // RESTBase endpoints.
+                            new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4));
                         }
 
                         @Override public void abusefilter(@NonNull Call<DescriptionEdit> call,

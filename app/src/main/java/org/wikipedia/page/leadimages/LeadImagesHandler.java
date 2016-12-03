@@ -265,7 +265,8 @@ public class LeadImagesHandler {
             return;
         }
 
-        parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
+        parentFragment.startActivityForResult(DescriptionEditActivity.newIntent(getActivity(), getTitle()),
+                Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
     private void initWebView() {
