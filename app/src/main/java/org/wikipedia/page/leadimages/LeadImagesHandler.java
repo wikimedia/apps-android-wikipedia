@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants;
@@ -191,7 +192,7 @@ public class LeadImagesHandler {
      * @param description WikiData description to be shown.
      */
     private void layoutWikiDataDescription(@Nullable final String description) {
-        articleHeaderView.setSubtitle(description);
+        articleHeaderView.setSubtitle(StringUtils.capitalize(description));
     }
 
     /**
