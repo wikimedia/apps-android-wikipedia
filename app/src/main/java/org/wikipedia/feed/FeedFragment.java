@@ -111,12 +111,29 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         });
 
         coordinator.setFeedUpdateListener(new FeedCoordinator.FeedUpdateListener() {
-            @Override
-            public void update(List<Card> cards) {
+            @Override public void update(List<Card> cards) {
                 if (isAdded()) {
                     swipeRefreshLayout.setRefreshing(false);
                     if (feedView != null && feedAdapter != null) {
                         feedAdapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override public void insert(Card card, int pos) {
+                if (isAdded()) {
+                    swipeRefreshLayout.setRefreshing(false);
+                    if (feedView != null && feedAdapter != null) {
+                        feedAdapter.notifyItemInserted(pos);
+                    }
+                }
+            }
+
+            @Override public void remove(Card card, int pos) {
+                if (isAdded()) {
+                    swipeRefreshLayout.setRefreshing(false);
+                    if (feedView != null && feedAdapter != null) {
+                        feedAdapter.notifyItemRemoved(pos);
                     }
                 }
             }

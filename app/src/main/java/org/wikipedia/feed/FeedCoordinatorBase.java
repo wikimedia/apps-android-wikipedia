@@ -21,7 +21,10 @@ public abstract class FeedCoordinatorBase {
     private static final int MAX_HIDDEN_CARDS = 100;
 
     public interface FeedUpdateListener {
+        // todo: should we remove update?
         void update(List<Card> cards);
+        void insert(Card card, int pos);
+        void remove(Card card, int pos);
     }
 
     @NonNull private Context context;
@@ -88,7 +91,7 @@ public abstract class FeedCoordinatorBase {
         cards.remove(card);
         addHiddenCard(card);
         if (updateListener != null) {
-            updateListener.update(cards);
+            updateListener.remove(card, position);
         }
         return position;
     }
@@ -97,7 +100,7 @@ public abstract class FeedCoordinatorBase {
         cards.add(position, card);
         unHideCard(card);
         if (updateListener != null) {
-            updateListener.update(cards);
+            updateListener.insert(card, position);
         }
     }
 
@@ -138,6 +141,7 @@ public abstract class FeedCoordinatorBase {
     }
 
     private void appendProgressCard(List<Card> cards) {
+        // todo: can we consolidate remove / add operations on list?
         cards.remove(progressCard);
         cards.add(progressCard);
     }
