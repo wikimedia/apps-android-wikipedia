@@ -223,9 +223,6 @@ Please test the URL to make sure it works</string>
   <string name="user_logged_in_blocked_from_editing">Message shown in dialog box to users who are blocked from editing when they attempt to save an edit</string>
   <string name="user_anon_blocked_from_editing">Message shown in dialog box to users who are blocked from editing based on their IP address</string>
   <string name="edit_how_page_improved">Question that asks the user how they improved the article after editing</string>
-  <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.</string>
-  <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
-  <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
   <string name="edit_next">Button text to go \"next\" after the editing screen to the preview screen.
 {{Identical|Next}}</string>
   <string name="edit_done">Button text to finish editing and save the changes.
@@ -369,6 +366,9 @@ Shown in the preferences screen along with the following:
   <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_navigate">Describes the action performed when pressing the navigate button in the page toolbar underneath the leading image.</string>
+  <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.</string>
+  <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
+  <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
   <string name="reading_list_untitled">Name for a reading list that has an empty title.
 {{Identical|Untitled}}</string>
@@ -447,7 +447,6 @@ Shown in the preferences screen along with the following:
 {{Identical|Save}}</string>
   <string name="description_edit_char_count">Label that displays the character count of the description being entered. The %1$d symbol is replaced with the number of characters in the current description, and the %2$d symbol is replaced with the maximum allowed characters.</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
-
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen</string>

@@ -22,7 +22,7 @@
   <string name="menu_page_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="menu_page_find_in_page">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
   <string name="menu_page_content_issues">ਸਮੱਗਰੀ ਸਮੱਸਿਆਵਾਂ</string>
-  <string name="menu_page_font_and_theme">ਫੌਂਟ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
+  <string name="menu_page_font_and_theme">ਅੱਖਰ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="menu_page_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
   <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="menu_long_press_open_page">ਖੋਲ੍ਹੋ</string>
@@ -41,7 +41,7 @@
   <string name="content_license_html">ਕੁਝ ਹੋਰ ਨਾ ਦੱਸੇ ਜਾਣ ਦੀ ਸੂਰਤ ਵਿੱਚ ਸਮੱਗਰੀ &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਹੇਠ ਮੌਜੂਦ ਹੈ</string>
   <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
   <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
-  <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਬੋਲੀ</string>
+  <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾ</string>
   <string name="preference_languages_filter_hint">ਖੋਜ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
   <string name="langlinks_empty">ਇਹ ਪੰਨਾ ਹੋਰਨਾਂ ਬੋਲੀਆਂ ਵਿੱਚ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।</string>
@@ -64,7 +64,7 @@
   <string name="title_captcha">ਕੈਪਚਾ ਭਰੋ</string>
   <string name="edit_section_captcha_reload">ਮੁੜ ਲਿਆਉਣ ਵਾਸਤੇ ਕੈਪਚਾ ਟਕੋਰੋ</string>
   <string name="edit_saved_page_refresh">ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਸਾਂਭਿਆ ਹੋਇਆ ਇਹ ਸਫ਼ਾ ਪੁਰਾਣਾ ਪੈ ਗਿਆ ਹੋ ਅਤੇ ਸੁਧਾਈ ਚਾਲੂ ਕਰਨ ਵਾਸਤੇ ਇਹਨੂੰ ਮੁੜ-ਤਾਜ਼ਾ ਕਰਨਾ ਪਵੇਗਾ। ਕੀ ਤੁਸੀਂ ਇਸ ਸਫ਼ੇ ਨੂੰ ਤਾਜ਼ਾ ਕਰਨਾ ਲੋਚਦੇ ਹੋ?</string>
-  <string name="nav_item_login">ਦਾਖ਼ਲਾ</string>
+  <string name="nav_item_login">ਵਿਕੀਪੀਡੀਆ \'ਚ ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="login_username_hint">ਵਰਤੋਂਕਾਰ ਨਾਂ</string>
   <string name="login_password_hint">ਪਛਾਣ-ਸ਼ਬਦ</string>
   <string name="menu_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
@@ -78,9 +78,9 @@
   <string name="delete_selected_history">ਮਿਟਾਓ</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
   <string name="create_account_username_hint">ਵਰਤੋਂਕਾਰ-ਨਾਂ</string>
-  <string name="login_create_account_link">ਖਾਤਾ ਨਹੀਂ ਹੈ? ਵਿਕੀਪੀਡੀਆ \'ਚ ਭਰਤੀ ਹੋਵੋ</string>
+  <string name="login_create_account_link">ਖਾਤਾ ਨਹੀਂ ਹੈ? ਵਿਕੀਪੀਡੀਆ \'ਚ ਸ਼ਾਮਿਲ ਹੋਵੋ</string>
   <string name="create_account_login_link">ਪਹਿਲੋਂ ਹੀ ਖਾਤਾ ਹੈ? ਦਾਖ਼ਲ ਹੋਵੋ</string>
-  <string name="create_account_activity_title">ਕੋਈ ਖਾਤਾ ਬਣਾਉ</string>
+  <string name="create_account_activity_title">ਖਾਤਾ ਬਣਾਓ</string>
   <string name="dialog_create_account_checking_progress">ਤਸਦੀਕੀ ਜਾਰੀ</string>
   <string name="create_account_email_hint">ਈਮੇਲ (ਚੋਣਵੀਂ)</string>
   <string name="create_account_password_repeat_hint">ਪਛਾਣ-ਸ਼ਬਦ ਦੁਹਰਾਉ</string>
@@ -92,7 +92,7 @@
   <string name="preferences_general_heading">ਆਮ</string>
   <string name="wikipedia_app_faq">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਰੇ ਆਮ ਸਵਾਲ</string>
   <string name="zero_charged_verbiage" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬੰਦ ਹੈ</string>
-  <string name="zero_warn_when_leaving">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਛੱਡਣ \'ਤੇ ਸਚੇਤ ਕਰੋ</string>
+  <string name="zero_warn_when_leaving">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਛੱਡਣ \'ਤੇ ਸੁਚੇਤ ਕਰੋ</string>
   <string name="zero_warn_when_leaving_summary">ਜੇਕਰ ਤੁਹਾਡਾ ਮੋਬਾਈਲ ਚਾਲਕ ਕਿਸੇ ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਸਾਂਝ ਰਾਹੀਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਵਾਸਤੇ ਡਾਟਾ ਤੱਕ ਪਹੁੰਚ ਦਾ ਖ਼ਰਚਾ ਮਾਫ਼ ਕਰਦਾ ਹੈ ਤਾਂ ਏਸ ਸੈਟਿੰਗ ਨੂੰ ਸਹੀ ਕਰ ਕੇ ਰੱਖਣ ਨਾਲ਼ ਤੁਹਾਨੂੰ ਪਤਾ ਲੱਗ ਜਾਵੇਗਾ ਕਿ ਤੁਸੀਂ ਕਦੋਂ ਵਿਕੀਪੀਡੀਆ ਐਪ ਛੱਡ ਕੇ ਜਾ ਰਹੇ ਹੋ ਅਤੇ ਪੈਸੇ ਪੈ ਸਕਦੇ ਹਨ।</string>
   <string name="zero_webpage_title">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ ਬਾਬਤ ਆਮ ਸੁਆਲ</string>
   <string name="zero_wikipedia_zero_heading">ਵਿਕੀਪੀਡੀਆ ਜ਼ੀਰੋ</string>
@@ -104,7 +104,7 @@
   <string name="zero_learn_more_learn_more" fuzzy="true">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="zero_learn_more_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
   <string name="edit_preview_fetching_dialog_message">ਝਾਤ ਲਿਆਈ ਜਾ ਰਹੀ ਹੈ…</string>
-  <string name="send_feedback">ਐਪ ਬਾਬਤ ਜਾਣਕਾਰੀ ਵਾਪਸ ਘੱਲੋ</string>
+  <string name="send_feedback">ਅੈਪ ਸੰਬੰਧੀ ਸਲਾਹ ਭੇਜੋ</string>
   <string name="nav_item_random">ਰਲ਼ਵਾਂ</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
   <string name="preferences_privacy_settings_heading">ਪਰਦੇਦਾਰੀ</string>
@@ -128,7 +128,7 @@
   <string name="terms_of_use_url">https://wikimediafoundation.org/wiki/Terms_of_Use</string>
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
-  <string name="about_translators_heading">ਤਰਜਮਾਕਾਰ</string>
+  <string name="about_translators_heading">ਅਨੁਵਾਦਕ</string>
   <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਵਿਖੇ ਸਵੈਇੱਛਕ ਤਰਜਮਾਕਾਰਾਂ ਨੇ ਕੀਤਾ ਸੀ।</string>
   <string name="about_app_license_heading">ਲਸੰਸ</string>
   <string name="about_app_license">ਸਰੋਤ ਕੋਡ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ਅਤੇ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ਉੱਪਰ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ਹੇਠ  ਉਪਲੱਬਧ ਹੈ। ਜੇ ਹੋਰ ਕੁਝ ਨਹੀੰ ਕਿਹਾ ਗਿਆ ਤਾੰ ਸਮੱਗਰੀ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ਹੇਠ ਉਪਲੱਬਧ ਹੈ।</string>
@@ -176,7 +176,7 @@
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
   <string name="menu_gallery_visit_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
-  <string name="gallery_error_draw_failed">ਤਸਵੀਰ ਬਣਾ ਨਹੀੰ ਸਕੇ।</string>
+  <string name="gallery_error_draw_failed">ਤਸਵੀਰ ਬਣਾ ਨਹੀਂ ਸਕੇ।</string>
   <string name="license_title">%s ਲਈ ਲਸੰਸ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
@@ -188,7 +188,7 @@
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia ਉੱਤੇ: %2$s</string>
   <string name="expand_refs">ਫੈਲਾਉਣ ਲਈ ਦਬਾਉ</string>
   <string name="share_snippet_button">ਤਸਵੀਰ ਦੇ ਤੌਰ \'ਤੇ ਸਾਂਝਾ ਕਰੋ</string>
-  <string name="share_normal_button">ਲਿਖਤ ਦੇ ਤੌਰ \'ਤੇ ਸਾਂਭੋ</string>
+  <string name="share_normal_button">ਲਿਖਤ ਦੇ ਤੌਰ \'ਤੇ ਸਾਂਝਾ ਕਰੋ</string>
   <string name="snippet_share_preview_image_desc">ਤਸਵੀਰ ਦੀ ਝਲਕ</string>
   <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">ਕੈਪਚਾ ਤਸਵੀਰ</string>
@@ -206,11 +206,11 @@
   <string name="text_copied">ਲਿਖਤ ਗੱਤੇ \'ਤੇ ਉਤਾਰੀ ਗਈ ਹੈ।</string>
   <string name="button_continue_to_article">ਲੇਖ ਪੜ੍ਹੋ</string>
   <string name="button_get_directions">ਨਿਰਦੇਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ</string>
-  <string name="error_no_maps_app">ਦਿਸ਼ਾਵਾਂ ਮੁਹੱਈਆ ਕਰਵਾਉਣ ਲਾਇ ਕੋਈ ਐਪ ਨਹੀਂ ਲੱਭੀ।</string>
+  <string name="error_no_maps_app">ਦਿਸ਼ਾਵਾਂ ਮੁਹੱਈਆ ਕਰਵਾਉਣ ਲਈ ਕੋਈ ਐਪ ਨਹੀਂ ਲੱਭੀ।</string>
   <string name="preference_title_show_link_previews">ਕੜੀ ਦੀ ਝਲਕ ਵਿਖਾਉ</string>
   <string name="preference_summary_show_link_previews">ਜਦੋਂ ਕੜੀ ਨੂੰ ਦਬਾਇਆ ਜਾਵੇ ਤਾਂ ਲੇਖ ਦੀ ਥੋੜ੍ਹੀ ਜਿਹੀ ਝਲਕ ਦਿਖਾਈ ਜਾਵੇ।</string>
   <string name="nav_item_donate">ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਸਹਿਯੋਗ ਦੇਵੋ</string>
-  <string name="error_voice_search_not_available">ਮੁਆਫ ਕਰਨਾ, ਆਵਾਜ਼ ਪਛਾਣ ਉਪਲਬਧ ਨਹੀੰ ਹੈ।</string>
+  <string name="error_voice_search_not_available">ਮੁਆਫ ਕਰਨਾ, ਆਵਾਜ਼ ਪਛਾਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="crash_report_dialog_title">ਮੁਅਾਫ਼ ਕਰਨਾ, ਪਿਛਲੀ ਵਾਰ ਐਪ ਟੁੱਟ ਗੲੀ ਸੀ</string>
   <string name="crash_report_dialog_dont_send_button">ਛੱਡ ਦਿਉ</string>
   <string name="crash_report_dialog_always_send_button">ਹਮੇਸ਼ਾ ਭੇਜੋ</string>
@@ -275,4 +275,11 @@
     <item quantity="one">ਕੱਲ੍ਹ</item>
     <item quantity="other">%d ਦਿਨ ਪਹਿਲਾਂ</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">ਅੱਜ</string>
+  <string name="description_edit_header">ਸੁਧਾਈ</string>
+  <string name="description_edit_help_hint">ਇਹ ਕੀ ਹੈ?</string>
+  <string name="description_edit_text_hint">ਵੇਰਵਾ ਭਰੋ</string>
+  <string name="description_edit_save">ਸਾਂਭੋ</string>
+  <string name="description_edit_char_count">%1$d/%2$d</string>
+  <string name="description_edit_add_description">ਵੇਰਵਾ ਸੋਧੋ</string>
 </resources>

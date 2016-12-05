@@ -14,7 +14,7 @@
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="page_does_not_exist_error">이 문서가 존재하지 않습니다.</string>
   <string name="dialog_title_clear_history">방문 기록 지우기</string>
-  <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려있는 모든 탭을 닫습니다. 정말 그렇게 하시겠습니까?</string>
+  <string name="dialog_message_clear_history">모든 방문 기록을 지우고 현재 열려 있는 모든 탭을 닫습니다. 계속하시겠습니까?</string>
   <string name="nav_item_saved_pages">저장된 문서</string>
   <string name="share_via">다음을 통해 공유</string>
   <string name="search_redirect_from">%s에서 넘어옴</string>

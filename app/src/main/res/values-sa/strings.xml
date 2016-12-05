@@ -17,6 +17,7 @@
   <string name="dialog_message_clear_history">एतत् भवतः/भवत्याः विचरणेतिहासं (search history) अपाकरिष्यति, एतत् सर्वान् टैब् पिदधास्यति । किम् एवम् इच्छति ?</string>
   <string name="nav_item_saved_pages">रक्षितपृष्ठानि</string>
   <string name="share_via">द्वारा वितरतु</string>
+  <string name="search_redirect_from">(%s इत्यस्मात् पुनर्निर्दिष्टम्)</string>
   <string name="menu_page_show_tabs">प्लवनानि दृश्यताम्</string>
   <string name="menu_page_other_languages">भाषा परिवर्त्यताम्</string>
   <string name="menu_page_find_in_page">पृष्ठम् अन्विष्यताम्</string>
@@ -35,6 +36,7 @@
   <string name="nearby_distance_in_kilometers">%.2f कि.मी.</string>
   <string name="nearby_zoom_to_location">भूपटे स्थानं दृष्टुं सर्पकं क्रियताम्</string>
   <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
+  <string name="talk_page_link_text">सम्भाषणम्</string>
   <string name="content_license_html">अन्तर्विषयः &lt;a href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; इत्यत्र उपलब्धः अस्ति, अन्यथा लिखतु</string>
   <string name="edit_save_action_license_logged_in">रक्षणेन सह, भवान्/भवती &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।</string>
   <string name="edit_save_action_license_anon">रक्षणेन सह भवान्/भवती &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।

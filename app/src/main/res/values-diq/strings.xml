@@ -37,7 +37,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Xeritay sero yu cay zoom ke</string>
   <string name="last_updated_text">Peyên rocaniye %s</string>
-  <string name="talk_page_link_text">Werênayış</string>
+  <string name="talk_page_link_text">Behs</string>
   <string name="content_license_html">Çina  ver niro se zerrek &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisanslı bınd şıma şınê bıkarnê</string>
   <string name="preference_title_language">Wikipedia Zıwan</string>
   <string name="preference_languages_filter_hint">Cı geyre</string>
