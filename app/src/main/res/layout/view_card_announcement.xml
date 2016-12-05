@@ -5,8 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingTop="16dp">
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/view_announcement_header_image"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/view_announcement_text"
@@ -16,17 +22,51 @@
         android:textColor="?attr/feed_text_primary_color"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="14sp"
         tools:text="Lorem ipsum"/>
 
-    <TextView
-        android:id="@+id/view_announcement_action"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_margin="4dp"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:textColor="?attr/colorPrimary"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:id="@+id/view_announcement_action_negative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:textColor="?attr/feed_text_tertiary_color"
+            android:text="@string/view_announcement_card_negative_action"/>
+
+        <TextView
+            android:id="@+id/view_announcement_action_positive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textColor="@android:color/white"
+            tools:text="Lorem ipsum"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/feed_image_border"/>
+
+    <TextView
+        android:id="@+id/view_announcement_footer_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/RtlAwareTextView"
+        android:padding="16dp"
+        android:textSize="12sp"
+        android:textColor="?attr/feed_text_tertiary_color"
+        android:textColorLink="?attr/link_color"
         tools:text="Lorem ipsum"/>
 
 </LinearLayout>

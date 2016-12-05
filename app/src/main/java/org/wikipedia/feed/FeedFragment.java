@@ -288,8 +288,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onAnnouncementAction(@NonNull Uri uri) {
+        public void onAnnouncementPositiveAction(@NonNull Uri uri) {
             UriUtil.handleExternalLink(getContext(), uri);
+        }
+
+        @Override
+        public void onAnnouncementNegativeAction(@NonNull Card card) {
+            onRequestDismissCard(card);
         }
     }
 

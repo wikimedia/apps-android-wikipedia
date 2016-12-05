@@ -6,12 +6,12 @@ import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitFactory;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -101,11 +101,21 @@ public class AnnouncementClient implements FeedClient {
     @VisibleForTesting
     static List<Card> buildCards(@NonNull List<Announcement> announcements) {
         List<Card> cards = new ArrayList<>();
-        String country = getGeoIPCountry();
+        String country = GeoUtil.getGeoIPCountry();
         Date now = new Date();
         for (Announcement announcement : announcements) {
             if (shouldShow(announcement, country, now)) {
-                cards.add(new AnnouncementCard(announcement));
+                switch (announcement.type()) {
+                    case Announcement.SURVEY:
+                        cards.add(new SurveyCard(announcement));
+                        break;
+                    case Announcement.FUNDRAISING:
+                        cards.add(new FundraisingCard(announcement));
+                        break;
+                    default:
+                        cards.add(new AnnouncementCard(announcement));
+                        break;
+                }
             }
         }
         return cards;
@@ -124,14 +134,5 @@ public class AnnouncementClient implements FeedClient {
             return false;
         }
         return true;
-    }
-
-    @Nullable private static String getGeoIPCountry() {
-        try {
-            return GeoIPCookieUnmarshaller.unmarshal(WikipediaApp.getInstance()).country();
-        } catch (IllegalArgumentException e) {
-            // For our purposes, don't care about malformations in the GeoIP cookie for now.
-            return null;
-        }
     }
 }

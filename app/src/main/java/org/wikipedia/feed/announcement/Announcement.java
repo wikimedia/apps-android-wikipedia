@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.List;
 
 class Announcement extends BaseModel {
+    public static final String SURVEY = "survey";
+    public static final String FUNDRAISING = "fundraising";
 
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String id;
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String type;
