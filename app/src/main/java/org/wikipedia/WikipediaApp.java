@@ -238,11 +238,7 @@ public class WikipediaApp extends Application {
     }
 
     public Api getAPIForSite(WikiSite wiki) {
-        return getAPIForSite(wiki, false);
-    }
-
-    public Api getAPIForSite(WikiSite wiki, boolean mobile) {
-        String host = mobile ? wiki.mobileHost() : wiki.host();
+        String host = wiki.host();
         String acceptLanguage = getAcceptLanguage(wiki);
         Map<String, String> customHeaders = buildCustomHeadersMap(acceptLanguage);
         Api api;
@@ -258,10 +254,6 @@ public class WikipediaApp extends Application {
 
         api.setHeaderCheckListener(zeroHandler);
         return api;
-    }
-
-    public Api getApiForMobileSite(WikiSite wiki) {
-        return getAPIForSite(wiki, true);
     }
 
     /**
