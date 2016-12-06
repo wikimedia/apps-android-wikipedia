@@ -3,6 +3,8 @@ package org.wikipedia.server.mwapi;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.wikipedia.server.ServiceError;
 
 import java.util.Collections;
@@ -42,6 +44,15 @@ public class MwServiceError implements ServiceError {
         return false;
     }
 
+    @Nullable public String getMessageHtml(@NonNull String messageName) {
+        for (Message msg : messages) {
+            if (messageName.equals(msg.name)) {
+                return msg.getHtmlValue();
+            }
+        }
+        return null;
+    }
+
     @Override public String toString() {
         return "MwServiceError{"
                 + "code='" + code + '\''
@@ -52,5 +63,14 @@ public class MwServiceError implements ServiceError {
 
     private static final class Message {
         @SuppressWarnings("unused") private String name;
+        @SuppressWarnings("unused") private MessageHtml html;
+
+        @NonNull private String getHtmlValue() {
+            return html != null ? html.value : "";
+        }
+    }
+
+    private static class MessageHtml {
+        @SuppressWarnings("unused") @SerializedName("*") private String value;
     }
 }
