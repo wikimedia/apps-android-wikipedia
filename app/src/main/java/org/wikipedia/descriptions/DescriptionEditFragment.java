@@ -125,12 +125,9 @@ public class DescriptionEditFragment extends Fragment {
                         }
 
                         @Override public void abusefilter(@NonNull Call<DescriptionEdit> call,
-                                                          boolean disallowed) {
-                            if (disallowed) {
-                                // TODO: go to ABUSE_FILTER_DISALLOWED fragment
-                            } else {
-                                // TODO: go to ABUSE_FILTER_WARNING fragment
-                            }
+                                                          String info) {
+                            editView.setSaveState(false);
+                            editView.setError(info);
                         }
 
                         @Override public void failure(@NonNull Call<DescriptionEdit> call,

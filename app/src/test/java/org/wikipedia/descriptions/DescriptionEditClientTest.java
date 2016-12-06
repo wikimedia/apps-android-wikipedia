@@ -41,7 +41,8 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         Call<DescriptionEdit> call = request(cb);
 
         server().takeRequest();
-        assertCallbackAbusefilter(call, cb, false);
+        assertCallbackAbusefilter(call, cb,
+                "<b>Warning:</b> This action has been automatically identified as harmful.\nUnconstructive edits will be quickly reverted,\nand egregious or repeated unconstructive editing will result in your account or IP address being blocked.\nIf you believe this action to be constructive, you may submit it again to confirm it.\nA brief description of the abuse rule which your action matched is: Possible vandalism by adding badwords or similar trolling words");
     }
 
     @Test public void testRequestAbusefilterDisallowed() throws Throwable {
@@ -51,7 +52,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         Call<DescriptionEdit> call = request(cb);
 
         server().takeRequest();
-        assertCallbackAbusefilter(call, cb, true);
+        assertCallbackAbusefilter(call, cb, "This action has been automatically identified as harmful, and therefore disallowed.\nIf you believe your action was constructive, please inform an administrator of what you were trying to do.");
     }
 
     @Test public void testRequestResponseFailure() throws Throwable {
@@ -78,17 +79,17 @@ public class DescriptionEditClientTest extends MockWebServerTest {
                                        @NonNull Callback cb) {
         verify(cb).success(eq(call));
         //noinspection unchecked
-        verify(cb, never()).abusefilter(any(Call.class), any(Boolean.class));
+        verify(cb, never()).abusefilter(any(Call.class), any(String.class));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
 
     private void assertCallbackAbusefilter(@NonNull Call<DescriptionEdit> call,
                                            @NonNull Callback cb,
-                                           boolean disallowed) {
+                                           String expectedMessage) {
         //noinspection unchecked
         verify(cb, never()).success(any(Call.class));
-        verify(cb).abusefilter(eq(call), eq(disallowed));
+        verify(cb).abusefilter(eq(call), eq(expectedMessage));
         //noinspection unchecked
         verify(cb, never()).failure(any(Call.class), any(Throwable.class));
     }
@@ -99,7 +100,7 @@ public class DescriptionEditClientTest extends MockWebServerTest {
         //noinspection unchecked
         verify(cb, never()).success(any(Call.class));
         //noinspection unchecked
-        verify(cb, never()).abusefilter(any(Call.class), any(Boolean.class));
+        verify(cb, never()).abusefilter(any(Call.class), any(String.class));
         verify(cb).failure(eq(call), isA(throwable));
     }
 

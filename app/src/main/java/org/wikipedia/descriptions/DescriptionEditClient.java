@@ -23,13 +23,15 @@ import retrofit2.http.POST;
 class DescriptionEditClient {
     private static final String ANONYMOUS_TOKEN = "+\\";
     private static final WikiSite WIKI_DATA_SITE = new WikiSite("www.wikidata.org", "");
+    private static final String ABUSEFILTER_DISALLOWED = "abusefilter-disallowed";
+    private static final String ABUSEFILTER_WARNING = "abusefilter-warning";
 
     @NonNull private final MwCachedService<Service> cachedService
             = new MwCachedService<>(Service.class);
 
     public interface Callback {
         void success(@NonNull Call<DescriptionEdit> call);
-        void abusefilter(@NonNull Call<DescriptionEdit> call, boolean disallowed);
+        void abusefilter(@NonNull Call<DescriptionEdit> call, String info);
         void failure(@NonNull Call<DescriptionEdit> call, @NonNull Throwable caught);
     }
 
@@ -56,7 +58,7 @@ class DescriptionEditClient {
                                   final boolean loggedIn,
                                   @NonNull final Callback cb) {
 
-        Call<DescriptionEdit> call = service.edit(languageCode, languageCode + "wiki",
+        Call<DescriptionEdit> call = service.edit(languageCode, languageCode, languageCode + "wiki",
                 pageTitle.getPrefixedText(), description, ANONYMOUS_TOKEN, null,
                 /* TODO: loggedIn ? "user" : */ null);
         call.enqueue(new retrofit2.Callback<DescriptionEdit>() {
@@ -91,10 +93,10 @@ class DescriptionEditClient {
     private void handleError(@NonNull Call<DescriptionEdit> call, @NonNull DescriptionEdit body,
                              @NonNull Callback cb) {
         MwServiceError error = body.getError();
-        if (error != null && error.hasMessageName("abusefilter-disallowed")) {
-            cb.abusefilter(call, true);
-        } else if (error != null && error.hasMessageName("abusefilter-warning")) {
-            cb.abusefilter(call, false);
+        if (error != null && error.hasMessageName(ABUSEFILTER_DISALLOWED)) {
+            cb.abusefilter(call, error.getMessageHtml(ABUSEFILTER_DISALLOWED));
+        } else if (error != null && error.hasMessageName(ABUSEFILTER_WARNING)) {
+            cb.abusefilter(call, error.getMessageHtml(ABUSEFILTER_WARNING));
         } else {
             String info = body.info();
             RuntimeException exception = new RuntimeException(info != null
@@ -104,9 +106,10 @@ class DescriptionEditClient {
     }
 
     @VisibleForTesting interface Service {
-        @FormUrlEncoded
+        @SuppressWarnings("checkstyle:parameternumber") @FormUrlEncoded
         @POST("w/api.php?action=wbsetdescription&format=json")
         Call<DescriptionEdit> edit(@NonNull @Field("language") String language,
+                                   @NonNull @Field("uselang") String useLang,
                                    @NonNull @Field("site") String site,
                                    @NonNull @Field("title") String title,
                                    @NonNull @Field("value") String newDescription,
