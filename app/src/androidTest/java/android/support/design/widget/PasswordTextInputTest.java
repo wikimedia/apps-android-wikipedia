@@ -1,5 +1,7 @@
 package android.support.design.widget;
 
+import android.support.test.filters.SmallTest;
+
 import org.junit.Before;
 import org.junit.experimental.theories.Theory;
 import org.wikipedia.test.theories.TestedOnBool;
@@ -15,12 +17,13 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class PasswordTextInputTest extends ViewTest {
+@SmallTest public class PasswordTextInputTest extends ViewTest {
     private PasswordTextInput subject;
 
     @Before public void setUp() {
         setUp(WIDTH_DP_S, LayoutDirection.LOCALE, FontScale.DEFAULT, Theme.LIGHT);
         subject = new PasswordTextInput(ctx());
+        subject.setPasswordVisibilityToggleEnabled(true);
     }
 
     @Theory public void testIsPasswordVisible(@TestedOnBool boolean visible) {
