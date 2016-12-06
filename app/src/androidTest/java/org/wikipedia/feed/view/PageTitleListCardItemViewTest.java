@@ -1,6 +1,7 @@
 package org.wikipedia.feed.view;
 
 import android.support.annotation.NonNull;
+import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -25,7 +26,7 @@ import static org.mockito.Mockito.mock;
 import static org.wikipedia.feed.view.PageTitleListCardItemView.Callback;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
-public class PageTitleListCardItemViewTest extends ViewTest {
+@SmallTest public class PageTitleListCardItemViewTest extends ViewTest {
     private PageTitleListCardItemView subject;
 
     @Theory public void testWidth(@TestedOn(ints = {WIDTH_DP_L, WIDTH_DP_M}) int widthDp,
@@ -82,9 +83,15 @@ public class PageTitleListCardItemViewTest extends ViewTest {
 
     @Theory public void testSetSubtitle(@TestedOnBool boolean nul) {
         setUpTypical();
-        CharSequence text = nul ? null : "text";
+        CharSequence text = nul ? null : "Text";
         subject.setSubtitle(text);
         assertThat(subject.subtitleView.getText().toString(), is(emptyIfNull(text)));
+    }
+
+    @Theory public void testSetSubtitleCapitalization() {
+        setUpTypical();
+        subject.setSubtitle("text");
+        assertThat(subject.subtitleView.getText().toString(), is("Text"));
     }
 
     private void setUpTypical() {
