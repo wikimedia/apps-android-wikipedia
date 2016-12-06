@@ -3,11 +3,9 @@ package org.wikipedia.login;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.test.filters.SmallTest;
-import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.token.EditTokenStorage;
@@ -19,9 +17,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
 
-@SmallTest
-@RunWith(AndroidJUnit4.class)
-public class LoginClientTest {
+@SmallTest public class LoginClientTest {
     private static final WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
     private static final String USERNAME = getString(org.wikipedia.test.R.string.test_username);
     private static final String PASSWORD = getString(org.wikipedia.test.R.string.test_password);

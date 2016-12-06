@@ -1,6 +1,7 @@
 package org.wikipedia.feed.announcement;
 
 import android.support.annotation.NonNull;
+import android.support.test.filters.SmallTest;
 
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
@@ -13,7 +14,7 @@ import org.wikipedia.theme.Theme;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class FundraisingCardViewTest extends ViewTest {
+@SmallTest public class FundraisingCardViewTest extends ViewTest {
     private static final String FUNDRAISING_TEXT = "Hey Android readers,<br /><br /><strong>Today we ask you to help Wikipedia</strong>. To protect our independence, we’ll never run ads. We believe everyone should have access to knowledge—for free, without restriction, without limitation. Please help us end the fundraiser and improve Wikipedia.";
     private static final String FUNDRAISING_ACTION = "Donate";
     private FundraisingCardView subject;

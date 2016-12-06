@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.filters.SmallTest;
 import android.support.v4.content.ContextCompat;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
@@ -17,7 +18,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class AppTextViewWithImagesTest {
+@SmallTest public class AppTextViewWithImagesTest {
     private AppTextViewWithImages subject;
     private Context ctx = InstrumentationRegistry.getTargetContext();
 

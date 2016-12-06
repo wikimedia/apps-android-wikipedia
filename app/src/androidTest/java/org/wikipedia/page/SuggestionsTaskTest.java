@@ -22,8 +22,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 /**
  * Tests for getting suggestions for further reading.
  */
-@SmallTest
-public class SuggestionsTaskTest {
+@SmallTest public class SuggestionsTaskTest {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en"); // suggestions don't seem to work on testwiki
 
     private WikipediaApp app = WikipediaApp.getInstance();
