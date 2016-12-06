@@ -21,6 +21,7 @@ import org.wikipedia.theme.Theme;
 import static android.view.View.OnClickListener;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -72,9 +73,10 @@ import static org.mockito.Mockito.verify;
 
         OnClickListener listener = nul ? null : mock(View.OnClickListener.class);
         subject.onClickListener(listener);
-        subject.performClick();
+        // todo: why doesn't subject.performClick() apply to backgroundView, a child?
+        subject.backgroundView.performClick();
         if (listener != null) {
-            verify(listener);
+            verify(listener).onClick(any(View.class));
         }
     }
 
