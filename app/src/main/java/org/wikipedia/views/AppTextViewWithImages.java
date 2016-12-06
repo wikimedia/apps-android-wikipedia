@@ -86,7 +86,8 @@ public class AppTextViewWithImages extends AppTextView {
     Spannable makeImageSpan(@DrawableRes int drawableId, float size, @ColorInt int color) {
         Spannable result = Spannable.Factory.getInstance().newSpannable(" ");
         Drawable drawable = getFormattedDrawable(drawableId, size, color);
-        result.setSpan(new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        result.setSpan(new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE), 0, 1,
+                Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         return result;
     }
 
@@ -95,9 +96,8 @@ public class AppTextViewWithImages extends AppTextView {
         Drawable drawable = ContextCompat.getDrawable(getContext(), drawableId);
         DrawableUtil.setTint(drawable, color);
 
-        int roundedHeight = Math.round(size);
-        int roundedWidth = Math.round(size * drawable.getIntrinsicWidth() / drawable.getIntrinsicHeight());
-        drawable.setBounds(0, 0, roundedWidth, roundedHeight);
+        float ratio = drawable.getIntrinsicWidth() / drawable.getIntrinsicHeight();
+        drawable.setBounds(0, 0, Math.round(size), Math.round(size * ratio));
 
         return drawable;
     }
