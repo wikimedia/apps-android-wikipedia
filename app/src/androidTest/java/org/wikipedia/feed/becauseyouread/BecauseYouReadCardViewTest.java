@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -29,7 +30,7 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class BecauseYouReadCardViewTest extends ViewTest {
+@SmallTest public class BecauseYouReadCardViewTest extends ViewTest {
     private static final int TODAY = 0;
     private static final int TOMORROW = 1;
 
@@ -89,8 +90,8 @@ public class BecauseYouReadCardViewTest extends ViewTest {
 
         String expected;
         switch (age) {
-            case TODAY: expected = "today"; break;
-            case TOMORROW: expected = "yesterday"; break;
+            case TODAY: expected = "Today"; break;
+            case TOMORROW: expected = "Yesterday"; break;
             default: expected = String.valueOf(age);
         }
 
