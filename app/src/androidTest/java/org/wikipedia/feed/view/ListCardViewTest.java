@@ -1,6 +1,7 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
+import android.support.test.filters.SmallTest;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.View;
@@ -16,15 +17,15 @@ import org.wikipedia.test.view.LayoutDirection;
 import org.wikipedia.test.view.ViewTest;
 import org.wikipedia.theme.Theme;
 
+import static android.support.v7.widget.RecyclerView.AdapterDataObserver;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.wikipedia.feed.view.FeedAdapter.Callback;
 
-public class ListCardViewTest extends ViewTest {
+@SmallTest public class ListCardViewTest extends ViewTest {
     private ListCardView<Card> subject;
 
     @Before public void setUp() {
@@ -55,11 +56,19 @@ public class ListCardViewTest extends ViewTest {
     }
 
     @Theory public void testUpdate(@TestedOnBool boolean nul) {
-        Adapter<?> adapter = nul ? null : spy(new NullAdapter());
+        Adapter<?> adapter = nul ? null : new NullAdapter();
         subject.set(adapter);
-        subject.update();
+
+        AdapterDataObserver observer = mock(AdapterDataObserver.class);
         if (adapter != null) {
-            verify(adapter).notifyDataSetChanged();
+            adapter.registerAdapterDataObserver(observer);
+        }
+
+        subject.update();
+
+        if (adapter != null) {
+            adapter.unregisterAdapterDataObserver(observer);
+            verify(observer).onChanged();
         }
     }
 
