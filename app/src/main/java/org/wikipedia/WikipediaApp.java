@@ -32,6 +32,7 @@ import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.AppContentProviderContract;
 import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.dataclient.OkHttpConnectionFactory;
+import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.edit.token.EditTokenStorage;

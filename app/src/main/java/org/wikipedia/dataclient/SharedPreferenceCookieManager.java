@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.dataclient;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
