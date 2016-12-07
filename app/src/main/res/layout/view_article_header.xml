@@ -46,8 +46,6 @@
             android:paddingRight="40dp"
             android:textSize="@dimen/descriptionTextSize"
             android:lineSpacingMultiplier="@dimen/lead_subtitle_leading_scalar"
-            android:maxLines="2"
-            android:ellipsize="end"
             android:textColor="@color/foundation_gray"
             android:textColorLink="@color/foundation_gray"
             android:textColorHighlight="?attr/window_background_color"
