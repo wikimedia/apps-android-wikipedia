@@ -17,15 +17,15 @@ import java.util.Collection;
 import java.util.List;
 
 public final class RichTextUtil {
-    @NonNull public static Spannable setSpans(@NonNull Spannable spanned,
+    @NonNull public static Spannable setSpans(@NonNull Spannable spannable,
                                               int start,
                                               int end,
                                               int flags,
                                               @NonNull Object... spans) {
         for (Object span : spans) {
-            spanned.setSpan(span, start, end, flags);
+            spannable.setSpan(span, start, end, flags);
         }
-        return spanned;
+        return spannable;
     }
 
     /**
