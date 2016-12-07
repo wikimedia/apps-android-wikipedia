@@ -2,7 +2,6 @@ package org.wikipedia.descriptions;
 
 import android.support.annotation.NonNull;
 import android.support.test.filters.SmallTest;
-import android.view.View;
 
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -82,7 +81,7 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
     @Theory public void testSetSaveState(@TestedOnBool boolean saving) {
         defaultSetUp();
         subject.setSaveState(saving);
-        assertThat(subject.saveButton.getVisibility(), is(saving ? View.GONE : View.VISIBLE));
+        assertThat(subject.saveButton.isEnabled(), is(!saving));
     }
 
     @Theory public void testGetDescription(@TestedOnBool boolean nul) {
@@ -123,10 +122,8 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
         subject.setTitle(str(title));
         subject.setDescription(str(description));
         subject.setError(str(error));
-        subject.setSaveState(saving);
 
-        // todo: resolve why the button doesn't show deterministically. the button appears either
-        //       correctly or in the upper left
-        subject.saveButton.hide();
+        // todo: vector drawables (when specified in xml with app:srcCompat) aren't rendering
+        subject.setSaveState(saving);
     }
 }

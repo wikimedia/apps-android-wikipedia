@@ -6,9 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -32,6 +29,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import retrofit2.Call;
+
+import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
     private static final String ARG_TITLE = "title";
@@ -68,12 +67,6 @@ public class DescriptionEditFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
-
     @Override public void onDestroyView() {
         editView.setCallback(null);
         unbinder.unbind();
@@ -88,26 +81,10 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_description_edit, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_description_edit_help:
-                // TODO: show tutorial!
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS
                 && getActivity() != null) {
-            getActivity().finish();
+            finish();
         }
     }
 
@@ -121,6 +98,11 @@ public class DescriptionEditFragment extends Fragment {
             editTokenCall.cancel();
             editTokenCall = null;
         }
+    }
+
+    private void finish() {
+        hideSoftKeyboard(getActivity());
+        getActivity().finish();
     }
 
     private class EditViewCallback implements DescriptionEditView.Callback {
@@ -234,6 +216,16 @@ public class DescriptionEditFragment extends Fragment {
                 editView.setSaveState(false);
                 editView.setError(caught.getMessage());
             }
+        }
+
+        @Override
+        public void onHelpClick() {
+            // TODO: Show tutorial!
+        }
+
+        @Override
+        public void onCancelClick() {
+            finish();
         }
     }
 
