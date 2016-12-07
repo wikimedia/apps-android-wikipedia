@@ -2,12 +2,14 @@ package org.wikipedia.feed.announcement;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.StringUtil;
 
 import java.text.ParseException;
 import java.util.Collections;
@@ -24,6 +26,8 @@ class Announcement extends BaseModel {
     @SuppressWarnings("unused,NullableProblems") @SerializedName("end_time") @Required @NonNull private String endTime;
     @SuppressWarnings("unused") @NonNull private List<String> platforms = Collections.emptyList();
     @SuppressWarnings("unused") @NonNull private List<String> countries = Collections.emptyList();
+    @SuppressWarnings("unused") @SerializedName("caption_HTML") @Nullable private String footerCaption;
+    @SuppressWarnings("unused") @SerializedName("image") @Nullable private String imageUrl;
 
     @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
     @SuppressWarnings("unused") @Nullable private Action action;
@@ -74,6 +78,22 @@ class Announcement extends BaseModel {
 
     @NonNull String actionUrl() {
         return action.url();
+    }
+
+    boolean hasFooterCaption() {
+        return !TextUtils.isEmpty(footerCaption);
+    }
+
+    @NonNull String footerCaption() {
+        return StringUtil.emptyIfNull(footerCaption);
+    }
+
+    boolean hasImageUrl() {
+        return !TextUtils.isEmpty(imageUrl);
+    }
+
+    @NonNull String imageUrl() {
+        return StringUtil.emptyIfNull(imageUrl);
     }
 
     static class Action {

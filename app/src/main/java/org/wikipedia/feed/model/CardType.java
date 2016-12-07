@@ -4,8 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.feed.announcement.AnnouncementCardView;
-import org.wikipedia.feed.announcement.FundraisingCardView;
-import org.wikipedia.feed.announcement.SurveyCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.continuereading.ContinueReadingCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
@@ -77,12 +75,12 @@ public enum CardType implements EnumCode {
     },
     SURVEY(14) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
-            return new SurveyCardView(ctx);
+            return new AnnouncementCardView(ctx);
         }
     },
     FUNDRAISING(15) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
-            return new FundraisingCardView(ctx);
+            return new AnnouncementCardView(ctx);
         }
     },
     PROGRESS(99) {

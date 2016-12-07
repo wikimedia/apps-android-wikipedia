@@ -14,15 +14,11 @@ public class AnnouncementCard extends Card {
         this.announcement = announcement;
     }
 
-    @Override
-    @NonNull
-    public String title() {
+    @Override @NonNull public String title() {
         return announcement.type();
     }
 
-    @Nullable
-    @Override
-    public String extract() {
+    @Nullable @Override public String extract() {
         return announcement.text();
     }
 
@@ -30,24 +26,35 @@ public class AnnouncementCard extends Card {
         return announcement.hasAction();
     }
 
-    @NonNull
-    public String actionTitle() {
+    @NonNull public String actionTitle() {
         return announcement.actionTitle();
     }
 
-    @NonNull
-    public Uri actionUri() {
+    @NonNull public Uri actionUri() {
         return Uri.parse(announcement.actionUrl());
     }
 
-    @NonNull
-    @Override
-    public CardType type() {
+    public boolean hasFooterCaption() {
+        return announcement.hasFooterCaption();
+    }
+
+    @NonNull public String footerCaption() {
+        return announcement.footerCaption();
+    }
+
+    public boolean hasImage() {
+        return announcement.hasImageUrl();
+    }
+
+    @NonNull @Override public Uri image() {
+        return Uri.parse(announcement.imageUrl());
+    }
+
+    @NonNull @Override public CardType type() {
         return CardType.ANNOUNCEMENT;
     }
 
-    @Override
-    protected int dismissHashCode() {
+    @Override protected int dismissHashCode() {
         return announcement.id().hashCode();
     }
 }

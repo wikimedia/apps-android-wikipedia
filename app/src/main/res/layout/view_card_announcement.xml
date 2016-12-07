@@ -7,12 +7,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <ImageView
+    <org.wikipedia.views.FaceAndColorDetectImageView
+        style="@style/SimpleDraweeViewPlaceholder"
         android:id="@+id/view_announcement_header_image"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:contentDescription="@null"
-        android:scaleType="centerCrop"/>
+        android:contentDescription="@null" />
 
     <TextView
         android:id="@+id/view_announcement_text"
