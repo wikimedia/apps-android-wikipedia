@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.test.filters.SmallTest;
 
 import org.junit.Test;
-
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.testlib.TestLatch;
@@ -13,8 +12,7 @@ import retrofit2.Call;
 
 import static org.junit.Assert.assertNotNull;
 
-@SmallTest
-public class FetchSectionWikitextTest {
+@SmallTest public class FetchSectionWikitextTest {
     @Test public void testPageFetch() throws Throwable {
         WikiSite wiki = WikiSite.forLanguageCode("test");
         PageTitle title = new PageTitle(null, "Test_page_for_app_testing/Section1", wiki);

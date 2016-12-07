@@ -6,22 +6,18 @@ import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
-import android.support.test.runner.AndroidJUnit4;
 import android.support.v4.app.ActivityCompat;
 
 import com.squareup.spoon.Spoon;
 
 import org.junit.Rule;
-import org.junit.runner.RunWith;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.tabs.TabsProvider;
 
 import static org.wikipedia.test.TestUtil.runOnMainSync;
 
-@LargeTest
-@RunWith(AndroidJUnit4.class)
-public abstract class BasePageLoadTest {
+@LargeTest public abstract class BasePageLoadTest {
     protected static final WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
     protected static final WikiSite EN_WIKI = WikiSite.forLanguageCode("en");
 

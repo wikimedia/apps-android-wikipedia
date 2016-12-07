@@ -14,8 +14,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-@SmallTest
-public class EditPreviewTest {
+@SmallTest public class EditPreviewTest {
     private static WikiSite TESTWIKI = WikiSite.forLanguageCode("test");
 
     @Test

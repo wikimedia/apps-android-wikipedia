@@ -1,6 +1,7 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
+import android.support.test.filters.SmallTest;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +18,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.mock;
 
-public class DefaultFeedCardViewTest extends ViewTest {
+@SmallTest public class DefaultFeedCardViewTest extends ViewTest {
     private DefaultFeedCardView<Card> subject;
 
     @Before public void setUp() {

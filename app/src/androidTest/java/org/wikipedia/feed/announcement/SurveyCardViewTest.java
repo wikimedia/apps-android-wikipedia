@@ -1,6 +1,7 @@
 package org.wikipedia.feed.announcement;
 
 import android.support.annotation.NonNull;
+import android.support.test.filters.SmallTest;
 
 import org.junit.experimental.theories.Theory;
 import org.junit.experimental.theories.suppliers.TestedOn;
@@ -13,7 +14,7 @@ import org.wikipedia.theme.Theme;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class SurveyCardViewTest extends ViewTest {
+@SmallTest public class SurveyCardViewTest extends ViewTest {
     private static final String SURVEY_TEXT = "Answer three questions and help us improve Wikipedia.";
     private static final String SURVEY_ACTION = "Take survey";
     private SurveyCardView subject;

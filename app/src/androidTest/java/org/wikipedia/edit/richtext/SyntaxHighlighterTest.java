@@ -16,8 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
-@SmallTest
-public class SyntaxHighlighterTest {
+@SmallTest public class SyntaxHighlighterTest {
     @Test
     public void testSyntaxHighlight() {
         final String testStr = "foo {{template1}} bar {{template2}} baz";

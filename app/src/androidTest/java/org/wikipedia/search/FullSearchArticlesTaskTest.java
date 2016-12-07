@@ -16,8 +16,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 /**
  * Tests for full text search.
  */
-@SmallTest
-public class FullSearchArticlesTaskTest {
+@SmallTest public class FullSearchArticlesTaskTest {
     private static final int BATCH_SIZE = 12;
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 

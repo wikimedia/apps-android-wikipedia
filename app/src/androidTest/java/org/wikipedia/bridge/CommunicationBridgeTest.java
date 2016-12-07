@@ -1,13 +1,11 @@
 package org.wikipedia.bridge;
 
 import android.support.test.filters.LargeTest;
-import android.support.test.runner.AndroidJUnit4;
 import android.webkit.WebView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.testlib.TestLatch;
 
@@ -15,9 +13,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.wikipedia.test.TestUtil.runOnMainSync;
 
-@LargeTest
-@RunWith(AndroidJUnit4.class)
-public class CommunicationBridgeTest {
+@LargeTest public class CommunicationBridgeTest {
     private static final String TEST_FILE_URI = "file:///android_asset/tests/index.html";
     private static final String DOM_LOADED = "DOMLoaded";
     private static final String PING = "ping";

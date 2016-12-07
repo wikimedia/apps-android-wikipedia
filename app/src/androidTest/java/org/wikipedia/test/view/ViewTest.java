@@ -38,13 +38,21 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 import static org.wikipedia.util.StringUtil.emptyIfNull;
 
 @RunWith(Theories.class) public abstract class ViewTest {
+    @SuppressWarnings("WeakerAccess")
     @DataPoints public static final Locale[] LOCALES = {Locale.ENGLISH};
+    @SuppressWarnings("unused")
     @DataPoints public static final LayoutDirection[] LAYOUT_DIRECTIONS = LayoutDirection.values();
+    @SuppressWarnings("unused")
     @DataPoints public static final FontScale[] FONT_SCALES = FontScale.values();
+    @SuppressWarnings("unused")
     @DataPoints public static final Theme[] THEMES = Theme.values();
+    @SuppressWarnings("unused")
     @DataPoints public static final PrimaryTestStr[] PRIMARY_STRS = PrimaryTestStr.values();
+    @SuppressWarnings("unused")
     @DataPoints public static final SecondaryTestStr[] SECONDARY_STRS = SecondaryTestStr.values();
+    @SuppressWarnings("unused")
     @DataPoints public static final PrimaryTestImg[] PRIMARY_IMGS = PrimaryTestImg.values();
+    @SuppressWarnings("unused")
     @DataPoints public static final SecondaryTestImg[] SECONDARY_IMGS = SecondaryTestImg.values();
 
     protected static final int WIDTH_DP_XL = 720;

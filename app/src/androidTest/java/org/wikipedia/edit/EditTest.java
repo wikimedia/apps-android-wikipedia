@@ -18,8 +18,7 @@ import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-@LargeTest
-public class EditTest {
+@LargeTest public class EditTest {
     private static final WikiSite TEST_WIKI_SITE = WikiSite.forLanguageCode("test");
     private static final String ABUSE_FILTER_ERROR_PAGE_TITLE = "Test_page_for_app_testing/AbuseFilter";
     private static final int DEFAULT_SECTION_ID = 0;

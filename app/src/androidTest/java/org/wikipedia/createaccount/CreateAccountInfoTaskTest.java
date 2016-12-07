@@ -5,12 +5,10 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
-import android.support.test.runner.AndroidJUnit4;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mediawiki.api.json.Api;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.captcha.CaptchaResult;
@@ -30,9 +28,7 @@ import static junit.framework.Assert.fail;
  * a CAPTCHA.  The most we can do is check that we are able to retrieve the createaccount token and
  * CAPTCHA image as expected.
  */
-@SmallTest
-@RunWith(AndroidJUnit4.class)
-public class CreateAccountInfoTaskTest {
+@SmallTest public class CreateAccountInfoTaskTest {
     private static WikiSite TEST_WIKI = WikiSite.forLanguageCode("test");
     private static Api TEST_API = WikipediaApp.getInstance().getAPIForSite(TEST_WIKI);
     private Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();

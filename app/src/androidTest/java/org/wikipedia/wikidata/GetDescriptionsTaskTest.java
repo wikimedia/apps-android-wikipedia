@@ -21,8 +21,7 @@ import static org.wikipedia.test.TestUtil.runOnMainSync;
 /**
  * Tests retrieval of Wikidata descriptions through enwiki.
  */
-@SmallTest
-public class GetDescriptionsTaskTest {
+@SmallTest public class GetDescriptionsTaskTest {
     private static final WikiSite WIKI = WikiSite.forLanguageCode("en");
 
     @Test public void testOneTitle() throws Throwable {
