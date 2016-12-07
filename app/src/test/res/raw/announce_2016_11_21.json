@@ -41,6 +41,27 @@
       ]
     },
     {
+      "id": "EN11116FUNDRAISINGANDROID",
+      "type": "fundraising",
+      "start_time": "2016-11-15T17:11:12Z",
+      "end_time": "2016-11-30T17:11:12Z",
+      "platforms": [
+        "AndroidApp"
+      ],
+      "text": "Help Wikipedia by making a donation.",
+      "image" : "https://image.url",
+      "action": {
+        "title": "Donate",
+        "url": "https://donate.url?campaign_id=12345&source=android"
+      },
+      "caption_HTML": "By donating, you are agreeing to our <a href=\"https://wikimediafoundation.org/wiki/Special:LandingCheck?basic=true&landing_page=Donor_policy&country=%1$slanguage=%2$s&uselang=%2$s&utm_medium=androidapp\">donor privacy policy</a>.",
+      "countries": [
+        "US",
+        "CA",
+        "GB"
+      ]
+    },
+    {
       "id": "AnnouncementWithInvalidDates",
       "type": "fundraising",
       "start_time": null,

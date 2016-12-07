@@ -2,18 +2,16 @@ package org.wikipedia.feed.announcement;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import butterknife.BindView;
@@ -27,7 +25,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         void onAnnouncementNegativeAction(@NonNull Card card);
     }
 
-    @BindView(R.id.view_announcement_header_image) ImageView headerImageView;
+    @BindView(R.id.view_announcement_header_image) FaceAndColorDetectImageView headerImageView;
     @BindView(R.id.view_announcement_text) TextView textView;
     @BindView(R.id.view_announcement_action_positive) TextView actionViewPositive;
     @BindView(R.id.view_announcement_action_negative) TextView actionViewNegative;
@@ -38,8 +36,7 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         inflate(context, R.layout.view_card_announcement, this);
         ButterKnife.bind(this);
 
-        setHeaderImageVisible(false);
-        setNegativeActionVisible(false);
+        setNegativeActionVisible(true);
         footerTextView.setMovementMethod(new LinkMovementMethod());
     }
 
@@ -57,6 +54,17 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
             actionViewPositive.setVisibility(VISIBLE);
             actionViewNegative.setVisibility(VISIBLE);
             actionViewPositive.setText(card.actionTitle());
+        }
+
+        if (card.hasImage()) {
+            headerImageView.setVisibility(VISIBLE);
+            headerImageView.loadImage(card.image());
+        } else {
+            headerImageView.setVisibility(GONE);
+        }
+
+        if (card.hasFooterCaption()) {
+            footerTextView.setText(StringUtil.fromHtml(card.footerCaption()));
         }
     }
 
@@ -76,17 +84,5 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
 
     protected void setNegativeActionVisible(boolean visible) {
         actionViewNegative.setVisibility(visible ? VISIBLE : GONE);
-    }
-
-    protected void setHeaderImageVisible(boolean visible) {
-        headerImageView.setVisibility(visible ? VISIBLE : GONE);
-    }
-
-    protected void setHeaderImage(@DrawableRes int id) {
-        headerImageView.setImageDrawable(ContextCompat.getDrawable(getContext(), id));
-    }
-
-    protected void setFooterText(@NonNull String text) {
-        footerTextView.setText(StringUtil.fromHtml(text));
     }
 }
