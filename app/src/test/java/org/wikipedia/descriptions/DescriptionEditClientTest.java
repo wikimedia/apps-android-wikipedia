@@ -22,6 +22,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 public class DescriptionEditClientTest extends MockWebServerTest {
+    private static final String MOCK_EDIT_TOKEN = "+\\";
+
     @NonNull private final DescriptionEditClient subject = new DescriptionEditClient();
 
     @Test public void testRequestSuccess() throws Throwable {
@@ -107,6 +109,6 @@ public class DescriptionEditClientTest extends MockWebServerTest {
     private Call<DescriptionEdit> request(@NonNull Callback cb) {
         final PageTitle pageTitle = new PageTitle("foo", WikiSite.forLanguageCode("en"));
         return subject.request(service(Service.class), pageTitle, "some new description", "en",
-                false, cb);
+                MOCK_EDIT_TOKEN, false, cb);
     }
 }

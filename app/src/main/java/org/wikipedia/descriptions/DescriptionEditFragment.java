@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.edit.token.EditToken;
+import org.wikipedia.edit.token.EditTokenClient;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
@@ -30,7 +33,8 @@ public class DescriptionEditFragment extends Fragment {
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
-    @Nullable private Call<DescriptionEdit> call;
+    @Nullable private Call<EditToken> editTokenCall;
+    @Nullable private Call<DescriptionEdit> descriptionEditCall;
 
     @NonNull
     public static DescriptionEditFragment newInstance(@NonNull PageTitle title) {
@@ -72,10 +76,7 @@ public class DescriptionEditFragment extends Fragment {
     }
 
     @Override public void onDestroy() {
-        if (call != null) {
-            call.cancel();
-            call = null;
-        }
+        cancelCalls();
         pageTitle = null;
         super.onDestroy();
     }
@@ -104,16 +105,50 @@ public class DescriptionEditFragment extends Fragment {
         }
     }
 
+    private void cancelCalls() {
+        // in reverse chronological order
+        if (descriptionEditCall != null) {
+            descriptionEditCall.cancel();
+            descriptionEditCall = null;
+        }
+        if (editTokenCall != null) {
+            editTokenCall.cancel();
+            editTokenCall = null;
+        }
+    }
+
     private class EditViewCallback implements DescriptionEditView.Callback {
+        private final WikiSite wikiData = new WikiSite("www.wikidata.org", "");
+
         @Override
         public void onSaveClick() {
             editView.setError(null);
             editView.setSaveState(true);
 
-            if (call != null) {
-                call.cancel();
-            }
-            call = new DescriptionEditClient().request(pageTitle, editView.getDescription(),
+            cancelCalls();
+            requestEditToken();
+        }
+
+        /** fetch edit token from Wikidata */
+        private void requestEditToken() {
+            editTokenCall = new EditTokenClient().request(wikiData,
+                    new EditTokenClient.Callback() {
+                        @Override public void success(@NonNull Call<EditToken> call,
+                                                      @NonNull String editToken) {
+                            postDescription(editToken);
+                        }
+
+                        @Override public void failure(@NonNull Call<EditToken> call,
+                                                      @NonNull Throwable caught) {
+                            editFailed(caught);
+                        }
+                    });
+        }
+
+        /* send updated description to Wikidata */
+        private void postDescription(@NonNull String editToken) {
+            descriptionEditCall = new DescriptionEditClient().request(wikiData, pageTitle,
+                    editView.getDescription(), editToken,
                     new DescriptionEditClient.Callback() {
                         @Override public void success(@NonNull Call<DescriptionEdit> call) {
                             if (getActivity() != null) {
@@ -132,10 +167,16 @@ public class DescriptionEditFragment extends Fragment {
 
                         @Override public void failure(@NonNull Call<DescriptionEdit> call,
                                                       @NonNull Throwable caught) {
-                            editView.setSaveState(false);
-                            editView.setError(caught.getMessage());
+                            editFailed(caught);
                         }
                     });
+        }
+
+        private void editFailed(@NonNull Throwable caught) {
+            if (editView != null) {
+                editView.setSaveState(false);
+                editView.setError(caught.getMessage());
+            }
         }
     }
 }
