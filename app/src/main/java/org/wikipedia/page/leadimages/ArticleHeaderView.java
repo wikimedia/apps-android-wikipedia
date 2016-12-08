@@ -353,6 +353,9 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     private void setTopOffset(boolean noImage) {
         statusBarPlaceholder.setVisibility(noImage ? View.VISIBLE : View.GONE);
         int offset = noImage ? getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) : 0;
+
+        // Offset is a resolved pixel dimension, not a resource id
+        //noinspection ResourceType
         setPadding(0, offset, 0, 0);
     }
 

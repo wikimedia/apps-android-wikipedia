@@ -32,7 +32,6 @@ public class DescriptionEditView extends FrameLayout {
     @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
 
-    @Nullable private PageTitle pageTitle;
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
 
@@ -66,7 +65,6 @@ public class DescriptionEditView extends FrameLayout {
     }
 
     public void setPageTitle(@NonNull PageTitle pageTitle) {
-        this.pageTitle = pageTitle;
         setTitle(pageTitle.getDisplayText());
         originalDescription = pageTitle.getDescription();
         setDescription(originalDescription);

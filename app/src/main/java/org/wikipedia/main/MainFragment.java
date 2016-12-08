@@ -1,5 +1,6 @@
 package org.wikipedia.main;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.DownloadManager;
@@ -429,6 +430,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
+    @SuppressLint("CommitTransaction")
     private void openSearchFragment(@NonNull SearchInvokeSource source, @Nullable String query) {
         Fragment fragment = searchFragment();
         if (fragment == null) {
@@ -440,6 +442,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
+    @SuppressLint("CommitTransaction")
     private void closeSearchFragment(@NonNull SearchFragment fragment) {
         getChildFragmentManager().beginTransaction().remove(fragment).commitNowAllowingStateLoss();
     }

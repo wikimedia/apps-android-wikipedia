@@ -1,5 +1,6 @@
 package org.wikipedia.page;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetManager;
@@ -847,6 +848,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         this.pageLoadCallbacks = pageLoadCallbacks;
     }
 
+    @SuppressLint("CommitTransaction")
     private void openSearchFragment(@NonNull SearchInvokeSource source, @Nullable String query) {
         Fragment fragment = searchFragment();
         if (fragment == null) {
@@ -858,6 +860,7 @@ public class PageActivity extends ThemedActionBarActivity implements PageFragmen
         }
     }
 
+    @SuppressLint("CommitTransaction")
     private void closeSearchFragment(@NonNull SearchFragment fragment) {
         getSupportFragmentManager().beginTransaction().remove(fragment).commitNowAllowingStateLoss();
     }
