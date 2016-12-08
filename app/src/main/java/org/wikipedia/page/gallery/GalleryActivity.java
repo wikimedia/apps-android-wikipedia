@@ -68,8 +68,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
     public static final String EXTRA_WIKI = "wiki";
     public static final String EXTRA_SOURCE = "source";
     public static final String EXTRA_FEATURED_IMAGE = "card";
-
-    private static final String FEED_FEATURED_IMAGE_TITLE = "FeedFeaturedImage";
+    public static final String EXTRA_IS_FEATURED_IMAGE = "is_featured";
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @Nullable private PageTitle pageTitle;
@@ -139,10 +138,12 @@ public class GalleryActivity extends ThemedActionBarActivity {
     };
 
     @NonNull
-    public static Intent newIntent(@NonNull Context context, @NonNull FeaturedImage image,
-                                   @NonNull String filename, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, new PageTitle(FEED_FEATURED_IMAGE_TITLE, wiki), filename, wiki,
-                source).putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image));
+    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle pageTitle,
+                                   @NonNull String filename, @NonNull WikiSite wiki, int source,
+                                   @NonNull FeaturedImage image) {
+        return newIntent(context, pageTitle, filename, wiki, source)
+                .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
+                .putExtra(EXTRA_IS_FEATURED_IMAGE, true);
     }
 
     @NonNull
@@ -228,7 +229,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         if (pageTitle == null) {
             throw new IllegalStateException("pageTitle should not be null");
-        } else if (FEED_FEATURED_IMAGE_TITLE.equals(pageTitle.getText())) {
+        } else if (getIntent().hasExtra(EXTRA_IS_FEATURED_IMAGE)
+                && getIntent().getBooleanExtra(EXTRA_IS_FEATURED_IMAGE, false)) {
             FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
                     getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
             if (featuredImage != null) {
