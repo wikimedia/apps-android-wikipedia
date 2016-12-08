@@ -62,8 +62,6 @@
     <dimen name="floating_action_button_margin_right">8dp</dimen>
     <dimen name="floating_action_button_margin_bottom">0dp</dimen>
 
-    <dimen name="nav_drawer_header_height">150dp</dimen>
-
     <dimen name="shadow_thickness">3dp</dimen>
 
     <!-- Value for android:lineSpacingMultiplier in the article title TextView.
@@ -75,7 +73,6 @@
 
     <dimen name="audio_url_span_loading_spinner_border_thickness">2dp</dimen>
     <dimen name="audio_url_span_loading_spinner_radius">8dp</dimen>
-    <dimen name="audio_url_span_click_size">48dp</dimen>
 
     <!-- Maps -->
     <integer name="map_default_zoom">12</integer>

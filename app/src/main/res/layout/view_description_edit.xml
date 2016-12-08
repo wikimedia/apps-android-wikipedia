@@ -78,7 +78,7 @@
             android:textAlignment="viewStart"
             android:gravity="start"
             app:counterEnabled="true"
-            app:counterMaxLength="140"
+            app:counterMaxLength="@integer/description_max_chars"
             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
             <org.wikipedia.views.PlainPasteEditText
                 style="@style/RtlAwareTextView"
