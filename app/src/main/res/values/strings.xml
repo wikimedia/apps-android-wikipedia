@@ -353,4 +353,14 @@
     <string name="description_edit_success_did_you_know">Did you know?</string>
     <string name="description_edit_success_article_edit_hint">You can also edit articles within this app. Try fixing typos and small sentences by clicking on the ^1 icon next time</string>
     <!-- /Description editing success -->
+
+    <!-- Description editing tutorial -->
+    <string name="description_edit_tutorial_title_descriptions">Title descriptions</string>
+    <string name="description_edit_tutorial_title_descriptions_summary">Summarizes an article to help readers understand the subject at a glance</string>
+    <string name="description_edit_tutorial_button_label_continue">Continue</string>
+    <string name="description_edit_tutorial_keep_it_short">Keep it short</string>
+    <string name="description_edit_tutorial_keep_it_short_instructions">Ideally one line, between two to twelve words</string>
+    <string name="description_edit_tutorial_button_label_start_editing">Start editing</string>
+    <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
+    <!-- /Description editing tutorial -->
 </resources>

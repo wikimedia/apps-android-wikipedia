@@ -159,6 +159,10 @@
         <activity android:name=".descriptions.DescriptionEditHelpActivity"
             android:theme="@style/AppTheme"/>
 
+        <activity
+            android:name=".descriptions.DescriptionEditTutorialActivity"
+            android:theme="@style/PageTheme"/>
+
         <provider
                 android:authorities="${applicationId}"
                 android:name=".database.AppContentProvider"

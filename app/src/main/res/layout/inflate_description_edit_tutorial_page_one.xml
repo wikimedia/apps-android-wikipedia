@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.descriptions.DescriptionEditTutorialPageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/description_edit_tutorial_background"
+    app:image="@drawable/illustration_description_onboard_1"
+    app:primaryText="@string/description_edit_tutorial_title_descriptions"
+    app:secondaryText="@string/description_edit_tutorial_title_descriptions_summary"
+    app:buttonText="@string/description_edit_tutorial_button_label_continue" />

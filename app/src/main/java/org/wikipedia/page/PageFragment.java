@@ -46,10 +46,12 @@ import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.edit.EditHandler;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
 import org.wikipedia.language.LangLinksActivity;
+import org.wikipedia.onboarding.PrefsOnboardingStateMachine;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.action.PageActionToolbarHideHandler;
 import org.wikipedia.page.gallery.GalleryActivity;
@@ -87,6 +89,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static android.app.Activity.RESULT_OK;
 import static butterknife.ButterKnife.findById;
 import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
@@ -700,6 +703,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             FeedbackUtil.showMessage(getActivity(), R.string.edit_saved_successfully);
             // and reload the page...
             loadPage(model.getTitleOriginal(), model.getCurEntry(), PageLoadStrategy.Cache.FALLBACK, false);
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL
+                && resultCode == RESULT_OK) {
+            PrefsOnboardingStateMachine.getInstance().setDescriptionEditTutorial();
+            startActivity(DescriptionEditActivity.newIntent(getContext(), getTitle()));
         }
     }
 

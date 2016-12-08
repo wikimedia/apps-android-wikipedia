@@ -7,9 +7,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.TextView;
 
-public class GoneIfEmptyTextView extends TextView {
+public class GoneIfEmptyTextView extends AppTextView {
     public GoneIfEmptyTextView(Context context) {
         super(context);
         init();
