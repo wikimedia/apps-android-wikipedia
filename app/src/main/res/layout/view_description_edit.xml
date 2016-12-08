@@ -76,7 +76,10 @@
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
             android:textAlignment="viewStart"
-            android:gravity="start">
+            android:gravity="start"
+            app:counterEnabled="true"
+            app:counterMaxLength="140"
+            app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
             <org.wikipedia.views.PlainPasteEditText
                 style="@style/RtlAwareTextView"
                 android:id="@+id/view_description_edit_text"
@@ -84,16 +87,6 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/description_edit_text_hint"/>
         </android.support.design.widget.TextInputLayout>
-
-        <TextView
-            android:id="@+id/view_description_edit_char_count"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:gravity="end"
-            tools:text="0 / 140"/>
 
     </LinearLayout>
 

@@ -338,7 +338,6 @@
     <string name="description_edit_help_hint">What\'s this?</string>
     <string name="description_edit_text_hint">Write a description!</string>
     <string name="description_edit_save">Save</string>
-    <string name="description_edit_char_count">%1$d / %2$d</string>
     <string name="description_edit_add_description">Add description</string>
     <!-- /Description editing -->
 

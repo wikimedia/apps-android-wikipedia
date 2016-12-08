@@ -448,7 +448,6 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.
 {{Identical|Save}}</string>
-  <string name="description_edit_char_count">Label that displays the character count of the description being entered. The %1$d symbol is replaced with the number of characters in the current description, and the %2$d symbol is replaced with the maximum allowed characters.</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>

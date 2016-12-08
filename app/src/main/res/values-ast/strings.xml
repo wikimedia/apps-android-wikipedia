@@ -301,6 +301,5 @@
   <string name="description_edit_help_hint">¿Qué ye esto?</string>
   <string name="description_edit_text_hint">Escribe una descripción</string>
   <string name="description_edit_save">Guardar</string>
-  <string name="description_edit_char_count">%1$d / %2$d</string>
   <string name="description_edit_add_description">Amiesta una descripción</string>
 </resources>

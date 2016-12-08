@@ -301,6 +301,5 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="description_edit_help_hint">Čo je toto?</string>
   <string name="description_edit_text_hint">Napíšte popis!</string>
   <string name="description_edit_save">Uložiť</string>
-  <string name="description_edit_char_count">%1$d / %2$d</string>
   <string name="description_edit_add_description">Pridať popis</string>
 </resources>
