@@ -11,12 +11,12 @@ import com.squareup.otto.Subscribe;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.activity.SingleFragmentActivityWithToolbar;
+import org.wikipedia.activity.SingleFragmentToolbarActivity;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.util.log.L;
 
-public class MainActivity extends SingleFragmentActivityWithToolbar<MainFragment>
+public class MainActivity extends SingleFragmentToolbarActivity<MainFragment>
         implements MainFragment.Callback {
 
     private WikipediaApp app;
