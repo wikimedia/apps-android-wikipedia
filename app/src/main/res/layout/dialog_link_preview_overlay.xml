@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom">
-    <Button
+    <TextView
         android:id="@+id/link_preview_directions_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:textSize="@dimen/abc_text_size_menu_material"
         android:text="@string/button_get_directions"/>
-    <Button
+    <TextView
         android:id="@+id/link_preview_go_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

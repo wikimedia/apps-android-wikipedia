@@ -48,7 +48,7 @@
                 android:textAlignment="center"
                 android:textSize="15sp"/>
 
-            <Button
+            <TextView
                 android:id="@+id/view_description_edit_success_done_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -41,13 +41,13 @@
                 android:src="?attr/lead_image_drawable"
                 android:contentDescription="@string/snippet_share_preview_image_desc" />
 
-            <Button
+            <TextView
                 android:id="@+id/share_as_image_button"
                 style="@style/ButtonBlueOnWhite"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/share_snippet_button" />
 
-            <Button
+            <TextView
                 android:id="@+id/share_as_text_button"
                 style="@style/ButtonBlueOnWhite"
                 android:layout_gravity="center_horizontal"

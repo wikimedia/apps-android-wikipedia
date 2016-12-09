@@ -9,8 +9,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
@@ -52,7 +52,7 @@ public class CaptchaHandler {
         captchaImage = (SimpleDraweeView) activity.findViewById(R.id.captcha_image);
         captchaText = (EditText) activity.findViewById(R.id.captcha_text);
         captchaProgress = activity.findViewById(R.id.captcha_image_progress);
-        Button submitButton = (Button) activity.findViewById(R.id.captcha_submit_button);
+        TextView submitButton = (TextView) activity.findViewById(R.id.captcha_submit_button);
 
         if (submitButtonText != null) {
             submitButton.setText(submitButtonText);

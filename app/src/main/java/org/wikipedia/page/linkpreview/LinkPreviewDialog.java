@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -62,7 +61,7 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
     private GalleryThumbnailScrollView thumbnailGallery;
     private View toolbarView;
     private View overflowButton;
-    private Button goButton;
+    private TextView goButton;
 
     private PageTitle pageTitle;
     private int entrySource;
@@ -129,11 +128,11 @@ public class LinkPreviewDialog extends SwipeableBottomDialog implements DialogIn
         toolbarView.setOnClickListener(goToPageListener);
 
         View overlayRootView = addOverlay(inflater, R.layout.dialog_link_preview_overlay);
-        goButton = (Button) overlayRootView.findViewById(R.id.link_preview_go_button);
+        goButton = (TextView) overlayRootView.findViewById(R.id.link_preview_go_button);
         goButton.setOnClickListener(goToPageListener);
         goButton.setText(getStringForArticleLanguage(pageTitle, R.string.button_continue_to_article));
 
-        Button directionsButton = (Button) overlayRootView.findViewById(R.id.link_preview_directions_button);
+        TextView directionsButton = (TextView) overlayRootView.findViewById(R.id.link_preview_directions_button);
         if (location != null) {
             directionsButton.setOnClickListener(getDirectionsListener);
         } else {

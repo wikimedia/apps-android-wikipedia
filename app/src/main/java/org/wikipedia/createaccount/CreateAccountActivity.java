@@ -9,8 +9,8 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnKeyListener;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
@@ -58,8 +58,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
     @OptionalEmail(messageResId = R.string.create_account_email_error)
     private EditText emailEdit;
 
-    private Button createAccountButton;
-    private Button createAccountButtonCaptcha;
+    private TextView createAccountButton;
+    private TextView createAccountButtonCaptcha;
 
     private ProgressDialog progressDialog;
 
@@ -80,8 +80,8 @@ public class CreateAccountActivity extends ThemedActionBarActivity {
         passwordRepeatInput = ((PasswordTextInput) findViewById(R.id.create_account_password_repeat));
         passwordRepeatEdit = passwordRepeatInput.getEditText();
         emailEdit = (EditText) findViewById(R.id.create_account_email);
-        createAccountButton = (Button) findViewById(R.id.create_account_submit_button);
-        createAccountButtonCaptcha = (Button) findViewById(R.id.captcha_submit_button);
+        createAccountButton = (TextView) findViewById(R.id.create_account_submit_button);
+        createAccountButtonCaptcha = (TextView) findViewById(R.id.captcha_submit_button);
         EditText captchaText = (EditText) findViewById(R.id.captcha_text);
         View primaryContainer = findViewById(R.id.create_account_primary_container);
         passwordInput = (PasswordTextInput) findViewById(R.id.create_account_password_input);

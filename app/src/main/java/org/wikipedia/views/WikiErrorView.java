@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -18,7 +17,7 @@ import static org.wikipedia.util.ThrowableUtil.isRetryable;
 
 public class WikiErrorView extends FrameLayout {
     @BindView(R.id.error_text) TextView errorTextView;
-    @BindView(R.id.retry_button) Button button;
+    @BindView(R.id.retry_button) TextView button;
     @BindView(R.id.server_message_text) TextView messageTextView;
 
     @Nullable private OnClickListener retryListener;

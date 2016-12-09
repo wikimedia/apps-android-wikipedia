@@ -95,7 +95,8 @@
         <item name="android:clickable">true</item>
     </style>
 
-    <style name="ButtonProgressive" parent="@android:style/TextAppearance.Large">
+    <!-- todo: rename App.Button -->
+    <style name="ButtonProgressive" parent="@style/Widget.AppCompat.Button">
         <item name="android:textAllCaps">false</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -110,6 +111,9 @@
         <item name="android:paddingRight">8dp</item>
         <item name="android:background">@drawable/button_selector_green_progressive</item>
         <item name="android:textColor">@android:color/white</item>
+
+        <!-- todo: move to a App.Button.Large -->
+        <item name="android:textSize">22sp</item>
     </style>
 
     <style name="ButtonSecondary" parent="ButtonProgressive">

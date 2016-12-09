@@ -18,7 +18,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -139,7 +138,7 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         sectionContainer = (ScrollView) findViewById(R.id.edit_section_container);
         sectionContainer.setSmoothScrollingEnabled(false);
         sectionError = findViewById(R.id.edit_section_error);
-        Button sectionErrorRetry = (Button) findViewById(R.id.edit_section_error_retry);
+        TextView sectionErrorRetry = (TextView) findViewById(R.id.edit_section_error_retry);
 
         abusefilterContainer = findViewById(R.id.edit_section_abusefilter_container);
         abuseFilterImage = (ImageView) findViewById(R.id.edit_section_abusefilter_image);

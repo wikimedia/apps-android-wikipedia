@@ -26,11 +26,13 @@
                   style="?android:textAppearanceLarge"
                 />
 
-        <Button
-                android:id="@+id/edit_section_error_retry"
-                android:text="@string/edit_section_error_retry"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView
+            style="@style/ButtonProgressive"
+            android:id="@+id/edit_section_error_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_section_error_retry"
+            android:layout_gravity="center" />
 
     </LinearLayout>
     <ScrollView

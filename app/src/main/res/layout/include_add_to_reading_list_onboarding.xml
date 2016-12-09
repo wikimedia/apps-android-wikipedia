@@ -104,7 +104,7 @@
             android:text="@string/reading_lists_onboarding_example3"/>
     </LinearLayout>
 
-    <Button
+    <TextView
         android:id="@+id/onboarding_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
