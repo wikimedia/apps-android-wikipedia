@@ -18,4 +18,15 @@
         <ignore regexp="crash_report_dialog_[a-z_]+" />
         <ignore regexp="tool_tip_arrow_[updown]+" />
     </issue>
+
+    <issue id="all">
+        <ignore path="java/com/facebook" />
+    </issue>
+
+    <issue id="InvalidPackage" severity="ignore" /> <!-- Required by Butter Knife -->
+
+    <issue id="MissingTranslation" severity="ignore" />
+    <issue id="UnusedQuantity" severity="ignore" />
+    <issue id="MissingQuantity" severity="warning" />
+    <issue id="ImpliedQuantity" severity="warning" />
 </lint>

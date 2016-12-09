@@ -128,14 +128,6 @@ android {
         }
     }
 
-    // while we still have lint errors; remove once those are fixed
-    lintOptions {
-        disable 'MissingTranslation'
-        disable 'InvalidPackage' // required by Butter Knife
-        warning 'MissingQuantity'
-        warning 'ImpliedQuantity'
-    }
-
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
 
