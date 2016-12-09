@@ -117,8 +117,19 @@ body {
     margin: 0 12px;
   }
 }
+.client-js .collapsible-block {
+  display: none;
+}
+.client-js .collapsible-block.open-block {
+  display: block;
+}
 .nomobile {
   display: none !important;
+}
+@media all and (min-width: 720px) {
+  .client-js [onclick] + .collapsible-block {
+    display: block;
+  }
 }
 .content .thumb {
   margin: 0.6em 0;
@@ -127,11 +138,6 @@ body {
 .content .thumb .thumbinner {
   margin: 0 auto;
   max-width: 100% !important;
-}
-.content .thumb .thumbinner > div {
-  float: none !important;
-  width: auto !important;
-  clear: both !important;
 }
 .content .thumb .noresize {
   width: 100%;
@@ -197,7 +203,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Linux Libertine', 'Georgia', ' Times', serif;
+  font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
   line-height: 1.3;
   word-wrap: break-word;
   word-break: break-word;
@@ -210,7 +216,7 @@ h6 {
   padding: 0.5em 0;
 }
 blockquote {
-  font-family: 'Linux Libertine', 'Georgia', ' Times', serif;
+  font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
   font-size: 1.1em;
   quotes: '\201C' '\201D';
   padding: 1em 25px 1em 30px;
@@ -284,6 +290,16 @@ dl dt {
 body.mw-hide-empty-elt .mw-empty-elt {
   display: none;
 }
+.hlist-separated li:after {
+  content: '•';
+  padding-left: 8px;
+  color: #002bb8;
+  font-size: 16px;
+  line-height: 1;
+}
+.hlist-separated :last-child:after {
+  content: '';
+}
 a {
   text-decoration: none;
   color: #002bb8;
@@ -306,7 +322,6 @@ a.external {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVElEQVR42n3PgQkAIAhEUXdqJ3dqJ3e6IoTPUSQcgj4EQ5IlUiLE0Jil3PECXhcHGBhZ8kg4hwxAu3MZeCGeyFnAXp4hqNQPnt7QL0nADpD6wHccLvnAKksq8iiaAAAAAElFTkSuQmCC);
   background-image: url(/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf)!ie;
   background-image: linear-gradient(transparent, transparent), url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23fff%22%20stroke%3D%22%2306c%22%20d%3D%22M.5%203.518h5.982V9.5H.5z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M4.755-.16H9.99v5.39L8.417%206.774l-1.31-1.31L4.383%208.19%201.695%205.5l2.808-2.807-1.31-1.31z%22%20fill%3D%22%2306f%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M8.984.845l.022%204.884L7.19%203.91l-2.882%202.88L3.08%205.567l2.882-2.88L4.112.833z%22%20fill%3D%22%23fff%22%2F%3E%0A%3C%2Fsvg%3E%0A);
-  background-image: linear-gradient(transparent, transparent), url(/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.svg?acafc)!ie;
   background-image: -o-linear-gradient(transparent, transparent), url(/w/extensions/MobileFrontend/resources/skins.minerva.content.styles/images/external-link-ltr-icon.png?948bf);
   background-repeat: no-repeat;
   background-position: center right;
@@ -449,7 +464,8 @@ FIXME: Review all of these hacks to see if they still apply.
  * Makes sure that on small screens column-count is only honored if column-width hint is not violated.
  * https://developer.mozilla.org/en-US/docs/CSS/column-width
  */
-.references-column-count {
+.references-column-count,
+.column-count {
   -moz-column-width: 35em;
   -webkit-column-width: 35em;
   column-width: 35em;
@@ -480,6 +496,31 @@ FIXME: Review all of these hacks to see if they still apply.
   .content table.multicol > tbody > tr > td {
     display: block !important;
     width: auto !important;
+  }
+  .content .thumb .thumbinner {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  .content .thumb .thumbinner > .thumbcaption {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    width: 100%;
+    -ms-flex: 1 0 100%;
+    flex: 1 0 100%;
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    display: block;
   }
 }/* CSS for Parsoid Cite extension */
 
@@ -631,8 +672,8 @@ li.gallerycaption {
 
 li.gallerybox div.thumb {
 	text-align: center;
-	border: 1px solid #ccc;
-	background-color: #f9f9f9;
+	border: 1px solid #c8ccd1;
+	background-color: #f8f9fa;
 	margin: 2px;
 }
 
@@ -1224,12 +1265,6 @@ th .sortkey {
 .transborder {
   border: solid transparent;
 }
-/* Disabling column-count for {{reflist}} and {{refbegin}} */
-.references-column-count {
-  -moz-column-count: 1 !important;
-  -webkit-column-count: 1 !important;
-  column-count: 1 !important;
-}
 /* Show fallback math formulas, since MathML is hidden */
 .mwe-math-fallback-image-inline {
   display: inline-block;
@@ -1256,6 +1291,16 @@ th .sortkey {
 .image_overflow_x_container {
   max-width: 100%;
   overflow: auto;
+}
+/* Added from Common.css to fix T147239 */
+/* Hide (formatting) elements from screen, but not from screenreaders */
+.visualhide {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 h2.section_heading {
