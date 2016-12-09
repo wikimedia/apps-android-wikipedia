@@ -191,6 +191,15 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
                 subtitleText.getPaddingTop(),
                 isLangRTL(locale) ? 0 : subtitlePadding,
                 subtitleText.getPaddingBottom());
+        if (TextUtils.isEmpty(subtitle)) {
+            subtitleText.setCompoundDrawablesWithIntrinsicBounds(
+                    isLangRTL(locale) ? 0 : R.drawable.ic_short_text,
+                    0,
+                    isLangRTL(locale) ? R.drawable.ic_short_text : 0,
+                    0);
+        } else {
+            subtitleText.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        }
     }
 
     public void setTextColor(@ColorInt int color) {
@@ -293,7 +302,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         final float leadingScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_leading_scalar);
         final float paragraphScalar = DimenUtil.getFloat(R.dimen.lead_subtitle_paragraph_scalar);
         String description = TextUtils.isEmpty(subtitle)
-                ? getResources().getString(R.string.description_edit_add_description).toUpperCase()
+                ? getResources().getString(R.string.description_edit_add_description)
                 : subtitle.toString();
         return RichTextUtil.setSpans(new SpannableString(description),
                 0,

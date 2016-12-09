@@ -49,6 +49,8 @@
             android:textColor="@color/foundation_gray"
             android:textColorLink="@color/foundation_gray"
             android:textColorHighlight="?attr/window_background_color"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/foundation_blue"
             tools:text="Subtitle" />
 
         <View
