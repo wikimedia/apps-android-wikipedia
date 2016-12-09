@@ -63,7 +63,7 @@ class DescriptionEditClient {
 
         Call<DescriptionEdit> call = service.edit(languageCode, languageCode, languageCode + "wiki",
                 pageTitle.getPrefixedText(), description, editToken,
-                /* TODO: loggedIn ? "user" : */ null);
+                loggedIn ? "user" : null);
         call.enqueue(new retrofit2.Callback<DescriptionEdit>() {
             @Override
             public void onResponse(Call<DescriptionEdit> call,
