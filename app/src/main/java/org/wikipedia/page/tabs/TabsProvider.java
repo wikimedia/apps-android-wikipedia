@@ -1,6 +1,7 @@
 package org.wikipedia.page.tabs;
 
 import android.content.DialogInterface;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -447,13 +448,15 @@ public class TabsProvider {
             viewHolder.gradient.setVisibility(
                     position == tabList.size() - 1 ? View.GONE : View.VISIBLE);
 
+            @ColorRes int colorId = position == 0
+                    ? R.color.darkest_gray
+                    : getThemedAttributeId(fragment.getContext(), R.attr.tab_shadow_color);
+            int color = ContextCompat.getColor(fragment.getContext(), colorId);
+
             // dynamically set the background color that will show through the rounded corners.
             // if it's the first last item in the tab list, we want the background to be the same
             // as the activity background, otherwise it should match the tab shadow color.
-            convertView.setBackgroundColor(ContextCompat.getColor(fragment.getContext(),
-                    position == 0
-                            ? R.color.darkest_gray
-                            : getThemedAttributeId(fragment.getContext(), R.attr.tab_shadow_color)));
+            convertView.setBackgroundColor(color);
 
             List<PageBackStackItem> backstack = tabList.get(position).getBackStack();
             if (backstack.size() > 0) {

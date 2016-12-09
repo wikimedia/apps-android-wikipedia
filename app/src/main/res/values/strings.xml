@@ -329,8 +329,6 @@
     </plurals>
     <string name="view_continue_reading_card_subtitle_today">Today</string>
     <string name="view_announcement_card_negative_action">No thanks</string>
-    <string name="view_survey_card_footer"><![CDATA[Survey powered by 3rd-party service; see <a href=\"https://wikimediafoundation.org/wiki/Apps_Reader_Motivation_Survey_Privacy_Statement\">privacy statement</a>.]]></string>
-    <string name="view_fundraising_card_footer"><![CDATA[By donating, you are agreeing to our <a href=\"https://wikimediafoundation.org/wiki/Special:LandingCheck?basic=true&landing_page=Donor_policy&country=%1$slanguage=%2$s&uselang=%2$s&utm_medium=androidapp\">donor privacy policy</a>.]]></string>
     <!-- /The Feed -->
 
     <!-- Description editing -->
