@@ -29,6 +29,7 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         busMethods = new EventBusMethods();
+        WikipediaApp.getInstance().getBus().register(busMethods);
 
         ActivityUtil.requestFullUserOrientation(this);
 
@@ -47,7 +48,6 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        WikipediaApp.getInstance().getBus().register(busMethods);
         AccountUtil.logOutIfAccountRemoved();
 
         // The UI is likely shown, giving the user the opportunity to exit and making a crash loop
@@ -56,13 +56,8 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        WikipediaApp.getInstance().getBus().unregister(busMethods);
-    }
-
-    @Override
     public void onDestroy() {
+        WikipediaApp.getInstance().getBus().unregister(busMethods);
         super.onDestroy();
         mDestroyed = true;
     }
