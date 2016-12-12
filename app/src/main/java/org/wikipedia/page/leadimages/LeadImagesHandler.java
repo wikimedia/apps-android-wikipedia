@@ -131,10 +131,9 @@ public class LeadImagesHandler {
         // set the page title text, and honor any HTML formatting in the title
         loadLeadImage();
         articleHeaderView.setTitle(StringUtil.fromHtml(getPage().getDisplayTitle()));
+        articleHeaderView.setSubtitle(StringUtils.capitalize(getTitle().getDescription()));
         articleHeaderView.setLocale(getPage().getTitle().getWikiSite().languageCode());
         articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
-        // Set the subtitle, too, so text measurements are accurate.
-        layoutWikiDataDescription(getTitle().getDescription());
         layoutViews(listener, sequence);
     }
 
@@ -183,16 +182,6 @@ public class LeadImagesHandler {
             throw new RuntimeException(e);
         }
         bridge.sendMessage("setPaddingTop", payload);
-    }
-
-    /**
-     * Final step in the WikiData description process: lay out the description, and animate it
-     * into place, along with the page title.
-     *
-     * @param description WikiData description to be shown.
-     */
-    private void layoutWikiDataDescription(@Nullable final String description) {
-        articleHeaderView.setSubtitle(StringUtils.capitalize(description));
     }
 
     /**

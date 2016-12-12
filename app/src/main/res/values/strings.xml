@@ -336,7 +336,7 @@
     <string name="description_edit_help_hint">What\'s this?</string>
     <string name="description_edit_text_hint">Write a description!</string>
     <string name="description_edit_save">Save</string>
-    <string name="description_edit_add_description">Add description</string>
+    <string name="description_edit_add_description">Add short description</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
