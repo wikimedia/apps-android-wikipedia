@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -272,7 +273,8 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
     private void notifyEnterZeroNetwork(@NonNull Context context, @NonNull ZeroConfig config) {
         NotificationCompat.Builder builder = createNotification(context);
         builder.setColor(config.getBackground())
-                .setSmallIcon(R.drawable.ic_wikipedia_zero_on)
+                .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                        ? R.drawable.ic_wikipedia_zero_on : R.mipmap.launcher)
                 .setLights(config.getBackground(),
                         context.getResources().getInteger(R.integer.zero_notification_light_on_ms),
                         context.getResources().getInteger(R.integer.zero_notification_light_off_ms))
@@ -286,7 +288,8 @@ public class WikipediaZeroHandler implements OnHeaderCheckListener {
     private void notifyExitZeroNetwork(@NonNull Context context) {
         NotificationCompat.Builder builder = createNotification(context);
         builder.setColor(ContextCompat.getColor(context, R.color.foundation_red))
-                .setSmallIcon(R.drawable.ic_wikipedia_zero_off)
+                .setSmallIcon(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                        ? R.drawable.ic_wikipedia_zero_off : R.mipmap.launcher)
                 .setContentText(context.getString(R.string.zero_charged_verbiage))
                 .setAutoCancel(true)
                 .addAction(0, context.getString(R.string.zero_learn_more_learn_more),
