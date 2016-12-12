@@ -239,6 +239,9 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="article_menu_bar_bookmark">Ajouter cet article à une liste de lecture</string>
   <string name="article_menu_bar_share">Partager le lien vers la page</string>
   <string name="article_menu_bar_navigate">Naviguer à l’emplacement de l’article</string>
+  <string name="article_header_edit_hint">Modifier…</string>
+  <string name="article_header_edit_description">Modifier la description du titre</string>
+  <string name="article_header_edit_lead_section">Modifier l’introduction</string>
   <string name="nav_item_reading_lists">Mes listes</string>
   <string name="reading_list_untitled">Sans titre</string>
   <string name="reading_list_save_to">Enregistrer dans la liste de lecture</string>
@@ -303,4 +306,9 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="description_edit_text_hint">Écrire une description !</string>
   <string name="description_edit_save">Enregistrer</string>
   <string name="description_edit_add_description">Ajouter une description</string>
+  <string name="description_edit_success_saved">Description enregistrée !</string>
+  <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleur pour tout le monde</string>
+  <string name="description_edit_success_done">Fait</string>
+  <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
+  <string name="description_edit_success_article_edit_hint">Vous pouvez aussi modifier des articles dans cette application. Essayez de corriger des fautes et de petites phrases en cliquant sur l’icône ^1 la prochaine fois</string>
 </resources>

@@ -238,6 +238,9 @@
   <string name="article_menu_bar_bookmark">增加此條目至閱讀清單裡</string>
   <string name="article_menu_bar_share">分享條目連結</string>
   <string name="article_menu_bar_navigate">導覽至條目的位置</string>
+  <string name="article_header_edit_hint">編輯…</string>
+  <string name="article_header_edit_description">編輯標題描述</string>
+  <string name="article_header_edit_lead_section">編輯介紹</string>
   <string name="nav_item_reading_lists">我的清單</string>
   <string name="reading_list_untitled">未命名標題</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
@@ -302,4 +305,9 @@
   <string name="description_edit_text_hint">寫一段描述！</string>
   <string name="description_edit_save">儲存</string>
   <string name="description_edit_add_description">增加描述</string>
+  <string name="description_edit_success_saved">描述已儲存！</string>
+  <string name="description_edit_success_encouragement">您為了大家讓維基百科變得更好</string>
+  <string name="description_edit_success_done">完成</string>
+  <string name="description_edit_success_did_you_know">您知道嗎？</string>
+  <string name="description_edit_success_article_edit_hint">您也可以以此應用程式編輯條目。下次可嘗試透過點擊^1圖標來修復錯別字和短句</string>
 </resources>

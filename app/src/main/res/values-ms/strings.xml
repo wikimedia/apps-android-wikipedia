@@ -236,6 +236,9 @@
   <string name="article_menu_bar_bookmark">Tambahkan rencana ini ke dalam senarai bacaan</string>
   <string name="article_menu_bar_share">Kongsi pautan rencana</string>
   <string name="article_menu_bar_navigate">Pandu arah ke lokasi rencana</string>
+  <string name="article_header_edit_hint">Sunting...</string>
+  <string name="article_header_edit_description">Sunting huraian tajuk</string>
+  <string name="article_header_edit_lead_section">Sunting pengenalan</string>
   <string name="nav_item_reading_lists">Senaraiku</string>
   <string name="reading_list_untitled">Tanpa tajuk</string>
   <string name="reading_list_save_to">Simpan ke senarai bacaan</string>
@@ -300,4 +303,9 @@
   <string name="description_edit_text_hint">Tulis keterangan!</string>
   <string name="description_edit_save">Simpan</string>
   <string name="description_edit_add_description">Tambah penerangan</string>
+  <string name="description_edit_success_saved">Huraian disimpan!</string>
+  <string name="description_edit_success_encouragement">Anda baru sahaja menciptakan Wikipedia lebih baik untuk semua orang</string>
+  <string name="description_edit_success_done">Siap</string>
+  <string name="description_edit_success_did_you_know">Tahukah anda?</string>
+  <string name="description_edit_success_article_edit_hint">Anda juga boleh menyunting rencana dalam aplikasi ini. Cuba betulkan kesilapan menaip dan ayat kecil dengan klik pada ikon ^1 lain kali</string>
 </resources>

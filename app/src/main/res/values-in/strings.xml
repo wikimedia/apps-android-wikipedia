@@ -238,6 +238,9 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="article_menu_bar_bookmark">Tambahkan artikel ini ke dalam daftar bacaan</string>
   <string name="article_menu_bar_share">Bagikan pranala artikel</string>
   <string name="article_menu_bar_navigate">Navigasikan ke lokasi dari artikel</string>
+  <string name="article_header_edit_hint">Sunting...</string>
+  <string name="article_header_edit_description">Sunting deskripsi judul</string>
+  <string name="article_header_edit_lead_section">Sunting pengantar</string>
   <string name="nav_item_reading_lists">Daftarku</string>
   <string name="reading_list_untitled">Tanpa judul</string>
   <string name="reading_list_save_to">Simpan ke daftar bacaan</string>
@@ -302,4 +305,9 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="description_edit_text_hint">Tuliskan deskripsi!</string>
   <string name="description_edit_save">Simpan</string>
   <string name="description_edit_add_description">Tambah deskripsi</string>
+  <string name="description_edit_success_saved">Deskripsi disimpan!</string>
+  <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
+  <string name="description_edit_success_done">Selesai</string>
+  <string name="description_edit_success_did_you_know">Tahukah Anda?</string>
+  <string name="description_edit_success_article_edit_hint">Anda juga dapat menyunting artikel dalam aplikasi ini. Coba memperbaiki kesalahan ketik dan kalimat kecil dengan mengklik ikon ^1 lain kali</string>
 </resources>

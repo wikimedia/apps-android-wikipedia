@@ -238,6 +238,9 @@
   <string name="article_menu_bar_bookmark">Добавить эту статью в список для чтения</string>
   <string name="article_menu_bar_share">Поделиться ссылкой на статью</string>
   <string name="article_menu_bar_navigate">Перейдите к местоположению статьи</string>
+  <string name="article_header_edit_hint">Править…</string>
+  <string name="article_header_edit_description">Редактировать описание заголовка</string>
+  <string name="article_header_edit_lead_section">Редактировать введение</string>
   <string name="nav_item_reading_lists">Мои списки</string>
   <string name="reading_list_untitled">Без названия</string>
   <string name="reading_list_save_to">Сохранить в список для чтения</string>
@@ -302,4 +305,9 @@
   <string name="description_edit_text_hint">Написать описание!</string>
   <string name="description_edit_save">Сохранить</string>
   <string name="description_edit_add_description">Добавить описание</string>
+  <string name="description_edit_success_saved">Описание сохранено!</string>
+  <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
+  <string name="description_edit_success_done">Готово</string>
+  <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
+  <string name="description_edit_success_article_edit_hint">Вы также можете редактировать статьи в этом приложении. Попробуйте исправлять опечатки и небольшие предложения, нажав в следующий раз на иконку ^1</string>
 </resources>

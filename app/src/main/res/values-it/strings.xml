@@ -238,6 +238,7 @@ Vuoi riavviarla o uscire?</string>
   <string name="article_menu_bar_bookmark">Aggiungi questa voce ad un elenco lettura</string>
   <string name="article_menu_bar_share">Condividi il collegamento alla voce</string>
   <string name="article_menu_bar_navigate">Naviga verso la posizione della voce</string>
+  <string name="article_header_edit_lead_section">Modifica introduzione</string>
   <string name="nav_item_reading_lists">I miei elenchi</string>
   <string name="reading_list_untitled">Senza titolo</string>
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
@@ -301,4 +302,8 @@ Vuoi riavviarla o uscire?</string>
   <string name="description_edit_text_hint">Scrivi una descrizione!</string>
   <string name="description_edit_save">Salva</string>
   <string name="description_edit_add_description">Aggiungi descrizione</string>
+  <string name="description_edit_success_saved">Descrizione salvata!</string>
+  <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
+  <string name="description_edit_success_done">Fatto</string>
+  <string name="description_edit_success_did_you_know">Lo sapevate?</string>
 </resources>

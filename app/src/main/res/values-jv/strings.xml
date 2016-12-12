@@ -238,6 +238,9 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="article_menu_bar_bookmark">Tambah artikel iki menyang dhaftar maca</string>
   <string name="article_menu_bar_share">Nuduhake pranala artikel</string>
   <string name="article_menu_bar_navigate">Navigasi menyang lokasi artikel</string>
+  <string name="article_header_edit_hint">Besut...</string>
+  <string name="article_header_edit_description">Besut andharan judul</string>
+  <string name="article_header_edit_lead_section">Besut introduksi</string>
   <string name="nav_item_reading_lists">Dhaptar sandi</string>
   <string name="reading_list_untitled">Tanpa judul</string>
   <string name="reading_list_save_to">Simpen dhaftar maca</string>
@@ -302,4 +305,9 @@ Punapa panjenengan miwiti liwat utawa metu?</string>
   <string name="description_edit_text_hint">Nulis gambaran!</string>
   <string name="description_edit_save">Simpen</string>
   <string name="description_edit_add_description">Nambah gambaran</string>
+  <string name="description_edit_success_saved">Andharan disimpen!</string>
+  <string name="description_edit_success_encouragement">Sampeyan mung saiki nggawe Wikipedia luwih kanggo semua orang</string>
+  <string name="description_edit_success_done">Rampung</string>
+  <string name="description_edit_success_did_you_know">Sampéyan ngerti?</string>
+  <string name="description_edit_success_article_edit_hint">Sampeyan uga bisa ngowahi artikel ing aplikasi iki. Coba mbenakake kesalahan ketik lan kalimat cilik kanthi ngeklik ing lambang ^1 sabanjuré</string>
 </resources>

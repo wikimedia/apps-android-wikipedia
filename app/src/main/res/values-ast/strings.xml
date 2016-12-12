@@ -238,6 +238,9 @@
   <string name="article_menu_bar_bookmark">Amestar esti artículu a una llista de llectura</string>
   <string name="article_menu_bar_share">Compartir l\'enllaz del artículu</string>
   <string name="article_menu_bar_navigate">Navegar al allugamientu del artículu</string>
+  <string name="article_header_edit_hint">Editar...</string>
+  <string name="article_header_edit_description">Editar la descripción del títulu</string>
+  <string name="article_header_edit_lead_section">Editar l\'entamu</string>
   <string name="nav_item_reading_lists">Les mios llistes</string>
   <string name="reading_list_untitled">Ensin títulu</string>
   <string name="reading_list_save_to">Guardar na llista de llectura</string>
@@ -302,4 +305,9 @@
   <string name="description_edit_text_hint">Escribe una descripción</string>
   <string name="description_edit_save">Guardar</string>
   <string name="description_edit_add_description">Amiesta una descripción</string>
+  <string name="description_edit_success_saved">Guardóse la descripción</string>
+  <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
+  <string name="description_edit_success_done">Fecho</string>
+  <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>
+  <string name="description_edit_success_article_edit_hint">Tamién puedes editar artículos dientro d\'esta aplicación. Tenta iguar la ortografía y frases pequeñes faciendo clic nel iconu ^1 la próxima vegada</string>
 </resources>

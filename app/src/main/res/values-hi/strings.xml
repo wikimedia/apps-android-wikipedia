@@ -91,7 +91,7 @@
   <string name="create_account_button">खाता बनायें</string>
   <string name="preferences_general_heading">सामान्य</string>
   <string name="wikipedia_app_faq">विकिपीडिया एप FAQ</string>
-  <string name="zero_charged_verbiage" fuzzy="true">विकिपीडिया शून्य बन्द है</string>
+  <string name="zero_charged_verbiage">विकिपीडिया में मुक्त प्रवेश अब और अधिक सक्रिय नहीं है।</string>
   <string name="zero_warn_when_leaving">विकिपीडिया शून्य छोड़ने पर चेतावनी दीजिये</string>
   <string name="zero_warn_when_leaving_summary">यदि आपका मोबाइल ऑपरेटर डेटा इस्तेमाल के चार्जों को विकिपीडिया एप के लिए छोड़ता है, विकिपीडिया ज़ीरो पार्टनरशिप के अनुसार तो इस सेटिंग को चैक छोड़ने से आपको यह जानने में सहायता मिलेगी कि कब आप विकिपीडिया एप छोड़ रहे हैं और आपको चार्ज लग सकता है।</string>
   <string name="zero_webpage_title">विकिपीडिया ज़ीरो FAQ</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">डेटा चार्ज लग सकते हैं। बाहरी साईट पर आगे बढ़ें?</string>
   <string name="zero_interstitial_continue">जाएँ</string>
   <string name="zero_interstitial_cancel">यहीं रुकें</string>
-  <string name="zero_learn_more" fuzzy="true">इस विकिपीडिया एप के लिए डेटा शुल्क नहीं लिया जाता।</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">और पढ़ें</string>
+  <string name="zero_learn_more">आपके वायरलेस कैरियर ने विकिपीडिया सामग्री के लिए मुफ्त प्रवेश उपलब्ध कराया है!</string>
+  <string name="zero_learn_more_learn_more">अधिक जानें</string>
   <string name="zero_learn_more_dismiss">हटायें</string>
   <string name="edit_preview_fetching_dialog_message">प्रीव्यू लाया जा रहा है…</string>
   <string name="send_feedback">एप फीडबैक भेजें</string>
@@ -111,7 +111,7 @@
   <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजें</string>
   <string name="preference_summary_eventlogging_opt_in">विकिमीडिया को जानकारी इकट्ठा करने की अनुमति दें कि आप कैसे एप को प्रयोग करते हैं ताकि एप को बेहतर बनाया जा सके</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजें</string>
-  <string name="preference_summary_auto_upload_crash_reports">एप को क्रैश रिपोर्ट हॉकीएप/एक थर्ड-पार्टी सर्विस को अपने आप भेजने की अनुमति दें ताकि हम तेज़ी से व आसानी से आपके क्रैश की देख कर उसे फिक्स कर सकें।</string>
+  <string name="preference_summary_auto_upload_crash_reports">एप को क्रैश रिपोर्ट हॉकीएप/एक थर्ड-पार्टी सर्विस को अपने आप भेजने की अनुमति दें ताकि हम तेज़ी से व आसानी से आपके क्रैश को देख कर उसे फिक्स कर सकें।</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित डोमेन (%s) के लिंक पाये गए हैं। कृपया इन्हें हटायें और पुनः प्रयास करें।</string>
   <string name="history_search_list_hint">इतिहास खोजें</string>
   <string name="history_search_empty_message">खोज परिणाम में कोई पृष्ठ नहीं मिले।</string>
@@ -199,6 +199,8 @@
   <string name="gallery_fair_use_license">उचित प्रयोग</string>
   <string name="gallery_uploader_unknown">अज्ञात अपलोडर</string>
   <string name="menu_new_tab">नया टैब</string>
+  <string name="menu_close_all_tabs">सभी टैब्स बंद करें</string>
+  <string name="close_all_tabs_confirm">क्या आप निश्चित हैं कि आप सभी टैब्स बंद करना चाहते हैं?</string>
   <string name="button_close_tab">टैब बंद करें</string>
   <string name="tool_tip_select_text">टेक्स्ट को कॉपी या साझा करने के हाईलाइट करने हेतु कहीं भी दबा कर रोके रखें।</string>
   <string name="tool_tip_share">किसी रोचक तथ्य को हाईलाइट करने के बाद उसे अपने पसंदीदा नेटवर्क पर साझा करने की कोशिश करें!</string>
@@ -218,6 +220,8 @@
   <string name="preference_summary_show_link_previews">लिंक्स पर टैप करने पर लेख का छोटा प्रीव्यू दिखाएँ।</string>
   <string name="nav_item_donate">विकिपीडिया का साथ दें</string>
   <string name="error_voice_search_not_available">क्षमा करें, वॉइस रिकग्निशन उपलब्ध नहीं है।</string>
+  <string name="location_service_disabled">लोकेशन सेवाएं बंद हैं।</string>
+  <string name="enable_location_service">चालू करें</string>
   <string name="crash_report_dialog_title">क्षमा करें, आखिरी बार एप क्रैश हो गयी थी।</string>
   <string name="crash_report_dialog_text">क्या आप HockeyApp/ एक थर्ड-पार्टी सर्विस प्रोवाइडर को क्रैश रिपोर्ट भेजना चाहते हैं ताकि विकिमीडिया आपके क्रैश को जाँच कर कर सके और उस बग को फिक्स कर सके?</string>
   <string name="crash_report_dialog_dont_send_button">छोड़ें</string>
@@ -232,7 +236,10 @@
   <string name="article_menu_bar_bookmark">इस लेख को पठन सूची में जोड़ें</string>
   <string name="article_menu_bar_share">आर्टिकल लिंक को साझा करें</string>
   <string name="article_menu_bar_navigate">लेख के स्थान पर जायें</string>
-  <string name="nav_item_reading_lists" fuzzy="true">पठन सूची</string>
+  <string name="article_header_edit_hint">सम्पादित करें</string>
+  <string name="article_header_edit_description">शीर्षक वर्णन को सम्पादित करें</string>
+  <string name="article_header_edit_lead_section">परिचय सम्पादित करें</string>
+  <string name="nav_item_reading_lists">मेरी सूचियां</string>
   <string name="reading_list_untitled">बिना शीर्षक</string>
   <string name="reading_list_save_to">पठन सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
@@ -241,7 +248,7 @@
   <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
   <string name="reading_list_added_view_button">देखें</string>
   <string name="reading_list_item_count_singular">1 लेख</string>
-  <string name="reading_list_item_count_plural" fuzzy="true">%d लेख</string>
+  <string name="reading_list_item_count_plural">%d लेख</string>
   <string name="reading_list_sort">छांटें</string>
   <string name="reading_list_sort_by_name">नाम से छांटें</string>
   <string name="reading_list_sort_by_name_desc">नाम से छांटें (उल्टा)</string>
@@ -260,8 +267,8 @@
   <string name="reading_list_edit_cancel">रद्द करें</string>
   <string name="reading_list_delete_confirm">क्या आप पठन सूची को मिटाने हेतु निश्चित हैं?</string>
   <string name="reading_lists_empty">यहाँ कोई पठन सूची नहीं।</string>
-  <string name="reading_lists_empty_message" fuzzy="true">आपके द्वारा ब्राउज़ किये जाने वाले लेखों को पठन सूची में लगाएं! लेख ब्राउज़ करते समय उसे पठन सूची में जोड़ने हेतु
-लेख के ऊपर बने बुकमार्क आइकॉन पर टैप करे ।</string>
+  <string name="reading_lists_empty_message">आपके द्वारा ब्राउज़ किये जाने वाले लेखों को पठन सूची में लगाएं! लेख ब्राउज़ करते समय उसे पठन सूची में जोड़ने हेतु नीचे टूलबार पर बने
+बुकमार्क आइकॉन पर टैप करे ।</string>
   <string name="reading_lists_onboarding_intro">जिन लेखों को आप बाद में, ऑफ़लाइन होने पर भी पढ़ना चाहते हैं, उनकी पठन सूचियाँ बनायें!</string>
   <string name="reading_lists_onboarding_for_example">उदाहरण के लिए</string>
   <string name="reading_lists_onboarding_example1">जाने के स्थान</string>
@@ -280,14 +287,26 @@
   <string name="view_featured_image_card_download">डाउनलोड</string>
   <string name="menu_feed_card_dismiss">इस कार्ड को छुपाएं</string>
   <string name="menu_feed_card_dismissed">कार्ड छुपा हुआ</string>
+  <string name="menu_feed_overflow_label">अधिक विकल्प</string>
   <string name="feed_featured_image_share_subject">विकिपीडिया कॉमन्स से निर्वाचित चित्र</string>
   <string name="feed">खोज करें</string>
   <string name="view_card_footer_button">अधिक देखें</string>
   <string name="most_read_list_card_title">रुझानों में</string>
   <string name="view_static_card_icon_content_description">कार्ड आइकॉन</string>
   <string name="view_card_news_title">समाचारों में</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">कल</item>
     <item quantity="other">%d दिन पहले</item>
   </plurals>
+  <string name="view_continue_reading_card_subtitle_today">आज</string>
+  <string name="description_edit_header">सम्पादित किया जा रहा है</string>
+  <string name="description_edit_help_hint">यह क्या है?</string>
+  <string name="description_edit_text_hint">वर्णन लिखें!</string>
+  <string name="description_edit_save">सहेजें</string>
+  <string name="description_edit_add_description">वर्णन जोड़ें</string>
+  <string name="description_edit_success_saved">वर्णन सहेजा गया!</string>
+  <string name="description_edit_success_encouragement">अपने अभी विकिपीडिया को सभी के लिए और अच्छा बना दिया</string>
+  <string name="description_edit_success_done">पूर्ण</string>
+  <string name="description_edit_success_did_you_know">क्या आप जानते थे?</string>
+  <string name="description_edit_success_article_edit_hint">आप इस एप में भी लेखों को सम्पादित कर सकते हैं। अगली बार ^1 आइकॉन पर क्लिक कर टाइपो और छोटे वाक्य सुधारने का प्रयास करें</string>
 </resources>

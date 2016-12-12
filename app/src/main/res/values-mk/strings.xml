@@ -238,6 +238,9 @@
   <string name="article_menu_bar_bookmark">Додај ја статијава во списокот за читање</string>
   <string name="article_menu_bar_share">Сподели врска за статијата</string>
   <string name="article_menu_bar_navigate">Оди на местото на статијата</string>
+  <string name="article_header_edit_hint">Уреди...</string>
+  <string name="article_header_edit_description">Уреди опис на насловот</string>
+  <string name="article_header_edit_lead_section">Уреди вовед</string>
   <string name="nav_item_reading_lists">Мои списоци</string>
   <string name="reading_list_untitled">Без наслов</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
@@ -302,4 +305,9 @@
   <string name="description_edit_text_hint">Напишете опис!</string>
   <string name="description_edit_save">Зачувај</string>
   <string name="description_edit_add_description">Додај опис</string>
+  <string name="description_edit_success_saved">Описот е зачуван!</string>
+  <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
+  <string name="description_edit_success_done">Готово</string>
+  <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>
+  <string name="description_edit_success_article_edit_hint">Со прилогов можете да уредувате и статии. Следен пат, пробајте да исправите мали гршеки при пишување и реченици стискајќи на иконата ^1</string>
 </resources>

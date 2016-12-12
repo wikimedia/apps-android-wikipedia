@@ -236,6 +236,9 @@ Gostaria de recomeçar ou sair?</string>
   <string name="article_menu_bar_bookmark">Adicionar este artigo a uma lista de leitura</string>
   <string name="article_menu_bar_share">Partilhar a ligação do artigo</string>
   <string name="article_menu_bar_navigate">Navegar ao local do artigo</string>
+  <string name="article_header_edit_hint">Editar</string>
+  <string name="article_header_edit_description">Editar descrição do título</string>
+  <string name="article_header_edit_lead_section">Editar introdução</string>
   <string name="nav_item_reading_lists">As minhas listas</string>
   <string name="reading_list_untitled">Sem título</string>
   <string name="reading_list_save_to">Guardar na lista de leitura</string>
@@ -295,4 +298,6 @@ Gostaria de recomeçar ou sair?</string>
     <item quantity="other">há %d dias</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">hoje</string>
+  <string name="description_edit_success_saved">A descrição foi guardada!</string>
+  <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
 </resources>

@@ -236,6 +236,9 @@
   <string name="article_menu_bar_bookmark">이 문서를 읽기 목록에 추가하기</string>
   <string name="article_menu_bar_share">문서 링크 공유</string>
   <string name="article_menu_bar_navigate">문서의 위치 찾기</string>
+  <string name="article_header_edit_hint">편집...</string>
+  <string name="article_header_edit_description">제목 설명 편집</string>
+  <string name="article_header_edit_lead_section">도입부 편집</string>
   <string name="nav_item_reading_lists">내 목록</string>
   <string name="reading_list_untitled">제목 없음</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
@@ -300,4 +303,6 @@
   <string name="description_edit_text_hint">설명을 입력하십시오!</string>
   <string name="description_edit_save">저장</string>
   <string name="description_edit_add_description">설명 추가</string>
+  <string name="description_edit_success_done">완료</string>
+  <string name="description_edit_success_did_you_know">알고 계십니까?</string>
 </resources>

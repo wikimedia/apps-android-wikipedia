@@ -238,6 +238,9 @@
   <string name="article_menu_bar_bookmark">Зберегти статтю до списку читання</string>
   <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
   <string name="article_menu_bar_navigate">Перейти до розташування статті</string>
+  <string name="article_header_edit_hint">Редагувати...</string>
+  <string name="article_header_edit_description">Редагувати опис заголовоку</string>
+  <string name="article_header_edit_lead_section">Редагувати вступ</string>
   <string name="nav_item_reading_lists">Мої списки</string>
   <string name="reading_list_untitled">Без назви</string>
   <string name="reading_list_save_to">Зберегти в список для читання</string>
@@ -303,4 +306,9 @@
   <string name="description_edit_text_hint">Напишіть опис!</string>
   <string name="description_edit_save">Зберегти</string>
   <string name="description_edit_add_description">Додати опис</string>
+  <string name="description_edit_success_saved">Опис збережено!</string>
+  <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
+  <string name="description_edit_success_done">Готово</string>
+  <string name="description_edit_success_did_you_know">Чи знаєте ви?</string>
+  <string name="description_edit_success_article_edit_hint">Ви також можете редагувати статті з цього додатка. Спробуйте виправити невеличкі помилки друку та невеликі речення, натиснувши на іконку ^1 наступного разу</string>
 </resources>

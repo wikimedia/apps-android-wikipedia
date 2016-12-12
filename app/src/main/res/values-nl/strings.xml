@@ -133,7 +133,7 @@
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
-  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder een &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
@@ -236,6 +236,9 @@
   <string name="article_menu_bar_bookmark">Deze pagina toevoegen aan een leeslijst</string>
   <string name="article_menu_bar_share">Koppeling naar pagina delen</string>
   <string name="article_menu_bar_navigate">Naar de locatie van de pagina navigeren</string>
+  <string name="article_header_edit_hint">Bewerken...</string>
+  <string name="article_header_edit_description">Beschrijving bewerken</string>
+  <string name="article_header_edit_lead_section">Inleiding bewerken</string>
   <string name="nav_item_reading_lists">Mijn lijsten</string>
   <string name="reading_list_untitled">Naamloos</string>
   <string name="reading_list_save_to">Opslaan in leeslijst</string>
@@ -300,4 +303,9 @@
   <string name="description_edit_text_hint">Geef een beschrijving op!</string>
   <string name="description_edit_save">Opslaan</string>
   <string name="description_edit_add_description">Beschrijving toevoegen</string>
+  <string name="description_edit_success_saved">Beschrijving opgeslagen!</string>
+  <string name="description_edit_success_encouragement">U hebt zojuist Wikipedia voor iedereen beter gemaakt</string>
+  <string name="description_edit_success_done">Afgerond</string>
+  <string name="description_edit_success_did_you_know">Wist u dat?</string>
+  <string name="description_edit_success_article_edit_hint">In deze app kunt u ook pagina\'s bewerken. Corrigeer typefouten en voeg zinnen toe door volgende keer op het pictogram ^1 te klikken.</string>
 </resources>

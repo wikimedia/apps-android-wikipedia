@@ -238,6 +238,9 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulistaan</string>
   <string name="article_menu_bar_share">Jaa artikkelin linkki</string>
   <string name="article_menu_bar_navigate">Navigoi artikkelin sijaintiin</string>
+  <string name="article_header_edit_hint">Muokkaa…</string>
+  <string name="article_header_edit_description">Muokkaa otsikon kuvausta</string>
+  <string name="article_header_edit_lead_section">Muokkaa johdantoa</string>
   <string name="nav_item_reading_lists">Omat listat</string>
   <string name="reading_list_untitled">Nimetön</string>
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
@@ -299,4 +302,8 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="description_edit_text_hint">Kirjoita kuvaus!</string>
   <string name="description_edit_save">Tallenna</string>
   <string name="description_edit_add_description">Lisää kuvaus</string>
+  <string name="description_edit_success_saved">Kuvaus tallennettu!</string>
+  <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
+  <string name="description_edit_success_did_you_know">Tiesitkö?</string>
+  <string name="description_edit_success_article_edit_hint">Voit myös muokata artikkeleja tästä sovelluksesta käsin. Kokeile kirjoitusvirheiden ja lyhyiden lauseiden korjaamista ensi kerralla napauttamalla ^1-kuvaketta.</string>
 </resources>

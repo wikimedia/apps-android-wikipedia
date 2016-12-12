@@ -233,6 +233,9 @@
   <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ شامل ڪريو</string>
   <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
   <string name="article_menu_bar_navigate">مضمون جي مڪانيت ڏانهن وڃو</string>
+  <string name="article_header_edit_hint">سنواريو...</string>
+  <string name="article_header_edit_description">عنوان جي تشريح سنواريو</string>
+  <string name="article_header_edit_lead_section">تعارف سنواريو</string>
   <string name="nav_item_reading_lists">منھنجون فھرستون</string>
   <string name="reading_list_untitled">بلاعنوان</string>
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
@@ -297,4 +300,8 @@
   <string name="description_edit_text_hint">ڪو تفصيل لکو!</string>
   <string name="description_edit_save">سانڍيو</string>
   <string name="description_edit_add_description">تفصيل شامل ڪريو</string>
+  <string name="description_edit_success_saved">تشريح سانڍجي وئي!</string>
+  <string name="description_edit_success_encouragement">توھان وڪيپيڊيا کي ھر ڪنھن لاءِ بھتر بڻايو</string>
+  <string name="description_edit_success_done">ٿي ويو</string>
+  <string name="description_edit_success_did_you_know">ڇا توهان کي ڄاڻ هئي؟</string>
 </resources>

@@ -238,6 +238,9 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="article_menu_bar_bookmark">Pridať tento článok do zoznamu na prečítanie</string>
   <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
   <string name="article_menu_bar_navigate">Prejsť na umiestnenie článku</string>
+  <string name="article_header_edit_hint">Upraviť...</string>
+  <string name="article_header_edit_description">Upraviť popis</string>
+  <string name="article_header_edit_lead_section">Upraviť úvod</string>
   <string name="nav_item_reading_lists">Moje zoznamy</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
@@ -302,4 +305,9 @@ Chceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="description_edit_text_hint">Napíšte popis!</string>
   <string name="description_edit_save">Uložiť</string>
   <string name="description_edit_add_description">Pridať popis</string>
+  <string name="description_edit_success_saved">Popis bol uložený!</string>
+  <string name="description_edit_success_encouragement">Wikipédia je vďaka vám lepšia než predtým</string>
+  <string name="description_edit_success_done">Hotovo</string>
+  <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>
+  <string name="description_edit_success_article_edit_hint">Články môžete upravovať priamo v tejto aplikácii. Skúste opraviť preklepy kliknutím na ikonu ^1</string>
 </resources>

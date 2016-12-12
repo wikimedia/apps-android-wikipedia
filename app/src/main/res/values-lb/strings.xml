@@ -232,6 +232,9 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="article_menu_bar_bookmark">Dësen Artikel op eng Lieslëscht dobäisetzen</string>
   <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
   <string name="article_menu_bar_navigate">Op d\'Plaz vum Artikel navigéieren</string>
+  <string name="article_header_edit_hint">Änneren...</string>
+  <string name="article_header_edit_description">Beschreiwung vum Titel änneren</string>
+  <string name="article_header_edit_lead_section">Aféierung änneren</string>
   <string name="nav_item_reading_lists">Meng Lëschten</string>
   <string name="reading_list_untitled">Ouni Titel</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
@@ -295,4 +298,8 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="description_edit_text_hint">Eng Beschreiwung schreiwen!</string>
   <string name="description_edit_save">Späicheren</string>
   <string name="description_edit_add_description">Beschreiwung derbäisetzen</string>
+  <string name="description_edit_success_saved">Beschreiwung gespäichert!</string>
+  <string name="description_edit_success_encouragement">Dir hutt elo grad Wikipedia fir jidderee verbessert</string>
+  <string name="description_edit_success_done">Fäerdeg</string>
+  <string name="description_edit_success_did_you_know">Wousst Dir?</string>
 </resources>

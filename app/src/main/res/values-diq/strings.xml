@@ -37,7 +37,7 @@
   <string name="nearby_distance_in_kilometers">%.2f km</string>
   <string name="nearby_zoom_to_location">Xeritay sero yu cay zoom ke</string>
   <string name="last_updated_text">Peyên rocaniye %s</string>
-  <string name="talk_page_link_text">Behs</string>
+  <string name="talk_page_link_text">Vatış</string>
   <string name="content_license_html">Çina  ver niro se zerrek &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/\"&gt;CC BY-SA 3.0&lt;/a&gt; lisanslı bınd şıma şınê bıkarnê</string>
   <string name="preference_title_language">Wikipedia Zıwan</string>
   <string name="preference_languages_filter_hint">Cı geyre</string>
@@ -167,10 +167,10 @@
     <item quantity="one">vızêr</item>
     <item quantity="other">%d roca veror</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">Noroc</string>
-  <string name="description_edit_header">Vurnayen</string>
-  <string name="description_edit_help_hint">No çıko?</string>
-  <string name="description_edit_text_hint">Selasnayış bınusnên</string>
+  <string name="view_continue_reading_card_subtitle_today">Ewro</string>
+  <string name="description_edit_header">Vurnayış</string>
+  <string name="description_edit_help_hint">No çıçiyo?</string>
+  <string name="description_edit_text_hint">Yew şınasnayış bınusê</string>
   <string name="description_edit_save">Qeyd kerê</string>
-  <string name="description_edit_add_description">Senasnayış cı kerê</string>
+  <string name="description_edit_add_description">Şınasnayış cı ke</string>
 </resources>

@@ -238,6 +238,9 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="article_menu_bar_bookmark">Füge diesen Artikel zu einer Leseliste hinzu</string>
   <string name="article_menu_bar_share">Artikellink teilen</string>
   <string name="article_menu_bar_navigate">Zum Standort des Artikels navigieren</string>
+  <string name="article_header_edit_hint">Bearbeiten …</string>
+  <string name="article_header_edit_description">Titelbeschreibung bearbeiten</string>
+  <string name="article_header_edit_lead_section">Einführung bearbeiten</string>
   <string name="nav_item_reading_lists">Meine Listen</string>
   <string name="reading_list_untitled">Unbenannt</string>
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
@@ -302,4 +305,9 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="description_edit_text_hint">Verfasse eine Beschreibung!</string>
   <string name="description_edit_save">Speichern</string>
   <string name="description_edit_add_description">Beschreibung hinzufügen</string>
+  <string name="description_edit_success_saved">Beschreibung gespeichert!</string>
+  <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
+  <string name="description_edit_success_done">Fertig</string>
+  <string name="description_edit_success_did_you_know">Schon gewusst?</string>
+  <string name="description_edit_success_article_edit_hint">Du kannst auch Artikel innerhalb dieser App bearbeiten. Korrigiere Tippfehler und kleine Sätze, indem du das nächste Mal auf das Symbol ^1 klickst.</string>
 </resources>

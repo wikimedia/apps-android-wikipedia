@@ -238,6 +238,9 @@ Vill du starta om eller avsluta?</string>
   <string name="article_menu_bar_bookmark">Lägg till denna artikel i en läslista</string>
   <string name="article_menu_bar_share">Dela länk till artikeln</string>
   <string name="article_menu_bar_navigate">Navigera till artikelns plats</string>
+  <string name="article_header_edit_hint">Redigera...</string>
+  <string name="article_header_edit_description">Redigera titelns beskrivning</string>
+  <string name="article_header_edit_lead_section">Redigera inledning</string>
   <string name="nav_item_reading_lists">Mina listor</string>
   <string name="reading_list_untitled">Namnlös</string>
   <string name="reading_list_save_to">Spara i läslista</string>
@@ -302,4 +305,9 @@ Vill du starta om eller avsluta?</string>
   <string name="description_edit_text_hint">Skriv en beskrivning!</string>
   <string name="description_edit_save">Spara</string>
   <string name="description_edit_add_description">Lägg till beskrivning</string>
+  <string name="description_edit_success_saved">Beskrivningen sparades!</string>
+  <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
+  <string name="description_edit_success_done">Klar</string>
+  <string name="description_edit_success_did_you_know">Visste du att?</string>
+  <string name="description_edit_success_article_edit_hint">Du kan även redigera artiklar i denna app. Prova att korrigera stavfel och små meningar genom att klicka på ikonen ^1 nästa gång</string>
 </resources>

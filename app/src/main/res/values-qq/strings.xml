@@ -366,7 +366,8 @@ Shown in the preferences screen along with the following:
   <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
   <string name="article_menu_bar_navigate">Describes the action performed when pressing the navigate button in the page toolbar underneath the leading image.</string>
-  <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.</string>
+  <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.
+{{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
@@ -449,7 +450,9 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
-  <string name="description_edit_success_done">Button text to dismiss the description editing success screen</string>
-  <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app</string>
+  <string name="description_edit_success_done">Button text to dismiss the description editing success screen
+{{Identical|Done}}</string>
+  <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app
+{{Identical|Did you know}}</string>
   <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
 </resources>

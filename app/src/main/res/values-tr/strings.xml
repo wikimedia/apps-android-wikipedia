@@ -236,6 +236,9 @@
   <string name="article_menu_bar_bookmark">Maddeyi, bir okuma listsine ekle</string>
   <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
   <string name="article_menu_bar_navigate">Makale konumuna gidin</string>
+  <string name="article_header_edit_hint">Düzenle...</string>
+  <string name="article_header_edit_description">başlığın tanımını düzenle</string>
+  <string name="article_header_edit_lead_section">tanıtımı düzenle</string>
   <string name="nav_item_reading_lists">Listelerim</string>
   <string name="reading_list_untitled">Başlıksız</string>
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
@@ -300,4 +303,9 @@
   <string name="description_edit_text_hint">Bir açıklama yazın!</string>
   <string name="description_edit_save">Kaydet</string>
   <string name="description_edit_add_description">Açıklama ekle</string>
+  <string name="description_edit_success_saved">tanıtım kaydedildi</string>
+  <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
+  <string name="description_edit_success_done">Tamam</string>
+  <string name="description_edit_success_did_you_know">Biliyor musunuz?</string>
+  <string name="description_edit_success_article_edit_hint">Bu uygulamada metinleri düzenlemeniz de mümkün. Bir dahaki sefere ^1 simgesine dokunarak, yazım hatalarını ve kısa cümleleri düzeltmeyi deneyin</string>
 </resources>

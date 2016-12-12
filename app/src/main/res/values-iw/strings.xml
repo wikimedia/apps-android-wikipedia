@@ -90,7 +90,7 @@
   <string name="create_account_next">הבא</string>
   <string name="create_account_button">יצירת חשבון</string>
   <string name="preferences_general_heading">כללי</string>
-  <string name="wikipedia_app_faq">שו\"ת יישומון ויקיפדיה</string>
+  <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
   <string name="zero_charged_verbiage">גישה בחינם לוויקיפדיה כבר אינה פעילה.</string>
   <string name="zero_warn_when_leaving">להזהיר בעת עזיבת ויקיפדיה אפס</string>
   <string name="zero_warn_when_leaving_summary">אם ספק התקשורת הניידת שלך מוותר על חיוב על תקשורת נתונים ביישומון ויקיפדיה במסגרת שותפות \"ויקיפדיה אפס\", הפעלת ההגדרה הזאת עוזרת לך לדעת שמתבצעת יציאה מיישומון ויקיפדיה ושייתכן שיחולו חיובים.</string>
@@ -123,7 +123,7 @@
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
-  <string name="about_description">אודות יישומון ויקיפדיה</string>
+  <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
   <string name="privacy_policy_url" fuzzy="true">https://wikimediafoundation.org/wiki/Privacy_Policy</string>
@@ -238,6 +238,9 @@
   <string name="article_menu_bar_bookmark">הוספת הערך הזה לרשימת קריאה</string>
   <string name="article_menu_bar_share">שיתוף קישור לערך</string>
   <string name="article_menu_bar_navigate">מעבר למקום בתוך ערך</string>
+  <string name="article_header_edit_hint">עריכה...</string>
+  <string name="article_header_edit_description">עריכת תיאור הכותרת</string>
+  <string name="article_header_edit_lead_section">עריכת ההקדמה</string>
   <string name="nav_item_reading_lists">הרשימות שלי</string>
   <string name="reading_list_untitled">ללא כותרת</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
@@ -302,4 +305,9 @@
   <string name="description_edit_text_hint">נא לכתוב תיאור!</string>
   <string name="description_edit_save">שמירה</string>
   <string name="description_edit_add_description">הוספת תיאור</string>
+  <string name="description_edit_success_saved">התיאור נשמר!</string>
+  <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור לכולם</string>
+  <string name="description_edit_success_done">בוצע</string>
+  <string name="description_edit_success_did_you_know">הידעת?</string>
+  <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך היישום הזה. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמך ^1 בפעם הבאה</string>
 </resources>
