@@ -55,6 +55,7 @@ public final class UriUtil {
             // We will just show a toast now. FIXME: Make this more visible?
             ShareUtil.showUnresolvableIntentMessage(context);
         } else {
+            chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(chooserIntent);
         }
     }
