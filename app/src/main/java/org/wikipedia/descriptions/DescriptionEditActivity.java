@@ -5,14 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.activity.SingleFragmentActivityWithToolbar;
+import org.wikipedia.R;
+import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
-public class DescriptionEditActivity extends SingleFragmentActivityWithToolbar<DescriptionEditFragment> {
+public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment> {
     private static final String EXTRA_TITLE = "title";
 
     public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title) {
@@ -23,11 +24,7 @@ public class DescriptionEditActivity extends SingleFragmentActivityWithToolbar<D
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setWordmarkVisible(false);
-        setToolbarElevation(0);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        setStatusBarColor(R.color.dark_blue);
     }
 
     @Override

@@ -6,13 +6,12 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -25,9 +24,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
-public class DescriptionEditView extends FrameLayout {
+public class DescriptionEditView extends LinearLayout {
+    @BindView(R.id.view_description_edit_header) TextView headerText;
     @BindView(R.id.view_description_edit_page_title) TextView pageTitleText;
-    @BindView(R.id.view_description_edit_save_button) FloatingActionButton saveButton;
+    @BindView(R.id.view_description_edit_save_button) View saveButton;
     @BindView(R.id.view_description_edit_text) EditText pageDescriptionText;
     @BindView(R.id.view_description_edit_text_layout) TextInputLayout pageDescriptionLayout;
     @BindView(R.id.view_description_edit_progress_bar) ProgressBar progressBar;
@@ -37,6 +37,8 @@ public class DescriptionEditView extends FrameLayout {
 
     public interface Callback {
         void onSaveClick();
+        void onHelpClick();
+        void onCancelClick();
     }
 
     public DescriptionEditView(Context context) {
@@ -68,14 +70,18 @@ public class DescriptionEditView extends FrameLayout {
         setTitle(pageTitle.getDisplayText());
         originalDescription = pageTitle.getDescription();
         setDescription(originalDescription);
+
+        headerText.setText(getContext().getString(TextUtils.isEmpty(originalDescription)
+                ? R.string.description_edit_add_description
+                : R.string.description_edit_edit_description));
     }
 
     public void setSaveState(boolean saving) {
         showProgressBar(saving);
         if (saving) {
-            saveButton.hide();
+            enableSaveButton(false);
         } else {
-            updateSaveButtonVisible();
+            updateSaveButtonEnabled();
         }
     }
 
@@ -93,10 +99,22 @@ public class DescriptionEditView extends FrameLayout {
         }
     }
 
+    @OnClick(R.id.view_description_edit_help_button) void onHelpClick() {
+        if (callback != null) {
+            callback.onHelpClick();
+        }
+    }
+
+    @OnClick(R.id.view_description_edit_cancel_button) void onCancelClick() {
+        if (callback != null) {
+            callback.onCancelClick();
+        }
+    }
+
     @OnTextChanged(value = R.id.view_description_edit_text,
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
-        updateSaveButtonVisible();
+        updateSaveButtonEnabled();
         setError(null);
     }
 
@@ -111,15 +129,23 @@ public class DescriptionEditView extends FrameLayout {
     private void init() {
         inflate(getContext(), R.layout.view_description_edit, this);
         ButterKnife.bind(this);
+
+        setOrientation(VERTICAL);
     }
 
-    private void updateSaveButtonVisible() {
+    private void updateSaveButtonEnabled() {
         if (!TextUtils.isEmpty(pageDescriptionText.getText())
                 && !StringUtils.equals(originalDescription, pageDescriptionText.getText())) {
-            saveButton.show();
+            enableSaveButton(true);
         } else {
-            saveButton.hide();
+            enableSaveButton(false);
         }
+    }
+
+    private void enableSaveButton(boolean enabled) {
+        final float disabledAlpha = 0.5f;
+        saveButton.setEnabled(enabled);
+        saveButton.setAlpha(enabled ? 1f : disabledAlpha);
     }
 
     private void showProgressBar(boolean show) {

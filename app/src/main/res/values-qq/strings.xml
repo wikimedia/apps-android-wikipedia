@@ -448,6 +448,8 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.
 {{Identical|Save}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
+  <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
+  <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen
