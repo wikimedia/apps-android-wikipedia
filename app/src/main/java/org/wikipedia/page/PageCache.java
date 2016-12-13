@@ -89,8 +89,8 @@ public class PageCache {
                     }
                     OutputStream outputStream = new BufferedOutputStream(editor.newOutputStream(0));
                     writeToStream(outputStream, page.toJSON().toString());
-                    mDiskLruCache.flush();
                     editor.commit();
+                    mDiskLruCache.flush();
                 } catch (IOException e) {
                     if (editor != null) {
                         editor.abort();
