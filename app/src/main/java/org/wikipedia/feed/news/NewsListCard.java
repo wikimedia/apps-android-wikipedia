@@ -13,19 +13,19 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class NewsListCard extends ListCard<NewsItemCard> {
-    @NonNull private UtcDate age;
+    @NonNull private UtcDate date;
 
-    public NewsListCard(@NonNull List<NewsItem> news, @NonNull UtcDate age, @NonNull WikiSite wiki) {
+    public NewsListCard(@NonNull List<NewsItem> news, int age, @NonNull WikiSite wiki) {
         super(toItemCards(news, wiki));
-        this.age = age;
+        this.date = new UtcDate(age);
     }
 
     @NonNull @Override public CardType type() {
         return CardType.NEWS_LIST;
     }
 
-    @NonNull public UtcDate age() {
-        return age;
+    @NonNull public UtcDate date() {
+        return date;
     }
 
     @NonNull @VisibleForTesting static List<NewsItemCard> toItemCards(@NonNull List<NewsItem> items, @NonNull WikiSite wiki) {
@@ -37,6 +37,6 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     }
 
     @Override protected int dismissHashCode() {
-        return (int) TimeUnit.MILLISECONDS.toDays(age.baseCalendar().getTime().getTime());
+        return (int) TimeUnit.MILLISECONDS.toDays(date.baseCalendar().getTime().getTime());
     }
 }

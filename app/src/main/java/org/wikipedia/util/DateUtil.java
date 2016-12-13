@@ -20,6 +20,10 @@ public final class DateUtil {
         return simpleDateFormat;
     }
 
+    public static String getFeedCardDateString(int age) {
+        return getFeedCardDateString(new UtcDate(age).baseCalendar());
+    }
+
     public static String getFeedCardDateString(@NonNull Calendar date) {
         return getFeedCardDateString(date.getTime());
     }

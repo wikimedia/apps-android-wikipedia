@@ -250,7 +250,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                     ShareUtil.shareImage(getContext(),
                             bitmap,
                             new File(thumbUrl).getName(),
-                            ShareUtil.getFeaturedImageShareSubject(getContext(), card),
+                            ShareUtil.getFeaturedImageShareSubject(getContext(), card.age()),
                             fullSizeUrl);
                 } else {
                     FeedbackUtil.showMessage(MainFragment.this, getString(R.string.gallery_share_error, card.baseImage().title()));
@@ -269,9 +269,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeaturedImageSelected(FeaturedImageCard card) {
-        startActivityForResult(GalleryActivity.newIntent(getActivity(), card.filename(),
-                card.wikiSite(), GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE, card.baseImage()),
-                Constants.ACTIVITY_REQUEST_GALLERY);
+        startActivityForResult(GalleryActivity.newIntent(getActivity(), card.age(),
+                card.filename(), card.baseImage(), card.wikiSite(),
+                GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE), Constants.ACTIVITY_REQUEST_GALLERY);
     }
 
     @NonNull

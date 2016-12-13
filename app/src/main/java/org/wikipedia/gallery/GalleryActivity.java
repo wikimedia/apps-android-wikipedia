@@ -67,8 +67,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
     public static final String EXTRA_FILENAME = "filename";
     public static final String EXTRA_WIKI = "wiki";
     public static final String EXTRA_SOURCE = "source";
-    public static final String EXTRA_FEATURED_IMAGE = "card";
-    public static final String EXTRA_IS_FEATURED_IMAGE = "is_featured";
+    public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
+    public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @Nullable private PageTitle pageTitle;
@@ -138,11 +138,11 @@ public class GalleryActivity extends ThemedActionBarActivity {
     };
 
     @NonNull
-    public static Intent newIntent(@NonNull Context context, @NonNull String filename,
-                                   @NonNull WikiSite wiki, int source,
-                                   @NonNull FeaturedImage image) {
-        return newIntent(context, null, filename, wiki,
-                source).putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image));
+    public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
+                                   @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
+        return newIntent(context, null, filename, wiki, source)
+                .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
+                .putExtra(EXTRA_FEATURED_IMAGE_AGE, age);
     }
 
     @NonNull
@@ -235,7 +235,8 @@ public class GalleryActivity extends ThemedActionBarActivity {
         if (getIntent().hasExtra(EXTRA_FEATURED_IMAGE)) {
             FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
                     getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
-            loadGalleryItemFor(featuredImage);
+            int age = getIntent().getIntExtra(EXTRA_FEATURED_IMAGE_AGE, 0);
+            loadGalleryItemFor(featuredImage, age);
         } else {
             // find our Page in the page cache...
             app.getPageCache().get(pageTitle, 0, new PageCache.CacheGetListener() {
@@ -269,9 +270,9 @@ public class GalleryActivity extends ThemedActionBarActivity {
         super.onDestroy();
     }
 
-    private void loadGalleryItemFor(@NonNull FeaturedImage image) {
+    private void loadGalleryItemFor(@NonNull FeaturedImage image, int age) {
         List<GalleryItem> list = new ArrayList<>();
-        list.add(new GalleryItem(image));
+        list.add(new FeaturedImageGalleryItem(image, age));
         applyGalleryCollection(new GalleryCollection(list));
     }
 

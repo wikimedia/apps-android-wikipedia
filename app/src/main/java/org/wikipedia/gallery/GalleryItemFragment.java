@@ -52,6 +52,8 @@ public class GalleryItemFragment extends Fragment {
     public static final String ARG_PAGETITLE = "pageTitle";
     public static final String ARG_MEDIATITLE = "imageTitle";
     public static final String ARG_MIMETYPE = "mimeType";
+    public static final String ARG_FEED_FEATURED_IMAGE = "feedFeaturedImage";
+    public static final String ARG_AGE = "age";
 
     private ProgressBar progressBar;
     private ZoomableDraweeView imageView;
@@ -66,6 +68,7 @@ public class GalleryItemFragment extends Fragment {
     @Nullable private PageTitle pageTitle;
     @SuppressWarnings("NullableProblems") @NonNull private PageTitle imageTitle;
     @Nullable private String mimeType;
+    private int age;
 
     @Nullable private GalleryItem galleryItem;
     @Nullable public GalleryItem getGalleryItem() {
@@ -79,6 +82,12 @@ public class GalleryItemFragment extends Fragment {
         args.putParcelable(ARG_PAGETITLE, pageTitle);
         args.putParcelable(ARG_MEDIATITLE, new PageTitle(galleryItemProto.getName(), wiki));
         args.putString(ARG_MIMETYPE, galleryItemProto.getMimeType());
+
+        if (galleryItemProto instanceof FeaturedImageGalleryItem) {
+            args.putBoolean(ARG_FEED_FEATURED_IMAGE, true);
+            args.putInt(ARG_AGE, ((FeaturedImageGalleryItem) galleryItemProto).getAge());
+        }
+
         f.setArguments(args);
         return f;
     }
@@ -90,6 +99,10 @@ public class GalleryItemFragment extends Fragment {
         //noinspection ConstantConditions
         imageTitle = getArguments().getParcelable(ARG_MEDIATITLE);
         mimeType = getArguments().getString(ARG_MIMETYPE);
+
+        if (getArguments().getBoolean(ARG_FEED_FEATURED_IMAGE)) {
+            age = getArguments().getInt(ARG_AGE);
+        }
     }
 
     @Override
@@ -418,9 +431,7 @@ public class GalleryItemFragment extends Fragment {
                     ShareUtil.shareImage(parentActivity,
                             bitmap,
                             new File(galleryItem.getUrl()).getName(),
-                            pageTitle != null
-                                    ? pageTitle.getDisplayText()
-                                    : ShareUtil.getFeaturedImageShareSubject(getContext(), null),
+                            getShareSubject(),
                             imageTitle.getCanonicalUri());
                 } else {
                     ShareUtil.shareText(parentActivity, imageTitle);
@@ -446,6 +457,14 @@ public class GalleryItemFragment extends Fragment {
             default:
                 throw new RuntimeException("unexpected permission request code " + requestCode);
         }
+    }
+
+    @Nullable
+    private String getShareSubject() {
+        if (getArguments().getBoolean(ARG_FEED_FEATURED_IMAGE)) {
+            return ShareUtil.getFeaturedImageShareSubject(getContext(), age);
+        }
+        return pageTitle != null ? pageTitle.getDisplayText() : null;
     }
 
     private void saveImage() {

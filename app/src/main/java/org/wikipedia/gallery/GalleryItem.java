@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.page.ImageLicense;
 import org.wikipedia.page.ImageLicenseFetchTask;
 
@@ -14,58 +13,83 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class GalleryItem {
+class GalleryItem {
 
-    private final JSONObject json;
+    private JSONObject json;
+    private String name;
+    private String url;
+    private String mimeType;
+    private HashMap<String, String> metadata;
+    private String thumbUrl;
+    private int width;
+    private int height;
+    @NonNull private ImageLicense license;
+
     public JSONObject toJSON() {
         return json;
     }
 
-    private final String name;
     public String getName() {
         return name;
     }
 
-    private String url;
     public String getUrl() {
         return url;
     }
 
-    private final String mimeType;
+    void setUrl(@NonNull String url) {
+        this.url = url;
+    }
+
     public String getMimeType() {
         return mimeType;
     }
 
-    private final HashMap<String, String> metadata;
+    void setMimeType(@NonNull String mimeType) {
+        this.mimeType = mimeType;
+    }
+
     public Map<String, String> getMetadata() {
         return metadata;
     }
 
-    private final String thumbUrl;
     public String getThumbUrl() {
         return thumbUrl;
     }
 
-    private final int width;
+    void setThumbUrl(@NonNull String thumbUrl) {
+        this.thumbUrl = thumbUrl;
+    }
+
     public int getWidth() {
         return width;
     }
 
-    private final int height;
+    void setWidth(int width) {
+        this.width = width;
+    }
+
     public int getHeight() {
         return height;
     }
 
-    @NonNull private final ImageLicense license;
+    void setHeight(int height) {
+        this.height = height;
+    }
+
     @NonNull public ImageLicense getLicense() {
         return license;
+    }
+
+    void setLicense(@NonNull ImageLicense license) {
+        this.license = license;
     }
 
     @NonNull public String getLicenseUrl() {
         return license.getLicenseUrl();
     }
 
-    public GalleryItem(String name) {
+    GalleryItem(String name) {
         this.json = null;
         this.name = name;
         this.url = null;
@@ -77,19 +101,7 @@ public class GalleryItem {
         this.license = new ImageLicense();
     }
 
-    public GalleryItem(FeaturedImage featuredImage) {
-        this.json = null;
-        this.name = featuredImage.title();
-        this.url = featuredImage.image().source().toString();
-        this.mimeType = "*/*";
-        this.thumbUrl = featuredImage.thumbnail().source().toString();
-        this.metadata = null;
-        this.width = featuredImage.image().width();
-        this.height = featuredImage.image().height();
-        this.license = new ImageLicense();
-    }
-
-    public GalleryItem(JSONObject json) throws JSONException {
+    GalleryItem(JSONObject json) throws JSONException {
         this.json = json;
         this.name = json.getString("title");
         this.metadata = new HashMap<>();

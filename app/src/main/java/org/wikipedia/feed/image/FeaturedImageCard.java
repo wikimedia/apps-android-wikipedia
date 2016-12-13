@@ -9,18 +9,17 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.util.DateUtil;
 
 public class FeaturedImageCard extends Card {
-    @NonNull private UtcDate date;
-    @NonNull private WikiSite wiki;
     @NonNull private FeaturedImage featuredImage;
+    private int age;
+    @NonNull private WikiSite wiki;
 
-    public FeaturedImageCard(@NonNull FeaturedImage featuredImage, @NonNull UtcDate date, @NonNull WikiSite wiki) {
+    public FeaturedImageCard(@NonNull FeaturedImage featuredImage, int age, @NonNull WikiSite wiki) {
         this.featuredImage = featuredImage;
+        this.age = age;
         this.wiki = wiki;
-        this.date = date;
     }
 
     @NonNull
@@ -28,9 +27,8 @@ public class FeaturedImageCard extends Card {
         return featuredImage;
     }
 
-    @NonNull
-    public UtcDate date() {
-        return date;
+    public int age() {
+        return age;
     }
 
     @Override
@@ -42,7 +40,7 @@ public class FeaturedImageCard extends Card {
     @Override
     @NonNull
     public String subtitle() {
-        return DateUtil.getFeedCardDateString(date.baseCalendar());
+        return DateUtil.getFeedCardDateString(age);
     }
 
     @NonNull

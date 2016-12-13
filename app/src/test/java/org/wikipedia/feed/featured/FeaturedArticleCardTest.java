@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.FeedPageSummary;
-import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.TestFileUtil;
 import org.wikipedia.test.TestRunner;
@@ -25,7 +24,7 @@ public class FeaturedArticleCardTest {
     }
 
     @Test public void testTitleNormalization() throws Throwable {
-        FeaturedArticleCard tfaCard = new FeaturedArticleCard(content, new UtcDate(0), TEST);
+        FeaturedArticleCard tfaCard = new FeaturedArticleCard(content, 0, TEST);
         assertThat(tfaCard.title(), not(containsString("_")));
     }
 }
