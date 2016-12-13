@@ -2,6 +2,7 @@ package org.wikipedia.edit.preview;
 
 import android.support.annotation.NonNull;
 
+import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.server.mwapi.MwApiResponsePage;
 
@@ -10,7 +11,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Wikitext extends BaseModel {
-    @SuppressWarnings("unused,NullableProblems") @NonNull private Query query;
+    @SuppressWarnings("unused,NullableProblems") @NonNull @Required private Query query;
     @NonNull protected String wikitext() {
         return query.wikitext();
     }

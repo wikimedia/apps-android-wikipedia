@@ -4,10 +4,13 @@ package org.wikipedia.edit.preview;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
+import com.google.gson.JsonParseException;
+
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.MwCachedService;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.log.L;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -30,6 +33,13 @@ public class WikitextClient {
             @Override
             public void onResponse(Call<Wikitext> call, Response<Wikitext> response) {
                 if (response.isSuccessful()) {
+                    if (response.body() == null) {
+                        // TODO: remove when this is better understood.
+                        Throwable t = new JsonParseException("Response missing query field");
+                        L.logRemoteErrorIfProd(t);
+                        cb.failure(call, t);
+                        return;
+                    }
                     cb.success(call, response.body().wikitext());
                 } else {
                     cb.failure(call, RetrofitException.httpError(response, cachedService.retrofit()));
