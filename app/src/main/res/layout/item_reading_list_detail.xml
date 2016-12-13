@@ -83,6 +83,7 @@
         android:layout_marginTop="16dp"
         app:srcCompat="@drawable/ic_mode_edit_white_24dp"
         android:contentDescription="@string/reading_list_menu_edit"
+        app:layout_behavior="org.wikipedia.views.FloatingActionButtonBehaviorFixed"
         app:fabSize="mini"
         app:elevation="4dp"
         app:borderWidth="0dp"
