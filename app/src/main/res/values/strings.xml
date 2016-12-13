@@ -339,6 +339,11 @@
     <string name="description_edit_add_description">Add short description</string>
     <string name="description_edit_edit_description">Edit description</string>
     <string name="description_edit_cancel_hint">Cancel</string>
+    <string name="description_edit_help_title">Help: title descriptions</string>
+    <string name="description_edit_help_about_wikidata">About Wikidata</string>
+    <string name="description_edit_help_wikidata_guide">Wikidata guide for writing descriptions</string>
+    <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+    <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->

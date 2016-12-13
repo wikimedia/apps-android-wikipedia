@@ -53,4 +53,42 @@
     <!-- Find in page -->
     <string name="find_in_page_result">%1$d/%2$d</string>
 
+    <!-- Description editing -->
+    <string name="description_edit_help_body"><![CDATA[
+        <p>
+            <font color=\'#3366cc\'><strong>About</strong></font>
+        </p>
+        <p>
+            Title descriptions summarize an article to help readers understand the subject at a glance.
+            <br/>
+        </p>
+        <p>
+            <font color=\'#3366cc\'><strong>Tips for creating descriptions</strong></font>
+        </p>
+        <p>
+            Descriptions should ideally fit on one line, and are between two to twelve words long. They are not capitalized unless the first word is a proper noun.
+        </p>
+        <p>
+            For example:
+        </p>
+        <p>
+            <strong><em>painting by Leonardo da Vinci</em></strong>
+            <br/>
+            title description for an article about the Mona Lisa
+        </p>
+        <p>
+            <strong><em>Earth\'s highest mountain</em></strong>
+            <br/>
+            title description for an article about Mount Everest
+            <br/>
+        </p>
+        <p>
+            <font color=\'#3366cc\'><strong>More information</strong></font>
+        </p>
+        <p>
+            Descriptions are stored and maintained on Wikidata, a project of the Wikimedia Foundation which provides a free, collaborative, multilingual, secondary database supporting Wikipedia and other projects.
+        </p>
+    ]]></string>
+    <!-- /Description editing -->
+
 </resources>

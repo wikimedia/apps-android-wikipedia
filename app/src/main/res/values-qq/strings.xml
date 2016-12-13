@@ -457,4 +457,9 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app
 {{Identical|Did you know}}</string>
   <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
+  <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
+  <string name="description_edit_help_about_wikidata">Menu label for navigating to a page describing Wikidata.</string>
+  <string name="description_edit_help_wikidata_guide">Manu label for navigating to the official Wikidata guide for composing descriptions.</string>
+  <string name="wikidata_about_url">URL that points to an introduction page about Wikidata in this language.</string>
+  <string name="wikidata_description_guide_url">URL that points to a page on Wikidata that contains guidelines for writing descriptions. Preferably the URL should link directly to the section that lists specific guidelines.</string>
 </resources>

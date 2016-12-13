@@ -220,7 +220,7 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onHelpClick() {
-            // TODO: Show tutorial!
+            startActivity(DescriptionEditHelpActivity.newIntent(getContext()));
         }
 
         @Override
