@@ -19,7 +19,6 @@ import android.widget.ScrollView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.mediawiki.api.json.ApiException;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
 import org.wikipedia.ViewAnimations;
@@ -334,9 +333,6 @@ public class EditPreviewFragment extends Fragment {
                 }
                 progressDialog.dismiss();
 
-                if (!(caught instanceof ApiException)) {
-                    throw new RuntimeException(caught);
-                }
                 L.d(caught);
                 final AlertDialog retryDialog = new AlertDialog.Builder(getActivity())
                         .setMessage(R.string.error_network_error)
