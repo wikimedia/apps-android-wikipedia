@@ -418,7 +418,9 @@ public class GalleryItemFragment extends Fragment {
                     ShareUtil.shareImage(parentActivity,
                             bitmap,
                             new File(galleryItem.getUrl()).getName(),
-                            pageTitle.getDisplayText(),
+                            pageTitle != null
+                                    ? pageTitle.getDisplayText()
+                                    : ShareUtil.getFeaturedImageShareSubject(getContext(), null),
                             imageTitle.getCanonicalUri());
                 } else {
                     ShareUtil.shareText(parentActivity, imageTitle);

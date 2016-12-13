@@ -16,6 +16,7 @@ import android.widget.Toast;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.concurrency.SaneAsyncTask;
+import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
@@ -87,6 +88,15 @@ public final class ShareUtil {
                 displayOnCatchMessage(caught, context);
             }
         }.execute();
+    }
+
+    public static String getFeaturedImageShareSubject(@NonNull Context context,
+                                                      @Nullable FeaturedImageCard card) {
+        String result = context.getString(R.string.feed_featured_image_share_subject);
+        if (card != null) {
+            result = result + " | " + DateUtil.getFeedCardDateString(card.date().baseCalendar());
+        }
+        return result;
     }
 
     public static Intent buildImageShareChooserIntent(Context context, String subject, String text, Uri uri) {

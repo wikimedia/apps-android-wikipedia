@@ -31,7 +31,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
@@ -56,7 +55,6 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.search.SearchInvokeSource;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ClipboardUtil;
-import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
@@ -252,7 +250,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                     ShareUtil.shareImage(getContext(),
                             bitmap,
                             new File(thumbUrl).getName(),
-                            featuredImageShareSubject(card),
+                            ShareUtil.getFeaturedImageShareSubject(getContext(), card),
                             fullSizeUrl);
                 } else {
                     FeedbackUtil.showMessage(MainFragment.this, getString(R.string.gallery_share_error, card.baseImage().title()));
@@ -271,9 +269,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onFeaturedImageSelected(FeaturedImageCard card) {
-        final WikiSite wiki = card.wikiSite();
-        startActivityForResult(GalleryActivity.newIntent(getActivity(), new PageTitle(featuredImageShareSubject(card), wiki),
-                card.filename(), wiki, GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE, card.baseImage()),
+        startActivityForResult(GalleryActivity.newIntent(getActivity(), card.filename(),
+                card.wikiSite(), GalleryFunnel.SOURCE_FEED_FEATURED_IMAGE, card.baseImage()),
                 Constants.ACTIVITY_REQUEST_GALLERY);
     }
 
@@ -470,11 +467,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (behavior != null) {
             behavior.onNestedFling(coordinatorLayout, paddingAppBar, null, 0, params.height, true);
         }
-    }
-
-    private String featuredImageShareSubject(FeaturedImageCard card) {
-        return getString(R.string.feed_featured_image_share_subject) + " | "
-                + DateUtil.getFeedCardDateString(card.date().baseCalendar());
     }
 
     @Nullable private Callback callback() {

@@ -138,23 +138,26 @@ public class GalleryActivity extends ThemedActionBarActivity {
     };
 
     @NonNull
-    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle pageTitle,
-                                   @NonNull String filename, @NonNull WikiSite wiki, int source,
+    public static Intent newIntent(@NonNull Context context, @NonNull String filename,
+                                   @NonNull WikiSite wiki, int source,
                                    @NonNull FeaturedImage image) {
-        return newIntent(context, pageTitle, filename, wiki, source)
-                .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
-                .putExtra(EXTRA_IS_FEATURED_IMAGE, true);
+        return newIntent(context, null, filename, wiki,
+                source).putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image));
     }
 
     @NonNull
-    public static Intent newIntent(@NonNull Context context, @NonNull PageTitle pageTitle,
+    public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
                                    @NonNull String filename, @NonNull WikiSite wiki, int source) {
-        return new Intent()
+        Intent intent = new Intent()
                 .setClass(context, GalleryActivity.class)
                 .putExtra(EXTRA_FILENAME, filename)
                 .putExtra(EXTRA_WIKI, wiki)
-                .putExtra(EXTRA_PAGETITLE, pageTitle)
                 .putExtra(EXTRA_SOURCE, source);
+        if (pageTitle != null) {
+            intent.putExtra(EXTRA_PAGETITLE, pageTitle);
+        }
+
+        return intent;
     }
 
     @Override
@@ -185,7 +188,9 @@ public class GalleryActivity extends ThemedActionBarActivity {
         creditText = (TextView) findViewById(R.id.gallery_credit_text);
         creditText.setShadowLayer(2, 1, 1, color(R.color.lead_text_shadow));
 
-        pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
+        if (getIntent().hasExtra(EXTRA_PAGETITLE)) {
+            pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
+        }
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
         wiki = getIntent().getParcelableExtra(EXTRA_WIKI);
 
@@ -227,15 +232,10 @@ public class GalleryActivity extends ThemedActionBarActivity {
 
         updateProgressBar(false, true, 0);
 
-        if (pageTitle == null) {
-            throw new IllegalStateException("pageTitle should not be null");
-        } else if (getIntent().hasExtra(EXTRA_IS_FEATURED_IMAGE)
-                && getIntent().getBooleanExtra(EXTRA_IS_FEATURED_IMAGE, false)) {
+        if (getIntent().hasExtra(EXTRA_FEATURED_IMAGE)) {
             FeaturedImage featuredImage = GsonUnmarshaller.unmarshal(FeaturedImage.class,
                     getIntent().getStringExtra(EXTRA_FEATURED_IMAGE));
-            if (featuredImage != null) {
-                loadGalleryItemFor(featuredImage);
-            }
+            loadGalleryItemFor(featuredImage);
         } else {
             // find our Page in the page cache...
             app.getPageCache().get(pageTitle, 0, new PageCache.CacheGetListener() {
@@ -269,7 +269,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
         super.onDestroy();
     }
 
-    private void loadGalleryItemFor(FeaturedImage image) {
+    private void loadGalleryItemFor(@NonNull FeaturedImage image) {
         List<GalleryItem> list = new ArrayList<>();
         list.add(new GalleryItem(image));
         applyGalleryCollection(new GalleryCollection(list));
@@ -418,12 +418,12 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * Retrieve the complete list of media items for the current page.
      * When retrieved, the list will be passed to the ViewPager, and will become a
      * scrollable gallery of media.
-     *
-     * WARNING: This may be useful if/when we start loading multiple images into the gallery from
-     * the feed, but it won't work with the current dummy PageTitle we're using when coming from
-     * the feed.
      */
     private void fetchGalleryCollection() {
+        if (pageTitle == null) {
+            return;
+        }
+
         updateProgressBar(true, true, 0);
         new GalleryCollectionFetchTask(app.getAPIForSite(pageTitle.getWikiSite()),
                 pageTitle.getWikiSite(), pageTitle) {
@@ -450,7 +450,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
      * Apply a complete collection of media to our scrollable gallery.
      * @param collection GalleryCollection to apply to the ViewPager.
      */
-    protected void applyGalleryCollection(GalleryCollection collection) {
+    protected void applyGalleryCollection(@NonNull GalleryCollection collection) {
         // remove the page transformer while we operate on the pager...
         galleryPager.setPageTransformer(false, null);
         // first, verify that the collection contains the item that the user
@@ -582,7 +582,7 @@ public class GalleryActivity extends ThemedActionBarActivity {
             fragmentArray = new SparseArray<>();
         }
 
-        public void setCollection(GalleryCollection collection) {
+        public void setCollection(@NonNull GalleryCollection collection) {
             galleryCollection = collection;
             notifyDataSetChanged();
         }
