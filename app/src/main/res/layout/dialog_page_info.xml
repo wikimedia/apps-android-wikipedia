@@ -20,7 +20,7 @@
         android:padding="8dp"
         >
 
-        <Button
+        <TextView
             android:id="@+id/page_info_page_issues_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             android:text="|"
             tools:ignore="HardcodedText" />
 
-        <Button
+        <TextView
             android:id="@+id/page_info_similar_titles_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

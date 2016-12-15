@@ -16,12 +16,15 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <Button android:id="@+id/crash_report_start_over"
+    <TextView
+        style="@style/Widget.AppCompat.Button"
+        android:id="@+id/crash_report_start_over"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/crash_report_relaunch" />
 
-    <Button android:id="@+id/crash_report_quit"
+    <TextView android:id="@+id/crash_report_quit"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/crash_report_quit" />

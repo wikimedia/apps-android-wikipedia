@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
@@ -18,11 +18,11 @@ import org.wikipedia.settings.Prefs;
 
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private WikipediaApp app;
-    private Button buttonDefaultTextSize;
-    private Button buttonDecreaseTextSize;
-    private Button buttonIncreaseTextSize;
-    private Button buttonThemeLight;
-    private Button buttonThemeDark;
+    private TextView buttonDefaultTextSize;
+    private TextView buttonDecreaseTextSize;
+    private TextView buttonIncreaseTextSize;
+    private TextView buttonThemeLight;
+    private TextView buttonThemeDark;
     private ProgressBar fontChangeProgressBar;
     private boolean updatingFont = false;
     private AppearanceChangeFunnel funnel;
@@ -32,7 +32,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.dialog_themechooser, container);
 
-        buttonDecreaseTextSize = (Button) rootView.findViewById(R.id.buttonDecreaseTextSize);
+        buttonDecreaseTextSize = (TextView) rootView.findViewById(R.id.buttonDecreaseTextSize);
         buttonDecreaseTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +44,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             }
         });
 
-        buttonDefaultTextSize = (Button) rootView.findViewById(R.id.buttonDefaultTextSize);
+        buttonDefaultTextSize = (TextView) rootView.findViewById(R.id.buttonDefaultTextSize);
         buttonDefaultTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +56,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             }
         });
 
-        buttonIncreaseTextSize = (Button) rootView.findViewById(R.id.buttonIncreaseTextSize);
+        buttonIncreaseTextSize = (TextView) rootView.findViewById(R.id.buttonIncreaseTextSize);
         buttonIncreaseTextSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,10 +69,10 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         });
 
         ThemeOnClickListener themeOnClickListener = new ThemeOnClickListener();
-        buttonThemeLight = (Button) rootView.findViewById(R.id.buttonColorsLight);
+        buttonThemeLight = (TextView) rootView.findViewById(R.id.buttonColorsLight);
         buttonThemeLight.setOnClickListener(themeOnClickListener);
 
-        buttonThemeDark = (Button) rootView.findViewById(R.id.buttonColorsDark);
+        buttonThemeDark = (TextView) rootView.findViewById(R.id.buttonColorsDark);
         buttonThemeDark.setOnClickListener(themeOnClickListener);
 
         fontChangeProgressBar = (ProgressBar) rootView.findViewById(R.id.font_change_progress_bar);

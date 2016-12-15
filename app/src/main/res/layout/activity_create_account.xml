@@ -60,7 +60,7 @@
                         android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
 
-            <Button
+            <TextView
                     android:id="@+id/create_account_submit_button"
                     android:text="@string/create_account_next"
                     style="@style/ButtonProgressive"

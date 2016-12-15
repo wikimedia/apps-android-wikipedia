@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import org.wikipedia.LongPressHandler.ListViewContextMenuListener;
@@ -21,8 +21,8 @@ import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
  */
 public class PageInfoDialog extends NoDimBottomSheetDialog {
     private final ViewFlipper flipper;
-    private final Button disambigHeading;
-    private final Button issuesHeading;
+    private final TextView disambigHeading;
+    private final TextView issuesHeading;
     private final ListView disambigList;
 
     public PageInfoDialog(final PageFragment fragment, PageInfo pageInfo, boolean startAtDisambig) {
@@ -33,8 +33,8 @@ public class PageInfoDialog extends NoDimBottomSheetDialog {
         flipper = (ViewFlipper) parentView.findViewById(R.id.page_info_flipper);
         disambigList = (ListView) parentView.findViewById(R.id.disambig_list);
         ListView issuesList = (ListView) parentView.findViewById(R.id.page_issues_list);
-        disambigHeading = (Button) parentView.findViewById(R.id.page_info_similar_titles_heading);
-        issuesHeading = (Button) parentView.findViewById(R.id.page_info_page_issues_heading);
+        disambigHeading = (TextView) parentView.findViewById(R.id.page_info_similar_titles_heading);
+        issuesHeading = (TextView) parentView.findViewById(R.id.page_info_page_issues_heading);
         View separatorHeading = parentView.findViewById(R.id.page_info_heading_separator);
         View closeButton = parentView.findViewById(R.id.page_info_close);
 
