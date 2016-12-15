@@ -61,7 +61,13 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
     protected static final int WIDTH_DP_S = 240;
     protected static final int WIDTH_DP_XS = 120;
 
+    protected static final int HEIGHT_DP_L = 720;
+    protected static final int HEIGHT_DP_M = 480;
+    protected static final int HEIGHT_DP_S = 320;
+    protected static final int HEIGHT_DP_XS = 240;
+
     private int widthDp;
+    @Nullable private Integer heightDp;
     private Locale locale;
     private LayoutDirection layoutDirection;
     private FontScale fontScale;
@@ -70,13 +76,19 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
 
     protected void setUp(int widthDp, @NonNull LayoutDirection layoutDirection,
                          @NonNull FontScale fontScale, @NonNull Theme theme) {
-        setUp(widthDp, LOCALES[0], layoutDirection, fontScale, theme);
+        setUp(widthDp, null, LOCALES[0], layoutDirection, fontScale, theme);
     }
 
-    protected void setUp(int widthDp, @NonNull Locale locale,
+    protected void setUp(int widthDp, int heightDp, @NonNull LayoutDirection layoutDirection,
+                         @NonNull FontScale fontScale, @NonNull Theme theme) {
+        setUp(widthDp, heightDp, LOCALES[0], layoutDirection, fontScale, theme);
+    }
+
+    protected void setUp(int widthDp, @Nullable Integer heightDp, @NonNull Locale locale,
                          @NonNull LayoutDirection layoutDirection, @NonNull FontScale fontScale,
                          @NonNull Theme theme) {
         this.widthDp = widthDp;
+        this.heightDp = heightDp;
         this.locale = locale;
         this.layoutDirection = layoutDirection;
         this.fontScale = fontScale;
@@ -95,10 +107,15 @@ import static org.wikipedia.util.StringUtil.emptyIfNull;
             subject.setLayoutDirection(rtl);
         }
 
-        ViewHelpers.setupView(subject).setExactWidthDp(widthDp).layout();
+        ViewHelpers viewHelpers = ViewHelpers.setupView(subject).setExactWidthDp(widthDp);
+        if (heightDp != null) {
+            viewHelpers.setExactHeightDp(heightDp);
+        }
+        viewHelpers.layout();
 
         List<String> list = new ArrayList<>();
-        list.add(widthDp + "dp");
+        String byHeight = heightDp == null ? "" : ("x" + heightDp);
+        list.add(widthDp + byHeight + "dp");
         list.add(locale.toString());
         list.add(layoutDirection == LayoutDirection.RTL ? "rtl" : "ltr");
         list.add("font" + fontScale.multiplier() + "x");

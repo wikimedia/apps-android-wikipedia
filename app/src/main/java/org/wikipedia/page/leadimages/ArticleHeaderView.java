@@ -11,6 +11,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
 import android.text.Spannable;
@@ -70,12 +71,12 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     @BindView(R.id.view_article_header_edit_pencil) View editPencil;
 
     @Nullable private Callback callback;
-    @NonNull private CharSequence title = "";
-    @NonNull private CharSequence subtitle = "";
-    @Nullable private String pronunciationUrl;
+    @VisibleForTesting @NonNull CharSequence title = "";
+    @VisibleForTesting @NonNull CharSequence subtitle = "";
+    @VisibleForTesting @Nullable String pronunciationUrl;
 
     @NonNull private final AvPlayer avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
-    @NonNull private final ClickableSpan descriptionClickSpan = new DescriptionClickableSpan();
+    @VisibleForTesting @NonNull final ClickableSpan descriptionClickSpan = new DescriptionClickableSpan();
 
     public interface Callback {
         void onDescriptionClicked();
@@ -128,11 +129,10 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         setTextColor(getColor(getThemedAttributeId(getContext(),
                 R.attr.lead_text_color)));
         setImageHeight(leadImageHeightForDevice());
-        setTextHeightConstrained();
     }
 
     // TODO: remove.
-    public ImageView getImage() {
+    @NonNull public ImageView getImage() {
         return image.getImage();
     }
 
@@ -178,7 +178,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         return !TextUtils.isEmpty(subtitle);
     }
 
-    public void setLocale(String locale) {
+    public void setLocale(@NonNull String locale) {
         titleText.setLocale(locale);
         subtitleText.setLocale(locale);
         LinearLayout.LayoutParams dividerParams = (LinearLayout.LayoutParams) divider.getLayoutParams();
@@ -200,10 +200,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         } else {
             subtitleText.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }
-    }
-
-    public void setTextColor(@ColorInt int color) {
-        titleText.setTextColor(color);
     }
 
     public void setPronunciation(@Nullable String url) {
@@ -250,6 +246,10 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         avPlayer.deinit();
+    }
+
+    private void setTextColor(@ColorInt int color) {
+        titleText.setTextColor(color);
     }
 
     private void updateScroll() {
