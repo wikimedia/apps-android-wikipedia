@@ -32,7 +32,7 @@ import static org.mockito.Mockito.verify;
                                   @NonNull FontScale fontScale, @NonNull SecondaryTestImg image,
                                   @NonNull PrimaryTestStr title) {
         setUp(widthDp, LayoutDirection.LOCALE, fontScale, Theme.LIGHT, image, title);
-        snap(subject, image.toString() + "_image", title + "_title");
+        snap(subject, image + "_image", title + "_title");
     }
 
     @Theory public void testLayoutDirection(@NonNull LayoutDirection direction) {
