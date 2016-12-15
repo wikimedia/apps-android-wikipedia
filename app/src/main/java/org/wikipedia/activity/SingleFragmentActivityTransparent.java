@@ -1,25 +1,26 @@
 package org.wikipedia.activity;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.ColorRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import org.wikipedia.R;
 
 /**
  * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
- * Fragments.
+ * Fragments, with a transparent background.
+ *
+ * Set a theme on the activity in AndroidManifest.xml to specify a background tint.
  */
-public abstract class SingleFragmentActivity<T extends Fragment> extends ThemedActionBarActivity {
+public abstract class SingleFragmentActivityTransparent<T extends Fragment> extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
+        findViewById(getContainerId()).setBackground(null);
 
         if (!isFragmentCreated()) {
             addFragment(createFragment());
@@ -59,11 +60,5 @@ public abstract class SingleFragmentActivity<T extends Fragment> extends ThemedA
 
     protected boolean isFragmentCreated() {
         return getFragment() != null;
-    }
-
-    protected void setStatusBarColor(@ColorRes int color) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, color));
-        }
     }
 }

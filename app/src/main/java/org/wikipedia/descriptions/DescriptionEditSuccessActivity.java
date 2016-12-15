@@ -4,9 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
-import org.wikipedia.activity.SingleFragmentActivity;
+import org.wikipedia.activity.SingleFragmentActivityTransparent;
 
-public class DescriptionEditSuccessActivity extends SingleFragmentActivity<DescriptionEditSuccessFragment>
+public class DescriptionEditSuccessActivity
+        extends SingleFragmentActivityTransparent<DescriptionEditSuccessFragment>
         implements DescriptionEditSuccessFragment.Callback {
 
     static Intent newIntent(@NonNull Context context) {
