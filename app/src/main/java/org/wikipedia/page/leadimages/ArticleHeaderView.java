@@ -29,7 +29,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -117,7 +116,6 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
 
         setTextColor(getColor(getThemedAttributeId(getContext(),
                 R.attr.lead_text_color)));
-        setTextHeightUnconstrained();
     }
 
     public void showTextImage() {
@@ -314,25 +312,10 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
                 TextUtils.isEmpty(subtitle) ? new StyleSpan(Typeface.ITALIC) : null);
     }
 
-    @SuppressWarnings("checkstyle:magicnumber")
     private void setImageHeight(int height) {
+        final float oneThird = 1 / 3;
         DimenUtil.setViewHeight(image, height);
-        DimenUtil.setViewHeight(gradient, height / 3);
-    }
-
-    private void setTextHeightConstrained() {
-        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) titleText.getLayoutParams();
-        params.width = ViewGroup.LayoutParams.MATCH_PARENT;
-        params.height = 0;
-        params.weight = 1f;
-        titleText.setLayoutParams(params);
-    }
-
-    private void setTextHeightUnconstrained() {
-        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) titleText.getLayoutParams();
-        params.width = ViewGroup.LayoutParams.MATCH_PARENT;
-        params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        titleText.setLayoutParams(params);
+        DimenUtil.setViewHeight(gradient, (int) oneThird * height);
     }
 
     private void init() {
