@@ -212,12 +212,13 @@ public class SyntaxHighlighter {
             Span to be added to the EditText at the corresponding location.
              */
 
-            for (int i = 0; i < text.length(); i++) {
+            for (int i = 0; i < text.length();) {
                 SpanExtents newSpanInfo = null;
+                boolean incrementDone = false;
 
                 for (SyntaxRule syntaxItem : syntaxRules) {
 
-                    if (i + syntaxItem.getStartSymbol().length() >= text.length()) {
+                    if (i + syntaxItem.getStartSymbol().length() > text.length()) {
                         continue;
                     }
 
@@ -233,11 +234,13 @@ public class SyntaxHighlighter {
                             if (spanStack.size() > 0 && spanStack.peek().getSyntaxRule().equals(syntaxItem)) {
                                 newSpanInfo = spanStack.pop();
                                 newSpanInfo.setEnd(i + syntaxItem.getStartSymbol().length());
+                                spansToSet.add(newSpanInfo);
                             } else {
                                 SpanExtents sp = syntaxItem.getSpanStyle().createSpan(i, syntaxItem);
                                 spanStack.push(sp);
                             }
-                            i += syntaxItem.getStartSymbol().length() - 1;
+                            i += syntaxItem.getStartSymbol().length();
+                            incrementDone = true;
                         }
 
                     } else {
@@ -252,7 +255,12 @@ public class SyntaxHighlighter {
                         if (pass) {
                             SpanExtents sp = syntaxItem.getSpanStyle().createSpan(i, syntaxItem);
                             spanStack.push(sp);
-                            i += syntaxItem.getStartSymbol().length() - 1;
+                            i += syntaxItem.getStartSymbol().length();
+                            incrementDone = true;
+                        }
+                        //skip the check of end symbol when start symbol is found at end of the text
+                        if (i + syntaxItem.getStartSymbol().length() > text.length()) {
+                            continue;
                         }
 
                         pass = true;
@@ -263,18 +271,20 @@ public class SyntaxHighlighter {
                             }
                         }
                         if (pass) {
-                            if (spanStack.size() > 0) {
+                            if (spanStack.size() > 0 && spanStack.peek().getSyntaxRule().equals(syntaxItem)) {
                                 newSpanInfo = spanStack.pop();
                                 newSpanInfo.setEnd(i + syntaxItem.getEndSymbol().length());
+                                spansToSet.add(newSpanInfo);
                             }
-                            i += syntaxItem.getEndSymbol().length() - 1;
+                            i += syntaxItem.getEndSymbol().length();
+                            incrementDone = true;
                         }
 
                     }
                 }
 
-                if (newSpanInfo != null) {
-                    spansToSet.add(newSpanInfo);
+                if (!incrementDone) {
+                    i++;
                 }
 
                 if (isCancelled()) {
