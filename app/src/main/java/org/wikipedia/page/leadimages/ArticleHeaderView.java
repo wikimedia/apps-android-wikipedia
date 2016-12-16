@@ -275,7 +275,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         titleText.setText(builder);
 
         if (hasSubtitle() || ReleaseUtil.isPreBetaRelease()) { // TODO: remove condition when ready
-            subtitleText.setMovementMethod(new LinkMovementMethod());
+            subtitleText.setMovementMethod(hasSubtitle() ? null : new LinkMovementMethod());
             subtitleText.setText(subtitleSpanned());
             subtitleText.setVisibility(VISIBLE);
         } else {
