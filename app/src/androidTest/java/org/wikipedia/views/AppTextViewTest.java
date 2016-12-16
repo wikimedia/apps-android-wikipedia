@@ -34,7 +34,6 @@ import org.wikipedia.theme.Theme;
                                     @NonNull FontScale fontScale) {
         final String str = StringUtils.repeat("Mm%Z@OQW|Pbdpqg ", 100);
         setUp(widthDp, LayoutDirection.LOCALE, fontScale, Theme.LIGHT, str);
-        subject.requestLayout();
         snap(subject);
     }
 
