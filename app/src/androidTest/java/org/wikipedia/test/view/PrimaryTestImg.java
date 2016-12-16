@@ -5,7 +5,7 @@ import android.support.annotation.DrawableRes;
 import org.wikipedia.R;
 
 public enum PrimaryTestImg implements TestImg {
-    NULL(0), NONNULL(R.drawable.wmf_logo);
+    NULL(0), NONNULL(R.drawable.ic_wmf_logo);
 
     @Override @DrawableRes public int id() {
         return id;

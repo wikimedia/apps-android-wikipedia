@@ -2,6 +2,7 @@
 
 <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/about_scrollview"
         android:layout_width="match_parent"
@@ -156,7 +157,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:padding="4dp"
-            android:src="@drawable/wmf_logo"
+            app:srcCompat="@drawable/ic_wmf_logo"
+            android:tint="@color/dark_gray"
             android:contentDescription="@null" />
 
         <TextView

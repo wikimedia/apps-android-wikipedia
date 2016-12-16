@@ -2,5 +2,5 @@
 <account-authenticator
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:accountType="@string/account_type"
-    android:icon="@drawable/wmf_logo"
+    android:icon="@mipmap/launcher"
     android:label="@string/account_name" />
