@@ -43,7 +43,6 @@ import org.wikipedia.richtext.ParagraphSpan;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
-import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.AppTextView;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -73,6 +72,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
     @VisibleForTesting @NonNull CharSequence title = "";
     @VisibleForTesting @NonNull CharSequence subtitle = "";
     @VisibleForTesting @Nullable String pronunciationUrl;
+    private boolean allowDescriptionEdit;
 
     @NonNull private final AvPlayer avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
     @VisibleForTesting @NonNull final ClickableSpan descriptionClickSpan = new DescriptionClickableSpan();
@@ -209,14 +209,18 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         return pronunciationUrl != null;
     }
 
+    public void setAllowDescriptionEdit(boolean allow) {
+        allowDescriptionEdit = allow;
+        updateText();
+    }
+
     @Override
     public void onScrollChanged(int oldScrollY, int scrollY, boolean isHumanScroll) {
         updateScroll(scrollY);
     }
 
     @OnClick(R.id.view_article_header_edit_pencil) void onEditClick() {
-        // TODO: unblock when ready for beta+
-        if (ReleaseUtil.isPreBetaRelease()) {
+        if (allowDescriptionEdit) {
             PopupMenu menu = new PopupMenu(editPencil.getContext(), editPencil);
             menu.getMenuInflater().inflate(R.menu.menu_article_header_edit, menu.getMenu());
             menu.setOnMenuItemClickListener(new EditMenuClickListener());
@@ -274,7 +278,7 @@ public class ArticleHeaderView extends FrameLayout implements ObservableWebView.
         titleText.setMovementMethod(new LinkMovementMethod());
         titleText.setText(builder);
 
-        if (hasSubtitle() || ReleaseUtil.isPreBetaRelease()) { // TODO: remove condition when ready
+        if (hasSubtitle() || allowDescriptionEdit) {
             subtitleText.setMovementMethod(hasSubtitle() ? null : new LinkMovementMethod());
             subtitleText.setText(subtitleSpanned());
             subtitleText.setVisibility(VISIBLE);

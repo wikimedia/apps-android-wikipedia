@@ -25,6 +25,9 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.log.L;
 
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -33,6 +36,8 @@ import retrofit2.Call;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
+    private static List<String> ENABLED_LANGUAGES = Arrays.asList("en");
+
     private static final String ARG_TITLE = "title";
 
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
@@ -48,6 +53,10 @@ public class DescriptionEditFragment extends Fragment {
         args.putString(ARG_TITLE, GsonMarshaller.marshal(title));
         instance.setArguments(args);
         return instance;
+    }
+
+    public static boolean isEditAllowed(@NonNull PageTitle title) {
+        return ENABLED_LANGUAGES.contains(title.getWikiSite().languageCode());
     }
 
     @Override public void onCreate(@Nullable Bundle savedInstanceState) {

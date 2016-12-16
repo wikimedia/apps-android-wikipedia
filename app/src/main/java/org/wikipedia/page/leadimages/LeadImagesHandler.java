@@ -21,6 +21,7 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
+import org.wikipedia.descriptions.DescriptionEditFragment;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
@@ -134,6 +135,11 @@ public class LeadImagesHandler {
         articleHeaderView.setSubtitle(StringUtils.capitalize(getTitle().getDescription()));
         articleHeaderView.setLocale(getPage().getTitle().getWikiSite().languageCode());
         articleHeaderView.setPronunciation(getPage().getTitlePronunciationUrl());
+
+        // TODO: remove pre-beta condition when ready.
+        articleHeaderView.setAllowDescriptionEdit(ReleaseUtil.isPreBetaRelease()
+                && DescriptionEditFragment.isEditAllowed(getPage().getTitle()));
+
         layoutViews(listener, sequence);
     }
 
@@ -235,10 +241,7 @@ public class LeadImagesHandler {
         articleHeaderView.setCallback(new ArticleHeaderView.Callback() {
             @Override
             public void onDescriptionClicked() {
-                // TODO: unblock when ready for beta+
-                if (ReleaseUtil.isPreBetaRelease()) {
-                    parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
-                }
+                parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
             }
 
             @Override
