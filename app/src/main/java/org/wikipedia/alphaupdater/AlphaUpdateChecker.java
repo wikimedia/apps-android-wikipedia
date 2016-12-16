@@ -72,7 +72,8 @@ public class AlphaUpdateChecker extends RecurringTask {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL));
         PendingIntent pintent = PendingIntent.getActivity(context, 0, intent, 0);
 
-        Notification notification = new NotificationCompat.Builder(context).setSmallIcon(R.drawable.ic_notification)
+        Notification notification = new NotificationCompat.Builder(context)
+                .setSmallIcon(R.mipmap.launcher)
                 .setContentTitle(context.getString(R.string.alpha_update_notification_title))
                 .setContentText(context.getString(R.string.alpha_update_notification_text))
                 .setContentIntent(pintent)

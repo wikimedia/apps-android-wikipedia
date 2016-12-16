@@ -14,7 +14,7 @@
 
     <item android:id="@+id/menu_text_select_define"
           android:title="@string/menu_text_select_define"
-          android:icon="@drawable/define_light"
+          android:icon="@drawable/ic_define_light"
           android:visible="false"
           app:showAsAction="ifRoom" />
 
