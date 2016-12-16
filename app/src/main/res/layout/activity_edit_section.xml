@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
              android:layout_height="match_parent"
              android:background="?attr/window_background_color">
     <ProgressBar
@@ -102,7 +104,7 @@
                         android:id="@+id/edit_section_abusefilter_image"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:src="@drawable/abusefilter_warn"
+                        app:srcCompat="@drawable/ic_abusefilter_warn"
                         android:layout_margin="24dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@null"/>

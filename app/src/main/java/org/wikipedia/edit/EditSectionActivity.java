@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
@@ -483,12 +484,12 @@ public class EditSectionActivity extends ThemedActionBarActivity {
         }
         if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
             funnel.logAbuseFilterError(abusefilterEditResult.getCode());
-            abuseFilterImage.setImageResource(R.drawable.abusefilter_disallow);
+            abuseFilterImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_abusefilter_disallow));
             abusefilterTitle.setText(getString(R.string.abusefilter_title_disallow));
             abusefilterText.setText(StringUtil.fromHtml(getString(R.string.abusefilter_text_disallow)));
         } else {
             funnel.logAbuseFilterWarning(abusefilterEditResult.getCode());
-            abuseFilterImage.setImageResource(R.drawable.abusefilter_warn);
+            abuseFilterImage.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_abusefilter_warn));
             abusefilterTitle.setText(getString(R.string.abusefilter_title_warn));
             abusefilterText.setText(StringUtil.fromHtml(getString(R.string.abusefilter_text_warn)));
         }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -10,19 +11,27 @@
     android:paddingRight="24dp"
     android:paddingTop="16dp">
 
-    <TextView
-        android:id="@+id/error_text"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/RtlAwareTextView"
-        android:layout_gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textIsSelectable="true"
-        tools:text="Sample error description"
-        android:drawableStart="@drawable/ic_error_gray"
-        tools:ignore="RtlCompat"
-        android:drawablePadding="8dp"
-        />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_error_black_24dp"
+            android:tint="@color/dark_gray"
+            android:contentDescription="@null"/>
+        <TextView
+            android:id="@+id/error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/RtlAwareTextView"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textIsSelectable="true"
+            tools:text="Sample error description"
+            />
+    </LinearLayout>
 
     <TextView
         style="@style/Widget.AppCompat.Button"
