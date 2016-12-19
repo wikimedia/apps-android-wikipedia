@@ -301,11 +301,12 @@
     <item quantity="other">%d днів тому</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Сьогодні</string>
+  <string name="view_announcement_card_negative_action">Ні, дякую</string>
   <string name="description_edit_header">Редагування</string>
   <string name="description_edit_help_hint">Що це?</string>
   <string name="description_edit_text_hint">Напишіть опис!</string>
   <string name="description_edit_save">Зберегти</string>
-  <string name="description_edit_add_description">Додати опис</string>
+  <string name="description_edit_add_description" fuzzy="true">Додати опис</string>
   <string name="description_edit_success_saved">Опис збережено!</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>

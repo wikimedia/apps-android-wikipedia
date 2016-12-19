@@ -134,5 +134,5 @@
   <string name="view_featured_image_card_download">Загрузіць</string>
   <string name="view_continue_reading_card_subtitle_today">Сёння</string>
   <string name="description_edit_save">Захаваць</string>
-  <string name="description_edit_add_description">Дадаць апісанне</string>
+  <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>
 </resources>

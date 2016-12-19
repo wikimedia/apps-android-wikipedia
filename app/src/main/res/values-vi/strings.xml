@@ -299,5 +299,5 @@
   <string name="description_edit_help_hint">Đây là gì?</string>
   <string name="description_edit_text_hint">Đặt miêu tả!</string>
   <string name="description_edit_save">Lưu</string>
-  <string name="description_edit_add_description">Thêm miêu tả</string>
+  <string name="description_edit_add_description" fuzzy="true">Thêm miêu tả</string>
 </resources>

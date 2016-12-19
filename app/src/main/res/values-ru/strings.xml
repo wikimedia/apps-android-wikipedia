@@ -300,11 +300,12 @@
     <item quantity="other">%d дней назад</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Сегодня</string>
+  <string name="view_announcement_card_negative_action">Нет, спасибо</string>
   <string name="description_edit_header">Редактирование</string>
   <string name="description_edit_help_hint">Что это?</string>
   <string name="description_edit_text_hint">Написать описание!</string>
   <string name="description_edit_save">Сохранить</string>
-  <string name="description_edit_add_description">Добавить описание</string>
+  <string name="description_edit_add_description" fuzzy="true">Добавить описание</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>

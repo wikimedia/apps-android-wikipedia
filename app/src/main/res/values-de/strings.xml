@@ -300,11 +300,12 @@ Möchtest du die App neu starten oder beenden?</string>
     <item quantity="other">Vor %d Tagen</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Heute</string>
+  <string name="view_announcement_card_negative_action">Nein, danke</string>
   <string name="description_edit_header">Bearbeiten</string>
   <string name="description_edit_help_hint">Was ist das?</string>
   <string name="description_edit_text_hint">Verfasse eine Beschreibung!</string>
   <string name="description_edit_save">Speichern</string>
-  <string name="description_edit_add_description">Beschreibung hinzufügen</string>
+  <string name="description_edit_add_description" fuzzy="true">Beschreibung hinzufügen</string>
   <string name="description_edit_success_saved">Beschreibung gespeichert!</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>

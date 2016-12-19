@@ -36,7 +36,7 @@
   <string name="nearby_distance_in_meters">%d м</string>
   <string name="nearby_distance_in_kilometers">%.2f км</string>
   <string name="nearby_zoom_to_location">Приближи на некое место на картата</string>
-  <string name="last_updated_text">Последен пат изменето на %1$s</string>
+  <string name="last_updated_text">Последна измена:%s</string>
   <string name="talk_page_link_text">Разговор</string>
   <string name="content_license_html">Содржината е достапна под &lt;a class=\"external\" rel=\"nofollow\" href=\"//creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;, освен ако не е поинаку наведено</string>
   <string name="edit_save_action_license_logged_in">Зачувувајќи, се согласувате со &lt;a href=\"https://wikimediafoundation.org/wiki/Terms_of_Use/mk?uselang=mk\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.mk\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
@@ -300,11 +300,12 @@
     <item quantity="other">Пред %d дена</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Денес</string>
+  <string name="view_announcement_card_negative_action">Не, благодарам</string>
   <string name="description_edit_header">Уредување</string>
   <string name="description_edit_help_hint">Што е ова?</string>
   <string name="description_edit_text_hint">Напишете опис!</string>
   <string name="description_edit_save">Зачувај</string>
-  <string name="description_edit_add_description">Додај опис</string>
+  <string name="description_edit_add_description" fuzzy="true">Додај опис</string>
   <string name="description_edit_success_saved">Описот е зачуван!</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>

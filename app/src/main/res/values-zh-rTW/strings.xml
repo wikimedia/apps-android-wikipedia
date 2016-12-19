@@ -300,11 +300,12 @@
     <item quantity="other">%d 日前</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">今天</string>
+  <string name="view_announcement_card_negative_action">不用了，謝謝</string>
   <string name="description_edit_header">編輯中</string>
   <string name="description_edit_help_hint">這是什麼？</string>
   <string name="description_edit_text_hint">寫一段描述！</string>
   <string name="description_edit_save">儲存</string>
-  <string name="description_edit_add_description">增加描述</string>
+  <string name="description_edit_add_description" fuzzy="true">增加描述</string>
   <string name="description_edit_success_saved">描述已儲存！</string>
   <string name="description_edit_success_encouragement">您為了大家讓維基百科變得更好</string>
   <string name="description_edit_success_done">完成</string>

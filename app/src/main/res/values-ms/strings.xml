@@ -298,11 +298,12 @@
     <item quantity="other">%d hari yang lalu</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
+  <string name="view_announcement_card_negative_action">Tak apalah</string>
   <string name="description_edit_header">Penyuntingan</string>
   <string name="description_edit_help_hint">Apakah ini?</string>
   <string name="description_edit_text_hint">Tulis keterangan!</string>
   <string name="description_edit_save">Simpan</string>
-  <string name="description_edit_add_description">Tambah penerangan</string>
+  <string name="description_edit_add_description" fuzzy="true">Tambah penerangan</string>
   <string name="description_edit_success_saved">Huraian disimpan!</string>
   <string name="description_edit_success_encouragement">Anda baru sahaja menciptakan Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Siap</string>

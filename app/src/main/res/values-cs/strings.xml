@@ -201,6 +201,8 @@
   <string name="gallery_fair_use_license">Fair use</string>
   <string name="gallery_uploader_unknown">Původce neznámý</string>
   <string name="menu_new_tab">Nová záložka</string>
+  <string name="menu_close_all_tabs">Zavřít všechny záložky</string>
+  <string name="close_all_tabs_confirm">Jste si jisti, že chcete zavřít všechny záložky?</string>
   <string name="button_close_tab">Zavřít záložku</string>
   <string name="tool_tip_select_text">Stiskněte a podržte kdekoliv, čímž zvýrazníte text ke kopírování a sdílení.</string>
   <string name="tool_tip_share">Po zvýraznění zajímavého faktu jej zkuste sdílet na své oblíbené síti!</string>
@@ -220,6 +222,7 @@
   <string name="preference_summary_show_link_previews">Po klepnutí na odkaz zobrazit rychlý náhled článku.</string>
   <string name="nav_item_donate">Podpořte Wikipedii</string>
   <string name="error_voice_search_not_available">Omlouváme se, ale rozpoznávání hlasu není k dispozici.</string>
+  <string name="location_service_disabled">Služby zjišťování polohy jsou zakázány.</string>
   <string name="enable_location_service">Povolit</string>
   <string name="crash_report_dialog_title">Omlouváme se, aplikace minule spadla</string>
   <string name="crash_report_dialog_text">Chtěli byste odeslat hlášení o pádu HockeyApp, poskytovateli služeb třetích stran, aby Wikimedia mohla její pád přezkoumat a opravit chybu, která jej způsobila?</string>
@@ -235,6 +238,9 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="article_menu_bar_bookmark">Přidat tento článek do seznamu k přečtení</string>
   <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
   <string name="article_menu_bar_navigate">Navigovat na místo článku</string>
+  <string name="article_header_edit_hint">Upravit...</string>
+  <string name="article_header_edit_description">Upravit popis názvu</string>
+  <string name="article_header_edit_lead_section">Upravit úvod</string>
   <string name="nav_item_reading_lists">Moje seznamy</string>
   <string name="reading_list_untitled">Bez názvu</string>
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
@@ -263,7 +269,7 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="reading_list_edit_cancel">Storno</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit tento seznam?</string>
   <string name="reading_lists_empty">Žádné seznamy ke čtení.</string>
-  <string name="reading_lists_empty_message" fuzzy="true">Vytvářejte si z článků, které procházíte, seznamy k přečtení! Když čtete článek, stisknutím tlačítka záložky nad článkem ho můžete přidat do seznamu k přečtení.</string>
+  <string name="reading_lists_empty_message">Vytvářejte si z článků, které procházíte, seznamy k přečtení! Když čtete článek, stisknutím tlačítka záložky na spodní liště ho můžete přidat do seznamu k přečtení.</string>
   <string name="reading_lists_onboarding_intro">Vytvářejte si seznamy k přečtení z článků, které si chcete přečíst později, třeba až budete offline!</string>
   <string name="reading_lists_onboarding_for_example">Například</string>
   <string name="reading_lists_onboarding_example1">Místa k navštívení</string>
@@ -289,14 +295,20 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="most_read_list_card_title">Populární</string>
   <string name="view_static_card_icon_content_description">Ikona záložky</string>
   <string name="view_card_news_title">Ve zprávách</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">včera</item>
-    <item quantity="other">před %d dny</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Včera</item>
+    <item quantity="other">Před %d dny</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
+  <string name="view_announcement_card_negative_action">Ne, děkuji</string>
   <string name="description_edit_header">Editování</string>
   <string name="description_edit_help_hint">Co to je?</string>
   <string name="description_edit_text_hint">Udělejte popis!</string>
   <string name="description_edit_save">Uložit</string>
-  <string name="description_edit_add_description">Přidat popis</string>
+  <string name="description_edit_add_description" fuzzy="true">Přidat popis</string>
+  <string name="description_edit_success_saved">Popis byl uložen!</string>
+  <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím</string>
+  <string name="description_edit_success_done">Hotovo</string>
+  <string name="description_edit_success_did_you_know">Věděli jste, že?</string>
+  <string name="description_edit_success_article_edit_hint">Články můžete v této aplikaci také editovat. Překlepy můžete příště opravit kliknutím na ikonu ^1</string>
 </resources>

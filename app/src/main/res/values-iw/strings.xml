@@ -300,11 +300,12 @@
     <item quantity="other">לפני %d ימים</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">היום</string>
+  <string name="view_announcement_card_negative_action">לא, תודה</string>
   <string name="description_edit_header">עריכה</string>
   <string name="description_edit_help_hint">מה זה?</string>
   <string name="description_edit_text_hint">נא לכתוב תיאור!</string>
   <string name="description_edit_save">שמירה</string>
-  <string name="description_edit_add_description">הוספת תיאור</string>
+  <string name="description_edit_add_description" fuzzy="true">הוספת תיאור</string>
   <string name="description_edit_success_saved">התיאור נשמר!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור לכולם</string>
   <string name="description_edit_success_done">בוצע</string>

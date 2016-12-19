@@ -304,7 +304,7 @@
   <string name="description_edit_help_hint">¿Qué ye esto?</string>
   <string name="description_edit_text_hint">Escribe una descripción</string>
   <string name="description_edit_save">Guardar</string>
-  <string name="description_edit_add_description">Amiesta una descripción</string>
+  <string name="description_edit_add_description" fuzzy="true">Amiesta una descripción</string>
   <string name="description_edit_success_saved">Guardóse la descripción</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>

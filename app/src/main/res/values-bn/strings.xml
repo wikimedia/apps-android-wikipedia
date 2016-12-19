@@ -297,9 +297,10 @@
     <item quantity="other">%d দিন আগে</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">আজ</string>
+  <string name="view_announcement_card_negative_action">না ধন্যবাদ</string>
   <string name="description_edit_header">সম্পাদনা করছেন</string>
   <string name="description_edit_help_hint">এটি কী?</string>
   <string name="description_edit_text_hint">একটি বিবরণ লিখুন!</string>
   <string name="description_edit_save">সংরক্ষণ</string>
-  <string name="description_edit_add_description">বিবরণ যোগ করুন</string>
+  <string name="description_edit_add_description" fuzzy="true">বিবরণ যোগ করুন</string>
 </resources>

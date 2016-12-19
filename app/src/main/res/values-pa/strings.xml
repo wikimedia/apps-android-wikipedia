@@ -280,5 +280,5 @@
   <string name="description_edit_help_hint">ਇਹ ਕੀ ਹੈ?</string>
   <string name="description_edit_text_hint">ਵੇਰਵਾ ਭਰੋ</string>
   <string name="description_edit_save">ਸਾਂਭੋ</string>
-  <string name="description_edit_add_description">ਵੇਰਵਾ ਸੋਧੋ</string>
+  <string name="description_edit_add_description" fuzzy="true">ਵੇਰਵਾ ਸੋਧੋ</string>
 </resources>

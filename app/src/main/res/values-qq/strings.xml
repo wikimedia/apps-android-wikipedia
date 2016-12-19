@@ -193,7 +193,8 @@ Shown in the preferences screen along with the following:
   <string name="page_protected_can_not_edit_title">Title of dialog box telling the user that they can not edit this page because it is protected.</string>
   <string name="settings_item_preferences">Menu item in the nav menu to go to the Settings screen.
 {{Identical|Settings}}</string>
-  <string name="settings_activity_title">Title at the top of the Settings screen.</string>
+  <string name="settings_activity_title">Title at the top of the Settings screen.
+{{Identical|Settings}}</string>
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.
 {{Identical|Privacy policy}}</string>
@@ -440,7 +441,8 @@ Shown in the preferences screen along with the following:
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date.
 {{Identical|Today}}</string>
-  <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.</string>
+  <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.
+{{Identical|No thanks}}</string>
   <string name="description_edit_header">Label above the current article title indicating that the description for this title is being edited.
 {{Identical|Editing}}</string>
   <string name="description_edit_help_hint">Hint message for the menu button that launches a short tutorial on editing descriptions.</string>
@@ -450,6 +452,11 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
   <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.</string>
+  <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
+  <string name="description_edit_help_about_wikidata">Menu label for navigating to a page describing Wikidata.</string>
+  <string name="description_edit_help_wikidata_guide">Manu label for navigating to the official Wikidata guide for composing descriptions.</string>
+  <string name="wikidata_about_url">URL that points to an introduction page about Wikidata in this language.</string>
+  <string name="wikidata_description_guide_url">URL that points to a page on Wikidata that contains guidelines for writing descriptions. Preferably the URL should link directly to the section that lists specific guidelines.</string>
   <string name="description_edit_success_saved">Message that the description the user just added was saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen
@@ -457,9 +464,4 @@ Shown in the preferences screen along with the following:
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app
 {{Identical|Did you know}}</string>
   <string name="description_edit_success_article_edit_hint">A message informing the user about how to edit articles in the app.  The \"^1\" symbol is replaced with an edit pencil icon.</string>
-  <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
-  <string name="description_edit_help_about_wikidata">Menu label for navigating to a page describing Wikidata.</string>
-  <string name="description_edit_help_wikidata_guide">Manu label for navigating to the official Wikidata guide for composing descriptions.</string>
-  <string name="wikidata_about_url">URL that points to an introduction page about Wikidata in this language.</string>
-  <string name="wikidata_description_guide_url">URL that points to a page on Wikidata that contains guidelines for writing descriptions. Preferably the URL should link directly to the section that lists specific guidelines.</string>
 </resources>

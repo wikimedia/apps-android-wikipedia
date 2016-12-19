@@ -293,11 +293,12 @@ Wëllt Dir se nei starten oder erausgoen?</string>
     <item quantity="other">viru(n) %d Deeg</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Haut</string>
+  <string name="view_announcement_card_negative_action">Nee, merci</string>
   <string name="description_edit_header">Änneren</string>
   <string name="description_edit_help_hint">Wat ass dat?</string>
   <string name="description_edit_text_hint">Eng Beschreiwung schreiwen!</string>
   <string name="description_edit_save">Späicheren</string>
-  <string name="description_edit_add_description">Beschreiwung derbäisetzen</string>
+  <string name="description_edit_add_description" fuzzy="true">Beschreiwung derbäisetzen</string>
   <string name="description_edit_success_saved">Beschreiwung gespäichert!</string>
   <string name="description_edit_success_encouragement">Dir hutt elo grad Wikipedia fir jidderee verbessert</string>
   <string name="description_edit_success_done">Fäerdeg</string>

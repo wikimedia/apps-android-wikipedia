@@ -289,4 +289,5 @@
     <item quantity="one">دیروز</item>
     <item quantity="other">%d روز پیش</item>
   </plurals>
+  <string name="view_announcement_card_negative_action">نه ممنون</string>
 </resources>

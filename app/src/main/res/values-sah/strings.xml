@@ -297,5 +297,5 @@
   <string name="description_edit_header">Уларытыы</string>
   <string name="description_edit_help_hint">Бу тугуй?</string>
   <string name="description_edit_save">Бигэргэт</string>
-  <string name="description_edit_add_description">Быһаарыы эбии</string>
+  <string name="description_edit_add_description" fuzzy="true">Быһаарыы эбии</string>
 </resources>

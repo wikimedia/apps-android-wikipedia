@@ -303,7 +303,7 @@
   <string name="description_edit_help_hint">यह क्या है?</string>
   <string name="description_edit_text_hint">वर्णन लिखें!</string>
   <string name="description_edit_save">सहेजें</string>
-  <string name="description_edit_add_description">वर्णन जोड़ें</string>
+  <string name="description_edit_add_description" fuzzy="true">वर्णन जोड़ें</string>
   <string name="description_edit_success_saved">वर्णन सहेजा गया!</string>
   <string name="description_edit_success_encouragement">अपने अभी विकिपीडिया को सभी के लिए और अच्छा बना दिया</string>
   <string name="description_edit_success_done">पूर्ण</string>

@@ -300,11 +300,12 @@ Vill du starta om eller avsluta?</string>
     <item quantity="other">%d dagar sedan</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
+  <string name="view_announcement_card_negative_action">Nej tack</string>
   <string name="description_edit_header">Redigerar</string>
   <string name="description_edit_help_hint">Vad är detta?</string>
   <string name="description_edit_text_hint">Skriv en beskrivning!</string>
   <string name="description_edit_save">Spara</string>
-  <string name="description_edit_add_description">Lägg till beskrivning</string>
+  <string name="description_edit_add_description" fuzzy="true">Lägg till beskrivning</string>
   <string name="description_edit_success_saved">Beskrivningen sparades!</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>

@@ -302,7 +302,7 @@
   <string name="description_edit_help_hint">Wat is dit?</string>
   <string name="description_edit_text_hint">Geef een beschrijving op!</string>
   <string name="description_edit_save">Opslaan</string>
-  <string name="description_edit_add_description">Beschrijving toevoegen</string>
+  <string name="description_edit_add_description" fuzzy="true">Beschrijving toevoegen</string>
   <string name="description_edit_success_saved">Beschrijving opgeslagen!</string>
   <string name="description_edit_success_encouragement">U hebt zojuist Wikipedia voor iedereen beter gemaakt</string>
   <string name="description_edit_success_done">Afgerond</string>

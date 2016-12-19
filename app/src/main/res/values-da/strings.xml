@@ -301,5 +301,5 @@ Vil du starte forfra eller afslutte?</string>
   <string name="description_edit_help_hint">Hvad er dette?</string>
   <string name="description_edit_text_hint">Skriv en beskrivelse!</string>
   <string name="description_edit_save">Gem</string>
-  <string name="description_edit_add_description">Tilføj beskrivelse</string>
+  <string name="description_edit_add_description" fuzzy="true">Tilføj beskrivelse</string>
 </resources>

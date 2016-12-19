@@ -301,6 +301,6 @@
   <string name="description_edit_help_hint">これは何?</string>
   <string name="description_edit_text_hint">要約欄を記入してください</string>
   <string name="description_edit_save">保存</string>
-  <string name="description_edit_add_description">説明を追加</string>
+  <string name="description_edit_add_description" fuzzy="true">説明を追加</string>
   <string name="description_edit_success_done">完了</string>
 </resources>

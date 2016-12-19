@@ -301,7 +301,7 @@ Haluaisitko aloittaa alusta tai poistua?</string>
   <string name="description_edit_help_hint">Mikä tämä on?</string>
   <string name="description_edit_text_hint">Kirjoita kuvaus!</string>
   <string name="description_edit_save">Tallenna</string>
-  <string name="description_edit_add_description">Lisää kuvaus</string>
+  <string name="description_edit_add_description" fuzzy="true">Lisää kuvaus</string>
   <string name="description_edit_success_saved">Kuvaus tallennettu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>

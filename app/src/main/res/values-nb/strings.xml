@@ -239,6 +239,8 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="article_menu_bar_share">Del lenke til artikkelen</string>
   <string name="article_menu_bar_navigate">Naviger til det omtalte stedet</string>
   <string name="article_header_edit_hint">Rediger…</string>
+  <string name="article_header_edit_description">Rediger tittelbeskrivelsen</string>
+  <string name="article_header_edit_lead_section">Rediger introduksjon</string>
   <string name="nav_item_reading_lists">Mine lister</string>
   <string name="reading_list_untitled">Uten navn</string>
   <string name="reading_list_save_to">Lagre i leseliste</string>
@@ -298,9 +300,15 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
     <item quantity="other">for %d dager siden</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
+  <string name="view_announcement_card_negative_action">Nei takk</string>
   <string name="description_edit_header">Redigerer</string>
   <string name="description_edit_help_hint">Hva er dette?</string>
   <string name="description_edit_text_hint">Skriv en beskrivelse!</string>
   <string name="description_edit_save">Lagre</string>
-  <string name="description_edit_add_description">Legg til beskrivelse</string>
+  <string name="description_edit_add_description" fuzzy="true">Legg til beskrivelse</string>
+  <string name="description_edit_success_saved">Beskrivelse lagret!</string>
+  <string name="description_edit_success_encouragement">Du gjorde nettopp Wikipedia bedre for alle</string>
+  <string name="description_edit_success_done">Ferdig</string>
+  <string name="description_edit_success_did_you_know">Visste du at?</string>
+  <string name="description_edit_success_article_edit_hint">Du kan også redigere artikler med denne appen. Prøv å fikse skrivefeil og små setninger ved å trykke på ^1-ikonet neste gang</string>
 </resources>

@@ -300,11 +300,12 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
     <item quantity="other">%d hari yang lalu</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
+  <string name="view_announcement_card_negative_action">Tidak, terima kasih</string>
   <string name="description_edit_header">Menyunting</string>
   <string name="description_edit_help_hint">Apa ini?</string>
   <string name="description_edit_text_hint">Tuliskan deskripsi!</string>
   <string name="description_edit_save">Simpan</string>
-  <string name="description_edit_add_description">Tambah deskripsi</string>
+  <string name="description_edit_add_description" fuzzy="true">Tambah deskripsi</string>
   <string name="description_edit_success_saved">Deskripsi disimpan!</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>

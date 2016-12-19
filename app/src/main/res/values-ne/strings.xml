@@ -286,5 +286,5 @@
   <string name="description_edit_help_hint">यो के हो?</string>
   <string name="description_edit_text_hint">कुनै विवरण लेख्नुहोस्!</string>
   <string name="description_edit_save">बचत गर्नुहोस्</string>
-  <string name="description_edit_add_description">विवरण थप्नुहोस्</string>
+  <string name="description_edit_add_description" fuzzy="true">विवरण थप्नुहोस्</string>
 </resources>
