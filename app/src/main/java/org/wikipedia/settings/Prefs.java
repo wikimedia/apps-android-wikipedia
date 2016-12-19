@@ -479,6 +479,14 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_memory_leak_test, false);
     }
 
+    public static boolean isDescriptionEditTutorialEnabled() {
+        return getBoolean(R.string.preference_key_description_edit_tutorial_enabled, true);
+    }
+
+    public static void setDescriptionEditTutorialEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_description_edit_tutorial_enabled, enabled);
+    }
+
     private static boolean isDevRelease() {
         return WikipediaApp.getInstance().isDevRelease();
     }

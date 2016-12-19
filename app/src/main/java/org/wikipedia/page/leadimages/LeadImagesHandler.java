@@ -22,6 +22,7 @@ import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditFragment;
+import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
@@ -32,6 +33,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ObservableWebView;
 
+import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 
 public class LeadImagesHandler {
@@ -241,12 +243,12 @@ public class LeadImagesHandler {
         articleHeaderView.setCallback(new ArticleHeaderView.Callback() {
             @Override
             public void onDescriptionClicked() {
-                parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
+                startDescriptionEditActivity();
             }
 
             @Override
             public void onEditDescription() {
-                parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
+                startDescriptionEditActivity();
             }
 
             @Override
@@ -254,6 +256,16 @@ public class LeadImagesHandler {
                 parentFragment.getEditHandler().startEditingSection(0, null);
             }
         });
+    }
+
+    private void startDescriptionEditActivity() {
+        if (isDescriptionEditTutorialEnabled()) {
+            parentFragment.startActivityForResult(DescriptionEditTutorialActivity.newIntent(parentFragment.getContext()),
+                    Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
+            return;
+        }
+
+        parentFragment.startActivity(DescriptionEditActivity.newIntent(getActivity(), getTitle()));
     }
 
     private void initWebView() {
