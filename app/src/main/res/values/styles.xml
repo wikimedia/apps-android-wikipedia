@@ -58,8 +58,8 @@
 
     <style name="AppTheme.SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
         <item name="closeIcon">@drawable/ic_close_white_24dp</item>
-        <item name="searchIcon">@drawable/ic_search</item>
-        <item name="searchHintIcon">@drawable/ic_search</item>
+        <item name="searchIcon">@drawable/ic_search_white_24dp</item>
+        <item name="searchHintIcon">@drawable/ic_search_white_24dp</item>
     </style>
 
     <style name="AppTheme.SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
