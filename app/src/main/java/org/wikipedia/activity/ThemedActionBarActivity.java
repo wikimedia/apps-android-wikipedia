@@ -86,6 +86,8 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
      * @param activity Activity whose overflow icon will be forced.
      */
     private static void forceOverflowMenuIcon(Activity activity) {
+        // API 19 is required for ReflectiveOperationException subclasses
+        //noinspection TryWithIdenticalCatches
         try {
             ViewConfiguration config = ViewConfiguration.get(activity);
             // This field doesn't exist in 4.4, where the overflow icon is always shown:
@@ -95,9 +97,8 @@ public abstract class ThemedActionBarActivity extends AppCompatActivity {
                 menuKeyField.setAccessible(true);
                 menuKeyField.setBoolean(config, false);
             }
-        } catch (Exception ex) {
-            // multiple exceptions may be thrown above, but it's not super critical if it fails.
-        }
+        } catch (IllegalAccessException ignore) {
+        } catch (NoSuchFieldException ignore) { }
     }
 
     // Hack for https://phabricator.wikimedia.org/T78117: onKeyDown + onKeyUp
