@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
-import org.wikipedia.activity.SingleFragmentActivity;
+import org.wikipedia.activity.SingleFragmentToolbarActivity;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.PageTitle;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
-public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment> {
+public class DescriptionEditActivity extends SingleFragmentToolbarActivity<DescriptionEditFragment> {
     private static final String EXTRA_TITLE = "title";
 
     public static Intent newIntent(@NonNull Context context, @NonNull PageTitle title) {

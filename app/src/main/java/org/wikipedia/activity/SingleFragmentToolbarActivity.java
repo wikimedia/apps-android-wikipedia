@@ -13,7 +13,7 @@ import org.wikipedia.R;
  * Boilerplate for a {@link android.support.v4.app.FragmentActivity} containing a single stack of
  * Fragments, with a Toolbar overlaid on top.
  */
-public abstract class SingleFragmentActivityWithToolbar<T extends Fragment> extends SingleFragmentActivity<T> {
+public abstract class SingleFragmentToolbarActivity<T extends Fragment> extends SingleFragmentActivity<T> {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

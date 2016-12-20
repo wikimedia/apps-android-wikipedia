@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import org.wikipedia.R;
-import org.wikipedia.activity.SingleFragmentActivityWithToolbar;
+import org.wikipedia.activity.SingleFragmentToolbarActivity;
 
-public class DescriptionEditHelpActivity extends SingleFragmentActivityWithToolbar<DescriptionEditHelpFragment> {
+public class DescriptionEditHelpActivity extends SingleFragmentToolbarActivity<DescriptionEditHelpFragment> {
 
     public static Intent newIntent(@NonNull Context context) {
         return new Intent(context, DescriptionEditHelpActivity.class);
