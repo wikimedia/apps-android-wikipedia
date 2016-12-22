@@ -13,6 +13,7 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -96,7 +97,8 @@ public class NearbyFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_nearby, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        markerIconPassive = IconFactory.getInstance(getContext()).fromResource(R.drawable.ic_map_marker);
+        VectorDrawableCompat markerIconDrawable = VectorDrawableCompat.create(getResources(), R.drawable.ic_map_marker, null);
+        markerIconPassive = IconFactory.getInstance(getContext()).fromDrawable(markerIconDrawable);
 
         mapView.onCreate(savedInstanceState);
 
