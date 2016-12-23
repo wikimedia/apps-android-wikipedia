@@ -29,7 +29,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
@@ -49,6 +48,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;

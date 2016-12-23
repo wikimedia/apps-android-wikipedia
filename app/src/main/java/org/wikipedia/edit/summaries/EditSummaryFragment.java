@@ -11,9 +11,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.views.ViewAnimations;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.DeviceUtil.showSoftKeyboard;

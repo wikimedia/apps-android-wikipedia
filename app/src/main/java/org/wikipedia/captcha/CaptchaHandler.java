@@ -19,10 +19,10 @@ import com.facebook.imagepipeline.image.ImageInfo;
 
 import org.mediawiki.api.json.RequestBuilder;
 import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.views.ViewAnimations;
 
 import retrofit2.Call;
 

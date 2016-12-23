@@ -62,6 +62,7 @@ import org.wikipedia.useroption.database.UserOptionRow;
 import org.wikipedia.useroption.sync.UserOptionContentResolver;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.zero.WikipediaZeroHandler;
 
 import java.util.Collections;
