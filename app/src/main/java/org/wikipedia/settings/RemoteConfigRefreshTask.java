@@ -1,10 +1,10 @@
-package org.wikipedia;
+package org.wikipedia.settings;
 
 import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.dataclient.OkHttpConnectionFactory;
 import org.wikipedia.recurring.RecurringTask;
-import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.util.log.L;
 
 import java.util.Date;

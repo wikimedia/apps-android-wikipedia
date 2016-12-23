@@ -1,8 +1,7 @@
-package org.wikipedia;
+package org.wikipedia.settings;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.settings.Prefs;
 
 /**
  * Store for config values that are retrieved from a server,

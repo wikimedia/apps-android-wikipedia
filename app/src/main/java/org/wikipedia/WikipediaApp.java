@@ -54,6 +54,7 @@ import org.wikipedia.savedpages.ReadingListPageObserver;
 import org.wikipedia.savedpages.SavedPage;
 import org.wikipedia.search.RecentSearch;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.RemoteConfig;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.useroption.UserOption;
 import org.wikipedia.useroption.database.UserOptionDao;

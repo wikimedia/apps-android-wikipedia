@@ -1,10 +1,10 @@
 package org.wikipedia.recurring;
 
-import org.wikipedia.RemoteConfigRefreshTask;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.alphaupdater.AlphaUpdateChecker;
 import org.wikipedia.concurrency.SaneAsyncTask;
 import org.wikipedia.page.snippet.SharedImageCleanupTask;
+import org.wikipedia.settings.RemoteConfigRefreshTask;
 
 public class RecurringTasksExecutor {
     private final WikipediaApp app;
