@@ -20,12 +20,12 @@ import android.view.ViewGroup;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
-import org.wikipedia.SearchActionModeCallback;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.concurrency.CallbackTask;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.page.ReadingListPage;
 import org.wikipedia.readinglist.page.database.ReadingListDaoProxy;

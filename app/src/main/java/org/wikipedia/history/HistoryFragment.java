@@ -32,7 +32,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
-import org.wikipedia.SearchActionModeCallback;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.CursorAdapterLoaderCallback;
