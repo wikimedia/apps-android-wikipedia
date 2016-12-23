@@ -16,7 +16,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.wikipedia.NonEmptyValidator;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
@@ -26,6 +25,7 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.NonEmptyValidator;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 

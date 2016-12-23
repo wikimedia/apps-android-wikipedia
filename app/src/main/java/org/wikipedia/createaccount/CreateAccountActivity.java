@@ -20,7 +20,6 @@ import com.mobsandgeeks.saripaar.annotation.Password;
 
 import org.mediawiki.api.json.Api;
 import org.mediawiki.api.json.RequestBuilder;
-import org.wikipedia.NonEmptyValidator;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
@@ -30,6 +29,7 @@ import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.NonEmptyValidator;
 
 import java.util.List;
 
