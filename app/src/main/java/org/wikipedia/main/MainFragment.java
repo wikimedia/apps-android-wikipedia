@@ -13,11 +13,12 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -43,6 +44,7 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
+import org.wikipedia.navtab.NavTabLayout;
 import org.wikipedia.nearby.NearbyFragment;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -73,7 +75,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         SearchFragment.Callback, LinkPreviewDialog.Callback, AddToReadingListDialog.Callback {
     @BindView(R.id.fragment_main_container) CoordinatorLayout coordinatorLayout;
     @BindView(R.id.fragment_main_view_pager) ViewPager viewPager;
-    @BindView(R.id.fragment_main_nav_tab_layout) TabLayout tabLayout;
+    @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver mediaDownloadReceiver;
@@ -104,7 +106,14 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         unbinder = ButterKnife.bind(this, view);
 
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(getChildFragmentManager()));
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                viewPager.setCurrentItem(item.getOrder());
+                return true;
+            }
+        });
+
 
         if (savedInstanceState == null) {
             handleIntent(getActivity().getIntent());
@@ -461,6 +470,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     private void goToTab(@NonNull NavTab tab) {
         viewPager.setCurrentItem(tab.code());
+        tabLayout.setCurrentTab(tab);
         ensureNavBarVisible();
         cancelSearch();
     }

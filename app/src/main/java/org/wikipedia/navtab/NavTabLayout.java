@@ -1,39 +1,37 @@
 package org.wikipedia.navtab;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.util.AttributeSet;
-import android.view.View;
+import android.view.Menu;
 
-public class NavTabLayout extends TabLayout {
+public class NavTabLayout extends BottomNavigationView {
+
     public NavTabLayout(Context context) {
         super(context);
+        setTabViews();
     }
 
     public NavTabLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setTabViews();
     }
 
     public NavTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    @Override public void setupWithViewPager(@Nullable ViewPager viewPager, boolean autoRefresh) {
-        super.setupWithViewPager(viewPager, autoRefresh);
         setTabViews();
     }
 
+    public void setCurrentTab(@NonNull NavTab tab) {
+        Menu menu = getMenu();
+        menu.getItem(tab.code()).setChecked(true);
+    }
+
     private void setTabViews() {
-        for (int i = 0; i < getTabCount(); i++) {
-            TabLayout.Tab tab = getTabAt(i);
+        for (int i = 0; i < NavTab.size(); i++) {
             NavTab navTab = NavTab.of(i);
-            View view = new NavTabView(getContext())
-                    .icon(navTab.icon())
-                    .text(navTab.text());
-            //noinspection ConstantConditions
-            tab.setCustomView(view);
+            getMenu().add(Menu.NONE, Menu.NONE, i, navTab.text()).setIcon(navTab.icon());
         }
     }
 }

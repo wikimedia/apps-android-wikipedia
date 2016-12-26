@@ -8,7 +8,6 @@
         <item name="longPreferenceStyle">@style/LongPreference</item>
         <item name="intPreferenceStyle">@style/IntPreference</item>
         <item name="android:windowBackground">@drawable/splash_bg</item>
-        <item name="navTabViewStyle">@style/NavTabView</item>
     </style>
 
     <style name="PageTheme" parent="AppTheme">
