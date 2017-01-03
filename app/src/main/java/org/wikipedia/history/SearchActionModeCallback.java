@@ -1,4 +1,4 @@
-package org.wikipedia;
+package org.wikipedia.history;
 
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.ActionMode;
@@ -6,6 +6,7 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.wikipedia.R;
 import org.wikipedia.util.DeviceUtil;
 
 public abstract class SearchActionModeCallback implements ActionMode.Callback {
