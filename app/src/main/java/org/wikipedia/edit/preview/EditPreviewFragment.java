@@ -19,11 +19,11 @@ import android.widget.ScrollView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.NightModeHandler;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.edit.summaries.EditSummaryTag;

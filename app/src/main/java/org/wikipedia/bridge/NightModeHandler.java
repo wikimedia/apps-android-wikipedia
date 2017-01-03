@@ -1,8 +1,7 @@
-package org.wikipedia;
+package org.wikipedia.bridge;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.wikipedia.bridge.CommunicationBridge;
 
 public class NightModeHandler {
     private final CommunicationBridge bridge;
