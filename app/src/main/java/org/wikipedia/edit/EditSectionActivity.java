@@ -1,6 +1,5 @@
 package org.wikipedia.edit;
 
-
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,7 +28,6 @@ import android.widget.TextView;
 import org.mediawiki.api.json.ApiException;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
@@ -53,6 +51,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ViewAnimations;
 
 import retrofit2.Call;
 

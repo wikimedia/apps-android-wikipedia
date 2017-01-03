@@ -21,7 +21,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.NightModeHandler;
 import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -37,6 +36,7 @@ import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ViewAnimations;
 
 import java.util.ArrayList;
 import java.util.List;

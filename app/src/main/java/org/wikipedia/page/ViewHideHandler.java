@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
 
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.views.ObservableWebView;
+import org.wikipedia.views.ViewAnimations;
 
 public abstract class ViewHideHandler
         implements ObservableWebView.OnScrollChangeListener,

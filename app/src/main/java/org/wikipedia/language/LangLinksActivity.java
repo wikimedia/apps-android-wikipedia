@@ -15,7 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.wikipedia.R;
-import org.wikipedia.ViewAnimations;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.ActivityUtil;
 import org.wikipedia.activity.ThemedActionBarActivity;
@@ -23,6 +22,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
