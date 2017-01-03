@@ -302,5 +302,12 @@
   <string name="description_edit_help_hint">এটি কী?</string>
   <string name="description_edit_text_hint">একটি বিবরণ লিখুন!</string>
   <string name="description_edit_save">সংরক্ষণ</string>
-  <string name="description_edit_add_description" fuzzy="true">বিবরণ যোগ করুন</string>
+  <string name="description_edit_add_description">সংক্ষিপ্ত বিবরণ যোগ করুন</string>
+  <string name="description_edit_edit_description">বিবরণ সম্পাদনা করুন</string>
+  <string name="description_edit_cancel_hint">বাতিল</string>
+  <string name="description_edit_help_title">সাহায্য: শিরোনামের বিবরণ</string>
+  <string name="description_edit_help_about_wikidata">উইকিউপাত্ত সম্পর্কে</string>
+  <string name="description_edit_help_wikidata_guide">বিবরণ লেখার জন্য উইকিউপাত্তের নির্দেশিকা</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/bn</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
 </resources>

@@ -302,7 +302,11 @@ Vuoi riavviarla o uscire?</string>
   <string name="description_edit_help_hint">Cos\'è questo?</string>
   <string name="description_edit_text_hint">Scrivi una descrizione!</string>
   <string name="description_edit_save">Salva</string>
-  <string name="description_edit_add_description" fuzzy="true">Aggiungi descrizione</string>
+  <string name="description_edit_add_description">Aggiungi una breve descrizione</string>
+  <string name="description_edit_edit_description">Modifica descrizione</string>
+  <string name="description_edit_cancel_hint">Annulla</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/it</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/it</string>
   <string name="description_edit_success_saved">Descrizione salvata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>

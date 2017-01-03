@@ -305,7 +305,14 @@
   <string name="description_edit_help_hint">¿Qué es esto?</string>
   <string name="description_edit_text_hint">Escribe una descripción.</string>
   <string name="description_edit_save">Guardar</string>
-  <string name="description_edit_add_description" fuzzy="true">Añadir descripción</string>
+  <string name="description_edit_add_description">Añadir una breve descripción</string>
+  <string name="description_edit_edit_description">Editar descripción</string>
+  <string name="description_edit_cancel_hint">Cancelar</string>
+  <string name="description_edit_help_title">Ayuda: descripción de títulos</string>
+  <string name="description_edit_help_about_wikidata">Acerca de Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir descripciones</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/es</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Descripción guardada</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>

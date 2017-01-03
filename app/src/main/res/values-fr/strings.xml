@@ -306,7 +306,14 @@ Voudriez-vous redémarrer ou quitter ?</string>
   <string name="description_edit_help_hint">Qu’est-ce que c’est ?</string>
   <string name="description_edit_text_hint">Écrire une description !</string>
   <string name="description_edit_save">Enregistrer</string>
-  <string name="description_edit_add_description" fuzzy="true">Ajouter une description</string>
+  <string name="description_edit_add_description">Ajouter une courte description</string>
+  <string name="description_edit_edit_description">Modifier la description</string>
+  <string name="description_edit_cancel_hint">Annuler</string>
+  <string name="description_edit_help_title">Descriptions des titres Aide:</string>
+  <string name="description_edit_help_about_wikidata">À propos de Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Guide de Wikidata pour écrire des descriptions</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Description enregistrée !</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleur pour tout le monde</string>
   <string name="description_edit_success_done">Fait</string>

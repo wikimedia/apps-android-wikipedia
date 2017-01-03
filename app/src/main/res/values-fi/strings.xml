@@ -298,10 +298,15 @@ Haluaisitko aloittaa alusta tai poistua?</string>
     <item quantity="other">%d päivää sitten</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Tänään</string>
+  <string name="view_announcement_card_negative_action">Ei kiitos</string>
+  <string name="description_edit_header">Muokkaus</string>
   <string name="description_edit_help_hint">Mikä tämä on?</string>
   <string name="description_edit_text_hint">Kirjoita kuvaus!</string>
   <string name="description_edit_save">Tallenna</string>
-  <string name="description_edit_add_description" fuzzy="true">Lisää kuvaus</string>
+  <string name="description_edit_add_description">Lisää lyhyt kuvaus</string>
+  <string name="description_edit_edit_description">Muokkaa kuvausta</string>
+  <string name="description_edit_cancel_hint">Peruuta</string>
+  <string name="description_edit_help_about_wikidata">Tietoa Wikidatasta</string>
   <string name="description_edit_success_saved">Kuvaus tallennettu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>

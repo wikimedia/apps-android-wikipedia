@@ -305,7 +305,14 @@
   <string name="description_edit_help_hint">מה זה?</string>
   <string name="description_edit_text_hint">נא לכתוב תיאור!</string>
   <string name="description_edit_save">שמירה</string>
-  <string name="description_edit_add_description" fuzzy="true">הוספת תיאור</string>
+  <string name="description_edit_add_description">הוספת תיאור קצר</string>
+  <string name="description_edit_edit_description">עריכת התיאור</string>
+  <string name="description_edit_cancel_hint">ביטול</string>
+  <string name="description_edit_help_title">עזרה: תיאורי כותרות</string>
+  <string name="description_edit_help_about_wikidata">אודות ויקינתונים</string>
+  <string name="description_edit_help_wikidata_guide">מדריך ויקינתונים לכתיבת תיאורים</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/he</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">התיאור נשמר!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור לכולם</string>
   <string name="description_edit_success_done">בוצע</string>

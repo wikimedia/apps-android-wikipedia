@@ -220,6 +220,9 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>
   <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_menu_bar_navigate">Eiti į straipsnį</string>
+  <string name="article_header_edit_hint">Redaguoti...</string>
+  <string name="article_header_edit_description">Redaguoti pavadinimo aprašymą</string>
+  <string name="article_header_edit_lead_section">Redaguoti įžangą</string>
   <string name="nav_item_reading_lists">Mano sąrašai</string>
   <string name="reading_list_untitled">Be pavadinimo</string>
   <string name="reading_list_save_to">Įtraukti į skaitymo sąrašą</string>
@@ -281,5 +284,13 @@ Norėtumėte pradėti iš naujo ar baigti?</string>
   <string name="description_edit_help_hint">Kas tai?</string>
   <string name="description_edit_text_hint">Parašykite aprašymą!</string>
   <string name="description_edit_save">Išsaugoti</string>
-  <string name="description_edit_add_description" fuzzy="true">Pridėti aprašymą</string>
+  <string name="description_edit_add_description">Pridėti trumpą aprašymą</string>
+  <string name="description_edit_edit_description">Redaguoti aprašymą</string>
+  <string name="description_edit_cancel_hint">Atšaukti</string>
+  <string name="description_edit_help_about_wikidata">Apie Vikiduomenis</string>
+  <string name="description_edit_help_wikidata_guide">Vikiduomenų gidas aprašymų rašymui</string>
+  <string name="description_edit_success_saved">Aprašymas išsaugotas!</string>
+  <string name="description_edit_success_encouragement">Jūs ką tik padarėte Vikipediją geresne visiems</string>
+  <string name="description_edit_success_done">Atlikta</string>
+  <string name="description_edit_success_did_you_know">Ar žinote?</string>
 </resources>

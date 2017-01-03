@@ -303,7 +303,14 @@
   <string name="description_edit_help_hint">Bu nedir?</string>
   <string name="description_edit_text_hint">Bir açıklama yazın!</string>
   <string name="description_edit_save">Kaydet</string>
-  <string name="description_edit_add_description" fuzzy="true">Açıklama ekle</string>
+  <string name="description_edit_add_description">Kısa tanım ekle</string>
+  <string name="description_edit_edit_description">Tanımı düzenle</string>
+  <string name="description_edit_cancel_hint">İptal</string>
+  <string name="description_edit_help_title">Yardım: Başlık tanımları</string>
+  <string name="description_edit_help_about_wikidata">Vikiveri hakkında</string>
+  <string name="description_edit_help_wikidata_guide">Tanım yazımı için Vikiveri rehberi</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/tr</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">tanıtım kaydedildi</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Tamam</string>

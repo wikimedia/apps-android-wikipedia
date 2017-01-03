@@ -299,11 +299,19 @@
     <item quantity="other">%d दिन पहले</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">आज</string>
+  <string name="view_announcement_card_negative_action">नहीं धन्यवाद</string>
   <string name="description_edit_header">सम्पादित किया जा रहा है</string>
   <string name="description_edit_help_hint">यह क्या है?</string>
   <string name="description_edit_text_hint">वर्णन लिखें!</string>
   <string name="description_edit_save">सहेजें</string>
-  <string name="description_edit_add_description" fuzzy="true">वर्णन जोड़ें</string>
+  <string name="description_edit_add_description">लघु वर्णन जोड़ें</string>
+  <string name="description_edit_edit_description">वर्णन सम्पादित करें</string>
+  <string name="description_edit_cancel_hint">रद्द करें</string>
+  <string name="description_edit_help_title">सहायता:शीर्षक वर्णन</string>
+  <string name="description_edit_help_about_wikidata">विकिडेटा के बारे में</string>
+  <string name="description_edit_help_wikidata_guide">वर्णन लिखने के लिए विकिडेटा गाइड</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/विकिडेटा:परिचय</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
   <string name="description_edit_success_saved">वर्णन सहेजा गया!</string>
   <string name="description_edit_success_encouragement">अपने अभी विकिपीडिया को सभी के लिए और अच्छा बना दिया</string>
   <string name="description_edit_success_done">पूर्ण</string>

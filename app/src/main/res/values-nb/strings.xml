@@ -305,7 +305,14 @@ Vil du prøve å starte den på nytt eller avslutte?</string>
   <string name="description_edit_help_hint">Hva er dette?</string>
   <string name="description_edit_text_hint">Skriv en beskrivelse!</string>
   <string name="description_edit_save">Lagre</string>
-  <string name="description_edit_add_description" fuzzy="true">Legg til beskrivelse</string>
+  <string name="description_edit_add_description">Legg til en kort beskrivelse</string>
+  <string name="description_edit_edit_description">Rediger beskrivelse</string>
+  <string name="description_edit_cancel_hint">Avbryt</string>
+  <string name="description_edit_help_title">Hjelp: Tittelbeskrivelser</string>
+  <string name="description_edit_help_about_wikidata">Om Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Wikidata-guide for å skrive beskrivelser</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/nb</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Beskrivelse lagret!</string>
   <string name="description_edit_success_encouragement">Du gjorde nettopp Wikipedia bedre for alle</string>
   <string name="description_edit_success_done">Ferdig</string>

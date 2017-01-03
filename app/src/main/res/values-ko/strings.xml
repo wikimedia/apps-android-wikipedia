@@ -303,7 +303,14 @@
   <string name="description_edit_help_hint">이것은 무엇입니까?</string>
   <string name="description_edit_text_hint">설명을 입력하십시오!</string>
   <string name="description_edit_save">저장</string>
-  <string name="description_edit_add_description" fuzzy="true">설명 추가</string>
+  <string name="description_edit_add_description">짧은 설명 추가</string>
+  <string name="description_edit_edit_description">설명 편집</string>
+  <string name="description_edit_cancel_hint">취소</string>
+  <string name="description_edit_help_about_wikidata">위키데이터 정보</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ko</string>
+  <string name="description_edit_success_saved">설명을 저장했습니다!</string>
+  <string name="description_edit_success_encouragement">당신은 방금 모든 사람을 위해 위키백과 발전에 도움을 주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
+  <string name="description_edit_success_article_edit_hint">이 앱 안에서 문서를 편집할 수도 있습니다. 다음에 ^1 아이콘을 클릭하여 오자와 짧은 문장들을 수정해보세요</string>
 </resources>

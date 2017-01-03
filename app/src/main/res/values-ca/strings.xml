@@ -90,7 +90,7 @@
   <string name="create_account_next">Següent</string>
   <string name="create_account_button">Crea un compte</string>
   <string name="preferences_general_heading">General</string>
-  <string name="wikipedia_app_faq">PMF de l\'app de la Viquipèdia</string>
+  <string name="wikipedia_app_faq">PMF de l\'aplicació de la Viquipèdia</string>
   <string name="zero_charged_verbiage">L\'accés gratuït a la Viquipèdia ja no és actiu.</string>
   <string name="zero_warn_when_leaving">Avisa\'m si se surt de Viquipèdia Zero</string>
   <string name="zero_warn_when_leaving_summary">Si el vostre operador de telefonia mòbil ha renunciat a cobrar per l\'accés de dades des de l\'aplicació de la Viquipèdia gràcies a un acord amb Viquipèdia Zero, en deixar aquest paràmetre habilitat se us avisarà quan sortiu de l\'aplicació de la Viquipèdia, moment en què us poden tornar a cobrar.</string>
@@ -300,11 +300,19 @@ Voleu començar de nou o sortir?</string>
     <item quantity="other">Fa %d dies</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Avui</string>
+  <string name="view_announcement_card_negative_action">No, gràcies</string>
   <string name="description_edit_header">Modificació</string>
   <string name="description_edit_help_hint">Què és això?</string>
   <string name="description_edit_text_hint">Escriviu una descripció!</string>
   <string name="description_edit_save">Desa</string>
-  <string name="description_edit_add_description" fuzzy="true">Afegeix una descripció</string>
+  <string name="description_edit_add_description">Afegeix una descripció curta</string>
+  <string name="description_edit_edit_description">Modifica la descripció</string>
+  <string name="description_edit_cancel_hint">Cancel·la</string>
+  <string name="description_edit_help_title">Ajuda: descripcions dels títols</string>
+  <string name="description_edit_help_about_wikidata">Quant a Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Guia de Wikidata per a escriure descripcions</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/ca</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">S\'ha desat la descripció!</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>

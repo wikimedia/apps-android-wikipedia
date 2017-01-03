@@ -305,7 +305,14 @@
   <string name="description_edit_help_hint">這是什麼？</string>
   <string name="description_edit_text_hint">寫一段描述！</string>
   <string name="description_edit_save">儲存</string>
-  <string name="description_edit_add_description" fuzzy="true">增加描述</string>
+  <string name="description_edit_add_description">增加簡短描述</string>
+  <string name="description_edit_edit_description">編輯描述</string>
+  <string name="description_edit_cancel_hint">取消</string>
+  <string name="description_edit_help_title">協助：標題描述</string>
+  <string name="description_edit_help_about_wikidata">有關維基數據</string>
+  <string name="description_edit_help_wikidata_guide">維基數據指引上關於編寫描述</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/zh</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
   <string name="description_edit_success_saved">描述已儲存！</string>
   <string name="description_edit_success_encouragement">您為了大家讓維基百科變得更好</string>
   <string name="description_edit_success_done">完成</string>

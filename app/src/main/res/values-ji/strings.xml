@@ -193,5 +193,9 @@
   <string name="reading_lists_onboarding_got_it">פארשטאנען</string>
   <string name="description_edit_save">אויפֿהיטן</string>
   <string name="description_edit_add_description" fuzzy="true">צולייגן באַשרייבונג</string>
+  <string name="description_edit_edit_description">רעדאקטירט באשרייבונג</string>
+  <string name="description_edit_cancel_hint">אַנולירן</string>
+  <string name="description_edit_help_title">קעפל באַשרייבונגען</string>
+  <string name="description_edit_help_about_wikidata">װעגן װיקידאַטן</string>
   <string name="description_edit_success_done">ערליידיקט</string>
 </resources>

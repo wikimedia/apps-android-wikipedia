@@ -109,6 +109,7 @@
   <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
   <string name="preference_summary_eventlogging_opt_in">Wikimedia erlaben Informatiounen iwwer d\'Benotze vun der App ze sammele fir se ze verbesseren.</string>
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>
+  <string name="preference_summary_auto_upload_crash_reports">Erlaabt der App automatesch Rapporten iwwer Crashe un HockeyApp / engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se w.e.g. ewech a probéiert nach eng Kéier.</string>
   <string name="history_search_list_hint">Am Historique sichen</string>
   <string name="history_search_empty_message">Keng Säite fonnt déi op Är Ufro passen.</string>
@@ -263,6 +264,7 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="reading_list_edit_cancel">Ofbriechen</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir dës Lieslëscht läsche wëllt?</string>
   <string name="reading_lists_empty">Hei gëtt et keng Lieslëschten.</string>
+  <string name="reading_lists_empty_message">organiséiert d\'Artikelen déi Dir oprufft a Lieslëschten! Tippt beim Opruffe vun engem Artikel op d\'Symbol vum Lieszeechen an der ënneschter Lëscht vun der Geschirkëscht, fir en an d\'Lieslëscht derbäizesetzen.</string>
   <string name="reading_lists_onboarding_intro">Maacht eng Lieslëscht vun den Artikelen déi Dir spéider liese wëllt, esouguer wann Dir offline sidd!</string>
   <string name="reading_lists_onboarding_for_example">Zum Beispill</string>
   <string name="reading_lists_onboarding_example1">Plaze fir ze besichen</string>
@@ -298,9 +300,17 @@ Wëllt Dir se nei starten oder erausgoen?</string>
   <string name="description_edit_help_hint">Wat ass dat?</string>
   <string name="description_edit_text_hint">Eng Beschreiwung schreiwen!</string>
   <string name="description_edit_save">Späicheren</string>
-  <string name="description_edit_add_description" fuzzy="true">Beschreiwung derbäisetzen</string>
+  <string name="description_edit_add_description">Kuerz Beschreiwung derbäisetzen</string>
+  <string name="description_edit_edit_description">Beschreiwung änneren</string>
+  <string name="description_edit_cancel_hint">Ofbriechen</string>
+  <string name="description_edit_help_title">Hëllef:Titelbeschreiwungen</string>
+  <string name="description_edit_help_about_wikidata">Iwwer Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Wikipedia-Guide fir d\'Schreiwe vu Beschreiwungen</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_success_saved">Beschreiwung gespäichert!</string>
   <string name="description_edit_success_encouragement">Dir hutt elo grad Wikipedia fir jidderee verbessert</string>
   <string name="description_edit_success_done">Fäerdeg</string>
   <string name="description_edit_success_did_you_know">Wousst Dir?</string>
+  <string name="description_edit_success_article_edit_hint">Dir kënnt och Artikele mat dëser App änneren. Probéiert déi nächste Kéier fir Tippfeeler a kuerz Sätz duerch klicken op d\'Symbol ^1 ze verbesseren</string>
 </resources>

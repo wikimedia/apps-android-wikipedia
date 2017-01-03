@@ -305,7 +305,14 @@ Vill du starta om eller avsluta?</string>
   <string name="description_edit_help_hint">Vad är detta?</string>
   <string name="description_edit_text_hint">Skriv en beskrivning!</string>
   <string name="description_edit_save">Spara</string>
-  <string name="description_edit_add_description" fuzzy="true">Lägg till beskrivning</string>
+  <string name="description_edit_add_description">Lägg till kort beskrivning</string>
+  <string name="description_edit_edit_description">Redigera beskrivning</string>
+  <string name="description_edit_cancel_hint">Avbryt</string>
+  <string name="description_edit_help_title">Hjälp: Titelbeskrivningar</string>
+  <string name="description_edit_help_about_wikidata">Om Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Wikidata-guide för att skriva beskrivningar</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/sv</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Beskrivningen sparades!</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>

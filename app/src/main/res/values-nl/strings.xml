@@ -303,6 +303,10 @@
   <string name="description_edit_text_hint">Geef een beschrijving op!</string>
   <string name="description_edit_save">Opslaan</string>
   <string name="description_edit_add_description" fuzzy="true">Beschrijving toevoegen</string>
+  <string name="description_edit_edit_description">Beschrijving bewerken</string>
+  <string name="description_edit_cancel_hint">Annuleren</string>
+  <string name="description_edit_help_about_wikidata">Over Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Wikidata gids voor het schrijven van beschrijvingen</string>
   <string name="description_edit_success_saved">Beschrijving opgeslagen!</string>
   <string name="description_edit_success_encouragement">U hebt zojuist Wikipedia voor iedereen beter gemaakt</string>
   <string name="description_edit_success_done">Afgerond</string>

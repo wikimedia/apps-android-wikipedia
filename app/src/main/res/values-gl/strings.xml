@@ -238,6 +238,9 @@ Gustaríalle volver a comezar ou saír?</string>
   <string name="article_menu_bar_bookmark">Engadir este artigo a unha lista de lectura</string>
   <string name="article_menu_bar_share">Compartir a ligazón do artigo</string>
   <string name="article_menu_bar_navigate">Navegar á localización do artigo</string>
+  <string name="article_header_edit_hint">Editar...</string>
+  <string name="article_header_edit_description">Editar a descrición do título</string>
+  <string name="article_header_edit_lead_section">Editar introdución</string>
   <string name="nav_item_reading_lists">As miñas listas</string>
   <string name="reading_list_untitled">Sen título</string>
   <string name="reading_list_save_to">Gardar en lista de lectura</string>
@@ -297,9 +300,22 @@ Gustaríalle volver a comezar ou saír?</string>
     <item quantity="other">fai %d días</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Hoxe</string>
+  <string name="view_announcement_card_negative_action">Non, grazas</string>
   <string name="description_edit_header">Editando</string>
   <string name="description_edit_help_hint">Que é isto?</string>
   <string name="description_edit_text_hint">Escribe unha descrición!</string>
   <string name="description_edit_save">Gardar</string>
-  <string name="description_edit_add_description" fuzzy="true">Engadir unha descrición</string>
+  <string name="description_edit_add_description">Engadir unha descrición curta</string>
+  <string name="description_edit_edit_description">Editar a descrición</string>
+  <string name="description_edit_cancel_hint">Cancelar</string>
+  <string name="description_edit_help_title">Axudaː descricións dos títulos</string>
+  <string name="description_edit_help_about_wikidata">Sobre Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Guía de Wikidata para escribir as descricións</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_success_saved">Descrición gardadaǃ</string>
+  <string name="description_edit_success_encouragement">Acaba de mellorar Wikipedia para todo o mundo</string>
+  <string name="description_edit_success_done">Feito</string>
+  <string name="description_edit_success_did_you_know">Sabía que...?</string>
+  <string name="description_edit_success_article_edit_hint">Tamén pode editar artigos dentro desta aplicación. A próxima vez intente amañar erros e pequenas frases premendo na icona ^1.</string>
 </resources>

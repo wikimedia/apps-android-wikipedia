@@ -305,7 +305,14 @@
   <string name="description_edit_help_hint">Что это?</string>
   <string name="description_edit_text_hint">Написать описание!</string>
   <string name="description_edit_save">Сохранить</string>
-  <string name="description_edit_add_description" fuzzy="true">Добавить описание</string>
+  <string name="description_edit_add_description">Добавить короткое описание</string>
+  <string name="description_edit_edit_description">Править описание</string>
+  <string name="description_edit_cancel_hint">Отмена</string>
+  <string name="description_edit_help_title">Справка: описания заголовков</string>
+  <string name="description_edit_help_about_wikidata">О Викиданных</string>
+  <string name="description_edit_help_wikidata_guide">Руководство для Викиданных по созданию описаний</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Описание сохранено!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>

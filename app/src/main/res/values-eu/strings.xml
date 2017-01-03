@@ -85,7 +85,7 @@
   <string name="create_account_button">Kontua sortu</string>
   <string name="preferences_general_heading">Orokorra</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero ez dago martxan</string>
+  <string name="zero_charged_verbiage">Wikipediarako doako sarbidea ez dago martxan.</string>
   <string name="zero_warn_when_leaving">Abisatu Wikipedia Zero uzten badut</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
   <string name="zero_wikipedia_zero_heading">Wikipedia Zero</string>
@@ -93,8 +93,8 @@
   <string name="zero_interstitial_leave_app">Datuengatik kobratzea posible da. Kanpoko gune batera jarraitu nahi duzu?</string>
   <string name="zero_interstitial_continue">Irten</string>
   <string name="zero_interstitial_cancel">Hemen gelditu</string>
-  <string name="zero_learn_more" fuzzy="true">Datuengatik kobratzen da Wikipedia aplikazio honetan.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Irakurri gehiago</string>
+  <string name="zero_learn_more">Zure Internet konpainiak doako sarbidea du Wikipediako edukira!</string>
+  <string name="zero_learn_more_learn_more">Gehiago ikasi</string>
   <string name="zero_learn_more_dismiss">Utzi</string>
   <string name="edit_preview_fetching_dialog_message">Aurreikuspena eskuratzen…</string>
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
@@ -200,5 +200,10 @@
   <string name="reading_lists_onboarding_for_example">Adibidez</string>
   <string name="reading_lists_onboarding_example2">Animaliarik gogokoenak</string>
   <string name="user_option_sync_label">Hobespenak</string>
+  <string name="view_featured_image_card_download">Deskargatu</string>
+  <string name="menu_feed_card_dismiss">Txartel hau ezkutatu</string>
   <string name="menu_feed_overflow_label">Aukera gehiago</string>
+  <string name="description_edit_save">Gorde</string>
+  <string name="description_edit_cancel_hint">Utzi</string>
+  <string name="description_edit_success_done">Egina</string>
 </resources>

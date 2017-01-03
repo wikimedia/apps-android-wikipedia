@@ -306,7 +306,14 @@
   <string name="description_edit_help_hint">Що це?</string>
   <string name="description_edit_text_hint">Напишіть опис!</string>
   <string name="description_edit_save">Зберегти</string>
-  <string name="description_edit_add_description" fuzzy="true">Додати опис</string>
+  <string name="description_edit_add_description">Додати короткий опис</string>
+  <string name="description_edit_edit_description">Редагувати опис</string>
+  <string name="description_edit_cancel_hint">Скасувати</string>
+  <string name="description_edit_help_title">Довідка: описи назв</string>
+  <string name="description_edit_help_about_wikidata">Про Вікідані</string>
+  <string name="description_edit_help_wikidata_guide">Посібник Вікіданих з написання описів</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/uk</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_success_saved">Опис збережено!</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>

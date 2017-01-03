@@ -271,6 +271,9 @@ Please test the URL to make sure it works</string>
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="wiktionary_no_definitions_found">Message shown when a user requests a definition from Wiktionary but no definition is found.</string>
   <string name="alpha_update_notification_title">Title for notification when new alpha update is available.
+  
+  
+  
 
 Followed by {{msg-wm|Wikipedia-android-strings-alpha update notification text}}.</string>
   <string name="alpha_update_notification_text">Text for notification when new alpha update is available.
@@ -448,7 +451,8 @@ Shown in the preferences screen along with the following:
 {{Identical|Save}}</string>
   <string name="description_edit_add_description">Label that prompts the user to add a description to an article that does not yet have one.</string>
   <string name="description_edit_edit_description">Label that prompts the user to edit the description of an article that already has one.</string>
-  <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.</string>
+  <string name="description_edit_cancel_hint">Hint for button that cancels editing of the current description.
+{{Identical|Cancel}}</string>
   <string name="description_edit_help_title">Title at the top of the screen that shows additional help and information about editing descriptions.</string>
   <string name="description_edit_help_about_wikidata">Menu label for navigating to a page describing Wikidata.</string>
   <string name="description_edit_help_wikidata_guide">Manu label for navigating to the official Wikidata guide for composing descriptions.</string>

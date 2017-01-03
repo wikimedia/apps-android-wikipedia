@@ -91,7 +91,7 @@
   <string name="create_account_button">Fiók létrehozása</string>
   <string name="preferences_general_heading">Általános</string>
   <string name="wikipedia_app_faq">Wikipédia app GYIK</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero kikapcsolva</string>
+  <string name="zero_charged_verbiage">Az ingyenes Wikipédia-hozzáférés már nem aktív.</string>
   <string name="zero_warn_when_leaving">Figyelmeztet, ha elhagyom a Wikipédia Zérót</string>
   <string name="zero_warn_when_leaving_summary">Ha a mobilszolgáltatód lemond az adathozzáférési díjakról a Wikipédia Zéró programban, ennek a beállításnak a bekapcsolva tartása segít figyelni, hogy mikor hagyod el a Wikipédia appot, ami költségekkel járhat.</string>
   <string name="zero_webpage_title">Wikipedia Zero GyIK</string>
@@ -100,8 +100,8 @@
   <string name="zero_interstitial_leave_app">Adatforgalmi díj lehet. Folytatod a külső oldalon?</string>
   <string name="zero_interstitial_continue">Elhagy</string>
   <string name="zero_interstitial_cancel">Itt marad</string>
-  <string name="zero_learn_more" fuzzy="true">Adatforgalmi díjak mellőzése Wikipédia alkalmazásokban.</string>
-  <string name="zero_learn_more_learn_more" fuzzy="true">Tudnivalók</string>
+  <string name="zero_learn_more">A mobilszolgáltatód ingyenes hozzáférést biztosít a Wikipédia-tartalomhoz!</string>
+  <string name="zero_learn_more_learn_more">Tudj meg többet</string>
   <string name="zero_learn_more_dismiss">Elutasít</string>
   <string name="edit_preview_fetching_dialog_message">Előnézet készítése…</string>
   <string name="send_feedback">Alkalmazás visszajelzés küldése</string>
@@ -220,6 +220,7 @@
   <string name="preference_summary_show_link_previews">A szócikk rövid előnézetének megjelenítése linkek megérintésekor.</string>
   <string name="nav_item_donate">Támogasd a Wikipédiát!</string>
   <string name="error_voice_search_not_available">Sajnáljuk, a hangfelismerés nem elérhető.</string>
+  <string name="enable_location_service">Engedélyezés</string>
   <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
   <string name="crash_report_dialog_text">Szeretnél küldeni egy összeomlási jelentést a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy a Wikimédia átnézhesse az összeomlást és kijavíthassa az ezt okozó hibát?</string>
   <string name="crash_report_dialog_dont_send_button">Kihagy</string>
@@ -234,6 +235,9 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="article_menu_bar_bookmark">Cikk hozzáadása egy olvasólistához</string>
   <string name="article_menu_bar_share">Ossza meg a cikk linkjét</string>
   <string name="article_menu_bar_navigate">Navigálás a szócikk helyéhez</string>
+  <string name="article_header_edit_hint">Szerkesztés…</string>
+  <string name="article_header_edit_description">Címleírás szerkesztése</string>
+  <string name="article_header_edit_lead_section">Bevezető szerkesztése</string>
   <string name="nav_item_reading_lists">Listáim</string>
   <string name="reading_list_untitled">Névtelen</string>
   <string name="reading_list_save_to">Mentés olvasólistára</string>
@@ -288,9 +292,25 @@ Szeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="most_read_list_card_title">Felkapott</string>
   <string name="view_static_card_icon_content_description">Kártyaikon</string>
   <string name="view_card_news_title">Hírek</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">tegnap</item>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">Tegnap</item>
     <item quantity="other">%d napja</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">ma</string>
+  <string name="view_continue_reading_card_subtitle_today">Ma</string>
+  <string name="view_announcement_card_negative_action">Nem, köszönöm</string>
+  <string name="description_edit_help_hint">Mi ez?</string>
+  <string name="description_edit_text_hint">Készíts leírást!</string>
+  <string name="description_edit_save">Mentés</string>
+  <string name="description_edit_add_description">Adj meg egy rövid leírást</string>
+  <string name="description_edit_edit_description">Leírás szerkesztése</string>
+  <string name="description_edit_cancel_hint">Mégse</string>
+  <string name="description_edit_help_title">Segítség: címleírások</string>
+  <string name="description_edit_help_about_wikidata">A Wikidatáról</string>
+  <string name="description_edit_help_wikidata_guide">Wikidata-útmutató leírások készítéséről</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/hu</string>
+  <string name="description_edit_success_saved">Leírás elmentve!</string>
+  <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
+  <string name="description_edit_success_done">Kész</string>
+  <string name="description_edit_success_did_you_know">Tudtad?</string>
+  <string name="description_edit_success_article_edit_hint">Szerkesztheted is a szócikkeket ebben az alkalmazásban. Próbáld ki legközelebb elírások és rövid mondatok javításával a ^1 ikonra kattintva</string>
 </resources>

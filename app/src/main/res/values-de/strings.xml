@@ -305,7 +305,14 @@ Möchtest du die App neu starten oder beenden?</string>
   <string name="description_edit_help_hint">Was ist das?</string>
   <string name="description_edit_text_hint">Verfasse eine Beschreibung!</string>
   <string name="description_edit_save">Speichern</string>
-  <string name="description_edit_add_description" fuzzy="true">Beschreibung hinzufügen</string>
+  <string name="description_edit_add_description">Kurzbeschreibung hinzufügen</string>
+  <string name="description_edit_edit_description">Beschreibung bearbeiten</string>
+  <string name="description_edit_cancel_hint">Abbrechen</string>
+  <string name="description_edit_help_title">Hilfe: Titelbeschreibungen</string>
+  <string name="description_edit_help_about_wikidata">Über Wikidata</string>
+  <string name="description_edit_help_wikidata_guide">Wikidata-Anleitung zum Verfassen von Beschreibungen</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/de</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_success_saved">Beschreibung gespeichert!</string>
   <string name="description_edit_success_encouragement">Du hast soeben Wikipedia für jeden besser gemacht</string>
   <string name="description_edit_success_done">Fertig</string>

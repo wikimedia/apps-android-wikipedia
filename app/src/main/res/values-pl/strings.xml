@@ -21,6 +21,7 @@
   <string name="menu_page_show_tabs">Pokaż karty</string>
   <string name="menu_page_other_languages">Czytaj w innych językach</string>
   <string name="menu_page_find_in_page">Znajdź na stronie</string>
+  <string name="menu_page_content_issues">Problemy z treścią</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
   <string name="menu_page_share">Podziel się linkiem</string>
@@ -28,7 +29,9 @@
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Skopiuj adres linka</string>
   <string name="menu_text_select_copy">Kopiuj</string>
+  <string name="menu_text_select_define">Definicja</string>
   <string name="menu_text_select_share">Udostępnij</string>
+  <string name="menu_text_select_edit_here">Edytuj tutaj</string>
   <string name="nav_item_nearby">W pobliżu</string>
   <string name="nearby_distance_in_meters">%d m</string>
   <string name="nearby_distance_in_kilometers">%.2f km</string>
@@ -88,7 +91,7 @@
   <string name="create_account_button">Utwórz konto</string>
   <string name="preferences_general_heading">Ogólne</string>
   <string name="wikipedia_app_faq">FAQ dotyczące aplikacji Wikipedii</string>
-  <string name="zero_charged_verbiage" fuzzy="true">Wikipedia Zero jest wyłączona</string>
+  <string name="zero_charged_verbiage">Darmowy dostęp do Wikipedii nie jest dłużej aktywny.</string>
   <string name="zero_warn_when_leaving">Ostrzegaj przed opuszczeniem Wikipedii Zero</string>
   <string name="zero_warn_when_leaving_summary">Jeśli twój operator telefonii komórkowej nie pobiera opłat za transfer danych, gdy korzystasz z Wikipedii poprzez tę aplikację (w ramach partnerstwa Wikipedia Zero), ta opcja sprawi, że aplikacja pomoże ci się zorientować, kiedy opuszczasz Wikipedię i mogą zacząć obowiązywać opłaty za transfer danych.</string>
   <string name="zero_webpage_title">Wikipedia Zero FAQ</string>
@@ -97,7 +100,7 @@
   <string name="zero_interstitial_leave_app">Przejście do witryny zewnętrznej może się wiązać z opłatami za transmisję danych. Kontynuować?</string>
   <string name="zero_interstitial_continue">Wyjdź</string>
   <string name="zero_interstitial_cancel">Pozostań</string>
-  <string name="zero_learn_more" fuzzy="true">W ramach tej aplikacji Wikipedii nie są pobierane opłaty za transmisję danych.</string>
+  <string name="zero_learn_more">Twój operator sieci bezprzewodowej udostępnił bezpłatny dostęp do treści Wikipedii!</string>
   <string name="zero_learn_more_learn_more">Dowiedz się więcej</string>
   <string name="zero_learn_more_dismiss">Odrzuć</string>
   <string name="edit_preview_fetching_dialog_message">Ładowanie podglądu…</string>
@@ -130,6 +133,7 @@
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
+  <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; na licencji &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Dopóki inaczej nie określono, zawartość jest dostępna na licencji &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"http://wikimediafoundation.org/wiki/Home\"&gt;Fundacji Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
@@ -229,7 +233,7 @@
 Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
   <string name="crash_report_quit">Wyjście</string>
-  <string name="article_menu_bar_bookmark" fuzzy="true">Zapisz artykuł do późniejszego odczytu w trybie offline</string>
+  <string name="article_menu_bar_bookmark">Dodaj ten artykuł do listy do przeczytania</string>
   <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
   <string name="article_menu_bar_navigate">Przejdź do lokalizacji artykułu</string>
   <string name="article_header_edit_hint">Edytuj...</string>
@@ -282,6 +286,13 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="description_edit_help_hint">Co to jest?</string>
   <string name="description_edit_text_hint">Podaj opis!</string>
   <string name="description_edit_save">Zapisz</string>
-  <string name="description_edit_add_description" fuzzy="true">Dodaj opis</string>
+  <string name="description_edit_add_description">Dodaj krótki opis</string>
+  <string name="description_edit_edit_description">Edytuj opis</string>
+  <string name="description_edit_cancel_hint">Anuluj</string>
+  <string name="description_edit_help_about_wikidata">O Wikidanych</string>
+  <string name="description_edit_help_wikidata_guide">Wytyczne Wikidanych dotyczące tworzenia opisów</string>
+  <string name="wikidata_about_url">https://www.wikidata.org/wiki/Wikidata:Introduction/pl</string>
+  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+  <string name="description_edit_success_saved">Opis zapisany!</string>
   <string name="description_edit_success_done">Gotowe</string>
 </resources>
