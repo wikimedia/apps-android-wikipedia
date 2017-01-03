@@ -48,7 +48,8 @@
         <org.wikipedia.views.AppTextView
             android:id="@+id/view_description_edit_tutorial_page_button"
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="wrap_content"
+            android:minHeight="36dp"
             android:fontFamily="sans-serif-medium"
             android:textAlignment="center"
             android:layout_marginTop="28dp"
