@@ -1,11 +1,11 @@
-package org.wikipedia;
+package org.wikipedia.views;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
 /**
- * Triggers events when one or more EdtiTexts are empty or not
+ * Triggers events when one or more EditTexts are empty or not
  */
 public class NonEmptyValidator {
     private final EditText[] editTexts;
