@@ -27,13 +27,14 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_margin="18dp"
                 app:srcCompat="@drawable/ic_illustration_description_success"
                 android:contentDescription="@null"/>
 
             <org.wikipedia.views.AppTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/description_edit_success_saved"
                 android:textColor="@android:color/white"
                 android:textSize="30sp"
@@ -42,7 +43,7 @@
             <org.wikipedia.views.AppTextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginBottom="36dp"
                 android:text="@string/description_edit_success_encouragement"
                 android:textColor="@color/light_gray"
                 android:textAlignment="center"
@@ -52,8 +53,9 @@
                 android:id="@+id/view_description_edit_success_done_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="36dp"
                 android:layout_gravity="center"
-                android:layout_margin="30dp"
+                android:layout_margin="6dp"
                 style="@style/ButtonBlue"
                 android:text="@string/description_edit_success_done"
                 android:textColor="@android:color/white"
@@ -67,13 +69,11 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="0"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="22dp"
-            android:layout_marginBottom="10dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp"
             android:background="@drawable/shape_border_1dp_gray"
             android:gravity="center_horizontal"
             android:orientation="vertical" >
@@ -81,7 +81,6 @@
             <org.wikipedia.views.AppTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
                 android:layout_marginBottom="8dp"
                 android:layout_gravity="center"
                 android:text="@string/description_edit_success_did_you_know"
@@ -94,12 +93,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxWidth="336dp"
-                android:layout_marginBottom="18dp"
                 android:layout_gravity="center"
                 android:textColor="@color/light_gray"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:textAlignment="center"
-                android:lineSpacingExtra="5dp"/>
+                android:includeFontPadding="false"
+                android:lineSpacingMultiplier="1.21" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -56,7 +56,7 @@ public class DescriptionEditSuccessView extends FrameLayout {
 
     private void setHintText() {
         String editHint = getResources().getString(R.string.description_edit_success_article_edit_hint);
-        hintTextView.setTextWithDrawables(editHint, R.drawable.edit);
+        hintTextView.setTextWithDrawables(editHint, R.drawable.ic_mode_edit_white_24dp);
     }
 
     @OnClick(R.id.view_description_edit_success_done_button) void onDismissClick() {

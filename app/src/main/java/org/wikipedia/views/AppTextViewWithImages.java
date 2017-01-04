@@ -2,6 +2,8 @@ package org.wikipedia.views;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
@@ -86,8 +88,8 @@ public class AppTextViewWithImages extends AppTextView {
     Spannable makeImageSpan(@DrawableRes int drawableId, float size, @ColorInt int color) {
         Spannable result = Spannable.Factory.getInstance().newSpannable(" ");
         Drawable drawable = getFormattedDrawable(drawableId, size, color);
-        result.setSpan(new ImageSpan(drawable, ImageSpan.ALIGN_BASELINE), 0, 1,
-                Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        result.setSpan(new BaselineAlignedYTranslationImageSpan(drawable, getLineSpacingMultiplier()),
+                0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         return result;
     }
 
@@ -106,5 +108,44 @@ public class AppTextViewWithImages extends AppTextView {
     @NonNull @VisibleForTesting
     <T> T[] getSpans(@NonNull Class<T> clazz) {
         return ((SpannableString) getText()).getSpans(0, getText().length(), clazz);
+    }
+
+    /**
+     * An ImageSpan subclass that manually adjusts the vertical position of the drawable it contains
+     * to correct for the failure of ImageSpan.ALIGN_BASELINE to take into account any adjustments
+     * to the parent view's line height (via lineSpacingMultiplier or lineSpacingExtra).
+     *
+     * The general approach is adapted (and simplified) from http://stackoverflow.com/a/28361364.
+     *
+     * Not written as generically as it could be since I don't think there's any need for this kind
+     * of tweak elsewhere at present, but could probably be made more generic (i.e., made not to
+     * assume ALIGN_BASELINE and to also account for any lineSpacingExtra) and broken out into a
+     * standalone class if need be.
+     *
+     * A possibly related issue is https://code.google.com/p/android/issues/detail?id=21397,
+     * but note that the problem this works around affects an ImageSpan on any line, not just the
+     * last line as reported there.
+     */
+    private static class BaselineAlignedYTranslationImageSpan extends ImageSpan {
+        private float lineSpacingMultiplier;
+
+        BaselineAlignedYTranslationImageSpan(@NonNull Drawable drawable, float lineSpacingMultiplier) {
+            super(drawable, ImageSpan.ALIGN_BASELINE);
+            this.lineSpacingMultiplier = lineSpacingMultiplier;
+        }
+
+        @Override @SuppressWarnings("checkstyle:parameternumber")
+        public void draw(Canvas canvas, CharSequence text, int start, int end, float x, int top,
+                         int y, int bottom, Paint paint) {
+            Drawable drawable = getDrawable();
+            canvas.save();
+
+            int transY = bottom - drawable.getBounds().bottom;
+            transY -= paint.getFontMetricsInt().descent * lineSpacingMultiplier;
+
+            canvas.translate(x, transY);
+            drawable.draw(canvas);
+            canvas.restore();
+        }
     }
 }
