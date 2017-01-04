@@ -35,6 +35,7 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @SuppressWarnings("unused") @Nullable private String displaytitle;
     @SuppressWarnings("unused") @Nullable private String redirected;
     @SuppressWarnings("unused") @Nullable private String normalizedtitle;
+    @SuppressWarnings("unused") @Nullable @SerializedName("wikibase_item") private String wikiBaseItem;
     @SuppressWarnings("unused") @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
     @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location geo;
     @SuppressWarnings("unused") private int languagecount;
@@ -156,6 +157,12 @@ public class RbPageLead implements PageLead, PageLeadProperties {
     @Nullable
     public String getNormalizedTitle() {
         return normalizedtitle;
+    }
+
+    @Override
+    @Nullable
+    public String getWikiBaseItem() {
+        return wikiBaseItem;
     }
 
     @Override

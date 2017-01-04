@@ -9,17 +9,25 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.descriptions.DescriptionEditClient.Callback;
 import org.wikipedia.descriptions.DescriptionEditClient.Service;
+import org.wikipedia.page.Page;
+import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.Section;
 import org.wikipedia.test.MockWebServerTest;
+
+import java.util.Collections;
 
 import retrofit2.Call;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class DescriptionEditClientTest extends MockWebServerTest {
     private static final String MOCK_EDIT_TOKEN = "+\\";
@@ -75,6 +83,36 @@ public class DescriptionEditClientTest extends MockWebServerTest {
 
         server().takeRequest();
         assertCallbackFailure(call, cb, MalformedJsonException.class);
+    }
+
+    @Test public void testIsEditAllowedSuccess() {
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        PageProperties props = mock(PageProperties.class);
+        when(props.getWikiBaseItem()).thenReturn("Q123");
+        Page page = new Page(new PageTitle("Test", wiki, null, null, props),
+                Collections.<Section>emptyList(), props);
+
+        assertThat(DescriptionEditClient.isEditAllowed(page), is(true));
+    }
+
+    @Test public void testIsEditAllowedNoWikiBaseItem() {
+        WikiSite wiki = WikiSite.forLanguageCode("en");
+        PageProperties props = mock(PageProperties.class);
+        when(props.getWikiBaseItem()).thenReturn(null);
+        Page page = new Page(new PageTitle("Test", wiki, null, null, props),
+                Collections.<Section>emptyList(), props);
+
+        assertThat(DescriptionEditClient.isEditAllowed(page), is(false));
+    }
+
+    @Test public void testIsEditAllowedWrongLanguage() {
+        WikiSite wiki = WikiSite.forLanguageCode("qq");
+        PageProperties props = mock(PageProperties.class);
+        when(props.getWikiBaseItem()).thenReturn("Q123");
+        Page page = new Page(new PageTitle("Test", wiki, null, null, props),
+                Collections.<Section>emptyList(), props);
+
+        assertThat(DescriptionEditClient.isEditAllowed(page), is(false));
     }
 
     private void assertCallbackSuccess(@NonNull Call<DescriptionEdit> call,

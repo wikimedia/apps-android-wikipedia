@@ -21,7 +21,7 @@ import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditActivity;
-import org.wikipedia.descriptions.DescriptionEditFragment;
+import org.wikipedia.descriptions.DescriptionEditClient;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
@@ -140,7 +140,7 @@ public class LeadImagesHandler {
 
         // TODO: remove pre-beta condition when ready.
         articleHeaderView.setAllowDescriptionEdit(ReleaseUtil.isPreBetaRelease()
-                && DescriptionEditFragment.isEditAllowed(getPage().getTitle()));
+                && DescriptionEditClient.isEditAllowed(getPage()));
 
         layoutViews(listener, sequence);
     }

@@ -43,6 +43,9 @@ public interface PageLeadProperties {
     String getNormalizedTitle();
 
     @Nullable
+    String getWikiBaseItem();
+
+    @Nullable
     String getDescription();
 
     /**
