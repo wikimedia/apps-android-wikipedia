@@ -175,8 +175,8 @@ public class MwPageService implements PageService {
         @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
                 + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Cnamespace%7Crevision"
                 + "%7Cdescription%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection"
-                + "%7Ceditable&onlyrequestedsections=1&sections=0&sectionprop=toclevel%7Cline"
-                + "%7Canchor&noheadings=true")
+                + "%7Ceditable%7Cpageprops&pageprops=wikibase_item&onlyrequestedsections=1"
+                + "&sections=0&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
         Call<MwPageLead> pageLead(@Query("page") String title,
                                   @Query("thumbsize") int leadImageThumbWidth,
                                   @Query("noimages") Boolean noImages);
@@ -203,8 +203,8 @@ public class MwPageService implements PageService {
         @GET("w/api.php?action=mobileview&format=json&formatversion=2&prop="
                 + "text%7Csections%7Clanguagecount%7Cthumb%7Cimage%7Cid%7Crevision%7Cdescription"
                 + "%7Clastmodified%7Cnormalizedtitle%7Cdisplaytitle%7Cprotection%7Ceditable"
-                + "&onlyrequestedsections=1&sections=all&sectionprop=toclevel%7Cline%7Canchor"
-                + "&noheadings=true")
+                + "%7Cpageprops&pageprops=wikibase_item&onlyrequestedsections=1&sections=all"
+                + "&sectionprop=toclevel%7Cline%7Canchor&noheadings=true")
         Call<MwPageCombo> pageCombo(@Query("page") String title,
                                     @Query("noimages") Boolean noImages);
     }
