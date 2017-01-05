@@ -112,4 +112,7 @@
     <color name="feed_window_background_dark">#222</color>
 
     <color name="translucent_background_dark">#E2000000</color>
+
+    <color name="description_edit_tutorial_page_indicator_unselected">#16000000</color>
+    <color name="description_edit_tutorial_page_indicator_selected">#48000000</color>
 </resources>

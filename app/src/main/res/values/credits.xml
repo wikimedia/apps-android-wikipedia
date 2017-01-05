@@ -41,6 +41,10 @@
         <!-- https://raw.githubusercontent.com/square/otto/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/Otto">license</a>),
 
+        <a href="https://github.com/romandanylyk/PageIndicatorView">PageIndicatorView</a>
+        <!-- https://github.com/romandanylyk/PageIndicatorView#license -->
+        (<a href="file:///android_asset/licenses/PageIndicatorView">license</a>),
+
         <a href="https://square.github.io/retrofit/">Retrofit</a>
         <!-- https://raw.githubusercontent.com/square/retrofit/master/LICENSE.txt -->
         (<a href="file:///android_asset/licenses/Retrofit">license</a>),
