@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:attrs="http://schemas.android.com/apk/res-auto"
+<android.support.v4.view.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_description_edit_tutorial_view_pager"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/fragment_description_edit_tutorial_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <com.rd.PageIndicatorView
-        android:id="@+id/fragment_description_edit_tutorial_page_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_margin="24dp"
-        attrs:piv_radius="4dp"
-        attrs:piv_selectedColor="@color/description_edit_tutorial_page_indicator_selected"
-        attrs:piv_unselectedColor="@color/description_edit_tutorial_page_indicator_unselected"
-        attrs:piv_viewPager="@id/fragment_description_edit_tutorial_view_pager" />
-
-</FrameLayout>
+    android:layout_height="match_parent" />

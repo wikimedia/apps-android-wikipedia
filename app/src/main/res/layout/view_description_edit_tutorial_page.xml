@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:parentTag="org.wikipedia.descriptions.DescriptionEditTutorialPageView"
     tools:layout_width="match_parent"
@@ -19,32 +19,40 @@
         android:layout_height="0dp"
         android:layout_weight="50"
         android:orientation="vertical"
-        android:paddingBottom="48dp"
         android:background="@color/light_blue"
-        android:gravity="center">
+        android:gravity="bottom|center_horizontal">
 
-        <org.wikipedia.views.AppTextView
-            android:id="@+id/view_description_edit_tutorial_page_primary_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            android:fontFamily="sans-serif-medium" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <!-- todo: decide on a policy for handling unique color values -->
-        <org.wikipedia.views.AppTextView
-            android:id="@+id/view_description_edit_tutorial_page_secondary_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginBottom="12dp"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="#8a000000"
-            android:lineSpacingMultiplier="1.22" />
+            <org.wikipedia.views.AppTextView
+                android:id="@+id/view_description_edit_tutorial_page_primary_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <!-- todo: decide on a policy for handling unique color values -->
+            <org.wikipedia.views.AppTextView
+                android:id="@+id/view_description_edit_tutorial_page_secondary_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="12dp"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="#8a000000"
+                android:lineSpacingMultiplier="1.22" />
+
+        </LinearLayout>
 
         <org.wikipedia.views.AppTextView
             android:id="@+id/view_description_edit_tutorial_page_button"
@@ -53,7 +61,7 @@
             android:minHeight="36dp"
             android:fontFamily="sans-serif-medium"
             android:textAlignment="center"
-            android:layout_marginBottom="8dp"
+            android:layout_margin="0dp"
             android:paddingLeft="17dp"
             android:paddingRight="17dp"
             android:textSize="14sp"
@@ -64,11 +72,23 @@
             android:id="@+id/view_description_edit_tutorial_page_tertiary_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/description_edit_tutorial_promise"
             android:gravity="center"
             android:textAlignment="center"
             android:textSize="12sp"
             android:textColor="#54595d" />
+
+        <com.rd.PageIndicatorView
+            android:id="@+id/view_description_edit_tutorial_page_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="24dp"
+            app:piv_radius="4dp"
+            app:piv_selectedColor="@color/description_edit_tutorial_page_indicator_selected"
+            app:piv_unselectedColor="@color/description_edit_tutorial_page_indicator_unselected"
+            app:piv_viewPager="@id/fragment_description_edit_tutorial_view_pager" />
 
     </LinearLayout>
 </merge>
