@@ -207,7 +207,7 @@ public class WikipediaApp extends Application {
         UserOptionContentResolver.registerAppSyncObserver(this);
         registerReadingListPageObserver();
 
-        notificationReceiver.startPollTask(this);
+        listenForNotifications();
     }
 
     public RefWatcher getRefWatcher() {
@@ -530,6 +530,10 @@ public class WikipediaApp extends Application {
 
     public OnboardingStateMachine getOnboardingStateMachine() {
         return PrefsOnboardingStateMachine.getInstance();
+    }
+
+    public void listenForNotifications() {
+        notificationReceiver.startPollTask(this);
     }
 
     // For java-mwapi API requests.

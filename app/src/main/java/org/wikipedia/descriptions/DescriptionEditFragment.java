@@ -22,8 +22,11 @@ import org.wikipedia.login.LoginClient.LoginFailedException;
 import org.wikipedia.login.LoginResult;
 import org.wikipedia.login.User;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.log.L;
+
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -190,6 +193,10 @@ public class DescriptionEditFragment extends Fragment {
                     editView.getDescription(), editToken,
                     new DescriptionEditClient.Callback() {
                         @Override public void success(@NonNull Call<DescriptionEdit> call) {
+
+                            Prefs.setLastDescriptionEditTime(new Date().getTime());
+                            WikipediaApp.getInstance().listenForNotifications();
+
                             if (getActivity() != null) {
                                 DeviceUtil.hideSoftKeyboard(getActivity());
                                 editView.setSaveState(false);

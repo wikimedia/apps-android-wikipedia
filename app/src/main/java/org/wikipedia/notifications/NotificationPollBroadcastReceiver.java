@@ -9,23 +9,34 @@ import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.login.User;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 import org.wikipedia.wikidata.EntityClient;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
 
-    private static final long POLL_INTERVAL_MILLIS = TimeUnit.MINUTES.toMillis(1);
+    private static final long POLL_INTERVAL_MILLIS
+            = TimeUnit.MINUTES.toMillis(R.integer.notification_poll_interval_minutes);
 
     @Override
     public void onReceive(Context context, Intent intent) {
         if (TextUtils.equals(intent.getAction(), ACTION_POLL)) {
-            pollNotifications(context);
+
+            if (User.isLoggedIn()
+                    && lastDescriptionEditedWithin(R.integer.notification_poll_timeout_days)) {
+                pollNotifications(context);
+            } else {
+                stopPollTask(context);
+            }
+
         }
     }
 
@@ -50,10 +61,6 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void pollNotifications(@NonNull final Context context) {
-        if (!User.isLoggedIn()) {
-            return;
-        }
-
         NotificationClient.instance().getNotifications(new NotificationClient.Callback() {
             @Override
             public void success(@NonNull List<Notification> notifications) {
@@ -96,5 +103,9 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                 L.e(t);
             }
         }, EntityClient.WIKIDATA_WIKI);
+    }
+
+    private boolean lastDescriptionEditedWithin(int days) {
+        return new Date().getTime() - Prefs.getLastDescriptionEditTime() < TimeUnit.DAYS.toMillis(days);
     }
 }

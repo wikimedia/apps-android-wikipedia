@@ -102,4 +102,8 @@
     <!-- Description editing -->
     <integer name="description_max_chars">90</integer>
 
+    <!-- Notifications -->
+    <integer name="notification_poll_interval_minutes">10</integer>
+    <integer name="notification_poll_timeout_days">1</integer>
+
 </resources>

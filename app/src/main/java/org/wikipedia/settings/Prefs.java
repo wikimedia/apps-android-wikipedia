@@ -487,6 +487,14 @@ public final class Prefs {
         setBoolean(R.string.preference_key_description_edit_tutorial_enabled, enabled);
     }
 
+    public static long getLastDescriptionEditTime() {
+        return getLong(R.string.preference_key_last_description_edit_time, 0);
+    }
+
+    public static void setLastDescriptionEditTime(long time) {
+        setLong(R.string.preference_key_last_description_edit_time, time);
+    }
+
     private static boolean isDevRelease() {
         return WikipediaApp.getInstance().isDevRelease();
     }

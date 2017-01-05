@@ -1,0 +1,6 @@
+<resources>
+
+    <!-- Notifications -->
+    <integer name="notification_poll_interval_minutes">1</integer>
+
+</resources>
