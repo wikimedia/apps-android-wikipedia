@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.view.WindowManager;
 
 import org.wikipedia.activity.SingleFragmentActivity;
 
@@ -26,6 +27,11 @@ public class DescriptionEditTutorialActivity
         setRequestedOrientation(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2
                 ? ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT
                 : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
     }
 
     @Override protected DescriptionEditTutorialFragment createFragment() {
