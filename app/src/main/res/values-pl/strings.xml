@@ -283,7 +283,6 @@ Chcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="view_continue_reading_card_subtitle_today">Dzisiaj</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
   <string name="description_edit_header">Edycja</string>
-  <string name="description_edit_help_hint">Co to jest?</string>
   <string name="description_edit_text_hint">Podaj opis!</string>
   <string name="description_edit_save">Zapisz</string>
   <string name="description_edit_add_description">Dodaj krótki opis</string>

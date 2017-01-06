@@ -445,7 +445,6 @@ Shown in the preferences screen along with the following:
 {{Identical|No thanks}}</string>
   <string name="description_edit_header">Label above the current article title indicating that the description for this title is being edited.
 {{Identical|Editing}}</string>
-  <string name="description_edit_help_hint">Hint message for the menu button that launches a short tutorial on editing descriptions.</string>
   <string name="description_edit_text_hint">Hint text that is shown when the description field is empty.</string>
   <string name="description_edit_save">Hint for the button that is pressed for saving the new description.
 {{Identical|Save}}</string>

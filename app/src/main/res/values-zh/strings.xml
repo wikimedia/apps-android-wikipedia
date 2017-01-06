@@ -302,7 +302,6 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
   <string name="description_edit_header">编辑</string>
-  <string name="description_edit_help_hint">这是什么？</string>
   <string name="description_edit_text_hint">写一段描述！</string>
   <string name="description_edit_save">保存</string>
   <string name="description_edit_add_description">添加简短描述</string>

@@ -302,7 +302,6 @@ Vil du starte forfra eller afslutte?</string>
   <string name="view_continue_reading_card_subtitle_today">I dag</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
   <string name="description_edit_header">Redigerer</string>
-  <string name="description_edit_help_hint">Hvad er dette?</string>
   <string name="description_edit_text_hint">Skriv en beskrivelse!</string>
   <string name="description_edit_save">Gem</string>
   <string name="description_edit_add_description">Tilføj kort beskrivelse</string>

@@ -302,7 +302,6 @@ Voleu començar de nou o sortir?</string>
   <string name="view_continue_reading_card_subtitle_today">Avui</string>
   <string name="view_announcement_card_negative_action">No, gràcies</string>
   <string name="description_edit_header">Modificació</string>
-  <string name="description_edit_help_hint">Què és això?</string>
   <string name="description_edit_text_hint">Escriviu una descripció!</string>
   <string name="description_edit_save">Desa</string>
   <string name="description_edit_add_description">Afegeix una descripció curta</string>

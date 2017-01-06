@@ -301,7 +301,6 @@
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_announcement_card_negative_action">नहीं धन्यवाद</string>
   <string name="description_edit_header">सम्पादित किया जा रहा है</string>
-  <string name="description_edit_help_hint">यह क्या है?</string>
   <string name="description_edit_text_hint">वर्णन लिखें!</string>
   <string name="description_edit_save">सहेजें</string>
   <string name="description_edit_add_description">लघु वर्णन जोड़ें</string>

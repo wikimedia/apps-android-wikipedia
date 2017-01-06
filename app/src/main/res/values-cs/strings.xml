@@ -302,7 +302,6 @@ Chcete začít znovu, nebo skončit?</string>
   <string name="view_continue_reading_card_subtitle_today">Dnes</string>
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
   <string name="description_edit_header">Editování</string>
-  <string name="description_edit_help_hint">Co to je?</string>
   <string name="description_edit_text_hint">Udělejte popis!</string>
   <string name="description_edit_save">Uložit</string>
   <string name="description_edit_add_description" fuzzy="true">Přidat popis</string>

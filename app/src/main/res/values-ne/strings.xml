@@ -283,7 +283,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="description_edit_header">सम्पादन गर्दै</string>
-  <string name="description_edit_help_hint">यो के हो?</string>
   <string name="description_edit_text_hint">कुनै विवरण लेख्नुहोस्!</string>
   <string name="description_edit_save">बचत गर्नुहोस्</string>
   <string name="description_edit_add_description">छोटो विवरण थप्नुहोस्</string>

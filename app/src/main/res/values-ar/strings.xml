@@ -296,7 +296,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">اليوم</string>
   <string name="description_edit_header">تعديل</string>
-  <string name="description_edit_help_hint">ما هذا؟</string>
   <string name="description_edit_text_hint">اكتب وصفًا!</string>
   <string name="description_edit_save">احفظ</string>
   <string name="description_edit_add_description" fuzzy="true">أضف وصفًا</string>

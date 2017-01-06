@@ -302,7 +302,6 @@
   <string name="view_continue_reading_card_subtitle_today">Hoy</string>
   <string name="view_announcement_card_negative_action">No, gracias</string>
   <string name="description_edit_header">Editando</string>
-  <string name="description_edit_help_hint">¿Qué es esto?</string>
   <string name="description_edit_text_hint">Escribe una descripción.</string>
   <string name="description_edit_save">Guardar</string>
   <string name="description_edit_add_description">Añadir una breve descripción</string>

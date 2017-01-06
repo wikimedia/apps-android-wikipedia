@@ -302,7 +302,6 @@ Apakah Anda ingin memulai kembali atau keluar?</string>
   <string name="view_continue_reading_card_subtitle_today">Hari ini</string>
   <string name="view_announcement_card_negative_action">Tidak, terima kasih</string>
   <string name="description_edit_header">Menyunting</string>
-  <string name="description_edit_help_hint">Apa ini?</string>
   <string name="description_edit_text_hint">Tuliskan deskripsi!</string>
   <string name="description_edit_save">Simpan</string>
   <string name="description_edit_add_description">Tambah deskripsi singkat</string>

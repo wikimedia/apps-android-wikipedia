@@ -295,7 +295,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">бүгүн</string>
   <string name="description_edit_header">Уларытыы</string>
-  <string name="description_edit_help_hint">Бу тугуй?</string>
   <string name="description_edit_save">Бигэргэт</string>
   <string name="description_edit_add_description" fuzzy="true">Быһаарыы эбии</string>
 </resources>

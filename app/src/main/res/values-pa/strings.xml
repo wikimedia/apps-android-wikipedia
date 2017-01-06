@@ -277,7 +277,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">ਅੱਜ</string>
   <string name="description_edit_header">ਸੁਧਾਈ</string>
-  <string name="description_edit_help_hint">ਇਹ ਕੀ ਹੈ?</string>
   <string name="description_edit_text_hint">ਵੇਰਵਾ ਭਰੋ</string>
   <string name="description_edit_save">ਸਾਂਭੋ</string>
   <string name="description_edit_add_description" fuzzy="true">ਵੇਰਵਾ ਸੋਧੋ</string>

@@ -299,7 +299,6 @@ Vuoi riavviarla o uscire?</string>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Oggi</string>
   <string name="view_announcement_card_negative_action">No, grazie</string>
-  <string name="description_edit_help_hint">Cos\'è questo?</string>
   <string name="description_edit_text_hint">Scrivi una descrizione!</string>
   <string name="description_edit_save">Salva</string>
   <string name="description_edit_add_description">Aggiungi una breve descrizione</string>

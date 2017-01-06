@@ -192,5 +192,4 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">วันนี้</string>
   <string name="description_edit_header">การแก้ไข</string>
-  <string name="description_edit_help_hint">นี้คืออะไร?</string>
 </resources>
